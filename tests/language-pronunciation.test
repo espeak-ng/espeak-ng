@@ -4,158 +4,155 @@
 
 ##### Script coverage
 
-test_phonemes af "Latn" "_!'al@ m'e~nsl@k@ v'e@s@ns vOrt fr'eI
+test_phonemes af "_!'al@ m'e~nsl@k@ v'e@s@ns vOrt fr'eI
 mEt x2@l'eIk@ v'A:rdIx2,eIt_:_: _|En r'&x2t@
 x2@b'o@r@
-h,Wl@ hEt r'e@d@_:_: _|En x2@v'e@t@ _|En b@h'o@rt _|In di x2'e@s fan br'ud@rsk,ap t'e@no@r m@k'A:r _|Op t@ tr'e@" "Alle menslike wesens word vry, met gelyke waardigheid en regte, gebore. Hulle het rede en gewete en behoort in die gees van broederskap teenoor mekaar op te tree."
-test_phonemes am "Ethi" "m'@riwotSu k'@?alyga w'@raSu l'y?ul S'ek m'@ham@d b'in z'@jyd g'ar b'@hul@tyjoS s'ymymyn@totSyna b'@k\`@t\`@naw g'udaj m'@w@jaj@tatS@wyn ?'ynydihum j'@hul@tu h'ag@rat m'@riwotS b'@m@kak@latS@w s'@lam ?'ynydiw@ryd b'@madyr@gatS@w l'y?ulu j'@hag@ratS@wyn k'@fyt@n^a m'edalyja ?'ynyd@s@t\`watS@w j'@t\`@k\`ylaj m'inisytyru ts'yhyf@t b'et h'alafi ?'ato f'ytsum ?'ar@ga b'@tywit@r g'@tsatS@w ?'asyfyr@wal" " መሪዎቹ ከአልጋ ወራሹ ልዑል ሼክ መሃመድ ቢን ዘይድ ጋር በሁለትዮሽ ስምምነቶችና በቀጠናው ጉዳይ መወያየታቸውን እንዲሁም የሁለቱ ሃገራት መሪዎች በመካከላቸው ሰላም እንዲወርድ በማድረጋቸው ልዑሉ የሃገራቸውን ከፍተኛ ሜዳልያ እንደሰጧቸው የጠቅላይ ሚኒስትሩ ፅህፈት ቤት ኃላፊ አቶ ፍፁም አረጋ በትዊተር ገፃቸው አስፍረዋል።"
-test_phonemes an "Latn" "t'oT os 'omb**es n'aksen l'iB**es i; iQw'als_! en d,iniD'at# i_! en D**'eItos
+h,Wl@ hEt r'e@d@_:_: _|En x2@v'e@t@ _|En b@h'o@rt _|In di x2'e@s fan br'ud@rsk,ap t'e@no@r m@k'A:r _|Op t@ tr'e@" "Alle menslike wesens word vry, met gelyke waardigheid en regte, gebore. Hulle het rede en gewete en behoort in die gees van broederskap teenoor mekaar op te tree." "Latn"
+test_phonemes am "m'@riwotSu k'@?alyga w'@raSu l'y?ul S'ek m'@ham@d b'in z'@jyd g'ar b'@hul@tyjoS s'ymymyn@totSyna b'@k\`@t\`@naw g'udaj m'@w@jaj@tatS@wyn ?'ynydihum j'@hul@tu h'ag@rat m'@riwotS b'@m@kak@latS@w s'@lam ?'ynydiw@ryd b'@madyr@gatS@w l'y?ulu j'@hag@ratS@wyn k'@fyt@n^a m'edalyja ?'ynyd@s@t\`watS@w j'@t\`@k\`ylaj m'inisytyru ts'yhyf@t b'et h'alafi ?'ato f'ytsum ?'ar@ga b'@tywit@r g'@tsatS@w ?'asyfyr@wal" " መሪዎቹ ከአልጋ ወራሹ ልዑል ሼክ መሃመድ ቢን ዘይድ ጋር በሁለትዮሽ ስምምነቶችና በቀጠናው ጉዳይ መወያየታቸውን እንዲሁም የሁለቱ ሃገራት መሪዎች በመካከላቸው ሰላም እንዲወርድ በማድረጋቸው ልዑሉ የሃገራቸውን ከፍተኛ ሜዳልያ እንደሰጧቸው የጠቅላይ ሚኒስትሩ ፅህፈት ቤት ኃላፊ አቶ ፍፁም አረጋ በትዊተር ገፃቸው አስፍረዋል።" "Ethi"
+test_phonemes an "t'oT os 'omb**es n'aksen l'iB**es i; iQw'als_! en d,iniD'at# i_! en D**'eItos
 ,aDot'atos De RaT'on i De konT'enTja
-d'eBen ,apatS'as'en 'unos kon 'at**os D'una man'e**a f**,etern'al" "Toz os ombres naxen libres y iguals en dinidat y en dreitos. Adotatos de razón y de conzenzia, deben apachar-sen unos con atros d'una manera freternal."
-test_phonemes ar "Arab" "?'us[bur A'ala: H'ifZi. X'udHa.r,in wa:'istaS,ir fat[,u.nna:
-w'azudZ: h'ammka fi: b'agHda:d mnTml'a:" "اُصْبُرْ عَلَى حِفْظِ خُضَرٍ وَاِسْتَشِرْ فَطُنًّا، وَزُجَّ هَمِّكَ فِي بغداد منثملَا"
-test_phonemes as "Beng" "X'@kOl,o m'anuh,e S'ad#in,Ob#aw,Oe X'@man m'O*&d,a 'a*u 'od#ik,a*e J'OnmOgr,OhOn k'O*e
-X'ihO~t,Or b'ibek 'a*u b'udd#i 'atS#e 'a*u X'ihO~t,e p'OrOXp,Or b#atr'itbO*,e 'atSOr,On k'o*ib l'age" "সকলো মানুহে স্বাধীনভাৱে সমান মৰ্যদা আৰু অধিকাৰে জন্মগ্ৰহণ কৰে । সিহঁতৰ বিবেক আৰু বুদ্ধি আছে আৰু সিহঁতে পৰস্পৰ ভাতৃত্বৰে আচৰণ কৰিব লাগে ।"
-test_phonemes az "Latn" "byts'yn insanL'aR l&jag'&t v& hygugLa*@n'a J'W*& az'ad b&*ab'&R do:uLuRL'aR
-ona*'@n Syu*aLR'@ v& vidZdanLa*'@ v'aR v& b'iRbiRl&*'in& mynasib'&td& gaRdaSL'@x Runhund'a davRanmaL@d@RL'aR" "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar. Onarın şüuralrı və vicdanları var və bir-birlərinə münasibətdə qardaşlıq runhunda davranmalıdırlar."
-test_phonemes ba "Cyrl" "m'in h'in 'uL b'eD h'eD 'uLAr b'VL t'eQe" "мин һин ул беҙ һеҙ улар был теге."
-test_phonemes bg "Cyrl" "'ax tS'udna b@Lg'arska z'em;o
-pol'uSvaj ts@ft;'aSti: Z'ita" "Ах чудна българска земьо, полюшвай цъфтящи жита."
-test_phonemes bn "Beng" "m'alOS,ij 'Obojd#,O Sr'omik,Oder b'i*udd#,e tS'OlOm,an_:_: m'egat#r'i_:_: 'ob#idZ,ane Se d'eSe S'Oto S'Oto 'ob#ib,aSik,e 'at.Ok k'O*etS#,e Se d'eSer 'imigr,eSOn p'uliS
+d'eBen ,apatS'as'en 'unos kon 'at**os D'una man'e**a f**,etern'al" "Toz os ombres naxen libres y iguals en dinidat y en dreitos. Adotatos de razón y de conzenzia, deben apachar-sen unos con atros d'una manera freternal." "Latn"
+test_phonemes ar "?'us[bur A'ala: H'ifZi. X'udHa.r,in wa:'istaS,ir fat[,u.nna:
+w'azudZ: h'ammka fi: b'agHda:d mnTml'a:" "اُصْبُرْ عَلَى حِفْظِ خُضَرٍ وَاِسْتَشِرْ فَطُنًّا، وَزُجَّ هَمِّكَ فِي بغداد منثملَا" "Arab"
+test_phonemes as "X'@kOl,o m'anuh,e S'ad#in,Ob#aw,Oe X'@man m'O*&d,a 'a*u 'od#ik,a*e J'OnmOgr,OhOn k'O*e
+X'ihO~t,Or b'ibek 'a*u b'udd#i 'atS#e 'a*u X'ihO~t,e p'OrOXp,Or b#atr'itbO*,e 'atSOr,On k'o*ib l'age" "সকলো মানুহে স্বাধীনভাৱে সমান মৰ্যদা আৰু অধিকাৰে জন্মগ্ৰহণ কৰে । সিহঁতৰ বিবেক আৰু বুদ্ধি আছে আৰু সিহঁতে পৰস্পৰ ভাতৃত্বৰে আচৰণ কৰিব লাগে ।" "Beng"
+test_phonemes az "byts'yn insanL'aR l&jag'&t v& hygugLa*@n'a J'W*& az'ad b&*ab'&R do:uLuRL'aR
+ona*'@n Syu*aLR'@ v& vidZdanLa*'@ v'aR v& b'iRbiRl&*'in& mynasib'&td& gaRdaSL'@x Runhund'a davRanmaL@d@RL'aR" "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar. Onarın şüuralrı və vicdanları var və bir-birlərinə münasibətdə qardaşlıq runhunda davranmalıdırlar." "Latn"
+test_phonemes ba "m'in h'in 'uL b'eD h'eD 'uLAr b'VL t'eQe" "мин һин ул беҙ һеҙ улар был теге." "Cyrl"
+test_phonemes bg "'ax tS'udna b@Lg'arska z'em;o
+pol'uSvaj ts@ft;'aSti: Z'ita" "Ах чудна българска земьо, полюшвай цъфтящи жита." "Cyrl"
+test_phonemes bn "m'alOS,ij 'Obojd#,O Sr'omik,Oder b'i*udd#,e tS'OlOm,an_:_: m'egat#r'i_:_: 'ob#idZ,ane Se d'eSe S'Oto S'Oto 'ob#ib,aSik,e 'at.Ok k'O*etS#,e Se d'eSer 'imigr,eSOn p'uliS
 dZ'ader 'at.Ok k'O*a h'OtS#e
-t,ader pr'aj 'O*d#ek,Oi b'aNlad,eSi n'agO*,ik" "মালয়েশিয়ায় অবৈধ শ্রমিকদের বিরুদ্ধে চলমান 'মেগা-থ্রি' অভিযানে সে দেশে শত শত অভিবাসীকে আটক করেছে সে দেশের ইমিগ্রেশন পুলিশ। যাদের আটক করা হয়েছে, তাদের প্রায় অর্ধেকই বাংলাদেশী নাগরিক।"
-test_phonemes bs "Cyrl" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
-test_phonemes bs "Latn" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
-test_phonemes ca "Latn" "d'ona# a#m'o* k'E s@**,as f'Elis
+t,ader pr'aj 'O*d#ek,Oi b'aNlad,eSi n'agO*,ik" "মালয়েশিয়ায় অবৈধ শ্রমিকদের বিরুদ্ধে চলমান 'মেগা-থ্রি' অভিযানে সে দেশে শত শত অভিবাসীকে আটক করেছে সে দেশের ইমিগ্রেশন পুলিশ। যাদের আটক করা হয়েছে, তাদের প্রায় অর্ধেকই বাংলাদেশী নাগরিক।" "Beng"
+test_phonemes bs "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
+test_phonemes bs "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
+test_phonemes ca "d'ona# a#m'o* k'E s@**,as f'Elis
 a#jS;'O
 ill'us k'ompa#n^ Q@nj'ut
-Z;'a es Un l^w'it *R'EtUl Bla#B'is D'onz@_:_: k'e v#,e D,oBl@'ak" "Dóna amor que seràs feliç. Això, il·lús company geniüt, ja és un lluït rètol blavís d’onze kWh."
-test_phonemes cs "Latn" "n'exc j'iS hR^'i:Sne: s'aksof,oni J'a:blu: R'ozezv,utSi: s'i:n^ 'u:Jesn,i:mi t'o:ni v'aldzu
+Z;'a es Un l^w'it *R'EtUl Bla#B'is D'onz@_:_: k'e v#,e D,oBl@'ak" "Dóna amor que seràs feliç. Això, il·lús company geniüt, ja és un lluït rètol blavís d’onze kWh." "Latn"
+test_phonemes cs "n'exc j'iS hR^'i:Sne: s'aksof,oni J'a:blu: R'ozezv,utSi: s'i:n^ 'u:Jesn,i:mi t'o:ni v'aldzu
 t'aNga_! a kv'itskstepu
-pR^'i:liZ Zl'ucoUtSki: k'u:n^ 'u:pjel J'a:belske: 'o:di" "Nechť již hříšné saxofony ďáblů rozezvučí síň úděsnými tóny waltzu, tanga a quickstepu. Příliš žluťoučký kůň úpěl ďábelské ódy."
-test_phonemes cy "Latn" "p'arkjaIs vY dZ'ak k'o:dI b'aU h'y:d l#'aUn d'u:r g'Er t'y: m'A:bOn" "Parciais fy jac codi baw hud llawn dŵr ger tŷ Mabon."
-test_phonemes da "Latn" "kv'isd?elt,?&jVn@-_! sp'?isd@-_! j'?orb?E3- m?ED fl'WD@-_!
+pR^'i:liZ Zl'ucoUtSki: k'u:n^ 'u:pjel J'a:belske: 'o:di" "Nechť již hříšné saxofony ďáblů rozezvučí síň úděsnými tóny waltzu, tanga a quickstepu. Příliš žluťoučký kůň úpěl ďábelské ódy." "Latn"
+test_phonemes cy "p'arkjaIs vY dZ'ak k'o:dI b'aU h'y:d l#'aUn d'u:r g'Er t'y: m'A:bOn" "Parciais fy jac codi baw hud llawn dŵr ger tŷ Mabon." "Latn"
+test_phonemes da "kv'isd?elt,?&jVn@-_! sp'?isd@-_! j'?orb?E3- m?ED fl'WD@-_!
 m'?Ens s'?i3-k?uskl,?0wn@-n w'Olth?V_! sp'?el@-D@-_! p?O s,?yl?of'?on
-'?ER?W,?Ol" "Quizdeltagerne spiste jordbær med fløde, mens cirkusklovnen Walther spillede på xylofon. Ærøål."
-test_phonemes de "Latn" "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s@n z'ylt3 d'aIC
-h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung."
-test_phonemes el "Grek" "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία."
-test_phonemes en "Latn" "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog"
-test_phonemes eo "Latn" ",eble tS'i;u kv'azaUd'etsa f,uSxoR'aZo dZoI'igos homt'ipon
+'?ER?W,?Ol" "Quizdeltagerne spiste jordbær med fløde, mens cirkusklovnen Walther spillede på xylofon. Ærøål." "Latn"
+test_phonemes de "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s@n z'ylt3 d'aIC
+h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung." "Latn"
+test_phonemes el "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία." "Grek"
+test_phonemes en "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog" "Latn"
+test_phonemes eo ",eble tS'i;u kv'azaUd'etsa f,uSxoR'aZo dZoI'igos homt'ipon
 ,exoS'andZo tS,i;uZ'aUde
-p@-*'eskaU f@-*'eSa tS'exa mandZ'aZo" "Eble ĉiu kvazaŭ-deca fuŝĥoraĵo ĝojigos homtipon. Eĥoŝanĝo ĉiuĵaŭde, preskaŭ freŝa ĉeĥa manĝaĵo."
-test_phonemes es "Latn" "b,eNxam'im piDj'o 'una BeB'iDa De k'iwi; i f**'esa
+p@-*'eskaU f@-*'eSa tS'exa mandZ'aZo" "Eble ĉiu kvazaŭ-deca fuŝĥoraĵo ĝojigos homtipon. Eĥoŝanĝo ĉiuĵaŭde, preskaŭ freŝa ĉeĥa manĝaĵo." "Latn"
+test_phonemes es "b,eNxam'im piDj'o 'una BeB'iDa De k'iwi; i f**'esa
 no'e
 sim b,erQu'EnTa
-la m'as ,ekskis'ita tSamp'an^a Del men'u" "Benjamín pidió una bebida de kiwi y fresa; Noé, sin vergüenza, la más exquisita champaña del menú."
-test_phonemes et "Latn" "p'8dU1r z'agrebi tS'ellom,&Ngijaf'Yl^jetonist ts'iko k'ylmetas k'ehvas kar'a:Zis" "Põdur Zagrebi tšellomängija-följetonist Ciqo külmetas kehvas garaažis."
-test_phonemes eu "Latn" "giz'onem'akum,e Quzt'i;ak 'aske JaI'otzen di**'a
+la m'as ,ekskis'ita tSamp'an^a Del men'u" "Benjamín pidió una bebida de kiwi y fresa; Noé, sin vergüenza, la más exquisita champaña del menú." "Latn"
+test_phonemes et "p'8dU1r z'agrebi tS'ellom,&Ngijaf'Yl^jetonist ts'iko k'ylmetas k'ehvas kar'a:Zis" "Põdur Zagrebi tšellomängija-följetonist Ciqo külmetas kehvas garaažis." "Latn"
+test_phonemes eu  "giz'onem'akum,e Quzt'i;ak 'aske JaI'otzen di**'a
 du'intas,un ,eta esk'uBiD,e BerB'e**ak Dit'uztel,a
 ,eta ez'aQu,e**a_:_: ,eta kontz'i;entz,i;a Dut'enez Q'e**o
-elk'aR2en art'ean sen'iDe leQ'ez Jok'atu Be'aR2a D'ute" "Gizon-emakume guztiak aske jaiotzen dira, duintasun eta eskubide berberak dituztela; eta ezaguera eta kontzientzia dutenez gero, elkarren artean senide legez jokatu beharra dute."
-test_phonemes fi "Latn" "l'orun s'aNNem p'ieneksI h'yYdyksI j'&iv&t s'uomeN k'irjaimet" "Lorun sangen pieneksi hyödyksi jäivät suomen kirjaimet."
-test_phonemes fr "Latn" "byv'e d@- s@- (en)w'Iski(fr) k@ l@- patr'O~ Z'yZ fam'Y
+elk'aR2en art'ean sen'iDe leQ'ez Jok'atu Be'aR2a D'ute" "Gizon-emakume guztiak aske jaiotzen dira, duintasun eta eskubide berberak dituztela; eta ezaguera eta kontzientzia dutenez gero, elkarren artean senide legez jokatu beharra dute." "Latn"
+test_phonemes fi "l'orun s'aNNem p'ieneksI h'yYdyksI j'&iv&t s'uomeN k'irjaimet" "Lorun sangen pieneksi hyödyksi jäivät suomen kirjaimet." "Latn"
+test_phonemes fr "byv'e d@- s@- (en)w'Iski(fr) k@ l@- patr'O~ Z'yZ fam'Y
 sa m@- f'E p'Wr d@- fEt'e nO'El l'a
-syr sEt 'il bizarO'id u yn m'Er e sa- m'o:m es'E d@- m@- ty'e_! av,Ek W~ gat'o a la- sig'y bryl'e" "Buvez de ce whisky que le patron juge fameux. Ça me fait peur de fêter noël là, sur cette île bizarroïde où une mère et sa môme essaient de me tuer avec un gâteau à la cigüe brûlé."
-test_phonemes ga "Latn" "d'u@skIl; 'i:@s@ 'u:rva#k n@ h'o:iQ\"@ b'anIh@ p'o:r 'e:v@ ,0g@s 'A:a#v" "D’fhuascail Íosa Úrmhac na hÓighe Beannaithe pór Éava agus Ádhaimh"
-test_phonemes gd "Latn" "m'us d'a:g_:_: k;'E:d;'u:n@ R'O:b 'i: l^'e 'ob" "Mus d’fhàg Cèit-Ùna ròp Ì le ob."
-test_phonemes gn "Latn" "m,aym'a_| ,yByp'o**a_| o'u k'o_| yB'y_| 'a**i_| ,in^ap,yty_!y**'e h'a_| ,ete'i~Sa t,eko**,uBiS,a**eNd'a h'a_| ,akat'uap,e J^,eQu,e**ek'ope
+syr sEt 'il bizarO'id u yn m'Er e sa- m'o:m es'E d@- m@- ty'e_! av,Ek W~ gat'o a la- sig'y bryl'e" "Buvez de ce whisky que le patron juge fameux. Ça me fait peur de fêter noël là, sur cette île bizarroïde où une mère et sa môme essaient de me tuer avec un gâteau à la cigüe brûlé." "Latn"
+test_phonemes ga "d'u@skIl; 'i:@s@ 'u:rva#k n@ h'o:iQ\"@ b'anIh@ p'o:r 'e:v@ ,0g@s 'A:a#v" "D’fhuascail Íosa Úrmhac na hÓighe Beannaithe pór Éava agus Ádhaimh" "Latn"
+test_phonemes gd "m'us d'a:g_:_: k;'E:d;'u:n@ R'O:b 'i: l^'e 'ob" "Mus d’fhàg Cèit-Ùna ròp Ì le ob." "Latn"
+test_phonemes gn "m,aym'a_| ,yByp'o**a_| o'u k'o_| yB'y_| 'a**i_| ,in^ap,yty_!y**'e h'a_| ,ete'i~Sa t,eko**,uBiS,a**eNd'a h'a_| ,akat'uap,e J^,eQu,e**ek'ope
 h'a_| ,ikat'u **up'i_| ,oik,ua'a n^et'eBa h'a_| ,an^et,e_!yB'a
 ,ipo**'a~Ba h'a_| ,iBa'iBa
-t,ekoteB'e~ p,eheNgu'eiS,a_| ,oik'o_| ,on^oNd,iBeku'e**a" "Mayma yvypóra ou ko yvy ári iñapyty'yre ha eteĩcha tecoruvicharendá ha acatúape jeguerekópe; ha ikatu rupi oikuaa ñetéva ha añete'yva, iporãva ha ivaíva, tekotevẽ pehenguéicha oiko oñondivekuéra."
-test_phonemes grc "Grek" "hoI_: d'e_: f'oInik,es_: h'u:toI_: hoI_: s'yn_: k'admOI:_: ,apik'omen,oI_: es'E:gag,on_: d,idask'ali;,a_: 'es_: tu:s_: ell'E:nas_: k'aI_: d'E:_: k'aI_: gR'ammat,a_:
+t,ekoteB'e~ p,eheNgu'eiS,a_| ,oik'o_| ,on^oNd,iBeku'e**a" "Mayma yvypóra ou ko yvy ári iñapyty'yre ha eteĩcha tecoruvicharendá ha acatúape jeguerekópe; ha ikatu rupi oikuaa ñetéva ha añete'yva, iporãva ha ivaíva, tekotevẽ pehenguéicha oiko oñondivekuéra." "Latn"
+test_phonemes grc "hoI_: d'e_: f'oInik,es_: h'u:toI_: hoI_: s'yn_: k'admOI:_: ,apik'omen,oI_: es'E:gag,on_: d,idask'ali;,a_: 'es_: tu:s_: ell'E:nas_: k'aI_: d'E:_: k'aI_: gR'ammat,a_:
 'u:k_: e'onta_: pR'in_: ell'E:si_: h'O:s_: em'oI_: dok'ee:n_:
 pR'O:ta_: m'en_: t'oIsi_: k'aI_: h'apant,es_: xR'eO:nt,aI_: f'oInik,es_:
-met'a_: d'e_: xR'onu:_: pRob'aInont,os_: h'ama_: tEI:_: fO:n'EI:_: met'ebal,on_: k'aI_: ton_: RyTm'on_: tO:n_: gRamm'atO:n_:" "Οἱ δὲ Φοίνιϰες οὗτοι οἱ σὺν Κάδμῳ ἀπιϰόμενοι.. ἐσήγαγον διδασϰάλια ἐς τοὺς ῞Ελληνας ϰαὶ δὴ ϰαὶ γράμματα, οὐϰ ἐόντα πρὶν ῞Ελλησι ὡς ἐμοὶ δοϰέειν, πρῶτα μὲν τοῖσι ϰαὶ ἅπαντες χρέωνται Φοίνιϰες· μετὰ δὲ χρόνου προβαίνοντος ἅμα τῇ ϕωνῇ μετέβαλον ϰαὶ τὸν ϱυϑμὸν τῶν γραμμάτων."
-test_phonemes gu "Gujr" "d@*'e:k vj@kt'Ine: S,IkS@n.'Vno: Vd#'Ika:r c#'e:
+met'a_: d'e_: xR'onu:_: pRob'aInont,os_: h'ama_: tEI:_: fO:n'EI:_: met'ebal,on_: k'aI_: ton_: RyTm'on_: tO:n_: gRamm'atO:n_:" "Οἱ δὲ Φοίνιϰες οὗτοι οἱ σὺν Κάδμῳ ἀπιϰόμενοι.. ἐσήγαγον διδασϰάλια ἐς τοὺς ῞Ελληνας ϰαὶ δὴ ϰαὶ γράμματα, οὐϰ ἐόντα πρὶν ῞Ελλησι ὡς ἐμοὶ δοϰέειν, πρῶτα μὲν τοῖσι ϰαὶ ἅπαντες χρέωνται Φοίνιϰες· μετὰ δὲ χρόνου προβαίνοντος ἅμα τῇ ϕωνῇ μετέβαλον ϰαὶ τὸν ϱυϑμὸν τῶν γραμμάτων." "Grek"
+test_phonemes gu "d@*'e:k vj@kt'Ine: S,IkS@n.'Vno: Vd#'Ika:r c#'e:
 o:c#'a:mV~ 'o:c#u~ pr,a:t#m'Ik 'Vne: pa:j'a:na: t,@bk:a:'o:mV~ SIkS'Vn. m@p#'Vt r@2H'e:Se:
 pr,a:t#m'Ik SIkS'Vn. p#,@*JIj'a:t r@2H'e:Se:
-wIS'e:s. w,Ig#a:v,Is.@j'@k 'Vne: vj,@vs'a:ji SIkS'Vn. s,a:ma:nj'@t@H ,Up@l'Vbd# r@2H'e:Se: 'Vne: j,o:gj@t'a:na: d#o:r'Vn. p'Vr 'Uc: SIkS'Vn. pr'a:pt k,@rv'a:no: s@rv'Vne: s@m'a:n Vd#'Ika:r r@2H'e:Se:" "દરેક વ્યક્તિને શિક્ષણનો અધિકાર છે. ઓછામાં ઓછું પ્રાથમિક અને પાયાના તબક્કાઓમાં શિક્ષણ મફત રહેશે. પ્રાથમિક શિક્ષણ ફરજિયાત રહેશે. વિશેષ વિઘાવિષયક અને વ્યવસાયી શિક્ષણ સામાન્યતઃ ઉપલબ્ધ રહેશે અને યોગ્યતાના ધોરણ પર ઉચ્ચ શિક્ષણ પ્રાપ્ત કરવાનો સર્વને સમાન અધિકાર રહેશે."
-test_phonemes hi "Deva" "r'Is.Ij,o~ ko: s@t'a:ne: v'a:le: d'Us.t. r'a:kS@s,o~ ke: r'a:Ja: r'a:v@n. ka: s,@rv@n'a:S k'Vrn,e: v'a:le: v,Is.n.Uvt'a:r b#,@gv'a:n Sri*'a:m
-Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषियों को सताने वाले दुष्ट राक्षसों के राजा रावण का सर्वनाश करने वाले विष्णुवतार भगवान श्रीराम, अयोध्या के महाराज दशरथ के बड़े सपुत्र थे।"
-test_phonemes hy "Armn"  "k@rn'am ,apak'i ut'el j'ev ints'i ,anhang'ist tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։"
-test_phonemes hyw "Armn" "g@rn'am ,abag'i ud'el j'ev indz'i ,anhank#'isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։"
-test_phonemes hr "Cyrl" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
-test_phonemes hr "Latn" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
-test_phonemes ht "Latn" "tou'ut mou'un f'et l'ib
+wIS'e:s. w,Ig#a:v,Is.@j'@k 'Vne: vj,@vs'a:ji SIkS'Vn. s,a:ma:nj'@t@H ,Up@l'Vbd# r@2H'e:Se: 'Vne: j,o:gj@t'a:na: d#o:r'Vn. p'Vr 'Uc: SIkS'Vn. pr'a:pt k,@rv'a:no: s@rv'Vne: s@m'a:n Vd#'Ika:r r@2H'e:Se:" "દરેક વ્યક્તિને શિક્ષણનો અધિકાર છે. ઓછામાં ઓછું પ્રાથમિક અને પાયાના તબક્કાઓમાં શિક્ષણ મફત રહેશે. પ્રાથમિક શિક્ષણ ફરજિયાત રહેશે. વિશેષ વિઘાવિષયક અને વ્યવસાયી શિક્ષણ સામાન્યતઃ ઉપલબ્ધ રહેશે અને યોગ્યતાના ધોરણ પર ઉચ્ચ શિક્ષણ પ્રાપ્ત કરવાનો સર્વને સમાન અધિકાર રહેશે." "Gujr"
+test_phonemes hi "r'Is.Ij,o~ ko: s@t'a:ne: v'a:le: d'Us.t. r'a:kS@s,o~ ke: r'a:Ja: r'a:v@n. ka: s,@rv@n'a:S k'Vrn,e: v'a:le: v,Is.n.Uvt'a:r b#,@gv'a:n Sri*'a:m
+Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषियों को सताने वाले दुष्ट राक्षसों के राजा रावण का सर्वनाश करने वाले विष्णुवतार भगवान श्रीराम, अयोध्या के महाराज दशरथ के बड़े सपुत्र थे।" "Deva"
+test_phonemes hy "k@rn'am ,apak'i ut'el j'ev ints'i ,anhang'ist tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
+test_phonemes hyw "g@rn'am ,abag'i ud'el j'ev indz'i ,anhank#'isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
+test_phonemes hr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
+test_phonemes hr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
+test_phonemes ht "tou'ut mou'un f'et l'ib
 eg'al eg'o pou'u dijit'e kou'u w'e dw'a
-nou,u g'en l'a hez'on 'ak l'a konsj'ans ep'i nou,u f'et pou'u nou,u aj'i jou'un 'ak l'ot 'ak j'on lesph'i fwatenit'e" "Tout moun fèt lib, egal ego pou diyite kou wè dwa. Nou gen la rezon ak la konsyans epi nou fèt pou nou aji youn ak lot ak yon lespri fwatènite."
-test_phonemes hu "Latn" "j'o: f'oksim _|,e:S d'on kv'ijotE h'u:svAt:oS l'a:mpa:na:l _!'ylvE _!'EJ p'a:R2 b'y:vYS ts'ipY:t k,e:si:t
-_!'a:R2vi:zty:R2Y: t'ykYR2fu:R2o:ge:p" "Jó foxim és don Quijote húszwattos lámpánál ülve egy pár bűvös cipőt készít. Árvíztűrő tükörfúrógép."
-test_phonemes ia "Latn" "t'ote le es'eRes hum'an n'astse l'ibeRe_! e ekw'al 'in d,ignit'ate_! e 'in deR'ektos
-'iles es dot'ate de Ratj'on_! e de konstsj'entja_! e d'ebe ag'eR le 'unes v'eRso le 'alteRes 'in un sp'iRito de fR,ateRnit'ate" "Tote le esseres human nasce libere e equal in dignitate e in derectos. Illes es dotate de ration e de conscientia e debe ager le unes verso le alteres in un spirito de fraternitate."
-test_phonemes id "Latn" "muh'aRdZo s@'OR2aN z,Enofob'ia _|,univ'ERsal jaN t'akut p,ada w'aRga dZaz'iR2ah
-tSont'ohn^a k'ataR" "Muharjo seorang xenofobia universal yang takut pada warga jazirah, contohnya Qatar."
-test_phonemes is "Latn" "c'aI:mI n'i:; 'WksI hj'E:_|R
+nou,u g'en l'a hez'on 'ak l'a konsj'ans ep'i nou,u f'et pou'u nou,u aj'i jou'un 'ak l'ot 'ak j'on lesph'i fwatenit'e" "Tout moun fèt lib, egal ego pou diyite kou wè dwa. Nou gen la rezon ak la konsyans epi nou fèt pou nou aji youn ak lot ak yon lespri fwatènite." "Latn"
+test_phonemes hu "j'o: f'oksim _|,e:S d'on kv'ijotE h'u:svAt:oS l'a:mpa:na:l _!'ylvE _!'EJ p'a:R2 b'y:vYS ts'ipY:t k,e:si:t
+_!'a:R2vi:zty:R2Y: t'ykYR2fu:R2o:ge:p" "Jó foxim és don Quijote húszwattos lámpánál ülve egy pár bűvös cipőt készít. Árvíztűrő tükörfúrógép." "Latn"
+test_phonemes ia "t'ote le es'eRes hum'an n'astse l'ibeRe_! e ekw'al 'in d,ignit'ate_! e 'in deR'ektos
+'iles es dot'ate de Ratj'on_! e de konstsj'entja_! e d'ebe ag'eR le 'unes v'eRso le 'alteRes 'in un sp'iRito de fR,ateRnit'ate" "Tote le esseres human nasce libere e equal in dignitate e in derectos. Illes es dotate de ration e de conscientia e debe ager le unes verso le alteres in un spirito de fraternitate." "Latn"
+test_phonemes id "muh'aRdZo s@'OR2aN z,Enofob'ia _|,univ'ERsal jaN t'akut p,ada w'aRga dZaz'iR2ah
+tSont'ohn^a k'ataR" "Muharjo seorang xenofobia universal yang takut pada warga jazirah, contohnya Qatar." "Latn"
+test_phonemes is "c'aI:mI n'i:; 'WksI hj'E:_|R
 'I:JIsd Tj'oU:vym n'u: b'aI:DI v'i:l#_:_: O:x 'aUd@-RE:ba
-s'aI:vW_|R g@-Rj'E:d 'aU:Dan_:_: Tvi:; 'ulban va:_|R 'oU:nid" "Kæmi ný öxi hér, ykist þjófum nú bæði víl og ádrepa. Sævör grét áðan því úlpan var ónýt."
-test_phonemes it "Latn" "kwel f'Ets zg'embo k'Op@-*e dav'antI" "Quel fez sghembo copre davanti"
-test_phonemes ja "Hira" ",ir\`oh,anihoh'eto
+s'aI:vW_|R g@-Rj'E:d 'aU:Dan_:_: Tvi:; 'ulban va:_|R 'oU:nid" "Kæmi ný öxi hér, ykist þjófum nú bæði víl og ádrepa. Sævör grét áðan því úlpan var ónýt." "Latn"
+test_phonemes it "kwel f'Ets zg'embo k'Op@-*e dav'antI" "Quel fez sghembo copre davanti" "Latn"
+test_phonemes ja ",ir\`oh,anihoh'eto
 t_s\\,ir\`inur\`'uo
 w,akaj,otar\`'eso
 t_s,unenar\`'amu
 ,uin,o:kuj'ama
 k,ep\\uko'ete
 ,asak,ijumem'is\\i
-w,eCimos'esuN\\" "いろはにほへと.  ちりぬるを.  わかよたれそ.  つねならむ.  うゐのおくやま.  けふこえて.  あさきゆめみし.  ゑひもせすん."
-test_phonemes ja "Kana" ",ir\`oh,anihoh'eto
+w,eCimos'esuN\\" "いろはにほへと.  ちりぬるを.  わかよたれそ.  つねならむ.  うゐのおくやま.  けふこえて.  あさきゆめみし.  ゑひもせすん." "Hira"
+test_phonemes ja ",ir\`oh,anihoh'eto
 t_s\\,ir\`inur\`'uo
 w,akaj,otar\`'eso
 t_s,unenar\`'amu
 ,uin,o:kuj'ama
 k,ep\\uko'ete
 ,asak,ijumem'is\\i
-w,eCimos'esuN\\" "イロハニホヘト. チリヌルヲ. ワカヨタレソ. ツネナラム. ウヰノオクヤマ. ケフコエテ. アサキユメミシ. ヱヒモセスン."
-test_phonemes jbo "Latn" "l,o R,o R'emna_! S,u s,e Z'inzi l,o k,a_! S,ehu z'ifRe_! Z,e l,o k,a S_!k,in@duns'ihu g,e l,o k,a_! S,ehu_! S,ehu s,e n,ilsels'inma_:_: g,i l,o k,a_! S,ehu_! S,ehu s,e kR'ali _!__;__'i R,a z'aNkaI l,o k,a s'uho d,a_! S,ehu m'enli_! Z,e l,o k,a s'uho d,a_! S,ehu m'aRde keI_:: _;_g'ihe b'ilga l,o k,a_! S,ehu_! S,ehu f'aRtRa s'uho Z,aI s,e t'asmi b,e l,o n,u R,a t,unb@s'ihu" "lo ro remna cu se jinzi lo ka ce'u zifre je lo ka ckinydunsi'u ge lo ka ce'u ce'u se nilselsinma gi lo ka ce'u ce'u se krali .i ra zankai lo ka su'o da ce'u menli je lo ka su'o da ce'u marde kei gi'e bilga lo ka ce'u ce'u fartra su'o jai se tasmi be lo nu ra tunbysi'u"
-test_phonemes jbo "Latn" "s'uho S'ilSe _!R'atat,aR_! S,u tolS'anSi _!__;__'i m,i Rivl'iha f'aha l,a _!S_!f,aRtsen'ek_!" "su'o cilce .RAtatar. cu tolcanci .i mi rivli'a fa'a la .cfartseNEK."
-
-
-
-test_phonemes ky "Cyrl" "bard'Iq adamd'ar 'Oz b,edelind'e dZan'a ,uquqtarInd'a erk'in dZan'a t'eN ,uquqt'u: bol'up dZaral'at
-alard'In 'aNs,ezim'i men'en ab,ijir'i b'ar dZan'a bir'ib,irin'e b'ir t,u:Gand'Iq mamil'e q,Ilu:G'a tij'iS" "Бардык адамдар өз беделинде жана укуктарында эркин жана тең укуктуу болуп жаралат. Алардын аң-сезими менен абийири бар жана бири-бирине бир туугандык мамиле кылууга тийиш."
-test_phonemes kl "Latn" "inu'itS; tam'armik in,uNN'orput nammin,E:rs,inn,a:ssusEq'arl#utsik ,assiQ,i:mm'il#u at,aqqinassusEq,arl#uts'il#u pis,inn,a:tsit,a:ffEq'arl#utsik
+w,eCimos'esuN\\" "イロハニホヘト. チリヌルヲ. ワカヨタレソ. ツネナラム. ウヰノオクヤマ. ケフコエテ. アサキユメミシ. ヱヒモセスン." "Kana"
+test_phonemes jbo "l,o R,o R'emna_! S,u s,e Z'inzi l,o k,a_! S,ehu z'ifRe_! Z,e l,o k,a S_!k,in@duns'ihu g,e l,o k,a_! S,ehu_! S,ehu s,e n,ilsels'inma_:_: g,i l,o k,a_! S,ehu_! S,ehu s,e kR'ali _!__;__'i R,a z'aNkaI l,o k,a s'uho d,a_! S,ehu m'enli_! Z,e l,o k,a s'uho d,a_! S,ehu m'aRde keI_:: _;_g'ihe b'ilga l,o k,a_! S,ehu_! S,ehu f'aRtRa s'uho Z,aI s,e t'asmi b,e l,o n,u R,a t,unb@s'ihu" "lo ro remna cu se jinzi lo ka ce'u zifre je lo ka ckinydunsi'u ge lo ka ce'u ce'u se nilselsinma gi lo ka ce'u ce'u se krali .i ra zankai lo ka su'o da ce'u menli je lo ka su'o da ce'u marde kei gi'e bilga lo ka ce'u ce'u fartra su'o jai se tasmi be lo nu ra tunbysi'u" "Latn"
+test_phonemes jbo "s'uho S'ilSe _!R'atat,aR_! S,u tolS'anSi _!__;__'i m,i Rivl'iha f'aha l,a _!S_!f,aRtsen'ek_!" "su'o cilce .RAtatar. cu tolcanci .i mi rivli'a fa'a la .cfartseNEK." "Latn"
+test_phonemes ky "bard'Iq adamd'ar 'Oz b,edelind'e dZan'a ,uquqtarInd'a erk'in dZan'a t'eN ,uquqt'u: bol'up dZaral'at
+alard'In 'aNs,ezim'i men'en ab,ijir'i b'ar dZan'a bir'ib,irin'e b'ir t,u:Gand'Iq mamil'e q,Ilu:G'a tij'iS" "Бардык адамдар өз беделинде жана укуктарында эркин жана тең укуктуу болуп жаралат. Алардын аң-сезими менен абийири бар жана бири-бирине бир туугандык мамиле кылууга тийиш." "Cyrl"
+test_phonemes kl  "inu'itS; tam'armik in,uNN'orput nammin,E:rs,inn,a:ssusEq'arl#utsik ,assiQ,i:mm'il#u at,aqqinassusEq,arl#uts'il#u pis,inn,a:tsit,a:ffEq'arl#utsik
 silaq,assus'Ermik t,arn'il#u nal,uNN'issusianik pil'ErsuQ,a:p:ut
-,imm,inn'ul#u ili,orfiQEqatsiQ,i:t:ariaqaralu'arput qat'aNNutsiQ,i:t:ut pEqatsiQ'i:nnErup an'Ers,a:vani" "Inuit tamarmik inunngorput nammineersinnaassuseqarlutik assigiimmillu ataqqinassuseqarlutillu pisinnaatitaaffeqarlutik. Silaqassusermik tarnillu nalunngissusianik pilersugaapput, imminnullu iliorfigeqatigiittariaqaraluarput qatanngutigiittut peqatigiinnerup anersaavani."
-test_phonemes kn "Knda" "'onde: b#'a:s.e s'a:lalla 'at#ava: s'a:lo:d,illa" "ಒಂದೇ ಭಾಷೆ ಸಾಲಲ್ಲ ಅಥವಾ ಸಾಲೋದಿಲ್ಲ"
-test_phonemes kok "Deva" ",VnUk'a:*c@h'Vl@-nt'@2c#e:k'a:*d 'e:k:1
+,imm,inn'ul#u ili,orfiQEqatsiQ,i:t:ariaqaralu'arput qat'aNNutsiQ,i:t:ut pEqatsiQ'i:nnErup an'Ers,a:vani" "Inuit tamarmik inunngorput nammineersinnaassuseqarlutik assigiimmillu ataqqinassuseqarlutillu pisinnaatitaaffeqarlutik. Silaqassusermik tarnillu nalunngissusianik pilersugaapput, imminnullu iliorfigeqatigiittariaqaraluarput qatanngutigiittut peqatigiinnerup anersaavani." "Latn"
+test_phonemes kn "'onde: b#'a:s.e s'a:lalla 'at#ava: s'a:lo:d,illa" "ಒಂದೇ ಭಾಷೆ ಸಾಲಲ್ಲ ಅಥವಾ ಸಾಲೋದಿಲ್ಲ" "Knda"
+test_phonemes kok ",VnUk'a:*c@h'Vl@-nt'@2c#e:k'a:*d 'e:k:1
 s,@:0b#@ik'a:r m,@nUk'a:rs.@h'Vl@-nt'@2jo:k'a:rshIr'Vw'ind'u k,@o:k'a:r g,@O:k'a:rr@2w,@ 'O:r ,Vd#Ik'a:*k@a:k'a:rr@2o:k'a:rshIr'Vw'ind'u k,@e:k'a:r m,@a:k'a:rm@le:k'a:r m,@e:k'a:rshIr'Vw'ind'u J,@3n@h'Vl@-nt'@2m@Ja:k'a:*t s@:0h'Vl@-nt'@2w:0@t,@n@h'Vl@-nt'@2t@h'Vl@-nt'@2*@ta:k'a:r 'O:r s,@:0m@a:k'a:rn@ta:k'a:r p@h'Vl@-nt'@2ra:k'a:*p@h'Vl@-nt'@2t H,@E:k'a:r
-,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b,@Uk'a:*d@h'Vl@-nt'@2d#Ik'a:r 'O:r ,Vn@h'Vl@-nt'@2t@ra:k'a:*t@h'Vl@-nt'@2ma:k'a:r k,@ik'a:r d,@e:k'a:rn p@h'Vl@-nt'@2ra:k'a:*p@h'Vl@-nt'@2t H,@E:k'a:r 'O:r p,@r@2s@:0h'Vl@-nt'@2p@r ,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b#,@a:k'a:*ica:k'a:rr@2e:k'a:r k,@e:k'a:r b#,@a:k'a:rw@ s,@:0e:k'a:r b,@r@2h'Vl@-nt'@2ta:k'a:rw@ k,@r@2na:k'a:r c,@a:k'a:rH@Ik'a:*e:" "अनुच्छेद १. सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है । उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए ।"
-test_phonemes ko "Hang" "kh'isu-,u-j g'ojudZ;,oq@n,u-n 'ips-uLq-,i*im'annaj,a h'aqo th'u-qp-j@Lh,an g'isu*,u-n ph'i*jotSh,i; 'antha" "키스의 고유조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다."
-test_phonemes ku "Latn" "hEm'u mI*'ov az'ad_:_: u_! dI wEq'aR_:_: u m'afan dE# wEkh'Ev t'en dInj'aje
-'eU xw8d'i h'IS_:_: u SU'uR 'In_:_: u d'Ive l'I hEmb'ER h'Ev bI z,IhnIj,EtEk'E# bRat'Ije b,IlIv'In" "Hemû mirov azad û di weqar û mafan de wekhev tên dinyayê. Ew xwedî hiş û şuûr in û divê li hember hev bi zihniyeteke bratiyê bilivin."
-test_phonemes la "Latn" "s'Ik_ f'UgI;Ens_
+,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b,@Uk'a:*d@h'Vl@-nt'@2d#Ik'a:r 'O:r ,Vn@h'Vl@-nt'@2t@ra:k'a:*t@h'Vl@-nt'@2ma:k'a:r k,@ik'a:r d,@e:k'a:rn p@h'Vl@-nt'@2ra:k'a:*p@h'Vl@-nt'@2t H,@E:k'a:r 'O:r p,@r@2s@:0h'Vl@-nt'@2p@r ,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b#,@a:k'a:*ica:k'a:rr@2e:k'a:r k,@e:k'a:r b#,@a:k'a:rw@ s,@:0e:k'a:r b,@r@2h'Vl@-nt'@2ta:k'a:rw@ k,@r@2na:k'a:r c,@a:k'a:rH@Ik'a:*e:" "अनुच्छेद १. सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है । उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए ।" "Deva"
+test_phonemes ko "kh'isu-,u-j g'ojudZ;,oq@n,u-n 'ips-uLq-,i*im'annaj,a h'aqo th'u-qp-j@Lh,an g'isu*,u-n ph'i*jotSh,i; 'antha" "키스의 고유조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다." "Hang"
+test_phonemes ku  "hEm'u mI*'ov az'ad_:_: u_! dI wEq'aR_:_: u m'afan dE# wEkh'Ev t'en dInj'aje
+'eU xw8d'i h'IS_:_: u SU'uR 'In_:_: u d'Ive l'I hEmb'ER h'Ev bI z,IhnIj,EtEk'E# bRat'Ije b,IlIv'In" "Hemû mirov azad û di weqar û mafan de wekhev tên dinyayê. Ew xwedî hiş û şuûr in û divê li hember hev bi zihniyeteke bratiyê bilivin." "Latn"
+test_phonemes la  "s'Ik_ f'UgI;Ens_
 d'Uks_
 zElOt'ypOs_
-kwam_ k'aRUs_ h'abERIs_" "Sic fugiens, dux, zelotypos, quam Karus haberis."
-test_phonemes lfn "Cyrl" "t'ota um'anes n'ase l'ib**e e eg'al en d'inja e di**'etos
-los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un spi**'ito de f**'ati;,a" "Тота уманес насе либре е егал ен диниа е диретос. Лос ес донада разона е консиенса е дебе ата ла ун а ла отра ен ун спирито де фратиа."
-test_phonemes lfn "Latn" "t'ota um'anes n'ase l'ib**e e eg'al en d'inja e di**'etos
-los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un spi**'ito de f**'ati;,a" "Tota umanes nase libre e egal en dinia e diretos. Los es donada razona e consiensa e debe ata la un a la otra en un spirito de fratia."
-test_phonemes lt "Latn" "i:l;ingd'ama fext'Uoto:jo: Sp'aga subl;i:ktS;;o:j'us;i p@-rag@-r;'eAZee apv'alu: arb'u:za:" "Įlinkdama fechtuotojo špaga sublykčiojusi pragręžė apvalų arbūzą."
-test_phonemes lv "Latn" "gl'a:ZScu:n^a R'u:ci:Si Dz\`_|'E:Ruma: tS'iepj b'aha k'ontsERtfli:Jel^u v'a::kus" "Glāžšķūņa rūķīši dzērumā čiepj Baha koncertflīģeļu vākus."
-test_phonemes mi "Latn" "k'O_| t'e_| kat'Oa_ 'O_| N'a_| taN'ata_ 'i_| t'e_| f,ana,u\"Nat'aNa_| m'aI_ 'e_| wat'ea_ 'ana_ 'i_| N'a_| h'eRe_| kat'Oa_|
+kwam_ k'aRUs_ h'abERIs_" "Sic fugiens, dux, zelotypos, quam Karus haberis." "Latn"
+test_phonemes lfn "t'ota um'anes n'ase l'ib**e e eg'al en d'inja e di**'etos
+los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un spi**'ito de f**'ati;,a" "Тота уманес насе либре е егал ен диниа е диретос. Лос ес донада разона е консиенса е дебе ата ла ун а ла отра ен ун спирито де фратиа." "Cyrl"
+test_phonemes lfn "t'ota um'anes n'ase l'ib**e e eg'al en d'inja e di**'etos
+los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un spi**'ito de f**'ati;,a" "Tota umanes nase libre e egal en dinia e diretos. Los es donada razona e consiensa e debe ata la un a la otra en un spirito de fratia." "Latn"
+test_phonemes lt "i:l;ingd'ama fext'Uoto:jo: Sp'aga subl;i:ktS;;o:j'us;i p@-rag@-r;'eAZee apv'alu: arb'u:za:" "Įlinkdama fechtuotojo špaga sublykčiojusi pragręžė apvalų arbūzą." "Latn"
+test_phonemes lv "gl'a:ZScu:n^a R'u:ci:Si Dz\`_|'E:Ruma: tS'iepj b'aha k'ontsERtfli:Jel^u v'a::kus" "Glāžšķūņa rūķīši dzērumā čiepj Baha koncertflīģeļu vākus." "Latn"
+test_phonemes mi "k'O_| t'e_| kat'Oa_ 'O_| N'a_| taN'ata_ 'i_| t'e_| f,ana,u\"Nat'aNa_| m'aI_ 'e_| wat'ea_ 'ana_ 'i_| N'a_| h'eRe_| kat'Oa_|
 'e_| t,au\"R,iteR'ite_ 'ana_| h'Oki_| N'a_| m'ana_| m'e_| N'a_| t'ika_|
 'e_| f,akafif'ia_ 'ana_| h'Oki_| k'i_ 'a_| Rat'ou\"_| t'e_| Nak'au\"_| f'aI_| f,aka'aRO_| m'e_| t'e_| h,ineN'aRO_| mOh'iO_| k'i_| t'e_| t'ika_| m'e_| t'e_| h'e_|
 'a_ 'e_| t'ika_ 'ana_| k'ia_| me'iNa_| t'e_| m'ahi_ 'a_| tet'ahi_| k'i_| tet'ahi_| m'e_| m'a_| R'OtO_ 'atu\"_ 'i_| t'e_| waIR'u\"a_ 'O_| t'e_| n'OhO_| t'ahi_|
-'anO_| h'e_| te'ina_| h'e_| t,u\"ak'ana_ 'i_| R'iNa_ 'i_| t'e_| f,aka'aRO_| kOt'ahi_|" "Ko te katoa o nga tangata i te whanaungatanga mai e watea ana i nga here katoa; e tauriterite ana hoki nga mana me nga tika. E whakawhiwhia ana hoki ki a ratou te ngakau whai whakaaro me te hinengaro mohio ki te tika me te he, a e tika ana kia meinga te mahi a tetahi ki tetahi me ma roto atu i te wairua o te noho tahi, ano he teina he tuakana i ringa i te whakaaro kotahi."
-test_phonemes mk "Cyrl" "dz'id&Rsk,I p'ejz&Z
-S'ug&f b'ilmez_! s_ tS;'uden^,e dZv'ak& k^'ofte_:_: i_: k'el^ n'a t'udZ; ts'eh" "Ѕидарски пејзаж: шугав билмез со чудење џвака ќофте и кељ на туѓ цех."
-test_phonemes mk "Latn" "dz'id&Rsk,I p'ejz&Z
-S'ug&f b'ilmez_! s_ tS;'uden^,e dZv'ak& k^'ofte_:_: i_: k'el^ n'a t'udZ; ts'eh" "Dzidarski pejzaž: šugav bilmez so čudenje džvaka ćofte i kelj na tuđ ceh."
-test_phonemes ml "Mlym" "'aJ@vum 'a:n@jum 'aIra:v,ad@vum g'arud.,anum kat.#'o:ra sv'ar@m p'or.ik:e h'a:r@vum od.#j'a:n.@vum p#'a:l@t:il m'an^n^@l.um 'i:R2@n k'e:S;@t:il 'aUs.@d#a ;'en.n.@j,uma:ji R'ydum,adijum 'an@g#,ajum b#'u:na:t#,ajum,a:ja 'uma d'uhk#@c#,avij,o:d.e 'id.@du p'a:d@m ;'e:ndi Nj'e:ja:dr-S;@m n'ir J#'arij,ile c'it.t.l@g,al.e 'o:m@n,ik:umbo:l. b'a: l'ajud.e k'an. k'al.il n'i:r 'u:r nn'u v'iNNi" "അജവും ആനയും ഐരാവതവും ഗരുഡനും കഠോര സ്വരം പൊഴിക്കെ ഹാരവും ഒഢ്യാണവും ഫാലത്തില്‍ മഞ്ഞളും ഈറന്‍ കേശത്തില്‍ ഔഷധ എണ്ണയുമായി ഋതുമതിയും അനഘയും ഭൂനാഥയുമായ ഉമ ദുഃഖഛവിയോടെ ഇടതു പാദം ഏന്തി ങ്യേയാദൃശം നിര്‍ഝരിയിലെ ചിറ്റലകളെ ഓമനിക്കുമ്പോള്‍ ബാ‍ലയുടെ കണ്‍കളില്‍ നീര്‍ ഊര്‍ന്നു വിങ്ങി."
-test_phonemes my "Mymr" "D'i1hol _| mh'a Ntsn _| kr'i2jhaN _| DN _| @tsj'u3wt dnshe2Nw'ahan _| stsk'o2 zlw'an _| ze2bk'e2btsdapN _| thk _| @d'it thtsn _| lj@k _| ggnnpht _| kh'a _| DN _|" "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေးဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။ "
-test_phonemes mr "Deva" ",a:*@kS,@n.a:s'a:t.#i; 'a:kr@2m,@k J#a:l'e:lja: m@*'a:t.#a: kr'a~ti m'o:*ca:n,e: 'a:z m'u~b,i
+'anO_| h'e_| te'ina_| h'e_| t,u\"ak'ana_ 'i_| R'iNa_ 'i_| t'e_| f,aka'aRO_| kOt'ahi_|" "Ko te katoa o nga tangata i te whanaungatanga mai e watea ana i nga here katoa; e tauriterite ana hoki nga mana me nga tika. E whakawhiwhia ana hoki ki a ratou te ngakau whai whakaaro me te hinengaro mohio ki te tika me te he, a e tika ana kia meinga te mahi a tetahi ki tetahi me ma roto atu i te wairua o te noho tahi, ano he teina he tuakana i ringa i te whakaaro kotahi." "Latn"
+test_phonemes mk "dz'id&Rsk,I p'ejz&Z
+S'ug&f b'ilmez_! s_ tS;'uden^,e dZv'ak& k^'ofte_:_: i_: k'el^ n'a t'udZ; ts'eh" "Ѕидарски пејзаж: шугав билмез со чудење џвака ќофте и кељ на туѓ цех." "Cyrl"
+test_phonemes mk "dz'id&Rsk,I p'ejz&Z
+S'ug&f b'ilmez_! s_ tS;'uden^,e dZv'ak& k^'ofte_:_: i_: k'el^ n'a t'udZ; ts'eh" "Dzidarski pejzaž: šugav bilmez so čudenje džvaka ćofte i kelj na tuđ ceh." "Latn"
+test_phonemes ml "'aJ@vum 'a:n@jum 'aIra:v,ad@vum g'arud.,anum kat.#'o:ra sv'ar@m p'or.ik:e h'a:r@vum od.#j'a:n.@vum p#'a:l@t:il m'an^n^@l.um 'i:R2@n k'e:S;@t:il 'aUs.@d#a ;'en.n.@j,uma:ji R'ydum,adijum 'an@g#,ajum b#'u:na:t#,ajum,a:ja 'uma d'uhk#@c#,avij,o:d.e 'id.@du p'a:d@m ;'e:ndi Nj'e:ja:dr-S;@m n'ir J#'arij,ile c'it.t.l@g,al.e 'o:m@n,ik:umbo:l. b'a: l'ajud.e k'an. k'al.il n'i:r 'u:r nn'u v'iNNi" "അജവും ആനയും ഐരാവതവും ഗരുഡനും കഠോര സ്വരം പൊഴിക്കെ ഹാരവും ഒഢ്യാണവും ഫാലത്തില്‍ മഞ്ഞളും ഈറന്‍ കേശത്തില്‍ ഔഷധ എണ്ണയുമായി ഋതുമതിയും അനഘയും ഭൂനാഥയുമായ ഉമ ദുഃഖഛവിയോടെ ഇടതു പാദം ഏന്തി ങ്യേയാദൃശം നിര്‍ഝരിയിലെ ചിറ്റലകളെ ഓമനിക്കുമ്പോള്‍ ബാ‍ലയുടെ കണ്‍കളില്‍ നീര്‍ ഊര്‍ന്നു വിങ്ങി." "Mlym"
+test_phonemes my "D'i1hol _| mh'a Ntsn _| kr'i2jhaN _| DN _| @tsj'u3wt dnshe2Nw'ahan _| stsk'o2 zlw'an _| ze2bk'e2btsdapN _| thk _| @d'it thtsn _| lj@k _| ggnnpht _| kh'a _| DN _|" "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေးဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။ " "Mymr"
+test_phonemes mr ",a:*@kS,@n.a:s'a:t.#i; 'a:kr@2m,@k J#a:l'e:lja: m@*'a:t.#a: kr'a~ti m'o:*ca:n,e: 'a:z m'u~b,i
 n'Vvi m'u~b,i
 t.#'a:n.e:
 r'a:j@3g,@d.
-p'a:l@g#,@r@2s,@H sa:t'a:*a: b'Vnd@c,i H'a:k d'Ili; 'a:He:" "आरक्षणासाठी आक्रमक झालेल्या मराठा क्रांती मोर्चाने आज मुंबई, नवी मुंबई, ठाणे, रायगड, पालघरसह सातारा बंदची हाक दिली आहे."
-test_phonemes ms "Latn" "s@m'u@ m,anus'i@ d,ilah'irkan b'Ebas_:_: dan s,amaR'at@ d,aRi s'@gi k@m,uli'a_|an_:_: dan h'a?h'a?
-m@R'Ek@ m@mp'un^aI p@mik'iRan_:_: dan p@Ras'a_|an h'ati_:_: dan h@nd'aklah b@Rt'inda? di _|ant'aR@ s'atu s'am@ l'aIn d'@Nan s@m'aNat p@*rs,aUdaR'a_|an" "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak. Mereka mempunyai pemikiran dan perasaan hati dan hendaklah bertindak di antara satu sama lain dengan semangat persaudaraan."
-test_phonemes mt "Latn" "'Ilbned'emIn c'ollla ,iuIt,ui:ld'eu h'i:lsa 'u ,ugu'alI f'Ided,eIniu'Ita 'u d'eed,erIt:I;'iui:t
-'uma m,o:nI;'ia b'i:rra:dZ'unI; 'u b'i:lk,u:Seients'ea 'u 'andom Ig'i:bu r'uhhom j'istax_:_: S,eulS'eIn b'i: sp'Irtu t'a:_:_: ah'ua" "Il-bnedmin kollha jitwieldu ħielsa u ugwali fid-dinjità u d-drittijiet. Huma mogħnija bir-raġuni u bil-kuxjenza u għandhom igibu ruħhom ma' xulxin bi spirtu ta' aħwa."
-test_phonemes nb "Latn" "vo:R s'a:Ra# s'u-:lu-:_:_: fRA b,ade:'YyA sp'Ilta# j'u: vh'Ist_:_: u:g kw'Ikkst@p_! i: mi:n t'aksi:
-bl,o:baRSylt'e:tYy" "Vår sære Zulu fra badeøya spilte jo whist og quickstep i min taxi. Blåbærsyltetøy."
-test_phonemes nci "Latn" "tlak'aso n'ikan n'emi
+p'a:l@g#,@r@2s,@H sa:t'a:*a: b'Vnd@c,i H'a:k d'Ili; 'a:He:" "आरक्षणासाठी आक्रमक झालेल्या मराठा क्रांती मोर्चाने आज मुंबई, नवी मुंबई, ठाणे, रायगड, पालघरसह सातारा बंदची हाक दिली आहे." "Deva"
+test_phonemes ms "s@m'u@ m,anus'i@ d,ilah'irkan b'Ebas_:_: dan s,amaR'at@ d,aRi s'@gi k@m,uli'a_|an_:_: dan h'a?h'a?
+m@R'Ek@ m@mp'un^aI p@mik'iRan_:_: dan p@Ras'a_|an h'ati_:_: dan h@nd'aklah b@Rt'inda? di _|ant'aR@ s'atu s'am@ l'aIn d'@Nan s@m'aNat p@*rs,aUdaR'a_|an" "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak. Mereka mempunyai pemikiran dan perasaan hati dan hendaklah bertindak di antara satu sama lain dengan semangat persaudaraan." "Latn"
+test_phonemes mt  "'Ilbned'emIn c'ollla ,iuIt,ui:ld'eu h'i:lsa 'u ,ugu'alI f'Ided,eIniu'Ita 'u d'eed,erIt:I;'iui:t
+'uma m,o:nI;'ia b'i:rra:dZ'unI; 'u b'i:lk,u:Seients'ea 'u 'andom Ig'i:bu r'uhhom j'istax_:_: S,eulS'eIn b'i: sp'Irtu t'a:_:_: ah'ua" "Il-bnedmin kollha jitwieldu ħielsa u ugwali fid-dinjità u d-drittijiet. Huma mogħnija bir-raġuni u bil-kuxjenza u għandhom igibu ruħhom ma' xulxin bi spirtu ta' aħwa." "Latn"
+test_phonemes nb "vo:R s'a:Ra# s'u-:lu-:_:_: fRA b,ade:'YyA sp'Ilta# j'u: vh'Ist_:_: u:g kw'Ikkst@p_! i: mi:n t'aksi:
+bl,o:baRSylt'e:tYy" "Vår sære Zulu fra badeøya spilte jo whist og quickstep i min taxi. Blåbærsyltetøy." "Latn"
+test_phonemes nci "tlak'aso n'ikan n'emi
 j'e nik'aki; 'in ,iSotS,ikwik'atsin jwk'i t'epetl k,innan,ankil'i;a
 tlak'aso 'itlan 'in m,ejakets'alatl
 S,iwtot,oamej'alli
@@ -166,105 +163,98 @@ n,anankil'i;a 'in s,entsontlat'olli
 'aso k,innan,ankil'i;a 'in k,ojolt'ototl
 ,ajak,atSis,awak,atim'ani
 'in nep'apan tl,asokwik'ani tot'ome
-'onkan k,ijekten'ewa 'in tl,altikp'ake w,eltet,oskatem'ike" "Tlacazo nican nemi, ye nicaqui in ixochicuicatzin yuhqui tepetl quinnananquilia; tlacazo itlan in meyaquetzalatl, xiuhtotoameyalli, oncan mocuica, momotla, mocuica; nananquilia in centzontlatolli; azo quinnananquilia in coyoltototl, ayacachiçahuacatimani, in nepapan tlazocuicani totome. Oncan quiyectenehua in tlalticpaque hueltetozcatemique."
-test_phonemes nl "Latn" "_!'Al@ m'Ens@n v#,Ord@n vr'EI_:_: _|En Q@l'EIk_! _|In v#'a:rd@xh,EIt_:_: _|En r'Ext@n Q@b'o:r@n
+'onkan k,ijekten'ewa 'in tl,altikp'ake w,eltet,oskatem'ike" "Tlacazo nican nemi, ye nicaqui in ixochicuicatzin yuhqui tepetl quinnananquilia; tlacazo itlan in meyaquetzalatl, xiuhtotoameyalli, oncan mocuica, momotla, mocuica; nananquilia in centzontlatolli; azo quinnananquilia in coyoltototl, ayacachiçahuacatimani, in nepapan tlazocuicani totome. Oncan quiyectenehua in tlalticpaque hueltetozcatemique." "Latn"
+test_phonemes nl  "_!'Al@ m'Ens@n v#,Ord@n vr'EI_:_: _|En Q@l'EIk_! _|In v#'a:rd@xh,EIt_:_: _|En r'Ext@n Q@b'o:r@n
 zEI zEIn b@Q'IftIQd_! mEt v@rst'And_:_: _|En Q@v#'e:t@n
-_|En b@h'o:r@n zIx j'e:Q@ns _!'ElkAnd@r_! _|In _|@n Q'e:st vAn br'ud@rsx,Ap_! t@ Q@dr'a:Q@n" "Alle mensen worden vrij en gelijk in waardigheid en rechten geboren. Zij zijn begiftigd met verstand en geweten, en behoren zich jegens elkander in een geest van broederschap te gedragen."
-test_phonemes om "Latn" "nam'o:tI h,undIn'u: b,irmad'u: t,aan'i:_:_: mIrg'a: f'i; ,ulfIn'a:nIs w'alk\`It\`:'e: t,aan'i:_:_: Dal'atan
+_|En b@h'o:r@n zIx j'e:Q@ns _!'ElkAnd@r_! _|In _|@n Q'e:st vAn br'ud@rsx,Ap_! t@ Q@dr'a:Q@n" "Alle mensen worden vrij en gelijk in waardigheid en rechten geboren. Zij zijn begiftigd met verstand en geweten, en behoren zich jegens elkander in een geest van broederschap te gedragen." "Latn"
+test_phonemes om  "nam'o:tI h,undIn'u: b,irmad'u: t,aan'i:_:_: mIrg'a: f'i; ,ulfIn'a:nIs w'alk\`It\`:'e: t,aan'i:_:_: Dal'atan
 samm'u: f'i k\`alb'i:; It:'i:n y'a:dan w'a:n ,u:mam'a:n k,ennam'e:f
 haf'u:ra ,ob:olumm'a:tI:n wal'i:w'adZdZIn dZIr'a:tSu: k\`'abu" "Namooti hundinuu birmaduu ta'anii mirgaa fi ulfinaanis wal-qixxee ta'anii dhalatan. Sammuu fi qalbii ittiin yaadan waan uumamaan kennameef, hafuura obbolummaatiin walii-wajjin jiraachuu qabu."
-test_phonemes or "Orya" "s'at.#O k'Ohe r'utu*,e n'Oi k'Or.O,e J#'Ot.a k'i l'Ot.at.,ie 'Ohi*,aJO dZ'Ot#a g'OtS#O*,e g'O*O k'O*i t'a_:_: d'ehe m'at.O,i 'au prOkr'uti*,u s'OkOl-,O: J'ibOn,i k#'oJa 'u:na h'ele 'ojkOt,ane p'OtSa k'Ohr.
-p#'ulO_! o p'OtO*,O'owsOd#,i 'aha*,O b#'O*i b'OntSe" "ଶାଠ କହେ ଋତୁରେ ନଈ କଡ଼େ ଝଟା କି ଲଟାଟିଏ ଅହିରାଜ ଯଥା ଗଛରେ ଘର କରି ତା' ଦେହେ ମାତଇ ଆଉ ପ୍ରକୃତିରୁ ସକଳ ଜୀବନୀ ଖୋଜା ଊଣା ହେଲେ ଐକତାନେ ପଚା କଢ଼, ଫୁଲ ଓ ପତର-ଔଷଧୀ ଆହାର ଭରି ବଞ୍ଚେ ।"
-test_phonemes pa "Guru" "p'a+*@t,i s,@nvId#'an de ,a*@t.'ik@l cUR'VnJa vIc r'aS@t.,@*@p,@ti di c'on. b'a*e l'Ik#I;,a H'oI;,a HE
+test_phonemes or "s'at.#O k'Ohe r'utu*,e n'Oi k'Or.O,e J#'Ot.a k'i l'Ot.at.,ie 'Ohi*,aJO dZ'Ot#a g'OtS#O*,e g'O*O k'O*i t'a_:_: d'ehe m'at.O,i 'au prOkr'uti*,u s'OkOl-,O: J'ibOn,i k#'oJa 'u:na h'ele 'ojkOt,ane p'OtSa k'Ohr.
+p#'ulO_! o p'OtO*,O'owsOd#,i 'aha*,O b#'O*i b'OntSe" "ଶାଠ କହେ ଋତୁରେ ନଈ କଡ଼େ ଝଟା କି ଲଟାଟିଏ ଅହିରାଜ ଯଥା ଗଛରେ ଘର କରି ତା' ଦେହେ ମାତଇ ଆଉ ପ୍ରକୃତିରୁ ସକଳ ଜୀବନୀ ଖୋଜା ଊଣା ହେଲେ ଐକତାନେ ପଚା କଢ଼, ଫୁଲ ଓ ପତର-ଔଷଧୀ ଆହାର ଭରି ବଞ୍ଚେ ।" "Orya"
+test_phonemes pa "p'a+*@t,i s,@nvId#'an de ,a*@t.'ik@l cUR'VnJa vIc r'aS@t.,@*@p,@ti di c'on. b'a*e l'Ik#I;,a H'oI;,a HE
 p'a+*@t vIc r'aS@t.,@*@p,@ti di c'on. s'Id#i l'oka~ dU'a*a n'VHi~ k'iti J'a~di
-r'aS@t.,@*@p,@ti di c'on. 'Vpr@t,@k# t@*'ike n'al k'iti J'a~di HE" "ਭਾਰਤੀ ਸੰਵਿਧਾਨ ਦੇ ਆਰਟੀਕਲ 54 ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਬਾਰੇ ਲਿਖਿਆ ਹੋਇਆ ਹੈ। ਭਾਰਤ ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਸਿੱਧੀ ਲੋਕਾਂ ਦੁਆਰਾ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਅਪ੍ਰਤੱਖ ਤਰੀਕੇ ਨਾਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।"
-test_phonemes pap "Latn" "t'uR s'eR hum'ano ta n'ase lib'eR_:_: i; igw'al deN dignid'ad_:_: i deN deR'etSo
-naN ta d'ota k'u Ras'oN_:_: i k'u kons'enSi_:_: i naN mest'eR komp'oRta naN deN spiR'ito di fRateRnid'ad p'a k'u 'otRo" "Tur ser humano ta nace liber y igual den dignidad y den derecho. Nan ta dota cu rason y cu consenshi y nan mester comporta nan den spirito di fraternidad pa cu otro."
-test_phonemes pl "Latn" "m'E~Zny b'On^ts;
+r'aS@t.,@*@p,@ti di c'on. 'Vpr@t,@k# t@*'ike n'al k'iti J'a~di HE" "ਭਾਰਤੀ ਸੰਵਿਧਾਨ ਦੇ ਆਰਟੀਕਲ 54 ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਬਾਰੇ ਲਿਖਿਆ ਹੋਇਆ ਹੈ। ਭਾਰਤ ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਸਿੱਧੀ ਲੋਕਾਂ ਦੁਆਰਾ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਅਪ੍ਰਤੱਖ ਤਰੀਕੇ ਨਾਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।" "Guru"
+test_phonemes pap "t'uR s'eR hum'ano ta n'ase lib'eR_:_: i; igw'al deN dignid'ad_:_: i deN deR'etSo
+naN ta d'ota k'u Ras'oN_:_: i k'u kons'enSi_:_: i naN mest'eR komp'oRta naN deN spiR'ito di fRateRnid'ad p'a k'u 'otRo" "Tur ser humano ta nace liber y igual den dignidad y den derecho. Nan ta dota cu rason y cu consenshi y nan mester comporta nan den spirito di fraternidad pa cu otro." "Latn"
+test_phonemes pl "m'E~Zny b'On^ts;
 xR'On^ p'uwk tf'uj_! i S'ES;ts; fl'ak
-z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć flag. Zażółć gęślą jaźń."
-test_phonemes pt "Latn" "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: bR&s'o~js#
+z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć flag. Zażółć gęślą jaźń." "Latn"
+test_phonemes pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: bR&s'o~js#
 f'E
 S'a
 'OksidU
 p'or-
-z'&~Ng&U~_:_: ,E*&U~ p,&l'avR&Z dU p,u*@-tug'es#" "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português."
-test_phonemes ro "Latn" "m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila
-p@-*'ets f'iks" "Muzicologă în bej vând whisky și tequila, preț fix."
-test_phonemes ru "Cyrl" "Syr'okVja E#l;ikt@-r;if;ik'Atsyja 'juZnyx gub;'ern;ij d'Ast m'oS;nyj tVltS;'ok pVdj'8mu s;'elskVvV xVz;'Ajstva#" "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства."
-test_phonemes sd "Arab" "s'Indhi b'o:li; 'Ind.o: jo:R'Vpi xa:nd'a:n s'a~: t[a:l'Vq R,@k#@nd'Vr. a:Rj'a:i b'o:li; ,a:he:
+z'&~Ng&U~_:_: ,E*&U~ p,&l'avR&Z dU p,u*@-tug'es#" "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português." "Latn"
+test_phonemes ro "m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila
+p@-*'ets f'iks" "Muzicologă în bej vând whisky și tequila, preț fix." "Latn"
+test_phonemes ru "Syr'okVja E#l;ikt@-r;if;ik'Atsyja 'juZnyx gub;'ern;ij d'Ast m'oS;nyj tVltS;'ok pVdj'8mu s;'elskVvV xVz;'Ajstva#" "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства." "Cyrl"
+test_phonemes sd "s'Indhi b'o:li; 'Ind.o: jo:R'Vpi xa:nd'a:n s'a~: t[a:l'Vq R,@k#@nd'Vr. a:Rj'a:i b'o:li; ,a:he:
 J'Vnhn t['e: ,aRb'i: bo:l'i:;a J'o: b'I t[@m'a:m v'Vd.o: as'VR ,a:he:
-h'Ina v'aqt s'Indhi b'o:li s'Indh J'e: m'Vk# b'o:li_! 'ae~ d,@f@t['VRi z@b'a:n ,a:he:" "سنڌي ٻولي انڊو يورپي خاندان سان تعلق رکندڙ آريائي ٻولي آھي، جنھن تي عربي ٻوليءَ جو بہ تمام وڏو اثر آهي. هن وقت سنڌي ٻولي سنڌ جي مک ٻولي ۽ دفتري زبان آھي."
-test_phonemes si "Sinh" "t'aw@t st#'a:n@ k'i:p@j,@kin w'a:rta: w'u: s'ul.u p'ipiri:m s'ah@ d'e:s@p,a:l@n@ p'akS@ k r'ija:k,a:ri:n 'at@r@ '&tiwu: g'&t.um h'e:tuwen 'ek 'ajeku m'ij@gos k'i:p@ d'eneku t'uwa:l@ l'aba: t'ibe:" "තවත් ස්ථාන කීපයකින් වාර්තා වූ සුළු පිපිරීම් සහ දේශපාලන පක්ෂ ක්‍රියාකාරීන් අතර ඇතිවූ ගැටුම් හේතුවෙන් එක් අයෙකු මියගොස් කීප දෙනෙකු තුවාල ලබා තිබේ."
-test_phonemes sk "Latn" "k'r:d;el^ St;'astni:Q d;'atl^ow 'utSi: pR'i;u:st;i: v'a:hu m'l:kveho k'on^a 'ophRi:zat; k'uoRu_:_: a ZR'at; tS'eRstve: m'eso
-p'et;ti:Zdn^,ove: v'l:tSata: n'eRvo:zn^e St;'ekaju: n'amu,ojho d;'atl^a_! v_ t'r:n^i:" "Kŕdeľ šťastných ďatľov učí pri ústí Váhu mĺkveho koňa obhrýzať kôru a žrať čerstvé mäso. Päťtýždňové vĺčatá nervózne štekajú na môjho ďatľa v tŕní."
-test_phonemes sl "Latn" "xiSn'i:tSin bR'a:tEts uzg'a:ja p'o:wZE p'o:t fik'u:sOm" "Hišničin bratec vzgaja polže pod fikusom."
-test_phonemes sq "Latn" "Zd'O n^'eRi k'an L'e tL'iR_:_: m'E n^'aIIt din^'itEt 'EDE dR'EtA
-'atA j'an t@ paI'isun m'E m'En^e 'EDE v'Etd'ije 'EDE d'uh@n t@ vEpR'OIn kA n^'anitj'etRIn m'E n^'i Sp'iRt vllazn'imIt" "Zhdo njeri kan le t'lir mê njãjit dinjitêt edhê dreta. Ata jan të pajisun mê mênjê edhê vet-dijê edhê duhën të veprôjn ka njãni-tjetrin mê nji shpirt vllâznimit."
-test_phonemes sr "Cyrl" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
-test_phonemes sr "Latn" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
-test_phonemes sv "Latn" "fl'y:gandE- b,Ek:as'i:nE-R s'Y:ka hv'i:la po: mj'u-ka t'u-vu:R
-RE:ksm'WRgo:s" "Flygande bäckasiner söka hwila på mjuka tuvor. Räksmörgås."
-test_phonemes sw "Latn" "w'atu w'ote w,amezal'iwa h'uRu
+h'Ina v'aqt s'Indhi b'o:li s'Indh J'e: m'Vk# b'o:li_! 'ae~ d,@f@t['VRi z@b'a:n ,a:he:" "سنڌي ٻولي انڊو يورپي خاندان سان تعلق رکندڙ آريائي ٻولي آھي، جنھن تي عربي ٻوليءَ جو بہ تمام وڏو اثر آهي. هن وقت سنڌي ٻولي سنڌ جي مک ٻولي ۽ دفتري زبان آھي." "Arab"
+test_phonemes si "t'aw@t st#'a:n@ k'i:p@j,@kin w'a:rta: w'u: s'ul.u p'ipiri:m s'ah@ d'e:s@p,a:l@n@ p'akS@ k r'ija:k,a:ri:n 'at@r@ '&tiwu: g'&t.um h'e:tuwen 'ek 'ajeku m'ij@gos k'i:p@ d'eneku t'uwa:l@ l'aba: t'ibe:" "තවත් ස්ථාන කීපයකින් වාර්තා වූ සුළු පිපිරීම් සහ දේශපාලන පක්ෂ ක්‍රියාකාරීන් අතර ඇතිවූ ගැටුම් හේතුවෙන් එක් අයෙකු මියගොස් කීප දෙනෙකු තුවාල ලබා තිබේ." "Sinh"
+test_phonemes sk "k'r:d;el^ St;'astni:Q d;'atl^ow 'utSi: pR'i;u:st;i: v'a:hu m'l:kveho k'on^a 'ophRi:zat; k'uoRu_:_: a ZR'at; tS'eRstve: m'eso
+p'et;ti:Zdn^,ove: v'l:tSata: n'eRvo:zn^e St;'ekaju: n'amu,ojho d;'atl^a_! v_ t'r:n^i:" "Kŕdeľ šťastných ďatľov učí pri ústí Váhu mĺkveho koňa obhrýzať kôru a žrať čerstvé mäso. Päťtýždňové vĺčatá nervózne štekajú na môjho ďatľa v tŕní." "Latn"
+test_phonemes sl "xiSn'i:tSin bR'a:tEts uzg'a:ja p'o:wZE p'o:t fik'u:sOm" "Hišničin bratec vzgaja polže pod fikusom." "Latn"
+test_phonemes sq "Zd'O n^'eRi k'an L'e tL'iR_:_: m'E n^'aIIt din^'itEt 'EDE dR'EtA
+'atA j'an t@ paI'isun m'E m'En^e 'EDE v'Etd'ije 'EDE d'uh@n t@ vEpR'OIn kA n^'anitj'etRIn m'E n^'i Sp'iRt vllazn'imIt" "Zhdo njeri kan le t'lir mê njãjit dinjitêt edhê dreta. Ata jan të pajisun mê mênjê edhê vet-dijê edhê duhën të veprôjn ka njãni-tjetrin mê nji shpirt vllâznimit." "Latn"
+test_phonemes sr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
+test_phonemes sr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
+test_phonemes sv "fl'y:gandE- b,Ek:as'i:nE-R s'Y:ka hv'i:la po: mj'u-ka t'u-vu:R
+RE:ksm'WRgo:s" "Flygande bäckasiner söka hwila på mjuka tuvor. Räksmörgås." "Latn"
+test_phonemes sw "w'atu w'ote w,amezal'iwa h'uRu
 h'aDi na h'aki z'ao ni s'awa
 w'ote w,ameJal'iwa_| ak'ili_:_: na Dam'iRi
-h'ivjo jap'asa w,atende'ane _|kind'ugu" "Watu wote wamezaliwa huru, hadhi na haki zao ni sawa. Wote wamejaliwa akili na dhamiri, hivyo yapasa watendeane kindugu."
-test_phonemes ta "Taml" "n'a:n k'Vn.n.a:d.i s'a:ppid.,Uve:n
-'adVna:l ;'enVkkU 'orU k'e:d.Um v'Vra:dU" "நான் கண்ணாடி சாப்பிடுவேன், அதனால் எனக்கு ஒரு கேடும் வராது."
-test_phonemes te "Telu" "n'e:nu g'a:Ju t'inag,alanu m'ariju 'ala: c'e:sina: n'a:ku 'e:mi 'ibbandi l'e:du" "నేను గాజు తినగలను మరియు అలా చేసినా నాకు ఏమి ఇబ్బంది లేదు"
-test_phonemes tn "Latn" "B'aTU B'oKl B'a ts'i:tswl B'a g,olUl,os-'igill_:_: ll g'o l,ekallk'ana k'a s-'iRiti_:_: ll d,itSwan'elU
+h'ivjo jap'asa w,atende'ane _|kind'ugu" "Watu wote wamezaliwa huru, hadhi na haki zao ni sawa. Wote wamejaliwa akili na dhamiri, hivyo yapasa watendeane kindugu." "Latn"
+test_phonemes ta "n'a:n k'Vn.n.a:d.i s'a:ppid.,Uve:n
+'adVna:l ;'enVkkU 'orU k'e:d.Um v'Vra:dU" "நான் கண்ணாடி சாப்பிடுவேன், அதனால் எனக்கு ஒரு கேடும் வராது." "Taml"
+test_phonemes te "n'e:nu g'a:Ju t'inag,alanu m'ariju 'ala: c'e:sina: n'a:ku 'e:mi 'ibbandi l'e:du" "నేను గాజు తినగలను మరియు అలా చేసినా నాకు ఏమి ఇబ్బంది లేదు" "Telu"
+test_phonemes tn "B'aTU B'oKl B'a ts'i:tswl B'a g,olUl,os-'igill_:_: ll g'o l,ekallk'ana k'a s-'iRiti_:_: ll d,itSwan'elU
 B'a_| aB'etswl g'o_| ak'an^a_:_: ll _|m,aik'ul#U
-,m-ml B'a tSwan'ets-i g'o d,iRll'ana k'a _|m'owa_! wa B,okaul'eNgwl" "Batho botlhe ba tsetswe ba gololosegile le go lekalekana ka seriti le ditshwanelo. Ba abetswe go akanya le maikutlo, mme ba tshwanetse go direlana ka mowa wa bokaulengwe."
-test_phonemes tk "Latn" "tYRkm'WntSW
-t'YRkmWn n'ili" "Türkmençe, Türkmen dili"
-test_phonemes tr "Latn" "piZ'amaL@ hast'a j'a:@z SofW*'E tSabudZ'ak Jyv&nd'I
-SISlid'E_:_: byj'Yk tS'Wp j@:@nLa*'@" "Pijamalı hasta yağız şoföre çabucak güvendi. Şişli’de büyük çöp yığınları."
-test_phonemes tt "Cyrl" "b0rL'Vq keSel'&r d'& 0z'0t h'&m 'yz 0brujLAr'V h'&m xoquqLAr'V jAGVnn'An t'iN bup'Vp tuAp'Ar
-0L0rG'A 0q'VL h'&m wWZ;d'An birelQ'&n h'&m b'&rb&rsen'& q0r0t'A tuGAnnArS;'A mWnAs&b&tt'& buLVrG'A tieSl'&r" "Барлык кешеләр дә азат һәм үз абруйлары һәм хокуклары ягыннан тиң бупып туапар. Аларга акыл һәм вөҗдан бирелгән һәм бәр-бәрсенә карата туганнарча мөнасәбәттә булырга тиешләр."
-test_phonemes ur "Arab" "t.#'Vnd. m'e~
+,m-ml B'a tSwan'ets-i g'o d,iRll'ana k'a _|m'owa_! wa B,okaul'eNgwl" "Batho botlhe ba tsetswe ba gololosegile le go lekalekana ka seriti le ditshwanelo. Ba abetswe go akanya le maikutlo, mme ba tshwanetse go direlana ka mowa wa bokaulengwe." "Latn"
+test_phonemes tk "tYRkm'WntSW
+t'YRkmWn n'ili" "Türkmençe, Türkmen dili" "Latn"
+test_phonemes tr "piZ'amaL@ hast'a j'a:@z SofW*'E tSabudZ'ak Jyv&nd'I
+SISlid'E_:_: byj'Yk tS'Wp j@:@nLa*'@" "Pijamalı hasta yağız şoföre çabucak güvendi. Şişli’de büyük çöp yığınları." "Latn"
+test_phonemes tt "b0rL'Vq keSel'&r d'& 0z'0t h'&m 'yz 0brujLAr'V h'&m xoquqLAr'V jAGVnn'An t'iN bup'Vp tuAp'Ar
+0L0rG'A 0q'VL h'&m wWZ;d'An birelQ'&n h'&m b'&rb&rsen'& q0r0t'A tuGAnnArS;'A mWnAs&b&tt'& buLVrG'A tieSl'&r" "Барлык кешеләр дә азат һәм үз абруйлары һәм хокуклары ягыннан тиң бупып туапар. Аларга акыл һәм вөҗдан бирелгән һәм бәр-бәрсенә карата туганнарча мөнасәбәттә булырга тиешләр." "Cyrl"
+test_phonemes ur "t.#'Vnd. m'e~
 'e:k q'VH@t z'Vda ga:'o:n se: g'Vz@Rte: v'aqt 'e:k c'Ir.cIr.,e:
-b'a:s@R 'o: f'a:RIQ S'axs. k'o: b'a:z J'Vl p'VRi n'Uma: 'aZ@dHe: naz.'aR 'a:e:" "ٹھنڈ میں، ایک قحط زدہ گاؤں سے گذرتے وقت ایک چڑچڑے، باأثر و فارغ شخص کو بعض جل پری نما اژدہے نظر آئے۔"
-test_phonemes uz "Latn" "ozb'ektS&
-'ozbek t'yLy" "O‘zbekcha, o‘zbek tili"
-test_phonemes uz "Cyrl" "o:zb'ektS&
-'o:zbek t'yLy" "Ўзбекча, ўзбек тили"
-test_phonemes vi "Latn" "t['@3t[_| k'a:4_| m,O6j_| N'y@2j_| s'i1n^_| z'a:1_| d_'e2w_| d_,y@6c_| t['y6_| z'O1_| v,a:2_| _b'i2n^_| d_'a4N_| v'e2_| n^'@1n_| f'@4m_| v,a:2_| kw'iE2n_| l'@:6j_|
-m,O6j_| k,O1n_| N'y@2j_| d_'e2w_| d_,y@6c_| t['a:6w_| hw'a:3_| _b'a:1n_| tS,O1_| l'i3_| tS'i3_| v,a:2_| l'y@1N_| t['@1m_| v,a:2_| k'@2n_| f,a:4j_| d_'o3j_| s'y4_| v,@:3j_| n^'a1w_| tS'O#1N_| t['i2n^_| 'e-1n^_| 'E7m_|" "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền lợi. Mọi con người đều được tạo hóa ban cho lý trí và lương tâm và cần phải đối xử với nhau trong tình anh em."
+b'a:s@R 'o: f'a:RIQ S'axs. k'o: b'a:z J'Vl p'VRi n'Uma: 'aZ@dHe: naz.'aR 'a:e:" "ٹھنڈ میں، ایک قحط زدہ گاؤں سے گذرتے وقت ایک چڑچڑے، باأثر و فارغ شخص کو بعض جل پری نما اژدہے نظر آئے۔" "Arab"
+test_phonemes uz "ozb'ektS&
+'ozbek t'yLy" "O‘zbekcha, o‘zbek tili" "Latn"
+test_phonemes uz "o:zb'ektS&
+'o:zbek t'yLy" "Ўзбекча, ўзбек тили" "Cyrl"
+test_phonemes vi "t['@3t[_| k'a:4_| m,O6j_| N'y@2j_| s'i1n^_| z'a:1_| d_'e2w_| d_,y@6c_| t['y6_| z'O1_| v,a:2_| _b'i2n^_| d_'a4N_| v'e2_| n^'@1n_| f'@4m_| v,a:2_| kw'iE2n_| l'@:6j_|
+m,O6j_| k,O1n_| N'y@2j_| d_'e2w_| d_,y@6c_| t['a:6w_| hw'a:3_| _b'a:1n_| tS,O1_| l'i3_| tS'i3_| v,a:2_| l'y@1N_| t['@1m_| v,a:2_| k'@2n_| f,a:4j_| d_'o3j_| s'y4_| v,@:3j_| n^'a1w_| tS'O#1N_| t['i2n^_| 'e-1n^_| 'E7m_|" "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền lợi. Mọi con người đều được tạo hóa ban cho lý trí và lương tâm và cần phải đối xử với nhau trong tình anh em." "Latn"
 
 ##### Fallback to other languages in different scripts (language switch).
 
-test_phonemes bg "Latn as English" "(en)f'Ut str'Vt(bg)" "foot strut"
-test_phonemes fa "Latn as English" "(en)f'Ut str'Vt(fa)" "foot strut"
-test_phonemes ka "Latn as English" "(en)f'Ut str'Vt(ka)" "foot strut"
+test_phonemes bg "(en)f'Ut str'Vt(bg)" "foot strut" "Latn as English"
+test_phonemes fa "(en)f'Ut str'Vt(fa)" "foot strut" "Latn as English"
+test_phonemes ka "(en)f'Ut str'Vt(ka)" "foot strut" "Latn as English"
 
 ##### Lexical Set tests (phoneme coverage).
 
-test_phonemes de "Lexical Sets" "dr'Uk3 l'amp@ kOmpj'u:t3 St'Ern St'Ern@" "drucker lampe computer stern sterne"
+test_phonemes de "dr'Uk3 l'amp@ kOmpj'u:t3 St'Ern St'Ern@" "drucker lampe computer stern sterne" "Lexical Sets"
 
-test_phonemes en "Lexical Sets" \
-	"k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0m@ l'Et3r- Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
-	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
+test_phonemes en "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0m@ l'Et3r- Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
+	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided" "Lexical Sets"
 
-test_phonemes en-029 "Lexical Sets" \
-	"k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m t['O:t g'u:s n'3:s st'A@t n'O@t[ f'o@s kj'o@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0ma# l'Eta# Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUt[ b'aat[ kl'0t[ m'Ili@n dI2v'aIdI2d" \
-	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
+test_phonemes en-029 "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m t['O:t g'u:s n'3:s st'A@t n'O@t[ f'o@s kj'o@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0ma# l'Eta# Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUt[ b'aat[ kl'0t[ m'Ili@n dI2v'aIdI2d" \
+	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided" "Lexical Sets"
 
-test_phonemes en-GB-scotland "Lexical Sets" \
-	"k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'VRs st'A@rt n'O@rT f'o@rs kj'U@ n,i@3r skw'e@r t'3:m b'IRd h'api k'0mV l'Et@r- Ekspl'o@r r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n d'I2vaId,I2d" \
-	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
+test_phonemes en-GB-scotland "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'VRs st'A@rt n'O@rT f'o@rs kj'U@ n,i@3r skw'e@r t'3:m b'IRd h'api k'0mV l'Et@r- Ekspl'o@r r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n d'I2vaId,I2d" \
+	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided" "Lexical Sets"
 
-test_phonemes en-GB-x-gbclan "Lexical Sets" \
-	"k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'apI2 k'0m@ l'Et3r- Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
-	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
+test_phonemes en-GB-x-gbclan "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'apI2 k'0m@ l'Et3r- Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
+	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided" "Lexical Sets"
 
-test_phonemes en-GB-x-gbcwmd "Lexical Sets" \
-	"k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d 'api k'0m@ l'Et3r- Ekspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
-	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
+test_phonemes en-GB-x-gbcwmd "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d 'api k'0m@ l'Et3r- Ekspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
+	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided" "Lexical Sets"
 
-test_phonemes en-GB-x-rp "Lexical Sets" \
-	"k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0ma# l'Eta#r- Ikspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
-	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
+test_phonemes en-GB-x-rp "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0ma# l'Eta#r- Ikspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
+	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided" "Lexical Sets"
 
-test_phonemes en-US "Lexical Sets" \
-	"k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0m@ l'Et#3r- Ekspl'o@ r'oUzI#z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'O2T m'Ili@n dI#v'aIdI#d" \
-	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
+test_phonemes en-US "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0m@ l'Et#3r- Ekspl'o@ r'oUzI#z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'O2T m'Ili@n dI#v'aIdI#d" \
+	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided" "Lexical Sets"

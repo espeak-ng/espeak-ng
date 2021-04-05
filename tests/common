@@ -45,9 +45,9 @@ is_mbrola() {
 
 test_phonemes() {
     TEST_LANG=$1
-    MESSAGE=$2
-    EXPECTED=$3
-    TEST_TEXT=$4
+    EXPECTED=$2
+    TEST_TEXT=$3
+    MESSAGE=$4
     TEST_BROKEN=${5:-false}
 
     echo "testing ${TEST_LANG} ... $MESSAGE"
@@ -97,7 +97,7 @@ test_lang() {
 	echo "${EXPECTED}" > expected.txt
 	diff expected.txt actual.txt || exit 1
 }
-c
+
 test_dict() {
     TEST_LANG=$1
     MESSAGE=$2
