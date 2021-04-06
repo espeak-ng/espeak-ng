@@ -53,7 +53,7 @@ test_phon() {
         MESSAGE=$TEST_TEXT
     fi
 
-    echo "testing ${TEST_LANG} ... $MESSAGE"
+    echo "testing ${TEST_LANG} $MESSAGE"
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
     echo "${EXPECTED}" > expected.txt
@@ -69,7 +69,13 @@ test_wav () {
         VOICE=$1
         EXPECTED=$2
         TEST_TEXT=$3
-        echo "testing ${VOICE} ... "
+        MESSAGE=$4
+
+        if [ -n "$MESSAGE" ] ; then
+            MESSAGE=" $MESSAGE"
+        fi
+
+        echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" | \
         $sha1sum | awk '{ print $1 }' > actual.txt

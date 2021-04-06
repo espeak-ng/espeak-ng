@@ -25,7 +25,7 @@ test_mb () {
         TEST_TEXT=$3
         check_voice_folder $MBVOICE
         if [ "$voice_file" != "" ]; then
-                test_wav $MBVOICE $EXPECTED $TEST_TEXT
+                test_wav $MBVOICE $EXPECTED $TEST_TEXT $TEST_TEXT
         else
                 echo "$MBVOICE was not tested"
         fi
