@@ -88,12 +88,16 @@ test_phwav() {
 test_replace() {
     TEST_LANG=$1
     TEST_TEXT=$2
-    TEST_BROKEN=${3:-false}
+    MESSAGE=$3
+
+    if [ "$MESSAGE" = "" ] ; then
+        MESSAGE=$TEST_TEXT
+    fi
 
     echo "testing ${TEST_LANG}"
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
-    if [ x$TEST_BROKEN = xbroken ] ; then
+    if [ "$MESSAGE" = "broken" ] ; then
         diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
     else
         diff expected.txt actual.txt || exit 1
