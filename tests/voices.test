@@ -3,5 +3,5 @@
 . "`dirname $0`/common"
 
 ##### Voice options
-test_dict ka "lowercaseSentence" "s'asi,amovn,oa t#k#v'eni g'ats#noba
-r'ogor brdz'andebit#" "სასიამოვნოა თქვენი გაცნობა. როგორ ბრძანდებით" #872
+test_dict ka "s'asi,amovn,oa t#k#v'eni g'ats#noba
+r'ogor brdz'andebit#" "სასიამოვნოა თქვენი გაცნობა. როგორ ბრძანდებით" "lowercaseSentence" #872
