@@ -48,13 +48,16 @@ test_phonemes() {
     EXPECTED=$2
     TEST_TEXT=$3
     MESSAGE=$4
-    TEST_BROKEN=${5:-false}
+
+    if [ "$MESSAGE" = "" ] ; then
+        MESSAGE=$TEST_TEXT
+    fi
 
     echo "testing ${TEST_LANG} ... $MESSAGE"
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
     echo "${EXPECTED}" > expected.txt
-    if [ x$TEST_BROKEN = xbroken ] ; then
+    if [ "$MESSAGE" = "broken" ] ; then
         diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
     else
         diff expected.txt actual.txt || exit 1
