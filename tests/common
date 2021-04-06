@@ -42,8 +42,8 @@ is_mbrola() {
     fi
 }
 
-
-test_phonemes() {
+# Check processed text by phonetic representation of the output
+test_phon() {
     TEST_LANG=$1
     EXPECTED=$2
     TEST_TEXT=$3
@@ -62,18 +62,6 @@ test_phonemes() {
     else
         diff expected.txt actual.txt || exit 1
     fi
-}
-
-test_phonemes1() {
-    TEST_LANG=$1
-    EXPECTED=$2
-    TEST_TEXT=$3
-
-    echo "testing ${TEST_LANG} \"${TEST_TEXT}\""
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
-    echo "${EXPECTED}" > expected.txt
-    diff expected.txt actual.txt || exit 1
 }
 
 test_voice () {
@@ -99,27 +87,6 @@ test_lang() {
 		$sha1sum | awk '{ print $1 }' > actual.txt
 	echo "${EXPECTED}" > expected.txt
 	diff expected.txt actual.txt || exit 1
-}
-
-test_dict() {
-    TEST_LANG=$1
-    EXPECTED=$2
-    TEST_TEXT=$3
-    MESSAGE=$4
-
-    if [ "$MESSAGE" = "" ] ; then
-        MESSAGE=$TEST_TEXT
-    fi
-
-    echo "testing ${TEST_LANG} ... $MESSAGE"
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
-    echo "${EXPECTED}" > expected.txt
-    if [ "$MESSAGE" = "broken" ] ; then
-        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
-    else
-        diff expected.txt actual.txt || exit 1
-    fi
 }
 
 test_replace() {

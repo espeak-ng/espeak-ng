@@ -6,19 +6,19 @@
 
 echo "... en (English)" # short scale
 
-test_phonemes en "z'i@roU w'0n t'u: Tr'i: f'o@ f'aIv s'Iks s'Ev@n 'eIt n'aIn" "0 1 2 3 4 5 6 7 8 9" "units"
-test_phonemes en "t'En Il'Ev@n tw'Elv T'3:ti:n f'o@ti:n f'Ifti:n s'Iksti:n s'Ev@nt,i:n 'eIti:n n'aInti:n" "10 11 12 13 14 15 16 17 18 19" "teens"
-test_phonemes en "t'En tw'Enti T'3:ti f'o@ti f'Ifti s'Iksti s'Ev@nti; 'eIti n'aInti" "10 20 30 40 50 60 70 80 90" "tens"
-test_phonemes en-GB "Tr'i:h'VndrI2d@n s'Iksti f'aIv" "365" "hundreds"
-test_phonemes en-US "Tr'i:h'VndrI2d s'Iksti f'aIv" "365" "hundreds"
-test_phonemes en "w'0nh'VndrI2d w'0n T'aUz@nd w'0n m'Ili@n w'0n b'Ili@n w'0n tr'Ili@n w'0n kw0dr'Ili@n w'0n kwInt'Ili@n w'0n sExt'Ili@n w'0n sEpt'Ili@n w'0n 0kt'Ili@n w'0n n0n'Ili@n" "100 1000 1000000 1000000000 1000000000000 1000000000000000 1000000000000000000 1000000000000000000000 1000000000000000000000000 1000000000000000000000000000 1000000000000000000000000000000" "large" # 10^2 10^3 10^6 10^9 10^12 10^15 10^18 10^21 10^24 10^27 10^30
-test_phonemes en "f'aIv s'Iksti f'o@ w'0nh'VndrI2d@n tw'Enti Tr'i: f'o@ T'aUz@nd Tr'i:h'VndrI2d@n f'Ifti s'Ev@n f'o@ti:n T'aUz@nd_! s'Iksh'VndrI2d@n 'eIti Tr'i: s'Ev@nh'VndrI2d@n f'o@ti t'u: T'aUz@nd_! Tr'i:h'VndrI2d@n f'Ifti n'aIn s'Iks m'Ili@n_! f'o@h'VndrI2d@n s'Ev@nti f'aIv T'aUz@nd_! Tr'i:h'VndrI2d@n tw'Enti; 'eIt" "5 64 123 4357 14683 742359 6475328" "mixed"
+test_phon en "z'i@roU w'0n t'u: Tr'i: f'o@ f'aIv s'Iks s'Ev@n 'eIt n'aIn" "0 1 2 3 4 5 6 7 8 9" "units"
+test_phon en "t'En Il'Ev@n tw'Elv T'3:ti:n f'o@ti:n f'Ifti:n s'Iksti:n s'Ev@nt,i:n 'eIti:n n'aInti:n" "10 11 12 13 14 15 16 17 18 19" "teens"
+test_phon en "t'En tw'Enti T'3:ti f'o@ti f'Ifti s'Iksti s'Ev@nti; 'eIti n'aInti" "10 20 30 40 50 60 70 80 90" "tens"
+test_phon en-GB "Tr'i:h'VndrI2d@n s'Iksti f'aIv" "365" "hundreds"
+test_phon en-US "Tr'i:h'VndrI2d s'Iksti f'aIv" "365" "hundreds"
+test_phon en "w'0nh'VndrI2d w'0n T'aUz@nd w'0n m'Ili@n w'0n b'Ili@n w'0n tr'Ili@n w'0n kw0dr'Ili@n w'0n kwInt'Ili@n w'0n sExt'Ili@n w'0n sEpt'Ili@n w'0n 0kt'Ili@n w'0n n0n'Ili@n" "100 1000 1000000 1000000000 1000000000000 1000000000000000 1000000000000000000 1000000000000000000000 1000000000000000000000000 1000000000000000000000000000 1000000000000000000000000000000" "large" # 10^2 10^3 10^6 10^9 10^12 10^15 10^18 10^21 10^24 10^27 10^30
+test_phon en "f'aIv s'Iksti f'o@ w'0nh'VndrI2d@n tw'Enti Tr'i: f'o@ T'aUz@nd Tr'i:h'VndrI2d@n f'Ifti s'Ev@n f'o@ti:n T'aUz@nd_! s'Iksh'VndrI2d@n 'eIti Tr'i: s'Ev@nh'VndrI2d@n f'o@ti t'u: T'aUz@nd_! Tr'i:h'VndrI2d@n f'Ifti n'aIn s'Iks m'Ili@n_! f'o@h'VndrI2d@n s'Ev@nti f'aIv T'aUz@nd_! Tr'i:h'VndrI2d@n tw'Enti; 'eIt" "5 64 123 4357 14683 742359 6475328" "mixed"
 
 echo "... lv (Latvian)" # short scale
 
-test_phonemes lv "n'ulle v'iens d'ivi tR'i:s tS'etRi p'ietsi s'eSi s'eptin^i_ 'astuon^i d'evin^i" "0 1 2 3 4 5 6 7 8 9" "units"
-test_phonemes lv "d'esmit v'ienpadsmit d'ivpadsmit tR'i:spadsmit tS'etRpadsmit p'ietspadsmit s'eSpadsmit s'eptin^padsmit 'astuon^padsmit d'evin^padsmit" "10 11 12 13 14 15 16 17 18 19" "teens"
-test_phonemes lv "d'esmit d'ivdesmit tR'i:sdesmit tS'etRdesmit p'ietsd,esmit s'eSdesmit s'eptin^desmit 'astuon^desmit d'evin^desmit" "10 20 30 40 50 60 70 80 90" "tens"
-test_phonemes lv "s'imts s'imts v'iens d'ivi s'imti d'ivi tR'i:s s'imti s'eSdesmit p'ietsi" "100 101 202 365" "hundreds"
-test_phonemes lv "s'imts t'u:kstuo:tis m'iljo:ns m'iljaRds tR'iljons kv'adRiljo:ns kv'intiljo:ns s'ekstiljo:ns s'eptiljo:ns 'oktiljo:ns n'oniljo:ns" "100 1000 1000000 1000000000 1000000000000 1000000000000000 1000000000000000000 1000000000000000000000 1000000000000000000000000 1000000000000000000000000000 1000000000000000000000000000000" "large" # 10^2 10^3 10^6 10^9 10^12 10^15 10^18 10^21 10^24 10^27 10^30
-test_phonemes lv "p'ietsi s'eSdesmit tS'etRi s'imts d'ivdesmit tR'i:s tS'etRi t'u:kstuo:Si tR'i:s s'imti p'ietsd,esmit s'eptin^i tS'etRpadsmit t'u:kstuo:Si_! s'eSi s'imti_ 'astuon^desmit tR'i:s s'eptin^i s'imti tS'etRdesmit d'ivi t'u:kstuo:Si_! tR'i:s s'imti p'ietsd,esmit d'evin^i s'eSi m'iljo:ni_! tS'etRi s'imti s'eptin^desmit p'ietsi t'u:kstuo:Si_! tR'i:s s'imti d'ivdesmit 'astuon^i" "5 64 123 4357 14683 742359 6475328" "mixed"
+test_phon lv "n'ulle v'iens d'ivi tR'i:s tS'etRi p'ietsi s'eSi s'eptin^i_ 'astuon^i d'evin^i" "0 1 2 3 4 5 6 7 8 9" "units"
+test_phon lv "d'esmit v'ienpadsmit d'ivpadsmit tR'i:spadsmit tS'etRpadsmit p'ietspadsmit s'eSpadsmit s'eptin^padsmit 'astuon^padsmit d'evin^padsmit" "10 11 12 13 14 15 16 17 18 19" "teens"
+test_phon lv "d'esmit d'ivdesmit tR'i:sdesmit tS'etRdesmit p'ietsd,esmit s'eSdesmit s'eptin^desmit 'astuon^desmit d'evin^desmit" "10 20 30 40 50 60 70 80 90" "tens"
+test_phon lv "s'imts s'imts v'iens d'ivi s'imti d'ivi tR'i:s s'imti s'eSdesmit p'ietsi" "100 101 202 365" "hundreds"
+test_phon lv "s'imts t'u:kstuo:tis m'iljo:ns m'iljaRds tR'iljons kv'adRiljo:ns kv'intiljo:ns s'ekstiljo:ns s'eptiljo:ns 'oktiljo:ns n'oniljo:ns" "100 1000 1000000 1000000000 1000000000000 1000000000000000 1000000000000000000 1000000000000000000000 1000000000000000000000000 1000000000000000000000000000 1000000000000000000000000000000" "large" # 10^2 10^3 10^6 10^9 10^12 10^15 10^18 10^21 10^24 10^27 10^30
+test_phon lv "p'ietsi s'eSdesmit tS'etRi s'imts d'ivdesmit tR'i:s tS'etRi t'u:kstuo:Si tR'i:s s'imti p'ietsd,esmit s'eptin^i tS'etRpadsmit t'u:kstuo:Si_! s'eSi s'imti_ 'astuon^desmit tR'i:s s'eptin^i s'imti tS'etRdesmit d'ivi t'u:kstuo:Si_! tR'i:s s'imti p'ietsd,esmit d'evin^i s'eSi m'iljo:ni_! tS'etRi s'imti s'eptin^desmit p'ietsi t'u:kstuo:Si_! tR'i:s s'imti d'ivdesmit 'astuon^i" "5 64 123 4357 14683 742359 6475328" "mixed"
