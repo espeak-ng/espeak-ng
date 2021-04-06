@@ -8,12 +8,12 @@
 
 # tested in other tests: --ipa, -x, -X, -v, -m, -f, -q, --compile, --compile-debug, --compile-mbrola, --compile-intonations, --compile-phonemes
 
-test_commandlineoptions en "Capitals (sound)" "-k 1" "_#X1T'aI _#X1'Es Iz a# _#X1t'Es _#X1t'i: fO@ _#X1k'apIt@Lz"  "ThiS is a TesT for Capitals"
-test_commandlineoptions en "Capitals (word)" "-k 2" "k,ap@-t@L T'aI k,ap@-t@L 'Es Iz a# k,ap@-t@L t'Es k,ap@-t@L t'i: fO@ k,ap@-t@L k'apIt@Lz"  "ThiS is a TesT for Capitals"
-test_commandlineoptions en "Separator" "--sep=q" "hq@qlq'oU wq'3:qlqd" "hello world"
-test_commandlineoptions en "Linelength" "-l 15" "wi:; 'A@
+test_phon en  "_#X1T'aI _#X1'Es Iz a# _#X1t'Es _#X1t'i: fO@ _#X1k'apIt@Lz"  "ThiS is a TesT for Capitals" "Capitals (sound)" "-k 1"
+test_phon en  "k,ap@-t@L T'aI k,ap@-t@L 'Es Iz a# k,ap@-t@L t'Es k,ap@-t@L t'i: fO@ k,ap@-t@L k'apIt@Lz"  "ThiS is a TesT for Capitals" "Capitals (word)" "-k 2"
+test_phon en  "hq@qlq'oU wq'3:qlqd" "hello world" "Separator" "--sep=q"
+test_phon en "wi:; 'A@
 wi:; A@ t'EstIN
 wi:; A@ t'EstIN l'aInlENT wi:; A@ t'EstIN l'aInlENT l'aIk D'Is" "We are
 We are testing
 We are testing linelength
-We are testing linelength like this"
+We are testing linelength like this" "Linelength" "-l 15"

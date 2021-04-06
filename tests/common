@@ -48,6 +48,7 @@ test_phon() {
     EXPECTED=$2
     TEST_TEXT=$3
     MESSAGE=$4
+    OPTIONS=$5
 
     if [ "$MESSAGE" = "" ] ; then
         MESSAGE=$TEST_TEXT
@@ -55,7 +56,7 @@ test_phon() {
 
     echo "testing ${TEST_LANG} $MESSAGE"
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+        src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
     echo "${EXPECTED}" > expected.txt
     if [ "$MESSAGE" = "broken" ] ; then
         diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
@@ -104,29 +105,6 @@ test_replace() {
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
     if [ "$MESSAGE" = "broken" ] ; then
-        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
-    else
-        diff expected.txt actual.txt || exit 1
-    fi
-}
-
-test_commandlineoptions() {
-    TEST_LANG=$1
-    MESSAGE=$2
-    OPTIONS=$3
-    EXPECTED=$4
-    TEST_TEXT=$5
-    TEST_BROKEN=${6:-false}
-
-    if [ "x$MESSAGE" = x- ] ; then
-        echo "testing ${TEST_LANG}"
-    else
-        echo "testing ${TEST_LANG} ($MESSAGE)"
-    fi
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng ${OPTIONS} -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
-    echo "${EXPECTED}" > expected.txt
-    if [ x$TEST_BROKEN = xbroken ] ; then
         diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
     else
         diff expected.txt actual.txt || exit 1
