@@ -64,7 +64,8 @@ test_phon() {
     fi
 }
 
-test_voice () {
+# Check generated wav file from processed text
+test_wav () {
         VOICE=$1
         EXPECTED=$2
         TEST_TEXT=$3
@@ -76,17 +77,12 @@ test_voice () {
         diff expected.txt actual.txt || exit 1
 }
 
-test_lang() {
+# Check generated wav file from list of phonemes
+test_phwav() {
 	TEST_LANG=$1
 	EXPECTED=$2
 	TEST_TEXT=$3
-
-	echo "testing ${TEST_LANG}"
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		src/espeak-ng --stdout -v ${TEST_LANG} "[[${TEST_TEXT}]]" | \
-		$sha1sum | awk '{ print $1 }' > actual.txt
-	echo "${EXPECTED}" > expected.txt
-	diff expected.txt actual.txt || exit 1
+        test_wav $TEST_LANG $EXPECTED "[[$TEST_TEXT]]"
 }
 
 test_replace() {

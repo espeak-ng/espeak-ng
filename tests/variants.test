@@ -4,8 +4,8 @@
 # and run needed checks before
 is_hash
 
-test_voice "en" 029983e9084e04384af8a0816fb667e5c5e06389 "Testing variants"
+test_wav "en" 029983e9084e04384af8a0816fb667e5c5e06389 "Testing variants"
 # variant doesn't exist, should be equal to en:
-test_voice "en+nonexisting" 029983e9084e04384af8a0816fb667e5c5e06389 "Testing variants"
-test_voice "en+f1" dba359ac75ec33cc9cd4bd2af5031a3dbd84427c "Testing variants"
-test_voice "en+anikaRobot" d56012d8f4cfb4c36fdad31ad9ad7abda40ef474 "Testing variants"
+test_wav "en+nonexisting" 029983e9084e04384af8a0816fb667e5c5e06389 "Testing variants"
+test_wav "en+f1" dba359ac75ec33cc9cd4bd2af5031a3dbd84427c "Testing variants"
+test_wav "en+anikaRobot" d56012d8f4cfb4c36fdad31ad9ad7abda40ef474 "Testing variants"

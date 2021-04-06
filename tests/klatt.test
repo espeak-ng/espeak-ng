@@ -5,10 +5,10 @@
 is_hash
 is_klatt
 # call actual test functions
-test_voice en+klatt 2d910bd0bf0735e479166302ad68ca245360b6f4 "The quick brown fox jumps over the lazy dog"
-test_voice en+klatt2 d986302f525b455222f7cb77d70425ad9e524207 "The quick brown fox jumps over the lazy dog"
-test_voice en+klatt3 71487b8cd764bbbffeee4545c9e742540d381fec "The quick brown fox jumps over the lazy dog"
-test_voice en+klatt4 377767780368115863cde5cc11c0203cfdd48476 "The quick brown fox jumps over the lazy dog"
-test_voice en+klatt5 62f7afeb70d83b9a934b3be71c8ab89bd562079d "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt 2d910bd0bf0735e479166302ad68ca245360b6f4 "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt2 d986302f525b455222f7cb77d70425ad9e524207 "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt3 71487b8cd764bbbffeee4545c9e742540d381fec "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt4 377767780368115863cde5cc11c0203cfdd48476 "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt5 62f7afeb70d83b9a934b3be71c8ab89bd562079d "The quick brown fox jumps over the lazy dog"
 
 
