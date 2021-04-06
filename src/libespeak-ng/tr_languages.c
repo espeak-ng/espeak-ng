@@ -811,7 +811,8 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 		tr->langopts.long_stop = 130;
 
-		tr->langopts.numbers = NUM_DECIMAL_COMMA + NUM_ALLOW_SPACE;
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
+//		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_ORDINAL_DOT;
 		SetLetterVowel(tr, 'y');
 		tr->langopts.spelling_stress = 1;
 		tr->langopts.intonation_group = 3; // less intonation, don't raise pitch at comma
@@ -1400,6 +1401,26 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers2 = NUM2_THOUSANDS_VAR4;
 		tr->langopts.thousands_sep = ' '; // don't allow dot as thousands separator
 		break;
+		
+	case L3('s', 'm', 'j'): // Lule Saami
+	{
+		static const unsigned char stress_amps_fi[8] = { 18, 16, 22, 22, 20, 22, 22, 22 };
+		static const short stress_lengths_fi[8] = { 150, 180, 200, 200, 0, 0, 210, 250 };
+
+		SetupTranslator(tr, stress_lengths_fi, stress_amps_fi);
+
+		tr->langopts.stress_rule = STRESSPOSN_1L;
+		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_2_TO_HEAVY; // move secondary stress from light to a following heavy syllable
+		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
+		tr->langopts.long_stop = 130;
+
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
+		SetLetterVowel(tr, 'y');
+		tr->langopts.spelling_stress = 1;
+		tr->langopts.intonation_group = 3; // less intonation, don't raise pitch at comma
+	}
+		break;
+		
 	case L('s', 'q'): // Albanian
 	{
 		static const short stress_lengths_sq[8] = { 150, 150,  180, 180,  0, 0,  300, 300 };

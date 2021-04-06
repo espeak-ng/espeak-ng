@@ -58,6 +58,7 @@ new languages:
 *  piqd (Klingon) -- Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
 *  qdb (Lang Belta) -- Da Def, Valdis Vitolins
+*  smj (Lule Saami) -- Katri Hiovain, Sebastien Le Maguer
 *  th (Thai) -- Valdis Vitolins
 *  tk (Turkmen) -- boracasli98, Valdis Vitolins
 *  ug (Uyghur) -- boracasli98, Valdis Vitolins

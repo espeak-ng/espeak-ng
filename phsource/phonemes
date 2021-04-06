@@ -602,7 +602,6 @@ endphoneme
 
 
 
-
 phoneme w
   liquid
   lengthmod 7
@@ -636,7 +635,6 @@ phoneme w
     FMT(w/w_)
   ENDIF
 endphoneme
-
 
 
 
@@ -1709,6 +1707,9 @@ include ph_farsi
 
 phonemetable fi base1
 include ph_finnish
+
+phonemetable smj base1
+include ph_lule_saami
 
 phonemetable fr base1
 include ph_french
