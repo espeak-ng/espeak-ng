@@ -107,7 +107,7 @@
 .group f
           f          f
           ff         f:
-  akta @) ff (A      ff: // (Q3/sg.nom when with numeral 1)
+//  akta @) ff (A      ff: // (Q3/sg.nom when with numeral 1)
           
 .group g
           g          k
@@ -149,7 +149,7 @@
 .group l
           l	     l // Can be a copula itself
           ll	     l:
-  akta @) ll (A      ll: // (Q3/sg.nom when with numeral 1)   
+//  akta @) ll (A      ll: // (Q3/sg.nom when with numeral 1)   
           
        á) lgg	     lAg // Q3
        a) lbb	     lab // Q3
@@ -160,29 +160,29 @@
 .group m
           m          m
           mm         m:
-  akta @) mm (A      mm: // (Q3/sg.nom when with numeral 1)      
+//  akta @) mm (A      mm: // (Q3/sg.nom when with numeral 1)      
     	      
 .group n
            n          n
            nj         n_j
            nnj        n_j:
-   akta @) nnj (A     nn_j: // (Q3/sg.nom when with numeral 1)  
+//   akta @) nnj (A     nn_j: // (Q3/sg.nom when with numeral 1)  
  
  
 .group ñ
           ñ          N
           ññ         N:
-  akta @) ññ (A      NN: // (Q3/sg.nom when with numeral 1)      
+//  akta @) ññ (A      NN: // (Q3/sg.nom when with numeral 1)      
            
 .group ń
           ń          N
           ńń         N:
-  akta @) ńń (A      NN: // (Q3/sg.nom when with numeral 1)      
+//  akta @) ńń (A      NN: // (Q3/sg.nom when with numeral 1)      
            
 .group ŋ
           ŋ          N
           ŋŋ         N:
-  akta @) ŋŋ (A      NN: // (Q3/sg.nom when with numeral 1)      
+//  akta @) ŋŋ (A      NN: // (Q3/sg.nom when with numeral 1)      
            
 .group o
           o          oO
@@ -223,16 +223,16 @@
        u) rŋŋ	     ruN // Q3
        
           rr         r:
-  akta @) rr (A      rr: // (Q3/sg.nom when with numeral 1)           
+//  akta @) rr (A      rr: // (Q3/sg.nom when with numeral 1)           
 
 .group s
           s          s
           ss         s:
-  akta @) ss (A      ss: // (Q3/sg.nom when with numeral 1)      
+//  akta @) ss (A      ss: // (Q3/sg.nom when with numeral 1)      
        
           sj         S
           ssj        S: // Q2 or Q3        
-  akta @) ssj (A     SS: // (Q3/sg.nom when with numeral 1)               
+//  akta @) ssj (A     SS: // (Q3/sg.nom when with numeral 1)               
           
 .group t
           t          t
@@ -262,7 +262,7 @@
        i) vdd        vid // Q3
        å) vdd        vOd // Q3
        
-  akta @) vv (A      vv: // (Q3/sg.nom when with numeral 1)               
+//  akta @) vv (A      vv: // (Q3/sg.nom when with numeral 1)               
 
 .group w
           w          v
