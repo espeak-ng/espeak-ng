@@ -1155,7 +1155,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 		if (((control & 1) == 0) && (memcmp(vp->identifier, "mb/", 3) == 0))
 			continue;
 
-		if (memcmp(voice_select->languages,"all", 3) == 0) {
+		if (voice_select->languages == NULL || memcmp(voice_select->languages,"all", 3) == 0) {
 			voices[nv++] = vp;
 			continue;
 		}
