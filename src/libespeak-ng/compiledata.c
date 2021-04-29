@@ -1853,7 +1853,7 @@ static PHONEME_TAB_LIST *FindPhonemeTable(const char *string)
 		if (strcmp(phoneme_tab_list2[ix].name, string) == 0)
 			return &phoneme_tab_list2[ix];
 	}
-	error("Unknown phoneme table: '%s'", string);
+	error("compile: unknown phoneme table: '%s'", string);
 	return NULL;
 }
 
@@ -2541,7 +2541,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 
 	samplerate_native = samplerate = rate;
 	LoadPhData(NULL, NULL);
-	if (LoadVoice("", 0) == NULL)
+	if (LoadVoice("", 8/*compiling phonemes*/) == NULL)
 		return ENS_VOICE_NOT_FOUND;
 
 	WavegenInit(rate, 0);
