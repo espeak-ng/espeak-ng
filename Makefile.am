@@ -484,10 +484,16 @@ dictsource/%_emoji:
 dictsource/%_extra:
 	touch $@
 
+# NOTE: % (pattern) rules are GNU make specific we can extract the 'stem' that
+# matched the % in the target ($@) using $(*F) (which isn't GNU make specific,
+# just this interpretation is.)
+#
+# The rm $@ stops espeak-ng trying to load the old dictionary when it is run
+# (at the cost of a spurious error message.)
 espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	@echo "  DICT      $@"
-	@cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng \
-		--compile=`echo $@ | sed -e 's,espeak-ng-data/,,g' -e 's,_dict,,g'` && cd ..
+	rm -f $@
+	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) ../src/espeak-ng --compile="$(*F)"
 
 dictionaries: \
 	espeak-ng-data/af_dict \
