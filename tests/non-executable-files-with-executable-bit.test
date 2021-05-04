@@ -4,7 +4,7 @@ echo -n "testing files for executable bits that shouldn't be executable ... "
 
 find * -executable -type f | \
 	grep -vE "compile|config\.(guess|status|sub)|configure|depcomp|install-sh|libtool|missing" | # Ignore autotools output \
-	grep -vE "*\.test|src(/\.libs)?/(e?speak-ng|.*\.so\..*)|src/\.libs/lt-espeak-ng" | # Ignore built programs and libraries \
+	grep -vE "*\.test|tests/common|src(/\.libs)?/(e?speak-ng|.*\.so\..*)|src/\.libs/lt-espeak-ng" | # Ignore built programs and libraries \
 	grep -vE "*.\.sh|tools/emoji" | # Ignore helper scripts \
 	grep -vE "src/ucd-tools/tools/(.*\.py|mkencodingtable)" | # Ignore ucd-tools helper scripts \
 	tee tests/non-executable-files-with-executable-bit.check > /dev/null
