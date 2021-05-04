@@ -1,5 +1,9 @@
 # Change Log
 
+## 11.0.0.1 - 2021-05-04
+
+*  Fix -fsanitize=address issues in case.c.
+
 ## 11.0.0 - 2018-07-08
 
 *  Make the ispunct ctype compatibility implementation conformant.
