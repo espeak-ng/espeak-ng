@@ -7,6 +7,7 @@ find * -executable -type f | \
 	grep -vE "*\.test|tests/common|src(/\.libs)?/(e?speak-ng|.*\.so\..*)|src/\.libs/lt-espeak-ng" | # Ignore built programs and libraries \
 	grep -vE "*.\.sh|tools/emoji" | # Ignore helper scripts \
 	grep -vE "src/ucd-tools/tools/(.*\.py|mkencodingtable)" | # Ignore ucd-tools helper scripts \
+	grep -vE "tests/.libs|src/ucd-tools/tests/print(ucd|c)data(_cpp)?" | # Ignore ucd-tools test programs \
 	tee tests/non-executable-files-with-executable-bit.check > /dev/null
 
 if [ -s tests/non-executable-files-with-executable-bit.check ] ; then
