@@ -2841,7 +2841,7 @@ codepoint_t ucd_tolower(codepoint_t c)
 {
 	int begin = 0;
 	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);
-	while (begin <= end)
+       while (begin < end)
 	{
 		int pos = (begin + end) / 2;
 		const struct case_conversion_entry *item = (case_conversion_data + pos);

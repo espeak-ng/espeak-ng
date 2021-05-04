@@ -39,14 +39,19 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events) {
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 	if (!initialized) {
+               setenv("ESPEAK_DATA_PATH",".",0);
 		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0);
 		espeak_SetSynthCallback(SynthCallback);
 		initialized = 1;
 	}
 
 	int synth_flags = espeakCHARS_UTF8 | espeakPHONEMES | espeakSSML;
-	espeak_Synth((char*) data, size + 1, 0, POS_CHARACTER, 0,
+       char *str = malloc(size+1);
+       memcpy(str, data, size);
+       str[size] = 0;
+       espeak_Synth((char*) str, size + 1, 0, POS_CHARACTER, 0,
 	             synth_flags, NULL, NULL);
+       free(str);
 
 	return 0;
 }

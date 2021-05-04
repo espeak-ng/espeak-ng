@@ -222,6 +222,7 @@ endif
 
 src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS}
 src_espeak_ng_SOURCES = src/espeak-ng.c
+nodist_EXTRA_src_espeak_ng_SOURCES = force-cxx-linking.cxx
 
 ##### tests:
 
