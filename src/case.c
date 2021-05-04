@@ -1,6 +1,6 @@
 /* Unicode Case Conversion
  *
- * Copyright (C) 2012-2018 Reece H. Dunn
+ * Copyright (C) 2012-2018, 2021 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -2822,7 +2822,7 @@ static const struct case_conversion_entry case_conversion_data[] =
 codepoint_t ucd_toupper(codepoint_t c)
 {
 	int begin = 0;
-	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);
+	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]) - 1;
 	while (begin <= end)
 	{
 		int pos = (begin + end) / 2;
@@ -2840,7 +2840,7 @@ codepoint_t ucd_toupper(codepoint_t c)
 codepoint_t ucd_tolower(codepoint_t c)
 {
 	int begin = 0;
-	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);
+	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]) - 1;
 	while (begin <= end)
 	{
 		int pos = (begin + end) / 2;
@@ -2858,7 +2858,7 @@ codepoint_t ucd_tolower(codepoint_t c)
 codepoint_t ucd_totitle(codepoint_t c)
 {
 	int begin = 0;
-	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);
+	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]) - 1;
 	while (begin <= end)
 	{
 		int pos = (begin + end) / 2;
