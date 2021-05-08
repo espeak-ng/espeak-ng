@@ -434,8 +434,8 @@ phsource/phonemes.stamp: \
 	phsource/ph_welsh \
 	phsource/ph_wolof \
 	phsource/ph_yoruba \
+	phsource/ph_yue \
 	phsource/ph_zh \
-	phsource/ph_zh_yue \
 	phsource/phonemes \
 	src/espeak-ng
 	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-intonations && \
@@ -599,8 +599,8 @@ dictionaries: \
 	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
-	espeak-ng-data/zh_dict \
-	espeak-ng-data/zhy_dict
+	espeak-ng-data/yue_dict \
+	espeak-ng-data/zh_dict
 
 af: espeak-ng-data/af_dict
 espeak-ng-data/af_dict: dictsource/af_list dictsource/af_rules dictsource/af_extra dictsource/af_emoji
@@ -943,17 +943,17 @@ else
 espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_emoji
 endif
 
-zhy: espeak-ng-data/zhy_dict
-dictsource/zhy_listx:
-	ln -svf extra/zhy_listx dictsource/
-if HAVE_ZHY_EXTENDED_DICTIONARY
-espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_listx dictsource/zhy_emoji
+yue: espeak-ng-data/yue_dict
+dictsource/yue_listx:
+	ln -svf extra/yue_listx dictsource/
+if HAVE_YUE_EXTENDED_DICTIONARY
+espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_listx dictsource/yue_emoji
 else
-espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
+espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_emoji
 endif
 	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
-dictsource/zhy_emoji:
+dictsource/yue_emoji:
 	@echo "  EMOJI     $@"
 	@if test x"${CLDR_PATH}" = x ; then \
 		touch $@ ; \

@@ -322,8 +322,8 @@
   <Target Name="zh" Inputs="$(ProjectDir)..\..\dictsource\zh_rules;$(ProjectDir)..\..\dictsource\zh_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\zh_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=zh" />
   </Target>
-  <Target Name="zhy" Inputs="$(ProjectDir)..\..\dictsource\zhy_rules;$(ProjectDir)..\..\dictsource\zhy_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\zhy_dict" DependsOnTargets="Phonemes">
+  <Target Name="yue" Inputs="$(ProjectDir)..\..\dictsource\yue_rules;$(ProjectDir)..\..\dictsource\yue_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\yue_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=yue" />
   </Target>
-  <Target Name="Dictionaries" DependsOnTargets="af;am;an;ar;as;az;bg;bn;bs;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hi;hr;hu;hy;ia;id;is;it;jbo;ja;ka;kl;kn;ko;ku;ky;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sr;sv;sw;ta;te;tn;tr;tt;ur;vi;zh;zhy" />
+  <Target Name="Dictionaries" DependsOnTargets="af;am;an;ar;as;az;bg;bn;bs;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hi;hr;hu;hy;ia;id;is;it;jbo;ja;ka;kl;kn;ko;ku;ky;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sr;sv;sw;ta;te;tn;tr;tt;ur;vi;yue;zh" />
 </Project>
