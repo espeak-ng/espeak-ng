@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2020 november  20 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2021 May  10 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -938,6 +938,7 @@ fantasy	f'a:ntazi
 farkle	f'a@-*k,Ol
 fashion	f'aS@n
 feed	_^_en
+feedback	f'i:d_b,Ek
 feeling	f'i:lIN
 fender	$1 $alt
 fiction	f'ikS@n
@@ -1797,6 +1798,7 @@ amsterdam	$1
 andorrano	$3
 angeles	$1
 angola	$2 $capital
+Ankara	$1
 aostano	aost'ano
 apache	ap'a:S
 arab $1
@@ -2375,6 +2377,7 @@ chrysler	_^_EN
 chuck	tS'a/k
 churchill	_^_en
 cimabue  tSimab'u:e
+citroën	sit@-*o'en
 collodi		$2 $alt $only
 corine	k'ORIn $capital
 corrias	$2
@@ -2483,6 +2486,8 @@ jace	_^_en $only
 jack	dZ'E:k
 jackson	_^_EN
 jacopo	j'a:kopo
+jackie	dZ'E:kI
+Jaqueline	Z,ak_l'i:n
 james	_^_EN
 jane	_^_EN
 jarno	j'a:@-*no
@@ -2579,6 +2584,8 @@ olg  $alt
 oliver	'O:liv,e@-* $onlys
 ollie	'Ol:i
 omero	om'E:Ro	$capital
+panteon	$1
+pantheon	$1
 paol $1
 parkinson	$1
 parmalat	$1 $only
@@ -2795,6 +2802,7 @@ adagia	$2
 adagiano	$2
 adagino	$2
 adattino	$2
+addebitano	$2
 addensano	$2
 addensino	$2
 addentrano	$2	$alt
@@ -3055,6 +3063,7 @@ brindino	$1
 brontolano	$1
 brontolino	$1
 brucino	$1
+bucano	$1
 burlano	$1
 burlino	$1
 bussino	$1
@@ -3132,6 +3141,7 @@ comincino	$2
 commemor	$2 $alt
 commutino	$2
 compaiano	$2
+comparvero	$2
 compensano	$2
 competano	$2 $alt
 compiace	kompj'atSe/
@@ -3512,7 +3522,7 @@ fotografano	$2
 franino	$1
 frantumano	$2
 fratturano	$2
-friggerl	$1
+freghino	$1
 frizzare	f@-*its2:'aRe
 frodano	$1
 frodino	$1
@@ -3562,6 +3572,7 @@ giurino	$1
 gocciolano	$1
 godano	$1
 godere	$2 $alt2
+gonfiano	$1
 gonfino	$1
 governino	$2
 graffiano	$1
@@ -4079,6 +4090,7 @@ preoccupino	$2
 preordin	$2
 preparano	$2
 presentino	$2
+presenziano	$2
 pressino	$1
 prestino	$1	$alt2
 prevalere	$3
@@ -4100,6 +4112,7 @@ programmano	$2
 proiettino	$3
 pronuncino	$2
 propinino	$2
+	proponere	$3 $alt
 propugnano	$2
 prorogano	$1
 prosciughino	$2
@@ -4893,6 +4906,7 @@ zuccherano	$1
 (capitano tutte)	k'apitano||t'ut:e
 (che capitano)	ke||k'apitano
 (quando capitano)	kw'ando||k'a:pitano
+(non capitano)	n,on||_k'a:pitano
 (dai che)	d'ai||ke
 (a seguito)	a||s'e:guito
 (al seguito)	als'egwito
@@ -4937,6 +4951,7 @@ aiutami	$2
 allettal	$2
 alzal	$1
 alzati	$1	$atstart
+applicarcisi	$3
 approfittane	$3
 aprigli	$1
 aprimel	$1
@@ -4962,8 +4977,6 @@ cliccaci	$1
 cliccal	$1
 compiersi	$1
 compil	$2
-comunicacel	$2
-comunical	$2
 conosciutisi	$3
 conclusasi	$2
 confrontal	$2
@@ -4988,6 +5001,7 @@ dedical	$1
 deposital	$2
 degener	$2
 dicasi	$1
+diffusasi	$2
 diffusosi	$2
 digitalo	$1
 digliel	$1
@@ -5015,6 +5029,7 @@ fattoci	$1
 fermati	$1 $atstart
 fermatosi	$2
 formatosi	$2
+friggerl	$1
 giuntaci	$1
 giuntami	$1
 giuravi	$2
@@ -5065,6 +5080,7 @@ perdermici	$1
 perdonatel	$3
 pizzical	$1
 pizzicami	$1
+poniti	p'o:niti
 portala	$1
 portalo	$1
 portamici	$1
@@ -5074,6 +5090,7 @@ presentaci	$2
 privaci	$1
 procurati	$2 $atstart
 promessomi	$2
+proponiti	$2
 proteggiti	$2 $alt2
 pulisciti	$2
 raddrizzarl	@-*ad:@-*its2:'a@-*l
