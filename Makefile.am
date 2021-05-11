@@ -339,6 +339,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_bulgarian \
 	phsource/ph_catalan \
 	phsource/ph_cherokee \
+	phsource/ph_cmn \
 	phsource/ph_consonants \
 	phsource/ph_croatian \
 	phsource/ph_czech \
@@ -435,7 +436,6 @@ phsource/phonemes.stamp: \
 	phsource/ph_wolof \
 	phsource/ph_yoruba \
 	phsource/ph_yue \
-	phsource/ph_zh \
 	phsource/phonemes \
 	src/espeak-ng
 	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-intonations && \
@@ -506,6 +506,7 @@ dictionaries: \
 	espeak-ng-data/bs_dict \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/chr_dict \
+	espeak-ng-data/cmn_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
@@ -599,8 +600,7 @@ dictionaries: \
 	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
-	espeak-ng-data/yue_dict \
-	espeak-ng-data/zh_dict
+	espeak-ng-data/yue_dict
 
 af: espeak-ng-data/af_dict
 espeak-ng-data/af_dict: dictsource/af_list dictsource/af_rules dictsource/af_extra dictsource/af_emoji
@@ -934,13 +934,13 @@ espeak-ng-data/uz_dict: dictsource/uz_list dictsource/uz_rules dictsource/uz_ext
 vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
 
-zh: espeak-ng-data/zh_dict
-dictsource/zh_listx:
-	ln -svf extra/zh_listx dictsource/
-if HAVE_ZH_EXTENDED_DICTIONARY
-espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_listx dictsource/zh_extra dictsource/zh_emoji
+cmn: espeak-ng-data/cmn_dict
+dictsource/cmn_listx:
+	ln -svf extra/cmn_listx dictsource/
+if HAVE_CMN_EXTENDED_DICTIONARY
+espeak-ng-data/cmn_dict: dictsource/cmn_list dictsource/cmn_rules dictsource/cmn_listx dictsource/cmn_extra dictsource/cmn_emoji
 else
-espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_emoji
+espeak-ng-data/cmn_dict: dictsource/cmn_list dictsource/cmn_rules dictsource/cmn_extra dictsource/cmn_emoji
 endif
 
 yue: espeak-ng-data/yue_dict
@@ -968,6 +968,7 @@ mbrola: \
 	espeak-ng-data/mbrola_ph/ar1_phtrans \
 	espeak-ng-data/mbrola_ph/ar2_phtrans \
 	espeak-ng-data/mbrola_ph/ca_phtrans \
+	espeak-ng-data/mbrola_ph/cmn_phtrans \
 	espeak-ng-data/mbrola_ph/cr1_phtrans \
 	espeak-ng-data/mbrola_ph/cs_phtrans \
 	espeak-ng-data/mbrola_ph/de2_phtrans \
@@ -1010,8 +1011,7 @@ mbrola: \
 	espeak-ng-data/mbrola_ph/tr1_phtrans \
 	espeak-ng-data/mbrola_ph/us_phtrans \
 	espeak-ng-data/mbrola_ph/us3_phtrans \
-	espeak-ng-data/mbrola_ph/vz_phtrans \
-	espeak-ng-data/mbrola_ph/zh_phtrans
+	espeak-ng-data/mbrola_ph/vz_phtrans
 
 espeak-ng-data/mbrola_ph/%_phtrans: phsource/mbrola/% src/espeak-ng
 	mkdir -p espeak-ng-data/mbrola_ph

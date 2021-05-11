@@ -209,7 +209,7 @@ to build:
 | Option               | Extended Dictionary | Default |
 |----------------------|---------------------|---------|
 | `--with-extdict-ru`  | Russian             | no      |
-| `--with-extdict-zh`  | Mandarin Chinese    | no      |
+| `--with-extdict-cmn` | Mandarin Chinese    | no      |
 | `--with-extdict-yue` | Cantonese           | no      |
 
 The extended dictionaries are taken from
