@@ -20,6 +20,8 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
+#include <libgen.h>
 
 #include <espeak-ng/espeak_ng.h>
 
@@ -37,9 +39,19 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events) {
 
 /* See http://llvm.org/docs/LibFuzzer.html */
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
+extern int LLVMFuzzerInitialize(const int* argc, char*** argv);
+
+char *filepath = NULL;
+
+extern int LLVMFuzzerInitialize(const int* argc, char*** argv)
+{
+	filepath = dirname(strdup((*argv)[0]));
+	return 0;
+}
+
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 	if (!initialized) {
-               setenv("ESPEAK_DATA_PATH",".",0);
+		setenv("ESPEAK_DATA_PATH",filepath,0);
 		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0);
 		espeak_SetSynthCallback(SynthCallback);
 		initialized = 1;
