@@ -22,7 +22,7 @@ documentation:
 
 updated languages:
 *  ba (Bashkir) -- boracasli98, Valdis Vitolins, Juho Hiltunen
-*  de (German) -- Karl Eick
+*  de (German) -- Karl Eick, Henry Krumb
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
 *  fa (Farsi/Persian) -- Shadyar Khodayari

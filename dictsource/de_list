@@ -16,7 +16,7 @@
 // spoken when "speak punctuation" option is on.
 
 _.	pUNkt
-*	StErn	$max3
+_*	StErn	$max3
 %	pro:ts'Ent	$max3
 +	plUs	$max3
 =	glaIC	$max3
@@ -769,6 +769,8 @@ inder		Ind3
 indes		Ind'Es
 indessen	Ind'Es@n
 ingenieur	IndZ@nj'Y:r
+ingenieurin IndZ@nj'Y:rin
+ingenieurinnen IndZ@nj'Y:rinnen
 injurie		$alt
 inka		INkA:
 inkaisch	INkA:IS
