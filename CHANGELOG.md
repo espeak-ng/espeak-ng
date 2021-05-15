@@ -16,6 +16,10 @@ The espeak-ng project is a fork of the espeak project.
 *  New Language option: "lowercaseSentence" for ending a sentence if a period is followed by a lower case letter.
 *  Added voice variants
 
+bug fixes:
+*  Fix reading malformed SSML (Christopher Brannon)
+*  Fix memory allocation (Christopher Brannon)
+
 documentation:
 * Add documentation about voice and language options.
 * Add documentation about dictionary flags.

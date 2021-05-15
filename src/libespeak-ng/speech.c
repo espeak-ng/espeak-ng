@@ -280,7 +280,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 		buffer_length = min_buffer_length;
 
 	// allocate 2 bytes per sample
-	outbuf_size = (buffer_length * samplerate)/500;
+	// Always round up to the nearest sample and the nearest byte.
+	int millisamples = buffer_length * samplerate;
+	outbuf_size = (millisamples + 1000 - millisamples % 1000) / 500;
 	out_start = (unsigned char *)realloc(outbuf, outbuf_size);
 	if (out_start == NULL)
 		return ENOMEM;

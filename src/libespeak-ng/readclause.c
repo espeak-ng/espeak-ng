@@ -510,10 +510,13 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	tr->clause_lower_count = 0;
 	*tone_type = 0;
 
-	if (ungot_char2 != 0)
+	if (ungot_char2 != 0) {
 		c2 = ungot_char2;
-	else
+	} else if (Eof()) {
+		c2 = 0;
+	} else {
 		c2 = GetC();
+	}
 
 	while (!Eof() || (ungot_char != 0) || (ungot_char2 != 0) || (ungot_string_ix >= 0)) {
 		if (!iswalnum(c1)) {
@@ -542,14 +545,14 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 		if ((ungot_string_ix == 0) && (ungot_char2 == 0))
 			c1 = ungot_string[ungot_string_ix++];
-		if (ungot_string_ix >= 0)
+		if (ungot_string_ix >= 0) {
 			c2 = ungot_string[ungot_string_ix++];
-		else {
+		} else if (Eof()) {
+			c2 = ' ';
+		} else {
 			c2 = GetC();
-
-			if (Eof())
-				c2 = ' ';
 		}
+
 		ungot_char2 = 0;
 
 		if ((option_ssml) && (phoneme_mode == 0)) {
@@ -561,7 +564,11 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					c1 = GetC();
 				}
 				xml_buf2[n_xml_buf] = 0;
-				c2 = GetC();
+				if (Eof()) {
+					c2 = '\0';
+				} else {
+					c2 = GetC();
+				}
 				sprintf(ungot_string, "%s%c%c", &xml_buf2[0], c1, c2);
 
 				int found = -1;
