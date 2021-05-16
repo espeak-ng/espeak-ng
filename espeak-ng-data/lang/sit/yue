@@ -3,8 +3,8 @@ language yue
 language zh-yue
 language zh 8
 
-phonemes zhy
-dictionary zhy
+phonemes yue
+dictionary yue
 
 // interpret English letters as 1=English words, 2=jyutping
 dictrules 1

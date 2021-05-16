@@ -339,6 +339,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_bulgarian \
 	phsource/ph_catalan \
 	phsource/ph_cherokee \
+	phsource/ph_cmn \
 	phsource/ph_consonants \
 	phsource/ph_croatian \
 	phsource/ph_czech \
@@ -434,8 +435,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_welsh \
 	phsource/ph_wolof \
 	phsource/ph_yoruba \
-	phsource/ph_zh \
-	phsource/ph_zh_yue \
+	phsource/ph_yue \
 	phsource/phonemes \
 	src/espeak-ng
 	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-intonations && \
@@ -506,6 +506,7 @@ dictionaries: \
 	espeak-ng-data/bs_dict \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/chr_dict \
+	espeak-ng-data/cmn_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
@@ -599,8 +600,7 @@ dictionaries: \
 	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
-	espeak-ng-data/zh_dict \
-	espeak-ng-data/zhy_dict
+	espeak-ng-data/yue_dict
 
 af: espeak-ng-data/af_dict
 espeak-ng-data/af_dict: dictsource/af_list dictsource/af_rules dictsource/af_extra dictsource/af_emoji
@@ -934,26 +934,26 @@ espeak-ng-data/uz_dict: dictsource/uz_list dictsource/uz_rules dictsource/uz_ext
 vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
 
-zh: espeak-ng-data/zh_dict
-dictsource/zh_listx:
-	ln -svf extra/zh_listx dictsource/
-if HAVE_ZH_EXTENDED_DICTIONARY
-espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_listx dictsource/zh_extra dictsource/zh_emoji
+cmn: espeak-ng-data/cmn_dict
+dictsource/cmn_listx:
+	ln -svf extra/cmn_listx dictsource/
+if HAVE_CMN_EXTENDED_DICTIONARY
+espeak-ng-data/cmn_dict: dictsource/cmn_list dictsource/cmn_rules dictsource/cmn_listx dictsource/cmn_extra dictsource/cmn_emoji
 else
-espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_emoji
+espeak-ng-data/cmn_dict: dictsource/cmn_list dictsource/cmn_rules dictsource/cmn_extra dictsource/cmn_emoji
 endif
 
-zhy: espeak-ng-data/zhy_dict
-dictsource/zhy_listx:
-	ln -svf extra/zhy_listx dictsource/
-if HAVE_ZHY_EXTENDED_DICTIONARY
-espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_listx dictsource/zhy_emoji
+yue: espeak-ng-data/yue_dict
+dictsource/yue_listx:
+	ln -svf extra/yue_listx dictsource/
+if HAVE_YUE_EXTENDED_DICTIONARY
+espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_listx dictsource/yue_emoji
 else
-espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
+espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_emoji
 endif
 	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
-dictsource/zhy_emoji:
+dictsource/yue_emoji:
 	@echo "  EMOJI     $@"
 	@if test x"${CLDR_PATH}" = x ; then \
 		touch $@ ; \
@@ -968,6 +968,7 @@ mbrola: \
 	espeak-ng-data/mbrola_ph/ar1_phtrans \
 	espeak-ng-data/mbrola_ph/ar2_phtrans \
 	espeak-ng-data/mbrola_ph/ca_phtrans \
+	espeak-ng-data/mbrola_ph/cmn_phtrans \
 	espeak-ng-data/mbrola_ph/cr1_phtrans \
 	espeak-ng-data/mbrola_ph/cs_phtrans \
 	espeak-ng-data/mbrola_ph/de2_phtrans \
@@ -1010,8 +1011,7 @@ mbrola: \
 	espeak-ng-data/mbrola_ph/tr1_phtrans \
 	espeak-ng-data/mbrola_ph/us_phtrans \
 	espeak-ng-data/mbrola_ph/us3_phtrans \
-	espeak-ng-data/mbrola_ph/vz_phtrans \
-	espeak-ng-data/mbrola_ph/zh_phtrans
+	espeak-ng-data/mbrola_ph/vz_phtrans
 
 espeak-ng-data/mbrola_ph/%_phtrans: phsource/mbrola/% src/espeak-ng
 	mkdir -p espeak-ng-data/mbrola_ph

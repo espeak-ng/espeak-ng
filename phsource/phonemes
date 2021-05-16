@@ -1687,6 +1687,9 @@ include ph_arabic
 phonemetable ba base1
 include ph_bashkir
 
+phonemetable cmn base1
+include ph_cmn
+
 phonemetable cy base1
 include ph_welsh
 
@@ -1814,11 +1817,8 @@ include ph_vietnam
 phonemetable wo base1
 include ph_wolof
 
-phonemetable zh base1
-include ph_zh
-
-phonemetable zhy base1
-include ph_zh_yue
+phonemetable yue base1
+include ph_yue
 
 // *** Tables extending base2 ***
 

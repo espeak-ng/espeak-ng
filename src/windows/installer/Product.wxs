@@ -591,11 +591,11 @@
             <Component Id="vi_dict" Win64="$(var.Win64)" Guid="F4E1855E-A1C8-4DE1-A72F-0835C7794314">
               <File Name="vi_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\vi_dict" KeyPath="yes"/>
             </Component>
-            <Component Id="zh_dict" Win64="$(var.Win64)" Guid="6DF6E437-BF8B-4FCD-B094-D88C65ACDE6E">
-              <File Name="zh_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\zh_dict" KeyPath="yes"/>
+            <Component Id="cmn_dict" Win64="$(var.Win64)" Guid="6DF6E437-BF8B-4FCD-B094-D88C65ACDE6E">
+              <File Name="cmn_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\cmn_dict" KeyPath="yes"/>
             </Component>
-            <Component Id="zhy_dict" Win64="$(var.Win64)" Guid="D6BF57DA-A408-40FC-9D8E-610C8AED5836">
-              <File Name="zhy_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\zhy_dict" KeyPath="yes"/>
+            <Component Id="yue_dict" Win64="$(var.Win64)" Guid="D6BF57DA-A408-40FC-9D8E-610C8AED5836">
+              <File Name="yue_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\yue_dict" KeyPath="yes"/>
             </Component>
             <Directory Id="VOICES" Name="voices">
               <Directory Id="AAV" Name="aav">
@@ -1012,11 +1012,11 @@
     </ComponentGroup>
     <ComponentGroup Id="LangChineseCantonese">
       <ComponentRef Id="yue"/>
-      <ComponentRef Id="zhy_dict"/>
+      <ComponentRef Id="yue_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangChineseMandarin">
       <ComponentRef Id="cmn"/>
-      <ComponentRef Id="zh_dict"/>
+      <ComponentRef Id="cmn_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangCroatian">
       <ComponentRef Id="hr"/>
