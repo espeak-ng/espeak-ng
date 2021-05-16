@@ -17,6 +17,10 @@ The espeak-ng project is a fork of the espeak project.
 *  Added voice variants
 *  Renamed zh to cmn (Mandarin)
 *  Renamed zhy to yue (Cantonese)
+*  cmn (Mandarin) now assumes all latin characters all English text. 
+   Use cmn-latn-pinyin for interpreting latin characters as pinyin.
+
+
 
 bug fixes:
 *  Fix reading malformed SSML (Christopher Brannon)
