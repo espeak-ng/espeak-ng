@@ -477,6 +477,9 @@ voice_t *LoadVoice(const char *vname, int control)
 	//          bit 1  1 = change tone only, not language
 	//          bit 2  1 = don't report error on LoadDictionary
 	//          bit 4  1 = vname = full path
+        //          bit 8  1 = INTERNAL: compiling phonemes; do not try to
+        //                     load the phoneme table
+        //          bit 16 1 = UNDOCUMENTED
 
 	FILE *f_voice = NULL;
 	char *p;
@@ -526,7 +529,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		if (GetFileLength(buf) <= 0)
 			return NULL;
 	} else {
-		if (voicename[0] == 0)
+		if (voicename[0] == 0 && !(control & 8)/*compiling phonemes*/)
 			strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
 		sprintf(path_voices, "%s%cvoices%c", path_home, PATHSEP, PATHSEP);
@@ -540,7 +543,11 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	f_voice = fopen(buf, "r");
 
-	language_type = "en"; // default
+        if (!(control & 8)/*compiling phonemes*/)
+            language_type = "en"; // default
+        else
+            language_type = "";
+
 	if (f_voice == NULL) {
 		if (control & 3)
 			return NULL; // can't open file
@@ -867,18 +874,28 @@ voice_t *LoadVoice(const char *vname, int control)
 	if (tone_only)
 		new_translator = translator;
 	else {
-		if ((ix = SelectPhonemeTableName(phonemes_name)) < 0) {
+		if (!!(control & 8/*compiling phonemes*/)) {
+                        /* Set by espeak_ng_CompilePhonemeDataPath when it
+                         * calls LoadVoice("", 8) to set up a dummy(?) voice.
+                         * As phontab may not yet exist this avoids the spurious
+                         * error message and guarantees consistent results by
+                         * not actually reading a potentially bogus phontab...
+                         */
+                        ix = 0;
+                } else if ((ix = SelectPhonemeTableName(phonemes_name)) < 0) {
 			fprintf(stderr, "Unknown phoneme table: '%s'\n", phonemes_name);
 			ix = 0;
 		}
 		voice->phoneme_tab_ix = ix;
 		new_translator->phoneme_tab_ix = ix;
 		new_translator->dict_min_size = dict_min;
-		LoadDictionary(new_translator, new_dictionary, control & 4);
-		if (dictionary_name[0] == 0) {
-			DeleteTranslator(new_translator);
-			return NULL; // no dictionary loaded
-		}
+                if (!(control & 8/*compiling phonemes*/)) {
+                        LoadDictionary(new_translator, new_dictionary, control & 4);
+                        if (dictionary_name[0] == 0) {
+                                DeleteTranslator(new_translator);
+                                return NULL; // no dictionary loaded
+                        }
+                }
 
 		new_translator->dict_condition = conditional_rules;
 
