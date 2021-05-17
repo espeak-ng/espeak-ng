@@ -1,5 +1,8 @@
 // This file is UTF8 encoded
 
+// Default is to handle latin characters as pinyin
+// ?1:	speak latin characters as English words
+
 .replace
 //replace tone mark with tone number
 ˉ 1
@@ -53,6 +56,7 @@ language).
 // 儿 兒  erhua
 
 .group a
+?1     a        _^_EN
        a        A
        ai	ai
        a1i	ai55
@@ -82,19 +86,23 @@ language).
     y) a (DngK	iA
 
 .group b
+?1     b        _^_EN
        b        p
     @) b (K	_^_EN
 
 .group c
+?1     c        _^_EN
        c        tsh
        ch (+    ts.h
     @) c (K	_^_EN
 
 .group d
+?1     d        _^_EN
        d        t
     @) d (K	_^_EN
 
 .group e
+?1     e        _^_EN
        e	o-
     d) e	@
     t) e	@
@@ -117,18 +125,22 @@ language).
        e4r (K	@r51
 
 .group f
+?1     f        _^_EN
        f        f
     @) f (K	_^_EN
 
 .group g
+?1     g        _^_EN
        g        k
     @) g (K	_^_EN
 
 .group h
+?1     h        _^_EN
        h        X
     @) h (K	_^_EN
 
 .group i
+?1     i        _^_EN
        i        i //i in ing
     z) i        i[
     c) i        i[
@@ -149,28 +161,34 @@ language).
        iu 	iou 
 
 .group j
+?1     j        _^_EN
        j        tS;
     @) j (K	_^_EN
 
 .group k
+?1     k        _^_EN
        k        kh
     @) k (K	_^_EN
 
 .group l
+?1     l        _^_EN
        l        l
     @) l (K	_^_EN
     @) l (v     l
 
 .group m
+?1     m        _^_EN
        m        m
     @) m (K	_^_EN
 
 .group n
+?1     n        _^_EN
        n        n
        ng (K	N     // consider (ng+vowel) as (n g+vowel) ??
     _) ng (K	N-    // syllablic [N]
 
 .group o
+?1     o        _^_EN
        o        o
 
        ou	ou
@@ -193,27 +211,33 @@ language).
     y) o4u	iou51
 
 .group p
+?1     p        _^_EN
        p        ph
     @) p (K	_^_EN
 
 .group q
+?1     q        _^_EN
        q        tS;h
     @) q (K	_^_EN
 
 .group r
+?1     r        _^_EN
        r        z.
        r (K     @r11
 
 .group s
+?1     s        _^_EN
        s        s
        sh (+    s.
     @) s (K	_^_EN
 
 .group t
+?1     t        _^_EN
        t        th
     @) t (K	_^_EN
 
 .group u
+?1     u        _^_EN
        u        u
        ua	wA
        ua (DnK	ua
@@ -246,10 +270,12 @@ language).
 
 
 .group ü
+?1     ü	_^_EN
        ü	y
        üe	yE
 
 .group v //variant of ü
+?1     v        _^_EN
        v	v // foreign words
     l) v        y //ü
     n) v        y //ü
@@ -257,6 +283,7 @@ language).
     n) ve	yE //üe
 
 .group w
+?1     w        _^_EN
     @) w (K	_^_EN
        wa	wA  //wa wan wang
        wai	wai
@@ -274,10 +301,12 @@ language).
        wu	wu
 
 .group x
+?1     x        _^_EN
        x        S;
     @) x (K	_^_EN
 
 .group y
+?1     y        _^_EN
        y	j //before a o e i
        y (u	//NULL before u
        y (uK	;
@@ -287,6 +316,7 @@ language).
     @) y (K	_^_EN
 
 .group z
+?1     z        _^_EN
        z        ts
        zh (+    ts.
     @) z (K	_^_EN
@@ -300,4 +330,3 @@ language).
        5	11
 
 	|	_|
-

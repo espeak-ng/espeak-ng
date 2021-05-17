@@ -1,4 +1,4 @@
-name Chinese (Mandarin)
+name Chinese (Mandarin, latin as English)
 language cmn
 language zh-cmn
 language zh
@@ -9,6 +9,8 @@ words 1
 pitch 80 118
 
 dict_min 100000
+
+dictrules 1	// interpret latin characters as English text
 
 //for some dialects
 
