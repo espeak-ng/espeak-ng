@@ -25,6 +25,7 @@ The espeak-ng project is a fork of the espeak project.
 bug fixes:
 *  Fix reading malformed SSML (Christopher Brannon)
 *  Fix memory allocation (Christopher Brannon)
+*  Fix building and phoneme compilation (John Bowler)
 
 documentation:
 * Add documentation about voice and language options.
