@@ -614,7 +614,9 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 						return terminator;
 					}
 					c1 = ' ';
-					c2 = GetC();
+					if (!Eof()) {
+						c2 = GetC();
+					}
 					continue;
 				}
 			}
