@@ -458,6 +458,9 @@ Eight integer parameters. These are added to the voice's corresponding
 `stressLength` values. They are used in the voice variant files in
 `espeak-ng-data/voices/!v` to give some variety. Negative values may be used.
 
+Note that setting `stressLength` after `stressAdd`  will overwrite this value.
+`stressLength` must be set before `stressAdd`.
+
 ### stressAmp
 
 	stressAmp <8 integer values>

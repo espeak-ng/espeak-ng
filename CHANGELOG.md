@@ -11,8 +11,9 @@ The espeak-ng project is a fork of the espeak project.
 
 *  Add support for speechPlayer.
 *  Add more tests to check the various parts of espeak-ng.
-*  Various changes to clean up the codebase.
+*  Various changes to clean up the codebase (Juho Hiltunen)
 *  Restructure "option brackets" language option to "brackets" and "bracketsAnnounced".
+*  Restructure "stressLength" and "stressAdd" language option
 *  New Language option: "lowercaseSentence" for ending a sentence if a period is followed by a lower case letter.
 *  Added voice variants
 *  Renamed zh to cmn (Mandarin)

@@ -491,9 +491,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	int tone_only = control & 2;
 	bool language_set = false;
 	bool phonemes_set = false;
-	int stress_amps_set = 0;
-	int stress_lengths_set = 0;
-	int stress_add_set = 0;
 	int conditional_rules = 0;
 
 	char voicename[40];
@@ -506,8 +503,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char path_voices[sizeof(path_home)+12];
 
 	int dict_min = 0;
-	int stress_amps[8];
-	int stress_lengths[8];
 	int stress_add[8];
 	char names[8][40];
 	char name1[40];
@@ -673,15 +668,44 @@ voice_t *LoadVoice(const char *vname, int control)
 				voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
 			}
 			break;
-		case V_STRESSLENGTH: // stressLength
-			stress_lengths_set = Read8Numbers(p, stress_lengths);
+		case V_STRESSLENGTH: {// stressLength
+			if (translator) {
+				int stress_lengths_set = 0;
+				int stress_lengths[8];
+				stress_lengths_set = Read8Numbers(p, stress_lengths);
+				for (ix = 0; ix < stress_lengths_set; ix++) {
+					translator->stress_lengths[ix] = stress_lengths[ix];
+				}
+			} else
+				fprintf(stderr, "Cannot set stressLength: language not set, or is invalid.\n");
+
 			break;
-		case V_STRESSAMP: // stressAmp
-			stress_amps_set = Read8Numbers(p, stress_amps);
+		}
+		case V_STRESSAMP: { // stressAmp
+			if (translator) {
+				int stress_amps_set = 0;
+				int stress_amps[8];
+				stress_amps_set = Read8Numbers(p, stress_amps);
+				for (ix = 0; ix < stress_amps_set; ix++) {
+					translator->stress_amps[ix] = stress_amps[ix];
+				}
+			} else
+				fprintf(stderr, "Cannot set stressAmp: language not set, or is invalid.\n");
 			break;
-		case V_STRESSADD: // stressAdd
-			stress_add_set = Read8Numbers(p, stress_add);
+		}
+		case V_STRESSADD: { // stressAdd
+			if (translator) {	
+				int stress_add_set = 0;
+				stress_add_set = Read8Numbers(p, stress_add);
+
+				for (ix = 0; ix < stress_add_set; ix++) {
+					translator->stress_lengths[ix] += stress_add[ix];
+				}
+			} else
+				fprintf(stderr, "Cannot set stressAdd: language not set, or is invalid.\n");
+
 			break;
+		}
 		case V_INTONATION: // intonation
 			sscanf(p, "%d", &option_tone_flags);
 			if ((option_tone_flags & 0xff) != 0) {
@@ -898,15 +922,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		SetLengthMods(translator, value);
 
 	voice->width[0] = (voice->width[0] * 105)/100;
-
-	// relative lengths of different stress syllables
-	for (ix = 0; ix < stress_lengths_set; ix++)
-		translator->stress_lengths[ix] = stress_lengths[ix];
-	for (ix = 0; ix < stress_add_set; ix++)
-		translator->stress_lengths[ix] += stress_add[ix];
-	for (ix = 0; ix < stress_amps_set; ix++) {
-		translator->stress_amps[ix] = stress_amps[ix];
-	}
 
 	return voice;
 }
