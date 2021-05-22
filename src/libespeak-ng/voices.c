@@ -495,7 +495,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	int stress_lengths_set = 0;
 	int stress_add_set = 0;
 	int conditional_rules = 0;
-	LANGUAGE_OPTIONS *langopts = NULL;
 
 	char voicename[40];
 	char language_name[40];
@@ -578,7 +577,6 @@ voice_t *LoadVoice(const char *vname, int control)
 			*p = 0;    // remove previous variant name
 		sprintf(buf, "+%s", &vname[3]);    // omit  !v/  from the variant filename
 		strcat(voice_identifier, buf);
-		langopts = &translator->langopts;
 	}
 	VoiceReset(tone_only);
 
@@ -630,7 +628,6 @@ voice_t *LoadVoice(const char *vname, int control)
 				SelectPhonemeTableName(phonemes_name);
 
 				translator = SelectTranslator(translator_name);
-				langopts = &translator->langopts;
 				strncpy0(voice->language_name, language_name, sizeof(voice->language_name));
 			}
 		}
@@ -660,8 +657,8 @@ voice_t *LoadVoice(const char *vname, int control)
 			VoiceFormant(p);
 			break;
 		case V_LOWERCASE_SENTENCE: {
-			if (langopts)
-				langopts->lowercase_sentence = true;
+			if (translator)
+				translator->langopts.lowercase_sentence = true;
 			else
 				fprintf(stderr, "Cannot set lowercaseSentence: language not set, or is invalid.\n");
 			break;
@@ -688,16 +685,16 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_INTONATION: // intonation
 			sscanf(p, "%d", &option_tone_flags);
 			if ((option_tone_flags & 0xff) != 0) {
-				if (langopts)
-					langopts->intonation_group = option_tone_flags & 0xff;
+				if (translator)
+					translator->langopts.intonation_group = option_tone_flags & 0xff;
 				else
 					fprintf(stderr, "Cannot set intonation: language not set, or is invalid.\n");
 			}
 			break;
 		case V_TUNES:
 			n = sscanf(p, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
-			if (langopts) {
-				langopts->intonation_group = 0;
+			if (translator) {
+				translator->langopts.intonation_group = 0;
 				for (ix = 0; ix < n; ix++) {
 					if (strcmp(names[ix], "NULL") == 0)
 						continue;
@@ -705,7 +702,7 @@ voice_t *LoadVoice(const char *vname, int control)
 					if ((value = LookupTune(names[ix])) < 0)
 						fprintf(stderr, "Unknown tune '%s'\n", names[ix]);
 					else
-						langopts->tunes[ix] = value;
+						translator->langopts.tunes[ix] = value;
 				}
 			} else
 				fprintf(stderr, "Cannot set tunes: language not set, or is invalid.\n");
@@ -713,7 +710,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_DICTRULES: // conditional dictionary rules and list entries
 		case V_NUMBERS:
 		case V_STRESSOPT:
-			if (langopts) {
+			if (translator) {
 				// expect a list of numbers
 				while (*p != 0) {
 					while (isspace(*p)) p++;
@@ -723,19 +720,19 @@ voice_t *LoadVoice(const char *vname, int control)
 							if (key == V_DICTRULES)
 								conditional_rules |= (1 << n);
 							else if (key == V_NUMBERS)
-								langopts->numbers |= (1 << n);
+								translator->langopts.numbers |= (1 << n);
 							else if (key == V_STRESSOPT)
-								langopts->stress_flags |= (1 << n);
+								translator->langopts.stress_flags |= (1 << n);
 						} else {
 							if ((key == V_NUMBERS) && (n < 64))
-								langopts->numbers2 |= (1 << (n-32));
+								translator->langopts.numbers2 |= (1 << (n-32));
 							else
 								fprintf(stderr, "Bad option number %d\n", n);
 						}
 					}
 					while (isalnum(*p)) p++;
 				}
-				ProcessLanguageOptions(langopts);
+				ProcessLanguageOptions(&(translator->langopts));
 			} else
 				fprintf(stderr, "Cannot set stressopt: language not set, or is invalid.\n");
 			break;
@@ -748,17 +745,17 @@ voice_t *LoadVoice(const char *vname, int control)
 			PhonemeReplacement(p);
 			break;
 		case V_WORDGAP: // words
-			if (langopts)
-				sscanf(p, "%d %d", &langopts->word_gap, &langopts->vowel_pause);
+			if (translator)
+				sscanf(p, "%d %d", &translator->langopts.word_gap, &translator->langopts.vowel_pause);
 			else
 				fprintf(stderr, "Cannot set wordgap: language not set, or is invalid.\n");
 			break;
 		case V_STRESSRULE:
-			if (langopts)
-				sscanf(p, "%d %d %d %d", &langopts->stress_rule,
-				       &langopts->stress_flags,
-				       &langopts->unstressed_wd1,
-				       &langopts->unstressed_wd2);
+			if (translator)
+				sscanf(p, "%d %d %d %d", &translator->langopts.stress_rule,
+				       &translator->langopts.stress_flags,
+				       &translator->langopts.unstressed_wd1,
+				       &translator->langopts.unstressed_wd2);
 			else
 				fprintf(stderr, "Cannot set stressrule: language not set, or is invalid.\n");
 			break;
@@ -842,8 +839,8 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 		default:
 			if ((key & 0xff00) == 0x100) {
-				if (langopts)
-					sscanf(p, "%d", &langopts->param[key &0xff]);
+				if (translator)
+					sscanf(p, "%d", &translator->langopts.param[key &0xff]);
 				else
 					fprintf(stderr, "Cannot set voice attribute: language not set, or is invalid.\n");
 			} else
