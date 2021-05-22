@@ -497,8 +497,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	int conditional_rules = 0;
 	LANGUAGE_OPTIONS *langopts = NULL;
 
-	Translator *new_translator = NULL;
-
 	char voicename[40];
 	char language_name[40];
 	char translator_name[40];
@@ -631,11 +629,8 @@ voice_t *LoadVoice(const char *vname, int control)
 				strcpy(phonemes_name, language_type);
 				SelectPhonemeTableName(phonemes_name);
 
-				if (new_translator != NULL)
-					DeleteTranslator(new_translator);
-
-				new_translator = SelectTranslator(translator_name);
-				langopts = &new_translator->langopts;
+				translator = SelectTranslator(translator_name);
+				langopts = &translator->langopts;
 				strncpy0(voice->language_name, language_name, sizeof(voice->language_name));
 			}
 		}
@@ -859,9 +854,9 @@ voice_t *LoadVoice(const char *vname, int control)
 	if (f_voice != NULL)
 		fclose(f_voice);
 
-	if ((new_translator == NULL) && (!tone_only)) {
+	if ((translator == NULL) && (!tone_only)) {
 		// not set by language attribute
-		new_translator = SelectTranslator(translator_name);
+		translator = SelectTranslator(translator_name);
 	}
 
 	SetSpeed(3); // for speed_percent
@@ -871,9 +866,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		voice->height2[ix] = voice->height[ix];
 	}
 
-	if (tone_only)
-		new_translator = translator;
-	else {
+	if (!tone_only) {
 		if (!!(control & 8/*compiling phonemes*/)) {
                         /* Set by espeak_ng_CompilePhonemeDataPath when it
                          * calls LoadVoice("", 8) to set up a dummy(?) voice.
@@ -886,29 +879,28 @@ voice_t *LoadVoice(const char *vname, int control)
 			fprintf(stderr, "Unknown phoneme table: '%s'\n", phonemes_name);
 			ix = 0;
 		}
-		voice->phoneme_tab_ix = ix;
-		new_translator->phoneme_tab_ix = ix;
-		new_translator->dict_min_size = dict_min;
-                if (!(control & 8/*compiling phonemes*/)) {
-                        LoadDictionary(new_translator, new_dictionary, control & 4);
-                        if (dictionary_name[0] == 0) {
-                                DeleteTranslator(new_translator);
-                                return NULL; // no dictionary loaded
-                        }
-                }
 
-		new_translator->dict_condition = conditional_rules;
+		voice->phoneme_tab_ix = ix;
+		translator->phoneme_tab_ix = ix;
+		translator->dict_min_size = dict_min;
+
+		if (!(control & 8/*compiling phonemes*/)) {
+			LoadDictionary(translator, new_dictionary, control & 4);
+			if (dictionary_name[0] == 0) {
+				DeleteTranslator(translator);
+				return NULL; // no dictionary loaded
+			}
+		}
+
+		translator->dict_condition = conditional_rules;
 
 		voice_languages[langix] = 0;
 	}
 
-	if ((value = new_translator->langopts.param[LOPT_LENGTH_MODS]) != 0)
-		SetLengthMods(new_translator, value);
+	if ((value = translator->langopts.param[LOPT_LENGTH_MODS]) != 0)
+		SetLengthMods(translator, value);
 
 	voice->width[0] = (voice->width[0] * 105)/100;
-
-	if (!tone_only)
-		translator = new_translator;
 
 	// relative lengths of different stress syllables
 	for (ix = 0; ix < stress_lengths_set; ix++)
