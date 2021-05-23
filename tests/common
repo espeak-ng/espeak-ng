@@ -58,8 +58,8 @@ test_phon() {
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
     echo "${EXPECTED}" > expected.txt
-    if [ "$MESSAGE" = "broken" ] ; then
-        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+    if [ "$MESSAGE" = "Ignore" ] ; then
+        diff expected.txt actual.txt || (echo "... ignoring error" && true)
     else
         diff expected.txt actual.txt || exit 1
     fi
@@ -72,16 +72,16 @@ test_wav () {
         TEST_TEXT=$3
         MESSAGE=$4
 
-        if [ -n "$MESSAGE" ] ; then
-            MESSAGE=" $MESSAGE"
-        fi
-
         echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" | \
         $sha1sum | awk '{ print $1 }' > actual.txt
         echo "${EXPECTED}" > expected.txt
-        diff expected.txt actual.txt || exit 1
+        if [ "$MESSAGE" = "Ignore" ] ; then
+            diff expected.txt actual.txt || (echo "... ignoring error" && true)
+        else
+            diff expected.txt actual.txt || exit 1
+        fi
 }
 
 # Check generated wav file from list of phonemes
@@ -104,8 +104,8 @@ test_replace() {
     echo "testing ${TEST_LANG}"
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
-    if [ "$MESSAGE" = "broken" ] ; then
-        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+    if [ "$MESSAGE" = "Ignore" ] ; then
+        diff expected.txt actual.txt || (echo "... ignoring error" && true)
     else
         diff expected.txt actual.txt || exit 1
     fi
