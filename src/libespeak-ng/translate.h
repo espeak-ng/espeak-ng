@@ -541,7 +541,7 @@ typedef struct {
 	bool lowercase_sentence;	// when true, a period . causes a sentence stop even if next character is lowercase
 } LANGUAGE_OPTIONS;
 
-typedef struct {
+typedef struct Translator {
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
 	int transpose_max;

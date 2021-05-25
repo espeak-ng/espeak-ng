@@ -84,8 +84,7 @@ ALPHABET *current_alphabet;
 
 // these were previously in translator class
 char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
-int n_ph_list2;
-PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
+// ph_list2 moved to phonemelist.c
 
 wchar_t option_punctlist[N_PUNCTLIST] = { 0 };
 

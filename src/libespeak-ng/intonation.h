@@ -28,7 +28,10 @@ extern "C"
 {
 #endif
 
-void CalcPitches(const Translator *tr, int clause_type);
+struct Phoneme; // Declared in synthesize.h (currently)
+
+void CalcPitches(const Translator *tr, int clause_type,
+        struct Phoneme *const plist, const int n_phonemes);
 
 #ifdef __cplusplus
 }

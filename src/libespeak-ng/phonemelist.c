@@ -32,7 +32,6 @@
 #include "phonemelist.h"
 #include "phoneme.h"     // for PHONEME_TAB, phVOWEL, REPLACE_PHONEMES, phPAUSE
 #include "synthdata.h"   // for InterpretPhoneme, SelectPhonemeTable
-#include "synthesize.h"  // for PHONEME_LIST, PHONEME_LIST2, phoneme_tab
 #include "translate.h"   // for Translator, LANGUAGE_OPTIONS, option_wordgap
 
 #include "phoneme.h"
@@ -43,8 +42,12 @@ const unsigned char pause_phonemes[8] = {
 	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
 };
 
-extern int n_ph_list2;
-extern PHONEME_LIST2 ph_list2[/*N_PHONEME_LIST*/]; // first stage of text->phonemes
+int n_ph_list2;
+PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
+
+// list of phonemes in a clause
+int n_phoneme_list = 0;
+PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
 
 static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 {

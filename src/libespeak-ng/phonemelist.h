@@ -21,14 +21,38 @@
 #ifndef ESPEAK_NG_PHONEMELIST_H
 #define ESPEAK_NG_PHONEMELIST_H
 
-#include "translate.h"
+// NOTE: this file should only be included by 'translate.c' and 'phonemelist.c'
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-void MakePhonemeList(const Translator *tr, int post_pause, bool start_sentence);
+// in translate.h
+struct Translator;
+
+/* Moved from synthesize.h; synthesize.c does not require it.currently used in
+ * intonation.c (once, for an on-stack array) phonemelist.c and translate.c
+ *
+ * NOTE: N_TR_SOURCE is now declared in translate.c
+ */
+#define N_PHONEME_LIST 1000 // enough for source[N_TR_SOURCE] full of text, else it will truncate
+
+// a clause translated into phoneme codes (first stage)
+typedef struct PhonemeBase {
+	unsigned short synthflags; // NOTE Put shorts on 32bit boundaries, because of RISC OS compiler bug?
+	unsigned char phcode;
+	unsigned char stresslevel;
+	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
+	unsigned char wordstress; // the highest level stress in this word
+	unsigned char tone_ph;    // tone phoneme to use with this vowel
+} PHONEME_LIST2;
+
+extern int n_ph_list2;
+extern PHONEME_LIST2 ph_list2[/*N_PHONEME_LIST*/]; // first stage of text->phonemes
+
+void MakePhonemeList(const struct Translator *tr, int post_pause, bool start_sentence);
+        /* converts 'ph_list2' (from translate.c) into 'phoneme_list' */
 
 #ifdef __cplusplus
 }

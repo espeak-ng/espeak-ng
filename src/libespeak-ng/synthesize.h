@@ -32,8 +32,6 @@ extern "C"
 
 #define espeakINITIALIZE_PHONEME_IPA 0x0002 // move this to speak_lib.h, after eSpeak version 1.46.02
 
-#define N_PHONEME_LIST 1000 // enough for source[N_TR_SOURCE] full of text, else it will truncate
-
 #define N_SEQ_FRAMES  25 // max frames in a spectrum sequence (real max is ablut 8)
 #define STEPSIZE      64 // 2.9mS at 22 kHz sample rate
 
@@ -176,23 +174,13 @@ typedef struct {
 	frame_t *frame;
 } frameref_t;
 
-// a clause translated into phoneme codes (first stage)
-typedef struct {
-	unsigned short synthflags; // NOTE Put shorts on 32bit boundaries, because of RISC OS compiler bug?
-	unsigned char phcode;
-	unsigned char stresslevel;
-	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
-	unsigned char wordstress; // the highest level stress in this word
-	unsigned char tone_ph;    // tone phoneme to use with this vowel
-} PHONEME_LIST2;
-
 #define PHLIST_START_OF_WORD     1
 #define PHLIST_END_OF_CLAUSE     2
 #define PHLIST_START_OF_SENTENCE 4
 #define PHLIST_START_OF_CLAUSE   8
 
-typedef struct {
-	// The first section is a copy of PHONEME_LIST2
+typedef struct Phoneme {
+	// The first section is a copy of PHONEME_LIST2 (see phonemelist.h)
 	unsigned short synthflags;
 	unsigned char phcode;
 	unsigned char stresslevel;
@@ -446,7 +434,7 @@ extern int echo_amp;
 extern short echo_buf[N_ECHO_BUF];
 
 void SynthesizeInit(void);
-int  Generate(PHONEME_LIST *phoneme_list/*IN-OUT*/, int *n_ph/*IN+set to zero*/, bool resume);
+int  Generate(PHONEME_LIST *const phoneme_list/*IN-OUT*/, int *const n_ph/*IN+set to zero*/, bool resume);
 int  SpeakNextClause(int control);
 void SetSpeed(int control);
 void SetEmbedded(int control, int value);

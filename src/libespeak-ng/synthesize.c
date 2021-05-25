@@ -46,10 +46,6 @@
 
 static void SmoothSpect(void);
 
-// list of phonemes in a clause
-int n_phoneme_list = 0;
-PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
-
 SPEED_FACTORS speed;
 
 static int last_pitch_cmd;
@@ -1127,11 +1123,12 @@ void DoEmbedded(int *embix, int sourceix)
 
 extern espeak_ng_OUTPUT_HOOKS* output_hooks;
 
-int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
+int Generate(PHONEME_LIST *const phoneme_list, int *const n_phIn, bool resume)
 {
 	static int ix;
 	static int embedded_ix;
 	static int word_count;
+        const int *const n_ph = n_phIn; // ensure *n_phIn is not changed
 	PHONEME_LIST *prev;
 	PHONEME_LIST *next;
 	const PHONEME_LIST *next2;
@@ -1162,7 +1159,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 		use_ipa = 1;
 
 	if (mbrola_name[0] != 0)
-		return MbrolaGenerate(phoneme_list, n_ph, resume);
+		return MbrolaGenerate(phoneme_list, n_phIn, resume);
 
 	if (resume == false) {
 		ix = 1;
@@ -1180,7 +1177,12 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 		DoPause(0, 0); // isolate from the previous clause
 	}
 
-	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
+        /* CHANGE: previously 'Generate' checked for overflow of 'phoneme_list'
+         * by limiting ix to N_PHONEME_LIST-2 - the compiled array size less
+         * two.  Now the caller of Generate must ensure there is sufficient space
+         * in the plist argument.
+         */
+	while ((ix < (*n_ph))) {
 		p = &phoneme_list[ix];
 		
 		if(output_hooks && output_hooks->outputPhoSymbol)
@@ -1528,7 +1530,10 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	EndPitch(1);
 	if (*n_ph > 0) {
 		DoMarker(espeakEVENT_END, count_characters, 0, count_sentences); // end of clause
-		*n_ph = 0;
+                // TODO: this is a mystery, why do this here?  The 'return 0'
+                // indicates that the processing is complete and the caller
+                // seems to be able to handle the reset of the phoneme list.
+		*n_phIn = 0;
 	}
 
 	return 0; // finished the phoneme list
@@ -1565,7 +1570,7 @@ int SpeakNextClause(int control)
 	// entries in the wavegen command queue
 	TranslateClause(translator, &clause_tone, &voice_change);
 
-	CalcPitches(translator, clause_tone);
+	CalcPitches(translator, clause_tone, phoneme_list, n_phoneme_list);
 	CalcLengths(translator);
 
 	if ((option_phonemes & 0xf) || (phoneme_callback != NULL)) {

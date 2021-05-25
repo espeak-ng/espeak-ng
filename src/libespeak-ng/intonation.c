@@ -23,6 +23,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -31,7 +32,6 @@
 #include "intonation.h"
 #include "phoneme.h"     // for PHONEME_TAB, PhonemeCode2, phonPAUSE, phPAUSE
 #include "synthdata.h"   // for PhonemeCode
-#include "synthesize.h"  // for PHONEME_LIST, TUNE, phoneme_list, phoneme_tab
 #include "translate.h"   // for Translator, LANGUAGE_OPTIONS, L, OPTION_EMPH...
 
 /* Note this module is mostly old code that needs to be rewritten to
@@ -769,7 +769,8 @@ static int calc_pitches(SYLLABLE *syllable_tab, int control, int start, int end,
 	return tone_pitch_env;
 }
 
-static void CalcPitches_Tone(const Translator *tr)
+static void CalcPitches_Tone(const Translator *tr, PHONEME_LIST *const plist,
+        const int n_phonemes)
 {
 	PHONEME_LIST *p;
 	int ix;
@@ -790,8 +791,8 @@ static void CalcPitches_Tone(const Translator *tr)
 	int pitch_high = 0;      // then reset to this
 
 	// count number of stressed syllables
-	p = &phoneme_list[0];
-	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
+	p = &plist[0];
+	for (ix = 0; ix < n_phonemes; ix++, p++) {
 		if ((p->type == phVOWEL) && (p->stresslevel >= 4)) {
 			if (count_stressed == 0)
 				final_stressed = ix;
@@ -803,12 +804,12 @@ static void CalcPitches_Tone(const Translator *tr)
 		}
 	}
 
-	phoneme_list[final_stressed].stresslevel = 7;
+	plist[final_stressed].stresslevel = 7;
 
 	// language specific, changes to tones
 	if (tr->translator_name == L('v', 'i')) {
 		// LANG=vi
-		p = &phoneme_list[final_stressed];
+		p = &plist[final_stressed];
 		if (p->tone_ph == 0)
 			p->tone_ph = PhonemeCode('7'); // change default tone (tone 1) to falling tone at end of clause
 	}
@@ -816,11 +817,11 @@ static void CalcPitches_Tone(const Translator *tr)
 	pause = true;
 	tone_promoted = false;
 
-	prev_p = p = &phoneme_list[0];
+	prev_p = p = &plist[0];
 	prev_tph = prevw_tph = phoneme_tab[phonPAUSE];
 
 	// perform tone sandhi
-	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
+	for (ix = 0; ix < n_phonemes; ix++, p++) {
 		if ((p->type == phPAUSE) && (p->ph->std_length > 50)) {
 			pause = true; // there is a pause since the previous vowel
 			prevw_tph = phoneme_tab[phonPAUSE]; // forget previous tone
@@ -863,7 +864,7 @@ static void CalcPitches_Tone(const Translator *tr)
 				if (ix == final_stressed) {
 					if ((tph->mnemonic == 0x3535 ) || (tph->mnemonic == 0x3135)) {
 						// change sentence final tone 1 or 4 to stress 6, not 7
-						phoneme_list[final_stressed].stresslevel = 6;
+						plist[final_stressed].stresslevel = 6;
 					}
 				}
 
@@ -897,8 +898,8 @@ static void CalcPitches_Tone(const Translator *tr)
 	}
 
 	// convert tone numbers to pitch
-	p = &phoneme_list[0];
-	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
+	p = &plist[0];
+	for (ix = 0; ix < n_phonemes; ix++, p++) {
 		if (p->synthflags & SFLAG_SYLLABLE) {
 			tone_ph = p->tone_ph;
 
@@ -923,7 +924,8 @@ static void CalcPitches_Tone(const Translator *tr)
 	}
 }
 
-void CalcPitches(const Translator *tr, int clause_type)
+void CalcPitches(const Translator *tr, int clause_type,
+        PHONEME_LIST *const plist, const int n_phonemes)
 {
 	// clause_type: 0=. 1=, 2=?, 3=! 4=none
 
@@ -943,17 +945,25 @@ void CalcPitches(const Translator *tr, int clause_type)
 	int n_primary;
 	int count_primary;
 	const PHONEME_TAB *ph;
-	int ph_end = n_phoneme_list;
+	int ph_end = n_phonemes;
 
-	SYLLABLE syllable_tab[N_PHONEME_LIST];
+	SYLLABLE *syllable_tab = (SYLLABLE*)malloc(n_phonemes * sizeof (SYLLABLE));
+
+        if (syllable_tab == NULL) {
+                // error recovery: don't set any stress or pitch information...
+                // TODO: add an option to exit on OOM errors for use in make
+                // check and debugging.
+                return;
+        }
+
 	n_st = 0;
 	n_primary = 0;
-	for (ix = 0; ix < (n_phoneme_list-1); ix++) {
-		p = &phoneme_list[ix];
+	for (ix = 0; ix < (n_phonemes-1); ix++) {
+		p = &plist[ix];
 		syllable_tab[ix].flags = 0;
 		if (p->synthflags & SFLAG_SYLLABLE) {
 			syllable_tab[n_st].env = PITCHfall;
-			syllable_tab[n_st].nextph_type = phoneme_list[ix+1].type;
+			syllable_tab[n_st].nextph_type = plist[ix+1].type;
 			syllable_tab[n_st++].stress = p->stresslevel;
 
 			if (p->stresslevel >= 4)
@@ -963,11 +973,15 @@ void CalcPitches(const Translator *tr, int clause_type)
 	}
 	syllable_tab[n_st].stress = 0; // extra 0 entry at the end
 
-	if (n_st == 0)
+	if (n_st == 0) {
+                free(syllable_tab);
 		return; // nothing to do
+        }
 
+        // TODO: better to do this before the build of syllable_tab?
 	if (tr->langopts.tone_language == 1) {
-		CalcPitches_Tone(tr);
+                free(syllable_tab);
+		CalcPitches_Tone(tr, plist, n_phonemes);
 		return;
 	}
 
@@ -1068,7 +1082,7 @@ void CalcPitches(const Translator *tr, int clause_type)
 	// unpack pitch data
 	st_ix = 0;
 	for (ix = ph_start; ix < ph_end; ix++) {
-		p = &phoneme_list[ix];
+		p = &plist[ix];
 		p->stresslevel = syllable_tab[st_ix].stress;
 
 		if (p->synthflags & SFLAG_SYLLABLE) {
@@ -1103,4 +1117,6 @@ void CalcPitches(const Translator *tr, int clause_type)
 			st_ix++;
 		}
 	}
+
+        free(syllable_tab);
 }
