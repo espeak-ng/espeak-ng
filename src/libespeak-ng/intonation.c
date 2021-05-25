@@ -769,7 +769,7 @@ static int calc_pitches(SYLLABLE *syllable_tab, int control, int start, int end,
 	return tone_pitch_env;
 }
 
-static void CalcPitches_Tone(Translator *tr)
+static void CalcPitches_Tone(const Translator *tr)
 {
 	PHONEME_LIST *p;
 	int ix;
@@ -779,9 +779,9 @@ static void CalcPitches_Tone(Translator *tr)
 	int tone_ph;
 	bool pause;
 	bool tone_promoted;
-	PHONEME_TAB *tph;
-	PHONEME_TAB *prev_tph; // forget across word boundary
-	PHONEME_TAB *prevw_tph; // remember across word boundary
+	const PHONEME_TAB *tph;
+	const PHONEME_TAB *prev_tph; // forget across word boundary
+	const PHONEME_TAB *prevw_tph; // remember across word boundary
 	PHONEME_LIST *prev_p;
 
 	int pitch_adjust = 0;    // pitch gradient through the clause - initial value
@@ -923,7 +923,7 @@ static void CalcPitches_Tone(Translator *tr)
 	}
 }
 
-void CalcPitches(Translator *tr, int clause_type)
+void CalcPitches(const Translator *tr, int clause_type)
 {
 	// clause_type: 0=. 1=, 2=?, 3=! 4=none
 
@@ -942,7 +942,7 @@ void CalcPitches(Translator *tr, int clause_type)
 	int count;
 	int n_primary;
 	int count_primary;
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	int ph_end = n_phoneme_list;
 
 	SYLLABLE syllable_tab[N_PHONEME_LIST];

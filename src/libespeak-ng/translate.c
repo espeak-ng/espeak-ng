@@ -98,6 +98,7 @@ static int embedded_read;
 unsigned int embedded_list[N_EMBEDDED_LIST];
 
 // the source text of a single clause (UTF8 bytes)
+#define N_TR_SOURCE      800 // the source text of a single clause (UTF8 bytes)
 static char source[N_TR_SOURCE+40]; // extra space for embedded command & voice change info at end
 
 int n_replace_phonemes;
@@ -1312,7 +1313,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int found_dict_flag;
 	unsigned char ph_code;
 	PHONEME_LIST2 *plist2;
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	int max_stress;
 	int max_stress_ix = 0;
 	int prev_vowel = -1;

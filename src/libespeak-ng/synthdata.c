@@ -45,7 +45,7 @@ const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
-PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
+const PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 unsigned short *phoneme_index = NULL;
 char *phondata_ptr = NULL;
@@ -81,7 +81,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 		fclose(f_in);
 		return ENOMEM;
 	}
-	if (fread(*ptr, 1, length, f_in) != length) {
+	if (fread(*ptr, 1, length, f_in) != (size_t)length/*>=0*/) {
 		int error = errno;
 		fclose(f_in);
 		free(*ptr);
@@ -192,7 +192,7 @@ int LookupPhonemeString(const char *string)
 	return PhonemeCode(mnem);
 }
 
-frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist)
+frameref_t *LookupSpect(const PHONEME_TAB *this_ph, int which, const FMT_PARAMS *fmt_params,  int *n_frames, const PHONEME_LIST *plist)
 {
 	int ix;
 	int nf;
@@ -329,7 +329,7 @@ static void SetUpPhonemeTable(int number)
 	int ix;
 	int includes;
 	int ph_code;
-	PHONEME_TAB *phtab;
+	const PHONEME_TAB *phtab;
 
 	if ((includes = phoneme_tab_list[number].includes) > 0) {
 		// recursively include base phoneme tables
@@ -415,15 +415,15 @@ void LoadConfig(void)
 	fclose(f);
 }
 
-static void InvalidInstn(PHONEME_TAB *ph, int instn)
+static void InvalidInstn(const PHONEME_TAB *ph, int instn)
 {
 	fprintf(stderr, "Invalid instruction %.4x for phoneme '%s'\n", instn, WordToString(ph->mnemonic));
 }
 
-static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, int control)
+static bool StressCondition(const Translator *tr, const PHONEME_LIST *plist, int condition, int control)
 {
 	int stress_level;
-	PHONEME_LIST *pl;
+	const PHONEME_LIST *pl;
 	static int condition_level[4] = { 1, 2, 4, 15 };
 
 	if (phoneme_tab[plist[0].phcode]->type == phVOWEL)
@@ -464,7 +464,7 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 
 }
 
-static int CountVowelPosition(PHONEME_LIST *plist)
+static int CountVowelPosition(const PHONEME_LIST *plist)
 {
 	int count = 0;
 
@@ -478,7 +478,7 @@ static int CountVowelPosition(PHONEME_LIST *plist)
 	return count;
 }
 
-static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, unsigned short *p_prog, WORD_PH_DATA *worddata)
+static bool InterpretCondition(const Translator *tr, int control, PHONEME_LIST *plist, const unsigned short *p_prog, WORD_PH_DATA *worddata)
 {
 	int which;
 	int ix;
@@ -486,8 +486,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	int instn;
 	int instn2;
 	bool check_endtype = false;
-	PHONEME_TAB *ph;
-	PHONEME_LIST *plist_this;
+	const PHONEME_TAB *ph;
+	const PHONEME_LIST *plist_this;
 
 	// instruction: 2xxx, 3xxx
 
@@ -742,13 +742,13 @@ static int NumInstnWords(unsigned short *prog)
 	}
 }
 
-void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata)
+void InterpretPhoneme(const Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata)
 {
 	// control:
 	// bit 0:  PreVoicing
 	// bit 8:  change phonemes
 
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	unsigned short *prog;
 	unsigned short instn;
 	int instn2;

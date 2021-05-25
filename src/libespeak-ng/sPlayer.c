@@ -8,7 +8,7 @@ extern unsigned char *out_end;
 static speechPlayer_handle_t speechPlayerHandle=NULL;
 static const unsigned int minFadeLength=110;
 
-static int MAX(int a, int b) { return((a) > (b) ? a : b); }
+//UNUSED: static int MAX(int a, int b) { return((a) > (b) ? a : b); }
 static int MIN(int a, int b) { return((a) < (b) ? a : b); }
 
 static bool needsMixWaveFile(WGEN_DATA *wdata) {

@@ -31,14 +31,14 @@ extern "C"
 #include "synthesize.h"                // for PHONEME_DATA, PHONEME_LIST
 #include "translate.h"                 // for Translator
 
-void InterpretPhoneme(Translator *tr,
+void InterpretPhoneme(const Translator *tr,
 		int control,
-		PHONEME_LIST *plist,
-		PHONEME_DATA *phdata,
-		WORD_PH_DATA *worddata);
+		PHONEME_LIST *plist/*IN-OUT*/,
+		PHONEME_DATA *phdata/*OUT*/,
+		WORD_PH_DATA *worddata/*IN-OUT*/);
 
 void InterpretPhoneme2(int phcode,
-		PHONEME_DATA *phdata);
+		PHONEME_DATA *phdata/*OUT*/);
 
 void FreePhData(void);
 unsigned char *GetEnvelope(int index);
@@ -46,11 +46,11 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
 void LoadConfig(void);
 int LookupPhonemeString(const char *string);
 int LookupPhonemeTable(const char *name);
-frameref_t *LookupSpect(PHONEME_TAB *this_ph,
+frameref_t *LookupSpect(const PHONEME_TAB *this_ph,
 		int which,
-		FMT_PARAMS *fmt_params,
-		int *n_frames,
-		PHONEME_LIST *plist);
+		const FMT_PARAMS *fmt_params,
+		int *n_frames/*OUT*/,
+		const PHONEME_LIST *plist);
 
 int PhonemeCode(unsigned int mnem);
 int SelectPhonemeTable(int number);

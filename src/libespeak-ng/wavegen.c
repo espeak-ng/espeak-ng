@@ -1401,9 +1401,11 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 int WavegenFill(void)
 {
 	int finished;
+#if HAVE_SONIC_H
 	unsigned char *p_start;
 
 	p_start = out_ptr;
+#endif
 
 	finished = WavegenFill2();
 
@@ -1436,6 +1438,7 @@ ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SetConstF0(int f0)
 {
 	const_f0 = f0;
+        return ENS_OK;
 }
 
 #pragma GCC visibility pop

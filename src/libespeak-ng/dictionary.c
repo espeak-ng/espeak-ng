@@ -399,7 +399,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 	unsigned char phcode;
 	unsigned char c;
 	unsigned int mnem;
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	static const char *stress_chars = "==,,'*  ";
 
 	sprintf(outptr, "* ");
@@ -442,14 +442,14 @@ unsigned short ipa1[96] = {
 static char *phon_out_buf = NULL;   // passes the result of GetTranslatedPhonemeString()
 static unsigned int phon_out_size = 0;
 
-char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)
+char *WritePhMnemonic(char *phon_out, const PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)
 {
 	int c;
 	int mnem;
 	int len;
 	bool first;
 	int ix = 0;
-	char *p;
+	const char *p;
 	PHONEME_DATA phdata;
 
 	if (ph->code == phonEND_WORD) {
@@ -854,7 +854,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 {
 	// control = 1, set stress to 1 for forced unstressed vowels
 	unsigned char phcode;
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	unsigned char *ph_out = phonemes;
 	int count = 1;
 	int max_stress = -1;
@@ -1028,7 +1028,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 	unsigned char phcode;
 	unsigned char *p;
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	int stress;
 	int max_stress;
 	int max_stress_input; // any stress specified in the input?
@@ -2453,7 +2453,7 @@ void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
 	}
 }
 
-int TransposeAlphabet(Translator *tr, char *text)
+int TransposeAlphabet(const Translator *tr, char *text)
 {
 	// transpose cyrillic alphabet (for example) into ascii (single byte) character codes
 	// return: number of bytes, bit 6: 1=used compression
@@ -2553,7 +2553,7 @@ int TransposeAlphabet(Translator *tr, char *text)
 
     end_flags:  indicates whether this is a retranslation after removing a suffix
  */
-static const char *LookupDict2(Translator *tr, const char *word, const char *word2,
+static const char *LookupDict2(const Translator *tr, const char *word, const char *word2,
                                char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab)
 {
 	char *p;

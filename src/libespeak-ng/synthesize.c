@@ -534,7 +534,7 @@ static int VowelCloseness(frame_t *fr)
 	return 0;
 }
 
-int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
+int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, const PHONEME_TAB *other_ph, int which)
 {
 	int ix;
 	int formant;
@@ -838,7 +838,7 @@ static void StartSyllable(void)
 		syllable_end = wcmdq_tail;
 }
 
-int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation)
+int DoSpect2(const PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  const PHONEME_LIST *plist, int modulation)
 {
 	// which:  0 not a vowel, 1  start of vowel,   2 body and end of vowel
 	// length_mod: 256 = 100%
@@ -1134,7 +1134,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	static int word_count;
 	PHONEME_LIST *prev;
 	PHONEME_LIST *next;
-	PHONEME_LIST *next2;
+	const PHONEME_LIST *next2;
 	PHONEME_LIST *p;
 	bool released;
 	int stress;
@@ -1144,7 +1144,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	int value;
 	unsigned char *pitch_env = NULL;
 	unsigned char *amp_env;
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	int use_ipa = 0;
 	bool done_phoneme_marker;
 	int vowelstart_prev;

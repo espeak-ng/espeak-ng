@@ -45,6 +45,7 @@ char *filepath = NULL;
 
 extern int LLVMFuzzerInitialize(const int* argc, char*** argv)
 {
+        (void)argc; //UNUSED
 	filepath = dirname(strdup((*argv)[0]));
 	return 0;
 }

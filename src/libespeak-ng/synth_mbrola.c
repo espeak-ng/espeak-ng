@@ -156,13 +156,13 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	return ENS_OK;
 }
 
-static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONEME_TAB *ph_next, int *name2, int *split, int *control)
+static int GetMbrName(const PHONEME_LIST *plist, const PHONEME_TAB *ph, const PHONEME_TAB *ph_prev, const PHONEME_TAB *ph_next, int *name2, int *split, int *control)
 {
 	// Look up a phoneme in the mbrola phoneme name translation table
 	// It may give none, 1, or 2 mbrola phonemes
 
 	MBROLA_TAB *pr;
-	PHONEME_TAB *other_ph;
+	const PHONEME_TAB *other_ph;
 	bool found = false;
 	static int mnem;
 
@@ -332,11 +332,11 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 	unsigned int name;
 	int len;
 	int len1;
-	PHONEME_TAB *ph;
-	PHONEME_TAB *ph_next;
-	PHONEME_TAB *ph_prev;
+	const PHONEME_TAB *ph;
+	const PHONEME_TAB *ph_next;
+	const PHONEME_TAB *ph_prev;
 	PHONEME_LIST *p;
-	PHONEME_LIST *next;
+	const PHONEME_LIST *next;
 	PHONEME_DATA phdata;
 	FMT_PARAMS fmtp;
 	int pause = 0;

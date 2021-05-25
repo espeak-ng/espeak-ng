@@ -224,6 +224,9 @@ phoneme_feature_t phoneme_feature_from_string(const char *feature);
 #define phonPAUSE_CLAUSE 27
 #define phonVOWELTYPES   28  // 28 to 33
 
+/* Currently the following are only required by synthdata.c, compiledata.c and
+ * compilembrola.c.  Ideally they would be isolated in synthdata.c
+ */
 #define N_PHONEME_TABS     150     // number of phoneme tables
 #define N_PHONEME_TAB      256     // max phonemes in a phoneme table
 #define N_PHONEME_TAB_NAME  32     // must be multiple of 4
@@ -249,7 +252,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
 extern int n_phoneme_tab;
-extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
+extern const PHONEME_TAB *phoneme_tab[/*N_PHONEME_TAB*/];
 
 typedef struct {
 	char name[N_PHONEME_TAB_NAME];

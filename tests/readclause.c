@@ -36,6 +36,10 @@
 #include "synthesize.h"
 #include "translate.h"
 
+// N_TR_SOURCE: now private to translate.c  This is a value deliberately bigger
+// than the value in translate.c
+#define N_TR_SOURCE 2048
+
 // Arguments to ReadClause. Declared here to avoid duplicating them across the
 // different test functions.
 static char source[N_TR_SOURCE+40]; // extra space for embedded command & voice change info at end

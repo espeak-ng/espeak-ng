@@ -28,11 +28,11 @@ extern "C"
 {
 #endif
 
+void MakePhonemeList(const Translator *tr, int post_pause, bool start_sentence);
+
 #ifdef __cplusplus
 }
 #endif
-
-void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence);
 
 #endif
 

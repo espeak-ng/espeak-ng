@@ -200,7 +200,7 @@ typedef struct {
 	unsigned char wordstress; // the highest level stress in this word
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
 
-	PHONEME_TAB *ph;
+	const PHONEME_TAB *ph;
 	unsigned int length;  // length_mod
 	unsigned char env;    // pitch envelope number
 	unsigned char type;
@@ -393,11 +393,12 @@ extern int n_tunes;
 extern TUNE *tunes;
 
 // phoneme table
-extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
+// declared in phoneme.h:
+//extern const PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 // list of phonemes in a clause
 extern int n_phoneme_list;
-extern PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
+extern PHONEME_LIST phoneme_list[/*N_PHONEME_LIST+1*/];
 extern unsigned int embedded_list[];
 
 extern unsigned char env_fall[128];
@@ -445,11 +446,11 @@ extern int echo_amp;
 extern short echo_buf[N_ECHO_BUF];
 
 void SynthesizeInit(void);
-int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
+int  Generate(PHONEME_LIST *phoneme_list/*IN-OUT*/, int *n_ph/*IN+set to zero*/, bool resume);
 int  SpeakNextClause(int control);
 void SetSpeed(int control);
 void SetEmbedded(int control, int value);
-int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
+int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, const PHONEME_TAB *other_ph, int which);
 
 void Write4Bytes(FILE *f, int value);
 
@@ -476,7 +477,7 @@ void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
 void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
-int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
+int DoSpect2(const PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  const PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
 const char *WordToString(unsigned int word);
 

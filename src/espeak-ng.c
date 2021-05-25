@@ -334,7 +334,7 @@ int main(int argc, char **argv)
 
 	int option_index = 0;
 	int c;
-	int ix;
+	size_t ix;
 	char *optarg2;
 	int value;
 	int flag_stdin = 0;

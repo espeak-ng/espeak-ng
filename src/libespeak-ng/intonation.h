@@ -28,7 +28,7 @@ extern "C"
 {
 #endif
 
-void CalcPitches(Translator *tr, int clause_type);
+void CalcPitches(const Translator *tr, int clause_type);
 
 #ifdef __cplusplus
 }

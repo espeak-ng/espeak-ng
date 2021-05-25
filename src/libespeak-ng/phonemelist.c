@@ -44,7 +44,7 @@ const unsigned char pause_phonemes[8] = {
 };
 
 extern int n_ph_list2;
-extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
+extern PHONEME_LIST2 ph_list2[/*N_PHONEME_LIST*/]; // first stage of text->phonemes
 
 static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 {
@@ -56,7 +56,7 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 	int n_plist_out = 0;
 	bool word_end;
 	PHONEME_LIST2 *plist2;
-	PHONEME_TAB *next = NULL;
+	const PHONEME_TAB *next = NULL;
 	int deleted_sourceix = -1;
 
 	for (ix = 0; (ix < n_ph_list2) && (n_plist_out < N_PHONEME_LIST); ix++) {
@@ -112,14 +112,14 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 	return n_plist_out;
 }
 
-void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
+void MakePhonemeList(const Translator *tr, int post_pause, bool start_sentence)
 {
 	int ix = 0;
 	int j;
 	int insert_ph = 0;
 	PHONEME_LIST *phlist;
-	PHONEME_TAB *ph;
-	PHONEME_TAB *next, *next2;
+	const PHONEME_TAB *ph;
+	const PHONEME_TAB *next, *next2;
 	int unstress_count = 0;
 	int word_stress = 0;
 	int current_phoneme_tab;
@@ -362,7 +362,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 
 		if (((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0) && (inserted == false)) {
 			// PROBLEM: if we insert a phoneme before a vowel then we loose the stress.
-			PHONEME_TAB *ph2;
+			const PHONEME_TAB *ph2;
 			ph2 = ph;
 
 			insert_ph = plist3->phcode;
@@ -383,7 +383,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 
 		if ((alternative = phdata.pd_param[pd_CHANGEPHONEME]) > 0) {
-			PHONEME_TAB *ph2;
+			const PHONEME_TAB *ph2;
 			ph2 = ph;
 			ph = phoneme_tab[alternative];
 			plist3->ph = ph;
