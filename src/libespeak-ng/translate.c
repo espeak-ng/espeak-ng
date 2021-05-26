@@ -133,7 +133,7 @@ static const unsigned short breaks[] = { '_', 0 };
 // indexes are the "length_mod" value for the following phonemes
 
 // use this table if vowel is not the last in the word
-static unsigned char length_mods_en[100] = {
+static const unsigned char length_mods_en[100] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	100, 120, 100, 105, 100, 110, 110, 100,  95, 100, // a  <- next2
 	105, 120, 105, 110, 125, 130, 135, 115, 125, 100, // ,
@@ -148,7 +148,7 @@ static unsigned char length_mods_en[100] = {
 };
 
 // as above, but for the last syllable in a word
-static unsigned char length_mods_en0[100] = {
+static const unsigned char length_mods_en0[100] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	100, 150, 100, 105, 110, 115, 110, 110, 110, 100, // a  <- next2
 	105, 150, 105, 110, 125, 135, 140, 115, 135, 100, // ,
@@ -163,7 +163,7 @@ static unsigned char length_mods_en0[100] = {
 };
 
 
-static unsigned char length_mods_equal[100] = {
+static const unsigned char length_mods_equal[100] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // a  <- next2
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // ,
@@ -177,7 +177,7 @@ static unsigned char length_mods_equal[100] = {
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110
 };
 
-static unsigned char *length_mod_tabs[6] = {
+static const unsigned char *const length_mod_tabs[6] = {
 	length_mods_en,
 	length_mods_en,    // 1
 	length_mods_en0,   // 2

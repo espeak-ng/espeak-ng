@@ -430,8 +430,8 @@ typedef struct {
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
 	int param[N_LOPTS];
-	unsigned char *length_mods;
-	unsigned char *length_mods0;
+	const unsigned char *length_mods;
+	const unsigned char *length_mods0;
 
 #define NUM_DEFAULT           0x00000001 // enable number processing; use if no other NUM_ option is specified
 #define NUM_THOUS_SPACE       0x00000004 // thousands separator must be space
