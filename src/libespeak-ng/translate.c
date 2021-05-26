@@ -84,7 +84,20 @@ ALPHABET *current_alphabet;
 
 // these were previously in translator class
 char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
-// ph_list2 moved to phonemelist.c
+
+/* These are the first pass structures; ReadClause reads input into characters
+ * split into clauses (effectively a lexical parse), Translate packs these into
+ * the following array then MakePhonemeList converts the result into the full
+ * Phoneme (PHONEME_LIST) array.
+ */
+static int n_ph_list2;
+static PHONEME_LIST2 ph_list2_buf[N_PHONEME_LIST]; // first stage of text->phonemes
+static PHONEME_LIST2 *ph_list2 = ph_list2_buf;
+
+// list of phonemes in a clause
+int n_phoneme_list;
+static PHONEME_LIST phoneme_list_buf[N_PHONEME_LIST+1];
+PHONEME_LIST *phoneme_list = phoneme_list_buf;
 
 wchar_t option_punctlist[N_PUNCTLIST] = { 0 };
 
@@ -2716,7 +2729,11 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	if (Eof() && ((word_count == 0) || (option_endpause == 0)))
 		clause_pause = 10;
 
-	MakePhonemeList(tr, clause_pause, new_sentence2);
+        // WARNING: MakePhonemeList removes entries from ph_list2 AND uses
+        // uses ph_list2 as buffer space (i.e. it modifies it).
+        // TODO: ph_list2 is, I believe unused after this, so maybe ignore the
+        // deletion?
+	MakePhonemeList(tr, ph_list2, &n_ph_list2, clause_pause, new_sentence2);
 	phoneme_list[N_PHONEME_LIST].ph = NULL; // recognize end of phoneme_list array, in Generate()
 	phoneme_list[N_PHONEME_LIST].sourceix = 1;
 

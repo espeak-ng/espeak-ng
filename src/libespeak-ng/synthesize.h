@@ -386,7 +386,7 @@ extern TUNE *tunes;
 
 // list of phonemes in a clause
 extern int n_phoneme_list;
-extern PHONEME_LIST phoneme_list[/*N_PHONEME_LIST+1*/];
+extern PHONEME_LIST *phoneme_list;
 extern unsigned int embedded_list[];
 
 extern unsigned char env_fall[128];

@@ -34,9 +34,17 @@ struct Translator;
 /* Moved from synthesize.h; synthesize.c does not require it.currently used in
  * intonation.c (once, for an on-stack array) phonemelist.c and translate.c
  *
- * NOTE: N_TR_SOURCE is now declared in translate.c
+ * The following was original designed as enough for one buffer-full of input
+ * bytes.  Currently it is enough space for a quite long clause; long enough for
+ * it to most likely be incomprehensible.
+ *
+ * Testing 'make check' with power-of-two values reveals that the smallest for
+ * the checks to pass is 512.  The checks also pass with 65536, indicating that
+ * apart from the known-bad test_phon ru check which uses a very large (and
+ * nonsensical) words the current checks are not spliting the input at arbitrary
+ * points.
  */
-#define N_PHONEME_LIST 1000 // enough for source[N_TR_SOURCE] full of text, else it will truncate
+#define N_PHONEME_LIST 1024
 
 // a clause translated into phoneme codes (first stage)
 typedef struct PhonemeBase {
@@ -48,10 +56,7 @@ typedef struct PhonemeBase {
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
 } PHONEME_LIST2;
 
-extern int n_ph_list2;
-extern PHONEME_LIST2 ph_list2[/*N_PHONEME_LIST*/]; // first stage of text->phonemes
-
-void MakePhonemeList(const struct Translator *tr, int post_pause, bool start_sentence);
+void MakePhonemeList(const struct Translator *tr, PHONEME_LIST2 *const ph_list2, int *const n_ph_list2p, int post_pause, bool start_sentence);
         /* converts 'ph_list2' (from translate.c) into 'phoneme_list' */
 
 #ifdef __cplusplus
