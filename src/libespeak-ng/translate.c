@@ -83,6 +83,7 @@ int pre_pause;
 ALPHABET *current_alphabet;
 
 // these were previously in translator class
+// WARNING: word_phonemes is shared with compiledict.c and dictionary.c
 char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 
 /* These are the first pass structures; ReadClause reads input into characters
@@ -108,10 +109,6 @@ int option_linelength = 0;
 static int embedded_ix;
 static int embedded_read;
 unsigned int embedded_list[N_EMBEDDED_LIST];
-
-// the source text of a single clause (UTF8 bytes)
-#define N_TR_SOURCE      800 // the source text of a single clause (UTF8 bytes)
-static char source[N_TR_SOURCE+40]; // extra space for embedded command & voice change info at end
 
 int n_replace_phonemes;
 REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
@@ -1749,7 +1746,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	return flags;
 }
 
-static int EmbeddedCommand(unsigned int *source_index_out)
+static int EmbeddedCommand(char *source, unsigned int *source_index_out)
 {
 	// An embedded command to change the pitch, volume, etc.
 	// returns number of commands added to embedded_list
@@ -2031,12 +2028,16 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	int n_digits;
 	int charix_top = 0;
 
-	short charix[N_TR_SOURCE+4];
-	WORD_TAB words[N_CLAUSE_WORDS];
+        // the source text of a single clause (UTF8 bytes)
+        const int max_source_size = 800;
+        const int max_clause_words = 300; // max words in a clause
+	short charix[max_source_size+4];
+	WORD_TAB words[max_clause_words];
 	static char voice_change_name[40];
 	int word_count = 0; // index into words
 
-	char sbuf[N_TR_SOURCE];
+	char sbuf[max_source_size];
+        char source[max_source_size+40]; // extra space for embedded command & voice change info at end
 
 	int terminator;
 	int tone;
@@ -2053,9 +2054,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		clause_start_char = 0;
 	clause_start_word = count_words + 1;
 
-	for (ix = 0; ix < N_TR_SOURCE; ix++)
+	for (ix = 0; ix < max_source_size; ix++)
 		charix[ix] = 0;
-	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone, voice_change_name);
+	terminator = ReadClause(tr, source, charix, &charix_top, max_source_size, &tone, voice_change_name);
 
 	if (tone_out != NULL) {
 		if (tone == 0)
@@ -2180,7 +2181,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				prev_in_save = c;
 				source_index--;
 			} else {
-				embedded_count += EmbeddedCommand(&source_index);
+				embedded_count += EmbeddedCommand(source, &source_index);
 				prev_in_save = prev_in;
 				// replace the embedded command by spaces
 				memset(&source[srcix], ' ', source_index-srcix);
@@ -2486,7 +2487,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			// end of 'word'
 			sbuf[ix++] = ' ';
 
-			if ((word_count < N_CLAUSE_WORDS-1) && (ix > words[word_count].start)) {
+			if ((word_count < max_clause_words-1) && (ix > words[word_count].start)) {
 				if (embedded_count > 0) {
 					// there are embedded commands before this word
 					embedded_list[embedded_ix-1] |= 0x80; // terminate list of commands for this word
@@ -2537,7 +2538,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				space_inserted = false;
 			}
 		} else {
-			if ((ix < (N_TR_SOURCE - 4)))
+			if ((ix < (max_source_size - 4)))
 				ix += utf8_out(c, &sbuf[ix]);
 		}
 		if (pre_pause_add > pre_pause)

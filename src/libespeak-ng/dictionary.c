@@ -2951,8 +2951,6 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	return 0;
 }
 
-extern char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
-
 int Lookup(Translator *tr, const char *word, char *ph_out)
 {
 	// Look up in *_list, returns dictionary flags[0] and phonemes

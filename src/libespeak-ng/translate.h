@@ -37,10 +37,14 @@ extern "C"
 #define CTRL_EMBEDDED    0x01 // control character at the start of an embedded command
 #define REPLACED_E       'E' // 'e' replaced by silent e
 
+// The word_phoneme buffer; a single word translated into phoneme codes.  This
+// is a global used in translate.c, compiledict.c and dictionary.c
+//TODO: can these be separated?
 #define N_WORD_PHONEMES  200 // max phonemes in a word
 #define N_WORD_BYTES     160 // max bytes for the UTF8 characters in a word
-#define N_CLAUSE_WORDS   300 // max words in a clause
+extern char word_phonemes[N_WORD_PHONEMES];
 
+// LIMITS: these affet the size of buffers in the Translator struct (below).
 #define N_RULE_GROUP2    120 // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_LETTER_GROUPS   95 // maximum is 127-32

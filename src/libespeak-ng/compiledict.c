@@ -45,8 +45,6 @@
 
 static FILE *f_log = NULL;
 
-extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
-
 static int linenum;
 static int error_count;
 static bool text_mode = false;
