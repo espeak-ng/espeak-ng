@@ -545,6 +545,7 @@ typedef struct {
 	bool lowercase_sentence;	// when true, a period . causes a sentence stop even if next character is lowercase
 } LANGUAGE_OPTIONS;
 
+struct TranslatorData; // see translator.c
 typedef struct Translator {
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
@@ -612,6 +613,12 @@ typedef struct Translator {
 	int prev_dict_flags[2];     // dictionary flags from previous word
 	int clause_terminator;
 
+        // secondary translator for certain words
+        struct Translator *translator2; // created on demand
+        char translator2_language[20];
+
+        // private structure for internal translator data
+        struct TranslatorData *hidden;
 } Translator;
 
 #define OPTION_EMPHASIZE_ALLCAPS  0x100
@@ -647,7 +654,6 @@ extern char skip_marker[N_MARKER_LENGTH];
 extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters to announce
 
 extern Translator *translator;
-extern Translator *translator2;
 extern char dictionary_name[40];
 extern espeak_ng_TEXT_DECODER *p_decoder;
 extern int dictionary_skipwords;
@@ -678,7 +684,7 @@ int isspace2(unsigned int c);
 ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
-int SetTranslator2(const char *name);
+int SetTranslator2(Translator *tr, const char *name);
 void DeleteTranslator(Translator *tr);
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 

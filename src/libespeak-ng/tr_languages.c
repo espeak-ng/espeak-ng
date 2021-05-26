@@ -325,6 +325,11 @@ static Translator *NewTranslator(void)
 
 	memcpy(tr->langopts.tunes, default_tunes, sizeof(tr->langopts.tunes));
 
+        tr->translator2 = NULL;
+        tr->translator2_language[0] = 0;
+
+        tr->hidden = NULL;
+
 	return tr;
 }
 

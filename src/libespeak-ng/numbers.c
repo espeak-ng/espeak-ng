@@ -500,8 +500,8 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 		if (tr->translator_name == L('e', 'n'))
 			return; // we are already using English
 
-		SetTranslator2("en");
-		if (Lookup(translator2, &single_letter[2], ph_buf3) != 0) {
+		SetTranslator2(tr, "en");
+		if (Lookup(tr->translator2, &single_letter[2], ph_buf3) != 0) {
 			// yes, switch to English and re-translate the word
 			sprintf(ph_buf1, "%c", phonSWITCH);
 		}
@@ -719,8 +719,8 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 				// don't say "superscript" during normal text reading
 				Lookup(tr, modifier, capital);
 				if (capital[0] == 0) {
-					capital[2] = SetTranslator2("en"); // overwrites previous contents of translator2
-					Lookup(translator2, modifier, &capital[3]);
+					capital[2] = SetTranslator2(tr, "en"); // overwrites previous contents of translator2
+					Lookup(tr->translator2, modifier, &capital[3]);
 					if (capital[3] != 0) {
 						capital[0] = phonPAUSE;
 						capital[1] = phonSWITCH;
@@ -763,8 +763,8 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 				ph_buf2[0] = 0;
 				if (Lookup(translator, alphabet->name, ph_alphabet) == 0) { // the original language for the current voice
 					// Can't find the local name for this alphabet, use the English name
-					ph_alphabet[2] = SetTranslator2("en"); // overwrites previous contents of translator2
-					Lookup(translator2, alphabet->name, ph_buf2);
+					ph_alphabet[2] = SetTranslator2(tr, "en"); // overwrites previous contents of translator2
+					Lookup(tr->translator2, alphabet->name, ph_buf2);
 				} else if (translator != tr) {
 					phontab_1 = tr->phoneme_tab_ix;
 					strcpy(ph_buf2, ph_alphabet);
@@ -801,9 +801,10 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 			char hangul_buf[12];
 
 			// speak in the language for this alphabet (or English)
-			ph_buf[2] = SetTranslator2(WordToString2(language));
+			ph_buf[2] = SetTranslator2(tr, WordToString2(language));
 
-			if (translator2 != NULL) {
+			if (tr->translator2 != NULL) {
+                                Translator *tr2 = tr->translator2;
 				if (((code = letter - 0xac00) >= 0) && (letter <= 0xd7af)) {
 					// Special case for Korean letters.
 					// break a syllable hangul into 2 or 3 individual jamo
@@ -818,15 +819,15 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 					p3[6] = ' ';
 					p3[7] = 0;
 					ph_buf[3] = 0;
-					TranslateRules(translator2, &hangul_buf[1], &ph_buf[3], sizeof(ph_buf)-3, NULL, 0, NULL);
-					SetWordStress(translator2, &ph_buf[3], NULL, -1, 0);
+					TranslateRules(tr2, &hangul_buf[1], &ph_buf[3], sizeof(ph_buf)-3, NULL, 0, NULL);
+					SetWordStress(tr2, &ph_buf[3], NULL, -1, 0);
 				} else
-					LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+					LookupLetter(tr2, letter, word[n_bytes], &ph_buf[3], control & 1);
 
 				if (ph_buf[3] == phonSWITCH) {
 					// another level of language change
-					ph_buf[2] = SetTranslator2(&ph_buf[4]);
-					LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+					ph_buf[2] = SetTranslator2(tr, &ph_buf[4]);
+					LookupLetter(tr2, letter, word[n_bytes], &ph_buf[3], control & 1);
 				}
 
 				SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table

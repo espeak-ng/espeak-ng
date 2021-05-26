@@ -44,8 +44,6 @@
 #include "voice.h"                // for voice, voice_t
 
 Translator *translator = NULL; // the main translator
-Translator *translator2 = NULL; // secondary translator for certain words
-static char translator2_language[20] = { 0 };
 
 FILE *f_trans = NULL; // phoneme output text
 int option_tone_flags = 0; // bit 8=emphasize allcaps, bit 9=emphasize penultimate stress
@@ -288,6 +286,13 @@ int isspace2(unsigned int c)
 void DeleteTranslator(Translator *tr)
 {
 	if (!tr) return;
+
+        Translator *tr2 = tr->translator2;
+        if (tr2 != NULL) {
+                // Remove any reliance of shared data first:
+                tr->translator2 = 0;
+                DeleteTranslator(tr2);
+        }
 
 	if (tr->data_dictlist != NULL)
 		free(tr->data_dictlist);
@@ -1282,32 +1287,34 @@ static void Word_EmbeddedCmd()
 	} while (((embedded_cmd & 0x80) == 0) && (embedded_read < embedded_ix));
 }
 
-int SetTranslator2(const char *new_language)
+int SetTranslator2(Translator *tr, const char *new_language)
 {
 	// Set translator2 to a second language
+        Translator *tr2 = tr->translator2;
 	int new_phoneme_tab;
 
 	if ((new_phoneme_tab = SelectPhonemeTableName(new_language)) >= 0) {
-		if ((translator2 != NULL) && (strcmp(new_language, translator2_language) != 0)) {
+		if ((tr2 != NULL) && (strcmp(new_language, tr2->translator2_language) != 0)) {
 			// we already have an alternative translator, but not for the required language, delete it
-			DeleteTranslator(translator2);
-			translator2 = NULL;
+			tr->translator2 = NULL;
+			DeleteTranslator(tr2);
+                        tr2 = NULL;
 		}
 
-		if (translator2 == NULL) {
-			translator2 = SelectTranslator(new_language);
-			strcpy(translator2_language, new_language);
+		if (tr2 == NULL) {
+			tr2 = tr->translator2 = SelectTranslator(new_language);
+			strcpy(tr2->translator2_language, new_language);
 
-			if (LoadDictionary(translator2, translator2->dictionary_name, 0) != 0) {
+			if (LoadDictionary(tr2, tr2->dictionary_name, 0) != 0) {
 				SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 				new_phoneme_tab = -1;
-				translator2_language[0] = 0;
+				tr2->translator2_language[0] = 0;
 			}
-			translator2->phoneme_tab_ix = new_phoneme_tab;
+			tr2->phoneme_tab_ix = new_phoneme_tab;
 		}
 	}
-	if (translator2 != NULL)
-		translator2->phonemes_repeat[0] = 0;
+	if (tr2 != NULL)
+		tr2->phonemes_repeat[0] = 0;
 	return new_phoneme_tab;
 }
 
@@ -1502,7 +1509,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				if (new_language[0] == 0)
 					new_language = "en";
 
-				switch_phonemes = SetTranslator2(new_language);
+				switch_phonemes = SetTranslator2(tr, new_language);
 
 				if (switch_phonemes >= 0) {
 					// re-translate the word using the new translator
@@ -1510,9 +1517,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 					if (word_replaced[2] != 0) {
 						word_replaced[0] = 0; // byte before the start of the word
 						word_replaced[1] = ' ';
-						flags = TranslateWord(translator2, &word_replaced[1], wtab, NULL);
+						flags = TranslateWord(tr->translator2, &word_replaced[1], wtab, NULL);
 					} else
-						flags = TranslateWord(translator2, word, wtab, &word_replaced[2]);
+						flags = TranslateWord(tr->translator2, word, wtab, &word_replaced[2]);
 				}
 
 				if (p[0] != phonSWITCH)

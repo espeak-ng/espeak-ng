@@ -252,12 +252,12 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 
 	if ((only == 0) && ((phonemes[0] == 0) || (phonemes[0] == phonSWITCH)) && (tr->translator_name != L('e', 'n'))) {
 		// not found, try English
-		SetTranslator2("en");
+		SetTranslator2(tr, "en");
 		string = &single_letter[1];
 		single_letter[1] = '_';
-		if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL) == 0) {
+		if (LookupDictList(tr->translator2, &string, phonemes, flags, 0, NULL) == 0) {
 			string = &single_letter[2];
-			LookupDictList(translator2, &string, phonemes, flags, 0, NULL);
+			LookupDictList(tr->translator2, &string, phonemes, flags, 0, NULL);
 		}
 		if (phonemes[0])
 			lang_name = "en";
@@ -267,7 +267,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 
 	if (phonemes[0]) {
 		if (lang_name) {
-			SetWordStress(translator2, phonemes, flags, -1, 0);
+			SetWordStress(tr->translator2, phonemes, flags, -1, 0);
 			DecodePhonemes(phonemes, phonemes2);
 			sprintf(buf, "[\002_^_%s %s _^_%s]]", "en", phonemes2, WordToString2(tr->translator_name));
 			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
