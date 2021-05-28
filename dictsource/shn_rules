@@ -1,6 +1,6 @@
 // Shan (Tai Yay) pronunciation rules (Shan script)
 
-// Consonants 
+// Consonants
 .L01 ၵ ၶ င ၸ သ ၺ တ ထ ၼ ပ ၽ ၾ မ ယ ရ လ ဝ ႁ ဢ
 
 .replace
@@ -19,10 +19,11 @@
          ၵ         k
         _) ၵ (_     ka5
          ၵေႃ      kO
-         ၵၢႆ       ka:i  
+         ၵၢႆ       ka:i
          ၵွႆ       kOi
-         ၵုၺ်     kui   
-         ၵူၺ်     koi              
+         ၵုၺ်     kui
+         ၵူၺ်     koi
+         ၵႂ်       kaWi
 
 
 .group ၶ // U+1076
@@ -32,8 +33,9 @@
          ၶၢႆ       k_ha:i
          ၶွႆ       k_hOi
          ၶႂၢႆ       k_hOa:i
-         ၶုၺ်      k_hui  
-         ၶူၺ်      k_hoi    
+         ၶုၺ်      k_hui
+         ၶူၺ်      k_hoi
+         ၶႂ်        k_haWi
 
 .group င // U+1004
          င        N
@@ -43,7 +45,7 @@
          ငွႆ      NOi
          ငႂၢႆ     NOa:i
          ငုၺ်    Nui
-         ငူၺ်    Noi    
+         ငူၺ်    Noi
 
 .group ၸ // U+1078
          ၸ         tS;
@@ -53,6 +55,7 @@
          ၸွႆ        tS;Oi
          ၸုၺ်      tS;ui
          ၸူၺ်      tS;oi
+         ၸႂ်       tS;aWi
 
 .group သ // U+101E
          သ         s
@@ -61,7 +64,8 @@
          သၢႆ       sa:i
          သွႆ       sOi
          သႂၢႆ      sOa:i
-         သူၺ်     soi     
+         သူၺ်     soi
+         သႂ်       saWi
 
 .group ၺ // U+107A
        ၺ         J
@@ -70,44 +74,49 @@
 .group တ // U+1010
        တ         t
        _) တ (_   ta5
-       တေႃ      tO       
-       တၢႆ       ta:i      
-       တွႆ       tOi      
-       တုၺ်     tui     
-       တူၺ်     toi     
+       တေႃ      tO
+       တၢႆ       ta:i
+       တွႆ       tOi
+       တုၺ်     tui
+       တူၺ်     toi
+        တႂ်     taWi
 
 .group ထ // U+1011
        ထ        t_h
        _) ထ (_  t_ha5
-       ထေႃ      t_hO       
-       ထွႆ       t_hOi      
-       ထုၺ်      t_hui      
+       ထေႃ      t_hO
+       ထွႆ       t_hOi
+       ထုၺ်      t_hui
+       ထႂ်       t_haWi
 
 .group ၼ // U+107C
        ၼ         n
        _) ၼ (_    na5
-       ၼေႃ      nO      
-       ၼၢႆ       na:i    
+       ၼေႃ      nO
+       ၼၢႆ       na:i
        ၼွႆ       nOi
        ၼူၺ်     noi
+       ၼႂ်      naWi
 
 .group ပ // U+1015
        ပ          p
        _) ပ (_    pa5
-       ပေႃ       pO     
-       ပၢႆ       pa:i    
-       ပွႆ       pOi    
-       ပုၺ်      pui 
-       ပူၺ်      poi     
+       ပေႃ       pO
+       ပၢႆ       pa:i
+       ပွႆ       pOi
+       ပုၺ်      pui
+       ပူၺ်      poi
+       ပႂ်      paWi
 
 .group ၽ // U+107D
        ၽ         p_h
        _) ၽ (_   p_ha5
        ၽေႃ     p_hO
-       ၽၢႆ       p_ha:i    
-       ၽွႆ       p_hOi  
-       ၽုၺ်      p_hui 
-       ၽူၺ်      p_hoi     
+       ၽၢႆ       p_ha:i
+       ၽွႆ       p_hOi
+       ၽုၺ်      p_hui
+       ၽူၺ်      p_hoi
+       ၽႂ်      p_haWi
 
 .group ၾ // U+107E
        _) ၾ       p_h       // Except for Eastern dialects, which use 'f'.
@@ -118,19 +127,21 @@
 .group မ // U+1019
        မ         m
       _) မ (_    ma5
-       မေႃ       mO    
-       မၢႆ       ma:i  
-       မွႆ       mOi  
-       မူၺ်      moi    
+       မေႃ       mO
+       မၢႆ       ma:i
+       မွႆ       mOi
+       မူၺ်      moi
+       မႂ်       maWi
 
 .group ယ // U+101A
        ယ         j
       _) ယ (_    ja5
-       ယေႃ       jO    
-       ယၢႆ       ja:i  
-       ယွႆ       jOi  
-       ယုၺ်     jui  
+       ယေႃ       jO
+       ယၢႆ       ja:i
+       ယွႆ       jOi
+       ယုၺ်     jui
        ယူၺ်     joi
+       ယႂ်      jaWi
 
 .group ရ // U+101B
          ရ         R
@@ -139,38 +150,42 @@
 .group လ // U+101C
        လ         l
       _) လ (_    la5
-       လေႃ     lO    
-       လၢႆ       la:i  
-       လွႆ       lOi  
-       လုၺ်     lui     
-       လူၺ်      loi    
+       လေႃ     lO
+       လၢႆ       la:i
+       လွႆ       lOi
+       လုၺ်     lui
+       လူၺ်      loi
+        လႂ်      laWi
 
 .group ဝ // U+101D
        ဝ         w
       _) ဝ (_    wa5
-       ဝၢႆ       wa:i  
+       ဝၢႆ       wa:i
        ဝွႆ       wOi
-       ဝုၺ်     wui      
-       ဝူၺ်      woi    
+       ဝုၺ်     wui
+       ဝူၺ်      woi
+       လႂ်      waWi
 
 .group ႁ // U+1081
        ႁ         h
       _) ႁ (_    ha5
-       ႁေႃ     hO    
-       ႁၢႆ       ha:i  
-       ႁွႆ       hOi  
+       ႁေႃ     hO
+       ႁၢႆ       ha:i
+       ႁွႆ       hOi
        ႁုၺ်     hui
-       ႁူၺ်      hoi    
+       ႁူၺ်      hoi
+       ႁႂ်      haWi
 
 .group ဢ // U+1022
        ဢ     ?
        _) ဢ (_   ?a5
-         ဢေႃ     ?O
-         ဢၢႆ     ?a:i
-         ဢွႆ      ?Oi
-         ဢုၺ်    ?ui  
-         ဢူၺ်    ?oi    
-          
+      ဢေႃ     ?O
+      ဢၢႆ     ?a:i
+      ဢွႆ      ?Oi
+      ဢုၺ်    ?ui
+      ဢူၺ်    ?oi
+       ဢႂ်     ?aWi
+
 .group // no character group
   ၊  _
   ။  _:
@@ -191,12 +206,12 @@
          ၿ         b
 
 
-// Vowels 
+// Vowels
 
-.group   ႃ 
-              ႃ      a       
-          
-.group   ိ 
+.group   ႃ
+              ႃ      a
+
+.group   ိ
               ိ        i5
               .L01) ိဝ်       iw
               .L01) ိင်       ig
@@ -220,7 +235,7 @@
               .L01) ိူတ်     Wt
               .L01) ိူပ်     Wp
 
-.group   ီ 
+.group   ီ
               ီ        i
 
 .group   ဵ
@@ -246,7 +261,7 @@
 .group   ​ေ
              ​ေ       ae
 
-.group   ႄ       
+.group   ႄ
               ႄ       E
 
 .group   ု
@@ -282,51 +297,51 @@
           .L01) ၢပ်    a:p
 
 
-.group   ွ   
+.group   ွ
           ွ        O
 
-.group   ႂ   
+.group   ႂ
           ႂ           O
 
-.group  ႂ်
-         ႂ်       aWi
+// .group  ႂ်
+//         ႂ်       aWi
 
 .group  ြ
             ြ          ra
-            
-.group   ျ          
+
+.group   ျ
              ျ      ja
-              
+
 
 .group  ဝ်
-            ဝ်     w   
+            ဝ်     w
            .L01) ဝ်      aw
-           
+
 .group  င်
-           င်            g  
+           င်            g
           .L01) င်       ag
 
 .group  ၼ်
-           ၼ်           n  
+           ၼ်           n
           .L01) ၼ်      an
 
-.group  မ် 
-           မ်            m  
+.group  မ်
+           မ်            m
           .L01) မ်       am
-             
+
 .group  ၵ်
-           ၵ်           k  
+           ၵ်           k
           .L01) ၵ်      ak
 
 .group တ်
-           တ်           t  
+           တ်           t
           .L01) တ်      at
 
 .group  ပ်
-            ပ်           p  
+            ပ်           p
           .L01) ပ်      ap
 
-          
+
 // 6 tones , 1 is default
 
 .group  ႇ
@@ -336,7 +351,7 @@
              ႈ      3
 
 .group  း
-             း      4 
+             း      4
 
 .group  ႉ
              ႉ      5
