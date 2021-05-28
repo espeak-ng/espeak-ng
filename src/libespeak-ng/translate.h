@@ -92,7 +92,6 @@ extern "C"
 #define FLAG_CAPITAL         0x200 // pronunciation if initial letter is upper case
 #define FLAG_ALLCAPS         0x400 // only if the word is all capitals
 #define FLAG_ACCENT          0x800 // character name is base-character name + accent name
-#define FLAG_HYPHENATED     0x1000 // multiple-words, but needs hyphen between parts 1 and 2
 #define FLAG_SENTENCE       0x2000 // only if the clause is a sentence
 #define FLAG_ONLY           0x4000
 #define FLAG_ONLY_S         0x8000

@@ -2706,10 +2706,6 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			}
 		}
 
-		if (dictionary_flags2 & FLAG_HYPHENATED) {
-			if (!(wflags & FLAG_HYPHEN_AFTER))
-				continue;
-		}
 		if (dictionary_flags2 & FLAG_CAPITAL) {
 			if (!(wflags & FLAG_FIRST_UPPER))
 				continue;
