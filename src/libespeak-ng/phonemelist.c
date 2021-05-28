@@ -108,10 +108,10 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out, PHONEME_LIST2 *ph_list2, 
 	return n_plist_out;
 }
 
-void MakePhonemeList(const Translator *tr, PHONEME_LIST2 *ph_list2, int *n_ph_list2p, int post_pause, bool start_sentence)
+void MakePhonemeList(const Translator *tr, PHONEME_LIST2 *ph_list2, uint16_t *n_ph_list2p, int post_pause, bool start_sentence)
 {
 	int ix = 0;
-        int n_ph_list2_cur = *n_ph_list2p;
+		int n_ph_list2_cur = *n_ph_list2p;
 	int j;
 	int insert_ph = 0;
 	PHONEME_LIST *phlist;
@@ -186,10 +186,10 @@ void MakePhonemeList(const Translator *tr, PHONEME_LIST2 *ph_list2, int *n_ph_li
 
 		if (plist2[j].phcode == phonSWITCH) {
 			if ((!(plist2[j].synthflags & SFLAG_EMBEDDED)) && (
-			        (plist2[j].tone_ph == current_phoneme_tab) ||
-			        (plist2[j+1].phcode == phonSWITCH) ||
-			        ((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
-			        )) {
+					(plist2[j].tone_ph == current_phoneme_tab) ||
+					(plist2[j+1].phcode == phonSWITCH) ||
+					((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
+					)) {
 				// delete this phonSWITCH if it's switching to the current phoneme table, or
 				// delete this phonSWITCH if its followed by another phonSWITCH
 				if (deleted_sourceix == -1 && plist2[j].sourceix != 0)

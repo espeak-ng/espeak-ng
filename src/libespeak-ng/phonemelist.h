@@ -22,6 +22,7 @@
 #define ESPEAK_NG_PHONEMELIST_H
 
 // NOTE: this file should only be included by 'translate.c' and 'phonemelist.c'
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -54,9 +55,9 @@ typedef struct PhonemeBase {
 	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 	unsigned char wordstress; // the highest level stress in this word
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
-} PHONEME_LIST2;
+} PHONEME_LIST2; // 8 bytes iff packed
 
-void MakePhonemeList(const struct Translator *tr, PHONEME_LIST2 *const ph_list2, int *const n_ph_list2p, int post_pause, bool start_sentence);
+void MakePhonemeList(const struct Translator *tr, PHONEME_LIST2 *const ph_list2, uint16_t *n_ph_list2p, int post_pause, bool start_sentence);
         /* converts 'ph_list2' (from translate.c) into 'phoneme_list' */
 
 #ifdef __cplusplus
