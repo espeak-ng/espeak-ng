@@ -45,7 +45,7 @@ struct Translator;
  * nonsensical) words the current checks are not spliting the input at arbitrary
  * points.
  */
-#define N_PHONEME_LIST 1024
+#define N_PHONEME_LIST 1000
 
 // a clause translated into phoneme codes (first stage)
 typedef struct PhonemeBase {

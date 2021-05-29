@@ -1659,7 +1659,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		} else {
 			PHONEME_LIST2 *p = AddPhoneme(ptd);
 			if (p != NULL) {
-				const uint16_t thisPh = CPhoneme(ptd)-1;
+				const int thisPh = CPhoneme(ptd)-1;
 				p->phcode = ph_code;
 				p->tone_ph = 0;
 				p->synthflags = embedded_flag | found_dict_flag;
@@ -1674,8 +1674,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 					if (stress >= 4)
 						any_stressed_words = true;
 
-					if ((prev_vowel >= 0) && (CPhoneme(ptd)-1) != prev_vowel)
-						CurrentPhoneme(ptd)->stresslevel = stress; // set stress for previous consonant
+					if ((prev_vowel >= 0) && (thisPh-1) != prev_vowel)
+						Phoneme(ptd, thisPh-1)->stresslevel = stress; // set stress for previous consonant
 
 					p->synthflags |= SFLAG_SYLLABLE;
 					prev_vowel = thisPh;
@@ -1694,7 +1694,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 							(tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2))) {
 							// italian, double the initial consonant if the previous word ends with a
 							// stressed vowel, or is marked with a flag
-							CurrentPhoneme(ptd)->synthflags |= SFLAG_LENGTHEN;
+							p->synthflags |= SFLAG_LENGTHEN;
 						}
 					}
 				}
@@ -2008,8 +2008,8 @@ typedef struct TranslatorData {
 	uint16_t n_ph_list2;	// count of valid entries in n_ph_list2
 
 	// ReadClause allocated arrays:
-	int16_t *charix;		// [max_source_size+4] (three terminators) TODO: should be uint16_t
-	char	 *source;	   // [max_source+size+40], extra space for embedded command & voice change info at end
+	int16_t *charix;        // [max_source_size+4] (three terminators) TODO: should be uint16_t
+	char	*source;        // [max_source+size+40], extra space for embedded command & voice change info at end
 
 	// Arrays allocated for building PHONEME_LIST2:
 	WORD_TAB	  *words;
@@ -2037,33 +2037,34 @@ static TranslatorData *StartReadClause(Translator *tr)
 
 	if (ptd == NULL) {
 		ptd = tr->hidden = malloc(sizeof *ptd);
-		if (ptd != NULL) {
-			ptd->refCount = 1;
-			const uint16_t chars = 800U;  // originally N_TR_SOURCE
-			ptd->source_size = chars+40U; // extra space for embedded command & voice change info at end
-			ptd->charix_size = chars+4U;  // from original translate.c code
+		if (ptd == NULL)
+			return NULL;
 
-			// The remaining arrays are allocated later:
-			ptd->words_size = 64U;		// updated dynamically
-			ptd->sbuf_size = 128U;		// updated dynamically
-			ptd->ph_list2_size = 128U;	// updated synamically
-			ptd->n_ph_list2 = 0U;
+		ptd->refCount = 1;
+		const uint16_t chars = 800U;  // originally N_TR_SOURCE
+		ptd->source_size = chars+40U; // extra space for embedded command & voice change info at end
+		ptd->charix_size = chars+4U;  // from original translate.c code
 
-			ptd->source = malloc(ptd->source_size * sizeof *ptd->source);
-			ptd->charix = malloc(ptd->charix_size * sizeof *ptd->charix);
-			ptd->words = NULL;
-			ptd->sbuf = NULL;
-			ptd->ph_list2 = NULL;
+		// The remaining arrays are allocated later:
+		ptd->words_size = 64U;		// updated dynamically
+		ptd->sbuf_size = 128U;		// updated dynamically
+		ptd->ph_list2_size = 128U;	// updated synamically
+		ptd->n_ph_list2 = 0U;
 
-			if (ptd->charix == NULL || ptd->source == NULL) {
-				DeleteTranslatorData(tr);
-				return NULL;
-			}
+		ptd->source = malloc(ptd->source_size * sizeof *ptd->source);
+		ptd->charix = malloc(ptd->charix_size * sizeof *ptd->charix);
+		ptd->words = NULL;
+		ptd->sbuf = NULL;
+		ptd->ph_list2 = NULL;
 
-			// previously in TranslateClause, the buffer is cleared
-			memset(ptd->charix, 0, ptd->charix_size * sizeof *ptd->charix);
+		if (ptd->charix == NULL || ptd->source == NULL) {
+			DeleteTranslatorData(tr);
+			return NULL;
 		}
 	}
+
+	// previously in TranslateClause, the charix buffer is cleared
+	memset(ptd->charix, 0, ptd->charix_size * sizeof *ptd->charix);
 
 	return ptd;
 }
@@ -2147,7 +2148,9 @@ static PHONEME_LIST2 *AddPhoneme(TranslatorData *ptd) {
 	}
 
 	ptd->n_ph_list2 = n_ph_list2;
-	return ph_list2 + (n_ph_list2-1);
+	ph_list2 += n_ph_list2-1;
+	memset(ph_list2, 0, sizeof *ph_list2);
+	return ph_list2;
 }
 
 static TranslatorData *GetTranslatorData(const Translator *tr) {
@@ -2248,7 +2251,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	// above.
 	int charix_top = 0;
 	int tone = 0/*SAFETY: should be set by ReadClause*/;
-	int terminator = ReadClause(tr, ptd->source, ptd->charix, &charix_top, ptd->source_size, &tone, voice_change_name);
+	int terminator = ReadClause(tr, ptd->source, ptd->charix, &charix_top, ptd->source_size-40, &tone, voice_change_name);
 
 	if (tone_out != NULL) {
 		if (tone == 0)
