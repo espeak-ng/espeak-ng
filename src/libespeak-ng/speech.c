@@ -266,7 +266,7 @@ static int check_data_path(const char *path, int allow_directory)
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length, const char *device)
 {
-        (void)device/*UNUSED*/;
+        (void)device; // unused
 	my_mode = output_mode;
 	out_samplerate = 0;
 

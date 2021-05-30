@@ -33,12 +33,12 @@ extern "C"
 
 void InterpretPhoneme(const Translator *tr,
 		int control,
-		PHONEME_LIST *plist/*IN-OUT*/,
-		PHONEME_DATA *phdata/*OUT*/,
-		WORD_PH_DATA *worddata/*IN-OUT*/);
+		PHONEME_LIST *plist,
+		PHONEME_DATA *phdata,
+		WORD_PH_DATA *worddata);
 
 void InterpretPhoneme2(int phcode,
-		PHONEME_DATA *phdata/*OUT*/);
+		PHONEME_DATA *phdata);
 
 void FreePhData(void);
 unsigned char *GetEnvelope(int index);
@@ -49,7 +49,7 @@ int LookupPhonemeTable(const char *name);
 frameref_t *LookupSpect(const PHONEME_TAB *this_ph,
 		int which,
 		const FMT_PARAMS *fmt_params,
-		int *n_frames/*OUT*/,
+		int *n_frames,
 		const PHONEME_LIST *plist);
 
 int PhonemeCode(unsigned int mnem);

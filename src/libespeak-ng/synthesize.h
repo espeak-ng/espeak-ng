@@ -380,10 +380,6 @@ typedef struct {
 extern int n_tunes;
 extern TUNE *tunes;
 
-// phoneme table
-// declared in phoneme.h:
-//extern const PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
-
 // list of phonemes in a clause
 extern int n_phoneme_list;
 extern PHONEME_LIST *phoneme_list;
@@ -434,7 +430,7 @@ extern int echo_amp;
 extern short echo_buf[N_ECHO_BUF];
 
 void SynthesizeInit(void);
-int  Generate(PHONEME_LIST *const phoneme_list/*IN-OUT*/, int *const n_ph/*IN+set to zero*/, bool resume);
+int  Generate(PHONEME_LIST *const phoneme_list, int *const n_ph, bool resume);
 int  SpeakNextClause(int control);
 void SetSpeed(int control);
 void SetEmbedded(int control, int value);

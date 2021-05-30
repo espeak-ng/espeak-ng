@@ -252,7 +252,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
 extern int n_phoneme_tab;
-extern const PHONEME_TAB *phoneme_tab[/*N_PHONEME_TAB*/];
+extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 typedef struct {
 	char name[N_PHONEME_TAB_NAME];

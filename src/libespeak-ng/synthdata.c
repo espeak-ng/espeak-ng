@@ -45,7 +45,7 @@ const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
-const PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
+PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 unsigned short *phoneme_index = NULL;
 char *phondata_ptr = NULL;
@@ -81,7 +81,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 		fclose(f_in);
 		return ENOMEM;
 	}
-	if (fread(*ptr, 1, length, f_in) != (size_t)length/*>=0*/) {
+	if (fread(*ptr, 1, length, f_in) != (size_t)/*SAFE*/length) {
 		int error = errno;
 		fclose(f_in);
 		free(*ptr);
