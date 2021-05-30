@@ -34,15 +34,15 @@
 #include <espeak-ng/encoding.h>
 
 #include "translate.h"
-#include "dictionary.h"		   // for TranslateRules, LookupDictList, Cha...
-#include "numbers.h"			  // for SetSpellingStress, TranslateLetter
-#include "phoneme.h"			  // for phonSWITCH, PHONEME_TAB, phonPAUSE_...
-#include "phonemelist.h"		  // for MakePhonemeList
-#include "readclause.h"		   // for towlower2, Eof, ReadClause, is_str_...
-#include "synthdata.h"			// for SelectPhonemeTable, LookupPhonemeTable
-#include "synthesize.h"		   // for PHONEME_LIST2, N_PHONEME_LIST, PHON...
-#include "ucd/ucd.h"			  // for ucd_toupper
-#include "voice.h"				// for voice, voice_t
+#include "dictionary.h"           // for TranslateRules, LookupDictList, Cha...
+#include "numbers.h"              // for SetSpellingStress, TranslateLetter
+#include "phoneme.h"              // for phonSWITCH, PHONEME_TAB, phonPAUSE_...
+#include "phonemelist.h"          // for MakePhonemeList
+#include "readclause.h"           // for towlower2, Eof, ReadClause, is_str_...
+#include "synthdata.h"            // for SelectPhonemeTable, LookupPhonemeTable
+#include "synthesize.h"           // for PHONEME_LIST2, N_PHONEME_LIST, PHON...
+#include "ucd/ucd.h"              // for ucd_toupper
+#include "voice.h"                // for voice, voice_t
 
 Translator *translator = NULL; // the main translator
 
@@ -108,7 +108,7 @@ static const unsigned short brackets[] = {
 	'(', ')', '[', ']', '{', '}', '<', '>', '"', '\'', '`',
 	0xab,   0xbb,   // double angle brackets
 	0x300a, 0x300b, // double angle brackets (ideograph)
-	0xe000+'<',	 // private usage area
+	0xe000+'<',     // private usage area
 	0
 };
 
@@ -121,7 +121,7 @@ static const unsigned short breaks[] = { '_', 0 };
 
 // use this table if vowel is not the last in the word
 static const unsigned char length_mods_en[100] = {
-//	a	,	t	s	n	d	z	r	N	<- next
+//	a    ,    t    s    n    d    z    r    N    <- next
 	100, 120, 100, 105, 100, 110, 110, 100,  95, 100, // a  <- next2
 	105, 120, 105, 110, 125, 130, 135, 115, 125, 100, // ,
 	105, 120,  75, 100,  75, 105, 120,  85,  75, 100, // t
@@ -136,7 +136,7 @@ static const unsigned char length_mods_en[100] = {
 
 // as above, but for the last syllable in a word
 static const unsigned char length_mods_en0[100] = {
-//	a	,	t	s	n	d	z	r	N	<- next
+//	a    ,    t    s    n    d    z    r    N    <- next
 	100, 150, 100, 105, 110, 115, 110, 110, 110, 100, // a  <- next2
 	105, 150, 105, 110, 125, 135, 140, 115, 135, 100, // ,
 	105, 150,  90, 105,  90, 122, 135, 100,  90, 100, // t
@@ -151,7 +151,7 @@ static const unsigned char length_mods_en0[100] = {
 
 
 static const unsigned char length_mods_equal[100] = {
-//	a	,	t	s	n	d	z	r	N	<- next
+//	a    ,    t    s    n    d    z    r    N    <- next
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // a  <- next2
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // ,
 	110, 120, 100, 110, 100, 110, 110, 110, 100, 110, // t
@@ -166,7 +166,7 @@ static const unsigned char length_mods_equal[100] = {
 
 static const unsigned char *const length_mod_tabs[6] = {
 	length_mods_en,
-	length_mods_en,	// 1
+	length_mods_en,    // 1
 	length_mods_en0,   // 2
 	length_mods_equal, // 3
 	length_mods_equal, // 4
@@ -391,21 +391,21 @@ int utf8_in(int *c, const char *buf)
 	 * c: holds UTF-16 representation of multibyte character by
 	 * skipping UTF-8 header bits of bytes in following way:
 	 * 2-byte character "ā":
-	 * hex			binary
-	 * c481		   1100010010000001
-	 *	|		   11000100  000001
-	 *	V			  \	\ |	|
-	 * 0101		   0000000100000001
+	 * hex            binary
+	 * c481           1100010010000001
+	 *    |           11000100  000001
+	 *    V              \    \ |    |
+	 * 0101           0000000100000001
 	 * 3-byte character "ꙅ":
 	 * ea9985 111010101001100110000101
-	 *			1010  011001  000101
-	 *	|	   +  +--.\   \  |	|
-	 *	V		`--.  \`.  `.|	|
-	 *   A645		 1010011001000101
+	 *            1010  011001  000101
+	 *    |       +  +--.\   \  |    |
+	 *    V        `--.  \`.  `.|    |
+	 *   A645         1010011001000101
 	 * 4-byte character "𠜎":
 	 * f0a09c8e 11110000101000001001110010001110
-	 *	V		  000  100000  011100  001110
-	 *   02070e		 000000100000011100001110
+	 *    V          000  100000  011100  001110
+	 *   02070e         000000100000011100001110
 	 */
 	return utf8_in2(c, buf, 0);
 }
@@ -739,7 +739,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 				// emphasize words which are in capitals
 				emphasize_allcaps = FLAG_EMPHASIZED;
 			} else if (!found && !(dictionary_flags[0] &  FLAG_SKIPWORDS) && (word_length < 4) && (tr->clause_lower_count > 3)
-					   && (tr->clause_upper_count <= tr->clause_lower_count)) {
+			           && (tr->clause_upper_count <= tr->clause_lower_count)) {
 				// An upper case word in a lower case clause. This could be an abbreviation.
 				spell_word = 1;
 			}
@@ -1217,8 +1217,8 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 
 		// If the list file contains a text replacement to another
 		// entry in the list file, e.g.:
-		//	 ripost	 riposte $text
-		//	 riposte	rI#p0st
+		//     ripost     riposte $text
+		//     riposte    rI#p0st
 		// calling it from a prefix or suffix rule such as 'riposted'
 		// causes word_out[0] to be NULL, as TranslateWord3 has the
 		// information needed to perform the mapping. In this case,
@@ -1238,12 +1238,12 @@ static void AddPlist2(struct TranslatorData *ptd, unsigned char phcode)
 {
 	PHONEME_LIST2 *p = AddPhoneme(ptd);
 	if (p != NULL) {
-		p->phcode = phcode;
-		p->stresslevel = 0;
-		p->tone_ph = 0;
-		p->synthflags = embedded_flag;
-		p->sourceix = 0;
-		embedded_flag = 0;
+	p->phcode = phcode;
+	p->stresslevel = 0;
+	p->tone_ph = 0;
+	p->synthflags = embedded_flag;
+	p->sourceix = 0;
+	embedded_flag = 0;
 	}
 }
 
@@ -1351,8 +1351,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				p2->tone_ph = 0;
 				p2->synthflags = embedded_flag;
 				p2->sourceix = 0;
-				embedded_flag = 0;
-			}
+			embedded_flag = 0;
+		}
 		}
 		word_phonemes[0] = 0;
 		return 0;
@@ -1663,16 +1663,16 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				p->phcode = ph_code;
 				p->tone_ph = 0;
 				p->synthflags = embedded_flag | found_dict_flag;
-				embedded_flag = 0;
+			embedded_flag = 0;
 				p->sourceix = srcix;
-				srcix = 0;
+			srcix = 0;
 
-				if (ph->type == phVOWEL) {
-					stress = next_stress;
-					next_stress = 1; // default is 'unstressed'
+			if (ph->type == phVOWEL) {
+				stress = next_stress;
+				next_stress = 1; // default is 'unstressed'
 
-					if (stress >= 4)
-						any_stressed_words = true;
+				if (stress >= 4)
+					any_stressed_words = true;
 
 					if ((prev_vowel >= 0) && (thisPh-1) != prev_vowel)
 						Phoneme(ptd, thisPh-1)->stresslevel = stress; // set stress for previous consonant
@@ -1680,29 +1680,29 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 					p->synthflags |= SFLAG_SYLLABLE;
 					prev_vowel = thisPh;
 
-					if (stress > max_stress) {
-						max_stress = stress;
+				if (stress > max_stress) {
+					max_stress = stress;
 						max_stress_ix = thisPh;
-					}
-					if (next_tone != 0) {
+				}
+				if (next_tone != 0) {
 						p->tone_ph = next_tone;
-						next_tone = 0;
-					}
-				} else {
-					if (first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING]) {
-						if (((tr->prev_dict_flags[0] & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
-							(tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2))) {
-							// italian, double the initial consonant if the previous word ends with a
-							// stressed vowel, or is marked with a flag
+					next_tone = 0;
+				}
+			} else {
+				if (first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING]) {
+					if (((tr->prev_dict_flags[0] & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
+					    (tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2))) {
+						// italian, double the initial consonant if the previous word ends with a
+						// stressed vowel, or is marked with a flag
 							p->synthflags |= SFLAG_LENGTHEN;
-						}
 					}
 				}
+			}
 
 				p->stresslevel = stress;
-				first_phoneme = false;
-			}
+			first_phoneme = false;
 		}
+	}
 	}
 
 	if (word_flags & FLAG_COMMA_AFTER)
@@ -2283,36 +2283,35 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 		const char *p;
 		for (p = source; *p != 0; p++)
-			if (!isspace2(*p))
-				break;
+		if (!isspace2(*p))
+			break;
 
-		if (*p == 0) {
-			// No characters except spaces. This is not a sentence.
-			// Don't add this pause, just make up the previous pause to this value;
-			clause_pause -= max_clause_pause;
-			if (clause_pause < 0)
-				clause_pause = 0;
+	if (*p == 0) {
+		// No characters except spaces. This is not a sentence.
+		// Don't add this pause, just make up the previous pause to this value;
+		clause_pause -= max_clause_pause;
+		if (clause_pause < 0)
+			clause_pause = 0;
 
 			if (new_sentence) // GLOBAL: set to true by 'InitText'
-				terminator |= CLAUSE_TYPE_SENTENCE; // carry forward an end-of-sentence indicator
-			max_clause_pause += clause_pause;
-			new_sentence2 = false;
-		} else {
+			terminator |= CLAUSE_TYPE_SENTENCE; // carry forward an end-of-sentence indicator
+		max_clause_pause += clause_pause;
+		new_sentence2 = false;
+	} else {
 			// Sentence, set (reset) max_clause_pause:
-			max_clause_pause = clause_pause;
-			new_sentence2 = new_sentence;
-		}
+		max_clause_pause = clause_pause;
+		new_sentence2 = new_sentence;
+	}
+	tr->clause_terminator = terminator;
 
-		tr->clause_terminator = terminator;
-
-		if (new_sentence2) {
-			count_sentences++;
-			if (skip_sentences > 0) {
-				skip_sentences--;
-				if (skip_sentences == 0)
-					skipping_text = false;
-			}
+	if (new_sentence2) {
+		count_sentences++;
+		if (skip_sentences > 0) {
+			skip_sentences--;
+			if (skip_sentences == 0)
+				skipping_text = false;
 		}
+	}
 
 		// Allocate space for sbuf and ph_list2.  If this fails give up immediately.
 		if (!EndReadClause(ptd)) {
@@ -2349,15 +2348,15 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 		for (j = 0; charix[j] <= 0; j++) ; // Find start of first word
 		assert(j < charix_size);
-		words[0].sourceix = charix[j];
+	words[0].sourceix = charix[j];
 
 		int k = 0;
-		while (charix[j] != 0) {
-			// count the number of characters (excluding multibyte continuation bytes)
-			if (charix[j++] != -1)
-				k++;
-		}
-		words[0].length = k;
+	while (charix[j] != 0) {
+		// count the number of characters (excluding multibyte continuation bytes)
+		if (charix[j++] != -1)
+			k++;
+	}
+	words[0].length = k;
 	}
 
 	int embedded_count = 0;
@@ -2383,431 +2382,432 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 		while (!finished) {
 			int prev_out2 = prev_out;
-			utf8_in2(&prev_out, &sbuf[ix-1], 1);
+		utf8_in2(&prev_out, &sbuf[ix-1], 1);
 
-			if (tr->langopts.tone_numbers && IsDigit09(prev_out) && IsAlpha(prev_out2)) {
-				// tone numbers can be part of a word, consider them as alphabetic
-				prev_out = 'a';
-			}
+		if (tr->langopts.tone_numbers && IsDigit09(prev_out) && IsAlpha(prev_out2)) {
+			// tone numbers can be part of a word, consider them as alphabetic
+			prev_out = 'a';
+		}
 
 			int prev_in;
-			if (prev_in_save != 0) {
-				prev_in = prev_in_save;
-				prev_in_save = 0;
-			} else if (source_index > 0)
-				utf8_in2(&prev_in, &source[source_index-1], 1);
+		if (prev_in_save != 0) {
+			prev_in = prev_in_save;
+			prev_in_save = 0;
+		} else if (source_index > 0)
+			utf8_in2(&prev_in, &source[source_index-1], 1);
 			else // first time
 				prev_in = ' ';
 
 			uint16_t prev_source_index = source_index;
 
 			int c;
-			if (char_inserted) {
-				c = char_inserted;
-				char_inserted = 0;
-			} else {
-				source_index += utf8_in(&cc, &source[source_index]);
-				c = cc;
-			}
+		if (char_inserted) {
+			c = char_inserted;
+			char_inserted = 0;
+		} else {
+			source_index += utf8_in(&cc, &source[source_index]);
+			c = cc;
+		}
 
 			int next_in;
 			int next_in_nbytes = utf8_in(&next_in, &source[source_index]);
 
-			if (c == 0) {
-				finished = true;
+		if (c == 0) {
+			finished = true;
+			c = ' ';
+		}
+
+		if (c == CTRL_EMBEDDED) {
+			// start of embedded command in the text
+			int srcix = source_index-1;
+
+			if (prev_in != ' ') {
+				c = ' ';
+				prev_in_save = c;
+				source_index--;
+			} else {
+					embedded_count += EmbeddedCommand(source, &source_index);
+				prev_in_save = prev_in;
+				// replace the embedded command by spaces
+					memset(&ptd->source[srcix], ' ', source_index-srcix);
+				source_index = srcix;
+				continue;
+			}
+		}
+
+		if ((option_sayas2 == SAYAS_KEY) && (c != ' ')) {
+			if ((prev_in == ' ') && (next_in == ' '))
+				option_sayas2 = SAYAS_SINGLE_CHARS; // single character, speak its name
+			c = towlower2(c, tr);
+		}
+
+
+		if (phoneme_mode) {
+			all_upper_case = FLAG_PHONEMES;
+
+			if ((c == ']') && (next_in == ']')) {
+				phoneme_mode = false;
+				source_index++;
 				c = ' ';
 			}
-
-			if (c == CTRL_EMBEDDED) {
-				// start of embedded command in the text
-				int srcix = source_index-1;
-
-				if (prev_in != ' ') {
+		} else if ((option_sayas2 & 0xf0) == SAYAS_DIGITS) {
+			if (iswdigit(c)) {
+				count_sayas_digits++;
+				if (count_sayas_digits > (option_sayas2 & 0xf)) {
+					// break after the specified number of digits
 					c = ' ';
-					prev_in_save = c;
-					source_index--;
+					space_inserted = true;
+					count_sayas_digits = 0;
+				}
+			} else {
+				count_sayas_digits = 0;
+				if (iswdigit(prev_out)) {
+					c = ' ';
+					space_inserted = true;
+				}
+			}
+		} else if ((option_sayas2 & 0x10) == 0) {
+			// speak as words
+
+			if ((c == 0x92) || (c == 0xb4) || (c == 0x2019) || (c == 0x2032))
+				c = '\''; // 'microsoft' quote or sexed closing single quote, or prime - possibly used as apostrophe
+
+			if (((c == 0x2018) || (c == '?')) && IsAlpha(prev_out) && IsAlpha(next_in)) {
+				// ? between two letters may be a smart-quote replaced by ?
+				c = '\'';
+			}
+
+			if (c == CHAR_EMPHASIS) {
+				// this character is a marker that the previous word is the focus of the clause
+				c = ' ';
+				word_flags |= FLAG_FOCUS;
+			}
+
+			if (c == CHAR_COMMA_BREAK) {
+				c = ' ';
+				word_flags |= FLAG_COMMA_AFTER;
+			}
+
+			// language specific character translations
+				// NOTE: TranslateChar changes source in one case...
+				c = TranslateChar(tr, &ptd->source[source_index], prev_in, c, next_in, &char_inserted, &word_flags);
+			if (c == 8)
+				continue; // ignore this character
+
+			if (char_inserted)
+				next_in = char_inserted;
+
+			// allow certain punctuation within a word (usually only apostrophe)
+			if (!IsAlpha(c) && !IsSpace(c) && (wcschr(tr->punct_within_word, c) == 0)) {
+				if (IsAlpha(prev_out)) {
+					if (tr->langopts.tone_numbers && IsDigit09(c) && !IsDigit09(next_in)) {
+						// allow a tone number as part of the word
+					} else {
+						c = ' '; // ensure we have an end-of-word terminator
+						space_inserted = true;
+					}
+				}
+			}
+
+			if (iswdigit(prev_out)) {
+				if (!iswdigit(c) && (c != '.') && (c != ',') && (c != ' ')) {
+					c = ' '; // terminate digit string with a space
+					space_inserted = true;
+				}
+			} else { // Prev output is not digit
+				if (prev_in == ',') {
+					// Workaround for several consecutive commas —
+					// replace current character with space
+					if (c == ',')
+						c = ' ';
 				} else {
-					embedded_count += EmbeddedCommand(source, &source_index);
-					prev_in_save = prev_in;
-					// replace the embedded command by spaces
-					memset(&ptd->source[srcix], ' ', source_index-srcix);
-					source_index = srcix;
+					decimal_sep_count = false;
+				}
+			}
+
+			if (c == '[') {
+				if ((next_in == '\002') || ((next_in == '[') && option_phoneme_input)) {
+					//  "[\002" is used internally to start phoneme mode
+					phoneme_mode = true;
+					source_index++;
 					continue;
 				}
 			}
 
-			if ((option_sayas2 == SAYAS_KEY) && (c != ' ')) {
-				if ((prev_in == ' ') && (next_in == ' '))
-					option_sayas2 = SAYAS_SINGLE_CHARS; // single character, speak its name
-				c = towlower2(c, tr);
-			}
+			if (IsAlpha(c)) {
+				alpha_count++;
+				if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040)))) {
+					if (wcschr(tr->punct_within_word, prev_out) == 0)
+						letter_count = 0; // don't reset count for an apostrophy within a word
 
-			if (phoneme_mode) {
-				all_upper_case = FLAG_PHONEMES;
-
-				if ((c == ']') && (next_in == ']')) {
-					phoneme_mode = false;
-					source_index++;
-					c = ' ';
-				}
-			} else if ((option_sayas2 & 0xf0) == SAYAS_DIGITS) {
-				if (iswdigit(c)) {
-					count_sayas_digits++;
-					if (count_sayas_digits > (option_sayas2 & 0xf)) {
-						// break after the specified number of digits
+					if ((prev_out != ' ') && (wcschr(tr->punct_within_word, prev_out) == 0)) {
+						// start of word, insert space if not one there already
 						c = ' ';
 						space_inserted = true;
-						count_sayas_digits = 0;
-					}
-				} else {
-					count_sayas_digits = 0;
-					if (iswdigit(prev_out)) {
-						c = ' ';
-						space_inserted = true;
-					}
-				}
-			} else if ((option_sayas2 & 0x10) == 0) {
-				// speak as words
 
-				if ((c == 0x92) || (c == 0xb4) || (c == 0x2019) || (c == 0x2032))
-					c = '\''; // 'microsoft' quote or sexed closing single quote, or prime - possibly used as apostrophe
-
-				if (((c == 0x2018) || (c == '?')) && IsAlpha(prev_out) && IsAlpha(next_in)) {
-					// ? between two letters may be a smart-quote replaced by ?
-					c = '\'';
-				}
-
-				if (c == CHAR_EMPHASIS) {
-					// this character is a marker that the previous word is the focus of the clause
-					c = ' ';
-					word_flags |= FLAG_FOCUS;
-				}
-
-				if (c == CHAR_COMMA_BREAK) {
-					c = ' ';
-					word_flags |= FLAG_COMMA_AFTER;
-				}
-
-				// language specific character translations
-				// NOTE: TranslateChar changes source in one case...
-				c = TranslateChar(tr, &ptd->source[source_index], prev_in, c, next_in, &char_inserted, &word_flags);
-				if (c == 8)
-					continue; // ignore this character
-
-				if (char_inserted)
-					next_in = char_inserted;
-
-				// allow certain punctuation within a word (usually only apostrophe)
-				if (!IsAlpha(c) && !IsSpace(c) && (wcschr(tr->punct_within_word, c) == 0)) {
-					if (IsAlpha(prev_out)) {
-						if (tr->langopts.tone_numbers && IsDigit09(c) && !IsDigit09(next_in)) {
-							// allow a tone number as part of the word
-						} else {
-							c = ' '; // ensure we have an end-of-word terminator
-							space_inserted = true;
-						}
-					}
-				}
-
-				if (iswdigit(prev_out)) {
-					if (!iswdigit(c) && (c != '.') && (c != ',') && (c != ' ')) {
-						c = ' '; // terminate digit string with a space
-						space_inserted = true;
-					}
-				} else { // Prev output is not digit
-					if (prev_in == ',') {
-						// Workaround for several consecutive commas —
-						// replace current character with space
-						if (c == ',')
-							c = ' ';
+						if (!IsBracket(prev_out)) // ?? perhaps only set FLAG_NOSPACE for . - /  (hyphenated words, URLs, etc)
+							next_word_flags |= FLAG_NOSPACE;
 					} else {
-						decimal_sep_count = false;
-					}
-				}
+						if (iswupper(c))
+							word_flags |= FLAG_FIRST_UPPER;
 
-				if (c == '[') {
-					if ((next_in == '\002') || ((next_in == '[') && option_phoneme_input)) {
-						//  "[\002" is used internally to start phoneme mode
-						phoneme_mode = true;
-						source_index++;
-						continue;
-					}
-				}
-
-				if (IsAlpha(c)) {
-					alpha_count++;
-					if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040)))) {
-						if (wcschr(tr->punct_within_word, prev_out) == 0)
-							letter_count = 0; // don't reset count for an apostrophy within a word
-
-						if ((prev_out != ' ') && (wcschr(tr->punct_within_word, prev_out) == 0)) {
-							// start of word, insert space if not one there already
-							c = ' ';
-							space_inserted = true;
-
-							if (!IsBracket(prev_out)) // ?? perhaps only set FLAG_NOSPACE for . - /  (hyphenated words, URLs, etc)
-								next_word_flags |= FLAG_NOSPACE;
-						} else {
-							if (iswupper(c))
-								word_flags |= FLAG_FIRST_UPPER;
-
-							if ((prev_out == ' ') && iswdigit(sbuf[ix-2]) && !iswdigit(prev_in)) {
-								// word, following a number, but with a space between
-								// Add an extra space, to distinguish "2 a" from "2a"
+						if ((prev_out == ' ') && iswdigit(sbuf[ix-2]) && !iswdigit(prev_in)) {
+							// word, following a number, but with a space between
+							// Add an extra space, to distinguish "2 a" from "2a"
 								sbuf = CheckSbufIndex(ptd, ix+1);
 								if (sbuf == NULL) break;
-								sbuf[ix++] = ' ';
-								words[word_count].start++;
+							sbuf[ix++] = ' ';
+							words[word_count].start++;
+						}
+					}
+				}
+
+				if (c != ' ') {
+					letter_count++;
+
+					if (tr->letter_bits_offset > 0) {
+						if (((c < 0x250) && (prev_out >= tr->letter_bits_offset)) ||
+						    ((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250))) {
+							// Don't mix native and Latin characters in the same word
+							// Break into separate words
+							if (IsAlpha(prev_out)) {
+								c = ' ';
+								space_inserted = true;
+								word_flags |= FLAG_HYPHEN_AFTER;
+								next_word_flags |= FLAG_HYPHEN;
 							}
 						}
 					}
+				}
 
-					if (c != ' ') {
-						letter_count++;
+				if (iswupper(c)) {
+					c = towlower2(c, tr);
 
-						if (tr->letter_bits_offset > 0) {
-							if (((c < 0x250) && (prev_out >= tr->letter_bits_offset)) ||
-								((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250))) {
-								// Don't mix native and Latin characters in the same word
-								// Break into separate words
-								if (IsAlpha(prev_out)) {
-									c = ' ';
-									space_inserted = true;
-									word_flags |= FLAG_HYPHEN_AFTER;
-									next_word_flags |= FLAG_HYPHEN;
-								}
-							}
-						}
-					}
-
-					if (iswupper(c)) {
-						c = towlower2(c, tr);
-
-						if (tr->langopts.param[LOPT_CAPS_IN_WORD]) {
-							if (syllable_marked == false) {
-								char_inserted = c;
-								c = 0x2c8; // stress marker
-								syllable_marked = true;
-							}
-						} else {
-							if (iswlower(prev_in)) {
-								// lower case followed by upper case, possibly CamelCase
-								if (UpperCaseInWord(tr, &sbuf[ix], c) == 0) { // start a new word
-									c = ' ';
-									space_inserted = true;
-									prev_in_save = c;
-								}
-							} else if ((c != ' ') && iswupper(prev_in) && iswlower(next_in)) {
-								int next2_in;
-								utf8_in(&next2_in, &source[source_index + next_in_nbytes]);
-
-								if ((tr->translator_name == L('n', 'l')) && (letter_count == 2) && (c == 'j') && (prev_in == 'I')) {
-									// Dutch words may capitalise initial IJ, don't split
-								} else if (IsAlpha(next2_in)) {
-									// changing from upper to lower case, start new word at the last uppercase, if 3 or more letters
-									c = ' ';
-									space_inserted = true;
-									prev_in_save = c;
-									next_word_flags |= FLAG_NOSPACE;
-								}
-							}
+					if (tr->langopts.param[LOPT_CAPS_IN_WORD]) {
+						if (syllable_marked == false) {
+							char_inserted = c;
+							c = 0x2c8; // stress marker
+							syllable_marked = true;
 						}
 					} else {
-						if ((all_upper_case) && (letter_count > 2)) {
-							// Flag as plural only English
-							if (tr->translator_name == L('e', 'n') && (c == 's') && (next_in == ' ')) {
+						if (iswlower(prev_in)) {
+							// lower case followed by upper case, possibly CamelCase
+							if (UpperCaseInWord(tr, &sbuf[ix], c) == 0) { // start a new word
 								c = ' ';
-								all_upper_case |= FLAG_HAS_PLURAL;
+								space_inserted = true;
+								prev_in_save = c;
+							}
+						} else if ((c != ' ') && iswupper(prev_in) && iswlower(next_in)) {
+							int next2_in;
+							utf8_in(&next2_in, &source[source_index + next_in_nbytes]);
 
-								if (sbuf[ix-1] == '\'')
-									sbuf[ix-1] = ' ';
-							} else
-								all_upper_case = 0; // current word contains lower case letters, not "'s"
-						} else
-							all_upper_case = 0;
-					}
-				} else if (c == '-') {
-					if (!IsSpace(prev_in) && IsAlpha(next_in)) {
-						if (prev_out != ' ') {
-							// previous 'word' not yet ended (not alpha or numeric), start new word now.
-							c = ' ';
-							space_inserted = true;
-						} else {
-							// '-' between two letters is a hyphen, treat as a space
-							word_flags |= FLAG_HYPHEN;
-							if (word_count > 0)
-								words[word_count-1].flags |= FLAG_HYPHEN_AFTER;
-							c = ' ';
+							if ((tr->translator_name == L('n', 'l')) && (letter_count == 2) && (c == 'j') && (prev_in == 'I')) {
+								// Dutch words may capitalise initial IJ, don't split
+							} else if (IsAlpha(next2_in)) {
+								// changing from upper to lower case, start new word at the last uppercase, if 3 or more letters
+								c = ' ';
+								space_inserted = true;
+								prev_in_save = c;
+								next_word_flags |= FLAG_NOSPACE;
+							}
 						}
-					} else if ((prev_in == ' ') && (next_in == ' ')) {
-						// ' - ' dash between two spaces, treat as pause
-						c = ' ';
-						pre_pause_add = 4;
-					} else if (next_in == '-') {
-						// double hyphen, treat as pause
-						source_index++;
-						c = ' ';
-						pre_pause_add = 4;
-					} else if ((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in)) {
-						// insert extra space between a word + space + hyphen, to distinguish 'a -2' from 'a-2'
-						sbuf = CheckSbufIndex(ptd, ix+1);
-						if (sbuf == NULL) break;
-						sbuf[ix++] = ' ';
-						words[word_count].start++;
 					}
-				} else if (c == '.') {
-					if (prev_out == '.') {
-						// multiple dots, separate by spaces. Note >3 dots has been replaced by elipsis
+				} else {
+					if ((all_upper_case) && (letter_count > 2)) {
+						// Flag as plural only English
+						if (tr->translator_name == L('e', 'n') && (c == 's') && (next_in == ' ')) {
+							c = ' ';
+							all_upper_case |= FLAG_HAS_PLURAL;
+
+							if (sbuf[ix-1] == '\'')
+								sbuf[ix-1] = ' ';
+						} else
+							all_upper_case = 0; // current word contains lower case letters, not "'s"
+					} else
+						all_upper_case = 0;
+				}
+			} else if (c == '-') {
+				if (!IsSpace(prev_in) && IsAlpha(next_in)) {
+					if (prev_out != ' ') {
+						// previous 'word' not yet ended (not alpha or numeric), start new word now.
 						c = ' ';
 						space_inserted = true;
-					} else if ((word_count > 0) && !(words[word_count-1].flags & FLAG_NOSPACE) && IsAlpha(prev_in)) {
-						// dot after a word, with space following, probably an abbreviation
-						words[word_count-1].flags |= FLAG_HAS_DOT;
-
-						if (IsSpace(next_in) || (next_in == '-'))
-							c = ' '; // remove the dot if it's followed by a space or hyphen, so that it's not pronounced
-					}
-				} else if (c == '\'') {
-					if (((prev_in == '.' && next_in == 's') || iswalnum(prev_in)) && IsAlpha(next_in)) {
-						// between two letters, or in an abbreviation (eg. u.s.a.'s). Consider the apostrophe as part of the word
-						single_quoted = false;
-					} else if ((tr->langopts.param[LOPT_APOSTROPHE] & 1) && IsAlpha(next_in))
-						single_quoted = false; // apostrophe at start of word is part of the word
-					else if ((tr->langopts.param[LOPT_APOSTROPHE] & 2) && IsAlpha(prev_in))
-						single_quoted = false; // apostrophe at end of word is part of the word
-					else if ((wcschr(tr->char_plus_apostrophe, prev_in) != 0) && (prev_out2 == ' ')) {
-						// consider single character plus apostrophe as a word
-						single_quoted = false;
-						if (next_in == ' ')
-							source_index++; // skip following space
 					} else {
-						if ((prev_out == 's') && (single_quoted == false)) {
-							// looks like apostrophe after an 's'
-							c = ' ';
-						} else {
-							if (IsSpace(prev_out))
-								single_quoted = true;
-							else
-								single_quoted = false;
-
-							pre_pause_add = 4; // single quote
-							c = ' ';
-						}
+						// '-' between two letters is a hyphen, treat as a space
+						word_flags |= FLAG_HYPHEN;
+						if (word_count > 0)
+							words[word_count-1].flags |= FLAG_HYPHEN_AFTER;
+						c = ' ';
 					}
-				} else if (lookupwchar(breaks, c) != 0)
-					c = ' '; // various characters to treat as space
-				else if (iswdigit(c)) {
-					if (tr->langopts.tone_numbers && IsAlpha(prev_out) && !IsDigit(next_in)) {
-					} else if ((prev_out != ' ') && !iswdigit(prev_out)) {
-						if ((prev_out != tr->langopts.decimal_sep) || ((decimal_sep_count == true) && (tr->langopts.decimal_sep == ','))) {
-							c = ' ';
-							space_inserted = true;
-						} else
-							decimal_sep_count = true;
-					} else if ((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in)) {
-						// insert extra space between a word and a number, to distinguish 'a 2' from 'a2'
+				} else if ((prev_in == ' ') && (next_in == ' ')) {
+					// ' - ' dash between two spaces, treat as pause
+					c = ' ';
+					pre_pause_add = 4;
+				} else if (next_in == '-') {
+					// double hyphen, treat as pause
+					source_index++;
+					c = ' ';
+					pre_pause_add = 4;
+				} else if ((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in)) {
+					// insert extra space between a word + space + hyphen, to distinguish 'a -2' from 'a-2'
 						sbuf = CheckSbufIndex(ptd, ix+1);
 						if (sbuf == NULL) break;
-						sbuf[ix++] = ' ';
-						words[word_count].start++;
+					sbuf[ix++] = ' ';
+					words[word_count].start++;
+				}
+			} else if (c == '.') {
+				if (prev_out == '.') {
+					// multiple dots, separate by spaces. Note >3 dots has been replaced by elipsis
+					c = ' ';
+					space_inserted = true;
+				} else if ((word_count > 0) && !(words[word_count-1].flags & FLAG_NOSPACE) && IsAlpha(prev_in)) {
+					// dot after a word, with space following, probably an abbreviation
+					words[word_count-1].flags |= FLAG_HAS_DOT;
+
+					if (IsSpace(next_in) || (next_in == '-'))
+						c = ' '; // remove the dot if it's followed by a space or hyphen, so that it's not pronounced
+				}
+			} else if (c == '\'') {
+				if (((prev_in == '.' && next_in == 's') || iswalnum(prev_in)) && IsAlpha(next_in)) {
+					// between two letters, or in an abbreviation (eg. u.s.a.'s). Consider the apostrophe as part of the word
+					single_quoted = false;
+				} else if ((tr->langopts.param[LOPT_APOSTROPHE] & 1) && IsAlpha(next_in))
+					single_quoted = false; // apostrophe at start of word is part of the word
+				else if ((tr->langopts.param[LOPT_APOSTROPHE] & 2) && IsAlpha(prev_in))
+					single_quoted = false; // apostrophe at end of word is part of the word
+				else if ((wcschr(tr->char_plus_apostrophe, prev_in) != 0) && (prev_out2 == ' ')) {
+					// consider single character plus apostrophe as a word
+					single_quoted = false;
+					if (next_in == ' ')
+						source_index++; // skip following space
+				} else {
+					if ((prev_out == 's') && (single_quoted == false)) {
+						// looks like apostrophe after an 's'
+						c = ' ';
+					} else {
+						if (IsSpace(prev_out))
+							single_quoted = true;
+						else
+							single_quoted = false;
+
+						pre_pause_add = 4; // single quote
+						c = ' ';
 					}
+				}
+			} else if (lookupwchar(breaks, c) != 0)
+				c = ' '; // various characters to treat as space
+			else if (iswdigit(c)) {
+				if (tr->langopts.tone_numbers && IsAlpha(prev_out) && !IsDigit(next_in)) {
+				} else if ((prev_out != ' ') && !iswdigit(prev_out)) {
+					if ((prev_out != tr->langopts.decimal_sep) || ((decimal_sep_count == true) && (tr->langopts.decimal_sep == ','))) {
+						c = ' ';
+						space_inserted = true;
+					} else
+						decimal_sep_count = true;
+				} else if ((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in)) {
+					// insert extra space between a word and a number, to distinguish 'a 2' from 'a2'
+						sbuf = CheckSbufIndex(ptd, ix+1);
+						if (sbuf == NULL) break;
+					sbuf[ix++] = ' ';
+					words[word_count].start++;
 				}
 			}
+		}
 
-			if (IsSpace(c)) {
-				if (prev_out == ' ') {
-					word_flags |= FLAG_MULTIPLE_SPACES;
-					continue; // multiple spaces
-				}
+		if (IsSpace(c)) {
+			if (prev_out == ' ') {
+				word_flags |= FLAG_MULTIPLE_SPACES;
+				continue; // multiple spaces
+			}
 
-				if ((cc == 0x09) || (cc == 0x0a))
-					next_word_flags |= FLAG_MULTIPLE_SPACES; // tab or newline, not a simple space
+			if ((cc == 0x09) || (cc == 0x0a))
+				next_word_flags |= FLAG_MULTIPLE_SPACES; // tab or newline, not a simple space
 
-				if (space_inserted) {
-					// count the number of characters since the start of the word
+			if (space_inserted) {
+				// count the number of characters since the start of the word
 					int j = 0;
 					int k = source_index - 1;
-					while ((k >= source_index_word) && (charix[k] != 0)) {
-						if (charix[k] > 0) // don't count initial bytes of multi-byte character
-							j++;
-						k--;
-					}
-					words[word_count].length = j;
+				while ((k >= source_index_word) && (charix[k] != 0)) {
+					if (charix[k] > 0) // don't count initial bytes of multi-byte character
+						j++;
+					k--;
 				}
+				words[word_count].length = j;
+			}
 
-				source_index_word = source_index;
+			source_index_word = source_index;
 
-				// end of 'word'
+			// end of 'word'
 				sbuf = CheckSbufIndex(ptd, ix+1);
 				if (sbuf == NULL) break;
-				sbuf[ix++] = ' ';
+			sbuf[ix++] = ' ';
 
 				if (ix > words[word_count].start) {
-					if (embedded_count > 0) {
-						// there are embedded commands before this word
-						embedded_list[embedded_ix-1] |= 0x80; // terminate list of commands for this word
-						words[word_count].flags |= FLAG_EMBEDDED;
-						embedded_count = 0;
-					}
-					if (alpha_count == 0) {
-						all_upper_case &= ~FLAG_ALL_UPPER;
-					}
-					words[word_count].pre_pause = pre_pause;
-					words[word_count].flags |= (all_upper_case | word_flags | word_emphasis);
+				if (embedded_count > 0) {
+					// there are embedded commands before this word
+					embedded_list[embedded_ix-1] |= 0x80; // terminate list of commands for this word
+					words[word_count].flags |= FLAG_EMBEDDED;
+					embedded_count = 0;
+				}
+				if (alpha_count == 0) {
+					all_upper_case &= ~FLAG_ALL_UPPER;
+				}
+				words[word_count].pre_pause = pre_pause;
+				words[word_count].flags |= (all_upper_case | word_flags | word_emphasis);
 
-					if (pre_pause > 0) {
-						// insert an extra space before the word, to prevent influence from previous word across the pause
+				if (pre_pause > 0) {
+					// insert an extra space before the word, to prevent influence from previous word across the pause
 						sbuf = CheckSbufIndex(ptd, ix+1);
 						if (sbuf == NULL) break;
 						int j;
 						for (j = ix++; j > words[word_count].start; j--)
-							sbuf[j] = sbuf[j-1];
-						sbuf[j] = ' ';
-						words[word_count].start++;
-					}
+						sbuf[j] = sbuf[j-1];
+					sbuf[j] = ' ';
+					words[word_count].start++;
+				}
 
 					words = CheckWordIndex(ptd, word_count+1);
 					if (words == NULL) break;
 					++word_count;
-					words[word_count].start = ix;
-					words[word_count].flags = 0;
+				words[word_count].start = ix;
+				words[word_count].flags = 0;
 
 					int j;
-					for (j = source_index; j < charix_top && charix[j] <= 0; j++) // skip blanks
-						;
-					words[word_count].sourceix = charix[j];
+				for (j = source_index; j < charix_top && charix[j] <= 0; j++) // skip blanks
+					;
+				words[word_count].sourceix = charix[j];
 					int k = 0;
-					while (charix[j] != 0) {
-						// count the number of characters (excluding multibyte continuation bytes)
-						if (charix[j++] != -1)
-							k++;
-					}
-					words[word_count].length = k;
-
-					word_flags = next_word_flags;
-					next_word_flags = 0;
-					pre_pause = 0;
-					all_upper_case = FLAG_ALL_UPPER;
-					alpha_count = 0;
-					syllable_marked = false;
+				while (charix[j] != 0) {
+					// count the number of characters (excluding multibyte continuation bytes)
+					if (charix[j++] != -1)
+						k++;
 				}
+				words[word_count].length = k;
 
-				if (space_inserted) {
-					source_index = prev_source_index; // rewind to the previous character
-					char_inserted = 0;
-					space_inserted = false;
-				}
-			} else {
+				word_flags = next_word_flags;
+				next_word_flags = 0;
+				pre_pause = 0;
+				all_upper_case = FLAG_ALL_UPPER;
+				alpha_count = 0;
+				syllable_marked = false;
+			}
+
+			if (space_inserted) {
+				source_index = prev_source_index; // rewind to the previous character
+				char_inserted = 0;
+				space_inserted = false;
+			}
+		} else {
 				char code[4];
 				int cb = utf8_out(c, code);
 				sbuf = CheckSbufIndex(ptd, ix+cb);
 				if (sbuf == NULL) break;
 				memcpy(sbuf+ix, code, cb);
 				ix += cb;
-			}
-			if (pre_pause_add > pre_pause)
-				pre_pause = pre_pause_add;
-			pre_pause_add = 0;
+		}
+		if (pre_pause_add > pre_pause)
+			pre_pause = pre_pause_add;
+		pre_pause_add = 0;
 		} // end of sbuf while loop
 	}
 
@@ -2825,7 +2825,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 	tr->clause_end = &sbuf[ix-1];
 	sbuf[ix] = 0;
-
 	words[0].pre_pause = 0; // don't add extra pause at beginning of clause
 	words[word_count].pre_pause = 8;
 	if (word_count > 0) {
@@ -2872,7 +2871,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				if (iswdigit(*pw))
 					*pn++ = *pw++;
 				else if ((*pw == tr->langopts.thousands_sep) && (pw[1] == ' ')
-						   && iswdigit(pw[2]) && (pw[3] != ' ') && (pw[4] != ' ')) { // don't allow only 1 or 2 digits in the final part
+				           && iswdigit(pw[2]) && (pw[3] != ' ') && (pw[4] != ' ')) { // don't allow only 1 or 2 digits in the final part
 					pw += 2;
 					ix++; // skip "word"
 				} else {

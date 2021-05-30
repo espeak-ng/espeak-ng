@@ -186,10 +186,10 @@ void MakePhonemeList(const Translator *tr, PHONEME_LIST2 *ph_list2, uint16_t *n_
 
 		if (plist2[j].phcode == phonSWITCH) {
 			if ((!(plist2[j].synthflags & SFLAG_EMBEDDED)) && (
-					(plist2[j].tone_ph == current_phoneme_tab) ||
-					(plist2[j+1].phcode == phonSWITCH) ||
-					((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
-					)) {
+			        (plist2[j].tone_ph == current_phoneme_tab) ||
+			        (plist2[j+1].phcode == phonSWITCH) ||
+			        ((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
+			        )) {
 				// delete this phonSWITCH if it's switching to the current phoneme table, or
 				// delete this phonSWITCH if its followed by another phonSWITCH
 				if (deleted_sourceix == -1 && plist2[j].sourceix != 0)
