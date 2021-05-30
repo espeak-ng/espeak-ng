@@ -2005,15 +2005,15 @@ typedef struct TranslatorData {
 	uint16_t words_size;
 	uint16_t sbuf_size;
 	uint16_t ph_list2_size;
-	uint16_t n_ph_list2;	// count of valid entries in n_ph_list2
+	uint16_t n_ph_list2;    // count of valid entries in n_ph_list2
 
 	// ReadClause allocated arrays:
 	int16_t *charix;        // [max_source_size+4] (three terminators) TODO: should be uint16_t
 	char	*source;        // [max_source+size+40], extra space for embedded command & voice change info at end
 
 	// Arrays allocated for building PHONEME_LIST2:
-	WORD_TAB	  *words;
-	char		  *sbuf;
+	WORD_TAB      *words;
+	char          *sbuf;
 	PHONEME_LIST2 *ph_list2;
 } TranslatorData;
 
@@ -2046,9 +2046,9 @@ static TranslatorData *StartReadClause(Translator *tr)
 		ptd->charix_size = chars+4U;  // from original translate.c code
 
 		// The remaining arrays are allocated later:
-		ptd->words_size = 64U;		// updated dynamically
-		ptd->sbuf_size = 128U;		// updated dynamically
-		ptd->ph_list2_size = 128U;	// updated synamically
+		ptd->words_size = 64U;        // updated dynamically
+		ptd->sbuf_size = 128U;        // updated dynamically
+		ptd->ph_list2_size = 128U;    // updated synamically
 		ptd->n_ph_list2 = 0U;
 
 		ptd->source = malloc(ptd->source_size * sizeof *ptd->source);
