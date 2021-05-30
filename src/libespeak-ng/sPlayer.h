@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-	void KlattInitSP(void/*stops 'missing prototype' from GCC!*/);
+	void KlattInitSP(void);
 	void KlattResetSP(void);
 	int Wavegen_KlattSP(WGEN_DATA *wdata, voice_t *wvoice, int length, int resume, frame_t *fr1, frame_t *fr2);
 
