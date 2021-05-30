@@ -1438,6 +1438,7 @@ ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SetConstF0(int f0)
 {
 	const_f0 = f0;
+	return ENS_OK;
 }
 
 #pragma GCC visibility pop
