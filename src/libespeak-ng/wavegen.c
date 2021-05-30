@@ -1401,9 +1401,11 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 int WavegenFill(void)
 {
 	int finished;
+#if HAVE_SONIC_H
 	unsigned char *p_start;
 
 	p_start = out_ptr;
+#endif
 
 	finished = WavegenFill2();
 
