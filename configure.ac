@@ -304,6 +304,7 @@ dnl Reference: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 dnl ================================================================
 
 AX_CHECK_COMPILE_FLAG([-Wimplicit],              [CFLAGS="-Wimplicit $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wint-conversion],        [CFLAGS="-Wint-conversion $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wmissing-prototypes],    [CFLAGS="-Wmissing-prototypes $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wreturn-type],           [CFLAGS="-Wreturn-type $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wuninitialized],         [CFLAGS="-Wuninitialized $CFLAGS"])
