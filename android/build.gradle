@@ -21,7 +21,6 @@ dependencies {
 }
 
 android {
-    buildToolsVersion '28.0.3'
     compileSdkVersion 26
 
     defaultConfig {
@@ -31,12 +30,17 @@ android {
         versionName "1.52-dev"
     }
 
+    externalNativeBuild {
+        ndkBuild {
+            path "jni/Android.mk"
+        }
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
             res.srcDirs = ['res']
-            jniLibs.srcDir 'libs'
         }
         androidTest.setRoot('eSpeakTests')
         androidTest {
