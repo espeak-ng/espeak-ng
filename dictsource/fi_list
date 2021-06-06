@@ -322,6 +322,7 @@ kasti    kastI   // Adverbs that end in –sti cause doubling of the following c
 kesti    kestI
 kosti    kostI
 kyösti   kyYstI
+muisti    muistI
 pelasti  pelastI
 pianisti pianistI
 posti    postI
@@ -331,7 +332,10 @@ päästi   p&:stI
 rasti    RastI
 risti    RistI
 ryösti   RyYstI
+sähköposti s'&hkYp,ostI 
+tekstiviesti tekstIviestI
 varasti  vaRastI
+viesti   viestI
 viulisti viulIstI
 
 // No doubling, ends in –lle
