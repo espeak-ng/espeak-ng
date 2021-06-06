@@ -398,12 +398,3 @@ ry         $abbrev    $dot    // rekisteröity yhdistys
 usb        $abbrev
 utf        $abbrev
 ym         ynn&_mu:ta  $dot   // ynnä muuta (etc)
-
-// foreign words
-blindsquare     _^_EN
-bluetooth     _^_EN
-daisy     _^_EN
-facebook    _^_EN
-talkback     _^_EN
-voiceover     _^_EN
-youtube     _^_EN
