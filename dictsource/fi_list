@@ -351,7 +351,7 @@ ville    ville
 wille    ville
 
 // No doubling, ends in –nne
-Anne     anne $capital
+anne     anne
 hanne    hanne
 janne    janne
 manne    manne
@@ -369,7 +369,6 @@ kungfutse    kuNfutse
 ok         'o:_,ko:
 okay       okei
 yoghurt    jogurt:i
-yogurt     jogurt:i
 
 
 // Abbreviations
