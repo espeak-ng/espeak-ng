@@ -381,12 +381,11 @@ ad         $abbrev    $dot    // anno Domini, Herran vuonna
 atk        $abbrev
 ay         $abbrev    // ammaatiyhdistys
 ca         $abbrev    $dot    // circa 
-dna        $abbrev    // elinkeinoelämän keskusliitto
-eg         esimerkiksi $dot   // exempli gratia, esimerkiksi
+dna        $abbrev
 em         $abbrev    $dot 
 ek         $abbrev    // elinkeinoelämän keskusliitto
 ekr        $abbrev    $dot    // ennen Kristuksen syntymää
-etc        et_setera  $dot    // et cetera, ym., jne.
+etc        $abbrev  $dot    // et cetera, ym., jne.
 eu         $abbrev
 hiv        $abbrev
 ict        $abbrev
@@ -401,4 +400,5 @@ oy         $abbrev            // osakeyhtiö
 ry         $abbrev    $dot    // rekisteröity yhdistys
 usb        $abbrev
 utf        $abbrev
-ym         ynn&_mu:ta  $dot   // ynnä muuta (etc)
+ym         $abbrev  $dot   // ynnä muuta (etc)
+yo         $abbrev // ylioppilas
