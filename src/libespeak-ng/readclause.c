@@ -73,6 +73,7 @@ static SSML_STACK ssml_stack[N_SSML_STACK];
 
 static espeak_VOICE base_voice;
 static char base_voice_variant_name[40] = { 0 };
+static char current_voice_id[40] = { 0 };
 
 static int n_param_stack;
 PARAM_STACK param_stack[N_PARAM_STACK];
@@ -509,6 +510,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	tr->clause_upper_count = 0;
 	tr->clause_lower_count = 0;
 	*tone_type = 0;
+	*voice_change = 0;
 
 	if (ungot_char2 != 0) {
 		c2 = ungot_char2;
@@ -606,11 +608,14 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					xml_buf[n_xml_buf] = 0;
 					c2 = ' ';
 
-					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, voice_change, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
+					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
 
 					if (terminator != 0) {
 						buf[ix] = ' ';
 						buf[ix++] = 0;
+
+						if (terminator & CLAUSE_TYPE_VOICE_CHANGE)
+							strcpy(voice_change, current_voice_id);
 						return terminator;
 					}
 					c1 = ' ';
@@ -1000,6 +1005,9 @@ void InitText2(void)
 
 	option_punctuation = speech_parameters[espeakPUNCTUATION];
 	option_capitals = speech_parameters[espeakCAPITALS];
+
+	current_voice_id[0] = 0;
+
 	ignore_text = false;
 	audio_text = false;
 	clear_skipping_text = false;
