@@ -54,7 +54,7 @@ updated languages:
 *  lv (Latvian) -- Valdis Vitolins
 *  mi (Māori) -- boracasli98
 *  shn (Shan Tay Yai) -- ronaldaug
-*  tr (Turkish) -- boracasli98
+*  tr (Turkish) -- boracasli98, SeanTolstoyevski
 *  ur (Urdu) -- Ejaz Shah
 *  uz (Uzbek) -- boracasli98, Valdis Vitolins
 *  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
