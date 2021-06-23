@@ -589,11 +589,13 @@ dictionaries: \
 	espeak-ng-data/qdb_dict \
 	espeak-ng-data/qu_dict \
 	espeak-ng-data/quc_dict \
+	espeak-ng-data/qya_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
 	espeak-ng-data/sd_dict \
 	espeak-ng-data/shn_dict \
 	espeak-ng-data/si_dict \
+	espeak-ng-data/sjn_dict \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
 	espeak-ng-data/smj_dict \
@@ -861,6 +863,9 @@ espeak-ng-data/qu_dict: dictsource/qu_list dictsource/qu_rules dictsource/qu_ext
 quc: espeak-ng-data/quc_dict
 espeak-ng-data/quc_dict: dictsource/quc_list dictsource/quc_rules dictsource/quc_extra dictsource/quc_emoji
 
+qya: espeak-ng-data/qya_dict
+espeak-ng-data/qya_dict: dictsource/qya_list dictsource/qya_rules
+
 ro: espeak-ng-data/ro_dict
 espeak-ng-data/ro_dict: dictsource/ro_list dictsource/ro_rules dictsource/ro_extra dictsource/ro_emoji
 
@@ -881,6 +886,9 @@ espeak-ng-data/shn_dict: dictsource/shn_list dictsource/shn_rules dictsource/shn
 
 si: espeak-ng-data/si_dict
 espeak-ng-data/si_dict: dictsource/si_list dictsource/si_rules dictsource/si_extra dictsource/si_emoji
+
+sjn: espeak-ng-data/sjn_dict
+espeak-ng-data/sjn_dict: dictsource/sjn_list dictsource/sjn_rules
 
 sk: espeak-ng-data/sk_dict
 espeak-ng-data/sk_dict: dictsource/sk_list dictsource/sk_rules dictsource/sk_extra dictsource/sk_emoji

@@ -1920,6 +1920,10 @@ include ph_lojban
 phonemetable py eo
 include ph_pyash
 
+phonemetable qya eo
+
+phonemetable sjn qya
+
 phonemetable es-la es
 include ph_spanish_la
 
