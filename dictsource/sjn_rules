@@ -1,5 +1,94 @@
 .group a
 	a	a
 
+.group b
+	b	b
+
+.group c
+	c	k
+
+.group ch
+	ch	x
+
+.group d
+	d	d
+
+.group dh
+	dh	D
+
 .group e
 	e	e
+
+.group f
+	f	f
+	f (_	v
+
+.group g
+	g	g
+
+.group h
+	h	h
+	// TODO hw
+
+.group i
+	i	i
+	i (A	j
+
+// j and k do not occur in Sindarin
+
+.group l
+	l	l
+	// TODO lh
+
+.group m
+	m	m
+
+.group n
+	n	n
+
+.group ng
+	ng	Ng
+	ng (_	N
+
+.group o
+	o	o
+
+.group p
+	p	p
+
+.group ph
+	ph	f
+
+// q does not occur in Sindarin
+
+.group r
+	r	R
+	// TODO rh
+
+.group s
+	s	s
+
+.group t
+	t	t
+
+.group th
+	th	T
+
+.group ty
+	ty	tj
+
+.group u
+	u	u
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+// x does not occur in Sindarin
+
+.group y
+	y	y
+
+// z does not occur in Sindarin
