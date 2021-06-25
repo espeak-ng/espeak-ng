@@ -1,5 +1,92 @@
 .group a
 	a	a
 
+.group b
+	b	b
+
+.group c
+	c	k
+
+.group ch
+	ch	x
+
+.group d
+	d	d
+
+.group dh
+	dh	D
+
 .group e
 	e	e
+
+.group f
+	f	f
+	f (_	v
+
+.group g
+	g	g
+
+.group h
+	h	h
+	// TODO ht, hl, hr, hw, hy
+
+.group i
+	i	i
+
+// j and k do not occur in Quenya
+
+.group l
+	l	l
+
+.group m
+	m	m
+
+.group n
+	n	n
+
+.group ng
+	ng	Ng
+	ng (_	N
+
+.group o
+	o	o
+
+.group p
+	p	p
+
+.group ph
+	ph	f
+
+.group qu
+	qu	kw
+
+.group r
+	r	R
+
+.group s
+	s	s
+
+.group t
+	t	t
+
+.group th
+	th	T
+
+.group ty
+	ty	tj
+
+.group u
+	u	u
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+// x does not occur in Quenya
+
+.group y
+	y	j
+
+// z does not occur in Quenya
