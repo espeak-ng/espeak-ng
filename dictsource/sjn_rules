@@ -14,6 +14,9 @@
 	a (AX	=a
 	a (CAX	=a
 
+.group á
+	á	a:
+
 .group b
 	b	b
 
@@ -37,6 +40,9 @@
 	e (AX	=e
 	e (CAX	=e
 
+.group é
+	é	e:
+
 .group f
 	f	f
 	f (_	v
@@ -56,6 +62,9 @@
 	i (CAX	=i
 	// (unless initial)
 	_) i (AX	j
+
+.group í
+	í	i:
 
 // j and k do not occur in Sindarin
 
@@ -78,6 +87,9 @@
 	// light penultimate syllable: put stress on antepenultimate
 	o (AX	=o
 	o (CAX	=o
+
+.group ó
+	ó	o:
 
 .group p
 	p	p
@@ -110,6 +122,9 @@
 	u (AX	=u
 	u (CAX	=u
 
+.group ú
+	ú	u:
+
 .group v
 	v	v
 
@@ -123,5 +138,8 @@
 	// light penultimate syllable: put stress on antepenultimate
 	y (AX	=y
 	y (CAX	=y
+
+.group ý
+	ý	y:
 
 // z does not occur in Sindarin
