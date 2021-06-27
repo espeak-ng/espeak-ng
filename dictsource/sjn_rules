@@ -1,3 +1,13 @@
+.replace
+	// turn x into cs, both because that’s how it’s pronounced
+	// (strictly speaking only in some Quenya, but let’s do it here too)
+	// and to free up x as a single letter for ch (see immediately below)
+	x	cs
+	// turn ch, dh, th into single consonants for stress purposes
+	ch	x
+	dh	ð
+	th	þ
+
 .group a
 	a	a
 	// light penultimate syllable: put stress on antepenultimate
@@ -9,15 +19,17 @@
 
 .group c
 	c	k
+	// recall that ch was replaced with x earlier
 
-.group ch
-	ch	x
+.group x
+	x	x
 
 .group d
 	d	d
+	// recall that dh was replaced with ð earlier
 
-.group dh
-	dh	D
+.group ð
+	ð	D
 
 .group e
 	e	e
@@ -84,9 +96,10 @@
 
 .group t
 	t	t
+	// recall that th was replaced with þ earlier
 
-.group th
-	th	T
+.group þ
+	þ	T
 
 .group ty
 	ty	tj
@@ -103,7 +116,7 @@
 .group w
 	w	w
 
-// x does not occur in Sindarin
+// recall that x was replaced with cs earlier
 
 .group y
 	y	y
