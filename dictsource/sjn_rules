@@ -17,6 +17,9 @@
 .group á
 	á	a:
 
+.group â
+	â	a::
+
 .group b
 	b	b
 
@@ -43,6 +46,9 @@
 .group é
 	é	e:
 
+.group ê
+	ê	e::
+
 .group f
 	f	f
 	f (_	v
@@ -65,6 +71,9 @@
 
 .group í
 	í	i:
+
+.group î
+	î	i::
 
 // j and k do not occur in Sindarin
 
@@ -90,6 +99,9 @@
 
 .group ó
 	ó	o:
+
+.group ô
+	ô	o::
 
 .group p
 	p	p
@@ -122,6 +134,9 @@
 	u (AX	=u
 	u (CAX	=u
 
+.group û
+	û	u::
+
 .group ú
 	ú	u:
 
@@ -141,5 +156,8 @@
 
 .group ý
 	ý	y:
+
+.group ŷ
+	ŷ	y::
 
 // z does not occur in Sindarin

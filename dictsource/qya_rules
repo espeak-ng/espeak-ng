@@ -16,6 +16,9 @@
 .group á
 	á	a:
 
+.group â
+	â	a::
+
 .group b
 	b	b
 
@@ -42,6 +45,9 @@
 .group é
 	é	e:
 
+.group ê
+	ê	e::
+
 .group f
 	f	f
 	f (_	v
@@ -61,6 +67,9 @@
 
 .group í
 	í	i:
+
+.group î
+	î	i::
 
 // j and k do not occur in Quenya
 
@@ -85,6 +94,9 @@
 
 .group ó
 	ó	o:
+
+.group ô
+	ô	o::
 
 .group p
 	p	p
@@ -119,6 +131,9 @@
 
 .group ú
 	ú	u:
+
+.group û
+	û	u::
 
 .group v
 	v	v
