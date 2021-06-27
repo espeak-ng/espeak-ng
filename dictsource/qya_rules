@@ -9,6 +9,8 @@
 
 .group a
 	a	a
+	ai (+	aI
+	au (+	aU
 	// light penultimate syllable: put stress on antepenultimate
 	a (AX	=a
 	a (CAX	=a
@@ -38,6 +40,7 @@
 
 .group e
 	e	e
+	eu (+	EU
 	// light penultimate syllable: put stress on antepenultimate
 	e (AX	=e
 	e (CAX	=e
@@ -61,6 +64,7 @@
 
 .group i
 	i	i
+	// TODO iu (no suitable diphthong in ph_latin)
 	// light penultimate syllable: put stress on antepenultimate
 	i (AX	=i
 	i (CAX	=i
@@ -88,6 +92,7 @@
 
 .group o
 	o	o
+	oi (+	OI
 	// light penultimate syllable: put stress on antepenultimate
 	o (AX	=o
 	o (CAX	=o
@@ -125,6 +130,7 @@
 
 .group u
 	u	u
+	// TODO ui (no suitable diphthong in ph_latin)
 	// light penultimate syllable: put stress on antepenultimate
 	u (AX	=u
 	u (CAX	=u
