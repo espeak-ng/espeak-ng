@@ -1,3 +1,11 @@
+phoneme n
+  IF nextPhW(isVelar) THEN // /n/ is velarized to /N/ when before velar stops
+    ChangePhoneme(N)
+  ENDIF
+  CALL base1/n
+endphoneme
+
+
 phoneme aE
   vwl starttype #a endtype #e
   length 270
