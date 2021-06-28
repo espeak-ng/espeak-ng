@@ -1921,8 +1921,9 @@ phonemetable py eo
 include ph_pyash
 
 phonemetable qya la
+include ph_quenya
 
-phonemetable sjn qya
+phonemetable sjn la
 
 phonemetable es-la es
 include ph_spanish_la

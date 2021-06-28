@@ -64,7 +64,7 @@
 
 .group i
 	i	i
-	// TODO iu (no suitable diphthong in ph_latin)
+	iu (+	iu
 	// light penultimate syllable: put stress on antepenultimate
 	i (AX	=i
 	i (CAX	=i
@@ -131,7 +131,7 @@
 
 .group u
 	u	u
-	// TODO ui (no suitable diphthong in ph_latin)
+	ui (+	ui
 	// light penultimate syllable: put stress on antepenultimate
 	u (AX	=u
 	u (CAX	=u

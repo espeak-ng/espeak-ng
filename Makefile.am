@@ -412,6 +412,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_punjabi \
 	phsource/ph_pyash \
 	phsource/ph_quechua \
+	phsource/ph_quenya \
 	phsource/ph_romanian \
 	phsource/ph_russian \
 	phsource/ph_russian_lv \
