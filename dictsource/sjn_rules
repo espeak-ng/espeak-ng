@@ -10,7 +10,7 @@
 
 .group a
 	a	a
-	ae (+	aI // TODO ae and ai should be different
+	ae (+	aE
 	ai (+	aI
 	au (+	aU
 	// light penultimate syllable: put stress on antepenultimate
@@ -97,7 +97,7 @@
 
 .group o
 	o	o
-	oe (+	OI // TODO oe and oi should be different
+	oe (+	OI
 	// light penultimate syllable: put stress on antepenultimate
 	o (AX	=o
 	o (CAX	=o
@@ -136,7 +136,7 @@
 
 .group u
 	u	u
-	// TODO ui (no suitable diphthong in ph_latin)
+	ui (+	ui
 	// light penultimate syllable: put stress on antepenultimate
 	u (AX	=u
 	u (CAX	=u

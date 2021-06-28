@@ -420,6 +420,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_serbian \
 	phsource/ph_setswana \
 	phsource/ph_shan \
+	phsource/ph_sindarin \
 	phsource/ph_sindhi \
 	phsource/ph_sinhala \
 	phsource/ph_slovak \

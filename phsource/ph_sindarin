@@ -1,0 +1,18 @@
+phoneme aE
+  vwl starttype #a endtype #e
+  length 270
+  FMT(vdiph/ae)
+endphoneme
+
+phoneme aI
+  vwl starttype #a endtype #i
+  length 240
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme ui
+  vwl starttype #u endtype #i
+  length 270
+  lng
+  FMT(vdiph/ui_4)
+endphoneme
