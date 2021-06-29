@@ -180,7 +180,7 @@
      _) qw (A      kw        // qwerty
 
 .group rr
-	rr	rr
+	rr	R2
 
 .group r
         r          r
@@ -188,7 +188,7 @@
         r (t       r
      A) r (A       r
      C) r (A       r
-     _) r (A       rr
+     _) r (A       R2
      l) r (A       R2
      m) r (A       R2
      n) r (A       R2
@@ -256,9 +256,9 @@
      _) y ($unpr   J
     _m) y (A       j
     _l) y (A       j
-        y (A       j:
+        y (A       J^
      _) y (A       J^
-     u) y (K       j:
+     u) y (K       j
     n_) y (A       dZ
         y (_       i
 
