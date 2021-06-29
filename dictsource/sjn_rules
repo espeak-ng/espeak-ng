@@ -66,12 +66,10 @@
 
 .group i
 	i	i
-	_) i (A	j
+	_) i (A+	j
 	// light penultimate syllable: put stress on antepenultimate
 	i (AX	=i
 	i (CAX	=i
-	// (unless initial)
-	_) i (AX	j
 
 .group í
 	í	i:
