@@ -1,3 +1,6 @@
+// syllable nuclei: vowels (any length) and diphthongs
+.L01 i e a o u í é á ó ú î ê â ô û ui oi ai iu eu au
+
 .replace
 	// turn x into cs, both because that’s how it’s pronounced
 	// and to free up x as a single letter for ch (see immediately below)
@@ -12,8 +15,8 @@
 	ai (+	aI
 	au (+	aU
 	// light penultimate syllable: put stress on antepenultimate
-	a (AX	=a
-	a (CAX	=a
+	a (L01X	=a
+	a (CL01X	=a
 
 .group á
 	á	a:
@@ -42,8 +45,8 @@
 	e	e
 	eu (+	EU
 	// light penultimate syllable: put stress on antepenultimate
-	e (AX	=e
-	e (CAX	=e
+	e (L01X	=e
+	e (CL01X	=e
 
 .group é
 	é	e:
@@ -66,8 +69,8 @@
 	i	i
 	iu (+	iu
 	// light penultimate syllable: put stress on antepenultimate
-	i (AX	=i
-	i (CAX	=i
+	i (L01X	=i
+	i (CL01X	=i
 
 .group í
 	í	i:
@@ -94,8 +97,8 @@
 	o	o
 	oi (+	OI
 	// light penultimate syllable: put stress on antepenultimate
-	o (AX	=o
-	o (CAX	=o
+	o (L01X	=o
+	o (CL01X	=o
 
 .group ó
 	ó	o:
@@ -133,8 +136,8 @@
 	u	u
 	ui (+	ui
 	// light penultimate syllable: put stress on antepenultimate
-	u (AX	=u
-	u (CAX	=u
+	u (L01X	=u
+	u (CL01X	=u
 
 .group ú
 	ú	u:

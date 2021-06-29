@@ -1,3 +1,6 @@
+// syllable nuclei: vowels (any length) and diphthongs
+.L01 i e a o u y í é á ó ú ý î ê â ô û ŷ ae ai ei oe ui au
+
 .replace
 	// turn x into cs, both because that’s how it’s pronounced
 	// (strictly speaking only in some Quenya, but let’s do it here too)
@@ -14,8 +17,8 @@
 	ai (+	aI
 	au (+	aU
 	// light penultimate syllable: put stress on antepenultimate
-	a (AX	=a
-	a (CAX	=a
+	a (L01X	=a
+	a (CL01X	=a
 
 .group á
 	á	a:
@@ -44,8 +47,8 @@
 	e	e
 	ei (+	eI
 	// light penultimate syllable: put stress on antepenultimate
-	e (AX	=e
-	e (CAX	=e
+	e (L01X	=e
+	e (CL01X	=e
 
 .group é
 	é	e:
@@ -68,8 +71,8 @@
 	i	i
 	_) i (A+	j
 	// light penultimate syllable: put stress on antepenultimate
-	i (AX	=i
-	i (CAX	=i
+	i (L01X	=i
+	i (CL01X	=i
 
 .group í
 	í	i:
@@ -97,8 +100,8 @@
 	o	o
 	oe (+	OI
 	// light penultimate syllable: put stress on antepenultimate
-	o (AX	=o
-	o (CAX	=o
+	o (L01X	=o
+	o (CL01X	=o
 
 .group ó
 	ó	o:
@@ -136,8 +139,8 @@
 	u	u
 	ui (+	ui
 	// light penultimate syllable: put stress on antepenultimate
-	u (AX	=u
-	u (CAX	=u
+	u (L01X	=u
+	u (CL01X	=u
 
 .group û
 	û	u::
@@ -156,8 +159,8 @@
 .group y
 	y	y
 	// light penultimate syllable: put stress on antepenultimate
-	y (AX	=y
-	y (CAX	=y
+	y (L01X	=y
+	y (CL01X	=y
 
 .group ý
 	ý	y:
