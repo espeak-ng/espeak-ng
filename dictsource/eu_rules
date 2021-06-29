@@ -7,7 +7,6 @@
 .L01 b d g
 .L02 e i
 
-
 .group a
         a          a
         ai         aI
@@ -37,28 +36,21 @@
         arenganaino (_s11 a**enganain^o
         arengatik (_S9 a**engatik
         atzat (_S5 atzat
-         
-         
 
 .group b
         b          b
   _ez_) b (A       p'
-         
 
 .group c
         c          k
         c (L02     T
-        ch         tS        
-         
+        ch         tS
 
 .group d
         d          d
         dd         J
      A) d (A       D         // ??
   _ez_) d (A       t'
-         
-         
-         
 
 .group e
         e          e
@@ -87,13 +79,9 @@
         ekiko (_S5 ekiko
         ez (_S2    ez
         etaz (_S4  etaz
-         
-         
 
 .group f
         f          f
-         
-         
 
 .group g
         g          g
@@ -101,48 +89,42 @@
   _ez_) g (A       k'
         gana (_S4  gana
         go (_S2    go
-         
 
 .group h
         h                    // silent
     zi) h (o       x
-         
-         
 
 .group i
         i          i
      K) i (_S1     i
     le) i (h       j
- arraz) i (on      j
-         
 
 .group j
-        j          J         //  try [x] [J] [j] [J^] [Z] [S]
+        j          j         //  try [x] [J] [j] [J^] [Z] [S]
         j ($w_alt  x
-
-         
-         
 
 .group k
         k          k
         ko (_S2    ko
-         
-         
 
 .group l
         l          l
+     i) lh (A      l2
         ll         l^
   _ez_) l (A       l'
-        l ($w_alt2 l2       _afi) l (ia l2
+        l ($w_alt2 l2
+  _afi) l (ia      l2
+   _ki) l (o       l2
 
 .group m
         m          m
 
-
 .group n
         n          n
         n (_S1     n
-        n ($w_alt3 n2mi)    n (is n2
+        n ($w_alt3 n2
+     i) nh (A      n2
+    mi) n (is      n2
    afi) n (i       n2
 agluti) n (A       n2
   alpi) n (A       n2
@@ -150,18 +132,15 @@ agluti) n (A       n2
 .group o
         o          o
         oi         oI
-         
-         
 
 .group p
         p          p
-         
-         
 
 .group q
         q          k
-         
-         
+        qu (L02    k         // que, qui
+     _) qw (A      kw        // qwerty
+
 
 .group r
         r          r
@@ -182,13 +161,8 @@ agluti) n (A       n2
         rengandik (_S9 rengandik
         rengatik (_S8 rengatik
 
-         
-         
-
 .group s
         s          s
-         
-         
 
 .group t
         t          t
@@ -206,39 +180,34 @@ agluti) n (A       n2
         tuko (_S4  tuko
         tzen (_S4  tzen
         ten (_S3   ten
-         
-         
 
 .group u
         u          u
-         
-         
 
 .group v
         v          b
-         
-         
 
 .group w
         w          u
-         
-         
 
 .group x
         x          S
-         
-         
+   _se) x (u       ks
+    _o) x (i       ks
+   _ta) x (i       ks
+    _a) x (iom     ks
+  _fle) x (io      ks
 
 .group y
         y          jj
-         
 
 .group z
         z          z
     _e) z (_L01    %z
-    _e) z (_l 
+    _e) z (_l
+    _e) z (_n
+    _e) z (_zA     tz
         z (_S1     z
-         
 
 .group
         á          ''a
@@ -249,4 +218,4 @@ agluti) n (A       n2
         ç          s
         ü          y
         ñ          n^
-         
+
