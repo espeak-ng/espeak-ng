@@ -762,7 +762,6 @@ Translator *SelectTranslator(const char *name)
 		static const short stress_lengths_eu[8] = { 200, 200,  200, 200,  0, 0,  210, 230 }; // very weak stress
 		static const unsigned char stress_amps_eu[8] = { 16, 16, 18, 18, 18, 18, 18, 18 };
 		SetupTranslator(tr, stress_lengths_eu, stress_amps_eu);
-		tr->langopts.stress_rule = 15; 
 		tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_MID_DIM;
 		tr->langopts.param[LOPT_SUFFIX] = 1;
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_VIGESIMAL;
