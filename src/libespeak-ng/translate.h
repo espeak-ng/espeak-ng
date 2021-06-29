@@ -364,6 +364,14 @@ typedef struct {
 #define STRESSPOSN_2R 2 // penultimate
 #define STRESSPOSN_1R 3 // final syllable
 #define STRESSPOSN_3R 4 // antipenultimate
+#define STRESSPOSN_SYLCOUNT 5 // stress depends on syllable count
+#define STRESSPOSN_1RH 6 // last heaviest syllable, excluding final syllable
+#define STRESSPOSN_1RU 7 // stress on the last syllable, before any explicitly unstressed syllable
+#define STRESSPOSN_2LLH 8 // first syllable, unless it is a light syllable followed by a heavy syllable
+#define STRESSPOSN_ALL 9 // mark all stressed
+#define STRESSPOSN_GREENLANDIC 12
+#define STRESSPOSN_1SL 13 // 1st syllable, unless 1st vowel is short and 2nd is long
+#define STRESSPOSN_EU 15 // If more than 2 syllables: primary stress in second syllable and secondary on last.
 
 typedef struct {
 // bits0-2  separate words with (1=pause_vshort, 2=pause_short, 3=pause, 4=pause_long 5=[?] phonemme)
@@ -372,7 +380,7 @@ typedef struct {
 // bit5=length of a final vowel doesn't depend on the next phoneme
 	int word_gap;
 	int vowel_pause;
-	int stress_rule; // 1=first syllable, 2=penultimate,  3=last
+	int stress_rule; // see #defines for STRESSPOSN_*
 
 #define S_NO_DIM            0x02
 #define S_FINAL_DIM         0x04

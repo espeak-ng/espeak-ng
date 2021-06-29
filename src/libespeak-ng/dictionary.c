@@ -1118,12 +1118,12 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 	switch (tr->langopts.stress_rule)
 	{
-	case 8:
+	case STRESSPOSN_2LLH:
 		// stress on first syllable, unless it is a light syllable followed by a heavy syllable
 		if ((syllable_weight[1] > 0) || (syllable_weight[2] == 0))
 			break;
 		// fallthrough:
-	case 1:
+	case STRESSPOSN_2L:
 		// stress on second syllable
 		if ((stressed_syllable == 0) && (vowel_count > 2)) {
 			stressed_syllable = 2;
@@ -1141,7 +1141,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			}
 		}
 		// fallthrough:
-	case 2:
+	case STRESSPOSN_2R:
 		// a language with stress on penultimate vowel
 
 		if (stressed_syllable == 0) {
@@ -1195,7 +1195,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			}
 		}
 		break;
-	case 3:
+	case STRESSPOSN_1R:
 		// stress on last vowel
 		if (stressed_syllable == 0) {
 			// no explicit stress - stress the final vowel
@@ -1212,7 +1212,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 4: // stress on antipenultimate vowel
+	case  STRESSPOSN_3R: // stress on antipenultimate vowel
 		if (stressed_syllable == 0) {
 			stressed_syllable = vowel_count - 3;
 			if (stressed_syllable < 1)
@@ -1223,7 +1223,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 5:
+	case STRESSPOSN_SYLCOUNT:
 		// LANG=Russian
 		if (stressed_syllable == 0) {
 			// no explicit stress - guess the stress from the number of syllables
@@ -1244,7 +1244,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 6: // LANG=hi stress on the last heaviest syllable
+	case STRESSPOSN_1RH: // LANG=hi stress on the last heaviest syllable
 		if (stressed_syllable == 0) {
 			int wt;
 			int max_weight = -1;
@@ -1271,7 +1271,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 7: // LANG=tr, the last syllable for any vowel marked explicitly as unstressed
+	case STRESSPOSN_1RU : // LANG=tr, the last syllable for any vowel marked explicitly as unstressed
 		if (stressed_syllable == 0) {
 			stressed_syllable = vowel_count - 1;
 			for (ix = 1; ix < vowel_count; ix++) {
@@ -1284,13 +1284,13 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 9: // mark all as stressed
+	case STRESSPOSN_ALL: // mark all as stressed
 		for (ix = 1; ix < vowel_count; ix++) {
 			if (vowel_stress[ix] < STRESS_IS_DIMINISHED)
 				vowel_stress[ix] = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 12: // LANG=kl (Greenlandic)
+	case STRESSPOSN_GREENLANDIC: // LANG=kl (Greenlandic)
 		long_vowel = 0;
 		for (ix = 1; ix < vowel_count; ix++) {
 			if (vowel_stress[ix] == STRESS_IS_PRIMARY)
@@ -1318,7 +1318,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		vowel_stress[stressed_syllable] = STRESS_IS_PRIMARY;
 		max_stress = STRESS_IS_PRIMARY;
 		break;
-	case 13: // LANG=ml, 1st unless 1st vowel is short and 2nd is long
+	case STRESSPOSN_1SL:  // LANG=ml, 1st unless 1st vowel is short and 2nd is long
 		if (stressed_syllable == 0) {
 			stressed_syllable = 1;
 			if ((vowel_length[1] == 0) && (vowel_count > 2) && (vowel_length[2] > 0))
@@ -1327,7 +1327,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 15: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last. 
+
+	case STRESSPOSN_EU: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last. 
 		if ((stressed_syllable == 0) && (vowel_count > 2)) {
 			for (ix = 1; ix < vowel_count; ix++) {
 				vowel_stress[ix] = STRESS_IS_DIMINISHED;
