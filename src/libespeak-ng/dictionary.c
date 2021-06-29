@@ -1132,15 +1132,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
-	case 10:  // penultimate, but final if only 1 or 2 syllables
-		if (stressed_syllable == 0) {
-			if (vowel_count < 4) {
-				vowel_stress[vowel_count - 1] = STRESS_IS_PRIMARY;
-				max_stress = STRESS_IS_PRIMARY;
-				break;
-			}
-		}
-		// fallthrough:
+
 	case STRESSPOSN_2R:
 		// a language with stress on penultimate vowel
 
