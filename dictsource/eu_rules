@@ -206,7 +206,7 @@ agluti) n (A       n2
     _e) z (_L01    %z
     _e) z (_l
     _e) z (_n
-    _e) z (_zA     tz
+    _e) z (_zA     tz    // It should transform verbs starting with z like "ez zait" to "etzait", but I am unable to merge both words... Also, adding each auxiliary verb in eu_list is unfeasible.
         z (_S1     z
 
 .group
