@@ -100,7 +100,9 @@
     le) i (h       j
 
 .group j
-        j          j         //  try [x] [J] [j] [J^] [Z] [S]
+     A) j          j
+    A_) j          j
+        j          J         //  try [x] [J] [j] [J^] [Z] [S]
         j ($w_alt  x
 
 .group k
