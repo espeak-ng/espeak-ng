@@ -49,10 +49,10 @@ no'e
 sim b,erQu'EnTa
 la m'as ,ekskis'ita tSamp'an^a Del men'u" "Benjamín pidió una bebida de kiwi y fresa; Noé, sin vergüenza, la más exquisita champaña del menú." "Latn"
 test_phon et "p'8dU1r z'agrebi tS'ellom,&Ngijaf'Yl^jetonist ts'iko k'ylmetas k'ehvas kar'a:Zis" "Põdur Zagrebi tšellomängija-följetonist Ciqo külmetas kehvas garaažis." "Latn"
-test_phon eu  "giz'onem'akum,e Quzt'i;ak 'aske JaI'otzen di**'a
-du'intas,un ,eta esk'uBiD,e BerB'e**ak Dit'uztel,a
-,eta ez'aQu,e**a_:_: ,eta kontz'i;entz,i;a Dut'enez Q'e**o
-elk'aR2en art'ean sen'iDe leQ'ez Jok'atu Be'aR2a D'ute" "Gizon-emakume guztiak aske jaiotzen dira, duintasun eta eskubide berberak dituztela; eta ezaguera eta kontzientzia dutenez gero, elkarren artean senide legez jokatu beharra dute." "Latn"
+test_phon eu  "giz'onem'akum,e Quzt'i;,ak 'aske jaI'otz,en di**'a
+du'intas,un ,eta esk'uBiD,e BerB'e**,ak Dit'uztel,a
+,eta ez'aQue**,a_:_: ,eta kontz'i;entzi;,a Dut'en,ez Q'e**o
+elk'aR2,en art'e,an sen'iD,e leQ'ez Jok'at,u Be'aR2,a D'ute" "Gizon-emakume guztiak aske jaiotzen dira, duintasun eta eskubide berberak dituztela; eta ezaguera eta kontzientzia dutenez gero, elkarren artean senide legez jokatu beharra dute." "Latn"
 test_phon fi "l'orun s'aNNem p'ieneksI h'yYdyksI j'&iv&t s'uomeN k'irjaimet" "Lorun sangen pieneksi hyödyksi jäivät suomen kirjaimet." "Latn"
 test_phon fr "byv'e d@- s@- (en)w'Iski(fr) k@ l@- patr'O~ Z'yZ fam'Y
 sa m@- f'E p'Wr d@- fEt'e nO'El l'a

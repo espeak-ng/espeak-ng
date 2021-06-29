@@ -1327,6 +1327,20 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			max_stress = STRESS_IS_PRIMARY;
 		}
 		break;
+	case 15: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last. 
+		if ((stressed_syllable == 0) && (vowel_count > 2)) {
+			for (ix = 1; ix < vowel_count; ix++) {
+				vowel_stress[ix] = STRESS_IS_DIMINISHED;
+			}
+			stressed_syllable = 2;
+			if (max_stress == STRESS_IS_DIMINISHED)
+				vowel_stress[stressed_syllable] = STRESS_IS_PRIMARY;
+			max_stress = STRESS_IS_PRIMARY;
+			if (vowel_count > 3) {
+				vowel_stress[vowel_count - 1] = STRESS_IS_SECONDARY;
+			}
+		}
+		break;
 	}
 
 	if ((stressflags & S_FINAL_VOWEL_UNSTRESSED) && ((control & 2) == 0) && (vowel_count > 2) && (max_stress_input < STRESS_IS_SECONDARY) && (vowel_stress[vowel_count - 1] == STRESS_IS_PRIMARY)) {
