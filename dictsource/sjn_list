@@ -1,0 +1,8 @@
+// potential “muta cum liquida” rule:
+// the use of these words in poems suggests that they are stressed on the antepenultimate syllable,
+// rather than the penultimate one, even though the penultimate syllable is heavy;
+// see <https://menegroth.github.io/stress-in-sindarin.html> for details
+
+imladris	$1 // Seek for the Sword that was broken, line 2
+menegroþ	$1 // Lay of Leithian Recommenced, line 65
+nargoþrond	$1 // The world was young, the mountains green, line 13
