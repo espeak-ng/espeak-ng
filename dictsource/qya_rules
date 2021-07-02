@@ -1,5 +1,9 @@
 // syllable nuclei: vowels (any length) and diphthongs
 .L01 i e a o u í é á ó ú î ê â ô û ui oi ai iu eu au
+// front vowels (finally): after these, ht is [çt]
+.L02 i e í é î ê ui oi ai
+// back vowels (finally): after these, ht is [xt]
+.L03 a o u á ó ú â ô û iu eu au
 
 .replace
 	// turn x into cs, both because that’s how it’s pronounced
@@ -63,7 +67,9 @@
 
 .group h
 	h	h
-	// TODO ht, hl, hr, hw, hy
+	L02) ht	Ct
+	L03) ht	xt
+	// TODO hl, hr, hw, hy
 
 .group i
 	i	i
