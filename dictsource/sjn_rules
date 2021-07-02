@@ -34,7 +34,7 @@
 	// recall that ch was replaced with x earlier
 
 .group x
-	x	x
+	x	X
 
 .group d
 	d	d
