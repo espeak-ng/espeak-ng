@@ -72,11 +72,11 @@
 	// TODO hl, hr, hw, hy
 
 .group i
-	i	i
+	i	I
 	iu (+	iu
 	// light penultimate syllable: put stress on antepenultimate
-	i (L01X	=i
-	i (CL01X	=i
+	i (L01X	=I
+	i (CL01X	=I
 
 .group í
 	í	i:
