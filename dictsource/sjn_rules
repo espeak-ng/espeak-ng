@@ -120,7 +120,7 @@
 
 .group r
 	r	R
-	// TODO rh
+	rh	hR
 
 .group s
 	s	s

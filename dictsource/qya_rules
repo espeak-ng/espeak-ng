@@ -70,7 +70,8 @@
 	L02) ht	Ct
 	L03) ht	xt
 	hl	l#
-	// TODO hr, hw, hy
+	hr	hR
+	// TODO hw, hy
 
 .group i
 	i	I
