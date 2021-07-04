@@ -44,17 +44,17 @@
 	ð	D
 
 .group e
-	e	e
-	ei (+	eI
+	e	E
+	ei (+	EI
 	// light penultimate syllable: put stress on antepenultimate
-	e (L01X	=e
-	e (CL01X	=e
+	e (L01X	=E
+	e (CL01X	=E
 
 .group é
-	é	e:
+	é	E:
 
 .group ê
-	ê	e::
+	ê	E::
 
 .group f
 	f	f
