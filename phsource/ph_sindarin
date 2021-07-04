@@ -36,9 +36,9 @@ phoneme aI
   FMT(vdiph/ai)
 endphoneme
 
-phoneme ui
+phoneme uI
   vwl starttype #u endtype #i
-  length 270
+  length 290
   lng
-  FMT(vdiph/ui_4)
+  FMT(vdiph/ui)
 endphoneme
