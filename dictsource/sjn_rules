@@ -65,7 +65,7 @@
 
 .group h
 	h	h
-	// TODO hw
+	hw	w#
 
 .group i
 	i	I

@@ -5,6 +5,24 @@ phoneme n
   CALL base1/n
 endphoneme
 
+phoneme w#
+  vls glt apr  // [h]
+  ipa ʍ
+
+  IF nextPh(isVowel) THEN
+    NextVowelStarts
+      VowelStart(w/w@)
+      VowelStart(w/wa)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+  ENDIF
+
+  WAV(h/hu, 70)
+endphoneme
+
 
 phoneme aI
   vwl starttype #a endtype #i
