@@ -72,7 +72,7 @@
 	hl	l#
 	hr	hR
 	hw	w#
-	// TODO hy
+	hy	C
 
 .group i
 	i	I
