@@ -5,6 +5,12 @@ phoneme n
   CALL base1/n
 endphoneme
 
+phoneme O
+  vwl starttype #o endtype #o
+  length 200
+  FMT(vowel/oo)
+endphoneme
+
 phoneme w#
   vls glt apr  // [h]
   ipa ʍ

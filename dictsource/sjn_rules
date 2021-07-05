@@ -97,17 +97,17 @@
 	ng (_	N
 
 .group o
-	o	o
+	o	O
 	oe (+	OI
 	// light penultimate syllable: put stress on antepenultimate
-	o (L01X	=o
-	o (CL01X	=o
+	o (L01X	=O
+	o (CL01X	=O
 
 .group ó
-	ó	o:
+	ó	O:
 
 .group ô
-	ô	o::
+	ô	O::
 
 .group p
 	p	p
