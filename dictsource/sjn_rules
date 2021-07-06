@@ -28,9 +28,11 @@
 
 .group b
 	b	b
+	bb	b:
 
 .group c
 	c	k
+	cc	c:
 	// recall that ch was replaced with x earlier
 
 .group x
@@ -38,6 +40,7 @@
 
 .group d
 	d	d
+	dd	d:
 	// recall that dh was replaced with ð earlier
 
 .group ð
@@ -62,6 +65,7 @@
 
 .group g
 	g	g
+	gg	g:
 
 .group h
 	h	h
@@ -111,6 +115,7 @@
 
 .group p
 	p	p
+	pp	p:
 
 .group ph
 	ph	f
@@ -127,6 +132,7 @@
 
 .group t
 	t	t
+	tt	t:
 	// recall that th was replaced with þ earlier
 
 .group þ
