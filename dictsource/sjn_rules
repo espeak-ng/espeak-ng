@@ -10,6 +10,9 @@
 	ch	x
 	dh	ð
 	th	þ
+	// turn k into c: both letters are equivalent in Tolkien’s languages,
+	// with c usually reserved for Eldarin languages and k for others
+	k	c
 
 .group a
 	a	a
@@ -84,7 +87,9 @@
 .group î
 	î	i::
 
-// j and k do not occur in Sindarin
+// j does not occur in Sindarin
+
+// recall that k was replaced with c earlier
 
 .group l
 	l	l
