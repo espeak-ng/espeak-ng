@@ -126,7 +126,8 @@
 	ph	f
 	A) ph (A	f:
 
-// q does not occur in Sindarin
+.group q
+	q	_^_qya // q does not occur in Sindarin
 
 .group r
 	r	R
