@@ -132,7 +132,8 @@
 	ph	f
 	A) ph (A	f:
 
-.group qu
+.group q
+	q	kw // (immature) Qenya
 	qu	kw
 
 .group r
