@@ -1,7 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS = -std=c11
+#LOCAL_CFLAGS = -std=c11 # speechplayer is c++ code
 
 # ucd-tools wide-character compatibility support:
 
@@ -10,6 +10,13 @@ UCDTOOLS_SRC_FILES := \
   $(subst $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH),$(UCDTOOLS_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH)/*.c*))
 
 LOCAL_SRC_FILES += $(UCDTOOLS_SRC_FILES)
+
+SPEECHPLAYER_SRC_FILES := \
+  ../../src/speechPlayer/src/frame.cpp \
+  ../../src/speechPlayer/src/speechPlayer.cpp \
+  ../../src/speechPlayer/src/speechWaveGenerator.cpp
+
+LOCAL_SRC_FILES += $(SPEECHPLAYER_SRC_FILES)
 
 ESPEAK_SOURCES := \
   src/libespeak-ng/compiledata.c \
@@ -31,6 +38,7 @@ ESPEAK_SOURCES := \
   src/libespeak-ng/soundicon.c \
   src/libespeak-ng/spect.c \
   src/libespeak-ng/speech.c \
+  src/libespeak-ng/sPlayer.c \
   src/libespeak-ng/ssml.c \
   src/libespeak-ng/synthdata.c \
   src/libespeak-ng/synthesize.c \
@@ -44,7 +52,7 @@ ESPEAK_SRC_PATH  := ../../src
 ESPEAK_SRC_FILES := \
   $(subst src/,$(ESPEAK_SRC_PATH)/,$(ESPEAK_SOURCES))
 
-LOCAL_CFLAGS    += -DINCLUDE_KLATT -DINCLUDE_SONIC
+LOCAL_CFLAGS    += -DINCLUDE_KLATT -DINCLUDE_SPEECHPLAYER -DINCLUDE_SONIC
 LOCAL_SRC_FILES += \
   $(filter-out $(BLACKLIST_SRC_FILES),$(ESPEAK_SRC_FILES))
 
@@ -58,6 +66,7 @@ LOCAL_SRC_FILES += \
 LOCAL_C_INCLUDES += \
   $(LOCAL_PATH)/include \
   $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH)/include \
+  $(LOCAL_PATH)/../../src/speechPlayer/include \
   $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/include
 
 LOCAL_LDLIBS := \
