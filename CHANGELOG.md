@@ -20,13 +20,14 @@ The espeak-ng project is a fork of the espeak project.
 *  Renamed zhy to yue (Cantonese)
 *  cmn (Mandarin) now assumes all latin characters all English text. 
    Use cmn-latn-pinyin for interpreting latin characters as pinyin.
-
+*  Updated list of voice varants for Android application
 
 
 bug fixes:
 *  Fix reading malformed SSML (Christopher Brannon)
 *  Fix memory allocation (Christopher Brannon)
 *  Fix building and phoneme compilation (John Bowler)
+*  Fix build scripts for Android (Peter Vágner, Minas Tirith Citizen)
 
 documentation:
 * Add documentation about voice and language options.
