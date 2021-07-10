@@ -74,8 +74,6 @@ AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 AC_PROG_LN_S
 
-AC_CHECK_PROG(NDKBUILD_CHECK,[ndk-build],yes)
-
 dnl ================================================================
 dnl gradle checks.
 dnl ================================================================
@@ -351,7 +349,6 @@ AC_MSG_NOTICE([
         PCAudioLib:                    ${have_pcaudiolib}
 
         gradle (Android):              ${GRADLE}
-        ndk-build (Android):           ${NDKBUILD_CHECK}
 
         Klatt:                         ${have_klatt}
         speechPlayer:                  ${have_speechplayer}

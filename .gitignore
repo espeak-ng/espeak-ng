@@ -31,14 +31,12 @@ android/res/raw/espeakdata_version
 local.properties
 
 # android gradle output:
-
-gradle/
-gradlew
-
+.cxx
 .gradle/
 .idea/
 build/
 *.iml
+!gradlew.bat
 
 # emscripten output:
 a.out
