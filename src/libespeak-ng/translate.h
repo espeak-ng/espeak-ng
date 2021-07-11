@@ -306,9 +306,6 @@ typedef struct {
 // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
 #define LOPT_UNPRONOUNCABLE 5
 
-// select length_mods tables,  (length_mod_tab) + (length_mod_tab0 * 100)
-#define LOPT_LENGTH_MODS 6
-
 // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 #define LOPT_SONORANT_MIN 7
 

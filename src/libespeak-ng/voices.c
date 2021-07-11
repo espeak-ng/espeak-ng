@@ -42,7 +42,6 @@
 #include "dictionary.h"               // for strncpy0, LoadDictionary
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
-#include "setlengths.h"          // for SetLengthMods
 #include "speech.h"                   // for GetFileLength, PATHSEP
 #include "mbrola.h"                   // for LoadMbrolaTable
 #include "synthdata.h"                // for SelectPhonemeTableName, LookupP...
@@ -163,7 +162,6 @@ static MNEM_TAB keyword_tab[] = {
 	{ "l_regressive_v",   0x100+LOPT_REGRESSIVE_VOICING },
 	{ "l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE },
 	{ "l_sonorant_min",   0x100+LOPT_SONORANT_MIN },
-	{ "l_length_mods",    0x100+LOPT_LENGTH_MODS },
 	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
 	{ "brackets",       0x100+LOPT_BRACKET_PAUSE },
 	{ "bracketsAnnounced",       0x100+LOPT_BRACKET_PAUSE_ANNOUNCED },
@@ -935,9 +933,6 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		voice_languages[langix] = 0;
 	}
-
-	if ((value = translator->langopts.param[LOPT_LENGTH_MODS]) != 0)
-		SetLengthMods(translator, value);
 
 	voice->width[0] = (voice->width[0] * 105)/100;
 
