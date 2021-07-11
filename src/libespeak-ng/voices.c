@@ -519,7 +519,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
 
-	int dict_min = 0;
 	int stress_add[8];
 	char names[8][40];
 	char name1[40];
@@ -877,8 +876,15 @@ voice_t *LoadVoice(const char *vname, int control)
 			sscanf(p, "%d", &speed.fast_settings);
 			SetSpeed(3);
 			break;
-		case V_DICTMIN:
-			sscanf(p, "%d", &dict_min);
+		case V_DICTMIN: {
+			if (CheckTranslator(translator, keyword_tab, key) != 0)
+				break;
+
+			if (sscanf(p, "%d", &value) == 1)
+				translator->dict_min_size = value;
+			break;
+			}
+
 			break;
 		case V_MAINTAINER:
 		case V_STATUS:
@@ -919,7 +925,6 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		voice->phoneme_tab_ix = ix;
 		translator->phoneme_tab_ix = ix;
-		translator->dict_min_size = dict_min;
 
 		if (!(control & 8/*compiling phonemes*/)) {
 			LoadDictionary(translator, new_dictionary, control & 4);
