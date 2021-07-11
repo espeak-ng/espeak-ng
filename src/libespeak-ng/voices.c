@@ -42,6 +42,7 @@
 #include "dictionary.h"               // for strncpy0, LoadDictionary
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
+#include "setlengths.h"          // for SetLengthMods
 #include "speech.h"                   // for GetFileLength, PATHSEP
 #include "mbrola.h"                   // for LoadMbrolaTable
 #include "synthdata.h"                // for SelectPhonemeTableName, LookupP...
