@@ -390,7 +390,9 @@ void VoiceReset(int tone_only)
 	InitBreath();
 	for (pk = 0; pk < N_PEAKS; pk++) {
 		voice->freq[pk] = 256;
+		voice->freq2[pk] = voice->freq[pk];
 		voice->height[pk] = default_heights[pk]*2;
+		voice->height2[pk] = voice->height[pk];
 		voice->width[pk] = default_widths[pk]*2;
 		voice->breath[pk] = 0;
 		voice->breathw[pk] = breath_widths[pk]; // default breath formant widths
@@ -433,10 +435,14 @@ static void VoiceFormant(char *p)
 	if ((formant < 0) || (formant > 8))
 		return;
 
-	if (freq >= 0)
+	if (freq >= 0) {
 		voice->freq[formant] = (int)(freq * 2.56001);
-	if (height >= 0)
+		voice->freq2[formant] = voice->freq[formant];
+	}
+	if (height >= 0) {
 		voice->height[formant] = (int)(height * 2.56001);
+		voice->height2[formant] = voice->height[formant];
+	}
 	if (width >= 0)
 		voice->width[formant] = (int)(width * 2.56001);
 	voice->freqadd[formant] = freqadd;
@@ -897,11 +903,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	}
 
 	SetSpeed(3); // for speed_percent
-
-	for (ix = 0; ix < N_PEAKS; ix++) {
-		voice->freq2[ix] = voice->freq[ix];
-		voice->height2[ix] = voice->height[ix];
-	}
 
 	if (!tone_only) {
 		if (!!(control & 8/*compiling phonemes*/)) {
