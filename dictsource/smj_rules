@@ -1,54 +1,15 @@
 // SMJ translation rules
 // This file is UTF-8 encoded
 
-//     _)  a         // "a" at the start of a word
-//         a (CC     // "a" followed by two consonants
-//         a (C%     // "a" followed by a double consonant (the same letter twice)
-//         a (/%     // "a" followed by a percent sign
-//     %C) a         // "a" preceded by a double consonants
-
-//     @@)  bi      // "bi" preceded by at least two syllables
-//     @@a) bi      // "bi" preceded by at least 2 syllables and following 'a'
-
-// START SMJ HERE
-
 // groups
-
-//.L01 i j	// used in palatalization rules
 
 .L01 b d g k p t // Plosives
 
 .L02 r l j v // Sonorants
 
-//.L02 b d f g h j l m n r s v
-
-//.L03 l m n r
-
-//.L04 a b c d e f g h i j k l m n o p q r s t u v õ ä ö ü
-
-//.L05 a e i l m n o r u õ ä ö ü
-
-
-// Epenthetic vowels in Q3 consonant clusters
-// r l j v followed by homorganic consonants (geminates)
-// barggo, dárbbo, tjoarvve, girjje, álggo, galbba, gålmmå, dálvve, nijbbe, bievdde
-
-// separate rules for all cons. clusters and vowel nucleai?
-//       a (L02%C     // possible to generalize?
-//       A) rgg	     r@^g // Any vowel + schwaa - more general?
-
-//Orthographically homonymous Q3: f, l, m, n, nj, ń, ñ, ŋ, r, s, sj, v
-// After numeral 1 -- Q3; after any numeral <1 -- Q2?
-// akta @) ff	ff:
-// Word order? -- Impossible to have a syntactic disambiguator in Espeak to recognize homonymous sg.nom & sg.gen forms...
-// OR if adjusted orthography would be used, e.g.: f'f/fff	ff:
-// Vowel compensation/readjustment: V1 and V2 longest in Q1, gradually decreasing in length, but differences very small/not significant. 
-
-
-
 
 .group a
-//          a          A
+          a          A
           a (@       A // back vowel
        @) a          a:
           artihkal   ar.t'ihkAl
@@ -107,7 +68,6 @@
 .group f
           f          f
           ff         f:
-//  akta @) ff (A      ff: // (Q3/sg.nom when with numeral 1)
           
 .group g
           g          k
@@ -148,8 +108,7 @@
 	  
 .group l
           l	     l // Can be a copula itself
-          ll	     l:
-//  akta @) ll (A      ll: // (Q3/sg.nom when with numeral 1)   
+          ll	     l: 
           
        á) lgg	     lAg // Q3
        a) lbb	     lab // Q3
@@ -159,30 +118,24 @@
           
 .group m
           m          m
-          mm         m:
-//  akta @) mm (A      mm: // (Q3/sg.nom when with numeral 1)      
+          mm         m:     
     	      
 .group n
            n          n
            nj         n_j
            nnj        n_j:
-//   akta @) nnj (A     nn_j: // (Q3/sg.nom when with numeral 1)  
- 
- 
+
 .group ñ
           ñ          N
-          ññ         N:
-//  akta @) ññ (A      NN: // (Q3/sg.nom when with numeral 1)      
+          ññ         N:    
            
 .group ń
           ń          N
           ńń         N:
-//  akta @) ńń (A      NN: // (Q3/sg.nom when with numeral 1)      
            
 .group ŋ
           ŋ          N
-          ŋŋ         N:
-//  akta @) ŋŋ (A      NN: // (Q3/sg.nom when with numeral 1)      
+          ŋŋ         N:    
            
 .group o
           o          oO
@@ -208,11 +161,8 @@
           r          r
           rd         rt
           rl         rl
-//          rl         l. // Retroflex. in Scandinavian loanwords
           rn         rn
-//          rn         n. // Retroflex. in Scandinavian loanwords
           rt         rt
-//          rt         t. // Retroflex. in Scandinavian loanwords
 
        a) rgg	     rag // Q3
        e) rgg	     reg // Q3
@@ -223,16 +173,12 @@
        u) rŋŋ	     ruN // Q3
        
           rr         r:
-//  akta @) rr (A      rr: // (Q3/sg.nom when with numeral 1)           
-
 .group s
           s          s
-          ss         s:
-//  akta @) ss (A      ss: // (Q3/sg.nom when with numeral 1)      
+          ss         s: 
        
           sj         S
-          ssj        S: // Q2 or Q3        
-//  akta @) ssj (A     SS: // (Q3/sg.nom when with numeral 1)               
+          ssj        S: // Q2 or Q3                    
           
 .group t
           t          t
@@ -246,11 +192,6 @@
 .group u
           u          u
           uo (@      uo
-//          u          u: //
-//          u          U- //
-//          u          u- // in newish Scand. loanwords like <komuvnna>
-
-// List some of most common scand. loanwords?
 
 .group v
           v          v
@@ -261,8 +202,6 @@
        e) vdd        ved // Q3
        i) vdd        vid // Q3
        å) vdd        vOd // Q3
-       
-//  akta @) vv (A      vv: // (Q3/sg.nom when with numeral 1)               
 
 .group w
           w          v
@@ -278,5 +217,3 @@
           z          ts
           zz         t:s      // pizza
        K) zh         Z
-
- 
