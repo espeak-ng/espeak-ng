@@ -19,6 +19,7 @@ class AudioStream {
     this.channelDataLength = 440;
     this.sampleRate = 22050;
     this.numberOfChannels = 1;
+    this.init = false;
     this.src =
       'chrome-extension://<id>/nativeTransferableStream.html';
     this.ac = new AudioContext({
@@ -152,8 +153,12 @@ class AudioStream {
         this.stdout.pipeTo(
           new WritableStream({
             write: async (value, c) => {
-              for (
-                let i = 0;
+              let i = 0;
+              if (!this.init) {
+                this.init = true;
+                i = 44;
+              }
+              for (;
                 i < value.buffer.byteLength;
                 i++, this.readOffset++
               ) {
