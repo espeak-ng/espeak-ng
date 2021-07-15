@@ -48,7 +48,7 @@ On origins listed in `"matches"` array in `"web_accessible_resources"` object in
 var text = `Test`;
 var stdin = `espeak-ng -m --stdout "${text}"`;
 var espeakng = new AudioStream({ stdin, recorder: true });
-// espeakng.mediaStream is a live MediaStreamTrack
+// espeakng.mediaStream: MediaStream containing MediaStreamTrack source output of espeak-ng --stdout
 var ab = await espeakng.start();
 console.log(
   URL.createObjectURL(new Blob([ab], { type: 'audio/webm;codecs=opus' }))
