@@ -1,0 +1,17 @@
+{
+  "name": "Native Messaging espeak-ng",
+  "description": "Native Messaging => eSpeak NG => PHP passthru() => fetch() => Transferable Streams => MediaStreamTrack",
+  "version": "2.0",
+  "manifest_version": 3,
+  "permissions": ["nativeMessaging", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [    {
+      "resources": [ "nativeTransferableStream.html", "nativeTransferableStream.js" ],
+      "matches": [ "https://github.com/*", "https://bugs.chromium.org/*" ],
+      "extensions": [ ]
+  }],
+  "action": {},
+  "author": "guest271314"
+}
