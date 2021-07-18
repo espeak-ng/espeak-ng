@@ -64,7 +64,7 @@ updated languages:
 
 new languages:
 *  chr (Cherokee) -- Michael Conrad
-*  cu (Chuvash) -- boracasli98, Valdis Vitolins
+*  cv (Chuvash) -- boracasli98, Valdis Vitolins
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
 *  io (Ido) -- José Miguel López, Valdis Vitolins
