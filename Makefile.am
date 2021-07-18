@@ -334,11 +334,13 @@ phsource/phonemes.stamp: \
 	phsource/ph_assamese \
 	phsource/ph_azerbaijani \
 	phsource/ph_base2 \
+	phsource/ph_bashkir \
 	phsource/ph_basque \
 	phsource/ph_bengali \
 	phsource/ph_bulgarian \
 	phsource/ph_catalan \
 	phsource/ph_cherokee \
+	phsource/ph_chuvash \
 	phsource/ph_cmn \
 	phsource/ph_consonants \
 	phsource/ph_croatian \
@@ -363,9 +365,11 @@ phsource/phonemes.stamp: \
 	phsource/ph_greek \
 	phsource/ph_greek_ancient \
 	phsource/ph_greenlandic \
+	phsource/ph_guarani \
 	phsource/ph_gujarati \
 	phsource/ph_haitian \
 	phsource/ph_hakka \
+	phsource/ph_hawaiian \
 	phsource/ph_hindi \
 	phsource/ph_hindi_base \
 	phsource/ph_hungarian \
@@ -379,6 +383,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_kazakh \
 	phsource/ph_kinyarwanda \
 	phsource/ph_klingon \
+	phsource/ph_konkani \
 	phsource/ph_korean \
 	phsource/ph_kurdish \
 	phsource/ph_kyrgyz \
@@ -406,6 +411,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_pt_brazil \
 	phsource/ph_punjabi \
 	phsource/ph_pyash \
+	phsource/ph_quechua \
 	phsource/ph_romanian \
 	phsource/ph_russian \
 	phsource/ph_russian_lv \
@@ -413,6 +419,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_serbian \
 	phsource/ph_setswana \
 	phsource/ph_shan \
+	phsource/ph_sindhi \
 	phsource/ph_sinhala \
 	phsource/ph_slovak \
 	phsource/ph_slovenian \
