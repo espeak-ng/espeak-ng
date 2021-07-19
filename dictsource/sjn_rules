@@ -1,0 +1,183 @@
+// syllable nuclei: vowels (any length) and diphthongs
+.L01 i e a o u y í é á ó ú ý î ê â ô û ŷ ae ai ei oe ui au
+
+.replace
+	// turn x into cs, both because that’s how it’s pronounced
+	// (strictly speaking only in some Quenya, but let’s do it here too)
+	// and to free up x as a single letter for ch (see immediately below)
+	x	cs
+	// turn ch, dh, th into single consonants for stress purposes
+	ch	x
+	dh	ð
+	th	þ
+	// turn k into c: both letters are equivalent in Tolkien’s languages,
+	// with c usually reserved for Eldarin languages and k for others
+	k	c
+
+.group a
+	a	a
+	ae (+	aE
+	ai (+	aI
+	au (+	aU
+	// light penultimate syllable: put stress on antepenultimate
+	a (L01X	=a
+	a (CL01X	=a
+
+.group á
+	á	a:
+
+.group â
+	â	a::
+
+.group b
+	b	b
+	bb	b:
+
+.group c
+	c	k
+	cc	c:
+	// recall that ch was replaced with x earlier
+
+.group x
+	x	X
+
+.group d
+	d	d
+	dd	d:
+	// recall that dh was replaced with ð earlier
+
+.group ð
+	ð	D
+
+.group e
+	e	E
+	ei (+	EI
+	// light penultimate syllable: put stress on antepenultimate
+	e (L01X	=E
+	e (CL01X	=E
+
+.group é
+	é	E:
+
+.group ê
+	ê	E::
+
+.group f
+	f	f
+	f (_	v
+
+.group g
+	g	g
+	gg	g:
+
+.group h
+	h	h
+	hw	w#
+
+.group i
+	i	I
+	_) i (A+	j
+	// light penultimate syllable: put stress on antepenultimate
+	i (L01X	=I
+	i (CL01X	=I
+
+.group í
+	í	i:
+
+.group î
+	î	i::
+
+// j does not occur in Sindarin
+
+// recall that k was replaced with c earlier
+
+.group l
+	l	l
+	lh	l#
+
+.group m
+	m	m
+
+.group n
+	n	n
+
+.group ng
+	ng	Ng
+	ng (_	N
+
+.group o
+	o	O
+	oe (+	OI
+	// light penultimate syllable: put stress on antepenultimate
+	o (L01X	=O
+	o (CL01X	=O
+
+.group ó
+	ó	O:
+
+.group ô
+	ô	O::
+
+.group p
+	p	p
+	pp	p:
+
+.group ph
+	ph	f
+	A) ph (A	f:
+
+.group q
+	q	_^_qya // q does not occur in Sindarin
+
+.group r
+	r	R
+	rh	hR
+
+.group s
+	s	s
+
+.group t
+	t	t
+	tt	t:
+	// recall that th was replaced with þ earlier
+
+.group þ
+	þ	T
+
+.group ty
+	ty	tj
+
+.group u
+	u	u
+	ui (+	uI
+	// light penultimate syllable: put stress on antepenultimate
+	u (L01X	=u
+	u (CL01X	=u
+
+.group û
+	û	u::
+
+.group ú
+	ú	u:
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+// recall that x was replaced with cs earlier
+
+.group y
+	y	y
+	// light penultimate syllable: put stress on antepenultimate
+	y (L01X	=y
+	y (CL01X	=y
+
+.group ý
+	ý	y:
+
+.group ŷ
+	ŷ	y::
+
+// z does not occur in Sindarin

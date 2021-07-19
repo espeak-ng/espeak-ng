@@ -1,0 +1,180 @@
+// syllable nuclei: vowels (any length) and diphthongs
+.L01 i e a o u í é á ó ú î ê â ô û ui oi ai iu eu au
+// front vowels (finally): after these, ht is [çt]
+.L02 i e í é î ê ui oi ai
+// back vowels (finally): after these, ht is [xt]
+.L03 a o u á ó ú â ô û iu eu au
+
+.replace
+	// turn x into cs, both because that’s how it’s pronounced
+	// and to free up x as a single letter for ch (see immediately below)
+	x	cs
+	// turn ch, dh, th into single consonants for stress purposes
+	ch	x
+	dh	ð
+	th	þ
+	// turn k into c: both letters are equivalent in Tolkien’s languages,
+	// with c usually reserved for Eldarin languages and k for others
+	k	c
+
+.group a
+	a	a
+	ai (+	aI
+	au (+	aU
+	// light penultimate syllable: put stress on antepenultimate
+	a (L01X	=a
+	a (CL01X	=a
+
+.group á
+	á	a:
+
+.group â
+	â	a::
+
+.group b
+	b	b
+	bb	b:
+
+.group c
+	c	k
+	cc	k:
+	// recall that ch was replaced with x earlier
+
+.group x
+	x	X
+
+.group d
+	d	d
+	db	d:
+	// recall that dh was replaced with ð earlier
+
+.group ð
+	ð	D
+
+.group e
+	e	E
+	eu (+	EU
+	// light penultimate syllable: put stress on antepenultimate
+	e (L01X	=E
+	e (CL01X	=E
+
+.group é
+	é	e:
+
+.group ê
+	ê	e::
+
+.group f
+	f	f
+	f (_	v
+
+.group g
+	g	g
+	gg	g:
+
+.group h
+	h	h
+	L02) ht	Ct
+	L03) ht	xt
+	hl	l#
+	hr	hR
+	hw	w#
+	hy	C
+
+.group i
+	i	I
+	iu (+	iu
+	// light penultimate syllable: put stress on antepenultimate
+	i (L01X	=I
+	i (CL01X	=I
+
+.group í
+	í	i:
+
+.group î
+	î	i::
+
+// j does not occur in Quenya
+
+// recall that k was replaced with c earlier
+
+.group l
+	l	l
+
+.group m
+	m	m
+
+.group n
+	n	n
+
+.group ng
+	ng	Ng
+	ng (_	N
+
+.group o
+	o	O
+	oi (+	OI
+	// light penultimate syllable: put stress on antepenultimate
+	o (L01X	=O
+	o (CL01X	=O
+
+.group ó
+	ó	o:
+
+.group ô
+	ô	o::
+
+.group p
+	p	p
+	pp	p:
+
+.group ph
+	ph	f
+	A) ph (A	f:
+
+.group q
+	q	kw // (immature) Qenya
+	qu	kw
+
+.group r
+	r	R
+
+.group s
+	s	s
+
+.group t
+	t	t
+	tt	t:
+	// recall that th was replaced with þ earlier
+
+.group þ
+	þ	T
+
+.group ty
+	ty	tj
+
+.group u
+	u	u
+	ui (+	uI
+	// light penultimate syllable: put stress on antepenultimate
+	u (L01X	=u
+	u (CL01X	=u
+
+.group ú
+	ú	u:
+
+.group û
+	û	u::
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+// recall that x was replaced with cs earlier
+
+.group y
+	y	j
+
+// z does not occur in Quenya

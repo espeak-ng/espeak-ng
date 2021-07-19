@@ -1,0 +1,31 @@
+// words with a single light syllable which should not be stressed
+
+// conjunctions:
+a	$u
+an	$u
+ar	$u
+hya	$u
+i	$u
+mal	$u
+nan	$u
+o	$u
+qui	$u
+ta	$u
+var	$u
+// prepositions:
+et	$u
+han	$u
+ho	$u
+lo	$u
+mi	$u
+mil	$u
+no	$u
+nu	$u
+or	$u
+pa	$u
+po	$u
+tar	$u
+ter	$u
+va	$u
+ve	$u
+yo	$u
