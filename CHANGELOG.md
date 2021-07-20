@@ -22,6 +22,7 @@ The espeak-ng project is a fork of the espeak project.
 *  cmn (Mandarin) now assumes all latin characters all English text
    Use cmn-latn-pinyin for interpreting latin characters as pinyin
 *  Update list of voice varants for Android application
+*  Add Chromium extension (guest271314)
 
 bug fixes:
 *  Fix reading malformed SSML (Christopher Brannon)
