@@ -13,16 +13,15 @@ The espeak-ng project is a fork of the espeak project.
 *  Add more tests to check the various parts of espeak-ng.
 *  Various changes to clean up the codebase (Juho Hiltunen)
 *  Remove support for l_length_mods language option
-*  Restructure "option brackets" language option to "brackets" and "bracketsAnnounced".
+*  Restructure "option brackets" language option to "brackets" and "bracketsAnnounced"
 *  Restructure "stressLength" and "stressAdd" language option
-*  New Language option: "lowercaseSentence" for ending a sentence if a period is followed by a lower case letter.
-*  Added voice variants
-*  Renamed zh to cmn (Mandarin)
-*  Renamed zhy to yue (Cantonese)
-*  cmn (Mandarin) now assumes all latin characters all English text. 
-   Use cmn-latn-pinyin for interpreting latin characters as pinyin.
-*  Updated list of voice varants for Android application
-
+*  New Language option: "lowercaseSentence" for ending a sentence if a period is followed by a lower case letter
+*  Add voice variants
+*  Rename zh to cmn (Mandarin)
+*  Rename zhy to yue (Cantonese)
+*  cmn (Mandarin) now assumes all latin characters all English text
+   Use cmn-latn-pinyin for interpreting latin characters as pinyin
+*  Update list of voice varants for Android application
 
 bug fixes:
 *  Fix reading malformed SSML (Christopher Brannon)
@@ -41,7 +40,7 @@ updated languages:
 *  en (English) -- Steven Presser, Ben Talagan
 *  eu (Basque) -- agonzalezd
 *  fa (Farsi/Persian) -- Shadyar Khodayari
-*  ga (Gaelic (Irish)) Chen, Chien-ting 
+*  ga (Gaelic (Irish)) Chen, Chien-ting
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  hak (Hakka Chinese) -- Juho Hiltunen
 *  haw (Hawaiian) -- Juho Hiltunen
