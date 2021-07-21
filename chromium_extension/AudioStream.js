@@ -218,7 +218,14 @@ class AudioStream {
               });
               buffer.getChannelData(0).set(floats);
               this.duration += buffer.duration;
-              const frame = new AudioData({ timestamp, buffer });
+              const frame = new AudioData({
+                format:'FLTP',
+                sampleRate: 22050,
+                numberOfChannels: 1,
+                numberOfFrames: 220,
+                timestamp,
+                data: buffer.getChannelData(0),
+              });
               await this.audioWriter.write(frame);
               if (this.recorder && this.recorder.state === 'inactive') {
                 this.recorder.start();
