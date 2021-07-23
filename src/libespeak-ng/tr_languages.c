@@ -1245,7 +1245,7 @@ Translator *SelectTranslator(const char *name)
 		memcpy(tr->stress_lengths, stress_lengths_nl, sizeof(tr->stress_lengths));
 	}
 		break;
-	case L('n', 'o'): // Norwegian
+	case L('n', 'b'): // Norwegian
 	{
 		static const short stress_lengths_no[8] = { 160, 140, 200, 200, 0, 0, 220, 230 };
 

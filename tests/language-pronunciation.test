@@ -150,8 +150,8 @@ test_phon ms "s@m'u@ m,anus'i@ d,ilah'irkan b'Ebas_:_: dan s,amaR'at@ d,aRi s'@g
 m@R'Ek@ m@mp'un^aI p@mik'iRan_:_: dan p@Ras'a_|an h'ati_:_: dan h@nd'aklah b@Rt'inda? di _|ant'aR@ s'atu s'am@ l'aIn d'@Nan s@m'aNat p@*rs,aUdaR'a_|an" "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak. Mereka mempunyai pemikiran dan perasaan hati dan hendaklah bertindak di antara satu sama lain dengan semangat persaudaraan." "Latn"
 test_phon mt  "'Ilbned'emIn c'ollla ,iuIt,ui:ld'eu h'i:lsa 'u ,ugu'alI f'Ided,eIniu'Ita 'u d'eed,erIt:I;'iui:t
 'uma m,o:nI;'ia b'i:rra:dZ'unI; 'u b'i:lk,u:Seients'ea 'u 'andom Ig'i:bu r'uhhom j'istax_:_: S,eulS'eIn b'i: sp'Irtu t'a:_:_: ah'ua" "Il-bnedmin kollha jitwieldu ħielsa u ugwali fid-dinjità u d-drittijiet. Huma mogħnija bir-raġuni u bil-kuxjenza u għandhom igibu ruħhom ma' xulxin bi spirtu ta' aħwa." "Latn"
-test_phon nb "vo:R s'a:Ra# s'u-:lu-:_:_: fRA b,ade:'YyA sp'Ilta# j'u: vh'Ist_:_: u:g kw'Ikkst@p_! i: mi:n t'aksi:
-bl,o:baRSylt'e:tYy" "Vår sære Zulu fra badeøya spilte jo whist og quickstep i min taxi. Blåbærsyltetøy." "Latn"
+test_phon nb "vo:R s'a:Ra# s'u-:lu-:_:_: fRA b'ade:,YyA sp'Ilta# j'u: vh'Ist_:_: u:g kw'Ikkst@p_! i: mi:n t'aksi:
+bl'o:baRS,ylte:t,Yy" "Vår sære Zulu fra badeøya spilte jo whist og quickstep i min taxi. Blåbærsyltetøy." "Latn"
 test_phon nci "tlak'aso n'ikan n'emi
 j'e nik'aki; 'in ,iSotS,ikwik'atsin jwk'i t'epetl k,innan,ankil'i;a
 tlak'aso 'itlan 'in m,ejakets'alatl
