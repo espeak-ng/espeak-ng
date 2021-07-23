@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.137
-// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 02-19-2020
+// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.138
+// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 07-06-2021
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -215,12 +215,14 @@ _#th	om
 ×	zaRbdaR
 $	dolAR
 %	daR'sad
-[	beRAketbAz
-]	beRAketbaste:
-{	AkulAdbAz
-}	AkulAdbaste:
-(	paRAntezbAz
-)	paRAntezbaste:
+_[	beRAketbAz
+_]	beRAketbaste:
+_{	AkulAdbAz
+_}	AkulAdbaste:
+_(	paRAntezbAz
+_)	paRAntezbaste:
+_«	g:ijumebAz
+_»	g:ijumebaste:
 *	setARe:
 //this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
 U+200C	nim_fAsele:
@@ -229,8 +231,6 @@ U+20	fAsele_
 <	alAmate'kutSektaR
 =	:alAmate'mosAvi
 >	alAmate'bozoRgtaR
-»	g:ijumebAz
-«	g:ijumebaste:
 
 
 //characters and numbers and words with English alphabet is translated by English phonemes
