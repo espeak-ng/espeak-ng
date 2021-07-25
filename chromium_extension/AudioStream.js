@@ -1,3 +1,4 @@
+
 class AudioStream {
   constructor({ stdin, recorder = false }) {
     if (!/^espeak-ng/.test(stdin)) {
@@ -73,7 +74,11 @@ class AudioStream {
     this.audioReadableSignal = audioReadableSignal;
     this.audioReadableSignal.onabort = (e) => console.log(e.type);
     this.abortHandler = async (e) => {
-      await this.disconnect(true);
+      try {
+        await this.disconnect(true);
+      } catch (err) {
+        console.warn(err.message);
+      }
       console.log(
         `readOffset:${this.readOffset}, duration:${this.duration}, ac.currentTime:${this.ac.currentTime}`,
         `generator.readyState:${this.generator.readyState}, audioWriter.desiredSize:${this.audioWriter.desiredSize}`,
@@ -97,9 +102,13 @@ class AudioStream {
     this.osc.disconnect();
     this.outputSource.disconnect();
     this.track.stop();
-    await this.audioWriter.close();
-    await this.audioWriter.closed;
-    await this.inputReader.cancel();
+    try {
+      await this.audioWriter.close();
+      await this.audioWriter.closed;
+      await this.inputReader.cancel();
+    } catch (err) {
+      throw err;
+    }
     this.generator.stop();
     if (this.recorder && this.recorder.state === 'recording') {
       this.recorder.stop();
@@ -158,13 +167,13 @@ class AudioStream {
                 this.init = true;
                 i = 44;
               }
-              for (;
-                i < value.buffer.byteLength;
-                i++, this.readOffset++
-              ) {
+              for (; i < value.buffer.byteLength; i++, this.readOffset++) {
                 if (channelData.length === this.channelDataLength) {
-                  this.inputController.enqueue(new Uint8Array(channelData));
-                  channelData.length = 0;
+                  this.inputController.enqueue(
+                    new Uint8Array(
+                      channelData.splice(0, this.channelDataLength)
+                    )
+                  );
                 }
                 channelData.push(value[i]);
               }
@@ -175,7 +184,7 @@ class AudioStream {
             close: async () => {
               console.log('Done writing input stream.');
               if (channelData.length) {
-                this.inputController.enqueue(channelData);
+                this.inputController.enqueue(new Uint8Array(channelData));
               }
               this.inputController.close();
               this.source.postMessage('Done writing input stream.', '*');
@@ -186,17 +195,6 @@ class AudioStream {
         this.audioReadable.pipeTo(
           new WritableStream({
             write: async ({ timestamp }) => {
-              if (this.inputController.desiredSize === 0) {
-                await this.disconnect();
-                console.log(
-                  `readOffset:${this.readOffset}, duration:${this.duration}, ac.currentTime:${this.ac.currentTime}`,
-                  `generator.readyState:${this.generator.readyState}, audioWriter.desiredSize:${this.audioWriter.desiredSize}`
-                );
-                return await Promise.all([
-                  new Promise((resolve) => (this.stream.oninactive = resolve)),
-                  new Promise((resolve) => (this.ac.onstatechange = resolve)),
-                ]);
-              }
               const { value, done } = await this.inputReader.read();
               if (done) {
                 console.log({ done });
@@ -219,16 +217,34 @@ class AudioStream {
               buffer.getChannelData(0).set(floats);
               this.duration += buffer.duration;
               const frame = new AudioData({
-                format:'FLTP',
+                format: 'FLTP',
                 sampleRate: 22050,
                 numberOfChannels: 1,
                 numberOfFrames: 220,
                 timestamp,
                 data: buffer.getChannelData(0),
               });
-              await this.audioWriter.write(frame);
               if (this.recorder && this.recorder.state === 'inactive') {
                 this.recorder.start();
+              }
+              await this.audioWriter.write(frame);
+              if (
+                value.length < this.channelDataLength &&
+                (await this.inputReader.read()).done
+              ) {
+                try {
+                  await this.disconnect();
+                } catch (err) {
+                  console.warn(err.message);
+                }
+                console.log(
+                  `readOffset:${this.readOffset}, duration:${this.duration}, ac.currentTime:${this.ac.currentTime}`,
+                  `generator.readyState:${this.generator.readyState}, audioWriter.desiredSize:${this.audioWriter.desiredSize}`
+                );
+                return await Promise.all([
+                  new Promise((resolve) => (this.stream.oninactive = resolve)),
+                  new Promise((resolve) => (this.ac.onstatechange = resolve)),
+                ]);
               }
             },
             abort(e) {
@@ -242,7 +258,9 @@ class AudioStream {
         ),
       ]);
       this.resolve(
-        this.recorder ? await this.data.arrayBuffer() : 'Done streaming.'
+        this.recorder
+          ? this.data && (await this.data.arrayBuffer())
+          : 'Done streaming.'
       );
       return this.promise;
     } catch (err) {
