@@ -221,21 +221,15 @@ class AudioStream {
                   int >= 0x8000 ? -(0x10000 - int) / 0x8000 : int / 0x7fff;
                 floats[i] = float;
               }
-              const buffer = new AudioBuffer({
-                numberOfChannels: this.numberOfChannels,
-                length: floats.length,
-                sampleRate: this.sampleRate,
-              });
-              buffer.getChannelData(0).set(floats);
-              this.duration += buffer.duration;
               const frame = new AudioData({
                 format: 'FLTP',
                 sampleRate: 22050,
                 numberOfChannels: 1,
                 numberOfFrames: 220,
                 timestamp,
-                data: buffer.getChannelData(0),
+                data: floats,
               });
+              this.duration += (frame.duration / 10**6);
               if (this.recorder && this.recorder.state === 'inactive') {
                 this.recorder.start();
               }
