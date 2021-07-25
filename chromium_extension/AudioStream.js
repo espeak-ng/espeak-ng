@@ -197,7 +197,6 @@ class AudioStream {
               const { value, done } = await this.inputReader.read();
               if (done) {
                 await this.inputReader.closed;
-                console.log({ done });
                 try {
                   await this.disconnect();
                 } catch (err) {
