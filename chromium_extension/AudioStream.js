@@ -1,4 +1,3 @@
-
 class AudioStream {
   constructor({ stdin, recorder = false }) {
     if (!/^espeak-ng/.test(stdin)) {
@@ -197,7 +196,21 @@ class AudioStream {
             write: async ({ timestamp }) => {
               const { value, done } = await this.inputReader.read();
               if (done) {
+                await this.inputReader.closed;
                 console.log({ done });
+                try {
+                  await this.disconnect();
+                } catch (err) {
+                  console.warn(err.message);
+                }
+                console.log(
+                  `readOffset:${this.readOffset}, duration:${this.duration}, ac.currentTime:${this.ac.currentTime}`,
+                  `generator.readyState:${this.generator.readyState}, audioWriter.desiredSize:${this.audioWriter.desiredSize}`
+                );
+                return await Promise.all([
+                  new Promise((resolve) => (this.stream.oninactive = resolve)),
+                  new Promise((resolve) => (this.ac.onstatechange = resolve)),
+                ]);
               }
               const uint16 = new Uint16Array(value.buffer);
               // https://stackoverflow.com/a/35248852
@@ -228,24 +241,6 @@ class AudioStream {
                 this.recorder.start();
               }
               await this.audioWriter.write(frame);
-              if (
-                value.length < this.channelDataLength &&
-                (await this.inputReader.read()).done
-              ) {
-                try {
-                  await this.disconnect();
-                } catch (err) {
-                  console.warn(err.message);
-                }
-                console.log(
-                  `readOffset:${this.readOffset}, duration:${this.duration}, ac.currentTime:${this.ac.currentTime}`,
-                  `generator.readyState:${this.generator.readyState}, audioWriter.desiredSize:${this.audioWriter.desiredSize}`
-                );
-                return await Promise.all([
-                  new Promise((resolve) => (this.stream.oninactive = resolve)),
-                  new Promise((resolve) => (this.ac.onstatechange = resolve)),
-                ]);
-              }
             },
             abort(e) {
               console.error(e.message);
