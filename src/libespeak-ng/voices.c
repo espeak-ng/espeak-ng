@@ -853,6 +853,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 		case V_SPEED:
 			sscanf(p, "%d", &voice->speed_percent);
+			SetSpeed(3);
 			break;
 		case V_MBROLA:
 		{
@@ -906,8 +907,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		// not set by language attribute
 		translator = SelectTranslator(translator_name);
 	}
-
-	SetSpeed(3); // for speed_percent
 
 	if (!tone_only) {
 		if (!!(control & 8/*compiling phonemes*/)) {
