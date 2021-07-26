@@ -571,7 +571,6 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	strcpy(translator_name, language_type);
 	strcpy(new_dictionary, language_type);
-	strcpy(phonemes_name, language_type);
 
 	if (!tone_only) {
 		voice = &voicedata;
@@ -590,9 +589,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		strcat(voice_identifier, buf);
 	}
 	VoiceReset(tone_only);
-
-	if (!tone_only)
-		SelectPhonemeTableName(phonemes_name); // set up phoneme_tab
 
 	while ((f_voice != NULL) && (fgets_strip(buf, sizeof(buf), f_voice) != NULL)) {
 		// isolate the attribute name
