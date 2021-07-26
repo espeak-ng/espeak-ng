@@ -476,6 +476,26 @@ static int Read8Numbers(char *data_in, int *data)
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
 
+static void ReadNumbers(char *p, int *flags, int maxValue,  MNEM_TAB *keyword_tab, int key) {
+	// read a list of numbers from string p
+	// store them as flags in *flags
+	// the meaning of the  numbers is bit ordinals, not integer values
+	// give an error if number > maxValue is read
+	int n;
+	while (*p != 0) {
+		while (isspace(*p)) p++;
+		if ((n = atoi(p)) > 0) {
+			p++;
+			if (n < maxValue) {
+				*flags |= (1 << n);
+			} else {
+				fprintf(stderr, "%s: Bad option number %d\n", LookupMnemName(keyword_tab, key), n);
+			}
+		}
+	while (isalnum(*p)) p++;
+	}
+}
+
 static int CheckTranslator(Translator *tr, MNEM_TAB *keyword_tab, int key)
 {
 	// Return 0 if translator is set.
