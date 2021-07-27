@@ -528,7 +528,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	int tone_only = control & 2;
 	bool language_set = false;
 	bool phonemes_set = false;
-	int conditional_rules = 0;
 
 	char voicename[40];
 	char language_name[40];
@@ -766,9 +765,21 @@ voice_t *LoadVoice(const char *vname, int control)
 					translator->langopts.tunes[ix] = value;
 			}
 			break;
+
 		case V_DICTRULES: // conditional dictionary rules and list entries
-		case V_NUMBERS:
+			if (CheckTranslator(translator, keyword_tab, key) != 0)
+				break;
+
+			ReadNumbers(p, &translator->dict_condition, 32, keyword_tab, key);
+			break;
 		case V_STRESSOPT:
+			if (CheckTranslator(translator, keyword_tab, key) != 0)
+				 break;
+
+			ReadNumbers(p, &translator->langopts.stress_flags, 32, keyword_tab, key);
+			break;
+
+		case V_NUMBERS:
 			if (CheckTranslator(translator, keyword_tab, key) != 0)
 				break;
 
@@ -778,18 +789,12 @@ voice_t *LoadVoice(const char *vname, int control)
 				if ((n = atoi(p)) > 0) {
 					p++;
 					if (n < 32) {
-						if (key == V_DICTRULES)
-							conditional_rules |= (1 << n);
-						else if (key == V_NUMBERS)
 							translator->langopts.numbers |= (1 << n);
-						else if (key == V_STRESSOPT)
-							translator->langopts.stress_flags |= (1 << n);
 					} else {
-						if ((key == V_NUMBERS) && (n < 64))
+						if (n < 64)
 							translator->langopts.numbers2 |= (1 << (n-32));
 						else
-							fprintf(stderr, "Bad option number %d\n", n);
-					}
+							fprintf(stderr, "numbers: Bad option number %d\n", n);					}
 				}
 				while (isalnum(*p)) p++;
 			}
@@ -948,8 +953,6 @@ voice_t *LoadVoice(const char *vname, int control)
 				return NULL; // no dictionary loaded
 			}
 		}
-
-		translator->dict_condition = conditional_rules;
 
 		voice_languages[langix] = 0;
 	}
