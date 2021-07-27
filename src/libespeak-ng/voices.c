@@ -137,7 +137,7 @@ static MNEM_TAB keyword_tab[] = {
 	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
 	{ "stressRule",   V_STRESSRULE },
-	{ "stressopt",    V_STRESSOPT },
+	{ "stressOpt",    V_STRESSOPT },
 	{ "replace",      V_REPLACE },
 	{ "words",        V_WORDGAP },
 	{ "echo",         V_ECHO },
