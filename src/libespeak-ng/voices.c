@@ -819,8 +819,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			if (CheckTranslator(translator, keyword_tab, key) != 0)
 				break;
 
-			sscanf(p, "%d %d %d %d", &translator->langopts.stress_rule,
-			       &translator->langopts.stress_flags,
+			sscanf(p, "%d %d %d", &translator->langopts.stress_rule,
 			       &translator->langopts.unstressed_wd1,
 			       &translator->langopts.unstressed_wd2);
 
