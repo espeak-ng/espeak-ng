@@ -807,7 +807,6 @@ Translator *SelectTranslator(const char *name)
 		SetupTranslator(tr, stress_lengths_fi, stress_amps_fi);
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
-		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_2_TO_HEAVY; // move secondary stress from light to a following heavy syllable
 		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 		tr->langopts.long_stop = 130;
 
