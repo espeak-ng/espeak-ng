@@ -415,6 +415,9 @@ void VoiceReset(int tone_only)
 		n_replace_phonemes = 0;
 		LoadMbrolaTable(NULL, NULL, 0);
 	}
+
+// probably unnecessary, but removing this would break tests
+voice->width[0] = (voice->width[0] * 105)/100;
 }
 
 static void VoiceFormant(char *p)
@@ -445,6 +448,10 @@ static void VoiceFormant(char *p)
 	if (width >= 0)
 		voice->width[formant] = (int)(width * 2.56001);
 	voice->freqadd[formant] = freqadd;
+
+	// probably unnecessary, but removing this would break tests
+	if (formant == 0)
+		voice->width[0] = (voice->width[0] * 105)/100;
 }
 
 static void PhonemeReplacement(char *p)
@@ -955,8 +962,6 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		voice_languages[langix] = 0;
 	}
-
-	voice->width[0] = (voice->width[0] * 105)/100;
 
 	return voice;
 }
