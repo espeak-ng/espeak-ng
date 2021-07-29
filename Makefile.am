@@ -1007,6 +1007,7 @@ mbrola: \
 	espeak-ng-data/mbrola_ph/gr1_phtrans \
 	espeak-ng-data/mbrola_ph/gr2_phtrans \
 	espeak-ng-data/mbrola_ph/grc-de6_phtrans \
+	espeak-ng-data/mbrola_ph/he_phtrans \
 	espeak-ng-data/mbrola_ph/hn1_phtrans \
 	espeak-ng-data/mbrola_ph/hu1_phtrans \
 	espeak-ng-data/mbrola_ph/ic1_phtrans \
