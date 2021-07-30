@@ -42,6 +42,7 @@
   <string name="variant_iven">Iven</string>
   <string name="variant_iven2">Iven 2</string>
   <string name="variant_iven3">Iven 3</string>
+  <string name="variant_iven4">Iven 4</string>
   <string name="variant_jacky">Jacky</string>
   <string name="variant_john">John</string>
   <string name="variant_kaukovalta">Kaukovalta</string>
@@ -77,6 +78,9 @@
   <string name="variant_robosoft8">Robosoft 8</string>
   <string name="variant_sandro">Sandro</string>
   <string name="variant_shelby">Shelby</string>
+  <string name="variant_steph">Steph</string>
+  <string name="variant_steph2">Steph 2</string>
+  <string name="variant_steph3">Steph 3</string>
   <string name="variant_storm">Storm</string>
   <string name="variant_travis">Travis</string>
   <string name="variant_tweaky">Tweaky</string>
