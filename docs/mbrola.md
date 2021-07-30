@@ -83,8 +83,8 @@ The following MBROLA voices are available in eSpeak NG<sup>[1](#footnote1)</sup>
 | `fr7`        | Belgian French       | male   | `mb-fr7` |                |
 | `gr1`        | Greek                | male   | `mb-gr1` | `mbrola-gr1`   |
 | `gr2`        | Greek                | male   | `mb-gr2` | `mbrola-gr2`   |
-| `hb1`        | Hebrew               | male   |          |                |
-| `hb2`        | Hebrew               | female |          |                |
+| `hb1`        | Hebrew               | male   | `mb-hb1` |                |
+| `hb2`        | Hebrew               | female | `mb-hb2` |                |
 | `hn1`        | Korean               | male   |          |                |
 | `hu1`        | Hungarian            | female | `mb-hu1` | `mbrola-hu1`   |
 | `ic1`        | Icelandic            | male   | `mb-ic1` | `mbrola-ic1`   |
