@@ -86,7 +86,7 @@ if test -e ${GRADLE} ; then
     AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 1])
 else
     AC_MSG_RESULT([no])
-    AM_CONDITIONAL(HAVE_GRADLE, [test 0 = 0])
+    AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 0])
 fi
 
 AC_SUBST(GRADLE)
