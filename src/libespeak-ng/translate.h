@@ -476,7 +476,6 @@ typedef struct {
 
 	int numbers;
 
-#define NUM2_THOUSANDPLEX_VAR_BITS 0x0000001e // use variant form of numbers before thousands, millions, etc.
 #define NUM2_THOUSANDS_VAR_BITS    0x000001c0 // use different forms of thousand, million, etc (M MA MB)
 #define NUM2_SWAP_THOUSANDS        0x00000200 // say "thousand" and "million" before its number, not after
 #define NUM2_ORDINAL_NO_AND        0x00000800 // don't say 'and' between tens and units for ordinal numbers

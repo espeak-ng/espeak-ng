@@ -43,7 +43,6 @@ extern "C"
 #define FRFLAG_LEN_MOD         0x04 // reduce effect of length adjustment
 #define FRFLAG_BREAK_LF        0x08 // but keep f3 upwards
 #define FRFLAG_BREAK           0x10 // don't merge with next frame
-#define FRFLAG_BREAK_2         0x18 // FRFLAG_BREAK_LF or FRFLAG_BREAK
 #define FRFLAG_FORMANT_RATE    0x20 // Flag5 allow increased rate of change of formant freq
 #define FRFLAG_MODULATE        0x40 // Flag6 modulate amplitude of some cycles to give trill
 #define FRFLAG_DEFER_WAV       0x80 // Flag7 defer mixing WAV until the next frame
@@ -58,7 +57,6 @@ extern "C"
 #define SFLAG_SWITCHED_LANG    0x20 // this word uses phonemes from a different language
 #define SFLAG_PROMOTE_STRESS   0x40 // this unstressed word can be promoted to stressed
 
-#define SFLAG_PREV_PAUSE     0x1000 // consider previous phoneme as pause
 #define SFLAG_NEXT_PAUSE     0x2000 // consider next phoneme as pause
 
 // embedded command numbers
@@ -75,14 +73,10 @@ extern "C"
 #define EMBED_U    11 // audio uri
 #define EMBED_B    12 // break
 #define EMBED_F    13 // emphasis
-#define EMBED_C    14 // capital letter indication
 
 #define N_EMBEDDED_VALUES    15
 extern int embedded_value[N_EMBEDDED_VALUES];
 extern int embedded_default[N_EMBEDDED_VALUES];
-
-#define N_PEAKS2  9 // plus Notch and Fill (not yet implemented)
-#define N_MARKERS 8
 
 #define N_KLATTP   10 // this affects the phoneme data file format
 #define N_KLATTP2  14 // used in vowel files, with extra parameters for future extensions
@@ -229,7 +223,7 @@ typedef struct {
 
 #define pd_FORNEXTPH     0x2
 #define pd_DONTLENGTHEN  0x4
-#define pd_REDUCELENGTHCHANGE 0x8
+
 typedef struct {
 	int pd_control;
 	int pd_param[N_PHONEME_DATA_PARAM];  // set from group 0 instructions
@@ -318,7 +312,6 @@ typedef struct {
 #define STRESS_IS_SECONDARY     3       // secondary stress
 #define STRESS_IS_PRIMARY       4       // primary (main) stress
 #define STRESS_IS_PRIORITY      5       // replaces primary markers
-#define STRESS_IS_EMPHASIZED	6       // emphasized
 
 // other conditions
 #define isAfterStress  9
