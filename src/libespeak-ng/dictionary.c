@@ -378,8 +378,8 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 				}
 				*outptr = 0;
 				if (c == 0) {
-					if (strcmp(p_lang, "en") == 0) {
-						*p_lang = 0; // don't need "en", it's assumed by default
+					if (strcmp(p_lang, ESPEAKNG_DEFAULT_VOICE) == 0) {
+						*p_lang = 0; // don't need ESPEAKNG_DEFAULT_VOICE, it's assumed by default
 						return p;
 					}
 				} else

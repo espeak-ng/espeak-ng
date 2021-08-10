@@ -712,7 +712,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 			if (unpron_phonemes[0] == phonSWITCH) {
 				// change to another language in order to translate this word
 				strcpy(word_phonemes, unpron_phonemes);
-				if (strcmp(&unpron_phonemes[1], "en") == 0)
+				if (strcmp(&unpron_phonemes[1], ESPEAKNG_DEFAULT_VOICE) == 0)
 					return FLAG_SPELLWORD; // _^_en must have been set in TranslateLetter(), not *_rules which uses only _^_
 				return 0;
 			}
@@ -1423,7 +1423,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 				new_language = (char *)(&p[1]);
 				if (new_language[0] == 0)
-					new_language = "en";
+					new_language = ESPEAKNG_DEFAULT_VOICE;
 
 				switch_phonemes = SetTranslator2(new_language);
 

@@ -578,7 +578,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	f_voice = fopen(buf, "r");
 
         if (!(control & 8)/*compiling phonemes*/)
-            language_type = "en"; // default
+            language_type = ESPEAKNG_DEFAULT_VOICE; // default
         else
             language_type = "";
 
