@@ -82,7 +82,7 @@ dnl ================================================================
 
 AC_MSG_CHECKING([for gradle])
 if command -v "$GRADLE" >/dev/null; then
-    AC_MSG_RESULT([${GRADLE}])
+    AC_MSG_RESULT([$GRADLE])
     AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 1])
 else
     AC_MSG_RESULT([no])
