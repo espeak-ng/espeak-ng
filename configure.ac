@@ -85,6 +85,7 @@ if command -v "$GRADLE" >/dev/null; then
     AC_MSG_RESULT([$GRADLE])
     AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 1])
 else
+    GRADLE=
     AC_MSG_RESULT([no])
     AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 0])
 fi
