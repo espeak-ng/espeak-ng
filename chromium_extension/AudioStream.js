@@ -183,7 +183,7 @@ class AudioStream {
             close: async () => {
               console.log('Done writing input stream.');
               if (channelData.length) {
-                this.inputController.enqueue(new Uint8Array(channelData));
+                this.inputController.enqueue(new Uint8Array(channelData.splice(0, channelData.length)));
               }
               this.inputController.close();
               this.source.postMessage('Done writing input stream.', '*');
@@ -210,24 +210,14 @@ class AudioStream {
                   new Promise((resolve) => (this.stream.oninactive = resolve)),
                   new Promise((resolve) => (this.ac.onstatechange = resolve)),
                 ]);
-              }
-              const uint16 = new Uint16Array(value.buffer);
-              // https://stackoverflow.com/a/35248852
-              const floats = new Float32Array(this.channelDataLength / 2);
-              for (let i = 0; i < uint16.length; i++) {
-                const int = uint16[i];
-                // If the high bit is on, then it is a negative number, and actually counts backwards.
-                const float =
-                  int >= 0x8000 ? -(0x10000 - int) / 0x8000 : int / 0x7fff;
-                floats[i] = float;
-              }
+              }              
               const frame = new AudioData({
-                format: 'FLTP',
+                format: 's16',
                 sampleRate: 22050,
                 numberOfChannels: 1,
-                numberOfFrames: 220,
+                numberOfFrames: value.length / 2,
                 timestamp,
-                data: floats,
+                data: value,
               });
               this.duration += (frame.duration / 10**6);
               if (this.recorder && this.recorder.state === 'inactive') {
