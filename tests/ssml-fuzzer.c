@@ -28,10 +28,9 @@
 static int initialized = 0;
 
 static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events) {
-	/* prevent warning for unused arguments */
-	(void) wav;
-	(void) numsamples;
-	(void) events;
+	(void)wav; // unused
+	(void)numsamples; // unused
+	(void)events; // unused
 
 	return 0;
 }
@@ -45,6 +44,7 @@ char *filepath = NULL;
 
 extern int LLVMFuzzerInitialize(const int* argc, char*** argv)
 {
+	(void)argc; // unused
 	filepath = dirname(strdup((*argv)[0]));
 	return 0;
 }

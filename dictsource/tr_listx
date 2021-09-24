@@ -15,8 +15,8 @@ Artvin $1
 astsubay $1
 Avrupa $1
 Aydın $1
-bağışlamak ba:Sla'mak
-bağışlayın ba:S'laj@n
+bağışlamak ba:@@Sla'mak
+bağışlayın ba:@@S'laj@n
 banka $1
 Bartın $1
 Batman $1
@@ -58,16 +58,12 @@ Erzurum $1
 Fenerbahçe $2
 Galatasaray $2
 Gaziantep $2
-gideceğim JIdI'dZEm
-gidecek JIdI'dZec
-(gidecek misin) JIdI'dZec||mIsIn
 Giresun $2
 (göz kırpmak) $1
 Gümüşhane JY'mYSa:ne
 Hakkari hak'ca:RI
 Hakkâri hak'ca:RI
 Hatay $1
-(hey çocuğum) $2
 Hitler $1
 ığdır $1
 ısparta $2
@@ -76,9 +72,6 @@ ingiltere $3
 insanca $2
 iskenderun $2 
 istanbul $2
-(istanbul'a gidecek) Is'tanbULaJIdIdZec
-(istanbul'a o gidecek) IstanbULa'oJIdIdZec
-(istanbul'a gittim) Is'tanbULaJIt:Im
 istasyon $3
 (ister mi) $2
 (ister misin) $2
@@ -151,7 +144,6 @@ Ukrayna $2
 Urfa $1
 Uşak $1
 uyuma $2
-(Van'da mı yaşıyorsun) van'dam@jaS@josUn
 yaptın $2
 yaşıyor $2
 Yozgat $1

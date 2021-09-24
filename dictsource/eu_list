@@ -160,25 +160,32 @@ ra $u
 etara $u
 
 // Abbreviations
-adib ad'ibidez $hasdot
+adib ad'ibid,ez $hasdot
 
 // proper names and surnames
 juan $alt
 jorge $1 x'orxe
 jose $1 $alt
 josé $alt
-joaquín $alt
+joaquín xoak'in
+joaquin xoak'in
+julian xulj'an
+julián xulj'an
+jacinto xaT'into
+jiménez xim'eneT
+genaro xen'aro
+gonzález gonT'aleT
 san $u $only $only
 santo $u
 aristoteles $3
 hume hjum $1
 humer hjum
-google g'uQ@l
-googler g'uQ@l
-moodle m'uD@l
-moodler m'uD@l
-doodle d'uD@l
-doodler m'uD@l
+google g'uQel
+googler g'uQel
+moodle m'uDel
+moodler m'uDel
+doodle d'uDel
+doodler m'uDel
 nietztsche n'itSe 
 ainara $alt3
 
@@ -213,8 +220,7 @@ akademi $3
 aktibist $3
 alajain $alt
 album $1
-[aldez-alde] 'alDez_'alDe
-[aldez-alde] 'alDez_'alDe
+(aldez-alde) aldezalde $text
 alfanumeriko $4
 algebra $1 $alt
 aljebraiko $3 $alt 
@@ -226,3 +232,7 @@ alkaloide $3
 alokutibo $4
 alproj $alt
 alprojakeri $alt
+(bat-batean) bapatean $text
+ijito $alt
+garaje $alt
+jertse xerts'e

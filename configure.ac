@@ -83,10 +83,10 @@ dnl ================================================================
 AC_MSG_CHECKING([for gradle])
 if test -e ${GRADLE} ; then
     AC_MSG_RESULT([${GRADLE}])
-    AM_CONDITIONAL(HAVE_GRADLE, [1])
+    AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 1])
 else
     AC_MSG_RESULT([no])
-    AM_CONDITIONAL(HAVE_GRADLE, [0])
+    AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 0])
 fi
 
 AC_SUBST(GRADLE)
@@ -304,6 +304,7 @@ dnl Reference: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 dnl ================================================================
 
 AX_CHECK_COMPILE_FLAG([-Wimplicit],              [CFLAGS="-Wimplicit $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wint-conversion],        [CFLAGS="-Wint-conversion $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wmissing-prototypes],    [CFLAGS="-Wmissing-prototypes $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wreturn-type],           [CFLAGS="-Wreturn-type $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wuninitialized],         [CFLAGS="-Wuninitialized $CFLAGS"])

@@ -2,3 +2,4 @@ name Basque
 language eu
 
 status testing
+stressRule 15

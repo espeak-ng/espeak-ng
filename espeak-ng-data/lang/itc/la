@@ -1,10 +1,10 @@
 name Latin
 language la
-stressRule 2 33 0 2
+stressRule 2 0 2
 // rule=penultimate
-// flags=0100001 (no automatic secondary stress + don't stres monosyllables)
 // unstressed_wd1=0
 // unstressed_wd2=2
+stressOpt 0 5 // flags=0100001 (no automatic secondary stress + don't stres monosyllables)
 
 // short gap between words
 words 2

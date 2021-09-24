@@ -322,6 +322,7 @@ kasti    kastI   // Adverbs that end in –sti cause doubling of the following c
 kesti    kestI
 kosti    kostI
 kyösti   kyYstI
+muisti    muistI
 pelasti  pelastI
 pianisti pianistI
 posti    postI
@@ -331,7 +332,10 @@ päästi   p&:stI
 rasti    RastI
 risti    RistI
 ryösti   RyYstI
+sähköposti s'&hkYp,ostI 
+tekstiviesti tekstIviestI
 varasti  vaRastI
+viesti   viestI
 viulisti viulIstI
 
 // No doubling, ends in –lle
@@ -347,7 +351,7 @@ ville    ville
 wille    ville
 
 // No doubling, ends in –nne
-Anne     anne $capital
+anne     anne
 hanne    hanne
 janne    janne
 manne    manne
@@ -365,7 +369,6 @@ kungfutse    kuNfutse
 ok         'o:_,ko:
 okay       okei
 yoghurt    jogurt:i
-yogurt     jogurt:i
 
 
 // Abbreviations
@@ -377,12 +380,11 @@ ad         $abbrev    $dot    // anno Domini, Herran vuonna
 atk        $abbrev
 ay         $abbrev    // ammaatiyhdistys
 ca         $abbrev    $dot    // circa 
-dna        $abbrev    // elinkeinoelämän keskusliitto
-eg         esimerkiksi $dot   // exempli gratia, esimerkiksi
+dna        $abbrev
 em         $abbrev    $dot 
 ek         $abbrev    // elinkeinoelämän keskusliitto
 ekr        $abbrev    $dot    // ennen Kristuksen syntymää
-etc        et_setera  $dot    // et cetera, ym., jne.
+etc        $abbrev  $dot    // et cetera, ym., jne.
 eu         $abbrev
 hiv        $abbrev
 ict        $abbrev
@@ -397,13 +399,5 @@ oy         $abbrev            // osakeyhtiö
 ry         $abbrev    $dot    // rekisteröity yhdistys
 usb        $abbrev
 utf        $abbrev
-ym         ynn&_mu:ta  $dot   // ynnä muuta (etc)
-
-// foreign words
-blindsquare     _^_EN
-bluetooth     _^_EN
-daisy     _^_EN
-facebook    _^_EN
-talkback     _^_EN
-voiceover     _^_EN
-youtube     _^_EN
+ym         $abbrev  $dot   // ynnä muuta (etc)
+yo         $abbrev // ylioppilas

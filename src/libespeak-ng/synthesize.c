@@ -136,7 +136,7 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 static void DoPhonemeAlignment(char* pho, int type)
 {
 	wcmdq[wcmdq_tail][0] = WCMD_PHONEME_ALIGNMENT;
-	wcmdq[wcmdq_tail][1] = pho;
+	wcmdq[wcmdq_tail][1] = (intptr_t)pho;
 	wcmdq[wcmdq_tail][2] = type;
 	WcmdqInc();
 }
@@ -1560,6 +1560,9 @@ int SpeakNextClause(int control)
 		skipping_text = false;
 		return 0;
 	}
+
+	if (current_phoneme_table != voice->phoneme_tab_ix)
+		SelectPhonemeTable(voice->phoneme_tab_ix);
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue

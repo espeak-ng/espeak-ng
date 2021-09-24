@@ -53,7 +53,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph,
 		PHONEME_LIST *plist);
 
 int PhonemeCode(unsigned int mnem);
-int SelectPhonemeTable(int number);
+void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
 
 #ifdef __cplusplus

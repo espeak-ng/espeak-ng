@@ -35,41 +35,14 @@ float polint(float xa[], float ya[], int n, float x);
 #define MAX_DISPLAY_FREQ 9500
 #define FRAME_HEIGHT 240
 
-#define T_ZOOMOUT  301
-#define T_ZOOMIN   302
-#define T_USEPITCHENV 303
-#define T_SAMPRATE 304
-#define T_PITCH1   305
-#define T_PITCH2   306
-#define T_DURATION 307
 #define T_AMPLITUDE 308
-#define T_AMPFRAME  309
-#define T_TIMEFRAME 310
-#define T_TIMESEQ   311
-
 #define T_AV      312
-#define T_AVP     313
-#define T_FRIC    314
-#define T_FRICBP  315
-#define T_ASPR    316
-#define T_TURB    317
-#define T_SKEW    318
-#define T_TILT    319
-#define T_KOPEN   320
 #define T_FNZ     321
 
 #define FILEID1_SPECTSEQ 0x43455053
 #define FILEID2_SPECTSEQ 0x51455354  // for eSpeak sequence
 #define FILEID2_SPECTSEK 0x4b455354  // for Klatt sequence
 #define FILEID2_SPECTSQ2 0x32515354  // with Klatt data
-
-#define FILEID1_SPC2     0x32435053  // an old format for spectrum files
-
-#define FILEID1_PITCHENV 0x43544950
-#define FILEID2_PITCHENV 0x564e4548
-
-#define FILEID1_PRAATSEQ 0x41415250
-#define FILEID2_PRAATSEQ 0x51455354
 
 typedef struct {
 	unsigned short pitch1;

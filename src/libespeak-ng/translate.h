@@ -92,7 +92,6 @@ extern "C"
 #define FLAG_CAPITAL         0x200 // pronunciation if initial letter is upper case
 #define FLAG_ALLCAPS         0x400 // only if the word is all capitals
 #define FLAG_ACCENT          0x800 // character name is base-character name + accent name
-#define FLAG_HYPHENATED     0x1000 // multiple-words, but needs hyphen between parts 1 and 2
 #define FLAG_SENTENCE       0x2000 // only if the clause is a sentence
 #define FLAG_ONLY           0x4000
 #define FLAG_ONLY_S         0x8000
@@ -307,9 +306,6 @@ typedef struct {
 // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
 #define LOPT_UNPRONOUNCABLE 5
 
-// select length_mods tables,  (length_mod_tab) + (length_mod_tab0 * 100)
-#define LOPT_LENGTH_MODS 6
-
 // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 #define LOPT_SONORANT_MIN 7
 
@@ -365,6 +361,14 @@ typedef struct {
 #define STRESSPOSN_2R 2 // penultimate
 #define STRESSPOSN_1R 3 // final syllable
 #define STRESSPOSN_3R 4 // antipenultimate
+#define STRESSPOSN_SYLCOUNT 5 // stress depends on syllable count
+#define STRESSPOSN_1RH 6 // last heaviest syllable, excluding final syllable
+#define STRESSPOSN_1RU 7 // stress on the last syllable, before any explicitly unstressed syllable
+#define STRESSPOSN_2LLH 8 // first syllable, unless it is a light syllable followed by a heavy syllable
+#define STRESSPOSN_ALL 9 // mark all stressed
+#define STRESSPOSN_GREENLANDIC 12
+#define STRESSPOSN_1SL 13 // 1st syllable, unless 1st vowel is short and 2nd is long
+#define STRESSPOSN_EU 15 // If more than 2 syllables: primary stress in second syllable and secondary on last.
 
 typedef struct {
 // bits0-2  separate words with (1=pause_vshort, 2=pause_short, 3=pause, 4=pause_long 5=[?] phonemme)
@@ -373,7 +377,7 @@ typedef struct {
 // bit5=length of a final vowel doesn't depend on the next phoneme
 	int word_gap;
 	int vowel_pause;
-	int stress_rule; // 1=first syllable, 2=penultimate,  3=last
+	int stress_rule; // see #defines for STRESSPOSN_*
 
 #define S_NO_DIM            0x02
 #define S_FINAL_DIM         0x04
@@ -472,7 +476,6 @@ typedef struct {
 
 	int numbers;
 
-#define NUM2_THOUSANDPLEX_VAR_BITS 0x0000001e // use variant form of numbers before thousands, millions, etc.
 #define NUM2_THOUSANDS_VAR_BITS    0x000001c0 // use different forms of thousand, million, etc (M MA MB)
 #define NUM2_SWAP_THOUSANDS        0x00000200 // say "thousand" and "million" before its number, not after
 #define NUM2_ORDINAL_NO_AND        0x00000800 // don't say 'and' between tens and units for ordinal numbers
@@ -652,7 +655,6 @@ extern int dictionary_skipwords;
 
 extern int (*uri_callback)(int, const char *, const char *);
 extern int (*phoneme_callback)(const char *);
-extern void SetLengthMods(Translator *tr, int value);
 
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000

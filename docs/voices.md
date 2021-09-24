@@ -28,6 +28,7 @@
   - [dictrules](#dictrules)
   - [lowercaseSentence](#lowercaseSentence)
   - [replace](#replace)
+  - [stressOpt](#stressopt)
   - [stressRule](#stressrule)
   - [stressLength](#stresslength)
   - [stressAdd](#stressadd)
@@ -417,14 +418,20 @@ e.g.
 The phoneme mnemonics can be defined for each language, but some are
 listed in [Phonemes](phonemes.md).
 
+### stressOpt
+
+	stressOpt <list of rule numbers>
+
+Gives a list of stress options which are applied for this
+language. (values are defined as bit numbers starting with "S_*" in [translate.h](../src/libespeak-ng/translate.h))
+
 ### stressRule
 
-	stressRule <4 integer values>
+	stressRule <3 integer values>
 
-Four integer parameters. These correspond to:
+Three integer parameters. These correspond to:
 
 1. langopts->stress_rule (values in [translate.h](../src/libespeak-ng/translate.h))
-2. langopts->stress_flags
 3. langopts->unstressed_wd1 (stress for $u word of 1 syllable)
 4. langopts->unstressed_wd2 (stress for $u word of >1 syllable) 
 

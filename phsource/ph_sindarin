@@ -1,0 +1,56 @@
+phoneme n
+  IF nextPhW(isVelar) THEN // /n/ is velarized to /N/ when before velar stops
+    ChangePhoneme(N)
+  ENDIF
+  CALL base1/n
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 200
+  FMT(vowel/oo)
+endphoneme
+
+phoneme w#
+  vls glt apr  // [h]
+  ipa ʍ
+
+  IF nextPh(isVowel) THEN
+    NextVowelStarts
+      VowelStart(w/w@)
+      VowelStart(w/wa)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+  ENDIF
+
+  WAV(h/hu, 70)
+endphoneme
+
+
+phoneme aE
+  vwl starttype #a endtype #e
+  length 270
+  FMT(vdiph/ae)
+endphoneme
+
+phoneme aI
+  vwl starttype #a endtype #i
+  length 240
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme EI
+  vwl starttype #e endtype #i
+  length 230
+  FMT(vdiph/eei)
+endphoneme
+
+phoneme uI
+  vwl starttype #u endtype #i
+  length 290
+  lng
+  FMT(vdiph/ui)
+endphoneme

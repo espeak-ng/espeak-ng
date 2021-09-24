@@ -39,4 +39,33 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">این یک نمونه از نوشتار گفته شده در %s است</string>
+  <string name="status">وضعیت</string>
+  <string name="tts_version">نسخه eSpeak</string>
+  <string name="speak">خواندن متن</string>
+  <string name="ssml">بارگذاری قالب SSML</string>
+  <string name="synthesis_demo">یک متن جهت خواندن با موتور صوتی eSpeak بنویسید:</string>
+  <string name="espeak_volume">حجم صدا</string>
+  <string name="formatter_wpm">%s کلمه بر دقیقه</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">تغییر به حالت پیشفرض</string>
+  <string name="espeak_pitch_range">انعطاف صدا</string>
+  <string name="espeak_variant">نوع صدا</string>
+  <string name="espeak_speak_punctuation">خواندن علائم نگارشی</string>
+  <string name="punctuation_all">همه</string>
+  <string name="punctuation_custom">سفارشی</string>
+  <string name="punctuation_custom_fmt">سفارشی: %s</string>
+  <string name="punctuation_none">هیچکدام</string>
+  <string name="punctuation_characters">علائم</string>
+  <string name="category">دسته بندی</string>
+  <string name="variant">نوع صدا</string>
+  <string name="variant_male">آقا</string>
+  <string name="variant_female">خانم</string>
+  <string name="variant_default">پیشفرض</string>
+  <string name="variant_n">نوع صدا %d</string>
+  <string name="variant_young">جوان</string>
+  <string name="variant_old">سالمند</string>
+  <string name="variant_croak">لرزان</string>
+  <string name="variant_whisper">پچ پچ</string>
+  <string name="import_voice_title">افزودن دیکشنری eSpeak</string>
+  <string name="import_voice_description">افزودن یک فایل دیکشنری صوتی eSpeak از کارت حافظه</string>
 </resources>

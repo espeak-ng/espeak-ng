@@ -1,6 +1,6 @@
 # Languages
 
-Development version of eSpeak NG supports 124 languages and accents,
+Development version of eSpeak NG supports 126 languages and accents,
 which are listed in table below.
 
 To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
@@ -99,6 +99,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `art`       | `qdb`             | Constructed           | Lang Belta                  |                        |
 |             | `qu`              |                       | Quechua                     |                        |
 | `myn`       | `quc`             | Mayan                 | K'iche'                     |                        |
+| `art`       | `qya`             | Constructed           | Quenya                      |                        |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `art`       | `piqd`            | Constructed           | Klingon                     |                        |
@@ -106,6 +107,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zle`       | `ru-lv`           | East Slavic           | Russian                     | Latvia                 |
 | `zle`       | `uk`              | East Slavic           | Ukrainian                   |                        |
+| `art`       | `sjn`             | Constructed           | Sindarin                    |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian<sup>\[1,2\]</sup>   |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
 | `inc`       | `sd`              | Indic                 | Sindhi                      |                        |

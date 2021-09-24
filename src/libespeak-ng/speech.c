@@ -266,6 +266,8 @@ static int check_data_path(const char *path, int allow_directory)
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length, const char *device)
 {
+	(void)device; // unused if HAVE_PCAUDIOLIB_AUDIO_H is not defined
+
 	my_mode = output_mode;
 	out_samplerate = 0;
 
@@ -440,7 +442,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	espeak_ng_STATUS status;
 	if (translator == NULL) {
-		status = espeak_ng_SetVoiceByName("en");
+		status = espeak_ng_SetVoiceByName(ESPEAKNG_DEFAULT_VOICE);
 		if (status != ENS_OK)
 			return status;
 	}

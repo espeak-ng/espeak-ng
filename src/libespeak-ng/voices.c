@@ -137,7 +137,7 @@ static MNEM_TAB keyword_tab[] = {
 	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
 	{ "stressRule",   V_STRESSRULE },
-	{ "stressopt",    V_STRESSOPT },
+	{ "stressOpt",    V_STRESSOPT },
 	{ "replace",      V_REPLACE },
 	{ "words",        V_WORDGAP },
 	{ "echo",         V_ECHO },
@@ -162,7 +162,6 @@ static MNEM_TAB keyword_tab[] = {
 	{ "l_regressive_v",   0x100+LOPT_REGRESSIVE_VOICING },
 	{ "l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE },
 	{ "l_sonorant_min",   0x100+LOPT_SONORANT_MIN },
-	{ "l_length_mods",    0x100+LOPT_LENGTH_MODS },
 	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
 	{ "brackets",       0x100+LOPT_BRACKET_PAUSE },
 	{ "bracketsAnnounced",       0x100+LOPT_BRACKET_PAUSE_ANNOUNCED },
@@ -390,7 +389,9 @@ void VoiceReset(int tone_only)
 	InitBreath();
 	for (pk = 0; pk < N_PEAKS; pk++) {
 		voice->freq[pk] = 256;
+		voice->freq2[pk] = voice->freq[pk];
 		voice->height[pk] = default_heights[pk]*2;
+		voice->height2[pk] = voice->height[pk];
 		voice->width[pk] = default_widths[pk]*2;
 		voice->breath[pk] = 0;
 		voice->breathw[pk] = breath_widths[pk]; // default breath formant widths
@@ -414,6 +415,9 @@ void VoiceReset(int tone_only)
 		n_replace_phonemes = 0;
 		LoadMbrolaTable(NULL, NULL, 0);
 	}
+
+// probably unnecessary, but removing this would break tests
+voice->width[0] = (voice->width[0] * 105)/100;
 }
 
 static void VoiceFormant(char *p)
@@ -433,13 +437,21 @@ static void VoiceFormant(char *p)
 	if ((formant < 0) || (formant > 8))
 		return;
 
-	if (freq >= 0)
+	if (freq >= 0) {
 		voice->freq[formant] = (int)(freq * 2.56001);
-	if (height >= 0)
+		voice->freq2[formant] = voice->freq[formant];
+	}
+	if (height >= 0) {
 		voice->height[formant] = (int)(height * 2.56001);
+		voice->height2[formant] = voice->height[formant];
+	}
 	if (width >= 0)
 		voice->width[formant] = (int)(width * 2.56001);
 	voice->freqadd[formant] = freqadd;
+
+	// probably unnecessary, but removing this would break tests
+	if (formant == 0)
+		voice->width[0] = (voice->width[0] * 105)/100;
 }
 
 static void PhonemeReplacement(char *p)
@@ -469,6 +481,26 @@ static int Read8Numbers(char *data_in, int *data)
 	memset(data, 0, 8+sizeof(int));
 	return sscanf(data_in, "%d %d %d %d %d %d %d %d",
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
+}
+
+static void ReadNumbers(char *p, int *flags, int maxValue,  MNEM_TAB *keyword_tab, int key) {
+	// read a list of numbers from string p
+	// store them as flags in *flags
+	// the meaning of the  numbers is bit ordinals, not integer values
+	// give an error if number > maxValue is read
+	int n;
+	while (*p != 0) {
+		while (isspace(*p)) p++;
+		if ((n = atoi(p)) > 0) {
+			p++;
+			if (n < maxValue) {
+				*flags |= (1 << n);
+			} else {
+				fprintf(stderr, "%s: Bad option number %d\n", LookupMnemName(keyword_tab, key), n);
+			}
+		}
+	while (isalnum(*p)) p++;
+	}
 }
 
 static int CheckTranslator(Translator *tr, MNEM_TAB *keyword_tab, int key)
@@ -503,7 +535,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	int tone_only = control & 2;
 	bool language_set = false;
 	bool phonemes_set = false;
-	int conditional_rules = 0;
 
 	char voicename[40];
 	char language_name[40];
@@ -514,7 +545,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
 
-	int dict_min = 0;
 	int stress_add[8];
 	char names[8][40];
 	char name1[40];
@@ -548,7 +578,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	f_voice = fopen(buf, "r");
 
         if (!(control & 8)/*compiling phonemes*/)
-            language_type = "en"; // default
+            language_type = ESPEAKNG_DEFAULT_VOICE; // default
         else
             language_type = "";
 
@@ -567,7 +597,6 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	strcpy(translator_name, language_type);
 	strcpy(new_dictionary, language_type);
-	strcpy(phonemes_name, language_type);
 
 	if (!tone_only) {
 		voice = &voicedata;
@@ -586,9 +615,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		strcat(voice_identifier, buf);
 	}
 	VoiceReset(tone_only);
-
-	if (!tone_only)
-		SelectPhonemeTableName(phonemes_name); // set up phoneme_tab
 
 	while ((f_voice != NULL) && (fgets_strip(buf, sizeof(buf), f_voice) != NULL)) {
 		// isolate the attribute name
@@ -746,9 +772,21 @@ voice_t *LoadVoice(const char *vname, int control)
 					translator->langopts.tunes[ix] = value;
 			}
 			break;
+
 		case V_DICTRULES: // conditional dictionary rules and list entries
-		case V_NUMBERS:
+			if (CheckTranslator(translator, keyword_tab, key) != 0)
+				break;
+
+			ReadNumbers(p, &translator->dict_condition, 32, keyword_tab, key);
+			break;
 		case V_STRESSOPT:
+			if (CheckTranslator(translator, keyword_tab, key) != 0)
+				 break;
+
+			ReadNumbers(p, &translator->langopts.stress_flags, 32, keyword_tab, key);
+			break;
+
+		case V_NUMBERS:
 			if (CheckTranslator(translator, keyword_tab, key) != 0)
 				break;
 
@@ -758,18 +796,12 @@ voice_t *LoadVoice(const char *vname, int control)
 				if ((n = atoi(p)) > 0) {
 					p++;
 					if (n < 32) {
-						if (key == V_DICTRULES)
-							conditional_rules |= (1 << n);
-						else if (key == V_NUMBERS)
 							translator->langopts.numbers |= (1 << n);
-						else if (key == V_STRESSOPT)
-							translator->langopts.stress_flags |= (1 << n);
 					} else {
-						if ((key == V_NUMBERS) && (n < 64))
+						if (n < 64)
 							translator->langopts.numbers2 |= (1 << (n-32));
 						else
-							fprintf(stderr, "Bad option number %d\n", n);
-					}
+							fprintf(stderr, "numbers: Bad option number %d\n", n);					}
 				}
 				while (isalnum(*p)) p++;
 			}
@@ -794,8 +826,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			if (CheckTranslator(translator, keyword_tab, key) != 0)
 				break;
 
-			sscanf(p, "%d %d %d %d", &translator->langopts.stress_rule,
-			       &translator->langopts.stress_flags,
+			sscanf(p, "%d %d %d", &translator->langopts.stress_rule,
 			       &translator->langopts.unstressed_wd1,
 			       &translator->langopts.unstressed_wd2);
 
@@ -849,6 +880,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 		case V_SPEED:
 			sscanf(p, "%d", &voice->speed_percent);
+			SetSpeed(3);
 			break;
 		case V_MBROLA:
 		{
@@ -872,8 +904,15 @@ voice_t *LoadVoice(const char *vname, int control)
 			sscanf(p, "%d", &speed.fast_settings);
 			SetSpeed(3);
 			break;
-		case V_DICTMIN:
-			sscanf(p, "%d", &dict_min);
+		case V_DICTMIN: {
+			if (CheckTranslator(translator, keyword_tab, key) != 0)
+				break;
+
+			if (sscanf(p, "%d", &value) == 1)
+				translator->dict_min_size = value;
+			break;
+			}
+
 			break;
 		case V_MAINTAINER:
 		case V_STATUS:
@@ -896,13 +935,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		translator = SelectTranslator(translator_name);
 	}
 
-	SetSpeed(3); // for speed_percent
-
-	for (ix = 0; ix < N_PEAKS; ix++) {
-		voice->freq2[ix] = voice->freq[ix];
-		voice->height2[ix] = voice->height[ix];
-	}
-
 	if (!tone_only) {
 		if (!!(control & 8/*compiling phonemes*/)) {
                         /* Set by espeak_ng_CompilePhonemeDataPath when it
@@ -919,7 +951,6 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		voice->phoneme_tab_ix = ix;
 		translator->phoneme_tab_ix = ix;
-		translator->dict_min_size = dict_min;
 
 		if (!(control & 8/*compiling phonemes*/)) {
 			LoadDictionary(translator, new_dictionary, control & 4);
@@ -928,16 +959,7 @@ voice_t *LoadVoice(const char *vname, int control)
 				return NULL; // no dictionary loaded
 			}
 		}
-
-		translator->dict_condition = conditional_rules;
-
-		voice_languages[langix] = 0;
 	}
-
-	if ((value = translator->langopts.param[LOPT_LENGTH_MODS]) != 0)
-		SetLengthMods(translator, value);
-
-	voice->width[0] = (voice->width[0] * 105)/100;
 
 	return voice;
 }

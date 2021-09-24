@@ -134,7 +134,7 @@ src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
 
 src_libespeak_ng_la_CFLAGS = \
 	-fPIC -fvisibility=hidden \
-	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
+	-pedantic -fno-exceptions -DPATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 
 src_libespeak_ng_la_SOURCES = \
@@ -235,7 +235,7 @@ check_LTLIBRARIES += src/libespeak-ng-test.la
 
 src_libespeak_ng_test_la_LDFLAGS = $(src_libespeak_ng_la_LDFLAGS)
 src_libespeak_ng_test_la_CFLAGS  = \
-	-fPIC -pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
+	-fPIC -pedantic -fno-exceptions -DPATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 src_libespeak_ng_test_la_SOURCES = $(src_libespeak_ng_la_SOURCES)
 
@@ -334,11 +334,13 @@ phsource/phonemes.stamp: \
 	phsource/ph_assamese \
 	phsource/ph_azerbaijani \
 	phsource/ph_base2 \
+	phsource/ph_bashkir \
 	phsource/ph_basque \
 	phsource/ph_bengali \
 	phsource/ph_bulgarian \
 	phsource/ph_catalan \
 	phsource/ph_cherokee \
+	phsource/ph_chuvash \
 	phsource/ph_cmn \
 	phsource/ph_consonants \
 	phsource/ph_croatian \
@@ -363,9 +365,11 @@ phsource/phonemes.stamp: \
 	phsource/ph_greek \
 	phsource/ph_greek_ancient \
 	phsource/ph_greenlandic \
+	phsource/ph_guarani \
 	phsource/ph_gujarati \
 	phsource/ph_haitian \
 	phsource/ph_hakka \
+	phsource/ph_hawaiian \
 	phsource/ph_hindi \
 	phsource/ph_hindi_base \
 	phsource/ph_hungarian \
@@ -379,6 +383,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_kazakh \
 	phsource/ph_kinyarwanda \
 	phsource/ph_klingon \
+	phsource/ph_konkani \
 	phsource/ph_korean \
 	phsource/ph_kurdish \
 	phsource/ph_kyrgyz \
@@ -406,6 +411,8 @@ phsource/phonemes.stamp: \
 	phsource/ph_pt_brazil \
 	phsource/ph_punjabi \
 	phsource/ph_pyash \
+	phsource/ph_quechua \
+	phsource/ph_quenya \
 	phsource/ph_romanian \
 	phsource/ph_russian \
 	phsource/ph_russian_lv \
@@ -413,6 +420,8 @@ phsource/phonemes.stamp: \
 	phsource/ph_serbian \
 	phsource/ph_setswana \
 	phsource/ph_shan \
+	phsource/ph_sindarin \
+	phsource/ph_sindhi \
 	phsource/ph_sinhala \
 	phsource/ph_slovak \
 	phsource/ph_slovenian \
@@ -582,11 +591,13 @@ dictionaries: \
 	espeak-ng-data/qdb_dict \
 	espeak-ng-data/qu_dict \
 	espeak-ng-data/quc_dict \
+	espeak-ng-data/qya_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
 	espeak-ng-data/sd_dict \
 	espeak-ng-data/shn_dict \
 	espeak-ng-data/si_dict \
+	espeak-ng-data/sjn_dict \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
 	espeak-ng-data/smj_dict \
@@ -854,6 +865,9 @@ espeak-ng-data/qu_dict: dictsource/qu_list dictsource/qu_rules dictsource/qu_ext
 quc: espeak-ng-data/quc_dict
 espeak-ng-data/quc_dict: dictsource/quc_list dictsource/quc_rules dictsource/quc_extra dictsource/quc_emoji
 
+qya: espeak-ng-data/qya_dict
+espeak-ng-data/qya_dict: dictsource/qya_list dictsource/qya_rules
+
 ro: espeak-ng-data/ro_dict
 espeak-ng-data/ro_dict: dictsource/ro_list dictsource/ro_rules dictsource/ro_extra dictsource/ro_emoji
 
@@ -874,6 +888,9 @@ espeak-ng-data/shn_dict: dictsource/shn_list dictsource/shn_rules dictsource/shn
 
 si: espeak-ng-data/si_dict
 espeak-ng-data/si_dict: dictsource/si_list dictsource/si_rules dictsource/si_extra dictsource/si_emoji
+
+sjn: espeak-ng-data/sjn_dict
+espeak-ng-data/sjn_dict: dictsource/sjn_list dictsource/sjn_rules
 
 sk: espeak-ng-data/sk_dict
 espeak-ng-data/sk_dict: dictsource/sk_list dictsource/sk_rules dictsource/sk_extra dictsource/sk_emoji
@@ -990,6 +1007,7 @@ mbrola: \
 	espeak-ng-data/mbrola_ph/gr1_phtrans \
 	espeak-ng-data/mbrola_ph/gr2_phtrans \
 	espeak-ng-data/mbrola_ph/grc-de6_phtrans \
+	espeak-ng-data/mbrola_ph/he_phtrans \
 	espeak-ng-data/mbrola_ph/hn1_phtrans \
 	espeak-ng-data/mbrola_ph/hu1_phtrans \
 	espeak-ng-data/mbrola_ph/ic1_phtrans \

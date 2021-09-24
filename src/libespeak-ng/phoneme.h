@@ -249,6 +249,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
 extern int n_phoneme_tab;
+extern int current_phoneme_table;
 extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 typedef struct {
@@ -275,8 +276,6 @@ typedef struct {
 	unsigned int length;
 } PHONEME_PROG_LOG;
 
-#define PH(c1, c2) (c2<<8)+c1          // combine two characters into an integer for phoneme name
-#define PH3(c1, c2, c3) (c3<<16)+(c2<<8)+c1
 #define PhonemeCode2(c1, c2) PhonemeCode((c2<<8)+c1)
 
 extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
