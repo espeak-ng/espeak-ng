@@ -889,8 +889,11 @@ voice_t *LoadVoice(const char *vname, int control)
 			name2[0] = 0;
 			sscanf(p, "%s %s %d", name1, name2, &srate);
 			espeak_ng_STATUS status = LoadMbrolaTable(name1, name2, &srate);
-			if (status != ENS_OK)
+			if (status != ENS_OK) {
 				espeak_ng_PrintStatusCodeMessage(status, stderr, NULL);
+				fclose(f_voice);
+				return NULL;
+			}
 			else
 				voice->samplerate = srate;
 		}
