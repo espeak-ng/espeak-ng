@@ -337,6 +337,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_bashkir \
 	phsource/ph_basque \
 	phsource/ph_bengali \
+	phsource/ph_belarusian \
 	phsource/ph_bulgarian \
 	phsource/ph_catalan \
 	phsource/ph_cherokee \
@@ -515,6 +516,7 @@ dictionaries: \
 	espeak-ng-data/as_dict \
 	espeak-ng-data/az_dict \
 	espeak-ng-data/ba_dict \
+	espeak-ng-data/be_dict \
 	espeak-ng-data/bg_dict \
 	espeak-ng-data/bn_dict \
 	espeak-ng-data/bpy_dict \
@@ -639,6 +641,9 @@ espeak-ng-data/az_dict: dictsource/az_list dictsource/az_rules dictsource/az_ext
 
 ba: espeak-ng-data/ba_dict
 espeak-ng-data/ba_dict: dictsource/ba_list dictsource/ba_rules
+
+be: espeak-ng-data/be_dict
+espeak-ng-data/be_dict: dictsource/be_list dictsource/be_rules
 
 bg: espeak-ng-data/bg_dict
 espeak-ng-data/bg_dict: dictsource/bg_list dictsource/bg_listx dictsource/bg_rules dictsource/bg_extra dictsource/bg_emoji
