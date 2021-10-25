@@ -502,6 +502,8 @@ dictsource/%_extra:
 #
 # The rm $@ stops espeak-ng trying to load the old dictionary when it is run
 # (at the cost of a spurious error message.)
+#
+# NOTE: keep in sync with 'espeak-ng-data/yue_dict' more specific rule.
 espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	@echo "  DICT      $@"
 	rm -f $@
@@ -969,11 +971,15 @@ endif
 yue: espeak-ng-data/yue_dict
 dictsource/yue_listx:
 	ln -svf extra/yue_listx dictsource/
+
+# NOTE: keep in sync with espeak-ng-data/%_dict more generic rule.
 if HAVE_YUE_EXTENDED_DICTIONARY
-espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_listx dictsource/yue_emoji
+espeak-ng-data/yue_dict: src/espeak-ng phsource/phonemes.stamp dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_listx dictsource/yue_emoji
 else
-espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_emoji
+espeak-ng-data/yue_dict: src/espeak-ng phsource/phonemes.stamp dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_emoji
 endif
+	@echo "  DICT      $@"
+	rm -f $@
 	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
 dictsource/yue_emoji:
