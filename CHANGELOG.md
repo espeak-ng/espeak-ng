@@ -63,6 +63,7 @@ updated languages:
 *  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
 
 new languages:
+*  be (Belarusian) -- Sergei B
 *  chr (Cherokee) -- Michael Conrad
 *  cv (Chuvash) -- boracasli98, Valdis Vitolins
 *  haw (Hawaiian) -- Valdis Vitolins

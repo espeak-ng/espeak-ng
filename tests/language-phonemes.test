@@ -22,6 +22,7 @@ test_phwav ar 96b50251f33a8dc19745b61b7ba5400eba41c8e5 "ma na pa ta ka qa ?a ba 
 test_phwav as 05d4cca91fc3447ae8b6acd7892790dd364e8e23 "ma na Na pa ta ka p#a t#a k#a ba da ga b#a d#a g#a sa xa Xa ha tSa tS#a za wa ra ja la _:_ ma mi mu me m& mo mO mV ma~ mi~ mu~ me~ m&~ mo~ mO~ moj mo~j mow mo~w mew maV m@"
 test_phwav az 7bdb78c37433a47fb3b15808071b1a916202400c "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
 test_phwav ba cf21e5edc1227d3483f49305fbb39e201e5a7f97 "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
+test_phwav be 88cd154560ce202e65aa281ac7b62454806c7c6c "a O i\" tse ts;e ts.i dzi dz;o dz.u"
 test_phwav bg 3020acb23ac0f93d5479de3b305b71fc07b5e738 "ma na n^a Na m;a pa ba ta da ka ga p;a b;a t;a d;a ca Ja tsa dza tSa dZa ts;a dz;a fa va sa za Sa Za xa Qa f;a v;a s;a z;a x;a Ra R;a wa ja l/2a la l^a _:_ mi me m@ ma mo mu"
 test_phwav bn 7fc6c8c6b347677885c6e973ff4dc6b2b6fa6d59 "ma na Na pa ta t.a tSa ka p#a t#a t.#a tS#a k#a ba da d.a dZa ga b#a d#a d.#a g#a fa Ba sa za Sa Za ha Ha wa la ja ra *a Ra _:_ ma mE mO me mi mi mu m& mV"
 test_phwav bpy 7fc6c8c6b347677885c6e973ff4dc6b2b6fa6d59 "ma na Na pa ta t.a tSa ka p#a t#a t.#a tS#a k#a ba da d.a dZa ga b#a d#a d.#a g#a fa Ba sa za Sa Za ha Ha wa la ja ra *a Ra _:_ ma mE mO me mi mi mu m& mV"

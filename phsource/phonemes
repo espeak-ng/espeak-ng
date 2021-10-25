@@ -2052,3 +2052,6 @@ include ph_uzbek
 
 phonemetable qdb en
 include ph_langbelta
+
+phonemetable be ru
+include ph_belarusian

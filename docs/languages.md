@@ -19,6 +19,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `trk`       | `ba`              |                       | Bashkir                     |                        |
 | `trk`       | `cu`              | Turkic                | Chuvash                     |                        |
 |             | `eu`              |                       | Basque                      |                        |
+| `zle`       | `be`              | East Slavic           | Belarussian                 |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
 | `inc`       | `bpy`             | Indic                 | Bishnupriya Manipuri        |                        |
 | `zls`       | `bs`              | South Slavic          | Bosnian<sup>\[1,2\]</sup>   |                        |
