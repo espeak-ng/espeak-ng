@@ -572,7 +572,7 @@ eu	$abbrev
 eur	jU@	$only
 evga	$abbrev
 ewmh	$abbrev
-exe	'Eksi:
+exe	$abbrev
 ftaa	$abbrev
 fyi	$abbrev
 ghz	gIg@h3:ts	$only
