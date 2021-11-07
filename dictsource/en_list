@@ -577,6 +577,7 @@ ftaa	$abbrev
 fyi	$abbrev
 ghz	gIg@h3:ts	$only
 gnupg	g@'nu:pi:dZ'i:
+guid	g'u:Id
 hmm	h@m
 hiv	$abbrev
 (http ://)   eItSt2i:t2i:'pi:_
@@ -657,6 +658,7 @@ tbsp	teIb@Lspu:n
 th	T
 thu	T3:        // Thursday
 ?5 thu	TIR        // Thursday
+uia	$abbrev
 ucla	$abbrev
 ucl	$abbrev
 ucs	$abbrev
@@ -684,9 +686,9 @@ uuid	$abbrev
 uv	$abbrev
 VI      $abbrev
 webrtc	w'EbA@t2i:s'i:
+winmd	w'In,Emd'i:
 wuxga	$abbrev
 wwii	dVb@Lju:dVb@Lju:t'u:
-xaml	$abbrev
 xl	$abbrev		// not roman 40
 xxx	$abbrev		// not roman 30
 xy	$abbrev
