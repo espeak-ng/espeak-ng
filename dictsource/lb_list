@@ -1,0 +1,83 @@
+// This file is UTF-8 encoded
+
+// espeak-ng
+// lb_list
+// created by Marco Barnig  mbarnig@pt.lu
+// first version : 15.9.2018
+// updated version : 3.11.2021
+//
+// Lëtzebuergesch
+//
+// letter names
+_a a:
+_e e:
+à	$accent 
+â       $accent
+ä       $accent
+ë	$accent
+é	$accent
+è	$accent
+ê	$accent
+ï	$accent
+î	$accent
+ô	$accent
+ö       $accent
+ù       $accent
+û	$accent
+ü	$accent
+//
+// intonation
+de   $u
+den  $u
+ech  $u
+an   $u
+hunn $u
+sech $u
+wien $u
+vun  $u
+wéi  $u
+//
+// numbers
+_0 nul
+_1 e:nt
+_2 TSve:
+_3 draI
+_4 vEIeR
+_5 f@En@Ef
+_6 zEks
+_7 si:v@En
+_8 a:xt
+_9 neN
+_10 TSeN
+_11 e:l@Ef
+_12 TSwiEl@Ef
+_20 TSwanTS@EX
+_30 dr@Es@EX
+_0C honeRt
+_0M1 daUz@End
+//
+// punctuations
+_. punkt
+_, koma:
+_* staEr
+//
+// abbreviations
+CSV  $abbrev
+OGBL $abbrev
+asbl $abbrev
+ASCII azki
+Hz    hertz
+//
+// personal names
+Marco  marko:
+Barnig barniS
+Simone zimon
+//
+// Lexikon
+deejéinege  de:ZEIn@EZ@E
+Interieur  interjOUr
+léieren lEI@Er@En
+Restaurant rEstayreA
+spadzéieren SpadzEI@Er@En
+Stäerkste  StaEeRkst@E
+waarm  va:eRm@E
