@@ -1761,6 +1761,9 @@ include ph_korean
 phonemetable la base1
 include ph_latin
 
+phonemetable lb base1
+include ph_luxembourgish
+
 phonemetable lt base1
 include ph_lithuanian
 

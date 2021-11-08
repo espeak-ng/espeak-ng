@@ -68,6 +68,7 @@ new languages:
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
 *  io (Ido) -- José Miguel López, Valdis Vitolins
+*  lb (Luxembourgish) -- Marco Barnig, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
 *  piqd (Klingon) -- Valdis Vitolins

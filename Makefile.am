@@ -390,6 +390,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_langbelta \
 	phsource/ph_latin \
 	phsource/ph_latvian \
+	phsource/ph_luxembourgish \
 	phsource/ph_lithuanian \
 	phsource/ph_lojban \
 	phsource/ph_lule_saami \
@@ -567,6 +568,7 @@ dictionaries: \
 	espeak-ng-data/ku_dict \
 	espeak-ng-data/ky_dict \
 	espeak-ng-data/la_dict \
+	espeak-ng-data/lb_dict \
 	espeak-ng-data/lfn_dict \
 	espeak-ng-data/lt_dict \
 	espeak-ng-data/lv_dict \
@@ -788,6 +790,9 @@ espeak-ng-data/ky_dict: dictsource/ky_list dictsource/ky_rules dictsource/ky_ext
 
 la: espeak-ng-data/la_dict
 espeak-ng-data/la_dict: dictsource/la_list dictsource/la_rules dictsource/la_extra
+
+lb: espeak-ng-data/lb_dict
+espeak-ng-data/lb_dict: dictsource/lb_list dictsource/lb_rules dictsource/lb_emoji
 
 lfn: espeak-ng-data/lfn_dict
 espeak-ng-data/lfn_dict: dictsource/lfn_list dictsource/lfn_rules dictsource/lfn_extra

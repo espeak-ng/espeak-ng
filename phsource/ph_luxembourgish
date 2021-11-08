@@ -1,0 +1,412 @@
+// ph_luxembourgish
+// created by Marco Barnig (mbarnig@pt.lu)
+// first version : 24.9.2014
+// https://www.web3.lu/espeak-formant-synthesizer
+// new version : 15.9.2018
+// latest update : 10.11.2021
+//=========================================================
+// Lëtzebuergesch
+//=========================================================
+// References :
+// Peter Gilles; Jürgen Trouvain
+// International Journal of the IPA
+// https://infolux.uni.lu
+// https://github.com/PeterGilles/Luxembourgish-language-resources
+// https://lod.lu
+// https://ortho.lod.lu
+//
+// Wikipedia
+// https://en.wikipedia.org/wiki/Luxembourgish
+// https://en.wikipedia.org/wiki/Luxembourgish_phonology
+// https://en.wikipedia.org/wiki/Help:IPA/Luxembourgish
+//
+// virtual class of vowels : #@, #a, #e, #i, #o, #u
+// IPA Vokaler (20) : ɑ, aː, ɛː, e, æ, eː, ə, ɐ, i, iː, o, oː, u, uː, y, y:, ɑ̃ː, ɛ̃ː, õː, œː
+// IPA Vokalkoppelen (9) : æːɪ, ɑʊ, æːʊ, ɑɪ, ɜɪ, oɪ, iə, əʊ, uə
+
+phoneme a  // K[a]pp  ; kurz geschwate Vokal a
+  vwl starttype #a endtype #a
+  ipa ɑ
+  length 120
+  FMT(vowel/a)
+endphoneme
+
+phoneme a:  // K[a]p  ; laang geschwate Vokal a
+  vwl starttype #a endtype #a
+  ipa aː
+  length 190
+  FMT(vowel/aa_6)
+endphoneme
+
+phoneme aE  // St[ä]ren
+  vwl starttype #a endtype #e
+  ipa ɛː
+  length 190
+  FMT(vdiph/ae_2)
+endphoneme
+
+phoneme e  // Méck
+  vwl starttype #e endtype #e
+  ipa e
+  length 120
+  FMT(vowel/e)
+endphoneme
+
+phoneme E  // h[e]ll  ; kurzen oppenen Vokal e
+  vwl starttype #e endtype #e
+  ipa æ
+  length 120
+  FMT(vowel/e)
+endphoneme
+
+phoneme e:  // K[ee]ss  ; laangen Vokal e
+  vwl starttype #e endtype #e
+  ipa eː
+  length 190
+  FMT(vowel/e)
+endphoneme
+
+phoneme @E //  lies[e]n, h[ë]ll[e]f[e]n, (schwa)
+  vwl starttype #@ endtype #@
+  ipa ə
+  length 190
+  FMT(vowel/@)
+endphoneme
+
+phoneme eR  // Kann[er] ;  open-schwa
+  vwl starttype #@ endtype #@
+  ipa ɐ
+  length 150
+  FMT(vowel/@)
+endphoneme
+
+phoneme i  // m[i]dd
+  vwl starttype #i endtype #i
+  ipa i
+  length 120
+  FMT(vowel/i)
+endphoneme
+
+phoneme i:  // B[ii]scht
+  vwl starttype #i endtype #i
+  ipa iː
+  length 190
+  FMT(vowel/i)
+endphoneme
+
+phoneme o // Spr[o]ch
+  vwl starttype #o endtype #o
+  ipa o
+  length 120
+  FMT(vowel/o)
+endphoneme
+
+phoneme o: // Spr[oo]ch
+  vwl starttype #o endtype #o
+  ipa oː
+  length 190
+  FMT(vowel/o)
+endphoneme
+
+phoneme u  // g[u]tt
+  vwl starttype #u endtype #u
+  ipa u
+  length 120
+  FMT(vowel/u)
+endphoneme
+
+phoneme u:  // D[uu]scht
+  vwl starttype #u endtype #u
+  ipa uː
+  length 190
+  FMT(vowel/u)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #e
+  ipa y
+  length 120
+  FMT(vdiph2/uu@)
+endphoneme
+
+phoneme y:  // S[ü]den
+  vwl starttype #u endtype #e
+  ipa yː
+  length 190
+  FMT(vdiph2/uu@)
+endphoneme
+
+phoneme eA  // Restaur[an]t
+  vwl starttype #a endtype #a
+  ipa ɑ̃ː
+  length 190
+  FMT(vnasal/aa_n4)
+endphoneme
+
+phoneme iA  // Cous[in], D[in]de
+  vwl starttype #i endtype #i
+  ipa ɛ̃ː
+  length 190
+  FMT(vnasal/i_n2)
+endphoneme
+
+phoneme oA  // Sais[on], Pard[on], F[on]d
+  vwl starttype #o endtype #o
+  ipa õː
+  length 190
+  FMT(vnasal/o_n5)
+endphoneme
+
+phoneme OU  // interi[eu]r, lösen
+  vwl starttype #o endtype #e
+  ipa œː
+  length 190
+  FMT(vdiph2/o@)
+endphoneme
+
+phoneme aI  // Z[äi]t
+  vwl starttype #e endtype #i
+  ipa æːɪ
+  length 190
+  FMT(vdiph/ai_6)
+endphoneme
+
+phoneme aU  // [Au]to
+  vwl starttype #a endtype #u
+  ipa ɑʊ
+  length 190
+  FMT(vdiph/au)
+endphoneme
+
+phoneme AU  // R[au]m
+  vwl starttype #a endtype #u
+  ipa æːʊ
+  length 190
+  FMT(vdiph/au_4)
+endphoneme
+
+phoneme eI  // L[ei]t
+  vwl starttype #e endtype #i
+  ipa ɑɪ
+  length 190
+  FMT(vdiph/eei_2)
+endphoneme
+
+phoneme OI  // fr[éi]
+  vwl starttype #e endtype #i
+  ipa ɜɪ
+  length 190
+  FMT(vdiph/eei_5)
+endphoneme
+
+phoneme eU  // [Eu]ro
+  vwl starttype #e endtype #u
+  ipa oɪ
+  length 190
+  FMT(vdiph/ooi)
+endphoneme
+
+phoneme iE  // h[ie]n
+  vwl starttype #i endtype #e
+  ipa iə
+  length 190
+  FMT(vdiph2/ie)
+endphoneme
+
+phoneme oU  // Sch[ou]l
+  vwl starttype #o endtype #u
+  ipa əʊ
+  length 190
+  FMT(vdiph/ou_2)
+endphoneme
+
+phoneme uE  // B[ue]dem
+  vwl starttype #u endtype #e
+  ipa uə
+  length 190
+  FMT(vdiph2/u@)
+endphoneme
+
+// ******************************************
+
+// Konsonanten : Total : 27
+
+// Nasal Phonemen : m, n, ŋ
+
+phoneme m
+  vcd blb nas
+  ipa m
+  FMT(m/mj)
+endphoneme
+
+phoneme n
+  vcd alv nas
+  ipa n
+  FMT(n/nj)
+endphoneme
+
+phoneme N
+  vcd rfx nas
+  ipa ɳ
+  FMT(nn/nnj)
+endphoneme
+
+// Plosiv Phonemen : p, b, t, d, k, g
+
+phoneme p
+  vls blb stp
+  ipa p
+  WAV(ustop/p)
+endphoneme
+
+phoneme b
+  vcd blb stp
+  ipa b
+  FMT(b/b) addWav(x/b)
+endphoneme
+
+phoneme t
+vls alv stp
+  ipa t
+  WAV(ustop/t, 90)
+endphoneme
+
+phoneme d
+  vcd alv stp
+  ipa d
+  FMT(d/dr) addWav(x/d)
+endphoneme
+
+phoneme k
+  vls vel stp
+  ipa k
+  WAV(ustop/k)
+endphoneme
+
+phoneme g
+  vcd vel stp
+  ipa g
+  FMT(g/g) addWav(x/g2, 150)
+endphoneme
+
+// Affricate Phomenen : ʦ, dʒ
+
+phoneme TS
+  vls pla afr sib
+  ipa ʦ
+  WAV(ustop/tsh)
+endphoneme
+
+phoneme dZ
+  vcd pla afr sib
+  ipa dʒ
+  FMT(dzh/dzh) addWav(x/dzh)
+endphoneme
+
+// Frikativ Phonemen : f, v, w, s, z, ʃ, ʒ, X, ɕ, ʁ, ʑ, h
+
+phoneme f
+  vls lbd frc
+  ipa f
+  WAV(ufric/f, 80)
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  ipa v
+  FMT(voc/v) addWav(vocw/v)
+endphoneme
+
+phoneme w
+  liquid
+  ipa w
+  FMT(w/w)
+endphoneme
+
+phoneme s
+  vcd alv frc sib
+  ipa s
+  FMT(voc/z) addWav(ufric/s_, 85)
+endphoneme
+
+phoneme z
+  vcd alv frc sib
+  ipa z
+  FMT(voc/z) addWav(ufric/s_, 45)
+endphoneme
+
+phoneme S
+  vls pla frc sib
+  ipa ʃ
+  WAV(ufric/sh, 45)
+endphoneme
+
+phoneme J
+  vcd pal afr sib pzd
+  ipa ʒ
+  FMT(dzh/dz_pzd) addWav(x/dzh, 45)
+endphoneme
+
+phoneme x
+  vls vel frc
+  ipa X
+  WAV(ufric/x_hr, 20)
+endphoneme
+
+phoneme X
+  vls alp sib frc
+  ipa ɕ
+  WAV(ufric/sh_pzd)
+endphoneme
+
+phoneme rR
+  vcd uvl frc
+  ipa ʁ
+  FMT(vwl_fr/r_) addWav(r3/rx, 20)
+endphoneme
+
+phoneme Z
+  vcd alp sib frc
+  ipa ʑ
+  FMT(voc/z_pzd) addWav(ufric/sh_pzd, 80)
+endphoneme
+
+phoneme h
+  vls glt apr
+  ipa h
+  IF nextPh(#@) THEN
+    WAV(h/h@)
+  ELIF nextPh(#a) THEN
+    WAV(h/ha)
+  ELIF nextPh(#e) THEN
+    WAV(h/he)
+  ELIF nextPh(#i) THEN
+    WAV(h/hi)
+  ELIF nextPh(#o) THEN
+    WAV(h/ho)
+  ELIF nextPh(#u) THEN
+    WAV(h/hu)
+  ENDIF
+endphoneme
+
+// Approximant Phonemen : l, j
+
+phoneme l
+  liquid
+  ipa l
+  FMT(l/l)
+endphoneme
+
+phoneme j
+  liquid pal
+  ipa j
+  FMT(j/j_)
+endphoneme
+
+// Trill Phonem : ʀ
+
+phoneme r
+  vcd uvl frc
+  ipa ʀ
+  FMT(r3/r_uvl) addWav(r3/r_uvl.wav, 70)
+endphoneme
