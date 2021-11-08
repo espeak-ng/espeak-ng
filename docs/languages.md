@@ -75,6 +75,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `trk`       | `kk`              | Turkic                | Kazakh                      |                        |
 | `trk`       | `ky`              | Turkic                | Kyrgyz                      |                        |
 | `itc`       | `la`              | Italic                | Latin                       |                        |
+| `gmw`       | `lb`              | West Germanic         | Lëtzebuergesch              |                        |
 | `bat`       | `ltg`             | Baltic                | Latgalian                   |                        |
 | `bat`       | `lv`              | Baltic                | Latvian                     |                        |
 | `art`       | `lfn`             | Constructed           | Lingua Franca Nova<sup>\[1,2\]</sup> |               |
