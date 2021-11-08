@@ -390,6 +390,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_langbelta \
 	phsource/ph_latin \
 	phsource/ph_latvian \
+	phsource/ph_letzebuergesch \
 	phsource/ph_lithuanian \
 	phsource/ph_lojban \
 	phsource/ph_lule_saami \
@@ -502,8 +503,6 @@ dictsource/%_extra:
 #
 # The rm $@ stops espeak-ng trying to load the old dictionary when it is run
 # (at the cost of a spurious error message.)
-#
-# NOTE: keep in sync with 'espeak-ng-data/yue_dict' more specific rule.
 espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	@echo "  DICT      $@"
 	rm -f $@
@@ -567,6 +566,7 @@ dictionaries: \
 	espeak-ng-data/ku_dict \
 	espeak-ng-data/ky_dict \
 	espeak-ng-data/la_dict \
+	espeak-ng-data/lb_dict \
 	espeak-ng-data/lfn_dict \
 	espeak-ng-data/lt_dict \
 	espeak-ng-data/lv_dict \
@@ -789,6 +789,9 @@ espeak-ng-data/ky_dict: dictsource/ky_list dictsource/ky_rules dictsource/ky_ext
 la: espeak-ng-data/la_dict
 espeak-ng-data/la_dict: dictsource/la_list dictsource/la_rules dictsource/la_extra
 
+lb: espeak-ng-data/lb_dict
+espeak-ng-data/lb_dict: dictsource/lb_list dictsource/lb_rules dictsource/lb_emoji
+
 lfn: espeak-ng-data/lfn_dict
 espeak-ng-data/lfn_dict: dictsource/lfn_list dictsource/lfn_rules dictsource/lfn_extra
 
@@ -971,15 +974,11 @@ endif
 yue: espeak-ng-data/yue_dict
 dictsource/yue_listx:
 	ln -svf extra/yue_listx dictsource/
-
-# NOTE: keep in sync with espeak-ng-data/%_dict more generic rule.
 if HAVE_YUE_EXTENDED_DICTIONARY
-espeak-ng-data/yue_dict: src/espeak-ng phsource/phonemes.stamp dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_listx dictsource/yue_emoji
+espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_listx dictsource/yue_emoji
 else
-espeak-ng-data/yue_dict: src/espeak-ng phsource/phonemes.stamp dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_emoji
+espeak-ng-data/yue_dict: dictsource/yue_list dictsource/yue_rules dictsource/yue_extra dictsource/yue_emoji
 endif
-	@echo "  DICT      $@"
-	rm -f $@
 	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
 dictsource/yue_emoji:
