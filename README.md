@@ -100,7 +100,7 @@ my eSpeak phoneme-ID's : a, a:, aE, e, E, e:, @E, eR, i, i:, o, o:, u, u:, y, y:
 
 Diphtongs: (9)
 IPA phoneme symbols :     æːɪ, ɑʊ, æːʊ, ɑɪ, ɜɪ, oɪ, iə, əʊ, uə
-my eSpeak phoneme-ID's :   aI, aU,  AU, eI, EI, eU, iE, oU, uE 
+my eSpeak phoneme-ID's :   aI, aU,  AU, eI, OI, eU, iE, oU, uE 
 
 Consonants: (27)
 IPA phoneme symbols      b, c, d, f, g, h, j, k, l, m, n, ŋ, p, ʀ, s, t, v, w, z, ʒ, ʁ, ʑ,  ʦ,  ʃ, dʒ, X, ɕ
