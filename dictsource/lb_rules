@@ -28,11 +28,11 @@
 // zousätzlech deitsch Vokal Buchstawen : ö, ü
 // zousätzlech franséisch Vokal Buchstawen : à, â, è, ê, ï, ô, û
 // Vokal Phonemen IPA :         ɑ, aː, ɛː, e, æ, eː,  ə,  ɐ, i, iː,  o, oː, u, uː, y:,  ãː, ɛ̃ː, õː, œː 
-// Vokal Phonemen-ID's eSpeak : A, aA, aE, e, E, eE, @E, eR, I, iI, O, oO,  U, uU, UE, eA, iA, oA, OU
+// Vokal Phonemen-ID's eSpeak : A, aA, aE, e, E, eE, @E, eR, I, iI, O, oO, U, uU, UE, eA, iA, oA, OU
 
 // lëtzebuergesch Vokalkoppel Buchstawen : ai, au, äi, ei, eu, éi, ie, ou, ue
 // Vokalkoppel Phonemen IPA :        æːɪ, ɑʊ, æːʊ, ɑɪ, ɜɪ, oɪ, iə, əʊ, uə     
-// Vokalkoppel Phonemen-ID's eSpeak : aI, aU,  AU, eI, EI, eU, iE, oU, uE 
+// Vokalkoppel Phonemen-ID's eSpeak : aI, aU,  AU, eI, OI, eU, iE, oU, uE 
 // Total : 30 phonemes
 
 .group a
@@ -84,10 +84,10 @@
 .group é
 	   é     E            // Méck, drécken : IPA e
 	   ée    e:           // Arrivée : IPA eː
-	   éi	 EI           // schéin, fréi : IPA ɜɪ
+	   éi	 OI           // schéin, fréi : IPA ɜɪ
 	   
 .group ë
-	_) ë     OU           // ëffentlech  : IPA œː
+	_) ë     oE           // ëffentlech  : IPA ø
 	   ë     @E	       // hëllefen : IPA ə
 
 .group i
@@ -148,7 +148,7 @@
 	   y (_ i:             // Baby  : IPA iː
 
 .group
-	   ö    OU             // lösen, blöd, können : IPA œː
+	   ö    OE             // lösen, blöd, können : IPA øː
 	   ü    y:             // Süden, für  : IPA y:
 	   è    e:             // IPA eː
 	   à    a:	        // IPA aː
