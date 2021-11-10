@@ -3,7 +3,7 @@
 // first version : 24.9.2014
 // https://www.web3.lu/espeak-formant-synthesizer
 // new version : 15.9.2018
-// latest update : 8.11.2021
+// latest update : 10.11.2021
 //=========================================================
 // Lëtzebuergesch
 //=========================================================
@@ -276,12 +276,6 @@ phoneme t
 vls alv stp
   ipa t
   WAV(ustop/t, 90)
-endphoneme
-
-phoneme TS
-  vls alv afr sib
-  ipa ʦ
-  WAV(ustop/ts)
 endphoneme
 
 phoneme d
