@@ -27,8 +27,8 @@
 // lëtzebuergesch Vokal Buchstawen : a, ä, e, é, ë, i, o, u, y
 // zousätzlech deitsch Vokal Buchstawen : ö, ü
 // zousätzlech franséisch Vokal Buchstawen : à, â, è, ê, ï, ô, û
-// Vokal Phonemen IPA :         ɑ, aː, ɛː, e, æ, eː,  ə,  ɐ, i, iː,  o, oː, ø, øː,  u, uː, y:,  ãː, ɛ̃ː, õː, œː 
-// Vokal Phonemen-ID's eSpeak : A, aA, aE, e, E, eE, @E, eR, I, iI, O, oO, oE, OE, U, uU, UE, eA, iA, oA, OU
+// Vokal Phonemen IPA :         ɑ, aː, ɛː, e, æ, eː,  ə,  ɐ, i, iː,  o, oː, u, uː, y:,  ãː, ɛ̃ː, õː, œː 
+// Vokal Phonemen-ID's eSpeak : A, aA, aE, e, E, eE, @E, eR, I, iI, O, oO,  U, uU, UE, eA, iA, oA, OU
 
 // lëtzebuergesch Vokalkoppel Buchstawen : ai, au, äi, ei, eu, éi, ie, ou, ue
 // Vokalkoppel Phonemen IPA :        æːɪ, ɑʊ, æːʊ, ɑɪ, ɜɪ, oɪ, iə, əʊ, uə     
@@ -148,7 +148,7 @@
 	   y (_ i:             // Baby  : IPA iː
 
 .group
-	   ö    OE             // lösen, blöd, können : IPA øː
+	   ö    OU             // lösen, blöd, können : IPA œː
 	   ü    y:             // Süden, für  : IPA y:
 	   è    e:             // IPA eː
 	   à    a:	        // IPA aː
