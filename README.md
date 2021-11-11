@@ -95,7 +95,7 @@ Speech models based on deep ML models are usually trained with about hundred hou
 
 ```   
 Monophtongs: (20)
-IPA phoneme symbols :    ɑ, aː, ɛː, e, æ, eː, ə,  ɐ,  i, iː, o, oː, u, uː, y, y:, ɑ̃ː, ɛ̃ː, õː, œː 
+IPA phoneme symbols :    ɑ, aː, ɛː, e, æ, eː, ə,  ɐ,  i, iː, o, oː, u, uː, y, yː, ɑ̃ː, ɛ̃ː, õː, œː 
 my eSpeak phoneme-ID's : a, a:, aE, e, E, e:, @E, eR, i, i:, o, o:, u, u:, y, y:, eA, iA, oA, OU
 
 Diphtongs: (9)
