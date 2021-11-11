@@ -21,7 +21,7 @@
 // https://en.wikipedia.org/wiki/Help:IPA/Luxembourgish
 //
 // virtual class of vowels : #@, #a, #e, #i, #o, #u
-// IPA Vokaler (21) : ɑ, aː, ɛː, e, æ, eː, ə, ɐ, i, iː, o, oː, øː, u, uː, y, y:, ɑ̃ː, ɛ̃ː, õː, œː
+// IPA Vokaler (20) : ɑ, aː, ɛː, e, æ, eː, ə, ɐ, i, iː, o, oː, u, uː, y, y:, ɑ̃ː, ɛ̃ː, õː, œː
 // IPA Vokalkoppelen (9) : æːɪ, ɑʊ, æːʊ, ɑɪ, ɜɪ, oɪ, iə, əʊ, uə
 
 phoneme a  // K[a]pp  ; kurz geschwate Vokal a
@@ -108,13 +108,6 @@ phoneme o: // Spr[oo]ch
   FMT(vowel/o)  
 endphoneme
 
-phoneme OE  //  [Ö]se
-  vwl starttype #o endtype #e
-  ipa øː
-  length 140
-  FMT(vdiph2/o@)
-endphoneme
-
 phoneme u  // g[u]tt
   vwl starttype #u endtype #u
   ipa u
@@ -164,7 +157,7 @@ phoneme oA  // Sais[on], Pard[on], F[on]d
   FMT(vnasal/o_n5) 
 endphoneme
 
-phoneme OU  // interi[eu]r
+phoneme OU  // interi[eu]r, lösen
   vwl starttype #o endtype #e
   ipa œː
   length 190
