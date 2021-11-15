@@ -577,7 +577,7 @@ ftaa	$abbrev
 fyi	$abbrev
 ghz	gIg@h3:ts	$only
 gnupg	g@'nu:pi:dZ'i:
-guid	g'u:Id
+guid	g'u:Id $only
 hmm	h@m
 hiv	$abbrev
 (http ://)   eItSt2i:t2i:'pi:_
@@ -658,7 +658,7 @@ tbsp	teIb@Lspu:n
 th	T
 thu	T3:        // Thursday
 ?5 thu	TIR        // Thursday
-uia	$abbrev
+uia	$abbrev $only
 ucla	$abbrev
 ucl	$abbrev
 ucs	$abbrev
