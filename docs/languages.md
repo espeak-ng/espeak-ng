@@ -16,7 +16,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `ine`       | `hyw`             | Indo-European         | Armenian                    | West Armenian          |
 | `inc`       | `as`              | Indic                 | Assamese                    |                        |
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
-| `trk`       | `ba`              |                       | Bashkir                     |                        |
+| `trk`       | `ba`              | Turkic                | Bashkir                     |                        |
 | `trk`       | `cu`              | Turkic                | Chuvash                     |                        |
 |             | `eu`              |                       | Basque                      |                        |
 | `zle`       | `be`              | East Slavic           | Belarussian                 |                        |
