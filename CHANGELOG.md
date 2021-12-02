@@ -40,6 +40,7 @@ updated languages:
 *  de (German) -- Karl Eick, Henry Krumb
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
+*  eo (Esperanto) -- AlsoScratch
 *  eu (Basque) -- agonzalezd
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  ga (Gaelic (Irish)) Chen, Chien-ting
