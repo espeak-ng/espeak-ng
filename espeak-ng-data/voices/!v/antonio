@@ -15,7 +15,7 @@ formant 6 0  0 0
 formant 7 100  100 100
 formant 8 100  100 100
 voicing 150
-tone 600 255  1200 255 2000 80
+tone 600 255 1200 255 2000 80
 intonation 3
 stressLength 0 1 2 3 4 5 6 7
 stressAdd 130 140 140 100 0 0 130 160
