@@ -68,7 +68,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `art`       | `io`              | Constructed           | Ido                         |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
-| `jpx`       | `ja`              | Japanese              | Japanese<sup>\[3\]</sup>    |                        |
+| `jpx`       | `ja`              | Japanese              | Japanese<sup>\[4\]</sup>    |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
