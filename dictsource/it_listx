@@ -600,6 +600,7 @@ bradan $1
 bradip $1
 bragadin $3
 bred  $alt
+brefotrofio	$alt
 bregan $1  $alt
 bren  $alt2
 brentonic  $alt2
@@ -718,6 +719,7 @@ capofila	$3
 capolavor  $alt2
 capoliveri $3
 capoluog  $alt
+capostipiti	$3
 cappellania $4
 cappuccine	$3
 caprifogli  $alt
@@ -856,6 +858,7 @@ cetr  $alt2
 cheliceri $2
 cheope $1
 cheradi $1
+chicchessia	kikes:'ia
 chiacchierio	$3
 chiavari $1
 chichibi $3
@@ -1059,6 +1062,7 @@ corporeo	$2
 corred  $alt
 corrett  $alt
 corrid $2
+corridoi	koR*id'oj
 corrott  $alt2
 cors	$alt2
 cort	$alt2
@@ -1125,6 +1129,7 @@ cuoi  $alt
 cupol $1
 curazia $3
 curcum $1
+curiosi	$alt2
 cuscut $1
 custode  $alt
 custodi	$2 $alt
@@ -1222,6 +1227,7 @@ diesis  $alt
 diet  $alt
 difett  $alt
 diglossia $3
+dimension	$alt2
 dimer $1
 dimetr $1
 dinam $1
@@ -1466,6 +1472,7 @@ erd  $alt2
 ereb $1
 erede  $alt
 erem $1
+erett	$alt
 ergosterol $4
 erigone $2
 eritem  $alt
@@ -1558,6 +1565,7 @@ falcon $2
 faleci  $alt
 falment  $alt
 famedi  $alt
+famosi	$alt2
 fantocci  $alt
 farmaceutic $3
 farmacia  fa@-*matS'i:a
@@ -1650,6 +1658,7 @@ fobia $2
 foder $1
 fogli  $alt
 foglia  $alt
+foglie	$alt
 fol  $alt
 folag $1
 folgaria $3
@@ -1857,7 +1866,7 @@ gonnes  $alt
 gorga		$alt2
 gorgia $1
 gorgoglii	go@-*gol^'i:I
-gorgonzol $3
+gorgonzol	go@-*gondz'Ol
 got  $alt
 goti  $alt
 gotta	$alt2
@@ -1930,6 +1939,7 @@ impet $1
 impieg  $alt
 implicit $2
 improperi	imp@-*'op,eRi $only
+incantesim	inkant'ezim
 incazzati	ink,a_ts'ati
 incerti	$2 $alt
 incipit	'intSipit
@@ -2186,6 +2196,7 @@ lugubre $1
 lugubri	$1
 lumac $2
 luog  $alt
+luoghi	$alt
 luteo $1
 macabr $1
 macac $2
@@ -2289,6 +2300,7 @@ materia $2
 materie	$2
 matricid	$3
 matron  $alt
+mattugia	$2
 mazzaccher $2
 medi  $alt
 media  $alt
@@ -2357,7 +2369,6 @@ meteore $2
 metil	$2
 metod  $alt
 metodi  $alt
-metr  $alt2
 mezenzi  $alt
 mezz  $alt
 mezzadria	medz:ad@-*'ia
@@ -2600,6 +2611,7 @@ nucleo	$1
 nucleoprotein	n'ukleo||p@-*ote'in
 nucleosintesi $4
 numer $1
+numerosi	$alt2
 nunatak $3
 nuot  $alt
 nuov  $alt
@@ -2790,6 +2802,7 @@ paraurti $3
 paravia $3
 parenchim  $alt
 parentesi	$2  $alt
+pareti	$alt2
 parere $2  $alt2
 parghelia $3
 paria $2
@@ -2989,6 +3002,9 @@ plumbee	$1
 plumbei	$1
 plumbeo	$1
 plurigemin	$3
+poche	$alt
+po'	p'O
+pochi	$alt
 pocol $2
 podere $2  $alt2
 podi  $alt
@@ -3124,6 +3140,7 @@ prodigo	$1
 prodott  $alt2
 proemi  $alt
 proenzim	p@-*o-endz'im
+professor	$alt2
 profet  $alt
 profezia $3
 profil $2
@@ -3300,6 +3317,7 @@ ribattezzare	@-*i_bat:edz:'aRe
 ribec  $alt
 ribollio	$3
 ribosi  $alt
+ricasoli	$alt2
 riccoboni  $alt
 ricerc  $alt2
 ricevitoria	$5
@@ -3990,6 +4008,7 @@ torni  $alt2
 tornol  $alt2
 torped  $alt
 torpedini	$2
+torr	$alt2
 torrile	$2
 tors  $alt2
 tortor $1  $alt2
@@ -4024,6 +4043,7 @@ tratalias $3
 traversie	$2
 travesi  $alt
 tre	t@-*'e
+trenta	$alt2
 trebaseleghe $3  $alt2
 tredicesim  $alt
 tredici  $alt2
