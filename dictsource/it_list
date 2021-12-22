@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2021 May  10 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2021 December  22 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -516,7 +516,7 @@ lui	$u+ $only
 lei	$u+ $only
 noi	$u+	$only
 voi	v'oi	$only
-loro	$u+
+loro	l'oRo
 egli	$u+
 ella	$u+
 essa	$u+ 
@@ -572,6 +572,7 @@ nessun	$u2+
 // conjunctions and Adverbs
 
 anche	$u+
+ancor	$alt2 $only
 ancora	$alt2
 attraverso 	$alt
 benchè		$u+	$brk
@@ -642,11 +643,11 @@ de      $u+ $only
 in	$u 	$only $nounf
 in	'i:n	$atend
 nel	 $u+	$only
-nello	$u+
-nella	$u+
-nei     $u+ 
-negli   $u+ 
-nelle   $u+
+nello	n'el:o
+nella	n'el:a
+nei	n'ei 
+negli   $alt2 
+nelle	n'elle
 ne      $u+   $only
 
 su	$u+ $only
@@ -696,14 +697,13 @@ sia	$u+
 siate	$u+
 siano	$u+
 fossi	$u1+	$alt
-fosse	$u1+
+fosse	f'os:e
 fossimo	$u1+
 fossero	$u1+
 sarei	$u+
-saresti	$u2+
+sarest	saR'est
 sarebbe	$u2+
-saremmo	$u+
-sareste	$u+
+saremmo	saR'em:o
 sarebbero	$u2+
 
 // aux verb, to have
@@ -739,17 +739,17 @@ abbia	$verbf
 abbiamo	$u+	$verbf
 abbiate	$u+
 abbiano	$1	$verbf
-avessi	$u+	$verbf
-avesse	$u+ $verbf
+avessi	av'es:i	$verbf
+avesse	av'es:i $verbf
 avessimo	$u+	$verbf
-aveste	$u+
+aveste	av'este $verbf
 avessero	$u+	$verbf
 
 avrei	$u+	$verbf
-avresti	$u+	$verbf
+avresti	av@-*'esti	$verbf
 avrebbe	$u+	$verbf
-avremmo	$u+	$verbf
-avreste	$u+
+avremmo	av@-*'em:o	$verbf
+avreste	av@-*'este $verbf
 avrebbero	$2	$verbf
 
 // Letters at end
@@ -965,6 +965,7 @@ fuji	fu:ZI
 game	g'Ejm $onlys
 gangster	$1
 garage	gaR'aZ
+gargoyle	ga@-*g'Oil
 gate	g'eIt $onlys
 gay	g'eI
 general	$1 $onlys
@@ -978,6 +979,7 @@ green	g@-*i:n $onlys
 greenpeace	g@-*,iN||p'i:s
 guinness	g'iness
 guardrail	g'a@-*d||@-*,Eil
+gustibus	$1
 hacker	'ake@-*
 hackeraggio	akeR'adZ:o
 hackerare	ake*'a:Re
@@ -1092,6 +1094,7 @@ noir	nU'a:R $only
 nomination	nomIn'eSon
 nonchalance	non_Sal'ans
 nylon	n'aIlon
+oberdan	'oberdan
 office	_^_EN
 one	w'a/n $onlys $capital
 online	,on||l'aIn
@@ -1109,6 +1112,7 @@ pancake	pan_k'eIk
 partner	$1
 passepartout	pas_pa@-*t'u
 paternoster	$3
+Peeves	_^_en
 peluche	pel'uS $onlys
 performance	pe@-*f'O@-*mans $onlys
 performer	$2
@@ -1255,6 +1259,7 @@ turnover	$2
 tweet	tw'i:t[
 tweeter	_^_EN
 twitter	$1
+umbridge	_^_en
 under	'ande@-*
 university	juniv'e@-*sitI
 up	_^_en $only
@@ -1269,6 +1274,7 @@ viewer	vj'u:Er
 virtual	$1 $onlys
 visual	v'iZwal $only
 vodafone	v'odafon
+voldemort	v'Olde@-*mO@-*t
 voilà	_^_FR
 volkswagen	_^_DE
 voodoo	vud'u
@@ -1279,6 +1285,7 @@ walzer	v'altsE@-*
 water	v'atE@-*	$only
 wave		_^_EN
 way	_^_EN
+Weasley	w'i:zlei
 web		wEb
 webmaster	$2
 weekend	w,ik'end
@@ -1512,7 +1519,7 @@ lumache	$2
 maceria	$2
 macerie	$2
 madrepatria	$3
-maggior	$2
+maggior	$2 $alt2
 magnifici	$2
 malleoli	$2
 malvagia	$2
@@ -1555,7 +1562,7 @@ officine	$3
 olfattori	$3 $alt
 oneri	$1
 onorifici	$3
-oper	$1 $alt2
+oper	$1 $alt
 operai	op,eR'a:I
 operaio	op,e*'a:jo
 origin	$2
@@ -2322,6 +2329,7 @@ asterix	$1
 audacity	awd'asiti
 augias	a'u:dZas
 avirex	$1
+azkaban	'atskaban
 baccasara	$2
 bach	b'a:k	$only
 bardot	ba@-*d'o
@@ -2329,6 +2337,7 @@ bartali	$1
 basile	$2
 baudelaire	bOdl'E@-*
 bayer	$1
+beauxbatons	bobat'on
 bearzot	bea*_dz'Ot $only
 beatle	b'i:tol
 beccaria $3
@@ -2480,6 +2489,7 @@ isaac	'aIza:k
 isabel	$3
 isaia  iza'i:a
 isocrate $2
+isozaki	izodz'akI
 ital $1
 ivano	$2
 jace	_^_en $only
@@ -2509,6 +2519,7 @@ katia	k'a:tia
 kennedy	$1 $alt
 kinder	$1 $onlys
 landolf  $alt
+lawrence	l'oRens
 laurenzi  $alt
 lee	_^_en $capital
 lennon	_^_EN
@@ -2611,6 +2622,7 @@ poirot	puaR'o
 pooh	p'U:
 porsche	p'O@-*S
 potter	$1	$onlys
+percy	p'E@-*sI
 presley	p@-*'e:zleI
 prestigiacomo	$3
 rafael	$3
@@ -2619,9 +2631,11 @@ ray	@-*'eI
 reaper	@-*'i:pe@-*
 renault	@-*en'o
 rizzoli $2
+roberts	@-*'Obe@-*ts
 robinson	$1 $alt $onlys
 rocky	@-*'Oki
 roger	$1 $alt
+ron	@-*'On $only
 rosalia $3
 Rosemarie	@-*'ozm,a*i
 ryanair	@-*'aIaneR
@@ -2694,6 +2708,7 @@ walter	v'alte@-*
 waters	w'OTe@-*s $only
 wilde	w'aIld
 wojtyla	vojt'ila
+Wood	v'ud
 woody	v'udI
 yasmine	jazm'in
 zaccaria	$3
@@ -2762,6 +2777,7 @@ accampano	$2
 accarezzano	$3 $alt
 accecano	$2
 accechino	$2
+acced	atS:'Ed
 acceler	atS:'Ele:R
 accelerano	atS:'E:l,eRano
 accelerino	$2
@@ -3202,6 +3218,7 @@ contagia	$2
 contamin	$2
 contemplano	$2
 contemplino	$2
+contendono	$2 $alt
 contenere	$3 $alt2
 contestino	$2
 contino	$1
@@ -3307,8 +3324,10 @@ deturpano	$2
 deturpino	$2
 devastino	$2
 deviano	$1
+dialogano	di'alogano
 diano	d'iano
 dicano	$1
+dicev	$alt2
 dichiarano	$2
 dichiarino	$2
 diedero	$1 $alt
@@ -3765,6 +3784,7 @@ interrog	$2
 interrogano	$2
 interroghi	$2
 interroghino	$2
+interrott	$alt2
 interseca	$2
 intersecano	$2
 intervallano	$3
@@ -3963,7 +3983,7 @@ obblighi	$1
 obblighino	$1
 occultano	$2
 occup	$1
-occupano	$1
+occupano	$1 $alt
 occupino	$1
 odiano	$1	$alt
 odino	$1
@@ -4030,6 +4050,7 @@ perdurino	$2
 perforano	$2
 perlustrano	$2
 permanere	$3
+permettev	$alt2
 perseguita	$2
 perseguitano	$2
 pervaderti	$2
@@ -4061,6 +4082,7 @@ possiedano	$2
 posticipano	$2
 postulano	$2
 potano	$1
+potess	$alt2
 pranzai	p@-*aNdz'aI
 pranzano	p@-*'andzano
 praticano	$1
@@ -4134,6 +4156,7 @@ pullulano	$1
 pulsano	$1
 puntano	$1
 quietano	$1 $alt
+raccoglie	$alt
 raccomandano	$3
 raccontino	$2 $verb
 racimol	$2
@@ -4155,7 +4178,8 @@ rallegrano	$2
 rallentino	$2
 rammentino	$2
 rapportino	$2
-rappresentino	$3
+rappresentano	$3 $alt
+rappresentino	$3 $alt
 rassegnano	$2
 rassegnino	$2
 rassicurano	$3
@@ -4380,6 +4404,7 @@ salvano	$1
 salvino	$1
 sanguin	$1
 sanguinano	$1
+sapev	$alt2
 sappiano	$1
 saturano	$1
 saziano	$1
@@ -4737,6 +4762,7 @@ tatuano	$1
 telefonano	$2
 teleregol	$3
 temere	$2	$alt2
+temev	$2 $alt2
 temperano	$1
 tempestino	$2
 temporeggiano	$3
@@ -4858,6 +4884,7 @@ vendano	$1
 vendemmiano	$2
 vendicano	$1
 vendichino	$1
+venne	$alt2
 vergogniano	$2
 vergognino	$2
 versano	$1
@@ -5015,6 +5042,7 @@ disabilital	$3
 disconnettiti	$3
 disegnaci	$2
 distintasi	$2
+distintosi	$2
 domandatel	$3
 domandati	$2
 drizzarsi	d@-*its2:'a@-*si
@@ -5065,12 +5093,14 @@ invaghitosi	$3
 inviataci	$3
 inviatami	$3
 inviatati	$3
+iscrittosi	$2
 lasciataci	$2
 liberaci	$1
 mandal	$1
 mandatel	$2
 mangial	m'a:ndZal // $1
 mescolatisi	$3
+mettercisi	$1
 morditi	$1
 mostravi	$2
 offertogli	$2
@@ -5110,6 +5140,8 @@ rieccoci	$2
 rieccol	$2
 rieccomi	@-*i'e:k:Omi
 rieccoti	$2
+riformatisi	$3
+riformatosi	$3
 rincorrerl	$2
 riportal	$2
 risparmiaci	$2
