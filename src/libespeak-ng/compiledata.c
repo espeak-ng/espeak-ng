@@ -1387,7 +1387,6 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 	int x, y;
 	int displ;
 	int n_points;
-	double yy;
 	char line_buf[128];
 	float env_x[20];
 	float env_y[20];
@@ -1422,8 +1421,7 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 			ix2++;
 
 		if (env_lin[ix2] > 0) {
-			yy = env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2]);
-			y = (int)(yy * 2.55);
+			y = (env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2])) * 2.55;
 		} else if (n_points > 3)
 			y = (int)(polint(&env_x[ix], &env_y[ix], 4, x) * 2.55); // convert to range 0-255
 		else
