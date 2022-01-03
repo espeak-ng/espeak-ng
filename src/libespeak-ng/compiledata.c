@@ -417,8 +417,6 @@ static bool after_if = false;
 
 static char current_fname[80];
 
-static int markers_used[8];
-
 typedef struct {
 	void *link;
 	int value;
@@ -2530,8 +2528,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 
 	error_count = 0;
 	resample_count = 0;
-	memset(markers_used, 0, sizeof(markers_used));
-
 	f_errors = log;
 
 	strncpy0(current_fname, "phonemes", sizeof(current_fname));
