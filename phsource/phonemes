@@ -1220,7 +1220,7 @@ endphoneme
 
 
 phoneme z.
-  vcd pla frc sib
+  vcd rfx frc sib
   ipa ʐ
   voicingswitch s.
   lengthmod 6
@@ -1535,7 +1535,7 @@ endphoneme
 
 
 phoneme s.
-  vls pla frc sib
+  vls rfx frc sib
   ipa ʂ
   voicingswitch z.
   lengthmod 3

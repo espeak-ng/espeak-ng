@@ -1,7 +1,7 @@
 // ***************************************************************************
 // *   Copyright (C) 2007 to 2013 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
-// *   Copyright (C) 2018 Reece H. Dunn                                      *
+// *   Copyright (C) 2018, 2022 Reece H. Dunn                                *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -143,16 +143,16 @@
         ь) е (_    jI3     //second position
 
 .group ж
-        ж       Z
-        ж (_    S
-        ж (кY   S
-        ж (пY   S
-        ж (сY   S
-        ж (тY   S
-        ж (фY   S
-        ж (ффY  S
-        ж (хY   S
-        ж (хкY  S
+        ж       z.
+        ж (_    s.
+        ж (кY   s.
+        ж (пY   s.
+        ж (сY   s.
+        ж (тY   s.
+        ж (фY   s.
+        ж (ффY  s.
+        ж (хY   s.
+        ж (хкY  s.
         жч      S;
 ?2      жч      SS
 
@@ -163,7 +163,7 @@
         з (Y    z;
         з (_    s
         з (дY   z;
-        з (ж    Z
+        з (ж    z.
         з (зY_  s;
         з (зY   z;
         з (здY_ s;
@@ -183,7 +183,7 @@
         з (хY   s
         з (хкY  s
         зч      S;
-        з (ш    S
+        з (ш    s.
         зщ      S;
         з (щ    s
 
@@ -267,14 +267,14 @@
 
 .group с
         с       s
-?2      сч      S
+?2      сч      s.
         с (Y    s;
         с (б    z
         с (г    z
         с (дB   z;
         с (дY   z;
         с (д    z
-        с (ж    Z
+        с (ж    z.
         с (ж    z
         с (зY   z;
         с (з    z
@@ -284,7 +284,7 @@
         с (тY   s;
         с (ть   s
         сч      S;
-        с (ш    S
+        с (ш    s.
         с (щ    s;s;
 
 .group т
@@ -377,33 +377,33 @@
         ч (ж    dZ;
         ч (з    dZ;
         ч (зY   dZ;
-  деви) ч (н    S
-  коне) ч (но   S
- пустя) ч (н    S
- скворе)ч (н    S
-   ску) ч (н    S
-        ч (на_  S
-        ч (не_  S
-        ч (ной_ S
-        ч (ну_  S
-        ч (ны_  S
-     _) ч (то   S
-    яи) ч (ни   S
+  деви) ч (н    s.
+  коне) ч (но   s.
+ пустя) ч (н    s.
+ скворе)ч (н    s.
+   ску) ч (н    s.
+        ч (на_  s.
+        ч (не_  s.
+        ч (ной_ s.
+        ч (ну_  s.
+        ч (ны_  s.
+     _) ч (то   s.
+    яи) ч (ни   s.
 
 .group ш
-        ш       S
-        ш (бY   Z
-        ш (б    Z
-        ш (бвY  Z
-        ш (бмY  Z
-        ш (гY   Z
-        ш (г    Z
-        ш (дB   Z
-        ш (дY   Z
-        ш (д    Z
-        ш (ж    Z
-        ш (зY   Z
-        ш (з    Z
+        ш       s.
+        ш (бY   z.
+        ш (б    z.
+        ш (бвY  z.
+        ш (бмY  z.
+        ш (гY   z.
+        ш (г    z.
+        ш (дB   z.
+        ш (дY   z.
+        ш (д    z.
+        ш (ж    z.
+        ш (зY   z.
+        ш (з    z.
 
 
 .group щ

@@ -41,6 +41,39 @@ phoneme p
 endphoneme
 
 
+phoneme s.
+  vls rfx frc sib
+  ipa ʂ
+  voicingswitch z.
+  lengthmod 3
+  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  Vowelout f1=0  f2=1800 -100 300  f3=-300 80
+
+  IF nextPh(isPause) THEN
+    WAV(ru/sh, 60)
+  ENDIF
+  IF nextPh(k) OR nextPh(k;) THEN
+    WAV(ru/sh, 250)
+  ELSE
+    WAV(ru/sh, 90)
+  ENDIF
+endphoneme
+
+
+phoneme z.
+  vcd rfx frc sib
+  ipa ʐ
+  voicingswitch s.
+  lengthmod 6
+  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  Vowelout f1=2  f2=1800 -100 300  f3=-300 80 brk
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh_) addWav(ru/zh)
+  ENDIF
+  FMT(voc/zh) addWav(ru/zh)
+endphoneme
+
 phoneme x
   vls vel frc
   ipa x
