@@ -94,11 +94,17 @@ _,      zVpit'aja
 ж       ZE $u         // same as the particle form
 
 // prepositions
-в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
+в       v  $u         // to,in,at
+во      v@ $u         // a variant of 'в'
 для        $u         // for
+за         $u
 на      n@ $u         // on
-от         $u         // from
+от      @t $u         // from
+по      p@ $u
+под    p@t $u
+подо  p@d@ $u
 с       s  $u         // with,from,since
+со      s@ $u
 у       u  $u         // by
 
 // conjunctions
@@ -106,7 +112,6 @@ _,      zVpit'aja
 а         $u $pause  // and
 и       i $u $pause  // and
 ибо       $u $pause  // for
-ибо       $u $pause  // if
 но        $u $pause  // but
 хотя      $2 $pause  // although
 чтобы        $pause  // in order that
