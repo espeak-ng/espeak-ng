@@ -71,7 +71,7 @@ phoneme n_
 endphoneme
 
 
-phoneme n#
+phoneme n;
   vcd pal nas pzd
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
