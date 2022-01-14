@@ -123,6 +123,9 @@
         д (хкY  t
         д (ь_   t;
 
+     C) д (н    // No sound.
+     C) д (ц    // No sound.
+
 .group е
         е          e
 ?2      A) е (_    ;e
@@ -214,6 +217,8 @@
 ?2      л (Y    l^
         л (Y    l;
 
+     о) л (нц    // No sound.
+
 .group м
         м       m
 ?2      м (Y    m
@@ -299,6 +304,7 @@
         т (нY   t;
         т (сY   t;
         т (тY   t;
+     с) т (н    // No sound.
 
 .group у
         у       u
