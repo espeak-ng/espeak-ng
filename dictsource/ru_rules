@@ -28,7 +28,7 @@
 // F  consonant, not hard:      б в г д з й к л м н п р с т ф х ч щ ь
 // G  voiced:                   б в г д ж з
 // H  hard consonant:           ъ ж ц ш
-// Y  iotated vowel, softsign:  ь ю я ё
+// Y  palatizing vowel, soft sign:  ь ю я ё е и
 
 // Conditional rules
 // ?2 Russian (Latvia)
