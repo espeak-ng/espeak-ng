@@ -146,21 +146,20 @@ phoneme tS;
 endphoneme
 
 
-// Palatalized versions of consonants
-
-
 phoneme t
-  import_phoneme pl/t
-endphoneme
-
-
-phoneme t;
-  import_phoneme pl/t;
+  import_phoneme ru-base/t
 endphoneme
 
 
 phoneme d
   import_phoneme pl/d
+endphoneme
+
+
+// Palatalized versions of consonants
+
+phoneme t;
+  import_phoneme pl/t;
 endphoneme
 
 
