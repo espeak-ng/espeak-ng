@@ -114,11 +114,19 @@ endphoneme
 
 
 phoneme l
- liquid rfx
- ipa ɭ
+ liquid vcd alv lat apr // In fact, a velarized one is wanted...
+ ipa ɫ
  lengthmod 7
- length 40
- FMT(l^/l_rfx)
+
+ IF prevPh(g) OR prevPh(k) THEN
+   length 150
+ ELIF prevPh(isVowel) AND nextPh(isVowel) THEN
+   length 150
+ ELSE
+   length 80
+ ENDIF
+
+ FMT(l/L1_eL)
 endphoneme
 
 
@@ -127,6 +135,22 @@ phoneme l^
  ipa ɭ
 length 80
  FMT(l^/l_rfx)
+endphoneme
+
+
+phoneme l;
+  liquid vcd lat apr rfx pzd
+  ipa ɭʲ
+
+  IF prevPh(g) THEN
+    length 160
+  ELIF prevPh(isVowel) AND nextPh(isVowel) THEN
+    length 160
+  ELSE
+    length 80
+  ENDIF
+
+  FMT(l^/l_rfx)
 endphoneme
 
 
@@ -289,7 +313,11 @@ phoneme i
     ChangePhoneme(y)
   ENDIF
   vwl starttype #i endtype #i
-  length 50
+  IF nextPh(l) AND thisPh(isNotStressed) THEN
+    length 140
+  ELSE
+    length 50
+  ENDIF
   FMT(vwl_ru/ii)
 endphoneme
 
