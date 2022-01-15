@@ -1,5 +1,6 @@
 phoneme g
   vcd vel stp prevoice
+  ipa ɡ
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
@@ -16,6 +17,25 @@ phoneme g
 endphoneme
 
 
+phoneme g;
+  vcd vel stp pzd
+  ipa ɡʲ
+  voicingswitch k;
+  lengthmod 5
+  Vowelin f1=1  f2=2300 300 300  f3=300 80
+  Vowelout f1=1  f2=2300 300 300  f3=300 80 brk colr=1
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2, 150)
+endphoneme
+
+
 phoneme p
   import_phoneme consonants/p-
 endphoneme
@@ -23,6 +43,7 @@ endphoneme
 
 phoneme x
   vls vel frc
+  ipa x
   lengthmod 3
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
@@ -30,8 +51,32 @@ phoneme x
 endphoneme
 
 
+phoneme x;
+  vls vel frc pzd
+  ipa xʲ
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  WAV(ru/x_pzd, 30)
+endphoneme
+
+
 phoneme k
   import_phoneme consonants/k-
+endphoneme
+
+
+phoneme k;
+  vls vel stp pzd
+  ipa kʲ
+  lengthmod 2
+  voicingswitch g;
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
+  IF nextPh(isPause2) THEN
+    WAV(ru/k_pzd, 50)
+  ENDIF
+  WAV(ru/k_pzd, 60)
 endphoneme
 
 
