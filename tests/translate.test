@@ -21,7 +21,7 @@ test_phon en-US "d'eIbju:t#I#d" "débuted"
 # https://github.com/espeak-ng/espeak-ng/issues/706
 test_phon en ",aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eItS s,i:;,i:;'Es ,aIt,i:;'Eks ,aIb,i:;'Emz ,Em,aIt'i:z ,eIp,i:;'eItSIz s,i:;,i:;'EsIz ,aIt,i:;'EksIz" "ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs"
 test_phon lv "'ibm m'it 'ibm-s m'its 'ibm m'it 'aph ts'Es 'it_ks 'ibm-s m'its 'aphs ts'Ess 'it_kss 'a>_:,ess_! ,a:_:,ess_!v'e:_:_:_: s'i:a:_ 'u>_:t,e:_:t,e:_:" "ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs AS ASV SIA utt"
-test_phon ru "'Ibm (en),aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eItS s,i:;,i:;'Es ,aIt,i:;'Eks 'Ib@mz m'Its 'afz s'EI2zI2z 'ItEksz(ru) s.s.'A" "ИБМ ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs США"
+test_phon ru "'Ibm (en),aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eItS s,i:;,i:;'Es ,aIt,i:;'Eks 'Ib@mz m'Its 'afz s'EI2zI2z 'ItEksz(ru) sE#s.E#'A" "ИБМ ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs США"
 
 # bug: https://github.com/nvaccess/nvda/issues/7740
 test_phon ta "'il." "ள்"
