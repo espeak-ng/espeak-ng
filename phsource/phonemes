@@ -1220,7 +1220,7 @@ endphoneme
 
 
 phoneme z.
-  vcd rfx frc sib
+  vcd pla frc sib
   ipa ʐ
   voicingswitch s.
   lengthmod 6
@@ -1535,7 +1535,7 @@ endphoneme
 
 
 phoneme s.
-  vls rfx frc sib
+  vls pla frc sib
   ipa ʂ
   voicingswitch z.
   lengthmod 3
@@ -1792,20 +1792,6 @@ phonemetable qu base1
 include ph_quechua
 
 phonemetable quc base1
-
-phonemetable ru-base base1
-
-phoneme t        // dental variant of /t/
-  vls dnt stp
-  lengthmod 2
-  voicingswitch d
-  Vowelin f1=0  f2=1600 -300 300  f3=-100 80
-  Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
-  IF nextPh(isPause2) THEN
-    WAV(ustop/t_sr, 35)
-  ENDIF
-  WAV(ustop/t_sr, 50)
-endphoneme
 
 phonemetable ru base1
 include ph_russian

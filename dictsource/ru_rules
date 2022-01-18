@@ -1,7 +1,7 @@
 // ***************************************************************************
 // *   Copyright (C) 2007 to 2013 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
-// *   Copyright (C) 2018, 2022 Reece H. Dunn                                *
+// *   Copyright (C) 2018 Reece H. Dunn                                      *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -28,7 +28,7 @@
 // F  consonant, not hard:      б в г д з й к л м н п р с т ф х ч щ ь
 // G  voiced:                   б в г д ж з
 // H  hard consonant:           ъ ж ц ш
-// Y  palatizing vowel, soft sign:  ь ю я ё е и
+// Y  iotated vowel, softsign:  ь ю я ё
 
 // Conditional rules
 // ?2 Russian (Latvia)
@@ -123,9 +123,6 @@
         д (хкY  t
         д (ь_   t;
 
-     C) д (н    // No sound.
-     C) д (ц    // No sound.
-
 .group е
         е          e
 ?2      A) е (_    ;e
@@ -143,16 +140,16 @@
         ь) е (_    jI3     //second position
 
 .group ж
-        ж       z.
-        ж (_    s.
-        ж (кY   s.
-        ж (пY   s.
-        ж (сY   s.
-        ж (тY   s.
-        ж (фY   s.
-        ж (ффY  s.
-        ж (хY   s.
-        ж (хкY  s.
+        ж       Z
+        ж (_    S
+        ж (кY   S
+        ж (пY   S
+        ж (сY   S
+        ж (тY   S
+        ж (фY   S
+        ж (ффY  S
+        ж (хY   S
+        ж (хкY  S
         жч      S;
 ?2      жч      SS
 
@@ -163,7 +160,7 @@
         з (Y    z;
         з (_    s
         з (дY   z;
-        з (ж    z.
+        з (ж    Z
         з (зY_  s;
         з (зY   z;
         з (здY_ s;
@@ -183,7 +180,7 @@
         з (хY   s
         з (хкY  s
         зч      S;
-        з (ш    s.
+        з (ш    S
         зщ      S;
         з (щ    s
 
@@ -216,8 +213,6 @@
         л       l
 ?2      л (Y    l^
         л (Y    l;
-
-     о) л (нц    // No sound.
 
 .group м
         м       m
@@ -267,14 +262,14 @@
 
 .group с
         с       s
-?2      сч      s.
+?2      сч      S
         с (Y    s;
         с (б    z
         с (г    z
         с (дB   z;
         с (дY   z;
         с (д    z
-        с (ж    z.
+        с (ж    Z
         с (ж    z
         с (зY   z;
         с (з    z
@@ -284,7 +279,7 @@
         с (тY   s;
         с (ть   s
         сч      S;
-        с (ш    s.
+        с (ш    S
         с (щ    s;s;
 
 .group т
@@ -304,7 +299,6 @@
         т (нY   t;
         т (сY   t;
         т (тY   t;
-     с) т (н    // No sound.
 
 .group у
         у       u
@@ -331,7 +325,7 @@
 
 .group х
         х       x
-        х (Y    x;
+        х (Y    x     //С
         х (бY   x
         х (б    x
         х (бвY  x
@@ -377,33 +371,33 @@
         ч (ж    dZ;
         ч (з    dZ;
         ч (зY   dZ;
-  деви) ч (н    s.
-  коне) ч (но   s.
- пустя) ч (н    s.
- скворе)ч (н    s.
-   ску) ч (н    s.
-        ч (на_  s.
-        ч (не_  s.
-        ч (ной_ s.
-        ч (ну_  s.
-        ч (ны_  s.
-     _) ч (то   s.
-    яи) ч (ни   s.
+  деви) ч (н    S
+  коне) ч (но   S
+ пустя) ч (н    S
+ скворе)ч (н    S
+   ску) ч (н    S
+        ч (на_  S
+        ч (не_  S
+        ч (ной_ S
+        ч (ну_  S
+        ч (ны_  S
+     _) ч (то   S
+    яи) ч (ни   S
 
 .group ш
-        ш       s.
-        ш (бY   z.
-        ш (б    z.
-        ш (бвY  z.
-        ш (бмY  z.
-        ш (гY   z.
-        ш (г    z.
-        ш (дB   z.
-        ш (дY   z.
-        ш (д    z.
-        ш (ж    z.
-        ш (зY   z.
-        ш (з    z.
+        ш       S
+        ш (бY   Z
+        ш (б    Z
+        ш (бвY  Z
+        ш (бмY  Z
+        ш (гY   Z
+        ш (г    Z
+        ш (дB   Z
+        ш (дY   Z
+        ш (д    Z
+        ш (ж    Z
+        ш (зY   Z
+        ш (з    Z
 
 
 .group щ

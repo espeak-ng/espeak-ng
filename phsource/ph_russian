@@ -1,6 +1,5 @@
 phoneme g
   vcd vel stp prevoice
-  ipa ɡ
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
@@ -17,80 +16,17 @@ phoneme g
 endphoneme
 
 
-phoneme g;
-  vcd vel stp pzd
-  ipa ɡʲ
-  voicingswitch k;
-  lengthmod 5
-  Vowelin f1=1  f2=2300 300 300  f3=300 80
-  Vowelout f1=1  f2=2300 300 300  f3=300 80 brk colr=1
-
-  IF PreVoicing THEN
-    FMT(g/xg)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(g/g_) addWav(x/g_)
-  ENDIF
-  FMT(g/g) addWav(x/g2, 150)
-endphoneme
-
-
 phoneme p
   import_phoneme consonants/p-
 endphoneme
 
 
-phoneme s.
-  vls rfx frc sib
-  ipa ʂ
-  voicingswitch z.
-  lengthmod 3
-  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
-  Vowelout f1=0  f2=1800 -100 300  f3=-300 80
-
-  IF nextPh(isPause) THEN
-    WAV(ru/sh, 60)
-  ENDIF
-  IF nextPh(k) OR nextPh(k;) THEN
-    WAV(ru/sh, 250)
-  ELSE
-    WAV(ru/sh, 90)
-  ENDIF
-endphoneme
-
-
-phoneme z.
-  vcd rfx frc sib
-  ipa ʐ
-  voicingswitch s.
-  lengthmod 6
-  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
-  Vowelout f1=2  f2=1800 -100 300  f3=-300 80 brk
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/zh_) addWav(ru/zh)
-  ENDIF
-  FMT(voc/zh) addWav(ru/zh)
-endphoneme
-
 phoneme x
   vls vel frc
-  ipa x
   lengthmod 3
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
   WAV(ufric/x_hr, 30)
-endphoneme
-
-
-phoneme x;
-  vls vel frc pzd
-  ipa xʲ
-  lengthmod 3
-  Vowelin f1=0  f2=2300 200 400  f3=-100 80
-  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-  WAV(ru/x_pzd, 30)
 endphoneme
 
 
@@ -99,34 +35,12 @@ phoneme k
 endphoneme
 
 
-phoneme k;
-  vls vel stp pzd
-  ipa kʲ
-  lengthmod 2
-  voicingswitch g;
-  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
-  IF nextPh(isPause2) THEN
-    WAV(ru/k_pzd, 50)
-  ENDIF
-  WAV(ru/k_pzd, 60)
-endphoneme
-
-
 phoneme l
- liquid vcd alv lat apr // In fact, a velarized one is wanted...
- ipa ɫ
+ liquid rfx
+ ipa ɭ
  lengthmod 7
-
- IF prevPh(g) OR prevPh(k) THEN
-   length 150
- ELIF prevPh(isVowel) AND nextPh(isVowel) THEN
-   length 150
- ELSE
-   length 80
- ENDIF
-
- FMT(l/L1_eL)
+ length 40
+ FMT(l^/l_rfx)
 endphoneme
 
 
@@ -135,22 +49,6 @@ phoneme l^
  ipa ɭ
 length 80
  FMT(l^/l_rfx)
-endphoneme
-
-
-phoneme l;
-  liquid vcd lat apr rfx pzd
-  ipa ɭʲ
-
-  IF prevPh(g) THEN
-    length 160
-  ELIF prevPh(isVowel) AND nextPh(isVowel) THEN
-    length 160
-  ELSE
-    length 80
-  ENDIF
-
-  FMT(l^/l_rfx)
 endphoneme
 
 
@@ -173,7 +71,7 @@ phoneme n_
 endphoneme
 
 
-phoneme n;
+phoneme n#
   vcd pal nas pzd
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
@@ -248,20 +146,21 @@ phoneme tS;
 endphoneme
 
 
+// Palatalized versions of consonants
+
+
 phoneme t
-  import_phoneme ru-base/t
+  import_phoneme pl/t
+endphoneme
+
+
+phoneme t;
+  import_phoneme pl/t;
 endphoneme
 
 
 phoneme d
   import_phoneme pl/d
-endphoneme
-
-
-// Palatalized versions of consonants
-
-phoneme t;
-  import_phoneme pl/t;
 endphoneme
 
 
@@ -313,11 +212,7 @@ phoneme i
     ChangePhoneme(y)
   ENDIF
   vwl starttype #i endtype #i
-  IF nextPh(l) AND thisPh(isNotStressed) THEN
-    length 140
-  ELSE
-    length 50
-  ENDIF
+  length 50
   FMT(vwl_ru/ii)
 endphoneme
 

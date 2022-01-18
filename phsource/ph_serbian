@@ -30,8 +30,16 @@ endphoneme
 
 
 
-phoneme t
-  import_phoneme ru-base/t
+phoneme t        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_sr, 35)
+  ENDIF
+  WAV(ustop/t_sr, 50)
 endphoneme
 
 

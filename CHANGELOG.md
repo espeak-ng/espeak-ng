@@ -58,7 +58,6 @@ updated languages:
 *  jbo (Lojban) -- Juho Hiltunen, xunsku
 *  lv (Latvian) -- Valdis Vitolins
 *  mi (Māori) -- boracasli98
-*  ru (Russian) -- Ineiev
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98, SeanTolstoyevski
 *  ur (Urdu) -- Ejaz Shah

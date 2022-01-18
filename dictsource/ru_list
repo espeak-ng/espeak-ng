@@ -9,7 +9,7 @@ _2f     dv;'e
 _3      tR;'i
 _4      tS;It'yR;I
 _5      p;'jat;
-_6      s.'Es;t;
+_6      S'Es;t;
 _7      s;'ejm
 _8      v'os;E2m
 _9      d;'evI3t;
@@ -19,7 +19,7 @@ _12     dv;In'AttsVt;
 _13     tR;In'AttsVt;
 _14     tS;It'y@-*nVttsVt;
 _15     p;Itn'AttsVt;
-_16     s.E#stn'AttsVt;
+_16     SE#stn'AttsVt;
 _17     s;Imn'AttsVt;
 _18     vOs;Imn'AttsVt;
 _19     d;E2v;Itn'AttsVt;
@@ -27,7 +27,7 @@ _2X     dv'AttsVt;
 _3X     tr;'ittsVt;
 _4X     s'o@-*Ok
 _5X     p;Vd;d;Is;'jat
-_6X     s.E2z;d;d;Is;'jat
+_6X     SE2z;d;d;Is;'jat
 _7X     s;'emd;E2s;Vt
 _8X     v'os;E2md;E2s;Vt
 _9X     d;E2v;In'ostO
@@ -36,7 +36,7 @@ _2C     dv;'es;t;I
 _3C     tr;'ista
 _4C     tS;It'yr;E2sta
 _5C     p;,It;s'ot
-_6C     s.,E#s;t;s'ot
+_6C     S,E#s;t;s'ot
 _7C     s;,Ims'ot
 _8C     vOs;Ims'ot
 _9C     dev;Vts'ot
@@ -56,14 +56,14 @@ _dpt2   _d;Is;'atYx   // end of decimal fraction
 _`      akts'Ent
 &       ampers'and
 _'      ap'ostrVf
-\       bEksl'Es.  $max3
-_>      b'ol;s.E
+\       bEksl'ES  $max3
+_>      b'ol;SE
 _       def'is
 $       d'ollar
 _:      dvVet'otS;ie
-^       kr'ys.ka
+^       kr'ySka
 _"      kVv'ytS;ka
-_<      m'en;s.E
+_<      m'en;SE
 №       n'omer
 _{      'otkrfigur
 _(      'otkrkrug
@@ -73,8 +73,8 @@ _«      'otkr uglof
 _       podtS;'8rk  $max3
 %       prVts'Ent  $max3
 =       ravn'o  $max3
-#       res.'Etka  $max3
-/       sl'Es.  $max3
+#       reS'Etka  $max3
+/       sl'ES  $max3
 @       sob'aka
 ~       t'ilda
 _.      t'otS;ka
@@ -91,20 +91,14 @@ _,      zVpit'aja
 
 // particle
 б       by $u         // shortened form of 'бы'
-ж       z.E $u         // same as the particle form
+ж       ZE $u         // same as the particle form
 
 // prepositions
-в       v  $u         // to,in,at
-во      v@ $u         // a variant of 'в'
+в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
 для        $u         // for
-за         $u
 на      n@ $u         // on
-от      @t $u         // from
-по      p@ $u
-под    p@t $u
-подо  p@d@ $u
+от         $u         // from
 с       s  $u         // with,from,since
-со      s@ $u
 у       u  $u         // by
 
 // conjunctions
@@ -112,6 +106,7 @@ _,      zVpit'aja
 а         $u $pause  // and
 и       i $u $pause  // and
 ибо       $u $pause  // for
+ибо       $u $pause  // if
 но        $u $pause  // but
 хотя      $2 $pause  // although
 чтобы        $pause  // in order that
@@ -120,7 +115,7 @@ _,      zVpit'aja
 я         $u         // I
 
 // questions
-что     s.to $u $pause // what, that
+что     Sto $u $pause // what, that
 
 // misc.
 не      $u           // negative
@@ -186,8 +181,8 @@ _в      vE
 д       dE
 е       je
 ё       j8
-_ж      z.E
-ж       z.E  $atend
+_ж      ZE
+ж       ZE  $atend
 з       zE
 и       i
 й       ,i'k@-*'AtkOjI
@@ -206,7 +201,7 @@ _с      Es
 х       xA
 ц       tsE
 ч       tS;e
-ш       s.A
+ш       SA
 щ       S;ja
 ъ       tv;'8@-*dyjzn'Ak
 ы       y
