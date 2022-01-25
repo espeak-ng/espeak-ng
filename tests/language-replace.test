@@ -25,7 +25,7 @@ Translate 'aeon'
 Found: 'mediaeval'
 Translate 'oeconomy'
 Found: 'phoenix'
-Translate 'loft'
+Found: 'lost'
 Translate 'history'
 EOF
 test_replace en "Æon mediæval. Œconomy phœnix. Loﬅ hiﬆory."
