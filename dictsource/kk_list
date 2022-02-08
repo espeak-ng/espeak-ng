@@ -1,4 +1,4 @@
-// This file is UTF8 encoded 
+// This file is UTF8 encoded
 // Spelling to phoneme rules for Kazakh
 
 // Letters
@@ -6,7 +6,7 @@
 в	v@
 г	g@
 ғ	G@
-д	d@	
+д	d@
 ж	Z@
 з	z@
 й	j@
@@ -32,7 +32,7 @@
 _0 n'Yl
 _1 b'Ir
 _2 j'ekI
-_3 'u#S
+_3 u#S
 _4 t8rt
 _5 b'es
 _6 'Alt@
