@@ -23,6 +23,7 @@ The espeak-ng project is a fork of the espeak project.
    Use cmn-latn-pinyin for interpreting latin characters as pinyin
 *  Update list of voice varants for Android application
 *  Add Chromium extension (guest271314)
+*  Replace `ieee80.c` by a free software implementation (Ulrich Müller)
 
 bug fixes:
 *  Fix reading malformed SSML (Christopher Brannon)

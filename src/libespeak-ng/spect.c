@@ -49,7 +49,7 @@ static double read_double(FILE *stream)
 {
 	unsigned char bytes[10];
 	fread(bytes, sizeof(char), 10, stream);
-	return ConvertFromIeeeExtended((char *)bytes);
+	return ieee_extended_to_double(bytes);
 }
 
 float polint(float xa[], float ya[], int n, float x)
