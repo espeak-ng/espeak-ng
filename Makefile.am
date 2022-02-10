@@ -255,6 +255,12 @@ tests_api_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_api_test_LDADD   = src/libespeak-ng-test.la
 tests_api_test_SOURCES = tests/api.c
 
+check_PROGRAMS += tests/ieee80.test
+
+tests_ieee80_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
+tests_ieee80_test_LDADD   = src/libespeak-ng-test.la
+tests_ieee80_test_SOURCES = tests/ieee80.c
+
 .test.check:
 	@echo "  TEST      $<"
 	@ESPEAK_DATA_PATH=$(CURDIR) $< && echo "  PASSED    $<"
@@ -265,6 +271,7 @@ check:	tests/encoding.check \
 	tests/ssml.check \
 	tests/ssml-fuzzer.check \
 	tests/api.check \
+	tests/ieee80.check \
 	tests/dictionary.check \
 	tests/language-phonemes.check \
 	tests/language-replace.check \
