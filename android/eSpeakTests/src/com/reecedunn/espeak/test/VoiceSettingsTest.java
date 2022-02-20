@@ -200,7 +200,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
     public void testDefaultRate()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-        defaultRateTest(300, 450, synth); // clamped to maximum value
+        defaultRateTest(300, 449, synth); // clamped to maximum value
         defaultRateTest(200, 350, synth);
         defaultRateTest(100, 175, synth); // default value
         defaultRateTest( 50,  87, synth);
@@ -335,7 +335,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
     public void testEspeakRate()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-        espeakRateTest(500, 450, synth); // clamped to maximum value
+        espeakRateTest(500, 449, synth); // clamped to maximum value
         espeakRateTest(400, 400, synth);
         espeakRateTest(200, 200, synth);
         espeakRateTest(175, 175, synth); // default value
