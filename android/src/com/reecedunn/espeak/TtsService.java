@@ -63,7 +63,7 @@ public class TtsService extends TextToSpeechService {
 
     private static final String TAG = TtsService.class.getSimpleName();
     private static Context storageContext;
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = BuildConfig.DEBUG;
 
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
