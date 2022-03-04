@@ -1558,7 +1558,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 		fclose(f_in);
 		return create_file_error_context(context, error, fname_out);
 	}
-	sprintf(fname_temp, "%s%ctemp", path_home, PATHSEP);
+	/* Use dictionary-specific temp names to allow parallel compilation
+	 * of multiple ductionaries. */
+	sprintf(fname_temp, "%s%c%stemp", path_home, PATHSEP, dict_name);
 
 	value = N_HASH_DICT;
 	Write4Bytes(f_out, value);

@@ -50,7 +50,7 @@ pitch 43 120
 ## El quinto número en la línea de tono, 2000, es la frecuencia de agudos. El sexto número es el volumen de la frecuencia de agudos. 0 es el mínimo y 255 es el máximo.
 ##  Notará que las 3 frecuencias están configuradas en 255.
 ###La siguiente línea es una opción que puedes cambiar.
-tone 100 255  1200 255 1500 255
+tone 100 255 1200 255 1500 255
 echo 8 10000
 roughness 3
 breath 20 5 2 10 5 0 27 100

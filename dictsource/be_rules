@@ -1,0 +1,101 @@
+// This file is UTF8 encoded
+// Translation rules for Belarusian
+
+.group а
+       а       a
+
+.group б
+       б       b
+
+.group в
+       в       v
+
+.group г
+       г       Q     // ɣ
+
+.group д
+       д       d
+
+.group е
+       е       ;E    // ʲɛ
+
+.group ё
+       ё       ;O    // ʲɔ
+
+.group ж
+       ж       z.    // ʐ
+
+.group з
+       з       z
+
+.group і
+       і       i
+
+.group й
+       й       j
+
+.group к
+       к       k
+
+.group л
+       л       l
+
+.group м
+       м       m
+
+.group н
+       н       n
+
+.group о
+       о       o
+
+.group п
+       п       p
+
+.group р
+       р       r
+
+.group с
+       с       s
+
+.group т
+       т       t
+
+.group у
+       у       u
+
+.group ў
+       ў       w
+
+.group ф
+       ф       f
+
+.group х
+       х       x
+
+.group ц
+       ц       ts    // t̻͡s
+
+.group ч
+       ч       ts.   // ʈ͡ʂ
+
+.group ш
+       ш       s.    // ʂ
+
+.group ы
+       ы       i"    // (ɨ
+
+.group ь
+       ь       ;     // ʲ
+
+.group э
+       э       E     // ɛ
+
+.group ю
+       ю       ;u    // ʲu
+
+.group я
+       я       ;a    // ʲa
+
+.group '
+       '       j

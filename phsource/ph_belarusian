@@ -1,0 +1,49 @@
+//====================================================
+//  Belarusian
+//====================================================
+
+
+phoneme a
+  import_phoneme ru/a
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  ipa ɔ
+  length 100
+  FMT(vwl_ru/8)
+endphoneme
+
+phoneme i"
+  import_phoneme pl/y
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+  ipa t̻͡s
+endphoneme
+
+phoneme ts;
+  import_phoneme pl/ts;
+  ipa t̻͡s̪ʲ
+endphoneme
+
+phoneme ts.
+  import_phoneme sr/tS
+  ipa ʈ͡ʂ
+endphoneme
+
+phoneme dz
+  import_phoneme consonants/dz
+  ipa d̻͡z̪
+endphoneme
+
+phoneme dz;
+  import_phoneme pl/dz;
+  ipa d̻͡z̪ʲ
+endphoneme
+
+phoneme dz.
+  import_phoneme sr/dZ
+  ipa ɖ͡ʐ
+endphoneme

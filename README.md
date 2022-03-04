@@ -130,13 +130,6 @@ the 1.24.02 source commit.
 eSpeak NG Text-to-Speech is released under the [GPL version 3](COPYING) or
 later license.
 
-The `ieee80.c` implementation is taken directly from
-[ToFromIEEE.c.txt](http://www.realitypixels.com/turk/opensource/ToFromIEEE.c.txt)
-which has been made available for use in Open Source applications per the
-[license statement](COPYING.IEEE) on http://www.realitypixels.com/turk/opensource/.
-The only modifications made to the code is to comment out the `TEST_FP` define
-to make it useable in the eSpeak NG library, and to fix compiler warnings.
-
 The `getopt.c` compatibility implementation for getopt support on Windows is
 taken from the NetBSD `getopt_long` implementation, which is licensed under a
 [2-clause BSD](COPYING.BSD2) license.

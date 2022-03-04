@@ -45,7 +45,7 @@ pitch 82 130
 ## The fifth number on the tone line, 2000, is the treble frequency.  The sixth number is the volume of the treble frequency.  0 is the minimum and 255 is the maximum.
 ##  You will notice that all 3 frequencies are set to 255.
 ##The next line is a setting that you can change.
-tone 600 255  1200 200 2000 255
+tone 600 255 1200 200 2000 255
 
 ##This file does not include all of the settings that can be used to modify an E Speak voice.  It is intended to get you familiar with what the settings do.  
 #However, you can go to http://espeak.sourceforge.net/voices.html and read further information about other settings that can be added and changed.  I hope this helps, and Have fun.

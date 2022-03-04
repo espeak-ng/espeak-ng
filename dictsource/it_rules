@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2021 May 10 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2021 December 22 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -155,6 +155,8 @@
 	e (CulA_	E
 	e (llu	E
 	e (st	E
+	vr) e (mmo_	e
+	vr) e (stY_	e
 	e (ttA_	e
 	c) e (ttA_	E
 	e (tti@	E
@@ -470,7 +472,7 @@
 	v) o (ltA_	O
 	@) o (manY_	'O:
 	@d) omani (_	om'ani
-	r) oman (Y_	,Om'an
+	r) oman (Y_	,om'an
 	@)	o (metrA_  'O
 	@) o (ma_	O
 	@) o (mo_	O
@@ -541,9 +543,11 @@
 	q	k
 	qu (A	kw
 	qui (A	kwj
-	_) quell' (P6t	kwEll
+	_) quell' (P6t	kwell
 	_) quest' (P6t	kwest
 	_) quant' (P6t	kwant
+	_) quel 	kwel
+	_)quest (A_	kwest
 
 .group r
 	r	@-*
@@ -621,6 +625,7 @@
 	_) scola (L07_	sk'ola
 	_ri) scola (L07_	sk'ola
 	_) stacca (L07_	st'ak:a
+	_) sazia (L07_	s'atsja
 	L02) sei (_	_s'Ej // numbers
 
 .group t

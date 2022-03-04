@@ -417,8 +417,6 @@ static bool after_if = false;
 
 static char current_fname[80];
 
-static int markers_used[8];
-
 typedef struct {
 	void *link;
 	int value;
@@ -428,11 +426,6 @@ typedef struct {
 } REF_HASH_TAB;
 
 static REF_HASH_TAB *ref_hash_tab[256];
-
-#define N_ENVELOPES  30
-int n_envelopes = 0;
-char envelope_paths[N_ENVELOPES][80];
-unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
 
 typedef struct {
 	FILE *file;
@@ -1340,7 +1333,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 	return displ | 0x800000; // set bit 23 to indicate a wave file rather than a spectrum
 }
 
-static espeak_ng_STATUS LoadEnvelope(FILE *f, const char *fname, int *displ)
+static espeak_ng_STATUS LoadEnvelope(FILE *f, int *displ)
 {
 	char buf[128];
 
@@ -1353,12 +1346,6 @@ static espeak_ng_STATUS LoadEnvelope(FILE *f, const char *fname, int *displ)
 	if (fread(buf, 128, 1, f) != 128)
 		return errno;
 	fwrite(buf, 128, 1, f_phdata);
-
-	if (n_envelopes < N_ENVELOPES) {
-		strncpy0(envelope_paths[n_envelopes], fname, sizeof(envelope_paths[0]));
-		memcpy(envelope_dat[n_envelopes], buf, sizeof(envelope_dat[0]));
-		n_envelopes++;
-	}
 
 	return ENS_OK;
 }
@@ -1380,14 +1367,13 @@ static int Hash8(const char *string)
 	return (hash+chars) & 0xff;
 }
 
-static int LoadEnvelope2(FILE *f, const char *fname)
+static int LoadEnvelope2(FILE *f)
 {
 	int ix, ix2;
 	int n;
 	int x, y;
 	int displ;
 	int n_points;
-	double yy;
 	char line_buf[128];
 	float env_x[20];
 	float env_y[20];
@@ -1422,8 +1408,7 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 			ix2++;
 
 		if (env_lin[ix2] > 0) {
-			yy = env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2]);
-			y = (int)(yy * 2.55);
+			y = (env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2])) * 2.55;
 		} else if (n_points > 3)
 			y = (int)(polint(&env_x[ix], &env_y[ix], 4, x) * 2.55); // convert to range 0-255
 		else
@@ -1431,12 +1416,6 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 		if (y < 0) y = 0;
 		if (y > 255) y = 255;
 		env[x] = y;
-	}
-
-	if (n_envelopes < N_ENVELOPES) {
-		strncpy0(envelope_paths[n_envelopes], fname, sizeof(envelope_paths[0]));
-		memcpy(envelope_dat[n_envelopes], env, ENV_LEN);
-		n_envelopes++;
 	}
 
 	displ = ftell(f_phdata);
@@ -1499,10 +1478,10 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 			*addr = LoadWavefile(f, path);
 			type_code = 'W';
 		} else if (id == 0x43544950) {
-			status = LoadEnvelope(f, path, addr);
+			status = LoadEnvelope(f, addr);
 			type_code = 'E';
 		} else if (id == 0x45564E45) {
-			*addr = LoadEnvelope2(f, path);
+			*addr = LoadEnvelope2(f);
 			type_code = 'E';
 		} else {
 			error("File not SPEC or RIFF: %s", path);
@@ -2547,11 +2526,8 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
 
-	n_envelopes = 0;
 	error_count = 0;
 	resample_count = 0;
-	memset(markers_used, 0, sizeof(markers_used));
-
 	f_errors = log;
 
 	strncpy0(current_fname, "phonemes", sizeof(current_fname));
