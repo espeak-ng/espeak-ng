@@ -7,3 +7,17 @@ phoneme e
   FMT(vowel/e_mid2)
 endphoneme
 
+phoneme ˥   //  tone: high level
+  stress
+  Tone(50, 50, envelope/p_level, NULL)
+endphoneme
+
+phoneme ˩   //  tone: low level
+  stress
+  Tone(20, 20, envelope/p_level, NULL)
+endphoneme
+
+phoneme ˧   //  tone: mid level
+  stress
+  Tone(30, 30, envelope/p_level, NULL)
+endphoneme

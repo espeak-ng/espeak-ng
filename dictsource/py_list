@@ -4,6 +4,8 @@
 
 // Note: initial/final "." has already been removed
 
+2	˩
+7	˥
 
 // How Number ASCII is pronounced
 _0	zRon
@@ -24,73 +26,52 @@ _E	hses
 _F	hpet
 _dpt	fjih
 
+_6	@
+67	@˥
+62	@˩
+
+klat klat
+//kla2t klat
+//kla7t klat
+
 
 // how letters are pronounced individually
 _a	a
-b	b@
-c	S@
-d	d@
-_e	e
-f	f@
-g	g@
-h       h@
-_i	i
-j	Z@
-k	k@
-l	l@
-m	m@
-n	n@
-_o	o
-p	p@
-q       N@
-r	R@
-s	s@
-t	t@
-_u	u
-v	v@
-w       w@
-x	x@
-y	j@
-z	z@
+a7	ai
+a2	au
+//b	b@
+//c	S@
+//d	d@
+//_e	e
+//f	f@
+//g	g@
+//h       h@
+//_i	i
+i7	i˥
+//i2	i˩
+//j	Z@
+//k	k@
+//l	l@
+//m	m@
+//n	n@
+//_o	o
+//o7	o˥
+//o2	o˩
+//p	p@
+//q       N@
+//r	R@
+//s	s@
+//t	t@
+//_u	u
+//u7	u˥
+//u2	u˩
+//v	v@
+//w       w@
+//x	x@
+//y	j@
+//z	z@
 
 
-
-// stressed cmavo
-//cai	S'aI_!
-//cu'i	S'uhi_!
-//pei	p'eI_!
-//ru'e	R'uhe_!
-//sai	s'aI_!
-//nai	n'aI_!
-//na	n'a_!
-//ja'a	Z'aha_!
-
-
-// unstressed words. Note single-syllable cmavo are all unstressed in jbo_rules
-//e'o	$u+	// request
-//po'e	$u+	// of
-//zo'e	$u+	// pronoun
-//
-//
-//i	i_:	$u	// sentence break (recognised by eSpeak program). Try a short pause after ".i"
-
-// end-of-clause [_;_] before these
-//noi	_;_noI	$u
-//poi	_;_poI	$u
-//no'u	_;_nohu	$u
-//po'u	_;_pohu	$u
-//goi	_;_goI	$u
-//
-//ija	_;_iZa		// should this series be unstressed?
-//ijanai	_;_iZan'aI
-//ije	_;_iZe
-//ije'i	_;_iZehi
-//ijenai	_;_iZenaI
-//ijo	_;_iZo
-//ijonai	_;_iZon'aI
-//inaja	_;_inaZa
-//
-//to	_::to	$u	// start parenthesis, pause but don't raise intonation
 
 // independent clause terminators (include a long pause after)
 li      li_::	$u
@@ -125,8 +106,8 @@ t6      t@_::	$u
 zlih    zlih_::	$u
 n6      n@_::	$u
 gyih    gjih_::	$u
-//pi7     pi55_::	$u
-//si2     si22_::	$u
+//pi7     pi7_::	$u
+//si2     si2_::	$u
 
 
 // case terminators (short pause after)
@@ -181,13 +162,13 @@ gveh  gveh_:	$u
 vwih  vwih_:	$u
 bveh  bveh_:	$u
 dzih  dzih_:	$u
-//tsi7h tsi55h_:	$u
+//tsi7h tsi7h_:	$u
 vyah  vjah_:	$u
 gvah  gvah_:	$u
 zreh  zreh_:	$u
 bu    bu_:	$u
-//sa7   sa55_:	$u
-//si7   si55_:	$u
-//tsi2h tsi22h_:	$u
-//ta7   ta55_:	$u
+//sa7   sa7_:	$u
+//si7   si7_:	$u
+//tsi2h tsi2h_:	$u
+//ta7   ta7_:	$u
 
