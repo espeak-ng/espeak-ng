@@ -107,7 +107,7 @@
 	ˈ	'       // U+2c8  stress marker (from syllable capitalisation)
 // tones not working
 .replace
-//	7	i
-//	2	u
-	2	˩
-	7	˥
+	7	i
+	2	u
+//	2	˩
+//	7	˥
