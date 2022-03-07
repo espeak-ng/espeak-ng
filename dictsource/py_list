@@ -26,7 +26,7 @@ _E	hses
 _F	hpet
 _dpt	fjih
 
-//_6	@
+6	@
 //67	@˥
 //62	@˩
 
@@ -106,8 +106,6 @@ t6      t@_::	$u
 zlih    zlih_::	$u
 n6      n@_::	$u
 gyih    gjih_::	$u
-//pi7     pi7_::	$u
-//si2     si2_::	$u
 
 
 // case terminators (short pause after)

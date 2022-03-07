@@ -81,7 +81,7 @@
 .group y
 	y 	j
 
-.group 6
+.replace 
 	6 	@
 
 .group h
@@ -109,5 +109,6 @@
 .replace
 	7	i
 	2	u
+	//6	@
 //	2	˩
 //	7	˥
