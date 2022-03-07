@@ -4,8 +4,8 @@
 
 // Note: initial/final "." has already been removed
 
-2	˩
-7	˥
+//2	˩
+//7	˥
 
 // How Number ASCII is pronounced
 _0	zRon
@@ -26,19 +26,19 @@ _E	hses
 _F	hpet
 _dpt	fjih
 
-_6	@
-67	@˥
-62	@˩
+//_6	@
+//67	@˥
+//62	@˩
 
-klat klat
+//klat klat
 //kla2t klat
 //kla7t klat
 
 
 // how letters are pronounced individually
-_a	a
-a7	ai
-a2	au
+//_a	a
+//a7	ai
+//a2	au
 //b	b@
 //c	S@
 //d	d@
@@ -47,7 +47,7 @@ a2	au
 //g	g@
 //h       h@
 //_i	i
-i7	i˥
+//i7	i˥
 //i2	i˩
 //j	Z@
 //k	k@
