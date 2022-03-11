@@ -311,6 +311,15 @@ AX_CHECK_COMPILE_FLAG([-Wuninitialized],         [CFLAGS="-Wuninitialized $CFLAG
 AX_CHECK_COMPILE_FLAG([-Wunused],                [CFLAGS="-Wunused $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wunused-parameter],      [CFLAGS="-Wunused-parameter $CFLAGS"])
 
+
+dnl ================================================================
+dnl Enable two-complement signed integer wrapping
+dnl
+dnl Otherwise this is undefined behavior.
+dnl ================================================================
+
+AX_CHECK_COMPILE_FLAG([-fwrapv],                 [CFLAGS="-fwrapv $CFLAGS"])
+
 dnl ================================================================
 dnl libFuzzer checks.
 dnl ================================================================
