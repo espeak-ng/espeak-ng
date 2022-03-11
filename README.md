@@ -54,7 +54,7 @@ The following platforms are supported:
 
 | Platform    | Minimum Version | Status |
 |-------------|-----------------|--------|
-| Linux       |                 | ![[Travis continuous integration builds on Linux](https://travis-ci.org/espeak-ng/espeak-ng)](https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master) |
+| Linux       |                 | ![CI](https://github.com/espeak-ng/espeak-ng/actions/workflows/ci.yml/badge.svg) |
 | BSD         |                 |        |
 | Android     | 4.0             |        |
 | Windows     | Windows 8       |        |
