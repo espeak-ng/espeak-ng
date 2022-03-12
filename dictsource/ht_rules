@@ -3,28 +3,24 @@
 
 .group a
          a         a
-
-.group ã
-         ã         a
+         an(K      A~
 
 .group b
          b         b
 
 .group c
-         c         s
-         c (h      S
+         ch        S
 
 .group d
          d         d
+         dj        dZ
 
 .group e
          e         e
+         en(K      E~
 
 .group è
          è         e
-
-.group ɛ̃
-         ɛ̃         e
 
 .group f
          f         f
@@ -39,8 +35,7 @@
          i         i
 
 .group j
-         j         j
-      d) j         dZ
+         j         Z
 
 .group k
          k         k
@@ -53,17 +48,15 @@
 
 .group n
          n         n
-         n (g      N
+         ng(K      N
 
 .group o
          o         o
-         o (u      ou
+         on(K      O~
+         ou        u
 
 .group ò
-         ò         o
-
-.group õ
-         õ         o
+         ò         O
 
 .group p
          p         p
@@ -72,7 +65,7 @@
          q         k
 
 .group r
-         r         h
+         r         Q
 
 .group s
          s         s
@@ -82,9 +75,9 @@
 
 .group u
          u         u
-
-.group ũ
-         ũ         u
+         // TODO: Add a voiced labial-palatal approximant phoneme for this
+         u(i       w
+         // TODO: Add a /u~/ phoneme for "un"
 
 .group v
          v         v
