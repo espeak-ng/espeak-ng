@@ -70,7 +70,7 @@ phoneme a#
   IF nextPhW(r) THEN
     ChangePhoneme(3)
   ENDIF
-  
+
   FMT(vowel/a#_3)
 endphoneme
 
@@ -92,7 +92,7 @@ phoneme I
   length 160
   IfNextVowelAppend(;)
   ChangeIfDiminished(I2)
-  
+
   IF nextPhW(r) THEN
     length 200
   ENDIF
@@ -191,7 +191,7 @@ phoneme A@
 endphoneme
 
 
-phoneme A#    // [a] in British [A:] in American 
+phoneme A#    // [a] in British [A:] in American
   vwl  starttype #a  endtype #a
   ChangePhoneme(A:)
 endphoneme
@@ -261,11 +261,11 @@ endphoneme
 phoneme u:
   vwl  starttype #u  endtype #u
   length 190
-  
+
   IF prevPhW(j)  AND NOT thisPh(isWordEnd) THEN
     length 160
   ENDIF
-  
+
   FMT(vdiph2/uw_6)
 endphoneme
 
@@ -339,7 +339,7 @@ endphoneme
 phoneme i@3
   vwl  starttype #i  endtype #@
   length 250
-  
+
   IF MbrolaSynth THEN
     ChangePhoneme(i@)
   ENDIF
