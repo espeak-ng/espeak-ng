@@ -438,7 +438,9 @@ static void init(int process_parameters)
 
 void fifo_terminate()
 {
+	pthread_mutex_lock(&my_mutex);
 	my_terminate_is_required = true;
+	pthread_mutex_unlock(&my_mutex);
 	pthread_cond_signal(&my_cond_start_is_required);
 	pthread_join(my_thread, NULL);
 	my_terminate_is_required = false;
