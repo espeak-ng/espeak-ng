@@ -2539,7 +2539,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		if (n_digits > 4) {
 			// word is entirely digits, insert commas and break into 3 digit "words"
 			number_buf[0] = ' ';
-			pn = &number_buf[1];
+			number_buf[1] = ' ';
+			number_buf[2] = ' ';
+			pn = &number_buf[3];
 			nx = n_digits;
 			nw = 0;
 
@@ -2583,7 +2585,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			pn[16] = 0;
 			nw = 0;
 
-			for (pw = &number_buf[1]; pw < pn;) {
+			for (pw = &number_buf[3]; pw < pn;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
 				while (*pw++ != ' ')
