@@ -51,6 +51,7 @@ class FrameManager {
 	virtual void queueFrame(speechPlayer_frame_t* frame, unsigned int minNumSamples, unsigned int numFadeSamples, int userIndex, bool purgeQueue)=0;
 	virtual const speechPlayer_frame_t* const getCurrentFrame()=0;
 	virtual const int getLastIndex()=0; 
+	virtual ~FrameManager() {};
 };
 
 #endif
