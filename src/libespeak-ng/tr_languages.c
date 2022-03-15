@@ -245,6 +245,7 @@ static Translator *NewTranslator(void)
 	tr->encoding = ESPEAKNG_ENCODING_ISO_8859_1;
 	dictionary_name[0] = 0;
 	tr->dictionary_name[0] = 0;
+	tr->phonemes_repeat[0] = 0;
 	tr->dict_condition = 0;
 	tr->dict_min_size = 0;
 	tr->data_dictrules = NULL; // language_1   translation rules file
