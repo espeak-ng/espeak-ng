@@ -1399,10 +1399,10 @@ static int LoadEnvelope2(FILE *f)
 		env_y[n_points] = env_y[n_points-1];
 	}
 
-	ix = -1;
+	ix = 0;
 	ix2 = 0;
 	if (n_points > 0) for (x = 0; x < ENV_LEN; x++) {
-		if (n_points > 3 && x > env_x[ix+4])
+		if (n_points > 3 && x > env_x[ix+3])
 			ix++;
 		if (n_points > 2 && x >= env_x[ix2+1])
 			ix2++;
