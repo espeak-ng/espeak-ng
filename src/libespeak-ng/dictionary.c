@@ -2049,7 +2049,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_NOVOWELS:
 				{
-					char *p = pre_ptr - letter_xbytes - 1;
+					char *p = pre_ptr - letter_xbytes;
 					while (letter_w != RULE_SPACE) {
 						if (IsLetter(tr, letter_w, LETTERGP_VOWEL2)) {
 							failed = 1;
