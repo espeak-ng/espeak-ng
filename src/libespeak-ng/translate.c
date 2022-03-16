@@ -378,9 +378,9 @@ char *strchr_w(const char *s, int c)
 // append plural suffixes depending on preceding letter
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
 {
-	char word_zz[4] = { 0, 'z', 'z', 0 };
-	char word_iz[4] = { 0, 'i', 'z', 0 };
-	char word_ss[4] = { 0, 's', 's', 0 };
+	char word_zz[4] = { ' ', 'z', 'z', 0 };
+	char word_iz[4] = { ' ', 'i', 'z', 0 };
+	char word_ss[4] = { ' ', 's', 's', 0 };
 	if (flags & FLAG_HAS_PLURAL) {
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if (last_char == 'f')
