@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: dependencies
-      run: sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown
+      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
