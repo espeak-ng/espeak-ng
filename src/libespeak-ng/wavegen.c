@@ -364,6 +364,13 @@ void WavegenInit(int rate, int wavemult_fact)
 #endif
 }
 
+void WavegenFini(void)
+{
+#ifdef INCLUDE_KLATT
+	KlattFini();
+#endif
+}
+
 int GetAmplitude(void)
 {
 	int amp;

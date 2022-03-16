@@ -2631,6 +2631,8 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 
 	fclose(f_report);
 
+	WavegenFini();
+
 	if (resample_count > 0) {
 		fprintf(f_errors, "\n%d WAV files resampled to %d Hz\n", resample_count, samplerate_native);
 		fprintf(log, "Compiled phonemes: %d errors, %d files resampled to %d Hz.\n", error_count, resample_count, samplerate_native);

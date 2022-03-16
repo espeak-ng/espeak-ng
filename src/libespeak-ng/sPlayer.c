@@ -97,9 +97,13 @@ void KlattInitSP() {
 	speechPlayerHandle=speechPlayer_initialize(22050);
 }
 
-void KlattResetSP() {
+void KlattFiniSP() {
 	speechPlayer_terminate(speechPlayerHandle);
-	speechPlayerHandle=speechPlayer_initialize(22050);
+}
+
+void KlattResetSP() {
+	KlattFiniSP();
+	KlattInitSP();
 }
 
 int Wavegen_KlattSP(WGEN_DATA *wdata, voice_t *wvoice, int length, int resume, frame_t *fr1, frame_t *fr2){
