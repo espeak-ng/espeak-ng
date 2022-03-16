@@ -23,3 +23,20 @@ jobs:
       run: make
     - name: make check
       run: make check
+
+  usan:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: dependencies
+      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown
+    - name: autoconf
+      run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+    - name: configure
+      run: CXXFLAGS="-fsanitize=undefined -g -Og" CFLAGS="-fsanitize=undefined -g -Og" ./configure
+    - name: make
+      run: UBSAN_OPTIONS="halt_on_error=1" make
+    - name: make check
+      run: UBSAN_OPTIONS="halt_on_error=1" make check
