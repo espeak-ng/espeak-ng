@@ -1,0 +1,512 @@
+
+//*******************************************************************
+// VOWELS
+//*******************************************************************
+
+
+phoneme 3
+  CALL @
+  ipa ə
+endphoneme
+
+phoneme @    //  Schwa
+  vwl   starttype #@  endtype #@
+  unstressed
+  length 130
+  IfNextVowelAppend(r-)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6)
+  ENDIF
+  FMT(vowel/@_4)
+endphoneme
+
+
+phoneme @2   //  Schwa, changes to I before a vowel
+  vwl  starttype #@  endtype #@
+  unstressed
+  length 120
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(I2)
+  ENDIF
+  FMT(vowel/@_low2)
+endphoneme
+
+
+phoneme a
+  vwl  starttype #e  endtype #@
+  ipa æ
+  length 210
+
+  ChangeIfDiminished(a#)
+
+  IF nextPh(m) OR nextPh(n) OR nextPh(g) OR nextPh(b) OR nextPh(d) OR nextPh(S) OR nextPh(f) OR nextPh(T) OR nextPh(s) THEN
+    IF NOT next2Ph(isVowel) THEN
+      ipa ɛə
+      FMT(vwl_en_us_nyc/a_raised)
+    ENDIF
+  ELSEIF nextPh(r) AND thisPh(isStressed) THEN
+    length 190
+    FMT(vwl_en_us/ar)
+  ENDIF
+  FMT(vwl_en_us_nyc/a)
+endphoneme
+
+
+phoneme aa   //   'bath' etc.
+  import_phoneme en-us-nyc/a
+endphoneme
+
+
+phoneme a#
+  vwl  starttype #@  endtype #@
+  ipa ɐ
+  unstressed
+  length 150
+
+  IF thisPh(isStressed) THEN
+    ChangePhoneme(a)
+  ENDIF
+
+  IF nextPhW(r) THEN
+    ChangePhoneme(3)
+  ENDIF
+
+  FMT(vowel/a#_3)
+endphoneme
+
+
+phoneme E
+  vwl  starttype #e  endtype #e
+  length 190
+  IF nextPhW(n) THEN
+    ChangeIfDiminished(@)
+  ELSE
+    ChangeIfDiminished(I2)
+  ENDIF
+  FMT(vwl_en_us/ee)
+endphoneme
+
+
+phoneme I
+  vwl  starttype #i endtype #i
+  length 160
+  IfNextVowelAppend(;)
+  ChangeIfDiminished(I2)
+
+  IF nextPhW(r) THEN
+    length 200
+  ENDIF
+
+  FMT(vowel/ii_4)
+endphoneme
+
+
+phoneme I2
+  vwl  starttype #i  endtype #i
+  unstressed
+  length 160
+  IfNextVowelAppend(;)
+  FMT(vowel/ii#_3)
+endphoneme
+
+
+phoneme I#
+  vwl  starttype #i  endtype #i
+  unstressed
+  length 160
+  ipa ᵻ
+//  FMT(vowel/@_fnt)
+  FMT(vowel/ii#)
+endphoneme
+
+
+phoneme I2#
+  vwl  starttype #i  endtype #i
+  unstressed
+  ChangePhoneme(I#)
+endphoneme
+
+
+phoneme 0
+  vwl  starttype #a   endtype #a
+  length 140
+  ChangeIfDiminished(@)
+  IF nextPhW(r) AND next2PhW(isVowel) THEN
+     ChangePhoneme(A:)
+  ELIF nextPh(r) THEN
+    ChangePhoneme(O:)
+  ENDIF
+  FMT(vowel/0)
+endphoneme
+
+
+phoneme 02   // becomes V in en-us
+  vwl  starttype #o  endtype #o
+  length 140
+  ChangePhoneme(V)
+endphoneme
+
+
+phoneme O2
+  vwl  starttype #o  endtype #o
+  length 220
+  IF nextPhW(r) AND next2PhW(isVowel) THEN
+     ChangePhoneme(A:)
+  ENDIF
+  FMT(vwl_en_us_nyc/0_3)
+endphoneme
+
+
+phoneme V
+  vwl  starttype #a  endtype #@
+  length 170
+  ChangeIfDiminished(@)
+  FMT(vowel/V_6)
+endphoneme
+
+
+phoneme U
+  vwl  starttype #o  endtype #o
+  length 145
+  FMT(vowel/8_2)
+endphoneme
+
+
+phoneme A:
+  vwl  starttype #a  endtype #a
+  length 220
+  IF nextPhW(r) THEN
+    FMT(vwl_en_us/aar)
+  ENDIF
+  FMT(vwl_en_us_nyc/aa_8)
+endphoneme
+
+
+phoneme A@
+  vwl  starttype #a  endtype #a
+  ipa ɑː
+  length 230
+  IfNextVowelAppend(r-)
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme A#    // [a] in British [A:] in American
+  vwl  starttype #a  endtype #a
+  ChangePhoneme(A:)
+endphoneme
+
+
+phoneme 3:
+  vwl  starttype #@  endtype #i
+  ipa əɪ
+  length 210
+  IfNextVowelAppend(r-)
+  ChangeIfDiminished(3)
+  FMT(vwl_en_us_nyc/@i)
+endphoneme
+
+
+phoneme i:
+  vwl  starttype #i  endtype #i
+  length 180
+  IfNextVowelAppend(;)
+  FMT(vowel/i_en)
+endphoneme
+
+
+phoneme O:
+  vwl  starttype #o  endtype #@
+  length 220
+  ChangeIfDiminished(@)
+  IF nextPhW(r) AND next2PhW(isVowel) THEN
+     ChangePhoneme(A:)
+  ENDIF
+  IF nextPhW(r) THEN
+    FMT(vwl_en_us/oor)
+  ENDIF
+  FMT(vwl_en_us_nyc/0_3)
+endphoneme
+
+
+phoneme O@
+  vwl  starttype #o  endtype #@
+  length 240
+  ipa ɔː
+  IfNextVowelAppend(r)
+  FMT(vowel/oo_en)
+endphoneme
+
+
+phoneme o@
+  vwl  starttype #o  endtype #o
+  length 250
+  ipa ɔː
+  IfNextVowelAppend(r)
+  FMT(vowel/oo_en)
+endphoneme
+
+
+phoneme O
+  vwl  starttype #o  endtype #o
+  length 200
+  ChangeIfDiminished(@)
+  IF nextPhW(r) AND next2PhW(isVowel) THEN
+     ChangePhoneme(A:)
+  ENDIF
+  FMT(vwl_en_us_nyc/0_3)
+endphoneme
+
+
+phoneme u:
+  vwl  starttype #u  endtype #u
+  length 190
+
+  IF prevPhW(j)  AND NOT thisPh(isWordEnd) THEN
+    length 160
+  ENDIF
+
+  FMT(vdiph2/uw_6)
+endphoneme
+
+
+phoneme aU
+  vwl  starttype #a  endtype #o
+  length 235
+  FMT(vdiph/aoo)
+endphoneme
+
+
+phoneme oU
+  vwl  starttype #@  endtype #u
+  length 230
+  FMT(vdiph/8u)
+endphoneme
+
+
+phoneme aI
+  vwl  starttype #a  endtype #i
+  length 240
+  IF nextPh(#a) OR nextPh(#o) THEN
+    AppendPhoneme(;)
+  ENDIF
+  FMT(vwl_en_us/ai)
+endphoneme
+
+
+phoneme eI
+  vwl  starttype #e  endtype #i
+  length 220
+  FMT(vdiph2/ei_4)
+endphoneme
+
+
+phoneme OI
+  vwl  starttype #o  endtype #i
+  length 270
+  FMT(vdiph/oi)
+endphoneme
+
+phoneme e@
+  vwl  starttype #e  endtype #@
+  length 230
+  IfNextVowelAppend(r-)
+  FMT(vowel/ee_1)
+endphoneme
+
+phoneme i
+  vwl  starttype #i  endtype #i
+  unstressed
+  ipa i
+  length 170
+  IfNextVowelAppend(;)
+
+  IF NOT thisPh(isFinalVowel) THEN
+    length 130
+    FMT(vowel/ii_4)
+  ENDIF
+
+  FMT(vowel/ii_final)
+endphoneme
+
+
+phoneme i@
+  vwl  starttype #i  endtype #@
+  length 250
+  FMT(vdiph2/ii@)  // don't append [r] before a vowel
+endphoneme
+
+phoneme i@3
+  vwl  starttype #i  endtype #@
+  length 250
+
+  IF MbrolaSynth THEN
+    ChangePhoneme(i@)
+  ENDIF
+
+  IfNextVowelAppend(r-)
+  FMT(vdiph2/ii@)
+endphoneme
+
+
+phoneme U@
+  vwl  starttype #u  endtype #@
+  length 200
+  IfNextVowelAppend(r-)
+  IF thisPh(isUnstressed) THEN
+    FMT(vdiph2/8@)
+  ENDIF
+  FMT(vdiph2/uu@)
+endphoneme
+
+phoneme aI@
+  vwl  starttype #a  endtype #@
+  length 300
+  ipa aɪə
+  IfNextVowelAppend(r-)
+  FMT(vwl_en_us/ai@)
+endphoneme
+
+
+phoneme aI3
+  vwl  starttype #a  endtype #@
+  length 280
+  ChangePhoneme(aI@)
+endphoneme
+
+phoneme aU@ // h**our**
+  vwl  starttype #a   endtype #@
+  length 280
+  IfNextVowelAppend(r-)
+  FMT(vwl_en/aU@)
+endphoneme
+
+
+//==============
+// Consonants
+//==============
+
+phoneme h
+  vls glt apr
+  lengthmod 3
+  ipa h
+
+  IF nextPh(j) THEN
+    ChangePhoneme(NULL) // drop "h" for "human", "huge", etc.
+  ELIF nextPh(#@) THEN
+    WAV(h/h@)
+  ELIF nextPh(#a) THEN
+    WAV(h/ha)
+  ELIF nextPh(#e) THEN
+    WAV(h/he)
+  ELIF nextPh(#i) THEN
+    WAV(h/hi)
+  ELIF nextPh(#o) THEN
+    WAV(h/ho)
+  ELIF nextPh(#u) THEN
+    WAV(h/hu)
+  ENDIF
+  WAV(h/h_, 70)  // no vowel following
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  lengthmod 2   //
+//  formants NULL
+endphoneme
+
+
+phoneme t#    // reduced [t] as in "city"
+  vcd alv stp
+  ipa ɾ
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(t)
+  ENDIF
+
+  IF KlattSynth THEN
+    IF PreVoicing THEN
+      FMT(klatt/x_tap)
+    ENDIF
+    FMT(klatt/tap2) addWav(x/d, 70)
+  ENDIF
+
+  IF PreVoicing THEN
+    FMT(d/x_tap)
+  ENDIF
+  FMT(d/tap2) addWav(x/d, 50)
+endphoneme
+
+
+phoneme t
+  vls alv stp
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPhW(isVowel) AND nextPh(isUnstressed) THEN
+    IF NOT next2PhW(n) OR nextPhW(3:) THEN
+      IF prevPhW(isVowel) THEN
+        ChangePhoneme(t#)
+      ELIF prevPhW(n) THEN
+        WAV(ustop/t_hi, 60)
+      ENDIF
+    ENDIF
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt)
+  ELIF nextPh(r) OR nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/tr)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/t_hi, 50)
+  ENDIF
+  WAV(ustop/t_dnt, 90)
+endphoneme
+
+phoneme d
+  CALL d[
+endphoneme
+
+
+phoneme t2   // [t] which doesn't reduce
+  import_phoneme  base1/t
+endphoneme
+
+phoneme ?  // glottal stp
+  vls glt stp
+  lengthmod 1   // 5? longer preceding vowel
+  nolink
+  Vowelin  glstop
+  Vowelout glstop
+  WAV(ustop/null)
+endphoneme
+
+
+phoneme l/2    // 'dark' [l] after a vowel
+  liquid
+  lengthmod 7
+
+  CALL vowelstart_l
+
+  IF prevPhW(j) THEN
+    FMT(l/L2_eL)
+  ENDIF
+  IF prevPhW(w) THEN
+    FMT(l/L2_uL)
+  ENDIF
+
+  PrevVowelEndings
+    VowelEnding(l/L2_@L, -60)
+    VowelEnding(l/L2_aL, -50)
+    VowelEnding(l/L2_eL, -40)
+    VowelEnding(l/L2_iL, -30)
+    VowelEnding(l/L2_oL, -50)
+    VowelEnding(l/L2_uL, -40)
+  EndSwitch
+endphoneme
