@@ -35,8 +35,8 @@ jobs:
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
-      run: CXXFLAGS="-fsanitize=undefined -g -Og" CFLAGS="-fsanitize=undefined -g -Og" ./configure
+      run: CXXFLAGS="-fsanitize=address -g -Og" CFLAGS="-fsanitize=address -g -Og" ./configure
     - name: make
-      run: UBSAN_OPTIONS="halt_on_error=1" make
+      run: ASAN_OPTIONS="detect_leaks=0 new_delete_type_mismatch=0" make
     - name: make check
-      run: UBSAN_OPTIONS="halt_on_error=1" make check
+      run: ASAN_OPTIONS="detect_leaks=0 new_delete_type_mismatch=0" make check
