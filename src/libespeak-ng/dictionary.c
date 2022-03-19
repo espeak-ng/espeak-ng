@@ -378,8 +378,8 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 				}
 				*outptr = 0;
 				if (c == 0) {
-					if (strcmp(p_lang, "en") == 0) {
-						*p_lang = 0; // don't need "en", it's assumed by default
+					if (strcmp(p_lang, ESPEAKNG_DEFAULT_VOICE) == 0) {
+						*p_lang = 0; // don't need ESPEAKNG_DEFAULT_VOICE, it's assumed by default
 						return p;
 					}
 				} else
@@ -693,7 +693,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 	 */
 	char *p; // group counter
 	char *w; // word counter
-	int len = 0;
+	int len = 0, i;
 
 	p = tr->letterGroups[group];
 	if (p == NULL)
@@ -702,7 +702,14 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 	while (*p != RULE_GROUP_END) {
 		if (pre) {
 			len = strlen(p);
-			w = word - len + 1;
+			w = word;
+			for (i = 0; i < len-1; i++)
+			{
+				w--;
+				if (*w == 0)
+					// Not found
+					return -1;
+			}
 		} else
 			w = word;
 
@@ -2049,7 +2056,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_NOVOWELS:
 				{
-					char *p = pre_ptr - letter_xbytes - 1;
+					char *p = pre_ptr - letter_xbytes;
 					while (letter_w != RULE_SPACE) {
 						if (IsLetter(tr, letter_w, LETTERGP_VOWEL2)) {
 							failed = 1;

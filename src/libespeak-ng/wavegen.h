@@ -60,6 +60,8 @@ void SetPitch2(voice_t *voice,
 void WavegenInit(int rate,
 		int wavemult_fact);
 
+void WavegenFini(void);
+
 
 int WavegenFill(void);
 void WavegenSetVoice(voice_t *v);

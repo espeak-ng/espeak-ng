@@ -253,7 +253,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 
 	if ((only == 0) && ((phonemes[0] == 0) || (phonemes[0] == phonSWITCH)) && (tr->translator_name != L('e', 'n'))) {
 		// not found, try English
-		SetTranslator2("en");
+		SetTranslator2(ESPEAKNG_DEFAULT_VOICE);
 		string = &single_letter[1];
 		single_letter[1] = '_';
 		if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL) == 0) {
@@ -261,7 +261,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 			LookupDictList(translator2, &string, phonemes, flags, 0, NULL);
 		}
 		if (phonemes[0])
-			lang_name = "en";
+			lang_name = ESPEAKNG_DEFAULT_VOICE;
 		else
 			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 	}
@@ -270,7 +270,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		if (lang_name) {
 			SetWordStress(translator2, phonemes, flags, -1, 0);
 			DecodePhonemes(phonemes, phonemes2);
-			sprintf(buf, "[\002_^_%s %s _^_%s]]", "en", phonemes2, WordToString2(tr->translator_name));
+			sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(tr->translator_name));
 			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 		} else {
 			SetWordStress(tr, phonemes, flags, -1, 0);

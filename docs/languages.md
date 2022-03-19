@@ -1,6 +1,6 @@
 # Languages
 
-Development version of eSpeak NG supports 126 languages and accents,
+Development version of eSpeak NG supports 127 languages and accents,
 which are listed in table below.
 
 To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
@@ -16,9 +16,10 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `ine`       | `hyw`             | Indo-European         | Armenian                    | West Armenian          |
 | `inc`       | `as`              | Indic                 | Assamese                    |                        |
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
-| `trk`       | `ba`              |                       | Bashkir                     |                        |
+| `trk`       | `ba`              | Turkic                | Bashkir                     |                        |
 | `trk`       | `cu`              | Turkic                | Chuvash                     |                        |
 |             | `eu`              |                       | Basque                      |                        |
+| `zle`       | `be`              | East Slavic           | Belarussian                 |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
 | `inc`       | `bpy`             | Indic                 | Bishnupriya Manipuri        |                        |
 | `zls`       | `bs`              | South Slavic          | Bosnian<sup>\[1,2\]</sup>   |                        |
@@ -67,7 +68,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `art`       | `io`              | Constructed           | Ido                         |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
-| `jpx`       | `ja`              | Japanese              | Japanese<sup>\[3\]</sup>    |                        |
+| `jpx`       | `ja`              | Japanese              | Japanese<sup>\[4\]</sup>    |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
@@ -75,6 +76,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `trk`       | `kk`              | Turkic                | Kazakh                      |                        |
 | `trk`       | `ky`              | Turkic                | Kyrgyz                      |                        |
 | `itc`       | `la`              | Italic                | Latin                       |                        |
+| `gmw`       | `lb`              | West Germanic         | Luxembourgish               |                        |
 | `bat`       | `ltg`             | Baltic                | Latgalian                   |                        |
 | `bat`       | `lv`              | Baltic                | Latvian                     |                        |
 | `art`       | `lfn`             | Constructed           | Lingua Franca Nova<sup>\[1,2\]</sup> |               |

@@ -49,7 +49,7 @@ static double read_double(FILE *stream)
 {
 	unsigned char bytes[10];
 	fread(bytes, sizeof(char), 10, stream);
-	return ConvertFromIeeeExtended((char *)bytes);
+	return ieee_extended_to_double(bytes);
 }
 
 float polint(float xa[], float ya[], int n, float x)
@@ -60,24 +60,24 @@ float polint(float xa[], float ya[], int n, float x)
 	float y; // result
 	float c[9], d[9];
 
-	dif = fabs(x-xa[1]);
+	dif = fabs(x-xa[0]);
 
 	for (i = 1; i <= n; i++) {
-		if ((dift = fabs(x-xa[i])) < dif) {
+		if ((dift = fabs(x-xa[i-1])) < dif) {
 			ns = i;
 			dif = dift;
 		}
-		c[i] = ya[i];
-		d[i] = ya[i];
+		c[i] = ya[i-1];
+		d[i] = ya[i-1];
 	}
-	y = ya[ns--];
+	y = ya[--ns];
 	for (m = 1; m < n; m++) {
 		for (i = 1; i <= n-m; i++) {
-			ho = xa[i]-x;
-			hp = xa[i+m]-x;
+			ho = xa[i-1]-x;
+			hp = xa[i+m-1]-x;
 			w = c[i+1]-d[i];
 			if ((den = ho-hp) == 0.0)
-				return ya[2]; // two input xa are identical
+				return ya[1]; // two input xa are identical
 			den = w/den;
 			d[i] = hp*den;
 			c[i] = ho*den;

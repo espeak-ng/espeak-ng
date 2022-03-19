@@ -1,0 +1,341 @@
+﻿// espeak-ng
+// Lëtzebuergesch
+// lb_rules
+// created by Marco Barnig  (mbarnig@pt.lu)
+// First version 15.9.2018
+// Last update : 8.11.2021
+// 
+// References :
+// Peter Gilles; Jürgen Trouvain
+// International Journal of the IPA
+//
+// Wikipedia
+//
+// https://infolux.uni.lu
+// https://github.com/PeterGilles/Luxembourgish-language-resources
+// https://lod.lu
+// https://ortho.lod.lu
+// https://en.wikipedia.org/wiki/Luxembourgish
+// https://en.wikipedia.org/wiki/Luxembourgish_phonology
+// https://en.wikipedia.org/wiki/Help:IPA/Luxembourgish
+//
+//=========================================================
+// Lëtzebuergesch
+//=========================================================
+//
+// Vokaler
+// lëtzebuergesch Vokal Buchstawen : a, ä, e, é, ë, i, o, u, y
+// zousätzlech deitsch Vokal Buchstawen : ö, ü
+// zousätzlech franséisch Vokal Buchstawen : à, â, è, ê, ï, ô, û
+// Vokal Phonemen IPA :         ɑ, aː, ɛː, e, æ, eː,  ə,  ɐ, i, iː,  o, oː, u, uː, y:,  ãː, ɛ̃ː, õː, œː 
+// Vokal Phonemen-ID's eSpeak : A, aA, aE, e, E, eE, @E, eR, I, iI, O, oO, U, uU, UE, eA, iA, oA, OU
+
+// lëtzebuergesch Vokalkoppel Buchstawen : ai, au, äi, ei, eu, éi, ie, ou, ue
+// Vokalkoppel Phonemen IPA :        æːɪ, ɑʊ, æːʊ, ɑɪ, ɜɪ, oɪ, iə, əʊ, uə     
+// Vokalkoppel Phonemen-ID's eSpeak : aI, aU,  AU, eI, OI, eU, iE, oU, uE 
+// Total : 30 phonemes
+
+.group a
+           a     a          // a : IPA ɑ
+	_) an (_  an	     // an : IPA ɑn
+	_) af (_  a:f         // Af ; IPA aː
+	C) a (C_  a:         // Kap  : IPA aː
+	   a  (CC a          // Kapp, blann  : IPA ɑ
+	   a  (CA a:         // Fabel  IPA : aː
+	   age    arR@E
+	   aller  al@Er
+	   awer   a:v@Er
+
+.group aa
+	   aa	   a:        // aacht, naass  : IPA aː
+	   aach    a:x
+
+.group ai
+	   ai      eI        // daierlech  : IPA ɑɪ
+	  
+.group au
+	   au      aU         // raumen, Auto : IPA ɑʊ
+	   
+.group ä
+	   ä	 aE           // Kären : IPA ɛː
+	   ä (CC e            // Männer, Käpp  : IPA æ
+	   äi	 aI           // Zäit, wäiss, räich : IPA : æːɪ 
+	   är    aEeR	      // Stär  :IPA ɛːɐ
+	   äer   aEeR	      // Päerd  : IPA ɛːɐ
+
+.group e
+           e    @E            // e : IPA ə
+	C) e (C  e:           // Meter  : IPA eː
+	   er 	 eR           // Kanner, Auer : IPA ɐ
+           ech  @EX          // ech  : IPA əɕ
+        C) ech  EX
+
+.group ee
+	   ee	  e:           // Keess : IPA eː
+	   eens   e:ns         // eens I IPA eːns
+	   eech   e:X
+
+.group ei 
+           ei	  eI           // Leit, Weis, deier : IPA ɑɪ
+
+.group eu
+	   eu     eU           // Euro : IPA oɪ 
+
+.group é
+	   é     E            // Méck, drécken : IPA e
+	   ée    e:           // Arrivée : IPA eː
+	   éi	 OI           // schéin, fréi : IPA ɜɪ
+	   
+.group ë
+	_) ë     oE           // ëffentlech  : IPA ø
+	   ë     @E	       // hëllefen : IPA ə
+
+.group i
+           i     i            // i : IPA i
+        _) i (_  i:           // Buchstaw i
+	C) i (C  i:            // riseg, siwen : IPA iː
+	C) i (CC i             // midd, Hiwwel  : IPA i
+	   ir    i:eR	       // Stir :  IPA iːR
+	   ier   ieR	       // Biergem  : IPA iːR
+	   iich  i:X
+	   issen is@En
+	 
+.group ii
+	   ii	 i:            // liicht  : IPA iː
+	   
+.group io
+	   iou  ioU            // Okkasioun : IPA iəʊ
+	   
+.group ie
+	   ie    iE            // Wieder, hien : IPA iə
+
+.group o
+           o    o             // o : IPA o
+        _) o (_ o:            // Buchstaw o
+           o (_ o:            // Auto : IPA oː
+	   o (C  o:           // Schof, droleg  : IPA oː
+	   o (CC o            // Loft, Sonn  : IPA o
+	   
+.group oo
+	   oo	  o:           // Sprooch  : IPA  oː
+	   ooch   o:x
+	   
+.group ou
+	   ou	  oU           // Schoul, Okkasioun  : IPA əʊ
+	   
+.group oy
+	   oy     eU           // boy  : IPA oɪ
+
+.group u
+            u    u             // u : IPA u
+         _) u (_ u:            // Buchstaw u
+	    u (C  u:            // Tut, Bur : IPA uː
+	    u (CC u             // gutt  : IPA u
+	    um    um            // um  : IPA um
+	    uge   u:rR@E
+	   
+.group uu
+	   uu	 u:            // Duuscht, Luucht : IPA uː	
+	   uuch  u:x   	   
+	   
+.group ue
+	   ue	 uE            // Buedem, Wued  : IPA uə
+
+.group y 
+	   y    i 		// Syntheess  : IPA i
+	_) y (_ ipzilon	// Buchstaw y
+	_) y    J              // Yoga  : IPA ʒ
+	   y (_ i:             // Baby  : IPA iː
+
+.group
+	   ö    OU             // lösen, blöd, können : IPA œː
+	   ü    y:             // Süden, für  : IPA y:
+	   è    e:             // IPA eː
+	   à    a:	        // IPA aː
+	   â    a:		// IPA aː
+	   ê    e:		// IPA ɛː
+	   ô    o:		// IPA oː
+	   û    u:		// IPA uː
+
+
+// Konsonanten : Total 27 phonemes
+// lëtzebuergesch Konsonanten Buchstawen : b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, z
+// lëtzebuergesch Konsonanten IPA Phonemen :         b, c, d, f, g, h, j, k, l, m, n, ŋ, p, R, s, t, v, w, z, ʒ, ʁ, ʑ, ʦ,  ʃ, dʒ, X, ɕ
+// lëtzebuergesch Konsonanten Phonemen-ID's eSpeak : b, c, d, f, g, h, j, k, l, m, n, N, p, r, s, t, v, w, z, J, rR, Z, TS, S, dZ, x, X
+// 
+//// Nasal Buchstawen : m, n
+// Nasal Phonemen : m, n, ŋ
+
+.group m
+	_) m (_  em		   // Buchstaw m
+	   m	 m                // Ham  : IPA m
+	   mm	 m                // Mamm : IPA m
+	   mat   mat
+	   mir   mir
+
+.group n
+	_) n (_  en		   // Buchstaw n
+	   n	n                 // Nues : IPA n
+	   nen  n@En		   // ..nen : IPA nən
+	   nnen n@En
+	   nn 	n                 // Mann : IPA n
+	   ng	N                 // keng : IPA ŋ
+	   nk	N		   // IPA : ŋ
+
+// Plosiv Buchstawen : p, b, t, d, k, g, q, x
+// Plosiv Phonemen : p, b, t, d, k, g, ʒ, ʁ, X
+.group p
+	_) p (_  pe:		   // Buchstaw p
+	   p	p                 // paken : IPA p
+	   pp	p                 // Papp  : IPA p
+	   pen  pEn
+
+.group b
+	_) b (_  be:		   // Buchstaw b
+	   b	b                 // baken  : IPA b
+	   bb	b                 // labber : IPA b
+
+.group t
+	_) t (_  te:		   // Buchstaw t
+	   t	t                 // Téi    : IPA t
+	   tt	t                 // Blutt  : IPA t
+	   tel  t@El
+	   tten t@En
+
+.group d
+	_) d (_  de:		   // Buchstaw d
+	   d	 d                 // Däiwel  : IPA d
+	   dd	 d                 // Brudder : IPA d
+	C) d     t                 // Nord, Wand : IPA t
+	   den   d@En              // den : IPA dən
+	   dden  d@En
+	   der   deR		    // der : IPA dɐ
+	   derer d@EreR             // Wanderer : 
+
+.group k
+	_) k (_  ka:		   // Buchstaw k
+	   k     k                 // Keess  : IPA k
+	   kk    k                 // Okkasioun : IPA k
+	   ks    ks      
+        
+
+// De Buchstaw g huet siwen verschidden Aussproochen !
+
+.L01 e i y
+	
+.group g
+	_) g (_  ge:		   // Buchstaw g
+        A) g  (_   k               // Drog  : IPA k
+           g  (L01 J               // Spigel : IPA ʒ
+	a) g  (_   x		    // Dag  : IPA X
+	u) g  (_   x		    // Dug  : IPA X
+	   ge (_   S		    // Plage : IPA ʃ
+        u) g  (e   rR              // Kugel, Jugend  : IPA ʁ
+	a) g  (e   rR		    // Lager : IPA ʁ
+	   g	   g               // Gees, goen, Drogen, Negatioun  : IPA g
+	   ge (C   g@E
+	   gin     gin
+
+.group q
+	_) q (_  ku:		    // Buchstaw q
+	_) qu    kw                // Quell : IPA kw
+	   q     k                 
+
+.group x
+	_) x (_  ikz		   // Buchstaw x
+	   x	 ks                // Box : IPA ks
+	
+
+// Frikativ Buchstawen : f, v, s, z, h, c
+// zousätzlech deitsch Buchstawen : ß
+// zousätzlech franséisch Buchstawen : ç
+// Frikativ Phonemen : f, v, s, z, ʦ, h, ʃ, dʒ, χ
+
+.group f
+	_) f (_  ef		   // Buchstaw f
+	   f	 f                 // Fësch  : IPA f
+	   ff	 f                 // Peffer : IPA f
+	   fir   fieR              // fir  : IPA fiɐ
+	   fen   f@En
+
+.group v
+	_) v (_  faU		   // Buchstaw v
+	   v	  v               // Vakanz  : IPA v
+	   vun   fun
+
+.group s
+	_) s (_  ez		   // Buchstaw s
+	   s	z                 // Tasen, Summer  : IPA z
+	   ss	s                 // Taass  : IPA s
+	   sch  S                 // schéin : IPA ʃ
+	   setz zETS
+	   sen  s@En
+	  
+.group st 
+        _) st (A  S              // staark  : IPA ʃt
+           str    Sr             // stramm : IPA ʃr
+
+.group ß
+	_) ß (_  eszet		   // Buchstaw ß
+	   ß    s  		   // IPA s
+
+.group z
+	_) z (_  zet		   // Buchstaw z
+	   z	TS                // Zuch, schwätzen : IPA ʦ
+	   ze   TS@E
+
+.group h
+	_) h (_  ha:		   // Buchstaw h
+	   h	 h                 // hei, haut  : IPA h
+
+.group c
+	_) c (_  ze:		   // Buchstaw c
+	   c	 k                 // Coca Cola  : IPA k
+
+.group ç
+	   ç    s                 // François  : IPA s
+
+.group ce
+	   ce	s                 // Glace  : IPA s
+
+.group ch
+        i) ch	S                 // liicht  : IPA ʃ
+        a) ch	x                 // aacht   : IPA X 
+        u) ch	x                 // Kuch    : IPA X  
+
+.group ck
+	   ck	k                 // kucken : IPA k
+	   ckelt  k@Elt 
+
+.group w
+	_) w (_  ve:		   // Buchstaw fw
+	   w	v                 // wëschen, Hiwwel  : IPA v
+	   ww   v		   // Hiwwel  : IPA v
+	   wwert  iv@Ert                
+
+	
+// Approximant Buchstawen : j, l
+// Approximant Phonemen : j, ʒ, l
+
+.group j
+	_) j (_  jot		   // Buchstaw j
+	   j	j                // Juli, jäizen : IPA j
+        i) j	J                // héijen  : IPA ʒ
+  
+
+.group l
+	_) l (_  el		   // Buchstaw l
+	   log   lo:x
+	   loge  lo:rR@E
+	   lag   la:x
+	   lage  la:rR@E
+	   l	l                // Loft  : IPA l
+	   ll	l                // kill  : IPA l
+
+// Trill Buchstaw : r
+// Trill Phonem : r
+
+.group r
+	_) r (_  er		  // Buchstaw r
+	   r	r   		  // Rou  : IPA R
+	   rr	r  		  // Arrivée  : IPA R

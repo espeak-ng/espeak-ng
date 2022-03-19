@@ -23,6 +23,7 @@ The espeak-ng project is a fork of the espeak project.
    Use cmn-latn-pinyin for interpreting latin characters as pinyin
 *  Update list of voice varants for Android application
 *  Add Chromium extension (guest271314)
+*  Replace `ieee80.c` by a free software implementation (Ulrich Müller)
 
 bug fixes:
 *  Fix reading malformed SSML (Christopher Brannon)
@@ -35,10 +36,12 @@ documentation:
 * Add documentation about dictionary flags.
 
 updated languages:
+*  ar (Arabic) -- king-dahmanus
 *  ba (Bashkir) -- boracasli98, Valdis Vitolins, Juho Hiltunen
 *  de (German) -- Karl Eick, Henry Krumb
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
+*  eo (Esperanto) -- AlsoScratch
 *  eu (Basque) -- agonzalezd
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  ga (Gaelic (Irish)) Chen, Chien-ting
@@ -56,18 +59,22 @@ updated languages:
 *  jbo (Lojban) -- Juho Hiltunen, xunsku
 *  lv (Latvian) -- Valdis Vitolins
 *  mi (Māori) -- boracasli98
+*  py (Pyash) -- Andrii Logan Zvorygin
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98, SeanTolstoyevski
 *  ur (Urdu) -- Ejaz Shah
-*  uz (Uzbek) -- boracasli98, Valdis Vitolins
+*  uz (Uzbek) -- boracasli98, Valdis Vitolins, Andiv06
 *  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
 
 new languages:
+*  be (Belarusian) -- Sergei B
 *  chr (Cherokee) -- Michael Conrad
 *  cv (Chuvash) -- boracasli98, Valdis Vitolins
+*  en-us-nyc (English, New York City) -- Richard Calvi
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
 *  io (Ido) -- José Miguel López, Valdis Vitolins
+*  lb (Luxembourgish) -- Marco Barnig, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
 *  piqd (Klingon) -- Valdis Vitolins
@@ -122,7 +129,7 @@ new languages:
 *  ba (Bashkir) -- tc-dl, Valdis Vitolins
 *  hak (Hakka Chinese) -- Chen Chien-ting
 *  ht (Haitian Creole) -- Valdis Vitolins
-*  kk (Kazakh) -- boracasli14, Valdis Vitolins
+*  kk (Kazakh) -- boracasli14, Valdis Vitolins, Andiv06
 *  py (Pyash) -- Logan Streondj
 *  quc (K'iche') -- Valdis Vitolins
 *  ru-lv (Russian Latvia) -- Valdis Vitolins

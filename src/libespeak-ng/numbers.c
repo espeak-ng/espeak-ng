@@ -500,7 +500,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 		if (tr->translator_name == L('e', 'n'))
 			return; // we are already using English
 
-		SetTranslator2("en");
+		SetTranslator2(ESPEAKNG_DEFAULT_VOICE);
 		if (Lookup(translator2, &single_letter[2], ph_buf3) != 0) {
 			// yes, switch to English and re-translate the word
 			sprintf(ph_buf1, "%c", phonSWITCH);
@@ -719,7 +719,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 				// don't say "superscript" during normal text reading
 				Lookup(tr, modifier, capital);
 				if (capital[0] == 0) {
-					capital[2] = SetTranslator2("en"); // overwrites previous contents of translator2
+					capital[2] = SetTranslator2(ESPEAKNG_DEFAULT_VOICE); // overwrites previous contents of translator2
 					Lookup(translator2, modifier, &capital[3]);
 					if (capital[3] != 0) {
 						capital[0] = phonPAUSE;
@@ -763,7 +763,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 				ph_buf2[0] = 0;
 				if (Lookup(translator, alphabet->name, ph_alphabet) == 0) { // the original language for the current voice
 					// Can't find the local name for this alphabet, use the English name
-					ph_alphabet[2] = SetTranslator2("en"); // overwrites previous contents of translator2
+					ph_alphabet[2] = SetTranslator2(ESPEAKNG_DEFAULT_VOICE); // overwrites previous contents of translator2
 					Lookup(translator2, alphabet->name, ph_buf2);
 				} else if (translator != tr) {
 					phontab_1 = tr->phoneme_tab_ix;

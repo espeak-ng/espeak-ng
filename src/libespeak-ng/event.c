@@ -161,7 +161,6 @@ static void event_notify(espeak_EVENT *event)
 				events[0].type = espeakEVENT_SENTENCE;
 				my_callback(NULL, 0, events);
 				events[0].type = a_new_type;
-				usleep(50000);
 			}
 			my_callback(NULL, 0, events);
 			a_old_uid = event->unique_identifier;
