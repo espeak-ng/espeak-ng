@@ -256,6 +256,14 @@ static Translator *NewTranslator(void)
 	tr->transpose_map = transpose_map_latin;
 	tr->frequent_pairs = NULL;
 
+	tr->expect_verb = 0;
+	tr->expect_past = 0;
+	tr->expect_verb_s = 0;
+	tr->expect_noun = 0;
+
+	tr->clause_upper_count = 0;
+	tr->clause_lower_count = 0;
+
 	// only need lower case
 	tr->letter_bits_offset = 0;
 	memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
