@@ -1816,6 +1816,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_DOLLAR:
+					post_ptr--;
 					command = *rule++;
 					if (command == DOLLAR_UNPR)
 						match.end_type = SUFX_UNPRON; // $unpron
@@ -1912,9 +1913,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				}
 					break;
 				case RULE_INC_SCORE:
+					post_ptr--;
 					add_points = 20; // force an increase in points
 					break;
 				case RULE_DEC_SCORE:
+					post_ptr--;
 					add_points = -20; // force an decrease in points
 					break;
 				case RULE_DEL_FWD:
@@ -1943,8 +1946,10 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				case RULE_NO_SUFFIX:
 					if (word_flags & FLAG_SUFFIX_REMOVED)
 						failed = 1; // a suffix has been removed
-					else
+					else {
+						post_ptr--;
 						add_points = 1;
+					}
 					break;
 				default:
 					if (letter == rb) {
@@ -2024,6 +2029,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_DOLLAR:
+					pre_ptr++;
 					command = *rule++;
 					if ((command == DOLLAR_LIST) || ((command & 0xf0) == 0x20)) {
 						// $list or $p_alt
@@ -2055,6 +2061,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_STRESSED:
+					pre_ptr++;
 					if (tr->word_stressed_count > 0)
 						add_points = 19;
 					else
@@ -2075,12 +2082,14 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				}
 					break;
 				case RULE_IFVERB:
+					pre_ptr++;
 					if (tr->expect_verb)
 						add_points = 1;
 					else
 						failed = 1;
 					break;
 				case RULE_CAPITAL:
+					pre_ptr++;
 					if (word_flags & FLAG_FIRST_UPPER)
 						add_points = 1;
 					else
