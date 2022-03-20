@@ -540,7 +540,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	char language_name[40];
 	char translator_name[40];
 	char new_dictionary[40];
-	char phonemes_name[40];
+	char phonemes_name[40] = "";
 	const char *language_type;
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
