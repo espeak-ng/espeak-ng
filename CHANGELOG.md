@@ -38,6 +38,7 @@ documentation:
 updated languages:
 *  ar (Arabic) -- king-dahmanus
 *  ba (Bashkir) -- boracasli98, Valdis Vitolins, Juho Hiltunen
+*  cmn (Mandarin) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
 *  de (German) -- Karl Eick, Henry Krumb
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
@@ -65,7 +66,6 @@ updated languages:
 *  ur (Urdu) -- Ejaz Shah
 *  uz (Uzbek) -- boracasli98, Valdis Vitolins, Andiv06
 *  yue (Cantonese) -- Andiv06
-*  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
 
 new languages:
 *  be (Belarusian) -- Sergei B
