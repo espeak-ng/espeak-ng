@@ -95,7 +95,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 		if ((p = strstr(buf, "//")) != NULL)
 			*p = 0; // truncate line at comment
 
-		if (memcmp(buf, "volume", 6) == 0) {
+               if (strncmp(buf, "volume", 6) == 0) {
 			mbrola_ctrl = atoi(&buf[6]);
 			continue;
 		}

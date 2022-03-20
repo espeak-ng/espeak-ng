@@ -2672,7 +2672,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 					}
 				}
 
-				if (memcmp(word2, p, n_chars) != 0)
+				if (strncmp(word2, p, n_chars) != 0)
 					condition_failed = 1;
 
 				if (condition_failed) {

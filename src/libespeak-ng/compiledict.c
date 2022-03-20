@@ -921,7 +921,7 @@ static void copy_rule_string(char *string, int *state_out)
 					mr = mnem_rules;
 					while (mr->mnem != NULL) {
 						len = strlen(mr->mnem);
-						if (memcmp(p, mr->mnem, len) == 0) {
+						if (strncmp(p, mr->mnem, len) == 0) {
 							value = mr->value;
 							p += len;
 							break;
