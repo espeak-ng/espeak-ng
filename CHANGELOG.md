@@ -64,6 +64,7 @@ updated languages:
 *  tr (Turkish) -- boracasli98, SeanTolstoyevski
 *  ur (Urdu) -- Ejaz Shah
 *  uz (Uzbek) -- boracasli98, Valdis Vitolins, Andiv06
+*  yue (Cantonese) -- Andiv06
 *  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
 
 new languages:
