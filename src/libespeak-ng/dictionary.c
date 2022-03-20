@@ -2666,7 +2666,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				// don't use the contraction if any of the words are emphasized
 				//  or has an embedded command, such as MARK
 				if (wtab != NULL) {
-					for (ix = 0; ix <= skipwords; ix++) {
+					for (ix = 0; ix <= skipwords && wtab[ix].length; ix++) {
 						if (wtab[ix].flags & FLAG_EMPHASIZED2)
 							condition_failed = 1;
 					}
