@@ -23,6 +23,7 @@ class SpeechWaveGenerator: public WaveGenerator {
 	public:
 	static SpeechWaveGenerator* create(int sampleRate); 
 	virtual void setFrameManager(FrameManager* frameManager)=0;
+	virtual ~SpeechWaveGenerator() {};
 };
 
 #endif
