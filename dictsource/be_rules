@@ -23,7 +23,7 @@
        ё       ;O    // ʲɔ
 
 .group ж
-       ж       z.    // ʐ
+       ж       z.   
 
 .group з
        з       z
@@ -74,14 +74,13 @@
        х       x
 
 .group ц
-       ц       ts    // t̻͡s
+       ц       ts    
 
 .group ч
-       ч       ts.   // ʈ͡ʂ
+       ч       ts.  
 
 .group ш
-       ш       s.    // ʂ
-
+       ш       s.  
 .group ы
        ы       i"    // (ɨ
 
