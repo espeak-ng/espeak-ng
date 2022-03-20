@@ -1963,6 +1963,12 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				if (distance_left > 18)
 					distance_left = 19;
 
+				if (!*pre_ptr) {
+					// we had already reached the beginning of text!
+					// reading before this does not make sense, that cannot match
+					failed = 1;
+					break;
+				}
 				utf8_in(&last_letter_w, pre_ptr);
 				pre_ptr--;
 				letter_xbytes = utf8_in2(&letter_w, pre_ptr, 1)-1;
