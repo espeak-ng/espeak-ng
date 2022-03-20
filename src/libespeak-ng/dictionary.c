@@ -1758,6 +1758,12 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				if (distance_right > 18)
 					distance_right = 19;
 				last_letter_w = letter_w;
+				if (!post_ptr[-1]) {
+					// we had already reached the end of text!
+					// reading after that does not make sense, that cannot match
+					failed = 1;
+					break;
+				}
 				letter_xbytes = utf8_in(&letter_w, post_ptr)-1;
 				letter = *post_ptr++;
 
