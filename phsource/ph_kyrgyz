@@ -445,8 +445,7 @@ phoneme b
   FMT(b/b) addWav(x/b)
 endphoneme
 
-phoneme ts
-  ipa ts        
+phoneme ts     
   import_phoneme consonants/ts
 endphoneme
 
