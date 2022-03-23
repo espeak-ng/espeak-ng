@@ -1810,9 +1810,10 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_DOUBLE:
-					if (letter_w == last_letter_w)
+					if (letter_w == last_letter_w) {
 						add_points = (21-distance_right);
-					else
+						post_ptr += letter_xbytes;
+					} else
 						failed = 1;
 					break;
 				case RULE_DOLLAR:
@@ -2004,9 +2005,10 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_DOUBLE:
-					if (letter_w == last_letter_w)
+					if (letter_w == last_letter_w) {
 						add_points = (21-distance_left);
-					else
+						pre_ptr -= letter_xbytes;
+					} else
 						failed = 1;
 					break;
 				case RULE_DIGIT:
