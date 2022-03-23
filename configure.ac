@@ -49,15 +49,15 @@ AC_ARG_WITH([async],
     [])
 
 AC_ARG_WITH([extdict-ru],
-    [AS_HELP_STRING([--with-extdict-ru], [use the extended Russian Dictionary file @<:@default=no@:>@])],
+    [AS_HELP_STRING([--with-extdict-ru], [use the extended Russian Dictionary file @<:@default=yes@:>@])],
     [])
 
 AC_ARG_WITH([extdict-cmn],
-    [AS_HELP_STRING([--with-extdict-cmn], [use the extended Mandarin Chinese Dictionary file @<:@default=no@:>@])],
+    [AS_HELP_STRING([--with-extdict-cmn], [use the extended Mandarin Chinese Dictionary file @<:@default=yes@:>@])],
     [])
 
 AC_ARG_WITH([extdict-yue],
-    [AS_HELP_STRING([--with-extdict-yue], [use the extended Cantonese Chinese Dictionary file @<:@default=no@:>@])],
+    [AS_HELP_STRING([--with-extdict-yue], [use the extended Cantonese Chinese Dictionary file @<:@default=yes@:>@])],
     [])
 
 AC_ARG_WITH([libfuzzer],
@@ -275,22 +275,22 @@ dnl ================================================================
 dnl Extended dictionary checks.
 dnl ================================================================
 
-if test "$with_extdict_ru" = "yes" ; then
-	have_extdict_ru=yes
-else
+if test "$with_extdict_ru" = "no" ; then
 	have_extdict_ru=no
+else
+	have_extdict_ru=yes
 fi
 
-if test "$with_extdict_cmn" = "yes" ; then
-	have_extdict_cmn=yes
-else
+if test "$with_extdict_cmn" = "no" ; then
 	have_extdict_cmn=no
+else
+	have_extdict_cmn=yes
 fi
 
-if test "$with_extdict_yue" = "yes" ; then
-	have_extdict_yue=yes
-else
+if test "$with_extdict_yue" = "no" ; then
 	have_extdict_yue=no
+else
+	have_extdict_yue=yes
 fi
 
 AM_CONDITIONAL(HAVE_RU_EXTENDED_DICTIONARY,  [test x"$have_extdict_ru"  = xyes])
