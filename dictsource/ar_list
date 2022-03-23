@@ -133,57 +133,57 @@ _
 ةً       tan                         $atend
 
 // numeric
-_0      s[-'ifR
+_0      s[-'IfR
 _1      w'a:Hid
 _2      ?iTn'a:n
 _3      Tal'a:Ta
-_4      ?'aRbaA-a
+_4      ?'aRba?a
 _5      x'amsa
 _6      s'it:a
-_7      s'abA-a
+_7      s'ab?a
 _8      Tam'a:nija
-_9      t'isA-a
-_10     'A-aSara
-_11     ?'aHada||A-aSaR
-_12     ?'iTn'a:||A-aSaR
-_13     Tal'a:Tata||A-aSaR
-_14     ?arb'aA-ata||A-aSaR
-_15     x'amsata||A-aSaR
-_16     s'it:ata||A-aSaR
-_17     s'abA-ata||A-aSaR
-_18     Tama:n'ijata||A-aSaR
-_19     t'isA-ata||A-aSaR
-_2X     AiSR'u:n
+_9      t'is?a
+_10     '?aS?ra
+_11     ?'aHada||?aSaR
+_12     ?'iTn'a:||?aSaR
+_13     Tal'a:Tata||?aSaR
+_14     ?arb'aA-ata||?aSaR
+_15     x'amsata||?aSaR
+_16     s'it:ata||?aSaR
+_17     s'ab?ata||?aSaR
+_18     Tama:n'ijata||?aSaR
+_19     t'is?ata||?aSaR
+_2X     ?aSR'u:n
 _3X     Tala:T'u:n
-_4X     ?aRbaA-'u:n
+_4X     ?aRba?'u:n
 _5X     xams'u:n
 _6X     sit:'u:n
-_7X     sabA-'u:n
+_7X     sab?'u:n
 _8X     Tama:n'u:n
-_9X     tisA-'u:n
+_9X     tis?'u:n
 
 _0C     m'i?a
 _1C     m'i?a
 _2C     mi?at'a:n
 _3C     Tal'a:Tumi?a
-_4C     ?'arbaA-umi?a
+_4C     ?'arba?umi?a
 _5C     x'amsumi?a
 _6C     s'it:umi?a
-_7C     s'abA-umi?a
+_7C     s'ab?aumi?a
 _8C     Tam'a:numi?a
-_9C     t'isA-umi?a
+_9C     t'is?umi?a
 
 _0M1    ?'alf
 _1M1    ?'alf
 _2M1    ?alf'a:n
 _3M1    Tal'a:Tatu||?a:l'a:f
-_4M1    ?aRb'aA-atu||?a:l'a:f
+_4M1    ?aRb'a?atu||?a:l'a:f
 _5M1    x'amsatu||?a:l'a:f
 _6M1    s'it:atu||?a:l'a:f
-_7M1    s'abA-atu||?a:l'a:f
+_7M1    s'ab?atu||?a:l'a:f
 _8M1    Tama:n'ijatu||?a:l'a:f
-_9M1    t'isA-atu||?a:l'a:f
-_10M1   A-aSRatu||?a:l'a:f
+_9M1    t'is?atu||?a:l'a:f
+_10M1   ?aSRatu||?a:l'a:f
 
 _0M2    m%ilj%u:n
 _1M2    m%ilju:n
@@ -195,7 +195,7 @@ _6M2    sittat||mala:ji:n
 _7M2    sabA:t||mala:ji:n
 _8M2    Tama:nijat||mala:ji:n
 _9M2    tisA:t||mala:ji:n
-_10M2   A:Sarat||mala:ji:n
+_10M2   a:Sarat||mala:ji:n
 
 _0M3    milja:r
 _1M3    milja:r
@@ -204,10 +204,10 @@ _3M3    Tala:Tat||milja:ra:t
 _4M3    ?arba:at||milja:ra:t
 _5M3    Xamsat||milja:ra:t
 _6M3    sittat||milja:ra:t
-_7M3    sabA:t||milja:ra:t
+_7M3    saba:t||milja:ra:t
 _8M3    Tama:nijat||milja:ra:t
-_9M3    tisA:t||milja:ra:t
-_10M3   A:Sarat||milja:ra:t
+_9M3    tisa:t||milja:ra:t
+_10M3   a:Sarat||milja:ra:t
 
 
 _0and   wa
