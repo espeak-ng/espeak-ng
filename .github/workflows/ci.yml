@@ -37,9 +37,9 @@ jobs:
     - name: configure
       run: CXXFLAGS="-fsanitize=address -g -Og" CFLAGS="-fsanitize=address -g -Og" ./configure
     - name: make
-      run: ASAN_OPTIONS="detect_leaks=0 new_delete_type_mismatch=0" make
+      run: ASAN_OPTIONS="detect_leaks=0" make
     - name: make check
-      run: ASAN_OPTIONS="detect_leaks=0 new_delete_type_mismatch=0" make check
+      run: ASAN_OPTIONS="detect_leaks=0" make check
 
   lsan:
 
