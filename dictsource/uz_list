@@ -1,5 +1,5 @@
 // This file is UTF8 encoded
-// Specifi words for Uzbek language
+// Spelling words for Uzbek language
 
 // names of letters
 
@@ -44,15 +44,15 @@ _6    Alt'y
 _7    jet:'y
 _8    s&k:'yz
 _9    toq:'yz
-_10   'on
-_20   jygyrm'&
-_30   ott'yz
-_40   q'yrq
-_50   ell'yk
-_60   Altm'yS
-_70   jetm'yS
-_80   s&ks'An
-_90   toqs'An
+_1X   'on
+_2X   jygyrm'&
+_3X   ott'yz
+_4X   q'yrq
+_5X   ell'yk
+_6X   Altm'yS
+_7X   jetm'yS
+_8X   s&ks'An
+_9X   toqs'An
 _0C   j'Uz
 _1M1  m'yN
 _1M2  milli'on
