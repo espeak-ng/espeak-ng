@@ -56,7 +56,8 @@ test_phon() {
 
     echo "testing ${TEST_LANG} $MESSAGE"
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+        src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" \
+        > actual.txt || exit 1
     echo "${EXPECTED}" > expected.txt
     if [ "$MESSAGE" = "Ignore" ] ; then
         diff expected.txt actual.txt || (echo "... ignoring error" && true)
@@ -74,13 +75,14 @@ test_wav () {
 
         echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" | \
-        $sha1sum | awk '{ print $1 }' > actual.txt
+                src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
+                > actual.txt || exit 1
+        < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
         echo "${EXPECTED}" > expected.txt
         if [ "$MESSAGE" = "Ignore" ] ; then
-            diff expected.txt actual.txt || (echo "... ignoring error" && true)
+            diff expected.txt sum.txt || (echo "... ignoring error" && true)
         else
-            diff expected.txt actual.txt || exit 1
+            diff expected.txt sum.txt || exit 1
         fi
 }
 
@@ -92,12 +94,13 @@ test_wav_grep () {
         MESSAGE=$4
         echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" | \
-        $sha1sum | awk '{ print $1 }' > actual.txt
+                src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
+                > actual.txt || exit 1
+        < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
         if [ "$MESSAGE" = "Ignore" ] ; then
-            cat actual.txt | grep -E "$EXPECTED" || (echo "... ignoring error" && true)
+            cat sum.txt | grep -E "$EXPECTED" || (echo "... ignoring error" && true)
         else
-            cat actual.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat actual.txt; exit 1; }
+            cat sum.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat actual.txt; exit 1; }
         fi
 }
 
@@ -120,11 +123,13 @@ test_replace() {
 
     echo "testing ${TEST_LANG}"
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
+        src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" \
+        > actual.txt || exit 1
+    < actual.txt grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > filtered.txt
     if [ "$MESSAGE" = "Ignore" ] ; then
-        diff expected.txt actual.txt || (echo "... ignoring error" && true)
+        diff expected.txt filtered.txt || (echo "... ignoring error" && true)
     else
-        diff expected.txt actual.txt || exit 1
+        diff expected.txt filtered.txt || exit 1
     fi
 }
 
