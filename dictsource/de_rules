@@ -52,7 +52,7 @@
         ay         aI
         au         aU
         auh (_     aU
-        auer	aU3
+        auer	aU@r
     mold) auisch	aUIS
 
         ab (t_     A:p
@@ -132,7 +132,7 @@
      b) al   (_  'A:l
      g) al   (_  'A:l
      k) al    (_ 'A:l
-     n) al       'A:l
+     n) al   (_  'A:l
      r) al   (_  'A:l
      t) al   (_  'A:l
      _) aller (@P5 'al@r
@@ -336,6 +336,7 @@ r     p) ay         EI
      _) de (ikP2   d%e:
      _) de (instaP2 d%e:
      _) deme       de:mE
+  trotz) dem       de:m
         demo (g    de:mo:
         demo (k    de:mo:
         design (_  d%IzaIn
@@ -374,9 +375,10 @@ r     p) ay         EI
         e (ph      e:
 
         ei         aI
+        
         eu         OY
         ey         aI
-
+   prot) ei (n	e:'i:
         eb (t_     e:p
         eg (t_     e:k
         eth	e:t
@@ -686,7 +688,7 @@ r     p) ay         EI
      @) ig (+      Ig#       // [ig] or [iC]
         igh (K     _^_EN
         ine (_	'i:n@
-        inen (_	i:n@n
+        inen (_	'i:n@n
 
         i (i       i:_!
 
@@ -1176,6 +1178,7 @@ formal) ie         =I@
         t          t
      t) t
         th	t
+     bra) th (ering	t,h
      _) th (A      t   // allow _th
      _) th (rA     t   // allow _thr
         th (K      t
@@ -1473,6 +1476,8 @@ formal) ie         =I@
         äu         OY
 
         ä (C%      E
+   schw) äch         EC
+   spr) äch         E:C
         ä (CC      E
         ä (sch     E
 

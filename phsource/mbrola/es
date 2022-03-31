@@ -1,6 +1,7 @@
 
 0  l/2 NULL  0  l
 0  l/ NULL   0  l
+0  l^ NULL   0  L
 0  r/ NULL   0  r
 0  r- NULL   0  r
 0  l- NULL   0  l
@@ -31,9 +32,7 @@
 
 0  a/ NULL   0  a
 0  E  NULL   0  e
-0  e/ NULL   0  e
 0  O  NULL   0  o
-0  o/ NULL   0  o
 0  aI NULL   60 a i
 0  eI NULL   60 e i
 0  oI NULL   60 o i
