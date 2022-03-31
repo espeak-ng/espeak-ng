@@ -108,3 +108,20 @@ jobs:
       run: UBSAN_OPTIONS="halt_on_error=1" make
     - name: make check
       run: UBSAN_OPTIONS="halt_on_error=1" make check
+
+  valgrind:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: dependencies
+      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown libtool-bin valgrind
+    - name: autoconf
+      run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+    - name: configure
+      run: ./configure
+    - name: make
+      run: VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" make
+    - name: make check
+      run: VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" make check

@@ -242,28 +242,32 @@ check_PROGRAMS += tests/encoding.test
 
 tests_encoding_test_LDADD   = src/libespeak-ng.la
 tests_encoding_test_SOURCES = tests/encoding.c
+tests/encoding.check: LOG_COMPILER=$(VALGRIND)
 
 check_PROGRAMS += tests/readclause.test
 
 tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_readclause_test_LDADD   = src/libespeak-ng-test.la
 tests_readclause_test_SOURCES = tests/readclause.c
+tests/readclause.check: LOG_COMPILER=$(VALGRIND)
 
 check_PROGRAMS += tests/api.test
 
 tests_api_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_api_test_LDADD   = src/libespeak-ng-test.la
 tests_api_test_SOURCES = tests/api.c
+tests/api.check: LOG_COMPILER=$(VALGRIND)
 
 check_PROGRAMS += tests/ieee80.test
 
 tests_ieee80_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_ieee80_test_LDADD   = src/libespeak-ng-test.la
 tests_ieee80_test_SOURCES = tests/ieee80.c
+tests/ieee80.check: LOG_COMPILER=$(VALGRIND)
 
 .test.check:
 	@echo "  TEST      $<"
-	@ESPEAK_DATA_PATH=$(CURDIR) $< && echo "  PASSED    $<"
+	@ESPEAK_DATA_PATH=$(CURDIR) $(LOG_COMPILER) $< && echo "  PASSED    $<"
 
 check:	tests/encoding.check \
 	tests/readclause.check \
