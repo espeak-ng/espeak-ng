@@ -221,26 +221,26 @@ _#th    om
 
 
 // character names
-÷       taqsi:m
-×       fi:
-؟       A:la:amat||?istifha:m
-!       A:la:amat||ta:adZdZub
-$       du:la:r
-%       bilmi?ah
-[       A:ridHah||maftu:Hah
-]       A:ridHah||mugHlaqah
-(       qaws||maftu:H
-)       qaws||mugHlaq
-*       nedZmah
--       na:qis[
-/.      nuqt[ah
-/:      nuqt[ata:n
-<       ?as[gHar||min
-=       tusa:wi:
->       ?akbar||min
-{       Ha:dHinah||maftu:Hah
-}       Ha:dHinah||mugHlaqah
-...     Tala:T||niqa:t[
+_÷       taqsi:m
+_×       fi:
+_؟       A:la:amat||?istifha:m
+_!       A:la:amat||ta:adZdZub
+_$       du:la:r
+_%       bilmi?ah
+_[       A:ridHah||maftu:Hah
+_]       A:ridHah||mugHlaqah
+_(       qaws||maftu:H
+_)       qaws||mugHlaq
+_*       nedZmah
+_-       na:qis[
+_/.      nuqt[ah
+_/:      nuqt[ata:n
+_<       ?as[gHar||min
+_=       tusa:wi:
+_>       ?akbar||min
+_{       Ha:dHinah||maftu:Hah
+_}       Ha:dHinah||mugHlaqah
+_...     Tala:T||niqa:t[
 
 
 //characters and numbers and words with English alphabet is translated by English phonemes
