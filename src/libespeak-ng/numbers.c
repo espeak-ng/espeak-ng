@@ -1719,13 +1719,14 @@ static bool CheckThousandsGroup(char *word, int group_len)
 	// Is this a group of 3 digits which looks like a thousands group?
 	int ix;
 
-	if (IsDigit09(word[group_len]) || IsDigit09(-1))
-		return false;
-
 	for (ix = 0; ix < group_len; ix++) {
 		if (!IsDigit09(word[ix]))
 			return false;
 	}
+
+	if (IsDigit09(word[group_len]) || IsDigit09(-1))
+		return false;
+
 	return true;
 }
 

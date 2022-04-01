@@ -83,3 +83,6 @@ test_phon en "r'oUlIN 0nD@ fl'o@ l'aafIN" "🤣" # skip words
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phon sk "sm'eju:tsa s'a tv'a:R" "☺"
 test_phon sk "bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
+
+# https://github.com/espeak-ng/espeak-ng/pull/1148
+test_phon fr "dY mil v'E~" "2020"
