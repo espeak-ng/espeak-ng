@@ -56,9 +56,12 @@
               </RegistryKey>
             </RegistryKey>
           </Component>
+					<Component Id="AddToEnv" Guid="EBBBAC5D-22BA-41EB-A30A-EF1A04FEBA08" KeyPath="yes">
+						<Environment Id="PATH" Name="PATH" Value="[INSTALLDIR]" Permanent="yes" Part="last" Action="set" System="yes"/>
+					</Component>
                   <Directory Id="espeak_ng_data" Name="espeak-ng-data">
                 <Component Id="af_dict" Guid="96E3E35D-F41E-4BD7-BEDD-AA063E8CD2D3">
-                    <File Id="af_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\af_dict" />
+                    <File Id="af_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\af_dict  " />
                 </Component>
                 <Component Id="am_dict" Guid="D213585E-DE66-452E-90D6-44B73F7AD2C6">
                     <File Id="am_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\am_dict" />
@@ -1456,6 +1459,7 @@
     <ComponentGroup Id="CoreComponents">
       <ComponentRef Id="espeak_ng_EXE"/>
       <ComponentRef Id="libespeak_ng_DLL"/>
+			<ComponentRef Id="AddToEnv"/>
     </ComponentGroup>
     <ComponentGroup Id="Data">
       <ComponentRef Id="af_dict" />
