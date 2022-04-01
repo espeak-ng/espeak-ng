@@ -158,6 +158,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\libespeak-ng\soundicon.c" />
     <ClCompile Include="..\ucd-tools\src\case.c" />
     <ClCompile Include="..\ucd-tools\src\categories.c" />
     <ClCompile Include="..\ucd-tools\src\ctype.c" />
@@ -209,6 +210,7 @@
     <ClInclude Include="..\libespeak-ng\mbrowrap.h" />
     <ClInclude Include="..\libespeak-ng\phoneme.h" />
     <ClInclude Include="..\libespeak-ng\sintab.h" />
+    <ClInclude Include="..\libespeak-ng\soundicon.h" />
     <ClInclude Include="..\libespeak-ng\spect.h" />
     <ClInclude Include="..\libespeak-ng\speech.h" />
     <ClInclude Include="..\libespeak-ng\sPlayer.h" />
