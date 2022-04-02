@@ -86,3 +86,6 @@ test_phon sk "bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
 
 # bug: https://github.com/espeak-ng/espeak-ng/issues/853
 test_phon fr "profEs'Wr" "PR"
+
+# https://github.com/espeak-ng/espeak-ng/pull/1148
+test_phon fr "dY mil v'E~" "2020"
