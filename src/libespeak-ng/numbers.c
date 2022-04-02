@@ -1724,7 +1724,7 @@ static bool CheckThousandsGroup(char *word, int group_len)
 			return false;
 	}
 
-	if (IsDigit09(word[group_len]) || IsDigit09(-1))
+	if (IsDigit09(word[group_len]) || IsDigit09(word[-1]))
 		return false;
 
 	return true;
