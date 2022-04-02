@@ -7,7 +7,7 @@
 
 The espeak-ng project is a fork of the espeak project.
 
-### 1.51 (In Development)
+### 1.51
 
 *  Add support for speechPlayer.
 *  Add more tests to check the various parts of espeak-ng.
