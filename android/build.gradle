@@ -30,7 +30,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 20
-        versionName "1.51"
+        versionName "1.52-dev"
     }
 
     sourceSets {
