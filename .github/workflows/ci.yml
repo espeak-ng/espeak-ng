@@ -74,6 +74,12 @@ jobs:
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
       run: ${{ matrix.configflags }} ./configure ${{ matrix.config }}
+    - name: Store the config
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: config-${{ matrix.sanitizer }}.log
+        path: config.log
     - name: make
       run: ${{ matrix.build_env }} make
     - name: make check
