@@ -72,7 +72,7 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 				next = phoneme_tab[ph_list2[ix+1].phcode];
 
 			word_end = false;
-			if ((plist2+1)->sourceix || ((next != 0) && (next->type == phPAUSE)))
+			if (ix == n_ph_list2 -1 || (plist2+1)->sourceix || ((next != 0) && (next->type == phPAUSE)))
 				word_end = true; // this phoneme is the end of a word
 
 			// check whether a Voice has specified that we should replace this phoneme

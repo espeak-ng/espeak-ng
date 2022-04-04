@@ -42,6 +42,7 @@
 #include "synthesize.h"           // for PHONEME_LIST2, N_PHONEME_LIST, PHON...
 #include "ucd/ucd.h"              // for ucd_toupper
 #include "voice.h"                // for voice, voice_t
+#include "speech.h"               // for MAKE_MEM_UNDEFINED
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -2045,6 +2046,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		}
 	}
 
+	MAKE_MEM_UNDEFINED(&ph_list2, sizeof(ph_list2));
 	memset(&ph_list2[0], 0, sizeof(ph_list2[0]));
 	ph_list2[0].phcode = phonPAUSE_SHORT;
 
