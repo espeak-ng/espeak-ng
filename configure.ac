@@ -250,6 +250,8 @@ else
         ])
 fi
 
+AC_CHECK_HEADERS([valgrind/memcheck.h])
+
 if test "$with_async" = "no" ; then
 	have_async=no
 else

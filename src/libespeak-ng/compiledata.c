@@ -2608,7 +2608,12 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	memset(ref_hash_tab, 0, sizeof(ref_hash_tab));
 
 	n_phoneme_tabs = 0;
+	MAKE_MEM_UNDEFINED(&n_phcodes_list, sizeof(n_phcodes_list));
+	MAKE_MEM_UNDEFINED(&phoneme_tab_list2, sizeof(phoneme_tab_list2));
+
 	stack_ix = 0;
+	MAKE_MEM_UNDEFINED(&stack, sizeof(stack));
+
 	StartPhonemeTable("base");
 	CompilePhonemeFiles();
 
