@@ -598,7 +598,7 @@ static unsigned int StringToWord(const char *string)
 	return word;
 }
 
-static MNEM_TAB reserved_phonemes[] = {
+static const MNEM_TAB reserved_phonemes[] = {
 	{ "_\001",  phonCONTROL },      // NOT USED
 	{ "%",      phonSTRESS_U },
 	{ "%%",     phonSTRESS_D },
@@ -641,7 +641,7 @@ static void ReservePhCodes()
 	// Reserve phoneme codes which have fixed numbers so that they can be
 	// referred to from the program code.
 	unsigned int word;
-	MNEM_TAB *p;
+	const MNEM_TAB *p;
 
 	p = reserved_phonemes;
 	while (p->mnem != NULL) {
@@ -2671,7 +2671,7 @@ static const TUNE default_tune = {
 
 #define N_TUNE_NAMES  100
 
-MNEM_TAB envelope_names[] = {
+static const MNEM_TAB envelope_names[] = {
 	{ "fall", 0 },
 	{ "rise", 2 },
 	{ "fall-rise", 4 },

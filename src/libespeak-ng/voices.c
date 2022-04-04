@@ -49,7 +49,7 @@
 #include "translate.h"                // for LANGUAGE_OPTIONS, DeleteTranslator
 #include "wavegen.h"                  // for InitBreath
 
-MNEM_TAB genders[] = {
+static const MNEM_TAB genders[] = {
 	{ "male", ENGENDER_MALE },
 	{ "female", ENGENDER_FEMALE },
 	{ NULL, ENGENDER_MALE }
@@ -115,7 +115,7 @@ enum {
 	V_CONSONANTS
 };
 
-static MNEM_TAB keyword_tab[] = {
+static const MNEM_TAB keyword_tab[] = {
 	{ "name",         V_NAME },
 	{ "language",     V_LANGUAGE },
 	{ "gender",       V_GENDER },
@@ -480,7 +480,7 @@ static int Read8Numbers(char *data_in, int *data)
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
 
-static void ReadNumbers(char *p, int *flags, int maxValue,  MNEM_TAB *keyword_tab, int key) {
+static void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab, int key) {
 	// read a list of numbers from string p
 	// store them as flags in *flags
 	// the meaning of the  numbers is bit ordinals, not integer values
@@ -500,7 +500,7 @@ static void ReadNumbers(char *p, int *flags, int maxValue,  MNEM_TAB *keyword_ta
 	}
 }
 
-static int CheckTranslator(Translator *tr, MNEM_TAB *keyword_tab, int key)
+static int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key)
 {
 	// Return 0 if translator is set.
 	// Return 1 and print an error message for specified key if not

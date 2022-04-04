@@ -25,7 +25,7 @@
 
 #include "mnemonics.h"  // for MNEM_TAB, LookupMnem, LookupMnemName
 
-int LookupMnem(MNEM_TAB *table, const char *string)
+int LookupMnem(const MNEM_TAB *table, const char *string)
 {
 	while (table->mnem != NULL) {
 		if (string && strcmp(string, table->mnem) == 0)
@@ -35,7 +35,7 @@ int LookupMnem(MNEM_TAB *table, const char *string)
 	return table->value;
 }
 
-const char *LookupMnemName(MNEM_TAB *table, const int value)
+const char *LookupMnemName(const MNEM_TAB *table, const int value)
 {
 	while (table->mnem != NULL) {
 		if (table->value == value)

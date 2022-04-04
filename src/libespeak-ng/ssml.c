@@ -48,7 +48,7 @@
 #include "translate.h"            // for CTRL_EMBEDDED, IsDigit09, utf8_out
 #include "voice.h"                // for SelectVoice, SelectVoiceByName
 
-static MNEM_TAB ssmltags[] = {
+static const MNEM_TAB ssmltags[] = {
 	{ "speak",     SSML_SPEAK },
 	{ "voice",     SSML_VOICE },
 	{ "prosody",   SSML_PROSODY },
@@ -460,7 +460,7 @@ static void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_s
 static int ReplaceKeyName(char *outbuf, int index, int *outix)
 {
 	// Replace some key-names by single characters, so they can be pronounced in different languages
-	static MNEM_TAB keynames[] = {
+	static const MNEM_TAB keynames[] = {
 		{ "space ",        0xe020 },
 		{ "tab ",          0xe009 },
 		{ "underscore ",   0xe05f },
@@ -951,7 +951,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	return 0;
 }
 
-static MNEM_TAB xml_entity_mnemonics[] = {
+static const MNEM_TAB xml_entity_mnemonics[] = {
 	{ "gt",   '>' },
 	{ "lt",   0xe000 + '<' },   // private usage area, to avoid confusion with XML tag
 	{ "amp",  '&' },
