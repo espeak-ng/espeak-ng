@@ -66,6 +66,9 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 			deleted_sourceix = -1;
 		}
 
+		if (plist2->phcode == phonSWITCH)
+			SelectPhonemeTable(plist2->tone_ph);
+
 		// don't do any substitution if the language has been temporarily changed
 		if (!(plist2->synthflags & SFLAG_SWITCHED_LANG)) {
 			if (ix < (n_ph_list2 -1))
@@ -205,6 +208,8 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	}
 	n_ph_list2 -= delete_count;
 
+	SelectPhonemeTable(current_phoneme_tab);
+
 	if ((regression = tr->langopts.param[LOPT_REGRESSIVE_VOICING]) != 0) {
 		// set consonant clusters to all voiced or all unvoiced
 		// Regressive
@@ -213,6 +218,17 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		voicing = 0;
 
 		for (j = n_ph_list2-1; j >= 0; j--) {
+			if (plist2[j].phcode == phonSWITCH) {
+				/* Find previous phonSWITCH to determine language we're switching back to */
+				int k;
+				for (k = j-1; k >= 0; k--)
+					if (plist2[k].phcode == phonSWITCH)
+						break;
+				if (k >= 0)
+					SelectPhonemeTable(plist2[k].tone_ph);
+				else
+					SelectPhonemeTable(tr->phoneme_tab_ix);
+			}
 			ph = phoneme_tab[plist2[j].phcode];
 			if (ph == NULL)
 				continue;

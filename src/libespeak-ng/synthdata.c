@@ -342,14 +342,17 @@ static void SetUpPhonemeTable(int number)
 	for (ix = 0; ix < phoneme_tab_list[number].n_phonemes; ix++) {
 		ph_code = phtab[ix].code;
 		phoneme_tab[ph_code] = &phtab[ix];
-		if (ph_code > n_phoneme_tab)
+		if (ph_code > n_phoneme_tab) {
+			memset(&phoneme_tab[n_phoneme_tab+1], 0, (ph_code - (n_phoneme_tab+1)) * sizeof(*phoneme_tab));
 			n_phoneme_tab = ph_code;
+		}
 	}
 }
 
 void SelectPhonemeTable(int number)
 {
 	n_phoneme_tab = 0;
+	MAKE_MEM_UNDEFINED(&phoneme_tab, sizeof(phoneme_tab));
 	SetUpPhonemeTable(number); // recursively for included phoneme tables
 	n_phoneme_tab++;
 	current_phoneme_table = number;
