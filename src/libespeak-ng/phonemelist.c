@@ -38,6 +38,7 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "speech.h"
 
 const unsigned char pause_phonemes[8] = {
 	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
@@ -147,6 +148,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	plist2 = ph_list2;
 	phlist = phoneme_list;
 	end_sourceix = plist2[n_ph_list2-1].sourceix;
+	MAKE_MEM_UNDEFINED(&phoneme_list, sizeof(phoneme_list));
 
 	// is the last word of the clause unstressed ?
 	max_stress = 0;
@@ -557,13 +559,17 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	phlist[ix].length = post_pause; // length of the pause, depends on the punctuation
 	phlist[ix].sourceix = end_sourceix;
 	phlist[ix].synthflags = 0;
+	phlist[ix].prepause = 0;
 	phlist[ix++].ph = phoneme_tab[phonPAUSE];
+
+	phlist[ix].newword = 0;
 
 	phlist[ix].phcode = phonPAUSE;
 	phlist[ix].type = phPAUSE;
 	phlist[ix].length = 0;
 	phlist[ix].sourceix = 0;
 	phlist[ix].synthflags = 0;
+	phlist[ix].prepause = 0;
 	phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
 
 	n_phoneme_list = ix;
