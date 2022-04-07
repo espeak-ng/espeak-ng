@@ -972,7 +972,7 @@ static int PlayWave(int length, bool resume, unsigned char *data, int scale, int
 		value += ((echo_buf[echo_tail++] * echo_amp) >> 8);
 
 		if (value > 32767)
-			value = 32768;
+			value = 32767;
 		else if (value < -32768)
 			value = -32768;
 
