@@ -49,7 +49,6 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 {
 	FILE *f;
 	char *p;
-	int *ip;
 	int length;
 	char fname_temp[100];
 	char fname2[sizeof(path_home)+13+40];
@@ -137,8 +136,8 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	if (fname_temp[0])
 		remove(fname_temp);
 
-	ip = (int *)(&p[40]);
-	soundicon_tab[index].length = (*ip) / 2; // length in samples
+	length = p[40] | (p[41] << 8) | (p[42] << 16) | (p[43] << 24);
+	soundicon_tab[index].length = length / 2; // length in samples
 	soundicon_tab[index].data = p;
 	return ENS_OK;
 }
