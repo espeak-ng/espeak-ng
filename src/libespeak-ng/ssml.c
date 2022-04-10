@@ -571,7 +571,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	char *uri;
 	int param_type;
 	char tag_name[40];
-	char buf[80];
+	char buf[160];
 	PARAM_STACK *sp;
 	SSML_STACK *ssml_sp;
 
