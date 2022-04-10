@@ -85,3 +85,17 @@ jobs:
       run: ${{ matrix.build_env }} make
     - name: make check
       run: ${{ matrix.check_env }} make check
+
+  reprotest:
+
+    runs-on: ubuntu-latest
+    name: Build with reprotest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: dependencies
+        run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown reprotest
+      - name: autoconf
+        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      - name: run
+        run: reprotest "./configure && make clean && make && make check && touch success" success
