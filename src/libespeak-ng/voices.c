@@ -222,7 +222,6 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 	int freq2;
 	int height1 = tone_pts[1];
 	int height2;
-	double rate;
 
 	for (pt = 0; pt < 12; pt += 2) {
 		if (tone_pts[pt] == -1) {
@@ -233,10 +232,8 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 		freq2 = tone_pts[pt] / 8; // 8Hz steps
 		height2 = tone_pts[pt+1];
 		if ((freq2 - freq1) > 0) {
-			rate = (double)(height2-height1)/(freq2-freq1);
-
 			for (ix = freq1; ix < freq2; ix++) {
-				y = height1 + (int)(rate * (ix-freq1));
+				y = height1 + (int)((ix-freq1) * (height2-height1) / (freq2-freq1));
 				if (y > 255)
 					y = 255;
 				voice->tone_adjust[ix] = y;
