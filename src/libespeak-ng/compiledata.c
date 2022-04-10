@@ -1410,9 +1410,9 @@ static int LoadEnvelope2(FILE *f)
 		if (env_lin[ix2] > 0) {
 			y = (env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2])) * 2.55;
 		} else if (n_points > 3)
-			y = (int)(polint(&env_x[ix], &env_y[ix], 4, x) * 2.55); // convert to range 0-255
+			y = (int)(polint(&env_x[ix], &env_y[ix], 4, x) * 255 / 100); // convert to range 0-255
 		else
-			y = (int)(polint(&env_x[ix], &env_y[ix], 3, x) * 2.55);
+			y = (int)(polint(&env_x[ix], &env_y[ix], 3, x) * 255 / 100);
 		if (y < 0) y = 0;
 		if (y > 255) y = 255;
 		env[x] = y;
