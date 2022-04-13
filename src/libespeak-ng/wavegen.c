@@ -45,6 +45,7 @@
 #endif
 
 #include "sintab.h"
+#include "speech.h"
 
 static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 
@@ -271,6 +272,7 @@ void WcmdqInc()
 
 static void WcmdqIncHead()
 {
+	MAKE_MEM_UNDEFINED(&wcmdq[wcmdq_head], sizeof(wcmdq[wcmdq_head]));
 	wcmdq_head++;
 	if (wcmdq_head >= N_WCMDQ) wcmdq_head = 0;
 }

@@ -23,6 +23,21 @@
 #include <endian.h>               // for BYTE_ORDER, BIG_ENDIAN
 #include <espeak-ng/espeak_ng.h>
 
+#if defined(__has_feature)
+#  if __has_feature(memory_sanitizer)
+#    include <sanitizer/msan_interface.h>
+#    define MAKE_MEM_UNDEFINED(addr, len) __msan_unpoison(addr, len)
+#  endif
+#endif
+
+#ifndef MAKE_MEM_UNDEFINED
+#  ifdef HAVE_VALGRIND_MEMCHECK_H
+#    include <valgrind/memcheck.h>
+#    define MAKE_MEM_UNDEFINED(addr, len) VALGRIND_MAKE_MEM_UNDEFINED(addr, len)
+#  else
+#    define MAKE_MEM_UNDEFINED(addr, len) ((void) (addr, len))
+#  endif
+#endif
 
 #ifdef __cplusplus
 extern "C"
