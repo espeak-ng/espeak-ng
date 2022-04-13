@@ -140,3 +140,30 @@ jobs:
         run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
       - name: run
         run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure && make clean && make && make check && touch success' success
+
+  distcheck:
+
+    runs-on: ubuntu-latest
+    name: Run distcheck
+    steps:
+      - uses: actions/checkout@v2
+      - name: dependencies
+        run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown
+      - name: autoconf
+        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: make dist
+        run: make dist
+      - name: unpack
+        run: mkdir unpack && tar -C unpack -xf *.tar.gz
+      - name: re-configure
+        run: cd unpack/espeak-ng-* && ./configure
+      - name: re-make
+        run: cd unpack/espeak-ng-* && make
+      - name: re-make check
+        run: cd unpack/espeak-ng-* && make check
