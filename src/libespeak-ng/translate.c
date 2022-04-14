@@ -2047,6 +2047,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		}
 	}
 
+	MAKE_MEM_UNDEFINED(&ph_list2, sizeof(ph_list2));
 	memset(&ph_list2[0], 0, sizeof(ph_list2[0]));
 	ph_list2[0].phcode = phonPAUSE_SHORT;
 
