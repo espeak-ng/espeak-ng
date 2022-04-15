@@ -388,20 +388,7 @@ apk-debug: espeakdata
 apk-check: espeakdata
 	cd android && $(GRADLE) connectedCheck
 
-android/res/raw/espeakdata.zip: espeak-ng-data/phontab dictionaries
-	mkdir -pv android/res/raw
-	rm -f $@
-	find espeak-ng-data/{intonations,phondata,phonindex,phontab} | zip -@ $@
-	find espeak-ng-data/*_dict | zip -@ $@
-	find espeak-ng-data/lang -type f | zip -@ $@
-	find espeak-ng-data/voices -type f | grep -vF "/mb/" | zip -@ $@
-
-android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
-	sha1sum $< | awk '{ print $$1 }' > $@
-
-espeakdata: \
-	android/res/raw/espeakdata.zip \
-	android/res/raw/espeakdata_version
+espeakdata: espeak-ng-data/phontab dictionaries
 
 ##### dictionaries:
 
