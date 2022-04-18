@@ -26,82 +26,75 @@
 #include <espeak-ng/espeak_ng.h>
 
 /***** CONFIG *****/
-#define LANGUAGE			"en"
-#define MAX_LEN				8192
-#define ESPEAK_DATA_PATH	"/usr/lib/x86_64-linux-gnu/espeak-ng-data/"
-
-#define N_FUZZED_LANG		4
-static const char *langs[N_FUZZED_LANG+1] = {
-	"en",
-	"fr",
-	"ru",
-	"Georgian",
-	NULL
-};
+#define MAX_LEN 8192
+#define ESPEAK_DATA_PATH "/usr/lib/x86_64-linux-gnu/espeak-ng-data/"
 
 static int initialized = 0;
 
-static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events) {
-	(void)wav; // unused
+static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
+{
+	(void)wav;		  // unused
 	(void)numsamples; // unused
-	(void)events; // unused
+	(void)events;	  // unused
 
 	return 0;
 }
-
 
 /* See http://llvm.org/docs/LibFuzzer.html */
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
-extern int LLVMFuzzerInitialize(const int* argc, char*** argv);
+extern int LLVMFuzzerInitialize(const int *argc, char ***argv);
 
 char *filepath = NULL;
 
-extern int LLVMFuzzerInitialize(const int* argc, char*** argv)
+extern int LLVMFuzzerInitialize(const int *argc, char ***argv)
 {
 	(void)argc; // unused
-	//filepath = dirname(strdup((*argv)[0]));
+	// filepath = dirname(strdup((*argv)[0]));
 
 	return 0;
 }
 
-extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
-	if (!initialized) {
+extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
+{
+	if (!initialized)
+	{
 		const char *hasDataPath = getenv("ESPEAK_DATA_PATH");
-		if (!hasDataPath) {
-			setenv("ESPEAK_DATA_PATH",ESPEAK_DATA_PATH,0);
+		if (!hasDataPath)
+		{
+			setenv("ESPEAK_DATA_PATH", ESPEAK_DATA_PATH, 0);
 		}
 		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0);
 		initialized = 1;
 		fprintf(stderr, "ESPEAK_DATA_PATH=%s\n", getenv("ESPEAK_DATA_PATH"));
-
 	}
 
-	char *str = malloc(size+1);
+	char *str = malloc(size + 1);
 	memcpy(str, data, size);
 	str[size] = 0;
-	int synth_flags = espeakCHARS_AUTO ;
-	//for (int i=0; i<N_FUZZED_LANG; i++)
+	int synth_flags = espeakCHARS_AUTO;
 	{
-	//	espeak_SetVoiceByName(langs[i]);
-		 espeak_VOICE voice;
-      memset(&voice, 0, sizeof(espeak_VOICE)); // Zero out the voice first
-	char *langNativeString;
-	  if(getenv("ESPEAKLANG")){
-		  langNativeString = getenv("ESPEAKLANG"); // Set voice by properties
-	  }else{
-		  langNativeString = "en"; //defaut langue
-	  }
-      
-      voice.languages = langNativeString;
-      voice.name = "US";
-      voice.variant = 2;
-      voice.gender = 2;
-      espeak_SetVoiceByProperties(&voice);
-		espeak_Synth((char*) str, size+1, 0, POS_CHARACTER, 0,
-					synth_flags, NULL, NULL);
+
+		espeak_VOICE voice;
+		memset(&voice, 0, sizeof(espeak_VOICE)); // Zero out the voice first
+		char *langNativeString;
+		if (getenv("ESPEAKLANG"))
+		{
+			langNativeString = getenv("ESPEAKLANG"); // Set voice by properties
+		}
+		else
+		{
+			langNativeString = "en"; // defaut langue
+		}
+
+		voice.languages = langNativeString;
+		voice.name = "US";
+		voice.variant = 2;
+		voice.gender = 2;
+		espeak_SetVoiceByProperties(&voice);
+		espeak_Synth((char *)str, size + 1, 0, POS_CHARACTER, 0,
+					 synth_flags, NULL, NULL);
 	}
-		free(str);
+	free(str);
 
-
-	return 0; 	
+	return 0;
 }
