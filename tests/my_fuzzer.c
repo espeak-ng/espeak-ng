@@ -80,14 +80,16 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 		if (getenv("ESPEAKLANG"))
 		{
 			langNativeString = getenv("ESPEAKLANG"); // Set voice by properties
+			voice.name =  getenv("ESPEAKLANG");
 		}
 		else
 		{
 			langNativeString = "en"; // defaut langue
+			voice.name = "US";
 		}
 
 		voice.languages = langNativeString;
-		voice.name = "US";
+		
 		voice.variant = 2;
 		voice.gender = 2;
 		espeak_SetVoiceByProperties(&voice);
