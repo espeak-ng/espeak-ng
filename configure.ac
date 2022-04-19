@@ -64,6 +64,10 @@ AC_ARG_WITH([libfuzzer],
     [AS_HELP_STRING([--with-libfuzzer], [enable libFuzzer in the fuzzer tests @<:@default=no@:>@])],
     [])
 
+AC_ARG_WITH([coverage],
+    [AS_HELP_STRING([--with-coverage], [enable clang coverage in the fuzzer tests (also add coverage to lib sources) @<:@default=no@:>@])],
+    [])
+
 dnl ================================================================
 dnl Program checks.
 dnl ================================================================
@@ -333,6 +337,18 @@ else
 fi
 
 AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes])
+
+dnl ================================================================
+dnl clang-coverage checks.
+dnl ================================================================
+
+if test "$with_coverage" = "yes" ; then
+	use_coverage=yes
+else
+	use_coverage=no
+fi
+
+AM_CONDITIONAL(USE_COVERAGE, [test x"$use_coverage" = xyes])
 
 dnl ================================================================
 dnl Generate output.

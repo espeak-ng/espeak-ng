@@ -19,6 +19,10 @@ AM_CFLAGS = \
 	-Isrc/include -Isrc/include/compat -I$(srcdir)/src/speechPlayer/include -I$(srcdir)/src/ucd-tools/src/include \
 	-D_BSD_SOURCE -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=200112L
 
+if USE_COVERAGE
+AM_CFLAGS += -fprofile-instr-generate -fcoverage-mapping
+endif
+
 EXTRA_DIST=
 CLEANFILES = dictsource/ru_listx dictsource/cmn_listx dictsource/yue_listx
 
@@ -348,6 +352,13 @@ tests/ssml-fuzzer.check: tests/ssml-fuzzer.test
 
 
 EXTRA_DIST += $(FUZZ_SSML) $(wildcard tests/ssml/*.expected)
+
+tests_synth_fuzzer_SOURCES = tests/synth-fuzzer.c
+bin_PROGRAMS =  tests/synth_fuzzer
+tests_synth_fuzzer_LDADD =  src/libespeak-ng.la
+tests_synth_fuzzer_CFLAGS = -fsanitize=address,fuzzer,undefined -O2 \
+	 -fno-omit-frame-pointer -g -fsanitize-coverage=edge,trace-cmp $(AM_CFLAGS)
+
 
 ##### phoneme data:
 
