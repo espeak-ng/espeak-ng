@@ -598,7 +598,7 @@ static unsigned int StringToWord(const char *string)
 	return word;
 }
 
-static MNEM_TAB reserved_phonemes[] = {
+static const MNEM_TAB reserved_phonemes[] = {
 	{ "_\001",  phonCONTROL },      // NOT USED
 	{ "%",      phonSTRESS_U },
 	{ "%%",     phonSTRESS_D },
@@ -641,7 +641,7 @@ static void ReservePhCodes()
 	// Reserve phoneme codes which have fixed numbers so that they can be
 	// referred to from the program code.
 	unsigned int word;
-	MNEM_TAB *p;
+	const MNEM_TAB *p;
 
 	p = reserved_phonemes;
 	while (p->mnem != NULL) {
@@ -1410,9 +1410,9 @@ static int LoadEnvelope2(FILE *f)
 		if (env_lin[ix2] > 0) {
 			y = (env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2])) * 2.55;
 		} else if (n_points > 3)
-			y = (int)(polint(&env_x[ix], &env_y[ix], 4, x) * 2.55); // convert to range 0-255
+			y = (int)(polint(&env_x[ix], &env_y[ix], 4, x) * 255 / 100); // convert to range 0-255
 		else
-			y = (int)(polint(&env_x[ix], &env_y[ix], 3, x) * 2.55);
+			y = (int)(polint(&env_x[ix], &env_y[ix], 3, x) * 255 / 100);
 		if (y < 0) y = 0;
 		if (y > 255) y = 255;
 		env[x] = y;
@@ -2608,7 +2608,12 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	memset(ref_hash_tab, 0, sizeof(ref_hash_tab));
 
 	n_phoneme_tabs = 0;
+	MAKE_MEM_UNDEFINED(&n_phcodes_list, sizeof(n_phcodes_list));
+	MAKE_MEM_UNDEFINED(&phoneme_tab_list2, sizeof(phoneme_tab_list2));
+
 	stack_ix = 0;
+	MAKE_MEM_UNDEFINED(&stack, sizeof(stack));
+
 	StartPhonemeTable("base");
 	CompilePhonemeFiles();
 
@@ -2671,7 +2676,7 @@ static const TUNE default_tune = {
 
 #define N_TUNE_NAMES  100
 
-MNEM_TAB envelope_names[] = {
+static const MNEM_TAB envelope_names[] = {
 	{ "fall", 0 },
 	{ "rise", 2 },
 	{ "fall-rise", 4 },

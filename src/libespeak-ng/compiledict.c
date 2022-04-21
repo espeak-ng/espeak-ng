@@ -64,7 +64,7 @@ static char *hash_chains[N_HASH_DICT];
 
 static char letterGroupsDefined[N_LETTER_GROUPS];
 
-MNEM_TAB mnem_rules[] = {
+static const MNEM_TAB mnem_rules[] = {
 	{ "unpr",     DOLLAR_UNPR },
 	{ "noprefix", DOLLAR_NOPREFIX },  // rule fails if a prefix has been removed
 	{ "list",     DOLLAR_LIST },    // a pronunciation is given in the *_list file
@@ -88,7 +88,7 @@ MNEM_TAB mnem_rules[] = {
 	{ NULL, -1 }
 };
 
-MNEM_TAB mnem_flags[] = {
+static const MNEM_TAB mnem_flags[] = {
 	// these in the first group put a value in bits0-3 of dictionary_flags
 	{ "$1",   0x41 }, // stress on 1st syllable
 	{ "$2",   0x42 }, // stress on 2nd syllable
@@ -779,7 +779,7 @@ static void copy_rule_string(char *string, int *state_out)
 	bool literal;
 	bool hexdigit_input = false;
 	int state = *state_out;
-	MNEM_TAB *mr;
+	const MNEM_TAB *mr;
 
 	if (string[0] == 0) return;
 

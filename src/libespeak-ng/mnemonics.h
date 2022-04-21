@@ -30,8 +30,8 @@ typedef struct {
 	const char *mnem;
 	int value;
 } MNEM_TAB;
-int LookupMnem(MNEM_TAB *table, const char *string);
-const char *LookupMnemName(MNEM_TAB *table, const int value);
+int LookupMnem(const MNEM_TAB *table, const char *string);
+const char *LookupMnemName(const MNEM_TAB *table, const int value);
 
 #ifdef __cplusplus
 }

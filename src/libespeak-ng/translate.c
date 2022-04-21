@@ -42,6 +42,7 @@
 #include "synthesize.h"           // for PHONEME_LIST2, N_PHONEME_LIST, PHON...
 #include "ucd/ucd.h"              // for ucd_toupper
 #include "voice.h"                // for voice, voice_t
+#include "speech.h"               // for MAKE_MEM_UNDEFINED
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -1892,10 +1893,10 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	case L('n', 'l'):
 		// look for 'n  and replace by a special character (unicode: schwa)
 
-		if (!iswalpha(prev_in)) {
+		if ((c == '\'') && !iswalpha(prev_in)) {
 			utf8_in(&next2, &ptr[1]);
 
-			if ((c == '\'') && IsSpace(next2)) {
+			if (IsSpace(next2)) {
 				if ((next_in == 'n') && (tr->translator_name == L('a', 'f'))) {
 					// n preceded by either apostrophe or U2019 "right single quotation mark"
 					ptr[0] = ' '; // delete the n
@@ -1998,6 +1999,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 	for (ix = 0; ix < N_TR_SOURCE; ix++)
 		charix[ix] = 0;
+	MAKE_MEM_UNDEFINED(&source, sizeof(source));
 	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone, voice_change_name);
 
 	if (tone_out != NULL) {
@@ -2045,6 +2047,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		}
 	}
 
+	MAKE_MEM_UNDEFINED(&ph_list2, sizeof(ph_list2));
 	memset(&ph_list2[0], 0, sizeof(ph_list2[0]));
 	ph_list2[0].phcode = phonPAUSE_SHORT;
 
@@ -2107,12 +2110,15 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			source_index += utf8_in(&cc, &source[source_index]);
 			c = cc;
 		}
-		next_in_nbytes = utf8_in(&next_in, &source[source_index]);
 
 		if (c == 0) {
 			finished = true;
 			c = ' ';
+			next_in = ' ';
+			next_in_nbytes = 0;
 		}
+		else
+			next_in_nbytes = utf8_in(&next_in, &source[source_index]);
 
 		if (c == CTRL_EMBEDDED) {
 			// start of embedded command in the text

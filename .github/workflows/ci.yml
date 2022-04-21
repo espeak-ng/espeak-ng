@@ -11,10 +11,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    name: Build with ${{ matrix.sanitizer }} sanitizer
+    name: Build with ${{ matrix.sanitizer }} sanitizer on ${{ matrix.arch }}
     strategy:
       fail-fast: false
       matrix:
+        arch: [x86-32, x86-64]
         sanitizer: [no, address, leak, memory, thread, undefined, valgrind]
 
         include:
@@ -27,35 +28,36 @@ jobs:
 
           - sanitizer: "address"
             deps: ""
-            configflags: 'CFLAGS="-fsanitize=address -g -Og" CXXFLAGS="-fsanitize=address -g -Og"'
+            configflags: "-fsanitize=address -g -Og"
             config: ""
             build_env: "ASAN_OPTIONS=detect_leaks=0"
             check_env: "ASAN_OPTIONS=detect_leaks=0"
 
           - sanitizer: "leak"
             deps: ""
-            configflags: 'CFLAGS="-fsanitize=leak -g -Og" CXXFLAGS="-fsanitize=leak -g -Og"'
+            configflags: '-fsanitize=leak -g -Og'
             config: ""
             build_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
             check_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
 
           - sanitizer: "memory"
             deps: "clang"
-            configflags: 'CC=clang CXX=clang++ CFLAGS="-fsanitize=memory -fsanitize-memory-track-origins=2 -g -Og" CXXFLAGS="-fsanitize=memory -fsanitize-memory-track-origins=2 -g -Og"'
+            configenv: "CC=clang CXX=clang++"
+            configflags: "-fsanitize=memory -fsanitize-memory-track-origins=2 -g -Og"
             config: "--without-pcaudiolib"
             build_env: "MSAN_OPTIONS=exitcode=42"
             check_env: "MSAN_OPTIONS=exitcode=42"
 
           - sanitizer: "thread"
             deps: ""
-            configflags: 'CFLAGS="-fsanitize=thread -g -Og" CXXFLAGS="-fsanitize=thread -g -Og"'
+            configflags: "-fsanitize=thread -g -Og"
             config: ""
             build_env: ""
             check_env: ""
 
           - sanitizer: "undefined"
             deps: ""
-            configflags: 'CFLAGS="-fsanitize=undefined -g -Og" CXXFLAGS="-fsanitize=undefined -g -Og"'
+            configflags: "-fsanitize=undefined -g -Og"
             config: ""
             build_env: "UBSAN_OPTIONS=halt_on_error=1"
             check_env: "UBSAN_OPTIONS=halt_on_error=1"
@@ -67,21 +69,101 @@ jobs:
             build_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
             check_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
 
+          - arch: x86-32
+            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archconfigflags: "-m32"
+
+          - arch: x86-64
+            archdeps: ""
+            archconfigflags: ''
+
+        exclude:
+          # These are not supported on 32bit
+          - arch: x86-32
+            sanitizer: leak
+          - arch: x86-32
+            sanitizer: memory
+          - arch: x86-32
+            sanitizer: thread
+
     steps:
     - uses: actions/checkout@v2
+    - name: enable 32bit architecture
+      run: sudo dpkg --add-architecture i386
+      if: matrix.arch == 'x86-32'
     - name: dependencies
-      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown ${{ matrix.deps }}
+      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown ${{ matrix.deps }} ${{ matrix.archdeps }}
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
-      run: ${{ matrix.configflags }} ./configure ${{ matrix.config }}
+      run: ${{ matrix.configenv }}
+           CFLAGS="${{ matrix.configflags }} ${{ matrix.archconfigflags }}"
+           CXXFLAGS="${{ matrix.configflags }} ${{ matrix.archconfigflags }}"
+           ./configure ${{ matrix.config }}
     - name: Store the config
       if: ${{ failure() }}
       uses: actions/upload-artifact@v2
       with:
-        name: config-${{ matrix.sanitizer }}.log
+        name: config-${{ matrix.arch }}-${{ matrix.sanitizer }}.log
         path: config.log
     - name: make
       run: ${{ matrix.build_env }} make
     - name: make check
       run: ${{ matrix.check_env }} make check
+
+  reprotest:
+
+    runs-on: ubuntu-latest
+    name: Build with reprotest on ${{ matrix.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x86-32, x86-64]
+
+        include:
+          - arch: x86-32
+            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archconfigflags: "-m32"
+
+          - arch: x86-64
+            archdeps: ""
+            archconfigflags: ''
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: enable 32bit architecture
+        run: sudo dpkg --add-architecture i386
+        if: matrix.arch == 'x86-32'
+      - name: dependencies
+        run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown reprotest ${{ matrix.archdeps }}
+      - name: autoconf
+        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      - name: run
+        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure && make clean && make && make check && touch success' success
+
+  distcheck:
+
+    runs-on: ubuntu-latest
+    name: Run distcheck
+    steps:
+      - uses: actions/checkout@v2
+      - name: dependencies
+        run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown
+      - name: autoconf
+        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: make dist
+        run: make dist
+      - name: unpack
+        run: mkdir unpack && tar -C unpack -xf *.tar.gz
+      - name: re-configure
+        run: cd unpack/espeak-ng-* && ./configure
+      - name: re-make
+        run: cd unpack/espeak-ng-* && make
+      - name: re-make check
+        run: cd unpack/espeak-ng-* && make check

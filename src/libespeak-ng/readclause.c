@@ -997,7 +997,9 @@ void InitText2(void)
 	ungot_char2 = 0;
 
 	n_ssml_stack = 1;
+	MAKE_MEM_UNDEFINED(&ssml_stack[1], sizeof(ssml_stack) - sizeof(ssml_stack[0]));
 	n_param_stack = 1;
+	MAKE_MEM_UNDEFINED(&param_stack[1], sizeof(param_stack) - sizeof(param_stack[0]));
 	ssml_stack[0].tag_type = 0;
 
 	for (param = 0; param < N_SPEECH_PARAM; param++)

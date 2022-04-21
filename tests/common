@@ -125,7 +125,7 @@ test_replace() {
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" \
         > actual.txt || exit 1
-    < actual.txt grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > filtered.txt
+    < actual.txt grep -a -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > filtered.txt
     if [ "$MESSAGE" = "Ignore" ] ; then
         diff expected.txt filtered.txt || (echo "... ignoring error" && true)
     else
