@@ -1,0 +1,7 @@
+name Romanian (Moldavia)
+language ro-md
+replace 03 a a#
+dict_min  20000
+status mature
+
+tunes s3 c3 q3 e3
