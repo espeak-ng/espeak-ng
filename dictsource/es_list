@@ -334,7 +334,7 @@ Uds	ustedes		$text $capital $dot
 
 // pronunciation exceptions
 ser	s'e@-* $only // it's not a abbrev
-
+deprimente $3
 // Proper Names and countries
 amsterdam	$3
 bardem	$2
