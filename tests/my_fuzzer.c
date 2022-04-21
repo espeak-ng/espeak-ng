@@ -92,7 +92,8 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 		
 		voice.variant = 2;
 		voice.gender = 2;
-		espeak_SetVoiceByProperties(&voice);
+		//espeak_SetVoiceByProperties(&voice);
+		espeak_SetVoiceByName(getenv("ESPEAKLANG"));
 		espeak_Synth((char *)str, size + 1, 0, POS_CHARACTER, 0,
 					 synth_flags, NULL, NULL);
 	}
