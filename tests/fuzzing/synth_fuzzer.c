@@ -27,8 +27,8 @@
 #include <espeak-ng/espeak_ng.h>
 #define BOLDRED(x) "\x1b[31m\x1b[1m" x "\x1b[0m"
 /***** CONFIG *****/
-#define MAX_LEN 8192
 #define ESPEAK_DATA_PATH "/usr/lib/x86_64-linux-gnu/espeak-ng-data/"
+
 
 static int initialized = 0;
 
@@ -37,12 +37,6 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
 
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 {
-#ifdef FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
-	// In fuzzing mode the behavior of the code should be deterministic.
-	srand(0);
-#else
-	srand(time(0));
-#endif
 	if (!initialized)
 	{
 		const char *hasDataPath = getenv("ESPEAK_DATA_PATH");
