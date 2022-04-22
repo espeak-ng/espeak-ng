@@ -18,7 +18,7 @@ fi
 
 
 export FUZZ_VOICE=en
-FUZZER=synth-fuzz
+FUZZER=./synth_fuzzer
 
 TMP_DIR=$(mktemp -d)
 echo "Merging..."
