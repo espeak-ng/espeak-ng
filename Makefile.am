@@ -313,10 +313,10 @@ tests_readclause_test_SOURCES += tests/dummy.cpp
 tests_ssml_fuzzer_test_SOURCES += tests/dummy.cpp
 endif
 
-tests_synth_fuzzer_SOURCES = tests/synth_fuzzer.c
-tests_synth_fuzzer_LDADD =  src/libespeak-ng.la
-tests_synth_fuzzer_CFLAGS= -FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -fsanitize=address,undefined,fuzzer -fno-omit-frame-pointer -g -fsanitize-coverage=edge -Isrc/libespeak-ng -g -O2 -fdebug-prefix-map=/root=. -fstack-protector-strong -Wformat -Werror=format-security -O1  -g -ggdb3  -fprofile-instr-generate -fcoverage-mapping ${AM_CFLAGS}
-tests_synth_fuzzer_LDFLAGS= -fsanitize=address,undefined,fuzzer -static -lm  -fsanitize-coverage=edge -Wl,-z,relro ${PCAUDIOLIB_LIBS}
+tests_fuzzing_synth_fuzzer_SOURCES = tests/fuzzing/synth_fuzzer.c
+tests_fuzzing_synth_fuzzer_LDADD =  src/libespeak-ng.la
+tests_fuzzing_synth_fuzzer_CFLAGS= -FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -fsanitize=address,undefined,fuzzer -fno-omit-frame-pointer -g -fsanitize-coverage=edge -Isrc/libespeak-ng -g -O2 -fdebug-prefix-map=/root=. -fstack-protector-strong -Wformat -Werror=format-security -O1  -g -ggdb3  -fprofile-instr-generate -fcoverage-mapping ${AM_CFLAGS}
+tests_fuzzing_synth_fuzzer_LDFLAGS= -fsanitize=address,undefined,fuzzer -static -lm  -fsanitize-coverage=edge -Wl,-z,relro ${PCAUDIOLIB_LIBS}
 
 tests_ssml_fuzzer_SOURCES = tests/ssml-fuzzer.c
 tests_ssml_fuzzer_LDADD =  src/libespeak-ng.la
@@ -324,7 +324,7 @@ tests_ssml_fuzzer_CFLAGS= -fsanitize=address,undefined,fuzzer -fno-omit-frame-po
 tests_ssml_fuzzer_LDFLAGS= -fsanitize=address,undefined,fuzzer -static -lm  -fsanitize-coverage=edge ${PCAUDIOLIB_LIBS}
 
 if HAVE_LIBFUZZER
-bin_PROGRAMS +=  tests/synth_fuzzer
+bin_PROGRAMS +=  tests/fuzzing/synth_fuzzer
 bin_PROGRAMS +=  tests/ssml_fuzzer
 else
 tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
