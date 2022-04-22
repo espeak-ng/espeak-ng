@@ -315,7 +315,7 @@ endif
 
 tests_fuzzing_synth_fuzzer_SOURCES = tests/fuzzing/synth_fuzzer.c
 tests_fuzzing_synth_fuzzer_LDADD =  src/libespeak-ng.la
-tests_fuzzing_synth_fuzzer_CFLAGS= -FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -fsanitize=address,undefined,fuzzer -fno-omit-frame-pointer -g -fsanitize-coverage=edge -Isrc/libespeak-ng -g -O2 -fdebug-prefix-map=/root=. -fstack-protector-strong -Wformat -Werror=format-security -O1  -g -ggdb3  -fprofile-instr-generate -fcoverage-mapping ${AM_CFLAGS}
+tests_fuzzing_synth_fuzzer_CFLAGS=  -fsanitize=address,undefined,fuzzer -fno-omit-frame-pointer -g -fsanitize-coverage=edge -Isrc/libespeak-ng -g -O2 -fdebug-prefix-map=/root=. -fstack-protector-strong -Wformat -Werror=format-security -O1  -g -ggdb3  -fprofile-instr-generate -fcoverage-mapping ${AM_CFLAGS}
 tests_fuzzing_synth_fuzzer_LDFLAGS= -fsanitize=address,undefined,fuzzer -static -lm  -fsanitize-coverage=edge -Wl,-z,relro ${PCAUDIOLIB_LIBS}
 
 tests_ssml_fuzzer_SOURCES = tests/ssml-fuzzer.c
