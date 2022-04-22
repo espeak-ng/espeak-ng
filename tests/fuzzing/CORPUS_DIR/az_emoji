@@ -1,0 +1,1821 @@
+// Emoji and Other Symbol pronunciations for Azerbaijani
+//
+// Entries with `text|emoji` in the comments have text and emoji forms. They
+// can be followed by [FE0E] to select the text style, and [FE0F] to select
+// the emoji style.
+//
+// Entries with 'other' in the comments are not defined as emoji, but are other
+// Unicode characters.
+//
+// NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
+// in interpreting ZWJ emoji sequences.
+
+$textmode
+
+// 0000..007F : C0 Controls and Basic Latin
+
+//+	plus								// [002B] other (no translation)
+
+// 0080..00FF : C1 Controls and Latin-1 Supplement
+
+//¢	cents								// [00A2] other (no translation)
+//£	pound								// [00A3] other (no translation)
+//¤	currency sign							// [00A4] other (no translation)
+//¥	yen								// [00A5] other (no translation)
+//§	section								// [00A7] other (no translation)
+//¨	double dot							// [00A8] other (no translation)
+©	müəllif hüququ							// [00A9] text|emoji
+//¬	not sign							// [00AC] other (no translation)
+®	qeydiyyata alınmış						// [00AE] text|emoji
+//°	degrees								// [00B0] other (no translation)
+//±	plus or minus							// [00B1] other (no translation)
+//µ	micro								// [00B5] other (no translation)
+//¶	paragraph							// [00B6] other (no translation)
+//¼	a quarter							// [00BC] other (no translation)
+//½	a half								// [00BD] other (no translation)
+//¾	three quarters							// [00BE] other (no translation)
+//×	times								// [00D7] other (no translation)
+//÷	divided by							// [00F7] other (no translation)
+
+// 02B0..02FF : Spacing Modifier Letters
+
+//˙	dot								// [02D9] other (no translation)
+
+// 0900..097F : Devanagari
+
+//।	danda								// [0964] other (no translation)
+
+// 2000..203C : General Punctuation
+
+‼	qoşa nida işarəsi						// [203C] text|emoji
+⁉	nida və sual işarəsi						// [2049] text|emoji
+
+// 20A0..20CF : Currency Symbols
+
+//₨	rupee								// [20A8] other (no translation)
+//€	euros								// [20AC] other (no translation)
+//₹	rupee								// [20B9] other (no translation)
+
+// 2100..214F : Letterlike Symbols
+
+//№	numero								// [2116] other (no translation)
+//℞	prescription							// [211E] other (no translation)
+™	ticarət nişanı							// [2122] text|emoji
+ℹ	informasiya məlumatı						// [2139] text|emoji
+
+// 2150..218F : Number Forms
+
+//⅓	one third							// [2153] other (no translation)
+//⅔	two thirds							// [2154] other (no translation)
+
+// 2190..21FF : Arrows
+
+//←	left arrow							// [2190] other (no translation)
+//↑	up arrow							// [2191] other (no translation)
+//→	right arrow							// [2192] other (no translation)
+//↓	down arrow							// [2193] other (no translation)
+↔	sola-sağa ox							// [2194] text|emoji
+↕	üzü aşağı-yuxarı ox						// [2195] text|emoji
+↖	üzüyuxarı sola yönəlmiş ox					// [2196] text|emoji
+↗	üzüyuxarı sağa yönəlmiş ox					// [2197] text|emoji
+↘	üzüaşağı sağa yönəlmiş ox					// [2198] text|emoji
+↙	üzüaşağı sola yönəlmiş ox					// [2199] text|emoji
+↩	sola dönən sağ ox						// [21A9] text|emoji
+↪	sağa dönən sol ox						// [21AA] text|emoji
+
+// 2200..22FF : Mathematical Operators
+
+//∂	delta								// [2202] other (no translation)
+//∑	sum sign							// [2211] other (no translation)
+//−	minus								// [2212] other (no translation)
+//∗	asterisk							// [2217] other (no translation)
+//√	square root							// [221A] other (no translation)
+//∛	cube root							// [221B] other (no translation)
+//∝	proportional to							// [221D] other (no translation)
+//∞	infinity							// [221E] other (no translation)
+//∫	integral							// [222B] other (no translation)
+//∬	double integral							// [222C] other (no translation)
+//∴	therefore							// [2234] other (no translation)
+//∵	because								// [2235] other (no translation)
+//≈	approximately							// [2248] other (no translation)
+//≠	not equal to							// [2260] other (no translation)
+//≡	identical to							// [2261] other (no translation)
+//≤	less or equal to						// [2264] other (no translation)
+//≥	greater or equal to						// [2265] other (no translation)
+
+// 2300..23FF : Miscellaneous Technical
+
+⌚	qol saatı							// [231A]
+⌛	qum saatı							// [231B]
+⌨	klaviatura							// [2328] text|emoji
+⏏	çıxart düyməsi							// [23CF] text|emoji
+⏩	sürətli irəliyə çək düyməsi					// [23E9]
+⏪	sürətlə geriyə çək düyməsi					// [23EA]
+⏫	sürətlə yuxarı keç düyməsi					// [23EB]
+⏬	sürətlə aşağı keç düyməsi					// [23EC]
+⏭	növbəti trek düyməsi						// [23ED] text|emoji
+⏮	sonuncu trek düyməsi						// [23EE] text|emoji
+⏯	işə sal və ya fasilə et düyməsi					// [23EF] text|emoji
+⏰	zəngli saat							// [23F0]
+⏱	saniyəölçən							// [23F1] text|emoji
+⏲	taymer								// [23F2] text|emoji
+⏳	qum tökülən qum saatı						// [23F3]
+⏸	fasilə et düyməsi						// [23F8] text|emoji
+⏹	dayandır düyməsi						// [23F9] text|emoji
+⏺	yaz düyməsi							// [23FA] text|emoji
+
+// 2460..24FF : Enclosed Alphanumerics
+
+Ⓜ	dairəvi m hərfi							// [24C2] text|emoji
+
+// 25A0..25FF : Geometric Shapes
+
+//■	black square							// [25A0] other (no translation)
+▪	qara balaca kvadrat						// [25AA] text|emoji
+▫	ağ balaca kvadrat						// [25AB] text|emoji
+▶	işə sal düyməsi							// [25B6] text|emoji
+◀	geriyə düyməsi							// [25C0] text|emoji
+//●	black circle							// [25CF] other (no translation)
+◻	ağ orta ölçülü kvadrat						// [25FB] text|emoji
+◼	qara orta ölçülü kvadrat					// [25FC] text|emoji
+◽	ağ orta kiçiklikdə kvadrat					// [25FD]
+◾	qara orta kiçiklikdə kvadrat					// [25FE]
+
+// 2600..26FF : Miscellaneous Symbols
+
+☀	günəş								// [2600] text|emoji
+☁	bulud								// [2601] text|emoji
+☂	çətir								// [2602] text|emoji
+☃	qar adam							// [2603] text|emoji
+☄	kometa								// [2604] text|emoji
+☎	telefon								// [260E] text|emoji
+☑	təsdiqlənmiş seçki qutusu					// [2611] text|emoji
+☔	yağış damcıları düşən çətir					// [2614]
+☕	isti içki							// [2615]
+☘	yonca								// [2618] text|emoji
+☝	işarə barmağı							// [261D] text|emoji
+☠	kəllə və sümüklər						// [2620] text|emoji
+☢	radioaktiv							// [2622] text|emoji
+☣	biotəhlükəli							// [2623] text|emoji
+☦	ortodoks xaçı							// [2626] text|emoji
+☪	ulduz və aypara							// [262A] text|emoji
+☮	sülh simvolu							// [262E] text|emoji
+☯	in yan								// [262F] text|emoji
+☸	dharma çarxı							// [2638] text|emoji
+☹	qaşqabaqlı üz							// [2639] text|emoji
+☺	gülümsəyən üz							// [263A] text|emoji
+♀	qadın işarəsi							// [2640] text|emoji
+♂	kişi işarəsi							// [2642] text|emoji
+♈	qoç bürcü							// [2648]
+♉	buğa								// [2649]
+♊	əkizlər								// [264A]
+♋	xərçəng								// [264B]
+♌	şir								// [264C]
+♍	qız								// [264D]
+♎	tərəzi								// [264E]
+♏	əqrəb bürcü							// [264F]
+♐	oxatan								// [2650]
+♑	oğlaq								// [2651]
+♒	dolça								// [2652]
+♓	balıqlar							// [2653]
+♟	şahmat piyadası							// [265F] text|emoji
+♠	qaratoxmaq dəsti						// [2660] text|emoji
+♣	klub dəsti							// [2663] text|emoji
+♥	ürək dəsti							// [2665] text|emoji
+♦	romb dəsti							// [2666] text|emoji
+♨	qaynar bulaqlar							// [2668] text|emoji
+//♭	flat								// [266D] other (no translation)
+//♯	sharp								// [266F] other (no translation)
+♻	təkrar istifadə simvolu						// [267B] text|emoji
+♾	sonsuzluq							// [267E] text|emoji
+♿	əlil arabası							// [267F]
+⚒	çəkic və külüng							// [2692] text|emoji
+⚓	lövbər								// [2693]
+⚔	kəsişən qılınclar						// [2694] text|emoji
+⚕	tibb işarəsi							// [2695] text|emoji
+⚖	tarazlıq tərəzisi						// [2696] text|emoji
+⚗	distillə qazanı							// [2697] text|emoji
+⚙	mexanizm							// [2699] text|emoji
+⚛	atom simvolu							// [269B] text|emoji
+⚜	zanbaq								// [269C] text|emoji
+⚠	xəbərdarlıq							// [26A0] text|emoji
+⚡	yüksək voltaj							// [26A1]
+⚪	ağ dairə							// [26AA]
+⚫	qara dairə							// [26AB]
+⚰	tabut								// [26B0] text|emoji
+⚱	cənazə urnası							// [26B1] text|emoji
+⚽	futbol topu							// [26BD]
+⚾	beysbol								// [26BE]
+⛄	qarsız qar adam							// [26C4]
+⛅	buludun arxasında günəş						// [26C5]
+⛈	ildırım və yağışlı bulud					// [26C8] text|emoji
+⛎	ilandaşıyan							// [26CE]
+⛏	külüng								// [26CF] text|emoji
+⛑	ağ xaçlı dəbilqə						// [26D1] text|emoji
+⛓	zəncirlər							// [26D3] text|emoji
+⛔	giriş yoxdur							// [26D4]
+⛩	sinto məbədi							// [26E9] text|emoji
+⛪	kilsə								// [26EA]
+⛰	dağ								// [26F0] text|emoji
+⛱	yerdə çətir							// [26F1] text|emoji
+⛲	fontan								// [26F2]
+⛳	dəlikdə bayraq							// [26F3]
+⛴	bərə gəmisi							// [26F4] text|emoji
+⛵	yelkənli qayıq							// [26F5]
+⛷	xizəkçi								// [26F7] text|emoji
+⛸	buz konkisi							// [26F8] text|emoji
+⛹	toplu adam							// [26F9] text|emoji
+⛺	çadır								// [26FA]
+⛽	yanacaq borusu							// [26FD]
+
+// 2700..27BF : Dingbats
+
+✂	qayçı								// [2702] text|emoji
+✅	ağ qalın təsdiq işarəsi						// [2705]
+✈	təyyarə								// [2708] text|emoji
+✉	zərf								// [2709] text|emoji
+✊	qaldırılmış yumruq						// [270A]
+✋	qaldırımış əl							// [270B]
+✌	qələbə işarəsi							// [270C] text|emoji
+✍	yazı əli							// [270D] text|emoji
+✏	karandaş							// [270F] text|emoji
+✒	qara qələm							// [2712] text|emoji
+✔	qalın təsdiq işarəsi						// [2714] text|emoji
+✖	qalın vurma x							// [2716] text|emoji
+✝	latın xaçı							// [271D] text|emoji
+✡	davud ulduzu							// [2721] text|emoji
+✨	qığılcımlar							// [2728]
+✳	səkkiz tərəfli ulduz						// [2733] text|emoji
+✴	səkkiz guşəli ulduz						// [2734] text|emoji
+❄	qara dənəciyi							// [2744] text|emoji
+❇	qığılcım							// [2747] text|emoji
+❌	çarpazlamaq işarəsi						// [274C]
+❎	çarpazlamaq düyməsi						// [274E]
+❓	sual işarəsi							// [2753]
+❔	ağ sual işarəsi							// [2754]
+❕	ağ nida işarəsi							// [2755]
+❗	nida işarəsi							// [2757]
+❣	ürək nida işarəsi ornamenti					// [2763] text|emoji
+❤	qırmızı ürək							// [2764] text|emoji
+➕	qalın plus işarəsi						// [2795]
+➖	qalın minus işarəsi						// [2796]
+➗	qalın bölmə işarəsi						// [2797]
+➡	sağa ox								// [27A1] text|emoji
+➰	spiral ilmə							// [27B0]
+➿	ikiqat spiral ilmə						// [27BF]
+
+// 2900..297F : Supplemental Arrows-B
+
+⤴	yuxarı dönən sağ ox						// [2934] text|emoji
+⤵	aşağı dönən sağ ox						// [2935] text|emoji
+
+// 2B00..2BFF : Miscellaneous Symbols and Arrows
+
+⬅	sola ox								// [2B05] text|emoji
+⬆	üzüyuxarı ox							// [2B06] text|emoji
+⬇	üzüaşağı ox							// [2B07] text|emoji
+⬛	qara böyük kvadrat						// [2B1B]
+⬜	ağ böyük kvadrat						// [2B1C]
+⭐	ağ orta ulduz							// [2B50]
+⭕	qalın böyük dairə						// [2B55]
+
+// 3000..303F : CJK Symbols and Punctuation
+
+〰	dalğalı tire							// [3030] text|emoji
+〽	hissələri bir-birindən ayırmaq işarəsi				// [303D] text|emoji
+
+// 3200..32FF : Enclosed CJK Letters and Months
+
+㊗	dairə təbrik ideoqramı						// [3297] text|emoji
+㊙	dairə sirr ideoqramı						// [3299] text|emoji
+
+// 1F100..1F1FF : Enclosed Alphanumeric Supplement
+
+🅰	a düyməsi							// [1F170] text|emoji
+🅱	b düyməsi							// [1F171] text|emoji
+🅾	o düyməsi							// [1F17E] text|emoji
+🅿	p düyməsi							// [1F17F] text|emoji
+🆎	ab düyməsi							// [1F18E]
+🆑	kvadrat cl düyməsi						// [1F191]
+🆒	kvadrat əla düyməsi						// [1F192]
+🆓	kvadrat ödənişsiz						// [1F193]
+🆔	kvadrat kimlik							// [1F194]
+🆕	kvadrat yeni							// [1F195]
+🆖	kvadrat ng							// [1F196]
+🆗	kvadrat ok							// [1F197]
+🆘	kvadrat sos							// [1F198]
+🆙	up! button							// [1F199]
+🆚	kvadrat vs							// [1F19A]
+
+// 1F200..1F2FF : Enclosed Ideographic Supplement
+
+🈁	kvadrat katakana koko						// [1F201]
+🈂	kvadrat katakana sa						// [1F202] text|emoji
+🈚	kvadrat inkar ideoqramı						// [1F21A]
+🈯	kvadrat barmaq ideoqramı					// [1F22F]
+🈲	kvadrat qadağa ideoqramı					// [1F232]
+🈳	kvadrat boş ideoqramı						// [1F233]
+🈴	kvadrat birlikdə ideoqramı					// [1F234]
+🈵	kvadrat dolğunluq ideoqramı					// [1F235]
+🈶	kvadrat çıxış ideoqramı						// [1F236]
+🈷	kvadrat ay ideoqramı						// [1F237] text|emoji
+🈸	kvadrat tətbiq ideoqramı					// [1F238]
+🈹	kvadrat bölmə ideoqramı						// [1F239]
+🈺	kvadrat idarə ideoqramı						// [1F23A]
+🉐	dairə üstünlük ideoqramı					// [1F250]
+🉑	dairə qəbul etmək ideoqramı					// [1F251]
+
+// 1F000..1F02F : Mahjong Tiles
+
+🀄	maconq qırmızı əjdaha						// [1F004]
+
+// 1F0A0..1F0FF : Playing Cards
+
+🃏	joker								// [1F0CF]
+
+// 1F300..1F5FF : Miscellaneous Symbols and Pictographs
+
+🌀	siklon								// [1F300]
+🌁	dumanlı								// [1F301]
+🌂	bağlı çətir							// [1F302]
+🌃	ulduzlu gecə							// [1F303]
+🌄	dağlardan qalxan günəş						// [1F304]
+🌅	gün doğumu							// [1F305]
+🌆	hava qaralanda şəhər mənzərəsi					// [1F306]
+🌇	gün batımı							// [1F307]
+🌈	göyqurşağı							// [1F308]
+🌉	gecə körpü							// [1F309]
+🌊	su dalğası							// [1F30A]
+🌋	vulkan								// [1F30B]
+🌌	süd yolu							// [1F30C]
+🌍	Avropa-Afrikanı göstərən qlobus					// [1F30D]
+🌎	amerika-qitələrini göstərən qlobus				// [1F30E]
+🌏	asiya-avstraliya qitələrini göstərən qlobus			// [1F30F]
+🌐	meridianları olan qlobus					// [1F310]
+🌑	yeni ay								// [1F311]
+🌒	dörddə bir aypara						// [1F312]
+🌓	ayın birinci dörrdə bir hissəsi					// [1F313]
+🌔	dörddə bir böyüyən ay						// [1F314]
+🌕	tam ay								// [1F315]
+🌖	sönən böyüyən ay						// [1F316]
+🌗	ayın sonuncu dörddə bir hissəsi					// [1F317]
+🌘	sönən aypara							// [1F318]
+🌙	aypara								// [1F319]
+🌚	yeni ay üzü							// [1F31A]
+🌛	ayın birinci dörrdə bir hissəsinin üzü				// [1F31B]
+🌜	ayın sonuncu dörddə bir hissəsinin üzü				// [1F31C]
+🌝	üzü olan tam ay							// [1F31D]
+🌞	üzü olan günəş							// [1F31E]
+🌟	parıldayan ulduz						// [1F31F]
+🌠	düşən ulduz							// [1F320]
+🌡	termometr							// [1F321] text|emoji
+🌤	balaca buludun arxasına günəş					// [1F324] text|emoji
+🌥	böyük buludun arxasında günəş					// [1F325] text|emoji
+🌦	yağışlı buludun arxasında günəş					// [1F326] text|emoji
+🌧	yağışlı bulud							// [1F327] text|emoji
+🌨	qarlı bulud							// [1F328] text|emoji
+🌩	ildırımlı bulud							// [1F329] text|emoji
+🌪	qasırğa								// [1F32A] text|emoji
+🌫	duman								// [1F32B] text|emoji
+🌬	külək üzü							// [1F32C] text|emoji
+🌭	hot doq								// [1F32D]
+🌮	tako								// [1F32E]
+🌯	buritto								// [1F32F]
+🌰	şabalıd								// [1F330]
+🌱	şitil								// [1F331]
+🌲	həmişəyaşıl							// [1F332]
+🌳	enliyarpaqlı ağac						// [1F333]
+🌴	palma ağacı							// [1F334]
+🌵	kaktus								// [1F335]
+🌶	acı bibər							// [1F336] text|emoji
+🌷	liliya								// [1F337]
+🌸	albalı çiçəyi							// [1F338]
+🌹	qızılgül							// [1F339]
+🌺	hibiskus							// [1F33A]
+🌻	günəbaxan							// [1F33B]
+🌼	çiçək								// [1F33C]
+🌽	qarğıdalı sünbülü						// [1F33D]
+🌾	düyü sünbülü							// [1F33E]
+🌿	dərman bitkisi							// [1F33F]
+🍀	dörd yarpaq yonca						// [1F340]
+🍁	ağcaqayın yarpağı						// [1F341]
+🍂	tökülən yarpaq							// [1F342]
+🍃	küləkdə əsən yarpaq						// [1F343]
+🍄	göbələk								// [1F344]
+🍅	pomidor								// [1F345]
+🍆	badımcan							// [1F346]
+🍇	üzüm								// [1F347]
+🍈	yemiş								// [1F348]
+🍉	qarpız								// [1F349]
+🍊	mandarin							// [1F34A]
+🍋	limon								// [1F34B]
+🍌	banan								// [1F34C]
+🍍	ananas								// [1F34D]
+🍎	qırmızı alma							// [1F34E]
+🍏	yaşıl alma							// [1F34F]
+🍐	armud								// [1F350]
+🍑	şaftalı								// [1F351]
+🍒	albalı								// [1F352]
+🍓	çiyələk								// [1F353]
+🍔	hamburger							// [1F354]
+🍕	pizza								// [1F355]
+🍖	sümükdə ət							// [1F356]
+🍗	toyuq budu							// [1F357]
+🍘	düyü krekeri							// [1F358]
+🍙	düyü küftəsi							// [1F359]
+🍚	bişmiş düyü							// [1F35A]
+🍛	karri düyüsü							// [1F35B]
+🍜	buxarlanan kasa							// [1F35C]
+🍝	spagetti							// [1F35D]
+🍞	çörək								// [1F35E]
+🍟	kartof qızartması						// [1F35F]
+🍠	qızardılmış şirin kartof					// [1F360]
+🍡	danqo								// [1F361]
+🍢	oden								// [1F362]
+🍣	suşi								// [1F363]
+🍤	qızardılmış krivet						// [1F364]
+🍥	spiralşəkilli balıq piroqu					// [1F365]
+🍦	yumşaq dondurma							// [1F366]
+🍧	rəndələnmiş dondurma						// [1F367]
+🍨	dondurma							// [1F368]
+🍩	ponçik								// [1F369]
+🍪	peçenye								// [1F36A]
+🍫	şokolad plitkası						// [1F36B]
+🍬	konfet								// [1F36C]
+🍭	şüşəli karamel							// [1F36D]
+🍮	bişirilmiş krem							// [1F36E]
+🍯	bal qabı							// [1F36F]
+🍰	bir dilim tort							// [1F370]
+🍱	bentu qutusu							// [1F371]
+🍲	yemək qazanı							// [1F372]
+🍳	bişirmək							// [1F373]
+🍴	çəngəl və bıçaq							// [1F374]
+🍵	qulpsuz çay fincanı						// [1F375]
+🍶	sake								// [1F376]
+🍷	şərəb bakalı							// [1F377]
+🍸	kokteyl bakalı							// [1F378]
+🍹	tropik içki							// [1F379]
+🍺	pivə krujkası							// [1F37A]
+🍻	pivə krujkalarını toqquşdurmaq					// [1F37B]
+🍼	uşaq şüşəsi							// [1F37C]
+🍽	çəngəl və bıçaq ilə boşqab					// [1F37D] text|emoji
+🍾	tıxacı çıxan şüşə						// [1F37E]
+🍿	popkorn								// [1F37F]
+🎀	lent								// [1F380]
+🎁	bükülmüş hədiyyə						// [1F381]
+🎂	ad günü tortu							// [1F382]
+🎃	Hellouin balqabağı						// [1F383]
+🎄	milad ağacı							// [1F384]
+🎅	Santa Klaus							// [1F385]
+🎆	fişənglər							// [1F386]
+🎇	qığılclm							// [1F387]
+🎈	şar								// [1F388]
+🎉	qonaqlıq stimullaşdırıcısı					// [1F389]
+🎊	konfetti topu							// [1F38A]
+🎋	tanabata ağacı							// [1F38B]
+🎌	kəsişən bayraqlar						// [1F38C]
+🎍	şam ağacı bəzəyi						// [1F38D]
+🎎	yapon gəlincikləri						// [1F38E]
+🎏	karp-uçurtma							// [1F38F]
+🎐	külək zəngi							// [1F390]
+🎑	ay mərasimi							// [1F391]
+🎒	məktəbli bel çantası						// [1F392]
+🎓	məzuniyyət papağı						// [1F393]
+🎖	hərbi medal							// [1F396] text|emoji
+🎗	xatırlatma lenti						// [1F397] text|emoji
+🎙	studiya mikrafonu						// [1F399] text|emoji
+🎚	səviyyə slayderi						// [1F39A] text|emoji
+🎛	idarə düymələri							// [1F39B] text|emoji
+🎞	film kadrları							// [1F39E] text|emoji
+🎟	giriş biletləri							// [1F39F] text|emoji
+🎠	karusel at							// [1F3A0]
+🎡	feris çarxı							// [1F3A1]
+🎢	maneəli dəmir yolu attraksionu					// [1F3A2]
+🎣	balıq tilovu							// [1F3A3]
+🎤	mikrofon							// [1F3A4]
+🎥	kino kamerası							// [1F3A5]
+🎦	kino								// [1F3A6]
+🎧	qulaqlıq							// [1F3A7]
+🎨	rəssam palitrası						// [1F3A8]
+🎩	silindir şlayapa						// [1F3A9]
+🎪	sirk çadırı							// [1F3AA]
+🎫	bilet								// [1F3AB]
+🎬	numerator							// [1F3AC]
+🎭	teatr incəsənəti						// [1F3AD]
+🎮	video oyun							// [1F3AE]
+🎯	birbaşa atış							// [1F3AF]
+🎰	avtomat maşın							// [1F3B0]
+🎱	bilyard								// [1F3B1]
+🎲	oyun zəri							// [1F3B2]
+🎳	boulinq								// [1F3B3]
+🎴	gül oyun kartları						// [1F3B4]
+🎵	musiqi notu							// [1F3B5]
+🎶	musiqi notları							// [1F3B6]
+🎷	saksofon							// [1F3B7]
+🎸	gitara								// [1F3B8]
+🎹	musiqi klaviaturası						// [1F3B9]
+🎺	şeypur								// [1F3BA]
+🎻	skripka								// [1F3BB]
+🎼	musiqi partiturası						// [1F3BC]
+🎽	atlet köynəyi							// [1F3BD]
+🎾	tennis								// [1F3BE]
+🎿	xizək								// [1F3BF]
+🏀	basketbol							// [1F3C0]
+🏁	damalı bayraq							// [1F3C1]
+🏂	snouborder							// [1F3C2]
+🏃	atlet								// [1F3C3]
+🏄	sörfer								// [1F3C4]
+🏅	idman medalı							// [1F3C5]
+🏆	kubok								// [1F3C6]
+🏇	at yarışı							// [1F3C7]
+🏈	amerikan futbolu						// [1F3C8]
+🏉	reqbi								// [1F3C9]
+🏊	üzgüçü								// [1F3CA]
+🏋	ştanqçı								// [1F3CB] text|emoji
+🏌	qolf oynayan							// [1F3CC] text|emoji
+🏍	motosiklet							// [1F3CD] text|emoji
+🏎	yarış maşını							// [1F3CE] text|emoji
+🏏	kriket								// [1F3CF]
+🏐	voleybol							// [1F3D0]
+🏑	sahə xokkeyi							// [1F3D1]
+🏒	buz xokkeyi çubuğu və şaybası					// [1F3D2]
+🏓	pinq ponq							// [1F3D3]
+🏔	başı qarla örtülmüş dağ						// [1F3D4] text|emoji
+🏕	kempinq								// [1F3D5] text|emoji
+🏖	çətirli çimərlik						// [1F3D6] text|emoji
+🏗	bina tikintisi							// [1F3D7] text|emoji
+🏘	ev binaları							// [1F3D8] text|emoji
+🏙	şəhər mənzərəsi							// [1F3D9] text|emoji
+🏚	baxımsız ev binası						// [1F3DA] text|emoji
+🏛	klassik bina							// [1F3DB] text|emoji
+🏜	səhra								// [1F3DC] text|emoji
+🏝	tənha ada							// [1F3DD] text|emoji
+🏞	milli park							// [1F3DE] text|emoji
+🏟	stadion								// [1F3DF] text|emoji
+🏠	ev binası							// [1F3E0]
+🏡	bağı olan ev							// [1F3E1]
+🏢	ofis binası							// [1F3E2]
+🏣	yapon poçt idarəsi						// [1F3E3]
+🏤	poçt idarəsi							// [1F3E4]
+🏥	xəstəxana							// [1F3E5]
+🏦	bank								// [1F3E6]
+🏧	Bankomat işarəsi						// [1F3E7]
+🏨	otel								// [1F3E8]
+🏩	sevgi oteli							// [1F3E9]
+🏪	7/24 açıq olan mağaza						// [1F3EA]
+🏫	məktəb								// [1F3EB]
+🏬	univermaq							// [1F3EC]
+🏭	fabrik								// [1F3ED]
+🏮	qırmızı kağız fənər						// [1F3EE]
+🏯	yapon qəsri							// [1F3EF]
+🏰	qəsr								// [1F3F0]
+🏳	dalğalanan ağ bayraq						// [1F3F3] text|emoji
+🏴	dalğalanan qara bayraq						// [1F3F4]
+🏵	rozetka								// [1F3F5] text|emoji
+🏷	etiket								// [1F3F7] text|emoji
+🏸	badminton							// [1F3F8]
+🏹	ox və kaman							// [1F3F9]
+🏺	amfora								// [1F3FA]
+🏻	açıq dəri tonu							// [1F3FB]
+🏼	orta-açıq dəri tonu						// [1F3FC]
+🏽	orta dəri tonu							// [1F3FD]
+🏾	orta-tünd dəri tonu						// [1F3FE]
+🏿	tünd dəri tonu							// [1F3FF]
+🐀	siçovul								// [1F400]
+🐁	siçan								// [1F401]
+🐂	öküz								// [1F402]
+🐃	su camışı							// [1F403]
+🐄	inək								// [1F404]
+🐅	pələng								// [1F405]
+🐆	bəbir								// [1F406]
+🐇	dovşan								// [1F407]
+🐈	pişik								// [1F408]
+🐉	əjdaha								// [1F409]
+🐊	timsah								// [1F40A]
+🐋	kit								// [1F40B]
+🐌	ilbiz								// [1F40C]
+🐍	ilan								// [1F40D]
+🐎	at								// [1F40E]
+🐏	qoç								// [1F40F]
+🐐	keçi								// [1F410]
+🐑	qoyun								// [1F411]
+🐒	meymun								// [1F412]
+🐓	xoruz								// [1F413]
+🐔	toyuq								// [1F414]
+🐕	it								// [1F415]
+🐖	donuz								// [1F416]
+🐗	qaban								// [1F417]
+🐘	fil								// [1F418]
+🐙	osminoq								// [1F419]
+🐚	spiral balıqqulağı						// [1F41A]
+🐛	böcək								// [1F41B]
+🐜	qarışqa								// [1F41C]
+🐝	bal arısı							// [1F41D]
+🐞	parabizən							// [1F41E]
+🐟	balıq								// [1F41F]
+🐠	tropik balıq							// [1F420]
+🐡	iynəqarın balıq							// [1F421]
+🐢	tısbağa								// [1F422]
+🐣	yumurtadan çıxan cücə						// [1F423]
+🐤	körpə cücə							// [1F424]
+🐥	qabağa baxan balaca cücə					// [1F425]
+🐦	quş								// [1F426]
+🐧	pinqvin								// [1F427]
+🐨	koala								// [1F428]
+🐩	pudel								// [1F429]
+🐪	dəvə								// [1F42A]
+🐫	ikihürgüclü dəvə						// [1F42B]
+🐬	delfin								// [1F42C]
+🐭	siçan üzü							// [1F42D]
+🐮	inək üzü							// [1F42E]
+🐯	pələng üzü							// [1F42F]
+🐰	dovşan üzü							// [1F430]
+🐱	pişik üzü							// [1F431]
+🐲	əjdaha üzü							// [1F432]
+🐳	su püskürdən balina						// [1F433]
+🐴	at üzü								// [1F434]
+🐵	meymun üzü							// [1F435]
+🐶	it üzü								// [1F436]
+🐷	donuz üzü							// [1F437]
+🐸	qurbağa üzü							// [1F438]
+🐹	dağsiçanı							// [1F439]
+🐺	canavar üzü							// [1F43A]
+🐻	ayı üzü								// [1F43B]
+🐼	panda üzü							// [1F43C]
+🐽	donuz burnu							// [1F43D]
+🐾	pəncə izləri							// [1F43E]
+🐿	brunduk								// [1F43F] text|emoji
+👀	gözlər								// [1F440]
+👁	göz								// [1F441] text|emoji
+👂	qulaq								// [1F442]
+👃	burun								// [1F443]
+👄	ağız								// [1F444]
+👅	dil								// [1F445]
+👆	yuxarını göstərən sol əlin işarə barmağı			// [1F446]
+👇	aşağını göstərən sol əlin işarə barmağı				// [1F447]
+👈	solu göstərən sol əlin işarə barmağı				// [1F448]
+👉	sağı göstərən sol əlin işarə barmağı				// [1F449]
+👊	yaxınlaşan yumruq						// [1F44A]
+👋	əl sallayan əllər						// [1F44B]
+👌	ok işarəsi							// [1F44C]
+👍	baş barmaq yuxarı						// [1F44D]
+👎	baş barmaq aşağı						// [1F44E]
+👏	əl çalan əllər							// [1F44F]
+👐	açıq əllər							// [1F450]
+👑	tac								// [1F451]
+👒	qadın şlyapası							// [1F452]
+👓	eynək								// [1F453]
+👔	qalstuk								// [1F454]
+👕	köynək								// [1F455]
+👖	cins								// [1F456]
+👗	don								// [1F457]
+👘	kimono								// [1F458]
+👙	bikini								// [1F459]
+👚	qadın paltarı							// [1F45A]
+👛	pul kisəsi							// [1F45B]
+👜	əl çantası							// [1F45C]
+👝	torba								// [1F45D]
+👞	kişi ayaqqabısı							// [1F45E]
+👟	qaçış ayaqqabısı						// [1F45F]
+👠	hündür daban ayaqqabı						// [1F460]
+👡	qadın səndəli							// [1F461]
+👢	qadın çəkməsi							// [1F462]
+👣	ayaq izləri							// [1F463]
+👤	büst silueti							// [1F464]
+👥	büst siluetləri							// [1F465]
+👦	oğlan								// [1F466]
+👧	qız uşağı							// [1F467]
+👨	kişi								// [1F468]
+👩	qadın								// [1F469]
+👪	ailə								// [1F46A]
+👫	əl-ələ tutan kişi və qadın					// [1F46B]
+👬	əl-ələ tutan iki kişi						// [1F46C]
+👭	əl-ələ tutan iki qadın						// [1F46D]
+👮	polis məmuru							// [1F46E]
+👯	şənlənən qadınlar						// [1F46F]
+👰	duvaqlı gəlin							// [1F470]
+👱	sarı saçlı adam							// [1F471]
+👲	çin kepkalı kişi						// [1F472]
+👳	çalmalı kişi							// [1F473]
+👴	yaşlı kişi							// [1F474]
+👵	yaşlı qadın							// [1F475]
+👶	körpə								// [1F476]
+👷	tikinti işçisi							// [1F477]
+👸	qız şahzadə							// [1F478]
+👹	div								// [1F479]
+👺	qoblin								// [1F47A]
+👻	ruh								// [1F47B]
+👼	körpə mələk							// [1F47C]
+👽	yadplanetli							// [1F47D]
+👾	yadplanetli monstr						// [1F47E]
+👿	şeytan								// [1F47F]
+💀	kəllə								// [1F480]
+💁	məlumat verən şəxs						// [1F481]
+💂	keşikçi								// [1F482]
+💃	rəqs edən qadın							// [1F483]
+💄	dodaq boyası							// [1F484]
+💅	dırnaq laklamaq							// [1F485]
+💆	üz masajı							// [1F486]
+💇	saç kəsimi							// [1F487]
+💈	şlaqbaum							// [1F488]
+💉	şpris								// [1F489]
+💊	həb								// [1F48A]
+💋	öpüş işarəsi							// [1F48B]
+💌	sevgi məktubu							// [1F48C]
+💍	üzük								// [1F48D]
+💎	qiymətli daş							// [1F48E]
+💏	öpüş								// [1F48F]
+💐	buket								// [1F490]
+💑	ürəkli cütlük							// [1F491]
+💒	toy								// [1F492]
+💓	döyünən ürək							// [1F493]
+💔	sınmış ürək							// [1F494]
+💕	iki ürək							// [1F495]
+💖	qığılcımlı ürək							// [1F496]
+💗	böyüyıb ürək							// [1F497]
+💘	oxlu ürək							// [1F498]
+💙	mavi ürək							// [1F499]
+💚	yaşıl ürək							// [1F49A]
+💛	sarı ürək							// [1F49B]
+💜	bənövşəyi ürək							// [1F49C]
+💝	lentli ürək							// [1F49D]
+💞	fırlanan ürəklr							// [1F49E]
+💟	ürək bəzəyi							// [1F49F]
+💠	nöqtəli romb							// [1F4A0]
+💡	işıq lampası							// [1F4A1]
+💢	qəzəb simvolu							// [1F4A2]
+💣	bomba								// [1F4A3]
+💤	zzz								// [1F4A4]
+💥	toqquşma							// [1F4A5]
+💦	tər damcıları							// [1F4A6]
+💧	damcı								// [1F4A7]
+💨	sürətli hərəkət							// [1F4A8]
+💩	pox								// [1F4A9]
+💪	qatlanmış əzələ							// [1F4AA]
+💫	başgicəllənməsi							// [1F4AB]
+💬	nitq şarı							// [1F4AC]
+💭	düşüncə şarı							// [1F4AD]
+💮	ağ gül								// [1F4AE]
+💯	100 xal								// [1F4AF]
+💰	pul torbası							// [1F4B0]
+💱	valyuta mübadiləsi						// [1F4B1]
+💲	qalın dollar işarəsi						// [1F4B2]
+💳	kredit kartı							// [1F4B3]
+💴	iena banknotu							// [1F4B4]
+💵	dollar əskinazı							// [1F4B5]
+💶	avro əskinazı							// [1F4B6]
+💷	funt əskinazı							// [1F4B7]
+💸	qanadlı pullar							// [1F4B8]
+💹	ien ilə qalxan qrafik						// [1F4B9]
+💺	oturacaq							// [1F4BA]
+💻	kompüter							// [1F4BB]
+💼	çemodan								// [1F4BC]
+💽	mini disk							// [1F4BD]
+💾	çevik disk							// [1F4BE]
+💿	optik disk							// [1F4BF]
+📀	dvd								// [1F4C0]
+📁	fayl qovluğu							// [1F4C1]
+📂	açıq fayl qovluğu						// [1F4C2]
+📃	qatlanmış səhifə						// [1F4C3]
+📄	üzüyuxarı səhifə						// [1F4C4]
+📅	təqvim								// [1F4C5]
+📆	təqvimi cırmaq							// [1F4C6]
+📇	kart indeksi							// [1F4C7]
+📈	qalxan qrafik							// [1F4C8]
+📉	düşən qrafik							// [1F4C9]
+📊	diaqram								// [1F4CA]
+📋	lövhə								// [1F4CB]
+📌	löhvə düyməsi							// [1F4CC]
+📍	dairəvi sancaq							// [1F4CD]
+📎	skrepka								// [1F4CE]
+📏	düz xətkeş							// [1F4CF]
+📐	ücbucaq xətkeş							// [1F4D0]
+📑	əlfəcin tabları							// [1F4D1]
+📒	mühasibatlıq kitabı						// [1F4D2]
+📓	bloknot								// [1F4D3]
+📔	bəzəkli cildli dəftər						// [1F4D4]
+📕	bağlı kitab							// [1F4D5]
+📖	açıq kitab							// [1F4D6]
+📗	yaşıl kitab							// [1F4D7]
+📘	mavi kitab							// [1F4D8]
+📙	narıncı kitab							// [1F4D9]
+📚	kitablar							// [1F4DA]
+📛	ad nişanı							// [1F4DB]
+📜	lülə halında bükülmüş kağız					// [1F4DC]
+📝	yaddaş qeydi							// [1F4DD]
+📞	telefon dəstəyi							// [1F4DE]
+📟	peycer								// [1F4DF]
+📠	faks aparatı							// [1F4E0]
+📡	peyk antenası							// [1F4E1]
+📢	səsucaldıcı							// [1F4E2]
+📣	meqafon								// [1F4E3]
+📤	gedənlər qutusu							// [1F4E4]
+📥	gələnlər qutusu							// [1F4E5]
+📦	bağlama								// [1F4E6]
+📧	e-poçt								// [1F4E7]
+📨	gələn zərf							// [1F4E8]
+📩	oxlu zərf							// [1F4E9]
+📪	endirilmiş bayraqlı bağlı poçt qutusu				// [1F4EA]
+📫	qaldırılmış bayraqlı bağlı poçt qutusu				// [1F4EB]
+📬	qaldırılmış bayraqlı açıq poçt qutusu				// [1F4EC]
+📭	endirilmiş bayraqlı açıq poçt qutusu				// [1F4ED]
+📮	poçt qutusu							// [1F4EE]
+📯	poçt şeypuru							// [1F4EF]
+📰	qəzet								// [1F4F0]
+📱	mobil telefon							// [1F4F1]
+📲	oxlu mobil telefon						// [1F4F2]
+📳	vibrasiya rejimi						// [1F4F3]
+📴	mobil telefonu söndürün						// [1F4F4]
+📵	mobil telefondan istifadə etmək olmaz				// [1F4F5]
+📶	antena siqnalları						// [1F4F6]
+📷	kamera								// [1F4F7]
+📸	işıqlı kamera							// [1F4F8]
+📹	video kamera							// [1F4F9]
+📺	televizor							// [1F4FA]
+📻	radio								// [1F4FB]
+📼	video kaset							// [1F4FC]
+📽	kino projektoru							// [1F4FD] text|emoji
+📿	təsbeh								// [1F4FF]
+🔀	trekləri qarışdır düyməsi					// [1F500]
+🔁	təkrarla düyməsi						// [1F501]
+🔂	bir dəfə təkrarla düyməsi					// [1F502]
+🔃	saat istiqamətində yönəlmiş şaquli ox				// [1F503]
+🔄	saat istiqamətinin əksinə yönəlmiş oxlar düyməsi		// [1F504]
+🔅	tutqunluq düyməsi						// [1F505]
+🔆	parlaqlıq düyməsi						// [1F506]
+🔇	səsucaldan sönülüdür						// [1F507]
+🔈	səsucaldan							// [1F508]
+🔉	səsucaldan aktivdir						// [1F509]
+🔊	səsucaldan yüksəkdir						// [1F50A]
+🔋	batareya							// [1F50B]
+🔌	elektrik ştepseli						// [1F50C]
+🔍	sola yönəlmiş böyüdücü şüşə					// [1F50D]
+🔎	sağa yönəlmiş böyüdücü şüşə					// [1F50E]
+🔏	qələmli kilid							// [1F50F]
+🔐	açarla bağlanmış kilid						// [1F510]
+🔑	açar								// [1F511]
+🔒	kilid								// [1F512]
+🔓	açıq kilid							// [1F513]
+🔔	zəng								// [1F514]
+🔕	üstündən xətt çəkilmiş zəng					// [1F515]
+🔖	əlfəcin								// [1F516]
+🔗	zəncir								// [1F517]
+🔘	radio düyməsi							// [1F518]
+🔙	geriyə yönəlmiş ox						// [1F519]
+🔚	sona yönəlmiş ox						// [1F51A]
+🔛	aktivdir! oxu							// [1F51B]
+🔜	tezliklə oxu							// [1F51C]
+🔝	yuxarı yönəlmiş ox						// [1F51D]
+🔞	18 yaşından aşağı olanlara olmaz				// [1F51E]
+🔟	klaviatura qapağı: 10						// [1F51F]
+🔠	böyük hərflərlə latın daxiletməsi				// [1F520]
+🔡	kiçik hərflərlə latın daxiletməsi				// [1F521]
+🔢	daxiletmə rəqəmləri						// [1F522]
+🔣	daxiletmə simvolları						// [1F523]
+🔤	latın hərfləri daxiletməsi					// [1F524]
+🔥	alov								// [1F525]
+🔦	fənər								// [1F526]
+🔧	təmir açarı							// [1F527]
+🔨	çəkic								// [1F528]
+🔩	bolt və qayka							// [1F529]
+🔪	mətbəx bıçağı							// [1F52A]
+🔫	tapança								// [1F52B]
+🔬	mikroskop							// [1F52C]
+🔭	teleskop							// [1F52D]
+🔮	kristal kürə							// [1F52E]
+🔯	nöqtəli altıguşəli ulduz					// [1F52F]
+🔰	yaponların başlayan üçün simvolu				// [1F530]
+🔱	üçdiş emblem							// [1F531]
+🔲	qara kvadrat düymə						// [1F532]
+🔳	ağ kvadrat düymə						// [1F533]
+🔴	qırmızı dairə							// [1F534]
+🔵	mavi dairə							// [1F535]
+🔶	böyük narıncı romb						// [1F536]
+🔷	böyük mavi romb							// [1F537]
+🔸	balaca narıncı romb						// [1F538]
+🔹	balaca mavi romb						// [1F539]
+🔺	yuxarı yönəlmiş qırmızı üçbucaq					// [1F53A]
+🔻	aşağı yönəlmiş qırmızı üçbucaq					// [1F53B]
+🔼	yuxarı düyməsi							// [1F53C]
+🔽	aşağı düyməsi							// [1F53D]
+🕉	om								// [1F549] text|emoji
+🕊	göyərçin							// [1F54A] text|emoji
+🕋	kəbə								// [1F54B]
+🕌	məscid								// [1F54C]
+🕍	sinaqoq								// [1F54D]
+🕎	hanukiya							// [1F54E]
+🕐	bir tamam							// [1F550]
+🕑	iki tamam							// [1F551]
+🕒	üç tamam							// [1F552]
+🕓	dörd tamam							// [1F553]
+🕔	beş tamam							// [1F554]
+🕕	altı tamam							// [1F555]
+🕖	yeddi tamam							// [1F556]
+🕗	səkkiz tamam							// [1F557]
+🕘	doqquz tamam							// [1F558]
+🕙	on tamam							// [1F559]
+🕚	on bir tamam							// [1F55A]
+🕛	12 tamam							// [1F55B]
+🕜	ikinin yarısı							// [1F55C]
+🕝	üçün yarısı							// [1F55D]
+🕞	dördün yarısı							// [1F55E]
+🕟	beşin yarısı							// [1F55F]
+🕠	altının yarısı							// [1F560]
+🕡	yeddinin yarısı							// [1F561]
+🕢	səkkizin yarısı							// [1F562]
+🕣	doqquzun yarısı							// [1F563]
+🕤	onun yarısı							// [1F564]
+🕥	on birin yarısı							// [1F565]
+🕦	on ikinin yarısı						// [1F566]
+🕧	birin yarısı							// [1F567]
+🕯	şam								// [1F56F] text|emoji
+🕰	buxarı saat							// [1F570] text|emoji
+🕳	deşik								// [1F573] text|emoji
+🕴	işgüzar kostyumlu kişi						// [1F574] text|emoji
+🕵	detektiv							// [1F575] text|emoji
+🕶	gün eynəyi							// [1F576] text|emoji
+🕷	hörümçək							// [1F577] text|emoji
+🕸	hörümçək toru							// [1F578] text|emoji
+🕹	coystik								// [1F579] text|emoji
+🕺	əylənən kişilər							// [1F57A]
+🖇	birləşmiş sancaqlar						// [1F587] text|emoji
+🖊	qələm								// [1F58A] text|emoji
+🖋	avto qələm							// [1F58B] text|emoji
+🖌	fırça								// [1F58C] text|emoji
+🖍	yağlı karandaş							// [1F58D] text|emoji
+🖐	barmaqları aralı şəkildə qaldırılmış əl				// [1F590] text|emoji
+🖕	orta barmaq							// [1F595]
+🖖	vulkan salamı							// [1F596]
+🖤	qara-ürək adam							// [1F5A4]
+🖥	masaüstü kompüter						// [1F5A5] text|emoji
+🖨	printer								// [1F5A8] text|emoji
+🖱	kompüter siçanı							// [1F5B1] text|emoji
+🖲	kürəşəkilli manipulyator					// [1F5B2] text|emoji
+🖼	şəkilli çərçivə							// [1F5BC] text|emoji
+🗂	kart indeksi arakəsmələri					// [1F5C2] text|emoji
+🗃	kart faylı qutusu						// [1F5C3] text|emoji
+🗄	fayl şkafı							// [1F5C4] text|emoji
+🗑	zibilqabı							// [1F5D1] text|emoji
+🗒	spiral dəftər							// [1F5D2] text|emoji
+🗓	spiral təqvim							// [1F5D3] text|emoji
+🗜	sıxma								// [1F5DC] text|emoji
+🗝	köhnə açar							// [1F5DD] text|emoji
+🗞	bükülmüş qəzet							// [1F5DE] text|emoji
+🗡	xəncər								// [1F5E1] text|emoji
+🗣	danışan baş							// [1F5E3] text|emoji
+🗨	boş nitq şarı							// [1F5E8] text|emoji
+🗯	sağ qəzəb şarı							// [1F5EF] text|emoji
+🗳	səsvermə kağızı olan seçki qutusu				// [1F5F3] text|emoji
+🗺	dünya xəritəsi							// [1F5FA] text|emoji
+🗻	fuji dağı							// [1F5FB]
+🗼	tokiyo qalası							// [1F5FC]
+🗽	azadlıq heykəli							// [1F5FD]
+🗾	yaponiyanın xəritəsi						// [1F5FE]
+🗿	moai								// [1F5FF]
+
+// 1F600..1F64F : Emoticons
+
+😀	gülən üz							// [1F600]
+😁	gülən gözlərlə gülən üz						// [1F601]
+😂	sevinc göz yaşları olan üz					// [1F602]
+😃	açıq ağızla gülən üz						// [1F603]
+😄	açıq ağız və gülən gözlərlə gülən üz				// [1F604]
+😅	açıq ağız və soyuq tərlə gülən üz				// [1F605]
+😆	açıq ağız və bərk yumulmuş gözlərlə gülən üz			// [1F606]
+😇	başında halə gülmsəyən üz					// [1F607]
+😈	buynuzlu gülən üz						// [1F608]
+😉	göz vuran üz							// [1F609]
+😊	gülən gözlərlə gülümsəyən üz					// [1F60A]
+😋	dadlı yeməkdən həzz alan üz					// [1F60B]
+😌	rahat üz							// [1F60C]
+😍	ürək formalı gözləri olan gülən üz				// [1F60D]
+😎	gün eynəyi ilə gülən üz						// [1F60E]
+😏	özündən razı gülümsəyən üz					// [1F60F]
+😐	neytral üz							// [1F610]
+😑	ifadəsiz üz							// [1F611]
+😒	kefsiz üz							// [1F612]
+😓	soyuq tərli üz							// [1F613]
+😔	fikirli üz							// [1F614]
+😕	çaşqın üz							// [1F615]
+😖	utanan üz							// [1F616]
+😗	öpən üz								// [1F617]
+😘	öpüş göndərən üz						// [1F618]
+😙	gülən gözlərlə öpən üz						// [1F619]
+😚	bağlı gözlərlə öpən üz						// [1F61A]
+😛	dilini çıxarmış üz						// [1F61B]
+😜	dilini çıxarmış və göz vuran üz					// [1F61C]
+😝	dilini çıxarmış və gözlərini möhkəm bağlamış üz			// [1F61D]
+😞	məyus üz							// [1F61E]
+😟	narahat üz							// [1F61F]
+😠	hirsli üz							// [1F620]
+😡	acıqlı üz							// [1F621]
+😢	ağlayan üz							// [1F622]
+😣	inadkar üz							// [1F623]
+😤	burnundan tüstü çıxan üz					// [1F624]
+😥	məyus lakin rahat üz						// [1F625]
+😦	ağzı açıq qaşqabaqlı üz						// [1F626]
+😧	kədərli üz							// [1F627]
+😨	qorxmuş üz							// [1F628]
+😩	yorulmuş üz							// [1F629]
+😪	yuxulu üz							// [1F62A]
+😫	yorğun üz							// [1F62B]
+😬	üz-gözünü turşudan üz						// [1F62C]
+😭	bərkdən ağlayan üz						// [1F62D]
+😮	ağzı açıq üz							// [1F62E]
+😯	heyrətlənmiş üz							// [1F62F]
+😰	ağzı açıq və soyuq tər olan üz					// [1F630]
+😱	qorxudan çığıran üz						// [1F631]
+😲	təəccüblənmiş üz						// [1F632]
+😳	qızarmış üz							// [1F633]
+😴	yatan üz							// [1F634]
+😵	başıgicəllənən üz						// [1F635]
+😶	ağızsız üz							// [1F636]
+😷	tibbi maskalı üz						// [1F637]
+😸	gözləri gülən dişini ağardan pişik üzü				// [1F638]
+😹	sevinc göz yaşları olan pişik üzü				// [1F639]
+😺	ağzı açıq gülən pişik üzü					// [1F63A]
+😻	ürək formalı gözləri olan gülən pişik üzü			// [1F63B]
+😼	əyri-əyri gülən pişik üzü					// [1F63C]
+😽	bağlı gözlərlə öpən pişik üzü					// [1F63D]
+😾	acıqlı pişik üzü						// [1F63E]
+😿	ağlayan pişik üzü						// [1F63F]
+🙀	təəccüblənmiş pişik üzü						// [1F640]
+🙁	bir az qaşqabaqlı üz						// [1F641]
+🙂	yüngülcə gülümsəyən üz						// [1F642]
+🙃	başı-aşağı üz							// [1F643]
+🙄	gözlərini fırladan üz						// [1F644]
+🙅	yox jesti							// [1F645]
+🙆	ok jesti							// [1F646]
+🙇	tənzim edən adam						// [1F647]
+🙈	pisliyi görümürəm						// [1F648]
+🙉	pisliyi eşitmirəm						// [1F649]
+🙊	pis danışmıram							// [1F64A]
+🙋	əlini qaldıran xoşbəxt adam					// [1F64B]
+🙌	əllərini qaldıran adam						// [1F64C]
+🙍	qaşqabaqlı adam							// [1F64D]
+🙎	acıq edən adam							// [1F64E]
+🙏	qatlanmış əllər							// [1F64F]
+
+// 1F680..1F6FF : Transport and Map Symbols
+
+🚀	raketa								// [1F680]
+🚁	helikopter							// [1F681]
+🚂	lokomotiv							// [1F682]
+🚃	dəmir yolu qatarı vaqonu					// [1F683]
+🚄	yüksək sürətli qatar						// [1F684]
+🚅	gülləyə bənzər ucluqlu yüksək sürət qatarı			// [1F685]
+🚆	qatar								// [1F686]
+🚇	metro								// [1F687]
+🚈	işıq qatarı							// [1F688]
+🚉	stansiya							// [1F689]
+🚊	stritkar							// [1F68A]
+🚋	tramvay vaqonu							// [1F68B]
+🚌	avtobus								// [1F68C]
+🚍	yaxınlaşan avtobus						// [1F68D]
+🚎	trolleybus							// [1F68E]
+🚏	avtobus dayanacağı						// [1F68F]
+🚐	mini avtobus							// [1F690]
+🚑	təcili yardım maşını						// [1F691]
+🚒	yanğınsöndürən							// [1F692]
+🚓	polis maşını							// [1F693]
+🚔	yaxınlaşan polis maşını						// [1F694]
+🚕	taksi								// [1F695]
+🚖	yaxınlaşan taksi						// [1F696]
+🚗	avtomobil							// [1F697]
+🚘	yaxınlaşan avtomobil						// [1F698]
+🚙	rekreasiya avtomobili						// [1F699]
+🚚	yük maşını							// [1F69A]
+🚛	konteynerli maşın						// [1F69B]
+🚜	traktor								// [1F69C]
+🚝	monorels							// [1F69D]
+🚞	dağ yolu							// [1F69E]
+🚟	asma dəmir yolu							// [1F69F]
+🚠	dağ kanatı							// [1F6A0]
+🚡	hava tramvayı							// [1F6A1]
+🚢	gəmi								// [1F6A2]
+🚣	avarçəkmə qayığı						// [1F6A3]
+🚤	sürətli qayıq							// [1F6A4]
+🚥	üfüqi işıqfor							// [1F6A5]
+🚦	şaquli işıqfor							// [1F6A6]
+🚧	tikinti								// [1F6A7]
+🚨	polis maşının işığı						// [1F6A8]
+🚩	üçbucaq bayraq							// [1F6A9]
+🚪	qapı								// [1F6AA]
+🚫	qadağandır							// [1F6AB]
+🚬	siqaret								// [1F6AC]
+🚭	siqaret çəkmək olmaz						// [1F6AD]
+🚮	zibili qutuya atın işarəsi					// [1F6AE]
+🚯	zibil atmaq olmaz						// [1F6AF]
+🚰	içməli su							// [1F6B0]
+🚱	su içməli deyil							// [1F6B1]
+🚲	velosiped							// [1F6B2]
+🚳	velosiped sürmək olmaz						// [1F6B3]
+🚴	velosipedçi							// [1F6B4]
+🚵	dağ velosipedçisi						// [1F6B5]
+🚶	piyada								// [1F6B6]
+🚷	piyadalara keçmək olmaz						// [1F6B7]
+🚸	uşaqlar yol keçir						// [1F6B8]
+🚹	kişi tualeti							// [1F6B9]
+🚺	qadın tualeti							// [1F6BA]
+🚻	ayaqyolu							// [1F6BB]
+🚼	körpə simvolu							// [1F6BC]
+🚽	tualet								// [1F6BD]
+🚾	wc								// [1F6BE]
+🚿	duş								// [1F6BF]
+🛀	vanna qəbul edən adam						// [1F6C0]
+🛁	vanna								// [1F6C1]
+🛂	pasport yoxlaması						// [1F6C2]
+🛃	gömrük								// [1F6C3]
+🛄	baqaj tələbi							// [1F6C4]
+🛅	saxlama kamerası						// [1F6C5]
+🛋	divan və lampa							// [1F6CB] text|emoji
+🛌	yataqda uzanmış adam						// [1F6CC]
+🛍	alış-veriş çantaları						// [1F6CD] text|emoji
+🛎	xidmət zəngi							// [1F6CE] text|emoji
+🛏	yataq								// [1F6CF] text|emoji
+🛐	tapınaq								// [1F6D0]
+🛑	dayanmaq işarəsi						// [1F6D1]
+🛒	alış-veriş arabası						// [1F6D2]
+🛠	çəkic və açar							// [1F6E0] text|emoji
+🛡	qalxan								// [1F6E1] text|emoji
+🛢	neft silindiri							// [1F6E2] text|emoji
+🛣	şosse								// [1F6E3] text|emoji
+🛤	dəmir yolu							// [1F6E4] text|emoji
+🛥	motorlu qayıq							// [1F6E5] text|emoji
+🛩	balaca təyyarə							// [1F6E9] text|emoji
+🛫	təyyarə qalxır							// [1F6EB]
+🛬	təyyarə enir							// [1F6EC]
+🛰	peyk								// [1F6F0] text|emoji
+🛳	sərnişin gəmisi							// [1F6F3] text|emoji
+🛴	samokat								// [1F6F4]
+🛵	motorlu skuter							// [1F6F5]
+🛶	qayıq								// [1F6F6]
+🛷	sanka								// [1F6F7]
+🛸	uşan boşqab							// [1F6F8]
+🛹	skeytbord							// [1F6F9]
+
+// 1F900..1F9FF : Supplemental Symbols and Pictographs
+
+🤐	ağzı bağlanmış üz						// [1F910]
+🤑	ağzı pul olan üz						// [1F911]
+🤒	termometrli							// [1F912]
+🤓	axmaq üz							// [1F913]
+🤔	düşünən üz							// [1F914]
+🤕	baş sarğılı üz							// [1F915]
+🤖	robot üz							// [1F916]
+🤗	qucaqlayan üz							// [1F917]
+🤘	buynuz işarəsi							// [1F918]
+🤙	mənə zəng et							// [1F919]
+🤚	yuxarı qalxan əl arxası						// [1F91A]
+🤛	sola yönələn yumruq						// [1F91B]
+🤜	sağa yönələn yumruq						// [1F91C]
+🤝	salamlaşmaq							// [1F91D]
+🤞	ümid edirəm							// [1F91E]
+🤟	sevgi jesti							// [1F91F]
+🤠	papaqlı qaqaş üzü						// [1F920]
+🤡	kloun üzü							// [1F921]
+🤢	iyrənən üz							// [1F922]
+🤣	gülməkdən nəfəsi kəsilmək					// [1F923]
+🤤	ağız sulanan üz							// [1F924]
+🤥	yalançı adam üzü						// [1F925]
+🤦	inanmaq olmur							// [1F926]
+🤧	asqıran üz							// [1F927]
+🤨	qaşları qalxmış üz						// [1F928]
+🤩	ulduza heyranlıq						// [1F929]
+🤪	dəcəl üz							// [1F92A]
+🤫	tərpənən sifət							// [1F92B]
+🤬	ağızda simvolları olan üz					// [1F92C]
+🤭	ağzını əli ilə örtmüş üz					// [1F92D]
+🤮	qusan üz							// [1F92E]
+🤯	partlayan baş							// [1F92F]
+🤰	hamilə qadın							// [1F930]
+🤱	uşaq əmizdirmə							// [1F931]
+🤲	əllər yuxarı							// [1F932]
+🤳	özçəkim								// [1F933]
+🤴	oğlan şahzadə							// [1F934]
+🤵	smokinqli kişi							// [1F935]
+🤶	xanım Klaus							// [1F936]
+🤷	çiynini çəkmək							// [1F937]
+🤸	akrobatik hərəkət						// [1F938]
+🤹	janqlyor							// [1F939]
+🤺	qılınc oynatma							// [1F93A]
+🤼	güləş								// [1F93C]
+🤽	su polosu							// [1F93D]
+🤾	həndbol								// [1F93E]
+🥀	solmuş gül							// [1F940]
+🥁	davul								// [1F941]
+🥂	badələri qaldırmaq						// [1F942]
+🥃	viski stəkanı							// [1F943]
+🥄	qaşıq								// [1F944]
+🥅	darvaza								// [1F945]
+🥇	qızıl medal							// [1F947]
+🥈	gümüş medal							// [1F948]
+🥉	bürünc medal							// [1F949]
+🥊	boks əlcəyi							// [1F94A]
+🥋	döyüş idmanı geyimi						// [1F94B]
+🥌	qıvrım daş							// [1F94C]
+🥎	softbol								// [1F94E]
+🥏	uçan disk							// [1F94F]
+🥐	kruasan								// [1F950]
+🥑	avokado								// [1F951]
+🥒	xiyar								// [1F952]
+🥓	bekon								// [1F953]
+🥔	kartof								// [1F954]
+🥕	kök								// [1F955]
+🥖	kərpic çörək							// [1F956]
+🥗	salat								// [1F957]
+🥘	dayaz qazan							// [1F958]
+🥙	qutab								// [1F959]
+🥚	yumurta								// [1F95A]
+🥛	bir stəkan süd							// [1F95B]
+🥜	yer fındığı							// [1F95C]
+🥝	kivi								// [1F95D]
+🥞	blin								// [1F95E]
+🥟	klyotek								// [1F95F]
+🥠	bəxt peçenyesi							// [1F960]
+🥡	özünlə aparmaq qutusu						// [1F961]
+🥢	yemək çubuqları							// [1F962]
+🥣	qaşıq ilə kasa							// [1F963]
+🥤	borucuqlu stəkan						// [1F964]
+🥥	kokos								// [1F965]
+🥦	brokkoli							// [1F966]
+🥧	piroq								// [1F967]
+🥨	pretsel								// [1F968]
+🥩	ət tikəsi							// [1F969]
+🥪	sendviç								// [1F96A]
+🥫	konserv qida							// [1F96B]
+🥬	kahı								// [1F96C]
+🥭	manqo								// [1F96D]
+🥮	ay piroqu							// [1F96E]
+🥯	bublik								// [1F96F]
+🥰	3 ürəkli təbəssümlü üz						// [1F970]
+🥳	parti edən üz							// [1F973]
+🥴	gicəllənən üz							// [1F974]
+🥵	pörtləmiş üz							// [1F975]
+🥶	donmuş üz							// [1F976]
+🥺	yalvaran üz							// [1F97A]
+🥼	laboratoriya geyimi						// [1F97C]
+🥽	su eynəyi							// [1F97D]
+🥾	gəzinti botinkası						// [1F97E]
+🥿	yastı ayaqqabı							// [1F97F]
+🦀	qırmızı xərçəng							// [1F980]
+🦁	şir üzü								// [1F981]
+🦂	əqrəb								// [1F982]
+🦃	hinduşka							// [1F983]
+🦄	təkbuynuz üzü							// [1F984]
+🦅	qartal								// [1F985]
+🦆	ördək								// [1F986]
+🦇	yarasa								// [1F987]
+🦈	akula								// [1F988]
+🦉	bayquş								// [1F989]
+🦊	tülkü sifət							// [1F98A]
+🦋	kəpənək								// [1F98B]
+🦌	maral								// [1F98C]
+🦍	qorilla								// [1F98D]
+🦎	kərtənkələ							// [1F98E]
+🦏	kərgədan							// [1F98F]
+🦐	krevet								// [1F990]
+🦑	səkkiz ayaq							// [1F991]
+🦒	zürafə								// [1F992]
+🦓	zebra								// [1F993]
+🦔	kirpi								// [1F994]
+🦕	sauropod							// [1F995]
+🦖	Tireks								// [1F996]
+🦗	cırcırama							// [1F997]
+🦘	kenquru								// [1F998]
+🦙	lama								// [1F999]
+🦚	tovuz								// [1F99A]
+🦛	hippopotam							// [1F99B]
+🦜	tutuquşu							// [1F99C]
+🦝	yenot								// [1F99D]
+🦞	lobster								// [1F99E]
+🦟	ağcaqənəd							// [1F99F]
+🦠	mikrob								// [1F9A0]
+🦡	porsuq								// [1F9A1]
+🦢	qu								// [1F9A2]
+🦰	qırmızı saç							// [1F9B0]
+🦱	buruq saç							// [1F9B1]
+🦲	keçəl								// [1F9B2]
+🦳	ağ saç								// [1F9B3]
+🦴	sümük								// [1F9B4]
+🦵	qıç								// [1F9B5]
+🦶	ayaq								// [1F9B6]
+🦷	diş								// [1F9B7]
+🦸	superqəhrəman							// [1F9B8]
+🦹	supercani							// [1F9B9]
+🧀	pendir								// [1F9C0]
+🧁	keks								// [1F9C1]
+🧂	duz								// [1F9C2]
+🧐	monokllu üz							// [1F9D0]
+🧑	böyük								// [1F9D1]
+🧒	uşaq								// [1F9D2]
+🧓	yaşlı böyük							// [1F9D3]
+🧔	saqqallı şəxs							// [1F9D4]
+🧕	şərfli qadın							// [1F9D5]
+🧖	buxarlı otaqda adam						// [1F9D6]
+🧗	dırmaşan adam							// [1F9D7]
+🧘	lotus pozisiyasında adam					// [1F9D8]
+🧙	maq								// [1F9D9]
+🧚	pəri								// [1F9DA]
+🧛	vampir								// [1F9DB]
+🧜	dəniz adamı							// [1F9DC]
+🧝	elf								// [1F9DD]
+🧞	cin								// [1F9DE]
+🧟	zombi								// [1F9DF]
+🧠	beyin								// [1F9E0]
+🧡	narıncı ürək							// [1F9E1]
+🧢	kepka								// [1F9E2]
+🧣	şərf								// [1F9E3]
+🧤	əlcəklər							// [1F9E4]
+🧥	palto								// [1F9E5]
+🧦	corablar							// [1F9E6]
+🧧	qırmızı zərf							// [1F9E7]
+🧨	feyerverk							// [1F9E8]
+🧩	başsındırma							// [1F9E9]
+🧪	sınaq şüşəsi							// [1F9EA]
+🧫	Petri qabı							// [1F9EB]
+🧬	dnt								// [1F9EC]
+🧭	kompas								// [1F9ED]
+🧮	çötkə								// [1F9EE]
+🧰	alətlər qutusu							// [1F9F0]
+🧱	kərpic								// [1F9F1]
+🧲	maqnit								// [1F9F2]
+🧳	yük								// [1F9F3]
+🧴	losyon şüşəsi							// [1F9F4]
+🧵	sap								// [1F9F5]
+🧶	iplik								// [1F9F6]
+🧷	sancaq								// [1F9F7]
+🧸	plüş ayı							// [1F9F8]
+🧹	süpürgə								// [1F9F9]
+🧺	səbət								// [1F9FA]
+🧻	kağız rulonu							// [1F9FB]
+🧼	sabun								// [1F9FC]
+🧽	süngər								// [1F9FD]
+🧾	qəbz								// [1F9FE]
+🧿	gözmüncuğu							// [1F9FF]
+
+// Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
+
+🇦🇨	bayraq: Askenson adası						// [1F1E6 1F1E8] AC
+🇦🇩	bayraq: Andorra							// [1F1E6 1F1E9] AD
+🇦🇪	bayraq: Birləşmiş Ərəb Əmirlikləri				// [1F1E6 1F1EA] AE
+🇦🇫	bayraq: Əfqanıstan						// [1F1E6 1F1EB] AF
+🇦🇬	bayraq: Antiqua və Barbuda					// [1F1E6 1F1EC] AG
+🇦🇮	bayraq: Angilya							// [1F1E6 1F1EE] AI
+🇦🇱	bayraq: Albaniya						// [1F1E6 1F1F1] AL
+🇦🇲	bayraq: Ermənistan						// [1F1E6 1F1F2] AM
+🇦🇴	bayraq: Anqola							// [1F1E6 1F1F4] AO
+🇦🇶	bayraq: Antarktika						// [1F1E6 1F1F6] AQ
+🇦🇷	bayraq: Argentina						// [1F1E6 1F1F7] AR
+🇦🇸	bayraq: Amerika Samoası						// [1F1E6 1F1F8] AS
+🇦🇹	bayraq: Avstriya						// [1F1E6 1F1F9] AT
+🇦🇺	bayraq: Avstraliya						// [1F1E6 1F1FA] AU
+🇦🇼	bayraq: Aruba							// [1F1E6 1F1FC] AW
+🇦🇽	bayraq: Aland adaları						// [1F1E6 1F1FD] AX
+🇦🇿	bayraq: Azərbaycan						// [1F1E6 1F1FF] AZ
+🇧🇦	bayraq: Bosniya və Herseqovina					// [1F1E7 1F1E6] BA
+🇧🇧	bayraq: Barbados						// [1F1E7 1F1E7] BB
+🇧🇩	bayraq: Banqladeş						// [1F1E7 1F1E9] BD
+🇧🇪	bayraq: Belçika							// [1F1E7 1F1EA] BE
+🇧🇫	bayraq: Burkina Faso						// [1F1E7 1F1EB] BF
+🇧🇬	bayraq: Bolqarıstan						// [1F1E7 1F1EC] BG
+🇧🇭	bayraq: Bəhreyn							// [1F1E7 1F1ED] BH
+🇧🇮	bayraq: Burundi							// [1F1E7 1F1EE] BI
+🇧🇯	bayraq: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	bayraq: Sent-Bartelemi						// [1F1E7 1F1F1] BL
+🇧🇲	bayraq: Bermud adaları						// [1F1E7 1F1F2] BM
+🇧🇳	bayraq: Bruney							// [1F1E7 1F1F3] BN
+🇧🇴	bayraq: Boliviya						// [1F1E7 1F1F4] BO
+🇧🇶	bayraq: Karib Niderlandı					// [1F1E7 1F1F6] BQ
+🇧🇷	bayraq: Braziliya						// [1F1E7 1F1F7] BR
+🇧🇸	bayraq: Baham adaları						// [1F1E7 1F1F8] BS
+🇧🇹	bayraq: Butan							// [1F1E7 1F1F9] BT
+🇧🇻	bayraq: Buve adası						// [1F1E7 1F1FB] BV
+🇧🇼	bayraq: Botsvana						// [1F1E7 1F1FC] BW
+🇧🇾	bayraq: Belarus							// [1F1E7 1F1FE] BY
+🇧🇿	bayraq: Beliz							// [1F1E7 1F1FF] BZ
+🇨🇦	bayraq: Kanada							// [1F1E8 1F1E6] CA
+🇨🇨	bayraq: Kokos (Kilinq) adaları					// [1F1E8 1F1E8] CC
+🇨🇩	bayraq: Konqo - Kinşasa						// [1F1E8 1F1E9] CD
+🇨🇫	bayraq: Mərkəzi Afrika Respublikası				// [1F1E8 1F1EB] CF
+🇨🇬	bayraq: Konqo - Brazzavil					// [1F1E8 1F1EC] CG
+🇨🇭	bayraq: İsveçrə							// [1F1E8 1F1ED] CH
+🇨🇮	bayraq: Kotd’ivuar						// [1F1E8 1F1EE] CI
+🇨🇰	bayraq: Kuk adaları						// [1F1E8 1F1F0] CK
+🇨🇱	bayraq: Çili							// [1F1E8 1F1F1] CL
+🇨🇲	bayraq: Kamerun							// [1F1E8 1F1F2] CM
+🇨🇳	bayraq: Çin							// [1F1E8 1F1F3] CN
+🇨🇴	bayraq: Kolumbiya						// [1F1E8 1F1F4] CO
+🇨🇵	bayraq: Klipperton adası					// [1F1E8 1F1F5] CP
+🇨🇷	bayraq: Kosta Rika						// [1F1E8 1F1F7] CR
+🇨🇺	bayraq: Kuba							// [1F1E8 1F1FA] CU
+🇨🇻	bayraq: Kabo-Verde						// [1F1E8 1F1FB] CV
+🇨🇼	bayraq: Kurasao							// [1F1E8 1F1FC] CW
+🇨🇽	bayraq: Milad adası						// [1F1E8 1F1FD] CX
+🇨🇾	bayraq: Kipr							// [1F1E8 1F1FE] CY
+🇨🇿	bayraq: Çexiya							// [1F1E8 1F1FF] CZ
+🇩🇪	bayraq: Almaniya						// [1F1E9 1F1EA] DE
+🇩🇬	bayraq: Dieqo Qarsiya						// [1F1E9 1F1EC] DG
+🇩🇯	bayraq: Cibuti							// [1F1E9 1F1EF] DJ
+🇩🇰	bayraq: Danimarka						// [1F1E9 1F1F0] DK
+🇩🇲	bayraq: Dominika						// [1F1E9 1F1F2] DM
+🇩🇴	bayraq: Dominikan Respublikası					// [1F1E9 1F1F4] DO
+🇩🇿	bayraq: Əlcəzair						// [1F1E9 1F1FF] DZ
+🇪🇦	bayraq: Seuta və Melilya					// [1F1EA 1F1E6] EA
+🇪🇨	bayraq: Ekvador							// [1F1EA 1F1E8] EC
+🇪🇪	bayraq: Estoniya						// [1F1EA 1F1EA] EE
+🇪🇬	bayraq: Misir							// [1F1EA 1F1EC] EG
+🇪🇭	bayraq: Qərbi Saxara						// [1F1EA 1F1ED] EH
+🇪🇷	bayraq: Eritreya						// [1F1EA 1F1F7] ER
+🇪🇸	bayraq: İspaniya						// [1F1EA 1F1F8] ES
+🇪🇹	bayraq: Efiopiya						// [1F1EA 1F1F9] ET
+🇪🇺	bayraq: Avropa Birliyi						// [1F1EA 1F1FA] EU
+🇫🇮	bayraq: Finlandiya						// [1F1EB 1F1EE] FI
+🇫🇯	bayraq: Fici							// [1F1EB 1F1EF] FJ
+🇫🇰	bayraq: Folklend adaları					// [1F1EB 1F1F0] FI
+🇫🇲	bayraq: Mikroneziya						// [1F1EB 1F1F2] FM
+🇫🇴	bayraq: Farer adaları						// [1F1EB 1F1F4] FO
+🇫🇷	bayraq: Fransa							// [1F1EB 1F1F7] FR
+🇬🇦	bayraq: Qabon							// [1F1EC 1F1E6] GA
+🇬🇧	bayraq: Birləşmiş Krallıq					// [1F1EC 1F1E7] GB
+🇬🇩	bayraq: Qrenada							// [1F1EC 1F1E9] GD
+🇬🇪	bayraq: Gürcüstan						// [1F1EC 1F1EA] GE
+🇬🇫	bayraq: Fransa Qvianası						// [1F1EC 1F1EB] GF
+🇬🇬	bayraq: Gernsi							// [1F1EC 1F1EC] GG
+🇬🇭	bayraq: Qana							// [1F1EC 1F1ED] GH
+🇬🇮	bayraq: Cəbəllütariq						// [1F1EC 1F1EE] GI
+🇬🇱	bayraq: Qrenlandiya						// [1F1EC 1F1F1] GL
+🇬🇲	bayraq: Qambiya							// [1F1EC 1F1F2] GM
+🇬🇳	bayraq: Qvineya							// [1F1EC 1F1F3] GN
+🇬🇵	bayraq: Qvadelupa						// [1F1EC 1F1F5] GP
+🇬🇶	bayraq: Ekvatorial Qvineya					// [1F1EC 1F1F6] GQ
+🇬🇷	bayraq: Yunanıstan						// [1F1EC 1F1F7] GR
+🇬🇸	bayraq: Cənubi Corciya və Cənubi Sendviç adaları		// [1F1EC 1F1F8] GS
+🇬🇹	bayraq: Qvatemala						// [1F1EC 1F1F9] GT
+🇬🇺	bayraq: Quam							// [1F1EC 1F1FA] GU
+🇬🇼	bayraq: Qvineya-Bisau						// [1F1EC 1F1FC] GW
+🇬🇾	bayraq: Qayana							// [1F1EC 1F1FE] GY
+🇭🇰	bayraq: Honq Konq Xüsusi İnzibati Ərazi Çin			// [1F1ED 1F1F0] HK
+🇭🇲	bayraq: Herd və Makdonald adaları				// [1F1ED 1F1F2] HM
+🇭🇳	bayraq: Honduras						// [1F1ED 1F1F3] HN
+🇭🇷	bayraq: Xorvatiya						// [1F1ED 1F1F7] HR
+🇭🇹	bayraq: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	bayraq: Macarıstan						// [1F1ED 1F1FA] HU
+🇮🇨	bayraq: Kanar adaları						// [1F1EE 1F1E8] IC
+🇮🇩	bayraq: İndoneziya						// [1F1EE 1F1E9] ID
+🇮🇪	bayraq: İrlandiya						// [1F1EE 1F1EA] IE
+🇮🇱	bayraq: İsrail							// [1F1EE 1F1F1] IL
+🇮🇲	bayraq: Men adası						// [1F1EE 1F1F2] IM
+🇮🇳	bayraq: Hindistan						// [1F1EE 1F1F3] IN
+🇮🇴	bayraq: Britaniyanın Hind Okeanı Ərazisi			// [1F1EE 1F1F4] IO
+🇮🇶	bayraq: İraq							// [1F1EE 1F1F6] IQ
+🇮🇷	bayraq: İran							// [1F1EE 1F1F7] IR
+🇮🇸	bayraq: İslandiya						// [1F1EE 1F1F8] IS
+🇮🇹	bayraq: İtaliya							// [1F1EE 1F1F9] IT
+🇯🇪	bayraq: Cersi							// [1F1EF 1F1EA] JE
+🇯🇲	bayraq: Yamayka							// [1F1EF 1F1F2] JM
+🇯🇴	bayraq: İordaniya						// [1F1EF 1F1F4] JO
+🇯🇵	bayraq: Yaponiya						// [1F1EF 1F1F5] JP
+🇰🇪	bayraq: Keniya							// [1F1F0 1F1EA] KE
+🇰🇬	bayraq: Qırğızıstan						// [1F1F0 1F1EC] KG
+🇰🇭	bayraq: Kamboca							// [1F1F0 1F1ED] KH
+🇰🇮	bayraq: Kiribati						// [1F1F0 1F1EE] KI
+🇰🇲	bayraq: Komor adaları						// [1F1F0 1F1F2] KM
+🇰🇳	bayraq: Sent-Kits və Nevis					// [1F1F0 1F1F3] KN
+🇰🇵	bayraq: Şimali Koreya						// [1F1F0 1F1F5] KP
+🇰🇷	bayraq: Cənubi Koreya						// [1F1F0 1F1F7] KR
+🇰🇼	bayraq: Küveyt							// [1F1F0 1F1FC] KW
+🇰🇾	bayraq: Kayman adaları						// [1F1F0 1F1FE] KY
+🇰🇿	bayraq: Qazaxıstan						// [1F1F0 1F1FF] KZ
+🇱🇦	bayraq: Laos							// [1F1F1 1F1E6] LA
+🇱🇧	bayraq: Livan							// [1F1F1 1F1E7] LB
+🇱🇨	bayraq: Sent-Lusiya						// [1F1F1 1F1E8] LC
+🇱🇮	bayraq: Lixtenşteyn						// [1F1F1 1F1EE] LI
+🇱🇰	bayraq: Şri-Lanka						// [1F1F1 1F1F0] LK
+🇱🇷	bayraq: Liberiya						// [1F1F1 1F1F7] LR
+🇱🇸	bayraq: Lesoto							// [1F1F1 1F1F8] LS
+🇱🇹	bayraq: Litva							// [1F1F1 1F1F9] LT
+🇱🇺	bayraq: Lüksemburq						// [1F1F1 1F1FA] LU
+🇱🇻	bayraq: Latviya							// [1F1F1 1F1FB] LV
+🇱🇾	bayraq: Liviya							// [1F1F1 1F1FE] LY
+🇲🇦	bayraq: Mərakeş							// [1F1F2 1F1E6] MA
+🇲🇨	bayraq: Monako							// [1F1F2 1F1E8] MC
+🇲🇩	bayraq: Moldova							// [1F1F2 1F1E9] MD
+🇲🇪	bayraq: Monteneqro						// [1F1F2 1F1EA] ME
+🇲🇫	bayraq: Sent Martin						// [1F1F2 1F1EB] MF
+🇲🇬	bayraq: Madaqaskar						// [1F1F2 1F1EC] MG
+🇲🇭	bayraq: Marşal adaları						// [1F1F2 1F1ED] MH
+🇲🇰	bayraq: Makedoniya						// [1F1F2 1F1F0] MK
+🇲🇱	bayraq: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	bayraq: Myanma							// [1F1F2 1F1F2] MM
+🇲🇳	bayraq: Monqolustan						// [1F1F2 1F1F3] MN
+🇲🇴	bayraq: Makao Xüsusi İnzibati Ərazi Çin				// [1F1F2 1F1F4] MO
+🇲🇵	bayraq: Şimali Marian adaları					// [1F1F2 1F1F5] MP
+🇲🇶	bayraq: Martinik						// [1F1F2 1F1F6] MQ
+🇲🇷	bayraq: Mavritaniya						// [1F1F2 1F1F7] MR
+🇲🇸	bayraq: Monserat						// [1F1F2 1F1F8] MS
+🇲🇹	bayraq: Malta							// [1F1F2 1F1F9] MT
+🇲🇺	bayraq: Mavriki							// [1F1F2 1F1FA] MU
+🇲🇻	bayraq: Maldiv adaları						// [1F1F2 1F1FB] MV
+🇲🇼	bayraq: Malavi							// [1F1F2 1F1FC] MW
+🇲🇽	bayraq: Meksika							// [1F1F2 1F1FD] MX
+🇲🇾	bayraq: Malayziya						// [1F1F2 1F1FE] MY
+🇲🇿	bayraq: Mozambik						// [1F1F2 1F1FF] MZ
+🇳🇦	bayraq: Namibiya						// [1F1F3 1F1E6] NA
+🇳🇨	bayraq: Yeni Kaledoniya						// [1F1F3 1F1E8] NC
+🇳🇪	bayraq: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	bayraq: Norfolk adası						// [1F1F3 1F1EB] NF
+🇳🇬	bayraq: Nigeriya						// [1F1F3 1F1EC] NG
+🇳🇮	bayraq: Nikaraqua						// [1F1F3 1F1EE] NI
+🇳🇱	bayraq: Niderland						// [1F1F3 1F1F1] NL
+🇳🇴	bayraq: Norveç							// [1F1F3 1F1F4] NO
+🇳🇵	bayraq: Nepal							// [1F1F3 1F1F5] NP
+🇳🇷	bayraq: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	bayraq: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	bayraq: Yeni Zelandiya						// [1F1F3 1F1FF] NZ
+🇴🇲	bayraq: Oman							// [1F1F4 1F1F2] OM
+🇵🇦	bayraq: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	bayraq: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	bayraq: Fransa Polineziyası					// [1F1F5 1F1EB] PF
+🇵🇬	bayraq: Papua-Yeni Qvineya					// [1F1F5 1F1EC] PG
+🇵🇭	bayraq: Filippin						// [1F1F5 1F1ED] PH
+🇵🇰	bayraq: Pakistan						// [1F1F5 1F1F0] PK
+🇵🇱	bayraq: Polşa							// [1F1F5 1F1F1] PL
+🇵🇲	bayraq: Müqəddəs Pyer və Mikelon				// [1F1F5 1F1F2] PM
+🇵🇳	bayraq: Pitkern adaları						// [1F1F5 1F1F3] PN
+🇵🇷	bayraq: Puerto Riko						// [1F1F5 1F1F7] PR
+🇵🇸	bayraq: Fələstin Əraziləri					// [1F1F5 1F1F8] PS
+🇵🇹	bayraq: Portuqaliya						// [1F1F5 1F1F9] PT
+🇵🇼	bayraq: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	bayraq: Paraqvay						// [1F1F5 1F1FE] PY
+🇶🇦	bayraq: Qətər							// [1F1F6 1F1E6] QA
+🇷🇪	bayraq: Reyunyon						// [1F1F7 1F1EA] RE
+🇷🇴	bayraq: Rumıniya						// [1F1F7 1F1F4] RO
+🇷🇸	bayraq: Serbiya							// [1F1F7 1F1F8] RS
+🇷🇺	bayraq: Rusiya							// [1F1F7 1F1FA] RU
+🇷🇼	bayraq: Ruanda							// [1F1F7 1F1FC] RW
+🇸🇦	bayraq: Səudiyyə Ərəbistanı					// [1F1F8 1F1E6] SA
+🇸🇧	bayraq: Solomon adaları						// [1F1F8 1F1E7] SB
+🇸🇨	bayraq: Seyşel adaları						// [1F1F8 1F1E8] SC
+🇸🇩	bayraq: Sudan							// [1F1F8 1F1E9] SD
+🇸🇪	bayraq: İsveç							// [1F1F8 1F1EA] SE
+🇸🇬	bayraq: Sinqapur						// [1F1F8 1F1EC] SG
+🇸🇭	bayraq: Müqəddəs Yelena						// [1F1F8 1F1ED] SH
+🇸🇮	bayraq: Sloveniya						// [1F1F8 1F1EE] SI
+🇸🇯	bayraq: Svalbard və Yan-Mayen					// [1F1F8 1F1EF] SJ
+🇸🇰	bayraq: Slovakiya						// [1F1F8 1F1F0] SK
+🇸🇱	bayraq: Syerra-Leone						// [1F1F8 1F1F1] SL
+🇸🇲	bayraq: San-Marino						// [1F1F8 1F1F2] SM
+🇸🇳	bayraq: Seneqal							// [1F1F8 1F1F3] SN
+🇸🇴	bayraq: Somali							// [1F1F8 1F1F4] SO
+🇸🇷	bayraq: Surinam							// [1F1F8 1F1F7] SR
+🇸🇸	bayraq: Cənubi Sudan						// [1F1F8 1F1F8] SS
+🇸🇹	bayraq: San-Tome və Prinsipi					// [1F1F8 1F1F9] ST
+🇸🇻	bayraq: Salvador						// [1F1F8 1F1FB] SV
+🇸🇽	bayraq: Sint-Marten						// [1F1F8 1F1FD] SX
+🇸🇾	bayraq: Suriya							// [1F1F8 1F1FE] SY
+🇸🇿	bayraq: Svazilend						// [1F1F8 1F1FF] SZ
+🇹🇦	bayraq: Tristan da Kunya					// [1F1F9 1F1E6] TA
+🇹🇨	bayraq: Törks və Kaykos adaları					// [1F1F9 1F1E8] TC
+🇹🇩	bayraq: Çad							// [1F1F9 1F1E9] TD
+🇹🇫	bayraq: Fransanın Cənub Əraziləri				// [1F1F9 1F1EB] TF
+🇹🇬	bayraq: Toqo							// [1F1F9 1F1EC] TG
+🇹🇭	bayraq: Tailand							// [1F1F9 1F1ED] TH
+🇹🇯	bayraq: Tacikistan						// [1F1F9 1F1EF] TJ
+🇹🇰	bayraq: Tokelau							// [1F1F9 1F1F0] TK
+🇹🇱	bayraq: Şərqi Timor						// [1F1F9 1F1F1] TL
+🇹🇲	bayraq: Türkmənistan						// [1F1F9 1F1F2] TM
+🇹🇳	bayraq: Tunis							// [1F1F9 1F1F3] TN
+🇹🇴	bayraq: Tonqa							// [1F1F9 1F1F4] TO
+🇹🇷	bayraq: Türkiyə							// [1F1F9 1F1F7] TR
+🇹🇹	bayraq: Trinidad və Tobaqo					// [1F1F9 1F1F9] TT
+🇹🇻	bayraq: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	bayraq: Tayvan							// [1F1F9 1F1FC] TW
+🇹🇿	bayraq: Tanzaniya						// [1F1F9 1F1FF] TZ
+🇺🇦	bayraq: Ukrayna							// [1F1FA 1F1E6] UA
+🇺🇬	bayraq: Uqanda							// [1F1FA 1F1EC] UG
+🇺🇲	bayraq: ABŞ-a bağlı kiçik adacıqlar				// [1F1FA 1F1F2] UM
+🇺🇳	bayraq: Birləşmiş Millətlər Təşkilatı				// [1F1FA 1F1F3] UN
+🇺🇸	bayraq: Amerika Birləşmiş Ştatları				// [1F1FA 1F1F8] US
+🇺🇾	bayraq: Uruqvay							// [1F1FA 1F1FE] UY
+🇺🇿	bayraq: Özbəkistan						// [1F1FA 1F1FF] UZ
+🇻🇦	bayraq: Vatikan							// [1F1FB 1F1E6] VA
+🇻🇨	bayraq: Sent-Vinsent və Qrenadinlər				// [1F1FB 1F1E8] VC
+🇻🇪	bayraq: Venesuela						// [1F1FB 1F1EA] VE
+🇻🇬	bayraq: Britaniyanın Virgin adaları				// [1F1FB 1F1EC] VG
+🇻🇮	bayraq: ABŞ Virgin adaları					// [1F1FB 1F1EE] VI
+🇻🇳	bayraq: Vyetnam							// [1F1FB 1F1F3] VN
+🇻🇺	bayraq: Vanuatu							// [1F1FB 1F1FA] VU
+🇼🇫	bayraq: Uollis və Futuna					// [1F1FC 1F1EB] WF
+🇼🇸	bayraq: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	bayraq: Kosovo							// [1F1FD 1F1F0] XK
+🇾🇪	bayraq: Yəmən							// [1F1FE 1F1EA] YE
+🇾🇹	bayraq: Mayot							// [1F1FE 1F1F9] YT
+🇿🇦	bayraq: Cənub Afrika						// [1F1FF 1F1E6] ZA
+🇿🇲	bayraq: Zambiya							// [1F1FF 1F1F2] ZM
+🇿🇼	bayraq: Zimbabve						// [1F1FF 1F1FC] ZW
+
+// Subdivision Flags -- ISO 3166-2 Subdivision Codes
+
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	bayraq: İngiltərə					// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	bayraq: Şotlandiya					// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	bayraq: Uels						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+
+// Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
+
+#️⃣	klaviatura qapağı: #						// [0023 FE0F 20E3]
+*️⃣	klaviatura qapağı: *						// [002A FE0F 20E3]
+0️⃣	klaviatura qapağı: 0						// [0030 FE0F 20E3]
+1️⃣	klaviatura qapağı: 1						// [0031 FE0F 20E3]
+2️⃣	klaviatura qapağı: 2						// [0032 FE0F 20E3]
+3️⃣	klaviatura qapağı: 3						// [0033 FE0F 20E3]
+4️⃣	klaviatura qapağı: 4						// [0034 FE0F 20E3]
+5️⃣	klaviatura qapağı: 5						// [0035 FE0F 20E3]
+6️⃣	klaviatura qapağı: 6						// [0036 FE0F 20E3]
+7️⃣	klaviatura qapağı: 7						// [0037 FE0F 20E3]
+8️⃣	klaviatura qapağı: 8						// [0038 FE0F 20E3]
+9️⃣	klaviatura qapağı: 9						// [0039 FE0F 20E3]
+
+// Emoji ZWJ Sequence: Family
+
+👩‍❤‍💋‍👨	öpüş: qadın, kişi			// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	öpüş: kişi, kişi			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	öpüş: qadın, qadın			// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	ürəkli cütlük: qadın, kişi			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	ürəkli cütlük: kişi, kişi			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	ürəkli cütlük: qadın, qadın			// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	ailə: kişi, qadın, oğlan			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	ailə: kişi, qadın, qız uşağı			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	ailə: kişi, qadın, qız uşağı, oğlan	// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	ailə: kişi, qadın, oğlan, oğlan		// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	ailə: kişi, qadın, qız uşağı, qız uşağı	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	ailə: kişi, kişi, oğlan				// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	ailə: kişi, kişi, qız uşağı			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	ailə: kişi, kişi, qız uşağı, oğlan	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	ailə: kişi, kişi, oğlan, oğlan		// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	ailə: kişi, kişi, qız uşağı, qız uşağı	// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	ailə: qadın, qadın, oğlan			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	ailə: qadın, qadın, qız uşağı			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	ailə: qadın, qadın, qız uşağı, oğlan	// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	ailə: qadın, qadın, oğlan, oğlan	// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	ailə: qadın, qadın, qız uşağı, qız uşağı// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	ailə: kişi, oğlan					// [1F468 200D 1F466]
+👨‍👦‍👦	ailə: kişi, oğlan, oğlan			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	ailə: kişi, qız uşağı					// [1F468 200D 1F467]
+👨‍👧‍👦	ailə: kişi, qız uşağı, oğlan			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	ailə: kişi, qız uşağı, qız uşağı		// [1F468 200D 1F467 200D 1F467]
+👩‍👦	ailə: qadın, oğlan					// [1F469 200D 1F466]
+👩‍👦‍👦	ailə: qadın, oğlan, oğlan			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	ailə: qadın, qız uşağı					// [1F469 200D 1F467]
+👩‍👧‍👦	ailə: qadın, qız uşağı, oğlan			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	ailə: qadın, qız uşağı, qız uşağı		// [1F469 200D 1F467 200D 1F467]
+
+// Emoji ZWJ Sequence: Gendered Role, with object
+
+👨‍⚕	kişi həkim						// [1F468 200D 2695]
+👩‍⚕	qadın həkim						// [1F469 200D 2695]
+👨‍⚖	kişi hakim						// [1F468 200D 2696]
+👩‍⚖	qadın hakim						// [1F469 200D 2696]
+👨‍✈	kişi pilot						// [1F468 200D 2708]
+👩‍✈	qadın pilot						// [1F469 200D 2708]
+👨‍🌾	kişi fermer						// [1F468 200D 1F33E]
+👩‍🌾	qadın fermer						// [1F469 200D 1F33E]
+👨‍🍳	kişi aşbaz						// [1F468 200D 1F373]
+👩‍🍳	qadın aşbaz						// [1F469 200D 1F373]
+👨‍🎓	oğlan tələbə						// [1F468 200D 1F393]
+👩‍🎓	qız tələbə						// [1F469 200D 1F393]
+👨‍🎤	kişi müğənni						// [1F468 200D 1F3A4]
+👩‍🎤	qadın müğənni						// [1F469 200D 1F3A4]
+👨‍🎨	kişi rəssam						// [1F468 200D 1F3A8]
+👩‍🎨	qadın rəssam						// [1F469 200D 1F3A8]
+👨‍🏫	kişi müəllim						// [1F468 200D 1F3EB]
+👩‍🏫	qadın müəllim						// [1F469 200D 1F3EB]
+👨‍🏭	kişi fabrik işçisi					// [1F468 200D 1F3ED]
+👩‍🏭	qadın fabrik işçisi					// [1F469 200D 1F3ED]
+👨‍💻	kişi texnoloq						// [1F468 200D 1F4BB]
+👩‍💻	qadın texnoloq						// [1F469 200D 1F4BB]
+👨‍💼	kişi ofis işçisi					// [1F468 200D 1F4BC]
+👩‍💼	qadın ofis işçisi					// [1F469 200D 1F4BC]
+👨‍🔧	kişi mexanik						// [1F468 200D 1F527]
+👩‍🔧	qadın mexanik						// [1F469 200D 1F527]
+👨‍🔬	kişi alim						// [1F468 200D 1F52C]
+👩‍🔬	qadın alim						// [1F469 200D 1F52C]
+👨‍🚀	kişi astronavt						// [1F468 200D 1F680]
+👩‍🚀	qadın astronavt						// [1F469 200D 1F680]
+👨‍🚒	kişi yanğınsöndürən					// [1F468 200D 1F692]
+👩‍🚒	qadın yanğınsöndürən					// [1F469 200D 1F692]
+
+// Emoji ZWJ Sequence: Gendered Role
+
+👮‍♀	qadın polis						// [1F46E 200D 2640]
+👮‍♂	kişi polis						// [1F46E 200D 2642]
+👱‍♀	sarışın qadın						// [1F471 200D 2640]
+👱‍♂	sarışın kişi						// [1F471 200D 2642]
+👳‍♀	türbanlı qadın						// [1F473 200D 2640]
+👳‍♂	türbanlı kişi						// [1F473 200D 2642]
+👷‍♀	qadın bənna						// [1F477 200D 2640]
+👷‍♂	kişi bənna						// [1F477 200D 2642]
+💂‍♀	qadın keşikçi						// [1F482 200D 2640]
+💂‍♂	kişi keşikçi						// [1F482 200D 2642]
+🕵️‍♀	qadın detektiv						// [1F575 200D 2640]
+🕵️‍♂	kişi detektiv						// [1F575 200D 2642]
+🦸‍♀	qadın superqəhrəman					// [1F9B8 200D 2640]
+🦸‍♂	kişi superqəhrəman					// [1F9B8 200D 2642]
+🦹‍♀	qadın supercani						// [1F9B9 200D 2640]
+🦹‍♂	kişi supercani						// [1F9B9 200D 2642]
+🧙‍♀	qadın maq						// [1F9D9 200D 2640]
+🧙‍♂	kişi maq						// [1F9D9 200D 2642]
+🧚‍♀	qadın pəri						// [1F9DA 200D 2640]
+🧚‍♂	kişi pəri						// [1F9DA 200D 2642]
+🧛‍♀	qadın vampir						// [1F9DB 200D 2640]
+🧛‍♂	kişi vampir						// [1F9DB 200D 2642]
+🧜‍♀	su pərisi						// [1F9DC 200D 2640]
+🧜‍♂	dəniz kişisi						// [1F9DC 200D 2642]
+🧝‍♀	qadın elf						// [1F9DD 200D 2640]
+🧝‍♂	kişi elf						// [1F9DD 200D 2642]
+🧞‍♀	qadın cin						// [1F9DE 200D 2640]
+🧞‍♂	kişi cin						// [1F9DE 200D 2642]
+🧟‍♀	qadın zombi						// [1F9DF 200D 2640]
+🧟‍♂	kişi zombi						// [1F9DF 200D 2642]
+
+// Emoji ZWJ Sequence: Gendered Activity
+
+⛹‍♀	futbolçu qadın						// [26F9 200D 2640]
+⛹‍♂	futbolçu kişi						// [26F9 200D 2642]
+🏃‍♀	qaçan qadın						// [1F3C3 200D 2640]
+🏃‍♂	qaçan kişi						// [1F3C3 200D 2642]
+🏄‍♀	sörfçü qadın						// [1F3C4 200D 2640]
+🏄‍♂	sörfçü kişi						// [1F3C4 200D 2642]
+🏊‍♀	üzgüçü qadın						// [1F3CA 200D 2640]
+🏊‍♂	üzgüçü kişi						// [1F3CA 200D 2642]
+🏋️‍♀	ştanqçı qadın						// [1F3CB 200D 2640]
+🏋️‍♂	ştanqçı kişi						// [1F3CB 200D 2642]
+🏌️‍♀	qolfçu qadın						// [1F3CC 200D 2640]
+🏌️‍♂	qolfçu kişi						// [1F3CC 200D 2642]
+👯‍♀	rəqs edən qadınlar					// [1F46F 200D 2640]
+👯‍♂	rəqs edən kişi						// [1F46F 200D 2642]
+💆‍♀	üzünə masaj edən qadın					// [1F486 200D 2640]
+💆‍♂	üzünə masaj edən kişi					// [1F486 200D 2642]
+💇‍♀	saçını kəsdirən qadın					// [1F487 200D 2640]
+💇‍♂	saçını kəsdirən kişi					// [1F487 200D 2642]
+🚣‍♀	qayıqçı qadın						// [1F6A3 200D 2640]
+🚣‍♂	qayıqçı kişi						// [1F6A3 200D 2642]
+🚴‍♀	velosipedçi qadın					// [1F6B4 200D 2640]
+🚴‍♂	velosipedçi kişi					// [1F6B4 200D 2642]
+🚵‍♀	dağ velosipedçisi qadın					// [1F6B5 200D 2640]
+🚵‍♂	dağ velosipedçisi kişi					// [1F6B5 200D 2642]
+🚶‍♀	gəzən qadın						// [1F6B6 200D 2640]
+🚶‍♂	gəzən kişi						// [1F6B6 200D 2642]
+🤸‍♀	aktobat qadın						// [1F938 200D 2640]
+🤸‍♂	akrobat kişi						// [1F938 200D 2642]
+🤹‍♀	jonqlyor qadın						// [1F939 200D 2640]
+🤹‍♂	jonqlyor kişi						// [1F939 200D 2642]
+🤼‍♀	güləşçi qadın						// [1F93C 200D 2640]
+🤼‍♂	güləşçi kişi						// [1F93C 200D 2642]
+🤽‍♀	su poloçusu qadın					// [1F93D 200D 2640]
+🤽‍♂	su poloçusu kişi					// [1F93D 200D 2642]
+🤾‍♀	həndbolçu qadın						// [1F93E 200D 2640]
+🤾‍♂	həndbolçu kişi						// [1F93E 200D 2642]
+🧖‍♀	buxarlı otaqda qadın					// [1F9D6 200D 2640]
+🧖‍♂	buxarlı otaqda kişi					// [1F9D6 200D 2642]
+🧗‍♀	dırmaşan qadın						// [1F9D7 200D 2640]
+🧗‍♂	dırmaşan kişi						// [1F9D7 200D 2642]
+🧘‍♀	lotus pozisiyasında qadın				// [1F9D8 200D 2640]
+🧘‍♂	lotus pozisiyasında kişi				// [1F9D8 200D 2642]
+
+// Emoji ZWJ Sequence: Gendered Gestures
+
+💁‍♀	əl uzadan qadın						// [1F481 200D 2640]
+💁‍♂	əl uzadan kişi						// [1F481 200D 2642]
+🙅‍♀	əleyhinə olan qadın					// [1F645 200D 2640]
+🙅‍♂	əleyhinə olan kişi					// [1F645 200D 2642]
+🙆‍♀	lehinə olan qadın					// [1F646 200D 2640]
+🙆‍♂	lehinə olan kişi					// [1F646 200D 2642]
+🙇‍♀	baş əyən qadın						// [1F647 200D 2640]
+🙇‍♂	baş əyən kişi						// [1F647 200D 2642]
+🙋‍♀	əl qaldıran qadın					// [1F64B 200D 2640]
+🙋‍♂	əl qaldıran kişi					// [1F64B 200D 2642]
+🙍‍♀	kefsiz qadın						// [1F64D 200D 2640]
+🙍‍♂	kefsiz kişi						// [1F64D 200D 2642]
+🙎‍♀	acıqlı qadın						// [1F64E 200D 2640]
+🙎‍♂	acıqlı kişi						// [1F64E 200D 2642]
+🤦‍♀	üzünü tutan qadın					// [1F926 200D 2640]
+🤦‍♂	üzünü tutan kişi					// [1F926 200D 2642]
+🤷‍♀	çiynini çəkən qadın					// [1F937 200D 2640]
+🤷‍♂	çiynini çəkən kişi					// [1F937 200D 2642]
+
+// Emoji ZWJ Sequence: Other
+
+🏳‍🌈	göy qurşağı bayrağı					// [1F3F3 200D 1F308]
+🏴‍☠	quldur bayrağı						// [1F3F4 200D 2620]
+👁‍🗨	tanıq işarəsi						// [1F441 200D 1F5E8]
+
+// References:
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
+//
+// Sources:
+//   1.  emoji-test.txt (Emoji)
+//   2.  common/annotations/az.xml (CLDR)
+//   3.  emoji-zwj-sequences.txt (Emoji)
