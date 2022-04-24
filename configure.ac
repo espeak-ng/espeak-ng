@@ -97,7 +97,7 @@ AC_LANG_PUSH(C)
 AC_MSG_CHECKING([if $CC supports C99 without any flags])
 AC_COMPILE_IFELSE(
 	[AC_LANG_PROGRAM(
-		[[static inline int c99_restrict(int *restrict c99_restrict) {}]],
+		[[static inline void c99_restrict(int *restrict c99_restrict) {}]],
 		[[]])],
 	[AC_MSG_RESULT([yes])
 	 have_c99_native=yes],
@@ -111,7 +111,7 @@ CFLAGS="$CFLAGS -std=c99"
 AC_MSG_CHECKING([if $CC supports C99 with the -std=c99 flag])
 AC_COMPILE_IFELSE(
 	[AC_LANG_PROGRAM(
-		[[static inline int c99_restrict(int *restrict c99_restrict) {}]],
+		[[static inline void c99_restrict(int *restrict c99_restrict) {}]],
 		[[]])],
 	[AC_MSG_RESULT([yes])
 	 have_c99_c99=yes],
