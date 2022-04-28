@@ -1,4 +1,3 @@
-```markdown
 All fuzzers here are run continously through OSS-fuzz.
 
 Link to OSS-fuzz integration: Pending
@@ -12,8 +11,7 @@ Currently, there is a fuzzer related to synthetizer, **synth_fuzzer** that will 
 We have added some switchs to configure.ac for fuzzing and coverage. The `--with-fuzzer` switch will check if your are actually using clang and clang++ as compilers (by looking at CC and CXX) and allows generation of compilation instructions for fuzzer targets. The `--with-coverage` will add `-fprofile-instr-generate -fcoverage-mapping` to AM_CPPFLAGS in espeak/Makefile.am.
 
 To configure and build the project with coverage and fuzzer.
-```
-./autogen.sh
+```./autogen.sh
 CC=clang CXX=clang++ ./configure --with-coverage --with-fuzzer
 make -j8
 ```
@@ -27,6 +25,8 @@ Here is how you can start fuzzing  `espeak_Synth` function.
 # first we move to tests/fuzzing directory
 cd tests/fuzzing
 
+```
+
 # we consider here you have added corpus files into tests/fuzzing/CORPUS directory
 FUZZ_VOICE=en ./synth_fuzzer CORPUS/
 
@@ -34,6 +34,13 @@ FUZZ_VOICE=en ./synth_fuzzer CORPUS/
 # you can even set more jobs than workers (the ones that just stopped will be instantly replaced by a new fuzzer process)
 FUZZ_TABLE=en ./synth_fuzzer CORPUS/ -workers=8 -jobs=8
 ```
+After running the fuzzer multiple times with the same corpus directory, it might be possible that many corpus files added by the fuzzer explores the same paths. Hopefully, libfuzzer allows you to minimize a corpus. There is a simple bash script in tests/fuzzing that allows you to do that.
+```
+./minimize-corpus.sh CORPUS/
+
+
+# if you have added a POC file in the corpus directory and you want to keep it intact, change his extension to .txt and use --preserve-txt switch that keep .txt files intact in the directory
+./minimize-corpus.sh --preserve-txt CORPUS/
 
 ## Look at fuzzer coverage
 
@@ -50,5 +57,4 @@ llvm-profdata merge -sparse synth_fuzzer.profraw -o synth_fuzzer.profdata
 
 # show coverage (redlines are the one wich are reached)
 llvm-cov show ./synth_fuzzer -instr-profile=synth_fuzzer.profdata
-```
 ```
