@@ -25,8 +25,6 @@ Here is how you can start fuzzing  `espeak_Synth` function.
 # first we move to tests/fuzzing directory
 cd tests/fuzzing
 
-```
-
 # we consider here you have added corpus files into tests/fuzzing/CORPUS directory
 FUZZ_VOICE=en ./synth_fuzzer CORPUS/
 
