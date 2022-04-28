@@ -39,7 +39,7 @@ After running the fuzzer multiple times with the same corpus directory, it might
 
 # if you have added a POC file in the corpus directory and you want to keep it intact, change his extension to .txt and use --preserve-txt switch that keep .txt files intact in the directory
 ./minimize-corpus.sh --preserve-txt CORPUS/
-
+```
 ## Look at fuzzer coverage
 
 If you want to see what are the source code parts that are explored by the fuzzer, you can use clang coverage. So, you have to configure with coverage switch, run the fuzzer and show coverage data from the run with llvm tools. 
