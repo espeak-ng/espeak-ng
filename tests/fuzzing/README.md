@@ -22,8 +22,11 @@ You are now able to run the fuzzer and will have to give 2 parameters to it. Fir
 
 Here is how you can start fuzzing  `espeak_Synth` function.
 ```
+
 # first we move to tests/fuzzing directory
 cd tests/fuzzing
+#to have interesting file in the corpus , there is a simple python script that allows you to do that
+./create_dict_corpus_file.py -c CORPUS/
 
 # we consider here you have added corpus files into tests/fuzzing/CORPUS directory
 FUZZ_VOICE=en ./synth_fuzzer CORPUS/
