@@ -137,6 +137,45 @@ else
 	AC_MSG_ERROR([C99 is not supported by $CC.])
 fi
 
+
+AC_LANG_PUSH(C)
+AC_MSG_CHECKING([if $CC supports fuzzer without any flags])
+AC_COMPILE_IFELSE(
+	[AC_LANG_PROGRAM(
+		[[static inline int fuzzer_restrict(int *restrict fuzzer_restrict) {}]],
+		[[]])],
+	[AC_MSG_RESULT([yes])
+	 have_fuzzer_native=yes],
+	[AC_MSG_RESULT([no])
+	 have_fuzzer_native=no])
+AC_LANG_POP(C)
+
+AC_LANG_PUSH(C)
+TEMP_CFLAGS="$CFLAGS"
+CFLAGS="$CFLAGS "
+AC_MSG_CHECKING([if $CC supports fuzzer with the -fsanitize=fuzzer flag])
+AC_COMPILE_IFELSE(
+	[AC_LANG_PROGRAM(
+		[[static inline int fuzzer_restrict(int *restrict fuzzer_restrict) {}]],
+		[[]])],
+	[AC_MSG_RESULT([yes])
+	 have_fuzzer_fuzzer=yes],
+	[AC_MSG_RESULT([no])
+	 have_fuzzer_fuzzer=no])
+CFLAGS="$TEMP_CFLAGS"
+AC_LANG_POP(C)
+
+AC_MSG_CHECKING([if $CC supports fuzzer])
+if test "$have_fuzzer_fuzzer" = yes ; then
+	AC_MSG_RESULT([-fsanitize=fuzzer])
+	CFLAGS="$CFLAGS"
+elif test "$have_fuzzer_native" = yes ; then
+	AC_MSG_RESULT([yes])
+else
+	AC_MSG_RESULT([no])
+	AC_MSG_ERROR([fuzzer is not supported by $CC.])
+fi
+
 dnl ================================================================
 dnl FreeBSD check.
 dnl ================================================================
@@ -330,13 +369,14 @@ dnl ================================================================
 dnl libFuzzer checks.
 dnl ================================================================
 
-if test "$with_libfuzzer" = "yes" ; then
-	have_libfuzzer=yes
+if test "$with_libfuzzer" = "yes"  ; then
+    have_libfuzzer=yes
 else
 	have_libfuzzer=no
 fi
 
-AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes], [test x"$CC" = clang])
+AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes])
+AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_fuzzer_fuzzer" = xyes])
 
 dnl ================================================================
 dnl clang-coverage checks.
