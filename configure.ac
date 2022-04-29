@@ -343,8 +343,8 @@ dnl ================================================================
 dnl libFuzzer checks.
 dnl ================================================================
 
-if test "$with_libfuzzer" = "yes"  ; then
-    have_libfuzzer=yes
+if test "$with_libfuzzer" = "yes" ; then
+	have_libfuzzer=yes
 else
 	have_libfuzzer=no
 fi
