@@ -8,8 +8,8 @@ find * -executable -type f | \
 	grep -vE "*.\.sh|tools/emoji" | # Ignore helper scripts \
 	grep -vE "src/ucd-tools/tools/(.*\.py|mkencodingtable)" | # Ignore ucd-tools helper scripts \
 	grep -vE "tests/.libs|src/ucd-tools/tests/print(ucd|c)data(_cpp)?" | # Ignore ucd-tools test programs \
-	grep -vE "test/fuzzing/*.py" | #Ignore fuzzing python helper script
-	grep -vE "tests/fuzzing/*.sh" | #Ignore fuzzing python helper script
+	grep -vE "tests/fuzzing/.*\.py" | #Ignore fuzzing python helper script
+	grep -vE "tests/fuzzing/.*\.sh" | #Ignore fuzzing python helper script
 	tee tests/non-executable-files-with-executable-bit.check > /dev/null
 
 if [ -s tests/non-executable-files-with-executable-bit.check ] ; then
