@@ -205,7 +205,7 @@ jobs:
     - name: make
       run: make -j
     - name: Fuzz function syth_espeak()
-      run: FUZZ_VOICE=en tests/fuzzing/synth_fuzzer -seed=1 tests/fuzzing/CORPUS_DIR
+      run:  ESPEAK_DATA_PATH=/usr/share/espeak-ng-data FUZZ_VOICE=en tests/fuzzing/synth_fuzzer -seed=1 tests/fuzzing/CORPUS_DIR
     - name: Store the test suite log
       if: ${{ always() }} # store the test suite log even if the tests failed
       uses: actions/upload-artifact@v2
