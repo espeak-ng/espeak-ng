@@ -45,16 +45,11 @@ espeak_callback(short *data, int samples, espeak_EVENT *events)
 
 	return 0;
 }
-extern int LLVMFuzzerInitialize(const int* argc, char*** argv)
-{
-	(void)argc; // unused
-	filepath = dirname(strdup((*argv)[0]));
-	return 0;
-}
 /* See http://llvm.org/docs/LibFuzzer.html */
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
 
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
+
 {
 	int buflength = size+1;
 	if (!initialized)
