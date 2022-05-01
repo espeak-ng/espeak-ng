@@ -33,7 +33,7 @@ FUZZ_VOICE=en ./synth_fuzzer CORPUS/
 
 # to run the fuzzer using parallelization
 # you can even set more jobs than workers (the ones that just stopped will be instantly replaced by a new fuzzer process)
-FUZZ_TABLE=en ./synth_fuzzer CORPUS/ -workers=8 -jobs=8
+FUZZ_VOICE=en ./synth_fuzzer CORPUS/ -workers=8 -jobs=8
 ```
 After running the fuzzer multiple times with the same corpus directory, it might be possible that many corpus files added by the fuzzer explores the same paths. Hopefully, libfuzzer allows you to minimize a corpus. There is a simple bash script in tests/fuzzing that allows you to do that.
 ```
