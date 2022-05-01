@@ -1,0 +1,1821 @@
+// Emoji and Other Symbol pronunciations for Vietnamese (Northern)
+//
+// Entries with `text|emoji` in the comments have text and emoji forms. They
+// can be followed by [FE0E] to select the text style, and [FE0F] to select
+// the emoji style.
+//
+// Entries with 'other' in the comments are not defined as emoji, but are other
+// Unicode characters.
+//
+// NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
+// in interpreting ZWJ emoji sequences.
+
+$textmode
+
+// 0000..007F : C0 Controls and Basic Latin
+
+//+	plus								// [002B] other (no translation)
+
+// 0080..00FF : C1 Controls and Latin-1 Supplement
+
+//¢	cents								// [00A2] other (no translation)
+//£	pound								// [00A3] other (no translation)
+//¤	currency sign							// [00A4] other (no translation)
+//¥	yen								// [00A5] other (no translation)
+//§	section								// [00A7] other (no translation)
+//¨	double dot							// [00A8] other (no translation)
+©	bản quyền							// [00A9] text|emoji
+//¬	not sign							// [00AC] other (no translation)
+®	đã đăng ký							// [00AE] text|emoji
+//°	degrees								// [00B0] other (no translation)
+//±	plus or minus							// [00B1] other (no translation)
+//µ	micro								// [00B5] other (no translation)
+//¶	paragraph							// [00B6] other (no translation)
+//¼	a quarter							// [00BC] other (no translation)
+//½	a half								// [00BD] other (no translation)
+//¾	three quarters							// [00BE] other (no translation)
+//×	times								// [00D7] other (no translation)
+//÷	divided by							// [00F7] other (no translation)
+
+// 02B0..02FF : Spacing Modifier Letters
+
+//˙	dot								// [02D9] other (no translation)
+
+// 0900..097F : Devanagari
+
+//।	danda								// [0964] other (no translation)
+
+// 2000..203C : General Punctuation
+
+‼	hai dấu chấm than						// [203C] text|emoji
+⁉	dấu chấm than và dấu chấm hỏi					// [2049] text|emoji
+
+// 20A0..20CF : Currency Symbols
+
+//₨	rupee								// [20A8] other (no translation)
+//€	euros								// [20AC] other (no translation)
+//₹	rupee								// [20B9] other (no translation)
+
+// 2100..214F : Letterlike Symbols
+
+//№	numero								// [2116] other (no translation)
+//℞	prescription							// [211E] other (no translation)
+™	nhãn hiệu							// [2122] text|emoji
+ℹ	thông tin							// [2139] text|emoji
+
+// 2150..218F : Number Forms
+
+//⅓	one third							// [2153] other (no translation)
+//⅔	two thirds							// [2154] other (no translation)
+
+// 2190..21FF : Arrows
+
+//←	left arrow							// [2190] other (no translation)
+//↑	up arrow							// [2191] other (no translation)
+//→	right arrow							// [2192] other (no translation)
+//↓	down arrow							// [2193] other (no translation)
+↔	mũi tên trái phải						// [2194] text|emoji
+↕	mũi tên lên xuống						// [2195] text|emoji
+↖	mũi tên lên bên trái						// [2196] text|emoji
+↗	mũi tên lên bên phải						// [2197] text|emoji
+↘	mũi tên xuống bên phải						// [2198] text|emoji
+↙	mũi tên xuống bên trái						// [2199] text|emoji
+↩	mũi tên phải cong sang trái					// [21A9] text|emoji
+↪	mũi tên trái cong sang phải					// [21AA] text|emoji
+
+// 2200..22FF : Mathematical Operators
+
+//∂	delta								// [2202] other (no translation)
+//∑	sum sign							// [2211] other (no translation)
+//−	minus								// [2212] other (no translation)
+//∗	asterisk							// [2217] other (no translation)
+//√	square root							// [221A] other (no translation)
+//∛	cube root							// [221B] other (no translation)
+//∝	proportional to							// [221D] other (no translation)
+//∞	infinity							// [221E] other (no translation)
+//∫	integral							// [222B] other (no translation)
+//∬	double integral							// [222C] other (no translation)
+//∴	therefore							// [2234] other (no translation)
+//∵	because								// [2235] other (no translation)
+//≈	approximately							// [2248] other (no translation)
+//≠	not equal to							// [2260] other (no translation)
+//≡	identical to							// [2261] other (no translation)
+//≤	less or equal to						// [2264] other (no translation)
+//≥	greater or equal to						// [2265] other (no translation)
+
+// 2300..23FF : Miscellaneous Technical
+
+⌚	đồng hồ								// [231A]
+⌛	đồng hồ cát đã chảy hết						// [231B]
+⌨	bàn phím							// [2328] text|emoji
+⏏	nút tháo							// [23CF] text|emoji
+⏩	nút tua đi nhanh						// [23E9]
+⏪	nút tua lại nhanh						// [23EA]
+⏫	nút lên nhanh							// [23EB]
+⏬	nút xuống nhanh							// [23EC]
+⏭	nút bài tiếp theo						// [23ED] text|emoji
+⏮	nút bài trước							// [23EE] text|emoji
+⏯	nút phát hoặc tạm dừng						// [23EF] text|emoji
+⏰	đồng hồ báo thức						// [23F0]
+⏱	đồng hồ bấm giờ							// [23F1] text|emoji
+⏲	đồng hồ hẹn giờ							// [23F2] text|emoji
+⏳	đồng hồ cát đang chảy						// [23F3]
+⏸	nút tạm dừng							// [23F8] text|emoji
+⏹	nút dừng							// [23F9] text|emoji
+⏺	nút ghi								// [23FA] text|emoji
+
+// 2460..24FF : Enclosed Alphanumerics
+
+Ⓜ	chữ M trong vòng tròn						// [24C2] text|emoji
+
+// 25A0..25FF : Geometric Shapes
+
+//■	black square							// [25A0] other (no translation)
+▪	hình vuông nhỏ màu đen						// [25AA] text|emoji
+▫	hình vuông nhỏ màu trắng					// [25AB] text|emoji
+▶	nút phát							// [25B6] text|emoji
+◀	nút tua lại							// [25C0] text|emoji
+//●	black circle							// [25CF] other (no translation)
+◻	hình vuông trung bình màu trắng					// [25FB] text|emoji
+◼	hình vuông trung bình màu đen					// [25FC] text|emoji
+◽	hình vuông nhỏ vừa màu trắng					// [25FD]
+◾	hình vuông nhỏ vừa màu đen					// [25FE]
+
+// 2600..26FF : Miscellaneous Symbols
+
+☀	mặt trời							// [2600] text|emoji
+☁	đám mây								// [2601] text|emoji
+☂	cái ô								// [2602] text|emoji
+☃	người tuyết							// [2603] text|emoji
+☄	sao chổi							// [2604] text|emoji
+☎	điện thoại bàn							// [260E] text|emoji
+☑	hộp kiểm có dấu chọn						// [2611] text|emoji
+☔	cái ô với những giọt nước mưa					// [2614]
+☕	đồ uống nóng							// [2615]
+☘	cỏ ba lá							// [2618] text|emoji
+☝	ngón trỏ chỉ lên trên						// [261D] text|emoji
+☠	đầu lâu xương chéo						// [2620] text|emoji
+☢	phóng xạ							// [2622] text|emoji
+☣	nguy hiểm sinh học						// [2623] text|emoji
+☦	thập giá chính thống giáo					// [2626] text|emoji
+☪	sao và trăng lưỡi liềm						// [262A] text|emoji
+☮	biểu tượng hòa bình						// [262E] text|emoji
+☯	âm dương							// [262F] text|emoji
+☸	pháp luân							// [2638] text|emoji
+☹	mặt cau mày							// [2639] text|emoji
+☺	mặt cười							// [263A] text|emoji
+♀	ký hiệu nữ							// [2640] text|emoji
+♂	ký hiệu nam							// [2642] text|emoji
+♈	Bạch Dương							// [2648]
+♉	Kim Ngưu							// [2649]
+♊	Song Tử								// [264A]
+♋	Cự Giải								// [264B]
+♌	Sư Tử								// [264C]
+♍	Xử Nữ								// [264D]
+♎	Thiên Bình							// [264E]
+♏	cung bọ cạp							// [264F]
+♐	Nhân Mã								// [2650]
+♑	Ma Kết								// [2651]
+♒	Bảo Bình							// [2652]
+♓	song ngư							// [2653]
+♟	tốt								// [265F] text|emoji
+♠	bộ bích								// [2660] text|emoji
+♣	bộ nhép								// [2663] text|emoji
+♥	bộ cơ								// [2665] text|emoji
+♦	bộ rô								// [2666] text|emoji
+♨	suối nước nóng							// [2668] text|emoji
+//♭	flat								// [266D] other (no translation)
+//♯	sharp								// [266F] other (no translation)
+♻	biểu tượng tái chế						// [267B] text|emoji
+♾	vô cực								// [267E] text|emoji
+♿	biểu tượng xe lăn						// [267F]
+⚒	búa và búa chim							// [2692] text|emoji
+⚓	mỏ neo								// [2693]
+⚔	kiếm bắt chéo							// [2694] text|emoji
+⚕	biểu tượng y tế							// [2695] text|emoji
+⚖	cân thăng bằng							// [2696] text|emoji
+⚗	bình chưng cất							// [2697] text|emoji
+⚙	bánh răng							// [2699] text|emoji
+⚛	biểu tượng nguyên tử						// [269B] text|emoji
+⚜	hoa diên vĩ							// [269C] text|emoji
+⚠	cảnh báo							// [26A0] text|emoji
+⚡	điện cao thế							// [26A1]
+⚪	hình tròn màu trắng						// [26AA]
+⚫	hình tròn màu đen						// [26AB]
+⚰	quan tài							// [26B0] text|emoji
+⚱	bình đựng tro cốt						// [26B1] text|emoji
+⚽	bóng đá								// [26BD]
+⚾	bóng chày							// [26BE]
+⛄	người tuyết không có tuyết					// [26C4]
+⛅	mặt trời sau đám mây						// [26C5]
+⛈	đám mây với tia chớp và mưa					// [26C8] text|emoji
+⛎	Xà Phu								// [26CE]
+⛏	búa chim							// [26CF] text|emoji
+⛑	mũ bảo hiểm của lính cứu hộ					// [26D1] text|emoji
+⛓	dây xích							// [26D3] text|emoji
+⛔	cấm vào								// [26D4]
+⛩	đền thờ shinto							// [26E9] text|emoji
+⛪	nhà thờ								// [26EA]
+⛰	núi								// [26F0] text|emoji
+⛱	cái ô trên mặt đất						// [26F1] text|emoji
+⛲	đài phun nước							// [26F2]
+⛳	cờ trong lỗ							// [26F3]
+⛴	phà								// [26F4] text|emoji
+⛵	thuyền buồm							// [26F5]
+⛷	người sử dụng ván trượt tuyết					// [26F7] text|emoji
+⛸	giày trượt băng							// [26F8] text|emoji
+⛹	người chơi bóng							// [26F9] text|emoji
+⛺	lều								// [26FA]
+⛽	bơm nhiên liệu							// [26FD]
+
+// 2700..27BF : Dingbats
+
+✂	kéo								// [2702] text|emoji
+✅	dấu chọn đậm màu trắng						// [2705]
+✈	máy bay								// [2708] text|emoji
+✉	phong bì							// [2709] text|emoji
+✊	nắm đấm giơ lên							// [270A]
+✋	bàn tay giơ lên							// [270B]
+✌	tay chiến thắng							// [270C] text|emoji
+✍	bàn tay đang viết						// [270D] text|emoji
+✏	bút chì								// [270F] text|emoji
+✒	ngòi bút đen							// [2712] text|emoji
+✔	dấu chọn đậm							// [2714] text|emoji
+✖	dấu nhân x đậm							// [2716] text|emoji
+✝	thánh giá la-tinh						// [271D] text|emoji
+✡	ngôi sao sáu cánh						// [2721] text|emoji
+✨	ánh lấp lánh							// [2728]
+✳	dấu hoa thị tám cánh						// [2733] text|emoji
+✴	ngôi sao tám cánh						// [2734] text|emoji
+❄	bông tuyết							// [2744] text|emoji
+❇	lấp lánh							// [2747] text|emoji
+❌	dấu gạch chéo							// [274C]
+❎	nút dấu gạch chéo						// [274E]
+❓	dấu chấm hỏi							// [2753]
+❔	dấu chấm hỏi màu trắng						// [2754]
+❕	dấu chấm than màu trắng						// [2755]
+❗	dấu chấm than							// [2757]
+❣	dấu chấm than hình trái tim đậm					// [2763] text|emoji
+❤	trái tim màu đỏ							// [2764] text|emoji
+➕	dấu cộng đậm							// [2795]
+➖	dấu trừ đậm							// [2796]
+➗	dấu chia đậm							// [2797]
+➡	mũi tên phải							// [27A1] text|emoji
+➰	vòng lặp							// [27B0]
+➿	vòng lặp đôi							// [27BF]
+
+// 2900..297F : Supplemental Arrows-B
+
+⤴	mũi tên phải cong lên						// [2934] text|emoji
+⤵	mũi tên phải cong xuống						// [2935] text|emoji
+
+// 2B00..2BFF : Miscellaneous Symbols and Arrows
+
+⬅	mũi tên trái							// [2B05] text|emoji
+⬆	mũi tên lên							// [2B06] text|emoji
+⬇	mũi tên xuống							// [2B07] text|emoji
+⬛	hình vuông lớn màu đen						// [2B1B]
+⬜	hình vuông lớn màu trắng					// [2B1C]
+⭐	ngôi sao trung bình màu trắng					// [2B50]
+⭕	vòng tròn lớn đậm						// [2B55]
+
+// 3000..303F : CJK Symbols and Punctuation
+
+〰	dấu gạch ngang lượn sóng					// [3030] text|emoji
+〽	ký hiệu thay đổi luân phiên					// [303D] text|emoji
+
+// 3200..32FF : Enclosed CJK Letters and Months
+
+㊗	nút Tiếng Nhật chúc mừng”					// [3297] text|emoji
+㊙	nút Tiếng Nhật bí mật”						// [3299] text|emoji
+
+// 1F100..1F1FF : Enclosed Alphanumeric Supplement
+
+🅰	nút A (nhóm máu)						// [1F170] text|emoji
+🅱	nút B (nhóm máu)						// [1F171] text|emoji
+🅾	nút O (nhóm máu)						// [1F17E] text|emoji
+🅿	nút P								// [1F17F] text|emoji
+🆎	nút AB (nhóm máu)						// [1F18E]
+🆑	nút CL								// [1F191]
+🆒	nút COOL							// [1F192]
+🆓	nút FREE							// [1F193]
+🆔	nút ID								// [1F194]
+🆕	nút NEW								// [1F195]
+🆖	nút NG								// [1F196]
+🆗	nút OK								// [1F197]
+🆘	nút SOS								// [1F198]
+🆙	nút UP!								// [1F199]
+🆚	nút VS								// [1F19A]
+
+// 1F200..1F2FF : Enclosed Ideographic Supplement
+
+🈁	nút Tiếng Nhật tại đây”						// [1F201]
+🈂	nút Tiếng Nhật phí dịch vụ”					// [1F202] text|emoji
+🈚	nút Tiếng Nhật miễn phí”					// [1F21A]
+🈯	nút Tiếng Nhật đặt trước”					// [1F22F]
+🈲	nút Tiếng Nhật bị cấm”						// [1F232]
+🈳	nút Tiếng Nhật còn trống”					// [1F233]
+🈴	nút Tiếng Nhật vượt cấp”					// [1F234]
+🈵	chữ tượng hình đầy đủ trong hình vuông				// [1F235]
+🈶	nút Tiếng Nhật không miễn phí”					// [1F236]
+🈷	nút Tiếng Nhật số tiền hàng tháng”				// [1F237] text|emoji
+🈸	nút Tiếng Nhật đơn xin”						// [1F238]
+🈹	nút Tiếng Nhật giảm giá”					// [1F239]
+🈺	nút Tiếng Nhật mở cửa kinh doanh”				// [1F23A]
+🉐	nút Tiếng Nhật mặc cả”						// [1F250]
+🉑	nút Tiếng Nhật có thể chấp nhận”				// [1F251]
+
+// 1F000..1F02F : Mahjong Tiles
+
+🀄	mạt chược rồng đỏ						// [1F004]
+
+// 1F0A0..1F0FF : Playing Cards
+
+🃏	quân phăng teo							// [1F0CF]
+
+// 1F300..1F5FF : Miscellaneous Symbols and Pictographs
+
+🌀	hình lốc xoáy							// [1F300]
+🌁	có sương							// [1F301]
+🌂	ô đã đóng							// [1F302]
+🌃	đêm có sao							// [1F303]
+🌄	bình minh trên núi						// [1F304]
+🌅	bình minh							// [1F305]
+🌆	khung cảnh thành phố lúc chạng vạng				// [1F306]
+🌇	hoàng hôn							// [1F307]
+🌈	cầu vồng							// [1F308]
+🌉	cây cầu về đêm							// [1F309]
+🌊	sóng nước							// [1F30A]
+🌋	núi lửa								// [1F30B]
+🌌	giải ngân hà							// [1F30C]
+🌍	quả cầu châu Âu-châu Phi					// [1F30D]
+🌎	quả cầu châu Mỹ							// [1F30E]
+🌏	quả cầu châu Á-châu Úc						// [1F30F]
+🌐	địa cầu với kinh tuyến						// [1F310]
+🌑	trăng non							// [1F311]
+🌒	trăng lưỡi liềm đầu tháng					// [1F312]
+🌓	trăng thượng huyền						// [1F313]
+🌔	trăng khuyết							// [1F314]
+🌕	trăng tròn							// [1F315]
+🌖	trăng khuyết cuối tháng						// [1F316]
+🌗	trăng hạ huyền							// [1F317]
+🌘	trăng lưỡi liềm cuối tháng					// [1F318]
+🌙	trăng lưỡi liềm							// [1F319]
+🌚	mặt trăng non							// [1F31A]
+🌛	mặt trăng thượng huyền						// [1F31B]
+🌜	mặt trăng hạ huyền						// [1F31C]
+🌝	mặt trăng tròn							// [1F31D]
+🌞	ông mặt trời							// [1F31E]
+🌟	ngôi sao lấp lánh						// [1F31F]
+🌠	sao băng							// [1F320]
+🌡	nhiệt kế							// [1F321] text|emoji
+🌤	mặt trời sau đám mây nhỏ					// [1F324] text|emoji
+🌥	mặt trời sau đám mây lớn					// [1F325] text|emoji
+🌦	mặt trời sau đám mây mưa					// [1F326] text|emoji
+🌧	mây và mưa							// [1F327] text|emoji
+🌨	mây và tuyết							// [1F328] text|emoji
+🌩	mây và sét							// [1F329] text|emoji
+🌪	lốc xoáy							// [1F32A] text|emoji
+🌫	sương mù							// [1F32B] text|emoji
+🌬	mặt gió								// [1F32C] text|emoji
+🌭	xúc xích							// [1F32D]
+🌮	bánh taco							// [1F32E]
+🌯	bánh burrito							// [1F32F]
+🌰	hạt dẻ								// [1F330]
+🌱	cây con								// [1F331]
+🌲	cây thường xanh							// [1F332]
+🌳	cây rụng lá							// [1F333]
+🌴	cây cọ								// [1F334]
+🌵	cây xương rồng							// [1F335]
+🌶	quả ớt								// [1F336] text|emoji
+🌷	hoa tuy-líp							// [1F337]
+🌸	hoa anh đào							// [1F338]
+🌹	hoa hồng							// [1F339]
+🌺	hoa dâm bụt							// [1F33A]
+🌻	hoa hướng dương							// [1F33B]
+🌼	hoa								// [1F33C]
+🌽	bắp ngô								// [1F33D]
+🌾	bó lúa								// [1F33E]
+🌿	thảo mộc							// [1F33F]
+🍀	cỏ bốn lá							// [1F340]
+🍁	lá phong							// [1F341]
+🍂	lá rụng								// [1F342]
+🍃	lá rung rinh trong gió						// [1F343]
+🍄	nấm								// [1F344]
+🍅	cà chua								// [1F345]
+🍆	cà tím								// [1F346]
+🍇	chùm nho							// [1F347]
+🍈	dưa								// [1F348]
+🍉	dưa hấu								// [1F349]
+🍊	quýt								// [1F34A]
+🍋	chanh								// [1F34B]
+🍌	chuối								// [1F34C]
+🍍	dứa								// [1F34D]
+🍎	táo đỏ								// [1F34E]
+🍏	táo xanh							// [1F34F]
+🍐	lê								// [1F350]
+🍑	đào								// [1F351]
+🍒	anh đào								// [1F352]
+🍓	dâu tây								// [1F353]
+🍔	bánh hamburger							// [1F354]
+🍕	bánh pizza							// [1F355]
+🍖	thịt bám xương							// [1F356]
+🍗	đùi gia cầm							// [1F357]
+🍘	bánh quy gạo							// [1F358]
+🍙	cơm nắm								// [1F359]
+🍚	cơm								// [1F35A]
+🍛	cơm cà ri							// [1F35B]
+🍜	bát mì								// [1F35C]
+🍝	spaghetti							// [1F35D]
+🍞	bánh mì								// [1F35E]
+🍟	khoai tây chiên							// [1F35F]
+🍠	khoai lang nướng						// [1F360]
+🍡	bánh trôi Nhật Bản						// [1F361]
+🍢	món oden							// [1F362]
+🍣	sushi								// [1F363]
+🍤	tôm chiên							// [1F364]
+🍥	bánh cá có hình xoắn						// [1F365]
+🍦	kem mềm								// [1F366]
+🍧	đá bào								// [1F367]
+🍨	kem								// [1F368]
+🍩	bánh rán							// [1F369]
+🍪	bánh quy							// [1F36A]
+🍫	thanh sô cô la							// [1F36B]
+🍬	kẹo								// [1F36C]
+🍭	kẹo mút								// [1F36D]
+🍮	bánh trứng							// [1F36E]
+🍯	hũ mật ong							// [1F36F]
+🍰	bánh bơ giòn							// [1F370]
+🍱	hộp cơm bento							// [1F371]
+🍲	nồi thức ăn							// [1F372]
+🍳	nấu ăn								// [1F373]
+🍴	nĩa và dao							// [1F374]
+🍵	tách trà không có quai						// [1F375]
+🍶	rượu sake							// [1F376]
+🍷	ly rượu vang							// [1F377]
+🍸	ly cocktail							// [1F378]
+🍹	đồ uống nhiệt đới						// [1F379]
+🍺	vại bia								// [1F37A]
+🍻	chạm cốc bia							// [1F37B]
+🍼	bình sữa trẻ em							// [1F37C]
+🍽	dĩa và dao với đĩa						// [1F37D] text|emoji
+🍾	chai có nút bật lên						// [1F37E]
+🍿	bỏng ngô							// [1F37F]
+🎀	ruy băng							// [1F380]
+🎁	gói quà								// [1F381]
+🎂	bánh sinh nhật							// [1F382]
+🎃	lồng đèn bí ngô							// [1F383]
+🎄	cây thông noel							// [1F384]
+🎅	Ông già Noel							// [1F385]
+🎆	pháo hoa							// [1F386]
+🎇	pháo bông							// [1F387]
+🎈	bóng bay							// [1F388]
+🎉	pháo giấy buổi tiệc						// [1F389]
+🎊	bóng hoa giấy							// [1F38A]
+🎋	cây tanabata							// [1F38B]
+🎌	cờ bắt chéo							// [1F38C]
+🎍	trang trí cây thông						// [1F38D]
+🎎	búp bê Nhật Bản							// [1F38E]
+🎏	cờ cá chép							// [1F38F]
+🎐	chuông gió							// [1F390]
+🎑	lễ ngắm trăng							// [1F391]
+🎒	ba lô đi học							// [1F392]
+🎓	mũ tốt nghiệp							// [1F393]
+🎖	huân chương quân đội						// [1F396] text|emoji
+🎗	ruy băng nhắc nhở						// [1F397] text|emoji
+🎙	micrô phòng thu âm						// [1F399] text|emoji
+🎚	thanh trượt mức							// [1F39A] text|emoji
+🎛	núm điều khiển							// [1F39B] text|emoji
+🎞	khung hình phim							// [1F39E] text|emoji
+🎟	vé vào cửa							// [1F39F] text|emoji
+🎠	ngựa đu quay							// [1F3A0]
+🎡	vòng đu quay							// [1F3A1]
+🎢	tàu lượn siêu tốc						// [1F3A2]
+🎣	cần câu cá							// [1F3A3]
+🎤	micrô								// [1F3A4]
+🎥	máy quay phim							// [1F3A5]
+🎦	rạp chiếu phim							// [1F3A6]
+🎧	tai nghe							// [1F3A7]
+🎨	bảng màu							// [1F3A8]
+🎩	mũ chóp cao							// [1F3A9]
+🎪	lều rạp xiếc							// [1F3AA]
+🎫	vé								// [1F3AB]
+🎬	bảng clapper							// [1F3AC]
+🎭	nghệ thuật biểu diễn						// [1F3AD]
+🎮	trò chơi điện tử						// [1F3AE]
+🎯	trúng đích							// [1F3AF]
+🎰	máy giật xèng							// [1F3B0]
+🎱	bi-a 8 bóng							// [1F3B1]
+🎲	trò xúc xắc							// [1F3B2]
+🎳	bowling								// [1F3B3]
+🎴	quân bài hình hoa						// [1F3B4]
+🎵	nốt nhạc							// [1F3B5]
+🎶	các nốt nhạc							// [1F3B6]
+🎷	kèn saxophone							// [1F3B7]
+🎸	đàn ghi-ta							// [1F3B8]
+🎹	phím đàn							// [1F3B9]
+🎺	kèn trumpet							// [1F3BA]
+🎻	đàn violin							// [1F3BB]
+🎼	khuông nhạc							// [1F3BC]
+🎽	áo chạy bộ							// [1F3BD]
+🎾	quần vợt							// [1F3BE]
+🎿	ván trượt tuyết							// [1F3BF]
+🏀	bóng rổ								// [1F3C0]
+🏁	cờ ô vuông							// [1F3C1]
+🏂	người trượt ván tuyết						// [1F3C2]
+🏃	người chạy							// [1F3C3]
+🏄	người lướt sóng							// [1F3C4]
+🏅	huy chương thể thao						// [1F3C5]
+🏆	cúp								// [1F3C6]
+🏇	đua ngựa							// [1F3C7]
+🏈	bóng bầu dục Mỹ							// [1F3C8]
+🏉	bóng bầu dục							// [1F3C9]
+🏊	người bơi							// [1F3CA]
+🏋	người cử tạ							// [1F3CB] text|emoji
+🏌	người chơi gôn							// [1F3CC] text|emoji
+🏍	xe máy								// [1F3CD] text|emoji
+🏎	xe đua								// [1F3CE] text|emoji
+🏏	trò chơi cricket						// [1F3CF]
+🏐	bóng chuyền							// [1F3D0]
+🏑	khúc côn cầu trên cỏ						// [1F3D1]
+🏒	khúc côn cầu trên băng						// [1F3D2]
+🏓	bóng bàn							// [1F3D3]
+🏔	đỉnh núi phủ tuyết						// [1F3D4] text|emoji
+🏕	cắm trại							// [1F3D5] text|emoji
+🏖	bãi biển với chiếc ô						// [1F3D6] text|emoji
+🏗	công trường xây dựng						// [1F3D7] text|emoji
+🏘	những ngôi nhà							// [1F3D8] text|emoji
+🏙	khung cảnh thành phố						// [1F3D9] text|emoji
+🏚	ngôi nhà bỏ hoang						// [1F3DA] text|emoji
+🏛	tòa nhà cổ điển							// [1F3DB] text|emoji
+🏜	sa mạc								// [1F3DC] text|emoji
+🏝	đảo hoang							// [1F3DD] text|emoji
+🏞	công viên quốc gia						// [1F3DE] text|emoji
+🏟	sân vận động							// [1F3DF] text|emoji
+🏠	ngôi nhà							// [1F3E0]
+🏡	nhà có vườn							// [1F3E1]
+🏢	tòa nhà văn phòng						// [1F3E2]
+🏣	bưu điện Nhật Bản						// [1F3E3]
+🏤	bưu điện							// [1F3E4]
+🏥	bệnh viện							// [1F3E5]
+🏦	ngân hàng							// [1F3E6]
+🏧	ký hiệu ATM							// [1F3E7]
+🏨	khách sạn							// [1F3E8]
+🏩	khách sạn tình yêu						// [1F3E9]
+🏪	cửa hàng tiện dụng						// [1F3EA]
+🏫	trường học							// [1F3EB]
+🏬	cửa hàng bách hóa						// [1F3EC]
+🏭	nhà máy								// [1F3ED]
+🏮	đèn lồng giấy màu đỏ						// [1F3EE]
+🏯	lâu đài Nhật Bản						// [1F3EF]
+🏰	lâu đài								// [1F3F0]
+🏳	cờ trắng							// [1F3F3] text|emoji
+🏴	cờ đen								// [1F3F4]
+🏵	nơ hoa hồng							// [1F3F5] text|emoji
+🏷	nhãn								// [1F3F7] text|emoji
+🏸	cầu lông							// [1F3F8]
+🏹	cung tên							// [1F3F9]
+🏺	vò hai quai							// [1F3FA]
+🏻	màu da sáng							// [1F3FB]
+🏼	màu da sáng trung bình						// [1F3FC]
+🏽	màu da trung bình						// [1F3FD]
+🏾	màu da tối trung bình						// [1F3FE]
+🏿	màu da tối							// [1F3FF]
+🐀	chuột cống							// [1F400]
+🐁	chuột								// [1F401]
+🐂	bò đực								// [1F402]
+🐃	trâu nước							// [1F403]
+🐄	bò cái								// [1F404]
+🐅	hổ								// [1F405]
+🐆	báo hoa mai							// [1F406]
+🐇	thỏ								// [1F407]
+🐈	mèo								// [1F408]
+🐉	rồng								// [1F409]
+🐊	cá sấu								// [1F40A]
+🐋	cá voi								// [1F40B]
+🐌	ốc sên								// [1F40C]
+🐍	rắn								// [1F40D]
+🐎	ngựa								// [1F40E]
+🐏	cừu đực								// [1F40F]
+🐐	dê								// [1F410]
+🐑	cừu cái								// [1F411]
+🐒	khỉ								// [1F412]
+🐓	gà trống							// [1F413]
+🐔	gà								// [1F414]
+🐕	chó								// [1F415]
+🐖	lợn								// [1F416]
+🐗	lợn rừng							// [1F417]
+🐘	voi								// [1F418]
+🐙	bạch tuộc							// [1F419]
+🐚	vỏ xoắn ốc							// [1F41A]
+🐛	con rệp								// [1F41B]
+🐜	kiến								// [1F41C]
+🐝	ong mật								// [1F41D]
+🐞	bọ rùa								// [1F41E]
+🐟	cá								// [1F41F]
+🐠	cá nhiệt đới							// [1F420]
+🐡	cá nóc								// [1F421]
+🐢	rùa								// [1F422]
+🐣	gà mới nở							// [1F423]
+🐤	gà con								// [1F424]
+🐥	mặt trước gà con						// [1F425]
+🐦	chim								// [1F426]
+🐧	chim cánh cụt							// [1F427]
+🐨	gấu túi								// [1F428]
+🐩	chó xù								// [1F429]
+🐪	lạc đà								// [1F42A]
+🐫	lạc đà hai bướu							// [1F42B]
+🐬	cá heo								// [1F42C]
+🐭	mặt chuột							// [1F42D]
+🐮	mặt bò								// [1F42E]
+🐯	mặt hổ								// [1F42F]
+🐰	mặt thỏ								// [1F430]
+🐱	mặt mèo								// [1F431]
+🐲	mặt rồng							// [1F432]
+🐳	cá voi phun nước						// [1F433]
+🐴	mặt ngựa							// [1F434]
+🐵	mặt khỉ								// [1F435]
+🐶	mặt cún								// [1F436]
+🐷	mặt lợn								// [1F437]
+🐸	mặt ếch								// [1F438]
+🐹	mặt chuột đồng							// [1F439]
+🐺	mặt chó sói							// [1F43A]
+🐻	mặt gấu								// [1F43B]
+🐼	mặt gấu trúc							// [1F43C]
+🐽	mũi lợn								// [1F43D]
+🐾	dấu chân móng vuốt						// [1F43E]
+🐿	sóc chuột							// [1F43F] text|emoji
+👀	đôi mắt								// [1F440]
+👁	mắt								// [1F441] text|emoji
+👂	tai								// [1F442]
+👃	mũi								// [1F443]
+👄	miệng								// [1F444]
+👅	lưỡi								// [1F445]
+👆	ngón trỏ trái chỉ lên						// [1F446]
+👇	ngón trỏ trái chỉ xuống						// [1F447]
+👈	ngón trỏ trái chỉ sang trái					// [1F448]
+👉	ngón trỏ trái chỉ sang phải					// [1F449]
+👊	nắm đấm								// [1F44A]
+👋	vẫy tay								// [1F44B]
+👌	bàn tay làm dấu OK						// [1F44C]
+👍	dấu ra hiệu đồng ý						// [1F44D]
+👎	dấu ra hiệu từ chối						// [1F44E]
+👏	vỗ tay								// [1F44F]
+👐	hai bàn tay đang xòe						// [1F450]
+👑	vương miện							// [1F451]
+👒	mũ phụ nữ							// [1F452]
+👓	kính mắt							// [1F453]
+👔	cà vạt								// [1F454]
+👕	áo phông							// [1F455]
+👖	quần bò								// [1F456]
+👗	váy								// [1F457]
+👘	kimono								// [1F458]
+👙	áo tắm hai mảnh							// [1F459]
+👚	quần áo nữ							// [1F45A]
+👛	ví								// [1F45B]
+👜	túi xách							// [1F45C]
+👝	túi cắp nách							// [1F45D]
+👞	giày nam							// [1F45E]
+👟	giày chạy							// [1F45F]
+👠	giày cao gót							// [1F460]
+👡	xăng đan nữ							// [1F461]
+👢	giày bốt nữ							// [1F462]
+👣	dấu chân							// [1F463]
+👤	bóng tượng bán thân						// [1F464]
+👥	bóng và tượng bán thân						// [1F465]
+👦	con trai							// [1F466]
+👧	con gái								// [1F467]
+👨	nam								// [1F468]
+👩	phụ nữ								// [1F469]
+👪	gia đình							// [1F46A]
+👫	người đàn ông và phụ nữ nắm tay					// [1F46B]
+👬	hai người đàn ông nắm tay					// [1F46C]
+👭	hai người phụ nữ nắm tay					// [1F46D]
+👮	cảnh sát							// [1F46E]
+👯	những người đeo tai thỏ						// [1F46F]
+👰	cô dâu với khăn voan						// [1F470]
+👱	người tóc vàng hoe						// [1F471]
+👲	người đàn ông đội mũ Trung Quốc					// [1F472]
+👳	người đội khăn xếp						// [1F473]
+👴	cụ ông								// [1F474]
+👵	cụ bà								// [1F475]
+👶	trẻ con								// [1F476]
+👷	công nhân xây dựng						// [1F477]
+👸	công chúa							// [1F478]
+👹	mặt quỷ								// [1F479]
+👺	yêu tinh							// [1F47A]
+👻	ma								// [1F47B]
+👼	thiên thần nhỏ							// [1F47C]
+👽	người ngoài hành tinh						// [1F47D]
+👾	quái vật ngoài hành tinh					// [1F47E]
+👿	mặt giận giữ có sừng						// [1F47F]
+💀	đầu lâu								// [1F480]
+💁	người trợ giúp							// [1F481]
+💂	bảo vệ								// [1F482]
+💃	người phụ nữ đang khiêu vũ					// [1F483]
+💄	son môi								// [1F484]
+💅	sơn móng tay							// [1F485]
+💆	xoa bóp mặt							// [1F486]
+💇	cắt tóc								// [1F487]
+💈	biển hiệu của thợ cắt tóc					// [1F488]
+💉	ống tiêm							// [1F489]
+💊	viên thuốc							// [1F48A]
+💋	dấu nụ hôn							// [1F48B]
+💌	thư tình							// [1F48C]
+💍	nhẫn								// [1F48D]
+💎	đá quý								// [1F48E]
+💏	nụ hôn								// [1F48F]
+💐	bó hoa								// [1F490]
+💑	cặp đôi với trái tim						// [1F491]
+💒	đám cưới							// [1F492]
+💓	trái tim đang đập						// [1F493]
+💔	trái tim tan vỡ							// [1F494]
+💕	hai trái tim							// [1F495]
+💖	trái tim lấp lánh						// [1F496]
+💗	trái tim lớn dần						// [1F497]
+💘	trái tim với mũi tên						// [1F498]
+💙	trái tim màu lam						// [1F499]
+💚	trái tim màu lục						// [1F49A]
+💛	trái tim màu vàng						// [1F49B]
+💜	trái tim tím							// [1F49C]
+💝	trái tim với ruy băng						// [1F49D]
+💞	trái tim xoay vòng						// [1F49E]
+💟	hình trang trí trái tim						// [1F49F]
+💠	hình thoi có dấu chấm						// [1F4A0]
+💡	bóng đèn							// [1F4A1]
+💢	biểu tượng giận giữ						// [1F4A2]
+💣	bom								// [1F4A3]
+💤	buồn ngủ							// [1F4A4]
+💥	va chạm								// [1F4A5]
+💦	giọt mồ hôi							// [1F4A6]
+💧	giọt nước							// [1F4A7]
+💨	chớp nhoáng							// [1F4A8]
+💩	đống phân							// [1F4A9]
+💪	bắp tay gập lại							// [1F4AA]
+💫	choáng váng							// [1F4AB]
+💬	bong bóng lời nói						// [1F4AC]
+💭	bong bóng suy nghĩ						// [1F4AD]
+💮	hoa trắng							// [1F4AE]
+💯	100 điểm							// [1F4AF]
+💰	túi tiền							// [1F4B0]
+💱	đổi tiền							// [1F4B1]
+💲	ký hiệu đô la đậm						// [1F4B2]
+💳	thẻ tín dụng							// [1F4B3]
+💴	tiền giấy yên							// [1F4B4]
+💵	tiền giấy đô la							// [1F4B5]
+💶	tiền giấy euro							// [1F4B6]
+💷	tiền giấy bảng							// [1F4B7]
+💸	tiền có cánh							// [1F4B8]
+💹	biểu đồ đồng yên tăng						// [1F4B9]
+💺	cái ghế								// [1F4BA]
+💻	máy tính xách tay						// [1F4BB]
+💼	cặp tài liệu							// [1F4BC]
+💽	đĩa máy tính							// [1F4BD]
+💾	đĩa mềm								// [1F4BE]
+💿	đĩa quang							// [1F4BF]
+📀	dvd								// [1F4C0]
+📁	thư mục tệp							// [1F4C1]
+📂	thư mục tệp mở							// [1F4C2]
+📃	trang bị quăn							// [1F4C3]
+📄	trang hướng lên trên						// [1F4C4]
+📅	lịch								// [1F4C5]
+📆	quyển lịch bloc							// [1F4C6]
+📇	chỉ mục thẻ							// [1F4C7]
+📈	biểu đồ tăng							// [1F4C8]
+📉	biểu đồ giảm							// [1F4C9]
+📊	biểu đồ thanh							// [1F4CA]
+📋	bảng ghi nhớ							// [1F4CB]
+📌	đinh ghim							// [1F4CC]
+📍	đinh ghim hình tròn						// [1F4CD]
+📎	kẹp giấy							// [1F4CE]
+📏	thước thẳng							// [1F4CF]
+📐	thước tam giác							// [1F4D0]
+📑	tab dấu trang							// [1F4D1]
+📒	sổ cái								// [1F4D2]
+📓	sổ ghi chép							// [1F4D3]
+📔	sổ ghi chép có bìa trang trí					// [1F4D4]
+📕	sách đóng							// [1F4D5]
+📖	sách đang mở							// [1F4D6]
+📗	sách màu lục							// [1F4D7]
+📘	sách màu lam							// [1F4D8]
+📙	sách màu cam							// [1F4D9]
+📚	sách								// [1F4DA]
+📛	thẻ tên								// [1F4DB]
+📜	cuộn sách							// [1F4DC]
+📝	sổ ghi nhớ							// [1F4DD]
+📞	ống nghe điện thoại bàn						// [1F4DE]
+📟	máy nhắn tin							// [1F4DF]
+📠	máy fax								// [1F4E0]
+📡	ăng-ten vệ tinh							// [1F4E1]
+📢	loa phát thanh							// [1F4E2]
+📣	loa phóng thanh							// [1F4E3]
+📤	khay thư đi							// [1F4E4]
+📥	khay thư đến							// [1F4E5]
+📦	gói								// [1F4E6]
+📧	email								// [1F4E7]
+📨	phong bì thư đến						// [1F4E8]
+📩	phong bì với mũi tên						// [1F4E9]
+📪	hộp thư được đóng với lá cờ nằm ngang				// [1F4EA]
+📫	hộp thư được đóng với lá cờ đứng				// [1F4EB]
+📬	hộp thư được mở với lá cờ đứng					// [1F4EC]
+📭	hộp thư được mở với lá cờ nằm ngang				// [1F4ED]
+📮	hòm thư								// [1F4EE]
+📯	kèn bưu chính							// [1F4EF]
+📰	báo								// [1F4F0]
+📱	điện thoại di động						// [1F4F1]
+📲	điện thoại di động có mũi tên					// [1F4F2]
+📳	chế độ rung							// [1F4F3]
+📴	tắt điện thoại di động						// [1F4F4]
+📵	cấm điện thoại di động						// [1F4F5]
+📶	vạch ăng-ten							// [1F4F6]
+📷	máy ảnh								// [1F4F7]
+📸	máy ảnh có đèn flash						// [1F4F8]
+📹	máy quay video							// [1F4F9]
+📺	tivi								// [1F4FA]
+📻	radio								// [1F4FB]
+📼	băng video							// [1F4FC]
+📽	máy chiếu phim							// [1F4FD] text|emoji
+📿	tràng hạt							// [1F4FF]
+🔀	nút xáo trộn bài						// [1F500]
+🔁	nút lặp lại							// [1F501]
+🔂	nút lặp lại một lần						// [1F502]
+🔃	mũi tên thẳng đứng theo chiều kim đồng hồ			// [1F503]
+🔄	nút mũi tên ngược chiều kim đồng hồ				// [1F504]
+🔅	nút mờ								// [1F505]
+🔆	nút sáng							// [1F506]
+🔇	tắt loa								// [1F507]
+🔈	âm lượng loa thấp						// [1F508]
+🔉	âm lượng loa trung bình						// [1F509]
+🔊	âm lượng loa cao						// [1F50A]
+🔋	pin								// [1F50B]
+🔌	phích cắm điện							// [1F50C]
+🔍	kính phóng đại nghiêng sang trái				// [1F50D]
+🔎	kính lúp nghiêng sang phải					// [1F50E]
+🔏	khóa với bút							// [1F50F]
+🔐	khóa với chìa							// [1F510]
+🔑	chìa khóa							// [1F511]
+🔒	khóa								// [1F512]
+🔓	mở khóa								// [1F513]
+🔔	cái chuông							// [1F514]
+🔕	chuông với dấu gạch chéo					// [1F515]
+🔖	đánh dấu trang							// [1F516]
+🔗	mắt xích							// [1F517]
+🔘	nút radio							// [1F518]
+🔙	mũi tên BACK							// [1F519]
+🔚	mũi tên END							// [1F51A]
+🔛	mũi tên ON!							// [1F51B]
+🔜	mũi tên SOON							// [1F51C]
+🔝	mũi tên TOP							// [1F51D]
+🔞	cấm người dưới 18 tuổi						// [1F51E]
+🔟	mũ phím: 10							// [1F51F]
+🔠	nhập chữ hoa la tinh						// [1F520]
+🔡	nhập chữ thường la tinh						// [1F521]
+🔢	nhập số								// [1F522]
+🔣	nhập biểu tượng							// [1F523]
+🔤	nhập chữ cái la tinh						// [1F524]
+🔥	lửa								// [1F525]
+🔦	đèn pin								// [1F526]
+🔧	cờ lê								// [1F527]
+🔨	búa								// [1F528]
+🔩	đai ốc và bu lông						// [1F529]
+🔪	dao làm bếp							// [1F52A]
+🔫	súng lục							// [1F52B]
+🔬	kính hiển vi							// [1F52C]
+🔭	kính viễn vọng							// [1F52D]
+🔮	quả cầu pha lê							// [1F52E]
+🔯	ngôi sao sáu cánh có dấu chấm					// [1F52F]
+🔰	ký hiệu của Nhật cho người mới bắt đầu				// [1F530]
+🔱	biểu tượng đinh ba						// [1F531]
+🔲	nút hình vuông màu đen						// [1F532]
+🔳	nút hình vuông màu trắng					// [1F533]
+🔴	hình tròn màu đỏ						// [1F534]
+🔵	hình tròn màu lam						// [1F535]
+🔶	hình thoi lớn màu cam						// [1F536]
+🔷	hình thoi lớn màu lam						// [1F537]
+🔸	hình thoi nhỏ màu cam						// [1F538]
+🔹	hình thoi nhỏ màu lam						// [1F539]
+🔺	tam giác màu đỏ trỏ lên trên					// [1F53A]
+🔻	tam giác màu đỏ trỏ xuống dưới					// [1F53B]
+🔼	nút đi lên							// [1F53C]
+🔽	nút đi xuống							// [1F53D]
+🕉	om								// [1F549] text|emoji
+🕊	bồ câu								// [1F54A] text|emoji
+🕋	kaaba								// [1F54B]
+🕌	nhà thờ hồi giáo						// [1F54C]
+🕍	giáo đường Do thái						// [1F54D]
+🕎	cây đèn menorah							// [1F54E]
+🕐	một giờ								// [1F550]
+🕑	hai giờ								// [1F551]
+🕒	ba giờ								// [1F552]
+🕓	bốn giờ								// [1F553]
+🕔	năm giờ								// [1F554]
+🕕	sáu giờ								// [1F555]
+🕖	bảy giờ								// [1F556]
+🕗	tám giờ								// [1F557]
+🕘	chín giờ							// [1F558]
+🕙	mười giờ							// [1F559]
+🕚	mười một giờ							// [1F55A]
+🕛	mười hai giờ							// [1F55B]
+🕜	một giờ ba mươi phút						// [1F55C]
+🕝	hai giờ ba mươi phút						// [1F55D]
+🕞	ba giờ ba mươi phút						// [1F55E]
+🕟	bốn giờ ba mươi phút						// [1F55F]
+🕠	năm giờ ba mươi phút						// [1F560]
+🕡	sáu giờ ba mươi phút						// [1F561]
+🕢	bảy giờ ba mươi phút						// [1F562]
+🕣	tám giờ ba mươi phút						// [1F563]
+🕤	chính giờ ba mươi phút						// [1F564]
+🕥	mười giờ ba mươi phút						// [1F565]
+🕦	mười một giờ ba mươi phút					// [1F566]
+🕧	mười hai giờ ba mươi phút					// [1F567]
+🕯	nến								// [1F56F] text|emoji
+🕰	đồng hồ để bàn							// [1F570] text|emoji
+🕳	lỗ								// [1F573] text|emoji
+🕴	người đàn ông mặc vest đang bay lên				// [1F574] text|emoji
+🕵	thám tử								// [1F575] text|emoji
+🕶	kính râm							// [1F576] text|emoji
+🕷	nhện								// [1F577] text|emoji
+🕸	mạng nhện							// [1F578] text|emoji
+🕹	cần điều khiển							// [1F579] text|emoji
+🕺	người đàn ông đang khiêu vũ					// [1F57A]
+🖇	kẹp giấy được nối						// [1F587] text|emoji
+🖊	bút								// [1F58A] text|emoji
+🖋	bút máy								// [1F58B] text|emoji
+🖌	cọ vẽ tranh							// [1F58C] text|emoji
+🖍	bút sáp màu							// [1F58D] text|emoji
+🖐	tay xòe ngón giơ lên						// [1F590] text|emoji
+🖕	ngón giữa							// [1F595]
+🖖	tay thần lửa							// [1F596]
+🖤	tim đen								// [1F5A4]
+🖥	máy tính để bàn							// [1F5A5] text|emoji
+🖨	máy in								// [1F5A8] text|emoji
+🖱	chuột máy tính							// [1F5B1] text|emoji
+🖲	bi xoay								// [1F5B2] text|emoji
+🖼	tranh trong khung						// [1F5BC] text|emoji
+🗂	dụng cụ chia chỉ mục thẻ					// [1F5C2] text|emoji
+🗃	hộp đựng hồ sơ							// [1F5C3] text|emoji
+🗄	tủ hồ sơ							// [1F5C4] text|emoji
+🗑	sọt rác								// [1F5D1] text|emoji
+🗒	sổ ghi chú gáy xoắn						// [1F5D2] text|emoji
+🗓	lịch gáy xoắn							// [1F5D3] text|emoji
+🗜	cái kẹp								// [1F5DC] text|emoji
+🗝	chìa khóa cũ							// [1F5DD] text|emoji
+🗞	tờ báo được cuộn tròn						// [1F5DE] text|emoji
+🗡	dao găm								// [1F5E1] text|emoji
+🗣	đầu người đang nói						// [1F5E3] text|emoji
+🗨	bong bóng lời nói trái						// [1F5E8] text|emoji
+🗯	bong bóng góc phải						// [1F5EF] text|emoji
+🗳	hòm phiếu với lá phiếu						// [1F5F3] text|emoji
+🗺	bản đồ thế giới							// [1F5FA] text|emoji
+🗻	núi Phú Sĩ							// [1F5FB]
+🗼	tháp Tokyo							// [1F5FC]
+🗽	Tượng nữ thần Tự do						// [1F5FD]
+🗾	bản đồ Nhật Bản							// [1F5FE]
+🗿	tượng moai							// [1F5FF]
+
+// 1F600..1F64F : Emoticons
+
+😀	mặt cười toét							// [1F600]
+😁	mặt cười toét mắt cười						// [1F601]
+😂	mặt cười nước mắt						// [1F602]
+😃	mặt cười miệng há						// [1F603]
+😄	mặt cười miệng há mắt cười					// [1F604]
+😅	mặt cười miệng há mồ hôi					// [1F605]
+😆	mặt cười miệng há mắt nhắm chặt					// [1F606]
+😇	mặt cười có hào quang						// [1F607]
+😈	mặt cười có sừng						// [1F608]
+😉	nháy mắt							// [1F609]
+😊	mặt cười mắt cười						// [1F60A]
+😋	mặt thưởng thức món ngon					// [1F60B]
+😌	mặt nhẹ nhõm							// [1F60C]
+😍	mặt cười mắt hình trái tim					// [1F60D]
+😎	mặt cười đeo kính						// [1F60E]
+😏	mặt cười khẩy							// [1F60F]
+😐	mặt trung lập							// [1F610]
+😑	mặt vô cảm							// [1F611]
+😒	mặt buồn							// [1F612]
+😓	mặt có mồ hôi							// [1F613]
+😔	mặt trầm ngâm							// [1F614]
+😕	mặt bối rối							// [1F615]
+😖	mặt xấu hổ							// [1F616]
+😗	mặt hôn								// [1F617]
+😘	mặt gửi nụ hôn							// [1F618]
+😙	mặt hôn mắt cười						// [1F619]
+😚	mặt hôn mắt nhắm						// [1F61A]
+😛	mặt lè lưỡi							// [1F61B]
+😜	mặt lè lưỡi nháy mắt						// [1F61C]
+😝	mặt thè lưỡi mắt nhắm chặt					// [1F61D]
+😞	mặt thất vọng							// [1F61E]
+😟	mặt lo lắng							// [1F61F]
+😠	mặt giận giữ							// [1F620]
+😡	mặt hờn dỗi							// [1F621]
+😢	mặt khóc							// [1F622]
+😣	mặt kiên nhẫn							// [1F623]
+😤	mặt có mũi đang phì hơi						// [1F624]
+😥	mặt thất vọng nhưng nhẹ nhõm					// [1F625]
+😦	mặt cau miệng há						// [1F626]
+😧	mặt đau khổ							// [1F627]
+😨	mặt sợ hãi							// [1F628]
+😩	mặt kiệt sức							// [1F629]
+😪	mặt buồn ngủ							// [1F62A]
+😫	mặt mệt mỏi							// [1F62B]
+😬	mặt nhăn nhó							// [1F62C]
+😭	mặt khóc to							// [1F62D]
+😮	mặt có miệng há							// [1F62E]
+😯	mặt làm thinh							// [1F62F]
+😰	mặt lo lắng và toát mồ hôi					// [1F630]
+😱	mặt la hét kinh hãi						// [1F631]
+😲	mặt kinh ngạc							// [1F632]
+😳	mặt đỏ ửng							// [1F633]
+😴	mặt đang ngủ							// [1F634]
+😵	mặt chóng mặt							// [1F635]
+😶	mặt không có miệng						// [1F636]
+😷	mặt đeo khẩu trang y tế						// [1F637]
+😸	mặt mèo cười toét mắt cười					// [1F638]
+😹	mặt mèo có nước mắt						// [1F639]
+😺	mặt mèo cười miệng há						// [1F63A]
+😻	mặt mèo cười mắt hình trái tim					// [1F63B]
+😼	mặt mèo cười gượng						// [1F63C]
+😽	mặt mèo hôn mắt nhắm						// [1F63D]
+😾	mặt mèo hờn dỗi							// [1F63E]
+😿	mặt mèo đang khóc						// [1F63F]
+🙀	mặt mèo mệt lử							// [1F640]
+🙁	mặt hơi cau mày							// [1F641]
+🙂	mặt cười mỉm							// [1F642]
+🙃	mặt lộn ngược							// [1F643]
+🙄	mặt có mắt đu đưa						// [1F644]
+🙅	phản đối							// [1F645]
+🙆	đồng ý								// [1F646]
+🙇	người đang cúi đầu						// [1F647]
+🙈	khỉ không nhìn điều xấu						// [1F648]
+🙉	khỉ không nghe điều xấu						// [1F649]
+🙊	khỉ không nói điều xấu						// [1F64A]
+🙋	người vui vẻ giơ cao tay					// [1F64B]
+🙌	người đang giơ tay						// [1F64C]
+🙍	người đang cau mày						// [1F64D]
+🙎	người đang bĩu môi						// [1F64E]
+🙏	chắp tay							// [1F64F]
+
+// 1F680..1F6FF : Transport and Map Symbols
+
+🚀	tên lửa								// [1F680]
+🚁	máy bay trực thăng						// [1F681]
+🚂	đầu máy xe lửa							// [1F682]
+🚃	toa tàu								// [1F683]
+🚄	tàu cao tốc							// [1F684]
+🚅	tàu viên đạn							// [1F685]
+🚆	tàu hỏa								// [1F686]
+🚇	tàu điện ngầm							// [1F687]
+🚈	tàu điện nhẹ							// [1F688]
+🚉	ga tàu								// [1F689]
+🚊	xe điện								// [1F68A]
+🚋	tàu điện							// [1F68B]
+🚌	xe buýt								// [1F68C]
+🚍	xe buýt đang tới						// [1F68D]
+🚎	ô tô điện							// [1F68E]
+🚏	điểm dừng xe buýt						// [1F68F]
+🚐	xe buýt nhỏ							// [1F690]
+🚑	xe cứu thương							// [1F691]
+🚒	xe cứu hỏa							// [1F692]
+🚓	xe cảnh sát							// [1F693]
+🚔	xe cảnh sát đang tới						// [1F694]
+🚕	taxi								// [1F695]
+🚖	taxi đang tới							// [1F696]
+🚗	ô tô								// [1F697]
+🚘	ô tô đang tới							// [1F698]
+🚙	xe thể thao đa dụng						// [1F699]
+🚚	xe tải giao hàng						// [1F69A]
+🚛	đầu kéo rơ-moóc							// [1F69B]
+🚜	máy kéo								// [1F69C]
+🚝	đường một ray							// [1F69D]
+🚞	đường ray leo núi						// [1F69E]
+🚟	đường sắt trên cao						// [1F69F]
+🚠	cáp treo trên núi						// [1F6A0]
+🚡	cáp treo							// [1F6A1]
+🚢	tàu								// [1F6A2]
+🚣	thuyền chèo							// [1F6A3]
+🚤	xuồng cao tốc							// [1F6A4]
+🚥	đèn giao thông ngang						// [1F6A5]
+🚦	đèn giao thông dọc						// [1F6A6]
+🚧	công trường							// [1F6A7]
+🚨	đèn xe cảnh sát							// [1F6A8]
+🚩	cờ tam giác							// [1F6A9]
+🚪	cửa								// [1F6AA]
+🚫	bị cấm								// [1F6AB]
+🚬	thuốc lá							// [1F6AC]
+🚭	cấm hút thuốc							// [1F6AD]
+🚮	ký hiệu bỏ rác vào thùng					// [1F6AE]
+🚯	cấm xả rác							// [1F6AF]
+🚰	nước uống							// [1F6B0]
+🚱	nước không uống được						// [1F6B1]
+🚲	xe đạp								// [1F6B2]
+🚳	cấm xe đạp							// [1F6B3]
+🚴	người đi xe đạp							// [1F6B4]
+🚵	người đi xe đạp leo núi						// [1F6B5]
+🚶	người đi bộ							// [1F6B6]
+🚷	cấm người đi bộ							// [1F6B7]
+🚸	qua đường cho trẻ em						// [1F6B8]
+🚹	nhà vệ sinh nam							// [1F6B9]
+🚺	nhà vệ sinh nữ							// [1F6BA]
+🚻	nhà vệ sinh							// [1F6BB]
+🚼	biểu tượng trẻ em						// [1F6BC]
+🚽	bồn cầu								// [1F6BD]
+🚾	WC								// [1F6BE]
+🚿	vòi hoa sen							// [1F6BF]
+🛀	người đang tắm bồn						// [1F6C0]
+🛁	bồn tắm								// [1F6C1]
+🛂	kiểm soát hộ chiếu						// [1F6C2]
+🛃	hải quan							// [1F6C3]
+🛄	nơi nhận hành lý						// [1F6C4]
+🛅	hành lý bỏ quên							// [1F6C5]
+🛋	ghế dài và đèn							// [1F6CB] text|emoji
+🛌	người trên giường						// [1F6CC]
+🛍	túi mua sắm							// [1F6CD] text|emoji
+🛎	chuông lễ tân							// [1F6CE] text|emoji
+🛏	giường								// [1F6CF] text|emoji
+🛐	nơi thờ phụng							// [1F6D0]
+🛑	ký hiệu dừng							// [1F6D1]
+🛒	xe mua hàng							// [1F6D2]
+🛠	búa và cờ lê							// [1F6E0] text|emoji
+🛡	cái khiên							// [1F6E1] text|emoji
+🛢	thùng dầu							// [1F6E2] text|emoji
+🛣	đường cao tốc							// [1F6E3] text|emoji
+🛤	đường sắt							// [1F6E4] text|emoji
+🛥	thuyền máy							// [1F6E5] text|emoji
+🛩	máy bay nhỏ							// [1F6E9] text|emoji
+🛫	máy bay khởi hành						// [1F6EB]
+🛬	máy bay đến nơi							// [1F6EC]
+🛰	vệ tinh								// [1F6F0] text|emoji
+🛳	tàu chở khách							// [1F6F3] text|emoji
+🛴	xe hẩy								// [1F6F4]
+🛵	xe tay ga							// [1F6F5]
+🛶	xuồng								// [1F6F6]
+🛷	xe trượt tuyết							// [1F6F7]
+🛸	đĩa bay								// [1F6F8]
+🛹	ván trượt							// [1F6F9]
+
+// 1F900..1F9FF : Supplemental Symbols and Pictographs
+
+🤐	mặt có miệng bị kéo khóa					// [1F910]
+🤑	mặt có miệng tiền						// [1F911]
+🤒	mặt có miệng ngậm nhiệt kế					// [1F912]
+🤓	mặt mọt sách							// [1F913]
+🤔	mặt suy nghĩ							// [1F914]
+🤕	mặt đeo băng đầu						// [1F915]
+🤖	mặt rô-bốt							// [1F916]
+🤗	mặt ôm								// [1F917]
+🤘	ký hiệu cặp sừng						// [1F918]
+🤙	bàn tay gọi cho tôi						// [1F919]
+🤚	mu bàn tay giơ lên						// [1F91A]
+🤛	nắm đấm hướng phía trái						// [1F91B]
+🤜	nắm đấm hướng sang phải						// [1F91C]
+🤝	bắt tay								// [1F91D]
+🤞	hai ngón tay bắt chéo						// [1F91E]
+🤟	cử chỉ yêu nhau							// [1F91F]
+🤠	mặt đội mũ cao bồi						// [1F920]
+🤡	mặt hề								// [1F921]
+🤢	mặt buồn nôn							// [1F922]
+🤣	cười lăn lộn							// [1F923]
+🤤	mặt thò lò mũi xanh						// [1F924]
+🤥	mặt nói dối							// [1F925]
+🤦	lấy tay che mặt							// [1F926]
+🤧	mặt hắt hơi							// [1F927]
+🤨	khuôn mặt với lông mày rướn lên					// [1F928]
+🤩	ngưỡng mộ							// [1F929]
+🤪	khuôn mặt điên khùng						// [1F92A]
+🤫	mặt ra dấu suỵt							// [1F92B]
+🤬	mặt có các ký hiệu trên miệng					// [1F92C]
+🤭	mặt với tay che miệng						// [1F92D]
+🤮	mặt nôn mửa							// [1F92E]
+🤯	đầu nổ tung							// [1F92F]
+🤰	người phụ nữ có thai						// [1F930]
+🤱	cho con bú							// [1F931]
+🤲	hai bàn tay chạm vào nhau					// [1F932]
+🤳	tự sướng							// [1F933]
+🤴	hoàng tử							// [1F934]
+🤵	người mặc áo ximôckinh						// [1F935]
+🤶	mẹ giáng sinh							// [1F936]
+🤷	nhún vai							// [1F937]
+🤸	nhào lộn							// [1F938]
+🤹	tung hứng							// [1F939]
+🤺	người đấu kiếm							// [1F93A]
+🤼	vật								// [1F93C]
+🤽	bóng nước							// [1F93D]
+🤾	bóng ném							// [1F93E]
+🥀	hoa héo								// [1F940]
+🥁	trống								// [1F941]
+🥂	chạm cốc							// [1F942]
+🥃	ly đáy phẳng							// [1F943]
+🥄	thìa								// [1F944]
+🥅	khung thành							// [1F945]
+🥇	huy chương vàng							// [1F947]
+🥈	huy chương bạc							// [1F948]
+🥉	huy chương đồng							// [1F949]
+🥊	găng tay quyền anh						// [1F94A]
+🥋	đồng phục võ thuật						// [1F94B]
+🥌	bi đá trên băng							// [1F94C]
+🥎	bóng mềm							// [1F94E]
+🥏	đĩa bay trò chơi						// [1F94F]
+🥐	bánh sừng bò							// [1F950]
+🥑	quả bơ								// [1F951]
+🥒	dưa chuột							// [1F952]
+🥓	thịt xông khói							// [1F953]
+🥔	khoai tây							// [1F954]
+🥕	cà rốt								// [1F955]
+🥖	bánh mì que							// [1F956]
+🥗	salat rau							// [1F957]
+🥘	chảo thức ăn							// [1F958]
+🥙	bánh mì kẹp thịt						// [1F959]
+🥚	trứng								// [1F95A]
+🥛	cốc sữa								// [1F95B]
+🥜	đậu phộng							// [1F95C]
+🥝	quả kiwi							// [1F95D]
+🥞	bánh kếp							// [1F95E]
+🥟	bánh bao							// [1F95F]
+🥠	bánh may mắn							// [1F960]
+🥡	hộp đựng đồ ăn mang đi						// [1F961]
+🥢	đũa								// [1F962]
+🥣	tô có thìa							// [1F963]
+🥤	ly có ống hút							// [1F964]
+🥥	dừa								// [1F965]
+🥦	xúp lơ xanh							// [1F966]
+🥧	bánh nướng							// [1F967]
+🥨	bánh quy xoắn							// [1F968]
+🥩	tảng thịt							// [1F969]
+🥪	bánh mỳ kẹp							// [1F96A]
+🥫	đồ hộp								// [1F96B]
+🥬	xanh lá								// [1F96C]
+🥭	xoài								// [1F96D]
+🥮	bánh trung thu							// [1F96E]
+🥯	bánh mỳ vòng							// [1F96F]
+🥰	mặt cười với 3 trái tim						// [1F970]
+🥳	mặt tiệc tùng							// [1F973]
+🥴	mặt choáng váng							// [1F974]
+🥵	mặt nóng							// [1F975]
+🥶	mặt lạnh							// [1F976]
+🥺	mặt cầu xin							// [1F97A]
+🥼	áo phòng thí nghiệm						// [1F97C]
+🥽	kính bảo hộ							// [1F97D]
+🥾	giày leo núi							// [1F97E]
+🥿	giày bệt							// [1F97F]
+🦀	cua								// [1F980]
+🦁	mặt sư tử							// [1F981]
+🦂	bọ cạp								// [1F982]
+🦃	gà tây								// [1F983]
+🦄	mặt kỳ lân							// [1F984]
+🦅	đại bàng							// [1F985]
+🦆	vịt								// [1F986]
+🦇	dơi								// [1F987]
+🦈	cá mập								// [1F988]
+🦉	cú								// [1F989]
+🦊	mặt cáo								// [1F98A]
+🦋	bướm								// [1F98B]
+🦌	hươu								// [1F98C]
+🦍	khỉ đột								// [1F98D]
+🦎	thằn lằn							// [1F98E]
+🦏	tê giác								// [1F98F]
+🦐	tôm								// [1F990]
+🦑	mực ống								// [1F991]
+🦒	hươu cao cổ							// [1F992]
+🦓	ngựa vằn							// [1F993]
+🦔	nhím								// [1F994]
+🦕	khủng long chân thằn lằn					// [1F995]
+🦖	khủng long bạo chúa						// [1F996]
+🦗	dế								// [1F997]
+🦘	chuột túi							// [1F998]
+🦙	lạc đà không bướu						// [1F999]
+🦚	con công							// [1F99A]
+🦛	hà mã								// [1F99B]
+🦜	con vẹt								// [1F99C]
+🦝	gấu trúc							// [1F99D]
+🦞	tôm hùm								// [1F99E]
+🦟	con muỗi							// [1F99F]
+🦠	vi trùng							// [1F9A0]
+🦡	con lửng							// [1F9A1]
+🦢	thiên nga							// [1F9A2]
+🦰	tóc đỏ								// [1F9B0]
+🦱	tóc xoăn							// [1F9B1]
+🦲	hói								// [1F9B2]
+🦳	tóc trắng							// [1F9B3]
+🦴	xương								// [1F9B4]
+🦵	Chân								// [1F9B5]
+🦶	bàn chân							// [1F9B6]
+🦷	răng								// [1F9B7]
+🦸	siêu anh hùng							// [1F9B8]
+🦹	nhân vật siêu phản diện						// [1F9B9]
+🧀	miếng pho mát							// [1F9C0]
+🧁	bánh nướng nhỏ							// [1F9C1]
+🧂	muối								// [1F9C2]
+🧐	mặt có mắt chột							// [1F9D0]
+🧑	người lớn							// [1F9D1]
+🧒	trẻ em								// [1F9D2]
+🧓	người lớn tuổi							// [1F9D3]
+🧔	người có râu							// [1F9D4]
+🧕	người phụ nữ quàng khăn trùm đầu				// [1F9D5]
+🧖	người ở trong phòng xông hơi					// [1F9D6]
+🧗	người đang leo núi						// [1F9D7]
+🧘	người ngồi kiết già						// [1F9D8]
+🧙	pháp sư								// [1F9D9]
+🧚	tiên								// [1F9DA]
+🧛	ma cà rồng							// [1F9DB]
+🧜	người cá							// [1F9DC]
+🧝	quỷ								// [1F9DD]
+🧞	thần								// [1F9DE]
+🧟	xác chết sống lại						// [1F9DF]
+🧠	não								// [1F9E0]
+🧡	trái tim màu cam						// [1F9E1]
+🧢	mũ lưỡi trai							// [1F9E2]
+🧣	khăn quàng							// [1F9E3]
+🧤	găng tay							// [1F9E4]
+🧥	áo khoác							// [1F9E5]
+🧦	tất								// [1F9E6]
+🧧	bao lì xì							// [1F9E7]
+🧨	pháo								// [1F9E8]
+🧩	ghép hình							// [1F9E9]
+🧪	ống nghiệm							// [1F9EA]
+🧫	đĩa petri							// [1F9EB]
+🧬	adn								// [1F9EC]
+🧭	la bàn								// [1F9ED]
+🧮	bàn tính							// [1F9EE]
+🧰	hộp dụng cụ							// [1F9F0]
+🧱	gạch								// [1F9F1]
+🧲	nam châm							// [1F9F2]
+🧳	hành lý								// [1F9F3]
+🧴	chai sữa dưỡng da						// [1F9F4]
+🧵	sợi chỉ								// [1F9F5]
+🧶	sợi								// [1F9F6]
+🧷	ghim băng							// [1F9F7]
+🧸	gấu bông							// [1F9F8]
+🧹	cây chổi							// [1F9F9]
+🧺	cái giỏ								// [1F9FA]
+🧻	cuộn giấy							// [1F9FB]
+🧼	xà phòng							// [1F9FC]
+🧽	bọt biển							// [1F9FD]
+🧾	biên nhận							// [1F9FE]
+🧿	bùa may mắn nazar						// [1F9FF]
+
+// Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
+
+🇦🇨	cờ: Đảo Ascension						// [1F1E6 1F1E8] AC
+🇦🇩	cờ: Andorra							// [1F1E6 1F1E9] AD
+🇦🇪	cờ: Các Tiểu Vương quốc Ả Rập Thống nhất			// [1F1E6 1F1EA] AE
+🇦🇫	cờ: Afghanistan							// [1F1E6 1F1EB] AF
+🇦🇬	cờ: Antigua và Barbuda						// [1F1E6 1F1EC] AG
+🇦🇮	cờ: Anguilla							// [1F1E6 1F1EE] AI
+🇦🇱	cờ: Albania							// [1F1E6 1F1F1] AL
+🇦🇲	cờ: Armenia							// [1F1E6 1F1F2] AM
+🇦🇴	cờ: Angola							// [1F1E6 1F1F4] AO
+🇦🇶	cờ: Nam Cực							// [1F1E6 1F1F6] AQ
+🇦🇷	cờ: Argentina							// [1F1E6 1F1F7] AR
+🇦🇸	cờ: Samoa thuộc Mỹ						// [1F1E6 1F1F8] AS
+🇦🇹	cờ: Áo								// [1F1E6 1F1F9] AT
+🇦🇺	cờ: Australia							// [1F1E6 1F1FA] AU
+🇦🇼	cờ: Aruba							// [1F1E6 1F1FC] AW
+🇦🇽	cờ: Quần đảo Åland						// [1F1E6 1F1FD] AX
+🇦🇿	cờ: Azerbaijan							// [1F1E6 1F1FF] AZ
+🇧🇦	cờ: Bosnia và Herzegovina					// [1F1E7 1F1E6] BA
+🇧🇧	cờ: Barbados							// [1F1E7 1F1E7] BB
+🇧🇩	cờ: Bangladesh							// [1F1E7 1F1E9] BD
+🇧🇪	cờ: Bỉ								// [1F1E7 1F1EA] BE
+🇧🇫	cờ: Burkina Faso						// [1F1E7 1F1EB] BF
+🇧🇬	cờ: Bulgaria							// [1F1E7 1F1EC] BG
+🇧🇭	cờ: Bahrain							// [1F1E7 1F1ED] BH
+🇧🇮	cờ: Burundi							// [1F1E7 1F1EE] BI
+🇧🇯	cờ: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	cờ: St. Barthélemy						// [1F1E7 1F1F1] BL
+🇧🇲	cờ: Bermuda							// [1F1E7 1F1F2] BM
+🇧🇳	cờ: Brunei							// [1F1E7 1F1F3] BN
+🇧🇴	cờ: Bolivia							// [1F1E7 1F1F4] BO
+🇧🇶	cờ: Ca-ri-bê Hà Lan						// [1F1E7 1F1F6] BQ
+🇧🇷	cờ: Brazil							// [1F1E7 1F1F7] BR
+🇧🇸	cờ: Bahamas							// [1F1E7 1F1F8] BS
+🇧🇹	cờ: Bhutan							// [1F1E7 1F1F9] BT
+🇧🇻	cờ: Đảo Bouvet							// [1F1E7 1F1FB] BV
+🇧🇼	cờ: Botswana							// [1F1E7 1F1FC] BW
+🇧🇾	cờ: Belarus							// [1F1E7 1F1FE] BY
+🇧🇿	cờ: Belize							// [1F1E7 1F1FF] BZ
+🇨🇦	cờ: Canada							// [1F1E8 1F1E6] CA
+🇨🇨	cờ: Quần đảo Cocos (Keeling)					// [1F1E8 1F1E8] CC
+🇨🇩	cờ: Congo - Kinshasa						// [1F1E8 1F1E9] CD
+🇨🇫	cờ: Cộng hòa Trung Phi						// [1F1E8 1F1EB] CF
+🇨🇬	cờ: Congo - Brazzaville						// [1F1E8 1F1EC] CG
+🇨🇭	cờ: Thụy Sĩ							// [1F1E8 1F1ED] CH
+🇨🇮	cờ: Côte d’Ivoire						// [1F1E8 1F1EE] CI
+🇨🇰	cờ: Quần đảo Cook						// [1F1E8 1F1F0] CK
+🇨🇱	cờ: Chile							// [1F1E8 1F1F1] CL
+🇨🇲	cờ: Cameroon							// [1F1E8 1F1F2] CM
+🇨🇳	cờ: Trung Quốc							// [1F1E8 1F1F3] CN
+🇨🇴	cờ: Colombia							// [1F1E8 1F1F4] CO
+🇨🇵	cờ: Đảo Clipperton						// [1F1E8 1F1F5] CP
+🇨🇷	cờ: Costa Rica							// [1F1E8 1F1F7] CR
+🇨🇺	cờ: Cuba							// [1F1E8 1F1FA] CU
+🇨🇻	cờ: Cape Verde							// [1F1E8 1F1FB] CV
+🇨🇼	cờ: Curaçao							// [1F1E8 1F1FC] CW
+🇨🇽	cờ: Đảo Giáng Sinh						// [1F1E8 1F1FD] CX
+🇨🇾	cờ: Síp								// [1F1E8 1F1FE] CY
+🇨🇿	cờ: Séc								// [1F1E8 1F1FF] CZ
+🇩🇪	cờ: Đức								// [1F1E9 1F1EA] DE
+🇩🇬	cờ: Diego Garcia						// [1F1E9 1F1EC] DG
+🇩🇯	cờ: Djibouti							// [1F1E9 1F1EF] DJ
+🇩🇰	cờ: Đan Mạch							// [1F1E9 1F1F0] DK
+🇩🇲	cờ: Dominica							// [1F1E9 1F1F2] DM
+🇩🇴	cờ: Cộng hòa Dominica						// [1F1E9 1F1F4] DO
+🇩🇿	cờ: Algeria							// [1F1E9 1F1FF] DZ
+🇪🇦	cờ: Ceuta và Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	cờ: Ecuador							// [1F1EA 1F1E8] EC
+🇪🇪	cờ: Estonia							// [1F1EA 1F1EA] EE
+🇪🇬	cờ: Ai Cập							// [1F1EA 1F1EC] EG
+🇪🇭	cờ: Tây Sahara							// [1F1EA 1F1ED] EH
+🇪🇷	cờ: Eritrea							// [1F1EA 1F1F7] ER
+🇪🇸	cờ: Tây Ban Nha							// [1F1EA 1F1F8] ES
+🇪🇹	cờ: Ethiopia							// [1F1EA 1F1F9] ET
+🇪🇺	cờ: Liên Minh Châu Âu						// [1F1EA 1F1FA] EU
+🇫🇮	cờ: Phần Lan							// [1F1EB 1F1EE] FI
+🇫🇯	cờ: Fiji							// [1F1EB 1F1EF] FJ
+🇫🇰	cờ: Quần đảo Falkland						// [1F1EB 1F1F0] FI
+🇫🇲	cờ: Micronesia							// [1F1EB 1F1F2] FM
+🇫🇴	cờ: Quần đảo Faroe						// [1F1EB 1F1F4] FO
+🇫🇷	cờ: Pháp							// [1F1EB 1F1F7] FR
+🇬🇦	cờ: Gabon							// [1F1EC 1F1E6] GA
+🇬🇧	cờ: Vương quốc Anh						// [1F1EC 1F1E7] GB
+🇬🇩	cờ: Grenada							// [1F1EC 1F1E9] GD
+🇬🇪	cờ: Gruzia							// [1F1EC 1F1EA] GE
+🇬🇫	cờ: Guiana thuộc Pháp						// [1F1EC 1F1EB] GF
+🇬🇬	cờ: Guernsey							// [1F1EC 1F1EC] GG
+🇬🇭	cờ: Ghana							// [1F1EC 1F1ED] GH
+🇬🇮	cờ: Gibraltar							// [1F1EC 1F1EE] GI
+🇬🇱	cờ: Greenland							// [1F1EC 1F1F1] GL
+🇬🇲	cờ: Gambia							// [1F1EC 1F1F2] GM
+🇬🇳	cờ: Guinea							// [1F1EC 1F1F3] GN
+🇬🇵	cờ: Guadeloupe							// [1F1EC 1F1F5] GP
+🇬🇶	cờ: Guinea Xích Đạo						// [1F1EC 1F1F6] GQ
+🇬🇷	cờ: Hy Lạp							// [1F1EC 1F1F7] GR
+🇬🇸	cờ: Nam Georgia & Quần đảo Nam Sandwich				// [1F1EC 1F1F8] GS
+🇬🇹	cờ: Guatemala							// [1F1EC 1F1F9] GT
+🇬🇺	cờ: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	cờ: Guinea-Bissau						// [1F1EC 1F1FC] GW
+🇬🇾	cờ: Guyana							// [1F1EC 1F1FE] GY
+🇭🇰	cờ: Hồng Kông, Trung Quốc					// [1F1ED 1F1F0] HK
+🇭🇲	cờ: Quần đảo Heard và McDonald					// [1F1ED 1F1F2] HM
+🇭🇳	cờ: Honduras							// [1F1ED 1F1F3] HN
+🇭🇷	cờ: Croatia							// [1F1ED 1F1F7] HR
+🇭🇹	cờ: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	cờ: Hungary							// [1F1ED 1F1FA] HU
+🇮🇨	cờ: Quần đảo Canary						// [1F1EE 1F1E8] IC
+🇮🇩	cờ: Indonesia							// [1F1EE 1F1E9] ID
+🇮🇪	cờ: Ireland							// [1F1EE 1F1EA] IE
+🇮🇱	cờ: Israel							// [1F1EE 1F1F1] IL
+🇮🇲	cờ: Đảo Man							// [1F1EE 1F1F2] IM
+🇮🇳	cờ: Ấn Độ							// [1F1EE 1F1F3] IN
+🇮🇴	cờ: Lãnh thổ Ấn độ dương thuộc Anh				// [1F1EE 1F1F4] IO
+🇮🇶	cờ: Iraq							// [1F1EE 1F1F6] IQ
+🇮🇷	cờ: Iran							// [1F1EE 1F1F7] IR
+🇮🇸	cờ: Iceland							// [1F1EE 1F1F8] IS
+🇮🇹	cờ: Italy							// [1F1EE 1F1F9] IT
+🇯🇪	cờ: Jersey							// [1F1EF 1F1EA] JE
+🇯🇲	cờ: Jamaica							// [1F1EF 1F1F2] JM
+🇯🇴	cờ: Jordan							// [1F1EF 1F1F4] JO
+🇯🇵	cờ: Nhật Bản							// [1F1EF 1F1F5] JP
+🇰🇪	cờ: Kenya							// [1F1F0 1F1EA] KE
+🇰🇬	cờ: Kyrgyzstan							// [1F1F0 1F1EC] KG
+🇰🇭	cờ: Campuchia							// [1F1F0 1F1ED] KH
+🇰🇮	cờ: Kiribati							// [1F1F0 1F1EE] KI
+🇰🇲	cờ: Comoros							// [1F1F0 1F1F2] KM
+🇰🇳	cờ: St. Kitts và Nevis						// [1F1F0 1F1F3] KN
+🇰🇵	cờ: Triều Tiên							// [1F1F0 1F1F5] KP
+🇰🇷	cờ: Hàn Quốc							// [1F1F0 1F1F7] KR
+🇰🇼	cờ: Kuwait							// [1F1F0 1F1FC] KW
+🇰🇾	cờ: Quần đảo Cayman						// [1F1F0 1F1FE] KY
+🇰🇿	cờ: Kazakhstan							// [1F1F0 1F1FF] KZ
+🇱🇦	cờ: Lào								// [1F1F1 1F1E6] LA
+🇱🇧	cờ: Li-băng							// [1F1F1 1F1E7] LB
+🇱🇨	cờ: St. Lucia							// [1F1F1 1F1E8] LC
+🇱🇮	cờ: Liechtenstein						// [1F1F1 1F1EE] LI
+🇱🇰	cờ: Sri Lanka							// [1F1F1 1F1F0] LK
+🇱🇷	cờ: Liberia							// [1F1F1 1F1F7] LR
+🇱🇸	cờ: Lesotho							// [1F1F1 1F1F8] LS
+🇱🇹	cờ: Litva							// [1F1F1 1F1F9] LT
+🇱🇺	cờ: Luxembourg							// [1F1F1 1F1FA] LU
+🇱🇻	cờ: Latvia							// [1F1F1 1F1FB] LV
+🇱🇾	cờ: Libya							// [1F1F1 1F1FE] LY
+🇲🇦	cờ: Ma-rốc							// [1F1F2 1F1E6] MA
+🇲🇨	cờ: Monaco							// [1F1F2 1F1E8] MC
+🇲🇩	cờ: Moldova							// [1F1F2 1F1E9] MD
+🇲🇪	cờ: Montenegro							// [1F1F2 1F1EA] ME
+🇲🇫	cờ: St. Martin							// [1F1F2 1F1EB] MF
+🇲🇬	cờ: Madagascar							// [1F1F2 1F1EC] MG
+🇲🇭	cờ: Quần đảo Marshall						// [1F1F2 1F1ED] MH
+🇲🇰	cờ: Macedonia							// [1F1F2 1F1F0] MK
+🇲🇱	cờ: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	cờ: Myanmar (Miến Điện)						// [1F1F2 1F1F2] MM
+🇲🇳	cờ: Mông Cổ							// [1F1F2 1F1F3] MN
+🇲🇴	cờ: Macao, Trung Quốc						// [1F1F2 1F1F4] MO
+🇲🇵	cờ: Quần đảo Bắc Mariana					// [1F1F2 1F1F5] MP
+🇲🇶	cờ: Martinique							// [1F1F2 1F1F6] MQ
+🇲🇷	cờ: Mauritania							// [1F1F2 1F1F7] MR
+🇲🇸	cờ: Montserrat							// [1F1F2 1F1F8] MS
+🇲🇹	cờ: Malta							// [1F1F2 1F1F9] MT
+🇲🇺	cờ: Mauritius							// [1F1F2 1F1FA] MU
+🇲🇻	cờ: Maldives							// [1F1F2 1F1FB] MV
+🇲🇼	cờ: Malawi							// [1F1F2 1F1FC] MW
+🇲🇽	cờ: Mexico							// [1F1F2 1F1FD] MX
+🇲🇾	cờ: Malaysia							// [1F1F2 1F1FE] MY
+🇲🇿	cờ: Mozambique							// [1F1F2 1F1FF] MZ
+🇳🇦	cờ: Namibia							// [1F1F3 1F1E6] NA
+🇳🇨	cờ: New Caledonia						// [1F1F3 1F1E8] NC
+🇳🇪	cờ: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	cờ: Đảo Norfolk							// [1F1F3 1F1EB] NF
+🇳🇬	cờ: Nigeria							// [1F1F3 1F1EC] NG
+🇳🇮	cờ: Nicaragua							// [1F1F3 1F1EE] NI
+🇳🇱	cờ: Hà Lan							// [1F1F3 1F1F1] NL
+🇳🇴	cờ: Na Uy							// [1F1F3 1F1F4] NO
+🇳🇵	cờ: Nepal							// [1F1F3 1F1F5] NP
+🇳🇷	cờ: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	cờ: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	cờ: New Zealand							// [1F1F3 1F1FF] NZ
+🇴🇲	cờ: Oman							// [1F1F4 1F1F2] OM
+🇵🇦	cờ: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	cờ: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	cờ: Polynesia thuộc Pháp					// [1F1F5 1F1EB] PF
+🇵🇬	cờ: Papua New Guinea						// [1F1F5 1F1EC] PG
+🇵🇭	cờ: Philippines							// [1F1F5 1F1ED] PH
+🇵🇰	cờ: Pakistan							// [1F1F5 1F1F0] PK
+🇵🇱	cờ: Ba Lan							// [1F1F5 1F1F1] PL
+🇵🇲	cờ: Saint Pierre và Miquelon					// [1F1F5 1F1F2] PM
+🇵🇳	cờ: Quần đảo Pitcairn						// [1F1F5 1F1F3] PN
+🇵🇷	cờ: Puerto Rico							// [1F1F5 1F1F7] PR
+🇵🇸	cờ: Lãnh thổ Palestine						// [1F1F5 1F1F8] PS
+🇵🇹	cờ: Bồ Đào Nha							// [1F1F5 1F1F9] PT
+🇵🇼	cờ: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	cờ: Paraguay							// [1F1F5 1F1FE] PY
+🇶🇦	cờ: Qatar							// [1F1F6 1F1E6] QA
+🇷🇪	cờ: Réunion							// [1F1F7 1F1EA] RE
+🇷🇴	cờ: Romania							// [1F1F7 1F1F4] RO
+🇷🇸	cờ: Serbia							// [1F1F7 1F1F8] RS
+🇷🇺	cờ: Nga								// [1F1F7 1F1FA] RU
+🇷🇼	cờ: Rwanda							// [1F1F7 1F1FC] RW
+🇸🇦	cờ: Ả Rập Xê-út							// [1F1F8 1F1E6] SA
+🇸🇧	cờ: Quần đảo Solomon						// [1F1F8 1F1E7] SB
+🇸🇨	cờ: Seychelles							// [1F1F8 1F1E8] SC
+🇸🇩	cờ: Sudan							// [1F1F8 1F1E9] SD
+🇸🇪	cờ: Thụy Điển							// [1F1F8 1F1EA] SE
+🇸🇬	cờ: Singapore							// [1F1F8 1F1EC] SG
+🇸🇭	cờ: St. Helena							// [1F1F8 1F1ED] SH
+🇸🇮	cờ: Slovenia							// [1F1F8 1F1EE] SI
+🇸🇯	cờ: Svalbard và Jan Mayen					// [1F1F8 1F1EF] SJ
+🇸🇰	cờ: Slovakia							// [1F1F8 1F1F0] SK
+🇸🇱	cờ: Sierra Leone						// [1F1F8 1F1F1] SL
+🇸🇲	cờ: San Marino							// [1F1F8 1F1F2] SM
+🇸🇳	cờ: Senegal							// [1F1F8 1F1F3] SN
+🇸🇴	cờ: Somalia							// [1F1F8 1F1F4] SO
+🇸🇷	cờ: Suriname							// [1F1F8 1F1F7] SR
+🇸🇸	cờ: Nam Sudan							// [1F1F8 1F1F8] SS
+🇸🇹	cờ: São Tomé và Príncipe					// [1F1F8 1F1F9] ST
+🇸🇻	cờ: El Salvador							// [1F1F8 1F1FB] SV
+🇸🇽	cờ: Sint Maarten						// [1F1F8 1F1FD] SX
+🇸🇾	cờ: Syria							// [1F1F8 1F1FE] SY
+🇸🇿	cờ: Swaziland							// [1F1F8 1F1FF] SZ
+🇹🇦	cờ: Tristan da Cunha						// [1F1F9 1F1E6] TA
+🇹🇨	cờ: Quần đảo Turks và Caicos					// [1F1F9 1F1E8] TC
+🇹🇩	cờ: Chad							// [1F1F9 1F1E9] TD
+🇹🇫	cờ: Lãnh thổ phía Nam Thuộc Pháp				// [1F1F9 1F1EB] TF
+🇹🇬	cờ: Togo							// [1F1F9 1F1EC] TG
+🇹🇭	cờ: Thái Lan							// [1F1F9 1F1ED] TH
+🇹🇯	cờ: Tajikistan							// [1F1F9 1F1EF] TJ
+🇹🇰	cờ: Tokelau							// [1F1F9 1F1F0] TK
+🇹🇱	cờ: Timor-Leste							// [1F1F9 1F1F1] TL
+🇹🇲	cờ: Turkmenistan						// [1F1F9 1F1F2] TM
+🇹🇳	cờ: Tunisia							// [1F1F9 1F1F3] TN
+🇹🇴	cờ: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	cờ: Thổ Nhĩ Kỳ							// [1F1F9 1F1F7] TR
+🇹🇹	cờ: Trinidad và Tobago						// [1F1F9 1F1F9] TT
+🇹🇻	cờ: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	cờ: Đài Loan							// [1F1F9 1F1FC] TW
+🇹🇿	cờ: Tanzania							// [1F1F9 1F1FF] TZ
+🇺🇦	cờ: Ukraina							// [1F1FA 1F1E6] UA
+🇺🇬	cờ: Uganda							// [1F1FA 1F1EC] UG
+🇺🇲	cờ: Các tiểu đảo xa của Hoa Kỳ					// [1F1FA 1F1F2] UM
+🇺🇳	cờ: Liên hiệp quốc						// [1F1FA 1F1F3] UN
+🇺🇸	cờ: Hoa Kỳ							// [1F1FA 1F1F8] US
+🇺🇾	cờ: Uruguay							// [1F1FA 1F1FE] UY
+🇺🇿	cờ: Uzbekistan							// [1F1FA 1F1FF] UZ
+🇻🇦	cờ: Thành Vatican						// [1F1FB 1F1E6] VA
+🇻🇨	cờ: St. Vincent và Grenadines					// [1F1FB 1F1E8] VC
+🇻🇪	cờ: Venezuela							// [1F1FB 1F1EA] VE
+🇻🇬	cờ: Quần đảo Virgin thuộc Anh					// [1F1FB 1F1EC] VG
+🇻🇮	cờ: Quần đảo Virgin thuộc Mỹ					// [1F1FB 1F1EE] VI
+🇻🇳	cờ: Việt Nam							// [1F1FB 1F1F3] VN
+🇻🇺	cờ: Vanuatu							// [1F1FB 1F1FA] VU
+🇼🇫	cờ: Wallis và Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	cờ: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	cờ: Kosovo							// [1F1FD 1F1F0] XK
+🇾🇪	cờ: Yemen							// [1F1FE 1F1EA] YE
+🇾🇹	cờ: Mayotte							// [1F1FE 1F1F9] YT
+🇿🇦	cờ: Nam Phi							// [1F1FF 1F1E6] ZA
+🇿🇲	cờ: Zambia							// [1F1FF 1F1F2] ZM
+🇿🇼	cờ: Zimbabwe							// [1F1FF 1F1FC] ZW
+
+// Subdivision Flags -- ISO 3166-2 Subdivision Codes
+
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	cờ: Anh Quốc						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	cờ: Scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	cờ: Xứ Wales						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+
+// Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
+
+#️⃣	mũ phím: #							// [0023 FE0F 20E3]
+*️⃣	mũ phím: *							// [002A FE0F 20E3]
+0️⃣	mũ phím: 0							// [0030 FE0F 20E3]
+1️⃣	mũ phím: 1							// [0031 FE0F 20E3]
+2️⃣	mũ phím: 2							// [0032 FE0F 20E3]
+3️⃣	mũ phím: 3							// [0033 FE0F 20E3]
+4️⃣	mũ phím: 4							// [0034 FE0F 20E3]
+5️⃣	mũ phím: 5							// [0035 FE0F 20E3]
+6️⃣	mũ phím: 6							// [0036 FE0F 20E3]
+7️⃣	mũ phím: 7							// [0037 FE0F 20E3]
+8️⃣	mũ phím: 8							// [0038 FE0F 20E3]
+9️⃣	mũ phím: 9							// [0039 FE0F 20E3]
+
+// Emoji ZWJ Sequence: Family
+
+👩‍❤‍💋‍👨	nụ hôn: phụ nữ, nam			// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	nụ hôn: nam, nam			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	nụ hôn: phụ nữ, phụ nữ			// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	cặp đôi với trái tim: phụ nữ, nam		// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	cặp đôi với trái tim: nam, nam			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	cặp đôi với trái tim: phụ nữ, phụ nữ		// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	gia đình: nam, phụ nữ, con trai			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	gia đình: nam, phụ nữ, con gái			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	gia đình: nam, phụ nữ, con gái, con trai// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	gia đình: nam, phụ nữ, con trai, con trai// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	gia đình: nam, phụ nữ, con gái, con gái	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	gia đình: nam, nam, con trai			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	gia đình: nam, nam, con gái			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	gia đình: nam, nam, con gái, con trai	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	gia đình: nam, nam, con trai, con trai	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	gia đình: nam, nam, con gái, con gái	// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	gia đình: phụ nữ, phụ nữ, con trai		// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	gia đình: phụ nữ, phụ nữ, con gái		// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	gia đình: phụ nữ, phụ nữ, con gái, con trai// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	gia đình: phụ nữ, phụ nữ, con trai, con trai// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	gia đình: phụ nữ, phụ nữ, con gái, con gái// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	gia đình: nam, con trai					// [1F468 200D 1F466]
+👨‍👦‍👦	gia đình: nam, con trai, con trai		// [1F468 200D 1F466 200D 1F466]
+👨‍👧	gia đình: nam, con gái					// [1F468 200D 1F467]
+👨‍👧‍👦	gia đình: nam, con gái, con trai		// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	gia đình: nam, con gái, con gái			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	gia đình: phụ nữ, con trai				// [1F469 200D 1F466]
+👩‍👦‍👦	gia đình: phụ nữ, con trai, con trai		// [1F469 200D 1F466 200D 1F466]
+👩‍👧	gia đình: phụ nữ, con gái				// [1F469 200D 1F467]
+👩‍👧‍👦	gia đình: phụ nữ, con gái, con trai		// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	gia đình: phụ nữ, con gái, con gái		// [1F469 200D 1F467 200D 1F467]
+
+// Emoji ZWJ Sequence: Gendered Role, with object
+
+👨‍⚕	nhân viên y tế nam					// [1F468 200D 2695]
+👩‍⚕	nhân viên y tế nữ					// [1F469 200D 2695]
+👨‍⚖	thẩm phán nam						// [1F468 200D 2696]
+👩‍⚖	thẩm phán nữ						// [1F469 200D 2696]
+👨‍✈	phi công nam						// [1F468 200D 2708]
+👩‍✈	phi công nữ						// [1F469 200D 2708]
+👨‍🌾	nông dân nam						// [1F468 200D 1F33E]
+👩‍🌾	nông dân nữ						// [1F469 200D 1F33E]
+👨‍🍳	đầu bếp nam						// [1F468 200D 1F373]
+👩‍🍳	đầu bếp nữ						// [1F469 200D 1F373]
+👨‍🎓	sinh viên nam						// [1F468 200D 1F393]
+👩‍🎓	sinh viên nữ						// [1F469 200D 1F393]
+👨‍🎤	nam ca sĩ						// [1F468 200D 1F3A4]
+👩‍🎤	nữ ca sĩ						// [1F469 200D 1F3A4]
+👨‍🎨	họa sĩ nam						// [1F468 200D 1F3A8]
+👩‍🎨	họa sĩ nữ						// [1F469 200D 1F3A8]
+👨‍🏫	giáo viên nam						// [1F468 200D 1F3EB]
+👩‍🏫	giáo viên nữ						// [1F469 200D 1F3EB]
+👨‍🏭	công nhân nhà máy nam					// [1F468 200D 1F3ED]
+👩‍🏭	công nhân nhà máy nữ					// [1F469 200D 1F3ED]
+👨‍💻	kỹ sư công nghệ nam					// [1F468 200D 1F4BB]
+👩‍💻	kỹ sư công nghệ nữ					// [1F469 200D 1F4BB]
+👨‍💼	nhân viên văn phòng nam					// [1F468 200D 1F4BC]
+👩‍💼	nhân viên văn phòng nữ					// [1F469 200D 1F4BC]
+👨‍🔧	thợ máy nam						// [1F468 200D 1F527]
+👩‍🔧	thợ máy nữ						// [1F469 200D 1F527]
+👨‍🔬	nhà khoa học nam					// [1F468 200D 1F52C]
+👩‍🔬	nhà khoa học nữ						// [1F469 200D 1F52C]
+👨‍🚀	phi hành gia nam					// [1F468 200D 1F680]
+👩‍🚀	phi hành gia nữ						// [1F469 200D 1F680]
+👨‍🚒	lính cứu hỏa nam					// [1F468 200D 1F692]
+👩‍🚒	lính cứu hỏa nữ						// [1F469 200D 1F692]
+
+// Emoji ZWJ Sequence: Gendered Role
+
+👮‍♀	cảnh sát nữ						// [1F46E 200D 2640]
+👮‍♂	cảnh sát nam						// [1F46E 200D 2642]
+👱‍♀	người phụ nữ tóc vàng hoe				// [1F471 200D 2640]
+👱‍♂	người đàn ông tóc vàng hoe				// [1F471 200D 2642]
+👳‍♀	người phụ nữ đội khăn xếp				// [1F473 200D 2640]
+👳‍♂	người đàn ông đội khăn xếp				// [1F473 200D 2642]
+👷‍♀	công nhân xây dựng nữ					// [1F477 200D 2640]
+👷‍♂	công nhân xây dựng nam					// [1F477 200D 2642]
+💂‍♀	bảo vệ nữ						// [1F482 200D 2640]
+💂‍♂	bảo vệ nam						// [1F482 200D 2642]
+🕵️‍♀	thám tử nữ						// [1F575 200D 2640]
+🕵️‍♂	thám tử nam						// [1F575 200D 2642]
+🦸‍♀	nữ siêu anh hùng					// [1F9B8 200D 2640]
+🦸‍♂	nam siêu anh hùng					// [1F9B8 200D 2642]
+🦹‍♀	nữ siêu phản diện					// [1F9B9 200D 2640]
+🦹‍♂	nam siêu phản diện					// [1F9B9 200D 2642]
+🧙‍♀	pháp sư nữ						// [1F9D9 200D 2640]
+🧙‍♂	pháp sư nam						// [1F9D9 200D 2642]
+🧚‍♀	bà tiên							// [1F9DA 200D 2640]
+🧚‍♂	ông tiên						// [1F9DA 200D 2642]
+🧛‍♀	ma cà rồng nữ						// [1F9DB 200D 2640]
+🧛‍♂	ma cà rồng nam						// [1F9DB 200D 2642]
+🧜‍♀	nàng tiên cá						// [1F9DC 200D 2640]
+🧜‍♂	chàng tiên cá						// [1F9DC 200D 2642]
+🧝‍♀	nữ quỷ							// [1F9DD 200D 2640]
+🧝‍♂	nam quỷ							// [1F9DD 200D 2642]
+🧞‍♀	nữ thần							// [1F9DE 200D 2640]
+🧞‍♂	nam thần						// [1F9DE 200D 2642]
+🧟‍♀	xác chết nữ sống lại					// [1F9DF 200D 2640]
+🧟‍♂	xác chết nam sống lại					// [1F9DF 200D 2642]
+
+// Emoji ZWJ Sequence: Gendered Activity
+
+⛹‍♀	người phụ nữ chơi bóng					// [26F9 200D 2640]
+⛹‍♂	người đàn ông chơi bóng					// [26F9 200D 2642]
+🏃‍♀	người phụ nữ đang chạy					// [1F3C3 200D 2640]
+🏃‍♂	người đàn ông đang chạy					// [1F3C3 200D 2642]
+🏄‍♀	người phụ nữ lướt sóng					// [1F3C4 200D 2640]
+🏄‍♂	người đàn ông lướt sóng					// [1F3C4 200D 2642]
+🏊‍♀	người phụ nữ đang bơi					// [1F3CA 200D 2640]
+🏊‍♂	người đàn ông đang bơi					// [1F3CA 200D 2642]
+🏋️‍♀	người phụ nữ cử tạ					// [1F3CB 200D 2640]
+🏋️‍♂	người đàn ông cử tạ					// [1F3CB 200D 2642]
+🏌️‍♀	người phụ nữ chơi gôn					// [1F3CC 200D 2640]
+🏌️‍♂	người đàn ông chơi gôn					// [1F3CC 200D 2642]
+👯‍♀	những người phụ nữ đeo tai thỏ				// [1F46F 200D 2640]
+👯‍♂	những người đàn ông đeo tai thỏ				// [1F46F 200D 2642]
+💆‍♀	người phụ nữ được xoa bóp mặt				// [1F486 200D 2640]
+💆‍♂	người đàn ông được xoa bóp mặt				// [1F486 200D 2642]
+💇‍♀	người phụ nữ được cắt tóc				// [1F487 200D 2640]
+💇‍♂	người đàn ông được cắt tóc				// [1F487 200D 2642]
+🚣‍♀	người phụ nữ chèo thuyền				// [1F6A3 200D 2640]
+🚣‍♂	người đàn ông chèo thuyền				// [1F6A3 200D 2642]
+🚴‍♀	người phụ nữ đi xe đạp					// [1F6B4 200D 2640]
+🚴‍♂	người đàn ông đi xe đạp					// [1F6B4 200D 2642]
+🚵‍♀	người phụ nữ đi xe đạp leo núi				// [1F6B5 200D 2640]
+🚵‍♂	người đàn ông đi xe đạp leo núi				// [1F6B5 200D 2642]
+🚶‍♀	người phụ nữ đi bộ					// [1F6B6 200D 2640]
+🚶‍♂	người đàn ông đi bộ					// [1F6B6 200D 2642]
+🤸‍♀	người phụ nữ nhào lộn					// [1F938 200D 2640]
+🤸‍♂	người đàn ông nhào lộn					// [1F938 200D 2642]
+🤹‍♀	người phụ nữ tung hứng					// [1F939 200D 2640]
+🤹‍♂	người đàn ông tung hứng					// [1F939 200D 2642]
+🤼‍♀	phụ nữ chơi vật						// [1F93C 200D 2640]
+🤼‍♂	đàn ông chơi vật					// [1F93C 200D 2642]
+🤽‍♀	người phụ nữ chơi bóng nước				// [1F93D 200D 2640]
+🤽‍♂	người đàn ông chơi bóng nước				// [1F93D 200D 2642]
+🤾‍♀	người phụ nữ chơi bóng ném				// [1F93E 200D 2640]
+🤾‍♂	người đàn ông chơi bóng ném				// [1F93E 200D 2642]
+🧖‍♀	người phụ nữ ở trong phòng xông hơi			// [1F9D6 200D 2640]
+🧖‍♂	người đàn ông ở trong phòng xông hơi			// [1F9D6 200D 2642]
+🧗‍♀	người phụ nữ đang leo núi				// [1F9D7 200D 2640]
+🧗‍♂	người đàn ông đang leo núi				// [1F9D7 200D 2642]
+🧘‍♀	người phụ nữ ngồi kiết già				// [1F9D8 200D 2640]
+🧘‍♂	người đàn ông ngồi kiết già				// [1F9D8 200D 2642]
+
+// Emoji ZWJ Sequence: Gendered Gestures
+
+💁‍♀	người phụ nữ ra hiệu trợ giúp				// [1F481 200D 2640]
+💁‍♂	người đàn ông ra hiệu trợ giúp				// [1F481 200D 2642]
+🙅‍♀	người phụ nữ ra hiệu phản đối				// [1F645 200D 2640]
+🙅‍♂	người đàn ông ra hiệu phản đối				// [1F645 200D 2642]
+🙆‍♀	người phụ nữ ra hiệu đồng ý				// [1F646 200D 2640]
+🙆‍♂	người đàn ông ra hiệu đồng ý				// [1F646 200D 2642]
+🙇‍♀	người phụ nữ cúi đầu					// [1F647 200D 2640]
+🙇‍♂	người đàn ông cúi đầu					// [1F647 200D 2642]
+🙋‍♀	người phụ nữ giơ cao tay				// [1F64B 200D 2640]
+🙋‍♂	người đàn ông giơ cao tay				// [1F64B 200D 2642]
+🙍‍♀	người phụ nữ cau mày					// [1F64D 200D 2640]
+🙍‍♂	người đàn ông cau mày					// [1F64D 200D 2642]
+🙎‍♀	người phụ nữ bĩu môi					// [1F64E 200D 2640]
+🙎‍♂	người đàn ông bĩu môi					// [1F64E 200D 2642]
+🤦‍♀	người phụ nữ lấy tay che mặt				// [1F926 200D 2640]
+🤦‍♂	người đàn ông lấy tay che mặt				// [1F926 200D 2642]
+🤷‍♀	người phụ nữ nhún vai					// [1F937 200D 2640]
+🤷‍♂	người đàn ông nhún vai					// [1F937 200D 2642]
+
+// Emoji ZWJ Sequence: Other
+
+🏳‍🌈	cờ cầu vồng						// [1F3F3 200D 1F308]
+🏴‍☠	cờ cướp biển						// [1F3F4 200D 2620]
+👁‍🗨	mắt trong bong bóng lời nói				// [1F441 200D 1F5E8]
+
+// References:
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
+//
+// Sources:
+//   1.  emoji-test.txt (Emoji)
+//   2.  common/annotations/vi.xml (CLDR)
+//   3.  emoji-zwj-sequences.txt (Emoji)
