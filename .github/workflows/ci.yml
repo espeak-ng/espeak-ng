@@ -195,7 +195,7 @@ jobs:
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
-      run: CC=clang CXX=clang++ CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure --with-libfuzzer
+      run: CC=clang CXX=clang++ CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure  --prefix=/usr --with-libfuzzer
     - name: Store the fuzzer config
       if: ${{ failure() }}
       uses: actions/upload-artifact@v2
@@ -210,5 +210,5 @@ jobs:
       if: ${{ always() }} # store the test suite log even if the tests failed
       uses: actions/upload-artifact@v2
       with: 
-        name: test-suite-fuzzer-${{ matrix.arch }}.log
-        path: tests/test-suite.log
+        name: config-${{ matrix.arch }}.log
+        path: config.log
