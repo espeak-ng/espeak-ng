@@ -27,9 +27,11 @@
 #include <espeak-ng/espeak_ng.h>
 #define BOLDRED(x) "\x1b[31m\x1b[1m" x "\x1b[0m"
 /***** CONFIG *****/
-
+#ifndef PATH_ESPEAK_DATA
+   #define PATH_ESPEAK_DATA  "/usr/share/espeak-ng-data"
+#endif
 char *data_path = NULL; // use default path for espeak-ng-data
-
+char *filepath = NULL;
 espeak_AUDIO_OUTPUT output = AUDIO_OUTPUT_SYNCHRONOUS;
 static int initialized = 0;
 void* user_data;
@@ -43,7 +45,12 @@ espeak_callback(short *data, int samples, espeak_EVENT *events)
 
 	return 0;
 }
-
+extern int LLVMFuzzerInitialize(const int* argc, char*** argv)
+{
+	(void)argc; // unused
+	filepath = dirname(strdup((*argv)[0]));
+	return 0;
+}
 /* See http://llvm.org/docs/LibFuzzer.html */
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
 
@@ -52,7 +59,11 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 	int buflength = size+1;
 	if (!initialized)
 	{
-		 int options = 0;
+		const char *hasDataPath = getenv("ESPEAK_DATA_PATH");
+		if (!hasDataPath) {
+			setenv("ESPEAK_DATA_PATH",PATH_ESPEAK_DATA,0 );
+		}
+		int options = 0;
 		espeak_Initialize(output, buflength, data_path, options);
 		espeak_SetSynthCallback(espeak_callback);
 		const char *lang = getenv("FUZZ_VOICE");
