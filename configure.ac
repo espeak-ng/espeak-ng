@@ -349,7 +349,7 @@ else
 	have_libfuzzer=no
 fi
 
-AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes -a  test x"$have_fuzzer_fuzzer" = xyes])
+AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes  -a x"$have_fuzzer_fuzzer" = xyes])
 
 dnl ================================================================
 dnl clang-coverage checks.
