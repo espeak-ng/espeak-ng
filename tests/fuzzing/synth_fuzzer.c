@@ -27,24 +27,34 @@
 #include <espeak-ng/espeak_ng.h>
 #define BOLDRED(x) "\x1b[31m\x1b[1m" x "\x1b[0m"
 /***** CONFIG *****/
-#define ESPEAK_DATA_PATH "/usr/lib/x86_64-linux-gnu/espeak-ng-data/"
 
+char *data_path = NULL; // use default path for espeak-ng-data
 
+espeak_AUDIO_OUTPUT output = AUDIO_OUTPUT_SYNCHRONOUS;
 static int initialized = 0;
+void* user_data;
+unsigned int *identifier;
+static int
+espeak_callback(short *data, int samples, espeak_EVENT *events)
+{
+	(void)data; 
+	(void)samples; 
+	(void)events; 
+
+	return 0;
+}
 
 /* See http://llvm.org/docs/LibFuzzer.html */
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
 
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 {
+	int buflength = size+1;
 	if (!initialized)
 	{
-		const char *hasDataPath = getenv("ESPEAK_DATA_PATH");
-		if (!hasDataPath)
-		{
-			setenv("ESPEAK_DATA_PATH", ESPEAK_DATA_PATH, 0);
-		}
-		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0);
+		 int options = 0;
+		espeak_Initialize(output, buflength, data_path, options);
+		espeak_SetSynthCallback(espeak_callback);
 		const char *lang = getenv("FUZZ_VOICE");
 		if (lang == NULL)
 		{
@@ -65,9 +75,9 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 		perror("malloc");
 		exit(1);
 	}
-	int synth_flags = espeakCHARS_AUTO;
-	espeak_Synth(mutable_data, size + 1, 0, POS_CHARACTER, 0,
-				 synth_flags, NULL, NULL);
+	unsigned int position = 0, position_type = POS_CHARACTER, end_position = 0 , synth_flags = espeakCHARS_AUTO;
+	espeak_Synth(mutable_data, buflength, position, position_type, end_position,
+				 synth_flags, identifier, user_data);
 	free(mutable_data);
 
 	return 0;
