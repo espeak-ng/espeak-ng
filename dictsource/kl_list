@@ -28,10 +28,10 @@ z	zE
 // ø
 // å
 
-// Native numbers 0-10
+// Native numbers 0-20
 _0n	n'u:lu
-_1n	at'a:sEq
-_2n	m'arluk
+_1n	at'a:s@q
+_2n	m'arl#uk
 _3n	p'iNasut
 _4n	s'isamat
 _5n	t'al#imat
@@ -40,6 +40,16 @@ _7n	arfinEqm'arluk
 _8n	arfinEqp'iNasut
 _9n	quliNil'uat
 _10n	q'ulit
+_11n aqqanEq
+_12n aqqanEqm'arl#uk
+_13n aqqanEqp'iNasut
+_14n aqqanEqs'isamat
+_15n aqqanEqt'al#imat
+_16n arfErs'anil#it
+_17n arfErsanEqm'arl#uk
+_18n arfErsanEqp'iNasut
+_19n arfErsanEqs'isamat
+_20n inukn'a:l#uQu
 
 // Danish numbers
 _0	'nOl
