@@ -53,11 +53,6 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 	int buflength = size+1;
 	if (!initialized)
 	{
-		const char *hasDataPath = getenv("ESPEAK_DATA_PATH");
-		if (!hasDataPath) {
-			setenv("ESPEAK_DATA_PATH",PATH_ESPEAK_DATA,0);
-			
-		}
 		int options =espeakINITIALIZE_DONT_EXIT;
 		espeak_Initialize(output, buflength,NULL, options);
 		espeak_SetSynthCallback(espeak_callback);
