@@ -30,7 +30,6 @@
 #ifndef PATH_ESPEAK_DATA
    #define PATH_ESPEAK_DATA  "/usr/share/espeak-ng-data"
 #endif
-char *data_path = NULL; // use default path for espeak-ng-data
 char *filepath = NULL;
 espeak_AUDIO_OUTPUT output = AUDIO_OUTPUT_SYNCHRONOUS;
 static int initialized = 0;
@@ -56,10 +55,11 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 	{
 		const char *hasDataPath = getenv("ESPEAK_DATA_PATH");
 		if (!hasDataPath) {
-			setenv("ESPEAK_DATA_PATH",PATH_ESPEAK_DATA,0 );
+			setenv("ESPEAK_DATA_PATH",PATH_ESPEAK_DATA,0);
+			
 		}
-		int options = 0;
-		espeak_Initialize(output, buflength, data_path, options);
+		int options =espeakINITIALIZE_DONT_EXIT;
+		espeak_Initialize(output, buflength,NULL, options);
 		espeak_SetSynthCallback(espeak_callback);
 		const char *lang = getenv("FUZZ_VOICE");
 		if (lang == NULL)
