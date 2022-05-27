@@ -2,48 +2,64 @@
 //  Belarusian
 //====================================================
 
-
 phoneme a
-  import_phoneme ru/a
-endphoneme
-
-phoneme O
-  vwl starttype #o endtype #o
-  ipa ɔ
-  length 100
-  FMT(vwl_ru/8)
+  vwl   starttype #a  endtype #a
+  ipa a
+  length 180
+  FMT(vowel/a)
 endphoneme
 
 phoneme i"
-  import_phoneme pl/y
+  vwl starttype #i endtype #i
+  ipa ɨ
+  length 180
+  FMT(vowel/ii#_2)
 endphoneme
 
 phoneme ts
-  import_phoneme consonants/ts
-  ipa t̻͡s
+  CALL consonants/ts
+  voicingswitch dz
+  ipa t̻͡s̪
 endphoneme
 
 phoneme ts;
-  import_phoneme pl/ts;
+  CALL base1/tS;
+  voicingswitch dz;
   ipa t̻͡s̪ʲ
 endphoneme
 
 phoneme ts.
-  import_phoneme sr/tS
+  vls pla afr sib
   ipa ʈ͡ʂ
+  lengthmod 2
+  voicingswitch dz.
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  WAV(ustop/tsh_sr, 50)
 endphoneme
 
 phoneme dz
-  import_phoneme consonants/dz
+  CALL consonants/dz
+  voicingswitch ts
   ipa d̻͡z̪
 endphoneme
 
 phoneme dz;
-  import_phoneme pl/dz;
+  CALL base1/dZ;
+  voicingswitch ts;
   ipa d̻͡z̪ʲ
 endphoneme
 
 phoneme dz.
-  import_phoneme sr/dZ
+  vcd pla afr sib
   ipa ɖ͡ʐ
+  lengthmod 5
+  voicingswitch ts.
+  Vowelin f1=2  f2=2300 200 400  f3=100 80
+  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  FMT(dzh/dzh) addWav(ufric/sh_pzd2)
 endphoneme
