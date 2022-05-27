@@ -1819,6 +1819,9 @@ include ph_yue
 
 // *** Tables extending base2 ***
 
+phonemetable be base2
+include ph_belarusian
+
 phonemetable chr base2
 include ph_cherokee
 
@@ -2046,8 +2049,3 @@ include ph_uzbek
 
 phonemetable qdb en
 include ph_langbelta
-
-phonemetable be ru
-include ph_belarusian
-
-phonemetable ms id
