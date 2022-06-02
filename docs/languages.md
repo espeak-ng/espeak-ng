@@ -120,6 +120,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `urj`       | `smj`             | Uralic                | Lule Saami                  |                        |
 | `roa`       | `es`              | Romance               | Spanish                     | Spain                  |
 | `roa`       | `es-419`          | Romance               | Spanish                     | Latin American         |
+| `roa`       | `es-us`           | Romance               | Spanish                     | United States 
 | `bnt`       | `sw`              | Bantu                 | Swahili                     |                        |
 | `gmq`       | `sv`              | North Germanic        | Swedish                     |                        |
 | `dra`       | `ta`              | Dravidian             | Tamil                       |                        |
