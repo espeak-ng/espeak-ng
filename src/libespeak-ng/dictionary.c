@@ -3010,12 +3010,14 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 	if (flags[0] & FLAG_TEXTMODE) {
 		say_as = option_sayas;
 		option_sayas = 0; // don't speak replacement word as letter names
-		// NOTE: TranslateRoman checks text[-2], so pad the start of text to prevent
+		// NOTE: TranslateRoman checks text[-2] and IsLetterGroup looks
+		// for a heading \0, so pad the start of text to prevent
 		// it reading data on the stack.
-		text[0] = ' ';
+		text[0] = 0;
 		text[1] = ' ';
-		strncpy0(text+2, word1, sizeof(text)-2);
-		flags0 = TranslateWord(tr, text+2, NULL, NULL);
+		text[2] = ' ';
+		strncpy0(text+3, word1, sizeof(text)-3);
+		flags0 = TranslateWord(tr, text+3, NULL, NULL);
 		strcpy(ph_out, word_phonemes);
 		option_sayas = say_as;
 	}
