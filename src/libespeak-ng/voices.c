@@ -554,6 +554,12 @@ voice_t *LoadVoice(const char *vname, int control)
 	static char voice_name[40];       // voice name for current_voice_selected
 	static char voice_languages[100]; // list of languages and priorities for current_voice_selected
 
+	if (!tone_only) {
+		MAKE_MEM_UNDEFINED(&voice_identifier, sizeof(voice_identifier));
+		MAKE_MEM_UNDEFINED(&voice_name, sizeof(voice_name));
+		MAKE_MEM_UNDEFINED(&voice_languages, sizeof(voice_languages));
+	}
+
 	strncpy0(voicename, vname, sizeof(voicename));
 	if (control & 0x10) {
 		strcpy(buf, vname);
