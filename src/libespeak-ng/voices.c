@@ -959,6 +959,8 @@ voice_t *LoadVoice(const char *vname, int control)
 				return NULL; // no dictionary loaded
 			}
 		}
+
+		voice_languages[langix] = 0;
 	}
 
 	return voice;
