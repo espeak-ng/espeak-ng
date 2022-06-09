@@ -479,7 +479,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 	// control, bit 0:  not the first letter of a word
 
 	int len;
-	static char single_letter[10] = { 0, 0 };
+	char single_letter[10] = { 0, 0 };
 	unsigned int dict_flags[2];
 	char ph_buf3[40];
 

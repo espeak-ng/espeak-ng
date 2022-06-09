@@ -1519,7 +1519,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByFile(const char *filename)
 	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
-	static char buf[60];
+	char buf[60];
 
 	strncpy0(buf, filename, sizeof(buf));
 
@@ -1556,7 +1556,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByName(const char *name)
 	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
-	static char buf[60];
+	char buf[60];
 
 	strncpy0(buf, name, sizeof(buf));
 
