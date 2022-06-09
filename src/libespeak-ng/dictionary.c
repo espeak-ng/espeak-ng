@@ -2875,6 +2875,8 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	char word[N_WORD_BYTES];
 	static char word_replacement[N_WORD_BYTES];
 
+	MAKE_MEM_UNDEFINED(&word_replacement, sizeof(word_replacement));
+
 	length = 0;
 	word2 = word1 = *wordptr;
 

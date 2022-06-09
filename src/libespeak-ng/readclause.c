@@ -187,6 +187,8 @@ const char *WordToString2(unsigned int word)
 	static char buf[5];
 	char *p;
 
+	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
+
 	p = buf;
 	for (ix = 3; ix >= 0; ix--) {
 		if ((*p = word >> (ix*8)) != 0)
@@ -226,6 +228,8 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 	const char *lang_name = NULL;
 	char *string;
 	static char buf[60];
+
+	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	buf[0] = 0;
 	flags[0] = 0;
@@ -541,8 +545,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		c1 = c2;
 
 		if (ungot_string_ix >= 0) {
-			if (ungot_string[ungot_string_ix] == 0)
+			if (ungot_string[ungot_string_ix] == 0) {
+				MAKE_MEM_UNDEFINED(&ungot_string, sizeof(ungot_string));
 				ungot_string_ix = -1;
+			}
 		}
 
 		if ((ungot_string_ix == 0) && (ungot_char2 == 0))

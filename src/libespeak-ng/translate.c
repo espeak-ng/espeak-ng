@@ -1988,6 +1988,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	if (tr == NULL)
 		return;
 
+	MAKE_MEM_UNDEFINED(&voice_change_name, sizeof(voice_change_name));
+
 	embedded_ix = 0;
 	embedded_read = 0;
 	pre_pause = 0;

@@ -47,6 +47,7 @@
 #include "synthesize.h"           // for SPEED_FACTORS, speed
 #include "translate.h"            // for CTRL_EMBEDDED, IsDigit09, utf8_out
 #include "voice.h"                // for SelectVoice, SelectVoiceByName
+#include "speech.h"               // for MAKE_MEM_UNDEFINED
 
 static const MNEM_TAB ssmltags[] = {
 	{ "speak",     SSML_SPEAK },
@@ -213,6 +214,8 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 	static char voice_name[40];
 	char language[40];
 	char buf[80];
+
+	MAKE_MEM_UNDEFINED(&voice_name, sizeof(voice_name));
 
 	strcpy(voice_name, ssml_stack[0].voice_name);
 	strcpy(language, ssml_stack[0].language);

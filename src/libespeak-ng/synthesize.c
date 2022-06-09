@@ -43,6 +43,7 @@
 #include "translate.h"            // for translator, LANGUAGE_OPTIONS, Trans...
 #include "voice.h"                // for voice_t, voice, LoadVoiceVariant
 #include "wavegen.h"              // for WcmdqInc, WcmdqFree, WcmdqStop
+#include "speech.h"               // for MAKE_MEM_UNDEFINED
 
 static void SmoothSpect(void);
 
@@ -76,6 +77,8 @@ const char *WordToString(unsigned int word)
 	// Convert a phoneme mnemonic word into a string
 	int ix;
 	static char buf[5];
+
+	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	for (ix = 0; ix < 4; ix++)
 		buf[ix] = word >> (ix*8);
@@ -388,6 +391,8 @@ static frame_t *AllocFrame()
 	ix++;
 	if (ix >= N_FRAME_POOL)
 		ix = 0;
+
+	MAKE_MEM_UNDEFINED(&frame_pool[ix], sizeof(frame_pool[ix]));
 	return &frame_pool[ix];
 }
 

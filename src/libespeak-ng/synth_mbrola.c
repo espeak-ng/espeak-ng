@@ -253,6 +253,8 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	char buf[50];
 	static char output[50];
 
+	MAKE_MEM_UNDEFINED(&output, sizeof(output));
+
 	output[0] = 0;
 	pitch_env = envelope_data[env];
 

@@ -208,6 +208,8 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	frame_t *frame;
 	static frameref_t frames_buf[N_SEQ_FRAMES];
 
+	MAKE_MEM_UNDEFINED(&frames_buf, sizeof(frames_buf));
+
 	seq = (SPECT_SEQ *)(&phondata_ptr[fmt_params->fmt_addr]);
 	seqk = (SPECT_SEQK *)seq;
 	nf = seq->n_frames;

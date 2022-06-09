@@ -223,6 +223,8 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	char suffix[20];
 	static char output[80];
 
+	MAKE_MEM_UNDEFINED(&output, sizeof(output));
+
 	static const char symbols[] = {
 		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
 		'&', '%', '+', '#', 'S', 'D', 'Z', 'A', 'L', '!',

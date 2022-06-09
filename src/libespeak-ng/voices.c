@@ -982,6 +982,7 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
 	static char variant_name[40];
 	char variant_prefix[5];
 
+	MAKE_MEM_UNDEFINED(&variant_name, sizeof(variant_name));
 	variant_name[0] = 0;
 	sprintf(variant_prefix, "!v%c", PATHSEP);
 	if (add_dir == 0)
@@ -1319,6 +1320,9 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	static espeak_VOICE voice_variants[N_VOICE_VARIANTS];
 	static char voice_id[50];
 
+	MAKE_MEM_UNDEFINED(&voice_variants, sizeof(voice_variants));
+	MAKE_MEM_UNDEFINED(&voice_id, sizeof(voice_id));
+
 	*found = 1;
 	memcpy(&voice_select2, voice_select, sizeof(voice_select2));
 
@@ -1328,6 +1332,8 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	if ((voice_select2.languages == NULL) || (voice_select2.languages[0] == 0)) {
 		// no language is specified. Get language from the named voice
 		static char buf[60];
+
+		MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 		if (voice_select2.name == NULL) {
 			if ((voice_select2.name = voice_select2.identifier) == NULL)
