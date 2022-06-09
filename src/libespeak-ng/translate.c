@@ -1574,6 +1574,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 		if (ph_code == phonSWITCH) {
 			ph_list2[n_ph_list2].phcode = ph_code;
+			ph_list2[n_ph_list2].stresslevel = 0;
 			ph_list2[n_ph_list2].sourceix = 0;
 			ph_list2[n_ph_list2].synthflags = 0;
 			ph_list2[n_ph_list2++].tone_ph = *p;
