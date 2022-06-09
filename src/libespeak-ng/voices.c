@@ -356,10 +356,10 @@ void VoiceReset(int tone_only)
 	// Set voice to the default values
 
 	int pk;
-	static unsigned char default_heights[N_PEAKS] = { 130, 128, 120, 116, 100, 100, 128, 128, 128 }; // changed for v.1.47
-	static unsigned char default_widths[N_PEAKS] = { 140, 128, 128, 160, 171, 171, 128, 128, 128 };
+	static const unsigned char default_heights[N_PEAKS] = { 130, 128, 120, 116, 100, 100, 128, 128, 128 }; // changed for v.1.47
+	static const unsigned char default_widths[N_PEAKS] = { 140, 128, 128, 160, 171, 171, 128, 128, 128 };
 
-	static int breath_widths[N_PEAKS] = { 0, 200, 200, 400, 400, 400, 600, 600, 600 };
+	static const int breath_widths[N_PEAKS] = { 0, 200, 200, 400, 400, 400, 600, 600, 600 };
 
 	// default is:  pitch 80,118
 	voice->pitch_base = 0x47000;

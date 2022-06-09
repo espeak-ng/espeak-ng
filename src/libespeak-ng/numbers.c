@@ -691,7 +691,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 	char ph_buf2[80];
 	char ph_alphabet[80];
 	char hexbuf[12];
-	static char pause_string[] = { phonPAUSE, 0 };
+	static const char pause_string[] = { phonPAUSE, 0 };
 
 	ph_buf[0] = 0;
 	ph_alphabet[0] = 0;
@@ -1039,7 +1039,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	char number_chars[N_WORD_BYTES];
 
 	static const char *roman_numbers = "ixcmvld";
-	static int roman_values[] = { 1, 10, 100, 1000, 5, 50, 500 };
+	static const int roman_values[] = { 1, 10, 100, 1000, 5, 50, 500 };
 
 	acc = 0;
 	prev = 0;

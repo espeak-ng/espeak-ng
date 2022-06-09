@@ -1210,7 +1210,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('m', 'k'): // Macedonian
 	{
-		static wchar_t vowels_cyrillic[] = {
+		static const wchar_t vowels_cyrillic[] = {
 			// also include 'р' [R]
 			0x440, 0x430, 0x435, 0x438, 0x439, 0x43e, 0x443, 0x44b, 0x44d,
 			0x44e, 0x44f, 0x450, 0x451, 0x456, 0x457, 0x45d, 0x45e, 0
@@ -1558,7 +1558,7 @@ Translator *SelectTranslator(const char *name)
 	{
 		static const short stress_lengths_vi[8] = { 150, 150,  180, 180,  210, 230,  230, 240 };
 		static const unsigned char stress_amps_vi[] = { 16, 16, 16, 16, 22, 22, 22, 22 };
-		static wchar_t vowels_vi[] = {
+		static const wchar_t vowels_vi[] = {
 			 0x61,   0xe0,   0xe1, 0x1ea3,   0xe3, 0x1ea1, // a
 			0x103, 0x1eb1, 0x1eaf, 0x1eb3, 0x1eb5, 0x1eb7, // ă
 			 0xe2, 0x1ea7, 0x1ea5, 0x1ea9, 0x1eab, 0x1ead, // â

@@ -1060,7 +1060,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	char vowel_length[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
 
-	static char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
+	static const char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
 
 	stressflags = tr->langopts.stress_flags;
 
@@ -1226,9 +1226,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		// LANG=Russian
 		if (stressed_syllable == 0) {
 			// no explicit stress - guess the stress from the number of syllables
-			static char guess_ru[16] =   { 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11 };
-			static char guess_ru_v[16] = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10 }; // for final phoneme is a vowel
-			static char guess_ru_t[16] = { 0, 0, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 8, 9, 10 }; // for final phoneme is an unvoiced stop
+			static const char guess_ru[16] =   { 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11 };
+			static const char guess_ru_v[16] = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10 }; // for final phoneme is a vowel
+			static const char guess_ru_t[16] = { 0, 0, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 8, 9, 10 }; // for final phoneme is an unvoiced stop
 
 			stressed_syllable = vowel_count - 3;
 			if (vowel_count < 16) {

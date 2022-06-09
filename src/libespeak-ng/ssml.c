@@ -275,13 +275,13 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 }
 
 
-static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
+static const wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 {
 	// Gets the value string for an attribute.
 	// Returns NULL if the attribute is not present
 
 	int ix;
-	static wchar_t empty[1] = { 0 };
+	static const wchar_t empty[1] = { 0 };
 
 	while (*pw != 0) {
 		if (iswspace(pw[-1])) {
@@ -315,11 +315,11 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SS
 	// a voice change.
 	// Returns  CLAUSE_TYPE_VOICE_CHANGE if there is a voice change
 
-	wchar_t *lang;
-	wchar_t *gender;
-	wchar_t *name;
-	wchar_t *age;
-	wchar_t *variant;
+	const wchar_t *lang;
+	const wchar_t *gender;
+	const wchar_t *name;
+	const wchar_t *age;
+	const wchar_t *variant;
 	int value;
 	const char *new_voice_id;
 
@@ -384,7 +384,7 @@ static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM
 	int value;
 	char buf[20];
 	int new_parameters[N_SPEECH_PARAM];
-	static char cmd_letter[N_SPEECH_PARAM] = { 0, 'S', 'A', 'P', 'R', 0, 'C', 0, 0, 0, 0, 0, 'F' }; // embedded command letters
+	static const char cmd_letter[N_SPEECH_PARAM] = { 0, 'S', 'A', 'P', 'R', 0, 'C', 0, 0, 0, 0, 0, 'F' }; // embedded command letters
 
 	for (param = 0; param < N_SPEECH_PARAM; param++)
 		new_parameters[param] = -1;
@@ -482,7 +482,7 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 	return 0;
 }
 
-static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *param_stack, int *speech_parameters)
+static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *param_stack, int *speech_parameters)
 {
 	int value;
 	int sign;
@@ -564,9 +564,9 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	int value3;
 	int voice_change_flag;
 	wchar_t *px;
-	wchar_t *attr1;
-	wchar_t *attr2;
-	wchar_t *attr3;
+	const wchar_t *attr1;
+	const wchar_t *attr2;
+	const wchar_t *attr3;
 	int terminator;
 	char *uri;
 	int param_type;
@@ -581,7 +581,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		}
 
 	// these tags have no effect if they are self-closing, eg. <voice />
-	static char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
+	static const char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
 
 	bool self_closing = false;
 	int len;
@@ -711,13 +711,13 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			value = attrlookup(attr1, mnem_emphasis);
 
 		if (translator->langopts.tone_language == 1) {
-			static unsigned char emphasis_to_pitch_range[] = { 50, 50, 40, 70, 90, 100 };
-			static unsigned char emphasis_to_volume[] = { 100, 100, 70, 110, 135, 150 };
+			static const unsigned char emphasis_to_pitch_range[] = { 50, 50, 40, 70, 90, 100 };
+			static const unsigned char emphasis_to_volume[] = { 100, 100, 70, 110, 135, 150 };
 			// tone language (eg.Chinese) do emphasis by increasing the pitch range.
 			sp->parameter[espeakRANGE] = emphasis_to_pitch_range[value];
 			sp->parameter[espeakVOLUME] = emphasis_to_volume[value];
 		} else {
-			static unsigned char emphasis_to_volume2[] = { 100, 100, 75, 100, 120, 150 };
+			static const unsigned char emphasis_to_volume2[] = { 100, 100, 75, 100, 120, 150 };
 			sp->parameter[espeakVOLUME] = emphasis_to_volume2[value];
 			sp->parameter[espeakEMPHASIS] = value;
 		}
@@ -855,7 +855,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		terminator = CLAUSE_NONE;
 
 		if ((attr1 = GetSsmlAttribute(px, "strength")) != NULL) {
-			static int break_value[6] = { 0, 7, 14, 21, 40, 80 }; // *10mS
+			static const int break_value[6] = { 0, 7, 14, 21, 40, 80 }; // *10mS
 			value = attrlookup(attr1, mnem_break);
 			if (value < 3) {
 				// adjust prepause on the following word

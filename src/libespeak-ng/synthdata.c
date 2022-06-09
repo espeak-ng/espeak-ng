@@ -428,7 +428,7 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 {
 	int stress_level;
 	PHONEME_LIST *pl;
-	static int condition_level[4] = { 1, 2, 4, 15 };
+	static const int condition_level[4] = { 1, 2, 4, 15 };
 
 	if (phoneme_tab[plist[0].phcode]->type == phVOWEL)
 		pl = plist;

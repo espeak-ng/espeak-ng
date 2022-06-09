@@ -553,7 +553,7 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 
 	#define N_VCOLOUR 2
 	// percentage change for each formant in 256ths
-	static short vcolouring[N_VCOLOUR][5] = {
+	static const short vcolouring[N_VCOLOUR][5] = {
 		{ 243, 272, 256, 256, 256 }, // palatal consonant follows
 		{ 256, 256, 240, 240, 240 }, // retroflex
 	};
