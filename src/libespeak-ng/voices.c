@@ -960,6 +960,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			}
 		}
 
+		/* Terminate languages list with a zero-priority entry */
 		voice_languages[langix] = 0;
 	}
 
