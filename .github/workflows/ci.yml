@@ -65,7 +65,7 @@ jobs:
 
           - sanitizer: "valgrind"
             deps: "libtool-bin valgrind"
-            configflags: ''
+            configflags: '-g -Og'
             config: ""
             build_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
             check_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
