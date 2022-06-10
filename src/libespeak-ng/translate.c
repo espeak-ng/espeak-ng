@@ -378,9 +378,9 @@ char *strchr_w(const char *s, int c)
 // append plural suffixes depending on preceding letter
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
 {
-	char word_zz[4] = { 0, 'z', 'z', 0 };
-	char word_iz[4] = { 0, 'i', 'z', 0 };
-	char word_ss[4] = { 0, 's', 's', 0 };
+	char word_zz[4] = { ' ', 'z', 'z', 0 };
+	char word_iz[4] = { ' ', 'i', 'z', 0 };
+	char word_ss[4] = { ' ', 's', 's', 0 };
 	if (flags & FLAG_HAS_PLURAL) {
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if (last_char == 'f')
@@ -1276,6 +1276,11 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		Word_EmbeddedCmd();
 	}
 
+	if (n_ph_list2 >= N_PHONEME_LIST-2) {
+		// No room, can't translate anything
+		return 0;
+	}
+
 	if ((word[0] == 0) || (word_flags & FLAG_DELETE_WORD)) {
 		// nothing to translate.  Add a dummy phoneme to carry any embedded commands
 		if (embedded_flag) {
@@ -1289,6 +1294,11 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			embedded_flag = 0;
 		}
 		word_phonemes[0] = 0;
+		return 0;
+	}
+
+	if (n_ph_list2 >= N_PHONEME_LIST-7-2) {
+		// We may require up to 7 phonemes, plus the 2 phonemes from the caller, can't translate safely
 		return 0;
 	}
 
@@ -1487,7 +1497,10 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if ((flags & FLAG_FOUND) && !(flags & FLAG_TEXTMODE))
 		found_dict_flag = SFLAG_DICTIONARY;
 
-	while ((pre_pause > 0) && (n_ph_list2 < N_PHONEME_LIST-4)) {
+	// Each iteration may require up to 1 phoneme
+	// and after this loop we may require up to 7 phonemes
+	// and our caller requires 2 phonemes
+	while ((pre_pause > 0) && (n_ph_list2 < N_PHONEME_LIST-7-2)) {
 		// add pause phonemes here. Either because of punctuation (brackets or quotes) in the
 		// text, or because the word is marked in the dictionary lookup as a conjunction
 		if (pre_pause > 1) {
@@ -1502,7 +1515,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		tr->prev_dict_flags[1] = 0;
 	}
 	plist2 = &ph_list2[n_ph_list2];
+	// From here we may require up to 4+1+3 phonemes
 
+	// This may require up to 4 phonemes
 	if ((option_capitals == 1) && (word_flags & FLAG_FIRST_UPPER)) {
 		SetPlist2(&ph_list2[n_ph_list2++], phonPAUSE_SHORT);
 		SetPlist2(&ph_list2[n_ph_list2++], phonCAPITAL);
@@ -1513,6 +1528,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		}
 	}
 
+	// This may require up to 1 phoneme
 	if (switch_phonemes >= 0) {
 		if ((p[0] == phonPAUSE) && (p[1] == phonSWITCH)) {
 			// the new word starts with a phoneme table switch, so there's no need to switch before it.
@@ -1541,7 +1557,10 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		p[1] = 0;
 	}
 
-	while (((ph_code = *p++) != 0) && (n_ph_list2 < N_PHONEME_LIST-4)) {
+	// Each iteration may require up to 1 phoneme
+	// and after this loop we may require up to 3 phonemes
+	// and our caller requires 2 phonemes
+	while (((ph_code = *p++) != 0) && (n_ph_list2 < N_PHONEME_LIST-3-2)) {
 		if (ph_code == 255)
 			continue; // unknown phoneme
 
@@ -1633,7 +1652,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			first_phoneme = false;
 		}
 	}
+	// From here, we may require up to 3 phonemes
 
+	// This may require up to 1 phoneme
 	if (word_flags & FLAG_COMMA_AFTER)
 		SetPlist2(&ph_list2[n_ph_list2++], phonPAUSE_CLAUSE);
 
@@ -1645,6 +1666,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if ((stress >= 4) && (phoneme_tab[ph_list2[n_ph_list2-1].phcode]->type == phVOWEL))
 		tr->end_stressed_vowel = 1; // word ends with a stressed vowel
 
+	// This may require up to 1 phoneme
 	if (switch_phonemes >= 0) {
 		// this word uses a different phoneme table, now switch back
 		strcpy(dictionary_name, old_dictionary_name);
@@ -1654,6 +1676,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	}
 
 
+	// This may require up to 1 phoneme
 	if (pitch_raised > 0) {
 		embedded_list[embedded_ix++] = EMBED_P+0x60+0x80 + (pitch_raised << 8); // lower pitch
 		SetPlist2(&ph_list2[n_ph_list2], phonPAUSE_SHORT);
@@ -2060,7 +2083,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 	words[0].length = k;
 
-	while (!finished && (ix < (int)sizeof(sbuf) - 1) && (n_ph_list2 < N_PHONEME_LIST-4)) {
+	while (!finished && (ix < (int)sizeof(sbuf) - 1)) {
 		prev_out2 = prev_out;
 		utf8_in2(&prev_out, &sbuf[ix-1], 1);
 
@@ -2488,7 +2511,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 	words[0].flags |= FLAG_FIRST_WORD;
 
-	for (ix = 0; ix < word_count; ix++) {
+	// Each TranslateWord2 may require up to 7 phonemes
+	// and after this loop we require 2 phonemes
+	for (ix = 0; ix < word_count && (n_ph_list2 < N_PHONEME_LIST-7-2); ix++) {
 		int nx;
 		int c_temp;
 		char *pn;
@@ -2539,7 +2564,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		if (n_digits > 4) {
 			// word is entirely digits, insert commas and break into 3 digit "words"
 			number_buf[0] = ' ';
-			pn = &number_buf[1];
+			number_buf[1] = ' ';
+			number_buf[2] = ' ';
+			pn = &number_buf[3];
 			nx = n_digits;
 			nw = 0;
 
@@ -2583,7 +2610,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			pn[16] = 0;
 			nw = 0;
 
-			for (pw = &number_buf[1]; pw < pn;) {
+			for (pw = &number_buf[3]; pw < pn;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
 				while (*pw++ != ' ')

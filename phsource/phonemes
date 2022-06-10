@@ -1887,6 +1887,9 @@ include ph_english_sc
 phonemetable en-us en
 include ph_english_us
 
+phonemetable en-us-nyc en
+include ph_english_us_nyc
+
 phonemetable en-wi en
 include ph_english_wi
 

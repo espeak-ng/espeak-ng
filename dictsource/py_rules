@@ -7,6 +7,7 @@
 .group a
 	a	a
 
+
 .group b
 	b	b
 
@@ -80,7 +81,7 @@
 .group y
 	y 	j
 
-.group 6
+.replace 
 	6 	@
 
 .group h
@@ -89,10 +90,13 @@
 .group z
 	z	z
 
+
 // low tone
-.group 2        22 
-// high tone
-.group 7        55
+//.group 2        
+//	2 	˩
+//// high tone
+//.group 7        
+//	7	˥
 
 .group
 	.	_!	// dot
@@ -102,6 +106,9 @@
 
 	ˈ	'       // U+2c8  stress marker (from syllable capitalisation)
 // tones not working
-//.group
-//       1	55
-//       2	22
+.replace
+	7	i
+	2	u
+	//6	@
+//	2	˩
+//	7	˥

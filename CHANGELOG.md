@@ -59,6 +59,7 @@ updated languages:
 *  jbo (Lojban) -- Juho Hiltunen, xunsku
 *  lv (Latvian) -- Valdis Vitolins
 *  mi (Māori) -- boracasli98
+*  py (Pyash) -- Andrii Logan Zvorygin
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98, SeanTolstoyevski
 *  ur (Urdu) -- Ejaz Shah
@@ -69,6 +70,7 @@ new languages:
 *  be (Belarusian) -- Sergei B
 *  chr (Cherokee) -- Michael Conrad
 *  cv (Chuvash) -- boracasli98, Valdis Vitolins
+*  en-us-nyc (English, New York City) -- Richard Calvi
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
 *  io (Ido) -- José Miguel López, Valdis Vitolins
@@ -127,7 +129,7 @@ new languages:
 *  ba (Bashkir) -- tc-dl, Valdis Vitolins
 *  hak (Hakka Chinese) -- Chen Chien-ting
 *  ht (Haitian Creole) -- Valdis Vitolins
-*  kk (Kazakh) -- boracasli14, Valdis Vitolins
+*  kk (Kazakh) -- boracasli14, Valdis Vitolins, Andiv06
 *  py (Pyash) -- Logan Streondj
 *  quc (K'iche') -- Valdis Vitolins
 *  ru-lv (Russian Latvia) -- Valdis Vitolins

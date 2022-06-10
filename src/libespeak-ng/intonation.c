@@ -429,7 +429,7 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 	int head_final = end_ix;
 	int secondary = 2;
 
-	pitch_range = (tune->head_end - tune->head_start) << 8;
+	pitch_range = (tune->head_end - tune->head_start) * 256;
 	pitch_range_abs = abs(pitch_range);
 	drops = drops_0; // this should be controlled by tune->head_drops
 	initial = true;
@@ -461,11 +461,11 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 
 				if (tune->onset == 255) {
 					n_steps = count_increments(syllable_tab, syl_ix, head_final, 4);
-					pitch = tune->head_start << 8;
+					pitch = tune->head_start * 256;
 				} else {
 					// a pitch has been specified for the onset syllable, don't include it in the pitch incrementing
 					n_steps = count_increments(syllable_tab, syl_ix+1, head_final, 4);
-					pitch = tune->onset << 8;
+					pitch = tune->onset * 256;
 					used_onset = true;
 				}
 
@@ -478,18 +478,18 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 					increment = 0;
 			} else if (syl_ix == head_final) {
 				// a pitch has been specified for the last primary stress before the nucleus
-				pitch = tune->head_last << 8;
+				pitch = tune->head_last * 256;
 				stage = 2;
 			} else {
 				if (used_onset) {
 					stage = 1;
 					used_onset = false;
-					pitch = tune->head_start << 8;
+					pitch = tune->head_start * 256;
 					n_steps++;
 				} else if (n_steps > 0)
 					pitch += increment;
 				else {
-					pitch = (tune->head_end << 8) + (pitch_range_abs * tune->head_extend[overflow_ix++])/64;
+					pitch = (tune->head_end * 256) + (pitch_range_abs * tune->head_extend[overflow_ix++])/64;
 					if (overflow_ix >= tune->n_head_extend)
 						overflow_ix = 0;
 				}
@@ -503,18 +503,18 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 			unstressed_ix = 0;
 			syl->stress = PRIMARY_STRESSED;
 			syl->env = tune->stressed_env;
-			set_pitch(syl, (pitch >> 8), tune->stressed_drop);
+			set_pitch(syl, (pitch / 256), tune->stressed_drop);
 		} else if (stress >= secondary) {
 			n_unstressed = CountUnstressed(syllable_tab, syl_ix+1, end_ix, secondary);
 			unstressed_ix = 0;
-			set_pitch(syl, (pitch >> 8), drops[stress]);
+			set_pitch(syl, (pitch / 256), drops[stress]);
 		} else {
 			if (n_unstressed > 1)
 				unstressed_inc = (tune->unstr_end[stage] - tune->unstr_start[stage]) / (n_unstressed - 1);
 			else
 				unstressed_inc = 0;
 
-			set_pitch(syl, (pitch >> 8) + tune->unstr_start[stage] + (unstressed_inc * unstressed_ix), drops[stress]);
+			set_pitch(syl, (pitch / 256) + tune->unstr_start[stage] + (unstressed_inc * unstressed_ix), drops[stress]);
 			unstressed_ix++;
 		}
 
@@ -545,7 +545,7 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, TONE_H
 	static signed char continue_tab[5] = { -26, 32, 20, 8, 0 };
 
 	drops = th->body_drops;
-	pitch_range = (th->body_end - th->body_start) << 8;
+	pitch_range = (th->body_end - th->body_start) * 256;
 	pitch_range_abs = abs(pitch_range);
 
 	if (continuing) {
@@ -580,12 +580,12 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, TONE_H
 				else
 					increment = 0;
 
-				pitch = th->body_start << 8;
+				pitch = th->body_start * 256;
 			} else {
 				if (n_steps > 0)
 					pitch += increment;
 				else {
-					pitch = (th->body_end << 8) + (pitch_range_abs * overflow_tab[overflow++])/64;
+					pitch = (th->body_end * 256) + (pitch_range_abs * overflow_tab[overflow++])/64;
 					if (overflow >= n_overflow) {
 						overflow = 0;
 						overflow_tab = th->overflow;
@@ -597,20 +597,20 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, TONE_H
 
 			n_primary--;
 			if ((tn->backwards) && (n_primary < 2))
-				pitch = tn->backwards[n_primary] << 8;
+				pitch = tn->backwards[n_primary] * 256;
 		}
 
 		if (stress >= PRIMARY) {
 			syl->stress = PRIMARY_STRESSED;
-			set_pitch(syl, (pitch >> 8), drops[stress]);
+			set_pitch(syl, (pitch / 256), drops[stress]);
 		} else if (stress >= SECONDARY)
-			set_pitch(syl, (pitch >> 8), drops[stress]);
+			set_pitch(syl, (pitch / 256), drops[stress]);
 		else {
 			// unstressed, drop pitch if preceded by PRIMARY
 			if ((syllable_tab[ix-1].stress & 0x3f) >= SECONDARY)
-				set_pitch(syl, (pitch >> 8) - th->body_lower_u, drops[stress]);
+				set_pitch(syl, (pitch / 256) - th->body_lower_u, drops[stress]);
 			else
-				set_pitch(syl, (pitch >> 8), drops[stress]);
+				set_pitch(syl, (pitch / 256), drops[stress]);
 		}
 
 		ix++;
@@ -631,7 +631,7 @@ static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, i
 	int drop;
 	SYLLABLE *syl;
 
-	increment = (end_pitch - start_pitch) << 8;
+	increment = (end_pitch - start_pitch) * 256;
 	n_increments = end_ix - start_ix;
 
 	if (n_increments <= 0)
@@ -640,17 +640,17 @@ static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, i
 	if (n_increments > 1)
 		increment = increment / n_increments;
 
-	pitch = start_pitch << 8;
+	pitch = start_pitch * 256;
 
 	for (ix = start_ix; ix < end_ix; ix++) {
 		syl = &syllable_tab[ix];
 		stress = syl->stress;
 
 		if (increment > 0) {
-			set_pitch(syl, (pitch >> 8), -(increment >> 8));
+			set_pitch(syl, (pitch / 256), -(increment / 256));
 			pitch += increment;
 		} else {
-			drop = -(increment >> 8);
+			drop = -(increment / 256);
 			if (drop < min_drop[stress])
 				drop = min_drop[stress];
 
@@ -658,7 +658,7 @@ static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, i
 
 			if (drop > 18)
 				drop = 18;
-			set_pitch(syl, (pitch >> 8), drop);
+			set_pitch(syl, (pitch / 256), drop);
 		}
 	}
 }

@@ -1,11 +1,12 @@
-// This file is UTF8 encoded 
+// This file is UTF8 encoded
 // Spelling to phoneme rules for Kazakh
 
+// Letters
 б	b@
 в	v@
 г	g@
 ғ	G@
-д	d@	
+д	d@
 ж	Z@
 з	z@
 й	j@
@@ -16,7 +17,7 @@
 н	n@
 ң	N@
 п	p@
-р	*@
+р	r@
 с	s@
 т	t@
 ф	f@
@@ -27,15 +28,31 @@
 ш	S@
 щ	StS@
 
-// Native numbers 0-10
-_0n	nYl
-_1n	bI*
-_2n	jekI
-_3n	u#S
-_4n	t8*t
-_5n	beS
-_6n	alt*
-_7n	ZetI
-_8n	segIz
-_9n	toG@z
-_10n	on
+// Numbers
+_0 n'Yl
+_1 b'Ir
+_2 j'ekI
+_3 u#S
+_4 t8rt
+_5 b'es
+_6 'Alt@
+_7 Z'etI
+_8 s'egIz
+_9 t'oG@z
+_1X 'on
+_2X Z@j@rm'A
+_3X 'ot@z
+_4X q'@r@q
+_5X 'elw
+_6X 'ALp@s
+_7X Zetp'Is
+_8X seks'en
+_9X toqs'An
+_0C Z'u#z
+_0M1 m'@N
+_0M2 m@jLL@j'on
+_1M2 m@jLL@j'on
+_0M3 m@jLL@j'Ard
+_1M3 m@jLL@j'Ard
+
+_dpt _Z&n'e_

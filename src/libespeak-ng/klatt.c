@@ -467,6 +467,13 @@ void KlattReset(int control)
 	}
 }
 
+void KlattFini(void)
+{
+#ifdef INCLUDE_SPEECHPLAYER
+	KlattFiniSP();
+#endif
+}
+
 /*
    function FRAME_INIT
 

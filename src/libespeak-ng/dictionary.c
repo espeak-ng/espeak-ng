@@ -693,7 +693,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 	 */
 	char *p; // group counter
 	char *w; // word counter
-	int len = 0;
+	int len = 0, i;
 
 	p = tr->letterGroups[group];
 	if (p == NULL)
@@ -702,7 +702,14 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 	while (*p != RULE_GROUP_END) {
 		if (pre) {
 			len = strlen(p);
-			w = word - len + 1;
+			w = word;
+			for (i = 0; i < len-1; i++)
+			{
+				w--;
+				if (*w == 0)
+					// Not found
+					return -1;
+			}
 		} else
 			w = word;
 
@@ -2049,7 +2056,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_NOVOWELS:
 				{
-					char *p = pre_ptr - letter_xbytes - 1;
+					char *p = pre_ptr - letter_xbytes;
 					while (letter_w != RULE_SPACE) {
 						if (IsLetter(tr, letter_w, LETTERGP_VOWEL2)) {
 							failed = 1;
