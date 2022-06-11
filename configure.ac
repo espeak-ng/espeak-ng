@@ -79,13 +79,13 @@ dnl gradle checks.
 dnl ================================================================
 
 AC_MSG_CHECKING([for gradle])
-if test -e ${GRADLE} ; then
-    AC_MSG_RESULT([${GRADLE}])
-    AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 1])
+if command -v "$GRADLE" >/dev/null; then
+    AC_MSG_RESULT([$GRADLE])
 else
+    GRADLE=
     AC_MSG_RESULT([no])
-    AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 0])
 fi
+AM_CONDITIONAL(HAVE_GRADLE, [test x"$GRADLE" != x])
 
 AC_SUBST(GRADLE)
 
