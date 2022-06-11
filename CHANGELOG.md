@@ -7,7 +7,14 @@
 
 The espeak-ng project is a fork of the espeak project.
 
-### 1.51 (In Development)
+### 1.52 (In Development)
+
+updated languages:
+*  be (Belarusian) -- Andiv06
+*  en (English) -- Bill Dengler
+*  es (Spanish) -- Sukil Etxenike
+
+### 1.51
 
 *  Add support for speechPlayer.
 *  Add more tests to check the various parts of espeak-ng.
@@ -38,6 +45,7 @@ documentation:
 updated languages:
 *  ar (Arabic) -- king-dahmanus
 *  ba (Bashkir) -- boracasli98, Valdis Vitolins, Juho Hiltunen
+*  cmn (Mandarin) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
 *  de (German) -- Karl Eick, Henry Krumb
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
@@ -64,7 +72,7 @@ updated languages:
 *  tr (Turkish) -- boracasli98, SeanTolstoyevski
 *  ur (Urdu) -- Ejaz Shah
 *  uz (Uzbek) -- boracasli98, Valdis Vitolins, Andiv06
-*  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
+*  yue (Cantonese) -- Andiv06
 
 new languages:
 *  be (Belarusian) -- Sergei B

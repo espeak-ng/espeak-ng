@@ -31,7 +31,7 @@
 #include "translate.h"            // for LEADING_2_BITS, UTF8_TAIL_BITS
 
 // http://www.iana.org/assignments/character-sets/character-sets.xhtml
-MNEM_TAB mnem_encoding[] = {
+static const MNEM_TAB mnem_encoding[] = {
 	{ "ANSI_X3.4-1968",   ESPEAKNG_ENCODING_US_ASCII },
 	{ "ANSI_X3.4-1986",   ESPEAKNG_ENCODING_US_ASCII },
 	{ "ASMO-708",         ESPEAKNG_ENCODING_ISO_8859_6 },

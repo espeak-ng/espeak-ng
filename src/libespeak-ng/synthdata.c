@@ -208,6 +208,8 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	frame_t *frame;
 	static frameref_t frames_buf[N_SEQ_FRAMES];
 
+	MAKE_MEM_UNDEFINED(&frames_buf, sizeof(frames_buf));
+
 	seq = (SPECT_SEQ *)(&phondata_ptr[fmt_params->fmt_addr]);
 	seqk = (SPECT_SEQK *)seq;
 	nf = seq->n_frames;
@@ -342,14 +344,17 @@ static void SetUpPhonemeTable(int number)
 	for (ix = 0; ix < phoneme_tab_list[number].n_phonemes; ix++) {
 		ph_code = phtab[ix].code;
 		phoneme_tab[ph_code] = &phtab[ix];
-		if (ph_code > n_phoneme_tab)
+		if (ph_code > n_phoneme_tab) {
+			memset(&phoneme_tab[n_phoneme_tab+1], 0, (ph_code - (n_phoneme_tab+1)) * sizeof(*phoneme_tab));
 			n_phoneme_tab = ph_code;
+		}
 	}
 }
 
 void SelectPhonemeTable(int number)
 {
 	n_phoneme_tab = 0;
+	MAKE_MEM_UNDEFINED(&phoneme_tab, sizeof(phoneme_tab));
 	SetUpPhonemeTable(number); // recursively for included phoneme tables
 	n_phoneme_tab++;
 	current_phoneme_table = number;
@@ -425,7 +430,7 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 {
 	int stress_level;
 	PHONEME_LIST *pl;
-	static int condition_level[4] = { 1, 2, 4, 15 };
+	static const int condition_level[4] = { 1, 2, 4, 15 };
 
 	if (phoneme_tab[plist[0].phcode]->type == phVOWEL)
 		pl = plist;

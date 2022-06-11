@@ -63,7 +63,7 @@ phoneme s[
   IF nextPh(s[) THEN
     length 50
   ELSE
-    length 160
+    length 140
   ENDIF
   lengthmod 7
   WAV(vwl_ar/shin)

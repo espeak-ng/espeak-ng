@@ -135,6 +135,24 @@
     <ClCompile Include="..\libespeak-ng\phoneme.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\libespeak-ng\sPlayer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libespeak-ng\ssml.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\speechPlayer\src\frame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\speechPlayer\src\speechPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\speechPlayer\src\speechWaveGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libespeak-ng\soundicon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -183,6 +201,12 @@
       <Filter>pcaudiolib</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ucd-tools\src\include\ucd\ucd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libespeak-ng\sPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libespeak-ng\soundicon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

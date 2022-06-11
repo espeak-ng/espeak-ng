@@ -80,10 +80,10 @@ static void fillSpeechPlayerFrame(WGEN_DATA *wdata, voice_t *wvoice, frame_t * e
 	} else {
 		spFrame->caNP=0;
 	}
-	spFrame->cb1=eFrame->bw[1]*2*(wvoice->width[1]/256.0);
-	spFrame->cb2=eFrame->bw[2]*2*(wvoice->width[2]/256.0);
-	spFrame->cb3=eFrame->bw[3]*2*(wvoice->width[3]/256.0);
-	spFrame->cb4=eFrame->bw[4]*2*(wvoice->width[4]/256.0);
+	spFrame->cb1=eFrame->bw[0]*2*(wvoice->width[1]/256.0);
+	spFrame->cb2=eFrame->bw[1]*2*(wvoice->width[2]/256.0);
+	spFrame->cb3=eFrame->bw[2]*2*(wvoice->width[3]/256.0);
+	spFrame->cb4=eFrame->bw[3]*2*(wvoice->width[4]/256.0);
 	spFrame->cb5=1000;
 	spFrame->cb6=1000;
 	spFrame->cbNP=100;

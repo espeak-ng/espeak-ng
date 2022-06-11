@@ -64,7 +64,7 @@ static char *hash_chains[N_HASH_DICT];
 
 static char letterGroupsDefined[N_LETTER_GROUPS];
 
-MNEM_TAB mnem_rules[] = {
+static const MNEM_TAB mnem_rules[] = {
 	{ "unpr",     DOLLAR_UNPR },
 	{ "noprefix", DOLLAR_NOPREFIX },  // rule fails if a prefix has been removed
 	{ "list",     DOLLAR_LIST },    // a pronunciation is given in the *_list file
@@ -88,7 +88,7 @@ MNEM_TAB mnem_rules[] = {
 	{ NULL, -1 }
 };
 
-MNEM_TAB mnem_flags[] = {
+static const MNEM_TAB mnem_flags[] = {
 	// these in the first group put a value in bits0-3 of dictionary_flags
 	{ "$1",   0x41 }, // stress on 1st syllable
 	{ "$2",   0x42 }, // stress on 2nd syllable
@@ -223,14 +223,16 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	char suffix[20];
 	static char output[80];
 
-	static char symbols[] = {
+	MAKE_MEM_UNDEFINED(&output, sizeof(output));
+
+	static const char symbols[] = {
 		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
 		'&', '%', '+', '#', 'S', 'D', 'Z', 'A', 'L', '!',
 		' ', '@', '?', 'J', 'N', 'K', 'V', '?', 'T', 'X',
 		'?', 'W'
 	};
 
-	static char symbols_lg[] = { 'A', 'B', 'C', 'H', 'F', 'G', 'Y' };
+	static const char symbols_lg[] = { 'A', 'B', 'C', 'H', 'F', 'G', 'Y' };
 
 	match_type = 0;
 	buf_pre[0] = 0;
@@ -766,8 +768,8 @@ static int isHexDigit(int c)
 static void copy_rule_string(char *string, int *state_out)
 {
 	// state 0: conditional, 1=pre, 2=match, 3=post, 4=phonemes
-	static char *outbuf[5] = { rule_cond, rule_pre, rule_match, rule_post, rule_phonemes };
-	static int next_state[5] = { 2, 2, 4, 4, 4 };
+	static char * const outbuf[5] = { rule_cond, rule_pre, rule_match, rule_post, rule_phonemes };
+	static const int next_state[5] = { 2, 2, 4, 4, 4 };
 	char *output;
 	char *p;
 	int ix;
@@ -779,7 +781,7 @@ static void copy_rule_string(char *string, int *state_out)
 	bool literal;
 	bool hexdigit_input = false;
 	int state = *state_out;
-	MNEM_TAB *mr;
+	const MNEM_TAB *mr;
 
 	if (string[0] == 0) return;
 
@@ -921,7 +923,7 @@ static void copy_rule_string(char *string, int *state_out)
 					mr = mnem_rules;
 					while (mr->mnem != NULL) {
 						len = strlen(mr->mnem);
-						if (memcmp(p, mr->mnem, len) == 0) {
+						if (strncmp(p, mr->mnem, len) == 0) {
 							value = mr->value;
 							p += len;
 							break;

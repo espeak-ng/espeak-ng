@@ -45,6 +45,7 @@
 #endif
 
 #include "sintab.h"
+#include "speech.h"
 
 static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 
@@ -271,6 +272,7 @@ void WcmdqInc()
 
 static void WcmdqIncHead()
 {
+	MAKE_MEM_UNDEFINED(&wcmdq[wcmdq_head], sizeof(wcmdq[wcmdq_head]));
 	wcmdq_head++;
 	if (wcmdq_head >= N_WCMDQ) wcmdq_head = 0;
 }
@@ -972,7 +974,7 @@ static int PlayWave(int length, bool resume, unsigned char *data, int scale, int
 		value += ((echo_buf[echo_tail++] * echo_amp) >> 8);
 
 		if (value > 32767)
-			value = 32768;
+			value = 32767;
 		else if (value < -32768)
 			value = -32768;
 
@@ -1170,8 +1172,8 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	int length4;
 	int qix;
 	int cmd;
-	static int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
-	static int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
+	static const int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
+	static const int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
 
 	end_wave = 1;
 

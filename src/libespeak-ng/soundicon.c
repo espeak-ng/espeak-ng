@@ -48,8 +48,7 @@ SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ERROR_CONTEXT *context)
 {
 	FILE *f;
-	char *p;
-	int *ip;
+	unsigned char *p;
 	int length;
 	char fname_temp[100];
 	char fname2[sizeof(path_home)+13+40];
@@ -67,6 +66,8 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 		sprintf(fname2, "%s%csoundicons%c%s", path_home, PATHSEP, PATHSEP, fname);
 		fname = fname2;
 	}
+
+	fname_temp[0] = 0;
 
 	f = NULL;
 	if ((f = fopen(fname, "rb")) != NULL) {
@@ -119,23 +120,25 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 		fclose(f);
 		return create_file_error_context(context, error, fname);
 	}
-	if ((p = (char *)realloc(soundicon_tab[index].data, length)) == NULL) {
+	if ((p = realloc(soundicon_tab[index].data, length)) == NULL) {
 		fclose(f);
 		return ENOMEM;
 	}
 	if (fread(p, 1, length, f) != length) {
 		int error = errno;
 		fclose(f);
-		remove(fname_temp);
+		if (fname_temp[0])
+			remove(fname_temp);
 		free(p);
 		return create_file_error_context(context, error, fname);
 	}
 	fclose(f);
-	remove(fname_temp);
+	if (fname_temp[0])
+		remove(fname_temp);
 
-	ip = (int *)(&p[40]);
-	soundicon_tab[index].length = (*ip) / 2; // length in samples
-	soundicon_tab[index].data = p;
+	length = p[40] | (p[41] << 8) | (p[42] << 16) | (p[43] << 24);
+	soundicon_tab[index].length = length / 2; // length in samples
+	soundicon_tab[index].data = (char *) p;
 	return ENS_OK;
 }
 

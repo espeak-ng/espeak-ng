@@ -42,6 +42,7 @@
 #include "synthesize.h"           // for PHONEME_LIST2, N_PHONEME_LIST, PHON...
 #include "ucd/ucd.h"              // for ucd_toupper
 #include "voice.h"                // for voice, voice_t
+#include "speech.h"               // for MAKE_MEM_UNDEFINED
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -341,7 +342,7 @@ int utf8_out(unsigned int c, char *buf)
 	int n_bytes;
 	int j;
 	int shift;
-	static char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
+	static const char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
 
 	if (c < 0x80) {
 		buf[0] = c;
@@ -1573,6 +1574,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 		if (ph_code == phonSWITCH) {
 			ph_list2[n_ph_list2].phcode = ph_code;
+			ph_list2[n_ph_list2].stresslevel = 0;
 			ph_list2[n_ph_list2].sourceix = 0;
 			ph_list2[n_ph_list2].synthflags = 0;
 			ph_list2[n_ph_list2++].tone_ph = *p;
@@ -1892,10 +1894,10 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	case L('n', 'l'):
 		// look for 'n  and replace by a special character (unicode: schwa)
 
-		if (!iswalpha(prev_in)) {
+		if ((c == '\'') && !iswalpha(prev_in)) {
 			utf8_in(&next2, &ptr[1]);
 
-			if ((c == '\'') && IsSpace(next2)) {
+			if (IsSpace(next2)) {
 				if ((next_in == 'n') && (tr->translator_name == L('a', 'f'))) {
 					// n preceded by either apostrophe or U2019 "right single quotation mark"
 					ptr[0] = ' '; // delete the n
@@ -1987,6 +1989,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	if (tr == NULL)
 		return;
 
+	MAKE_MEM_UNDEFINED(&voice_change_name, sizeof(voice_change_name));
+
 	embedded_ix = 0;
 	embedded_read = 0;
 	pre_pause = 0;
@@ -1998,6 +2002,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 	for (ix = 0; ix < N_TR_SOURCE; ix++)
 		charix[ix] = 0;
+	MAKE_MEM_UNDEFINED(&source, sizeof(source));
 	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone, voice_change_name);
 
 	if (tone_out != NULL) {
@@ -2045,6 +2050,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		}
 	}
 
+	MAKE_MEM_UNDEFINED(&ph_list2, sizeof(ph_list2));
 	memset(&ph_list2[0], 0, sizeof(ph_list2[0]));
 	ph_list2[0].phcode = phonPAUSE_SHORT;
 
@@ -2107,12 +2113,15 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			source_index += utf8_in(&cc, &source[source_index]);
 			c = cc;
 		}
-		next_in_nbytes = utf8_in(&next_in, &source[source_index]);
 
 		if (c == 0) {
 			finished = true;
 			c = ' ';
+			next_in = ' ';
+			next_in_nbytes = 0;
 		}
+		else
+			next_in_nbytes = utf8_in(&next_in, &source[source_index]);
 
 		if (c == CTRL_EMBEDDED) {
 			// start of embedded command in the text

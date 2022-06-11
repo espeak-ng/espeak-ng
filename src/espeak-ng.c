@@ -143,7 +143,7 @@ static void DisplayVoices(FILE *f_out, char *language)
 	const espeak_VOICE **voices;
 	espeak_VOICE voice_select;
 
-	static char genders[4] = { '-', 'M', 'F', '-' };
+	static const char genders[4] = { '-', 'M', 'F', '-' };
 
 	if ((language != NULL) && (language[0] != 0)) {
 		// display only voices for the specified language, in order of priority
@@ -201,7 +201,7 @@ static void Write4Bytes(FILE *f, int value)
 
 static int OpenWavFile(char *path, int rate)
 {
-	static unsigned char wave_hdr[44] = {
+	static const unsigned char wave_hdr[44] = {
 		'R', 'I', 'F', 'F', 0x24, 0xf0, 0xff, 0x7f, 'W', 'A', 'V', 'E', 'f', 'm', 't', ' ',
 		0x10, 0, 0, 0, 1, 0, 1, 0,  9, 0x3d, 0, 0, 0x12, 0x7a, 0, 0,
 		2, 0, 0x10, 0, 'd', 'a', 't', 'a',  0x00, 0xf0, 0xff, 0x7f
@@ -304,7 +304,7 @@ static void PrintVersion()
 
 int main(int argc, char **argv)
 {
-	static struct option long_options[] = {
+	static const struct option long_options[] = {
 		{ "help",    no_argument,       0, 'h' },
 		{ "stdin",   no_argument,       0, 0x100 },
 		{ "compile-debug", optional_argument, 0, 0x101 },

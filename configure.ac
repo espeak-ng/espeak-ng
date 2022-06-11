@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([eSpeak NG], [1.51-dev], [https://github.com/espeak-ng/espeak-ng/issues], [espeak-ng], [https://github.com/espeak-ng/espeak-ng])
+AC_INIT([eSpeak NG], [1.52-dev], [https://github.com/espeak-ng/espeak-ng/issues], [espeak-ng], [https://github.com/espeak-ng/espeak-ng])
 AM_INIT_AUTOMAKE()
 LT_INIT
 
@@ -49,15 +49,15 @@ AC_ARG_WITH([async],
     [])
 
 AC_ARG_WITH([extdict-ru],
-    [AS_HELP_STRING([--with-extdict-ru], [use the extended Russian Dictionary file @<:@default=no@:>@])],
+    [AS_HELP_STRING([--with-extdict-ru], [use the extended Russian Dictionary file @<:@default=yes@:>@])],
     [])
 
 AC_ARG_WITH([extdict-cmn],
-    [AS_HELP_STRING([--with-extdict-cmn], [use the extended Mandarin Chinese Dictionary file @<:@default=no@:>@])],
+    [AS_HELP_STRING([--with-extdict-cmn], [use the extended Mandarin Chinese Dictionary file @<:@default=yes@:>@])],
     [])
 
 AC_ARG_WITH([extdict-yue],
-    [AS_HELP_STRING([--with-extdict-yue], [use the extended Cantonese Chinese Dictionary file @<:@default=no@:>@])],
+    [AS_HELP_STRING([--with-extdict-yue], [use the extended Cantonese Chinese Dictionary file @<:@default=yes@:>@])],
     [])
 
 AC_ARG_WITH([libfuzzer],
@@ -73,8 +73,6 @@ AC_PROG_CXX
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 AC_PROG_LN_S
-
-AC_CHECK_PROG(NDKBUILD_CHECK,[ndk-build],yes)
 
 dnl ================================================================
 dnl gradle checks.
@@ -99,7 +97,7 @@ AC_LANG_PUSH(C)
 AC_MSG_CHECKING([if $CC supports C99 without any flags])
 AC_COMPILE_IFELSE(
 	[AC_LANG_PROGRAM(
-		[[static inline int c99_restrict(int *restrict c99_restrict) {}]],
+		[[static inline void c99_restrict(int *restrict c99_restrict) {}]],
 		[[]])],
 	[AC_MSG_RESULT([yes])
 	 have_c99_native=yes],
@@ -113,7 +111,7 @@ CFLAGS="$CFLAGS -std=c99"
 AC_MSG_CHECKING([if $CC supports C99 with the -std=c99 flag])
 AC_COMPILE_IFELSE(
 	[AC_LANG_PROGRAM(
-		[[static inline int c99_restrict(int *restrict c99_restrict) {}]],
+		[[static inline void c99_restrict(int *restrict c99_restrict) {}]],
 		[[]])],
 	[AC_MSG_RESULT([yes])
 	 have_c99_c99=yes],
@@ -250,6 +248,8 @@ else
         ])
 fi
 
+AC_CHECK_HEADERS([valgrind/memcheck.h])
+
 if test "$with_async" = "no" ; then
 	have_async=no
 else
@@ -275,22 +275,22 @@ dnl ================================================================
 dnl Extended dictionary checks.
 dnl ================================================================
 
-if test "$with_extdict_ru" = "yes" ; then
-	have_extdict_ru=yes
-else
+if test "$with_extdict_ru" = "no" ; then
 	have_extdict_ru=no
+else
+	have_extdict_ru=yes
 fi
 
-if test "$with_extdict_cmn" = "yes" ; then
-	have_extdict_cmn=yes
-else
+if test "$with_extdict_cmn" = "no" ; then
 	have_extdict_cmn=no
+else
+	have_extdict_cmn=yes
 fi
 
-if test "$with_extdict_yue" = "yes" ; then
-	have_extdict_yue=yes
-else
+if test "$with_extdict_yue" = "no" ; then
 	have_extdict_yue=no
+else
+	have_extdict_yue=yes
 fi
 
 AM_CONDITIONAL(HAVE_RU_EXTENDED_DICTIONARY,  [test x"$have_extdict_ru"  = xyes])
@@ -360,7 +360,6 @@ AC_MSG_NOTICE([
         PCAudioLib:                    ${have_pcaudiolib}
 
         gradle (Android):              ${GRADLE}
-        ndk-build (Android):           ${NDKBUILD_CHECK}
 
         Klatt:                         ${have_klatt}
         speechPlayer:                  ${have_speechplayer}

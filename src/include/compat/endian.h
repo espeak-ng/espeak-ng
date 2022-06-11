@@ -18,6 +18,7 @@
 
 #ifndef ENDIAN_H_COMPAT_SHIM
 #define ENDIAN_H_COMPAT_SHIM
+#pragma once
 
 #if defined(HAVE_ENDIAN_H)
 #	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
@@ -66,7 +67,6 @@
 #	define __PDP_ENDIAN    PDP_ENDIAN
 #elif defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
 #	if BYTE_ORDER == LITTLE_ENDIAN
-#		include <winsock2.h>
 
 #		define htobe16(x) htons(x)
 #		define htole16(x) (x)

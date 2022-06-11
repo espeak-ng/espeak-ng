@@ -9,7 +9,19 @@ _6      luk6||
 _7      cat1||
 _8      baat3||
 _9      gau2||
-
+_1X     sap6||
+_2X     ji6sap6||
+_3X     saam7sap6||
+_4X     sei3sap6||
+_5X     ng5sap6||
+_6X     luk6sap6||
+_7X     cat1sap6||
+_8X     baat3sap6||
+_9X     gau2sap6||
+_0C     baak3||
+_0M1    cin1||                 // 1,000
+_0M2    baak3maan6||             // 10,000
+_0M3    jik1||                     // 100,000,000
 // Character column of following list is the same as zh_list
 // corresponding jyutping is generated using online tool
 // https://cantonesetojyutping.appspot.com/canto 

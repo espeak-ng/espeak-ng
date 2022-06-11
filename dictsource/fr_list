@@ -382,7 +382,7 @@ xy		$abbrev
 
 dr               doktYr       $dot $capital
 prof                           $dot
-pr		professeur $text *dot $capital
+pr		professeur $text $dot $capital
 
 
 // articles

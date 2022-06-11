@@ -38,6 +38,7 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "speech.h"
 
 const unsigned char pause_phonemes[8] = {
 	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
@@ -66,13 +67,16 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 			deleted_sourceix = -1;
 		}
 
+		if (plist2->phcode == phonSWITCH)
+			SelectPhonemeTable(plist2->tone_ph);
+
 		// don't do any substitution if the language has been temporarily changed
 		if (!(plist2->synthflags & SFLAG_SWITCHED_LANG)) {
 			if (ix < (n_ph_list2 -1))
 				next = phoneme_tab[ph_list2[ix+1].phcode];
 
 			word_end = false;
-			if ((plist2+1)->sourceix || ((next != 0) && (next->type == phPAUSE)))
+			if (ix == n_ph_list2 -1 || (plist2+1)->sourceix || ((next != 0) && (next->type == phPAUSE)))
 				word_end = true; // this phoneme is the end of a word
 
 			// check whether a Voice has specified that we should replace this phoneme
@@ -147,6 +151,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	plist2 = ph_list2;
 	phlist = phoneme_list;
 	end_sourceix = plist2[n_ph_list2-1].sourceix;
+	MAKE_MEM_UNDEFINED(&phoneme_list, sizeof(phoneme_list));
 
 	// is the last word of the clause unstressed ?
 	max_stress = 0;
@@ -205,6 +210,8 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	}
 	n_ph_list2 -= delete_count;
 
+	SelectPhonemeTable(current_phoneme_tab);
+
 	if ((regression = tr->langopts.param[LOPT_REGRESSIVE_VOICING]) != 0) {
 		// set consonant clusters to all voiced or all unvoiced
 		// Regressive
@@ -213,6 +220,17 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		voicing = 0;
 
 		for (j = n_ph_list2-1; j >= 0; j--) {
+			if (plist2[j].phcode == phonSWITCH) {
+				/* Find previous phonSWITCH to determine language we're switching back to */
+				int k;
+				for (k = j-1; k >= 0; k--)
+					if (plist2[k].phcode == phonSWITCH)
+						break;
+				if (k >= 0)
+					SelectPhonemeTable(plist2[k].tone_ph);
+				else
+					SelectPhonemeTable(tr->phoneme_tab_ix);
+			}
 			ph = phoneme_tab[plist2[j].phcode];
 			if (ph == NULL)
 				continue;
@@ -443,7 +461,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 
 		if ((plist3+1)->synthflags & SFLAG_LENGTHEN) {
-			static char types_double[] = { phFRICATIVE, phVFRICATIVE, phNASAL, phLIQUID, 0 };
+			static const char types_double[] = { phFRICATIVE, phVFRICATIVE, phNASAL, phLIQUID, 0 };
 			if ((j > 0) && (strchr(types_double, next->type))) {
 				// lengthen this consonant by doubling it
 				// BUT, can't insert a phoneme at position plist3[0] because it crashes PrevPh()
@@ -557,13 +575,17 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	phlist[ix].length = post_pause; // length of the pause, depends on the punctuation
 	phlist[ix].sourceix = end_sourceix;
 	phlist[ix].synthflags = 0;
+	phlist[ix].prepause = 0;
 	phlist[ix++].ph = phoneme_tab[phonPAUSE];
+
+	phlist[ix].newword = 0;
 
 	phlist[ix].phcode = phonPAUSE;
 	phlist[ix].type = phPAUSE;
 	phlist[ix].length = 0;
 	phlist[ix].sourceix = 0;
 	phlist[ix].synthflags = 0;
+	phlist[ix].prepause = 0;
 	phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
 
 	n_phoneme_list = ix;
