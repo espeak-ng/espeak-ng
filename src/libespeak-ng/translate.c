@@ -342,7 +342,7 @@ int utf8_out(unsigned int c, char *buf)
 	int n_bytes;
 	int j;
 	int shift;
-	static char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
+	static const char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
 
 	if (c < 0x80) {
 		buf[0] = c;

@@ -3056,11 +3056,11 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	char ending[50] = {0};
 
 	// these lists are language specific, but are only relevant if the 'e' suffix flag is used
-	static const char *add_e_exceptions[] = {
+	static const char * const add_e_exceptions[] = {
 		"ion", NULL
 	};
 
-	static const char *add_e_additions[] = {
+	static const char * const add_e_additions[] = {
 		"c", "rs", "ir", "ur", "ath", "ns", "u",
 		"spong", // sponge
 		"rang", // strange

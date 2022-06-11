@@ -531,7 +531,7 @@ static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STAC
 		{ NULL,       -1 }
 	};
 
-	static const MNEM_TAB *mnem_tabs[5] = {
+	static const MNEM_TAB * const mnem_tabs[5] = {
 		NULL, mnem_rate, mnem_volume, mnem_pitch, mnem_range
 	};
 
@@ -648,7 +648,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		{ NULL,      -1 }
 	};
 
-	static const char *prosody_attr[5] = {
+	static const char * const prosody_attr[5] = {
 		NULL, "rate", "volume", "pitch", "range"
 	};
 
