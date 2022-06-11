@@ -35,7 +35,7 @@
 #    include <valgrind/memcheck.h>
 #    define MAKE_MEM_UNDEFINED(addr, len) VALGRIND_MAKE_MEM_UNDEFINED(addr, len)
 #  else
-#    define MAKE_MEM_UNDEFINED(addr, len) ((void) (addr, len))
+#    define MAKE_MEM_UNDEFINED(addr, len) ((void) ((void) addr, len))
 #  endif
 #endif
 
