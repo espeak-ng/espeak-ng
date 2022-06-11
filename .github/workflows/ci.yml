@@ -140,7 +140,7 @@ jobs:
       - name: autoconf
         run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
       - name: run
-        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure && make clean && make && make check && touch success' success
+        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure --without-gradle && make clean && make && make check && touch success' success
 
   distcheck:
 
