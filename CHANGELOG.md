@@ -7,6 +7,10 @@
 
 The espeak-ng project is a fork of the espeak project.
 
+### 1.51.1
+
+* proper android release
+
 ### 1.51
 
 *  Add support for speechPlayer.
