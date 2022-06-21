@@ -1,0 +1,107 @@
+// Translation rules for mto
+// This file is UTF-8 encoded
+
+.L01 a e i o u ä ë ï ö ü
+.L02 m n
+
+.group a
+	a			a
+
+.group ä
+	ä			A
+
+.group e
+	e			e
+
+.group ë
+	ë			@
+
+.group i
+	i			i
+
+.group ï
+	ï			8
+
+.group o
+	o			o
+
+.group ö
+	ö			oU
+
+.group u
+	u			u
+
+.group v
+	v(_			f
+	_)v(o		b
+	j)v			vj
+	v(j			vj
+	v			v
+
+.group s
+	s			s
+
+.group x
+	L01)x		z.
+	L02)x		z.
+	j)x			s.j
+	x(j			s.j	
+	x 			s.
+
+.group j
+	j			h
+
+.group ts
+	%L01)ts		dz
+	L02)ts		dz
+	j)ts		tsj
+	ts(j		tsj
+	ts			ts
+
+.group p
+	L01)p(L01	b
+	L02)p(L01	b
+	p(_			p#
+	j)p			pj
+	p(j			pj
+	p			p
+
+.group t
+	L01)t(L01	d
+	L02)t(L01	d
+	j)t			tj
+	t(j			tj
+	t(_			t#
+	t			t
+
+.group k
+	L01)k(L01	g
+	L02)k(L01	g
+	k(_			k#
+	j)k			kj
+	k(j			kj
+	k			k
+
+.group ꞌ
+	ꞌ			?
+
+.group m
+	j)m			mj
+	m(j			mj
+	m			m
+
+.group n
+	n(p			m
+	n(k			N
+	j)n			nj
+	n(j			nj
+	n			n
+
+.group r
+	r	r
+
+.group l
+	l	l
+
+.group y
+	y	j

@@ -1,0 +1,214 @@
+// This file is UTF8 encoded
+
+// letters
+
+_cap	m'aJ^us
+_?? 	s'imbolo
+_#32	Esp'aTjo
+
+// accent names
+_lig	liQaD'ura
+_acu	aQ'uDo
+_ac2	d'oble||aQ'uDo	
+_brv	br'eBe
+_ced	seD'iJ^a
+_cir	sirkumfl'exo
+_dia	dj'Eresis
+_dac	d'oble||aQ'uDo	
+_dot	p'unto
+_grv	gr'aBe
+_hac	kar'on
+_mcn	makr'on
+_ogo	kol'ita
+_rng	an'iJ^o
+_stk	b'aRR2a
+_tld	t'ilde
+_sup	supE**'indiTe
+_sub	suB'indiTe
+
+
+// names of symbols
+°	grados
+_.	punto
+_,	koma
+_;	p,untoik'oma
+_:	d,osp'untos
+_!	TERR2'araDmiraTj'on
+_?	TERR2'arintERR2,oQaTj'on
+_¡	aBr'iraDmiraTj'on
+_¿	aBr'irintERR2,oQaTj'on
+_<	men'orke
+_>	maJ^'orke
+_'	apostr'ofo
+ꞌ	salt'il^o	$only
+_"	kom'iJ^as
+_-	gJ^on
+__	suBraJ^'aDo
+_/	baRR2a
+_\	b'aRR2aimbErt'iDa
+_`	aT'Ento||gr'aBe
+_´	aT'Ento||aQ'uDo
+_(	,aBrepar'Entesis
+_)	Tj,ERR2apar'Entesis
+_[	,aBrekortS'ete
+_]	Tj,ERR2akortS'ete
+_{	,aBreJ^'aBe
+_}	Tj,ERR2aJ^'aBe
+_«	kom'iJ^as||iTkJ^'ErDas
+_»	kom'iJ^as||dEr'EtSas
+=	iQw'al
++	m'as  
+#	almoaD'iJ^a  
+*	astEr'isko  
+.	punto  
+^	Tirkumfl'exo
+₠	'eU*o
+€	eUro
+%	porTj'Ento  
+&	ampErs'ant
+@	aRR2'oBa
+/	baRR2a
+©	kopiRR2'aIt
+£	liBras
+¶	p'aRR2afo
+§	sEkTj'on
+¬	n'ot
+·	p'unto||m'edjo
+
+// Language names
+
+_cyr	Ti*'iliko_
+_hy	arm'enjo
+_he	eB@-*'Eo
+_ar	'a*aBe
+_hi	'i:ndi
+_bn	beNg,al'i_
+_ta	t'amil
+_te	tel'ugu
+_si	TiNgal'es
+_th	t'a:i
+_my	birm'ano
+_ja	x,apon'Es
+_zh	tS'ino
+
+// numbers
+_0	nitija
+_1	toU?k#
+_2	mahtsk#
+_3	toUoUhk#
+_4	mAktAAz.k#
+_5	mugooz.k#
+_6	toUht8k#
+_7	vuz.toUht8k#
+_8	toUtoUht8k#
+_9	tAz.toUht8k#
+_1X	mAhk#
+_2x	ii?p
+_3X	mAhk#ii?p
+_4X	v8htkup
+_5X	v8htkupmAhk#
+_6X	toUoUhk#ii?p
+_7X	toUoUhk#ii?pmAhk#
+_8X	mAktAAz.k#ii?p
+_9X	mAktAAz.k#ii?pmAhk#
+_0C	mugooz.k#ii?p
+_dpt	koma
+_roman	Rom'ano
+
+// ordinal numbers
+_#º	o
+_#ª	a
+_ord	mu
+ºc	gr'ados||T'e
+ºf	gr'ados||'Efe
+ºk	gr'ados||k'a
+
+// Letters (names taken from Spanish)
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+_b	be
+_c	Te
+_d	de
+_f	Efe
+_g	xe
+_h	atSe
+_j	xota
+_k	ka
+_l	Ele
+_m	Eme
+_n	Ene
+_ñ	En^e
+_p	pe
+_q	ku
+_r	Ere
+_s	Ese
+_t	te
+_v	uBe
+_w	uBe||d'oBle
+_x	Ekis
+_z	TEta
+
+_a	a
+_e	e
+_o	o
+_y	igri'eQa
+_á	'a||aTEntw'aDa
+_é	'e||aTEntw'aDa
+_í	'i||aTEntw'aDa
+_ó	'o||aTEntw'aDa
+_ú	'u||aTEntw'aDa
+_ü	'u||kon||dj'ErEsis
+_ç	$accent
+
+// Proper Names and countries
+amsterdam	$3
+bardem	$2
+jerusalem	$4
+méxico       m'Exiko
+vietnam $2
+
+// foreign words
+
+android	'androId
+apple	'ap@l
+copyright	k'opiRR2,aIt
+chrome	kr'owm
+curriculum	$2
+diem	d'i:em $only
+eloquence	'elokwens
+english ínglish      $text
+espeak	'isp'ik
+eyes	'aIs
+facebook f'eIsbuk
+firefox	f'aIrfoks
+free	fr'i
+google	g'ug@l
+hardware h'ardwer
+iphone	'aIfon
+ipod	'aIpod
+jaws	dZ'os
+jazz	dZ'as
+linux        $1
+live l'aIB
+messenger m'esendZer
+microsoft	m'aIkrosoft
+mozilla	moT'ila
+office	'ofis
+platform	pl'atfom
+power	p'awer
+service	s'erBis
+skype	sk'aIp
+snapshot	sn'apS,ot // _^_en
+software	s'oftwer
+spanish      sp'aniS
+speech	sp'itS
+thunderbird	t'anderbird
+twit	tw'it
+twitter	tw'iter
+window	w'indow
+
+(e speak) 'isp'ik
+(i phone)	'aIfon
+(i pod)	'aIpod

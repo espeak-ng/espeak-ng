@@ -1852,6 +1852,9 @@ include ph_kurdish
 phonemetable mi base2
 include ph_maori
 
+phonemetable mto base2
+include ph_mixe_mto
+
 phonemetable nci base2
 include ph_nahuatl
 

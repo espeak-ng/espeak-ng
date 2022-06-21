@@ -1,0 +1,216 @@
+
+//====================================================
+//  Totontepec Mixe
+//====================================================
+
+
+phoneme a
+  ipa a
+  vwl starttype #a endtype #a
+  length 190
+  FMT(vowel/a_4)
+endphoneme
+
+phoneme A
+  ipa ɑ
+  vwl starttype #a endtype #a
+  length 220
+  unr bck low
+  FMT(vowel/aa_8)
+endphoneme
+
+phoneme e
+  ipa e
+  vwl starttype #e endtype #e
+  length 190
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme @
+  ipa ə
+  vwl   starttype #@  endtype #@
+  unstressed
+  length 140
+  unr cnt mid
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6, 90)
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
+phoneme i
+  ipa i
+  vwl starttype #i endtype #i
+  length 190
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+phoneme 8
+  ipa ɘ
+  vwl starttype #@ endtype #@
+  length 165
+  FMT(vowel/8_7)
+endphoneme
+
+phoneme o
+  ipa o
+  vwl starttype #o endtype #o
+  length 195
+  FMT(vowel/oo)
+endphoneme
+
+phoneme oU
+  ipa əʊ
+  vwl  starttype #@  endtype #u
+  length 220
+  FMT(vdiph/@u_en)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme k
+  import_phoneme consonants/k-
+endphoneme
+
+phoneme k#
+  import_phoneme consonants/k#
+endphoneme
+
+phoneme g
+  ipa g
+  vcd vel stp
+  lengthmod 5
+  voicingswitch k
+  Vowelin  f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  FMT(g/g) addWav(x/g2)        // weaker [g]
+endphoneme
+
+phoneme t
+  import_phoneme base1/t[
+endphoneme
+
+phoneme T // Used in Spanish words
+  import_phoneme base1/T
+endphoneme
+
+phoneme t#
+  ipa tʰ
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme d
+  import_phoneme base2/d
+endphoneme
+
+phoneme p
+  import_phoneme consonants/p-
+endphoneme
+
+phoneme p#
+  import_phoneme consonants/ph
+endphoneme
+
+phoneme b
+  import_phoneme base1/b
+endphoneme
+
+phoneme v
+  ipa v
+  vcd lbd frc
+  FMT(voc/v) addWav(vocw/v, 90)
+endphoneme
+
+phoneme f 
+  ipa f 
+  vls lbd frc
+  WAV(ufric/f, 80)
+endphoneme
+
+phoneme s
+  ipa s
+  vls alv frc sib
+  lengthmod 3
+  voicingswitch  z
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_, 60)    // quieter 's' at end of word
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!)
+  ENDIF
+  WAV(ufric/s, 80)
+endphoneme
+
+phoneme s.
+  import_phoneme base1/s.
+endphoneme
+
+phoneme z.
+  import_phoneme base1/z.
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme dz
+  import_phoneme consonants/dz
+endphoneme
+
+phoneme m
+  import_phoneme base1/m-
+endphoneme
+
+phoneme n
+  import_phoneme base1/n-
+endphoneme
+
+phoneme N
+  import_phoneme base1/N-
+endphoneme
+
+phoneme r
+  import_phoneme base1/*
+endphoneme
+
+phoneme l
+  import_phoneme base1/l
+endphoneme
+
+phoneme j
+  import_phoneme base1/j
+endphoneme
+
+phoneme C
+  import_phoneme base1/C
+endphoneme
+
+phoneme ?
+  ipa ʔ
+  vls glt stp
+  lengthmod 1   // 5? longer preceding vowel
+  nolink
+  Vowelin  glstop
+  Vowelout glstop
+  WAV(ustop/null)
+endphoneme
+
+phoneme h
+  import_phoneme base1/h
+endphoneme
