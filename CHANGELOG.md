@@ -20,6 +20,7 @@ updated languages:
 *  be (Belarusian) --  Andiv06
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
+*  he (Hebrew) -- Omer I.S
 *  kl (Greenlandic) -- Andiv06
 *  qdb (Lang Belta) -- Andiv06
 *  quc (K'iche') -- Andiv06
