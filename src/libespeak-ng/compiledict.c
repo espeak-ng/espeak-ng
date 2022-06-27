@@ -21,7 +21,6 @@
 #include "config.h"
 
 #include <ctype.h>
-#include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -35,7 +34,6 @@
 
 #include "compiledict.h"
 #include "dictionary.h"           // for EncodePhonemes, strncpy0, HashDicti...
-#include "error.h"                // for create_file_error_context
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"              // for PHONEME_TAB_LIST, phonSWITCH, phone...
 #include "readclause.h"           // for towlower2
@@ -1338,7 +1336,7 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 	group_name[0] = 0;
 
 	if ((f_temp = fopen(fname_temp, "wb")) == NULL)
-		return create_file_error_context(context, errno, fname_temp);
+		return create_file_error_context(context, ENS_COMPILE_ERROR, fname_temp);
 
 	for (;;) {
 		linenum++;
@@ -1475,7 +1473,7 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 
 	if ((f_temp = fopen(fname_temp, "rb")) == NULL) {
 		free_rules(rules, n_rules);
-		return create_file_error_context(context, errno, fname_temp);
+		return create_file_error_context(context, ENS_COMPILE_ERROR, fname_temp);
 	}
 
 	prev_rgroup_name = "\n";
