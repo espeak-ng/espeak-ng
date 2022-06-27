@@ -16,6 +16,10 @@ updated languages:
 *  es (Spanish) -- Sukil Etxenike
 *  it (Italian) -- Christian Leo Mameli
 *  ro (Romanian) -- Andiv06
+*  be (Belarusian) --  Andiv06
+*  en (English) -- Bill Dengler
+*  es (Spanish) -- Sukil Etxenike
+*  kl (Greenlandic) -- Andiv06
 
 ### 1.51
 
