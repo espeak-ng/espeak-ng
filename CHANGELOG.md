@@ -10,6 +10,7 @@ The espeak-ng project is a fork of the espeak project.
 ### 1.52 (In Development)
 
 updated languages:
+*  ba (Bashkir) -- Andiv06
 *  be (Belarusian) -- Andiv06
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
