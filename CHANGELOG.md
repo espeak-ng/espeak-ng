@@ -13,6 +13,7 @@ updated languages:
 *  be (Belarusian) -- Andiv06
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
+*  ro (Romanian) -- Andiv06
 
 ### 1.51
 
