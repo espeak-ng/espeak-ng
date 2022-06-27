@@ -2061,3 +2061,5 @@ include ph_langbelta
 
 phonemetable be ru
 include ph_belarusian
+
+phonemetable ms id
