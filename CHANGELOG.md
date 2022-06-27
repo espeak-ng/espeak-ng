@@ -20,6 +20,7 @@ updated languages:
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
 *  kl (Greenlandic) -- Andiv06
+*  quc (K'iche') -- Andiv06
 
 ### 1.51
 
