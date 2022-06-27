@@ -14,6 +14,7 @@ updated languages:
 *  be (Belarusian) -- Andiv06
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
+*  fa (Persian) -- MH
 *  it (Italian) -- Christian Leo Mameli
 *  ro (Romanian) -- Andiv06
 *  be (Belarusian) --  Andiv06
