@@ -17,6 +17,7 @@
        אוּי        ui
        אָ        o
        אָ        a
+       אה        a
 
 .group ב
        ב        v
@@ -41,19 +42,34 @@
        בּוּ        bu
        בׇּ        bo
        בָּ        ba
+       בה        va
 
 .group ג
        ג        g
+       גּ        g
        גַ        ga
+       גַּ        ga
        גֵ        ge
+       גֵּ        ge
        גֶ        ge
+       גֶּ        ge
        גְ        g
+       גְּ        g
        גִ        gi
+       גִּ        gi
        גוֹ        go
+       גּוֹ        go
        גי        gi
+       גִּי        gi
        גוּ        gu
+       גּוּ        gu
+       גֻ        gu
+       גֻּ        gu
        גׇ        go
+       גׇּ        go
        גָ        ga
+       גָּ        ga
+       גה        ga
        ג'        dZ
        גַ'        dZa
        גֵ'        dZe
@@ -76,6 +92,8 @@
        דוֹ        do
        די        di
        דוּ        du
+       דו        du
+       דה        da
        דׇ        do
        דָ        da
        דּ        d
@@ -92,17 +110,19 @@
        דָ'        Da
 
 .group ה
-       ה        ?
-       הַ        a
-       הֵ        e
-       הֶ        e
+       ה        h
+       הַ        ha
+       הֵ        he
+       הֶ        he
+       הֱ        he
        הְ        h
-       הִ        i
-       הוֹ        o
-       הי        i
-       הוּ        u
-       הׇ        o
-       הָ        a
+       הִ        hi
+       הוֹ        ho
+       הי        hi
+       הוּ        hu
+       הׇ        ho
+       הָ        ha
+       הּ        h
 
 .group ו
        ו        v
@@ -148,6 +168,7 @@
        חוּ        Xu
        חׇ        Xo
        חָ        Xa
+       חה        Xa
 
 .group ט
        ט        t
@@ -161,6 +182,7 @@
        טוּ        tu
        טׇ        to
        טָ        ta
+       טה        ta
 
 .group י
        י        j
@@ -195,6 +217,8 @@
        ך        X
        ךָ        Xa
        ךְ        X
+       ךָּ        ka
+       ךְּ        k
 
 .group ל
        ל        l
@@ -208,6 +232,7 @@
        לוּ        lu
        לׇ        lo
        לָ        la
+       לה        la
 
 .group מ
        מ        m
@@ -221,6 +246,7 @@
        מוּ        mu
        מׇ        mo
        מָ        ma
+       מה        ma
 
 .group ם
        ם        m
@@ -237,6 +263,7 @@
        נוּ        nu
        נׇ        no
        נָ        na
+       נה        na
        נג        N
 
 .group ן
@@ -254,11 +281,13 @@
        סוּ        su
        סׇ        so
        סָ        sa
+       סה        sa
 
 .group ע
        ע        ?
        עַ        aa
        עַי        ai
+       עיי        ai
        עֵ        e
        עֶ        e
        עֶי        ei
@@ -271,6 +300,7 @@
        עוּי        ui
        עָ        o
        עָ        a
+       עה        a
 
 .group פ
        פ        f
@@ -298,6 +328,7 @@
 
 .group ף
        ף        f
+       ףּ        p
 
 .group צ
        צ        ts
@@ -309,6 +340,7 @@
        צוֹ        tso
        צי        tsi
        צוּ        tsu
+       צה        tsa
        צׇ        tso
        צָ        tsa
        צ'        tS
@@ -322,6 +354,7 @@
        צ'וּ        tSu
        צׇ'        tSo
        צָ'        tSa
+       צ'ה        tSa
 
 .group ץ
        ץ        ts
@@ -339,6 +372,7 @@
        קוּ        ku
        קׇ        ko
        קָ        ka
+       קה        ka
 
 .group ר
        ר        Q"
@@ -352,6 +386,7 @@
        רוּ        Q"u
        רׇ        Q"o
        רָ        Q"a
+       רה        Q"a
 
 .group ש
        ש        S
@@ -377,6 +412,7 @@
        שׂוּ        su
        שׇׂ        so
        שָׂ        sa
+       שה        Sa
 
 .group ת
        ת        t
@@ -402,6 +438,7 @@
        ת'וּ        Tu
        תׇ'        To
        תָ'        Ta
+       תה        ta
 
 .group ׇ
 	ׇ	o

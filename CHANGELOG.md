@@ -15,6 +15,7 @@ updated languages:
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
 *  fa (Persian) -- MH
+*  he (Hebrew) -- Omer I.S
 *  it (Italian) -- Christian Leo Mameli
 *  ro (Romanian) -- Andiv06
 *  be (Belarusian) --  Andiv06
