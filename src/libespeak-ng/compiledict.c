@@ -1551,14 +1551,13 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	if ((f_in = fopen(fname_in, "r")) == NULL) {
 		sprintf(fname_in, "%srules", path);
 		if ((f_in = fopen(fname_in, "r")) == NULL)
-			return create_file_error_context(context, errno, fname_in);
+			return create_file_error_context(context, ENS_COMPILE_ERROR, fname_in);
 	}
 
 	sprintf(fname_out, "%s%c%s_dict", path_home, PATHSEP, dict_name);
 	if ((f_out = fopen(fname_out, "wb+")) == NULL) {
-		int error = errno;
 		fclose(f_in);
-		return create_file_error_context(context, error, fname_out);
+		return create_file_error_context(context, ENS_COMPILE_ERROR, fname_out);
 	}
 	/* Use dictionary-specific temp names to allow parallel compilation
 	 * of multiple ductionaries. */
