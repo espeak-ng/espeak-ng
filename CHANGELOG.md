@@ -14,6 +14,7 @@ updated languages:
 *  be (Belarusian) -- Andiv06
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
+*  it (Italian) -- Christian Leo Mameli
 
 ### 1.51
 
