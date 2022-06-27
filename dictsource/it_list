@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2021 December  22 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2022 april  30 by Christian Leo Mameli, <llajta2012ATgmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -740,7 +740,7 @@ abbiamo	$u+	$verbf
 abbiate	$u+
 abbiano	$1	$verbf
 avessi	av'es:i	$verbf
-avesse	av'es:i $verbf
+avesse	av'es:e $verbf
 avessimo	$u+	$verbf
 aveste	av'este $verbf
 avessero	$u+	$verbf
@@ -2343,6 +2343,7 @@ beatle	b'i:tol
 beccaria $3
 beethoven	be:t'o:ven
 benetton	$3
+benjamin	$1
 bergomi	$1
 behringer	b'e:RiNg,E@-*
 bertold  $alt
@@ -2367,6 +2368,7 @@ carey	_^_en
 carmel	$2
 cassano	$2
 casula	$2
+catherine	_^_EN
 catia	k'a:tia
 celentano	$3
 cesare $1
@@ -2696,6 +2698,7 @@ vainer	v'aIne@-*	$only
 valeria	$2 $alt2
 valter	$1 $onlys
 van	$u $capital $only
+vanzetti	vandz'Et:i
 vazquez	vask'Ets
 vedder	$1 $onlys
 vermouth	v'E@-*mut
@@ -3022,6 +3025,7 @@ avvalere	$3
 avvantaggiano	$3
 avvantaggino	$3
 avvelenino	$3
+avventurano	$3
 avver	$2
 avverano	$2
 avverino	$2
@@ -3068,7 +3072,7 @@ boccino	$1
 boicottino	$3
 bombardano	$2
 bombardino	$2
-brahmano	$1
+bramano	$1
 bramino	$1
 brancolano	$1
 brancolino	$1
@@ -4111,6 +4115,7 @@ preoccupano	$2
 preoccupino	$2
 preordin	$2
 preparano	$2
+prescegliere	$2
 presentino	$2
 presenziano	$2
 pressino	$1
@@ -4132,9 +4137,10 @@ producano	$2
 profilano	$2
 programmano	$2
 proiettino	$3
+prolunghino	$2
 pronuncino	$2
 propinino	$2
-	proponere	$3 $alt
+proponere	$3 $alt
 propugnano	$2
 prorogano	$1
 prosciughino	$2
@@ -4194,7 +4200,7 @@ ravvedere	$3
 ravvisano	$2
 ravvisino	$2
 razziano	$1
-razziavano	$3
+razziavano	$2
 reagii	@-*eadZ'i:j
 realizzino	$3
 recano	$1
@@ -4442,6 +4448,8 @@ scannino	$1
 scantono	$2
 scappano	$1
 scappino	$1
+scarcer	$1
+scarcerano	$1
 scardin	$1
 scaricano	$1
 scarichino	$1
@@ -5041,6 +5049,7 @@ dirigiti	$2
 disabilital	$3
 disconnettiti	$3
 disegnaci	$2
+dissolversi	$2
 distintasi	$2
 distintosi	$2
 domandatel	$3
