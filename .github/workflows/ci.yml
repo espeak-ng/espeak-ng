@@ -206,7 +206,7 @@ jobs:
     - name: make
       run: make -j
     - name: Fuzz function syth_espeak()
-      run:   FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+      run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the test suite log
       if: ${{ always() }} # store the test suite log even if the tests failed
       uses: actions/upload-artifact@v2
