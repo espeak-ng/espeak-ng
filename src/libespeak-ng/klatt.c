@@ -483,7 +483,7 @@ void KlattFini(void)
 static void frame_init(klatt_frame_ptr frame)
 {
 	double amp_par[7];
-	static double amp_par_factor[7] = { 0.6, 0.4, 0.15, 0.06, 0.04, 0.022, 0.03 };
+	static const double amp_par_factor[7] = { 0.6, 0.4, 0.15, 0.06, 0.04, 0.022, 0.03 };
 	long Gain0_tmp;
 	int ix;
 
@@ -552,7 +552,7 @@ static void frame_init(klatt_frame_ptr frame)
 
 static double impulsive_source()
 {
-	static double doublet[] = { 0.0, 13000000.0, -13000000.0 };
+	static const double doublet[] = { 0.0, 13000000.0, -13000000.0 };
 	static double vwave;
 
 	if (kt_globals.nper < 3)
@@ -623,7 +623,7 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 	long temp;
 	double temp1;
 	static long skew;
-	static short B0[224] = {
+	static const short B0[224] = {
 		1200, 1142, 1088, 1038, 991, 948, 907, 869, 833, 799, 768, 738, 710, 683, 658,
 		 634,  612,  590,  570, 551, 533, 515, 499, 483, 468, 454, 440, 427, 415, 403,
 		 391,  380,  370,  360, 350, 341, 332, 323, 315, 307, 300, 292, 285, 278, 272,
@@ -836,7 +836,7 @@ static double gen_noise(double noise)
 
 static double DBtoLIN(long dB)
 {
-	static short amptable[88] = {
+	static const short amptable[88] = {
 		   0,      0,     0,     0,     0,     0,     0,    0,     0,    0,   0,   0,  0, 6, 7,
 		   8,      9,    10,    11,    13,    14,    16,   18,    20,   22,  25,  28, 32,
 		   35,    40,    45,    51,    57,    64,    71,   80,    90,  101, 114, 128,
@@ -1076,10 +1076,10 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 void KlattInit()
 {
 
-	static short formant_hz[10] = { 280, 688, 1064, 2806, 3260, 3700, 6500, 7000, 8000, 280 };
-	static short bandwidth[10] = { 89, 160, 70, 160, 200, 200, 500, 500, 500, 89 };
-	static short parallel_amp[10] = { 0, 59, 59, 59, 59, 59, 59, 0, 0, 0 };
-	static short parallel_bw[10] = { 59, 59, 89, 149, 200, 200, 500, 0, 0, 0 };
+	static const short formant_hz[10] = { 280, 688, 1064, 2806, 3260, 3700, 6500, 7000, 8000, 280 };
+	static const short bandwidth[10] = { 89, 160, 70, 160, 200, 200, 500, 500, 500, 89 };
+	static const short parallel_amp[10] = { 0, 59, 59, 59, 59, 59, 59, 0, 0, 0 };
+	static const short parallel_bw[10] = { 59, 59, 89, 149, 200, 200, 500, 0, 0, 0 };
 
 	int ix;
 

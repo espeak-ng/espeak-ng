@@ -1,29 +1,70 @@
 buildscript {
     repositories {
-        mavenCentral()
-        jcenter()
         google()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.0'
+        classpath 'com.android.tools.build:gradle:7.1.2'
     }
 }
+plugins {
+    id 'org.gradle.crypto.checksum' version '1.4.0'
+}
 
+import org.gradle.crypto.checksum.Checksum
 apply plugin: 'com.android.application'
 
 repositories {
-    mavenCentral()
-    jcenter()
     google()
+    mavenCentral()
 }
+
 
 dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'org.hamcrest:hamcrest-all:1.3'
 }
 
+tasks.register('checkData') {
+    doFirst {
+        assert file("../espeak-ng-data/en_dict").exists()
+        assert file("../espeak-ng-data/intonations").exists()
+        assert file("../espeak-ng-data/phondata").exists()
+        assert file("../espeak-ng-data/phondata-manifest").exists()
+        assert file("../espeak-ng-data/phonindex").exists()
+        assert file("../espeak-ng-data/phontab").exists()
+    }
+}
+
+tasks.register('createDataArchive', Zip) {
+    dependsOn tasks.checkData
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    archiveFileName = "espeakdata.zip"
+    destinationDirectory = file("res/raw")
+
+    from("../espeak-ng-data/") {
+        into "espeak-ng-data"
+    }
+}
+
+tasks.register('createDataHash', Checksum) {
+    dependsOn tasks.createDataArchive
+    checksumAlgorithm.set(Checksum.Algorithm.SHA256)
+    inputFiles.setFrom(file("./res/raw/espeakdata.zip"))
+    outputDirectory.set(layout.buildDirectory.dir('intermediates/datahash'))
+}
+
+tasks.register('createDataVersion', Copy) {
+    dependsOn tasks.createDataHash
+    from layout.buildDirectory.file('intermediates/datahash/espeakdata.zip.sha256')
+    rename { return 'espeakdata_version' }
+    into file("./res/raw")
+}
+preBuild.dependsOn createDataVersion
+
+
 android {
-    buildToolsVersion '28.0.3'
     compileSdkVersion 26
 
     defaultConfig {
@@ -33,12 +74,17 @@ android {
         versionName "1.52-dev"
     }
 
+    externalNativeBuild {
+        ndkBuild {
+            path "jni/Android.mk"
+        }
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
             res.srcDirs = ['res']
-            jniLibs.srcDir 'libs'
         }
         androidTest.setRoot('eSpeakTests')
         androidTest {

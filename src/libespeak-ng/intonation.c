@@ -539,10 +539,10 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, TONE_H
 	int pitch_range;
 	int pitch_range_abs;
 	int *drops;
-	signed char *overflow_tab;
+	const signed char *overflow_tab;
 	SYLLABLE *syl;
 
-	static signed char continue_tab[5] = { -26, 32, 20, 8, 0 };
+	static const signed char continue_tab[5] = { -26, 32, 20, 8, 0 };
 
 	drops = th->body_drops;
 	pitch_range = (th->body_end - th->body_start) * 256;

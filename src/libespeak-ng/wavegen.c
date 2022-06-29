@@ -1172,8 +1172,8 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	int length4;
 	int qix;
 	int cmd;
-	static int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
-	static int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
+	static const int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
+	static const int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
 
 	end_wave = 1;
 

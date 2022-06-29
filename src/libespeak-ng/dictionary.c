@@ -1060,7 +1060,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	char vowel_length[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
 
-	static char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
+	static const char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
 
 	stressflags = tr->langopts.stress_flags;
 
@@ -1226,9 +1226,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		// LANG=Russian
 		if (stressed_syllable == 0) {
 			// no explicit stress - guess the stress from the number of syllables
-			static char guess_ru[16] =   { 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11 };
-			static char guess_ru_v[16] = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10 }; // for final phoneme is a vowel
-			static char guess_ru_t[16] = { 0, 0, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 8, 9, 10 }; // for final phoneme is an unvoiced stop
+			static const char guess_ru[16] =   { 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11 };
+			static const char guess_ru_v[16] = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10 }; // for final phoneme is a vowel
+			static const char guess_ru_t[16] = { 0, 0, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 8, 9, 10 }; // for final phoneme is an unvoiced stop
 
 			stressed_syllable = vowel_count - 3;
 			if (vowel_count < 16) {
@@ -2875,6 +2875,8 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	char word[N_WORD_BYTES];
 	static char word_replacement[N_WORD_BYTES];
 
+	MAKE_MEM_UNDEFINED(&word_replacement, sizeof(word_replacement));
+
 	length = 0;
 	word2 = word1 = *wordptr;
 
@@ -3008,12 +3010,14 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 	if (flags[0] & FLAG_TEXTMODE) {
 		say_as = option_sayas;
 		option_sayas = 0; // don't speak replacement word as letter names
-		// NOTE: TranslateRoman checks text[-2], so pad the start of text to prevent
+		// NOTE: TranslateRoman checks text[-2] and IsLetterGroup looks
+		// for a heading \0, so pad the start of text to prevent
 		// it reading data on the stack.
-		text[0] = ' ';
+		text[0] = 0;
 		text[1] = ' ';
-		strncpy0(text+2, word1, sizeof(text)-2);
-		flags0 = TranslateWord(tr, text+2, NULL, NULL);
+		text[2] = ' ';
+		strncpy0(text+3, word1, sizeof(text)-3);
+		flags0 = TranslateWord(tr, text+3, NULL, NULL);
 		strcpy(ph_out, word_phonemes);
 		option_sayas = say_as;
 	}
@@ -3052,11 +3056,11 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	char ending[50] = {0};
 
 	// these lists are language specific, but are only relevant if the 'e' suffix flag is used
-	static const char *add_e_exceptions[] = {
+	static const char * const add_e_exceptions[] = {
 		"ion", NULL
 	};
 
-	static const char *add_e_additions[] = {
+	static const char * const add_e_additions[] = {
 		"c", "rs", "ir", "ur", "ath", "ns", "u",
 		"spong", // sponge
 		"rang", // strange

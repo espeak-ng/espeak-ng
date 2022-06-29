@@ -342,7 +342,7 @@ int utf8_out(unsigned int c, char *buf)
 	int n_bytes;
 	int j;
 	int shift;
-	static char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
+	static const char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
 
 	if (c < 0x80) {
 		buf[0] = c;
@@ -1574,6 +1574,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 		if (ph_code == phonSWITCH) {
 			ph_list2[n_ph_list2].phcode = ph_code;
+			ph_list2[n_ph_list2].stresslevel = 0;
 			ph_list2[n_ph_list2].sourceix = 0;
 			ph_list2[n_ph_list2].synthflags = 0;
 			ph_list2[n_ph_list2++].tone_ph = *p;
@@ -1987,6 +1988,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 	if (tr == NULL)
 		return;
+
+	MAKE_MEM_UNDEFINED(&voice_change_name, sizeof(voice_change_name));
 
 	embedded_ix = 0;
 	embedded_read = 0;
