@@ -196,7 +196,7 @@ jobs:
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
-      run: CC=clang CXX=clang++ CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure --with-libfuzzer
+      run: CC=clang CXX=clang++ CFLAGS="${{ matrix.archconfigflags }} -g -Og" CXXFLAGS="${{ matrix.archconfigflags }} -g -Og" ./configure --with-libfuzzer
     - name: Store the fuzzer config
       if: ${{ failure() }}
       uses: actions/upload-artifact@v2
