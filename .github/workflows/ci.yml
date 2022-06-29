@@ -172,7 +172,7 @@ jobs:
   fuzzing:
 
     runs-on: ubuntu-latest
-    name: Fuzz synth_espeak on ${{ matrix.arch }}
+    name: Fuzz synth_espeak on ${{ matrix.arch }} for ${{ matrix.lang }}
     strategy:
       fail-fast: false
       matrix:
@@ -201,7 +201,7 @@ jobs:
       if: ${{ failure() }}
       uses: actions/upload-artifact@v2
       with:
-        name: config-${{ matrix.arch }}.log
+        name: config-${{ matrix.arch }}-${{ matrix.lang }}.log
         path: config.log
     - name: make
       run: make -j
@@ -211,5 +211,5 @@ jobs:
       if: ${{ failure() }}
       uses: actions/upload-artifact@v2
       with:
-        name: crash-${{ matrix.arch }}.log
+        name: crash-${{ matrix.arch }}-${{ matrix.lang }}.log
         path: crash-*
