@@ -205,7 +205,7 @@ jobs:
         path: config.log
     - name: make
       run: make -j
-    - name: Fuzz function syth_espeak()
+    - name: Fuzz function synth_espeak()
       run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
@@ -213,8 +213,8 @@ jobs:
       with:
         name: crash-${{ matrix.arch }}-${{ matrix.lang }}.1
         path: crash-*
-    - name: Fuzz function syth_espeak() with language-specific input
-      run:   cp dictsource/${{ matrix.lang }}* tests/fuzzing/CORPUS_DIR/ ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+    - name: Fuzz function synth_espeak() with language-specific input
+      run:   cp dictsource/${{ matrix.lang }}_* tests/fuzzing/CORPUS_DIR/ ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
       uses: actions/upload-artifact@v2
