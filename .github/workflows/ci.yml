@@ -201,15 +201,15 @@ jobs:
       if: ${{ failure() }}
       uses: actions/upload-artifact@v2
       with:
-        name: fuzzer-config-${{ matrix.arch }}.log
-        path: tests/fuzzer-config.log
+        name: config-${{ matrix.arch }}.log
+        path: config.log
     - name: make
       run: make -j
     - name: Fuzz function syth_espeak()
       run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
-    - name: Store the test suite log
-      if: ${{ always() }} # store the test suite log even if the tests failed
+    - name: Store the crash POC
+      if: ${{ failure() }}
       uses: actions/upload-artifact@v2
-      with: 
-        name: config-${{ matrix.arch }}.log
-        path: config.log
+      with:
+        name: crash-${{ matrix.arch }}.log
+        path: crash-*
