@@ -177,7 +177,7 @@ jobs:
       fail-fast: false
       matrix:
         arch: [x86-32, x86-64]
-        lang: [af, am, an, ar, as, az, ba, be, bg, bn, bpy, bs, ca, cmn, cs, cv, da, de, el, en, eo,es, et, eu, fa, fi, fr, ga, gd, gn, gu, hak, haw, he, hi, hr, ht, hu, hy, ia, id, io, is, it, ja, jb, ka, kk, kl, kn, ko, kok, ku, jy, la, lb, lfn, lt, lv, mk, ml, mr, ms, mt, my, nci, ne, nl, nog, om, or, pa, pap, piq, pl, pt, py, qdb, qu, quc, qya, ro, ru, si, sjn, sk, sl, smj, sq, sr, sv, sw, ta, te, th, tk, tn, tr, tt, ug, uk, ur, uz, vi, yue, zh, zhy]
+        lang: [af, am, an, ar, as, az, ba, be, bg, bn, bpy, bs, ca, chr, cmn, cs, cv, cy, da, de, el, en, eo, es, et, eu, fa, fi, fr, ga, gd, gn, grc, gu, hak, haw, he, hi, hr, ht, hu, hy, ia, id, io, is, it, ja, jbo, ka, kk, kl, kn, ko, kok, ku, ky, la, lb, lfn, lt, lv, mi, mk, ml, mr, ms, mt, my, nci, ne, nl, no, nog, om, or, pa, pap, piqd, pl, pt, py, qdb, qu, quc, qya, ro, ru, sd, shn, si, sjn, sk, sl, smj, sq, sr, sv, sw, ta, te, th, tk, tn, tr, tt, ug, uk, ur, uz, vi, yue]
         include:
           - arch: x86-32
             archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
