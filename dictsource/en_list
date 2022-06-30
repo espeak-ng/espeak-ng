@@ -1129,6 +1129,7 @@ blurry		bl3:ri
 boardmember	$1
 bobsled		$alt1
 boing		bOIN
+boise	'bOIsi	$only
 bologna		b@loUni
 bolognese	b0l@n'eIz
 bombard		$2
@@ -2295,6 +2296,7 @@ irises		aIrIsI#z
 iron		aI3n
 isochronous	aIs'0kr@n@s
 isosceles	aIs'0s@li:z
+issaquah 'Is@kwA:
 ?3 issuance	ISu:@ns
 invalidity	I2nv@lIdI#ti
 
@@ -3034,6 +3036,7 @@ psychosis	saIk'oUsIs
 psychotic	saIk'0tIk
 pud		pUd           // and pudding
 pueblo		pwEbloU
+puget pju:dZIt
 punative	pju:n@tIv
 puny		pju:ni
 purist		pjU@Ist
@@ -3258,6 +3261,7 @@ saliva		s@laIv@
 salmon		sam@n
 ?3 salon	$alt3
 saloon		$alt3
+sammamish s@'m'amIS
 san		,san $only
 sanguine	$alt2
 santoor		$alt3
@@ -3403,6 +3407,7 @@ slough		slVf	$verb
 slugabed	slVg@bEd
 snafu		snafu:
 snafus		snafu:z
+snohomish snoU'hoUmIS
 snooker		snu:k3
 sociopath	soUsI@paT
 sofa		soUf@

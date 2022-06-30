@@ -503,6 +503,7 @@ dictionaries: \
 	espeak-ng-data/mr_dict \
 	espeak-ng-data/ms_dict \
 	espeak-ng-data/mt_dict \
+	espeak-ng-data/mto_dict \
 	espeak-ng-data/my_dict \
 	espeak-ng-data/nci_dict \
 	espeak-ng-data/ne_dict \
@@ -764,6 +765,9 @@ espeak-ng-data/ms_dict: dictsource/ms_list dictsource/ms_rules dictsource/ms_ext
 
 mt: espeak-ng-data/mt_dict
 espeak-ng-data/mt_dict: dictsource/mt_list dictsource/mt_rules dictsource/mt_extra
+
+mto: espeak-ng-data/mto_dict
+espeak-ng-data/mto_dict: dictsource/mto_list dictsource/mto_rules
 
 my: espeak-ng-data/my_dict
 espeak-ng-data/my_dict: dictsource/my_list dictsource/my_rules dictsource/my_extra dictsource/my_emoji
