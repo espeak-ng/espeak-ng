@@ -47,6 +47,8 @@
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
 static char translator2_language[20] = { 0 };
+Translator *translator3 = NULL; // tertiary translator for certain words
+static char translator3_language[20] = { 0 };
 
 FILE *f_trans = NULL; // phoneme output text
 int option_tone_flags = 0; // bit 8=emphasize allcaps, bit 9=emphasize penultimate stress
@@ -1206,33 +1208,43 @@ static void Word_EmbeddedCmd()
 	} while (((embedded_cmd & 0x80) == 0) && (embedded_read < embedded_ix));
 }
 
-int SetTranslator2(const char *new_language)
+static int SetAlternateTranslator(const char *new_language, Translator **translator, char translator_language[20])
 {
-	// Set translator2 to a second language
+	// Set alternate translator to a second language
 	int new_phoneme_tab;
 
 	if ((new_phoneme_tab = SelectPhonemeTableName(new_language)) >= 0) {
-		if ((translator2 != NULL) && (strcmp(new_language, translator2_language) != 0)) {
+		if ((*translator != NULL) && (strcmp(new_language, translator_language) != 0)) {
 			// we already have an alternative translator, but not for the required language, delete it
-			DeleteTranslator(translator2);
-			translator2 = NULL;
+			DeleteTranslator(*translator);
+			*translator = NULL;
 		}
 
-		if (translator2 == NULL) {
-			translator2 = SelectTranslator(new_language);
-			strcpy(translator2_language, new_language);
+		if (*translator == NULL) {
+			*translator = SelectTranslator(new_language);
+			strcpy(translator_language, new_language);
 
-			if (LoadDictionary(translator2, translator2->dictionary_name, 0) != 0) {
+			if (LoadDictionary(*translator, (*translator)->dictionary_name, 0) != 0) {
 				SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 				new_phoneme_tab = -1;
-				translator2_language[0] = 0;
+				translator_language[0] = 0;
 			}
-			translator2->phoneme_tab_ix = new_phoneme_tab;
+			(*translator)->phoneme_tab_ix = new_phoneme_tab;
 		}
 	}
-	if (translator2 != NULL)
-		translator2->phonemes_repeat[0] = 0;
+	if (*translator != NULL)
+		(*translator)->phonemes_repeat[0] = 0;
 	return new_phoneme_tab;
+}
+
+int SetTranslator2(const char *new_language)
+{
+	return SetAlternateTranslator(new_language, &translator2, translator2_language);
+}
+
+int SetTranslator3(const char *new_language)
+{
+	return SetAlternateTranslator(new_language, &translator3, translator3_language);
 }
 
 static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pause)

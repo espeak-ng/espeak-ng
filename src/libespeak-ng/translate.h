@@ -649,6 +649,7 @@ extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters t
 
 extern Translator *translator;
 extern Translator *translator2;
+extern Translator *translator3;
 extern char dictionary_name[40];
 extern espeak_ng_TEXT_DECODER *p_decoder;
 extern int dictionary_skipwords;
@@ -679,6 +680,7 @@ ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);
+int SetTranslator3(const char *name);
 void DeleteTranslator(Translator *tr);
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 
