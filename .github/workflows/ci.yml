@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [x86-32, x86-64]
+        arch: [x86-64, x86-32]
         sanitizer: [no, address, leak, memory, thread, undefined, valgrind]
 
         include:
@@ -119,7 +119,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [x86-32, x86-64]
+        arch: [x86-64, x86-32]
 
         include:
           - arch: x86-32
