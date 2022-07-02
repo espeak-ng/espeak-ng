@@ -680,7 +680,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 						option_punctuation = 2;
 					}
 				}
-				c2 = GetC();
+				if (!Eof())
+					c2 = GetC();
 				continue;
 			}
 		}
