@@ -223,14 +223,16 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	char suffix[20];
 	static char output[80];
 
-	static char symbols[] = {
+	MAKE_MEM_UNDEFINED(&output, sizeof(output));
+
+	static const char symbols[] = {
 		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
 		'&', '%', '+', '#', 'S', 'D', 'Z', 'A', 'L', '!',
 		' ', '@', '?', 'J', 'N', 'K', 'V', '?', 'T', 'X',
 		'?', 'W'
 	};
 
-	static char symbols_lg[] = { 'A', 'B', 'C', 'H', 'F', 'G', 'Y' };
+	static const char symbols_lg[] = { 'A', 'B', 'C', 'H', 'F', 'G', 'Y' };
 
 	match_type = 0;
 	buf_pre[0] = 0;
@@ -766,8 +768,8 @@ static int isHexDigit(int c)
 static void copy_rule_string(char *string, int *state_out)
 {
 	// state 0: conditional, 1=pre, 2=match, 3=post, 4=phonemes
-	static char *outbuf[5] = { rule_cond, rule_pre, rule_match, rule_post, rule_phonemes };
-	static int next_state[5] = { 2, 2, 4, 4, 4 };
+	static char * const outbuf[5] = { rule_cond, rule_pre, rule_match, rule_post, rule_phonemes };
+	static const int next_state[5] = { 2, 2, 4, 4, 4 };
 	char *output;
 	char *p;
 	int ix;

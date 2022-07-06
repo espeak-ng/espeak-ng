@@ -187,6 +187,8 @@ const char *WordToString2(unsigned int word)
 	static char buf[5];
 	char *p;
 
+	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
+
 	p = buf;
 	for (ix = 3; ix >= 0; ix--) {
 		if ((*p = word >> (ix*8)) != 0)
@@ -226,6 +228,8 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 	const char *lang_name = NULL;
 	char *string;
 	static char buf[60];
+
+	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	buf[0] = 0;
 	flags[0] = 0;
@@ -335,7 +339,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 		if ((*bufix == 0) || (end_clause == 0) || (tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2)) {
 			punct_count = 1;
-			while ((c2 == c1) && (c1 != '<')) { // don't eat extra '<', it can miss XML tags
+			while (!Eof() && (c2 == c1) && (c1 != '<')) { // don't eat extra '<', it can miss XML tags
 				punct_count++;
 				c2 = GetC();
 			}
@@ -541,8 +545,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		c1 = c2;
 
 		if (ungot_string_ix >= 0) {
-			if (ungot_string[ungot_string_ix] == 0)
+			if (ungot_string[ungot_string_ix] == 0) {
+				MAKE_MEM_UNDEFINED(&ungot_string, sizeof(ungot_string));
 				ungot_string_ix = -1;
+			}
 		}
 
 		if ((ungot_string_ix == 0) && (ungot_char2 == 0))
@@ -647,7 +653,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
  			// an embedded command. If it's a voice change, end the clause
 			if (c2 == 'V') {
 				buf[ix++] = 0; // end the clause at this point
-				while (!iswspace(c1 = GetC()) && !Eof() && (ix < (n_buf-1)))
+				while (!Eof() && !iswspace(c1 = GetC()) && (ix < (n_buf-1)))
 					buf[ix++] = c1; // add voice name to end of buffer, after the text
 				buf[ix++] = 0;
 				return CLAUSE_VOICE;
@@ -657,7 +663,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				strcpy(&buf[ix], "   ");
 				ix += 3;
 
-				if ((c2 = GetC()) == '0')
+				if (!Eof() && (c2 = GetC()) == '0')
 					option_punctuation = 0;
 				else {
 					option_punctuation = 1;
@@ -665,7 +671,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					if (c2 != '1') {
 						// a list of punctuation characters to be spoken, terminated by space
 						j = 0;
-						while (!iswspace(c2) && !Eof()) {
+						while (!Eof() && !iswspace(c2)) {
 							option_punctlist[j++] = c2;
 							c2 = GetC();
 							buf[ix++] = ' ';
@@ -674,7 +680,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 						option_punctuation = 2;
 					}
 				}
-				c2 = GetC();
+				if (!Eof())
+					c2 = GetC();
 				continue;
 			}
 		}
@@ -791,7 +798,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			}
 
 			if ((c1 == '.') && (c2 == '.')) {
-				while ((c_next = GetC()) == '.') {
+				while (!Eof() && (c_next = GetC()) == '.') {
 					// 3 or more dots, replace by elipsis
 					c1 = 0x2026;
 					c2 = ' ';
@@ -808,7 +815,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				// Handling of sequences of ? and ! like ??!?, !!??!, ?!! etc
 				// Use only first char as determinant
 				if(punct_data & (CLAUSE_QUESTION | CLAUSE_EXCLAMATION)) {
-					while(clause_type_from_codepoint(c2) & (CLAUSE_QUESTION | CLAUSE_EXCLAMATION)) {
+					while(!Eof() && clause_type_from_codepoint(c2) & (CLAUSE_QUESTION | CLAUSE_EXCLAMATION)) {
 						c_next = GetC();
 						c2 = c_next;
 					}

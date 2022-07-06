@@ -356,10 +356,10 @@ void VoiceReset(int tone_only)
 	// Set voice to the default values
 
 	int pk;
-	static unsigned char default_heights[N_PEAKS] = { 130, 128, 120, 116, 100, 100, 128, 128, 128 }; // changed for v.1.47
-	static unsigned char default_widths[N_PEAKS] = { 140, 128, 128, 160, 171, 171, 128, 128, 128 };
+	static const unsigned char default_heights[N_PEAKS] = { 130, 128, 120, 116, 100, 100, 128, 128, 128 }; // changed for v.1.47
+	static const unsigned char default_widths[N_PEAKS] = { 140, 128, 128, 160, 171, 171, 128, 128, 128 };
 
-	static int breath_widths[N_PEAKS] = { 0, 200, 200, 400, 400, 400, 600, 600, 600 };
+	static const int breath_widths[N_PEAKS] = { 0, 200, 200, 400, 400, 400, 600, 600, 600 };
 
 	// default is:  pitch 80,118
 	voice->pitch_base = 0x47000;
@@ -553,6 +553,12 @@ voice_t *LoadVoice(const char *vname, int control)
 	static char voice_identifier[40]; // file name for  current_voice_selected
 	static char voice_name[40];       // voice name for current_voice_selected
 	static char voice_languages[100]; // list of languages and priorities for current_voice_selected
+
+	if (!tone_only) {
+		MAKE_MEM_UNDEFINED(&voice_identifier, sizeof(voice_identifier));
+		MAKE_MEM_UNDEFINED(&voice_name, sizeof(voice_name));
+		MAKE_MEM_UNDEFINED(&voice_languages, sizeof(voice_languages));
+	}
 
 	strncpy0(voicename, vname, sizeof(voicename));
 	if (control & 0x10) {
@@ -959,6 +965,9 @@ voice_t *LoadVoice(const char *vname, int control)
 				return NULL; // no dictionary loaded
 			}
 		}
+
+		/* Terminate languages list with a zero-priority entry */
+		voice_languages[langix] = 0;
 	}
 
 	return voice;
@@ -973,6 +982,7 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
 	static char variant_name[40];
 	char variant_prefix[5];
 
+	MAKE_MEM_UNDEFINED(&variant_name, sizeof(variant_name));
 	variant_name[0] = 0;
 	sprintf(variant_prefix, "!v%c", PATHSEP);
 	if (add_dir == 0)
@@ -1310,6 +1320,9 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	static espeak_VOICE voice_variants[N_VOICE_VARIANTS];
 	static char voice_id[50];
 
+	MAKE_MEM_UNDEFINED(&voice_variants, sizeof(voice_variants));
+	MAKE_MEM_UNDEFINED(&voice_id, sizeof(voice_id));
+
 	*found = 1;
 	memcpy(&voice_select2, voice_select, sizeof(voice_select2));
 
@@ -1319,6 +1332,8 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	if ((voice_select2.languages == NULL) || (voice_select2.languages[0] == 0)) {
 		// no language is specified. Get language from the named voice
 		static char buf[60];
+
+		MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 		if (voice_select2.name == NULL) {
 			if ((voice_select2.name = voice_select2.identifier) == NULL)
@@ -1510,7 +1525,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByFile(const char *filename)
 	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
-	static char buf[60];
+	char buf[60];
 
 	strncpy0(buf, filename, sizeof(buf));
 
@@ -1547,7 +1562,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByName(const char *name)
 	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
-	static char buf[60];
+	char buf[60];
 
 	strncpy0(buf, name, sizeof(buf));
 

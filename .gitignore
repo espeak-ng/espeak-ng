@@ -123,10 +123,19 @@ espeak-ng.pc
 espeak-ng-*.tar.gz
 espeak-ng-*.*/
 
+# /tests/fuzzing/
+/tests/fuzzing/crash-*
+/tests/fuzzing/oom-*
+/tests/fuzzing/leak-*
+/tests/fuzzing/fuzz-*.log
+/tests/fuzzing/*.profdata
+/tests/fuzzing/*.profraw
+/tests/fuzzing/.deps/*.Po
+/tests/fuzzing/.dirstamp
+!tests/fuzzing/CORPUS*/*.txt
 # Windows builds
 
 src/pcaudiolib/
-
 !src/windows/config.h
 
 *.obj

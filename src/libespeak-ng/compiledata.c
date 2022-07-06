@@ -1559,7 +1559,7 @@ static void CompileSound(int keyword, int isvowel)
 	int addr = 0;
 	int value = 0;
 	char path[N_ITEM_STRING];
-	static int sound_instns[] = { i_FMT, i_WAV, i_VWLSTART, i_VWLENDING, i_WAVADD };
+	static const int sound_instns[] = { i_FMT, i_WAV, i_VWLSTART, i_VWLENDING, i_WAVADD };
 
 	NextItemBrackets(tSTRING, 2);
 	strcpy(path, item_string);

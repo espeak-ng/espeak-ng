@@ -64,6 +64,10 @@ AC_ARG_WITH([libfuzzer],
     [AS_HELP_STRING([--with-libfuzzer], [enable libFuzzer in the fuzzer tests @<:@default=no@:>@])],
     [])
 
+AC_ARG_WITH([coverage],
+    [AS_HELP_STRING([--with-coverage], [enable clang coverage in the fuzzer tests (also add coverage to lib sources) @<:@default=no@:>@])],
+    [])
+
 dnl ================================================================
 dnl Program checks.
 dnl ================================================================
@@ -79,13 +83,13 @@ dnl gradle checks.
 dnl ================================================================
 
 AC_MSG_CHECKING([for gradle])
-if test -e ${GRADLE} ; then
-    AC_MSG_RESULT([${GRADLE}])
-    AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 1])
+if command -v "$GRADLE" >/dev/null; then
+    AC_MSG_RESULT([$GRADLE])
 else
+    GRADLE=
     AC_MSG_RESULT([no])
-    AM_CONDITIONAL(HAVE_GRADLE, [test 1 = 0])
 fi
+AM_CONDITIONAL(HAVE_GRADLE, [test x"$GRADLE" != x])
 
 AC_SUBST(GRADLE)
 
@@ -130,6 +134,19 @@ else
 	AC_MSG_RESULT([no])
 	AC_MSG_ERROR([C99 is not supported by $CC.])
 fi
+
+
+AC_LANG_PUSH(C)
+TEMP_CFLAGS="$CFLAGS"
+CFLAGS="$CFLAGS -fsanitize=fuzzer"
+AC_MSG_CHECKING([if $CC supports fuzzer with the -fsanitize=fuzzer flag])
+AC_COMPILE_IFELSE(
+	[AC_LANG_PROGRAM( [[]], [[]])],
+	[have_fuzzer_fuzzer=yes],
+	[have_fuzzer_fuzzer=no])
+AC_MSG_RESULT($have_fuzzer_fuzzer)
+CFLAGS="$TEMP_CFLAGS"
+AC_LANG_POP(C)
 
 dnl ================================================================
 dnl FreeBSD check.
@@ -330,7 +347,19 @@ else
 	have_libfuzzer=no
 fi
 
-AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes])
+AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes  -a x"$have_fuzzer_fuzzer" = xyes])
+
+dnl ================================================================
+dnl clang-coverage checks.
+dnl ================================================================
+
+if test "$with_coverage" = "yes" ; then
+	use_coverage=yes
+else
+	use_coverage=no
+fi
+
+AM_CONDITIONAL(USE_COVERAGE, [test x"$use_coverage" = xyes])
 
 dnl ================================================================
 dnl Generate output.

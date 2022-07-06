@@ -291,6 +291,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 	}
 
+	SelectPhonemeTable(tr->phoneme_tab_ix);
 	n_ph_list3 = SubstitutePhonemes(ph_list3) - 2;
 
 	for (j = 0; (j < n_ph_list3) && (ix < N_PHONEME_LIST-3);) {
@@ -321,6 +322,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	ph_list3[0].ph = ph;
 	word_start = 1;
 
+	SelectPhonemeTable(tr->phoneme_tab_ix);
 	for (j = 0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++) {
 		plist3 = &ph_list3[j];
 
@@ -461,7 +463,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 
 		if ((plist3+1)->synthflags & SFLAG_LENGTHEN) {
-			static char types_double[] = { phFRICATIVE, phVFRICATIVE, phNASAL, phLIQUID, 0 };
+			static const char types_double[] = { phFRICATIVE, phVFRICATIVE, phNASAL, phLIQUID, 0 };
 			if ((j > 0) && (strchr(types_double, next->type))) {
 				// lengthen this consonant by doubling it
 				// BUT, can't insert a phoneme at position plist3[0] because it crashes PrevPh()
@@ -589,4 +591,6 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
 
 	n_phoneme_list = ix;
+
+	SelectPhonemeTable(tr->phoneme_tab_ix);
 }
