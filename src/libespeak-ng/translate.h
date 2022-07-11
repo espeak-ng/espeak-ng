@@ -39,6 +39,7 @@ extern "C"
 
 #define N_WORD_PHONEMES  200 // max phonemes in a word
 #define N_WORD_BYTES     160 // max bytes for the UTF8 characters in a word
+#define N_PHONEME_BYTES  160 // max bytes for a phoneme
 #define N_CLAUSE_WORDS   300 // max words in a clause
 #define N_TR_SOURCE      800 // the source text of a single clause (UTF8 bytes)
 
@@ -649,6 +650,7 @@ extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters t
 
 extern Translator *translator;
 extern Translator *translator2;
+extern Translator *translator3;
 extern char dictionary_name[40];
 extern espeak_ng_TEXT_DECODER *p_decoder;
 extern int dictionary_skipwords;
@@ -679,6 +681,7 @@ ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);
+int SetTranslator3(const char *name);
 void DeleteTranslator(Translator *tr);
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 

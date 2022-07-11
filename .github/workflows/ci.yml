@@ -16,27 +16,27 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [x86-32, x86-64]
+        arch: [x86-64, x86-32]
         sanitizer: [no, address, leak, memory, thread, undefined, valgrind]
 
         include:
           - sanitizer: "no"
             deps: ""
-            configflags: ""
+            configflags: "-g -Og -fno-omit-frame-pointer"
             config: ""
             build_env: ""
             check_env: ""
 
           - sanitizer: "address"
             deps: ""
-            configflags: "-fsanitize=address -g -Og"
+            configflags: "-fsanitize=address -g -Og -fno-omit-frame-pointer"
             config: ""
             build_env: "ASAN_OPTIONS=detect_leaks=0"
             check_env: "ASAN_OPTIONS=detect_leaks=0"
 
           - sanitizer: "leak"
             deps: ""
-            configflags: '-fsanitize=leak -g -Og'
+            configflags: '-fsanitize=leak -g -Og -fno-omit-frame-pointer'
             config: ""
             build_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
             check_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
@@ -44,28 +44,28 @@ jobs:
           - sanitizer: "memory"
             deps: "clang"
             configenv: "CC=clang CXX=clang++"
-            configflags: "-fsanitize=memory -fsanitize-memory-track-origins=2 -g -Og"
+            configflags: "-fsanitize=memory -fsanitize-memory-track-origins=2 -g -Og -fno-omit-frame-pointer"
             config: "--without-pcaudiolib"
             build_env: "MSAN_OPTIONS=exitcode=42"
             check_env: "MSAN_OPTIONS=exitcode=42"
 
           - sanitizer: "thread"
             deps: ""
-            configflags: "-fsanitize=thread -g -Og"
+            configflags: "-fsanitize=thread -g -Og -fno-omit-frame-pointer"
             config: ""
             build_env: ""
             check_env: ""
 
           - sanitizer: "undefined"
             deps: ""
-            configflags: "-fsanitize=undefined -g -Og"
+            configflags: "-fsanitize=undefined -g -Og -fno-omit-frame-pointer"
             config: ""
             build_env: "UBSAN_OPTIONS=halt_on_error=1"
             check_env: "UBSAN_OPTIONS=halt_on_error=1"
 
           - sanitizer: "valgrind"
             deps: "libtool-bin valgrind"
-            configflags: '-g -Og'
+            configflags: '-g -Og -fno-omit-frame-pointer'
             config: ""
             build_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
             check_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
@@ -119,7 +119,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [x86-32, x86-64]
+        arch: [x86-64, x86-32]
 
         include:
           - arch: x86-32

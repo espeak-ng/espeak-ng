@@ -144,6 +144,7 @@
        זוּ        zu
        זׇ        zo
        זָ        za
+       זה	za
        ז'        Z
        זַ'        Za
        זֵ'        Ze
@@ -155,6 +156,7 @@
        ז'וּ        Zu
        זׇ'        Zo
        זָ'        Za
+       ז'ה	Za
 
 .group ח
        ח        X
@@ -186,8 +188,11 @@
 
 .group י
        י        j
-       יִ        i
+       יִ        ji
        יוּ        ju
+       יוּ	jo
+       יּ	j
+       יִּם	jim
 
 .group כ
        כ        X
@@ -212,6 +217,7 @@
        כּוּ        ku
        כׇּ        ko
        כָּ        ka
+       כה	Xa
 
 .group ך
        ך        X
@@ -325,6 +331,7 @@
        פּוּ        pu
        פׇּ        po
        פָּ        pa
+       פה	pa
 
 .group ף
        ף        f

@@ -26,6 +26,7 @@
 #include <string.h>
 #include <wctype.h>
 #include <wchar.h>
+#include <assert.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -2228,7 +2229,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	int dict_flags0 = 0;
 	MatchRecord match1;
 	MatchRecord match2;
-	char ph_buf[40];
+	char ph_buf[N_PHONEME_BYTES];
 	char word_copy[N_WORD_BYTES];
 	static const char str_pause[2] = { phonPAUSE_NOLINK, 0 };
 
@@ -2660,8 +2661,9 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			phonetic[0] = 0;
 			phoneme_len = 0;
 		} else {
-			strcpy(phonetic, p);
 			phoneme_len = strlen(p);
+			assert(phoneme_len < N_PHONEME_BYTES);
+			strcpy(phonetic, p);
 			p += (phoneme_len + 1);
 		}
 

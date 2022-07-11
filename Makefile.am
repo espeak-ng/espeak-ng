@@ -18,6 +18,12 @@ MKDIR=mkdir -p
 AM_CFLAGS = \
 	-Isrc/include -Isrc/include/compat -I$(srcdir)/src/speechPlayer/include -I$(srcdir)/src/ucd-tools/src/include \
 	-D_BSD_SOURCE -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=200112L
+AM_CXXFLAGS =
+
+if USE_COVERAGE
+AM_CFLAGS += -fprofile-instr-generate -fcoverage-mapping
+AM_CXXFLAGS += -fprofile-instr-generate -fcoverage-mapping
+endif
 
 EXTRA_DIST=
 CLEANFILES = dictsource/ru_listx dictsource/cmn_listx dictsource/yue_listx
@@ -321,6 +327,8 @@ tests_libfuzzrunner_la_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_libfuzzrunner_la_SOURCES = tests/fuzzrunner.c
 endif
 
+
+
 check_PROGRAMS += tests/ssml-fuzzer.test
 tests_ssml_fuzzer_test_CFLAGS  = ${AM_CFLAGS}
 tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
@@ -333,9 +341,16 @@ tests_readclause_test_SOURCES += tests/dummy.cpp
 tests_ssml_fuzzer_test_SOURCES += tests/dummy.cpp
 endif
 
+
 if HAVE_LIBFUZZER
 tests_ssml_fuzzer_test_CFLAGS += -fsanitize=fuzzer
 tests_ssml_fuzzer_test_LDFLAGS = -fsanitize=fuzzer
+
+noinst_PROGRAMS =  tests/fuzzing/synth_fuzzer.test
+tests_fuzzing_synth_fuzzer_test_SOURCES = tests/fuzzing/synth_fuzzer.c
+tests_fuzzing_synth_fuzzer_test_LDADD =  src/libespeak-ng.la
+tests_fuzzing_synth_fuzzer_test_CFLAGS=  ${AM_CFLAGS} -fsanitize=fuzzer -DPATH_ESPEAK_DATA=\"$(abs_top_srcdir)/espeak-ng-data\" -Isrc/libespeak-ng
+tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -fsanitize=fuzzer -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS}
 else
 tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
 endif
