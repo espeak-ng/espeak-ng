@@ -1,0 +1,10 @@
+name Maithili
+language mai
+
+status mature
+stressLength 160 200  180 180  0 0  220 240
+stressAmp    16  18   18  18   0 0  22  21
+intonation	3	// Less intonation, and comma does not raise the pitch.
+pitch 90 120
+
+speed 80 // speed adjustment, percentage
