@@ -1,0 +1,93 @@
+//====================================================
+//  Maithili, inherits from Hindi
+//====================================================
+
+
+phoneme V  // inherent vowel, can be [O] or [o]
+  vwl flag1 starttype #o  endtype #o
+  length 200
+
+  IF thisPh(isWordEnd) AND prevPhW(isNotVowel) AND prev2PhW(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF thisPh(isFirstVowel) THEN
+    IF nextVowel(i) OR nextVowel(u) THEN
+      ChangePhoneme(o)
+    ENDIF
+    
+    IF prevPhW(r) THEN
+      ChangePhoneme(o)
+    ENDIF  
+  ENDIF
+
+  ChangePhoneme(O)
+endphoneme
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 225
+  FMT(vowel/a_2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 210
+  FMT(vowel/i_6)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 210
+  FMT(vowel/u)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 210
+  FMT(vowel/e)
+endphoneme
+
+phoneme &
+  vwl starttype #a endtype #a
+  length 210
+  FMT(vowel/&_2)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 210
+  IF nextPhW(w) THEN
+    length 170
+  ENDIF
+  FMT(vowel/o)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 200
+  FMT(vowel/0_3)
+endphoneme
+
+// CONSONANTS
+//===========
+
+phoneme c
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh_unasp)
+  
+  phoneme h       
+  import_phoneme base1/h
+endphoneme
+
+
+phoneme ~
+  virtual
+endphoneme
