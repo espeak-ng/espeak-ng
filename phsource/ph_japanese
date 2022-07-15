@@ -68,7 +68,7 @@ phoneme u
   ipa ɯᵝ
   length 160
 
-  FMT(vowel/u_bck)
+  FMT(vowel/i#_7)
 endphoneme
 
 // Mid Vowels
