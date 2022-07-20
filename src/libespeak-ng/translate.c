@@ -301,7 +301,13 @@ int utf8_in2(int *c, const char *buf, int backwards)
 
 		c1 &= mask[n_bytes];
 		for (ix = 0; ix < n_bytes; ix++)
+		{
+			if (!*buf)
+				/* Oops, truncated */
+				break;
 			c1 = (c1 << 6) + (*buf++ & 0x3f);
+		}
+		n_bytes = ix;
 	}
 	*c = c1;
 	return n_bytes+1;
