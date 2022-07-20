@@ -2634,7 +2634,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			for (pw = &number_buf[3]; pw < pn;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
-				while (*pw++ != ' ')
+				while (*pw && *pw++ != ' ')
 					;
 				words[ix].pre_pause = 0;
 			}
