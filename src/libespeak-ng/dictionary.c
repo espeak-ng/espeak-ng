@@ -2227,8 +2227,8 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	char *p;
 	ALPHABET *alphabet;
 	int dict_flags0 = 0;
-	MatchRecord match1;
-	MatchRecord match2;
+	MatchRecord match1 = { 0 };
+	MatchRecord match2 = { 0 };
 	char ph_buf[N_PHONEME_BYTES];
 	char word_copy[N_WORD_BYTES];
 	static const char str_pause[2] = { phonPAUSE_NOLINK, 0 };
