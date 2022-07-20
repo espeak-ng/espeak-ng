@@ -3085,7 +3085,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	// look for multibyte characters to increase the number of bytes to remove
 	for (len_ending = i = (end_type & 0x3f); i > 0; i--) { // num.of characters of the suffix
 		word_end--;
-		while ((*word_end & 0xc0) == 0x80) {
+		while (word_end >= word && (*word_end & 0xc0) == 0x80) {
 			word_end--; // for multibyte characters
 			len_ending++;
 		}
