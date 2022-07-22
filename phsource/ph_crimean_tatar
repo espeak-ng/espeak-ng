@@ -1,0 +1,611 @@
+// ============ //
+// SHORT VOWELS //
+// ============ //
+
+
+
+phoneme a
+  vwl starttype #@  endtype #@
+  ipa ɑ
+  unstressed
+  length 190
+  FMT(vowel/aa_6)
+endphoneme
+
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 200
+  flag1
+  FMT(vdiph2/ii@_2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 180
+  FMT(vowel/ii_8)
+endphoneme
+
+phoneme o
+  ipa o
+  vwl starttype #o endtype #o
+  length 170
+  FMT(vowel/o_8)
+endphoneme
+
+phoneme u
+  ipa u
+  vwl starttype #u endtype #u
+  length 170
+  FMT(vowel/u_2)
+endphoneme
+
+phoneme I
+  ipa ɯ
+  vwl starttype #@ endtype #@
+  length 180
+  FMT(vowel/u#_7)
+endphoneme
+
+phoneme y
+  ipa y
+  vwl starttype #u  endtype #u
+  length 180
+  FMT(vowel/y)
+endphoneme
+
+phoneme O
+  ipa oe
+  vwl starttype #@ endtype #@
+  length 150
+  FMT(vowel/oe)
+endphoneme
+
+// ========== //
+// CONSONANTS //
+// ========== //
+
+phoneme r
+  liquid trl
+  ipa r
+  lengthmod 6
+  Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  FMT(r3/r_trill2) addWav(r3/r_trill2.wav, 65)
+endphoneme
+
+phoneme l
+  ipa l
+  liquid
+  starttype l endtype l
+  lengthmod 7
+
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la, -10)
+    VowelStart(l/le, -15)
+    VowelStart(l/li, -15)
+    VowelStart(vwl_fr/lo, -10)
+    VowelStart(l/lu, -20)
+  EndSwitch
+
+  IF prevPh(#@) THEN
+    VowelEnding(l/xl, -50)
+  ELIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  IF prevPh(isPause) OR thisPh(isWordStart) THEN
+    FMT(l/_l)
+  ENDIF
+  IF prevPh(isRhotic) OR prevPh(isNasal) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)    // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+
+phoneme L
+  // 'dark' [l]
+  ipa l-   
+  liquid
+  lengthmod 7
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(l)
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPhW(j) THEN
+    FMT(l/L2_eL)
+  ENDIF
+  IF prevPhW(w) THEN
+    FMT(l/L2_uL)
+  ENDIF
+
+  PrevVowelEndings
+    VowelEnding(l/L2_@L, -60)
+    VowelEnding(l/L2_aL, -50)
+    VowelEnding(l/L2_eL, -40)
+    VowelEnding(l/L2_iL, -30)
+    VowelEnding(l/L2_oL, -50)
+    VowelEnding(l/L2_uL, -40)
+  EndSwitch
+endphoneme
+
+
+phoneme j // **y**es
+  ipa j
+  liquid pal starttype #i
+  lengthmod 7
+
+  IF nextPhW(isVowel) THEN
+    NextVowelStarts
+      VowelStart(j/j@)
+      VowelStart(j/ja)
+      VowelStart(j/je)
+      VowelStart(j/ji)
+      VowelStart(j/jo)
+      VowelStart(j/ju)
+    EndSwitch
+
+    VowelEnding(j/xj, -30)
+
+    IF prevPh(isPause) THEN
+      FMT(j/_j)
+    ENDIF
+  ELSE
+    // no vowel follows
+    Vowelout len=70
+    FMT(j/j_)
+  ENDIF
+endphoneme
+
+
+phoneme m
+  ipa m
+  vcd blb nas
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+
+  IF KlattSynth THEN
+    Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/m_)
+    ENDIF
+    FMT(klatt/m)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(m/m@)
+    VowelStart(m/ma)
+    VowelStart(m/me)
+    VowelStart(m/mi)
+    VowelStart(m/mo)
+    VowelStart(m/mu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(m/mj)
+  ELIF prevPh(isPause) THEN
+    FMT(m/_m)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(m/m_)
+  ENDIF
+endphoneme
+
+
+phoneme n
+  ipa n
+  vcd alv nas
+  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
+  lengthmod 4
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1500 -200 200 f3=0 80
+    FMT(klatt/n)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(n/n@)
+    VowelStart(n/na)
+    VowelStart(n/ne)
+    VowelStart(n/ni)
+    VowelStart(n/no)
+    VowelStart(n/nu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(n/nj)
+  ELIF prevPh(isPause) OR prevPh(n) THEN
+    FMT(n/_n)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(n/n_)
+  ENDIF
+endphoneme
+
+
+phoneme N // si**ng**
+  ipa N
+  vcd vel nas
+  Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  lengthmod 8            // longer than 'n'
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=2100 50 300 f3=0 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/nn_)
+    ENDIF
+    FMT(klatt/nn)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(nn/nn@)
+    VowelStart(nn/nna)
+    VowelStart(nn/nne)
+    VowelStart(nn/nni)
+    VowelStart(nn/nno)
+    VowelStart(nn/nnu)
+  EndSwitch
+
+  IF prevPh(#i) THEN
+    VowelEnding(nn/inn, -40)
+  ENDIF
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(nn/nnj)
+  ELIF prevPh(isPause) THEN
+    FMT(nn/_nn)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(nn/nn_)
+  ENDIF
+endphoneme
+
+phoneme r
+liquid trl
+  lengthmod 6
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(r/)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(r/r@, -15)
+    VowelStart(r/ra, -15)
+    VowelStart(r/re, -15)
+    VowelStart(r/ri, -15)
+    VowelStart(r/ro, -15)
+    VowelStart(r/ru, -15)
+  EndSwitch
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(r/xr, -50)
+  ENDIF
+
+  IF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
+    FMT(r/trr)
+  ENDIF
+  FMT(r/rr)
+  Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  FMT(r3/r_trill2) addWav(r3/r_trill2.wav, 65)
+endphoneme
+
+phoneme f
+  ipa f
+  vls lbd frc
+  voicingswitch v
+  lengthmod 3
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  WAV(ufric/f)
+endphoneme
+
+phoneme v // english v for now
+  ipa v
+  vwl  starttype #a  endtype #@
+  length 170
+  ChangeIfDiminished(@)
+  FMT(vowel/V_6)
+endphoneme
+
+phoneme b
+  ipa b
+  vcd blb stp
+  voicingswitch p 
+  Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
+  lengthmod 5
+
+  IF PreVoicing THEN
+    FMT(b/xb)
+  ENDIF
+
+  IF KlattSynth THEN
+    Vowelin f1=1  f2=1000 -500 -300  f3=-300 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/b)  addWav(x/b_)
+    ENDIF
+    FMT(klatt/b) addWav(x/b)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(b/b_) addWav(x/b_)
+  ELIF nextPh(@-) THEN
+    FMT(b/b@2) addWav(x/b)
+  ELIF nextPh(#@) THEN
+    FMT(b/b@) addWav(x/b)
+  ELIF nextPh(#a) THEN
+    FMT(b/ba) addWav(x/b)
+  ELIF nextPh(#e) THEN
+    FMT(b/be) addWav(x/b)
+  ELIF nextPh(#i) THEN
+    FMT(b/bi) addWav(x/b)
+  ELIF nextPh(#o) THEN
+    FMT(b/bo) addWav(x/b)
+  ELIF nextPh(#u) THEN
+    FMT(b/bu) addWav(x/b)
+  ENDIF
+
+  FMT(b/b) addWav(x/b)
+endphoneme
+
+phoneme ts
+  ipa ts        
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme TS     // **ch**urch
+  ipa tʃ
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh)
+endphoneme
+
+phoneme DZ // **j**udge
+  ipa dʒ
+  vcd pla afr sib
+  voicingswitch tS
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 400  f3=100 80
+  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(x/dzh_)
+  ENDIF
+  FMT(dzh/dzh) addWav(x/dzh)
+endphoneme
+
+
+
+phoneme g
+  vcd vel stp
+  voicingswitch k
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2, 150)
+endphoneme
+
+
+phoneme k
+  vls vel stp
+  voicingswitch g
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+
+  IF KlattSynth THEN
+    Vowelout f1=0 f2=2300 200 300  f3=-200 80  rms=20
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(r) OR nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/kr)
+  // ELIF nextPh(#i) OR nextPh(;) THEN
+  //  WAV(ustop/ki)
+  ELIF nextPh(l) THEN
+    WAV(ustop/kl)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/k_unasp, 70)
+  ENDIF
+  WAV(ustop/k)
+endphoneme
+
+
+phoneme z
+  ipa z
+  vcd alv frc sib
+  voicingswitch s
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1390 -300 300 f3=0 0
+    Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_) addWav(ufric/s_, 70)
+  ENDIF
+  FMT(voc/z) addWav(ufric/s_, 85)
+endphoneme
+
+phoneme G
+  vcd vel frc
+  ipa ɣ
+  lengthmod 6
+  voicingswitch x
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF prevPhW(x) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+  IF nextPhW(isVoiced) THEN
+  ELSE
+    ChangePhoneme(x)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/Q_) addWav(vocw/Q_)
+  ENDIF
+  FMT(voc/Q_less) addWav(vocw/Q2, 140)
+endphoneme
+
+phoneme x
+  vls vel frc
+  lengthmod 3
+  voicingswitch Q
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  WAV(ufric/x_hr, 45)
+endphoneme
+
+phoneme p
+  ipa p
+  vls blb stp
+  voicingswitch b
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_)
+  ELIF nextPh(r) THEN
+    WAV(ustop/pr, 70)
+  ELIF nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/pr)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/p_unasp)
+  ELIF nextPh(l) THEN
+    WAV(ustop/pl)
+  ENDIF
+  WAV(ustop/p_unasp_)
+endphoneme
+
+
+phoneme t        // dental /t/
+  ipa t[
+  vls dnt stp
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 70)
+endphoneme
+
+
+phoneme d   // dental /d/
+  ipa d[
+  vcd dnt stp
+  voicingswitch t
+  lengthmod 5
+  Vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  Vowelout f1=2 f2=1500 -300 300  f3=-150 80
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ELIF nextPh(r) THEN
+    FMT(d/dr) addWav(x/d_dnt, 100)
+  ENDIF
+
+  FMT(d/d) addWav(x/d_dnt, 100)
+endphoneme
+
+
+
+phoneme q
+  ipa q
+  vls uvl stp
+  lengthmod 2
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
+  Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/q, 40)
+  ELIF nextPh(#u) THEN
+    WAV(ustop/q_u, 80)
+  ENDIF
+  WAV(ustop/q, 48)
+endphoneme
+
+
+phoneme s
+  ipa s
+  vls alv frc sib
+  voicingswitch z
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_)
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!)
+  ENDIF
+  WAV(ufric/s)
+endphoneme
+
+
+phoneme S // **sh**op
+  ipa S
+  vls pla frc sib
+  voicingswitch Z
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/sh_)
+  ENDIF
+  WAV(ufric/sh)
+endphoneme
+
+
+phoneme X
+  ipa X
+  vls uvl frc
+  voicingswitch Q"
+  lengthmod 3
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/xx, 70)
+  ENDIF
+  WAV(ufric/x2,80)
+endphoneme
