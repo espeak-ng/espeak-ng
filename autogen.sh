@@ -8,7 +8,7 @@ fi
 
 mkdir -p m4
 touch AUTHORS
-ln -sf CHANGELOG.md NEWS
+ln -sf ChangeLog.md NEWS
 ln -sf README.md README
 
 aclocal -I m4 || exit 1

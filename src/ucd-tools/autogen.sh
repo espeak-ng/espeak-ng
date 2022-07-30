@@ -8,7 +8,7 @@ fi
 
 mkdir -p m4
 ln -sf README.md README
-ln -sf CHANGELOG.md NEWS
+ln -sf ChangeLog.md NEWS
 
 aclocal -I m4 || exit 1
 
