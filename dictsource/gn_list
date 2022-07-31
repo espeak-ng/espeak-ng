@@ -65,8 +65,18 @@ _cir	Tirkumfl'exo
 _tld	muanduh,e~||tigu'a~
 _brv	br'eBe
 
-// numbers
-?1  _0lang   _^_es   // speak numbers in Spanish
+// Native numbers 0-10
+_0n mb,a_!eB'e
+_1n p,ete'i~
+_2n mok'o~i
+_3n mb,ohap'y
+_4n ,i**uNd'y
+_5n p'o
+_6n p,ote'i~
+_7n pok'o~i
+_8n p,oap'y
+_9n p,o**uNd'y
+_10n p'a
 
 // character names
 
