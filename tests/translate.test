@@ -89,3 +89,6 @@ test_phon fr "profEs'Wr" "PR"
 
 # https://github.com/espeak-ng/espeak-ng/pull/1148
 test_phon fr "dY mil v'E~" "2020"
+
+# https://github.com/espeak-ng/espeak-ng/issues/1271
+test_phon en "f'u:" "foo.."
