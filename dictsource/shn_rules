@@ -2,6 +2,7 @@
 
 // Consonants
 .L01 ၵ ၶ င ၸ သ ၺ တ ထ ၼ ပ ၽ ၾ မ ယ ရ လ ဝ ႁ ဢ
+.L02 ႃ ိ ီ ု ူ ​ေ ​ႄ ် ၢ ဵ ႅ ႆ ွ ႂ် ျ ြ
 
 .replace
        ႐    0
@@ -288,7 +289,7 @@
 
 .group   ၢ
                 ၢ       a:
-          .L01) ၢဝ်     a:w
+          .L01) ၢဝ်     a:a:w
           .L01) ၢင်     a:g
           .L01) ၢၼ်    a:n
           .L01) ၢမ်     a:m
@@ -298,16 +299,16 @@
 
 
 .group   ွ
-          ွ        O
+          ွ (L02       O
 
 .group   ႂ
-          ႂ           O
+          ႂ  (L02   O
 
-// .group  ႂ်
-//         ႂ်       aWi
+.group  ႂ်
+        ႂ်       aWi
 
 .group  ြ
-            ြ          ra
+            ြ       ra
 
 .group   ျ
              ျ      ja
@@ -345,16 +346,16 @@
 // 6 tones , 1 is default
 
 .group  ႇ
-             ႇ      2
-
+          .L02) ႇ      2
+             
 .group  ႈ
-             ႈ      3
+          .L02) ႈ      3
 
 .group  း
-             း      4
+          .L02) း      4
 
 .group  ႉ
-             ႉ      5
+          .L02) ႉ      5
 
 .group  ႊ
-             ႊ      6
+          .L02) ႊ      6
