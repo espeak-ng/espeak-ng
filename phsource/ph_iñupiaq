@@ -185,6 +185,36 @@ honeme n
   ENDIF
 endphoneme
 
+phoneme n.
+  vcd rfx nas
+  ipa ɳ
+  starttype n  endtype n
+  Vowelin f1=2 f2=1700 -300 300  f3=-500 80  rms=20 colr=2
+  Vowelout f1=2 f2=1700 -300 300  f3=-500 80  rms=20 brk colr=2
+  lengthmod 4
+
+  IF KlattSynth THEN
+    FMT(klatt/nr)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(n/nr@)
+    VowelStart(n/nra)
+    VowelStart(n/nre)
+    VowelStart(n/nri)
+    VowelStart(n/nro)
+    VowelStart(n/nru)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(n/nj)
+  ELIF prevPh(isPause) OR prevPh(n.) THEN
+    FMT(n/_nr)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(n/nr_)
+  ENDIF
+endphoneme
+
 phoneme N
   vcd pal nas pzd
   ipa ɲ
