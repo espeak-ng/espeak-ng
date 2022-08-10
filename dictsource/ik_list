@@ -1,0 +1,117 @@
+// This file has UTF8 encoded
+// Spelling to phoneme rules for Iñupiaq
+
+// numeric
+
+_1 at'ausiq
+_2 m'alGuk
+_3 p'in.asut
+_4 s'isamat
+_5 t'allimat
+_6 'itTSaks.at
+_7 tallimatm'alguk
+_8 tallimatp'iNasut
+_9 qulin.uGut'ajl#aq
+
+_10 q'ulit
+_11 qulitat'ausiq
+_12 qulitm'alGuk
+_13 qulitp'iNasut
+_14 akimiaGut'ajl#aq
+_15 akim'iaq
+_16 akimiaqat'ausiq
+_17 akimiaqm'alGuk
+_18 akimiakp'iNasut
+_19 iNuiNNan.at'ail#ak
+
+_20 iNu'iNNaq
+_2X iNu'iNNaq
+
+_30 iNuiNNaqq'ulit
+_3X iNuiNNaqq'ulit
+
+_40 malGukip'iaq
+_4X malGukip'iaq
+
+_50 malGukipiaqq'ulit
+_5X malGukipiaqq'ulit
+
+_60 pin.asukip'iaq
+_6X pin.asukip'iaq
+
+_70 pin.asukipiaqq'ulit
+_7X pin.asukipiaqq'ulit
+
+_80 sisamakip'iaq
+_8X sisamakip'iaq
+
+_90 sisamakipiaqq'ulit
+_9X sisamakipiaqq'ulit
+
+_0C tallimakip'iaq
+_0M1 kavl'u:tit
+
+// pronouns
+
+iblin $u
+ilipkun $u
+ilipni $u
+ilipnik $u
+ilipniñ $u
+ilipnun $u
+ilipsigun $u
+ilipsini $u
+ilipsisun $u
+iliptikkun $u
+iliptikni $u
+iliptiktun $u
+iliptitun $u
+iliptun $u
+iluqaan $u
+iluqaitñik $u
+iluqatiŋ $u
+ilvich $u
+ilvin $u
+ilvit $u
+ilviñ $u
+kia $u
+kisum $u
+kiña $u
+naami $u 
+nakiñ $u
+naliak $u
+naliat $u
+nalliak $u
+nalliat $u
+nani $u
+napmun $u
+naukun $u
+nauŋ $u
+qakugu $u
+su $u
+sua $u
+sukman $u
+sumi $u
+sumiñ $u
+summan $u
+sumun $u
+suna $u
+supman $u
+suvaata $u
+uvaguk $u
+uvagut $u
+uvamni $u
+uvamnik $u
+uvamniñ $u
+uvamnun $u
+uvapkun $u
+uvaptigun $u
+uvaptikkun $u
+uvaptikni $u
+uvaptiknik $u
+uvaptikniñ $u
+uvaptiknun $u
+uvaptiktun $u
+uvaptitun $u
+uvaptun $u
+uvaŋa $u
