@@ -1,0 +1,73 @@
+/ This file is UTF8 encoded 
+// Spelling to phoneme rules for Greenlandic
+
+.group a
+        a        a
+        aa       a:
+        
+.group ch 
+        ch       TS
+        
+.group g
+        g        g
+        
+.group   ġ      
+          ġ      G
+
+.group h 
+        h        h
+ 
+.group i
+        i        i
+        
+.group k
+        k        k
+
+.group l
+        l        l
+        
+.group ḷ
+        ḷ        l#
+
+.group ł
+        ł        l^
+        
+.group m
+        m        m
+        
+.group n 
+        n        n
+        
+.group ñ 
+        ñ        N
+
+.group ŋ
+        ŋ        n.
+        
+.group p
+        p        p
+
+.group q
+        q        q
+        
+.group r
+        r        r
+        
+.group s
+        s        s
+        sr       s.
+        
+.group t
+        t        t
+        
+.group u
+        u        u
+        
+.group v
+        v        v
+        
+.group w
+        w        w
+        
+.group y
+        y        y    
