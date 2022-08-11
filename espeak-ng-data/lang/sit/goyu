@@ -1,0 +1,10 @@
+name Taiwanese Chinese
+language goyu
+
+phonemes goyu
+dictionary goyu
+
+dictrules 1
+
+words 1
+dict_min 10000
