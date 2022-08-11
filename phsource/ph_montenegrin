@@ -11,6 +11,27 @@ phoneme s.
     WAV(ufric/sh_rfx, 50)
   ENDIF
   WAV(ufric/sh_rfx, 50) 
+endophoneme
+
+phoneme S  // this is letter š
+  vls pla frc sib
+  lengthmod 3
+  voicingswitch Z
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+  IF nextPh(isPause2) THEN
+    WAV(ufric/sh3, 90)
+  ENDIF
+  WAV(ufric/sh3, 110)
+endphoneme
+
+phoneme S;
+  vls pla frc sib
+  voicingswitch Z;
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80 colr=1
+  WAV(ufric/sh_pzd)
 endphoneme
 
 phoneme ts.
@@ -65,6 +86,9 @@ phoneme @2    //  Schwa (raised)
   FMT(vowel/@_fnt)
 endphoneme
 
+//====================================================
+//  Vowels
+//====================================================
 
 phoneme a
   vwl starttype #a endtype #a
