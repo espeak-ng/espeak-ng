@@ -1,7 +1,35 @@
 // This file has UTF8 encoded
 // Spelling to phoneme rules for Iñupiaq
 
+// Iñupiaq Letters
+
+_a a
+_ch TSa
+_g ga
+_ġ Ga
+_h ha
+_i i
+_k ka
+_l la
+_ḷ l^a
+_ł l#a
+_m ma
+_n na
+_ñ Na
+_ŋ n.a
+_o o
+_p pa
+_q qa
+_r ra
+_s sa
+_sr s.a
+_t ta
+_u u
+_v va
+_y ja
+
 // Numbers
+
 _1 at'ausiq
 _2 m'alGuk
 _3 p'in.asut
@@ -105,3 +133,8 @@ uvaptiktun $u
 uvaptitun $u
 uvaptun $u
 uvaŋa $u
+
+// conjuctions
+
+aglaan $u
+takku $u
