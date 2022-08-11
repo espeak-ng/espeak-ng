@@ -1,0 +1,235 @@
+// This file has UTF8 encoded.
+// Translation rules for Montenegrin
+
+.replace
+//	Cyrl	Latn	-- Cyrillic to Latin
+	а	a	// U+0430
+	б	b	// U+0431
+	в	v	// U+0432
+	г	g	// U+0433
+	д	d	// U+0434
+	е	e	// U+0435
+	ж	ž	// U+0436
+	з	z	// U+0437
+  з́ ź // U+0429
+	и	i	// U+0438
+	к	k	// U+043A
+	л	l	// U+043B
+	м	m	// U+043C
+	н	n	// U+043D
+	о	o	// U+043E
+	п	p	// U+043F
+	р	r	// U+0440
+	с	s	// U+0441
+	т	t	// U+0442
+	у	u	// U+0443
+	ф	f	// U+0444
+	х	h	// U+0445
+	ц	c	// U+0446
+	ч	č	// U+0447
+	ш	š	// U+0161
+  с́ ś // U+0162
+	ђ	đ	// U+0452
+	ѓ	đ	// U+0453
+	ѕ	dz	// U+0455
+	ј	j	// U+0458
+	љ	lj	// U+0459
+	њ	nj	// U+045A
+	ћ	ć	// U+045B
+	ќ	ć	// U+045C
+	џ	dž	// U+045F
+
+.group a
+        a        a
+     X) a ($w_alt1 a:
+        a (j     A
+        a (r     A        // don't reduce to [&]
+        
+   _hrv) a (t    a:
+
+.group b
+        b        b
+
+.group c
+        c        ts
+
+.group č
+        č        ts.
+
+.group ć
+        ć        tS;
+
+.group d
+        d        d
+        dz       dz
+     _) dz (_    dz@
+        dž       dz.
+     _) dž (_    dz.@
+
+.group đ
+        đ        dZ;
+
+.group e
+        e        E
+     X) e ($w_alt1 E:
+     j) e        e
+        e (j     e
+     _) exe      %ekse        // filetype
+?2   _) exe      %eikse       // filetype
+
+.group f
+        f        f
+
+.group g
+        g        g
+
+.group h
+        h        h
+     _) h        x
+
+.group i
+        i        i
+     X) i ($w_alt1 i:
+    ._) ini      %ini         // filetype
+
+.group j
+        j        j
+    XA) j (_     j_      // short pause after final [j] in one-syllable words
+
+.group k
+        k        k
+
+.group l
+        l        l
+     K) l (K     l-
+     
+     _) lj (_    l^@
+        lj (+    l^
+     v) lj       lj
+
+.group m
+        m        m
+
+.group n
+        n        n
+        n (g     N
+        n (k     N
+
+        nj       n^
+     _) nj (_    n^@
+
+.group o
+        o        o
+     X) o ($w_alt1 o:
+        ou       oU
+
+.group p
+        p        p
+
+.group q
+        q        k
+        qu       kv
+?2      qu       ku
+
+.group r
+        r        r
+     A) r (A     r
+     K) r (A     r    // this phoneme expands to [@-*]
+        rr       r
+        r (_     r
+
+     K) r (K     r
+
+
+.group s
+        s        s
+
+.group š
+        š        s.
+        
+ .group ś
+         ś       S;
+
+.group t
+        t        t
+
+.group u
+        u        u
+     X) u ($w_alt1 u:
+
+.group v
+        v        v
+
+.group w
+        w        v
+
+.group x
+        x        ks
+
+.group y
+        y        j
+     K) y (K     i
+
+
+.group z
+        z        z
+
+.group ž
+        ž        Z
+
+.group
+        á        a:
+        é        e:
+        í        i:
+        ó        o:
+        ú        u:
+
+        ä        _^_DE   // use German voice
+        ö        _^_DE
+        ü        _^_DE
+        ß        _^_DE
+
+        $        d'ol&R
+
+   __)  - (_D    minus
+   A_)  - (_D    _
+   C_)  - (_D    _
+
+
+.group 0xce   // Greek letters
+
+	α	'alf&
+	ά	'alf&||t'onos
+	β	b'et&
+	γ	g'am&
+	δ	d'elt&
+	ε	'epsIlon
+	έ	'epsIlon||t'onos
+	ζ	z'et&
+	η	'et&
+	ή	'et&||t'onos
+	θ	tx'et&
+	ι	j'ot&
+	ί	j'ot&||t'onos
+	κ	k'ap&
+	λ	l'amd&
+	μ	m'i
+	ν	n'i
+	ξ	ks'i
+	ο	'omIkr*on_
+
+.group 0xcf   // Greek letters
+
+	π	p'i
+	ρ	R'o
+	σ	s'igm&
+	ς	gr-tSko_||z'avr-Sno_||s'igm&
+	τ	t'au
+	υ	gr-tSki_||'ipsIlon
+	ύ	gr-tSki||'ipsIlon||t'onos
+	φ	f'i
+	χ	x'i
+	ψ	ps'i
+	ω	'omeg&
+	ώ	'omeg&||t'onos
+	ό	'omIkr*on||t'onos
