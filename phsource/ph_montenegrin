@@ -58,6 +58,11 @@ phoneme tS;
   ipa tɕ
 endphoneme
 
+phoneme dz.
+  import_phoneme sr/dZ
+  ipa ɖ͡ʐ
+endphoneme
+
 phoneme dZ;
   import_phoneme base1/dZ;
   voicingswitch ts;
