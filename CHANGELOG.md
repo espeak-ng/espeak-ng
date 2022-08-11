@@ -93,8 +93,8 @@ new languages:
 *  en-us-nyc (English, New York City) -- Richard Calvi
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
-*  io (Ido) -- José Miguel López, Valdis Vitolins
 *  ik (Iñupiaq) -- Andiv06
+*  io (Ido) -- José Miguel López, Valdis Vitolins
 *  lb (Luxembourgish) -- Marco Barnig, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
