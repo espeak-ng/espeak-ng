@@ -89,6 +89,7 @@ updated languages:
 new languages:
 *  be (Belarusian) -- Sergei B
 *  chr (Cherokee) -- Michael Conrad
+*  cnr (Montenegrin) -- Andiv06
 *  cv (Chuvash) -- boracasli98, Valdis Vitolins
 *  en-us-nyc (English, New York City) -- Richard Calvi
 *  haw (Hawaiian) -- Valdis Vitolins
