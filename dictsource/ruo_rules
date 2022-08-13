@@ -1,0 +1,52 @@
+// This file has UTF8 encoded
+// Spelling-to-phoneme rules for Istro-Romanian
+
+// Letters
+
+_a a
+_å &
+_â @
+_b bE
+_c tsE
+_č tSE
+_d dE
+_đ dZ;E
+_e e
+_ę E
+_f fE
+_g ge
+_h xe
+_i i
+_j jE
+_k ka
+_l El
+_m em
+_n en
+_o o
+_p pe
+_q ku
+_r eR
+_s es
+_š eS
+_t te
+_u u
+_v ve
+_w d'ubljuve
+_x iks
+_y 'ipsilon
+_z zet
+_ž Ze
+
+// Native Numbers 0-10
+
+_0n n'ul&
+_1n ur
+_2n d'oj
+_3n tr*ej
+_4n p@tr*u
+_5n tSintS
+_6n S'@sE
+_7n S'@ptE
+_8n opt
+_9n d'EvEt
+_10n d'EsEt
