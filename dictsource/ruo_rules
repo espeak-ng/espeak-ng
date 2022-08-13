@@ -1,0 +1,135 @@
+// This file has UTF8 encoded
+// Spelling-to-Phoneme rules for Istro-Romanian
+
+.group a
+        a        a
+
+.group å
+        å        &
+        
+.group â
+        â        @
+
+.group b
+        b        b
+
+.group c
+        c        ts
+
+.group č
+        č        tS
+
+.group ć
+        ć        tS;
+
+.group d
+        d        d
+        dz       dz
+     _) dz (_    dz@
+        dž       dZ
+     _) dž (_    dZ@
+
+.group đ
+        đ        dZ;
+
+.group e
+        e        E
+     X) e ($w_alt1 E:
+     j) e        e
+        e (j     e
+     _) exe      %ekse        // filetype
+?2   _) exe      %eikse       // filetype
+
+.group f
+        f        f
+
+.group g
+        g        g
+
+.group h
+        h        h
+     _) h        x
+
+.group i
+        i        i
+     X) i ($w_alt1 i:
+    ._) ini      %ini         // filetype
+
+.group j
+        j        j
+    XA) j (_     j_      // short pause after final [j] in one-syllable words
+
+.group k
+        k        k
+
+.group l
+        l        l
+     K) l (K     l-
+       lj       lj
+
+.group m
+        m        m
+
+.group n
+        n        n
+        n (g     N
+        n (k     N
+
+        nj       n^
+     _) nj (_    n^@
+
+.group o
+        o        o
+     X) o ($w_alt1 o:
+        ou       oU
+
+.group p
+        p        p
+
+.group q
+        q        k
+        qu       kv
+?2      qu       ku
+
+.group r
+        r        R
+     A) r (A     R
+     K) r (A     r*    // this phoneme expands to [@-*]
+        rr       R
+        r (_     R
+
+     K) r (K     R2
+
+
+.group s
+        s        s
+
+.group š
+        š        S
+
+.group t
+        t        t
+
+.group u
+        u        u
+     X) u ($w_alt1 u:
+
+.group v
+        v        v
+
+.group w
+        w        v
+
+.group x
+        x        ks
+
+.group y
+        y        j
+     K) y (K     i
+
+
+.group z
+        z        z
+
+.group ž
+        ž        Z
