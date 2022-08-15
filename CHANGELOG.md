@@ -11,6 +11,7 @@ The espeak-ng project is a fork of the espeak project.
 
 updated languages:
 *  ba (Bashkir) -- Andiv06
+*  be (Belarusian) --  Andiv06
 *  be (Belarusian) -- Andiv06
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
@@ -18,14 +19,12 @@ updated languages:
 *  he (Hebrew) -- Omer I.S
 *  it (Italian) -- Christian Leo Mameli
 *  ja (Japanese) -- Karl Eick
-*  ro (Romanian) -- Andiv06
-*  be (Belarusian) --  Andiv06
-*  en (English) -- Bill Dengler
-*  es (Spanish) -- Sukil Etxenike
-*  he (Hebrew) -- Omer I.S
 *  kl (Greenlandic) -- Andiv06
 *  qdb (Lang Belta) -- Andiv06
 *  quc (K'iche') -- Andiv06
+*  ro (Romanian) -- Andiv06
+*  shn (Shan Tay Yai) -- ronaldaug
+*  tr (Turkish) -- Gurbuzguven
 
 ### 1.51
 
