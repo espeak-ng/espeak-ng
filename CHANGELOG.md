@@ -17,6 +17,7 @@ updated languages:
 *  fa (Persian) -- MH
 *  he (Hebrew) -- Omer I.S
 *  it (Italian) -- Christian Leo Mameli
+*  ja (Japanese) -- Karl Eick
 *  ro (Romanian) -- Andiv06
 *  be (Belarusian) --  Andiv06
 *  en (English) -- Bill Dengler
