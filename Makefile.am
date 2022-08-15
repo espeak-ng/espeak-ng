@@ -448,8 +448,9 @@ dictionaries: \
 	espeak-ng-data/bpy_dict \
 	espeak-ng-data/bs_dict \
 	espeak-ng-data/ca_dict \
-	espeak-ng-data/chr_dict \
-	espeak-ng-data/cmn_dict \
+        espeak-ng-data/chr_dict \
+        espeak-ng-data/cnr_dict \
+        espeak-ng-data/cmn_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
@@ -479,6 +480,7 @@ dictionaries: \
 	espeak-ng-data/hy_dict \
 	espeak-ng-data/ia_dict \
 	espeak-ng-data/id_dict \
+	espeak-ng-data/ik_dict \
 	espeak-ng-data/io_dict \
 	espeak-ng-data/is_dict \
 	espeak-ng-data/it_dict \
@@ -524,6 +526,7 @@ dictionaries: \
 	espeak-ng-data/qya_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
+	espeak-ng-data/ruo_dict \
 	espeak-ng-data/sd_dict \
 	espeak-ng-data/shn_dict \
 	espeak-ng-data/si_dict \
@@ -606,6 +609,9 @@ espeak-ng-data/ca_dict: dictsource/ca_list dictsource/ca_rules dictsource/ca_ext
 
 chr: espeak-ng-data/chr_dict
 espeak-ng-data/chr_dict: dictsource/chr_list dictsource/chr_rules
+
+cnr: espeak-ng-data/cnr_dict
+espeak-ng-data/cnr_dict: dictsource/cnr_list dictsource/cnr_rules
 
 cs: espeak-ng-data/cs_dict
 espeak-ng-data/cs_dict: dictsource/cs_list dictsource/cs_rules dictsource/cs_extra dictsource/cs_emoji
@@ -693,6 +699,9 @@ espeak-ng-data/ia_dict: dictsource/ia_list dictsource/ia_listx dictsource/ia_rul
 
 id: espeak-ng-data/id_dict
 espeak-ng-data/id_dict: dictsource/id_list dictsource/id_rules dictsource/id_extra dictsource/id_emoji
+
+ik: espeak-ng-data/ik_dict
+espeak-ng-data/ik_dict: dictsource/ik_list dictsource/ik_rules
 
 io: espeak-ng-data/io_dict
 espeak-ng-data/io_dict: dictsource/io_list dictsource/io_rules dictsource/io_extra
@@ -834,6 +843,9 @@ espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_ext
 else
 espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_emoji
 endif
+
+ruo: espeak-ng-data/ruo_dict
+espeak-ng-data/ ruo_dict: dictsource/ruo_list dictsource/ruo_rules
 
 sd: espeak-ng-data/sd_dict
 espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
