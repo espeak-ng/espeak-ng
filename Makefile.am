@@ -468,6 +468,7 @@ dictionaries: \
 	espeak-ng-data/ga_dict \
 	espeak-ng-data/gd_dict \
 	espeak-ng-data/gn_dict \
+	espeak-ng-data/goyu_dict \
 	espeak-ng-data/grc_dict \
 	espeak-ng-data/gu_dict \
 	espeak-ng-data/hak_dict \
@@ -664,6 +665,9 @@ espeak-ng-data/gd_dict: dictsource/gd_list dictsource/gd_rules dictsource/gd_ext
 gn: espeak-ng-data/gn_dict
 espeak-ng-data/gn_dict: dictsource/gn_list dictsource/gn_rules dictsource/gn_extra
 
+goyu: espeak-ng-data/goyu_dict
+espeak-ng-data/goyu_dict: dictsource/goyu_list dictsource/goyu_rules/dictsource/goyu_extra
+
 grc: espeak-ng-data/grc_dict
 espeak-ng-data/grc_dict: dictsource/grc_list dictsource/grc_rules dictsource/grc_extra
 
@@ -701,7 +705,7 @@ id: espeak-ng-data/id_dict
 espeak-ng-data/id_dict: dictsource/id_list dictsource/id_rules dictsource/id_extra dictsource/id_emoji
 
 ik: espeak-ng-data/ik_dict
-espeak-ng-data/ik_dict: dictsource/ik_list dictsource/ik_rules
+espeak-ng-data/ik_dict: dictsource/ik_list dictsource/ik_rules/dictsource/ik_extra
 
 io: espeak-ng-data/io_dict
 espeak-ng-data/io_dict: dictsource/io_list dictsource/io_rules dictsource/io_extra
@@ -845,7 +849,7 @@ espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_ext
 endif
 
 ruo: espeak-ng-data/ruo_dict
-espeak-ng-data/ ruo_dict: dictsource/ruo_list dictsource/ruo_rules
+espeak-ng-data/ ruo_dict: dictsource/ruo_list dictsource/ruo_rules/dictsource/ruo_extra
 
 sd: espeak-ng-data/sd_dict
 espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
