@@ -1,0 +1,79 @@
+// This file in UTF8 encoded
+// Spelling to phoneme rules for Uropi (an artificial constructed language)
+
+// Letters
+b be
+c Se
+d de
+f fe
+g ge
+h ha
+j je
+k ka
+l el
+m em
+n en
+p pe
+r eR
+s es
+t te
+v ve
+w we
+x ksa
+z ze
+ʒ Ze
+
+// Numbers
+
+_0 z'eRo
+_1 un
+_2 du
+_3 tRi
+_4 kweR
+_5 pin
+_6 ses
+_7 sep
+_8 ok
+_9 nev
+_10 des
+_11 des'un
+_12 desd'u
+_13 destR'i
+_14 deskw'eR
+_15 desp'in
+_16 dess'es
+_17 dess'ep
+_18 des'ok
+_19 desn'ev
+_20 d'udes
+_2X d,udes
+_30 tR'ides
+_3X tR,ides
+_40 kw'eRdes
+_4X kw,eRdes
+_50 p'indes
+_5X p,indes
+_60 s'esdes
+_6X s,esdes
+_70 s'epdes
+_7X s,epdes
+_80 'okdes
+_8X ,okdes
+_90 n'evdes
+_9X n,evdes
+
+_0C s'unte
+_1C uns'unte
+_2C dus'unte
+_3C tRis'unte
+_4C kweRs'unte
+_5C pins'unte
+_6C sess'unte
+_7C seps'unte
+_8C oks'unte
+_9C nevs'unte
+
+_0M1 t'ilie
+_0M2 mil^'@~u
+_1M2 unmil^@~u
+_0M3 unmili'aRd
