@@ -26,6 +26,9 @@ updated languages:
 *  tk (Turkmen) -- Andiv06
 *  tr (Turkish) -- Gurbuzguven
 
+new languages:
+*  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
+
 ### 1.51
 
 *  Add support for speechPlayer.
