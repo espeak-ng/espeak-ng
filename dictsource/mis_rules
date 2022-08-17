@@ -1,0 +1,111 @@
+// This file in UTF8 encoded
+// Spelling to phoneme rules for Uropi (an artificial constructed language)
+
+.group a
+	a	a
+	ai	aI
+	au	aU
+     X) a (_	,a	// single-syllable cmavo are unstressed
+     X) ai (_	,aI
+     X) au (_	,aU
+
+.group b
+	b	b
+	b (C	b_
+
+.group c
+	c	S
+     K) c (C    S_!
+
+.group d
+	d	d
+  
+.group e
+	e	e
+	ei	eI
+     X) e (_	,e
+     X) ei (_	,eI
+
+.group f
+	f	f
+
+.group g
+	g	g
+
+     _) gi ('A_  _;_gi
+
+.group h
+	h	h
+
+.group i
+	i	i
+	i (A	j
+     X) i (_	,i
+     X) i (A_	,j
+
+.group j
+	j	j
+
+.group k
+	k	k
+
+.group l
+	l	l-  // syllabic
+     A) l       l
+	l (A    l
+
+.group m
+	m	m
+
+.group n
+	n	n-   // syllabic
+     A) n       n
+        n (A    n
+	n (g	N
+	n (k	N
+
+.group o
+	o	o
+	oi	oI
+     X) o (_	,o
+     X) oi (_	,oI
+
+.group p
+	p	p
+
+.group q
+	q	kw
+
+.group r
+	r	r-  // syllabic
+     A) r	R
+	r (A	R
+	r (C	R_   // ?? do this in phonemes data instead?
+
+
+.group s
+	s	s
+
+.group t
+	t	t
+
+.group u
+	u	u
+	u (A	w
+     X) u (_	,u
+     X) u (A_	,w
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+.group x
+	x	ks
+
+.group y
+	y 	y
+
+.group z
+	z	z
