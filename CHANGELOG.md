@@ -21,6 +21,7 @@ updated languages:
 *  ja (Japanese) -- Karl Eick
 *  kl (Greenlandic) -- Andiv06
 *  qdb (Lang Belta) -- Andiv06
+*  qya (Quenya) -- Andiv06
 *  quc (K'iche') -- Andiv06
 *  ro (Romanian) -- Andiv06
 *  shn (Shan Tay Yai) -- ronaldaug
