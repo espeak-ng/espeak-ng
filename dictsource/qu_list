@@ -42,22 +42,18 @@ w   wa:
 x   ksa:
 z   za:
 
-// numbers
-_0   tS?usak
-_1   huk
-_2   iskaj
-_3   kimsa
-_4   tawa
-_5   pitSka
-_6   sukta
-_7   kantSis
-_8   pusak
-_9   iskun
-_10  tSunka
-_0C  patSak
-_0M1 waranka
-_0M2 hunu
-_0M3 l^una
+// Native numbers 0-10
+_0n   tS?usak
+_1n   huk
+_2n   iskaj
+_3n   kimsa
+_4n   tawa
+_5n   pitSka
+_6n   sukta
+_7n   kantSis
+_8n   pusak
+_9n   iskun
+_10n  tSunka
 
 // unstressed words and/or with pause
 // pronouns
