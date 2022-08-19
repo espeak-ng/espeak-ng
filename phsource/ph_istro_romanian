@@ -233,7 +233,7 @@ phoneme R
 endphoneme
 
 
-phoneme r*
+phoneme *r
   vwl nsy
   unstressed
   ipa  NULL
