@@ -1,0 +1,49 @@
+// Stress
+
+ама	$1
+книга	_^_RU
+конверт	_^_RU
+компания	_^_RU
+ногай	$2
+
+// Other words
+
+ма	$u $only
+ме	$u $only
+ба	$u $only
+бе	$u $only
+па	$u $only
+пе	$u $only
+пен	$u $only
+бен	$u $only
+эм	$u $only
+
+// Numbers
+
+_0	nol
+_1	b'IR
+_2	ek'I
+_3	'u#S
+_4	t'8Rt
+_5	b'es
+_6	ALt'@
+_7	jet'I
+_8	seg'Iz
+_9	toG'@z
+_10	'on
+_11	'onbIR
+_12	'onekI
+_1X	'on
+_2X	j@Rm'A
+_3X	ot'@z
+_4X	q'@Rq
+_5X	ell'I
+_6X	ALp'@s
+_7X	jetp'Is
+_8X	seks'en
+_9X	toqs'An
+_0C	j'u#z
+_2C	ek'Iju#z
+_0M1	m'@N
+_0M2	mili'on
+_0M3	mili'ard
