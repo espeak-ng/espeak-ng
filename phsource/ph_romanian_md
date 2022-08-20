@@ -1,0 +1,316 @@
+//====================================================
+//  Romanian (Moldova)
+//====================================================
+
+// Vowels
+
+
+phoneme I^ // "silent i", palatilizes the preceding consonant
+  vwl starttype #i endtype #i
+  unstressed nsy
+  length 70
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(;)
+  ENDIF
+  IF prevPh(m;) THEN
+    FMT(vwl_ro/mi)
+  ENDIF
+  FMT(vwl_ru/ii-)
+endphoneme
+
+phoneme i
+   vwl starttype #i endtype #i
+  length 80
+  FMT(vwl_ru/ii)
+endphoneme
+
+phoneme e
+ vwl starttype #e endtype #e
+  length 100
+  IF prevPh(Z) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  IF prevPh(S) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  IF prevPh(ts) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  ChangeIfNotStressed(i)
+  FMT(vwl_ru/ee)
+endphoneme
+
+phoneme y
+  vwl starttype #i endtype #i
+  length 100
+  FMT(vwl_ru/i#)
+endphoneme
+
+phoneme a
+vwl  starttype #a  endtype #a
+  length 100
+  FMT(vwl_ru/a)
+endphoneme
+
+phoneme @
+ vwl   starttype #a  endtype #a
+  length 100
+  FMT(vowel/a#_3)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 170
+  FMT(vowel/o-_4)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 160
+  FMT(vowel/u_2)
+endphoneme
+
+phoneme Y
+  vwl starttype #@ endtype #@
+  length 180
+  FMT(vowel/y#)
+endphoneme
+
+
+
+// Diphthongs
+
+
+phoneme @I
+  vwl starttype #@ endtype #i
+  length 250
+  FMT(vdiph/a#i_3)
+endphoneme
+
+phoneme @U
+  vwl starttype #@ endtype #u
+  length 260
+  FMT(vdiph/a#u_3)
+endphoneme
+
+phoneme oU
+  vwl starttype #o endtype #u
+  length 260
+  FMT(vdiph/ou_2)
+endphoneme
+
+
+
+phoneme iI
+  vwl starttype #i endtype #i
+  length 250
+  FMT(vdiph/ii)
+endphoneme
+
+phoneme yI
+  vwl starttype #@ endtype #i
+  length 210
+  FMT(vdiph/i#i)
+endphoneme
+
+phoneme yU
+  vwl starttype #@ endtype #u
+  length 230
+  FMT(vdiph2/uw_3)
+endphoneme
+
+phoneme ea
+  vwl starttype #e endtype #a
+  length 250
+  FMT(vdiph2/ea)
+endphoneme
+
+phoneme eo
+  vwl starttype #e endtype #o
+  length 270
+  FMT(vdiph2/eo)
+endphoneme
+
+phoneme e[u
+  vwl starttype #e endtype #u
+  length 250
+  FMT(vdiph2/e_u)
+endphoneme
+
+phoneme Oa
+  vwl starttype #o endtype #a
+  length 250
+  FMT(vdiph2/oa)
+endphoneme
+
+
+// Consonants
+
+phoneme r
+  liquid trl
+  lengthmod 6
+  ipa r
+  IF nextPhW(R2) THEN
+    ipa NULL
+  ENDIF
+  Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  FMT(r3/r_trill2) addWav(r3/r_trill2.wav, 65)
+endphoneme
+
+
+phoneme l;
+  liquid
+  lengthmod 7
+
+  CALL base1/l
+  Vowelout colr=1
+ endphoneme
+
+
+phoneme m;
+  vcd blb nas
+  lengthmod 4
+
+  CALL base1/m
+  Vowelout f1=2  f2=1000 -500 -350  f3=200 80 brk colr=1
+endphoneme
+
+
+phoneme n;
+  vcd alv nas
+  lengthmod 4
+
+  CALL base1/n
+  Vowelout f1=2 f2=1700 -300 250  f3=200 80  rms=20 brk colr=1
+endphoneme
+
+
+phoneme p;
+  vls blb stp
+  lengthmod 2
+  voicingswitch b
+  CALL base2/p
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30 colr=1
+endphoneme
+
+
+phoneme t;        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  CALL base2/t
+  Vowelout f1=0 f2=1700 100 250  f3=0 80  rms=20 colr=1
+endphoneme
+
+phoneme ts;
+  vls alv afr sib
+  lengthmod 2
+  CALL base2/ts
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20 colr=1
+endphoneme
+
+
+phoneme f;
+  vls lbd frc
+  lengthmod 3
+  voicingswitch v
+  CALL base1/f
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80 colr=1
+endphoneme
+
+
+phoneme s;
+  vls alv frc sib
+  voicingswitch z;
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20 colr=1
+  WAV(ufric/s_pzd, 50)
+endphoneme
+
+
+phoneme S;
+  vls pla frc sib
+  voicingswitch Z;
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80 colr=1
+  WAV(ufric/sh_pzd)
+endphoneme
+
+
+phoneme  b;
+  vcd blb stp
+  voicingswitch p;
+  lengthmod 5
+  Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk colr=1
+
+  IF nextPh(#i) THEN
+    FMT(b/bi) addWav(x/b)
+  ENDIF
+  FMT(b/b) addWav(x/b)
+endphoneme
+
+
+phoneme d;       // dental variant of /d/
+  vcd dnt stp
+  voicingswitch t;
+  lengthmod 5
+  CALL base2/d
+  Vowelin f1=2  f2=1700 100 300  f3=0 80
+  Vowelout f1=2 f2=1700 100 300  f3=0 80 colr=1
+endphoneme
+
+
+phoneme *;    //   flap
+  vcd alv flp
+  lengthmod 2
+  Vowelout f1=3 f2=1700 -300 300  f3=-300 80 rms=35 len=15 colr=1
+  IF nextPh(#i) THEN
+    Vowelin f1=0  f2=1700 -300 300  f3=-400 80
+    FMT(d/tap_i) addWav(r3/rx)
+  ENDIF
+  FMT(d/tap) addWav(r3/rx)
+endphoneme
+
+
+phoneme v;
+  vcd lbd frc
+  lengthmod 6
+  voicingswitch f;
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50 colr=1
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  FMT(voc/v) addWav(vocw/v)
+endphoneme
+
+
+phoneme z;
+  vcd alv frc sib
+  lengthmod 6
+  voicingswitch s;
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 colr=1
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_) addWav(ufric/s_)
+  ENDIF
+  FMT(voc/z) addWav(ufric/s_)
+endphoneme
+
+
+phoneme Z;
+  vcd pla frc sib
+  lengthmod 6
+  voicingswitch S;
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80 colr=1
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh_) addWav(vocw/zh)
+  ENDIF
+  FMT(voc/zh) addWav(vocw/zh)
+endphoneme
