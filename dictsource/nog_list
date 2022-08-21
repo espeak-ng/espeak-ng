@@ -1,5 +1,4 @@
 // Numbers
-
 _0 n'ol?
 _1 b'IR
 _2'ekI
@@ -23,3 +22,21 @@ _0C j'uz
 _0M1 m'@N
 _0M2 mILl'Ion
 _0M3 mILl'IARd
+
+// Stress
+ама	$1
+книга	_^_RU
+конверт	_^_RU
+компания	_^_RU
+ногай	$2
+
+// Other words
+ма	$u $only
+ме	$u $only
+ба	$u $only
+бе	$u $only
+па	$u $only
+пе	$u $only
+пен	$u $only
+бен	$u $only
+эм	$u $only
