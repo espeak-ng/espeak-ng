@@ -20,7 +20,7 @@ updated languages:
 *  it (Italian) -- Christian Leo Mameli
 *  ja (Japanese) -- Karl Eick
 *  kl (Greenlandic) -- Andiv06
-*  nog (Nogai) -- Andiv06
+*  nog (Nogai) -- Andiv06, boracasli98
 *  qdb (Lang Belta) -- Andiv06
 *  qya (Quenya) -- Andiv06
 *  quc (K'iche') -- Andiv06
