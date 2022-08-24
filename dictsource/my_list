@@ -10,18 +10,18 @@
 //စ sə3  //$atend
 
 
-// numbers
-_0      tonj'a:
-_1      t'i:
-_2      n'i:
-_3      t'ou:
-_4      l'i:
-_5      N'a:
-_6      tSa:
-_7      kon'i
-_8      S'i:
-_9      k'o:
-_10     tas'e:
+// Native numbers 0-10
+_0n      tonj'a:
+_1n      t'i:
+_2n      n'i:
+_3n      t'ou:
+_4n      l'i:
+_5n      N'a:
+_6n      tSa:
+_7n      kon'i
+_8n      S'i:
+_9n      k'o:
+_10n     tas'e:
 
 // Names of individual letters
 // TODO should investigate why they are
