@@ -514,7 +514,7 @@ typedef struct {
 #define BREAK_LAKH_UR     0x000052a8 // b  b b b b  b b                  // 100,00,000,00,00,00,000
 #define BREAK_INDIVIDUAL  0x00000018 // b  bb                            // 100,0,000
 
-	int break_numbers;  // which digits to break the number into thousands, millions, etc (Hindi has 100,000 not 1,000,000)
+	unsigned break_numbers;  // which digits to break the number into thousands, millions, etc (Hindi has 100,000 not 1,000,000)
 	int max_roman;
 	int min_roman;
 	int thousands_sep;

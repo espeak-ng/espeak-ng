@@ -2588,7 +2588,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		for (n_digits = 0; iswdigit(word[n_digits]); n_digits++) // count consecutive digits
 			;
 
-		if (n_digits > 4) {
+		if (n_digits > 4 && n_digits <= 32) {
 			// word is entirely digits, insert commas and break into 3 digit "words"
 			number_buf[0] = ' ';
 			number_buf[1] = ' ';
@@ -2606,7 +2606,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 				*pn++ = c;
 				nx--;
-				if ((nx > 0) && (tr->langopts.break_numbers & (1 << nx))) {
+				if ((nx > 0) && (tr->langopts.break_numbers & (1U << nx))) {
 					memcpy(&num_wtab[nw++], &words[ix], sizeof(WORD_TAB)); // copy the 'words' entry for each word of numbers
 
 					if (tr->langopts.thousands_sep != ' ')
@@ -2640,7 +2640,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			for (pw = &number_buf[3]; pw < pn;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
-				while (*pw && *pw++ != ' ')
+				while (*pw++ != ' ')
 					;
 				words[ix].pre_pause = 0;
 			}
