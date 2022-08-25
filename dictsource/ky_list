@@ -30,6 +30,44 @@
 // | 	can be used to separate two adjacent characters, to prevent 
 //      them from being considered as a multi-character phoneme mnemonic
 
+// Letters 
+_а a
+_б be
+_в ve
+_г ge
+_д de
+_е e
+_ё jo
+_ж dZe
+_з ze
+_и i
+_й ij
+_к ka
+_л el
+_м em
+_н en
+_ң IN
+_о o
+_ө O
+_п pe
+_р er
+_с es
+_т te
+_у u
+_ү y
+_ф ef
+_х Xa
+_ц tse
+_ч tSe
+_ш Sa
+_щ StSa
+_ъ adZIrat'u:||belgis'i
+_ы I
+_ь itSkert'y:||belgis'i
+_э e
+_ю ju
+_я ja
+
 // Numbers
 _0	n'oL
 _1	b'ir
@@ -116,12 +154,31 @@ _. tSek'it
 
 КР ka||er
 км kiL,ometr
+см sant,imetr
+кг kil,ogram
+мм mil,imetr
+мл mil,litr
 
 // personal pronouns
+мен $u+
+сен $u+
+сиз $u+
+силер $u+
+сизгер $u+
+биз $u+
+ал $u+
+алар $u+
+
 
 // possessive pronouns
 
 // conjunctions
+(болсо да) $u
+жана $u
+неге $u
+тескерисинче $u
+эмнеге $u
+эмнеден $u
 
 // prepositions
 
