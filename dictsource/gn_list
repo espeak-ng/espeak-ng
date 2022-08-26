@@ -67,17 +67,17 @@ _brv	br'eBe
 
 // Native numbers 0-10
 
-_0n mba||eB'e
-_1n pete'i~
-_2n mok'o~i
-_3n mbohap'y
-_4n i**uNd'y
-_5n p'o
-_6n pote'i~
-_7n pok'o~i
-_8n poap'y
-_9n po**uNd'y
-_10n p'a
+_0  mba||eB'e
+_1  pete'i~
+_2  mok'o~i
+_3  mbohap'y
+_4  i**uNd'y
+_5  p'o
+_6  pote'i~
+_7  pok'o~i
+_8  poap'y
+_9  po**uNd'y
+_10 p'a
 
 // character names
 
