@@ -2084,7 +2084,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 							failed = 1;
 							break;
 						}
-						p -= utf8_in2(&letter_w, p, 1);
+						p -= utf8_in2(&letter_w, p-1, 1);
 					}
 					if (!failed)
 						add_points = 3;
