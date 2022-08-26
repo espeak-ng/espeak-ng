@@ -1185,7 +1185,7 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 	// thousands_exact:  bit 0  no hundreds,tens,or units,  bit 1  ordinal numberr
 	int found;
 	int found_value = 0;
-	char string[12];
+	char string[14];
 	char ph_of[12];
 	char ph_thousands[40];
 	char ph_buf[40];
