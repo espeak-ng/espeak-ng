@@ -3,27 +3,27 @@
 // numeric
 
 _0	rei_!
-_1	it_si_!
+_1	it_s\i_!
 _2	ni:_!
 _3	san_!
-_4	si_!
+_4	jon_!
 _5	go_!
 _6	roku_!
-_7	sit_si_!
-_8	hat_si_!
+_7	nana_!
+_8	hat_s\i_!
 _9	k_ju:_!
 
-_1X	d_zu_!
-_2X	ni||d_zu_!
-_3X	san||d_zu_!
-_4X	jon||d_zu_!
-_5X	go||d_zu_!
-_6X	roku||d_zu_!
-_7X	sit_si||d_zu_!
-_8X	hat_si||d_zu_!
-_9X	k_ju:||d_zu_!
+_1X	d_z\u_!
+_2X	ni||d_z\u_!
+_3X	san||d_z\u_!
+_4X	jon||d_z\u_!
+_5X	go||d_z\u_!
+_6X	roku||d_z\u_!
+_7X	nana||d_z\u_!
+_8X	hat_s\i||d_z\u_!
+_9X	k_ju:||d_z\u_!
 _0C	Caku
 
 _0M1 sen
 _0M2 Cakuman
-_0M3 d_zuoku
+_0M3 d_z\uoku
