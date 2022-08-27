@@ -30,6 +30,7 @@ updated languages:
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tk (Turkmen) -- Andiv06
 *  tr (Turkish) -- Gurbuzguven
+*  uz (Uzbek) -- Andiv06
 
 new languages:
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
