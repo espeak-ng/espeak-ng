@@ -16,7 +16,7 @@ updated languages:
 *  es (Spanish) -- Sukil Etxenike
 *  fa (Persian) -- MH
 *  gn (Guarani) -- Andiv06
-*  he (Hebrew) -- Omer I.S
+*  he (Hebrew) -- Omer I.S, Andiv06
 *  it (Italian) -- Christian Leo Mameli
 *  ja (Japanese) -- Karl Eick
 *  kl (Greenlandic) -- Andiv06
