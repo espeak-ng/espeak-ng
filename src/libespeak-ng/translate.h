@@ -667,7 +667,6 @@ int utf8_out(unsigned int c, char *buf);
 int utf8_nbytes(const char *buf);
 
 int lookupwchar(const unsigned short *list, int c);
-int lookupwchar2(const unsigned short *list, int c);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);
 void InitNamedata(void);

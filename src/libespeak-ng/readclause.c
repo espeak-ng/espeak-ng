@@ -464,6 +464,21 @@ static void RemoveChar(char *p)
 	memset(p, ' ', utf8_in(&c, p));
 }
 
+static int lookupwchar2(const unsigned short *list, int c)
+{
+	// Replace character c by another character.
+	// Returns 0 = not found, 1 = delete character
+
+	int ix;
+
+	for (ix = 0; list[ix] != 0; ix += 2) {
+		if (list[ix] == c)
+			return list[ix+1];
+	}
+	return 0;
+}
+
+
 int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
 	/* Find the end of the current clause.
