@@ -92,3 +92,8 @@ test_phon fr "dY mil v'E~" "2020"
 
 # https://github.com/espeak-ng/espeak-ng/issues/1271
 test_phon en "f'u:" "foo.."
+
+# note 0xad between "ignoring" and "u+ad" there's a 0xad. It is not a whitespace
+test_phon en "Ign'o@rINg,u: pl'Vs 'ad" "Ignoring­u+ad"
+# note 0x200c between 1 and 1
+test_phon fa "j'ek j'ek" "1‌1"
