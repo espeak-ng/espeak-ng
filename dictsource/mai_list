@@ -1,0 +1,133 @@
+// This file in UTF8 encoded.
+// Translation rules for Maithili
+
+// Native Numbers 0-10
+
+_0n _!
+_1n ek
+_2n du:
+_3n ti:n
+_4n cajr
+_5n paNc
+_6n chO:
+_7n sa:t
+_8n at.#
+_9n nO:
+_10n dVs
+
+
+// Single consonants
+
+क      k@
+क़      q@
+ख      k#@
+ख़      x@
+ग      g@
+ग़      Q@
+घ      g#@
+ङ       'Vnga:
+च      c@
+छ      c#@
+ज      J@
+ज़      z@
+झ      J#@
+ञ      n^@
+ट      t.@
+ठ      t.#@
+ड      d.@
+ड़      r.@
+ढ      d.#@
+ण        an.@-:   // retroflex n.@
+त      t@
+थ      t#@
+द      d@
+ध      d#@
+न      n@
+ऩ	 n'@n'Ukt,a:
+प      p@
+फ      p#@
+फ़      f@
+ब      b@
+भ      b#@
+म      m@
+य      j@
+र      r@
+ऱ      r@
+ल      l@
+ळ      l.@
+व      v@
+श      S@
+ष      s.@   //  retroflex [S]
+स      s@
+ह      H@
+क़      q@
+ख़      x@
+ग़      Q@
+ज़      z@
+ड़      r-@
+ढ़      hr@
+फ़      f@
+य़      j@
+
+// combining vowel signs
+//ा	#X2a:
+//ि	#X1I
+//ी	#X2i:
+//ु	#X1U
+//ू	#X2u:
+//ृ	#X1rI
+//ॄ	#X1rI
+//ॅ	#X1E
+//ॆ	#X1e
+//े	#X2e:
+//ै	#X2E:
+//?2 ै	#X2aI
+//ॉ	#X1O
+//ॊ	#X1o
+//ो	#X2o:
+//ौ	#X2O:
+//?3 ौ 	#X2aU
+//ॢ 	#X1l-
+//ॣ	#X2l-:
+//ॐ	#X1o~m
+
+_??	Vks.@r
+
+// Alphabet names
+_ar	'Vrbi
+_cyr	sIrIk'Ik
+_zh	c'i@ni
+
+// Symbols
+ँ	c'Vndr@-b'IndU
+ं	 Vn'Usv@r
+ः	 wIs'VRg
+़	 n'Ukt,a:
+ऽ	 Vv'Vgr@2H
+॑	 Ud'a:t
+॒	 'VnUdata:
+
+
+// Punctuation
+।	 p'u:rnwI*'a:m
+॥	 d'i:*g@wI*'a:m
+
+$	dOl@r
+%	pVt'IS@t
++	plVs
+=	bVr'a:b@r
+*	ta:r'a:Nk@n
+
+// pronouns
+
+// prepositions
+
+// postpositions
+
+// negatives
+
+// possesive pronouns
+
+// conjuctions
+
+// character names
