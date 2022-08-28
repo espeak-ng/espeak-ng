@@ -1817,9 +1817,6 @@ include ph_tatar
 phonemetable vi base1
 include ph_vietnam
 
-phonemetable wo base1
-include ph_wolof
-
 phonemetable yue base1
 include ph_yue
 
