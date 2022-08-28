@@ -927,8 +927,9 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 		} else if (phcode == phonSYLLABIC) {
 			// previous consonant phoneme is syllablic
 			vowel_stress[count] = (char)stress;
-			if ((stress == 0) && (control & 1))
-				vowel_stress[count++] = STRESS_IS_UNSTRESSED; // syllabic consonant, usually unstressed
+			if ((stress < 0) && (control & 1))
+				vowel_stress[count] = STRESS_IS_UNSTRESSED; // syllabic consonant, usually unstressed
+			count++;
 		}
 
 		*ph_out++ = phcode;
@@ -1473,6 +1474,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	}
 
 	p = phonetic;
+	/* Note: v progression has to strictly follow the vowel_stress production in GetVowelStress */
 	while (((phcode = *p++) != 0) && (output < max_output)) {
 		if ((ph = phoneme_tab[phcode]) == NULL)
 			continue;
@@ -1481,6 +1483,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			tr->prev_last_stress = 0;
 		else if (((ph->type == phVOWEL) && !(ph->phflags & phNONSYLLABIC)) || (*p == phonSYLLABIC)) {
 			// a vowel, or a consonant followed by a syllabic consonant marker
+
+			assert(v <= vowel_count);
 
 			v_stress = vowel_stress[v];
 			tr->prev_last_stress = v_stress;
