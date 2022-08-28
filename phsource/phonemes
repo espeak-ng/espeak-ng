@@ -1675,9 +1675,6 @@ include ph_consonants
 phonemetable base2 base1
 include ph_base2
 
-phonemetable ak base1
-include ph_akan
-
 phonemetable am base1
 include ph_amhari
 
