@@ -1950,9 +1950,6 @@ include ph_haitian
 phonemetable hi hi_base
 include ph_hindi
 
-phonemetable bo hi
-include ph_tibetan
-
 phonemetable gd base1 // hidden dependency, imports from hi
 include ph_s_gaelic
 

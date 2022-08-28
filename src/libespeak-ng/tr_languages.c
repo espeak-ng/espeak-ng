@@ -578,18 +578,6 @@ Translator *SelectTranslator(const char *name)
 
 	}
 		break;
-	case L('b', 'o'): // Tibet
-	{
-		tr->langopts.stress_rule = STRESSPOSN_1L;
-		tr->letter_bits_offset = OFFSET_TIBET;
-		SetLetterBitsRange(tr, LETTERGP_A, 0x71, 0x7d); // vowel signs
-		SetLetterBitsRange(tr, LETTERGP_B, 0x71, 0x81); // vowel signs and subjoined letters
-		SetLetterBitsRange(tr, LETTERGP_B, 0x90, 0xbc);
-		SetLetterBitsRange(tr, LETTERGP_C, 0x40, 0x6c); // consonant letters (not subjoined)
-		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;    // disable check for unpronouncable words
-		tr->langopts.numbers = NUM_DEFAULT;
-	}
-		break;
 	case L3('c', 'h', 'r'): // Cherokee
 	{
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
