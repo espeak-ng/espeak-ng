@@ -478,6 +478,17 @@ static int lookupwchar2(const unsigned short *list, int c)
 	return 0;
 }
 
+static bool IgnoreOrReplaceChar(Translator *tr, int *c1) {
+    int i;
+    if ((i = lookupwchar2(tr->chars_ignore, *c1)) != 0) {
+        if (i == 1) {
+            // ignore this character
+            return true;
+        }
+        *c1 = i; // replace current character with the result
+    }
+    return false;
+}
 
 int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
@@ -703,13 +714,9 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 		linelength++;
 
-		if ((j = lookupwchar2(tr->chars_ignore, c1)) != 0) {
-			if (j == 1) {
-				// ignore this character (eg. zero-width-non-joiner U+200C)
-				continue;
-			}
-			c1 = j; // replace the character
-		}
+		 if (IgnoreOrReplaceChar(tr, &c1) == true)
+		    continue;
+
 
 		if (iswalnum(c1))
 			any_alnum = true;
