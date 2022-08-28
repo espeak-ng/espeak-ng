@@ -1319,16 +1319,6 @@ Translator *SelectTranslator(const char *name)
 	case L('r', 'u'): // Russian
 		Translator_Russian(tr);
 		break;
-	case L('r', 'w'): // Kiryarwanda
-	{
-		tr->langopts.stress_rule = STRESSPOSN_2R;
-		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
-		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
-		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words.  Need to allow "bw'" prefix
-		tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_2 | NUM_AND_HUNDRED;
-		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
-	}
-		break;
 	case L('s', 'k'): // Slovak
 	case L('c', 's'): // Czech
 	{
