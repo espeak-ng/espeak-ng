@@ -415,14 +415,17 @@ updated languages:
 
 new languages:
 
+*  cnr (Montenegrin) -- Andiv06
 *  gn (Guarani) -- ChrisLeo
 *  ky (Kyrgyz) -- JRMeyer
+*  mai (Maithili) -- Andiv06
 *  mb-br2 (Brazillian Portuguese)
 *  mb-de\* (German) : extend support coverage of the German MBROLA voices
 *  mb-lt1 (Lithuanian) -- embar
 *  mb-lt2 (Lithuanian) -- embar
 *  mt (Maltese)
 *  my (Myanmar/Burmese) -- Min Maung, Lwin Moe
+*  ruo (Istro-Romanian) -- Andiv06
 *  tn (Setswana)
 *  tt (Tatar)
 
