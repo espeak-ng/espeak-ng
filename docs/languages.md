@@ -18,7 +18,8 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
 | `trk`       | `ba`              | Turkic                | Bashkir                     |                        |
 | `trk`       | `cu`              | Turkic                | Chuvash                     |                        |
-|             | `eu`              |                       | Basque                      |                        |
+| `inc        | `mai`             | Indic                 | Maithili                    |                        |
+| `eu`        |                   | Basque                | Basque                      |                        |
 | `zle`       | `be`              | East Slavic           | Belarussian                 |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
 | `inc`       | `bpy`             | Indic                 | Bishnupriya Manipuri        |                        |
