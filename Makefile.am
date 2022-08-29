@@ -500,6 +500,7 @@ dictionaries: \
 	espeak-ng-data/lfn_dict \
 	espeak-ng-data/lt_dict \
 	espeak-ng-data/lv_dict \
+	espeak-ng-data/mai_dict \
 	espeak-ng-data/mi_dict \
 	espeak-ng-data/mis_dict \
 	espeak-ng-data/mk_dict \
@@ -761,6 +762,9 @@ espeak-ng-data/lt_dict: dictsource/lt_list dictsource/lt_rules dictsource/lt_ext
 
 lv: espeak-ng-data/lv_dict
 espeak-ng-data/lv_dict: dictsource/lv_list dictsource/lv_rules dictsource/lv_extra dictsource/lv_emoji
+
+mai: espeak-ng-data/mai_dict
+espeak-ng-data/mai_dict: dictsource/mai_list dicsource/mai_rules dictsource/mai_extra
 
 mi: espeak-ng-data/mi_dict
 espeak-ng-data/mi_dict: dictsource/mi_list dictsource/mi_rules dictsource/mi_extra
