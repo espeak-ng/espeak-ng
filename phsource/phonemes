@@ -1796,6 +1796,9 @@ phonemetable quc base1
 phonemetable ru base1
 include ph_russian
 
+phonemetable ruo hr
+include ph_istro_romanian
+
 phonemetable shn base1
 include ph_shan
 
@@ -1929,6 +1932,9 @@ include ph_lojban
 phonemetable py eo
 include ph_pyash
 
+phonemetable mis eo
+include ph_uropi
+
 phonemetable qya la
 include ph_quenya
 
@@ -1978,6 +1984,9 @@ include ph_malayalam
 phonemetable gu hi_base
 include ph_gujarati
 
+phomenetable mai hi_base
+include ph_maithili
+
 phonemetable mr hi_base
 include ph_marathi
 
@@ -2015,6 +2024,9 @@ phonemetable th shn
 
 phonemetable cs sk
 include ph_czech
+
+phonemetable cnr hr
+include ph_montenegrin
 
 phonemetable hr sk
 include ph_croatian
