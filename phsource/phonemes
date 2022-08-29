@@ -1740,6 +1740,9 @@ include ph_armenian
 phonemetable hu base1
 include ph_hungarian
 
+phonemetable ik base1
+include ph_iñupiaq
+
 phonemetable is base1
 include ph_icelandic
 
