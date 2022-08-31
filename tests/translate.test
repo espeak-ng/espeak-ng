@@ -97,3 +97,10 @@ test_phon en "f'u:" "foo.."
 test_phon en "Ign'o@rINg,u: pl'Vs 'ad" "Ignoring­u+ad"
 # note 0x200c between 1 and 1
 test_phon fa "j'ek j'ek" "1‌1"
+
+# Mandarin and Cantonese Chinese with different Latin character fallback
+test_phon yue "n'ei5_| h'ou2_| m'aa5_| (en)h@1l'oU1_| D'e@1(yue)_|" "你好馬 hello there"
+test_phon yue-latn-jyutping "n'ei5_| h'ou2_| m'aa5_| n'ei5_| h'ou2_| m'aa5_|" "你好馬 nei5 hou2 maa5"
+test_phon cmn "n'i3_| ha11'o3_| m'a3_| (en)h@11loU11_| De@11(cmn)_|" "你好馬 hello there"
+test_phon cmn-latn-pinyin "n'i3_| ha11'o3_| m'a3_| n'i35_| X'Au35_| m'A214_|" "你好馬 ni3 hao3 ma3"
+
