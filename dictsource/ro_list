@@ -217,7 +217,7 @@ m³ met@-*i_!||k'ubI^
 (°F) g@-*'ade||f'ar@nhaIt
 ş.a		Si_!aS,a||maI||dep'arte
 ş.a.m.d		Si_!aS,a||maI||dep'arte
-s.a.m.d		Se|aSamaIdeparte
+nr n'um@rul $dot
 (km / h)	kilom'et@-*i_!pe||'or@
 
 // articles
@@ -1331,13 +1331,16 @@ balint $1
 băgă $2
 backup b'ekap
 barman $1
+batman b'etmen
+batgirl b'etg@rl
 bătătu $3
 batem $1
 bateţi $1
 bătăi $2
 bău b@'u
 băutu $3
-belgia $1
+belgia b'eldZja $1
+belgiei b'eldZjeI$1
 biseric		$2
 bivol $1
 bivoli $1
@@ -1607,6 +1610,7 @@ factice		$2
 factor $1
 factori $1
 factu $2
+fahrenheit f'ar@nhaIt
 fanatici $2
 farfuria farfu*'ia
 farfurie farfu*'ie
@@ -1650,6 +1654,8 @@ fractu $2
 fraged $1
 fragede $1
 frankenstein fr'ankenStaIn 
+francois f@-*answ'a
+francisc $1
 frântu $2
 frigăruie $3
 friptu $2
@@ -1831,6 +1837,8 @@ latex $1
 lauzi l'auzI^
 lazăr $1
 lăsă $2
+lămâi $2
+lămâie $2
 lefter $1
 legătu	$3
 lg 'eldZ'i
@@ -1845,6 +1853,7 @@ lingură $1
 lipsi		$2 
 linux $1
 literatu $4
+livington $1
 liviu l'ivju
 logic           $1
 lovitu $3
@@ -1883,6 +1892,7 @@ mediu m'edju
 menaje $3
 menţinem $2
 menţineţi $2
+mere $1
 mergem $1
 mergeţi $1
 merit		$1
@@ -1908,6 +1918,7 @@ moisei mois'eI
 molim $1
 monica $2
 molime $1
+morcov $1
 moscova $1
 muget $1
 mugete $1
@@ -1958,6 +1969,7 @@ oftă $2
 ok ok'eI
 omăt om'@t
 onofrei $3
+obligatoriu obligat'orju
 operăm $3
 optim $1
 opus op'us
@@ -2339,7 +2351,7 @@ usturătu $4
 utile $2
 unghiul 'ungjul
 tri'unghiul t*iungjul
-
+washington $1
 weber $1
 windows 'wind@Us
 
