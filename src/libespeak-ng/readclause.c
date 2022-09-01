@@ -490,6 +490,19 @@ static bool IgnoreOrReplaceChar(Translator *tr, int *c1) {
     return false;
 }
 
+static int CheckPhonemeMode(int option_phoneme_input, int phoneme_mode, int c1, int c2) {
+		if (option_phoneme_input) {
+			if (phoneme_mode > 0)
+				phoneme_mode--;
+			else if ((c1 == '[') && (c2 == '['))
+				phoneme_mode = -1; // input is phoneme mnemonics, so don't look for punctuation
+			else if ((c1 == ']') && (c2 == ']'))
+				phoneme_mode = 2; // set phoneme_mode to zero after the next two characters
+
+		}
+    return phoneme_mode;
+}
+
 int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
 	/* Find the end of the current clause.
@@ -754,14 +767,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		} else if (iswalpha(c1))
 			tr->clause_lower_count++;
 
-		if (option_phoneme_input) {
-			if (phoneme_mode > 0)
-				phoneme_mode--;
-			else if ((c1 == '[') && (c2 == '['))
-				phoneme_mode = -1; // input is phoneme mnemonics, so don't look for punctuation
-			else if ((c1 == ']') && (c2 == ']'))
-				phoneme_mode = 2; // set phoneme_mode to zero after the next two characters
-		}
+		phoneme_mode = CheckPhonemeMode(option_phoneme_input, phoneme_mode, c1, c2);
 
 		if (c1 == '\n') {
 			parag = 0;
