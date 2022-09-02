@@ -1,11 +1,12 @@
-// numbers
-_1     jun
-_2     keb'
-_3     oxib'
-_4     kajib'
-_5     job'
-_6     waqib'
-_7     wuqub'
-_8     wajxaqib'
-_9     b'elejeb'
-_10    lajuj
+// Native numbers 0-10
+_0n     mah?b'al
+_1n     xun
+_2n     keb
+_3n     oSib
+_4n     kaxib
+_5n     xob
+_6n     waqib
+_7n     wuqub
+_8n     wahSaqib
+_9n     b'elexeb
+_10n    laxux
