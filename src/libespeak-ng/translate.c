@@ -79,7 +79,6 @@ bool new_sentence;
 static int word_emphasis = 0; // set if emphasis level 3 or 4
 static int embedded_flag = 0; // there are embedded commands to be applied to the next phoneme, used in TranslateWord2()
 
-static int prev_clause_pause = 0;
 static int max_clause_pause = 0;
 static bool any_stressed_words;
 int pre_pause;
@@ -2699,8 +2698,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		embedded_list[embedded_ix] = 0x80;
 	}
 
-	prev_clause_pause = clause_pause;
-
 	new_sentence = false;
 	if (terminator & CLAUSE_TYPE_SENTENCE)
 		new_sentence = true; // next clause is a new sentence
@@ -2725,8 +2722,6 @@ void InitText(int control)
 	skip_characters = 0;
 	skipping_text = false;
 	new_sentence = true;
-
-	prev_clause_pause = 0;
 
 	option_sayas = 0;
 	option_sayas2 = 0;
