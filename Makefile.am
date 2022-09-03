@@ -174,6 +174,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/synthesize.c \
 	src/libespeak-ng/synth_mbrola.c \
 	src/libespeak-ng/translate.c \
+	src/libespeak-ng/translateword.c \
 	src/libespeak-ng/tr_languages.c \
 	src/libespeak-ng/voices.c \
 	src/libespeak-ng/wavegen.c
@@ -205,6 +206,7 @@ noinst_HEADERS = \
 	src/libespeak-ng/synthdata.h \
 	src/libespeak-ng/synthesize.h \
 	src/libespeak-ng/translate.h \
+	src/libespeak-ng/translateword.h \
 	src/libespeak-ng/voice.h \
 	src/libespeak-ng/wavegen.h \
 	src/speechPlayer/include/speechPlayer.h \

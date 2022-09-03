@@ -44,6 +44,7 @@ ESPEAK_SOURCES := \
   src/libespeak-ng/synthesize.c \
   src/libespeak-ng/synth_mbrola.c \
   src/libespeak-ng/translate.c \
+  src/libespeak-ng/translateword.c \
   src/libespeak-ng/tr_languages.c \
   src/libespeak-ng/voices.c \
   src/libespeak-ng/wavegen.c

@@ -43,6 +43,7 @@
 #include "ucd/ucd.h"              // for ucd_toupper
 #include "voice.h"                // for voice, voice_t
 #include "speech.h"               // for MAKE_MEM_UNDEFINED
+#include "translateword.h"
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -388,31 +389,6 @@ static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *w
 	}
 }
 
-static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word)
-{
-	int posn = 0;
-	int capitals = 0;
-	bool non_initial = false;
-
-	if (spell_word > 2)
-		capitals = 2; // speak 'capital'
-	if (spell_word > 1)
-		capitals |= 4; // speak character code for unknown letters
-
-	while ((*word != ' ') && (*word != 0)) {
-		word += TranslateLetter(tr, word, phonemes, capitals | non_initial, current_alphabet);
-		posn++;
-		non_initial = true;
-		if (phonemes[0] == phonSWITCH) {
-			// change to another language in order to translate this word
-			strcpy(word_phonemes, phonemes);
-			return NULL;
-		}
-	}
-	SetSpellingStress(tr, phonemes, spell_word, posn);
-	return word;
-}
-
 static int CheckDottedAbbrev(char *word1)
 {
 	int wc;
@@ -665,7 +641,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 		// Speak as individual letters
 		phonemes[0] = 0;
 
-		if (SpeakIndividualLetters(tr, word1, phonemes, spell_word) == NULL) {
+		if (SpeakIndividualLetters(tr, word1, phonemes, spell_word, current_alphabet, word_phonemes) == NULL) {
 			if (word_length > 1)
 				return FLAG_SPELLWORD; // a mixture of languages, retranslate as individual letters, separated by spaces
 			return 0;
@@ -737,7 +713,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 				// ?? should we say super/sub-script numbers and letters here?
 				utf8_in(&wc, wordx);
 				if ((word_length == 1) && (IsAlpha(wc) || IsSuperscript(wc))) {
-					if ((wordx = SpeakIndividualLetters(tr, wordx, phonemes, spell_word)) == NULL)
+					if ((wordx = SpeakIndividualLetters(tr, wordx, phonemes, spell_word, current_alphabet, word_phonemes)) == NULL)
 						return 0;
 					strcpy(word_phonemes, phonemes);
 					return 0;
@@ -824,7 +800,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 						strcpy(prefix_phonemes, phonemes);
 					if (dictionary_flags[0] & FLAG_ABBREV) {
 						prefix_phonemes[0] = 0;
-						SpeakIndividualLetters(tr, wordpf, prefix_phonemes, 1);
+						SpeakIndividualLetters(tr, wordpf, prefix_phonemes, 1, current_alphabet, word_phonemes);
 					}
 				} else
 					strcat(prefix_phonemes, end_phonemes);
