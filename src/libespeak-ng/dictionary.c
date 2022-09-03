@@ -32,11 +32,12 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "common.h"                // for GetFileLength
 #include "dictionary.h"
 #include "numbers.h"                       // for LookupAccentedLetter, Look...
 #include "phoneme.h"                       // for PHONEME_TAB, phVOWEL, phon...
 #include "readclause.h"                    // for WordToString2, is_str_tota...
-#include "speech.h"                        // for GetFileLength, path_home
+#include "speech.h"                        // for path_home
 #include "compiledict.h"                   // for DecodeRule
 #include "synthdata.h"                     // for PhonemeCode, InterpretPhoneme
 #include "synthesize.h"                    // for STRESS_IS_PRIMARY, phoneme...

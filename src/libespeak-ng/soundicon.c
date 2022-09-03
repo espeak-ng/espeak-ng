@@ -36,9 +36,10 @@
 #include <ucd/ucd.h>
 
 #include "soundicon.h" 
+#include "common.h"                // for GetFileLength
 #include "error.h"                // for create_file_error_context
 #include "readclause.h"               // for Read4Bytes
-#include "speech.h"                   // for path_home, GetFileLength, PATHSEP
+#include "speech.h"                   // for path_home, PATHSEP
 #include "synthesize.h"                   // for samplerate
 
 int n_soundicon_tab = 0;

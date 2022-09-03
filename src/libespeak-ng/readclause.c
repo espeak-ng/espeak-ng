@@ -37,12 +37,13 @@
 #include <ucd/ucd.h>
 
 #include "readclause.h"
+#include "common.h"               // for GetFileLength
 #include "config.h"               // for HAVE_MKSTEMP
 #include "dictionary.h"           // for LookupDictList, DecodePhonemes, Set...
 #include "error.h"                // for create_file_error_context
 #include "phoneme.h"              // for phonSWITCH
 #include "soundicon.h"               // for LookupSoundIcon
-#include "speech.h"               // for GetFileLength, LookupMnem, PATHSEP
+#include "speech.h"               // for LookupMnem, PATHSEP
 #include "ssml.h"                 // for SSML_STACK, ProcessSsmlTag, N_PARAM...
 #include "synthdata.h"            // for SelectPhonemeTable
 #include "translate.h"            // for Translator, utf8_out, CLAUSE_OPTION...

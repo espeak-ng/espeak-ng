@@ -19,6 +19,7 @@ SPEECHPLAYER_SRC_FILES := \
 LOCAL_SRC_FILES += $(SPEECHPLAYER_SRC_FILES)
 
 ESPEAK_SOURCES := \
+  src/libespeak-ng/common.c \
   src/libespeak-ng/compiledata.c \
   src/libespeak-ng/compiledict.c \
   src/libespeak-ng/compilembrola.c \

@@ -155,6 +155,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/ucd-tools/src/proplist.c \
 	src/ucd-tools/src/scripts.c \
 	src/ucd-tools/src/tostring.c \
+	src/libespeak-ng/common.c \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
@@ -184,6 +185,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/wavegen.c
 
 noinst_HEADERS = \
+	src/libespeak-ng/common.h \
 	src/libespeak-ng/compiledict.h \
 	src/libespeak-ng/dictionary.h \
 	src/libespeak-ng/error.h \
