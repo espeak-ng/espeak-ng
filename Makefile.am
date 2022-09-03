@@ -74,8 +74,12 @@ if HAVE_GRADLE
 endif
 
 distclean-local:
-	rm -rf espeak-ng-data/phondata-manifest
 	rm -f espeak-ng-data/*_dict
+	rm -f espeak-ng-data/intonations
+	rm -f espeak-ng-data/phondata
+	rm -f espeak-ng-data/phondata-manifest
+	rm -f espeak-ng-data/phonindex
+	rm -f espeak-ng-data/phontab
 
 ##### custom rules:
 
