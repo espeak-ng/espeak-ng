@@ -31,7 +31,7 @@ extern "C"
 #endif
 
 char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, ALPHABET *current_alphabet, char word_phonemes[]);
-
+int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALPHABET *current_alphabet);
 #ifdef __cplusplus
 }
 #endif
