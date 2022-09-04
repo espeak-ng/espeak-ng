@@ -18,7 +18,7 @@
  */
 
 #ifndef ESPEAK_NG_TRANSLATEWORD_H
-#define ESPEAK_NG_TRANSLATEWORd_H
+#define ESPEAK_NG_TRANSLATEWORD_H
 
 #include <stdbool.h>
 
