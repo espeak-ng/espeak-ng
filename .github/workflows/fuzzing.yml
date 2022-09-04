@@ -6,15 +6,13 @@ on:
     - cron: "0 4 * * 1"
 
 jobs:
-  fuzzing:
-
+  build:
     runs-on: ubuntu-latest
-    name: Fuzz synth_espeak on ${{ matrix.arch }} for ${{ matrix.lang }}
+    name: Build synth_espeak on ${{ matrix.arch }}
     strategy:
       fail-fast: false
       matrix:
-        arch: [x86-64, x86-32]
-        lang: [af, am, an, ar, as, az, ba, be, bg, bn, bpy, bs, ca, chr, cmn, cs, cv, cy, da, de, el, en, eo, es, et, eu, fa, fi, fr, ga, gd, gn, grc, gu, hak, haw, he, hi, hr, ht, hu, hy, hyw, ia, id, io, is, it, ja, jbo, ka, kk, kl, kn, ko, kok, ku, ky, la, lb, lfn, lt, ltg, lv, mi, mk, ml, mr, ms, mt, mto, my, nb, nci, ne, nl, nog, om, or, pa, pap, piqd, pl, pt, pt-BR, py, qdb, qu, quc, qya, ro, ru, ru-LV, sd, shn, si, sjn, sk, sl, smj, sq, sr, sv, sw, ta, te, th, tk, tn, tr, tt, ug, uk, ur, uz, vi, yue]
+        arch: [x86-32, x86-64]
         include:
           - arch: x86-32
             archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
@@ -46,6 +44,36 @@ jobs:
         path: config.log
     - name: make
       run: make -j
+    - uses: actions/cache@v3
+      with:
+        path: /home/runner/work/espeak-ng/espeak-ng
+        key: build-${{ matrix.arch }}-${{ github.sha }}
+
+  fuzzing:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Fuzz synth_espeak on ${{ matrix.arch }} for ${{ matrix.lang }}
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x86-32, x86-64]
+        lang: [af, am, an, ar, as, az, ba, be, bg, bn, bpy, bs, ca, chr, cmn, cs, cv, cy, da, de, el, en, eo, es, et, eu, fa, fi, fr, ga, gd, gn, grc, gu, hak, haw, he, hi, hr, ht, hu, hy, hyw, ia, id, io, is, it, ja, jbo, ka, kk, kl, kn, ko, kok, ku, ky, la, lb, lfn, lt, ltg, lv, mi, mk, ml, mr, ms, mt, mto, my, nb, nci, ne, nl, nog, om, or, pa, pap, piqd, pl, pt, pt-BR, py, qdb, qu, quc, qya, ro, ru, ru-LV, sd, shn, si, sjn, sk, sl, smj, sq, sr, sv, sw, ta, te, th, tk, tn, tr, tt, ug, uk, ur, uz, vi, yue]
+        include:
+          - arch: x86-32
+            archdeps: "libpcaudio0:i386 libsonic0:i386 libubsan1:i386 libc6-dbg:i386"
+
+          - arch: x86-64
+            archdeps: ""
+    steps:
+    - uses: actions/cache@v3
+      with:
+        path: /home/runner/work/espeak-ng/espeak-ng
+        key: build-${{ matrix.arch }}-${{ github.sha }}
+    - name: enable 32bit architecture
+      run: sudo dpkg --add-architecture i386
+      if: matrix.arch == 'x86-32'
+    - name: dependencies
+      run: sudo apt-get update && sudo apt-get install libpcaudio0 libsonic0 libubsan1 ${{ matrix.archdeps }}
     - name: Fuzz function synth_espeak()
       run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
