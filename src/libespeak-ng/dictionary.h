@@ -31,7 +31,6 @@ extern "C"
 {
 #endif
 
-extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 int LoadDictionary(Translator *tr, const char *name, int no_error);
 int HashDictionary(const char *string);
 const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);

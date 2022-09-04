@@ -23,6 +23,7 @@
 #include "espeak-ng/espeak_ng.h"
 
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
+extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 
 #ifdef __cplusplus
 }

@@ -51,4 +51,10 @@ int GetFileLength(const char *filename)
 	return statbuf.st_size;
 }
 
+void strncpy0(char *to, const char *from, int size)
+{
+	// strcpy with limit, ensures a zero terminator
+	strncpy(to, from, size);
+	to[size-1] = 0;
+}
 #pragma GCC visibility pop

@@ -39,8 +39,8 @@
 #include <espeak-ng/encoding.h>
 
 #include "voice.h"                    // for voice_t, DoVoiceChange, N_PEAKS
-#include "common.h"                    // for GetFileLength
-#include "dictionary.h"               // for strncpy0, LoadDictionary
+#include "common.h"                    // for GetFileLength, strncpy0
+#include "dictionary.h"               // for LoadDictionary
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
 #include "speech.h"                   // for PATHSEP

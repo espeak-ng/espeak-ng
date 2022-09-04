@@ -27,7 +27,7 @@
 #include <espeak-ng/espeak_ng.h>
 
 #include "error.h"
-#include "dictionary.h"           // for strncpy0
+#include "common.h"           // for strncpy0
 
 espeak_ng_STATUS
 create_file_error_context(espeak_ng_ERROR_CONTEXT *context,

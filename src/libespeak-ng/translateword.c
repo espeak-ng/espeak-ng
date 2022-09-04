@@ -34,6 +34,8 @@
 #include <espeak-ng/encoding.h>
 
 #include "translate.h"
+#include "translateword.h"
+#include "common.h"               // for strncpy0
 #include "dictionary.h"           // for TranslateRules, LookupDictList, Cha...
 #include "numbers.h"              // for SetSpellingStress, ...
 #include "phoneme.h"              // for phonSWITCH, PHONEME_TAB, phonPAUSE_...
@@ -41,7 +43,7 @@
 #include "synthdata.h"            // for SelectPhonemeTable, LookupPhonemeTable
 #include "ucd/ucd.h"              // for ucd_toupper
 #include "voice.h"                // for voice, voice_t
-#include "translateword.h"
+
 
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes);
 static int CheckDottedAbbrev(char *word1);

@@ -32,7 +32,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "common.h"                // for GetFileLength
+#include "common.h"                // for GetFileLength, strncpy0
 #include "dictionary.h"
 #include "numbers.h"                       // for LookupAccentedLetter, Look...
 #include "phoneme.h"                       // for PHONEME_TAB, phVOWEL, phon...
@@ -90,15 +90,6 @@ static unsigned char remove_accent[N_REMOVE_ACCENT] = {
 	'z',   0,   0, 'b', 'u', 'v', 'e', 'e', 'j', 'j', 'q', 'q', 'r', 'r', 'y', 'y',  // 240
 	'a', 'a', 'a', 'b', 'o', 'c', 'd', 'd', 'e', 'e', 'e', 'e', 'e', 'e'
 };
-
-#pragma GCC visibility push(default)
-void strncpy0(char *to, const char *from, int size)
-{
-	// strcpy with limit, ensures a zero terminator
-	strncpy(to, from, size);
-	to[size-1] = 0;
-}
-#pragma GCC visibility pop
 
 static int Reverse4Bytes(int word)
 {

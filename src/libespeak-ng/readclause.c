@@ -37,7 +37,7 @@
 #include <ucd/ucd.h>
 
 #include "readclause.h"
-#include "common.h"               // for GetFileLength
+#include "common.h"               // for GetFileLength, strncpy0
 #include "config.h"               // for HAVE_MKSTEMP
 #include "dictionary.h"           // for LookupDictList, DecodePhonemes, Set...
 #include "error.h"                // for create_file_error_context
