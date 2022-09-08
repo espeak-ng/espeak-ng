@@ -65,10 +65,10 @@ preBuild.dependsOn createDataVersion
 
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 33
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 22
         versionName "1.52-dev"
