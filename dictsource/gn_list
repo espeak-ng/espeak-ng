@@ -65,19 +65,41 @@ _cir	Tirkumfl'exo
 _tld	muanduh,e~||tigu'a~
 _brv	br'eBe
 
-// Native numbers 0-10
+// Numbers
 
-_0n mba||eB'e
-_1n pete'i~
-_2n mok'o~i
-_3n mbohap'y
-_4n i**uNd'y
-_5n p'o
-_6n pote'i~
-_7n pok'o~i
-_8n poap'y
-_9n po**uNd'y
-_10n p'a
+_0 mba||eB'e
+_1 pete'i~
+_2 mok'o~i
+_3 mbohap'y
+_4 i**uNd'y
+_5 p'o
+_6 pote'i~
+_7 pok'o~i
+_8 poap'y
+_9 po**uNd'y
+_10 p'a
+_11 pate'i~
+_12 pak'o~i
+_13 pa:p'y
+_14 pa**und'y
+_15 pap'o
+_16 papote'i~
+_17 papok'o~i
+_18 papoap'y
+_19 papo**und'y
+_2X mok'o~ipa
+_3X mbohapyp'a
+_4X i**undyp'a
+_5X pop'a
+_6X pot'ei~pa
+_7X pok'o~ipa
+_8X poapyp'a
+_9X po**undyp'a
+_0C s'a
+_1C s'a
+_2C mok'o~is,a
+_0M1 s'u
+_0M2 su'a
 
 // character names
 
