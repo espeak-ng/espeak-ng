@@ -30,7 +30,7 @@
      @) avru (pa avr'u
 
 .group â
-	â	 a
+	â	 a:
 
 
 .group b
@@ -57,7 +57,7 @@
 
         // declare these suffices so that preceding "ma/me" is unstressed
 	dim (_S3   dim
-	dik (_S3   dik
+	dik (_S3   dic
 	din (_S3   din
 	diniz (_S5 diniz
 	di (_S2    di
@@ -75,11 +75,11 @@
 	du (_S2    du
 	dular (_S5 duLar
 	düm (_S3   dym
-	dük (_S3   dyk
+	dük (_S3   dyc
 	dün (_S3   dyn
 	dünüz (_S5 dynyz
 	dü (_S2    dy
-	düler (_S5 dyler
+	düler (_S5 dyl&r
 
 	dir (_S3  %diR
 	dır (_S3  %d@R
@@ -94,8 +94,8 @@
 
      @) e (_S1   e
 
-     @) ecek (_S4  edZek
-     @) ecekmiş (_S7   edZekm%iS
+     @) ecek (_S4  edZec
+     @) ecekmiş (_S7   edZecm%iS
      @) eyim (_S4  ejim
      @) elim (_S4  elim
      @) esin (_S4  esin
@@ -173,17 +173,17 @@
 	le (_S2  %le
 
 	lar (_S3  LaR
-	ler (_S3  leR
+	ler (_S3  l&R
 
 	li (_S2  li
 	lı (_S2  L@
 	lu (_S2  Lu
 	lü (_S2  ly
 
-	lik (_S3  lik
+	lik (_S3  lic
 	lık (_S3  L@k
 	luk (_S3  Luk
-	lük (_S3  lyk
+	lük (_S3  lyc
 
 
 .group m
@@ -247,7 +247,7 @@
 	sanız (_S5 %san@z
 	sa (_S2    %sa
 	sem (_S3   %sem
-	sek (_S3   %sek
+	sek (_S3   %sec
 	sen (_S3   %sen
 	seniz (_S5 %seniz
 	se (_S2    %se
@@ -297,7 +297,7 @@
 
 
 .group û
-	û	u  
+	û	u:  
 
 .group v
         v        v
@@ -339,9 +339,9 @@
 	yle (_S3  %jle
 
 	yacak (_S5  jadZak
-	yecek (_S5  jedZek
+	yecek (_S5  jedZec
 	yacakmış (_S8   jadZakm%@S
-	yecekmiş (_S8   jedZekm%iS
+	yecekmiş (_S8   jedZecm%iS
 
 	yayım (_S5  jaj@m
 	yalım (_S5  jaL@m
