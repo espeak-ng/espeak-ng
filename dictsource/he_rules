@@ -440,38 +440,34 @@
        תָ'        Ta
        תה        ta
 
-.group ׇ
-	ׇ	o
+.group אוֹ
+	אוֹ	o
 
 
-.group ָ
-	ָ	a
+.group אַ
+	אַ	a
 
 
-.group ַ
-	ַ	a
+.group א
+	א      a
 
 
-.group ֵ
-	ֵ	e
+.group אֵ
+	ֵא	e
 
 
-.group ֶ
-	ֶ	e
+.group אֵ
+	אֵ	e
+	
 
+.group ִאִ
+	ִאִ	i
 
-.group ְ
-	ְ	
+.group אַ
+	אַ	a
 
+.group אַ
+	אַ	a
 
-.group ִ
-	ִ	i
-
-.group ֳ
-	ֳ	a
-
-.group ֲ
-	ֲ	a
-
-.group ֻ
-	ֻ	u
+.group אוּ
+	אוּ     u
