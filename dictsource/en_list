@@ -2352,6 +2352,7 @@ koran		kO@r'A:n
 kosher		koUS3
 kowtow		kaUt2aU
 kubernetes ,ku:b3'nEti:z
+kusto 'ku:stoU $only
 
 la		,la           $only
 la		$abbrev $allcaps
@@ -5692,5 +5693,3 @@ sterile		$alt2
 tensile		$alt2
 virile		$alt2
 ?3 volatile	v0la#t@L
-
-
