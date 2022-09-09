@@ -54,7 +54,6 @@ _76   swasandsez
 _77   swasanddiset
 _78   swasandizuit
 _79   swasandiznef
-// TODO proper names for following numbers should be set
 _80     katheven
 _8X     katheven
 _81     kathevenyen
@@ -78,7 +77,31 @@ _0and   e
 _dpt    virgyl
 _roman  rom'E~
 
-// Unstressed words
+// Letters
+a 'a
+b b'e
+c se'aS
+d d'e
+e 'e
+f 'ef
+g g'e
+h 'aS
+i 'i
+j j'i
+k k'a
+l 'el
+m 'em
+n 'en
+o 'o
+p p'e
+r 'eh
+s 'es
+t t'e
+u 'u
+v v'e
+w doubv'e
+y igh'ek
+z z'ed
 
 // Pronouns
 mwen   $u
