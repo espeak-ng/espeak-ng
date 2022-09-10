@@ -220,7 +220,7 @@ phoneme oU
   vwl  starttype #@  endtype #u
   ipa əʊ
   length 220
-  FMT(vdiph/@u_2)
+  FMT(vdiph/@u_3)
 endphoneme
 
 
