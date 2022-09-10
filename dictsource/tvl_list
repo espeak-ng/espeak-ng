@@ -1,0 +1,94 @@
+// Letters
+
+a a
+ā a:
+e e
+ē e:
+i i
+ī i:
+o o
+ō o:
+u u
+ū u:
+f f'a:
+g g'a:
+h h'a:
+k k'a:
+l l'a:
+m m'o:
+n n'u:
+p p'i:
+s s'a:
+t t'i:
+v v'i:
+ai ai
+ei ei
+ai  ai
+ae  ae
+ao  ao
+au  au
+ei  ei
+eu  eu
+iu  iu
+oi  oi
+ou  ou
+ui  ui
+
+// Native Numbers 0-10
+
+_0n l'eai
+_1n t'asi
+_2n l'ua
+_3n t'olu
+_4n f'a:
+_5n l'ima
+_6n 'ono
+_7n f'itu
+_8n v'alu
+_9n 'iva
+_10n sef'ulu
+
+// Pronouns
+
+au $u
+aku $u
+kita $u
+koe $u
+ia $u
+tāua $u
+māua $u
+tātou $u
+mātou $u
+koulua $u
+koutou $u
+lāua $u
+lātou $u
+
+// Articles
+
+tēnei $u+
+tēnā $u+
+konei $u+
+konā $u+
+kolā $u+
+tēfea $u+
+katoa $u+
+uke $u+
+nīsi $u+
+nāi
+mū $u+
+mō $u+
+(sē uke) $u+
+suā $u+
+(fakatasi mo) $u+
+i $u $atend
+(i loto) $u+
+
+// negatives
+sē $u
+
+// questions
+(ko oi) $u+
+ā $u $atend
+pēfea $u+
+anafea $u+
