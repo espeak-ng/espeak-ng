@@ -31,12 +31,12 @@
 // Numbers
 _0 n'Yl
 _1 b'Ir
-_2 j'ekI
+_2 ek'I
 _3 u#S
 _4 t8rt
 _5 b'es
 _6 'Alt@
-_7 Z'etI
+_7 Zet'I
 _8 s'egIz
 _9 t'oG@z
 _1X 'on
@@ -56,3 +56,54 @@ _0M3 m@jLL@j'Ard
 _1M3 m@jLL@j'Ard
 
 _dpt _Z&n'e_
+
+// pronouns
+
+анау $u
+біз $u
+біреу $u
+бұл $u
+бұлар $u
+бәрі $u
+ешкім $u
+ешнәрсе $u
+ештеме $u
+ештеңе $u
+кім $u
+кейбір $u
+мен $u 
+мына $u
+мынау $u
+немене $u
+нендей $u
+ол $u 
+олар $u
+осы $u
+сіз $u
+сіздер $u
+сен $u
+сендер $u
+сол $u
+сыңар $u
+қашан $u
+әлдеқайда $u
+әркім $u
+өз $u
+
+// postpositions
+
+арасында $u
+бойынша $u
+жөнінде $u
+сияқты $u
+таман $u
+туралы $u
+қарсы $u
+
+// character names
+
+// adverbs
+
+// negatives
+
+емес $u+
