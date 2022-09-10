@@ -1,0 +1,92 @@
+.group a
+       a        a
+
+.group e
+       e        e
+
+.group i
+       i        i
+
+.group o
+       o        o
+
+.group u
+       u        u
+
+.group ā
+       ā        'a:
+
+.group ē
+       ē        'e:
+
+.group ī
+       ī        'i:
+
+.group ō
+       ō        'o:
+
+.group ū
+       ū        'u:
+
+.group ai
+       ai       ai
+
+.group ae
+       ae       ae
+
+.group ao
+       ao       ao
+
+.group au
+       au       au
+
+.group ei
+       ei       ei
+
+.group eu
+       eu       eu
+
+.group iu
+       iu       iu
+
+.group oi
+       oi       oi
+
+.group ou
+       ou       ou
+
+.group ui
+       ui       ui
+
+.group g
+        g       g
+
+.group h
+       h        h
+
+.group k
+       k        k
+       kk       k:
+
+.group l
+       l        l
+
+.group m
+       m        m
+
+.group n
+       n        n
+       ng       N
+
+.group p
+       p        p
+       pp       p:
+       
+.group s
+        s       s
+        
+.group t
+        t       t
+        tt      t:
+.group v
+       v        v
