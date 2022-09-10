@@ -1,10 +1,7 @@
 name English (Australia)
-language en-gb-x-au
-language en-gb  4
+language en-au
+language en-au  4
 language en 5
-
-maintainer Reece H. Dunn <msclrhd@gmail.com>
-status mature
 
 phonemes en-au
 
