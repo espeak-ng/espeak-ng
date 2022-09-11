@@ -33,6 +33,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
 | `zls`       | `hr`              | South Slavic          | Croatian<sup>\[1,2\]</sup>  |                        |
+| 'zls'       | `cnr              | South Slavic          | Montenegrin                 |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
 | `gmw`       | `nl`              | West Germanic         | Dutch                       |                        |
@@ -117,6 +118,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `tai`       | `shn`             | Tai                   | Shan (Tai Yai)              |                        |
 | `inc`       | `si`              | Indic                 | Sinhala                     |                        |
 | `zlw`       | `sk`              | West Slavic           | Slovak                      |                        |
+| `poz`       | `tvl`             | Polynesian            | Tuvaluan                    |
 | `zls`       | `sl`              | South Slavic          | Slovenian                   |                        |
 | `urj`       | `smj`             | Uralic                | Lule Saami                  |                        |
 | `roa`       | `es`              | Romance               | Spanish                     | Spain                  |
