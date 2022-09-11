@@ -10,18 +10,47 @@
 //စ sə3  //$atend
 
 
-// Native numbers 0-10
-_0n      tonj'a:
-_1n      t'i:
-_2n      n'i:
-_3n      t'ou:
-_4n      l'i:
-_5n      N'a:
-_6n      tSa:
-_7n      kon'i
-_8n      S'i:
-_9n      k'o:
-_10n     tas'e:
+// Numbers
+_0      tonj'a:
+_1      t'i:
+_2      n'i:
+_3      t'ou:
+_4      l'i:
+_5      N'a:
+_6      tSa:
+_7      kon'i
+_8      S'i:
+_9      k'o:
+_10     tas'e:
+_11     set'i:
+_12     sen'i:
+_13     set'ou:
+_14     sel'i:
+_15     seN'a:
+_16     setS'a:
+_17     sekon'i
+_18     seS'i:
+_19     sek'o:
+_2X     nis'e:
+_3X     tous'e:
+_4X     l'ise:
+_5X     Nas'e:
+_6X     tSas'e:
+_7X     konis'e:
+_8X     Sis'e:
+_9X     kos'e:
+_0C     j'a:
+_1C     j'a
+_2C     nij'a:
+_3C     touj'a:
+_4C     lij'a:
+_5C     Naj'a:
+_6C     tSaj'a:
+_7C     konij'a:
+_8C     Sij'a:
+_9C     koj'a:
+_0M1    t'aon
+_0M2    t'a:
 
 // Names of individual letters
 // TODO should investigate why they are
