@@ -810,6 +810,7 @@ aha		A:h'A:
 ahem		@h'@m
 ahoy		a#hOI
 aidenn		eId@n
+aira 'aIr@ $only
 airbus		e@bVs
 airpower	'e@p,aU3
 aisle		aI@l
@@ -2350,6 +2351,8 @@ kopje		k0pi
 koran		kO@r'A:n
 kosher		koUS3
 kowtow		kaUt2aU
+kubernetes ,ku:b3'nEti:z
+kusto 'ku:stoU $only
 
 la		,la           $only
 la		$abbrev $allcaps
@@ -3289,6 +3292,7 @@ scenario	s@nA@rioU
 scepter		sEpt3
 sceptre		sEpt3
 ?3 schematic	sk@matIk
+schengen 'SEN@n
 schist		SIst
 sci		saI
 sciatica	saI'atIk@
@@ -3847,6 +3851,7 @@ wholehearted	$2
 wicked		wIkI2#d	// adjective
 width		wItT
 wilderness	wIld3n@s
+willamette wI'lamIt $only
 wifi		waIfaI
 winding		waIndIN       // verb
 wind		waInd         $verb
@@ -5688,5 +5693,3 @@ sterile		$alt2
 tensile		$alt2
 virile		$alt2
 ?3 volatile	v0la#t@L
-
-

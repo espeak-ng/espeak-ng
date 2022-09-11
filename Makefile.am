@@ -74,8 +74,12 @@ if HAVE_GRADLE
 endif
 
 distclean-local:
-	rm -rf espeak-ng-data/phondata-manifest
 	rm -f espeak-ng-data/*_dict
+	rm -f espeak-ng-data/intonations
+	rm -f espeak-ng-data/phondata
+	rm -f espeak-ng-data/phondata-manifest
+	rm -f espeak-ng-data/phonindex
+	rm -f espeak-ng-data/phontab
 
 ##### custom rules:
 
@@ -151,6 +155,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/ucd-tools/src/proplist.c \
 	src/ucd-tools/src/scripts.c \
 	src/ucd-tools/src/tostring.c \
+	src/libespeak-ng/common.c \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
@@ -174,11 +179,13 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/synthesize.c \
 	src/libespeak-ng/synth_mbrola.c \
 	src/libespeak-ng/translate.c \
+	src/libespeak-ng/translateword.c \
 	src/libespeak-ng/tr_languages.c \
 	src/libespeak-ng/voices.c \
 	src/libespeak-ng/wavegen.c
 
 noinst_HEADERS = \
+	src/libespeak-ng/common.h \
 	src/libespeak-ng/compiledict.h \
 	src/libespeak-ng/dictionary.h \
 	src/libespeak-ng/error.h \
@@ -205,6 +212,7 @@ noinst_HEADERS = \
 	src/libespeak-ng/synthdata.h \
 	src/libespeak-ng/synthesize.h \
 	src/libespeak-ng/translate.h \
+	src/libespeak-ng/translateword.h \
 	src/libespeak-ng/voice.h \
 	src/libespeak-ng/wavegen.h \
 	src/speechPlayer/include/speechPlayer.h \

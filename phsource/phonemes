@@ -1675,9 +1675,6 @@ include ph_consonants
 phonemetable base2 base1
 include ph_base2
 
-phonemetable ak base1
-include ph_akan
-
 phonemetable am base1
 include ph_amhari
 
@@ -1823,9 +1820,6 @@ include ph_tatar
 phonemetable vi base1
 include ph_vietnam
 
-phonemetable wo base1
-include ph_wolof
-
 phonemetable yue base1
 include ph_yue
 
@@ -1872,9 +1866,6 @@ include ph_klingon
 
 phonemetable ro base2
 include ph_romanian
-
-phonemetable rw base2
-include ph_kinyarwanda
 
 phonemetable tk base2
 include ph_turkmen
@@ -1958,9 +1949,6 @@ include ph_haitian
 
 phonemetable hi hi_base
 include ph_hindi
-
-phonemetable bo hi
-include ph_tibetan
 
 phonemetable gd base1 // hidden dependency, imports from hi
 include ph_s_gaelic

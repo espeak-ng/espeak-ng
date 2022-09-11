@@ -32,9 +32,10 @@
 #include <espeak-ng/encoding.h>
 
 #include "synthdata.h"
+#include "common.h"                    // for GetFileLength
 #include "error.h"                    // for create_file_error_context, crea...
 #include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
-#include "speech.h"                   // for path_home, GetFileLength, PATHSEP
+#include "speech.h"                   // for path_home, PATHSEP
 #include "mbrola.h"                   // for mbrola_name
 #include "soundicon.h"               // for soundicon_tab
 #include "synthesize.h"               // for PHONEME_LIST, frameref_t, PHONE...

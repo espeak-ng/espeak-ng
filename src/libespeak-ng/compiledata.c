@@ -35,7 +35,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "dictionary.h"               // for strncpy0
+#include "common.h"                    // for GetFileLength, strncpy0
 #include "error.h"                    // for create_file_error_context
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST

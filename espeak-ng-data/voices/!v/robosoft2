@@ -1,9 +1,9 @@
 language variant
 name Robosoft2
 echo 10 600
-klatt 6
+klatt 4
 
-pitch 90 130
+pitch 70 100
 formant 0 100 125 100
 formant 1 96 90 80
 formant 2 97 70 90
@@ -14,7 +14,7 @@ formant 6  90 50 100
 formant 7 100 50 100
 formant 8 100 50 100
 
-roughness 25
+roughness 75
 
 intonation -25
 voicing 80

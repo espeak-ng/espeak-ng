@@ -6,13 +6,28 @@
 .L02 е и аь оь уь э
 .L03 я ю ё
 
+// Consonants
+.L04 б в г д ж з й к л м н п р с т ф х ц ч ш щ
 
 .group а
         а        A
+        а (_        'A
+        а (L04_        'A
         аь       &
+        аь (L04_       '&
+        аман (_	'AmAn
+        амыз (_	'Am@z
+        айман (_	'AjmAn
+        аймыз (_	'Ajm@z
+        асынъ (_	'As@N
+        ады (_	'Ad@
+        айсынъ (_	'Ajs@N
+        айды (_	'Ajd@
+        ав (_	'Aw
 
 .group б
         б        b
+        б (_	p
 
 .group в
         в        v
@@ -34,10 +49,26 @@
    L03) г        G
    L02) г (_     g
    L03) г (_     G
+   га (_	G'A
+   ге (_	g'e
+   ган (_	G'An
+   ген (_	g'en
+   гоь	g8
+   гуь	gu#
+   г (_	k
 
 .group д
         д        d
         дж       dZ
+        дынъ (_	d'@N
+        динъ (_	d'IN
+        ды (_	d'@
+        ди (_	d'I
+        да (_	d'A
+        де (_	d'e
+        дан (_	d'An
+        ден (_	d'en
+        д	(_	t
 
 .group е
         е        e
@@ -45,18 +76,37 @@
    L02) е        je
    L03) е        je
      _) е        je
+     е (_	'e
+     е (C_        'e
+   L01) е (_        j'e
+   L02) е (_        j'e
+   L03) е (_        j'e
+   емен (_	'emen
+   емиз (_	'emIz
+   еймен (_	'ejmen
+   еймиз (_	'ejmIz
+   есинъ (_	'esIN
+   ейсинъ (_	'ejsIN
+   еди (_	'edI
+   ейди (_	'ejdI
+   ев (_	'ev
+   есиз (_	'esIz
 
 .group ё
-        ё        jo
+        ё        j'o
 
 .group ж
         ж        Z
+        ж (_	S
 
 .group з
         з        z
 
 .group и
         и        I
+        и (_        'I
+        и (L04_	'I
+        ин (_	'In
 
 .group й
         й        j
@@ -72,6 +122,12 @@
    L02) к (_     k
    L03) к        q
    L03) к (_     q
+   ка (_	q'A
+   ке (_	k'e
+   кан (_	q'An
+   кен (_	k'en
+   коь	k8
+   куь	ku#
 
 .group л
         л        l
@@ -84,13 +140,38 @@
    L02) л (_     l
    L03) л        L
    L03) л (_     L
+   лар (_	L'AR
+   лер (_	l'eR
+   лоь	l8
+   луь	lu#
 
 .group м
         м        m
+        мас (_	m'As
+        мес (_	m'es
+        ман (_	=mAn
+        мен (_	=men
+        мыз (_	=m@z
+        миз (_	=mIz
+        майман (_	=mAjmAn
+        майсынъ (_	=mAjs@N
+        майды (_	=mAjd@
+        меймен (_	=mejmen
+        мейсинъ (_	=mejsIN
+        мейди (_	=mejdI
+        
 
 .group н
         н        n
         нъ       N
+        нынъ (_	n'@N
+        нинъ (_	n'IN
+        ны (_	n'@
+        ни (_	n'I
+        на (_	n'A
+        не (_	n'e
+        нар (_	n'AR
+        нер (_	n'eR
 
 .group о
         о        o
@@ -104,13 +185,34 @@
 
 .group с
         с        s
+        сам (_	s'Am
+        санъ (_	s'AN
+        са (_	s'A
+        санъыз (_	s'AN@z
+        салар (_	sAL'AR
+        сем (_	s'em
+        сенъ (_	s'eN
+        сенъиз (_	seN'Iz
+        селер (_	sel'eR
+        сыз (_	s'@z
+        сиз (_	s'Iz
 
 .group т
         т        t
+        тынъ (_	t'@N
+        тинъ (_	t'IN
+        ты (_	t'@
+        ти (_	t'I
+        та (_	t'A
+        те (_	t'e
 
 .group у
         у        U
         уь       u#
+        у (L04_        'U
+        уь (L04_       'u#
+        ув (_	'Uw
+        уьв (_	'u#v
 
 .group ф
         ф        f
@@ -135,15 +237,21 @@
 
 .group ы
         ы        @
+        ы (_        '@
+        ы (L04_        '@
+        ын (_	'@n
 
 .group ь
         ь        ?
 
 .group э
         э        e
+        _) э (L04_        'e
 
 .group ю
         ю        ju
+        ю (L04_        j'u
 
 .group я
-        я        ja
+        я        jA
+        я (L04_        j'A

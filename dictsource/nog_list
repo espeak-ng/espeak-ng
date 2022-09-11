@@ -1,3 +1,4 @@
+
 // Numbers
 
 _0 n'ol?
@@ -23,3 +24,46 @@ _0C j'uz
 _0M1 m'@N
 _0M2 mILl'Ion
 _0M3 mILl'IARd
+
+// Numbers
+_0 n'ol?
+_1 b'IR
+_2 'ekI
+_3 'u#S
+_4 d'8Rt
+_5 b'es
+_6 'Alt@
+_7 j'etI
+_8 s'egIz
+_9 t'oG@z
+_1X 'on
+_2X j@Rm'A
+_3X 'ot@z
+_4X k'@Rk
+_5X j'eLlI
+_6X 'Alp@s
+_7X j'etpIs
+_8X s'eksen
+_9X t'oqsAn
+_0C j'uz
+_0M1 m'@N
+_0M2 mILl'Ion
+_0M3 mILl'IARd
+
+// Stress
+ама	$1
+книга	_^_RU
+конверт	_^_RU
+компания	_^_RU
+ногай	$2
+
+// Other words
+ма	$u $only
+ме	$u $only
+ба	$u $only
+бе	$u $only
+па	$u $only
+пе	$u $only
+пен	$u $only
+бен	$u $only
+эм	$u $only

@@ -33,8 +33,9 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "common.h"               // for strncpy0
 #include "compiledict.h"
-#include "dictionary.h"           // for EncodePhonemes, strncpy0, HashDicti...
+#include "dictionary.h"           // for EncodePhonemes, HashDicti...
 #include "error.h"                // for create_file_error_context
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"              // for PHONEME_TAB_LIST, phonSWITCH, phone...

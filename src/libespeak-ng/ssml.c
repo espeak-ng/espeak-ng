@@ -40,7 +40,7 @@
 #include <ucd/ucd.h>
 
 #include "ssml.h"
-#include "dictionary.h"           // for strncpy0
+#include "common.h"           // for strncpy0
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB, 
 #include "readclause.h"           // for PARAM_STACK, param_stack, AddNameData
 #include "soundicon.h"               // for LoadSoundFile2

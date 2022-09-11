@@ -76,7 +76,7 @@ z   ze:_:
 dz      dze:
 dž      dZe:
 
-// numbers
+// cardinal numbers
 _0      n'ulle
 _1      v'iens
 _2      d'ivi
@@ -128,6 +128,47 @@ _0M9    'oktiljo:ni
 _1M10   n'oniljo:ns
 _0M10   n'oniljo:ni
 _dpt    k'omats_
+
+// ordinal numbers
+_1o     p'iRmais
+_2o     'otRais
+_3o     tR'eSais
+_4o     ts'etuRtais
+_5o     p'iektais
+_6o     s'estais
+_7o     s'epti:tais
+_8o     'astuotais
+_9o     d'evi:tais
+_10o    d'esmitais
+_11o    v'ienpadsmitais
+_12o    d'ivpadsmitais
+_13o    tR'i:spadsmitais
+_14o    tS'etRpadsmitais
+_15o    p'ietspadsmitais
+_16o    s'eSpadsmitais
+_17o    s'eptin^padsmitais
+_18o    'astuon^padsmitais
+_19o    d'evin^padsmitais
+_20o    d'ivdesmitais
+_30o    tR'i:sdesmitais
+_40o    tS'etRdesmitais
+_50o    p'ietsd,esmitais
+_60o    s'eSdesmitais
+_70o    s'eptin^desmitais
+_80o    'astuon^desmitais
+_90o    d'evin^desmitais
+_1Co    s'imtais
+_0M1o   t'u:kstuo:Sais
+_1M1o   t'u:kstuo:Sais
+_1M2o   m'iljo:nais
+_1M3o   m'iljaRdais
+_1M4o   tR'iljonais
+_1M5o   kv'adRiljo:nais
+_1M6o   kv'intiljo:nais
+_1M7o   s'ekstiljo:nais
+_1M8o   s'eptiljo:nais
+_1M9o   'oktiljo:nais
+_1M10o  n'oniljo:nais
 
 // Numbers in Latgalian
 ?2 _0      n'ulle

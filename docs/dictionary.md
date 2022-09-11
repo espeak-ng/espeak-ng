@@ -20,7 +20,7 @@
   - [Letter Names](#letter-names)
   - [Numbers](#numbers)
 - [Character Substitution](#character-substitution)
-- [(Re)definition of charater groups](#redefinition-of-charater-groups)
+- [(Re)definition of character groups](#redefinition-of-character-groups)
 
 ----------
 
@@ -219,9 +219,9 @@ translation rules and spoken with English phonemes.
 |-------------|-------------|
 | `_`         | Beginning or end of a word (or a hyphen). |
 | `-`         | Hyphen. |
-| `A`         | Any vowel[<sup>1</sup>](#redefinition-of-charater-groups). |
-| `C`         | Any consonant [<sup>1</sup>](#redefinition-of-charater-groups). |
-| `B H F G Y` | These may indicate other sets of characters[<sup>1</sup>](#redefinition-of-charater-groups). |
+| `A`         | Any vowel[<sup>1</sup>](#redefinition-of-character-groups). |
+| `C`         | Any consonant [<sup>1</sup>](#redefinition-of-character-groups). |
+| `B H F G Y` | These may indicate other sets of characters[<sup>1</sup>](#redefinition-of-character-groups). |
 | `L<nn>`     | Any of the sequence of characters defined as a letter grup. |
 | `D`         | Any digit. |
 | `K`         | Not a vowel (i.e. a consonant or word boundary or non-alphabetic character). |
@@ -543,7 +543,7 @@ needs to be specified. e.g.:
 	   cx  ĉ   // (Esperanto) allow "cx" as an alternative to c-circumflex
 	   ﬁ   fi  // replace a single character ligature by two characters
 
-## (Re)definition of charater groups
+## (Re)definition of character groups
 
 The set of these vowel characters in `A` group and consonants in `C` group may be
 redefined for a particular language. Other sets of letters indicated by `B`, `E`, `F` and `G`

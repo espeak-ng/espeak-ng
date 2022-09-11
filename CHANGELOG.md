@@ -15,16 +15,25 @@ updated languages:
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
 *  fa (Persian) -- MH
-*  he (Hebrew) -- Omer I.S
+*  gn (Guarani) -- Andiv06
+*  he (Hebrew) -- Omer I.S, Andiv06
 *  it (Italian) -- Christian Leo Mameli
-*  ro (Romanian) -- Andiv06
-*  be (Belarusian) --  Andiv06
-*  en (English) -- Bill Dengler
-*  es (Spanish) -- Sukil Etxenike
-*  he (Hebrew) -- Omer I.S
+*  ja (Japanese) -- Karl Eick
 *  kl (Greenlandic) -- Andiv06
+*  ky (Kyrgyz) -- Andiv06, Valdis Vitolins
+*  lv (Latvian) -- Valdis Vitolins
+*  nog (Nogai) -- Andiv06, boracasli98
 *  qdb (Lang Belta) -- Andiv06
+*  qya (Quenya) -- Andiv06
 *  quc (K'iche') -- Andiv06
+*  ro (Romanian) -- Andiv06
+*  shn (Shan Tay Yai) -- ronaldaug
+*  tk (Turkmen) -- Andiv06
+*  tr (Turkish) -- Gurbuzguven
+*  uz (Uzbek) -- Andiv06
+
+new languages:
+*  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
 
 ### 1.51
 

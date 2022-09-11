@@ -1,22 +1,38 @@
-
 //====================================================
 //  Tone Numbers
+//  Note: 
+//  For tones 1-5, both normal tones and Chao tones
+// are defined
 //====================================================
 
-phoneme 11   //  tone: low level
+//  tone: low level
+phoneme 11
   stress
   Tone(12, 9, envelope/i_risefall, NULL)
 endphoneme
+
+phoneme 5
+  stress
+  Tone(12, 9, envelope/i_risefall, NULL)
+endphoneme
+
 
 phoneme 21   //  tone: low fall
   stress
   Tone(20, 10, envelope/p_fall, NULL)
 endphoneme
 
-phoneme 214   //  tone: fall rise
+//  tone: fall rise
+phoneme 214
   stress
   Tone(18, 42, envelope/p_214, NULL)
 endphoneme
+
+phoneme 3
+  stress
+  Tone(18, 42, envelope/p_214, NULL)
+endphoneme
+
 
 phoneme 22   //  tone: mid-low level
   stress
@@ -28,7 +44,13 @@ phoneme 33   //  tone: mid level
   Tone(32, 30, envelope/p_fall, NULL)
 endphoneme
 
-phoneme 35   //  tone: mid rise
+//  tone: mid rise
+phoneme 35   
+  stress
+  Tone(30, 50, envelope/p_rise, NULL)
+endphoneme
+
+phoneme 2
   stress
   Tone(30, 50, envelope/p_rise, NULL)
 endphoneme
@@ -38,7 +60,13 @@ phoneme 44   //  tone: mid-high level
   Tone(38, 41, envelope/p_rise, NULL)
 endphoneme
 
-phoneme 51   //  tone: high fall
+//  tone: high fall
+phoneme 51
+  stress
+  Tone(50, 10, envelope/p_fall, NULL)
+endphoneme
+
+phoneme 4
   stress
   Tone(50, 10, envelope/p_fall, NULL)
 endphoneme
@@ -48,7 +76,13 @@ phoneme 53   //  tone: high fall
   Tone(50, 30, envelope/p_fall, NULL)
 endphoneme
 
-phoneme 55   //  tone: high level
+//  tone: high level
+phoneme 55   
+  stress
+  Tone(55, 50, envelope/p_level, NULL)
+endphoneme
+
+phoneme 1
   stress
   Tone(55, 50, envelope/p_level, NULL)
 endphoneme

@@ -37,7 +37,15 @@ to view and discuss other related topics.
 
 <a class="anchor" id="step7">7. If you contribute to an existing language, find language maintainer in language configuration file located in `espeak-ng-data/lang` folder[<sup>1</sup>](#1) and ask him to review your changes. If you can't find language maintainer, you can review list of all contributors[<sup>2</sup>](#2) and contact them. You can also volunteer to become language maintainer just by updating [language configuration file](voices.md) and submitting your changes as it is described in [step 9](#9).
 
-<a class="anchor" id="step8">8. If you contribute to the core of espeak-ng engine (i.e. source files of software), look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap). In this case you just issue pull requests as described in [step 9](#9), to make changes easier for review. Note that `make check` must pass and there should not be merging conflicts (and for new/extended functionality new tests should be created).
+<a class="anchor" id="step8">8. If you contribute to the core of espeak-ng engine (i.e. source files of software), look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap). In this case you just issue pull requests as described in [step 9](#9), to make changes easier for review.
+
+Note that:
+
+1. Pull request can have one or many commits, but it should have single problem solved, which should be properly described in commits and in description of the pull request.
+2. `make check` on your local computer and remote checks of the pull request on the server must pass.
+3. There shouldn't be merging conflicts indicated.
+4. For new/extended functionality new automated tests should be created.
+5. There shouldn't be trivial changes only like code indentation, fixed typos, language style changes etc.
 
 <a class="anchor" id="step9">9. [Push your changes to GitHub](https://help.github.com/en/articles/pushing-commits-to-a-remote-repository) and create [pull request](https://help.github.com/en/articles/creating-a-pull-request). You can also send changed files by email to [eSpeakNG mailing list](https://groups.io/g/espeak-ng), but then inlusion of them may take more time.
 

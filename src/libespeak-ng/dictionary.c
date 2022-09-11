@@ -32,11 +32,12 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "common.h"                // for GetFileLength, strncpy0
 #include "dictionary.h"
 #include "numbers.h"                       // for LookupAccentedLetter, Look...
 #include "phoneme.h"                       // for PHONEME_TAB, phVOWEL, phon...
 #include "readclause.h"                    // for WordToString2, is_str_tota...
-#include "speech.h"                        // for GetFileLength, path_home
+#include "speech.h"                        // for path_home
 #include "compiledict.h"                   // for DecodeRule
 #include "synthdata.h"                     // for PhonemeCode, InterpretPhoneme
 #include "synthesize.h"                    // for STRESS_IS_PRIMARY, phoneme...
@@ -89,15 +90,6 @@ static unsigned char remove_accent[N_REMOVE_ACCENT] = {
 	'z',   0,   0, 'b', 'u', 'v', 'e', 'e', 'j', 'j', 'q', 'q', 'r', 'r', 'y', 'y',  // 240
 	'a', 'a', 'a', 'b', 'o', 'c', 'd', 'd', 'e', 'e', 'e', 'e', 'e', 'e'
 };
-
-#pragma GCC visibility push(default)
-void strncpy0(char *to, const char *from, int size)
-{
-	// strcpy with limit, ensures a zero terminator
-	strncpy(to, from, size);
-	to[size-1] = 0;
-}
-#pragma GCC visibility pop
 
 static int Reverse4Bytes(int word)
 {
@@ -2084,7 +2076,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 							failed = 1;
 							break;
 						}
-						p -= utf8_in2(&letter_w, p, 1);
+						p -= utf8_in2(&letter_w, p-1, 1);
 					}
 					if (!failed)
 						add_points = 3;
