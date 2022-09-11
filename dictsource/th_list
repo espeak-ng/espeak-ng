@@ -1,12 +1,12 @@
-// numbers
-_0       s3un
-_1       n5ueng
-_2       s5ong
-_3       s3am
-_4       s5i
-_5       h3a
-_6       h3ok
-_7       ch3et
-_8       p3aet
-_9       k5ao
-
+// Native numbers 0-10
+_0n       s3un
+_1n       n5ueng
+_2n       s5ong
+_3n       s3am
+_4n       s5i
+_5n       h3a
+_6n       h3ok
+_7n       ch3et
+_8n       p3aet
+_9n       k5ao
+_10n      s5ip
