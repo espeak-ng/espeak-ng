@@ -33,7 +33,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
 | `zls`       | `hr`              | South Slavic          | Croatian<sup>\[1,2\]</sup>  |                        |
-| 'zls'       | `cnr              | South Slavic          | Montenegrin                 |
+| 'zls`       | `cnr`             | South Slavic          | Montenegrin                 |                        |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
 | `gmw`       | `nl`              | West Germanic         | Dutch                       |                        |
@@ -70,6 +70,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `art`       | `io`              | Constructed           | Ido                         |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
+| `roa`       | `ruo              | Romance               | Istro-Romanian              |                        |
 | `jpx`       | `ja`              | Japanese              | Japanese<sup>\[4\]</sup>    |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
