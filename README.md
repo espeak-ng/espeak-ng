@@ -47,7 +47,7 @@ eSpeak NG is available as:
    welcome.
 *  Written in C.
 
-See the [CHANGELOG](CHANGELOG.md) for a description of the changes in the
+See the [ChangeLog](ChangeLog.md) for a description of the changes in the
 various releases and with the eSpeak NG project.
 
 The following platforms are supported:

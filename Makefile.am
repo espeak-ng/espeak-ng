@@ -121,7 +121,7 @@ docs_HTML = ${docs_MARKDOWN:.md=.html}
 docs:	$(docs_HTML) \
 	src/espeak-ng.1.html \
 	src/speak-ng.1.html \
-	CHANGELOG.html \
+	ChangeLog.html \
 	README.html
 
 EXTRA_DIST += src/espeak-ng.1.ronn src/speak-ng.1.ronn $(docs_MARKDOWN)
