@@ -10,12 +10,13 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
-    name: Build with ${{ matrix.sanitizer }} sanitizer on ${{ matrix.arch }}
+    name: Build with ${{ matrix.sanitizer }} sanitizer on ${{ matrix.os }} ${{ matrix.arch }}
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest, macos-latest]
         arch: [x86-64, x86-32]
         sanitizer: [no, address, leak, memory, thread, undefined, valgrind]
 
@@ -86,14 +87,28 @@ jobs:
             sanitizer: memory
           - arch: x86-32
             sanitizer: thread
+          # 32-bit macOS is not supported
+          - os: macos-latest
+            arch: x86-32
+          # These are not supported on macos
+          - os: macos-latest
+            sanitizer: leak
+          - os: macos-latest
+            sanitizer: memory
+          - os: macos-latest
+            sanitizer: valgrind
 
     steps:
     - uses: actions/checkout@v2
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
-    - name: dependencies
+    - name: dependencies-apt
+      if: matrix.os == 'ubuntu-latest'
       run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown ${{ matrix.deps }} ${{ matrix.archdeps }}
+    - name: dependencies-brew
+      if: matrix.os == 'macos-latest'
+      run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown ${{ matrix.archdeps }}
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
