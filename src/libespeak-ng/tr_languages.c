@@ -1630,7 +1630,7 @@ static void Translator_Russian(Translator *tr)
 	SetLetterBits(tr, LETTERGP_Y, ru_ivowels);
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432; // [v]  don't count this character at start of word
-	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
+	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x03;
 	tr->langopts.param[LOPT_REDUCE] = 2;
 	tr->langopts.stress_rule = STRESSPOSN_SYLCOUNT;
 	tr->langopts.stress_flags = S_NO_AUTO_2;
