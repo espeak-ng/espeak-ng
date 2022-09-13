@@ -43,10 +43,10 @@ _9C     dev;Vts'ot
 _1MA1   t'ys;ItS;V     // no '1' before thousand
 _0MA1   t'ys;ItS;i
 _0M1    t'ys;VtS;
-_1MA2   m;,IlI;'on
+_1M2   ojd;'in_m;,Il;I;'on
 _0MA2   m;,IlI;'ona
 _0M2    m;,IlI;'onof
-_1MA3   m;,IlI;'art
+_1M3   ojd;'in_m;,IlI;'art
 _0MA3   m;,IlI;'arda
 _0M3    m;,IlI;'ardof
 _dpt    _:'i_:        // start of decimal fraction
