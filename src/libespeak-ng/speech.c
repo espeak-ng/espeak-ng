@@ -273,7 +273,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	out_samplerate = 0;
 
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-	if (my_audio == NULL)
+	if (((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) && (my_audio == NULL))
 		my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
