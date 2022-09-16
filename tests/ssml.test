@@ -39,7 +39,7 @@ test_ssml() {
 for i in `ls tests/ssml/*.ssml` ; do test_ssml $i; done
 for i in `ls tests/ssml/*.ssml2` ; do test_ssml $i punct; done
 
-# test_ssml_audio "<prosody>" 88fccb35536158f25f4ae44a03fb005fef95c99b "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
+test_ssml_audio "<prosody>" 88fccb35536158f25f4ae44a03fb005fef95c99b "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
 # #410 is a bug in SSML. Sentence termination causes prosody stack to misfunction. 
 # Hash 8d3bace is the buggy version and should fail:
 test_ssml_audio "<prosody> bug #410" 8d3bace9548ae73c4770a73c88c6f65e848b45cf "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low. </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
