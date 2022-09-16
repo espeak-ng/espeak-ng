@@ -108,7 +108,8 @@ jobs:
       run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown ${{ matrix.deps }} ${{ matrix.archdeps }}
     - name: dependencies-brew
       if: matrix.os == 'macos-latest'
-      run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown ${{ matrix.archdeps }}
+      run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown ${{ matrix.archdeps }} ;
+           brew install --HEAD anarchivist/espeak-ng/waywardgeek-sonic
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
