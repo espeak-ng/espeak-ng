@@ -2856,6 +2856,21 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	return 0;
 }
 
+
+    static int utf8_nbytes(const char *buf)
+{
+	// Returns the number of bytes for the first UTF-8 character in buf
+
+	unsigned char c = (unsigned char)buf[0];
+	if (c < 0x80)
+		return 1;
+	if (c < 0xe0)
+		return 2;
+	if (c < 0xf0)
+		return 3;
+	return 4;
+}
+
 /* Lookup a specified word in the word dictionary.
    Returns phonetic data in 'phonetic' and bits in 'flags'
 

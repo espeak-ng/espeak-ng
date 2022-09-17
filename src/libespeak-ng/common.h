@@ -25,6 +25,10 @@
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 
+ESPEAK_NG_API int utf8_in(int *c, const char *buf);
+int utf8_in2(int *c, const char *buf, int backwards);
+int utf8_out(unsigned int c, char *buf);
+
 #ifdef __cplusplus
 }
 #endif

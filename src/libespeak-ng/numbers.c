@@ -32,6 +32,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "numbers.h"
+#include "common.h"
 #include "dictionary.h"  // for Lookup, TranslateRules, EncodePhonemes, Look...
 #include "phoneme.h"     // for phonSWITCH, PHONEME_TAB, phonEND_WORD, phonP...
 #include "readclause.h"  // for WordToString2, towlower2

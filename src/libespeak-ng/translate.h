@@ -661,11 +661,6 @@ extern int (*phoneme_callback)(const char *);
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000
 
-ESPEAK_NG_API int utf8_in(int *c, const char *buf);
-int utf8_in2(int *c, const char *buf, int backwards);
-int utf8_out(unsigned int c, char *buf);
-int utf8_nbytes(const char *buf);
-
 int lookupwchar(const unsigned short *list, int c);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);

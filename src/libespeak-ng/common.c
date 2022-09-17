@@ -57,4 +57,111 @@ void strncpy0(char *to, const char *from, int size)
 	strncpy(to, from, size);
 	to[size-1] = 0;
 }
+
+int utf8_in(int *c, const char *buf)
+{
+	/* Read a unicode characater from a UTF8 string
+	 * Returns the number of UTF8 bytes used.
+	 * buf: position of buffer is moved, if character is read
+	 * c: holds UTF-16 representation of multibyte character by
+	 * skipping UTF-8 header bits of bytes in following way:
+	 * 2-byte character "ā":
+	 * hex            binary
+	 * c481           1100010010000001
+	 *    |           11000100  000001
+	 *    V              \    \ |    |
+	 * 0101           0000000100000001
+	 * 3-byte character "ꙅ":
+	 * ea9985 111010101001100110000101
+	 *            1010  011001  000101
+	 *    |       +  +--.\   \  |    |
+	 *    V        `--.  \`.  `.|    |
+	 *   A645         1010011001000101
+	 * 4-byte character "𠜎":
+	 * f0a09c8e 11110000101000001001110010001110
+	 *    V          000  100000  011100  001110
+	 *   02070e         000000100000011100001110
+	 */
+	return utf8_in2(c, buf, 0);
+}
 #pragma GCC visibility pop
+
+int utf8_out(unsigned int c, char *buf)
+{
+	// write a UTF-16 character into a buffer as UTF-8
+	// returns the number of bytes written
+
+	int n_bytes;
+	int j;
+	int shift;
+	static const char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
+
+	if (c < 0x80) {
+		buf[0] = c;
+		return 1;
+	}
+	if (c >= 0x110000) {
+		buf[0] = ' '; // out of range character code
+		return 1;
+	}
+	if (c < 0x0800)
+		n_bytes = 1;
+	else if (c < 0x10000)
+		n_bytes = 2;
+	else
+		n_bytes = 3;
+
+	shift = 6*n_bytes;
+	buf[0] = code[n_bytes] | (c >> shift);
+	for (j = 0; j < n_bytes; j++) {
+		shift -= 6;
+		buf[j+1] = 0x80 + ((c >> shift) & 0x3f);
+	}
+	return n_bytes+1;
+}
+
+int utf8_in2(int *c, const char *buf, int backwards)
+{
+	// Reads a unicode characater from a UTF8 string
+	// Returns the number of UTF8 bytes used.
+	// c: holds integer representation of multibyte character
+	// buf: position of buffer is moved, if character is read
+	// backwards: set if we are moving backwards through the UTF8 string
+
+	int c1;
+	int n_bytes;
+	int ix;
+	static const unsigned char mask[4] = { 0xff, 0x1f, 0x0f, 0x07 };
+
+	// find the start of the next/previous character
+	while ((*buf & 0xc0) == 0x80) {
+		// skip over non-initial bytes of a multi-byte utf8 character
+		if (backwards)
+			buf--;
+		else
+			buf++;
+	}
+
+	n_bytes = 0;
+
+	if ((c1 = *buf++) & 0x80) {
+		if ((c1 & 0xe0) == 0xc0)
+			n_bytes = 1;
+		else if ((c1 & 0xf0) == 0xe0)
+			n_bytes = 2;
+		else if ((c1 & 0xf8) == 0xf0)
+			n_bytes = 3;
+
+		c1 &= mask[n_bytes];
+		for (ix = 0; ix < n_bytes; ix++)
+		{
+			if (!*buf)
+				/* Oops, truncated */
+				break;
+			c1 = (c1 << 6) + (*buf++ & 0x3f);
+		}
+		n_bytes = ix;
+	}
+	*c = c1;
+	return n_bytes+1;
+}
