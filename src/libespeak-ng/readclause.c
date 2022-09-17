@@ -131,14 +131,6 @@ int clause_type_from_codepoint(uint32_t c)
 	return CLAUSE_NONE;
 }
 
-int is_str_totally_null(const char* str, int size) {
-	// Tests if all bytes of str are null up to size
-	// This should never be reimplemented with integers, because
-	// this function has to work with unaligned char*
-	// (casting to int when unaligned may result in ungaranteed behaviors)
-	return (*str == 0 && memcmp(str, str+1, size-1) == 0);
-}
-
 static int IsRomanU(unsigned int c)
 {
 	if ((c == 'I') || (c == 'V') || (c == 'X') || (c == 'L'))

@@ -167,6 +167,15 @@ int utf8_in2(int *c, const char *buf, int backwards)
 	return n_bytes+1;
 }
 
+
+int is_str_totally_null(const char* str, int size) {
+	// Tests if all bytes of str are null up to size
+	// This should never be reimplemented with integers, because
+	// this function has to work with unaligned char*
+	// (casting to int when unaligned may result in ungaranteed behaviors)
+	return (*str == 0 && memcmp(str, str+1, size-1) == 0);
+}
+
 int towlower2(unsigned int c, Translator *translator)
 {
 	// check for non-standard upper to lower case conversions
@@ -175,3 +184,5 @@ int towlower2(unsigned int c, Translator *translator)
 
 	return ucd_tolower(c);
 }
+
+
