@@ -47,7 +47,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 int TransposeAlphabet(Translator *tr, char *text);
 int Lookup(Translator *tr, const char *word, char *ph_out);
 int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
-int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out);
 int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 
 #ifdef __cplusplus

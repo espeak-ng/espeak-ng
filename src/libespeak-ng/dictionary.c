@@ -43,6 +43,8 @@
 #include "synthesize.h"                    // for STRESS_IS_PRIMARY, phoneme...
 #include "translate.h"                     // for Translator, utf8_in, LANGU...
 
+static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out);
+
 typedef struct {
 	int points;
 	const char *phonemes;
@@ -2904,7 +2906,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 	return flags0;
 }
 
-int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out)
+static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out)
 {
 	char buf[100];
 	static unsigned int flags[2];
