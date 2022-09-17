@@ -850,7 +850,7 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 	return 0;
 }
 
-static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int *vowel_count, int *stressed_syllable, int control)
+int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int *vowel_count, int *stressed_syllable, int control)
 {
 	// control = 1, set stress to 1 for forced unstressed vowels
 	unsigned char phcode;
@@ -962,54 +962,10 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 	return max_stress;
 }
 
-static char stress_phonemes[] = {
+const char stress_phonemes[] = {
 	phonSTRESS_D, phonSTRESS_U, phonSTRESS_2, phonSTRESS_3,
 	phonSTRESS_P, phonSTRESS_P2, phonSTRESS_TONIC
 };
-
-void ChangeWordStress(Translator *tr, char *word, int new_stress)
-{
-	int ix;
-	unsigned char *p;
-	int max_stress;
-	int vowel_count; // num of vowels + 1
-	int stressed_syllable = 0; // position of stressed syllable
-	unsigned char phonetic[N_WORD_PHONEMES];
-	signed char vowel_stress[N_WORD_PHONEMES/2];
-
-	strcpy((char *)phonetic, word);
-	max_stress = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 0);
-
-	if (new_stress >= STRESS_IS_PRIMARY) {
-		// promote to primary stress
-		for (ix = 1; ix < vowel_count; ix++) {
-			if (vowel_stress[ix] >= max_stress) {
-				vowel_stress[ix] = new_stress;
-				break;
-			}
-		}
-	} else {
-		// remove primary stress
-		for (ix = 1; ix < vowel_count; ix++) {
-			if (vowel_stress[ix] > new_stress) // >= allows for diminished stress (=1)
-				vowel_stress[ix] = new_stress;
-		}
-	}
-
-	// write out phonemes
-	ix = 1;
-	p = phonetic;
-	while (*p != 0) {
-		if ((phoneme_tab[*p]->type == phVOWEL) && !(phoneme_tab[*p]->phflags & phNONSYLLABIC)) {
-			if ((vowel_stress[ix] == STRESS_IS_DIMINISHED) || (vowel_stress[ix] > STRESS_IS_UNSTRESSED))
-				*word++ = stress_phonemes[(unsigned char)vowel_stress[ix]];
-
-			ix++;
-		}
-		*word++ = *p++;
-	}
-	*word = 0;
-}
 
 void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int control)
 {

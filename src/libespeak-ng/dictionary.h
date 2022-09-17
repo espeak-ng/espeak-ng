@@ -31,15 +31,17 @@ extern "C"
 {
 #endif
 
+extern const char stress_phonemes[];
+
 int LoadDictionary(Translator *tr, const char *name, int no_error);
 int HashDictionary(const char *string);
 const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);
 void DecodePhonemes(const char *inptr, char *outptr);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 const char *GetTranslatedPhonemeString(int phoneme_mode);
+int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int *vowel_count, int *stressed_syllable, int control);
 int IsVowel(Translator *tr, int letter);
 int Unpronouncable(Translator *tr, char *word, int posn);
-void ChangeWordStress(Translator *tr, char *word, int new_stress);
 void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int control);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, unsigned int *dict_flags);
