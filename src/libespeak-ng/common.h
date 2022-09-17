@@ -26,6 +26,12 @@
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 
+int IsAlpha(unsigned int c);
+int IsBracket(int c);
+int IsDigit(unsigned int c);
+int IsDigit09(unsigned int c);
+int IsSpace(unsigned int c);
+int isspace2(unsigned int c);
 int is_str_totally_null(const char* str, int size); // Tests if all bytes of str up to size are null
 int Read4Bytes(FILE *f);
 int towlower2(unsigned int c, Translator *translator); // Supports Turkish I

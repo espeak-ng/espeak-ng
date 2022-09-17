@@ -663,14 +663,9 @@ extern int (*phoneme_callback)(const char *);
 
 int lookupwchar(const unsigned short *list, int c);
 char *strchr_w(const char *s, int c);
-int IsBracket(int c);
 void InitNamedata(void);
 void InitText(int flags);
 void InitText2(void);
-int IsDigit(unsigned int c);
-int IsDigit09(unsigned int c);
-int IsAlpha(unsigned int c);
-int isspace2(unsigned int c);
 ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
