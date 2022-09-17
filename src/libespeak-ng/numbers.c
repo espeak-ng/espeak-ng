@@ -880,9 +880,13 @@ static const char *M_Variant(int value)
 
 	switch (translator->langopts.numbers2 & NUM2_THOUSANDS_VAR_BITS)
 	{
-	case NUM2_THOUSANDS_VAR1: // lang=ru  use singular for xx1 except for x11
-		if ((teens == false) && ((value % 10) == 1))
-			return "1M";
+	case NUM2_THOUSANDS_VAR1: // lang=ru
+		if (teens == false) {
+			if ((value % 10) == 1)
+				return "0MB";
+			if (((value % 10) >= 2) && ((value % 10) <= 4))
+				return "0MA";
+		}
 		break;
 	case NUM2_THOUSANDS_VAR2: // lang=cs,sk
 		if ((value >= 2) && (value <= 4))
