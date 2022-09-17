@@ -473,7 +473,7 @@ static void PhonemeReplacement(char *p)
 	replace_phonemes[n_replace_phonemes++].type = flags;
 }
 
-static int Read8Numbers(char *data_in, int *data)
+static int Read8Numbers(char *data_in, int data[8])
 {
 	// Read 8 integer numbers
 	memset(data, 0, 8*sizeof(int));
