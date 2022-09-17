@@ -476,7 +476,7 @@ static void PhonemeReplacement(char *p)
 static int Read8Numbers(char *data_in, int *data)
 {
 	// Read 8 integer numbers
-	memset(data, 0, 8+sizeof(int));
+	memset(data, 0, 8*sizeof(int));
 	return sscanf(data_in, "%d %d %d %d %d %d %d %d",
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
