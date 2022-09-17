@@ -681,8 +681,6 @@ void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
 
-void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
-
 int TranslateWord(Translator *tr, char *word1, WORD_TAB *wtab, char *word_out);
 void TranslateClause(Translator *tr, int *tone, char **voice_change);
 

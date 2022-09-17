@@ -2214,7 +2214,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 						if (letter == 0xe000+'(') {
 							if (pre_pause < tr->langopts.param[LOPT_BRACKET_PAUSE_ANNOUNCED])
 								pre_pause = tr->langopts.param[LOPT_BRACKET_PAUSE_ANNOUNCED]; // a bracket, already spoken by AnnouncePunctuation()
-						} 
+						}
 						if (IsBracket(letter)) {
 							if (pre_pause < tr->langopts.param[LOPT_BRACKET_PAUSE])
 								pre_pause = tr->langopts.param[LOPT_BRACKET_PAUSE];
@@ -2323,37 +2323,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	memcpy(p_start, word_copy, strlen(word_copy));
 
 	return 0;
-}
-
-void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
-{
-	// apply after the translation is complete
-
-	int ix;
-	int len;
-	char *p;
-
-	len = strlen(phonemes);
-
-	if (tr->langopts.param[LOPT_ALT] & 2) {
-		for (ix = 0; ix < (len-1); ix++) {
-			if (phonemes[ix] == phonSTRESS_P) {
-				p = &phonemes[ix+1];
-				if ((dict_flags & FLAG_ALT2_TRANS) != 0) {
-					if (*p == PhonemeCode('E'))
-						*p = PhonemeCode('e');
-					if (*p == PhonemeCode('O'))
-						*p = PhonemeCode('o');
-				} else {
-					if (*p == PhonemeCode('e'))
-						*p = PhonemeCode('E');
-					if (*p == PhonemeCode('o'))
-						*p = PhonemeCode('O');
-				}
-				break;
-			}
-		}
-	}
 }
 
 int TransposeAlphabet(Translator *tr, char *text)
