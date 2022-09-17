@@ -35,11 +35,10 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "common.h"                    // for GetFileLength, strncpy0
+#include "common.h"                    // for GetFileLength, strncpy0, ...
 #include "error.h"                    // for create_file_error_context
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
-#include "readclause.h"               // for Read4Bytes
 #include "spect.h"                    // for SpectFrame, peak_t, SpectSeq
 #include "speech.h"			// for path_home, GetFileLength
 #include "synthdata.h"                // for LoadPhData

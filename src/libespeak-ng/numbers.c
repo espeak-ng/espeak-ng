@@ -32,12 +32,13 @@
 #include <espeak-ng/encoding.h>
 
 #include "numbers.h"
+#include "common.h"
 #include "dictionary.h"  // for Lookup, TranslateRules, EncodePhonemes, Look...
 #include "phoneme.h"     // for phonSWITCH, PHONEME_TAB, phonEND_WORD, phonP...
-#include "readclause.h"  // for WordToString2, towlower2
+#include "readclause.h"  // for WordToString2
 #include "synthdata.h"   // for SelectPhonemeTable
 #include "synthesize.h"  // for phoneme_tab
-#include "translate.h"   // for Translator, LANGUAGE_OPTIONS, IsDigit09, WOR...
+#include "translate.h"   // for Translator, LANGUAGE_OPTIONS, WOR...
 #include "voice.h"       // for voice, voice_t
 
 #define M_LIGATURE  0x8000

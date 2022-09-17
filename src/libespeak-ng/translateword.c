@@ -36,7 +36,7 @@
 #include "translate.h"
 #include "translateword.h"
 #include "common.h"               // for strncpy0
-#include "dictionary.h"           // for TranslateRules, LookupDictList, Cha...
+#include "dictionary.h"           // for TranslateRules, LookupDictList
 #include "numbers.h"              // for SetSpellingStress, ...
 #include "phoneme.h"              // for phonSWITCH, PHONEME_TAB, phonPAUSE_...
 #include "readclause.h"           // for towlower2
@@ -46,10 +46,14 @@
 
 
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes);
+static void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
+static void ChangeWordStress(Translator *tr, char *word, int new_stress);
 static int CheckDottedAbbrev(char *word1);
 static int NonAsciiNumber(int letter);
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, ALPHABET *current_alphabet, char word_phonemes[]);
 static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALPHABET *current_alphabet);
+static int Unpronouncable(Translator *tr, char *word, int posn);
+static int Unpronouncable2(Translator *tr, char *word);
 
 int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out, bool *any_stressed_words, ALPHABET *current_alphabet, char word_phonemes[], size_t size_word_phonemes)
 {
@@ -667,6 +671,82 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 }
 
 
+void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
+{
+	// apply after the translation is complete
+
+	int ix;
+	int len;
+	char *p;
+
+	len = strlen(phonemes);
+
+	if (tr->langopts.param[LOPT_ALT] & 2) {
+		for (ix = 0; ix < (len-1); ix++) {
+			if (phonemes[ix] == phonSTRESS_P) {
+				p = &phonemes[ix+1];
+				if ((dict_flags & FLAG_ALT2_TRANS) != 0) {
+					if (*p == PhonemeCode('E'))
+						*p = PhonemeCode('e');
+					if (*p == PhonemeCode('O'))
+						*p = PhonemeCode('o');
+				} else {
+					if (*p == PhonemeCode('e'))
+						*p = PhonemeCode('E');
+					if (*p == PhonemeCode('o'))
+						*p = PhonemeCode('O');
+				}
+				break;
+			}
+		}
+	}
+}
+
+
+static void ChangeWordStress(Translator *tr, char *word, int new_stress)
+{
+	int ix;
+	unsigned char *p;
+	int max_stress;
+	int vowel_count; // num of vowels + 1
+	int stressed_syllable = 0; // position of stressed syllable
+	unsigned char phonetic[N_WORD_PHONEMES];
+	signed char vowel_stress[N_WORD_PHONEMES/2];
+
+	strcpy((char *)phonetic, word);
+	max_stress = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 0);
+
+	if (new_stress >= STRESS_IS_PRIMARY) {
+		// promote to primary stress
+		for (ix = 1; ix < vowel_count; ix++) {
+			if (vowel_stress[ix] >= max_stress) {
+				vowel_stress[ix] = new_stress;
+				break;
+			}
+		}
+	} else {
+		// remove primary stress
+		for (ix = 1; ix < vowel_count; ix++) {
+			if (vowel_stress[ix] > new_stress) // >= allows for diminished stress (=1)
+				vowel_stress[ix] = new_stress;
+		}
+	}
+
+	// write out phonemes
+	ix = 1;
+	p = phonetic;
+	while (*p != 0) {
+		if ((phoneme_tab[*p]->type == phVOWEL) && !(phoneme_tab[*p]->phflags & phNONSYLLABIC)) {
+			if ((vowel_stress[ix] == STRESS_IS_DIMINISHED) || (vowel_stress[ix] > STRESS_IS_UNSTRESSED))
+				*word++ = stress_phonemes[(unsigned char)vowel_stress[ix]];
+
+			ix++;
+		}
+		*word++ = *p++;
+	}
+	*word = 0;
+}
+
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, ALPHABET *current_alphabet, char word_phonemes[])
 {
 	int posn = 0;
@@ -1033,4 +1113,93 @@ static int NonAsciiNumber(int letter)
 			return letter-base+'0';
 	}
 	return -1;
+}
+
+static int Unpronouncable(Translator *tr, char *word, int posn)
+{
+	/* Determines whether a word in 'unpronouncable', i.e. whether it should
+	    be spoken as individual letters.
+
+	    This function may be language specific. This is a generic version.
+	 */
+
+	int c;
+	int c1 = 0;
+	int vowel_posn = 9;
+	int index;
+	int count;
+	ALPHABET *alphabet;
+
+	utf8_in(&c, word);
+	if ((tr->letter_bits_offset > 0) && (c < 0x241)) {
+		// Latin characters for a language with a non-latin alphabet
+		return 0;  // so we can re-translate the word as English
+	}
+
+	if (((alphabet = AlphabetFromChar(c)) != NULL)  && (alphabet->offset != tr->letter_bits_offset)) {
+		// Character is not in our alphabet
+		return 0;
+	}
+
+	if (tr->langopts.param[LOPT_UNPRONOUNCABLE] == 1)
+		return 0;
+
+	if (((c = *word) == ' ') || (c == 0) || (c == '\''))
+		return 0;
+
+	index = 0;
+	count = 0;
+	for (;;) {
+		index += utf8_in(&c, &word[index]);
+		if ((c == 0) || (c == ' '))
+			break;
+
+		if ((c == '\'') && ((count > 1) || (posn > 0)))
+			break; // "tv'" but not "l'"
+
+		if (count == 0)
+			c1 = c;
+
+		if ((c == '\'') && (tr->langopts.param[LOPT_UNPRONOUNCABLE] == 3)) {
+			// don't count apostrophe
+		} else
+			count++;
+
+		if (IsVowel(tr, c)) {
+			vowel_posn = count; // position of the first vowel
+			break;
+		}
+
+		if ((c != '\'') && !iswalpha(c))
+			return 0;
+	}
+
+	if ((vowel_posn > 2) && (tr->langopts.param[LOPT_UNPRONOUNCABLE] == 2)) {
+		// Lookup unpronounable rules in *_rules
+		return Unpronouncable2(tr, word);
+	}
+
+	if (c1 == tr->langopts.param[LOPT_UNPRONOUNCABLE])
+		vowel_posn--; // disregard this as the initial letter when counting
+
+	if (vowel_posn > (tr->langopts.max_initial_consonants+1))
+		return 1; // no vowel, or no vowel in first few letters
+
+	return 0;
+}
+
+static int Unpronouncable2(Translator *tr, char *word)
+{
+	int c;
+	int end_flags;
+	char ph_buf[N_WORD_PHONEMES];
+
+	ph_buf[0] = 0;
+	c = word[-1];
+	word[-1] = ' '; // ensure there is a space before the "word"
+	end_flags = TranslateRules(tr, word, ph_buf, sizeof(ph_buf), NULL, FLAG_UNPRON_TEST, NULL);
+	word[-1] = c;
+	if ((end_flags == 0) || (end_flags & SUFX_UNPRON))
+		return 1;
+	return 0;
 }

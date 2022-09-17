@@ -39,10 +39,8 @@
 #include "error.h"                // for create_file_error_context
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"              // for PHONEME_TAB_LIST, phonSWITCH, phone...
-#include "readclause.h"           // for towlower2
 #include "speech.h"		// for path_home
 #include "synthesize.h"           // for Write4Bytes
-#include "translate.h"            // for isspace2, IsDigit09, utf8_in, utf8_out
 
 static FILE *f_log = NULL;
 

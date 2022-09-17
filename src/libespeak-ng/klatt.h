@@ -112,9 +112,6 @@ typedef struct {
 #define Rnpp 10
 #define R1p  11
 #define R2p  12
-#define R3p  13
-#define R4p  14
-#define R5p  15
 #define R6p  16
 
 #define RGL  17

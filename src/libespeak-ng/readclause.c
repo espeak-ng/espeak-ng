@@ -131,23 +131,6 @@ int clause_type_from_codepoint(uint32_t c)
 	return CLAUSE_NONE;
 }
 
-int is_str_totally_null(const char* str, int size) {
-	// Tests if all bytes of str are null up to size
-	// This should never be reimplemented with integers, because
-	// this function has to work with unaligned char*
-	// (casting to int when unaligned may result in ungaranteed behaviors)
-	return (*str == 0 && memcmp(str, str+1, size-1) == 0);
-}
-
-int towlower2(unsigned int c, Translator *translator)
-{
-	// check for non-standard upper to lower case conversions
-	if (c == 'I' && translator->langopts.dotless_i)
-		return 0x131; // I -> ı
-
-	return ucd_tolower(c);
-}
-
 static int IsRomanU(unsigned int c)
 {
 	if ((c == 'I') || (c == 'V') || (c == 'X') || (c == 'L'))
@@ -286,20 +269,6 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
 
 	return buf;
-}
-
-int Read4Bytes(FILE *f)
-{
-	// Read 4 bytes (least significant first) into a word
-	int ix;
-	unsigned char c;
-	int acc = 0;
-
-	for (ix = 0; ix < 4; ix++) {
-		c = fgetc(f) & 0xff;
-		acc += (c << (ix*8));
-	}
-	return acc;
 }
 
 static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
