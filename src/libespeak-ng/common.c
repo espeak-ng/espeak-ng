@@ -176,6 +176,20 @@ int is_str_totally_null(const char* str, int size) {
 	return (*str == 0 && memcmp(str, str+1, size-1) == 0);
 }
 
+int Read4Bytes(FILE *f)
+{
+	// Read 4 bytes (least significant first) into a word
+	int ix;
+	unsigned char c;
+	int acc = 0;
+
+	for (ix = 0; ix < 4; ix++) {
+		c = fgetc(f) & 0xff;
+		acc += (c << (ix*8));
+	}
+	return acc;
+}
+
 int towlower2(unsigned int c, Translator *translator)
 {
 	// check for non-standard upper to lower case conversions
