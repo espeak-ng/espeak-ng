@@ -41,7 +41,6 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 const char *GetTranslatedPhonemeString(int phoneme_mode);
 int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int *vowel_count, int *stressed_syllable, int control);
 int IsVowel(Translator *tr, int letter);
-int Unpronouncable(Translator *tr, char *word, int posn);
 void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int control);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, unsigned int *dict_flags);
