@@ -64,9 +64,6 @@ extern "C"
 #define FLAG_ALT_TRANS      0x8000 // language specific
 #define FLAG_ALT2_TRANS    0x10000 // language specific
 #define FLAG_ALT3_TRANS    0x20000 // language specific
-#define FLAG_ALT4_TRANS    0x40000 // language specific
-#define FLAG_ALT5_TRANS    0x80000 // language specific
-#define FLAG_ALT6_TRANS   0x100000 // language specific
 #define FLAG_ALT7_TRANS   0x200000 // language specific
 
 #define FLAG_COMBINE      0x800000 // combine with the next word
