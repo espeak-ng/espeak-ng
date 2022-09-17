@@ -32,9 +32,10 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
-
+#include <ucd/ucd.h>
 
 #include "common.h"
+#include "translate.h"
 
 #pragma GCC visibility push(default)
 
@@ -164,4 +165,13 @@ int utf8_in2(int *c, const char *buf, int backwards)
 	}
 	*c = c1;
 	return n_bytes+1;
+}
+
+int towlower2(unsigned int c, Translator *translator)
+{
+	// check for non-standard upper to lower case conversions
+	if (c == 'I' && translator->langopts.dotless_i)
+		return 0x131; // I -> ı
+
+	return ucd_tolower(c);
 }

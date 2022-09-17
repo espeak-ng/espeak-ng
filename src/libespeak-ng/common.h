@@ -21,9 +21,12 @@
 #define ESPEAK_NG_COMMON_H
 
 #include "espeak-ng/espeak_ng.h"
+#include "translate.h"
 
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
+
+int towlower2(unsigned int c, Translator *translator); // Supports Turkish I
 
 ESPEAK_NG_API int utf8_in(int *c, const char *buf);
 int utf8_in2(int *c, const char *buf, int backwards);

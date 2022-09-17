@@ -139,15 +139,6 @@ int is_str_totally_null(const char* str, int size) {
 	return (*str == 0 && memcmp(str, str+1, size-1) == 0);
 }
 
-int towlower2(unsigned int c, Translator *translator)
-{
-	// check for non-standard upper to lower case conversions
-	if (c == 'I' && translator->langopts.dotless_i)
-		return 0x131; // I -> ı
-
-	return ucd_tolower(c);
-}
-
 static int IsRomanU(unsigned int c)
 {
 	if ((c == 'I') || (c == 'V') || (c == 'X') || (c == 'L'))
