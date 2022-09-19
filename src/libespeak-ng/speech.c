@@ -407,6 +407,17 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	return ENS_OK;
 }
 
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetPhonemeEvents(int enable, int ipa) {
+	option_phoneme_events = 0;
+	if (enable) {
+		option_phoneme_events |= espeakINITIALIZE_PHONEME_EVENTS;
+		if (ipa) {
+			option_phoneme_events |= espeakINITIALIZE_PHONEME_IPA;
+		}
+	}
+	return ENS_OK;
+}
+
 ESPEAK_NG_API int espeak_ng_GetSampleRate(void)
 {
 	return samplerate;
