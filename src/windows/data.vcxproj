@@ -287,6 +287,9 @@
   <Target Name="mt" Inputs="$(ProjectDir)..\..\dictsource\mt_rules;$(ProjectDir)..\..\dictsource\mt_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\mt_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mt" />
   </Target>
+  <Target Name="mto" Inputs="$(ProjectDir)..\..\dictsource\mto_rules;$(ProjectDir)..\..\dictsource\mto_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\mto_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mto" />
+  </Target>
   <Target Name="my" Inputs="$(ProjectDir)..\..\dictsource\my_rules;$(ProjectDir)..\..\dictsource\my_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\my_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=my" />
   </Target>

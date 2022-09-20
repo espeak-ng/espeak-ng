@@ -49,6 +49,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
+#include "common.h"               // for GetFileLength
 #include "dictionary.h"           // for GetTranslatedPhonemeString, strncpy0
 #include "espeak_command.h"       // for delete_espeak_command, SetParameter
 #include "event.h"                // for event_declare, event_clear_all, eve...
@@ -272,7 +273,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	out_samplerate = 0;
 
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-	if (my_audio == NULL)
+	if (((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) && (my_audio == NULL))
 		my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
@@ -302,18 +303,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	return ENS_OK;
 }
 
-int GetFileLength(const char *filename)
-{
-	struct stat statbuf;
-
-	if (stat(filename, &statbuf) != 0)
-		return -errno;
-
-	if (S_ISDIR(statbuf.st_mode))
-		return -EISDIR;
-
-	return statbuf.st_size;
-}
 
 ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 {

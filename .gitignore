@@ -164,6 +164,8 @@ src/pcaudiolib/
 *.wixobj
 *.wixpdb
 *.cab
+/src/windows/Release
+/src/windows/x64
 
 *.tmp
 

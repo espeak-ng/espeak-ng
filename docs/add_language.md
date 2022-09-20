@@ -26,8 +26,9 @@ you should be able to [build](../README.md#building) it.
 
 You also have to understand the language main concepts, be aware of its features,
 and have to have patience and attention to detail.
-Wikipedia is a good source of basic phonetic information, e.g. about [vowels]
-(http://en.wikipedia.org/wiki/Vowel) and [consonants](https://en.wikipedia.org/wiki/Consonant).
+Wikipedia is a good source of basic phonetic information, e.g. about 
+[vowels](http://en.wikipedia.org/wiki/Vowel) and
+[consonants](https://en.wikipedia.org/wiki/Consonant).
 
 In many cases it should be fairly easy to add a rough implementation of
 a new language, hopefully enough to be intelligible. After that it's a

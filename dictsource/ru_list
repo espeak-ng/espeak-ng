@@ -11,7 +11,7 @@ _4      tS;It'yR;I
 _5      p;'jat;
 _6      S'Es;t;
 _7      s;'ejm
-_8      v'os;E2m
+_8      v'os;Im
 _9      d;'evI3t;
 _10     d;'es;It;
 _11     Od;'innVttsVt;
@@ -40,15 +40,17 @@ _6C     S,E#s;t;s'ot
 _7C     s;,Ims'ot
 _8C     vOs;Ims'ot
 _9C     dev;Vts'ot
-_1MA1   t'ys;ItS;V     // no '1' before thousand
+_0MB1   t'ys;ItS;V     // keep '1' before thousand
 _0MA1   t'ys;ItS;i
 _0M1    t'ys;VtS;
-_1MA2   m;,IlI;'on
+_0MB2   m;,Il;I;'on
 _0MA2   m;,IlI;'ona
 _0M2    m;,IlI;'onof
-_1MA3   m;,IlI;'art
+_0MB3   m;,IlI;'art
 _0MA3   m;,IlI;'arda
 _0M3    m;,IlI;'ardof
+_1M3   ojd;'in||m;,IlI;'art
+_0MA3   m;,IlI;'arda
 _dpt    _:'i_:        // start of decimal fraction
 _dpt2   _d;Is;'atYx   // end of decimal fraction
 
@@ -90,8 +92,8 @@ _»      z'akr uglof
 _,      zVpit'aja
 
 // particle
-б       by $u         // shortened form of 'бы'
-ж       ZE $u         // same as the particle form
+// б       by $u         // shortened form of 'бы'
+ ж       S $u         // same as the particle form
 
 // prepositions
 в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
@@ -186,7 +188,8 @@ _ж      ZE
 з       zE
 и       i
 й       ,i'k@-*'AtkOjI
-к       kA
+_к       kA
+к       kA  $atend
 л       El;
 м       Em
 н       En_
@@ -205,7 +208,7 @@ _с      Es
 щ       S;ja
 ъ       tv;'8@-*dyjzn'Ak
 ы       y
-ь       m;'jak;I#jzn'Ak
+ь       m;'jaxk;I#jzn'Ak
 э       e
 ю       ju
 я       ja
@@ -216,4 +219,5 @@ _с      Es
 на                na $atend
 радио             r'ad;Io
 сельского         $1 // for the unit test pangram
-
+        (косая черта)        kas'Aja||tS;ert'A
+         (из города)         iz||g'orVda
