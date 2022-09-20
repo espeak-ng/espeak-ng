@@ -158,7 +158,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\libespeak-ng\common.c" />
     <ClCompile Include="..\libespeak-ng\soundicon.c" />
+    <ClCompile Include="..\libespeak-ng\translateword.c" />
     <ClCompile Include="..\ucd-tools\src\case.c" />
     <ClCompile Include="..\ucd-tools\src\categories.c" />
     <ClCompile Include="..\ucd-tools\src\ctype.c" />
@@ -205,6 +207,7 @@
   <ItemGroup>
     <ClInclude Include="..\include\espeak-ng\espeak_ng.h" />
     <ClInclude Include="..\include\espeak-ng\speak_lib.h" />
+    <ClInclude Include="..\libespeak-ng\common.h" />
     <ClInclude Include="..\libespeak-ng\error.h" />
     <ClInclude Include="..\libespeak-ng\klatt.h" />
     <ClInclude Include="..\libespeak-ng\mbrowrap.h" />
@@ -216,6 +219,7 @@
     <ClInclude Include="..\libespeak-ng\sPlayer.h" />
     <ClInclude Include="..\libespeak-ng\synthesize.h" />
     <ClInclude Include="..\libespeak-ng\translate.h" />
+    <ClInclude Include="..\libespeak-ng\translateword.h" />
     <ClInclude Include="..\libespeak-ng\voice.h" />
     <ClInclude Include="..\pcaudiolib\src\audio_priv.h" />
     <ClInclude Include="..\pcaudiolib\src\include\pcaudiolib\audio.h" />

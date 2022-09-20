@@ -64,9 +64,6 @@ extern "C"
 #define FLAG_ALT_TRANS      0x8000 // language specific
 #define FLAG_ALT2_TRANS    0x10000 // language specific
 #define FLAG_ALT3_TRANS    0x20000 // language specific
-#define FLAG_ALT4_TRANS    0x40000 // language specific
-#define FLAG_ALT5_TRANS    0x80000 // language specific
-#define FLAG_ALT6_TRANS   0x100000 // language specific
 #define FLAG_ALT7_TRANS   0x200000 // language specific
 
 #define FLAG_COMBINE      0x800000 // combine with the next word
@@ -661,22 +658,11 @@ extern int (*phoneme_callback)(const char *);
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000
 
-ESPEAK_NG_API int utf8_in(int *c, const char *buf);
-int utf8_in2(int *c, const char *buf, int backwards);
-int utf8_out(unsigned int c, char *buf);
-int utf8_nbytes(const char *buf);
-
 int lookupwchar(const unsigned short *list, int c);
-int lookupwchar2(const unsigned short *list, int c);
 char *strchr_w(const char *s, int c);
-int IsBracket(int c);
 void InitNamedata(void);
 void InitText(int flags);
 void InitText2(void);
-int IsDigit(unsigned int c);
-int IsDigit09(unsigned int c);
-int IsAlpha(unsigned int c);
-int isspace2(unsigned int c);
 ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
@@ -686,8 +672,6 @@ void DeleteTranslator(Translator *tr);
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
-
-void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 
 int TranslateWord(Translator *tr, char *word1, WORD_TAB *wtab, char *word_out);
 void TranslateClause(Translator *tr, int *tone, char **voice_change);

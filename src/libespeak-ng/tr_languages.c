@@ -31,6 +31,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "common.h"
 #include "setlengths.h"          // for SetLengthMods
 #include "translate.h"           // for Translator, LANGUAGE_OPTIONS, L, NUM...
 
@@ -576,18 +577,6 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 		}
 
-	}
-		break;
-	case L('b', 'o'): // Tibet
-	{
-		tr->langopts.stress_rule = STRESSPOSN_1L;
-		tr->letter_bits_offset = OFFSET_TIBET;
-		SetLetterBitsRange(tr, LETTERGP_A, 0x71, 0x7d); // vowel signs
-		SetLetterBitsRange(tr, LETTERGP_B, 0x71, 0x81); // vowel signs and subjoined letters
-		SetLetterBitsRange(tr, LETTERGP_B, 0x90, 0xbc);
-		SetLetterBitsRange(tr, LETTERGP_C, 0x40, 0x6c); // consonant letters (not subjoined)
-		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;    // disable check for unpronouncable words
-		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
 	case L3('c', 'h', 'r'): // Cherokee
@@ -1331,16 +1320,6 @@ Translator *SelectTranslator(const char *name)
 	case L('r', 'u'): // Russian
 		Translator_Russian(tr);
 		break;
-	case L('r', 'w'): // Kiryarwanda
-	{
-		tr->langopts.stress_rule = STRESSPOSN_2R;
-		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
-		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
-		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words.  Need to allow "bw'" prefix
-		tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_2 | NUM_AND_HUNDRED;
-		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
-	}
-		break;
 	case L('s', 'k'): // Slovak
 	case L('c', 's'): // Czech
 	{
@@ -1586,10 +1565,6 @@ Translator *SelectTranslator(const char *name)
 
 	}
 		break;
-	case L('w', 'o'):
-		tr->langopts.stress_rule = STRESSPOSN_1L;
-		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_SINGLE_STRESS;
-		break;
 	case L3('s', 'h', 'n'):
 		tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
@@ -1614,8 +1589,8 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.ideographs = 1;
 		tr->langopts.our_alphabet = 0x3100;
 		tr->langopts.word_gap = 0x21; // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
+		tr->langopts.textmode = true;
 		if (name2 == L3('y', 'u', 'e')) {
-			tr->langopts.textmode = true;
 			tr->langopts.listx = 1; // compile zh_listx after zh_list
 			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_ZERO_TENS;
@@ -1656,7 +1631,7 @@ static void Translator_Russian(Translator *tr)
 	SetLetterBits(tr, LETTERGP_Y, ru_ivowels);
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432; // [v]  don't count this character at start of word
-	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
+	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x03;
 	tr->langopts.param[LOPT_REDUCE] = 2;
 	tr->langopts.stress_rule = STRESSPOSN_SYLCOUNT;
 	tr->langopts.stress_flags = S_NO_AUTO_2;

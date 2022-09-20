@@ -39,10 +39,11 @@
 #include <espeak-ng/encoding.h>
 
 #include "voice.h"                    // for voice_t, DoVoiceChange, N_PEAKS
-#include "dictionary.h"               // for strncpy0, LoadDictionary
+#include "common.h"                    // for GetFileLength, strncpy0
+#include "dictionary.h"               // for LoadDictionary
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
-#include "speech.h"                   // for GetFileLength, PATHSEP
+#include "speech.h"                   // for PATHSEP
 #include "mbrola.h"                   // for LoadMbrolaTable
 #include "synthdata.h"                // for SelectPhonemeTableName, LookupP...
 #include "synthesize.h"               // for SetSpeed, SPEED_FACTORS, speed
@@ -472,10 +473,10 @@ static void PhonemeReplacement(char *p)
 	replace_phonemes[n_replace_phonemes++].type = flags;
 }
 
-static int Read8Numbers(char *data_in, int *data)
+static int Read8Numbers(char *data_in, int data[8])
 {
 	// Read 8 integer numbers
-	memset(data, 0, 8+sizeof(int));
+	memset(data, 0, 8*sizeof(int));
 	return sscanf(data_in, "%d %d %d %d %d %d %d %d",
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }

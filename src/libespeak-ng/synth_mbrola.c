@@ -34,15 +34,15 @@
 
 #include "dictionary.h"
 #include "mbrola.h"
-#include "readclause.h"
 #include "setlengths.h"
 #include "synthdata.h"
 #include "wavegen.h"
 
 
-#include "speech.h"
+#include "common.h"
 #include "phoneme.h"
 #include "voice.h"
+#include "speech.h"
 #include "synthesize.h"
 #include "translate.h"
 

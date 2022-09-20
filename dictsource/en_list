@@ -513,6 +513,7 @@ ac	$abbrev
 acsi	$abbrev
 adf	$abbrev
 adhd	$abbrev
+ado $abbrev $allcaps
 adsl	$abbrev
 ae	$abbrev
 aes	$abbrev
@@ -2351,6 +2352,8 @@ kopje		k0pi
 koran		kO@r'A:n
 kosher		koUS3
 kowtow		kaUt2aU
+kubernetes ,ku:b3'nEti:z
+kusto 'ku:stoU $only
 
 la		,la           $only
 la		$abbrev $allcaps
@@ -2647,6 +2650,7 @@ naif		naI'i:f
 naïve		naI'i:v
 naivete		naI'i:v@teI
 naked		neIkI2#d	// adjective
+nanaimo n@'naImoU $only
 narrative	nar@tIv
 ?3 narrator	nareIt3
 nasa		nasa#
@@ -3849,6 +3853,7 @@ wholehearted	$2
 wicked		wIkI2#d	// adjective
 width		wItT
 wilderness	wIld3n@s
+willamette wI'lamIt $only
 wifi		waIfaI
 winding		waIndIN       // verb
 wind		waInd         $verb
@@ -5690,5 +5695,3 @@ sterile		$alt2
 tensile		$alt2
 virile		$alt2
 ?3 volatile	v0la#t@L
-
-

@@ -37,12 +37,13 @@
 #include <ucd/ucd.h>
 
 #include "readclause.h"
+#include "common.h"               // for GetFileLength, strncpy0
 #include "config.h"               // for HAVE_MKSTEMP
 #include "dictionary.h"           // for LookupDictList, DecodePhonemes, Set...
 #include "error.h"                // for create_file_error_context
 #include "phoneme.h"              // for phonSWITCH
 #include "soundicon.h"               // for LookupSoundIcon
-#include "speech.h"               // for GetFileLength, LookupMnem, PATHSEP
+#include "speech.h"               // for LookupMnem, PATHSEP
 #include "ssml.h"                 // for SSML_STACK, ProcessSsmlTag, N_PARAM...
 #include "synthdata.h"            // for SelectPhonemeTable
 #include "translate.h"            // for Translator, utf8_out, CLAUSE_OPTION...
@@ -128,23 +129,6 @@ int clause_type_from_codepoint(uint32_t c)
 	}
 
 	return CLAUSE_NONE;
-}
-
-int is_str_totally_null(const char* str, int size) {
-	// Tests if all bytes of str are null up to size
-	// This should never be reimplemented with integers, because
-	// this function has to work with unaligned char*
-	// (casting to int when unaligned may result in ungaranteed behaviors)
-	return (*str == 0 && memcmp(str, str+1, size-1) == 0);
-}
-
-int towlower2(unsigned int c, Translator *translator)
-{
-	// check for non-standard upper to lower case conversions
-	if (c == 'I' && translator->langopts.dotless_i)
-		return 0x131; // I -> ı
-
-	return ucd_tolower(c);
 }
 
 static int IsRomanU(unsigned int c)
@@ -285,20 +269,6 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
 
 	return buf;
-}
-
-int Read4Bytes(FILE *f)
-{
-	// Read 4 bytes (least significant first) into a word
-	int ix;
-	unsigned char c;
-	int acc = 0;
-
-	for (ix = 0; ix < 4; ix++) {
-		c = fgetc(f) & 0xff;
-		acc += (c << (ix*8));
-	}
-	return acc;
 }
 
 static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
@@ -462,6 +432,45 @@ static void RemoveChar(char *p)
 	int c;
 
 	memset(p, ' ', utf8_in(&c, p));
+}
+
+static int lookupwchar2(const unsigned short *list, int c)
+{
+	// Replace character c by another character.
+	// Returns 0 = not found, 1 = delete character
+
+	int ix;
+
+	for (ix = 0; list[ix] != 0; ix += 2) {
+		if (list[ix] == c)
+			return list[ix+1];
+	}
+	return 0;
+}
+
+static bool IgnoreOrReplaceChar(Translator *tr, int *c1) {
+    int i;
+    if ((i = lookupwchar2(tr->chars_ignore, *c1)) != 0) {
+        if (i == 1) {
+            // ignore this character
+            return true;
+        }
+        *c1 = i; // replace current character with the result
+    }
+    return false;
+}
+
+static int CheckPhonemeMode(int option_phoneme_input, int phoneme_mode, int c1, int c2) {
+		if (option_phoneme_input) {
+			if (phoneme_mode > 0)
+				phoneme_mode--;
+			else if ((c1 == '[') && (c2 == '['))
+				phoneme_mode = -1; // input is phoneme mnemonics, so don't look for punctuation
+			else if ((c1 == ']') && (c2 == ']'))
+				phoneme_mode = 2; // set phoneme_mode to zero after the next two characters
+
+		}
+    return phoneme_mode;
 }
 
 int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
@@ -688,13 +697,9 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 		linelength++;
 
-		if ((j = lookupwchar2(tr->chars_ignore, c1)) != 0) {
-			if (j == 1) {
-				// ignore this character (eg. zero-width-non-joiner U+200C)
-				continue;
-			}
-			c1 = j; // replace the character
-		}
+		 if (IgnoreOrReplaceChar(tr, &c1) == true)
+		    continue;
+
 
 		if (iswalnum(c1))
 			any_alnum = true;
@@ -732,14 +737,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		} else if (iswalpha(c1))
 			tr->clause_lower_count++;
 
-		if (option_phoneme_input) {
-			if (phoneme_mode > 0)
-				phoneme_mode--;
-			else if ((c1 == '[') && (c2 == '['))
-				phoneme_mode = -1; // input is phoneme mnemonics, so don't look for punctuation
-			else if ((c1 == ']') && (c2 == ']'))
-				phoneme_mode = 2; // set phoneme_mode to zero after the next two characters
-		}
+		phoneme_mode = CheckPhonemeMode(option_phoneme_input, phoneme_mode, c1, c2);
 
 		if (c1 == '\n') {
 			parag = 0;

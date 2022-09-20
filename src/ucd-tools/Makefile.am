@@ -96,7 +96,7 @@ html:
 	doxygen docs/ucd-tools.conf
 
 docs:	html \
-	CHANGELOG.html \
+	ChangeLog.html \
 	README.html
 
 ############################# libucd ##########################################
