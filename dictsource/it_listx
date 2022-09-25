@@ -610,6 +610,7 @@ brev	$alt
 brianzol $3
 brillio	$2
 brindisi $1
+brioscine	$3
 brisgovia  $alt
 broccostell  $alt2
 brod  $alt
@@ -882,6 +883,7 @@ cigol	$1
 cigolio	$3
 ciliegi  $alt
 ciliegia $3  $alt
+ciliegine	$4
 cimeg $1
 cimolais $3
 cincischio	$3
@@ -1857,6 +1859,7 @@ goliardie	golia@-*d'i:e
 gomit $1  $alt2
 gomitoli	$2
 gomm  $alt2
+gommini	$2
 gommoresine	$3
 gonars $2
 gonartria	$3
@@ -2147,6 +2150,7 @@ levanz $1  $alt
 leve  $alt
 lezioncine	$3
 liber $1
+libido	$2
 licantrop $2
 licomede  $alt
 liet  $alt
