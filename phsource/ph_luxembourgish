@@ -294,7 +294,7 @@ endphoneme
 phoneme TS
   vls pla afr sib
   ipa ʦ
-  WAV(ustop/tsh)
+  WAV(ustop/ts)
 endphoneme
 
 phoneme dZ
