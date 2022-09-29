@@ -164,6 +164,10 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 				wtab->flags &= ~FLAG_FIRST_UPPER;
 			}
 
+			// dictionary_skipwords is a global variable and TranslateWord3 will reset it to 0 at the beginning.
+			// However, dictionary_skipwords value is still needed outside this scope.
+			// So we backup and restore it at the end of this scope.
+			int skipwords = dictionary_skipwords;
 			TranslateWord3(tr, word_out, wtab, NULL, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
 
 			int n;
@@ -182,6 +186,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 				while (!isspace(*word_out)) ++word_out;
 				while (isspace(*word_out))  ++word_out;
 			}
+			dictionary_skipwords = skipwords;
 		}
 
 		// If the list file contains a text replacement to another

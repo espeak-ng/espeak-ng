@@ -10,8 +10,6 @@ pitch 80 118
 
 dict_min 100000
 
-dictrules 1	// interpret latin characters as English text
-
 //for some dialects
 
 //[en]: replace ng with n
