@@ -1590,14 +1590,14 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.our_alphabet = 0x3100;
 		tr->langopts.word_gap = 0x21; // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 		tr->langopts.textmode = true;
+		tr->langopts.listx = 1; // compile *_listx after *_list
 		if (name2 == L3('y', 'u', 'e')) {
-			tr->langopts.listx = 1; // compile zh_listx after zh_list
 			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_ZERO_TENS;
 			tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		}
-		break;
 	}
+		break;
 	default:
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		break;
