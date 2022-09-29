@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2021 December 22 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2022 september 23 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -132,6 +132,8 @@
 	i) dano (_	=dano  // verbs
 	i) dino (_	=dino
 	_) data (L07_	d'ata
+	_) dato (L04_	d'ato
+	_ri) dato (L04_	d'ato
 	diriger (L04_	diR'idZe@-*
 	due (_	d'ue   // numbers
 	dieci (_	dj'EtSi
@@ -538,6 +540,8 @@
 	picchia (L07_	p'ik:i,a
 	_) poni (L07_ p'oni
 	pro) poni (L07_ p'oni
+	_) presa (L04_	p@-*'Eza
+	_) preso (L04_	p@-*'Ezo
 
 .group q
 	q	k

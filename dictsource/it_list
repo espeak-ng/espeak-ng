@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2022 april  30 by Christian Leo Mameli, <llajta2012ATgmail.com>
+// Updated 2022 september  23 by Christian Leo Mameli, <llajta2012ATgmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -798,6 +798,7 @@ bitter	$1
 black	bl'E:k
 blackout	bl'Ek'aUt
 blind	bl'aInd $onlys
+blister	$1 $onlys
 blogger	bl'Oge@-*
 blues	bl'u:z
 bluff	bl'ef:	$only
@@ -1907,6 +1908,7 @@ civezzano	$3
 civitavecchia  $alt
 colombano	$3
 comanche	kom'a:nS
+commonwealth	_^_EN
 conzano	$2
 copenhagen	kopen'agen
 corchiano	$3
@@ -2187,6 +2189,7 @@ seui	$2
 seul $2 $only
 seychelles	seIS'El
 siberia	s,ib'ERi;a
+silverstone	s'ilve@-*ston
 simpliciano	$3
 sinai	s'i:naI
 siniscola	$3 $alt2
@@ -2259,6 +2262,7 @@ vissano	$2
 vitorchiano	$4
 washington	_^_EN
 wimbledon	$1
+woodstock	_^_EN
 zaire	dza'i:Re
 zanzibar	$1
 zigano	ts-ig'a/no
@@ -2358,6 +2362,7 @@ brown	b@-*'a:w2n	$onlys
 bruce	b@-*'Us $only
 buffon	$2 $only
 cacciol	katS:'ol
+cadillac	$1
 caino	ka'i:no/
 caligola	$2
 calogger	$2
@@ -2436,6 +2441,7 @@ fahrenheit	f'aRenaIt
 federic	$3
 felicita	$2
 fenice	$2
+ferlaino	fe@-*la'i:no
 ferrer	$2	$alt2
 fischer	f'iSE@-* $onlys
 florencio	fl,OR'ensIo
@@ -2482,6 +2488,7 @@ hitchcock	'itS_kok
 honore $3
 hulk	h'alk
 iacopo	j'akopo
+ibrahimovic	ib@-*a'imovitS
 icar $1
 igor	$1
 ingrassia	$3
@@ -2558,6 +2565,7 @@ mariapia	$4
 mary	m'E:*i	$only
 marilyn	m'E:r*ilIN
 marylin	m'ERilin
+marsili	$2
 marzott	ma@-*dz'Ot:
 masala	$1
 mayer	$1
@@ -2575,12 +2583,14 @@ miguel	mig'E:l
 mike	_^_EN
 mikolaj	mik,Ol'a:j
 misseri	$2
+mohammed	mo,am:'Ed
 mogol $2
 mondadori  $alt2
 monika	$1
 monroe	m'On||r,ow
 morissette	m'ORIsEt[
 mowgli	m'o:glI
+mourinho	muR'in^o
 mozilla	m,o|dz'il:a
 muresan	$3
 murgia	$1
@@ -2703,6 +2713,7 @@ vazquez	vask'Ets
 vedder	$1 $onlys
 vermouth	v'E@-*mut
 victor	$1 $only
+villeneuve	v,iln'e:v
 vincent	v'inseNt[ $only
 vladimir	$3
 wagner	v'agnE@-*
@@ -2784,6 +2795,7 @@ acced	atS:'Ed
 acceler	atS:'Ele:R
 accelerano	atS:'E:l,eRano
 accelerino	$2
+accendano	$2
 accennino	$2
 accentrino	$2
 accentuano	$2
@@ -3083,6 +3095,7 @@ brindino	$1
 brontolano	$1
 brontolino	$1
 brucino	$1
+brulicano	$1
 bucano	$1
 burlano	$1
 burlino	$1
@@ -3163,6 +3176,7 @@ commutino	$2
 compaiano	$2
 comparvero	$2
 compensano	$2
+comper	$1
 competano	$2 $alt
 compiace	kompj'atSe/
 compiacere	$3
@@ -4105,6 +4119,7 @@ predici	$2
 predomin	$2
 preghino	$1
 pregia	$1
+pregiudicano	$2
 premiano	$1
 premurano	$2
 prendano	$1
@@ -4523,6 +4538,7 @@ separino	$2
 sequestrano	$2
 servino	$1
 seviziano	$2
+sfaldano	$1
 sfamano	$1
 sfatano	$1
 sferrano	$1
@@ -4972,6 +4988,7 @@ ch'erano	k'E*ano
 
 // pronominal verbs
 
+abbattutasi	$3
 abituarcisi	$4
 accadutomi	$3
 accertatene	$2
@@ -5012,6 +5029,7 @@ cliccaci	$1
 cliccal	$1
 compiersi	$1
 compil	$2
+conclusosi	$2
 conosciutisi	$3
 conclusasi	$2
 confrontal	$2
@@ -5153,6 +5171,7 @@ riformatisi	$3
 riformatosi	$3
 rincorrerl	$2
 riportal	$2
+ripresosi	$2
 risparmiaci	$2
 risparmial	$2
 risparmiami	$2

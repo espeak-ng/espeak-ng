@@ -29,7 +29,7 @@ updated languages:
 *  ro (Romanian) -- Andiv06
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tk (Turkmen) -- Andiv06
-*  tr (Turkish) -- Gurbuzguven
+*  tr (Turkish) -- Gurbuzguven, Qchristensen
 *  uz (Uzbek) -- Andiv06
 
 new languages:
