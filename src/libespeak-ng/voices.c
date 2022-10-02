@@ -41,6 +41,7 @@
 #include "voice.h"                    // for voice_t, DoVoiceChange, N_PEAKS
 #include "common.h"                    // for GetFileLength, strncpy0
 #include "dictionary.h"               // for LoadDictionary
+#include "langopts.h"                 // for LoadLanguageOptions
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
 #include "speech.h"                   // for PATHSEP
@@ -49,6 +50,8 @@
 #include "synthesize.h"               // for SetSpeed, SPEED_FACTORS, speed
 #include "translate.h"                // for LANGUAGE_OPTIONS, DeleteTranslator
 #include "wavegen.h"                  // for InitBreath
+
+
 
 static const MNEM_TAB genders[] = {
 	{ "male", ENGENDER_MALE },
@@ -501,7 +504,7 @@ static void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyw
 	}
 }
 
-static int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key)
+int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key)
 {
 	// Return 0 if translator is set.
 	// Return 1 and print an error message for specified key if not
@@ -629,6 +632,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		key = LookupMnem(keyword_tab, buf);
 
+        LoadLanguageOptions(translator, key);
 		switch (key)
 		{
 		case V_LANGUAGE:
@@ -693,14 +697,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_FORMANT:
 			VoiceFormant(p);
 			break;
-		case V_LOWERCASE_SENTENCE: {
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
-
-			translator->langopts.lowercase_sentence = true;
-			break;
-			}
-
 		case V_PITCH:
 			// default is  pitch 82 118
 			if (sscanf(p, "%d %d", &pitch1, &pitch2) == 2) {

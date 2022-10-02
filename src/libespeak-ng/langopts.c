@@ -1,0 +1,110 @@
+/*
+ * Copyright (C) 2005 to 2015 by Jonathan Duddington
+ * email: jonsd@users.sourceforge.net
+ * Copyright (C) 2015-2017 Reece H. Dunn
+ * Copyright (C) 2022 Juho Hiltunen
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see: <http://www.gnu.org/licenses/>.
+ */
+
+#include "config.h"
+
+#include <errno.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <espeak-ng/espeak_ng.h>
+#include <espeak-ng/speak_lib.h>
+#include <espeak-ng/encoding.h>
+
+#include "langopts.h"
+#include "mnemonics.h"                // for MNEM_TAB
+#include "translate.h"                // for Translator
+#include "voice.h"                    // for CheckTranslator()
+
+enum {
+	V_NAME = 1,
+	V_LANGUAGE,
+	V_GENDER,
+	V_PHONEMES,
+	V_DICTIONARY,
+	V_VARIANTS,
+
+	V_MAINTAINER,
+	V_STATUS,
+
+	// these affect voice quality, are independent of language
+	V_FORMANT,
+	V_PITCH,
+	V_ECHO,
+	V_FLUTTER,
+	V_ROUGHNESS,
+	V_CLARITY,
+	V_TONE,
+	V_VOICING,
+	V_BREATH,
+	V_BREATHW,
+
+	// these override defaults set by the translator
+	V_LOWERCASE_SENTENCE,
+	V_WORDGAP,
+	V_INTONATION,
+	V_TUNES,
+	V_STRESSLENGTH,
+	V_STRESSAMP,
+	V_STRESSADD,
+	V_DICTRULES,
+	V_STRESSRULE,
+	V_STRESSOPT,
+	V_NUMBERS,
+
+	V_MBROLA,
+	V_KLATT,
+	V_FAST,
+	V_SPEED,
+	V_DICTMIN,
+
+	// these need a phoneme table to have been specified
+	V_REPLACE,
+	V_CONSONANTS
+};
+
+static const MNEM_TAB langopts_tab[] = {
+	{ "maintainer",   V_MAINTAINER },
+	{ "status",       V_STATUS },
+	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
+
+	{ NULL, 0 }
+};
+
+extern int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key);
+
+void LoadLanguageOptions(Translator *translator, int key ) {
+		switch (key)
+		{
+		case V_LOWERCASE_SENTENCE: {
+			if (CheckTranslator(translator, langopts_tab, key) != 0)
+				break;
+
+			translator->langopts.lowercase_sentence = true;
+			break;
+			}
+
+			break;
+		case V_MAINTAINER:
+		case V_STATUS:
+			break;
+	}
+}
