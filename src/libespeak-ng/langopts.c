@@ -139,7 +139,6 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         			}
         			break;
         		}
-
         case V_STRESSOPT: {
             if (CheckTranslator(translator, langopts_tab, key) != 0)
                  break;
@@ -147,7 +146,16 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
             ReadNumbers(keyValue, &translator->langopts.stress_flags, 32, langopts_tab, key);
             break;
         }
+		case V_STRESSRULE: {
+			if (CheckTranslator(translator, langopts_tab, key) != 0)
+				break;
 
+			sscanf(keyValue, "%d %d %d", &translator->langopts.stress_rule,
+				   &translator->langopts.unstressed_wd1,
+				   &translator->langopts.unstressed_wd2);
+
+			break;
+		}
 
 		case V_MAINTAINER:
 		case V_STATUS:
