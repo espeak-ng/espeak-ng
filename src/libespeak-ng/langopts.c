@@ -87,6 +87,16 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         int ix;
 
 		switch (key) {
+		case V_INTONATION: {
+			sscanf(keyValue, "%d", &option_tone_flags);
+			if ((option_tone_flags & 0xff) != 0) {
+				if (CheckTranslator(translator, langopts_tab, key) != 0)
+					break;
+
+				translator->langopts.intonation_group = option_tone_flags & 0xff;
+			}
+			break;
+		}
 		case V_LOWERCASE_SENTENCE: {
 			if (CheckTranslator(translator, langopts_tab, key) != 0)
 				break;
@@ -94,7 +104,6 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 			translator->langopts.lowercase_sentence = true;
 			break;
 			}
-
 		case V_STRESSADD: { // stressAdd
                         if (CheckTranslator(translator, langopts_tab, key) != 0)
                             break;

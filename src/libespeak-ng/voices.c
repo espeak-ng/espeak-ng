@@ -121,6 +121,7 @@ enum {
 };
 
 const MNEM_TAB langopts_tab[] = {
+	{ "intonation",   V_INTONATION },
 	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
     { "stressAdd",    V_STRESSADD },
     { "stressAmp",    V_STRESSAMP },
@@ -144,7 +145,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "pitch",        V_PITCH },
 	{ "phonemes",     V_PHONEMES },
 	{ "dictionary",   V_DICTIONARY },
-	{ "intonation",   V_INTONATION },
 	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
 	{ "replace",      V_REPLACE },
@@ -715,15 +715,6 @@ voice_t *LoadVoice(const char *vname, int control)
                 break;
 
 
-            case V_INTONATION: // intonation
-                sscanf(p, "%d", &option_tone_flags);
-                if ((option_tone_flags & 0xff) != 0) {
-                    if (CheckTranslator(translator, keyword_tab, key) != 0)
-                        break;
-
-                    translator->langopts.intonation_group = option_tone_flags & 0xff;
-                }
-                break;
             case V_TUNES:
                 if (CheckTranslator(translator, keyword_tab, key) != 0)
                     break;
