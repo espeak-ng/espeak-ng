@@ -110,8 +110,21 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 
                         break;
                     }
+        case V_STRESSAMP: {
+                if (CheckTranslator(translator, langopts_tab, key) != 0)
+                    break;
 
+                int stress_amps_set = 0;
+                int stress_amps[8];
 
+                stress_amps_set = Read8Numbers(keyValue, stress_amps);
+
+                for (ix = 0; ix < stress_amps_set; ix++) {
+                    translator->stress_amps[ix] = stress_amps[ix];
+                }
+
+                break;
+            }
 		case V_STRESSLENGTH: {
         			if (CheckTranslator(translator, langopts_tab, key) != 0)
         				break;

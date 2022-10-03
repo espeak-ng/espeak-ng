@@ -123,6 +123,7 @@ enum {
 const MNEM_TAB langopts_tab[] = {
 	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
     { "stressAdd",    V_STRESSADD },
+    { "stressAmp",    V_STRESSAMP },
     { "stressLength", V_STRESSLENGTH },
 
 	{ "maintainer",   V_MAINTAINER },
@@ -141,7 +142,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "pitch",        V_PITCH },
 	{ "phonemes",     V_PHONEMES },
 	{ "dictionary",   V_DICTIONARY },
-	{ "stressAmp",    V_STRESSAMP },
 	{ "intonation",   V_INTONATION },
 	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
@@ -713,21 +713,6 @@ voice_t *LoadVoice(const char *vname, int control)
                     voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
                 }
                 break;
-
-
-            case V_STRESSAMP: { // stressAmp
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                    break;
-
-                int stress_amps_set = 0;
-                int stress_amps[8];
-                stress_amps_set = Read8Numbers(p, stress_amps);
-                for (ix = 0; ix < stress_amps_set; ix++) {
-                    translator->stress_amps[ix] = stress_amps[ix];
-                }
-
-                break;
-            }
 
 
             case V_INTONATION: // intonation
