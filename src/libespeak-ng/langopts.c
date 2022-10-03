@@ -81,15 +81,7 @@ enum {
 	V_CONSONANTS
 };
 
-static const MNEM_TAB langopts_tab[] = {
-	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
-    { "stressLength", V_STRESSLENGTH },
-
-	{ "maintainer",   V_MAINTAINER },
-    { "status",       V_STATUS },
-
-    { NULL, 0 }
-};
+extern const MNEM_TAB langopts_tab[];
 
 void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         int ix;
