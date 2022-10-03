@@ -140,6 +140,15 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         			break;
         		}
 
+        case V_STRESSOPT: {
+            if (CheckTranslator(translator, langopts_tab, key) != 0)
+                 break;
+
+            ReadNumbers(keyValue, &translator->langopts.stress_flags, 32, langopts_tab, key);
+            break;
+        }
+
+
 		case V_MAINTAINER:
 		case V_STATUS:
 			break;

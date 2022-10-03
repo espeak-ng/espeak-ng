@@ -125,6 +125,7 @@ const MNEM_TAB langopts_tab[] = {
     { "stressAdd",    V_STRESSADD },
     { "stressAmp",    V_STRESSAMP },
     { "stressLength", V_STRESSLENGTH },
+    { "stressOpt",    V_STRESSOPT },
 
 	{ "maintainer",   V_MAINTAINER },
     { "status",       V_STATUS },
@@ -146,7 +147,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
 	{ "stressRule",   V_STRESSRULE },
-	{ "stressOpt",    V_STRESSOPT },
 	{ "replace",      V_REPLACE },
 	{ "words",        V_WORDGAP },
 	{ "echo",         V_ECHO },
@@ -489,7 +489,7 @@ int Read8Numbers(char *data_in, int data[8])
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
 
-static void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab, int key) {
+void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab, int key) {
 	// read a list of numbers from string p
 	// store them as flags in *flags
 	// the meaning of the  numbers is bit ordinals, not integer values
@@ -747,12 +747,6 @@ voice_t *LoadVoice(const char *vname, int control)
                     break;
 
                 ReadNumbers(p, &translator->dict_condition, 32, keyword_tab, key);
-                break;
-            case V_STRESSOPT:
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                     break;
-
-                ReadNumbers(p, &translator->langopts.stress_flags, 32, keyword_tab, key);
                 break;
 
             case V_NUMBERS:
