@@ -91,6 +91,7 @@ voice_t *LoadVoice(const char *voice_name, int control);
 voice_t *LoadVoiceVariant(const char *voice_name, int variant);
 espeak_ng_STATUS DoVoiceChange(voice_t *v);
 void WavegenSetVoice(voice_t *v);
+int Read8Numbers(char *data_in, int data[8]);
 void ReadTonePoints(char *string, int *tone_pts);
 void VoiceReset(int control);
 void FreeVoiceList(void);

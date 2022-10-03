@@ -82,18 +82,19 @@ enum {
 };
 
 static const MNEM_TAB langopts_tab[] = {
-	{ "maintainer",   V_MAINTAINER },
-	{ "status",       V_STATUS },
 	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
+    { "stressLength", V_STRESSLENGTH },
 
-	{ NULL, 0 }
+	{ "maintainer",   V_MAINTAINER },
+    { "status",       V_STATUS },
+
+    { NULL, 0 }
 };
 
-extern int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key);
+void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
+        int ix;
 
-void LoadLanguageOptions(Translator *translator, int key ) {
-		switch (key)
-		{
+		switch (key) {
 		case V_LOWERCASE_SENTENCE: {
 			if (CheckTranslator(translator, langopts_tab, key) != 0)
 				break;
@@ -101,8 +102,21 @@ void LoadLanguageOptions(Translator *translator, int key ) {
 			translator->langopts.lowercase_sentence = true;
 			break;
 			}
+		case V_STRESSLENGTH: {
+        			if (CheckTranslator(translator, langopts_tab, key) != 0)
+        				break;
 
-			break;
+        			//printf("parsing: %s", keyValue);
+        			int stress_lengths_set = 0;
+        			int stress_lengths[8];
+        			stress_lengths_set = Read8Numbers(keyValue, stress_lengths);
+
+        			for (ix = 0; ix < stress_lengths_set; ix++) {
+        				translator->stress_lengths[ix] = stress_lengths[ix];
+        			}
+        			break;
+        		}
+
 		case V_MAINTAINER:
 		case V_STATUS:
 			break;

@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
@@ -134,9 +135,9 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "pitch",        V_PITCH },
 	{ "phonemes",     V_PHONEMES },
 	{ "dictionary",   V_DICTIONARY },
-	{ "stressLength", V_STRESSLENGTH },
 	{ "stressAmp",    V_STRESSAMP },
 	{ "stressAdd",    V_STRESSADD },
+	{ "stressLength",    V_STRESSLENGTH },
 	{ "intonation",   V_INTONATION },
 	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
@@ -476,7 +477,7 @@ static void PhonemeReplacement(char *p)
 	replace_phonemes[n_replace_phonemes++].type = flags;
 }
 
-static int Read8Numbers(char *data_in, int data[8])
+int Read8Numbers(char *data_in, int data[8])
 {
 	// Read 8 integer numbers
 	memset(data, 0, 8*sizeof(int));
@@ -632,7 +633,8 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		key = LookupMnem(keyword_tab, buf);
 
-        LoadLanguageOptions(translator, key);
+        LoadLanguageOptions(translator, key, p);
+
 		switch (key)
 		{
 		case V_LANGUAGE:
@@ -706,20 +708,7 @@ voice_t *LoadVoice(const char *vname, int control)
 				voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
 			}
 			break;
-		case V_STRESSLENGTH: {// stressLength
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
 
-			int stress_lengths_set = 0;
-			int stress_lengths[8];
-			stress_lengths_set = Read8Numbers(p, stress_lengths);
-
-			for (ix = 0; ix < stress_lengths_set; ix++) {
-				translator->stress_lengths[ix] = stress_lengths[ix];
-			}
-
-			break;
-		}
 		case V_STRESSAMP: { // stressAmp
 			if (CheckTranslator(translator, keyword_tab, key) != 0)
 				break;
