@@ -24,6 +24,9 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+static int LookupTune(const char *name);
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -33,6 +36,7 @@
 #include "mnemonics.h"                // for MNEM_TAB
 #include "translate.h"                // for Translator
 #include "voice.h"                    // for CheckTranslator()
+#include "synthdata.h"                    // for n_tunes, tunes
 
 enum {
 	V_NAME = 1,
@@ -85,6 +89,7 @@ extern const MNEM_TAB langopts_tab[];
 
 void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         int ix;
+        int n;
 
 		switch (key) {
 		case V_INTONATION: {
@@ -165,9 +170,39 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 
 			break;
 		}
+            case V_TUNES: {
+                if (CheckTranslator(translator, langopts_tab, key) != 0)
+                    break;
+
+				char names[8][40];
+                n = sscanf(keyValue, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
+                translator->langopts.intonation_group = 0;
+
+                for (ix = 0; ix < n; ix++) {
+                    if (strcmp(names[ix], "NULL") == 0)
+                        continue;
+
+                    if ((n = LookupTune(names[ix])) < 0)
+                        fprintf(stderr, "Unknown tune '%s'\n", names[ix]);
+                    else
+                        translator->langopts.tunes[ix] = n;
+                }
+			break;
+			}
+
 
 		case V_MAINTAINER:
 		case V_STATUS:
 			break;
 	}
+}
+
+static int LookupTune(const char *name) {
+	int ix;
+
+	for (ix = 0; ix < n_tunes; ix++) {
+		if (strcmp(name, tunes[ix].name) == 0)
+			return ix;
+	}
+	return -1;
 }

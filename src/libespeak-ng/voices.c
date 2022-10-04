@@ -128,6 +128,7 @@ const MNEM_TAB langopts_tab[] = {
     { "stressLength", V_STRESSLENGTH },
     { "stressOpt",    V_STRESSOPT },
     { "stressRule",   V_STRESSRULE },
+    { "tunes",        V_TUNES },
 
 	{ "maintainer",   V_MAINTAINER },
     { "status",       V_STATUS },
@@ -145,7 +146,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "pitch",        V_PITCH },
 	{ "phonemes",     V_PHONEMES },
 	{ "dictionary",   V_DICTIONARY },
-	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
 	{ "replace",      V_REPLACE },
 	{ "words",        V_WORDGAP },
@@ -209,17 +209,6 @@ static char *fgets_strip(char *buf, int size, FILE *f_in)
 		*p = 0;
 
 	return buf;
-}
-
-static int LookupTune(const char *name)
-{
-	int ix;
-
-	for (ix = 0; ix < n_tunes; ix++) {
-		if (strcmp(name, tunes[ix].name) == 0)
-			return ix;
-	}
-	return -1;
 }
 
 static void SetToneAdjust(voice_t *voice, int *tone_pts)
@@ -551,7 +540,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
 
-	char names[8][40];
+
 	char name1[40];
 	char name2[80];
 
@@ -715,23 +704,6 @@ voice_t *LoadVoice(const char *vname, int control)
                 break;
 
 
-            case V_TUNES:
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                    break;
-
-                n = sscanf(p, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
-                translator->langopts.intonation_group = 0;
-
-                for (ix = 0; ix < n; ix++) {
-                    if (strcmp(names[ix], "NULL") == 0)
-                        continue;
-
-                    if ((value = LookupTune(names[ix])) < 0)
-                        fprintf(stderr, "Unknown tune '%s'\n", names[ix]);
-                    else
-                        translator->langopts.tunes[ix] = value;
-                }
-                break;
 
             case V_DICTRULES: // conditional dictionary rules and list entries
                 if (CheckTranslator(translator, keyword_tab, key) != 0)
