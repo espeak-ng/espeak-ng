@@ -818,16 +818,7 @@ voice_t *LoadVoice(const char *vname, int control)
                 sscanf(p, "%d", &speed.fast_settings);
                 SetSpeed(3);
                 break;
-            case V_DICTMIN: {
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                    break;
 
-                if (sscanf(p, "%d", &value) == 1)
-                    translator->dict_min_size = value;
-                break;
-                }
-
-                break;
             case V_MAINTAINER:
             case V_STATUS:
                 break;

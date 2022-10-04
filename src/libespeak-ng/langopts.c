@@ -92,6 +92,16 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         int n;
 
 		switch (key) {
+		case V_DICTMIN: {
+			if (CheckTranslator(translator, langopts_tab, key) != 0)
+				break;
+
+			if (sscanf(keyValue, "%d", &n) == 1)
+				translator->dict_min_size = n;
+
+			break;
+			}
+
 			case V_DICTRULES: { // conditional dictionary rules and list entries
 				if (CheckTranslator(translator, langopts_tab, key) != 0)
 					break;
