@@ -92,6 +92,13 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         int n;
 
 		switch (key) {
+			case V_DICTRULES: { // conditional dictionary rules and list entries
+				if (CheckTranslator(translator, langopts_tab, key) != 0)
+					break;
+
+				ReadNumbers(keyValue, &translator->dict_condition, 32, langopts_tab, key);
+				break;
+			}
 		case V_INTONATION: {
 			sscanf(keyValue, "%d", &option_tone_flags);
 			if ((option_tone_flags & 0xff) != 0) {

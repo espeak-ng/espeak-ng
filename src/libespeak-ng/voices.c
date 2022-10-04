@@ -121,6 +121,7 @@ enum {
 };
 
 const MNEM_TAB langopts_tab[] = {
+	{ "dictrules",    V_DICTRULES },
 	{ "intonation",   V_INTONATION },
 	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
     { "stressAdd",    V_STRESSADD },
@@ -146,7 +147,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "pitch",        V_PITCH },
 	{ "phonemes",     V_PHONEMES },
 	{ "dictionary",   V_DICTIONARY },
-	{ "dictrules",    V_DICTRULES },
 	{ "replace",      V_REPLACE },
 	{ "words",        V_WORDGAP },
 	{ "echo",         V_ECHO },
@@ -705,12 +705,6 @@ voice_t *LoadVoice(const char *vname, int control)
 
 
 
-            case V_DICTRULES: // conditional dictionary rules and list entries
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                    break;
-
-                ReadNumbers(p, &translator->dict_condition, 32, keyword_tab, key);
-                break;
 
             case V_NUMBERS:
                 if (CheckTranslator(translator, keyword_tab, key) != 0)
