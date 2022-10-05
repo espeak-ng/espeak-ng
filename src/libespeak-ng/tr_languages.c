@@ -808,7 +808,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 		tr->langopts.long_stop = 130;
 
-		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
+	//	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
 		SetLetterVowel(tr, 'y');
 		tr->langopts.spelling_stress = 1;
 		tr->langopts.intonation_group = 3; // less intonation, don't raise pitch at comma

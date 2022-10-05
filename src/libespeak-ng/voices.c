@@ -124,6 +124,7 @@ const MNEM_TAB langopts_tab[] = {
 	{ "dictrules",    V_DICTRULES },
 	{ "intonation",   V_INTONATION },
 	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
+	{ "numbers",      V_NUMBERS },
     { "stressAdd",    V_STRESSADD },
     { "stressAmp",    V_STRESSAMP },
     { "stressLength", V_STRESSLENGTH },
@@ -157,7 +158,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "voicing",      V_VOICING },
 	{ "breath",       V_BREATH },
 	{ "breathw",      V_BREATHW },
-	{ "numbers",      V_NUMBERS },
 	{ "mbrola",       V_MBROLA },
 	{ "consonants",   V_CONSONANTS },
 	{ "klatt",        V_KLATT },
@@ -706,28 +706,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 
 
-            case V_NUMBERS:
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                    break;
 
-                // expect a list of numbers
-                while (*p != 0) {
-                    while (isspace(*p)) p++;
-                    if ((n = atoi(p)) > 0) {
-                        p++;
-                        if (n < 32) {
-                                translator->langopts.numbers |= (1 << n);
-                        } else {
-                            if (n < 64)
-                                translator->langopts.numbers2 |= (1 << (n-32));
-                            else
-                                fprintf(stderr, "numbers: Bad option number %d\n", n);					}
-                    }
-                    while (isalnum(*p)) p++;
-                }
-                ProcessLanguageOptions(&(translator->langopts));
-
-                break;
             case V_REPLACE:
                 if (phonemes_set == false) {
                     // must set up a phoneme table before we can lookup phoneme mnemonics

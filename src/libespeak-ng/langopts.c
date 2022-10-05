@@ -20,6 +20,7 @@
 
 #include "config.h"
 
+#include <ctype.h>
 #include <errno.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -117,6 +118,29 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 
 				translator->langopts.intonation_group = option_tone_flags & 0xff;
 			}
+			break;
+		}
+		case V_NUMBERS: {
+		//	if (CheckTranslator(translator, langopts_tab, key) != 0)
+				break;
+
+			// expect a list of numbers
+			while (*keyValue != 0) {
+				while (isspace(*keyValue)) keyValue++;
+				if ((n = atoi(keyValue)) > 0) {
+					keyValue++;
+					if (n < 32) {
+							translator->langopts.numbers |= (1 << n);
+					} else {
+						if (n < 64)
+							translator->langopts.numbers2 |= (1 << (n-32));
+						else
+							fprintf(stderr, "numbers: Bad option number %d\n", n);					}
+				}
+				while (isalnum(*keyValue)) keyValue++;
+			}
+			ProcessLanguageOptions(&(translator->langopts));
+
 			break;
 		}
 		case V_LOWERCASE_SENTENCE: {
