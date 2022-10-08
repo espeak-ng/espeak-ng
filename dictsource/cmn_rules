@@ -11,9 +11,9 @@
 ˋ 4
 ā a1
 á a2
-ă a3
 ǎ a3
 à a4
+// TODO: àn is not handled
 ō o1
 ó o2
 ŏ o3
@@ -48,6 +48,9 @@
 ŝ sh 
 
 .L01  j q x y
+.L02  1 2 3 4 5 // tone number
+.L03  a o e i u v ai ei ui ao ou iu ie ve er an en in un vn ang eng ing ong ua ue uo uai uan uang ia iao ian iang
+
 
 // Note:  ngK  matches "ng" if not followed by a vowel
 // (D  will match on a digit and also if no digit is present. (special for tone
@@ -56,211 +59,159 @@ language).
 // 儿 兒  erhua
 
 .group a
-?1     a        _^_EN
-       a        A
-       ai	ai
-       a1i	ai55
-       a2i	ai35
-       a3i	ai214
-       a4i	ai51
-       ao	Au
-       a1o	Au55
-       a2o	Au35
-       a3o	Au214
-       a4o	Au51
+       a        _^_EN
 
-       a (DnK	a
-   ch) a (DngK	A
-   ch) a (4ngK	a
-   ch) a (ng4K	a
-    k) a (DngK	A
-    _) a (DngK	A
+       a (L02	A
+       ai (L02	ai
+       ao (L02	Au
+       a (nL02	a
+       a (ngL02	A
 
-    y) a	iA
-    y) ao	Au
-    y) a1o	Au55
-    y) a2o	Au35
-    y) a3o	Au214
-    y) a4o	Au51
-    y) a (DnK	iE
-    y) a (DngK	iA
+    y) a (L02	iA
+    y) a (L02	Au
+    y) a (nL02	iE
+    y) a (ngL02	iA
 
 .group b
-?1     b        _^_EN
-       b        p
-    @) b (K	_^_EN
+       b        _^_EN
+       b (L03L02       p
 
 .group c
-?1     c        _^_EN
-       c        tsh
-       ch (+    ts.h
-    @) c (K	_^_EN
+       c        _^_EN
+       c (L03L02       tsh
+       ch (L03L02    ts.h
 
 .group d
-?1     d        _^_EN
-       d        t
-    @) d (K	_^_EN
+       d        _^_EN
+       d (L03L02       t
 
 .group e
-?1     e        _^_EN
-       e	o-
+       e        _^_EN
+
+       e (L02	o-
     d) e	@
     t) e	@
     n) e	@
     l) e	@
     y) e	iE
-       ea	E
-       ei	ei
-       e1i	ei55
-       e2i	ei35
-       e3i	ei214
-       e4i	ei51
 
-       e (Dn	@ //en eng
-
-       er (K	@r
-       e1r (K	@r55
-       e2r (K	@r35
-       e3r (K	@r214
-       e4r (K	@r51
+       ei (L02	ei
+       e (nL02	@	// en
+       e (ngL02	@	// eng
+       er (L02	@r
 
 .group f
-?1     f        _^_EN
-       f        f
-    @) f (K	_^_EN
+       f        _^_EN
+       f (L03L02       f
 
 .group g
-?1     g        _^_EN
-       g        k
-    @) g (K	_^_EN
+       g        _^_EN
+       g (L03L02       k
 
 .group h
-?1     h        _^_EN
-       h        X
-    @) h (K	_^_EN
+       h        _^_EN
+       h (L03L02       X
 
 .group i
-?1     i        _^_EN
-       i        i //i in ing
-    z) i        i[
-    c) i        i[
-    s) i        i[
-    h) i        i. //after zh ch sh
-    r) i        i.
-       ia	iA
-       ia (DnK	iE
-       ia (DngK	iA
-       iao	jAu
-       ia1o	jAu55
-       ia2o	jAu35
-       ia3o	jAu214
-       ia4o	jAu51
-       ie	iE
-       io (DngK	y
-    q) io (DngK	u 
-       iu 	iou 
+       i        _^_EN
+
+	i (L02		i
+	i (nL02		i	// in
+	i (ngL02	i	// ing
+
+    z) i (L02       i[
+    c) i (L02       i[
+    s) i (L02       i[
+    h) i (L02       i. //after zh ch sh
+    r) i (L02       i.
+       ia (L02		iA
+       ia (nL02		iE
+       ia (ngL02	iA
+
+       iao (L02		jAu
+       ie (L02		iE
+       io (ngL02	y
+    q) io (ngL02	u 
+       iu (L02		iou 
 
 .group j
-?1     j        _^_EN
-       j        tS;
-    @) j (K	_^_EN
+       j        _^_EN
+       j (L03L02       tS;
 
 .group k
-?1     k        _^_EN
-       k        kh
-    @) k (K	_^_EN
+       k        _^_EN
+       k (L03L02       kh
 
 .group l
-?1     l        _^_EN
-       l        l
-    @) l (K	_^_EN
-    @) l (v     l
+       l        _^_EN
+       l (L03L02       l
 
 .group m
-?1     m        _^_EN
-       m        m
-    @) m (K	_^_EN
+       m        _^_EN
+       m (L03L02       m
 
 .group n
-?1     n        _^_EN
-       n        n
-       ng (K	N     // consider (ng+vowel) as (n g+vowel) ??
+       n        _^_EN
+       n (L03L02       n
+       n (L02          n
+       ng (L02	N     // consider (ng+vowel) as (n g+vowel) ??
     _) ng (K	N-    // syllablic [N]
 
 .group o
-?1     o        _^_EN
-       o        o
+       o        _^_EN
 
-       ou	ou
-       o1u	ou55
-       o2u	ou35
-       o3u	ou214
-       o4u	ou51
+       o (L02	o
+       ou (L02	ou
+       ong (L02	ong
 
-       ong (K   ong
-       o1ng (K	ong55
-       o2ng (K	ong35
-       o3ng (K	ong214
-       o4ng (K	ong51
-
-    y) o	io 
-    y) ou	iou
-    y) o1u	iou55
-    y) o2u	iou35
-    y) o3u	iou214
-    y) o4u	iou51
+    y) o (L02	io
+    y) ou (L02	iou
 
 .group p
-?1     p        _^_EN
-       p        ph
-    @) p (K	_^_EN
+       p        _^_EN
+       p (L03L02       ph
 
 .group q
-?1     q        _^_EN
-       q        tS;h
-    @) q (K	_^_EN
+       q        _^_EN
+       q (L03L02       tS;h
 
 .group r
-?1     r        _^_EN
-       r        z.
-       r (K     @r11
+       r        _^_EN
+       r (L03L02       z.
 
 .group s
-?1     s        _^_EN
-       s        s
-       sh (+    s.
-    @) s (K	_^_EN
+       s        _^_EN
+       s (L03L02       s
+       sh (L03L02      s.
 
 .group t
-?1     t        _^_EN
-       t        th
-    @) t (K	_^_EN
+       t        _^_EN
+       t (L03L02       th
 
 .group u
-?1     u        _^_EN
-       u        u
-       ua	wA
-       ua (DnK	ua
-    g) ua (DnK	wa
-    k) ua (DnK	wa
-       ua (DngK wA
-       uai	uai
-       ua1i	uai55
-       ua2i	uai35
-       ua3i	uai214
-       ua4i	uai51
-       ue	yE //üe
-       ui	uei
-   sh) ui	wei
-       u (DnK	u@
-    k) u (DnK   wu@
-   _h) u (DnK	wu@
-    t) u (DnK   wu@
-       uo	uo
+       u        _^_EN
 
-   sh) ui	rei
-   sh) u (DnK	wo-
-   sh) uo	wo
+       u (L02       u
+       ua (L02		wA
+       ua (nL02		ua
+    g) ua (nL02		wa
+    k) ua (nL02		wa
+       ua (ngL02 	wA
+
+       uai (L02	uai
+
+       ue (L02	yE	// üe
+       ui (L02	uei
+   sh) ui (L02	wei
+       u (nL02	u@
+    k) u (nL02	wu@
+   _h) u (nL02	wu@
+    t) u (nL02	wu@
+       uo (L02	uo
+
+   sh) ui (L02	rei
+   sh) u (nL02	wo-
+   sh) uo (L02	wo
 
   L01) u	y   /// j,q,x,y + u
   L01) u (DnK	y@
@@ -268,60 +219,44 @@ language).
   L01) ua (DnK	y&
   L01) ue	yE
 
-
 .group ü
-?1     ü	_^_EN
-       ü	y
-       üe	yE
+       ü	_^_EN
+       ü (L02	y
+       üe (L02	yE
 
 .group v //variant of ü
-?1     v        _^_EN
-       v	v // foreign words
-    l) v        y //ü
-    n) v        y //ü
-    l) ve	yE //üe
-    n) ve	yE //üe
+       v        _^_EN
+    l) v (L02   y // ü
+    n) v (L02   y // ü
+    l) ve (L02	yE // üe
+    n) ve (L02	yE // üe
 
 .group w
-?1     w        _^_EN
-    @) w (K	_^_EN
-       wa	wA  //wa wan wang
-       wai	wai
-       wa1i	wai55
-       wa2i	wai35
-       wa3i	wai214
-       wa4i	wai51
-       wei	wei
-       we1i	wei55
-       we2i	wei35
-       we3i	wei214
-       we4i	wei51
-       we	wu@ //wen weng
-       wo	wo
-       wu	wu
+       w        _^_EN
+       wa (L02		wA	// wa
+       wa (nL02		wA	// wan
+       wa (ngL02	wA	// wang
+       wai (L02		wai
+       wei (L02		wei
+       we (nL02		wu@	// wen
+       we (ngL02	wu@	// weng
+       wo (L02		wo
+       wu (L02		wu
 
 .group x
-?1     x        _^_EN
-       x        S;
-    @) x (K	_^_EN
+       x        _^_EN
+       x (L03L02       S;
 
 .group y
-?1     y        _^_EN
-       y	j //before a o e i
-       y (u	//NULL before u
-       y (uK	;
-       y (uDn   ;
-       yo (DngK	yu
-       y (K     i    // foreign words
-    @) y (K	_^_EN
+       y        _^_EN
+       y (L03L02	j
 
 .group z
-?1     z        _^_EN
-       z        ts
-       zh (+    ts.
-    @) z (K	_^_EN
+       z        _^_EN
+       z (L03L02       ts
+       zh (L03L02    ts.
 
-//tone number
+// tone number
 .group
        1	55
        2	35

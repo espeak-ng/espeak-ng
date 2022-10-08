@@ -11,6 +11,7 @@
   - [Phoneme Definition File](#phoneme-definition-file)
   - [Dictionary Files](#dictionary-files)
   - [Building Phonemes](#building-phonemes)
+  - [Adding tests](#adding-tests)
 - [Program Code](#program-code)
 - [Compiling Rules File for Debugging](#compiling-rules-file-for-debugging)
 - [Improving a Language](#improving-a-language)
@@ -283,6 +284,38 @@ the `fr_rules` and `fr_list` sources by the command:
 or by:
 
 	make fr
+
+### Adding tests
+
+All languages require automated tests to make sure accidental changes 
+in program code don't change how the languages sound. 
+
+Tests are run with `make check`. It will print an error if a language
+is missing tests.
+
+Most tests are bash scripts in tests/ and follow the syntax:
+<test name> <language code> <expected result> <input>
+
+Depending on the test, expected result can be a phoneme string, an md5 hash or something else.
+
+To add a test:
+
+1. First add a test line with arbitrary expected result. 
+Example line in tests/language-phonemes.test:
+test_phwav fi this_should_fail "ma na Na pa ba ta da"
+
+2. run `make check` to see expected and actual results:
+testing fi
+1c1
+< this_should_fail
+---
+> 7541590a29e2392b827d9f1563e6579774fb15ea
+
+3. change the expected result in the test:
+test_phwav fi 7541590a29e2392b827d9f1563e6579774fb15ea "ma na Na pa ba ta da"
+
+
+
 
 ## Program Code
 

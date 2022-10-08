@@ -513,6 +513,7 @@ ac	$abbrev
 acsi	$abbrev
 adf	$abbrev
 adhd	$abbrev
+ado $abbrev $allcaps
 adsl	$abbrev
 ae	$abbrev
 aes	$abbrev
@@ -2649,6 +2650,7 @@ naif		naI'i:f
 naïve		naI'i:v
 naivete		naI'i:v@teI
 naked		neIkI2#d	// adjective
+nanaimo n@'naImoU $only
 narrative	nar@tIv
 ?3 narrator	nareIt3
 nasa		nasa#
