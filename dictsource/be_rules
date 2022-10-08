@@ -1,16 +1,11 @@
 // This file is UTF8 encoded
 // Translation rules for Belarusian
 
+// NOTE: LETTERGP_A doesn't work, L01 as replacement
 //letter which can carry vowel phoneme
 .L01 а е ё і о у ы э ю я
-//letter which can carry consonant phoneme
-.L02 б в г д ж з й к л м н нн п р с сс т ф х ц ч ш
-//letter which can carry forward sibilant (like с)
-//.L03 з дз с ц
-//letter which can carry backward sibilant (like ш)
-//.L04 ж дж ш ч
 
-// This is more economic way to express assimilation by sibilation than using L03 and L04
+// This is more economic way to express assimilation by sibilation
 .replace
        сш     шш
        сч     шч
@@ -36,10 +31,9 @@
        г       Q     // ɣ
 
 .group д
-       д       d[
-       дз      dz  // d̻͡z̪
-       ддз     dz:
-       дж      dz. // ɖ͡ʐ
+       д       d
+       дз      dz
+       дж      dz.
 
 .group е
        е       ;E    // ʲɛ
@@ -49,7 +43,7 @@
   L01) е       jE
 
 .group ё
-       ё       ;'O    // ʲɔ
+       ё       ;'O    // ʲ'ɔ
     _) ё       j'O
     ') ё       j'O
     ь) ё       j'O
@@ -57,14 +51,13 @@
 
 .group ж
        ж       z.    // ʐ
-       жж      z.:
 
 .group з
        з       z
 
 .group і
        і       i
-  L02) і       ;i
+    C) і       ;i
 
 .group й
        й       j
@@ -74,14 +67,12 @@
 
 .group л
        л       l
-       лл      l:
 
 .group м
        м       m
 
 .group н
        н       n
-       нн      n:
 
 .group о
        о       'O
@@ -90,14 +81,13 @@
        п       p
 
 .group р
-       р       R
+       р       r
 
 .group с
        с       s
-       сс      s:
 
 .group т
-       т       t[
+       т       t
 
 .group у
        у       u
@@ -112,7 +102,7 @@
        х       x
 
 .group ц
-       ц       ts    // t̻͡s̪
+       ц       ts    // t͡s
        цц      ts:
 
 .group ч
@@ -124,7 +114,7 @@
        шш      s.:
 
 .group ы
-       ы       i"    // (ɨ
+       ы       i"    // ɨ
 
 .group ь
        ь       ;     // ʲ

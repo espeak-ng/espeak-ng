@@ -538,6 +538,34 @@ Translator *SelectTranslator(const char *name)
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
 		SetArabicLetters(tr);
 		break;
+	case L('b', 'e'): // Belarusian
+	{
+		static const unsigned char stress_amps_be[8] = { 12, 10, 8, 8, 0, 0, 16, 17 };
+		static const short stress_lengths_be[8] = { 160, 140, 200, 140, 0, 0, 240, 160 };
+		static wchar_t vowels_be[] = { // offset by 0x420 -- а е ё о у ы э ю я і
+			0x10, 0x15, 0x31, 0x1e, 0x23, 0x2b, 0x2d, 0x2e, 0x2f, 0x36, 0
+		};
+		static const unsigned char consonants_be[] = { // б в г д ж з й к л м н п р с т ф х ц ч ш ў
+			0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x26, 0x27, 0x28, 0x3e, 0
+		};
+
+		tr->langopts.stress_flags = S_NO_AUTO_2 | S_NO_DIM; // don't use secondary stress
+		tr->letter_bits_offset = OFFSET_CYRILLIC;
+		tr->transpose_min = 0x430;  // convert cyrillic from unicode into range 0x01 to 0x2f
+		tr->transpose_max = 0x45e;
+		memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
+		SetLetterBits(tr, LETTERGP_A, (char *)vowels_be);
+		SetLetterBits(tr, LETTERGP_C, (char *)consonants_be);
+		SetLetterBits(tr, LETTERGP_VOWEL2, (char *)vowels_be);
+
+		SetupTranslator(tr, stress_lengths_be, stress_amps_be);
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_5;
+		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
+		tr->langopts.stress_rule = STRESSPOSN_1L;
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
+		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDS_VAR1; // variant numbers before thousands
+	}
+		break;
 	case L('b', 'g'): // Bulgarian
 	{
 		SetCyrillicLetters(tr);

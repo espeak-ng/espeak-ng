@@ -16,16 +16,21 @@ phoneme i"
   FMT(vowel/ii#_2)
 endphoneme
 
+phoneme Q
+  import_phoneme base1/Q"
+  ipa ɣ
+endphoneme
+
 phoneme ts
   CALL consonants/ts
   voicingswitch dz
-  ipa t̻͡s̪
+  ipa t͡s
 endphoneme
 
 phoneme ts;
   CALL base1/tS;
   voicingswitch dz;
-  ipa t̻͡s̪ʲ
+  ipa t͡sʲ
 endphoneme
 
 phoneme ts.
@@ -40,13 +45,14 @@ endphoneme
 phoneme dz
   CALL consonants/dz
   voicingswitch ts
-  ipa d̻͡z̪
+  ipa d͡z
 endphoneme
 
 phoneme dz;
+  import_phoneme pl/dz;
   CALL base1/dZ;
   voicingswitch ts;
-  ipa d̻͡z̪ʲ
+  ipa d͡zʲ
 endphoneme
 
 phoneme dz.
@@ -56,10 +62,18 @@ phoneme dz.
   voicingswitch ts.
   Vowelin f1=2  f2=2300 200 400  f3=100 80
   Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+endphoneme
 
-  IF PreVoicing THEN
-    FMT(dzh/xdzh)
-  ENDIF
+phoneme r
+  liquid trl
+  lengthmod 6
+  ipa r
+  length 80
+  FMT(r3/r_trill2) addWav(r3/r_trill2.wav, 65)
+endphoneme
 
-  FMT(dzh/dzh) addWav(ufric/sh_pzd2)
+phoneme ;
+  liquid pzd
+  lengthmod 0
+  ipa ʲ
 endphoneme
