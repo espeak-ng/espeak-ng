@@ -498,18 +498,6 @@ void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab
 	}
 }
 
-int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key)
-{
-	// Return 0 if translator is set.
-	// Return 1 and print an error message for specified key if not
-	// used for parsing language options
-	if (tr)
-		return 0;
-
-	fprintf(stderr, "Cannot set %s: language not set, or is invalid.\n", LookupMnemName(keyword_tab, key));
-	return 1;
-}
-
 voice_t *LoadVoice(const char *vname, int control)
 {
 	// control, bit 0  1= no_default

@@ -27,8 +27,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-static int LookupTune(const char *name);
-
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
@@ -38,6 +36,9 @@ static int LookupTune(const char *name);
 #include "translate.h"                // for Translator
 #include "voice.h"                    // for CheckTranslator()
 #include "synthdata.h"                    // for n_tunes, tunes
+
+static int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key);
+static int LookupTune(const char *name);
 
 enum {
 	V_NAME = 1,
@@ -265,3 +266,14 @@ static int LookupTune(const char *name) {
 	return -1;
 }
 
+int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key)
+{
+	// Return 0 if translator is set.
+	// Return 1 and print an error message for specified key if not
+	// used for parsing language options
+	if (tr)
+		return 0;
+
+	fprintf(stderr, "Cannot set %s: language not set, or is invalid.\n", LookupMnemName(keyword_tab, key));
+	return 1;
+}
