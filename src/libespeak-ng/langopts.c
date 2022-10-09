@@ -94,6 +94,24 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 			translator->langopts.lowercase_sentence = true;
 			break;
 			}
+
+		case V_STRESSADD: { // stressAdd
+                        if (CheckTranslator(translator, langopts_tab, key) != 0)
+                            break;
+
+                        int stress_add_set = 0;
+                        int stress_add[8];
+
+                        stress_add_set = Read8Numbers(keyValue, stress_add);
+
+                        for (ix = 0; ix < stress_add_set; ix++) {
+                            translator->stress_lengths[ix] += stress_add[ix];
+                        }
+
+                        break;
+                    }
+
+
 		case V_STRESSLENGTH: {
         			if (CheckTranslator(translator, langopts_tab, key) != 0)
         				break;

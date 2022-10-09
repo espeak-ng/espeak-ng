@@ -122,6 +122,7 @@ enum {
 
 const MNEM_TAB langopts_tab[] = {
 	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
+    { "stressAdd",    V_STRESSADD },
     { "stressLength", V_STRESSLENGTH },
 
 	{ "maintainer",   V_MAINTAINER },
@@ -141,7 +142,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "phonemes",     V_PHONEMES },
 	{ "dictionary",   V_DICTIONARY },
 	{ "stressAmp",    V_STRESSAMP },
-	{ "stressAdd",    V_STRESSADD },
 	{ "intonation",   V_INTONATION },
 	{ "tunes",        V_TUNES },
 	{ "dictrules",    V_DICTRULES },
@@ -551,7 +551,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
 
-	int stress_add[8];
 	char names[8][40];
 	char name1[40];
 	char name2[80];
@@ -730,19 +729,7 @@ voice_t *LoadVoice(const char *vname, int control)
                 break;
             }
 
-            case V_STRESSADD: { // stressAdd
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                    break;
 
-                int stress_add_set = 0;
-                stress_add_set = Read8Numbers(p, stress_add);
-
-                for (ix = 0; ix < stress_add_set; ix++) {
-                    translator->stress_lengths[ix] += stress_add[ix];
-                }
-
-                break;
-            }
             case V_INTONATION: // intonation
                 sscanf(p, "%d", &option_tone_flags);
                 if ((option_tone_flags & 0xff) != 0) {
