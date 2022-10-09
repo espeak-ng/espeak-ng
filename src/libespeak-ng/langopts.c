@@ -230,6 +230,14 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
                 }
 			break;
 			}
+			case V_WORDGAP: {
+				if (CheckTranslator(translator, langopts_tab, key) != 0)
+					break;
+
+
+				sscanf(keyValue, "%d %d", &translator->langopts.word_gap, &translator->langopts.vowel_pause);
+				break;
+			}
 
 
 		case V_MAINTAINER:
@@ -247,3 +255,4 @@ static int LookupTune(const char *name) {
 	}
 	return -1;
 }
+

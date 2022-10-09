@@ -131,6 +131,7 @@ const MNEM_TAB langopts_tab[] = {
     { "stressOpt",    V_STRESSOPT },
     { "stressRule",   V_STRESSRULE },
     { "tunes",        V_TUNES },
+    { "words",        V_WORDGAP },
 
 	{ "maintainer",   V_MAINTAINER },
     { "status",       V_STATUS },
@@ -149,7 +150,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "phonemes",     V_PHONEMES },
 	{ "dictionary",   V_DICTIONARY },
 	{ "replace",      V_REPLACE },
-	{ "words",        V_WORDGAP },
 	{ "echo",         V_ECHO },
 	{ "flutter",      V_FLUTTER },
 	{ "roughness",    V_ROUGHNESS },
@@ -524,7 +524,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char *p;
 	int key;
 	int ix;
-	int n;
 	int value;
 	int langix = 0;
 	int tone_only = control & 2;
@@ -715,12 +714,7 @@ voice_t *LoadVoice(const char *vname, int control)
                 }
                 PhonemeReplacement(p);
                 break;
-            case V_WORDGAP: // words
-                if (CheckTranslator(translator, keyword_tab, key) != 0)
-                    break;
 
-                sscanf(p, "%d %d", &translator->langopts.word_gap, &translator->langopts.vowel_pause);
-                break;
             case V_ECHO:
                 // echo.  suggest: 135mS  11%
                 value = 0;
