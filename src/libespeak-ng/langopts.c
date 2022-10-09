@@ -34,8 +34,8 @@
 #include "langopts.h"
 #include "mnemonics.h"                // for MNEM_TAB
 #include "translate.h"                // for Translator
-#include "voice.h"                    // for CheckTranslator()
 #include "synthdata.h"                    // for n_tunes, tunes
+#include "voice.h"                    // for ReadNumbers, Read8Numbers
 
 static int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key);
 static int LookupTune(const char *name);
@@ -90,13 +90,16 @@ enum {
 extern const MNEM_TAB langopts_tab[];
 
 void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
+if (CheckTranslator(translator, langopts_tab, key) != 0) {
+				return;
+			}
+
         int ix;
         int n;
 
 		switch (key) {
 		case V_DICTMIN: {
-			if (CheckTranslator(translator, langopts_tab, key) != 0)
-				break;
+
 
 			if (sscanf(keyValue, "%d", &n) == 1)
 				translator->dict_min_size = n;
@@ -105,26 +108,17 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 			}
 
 			case V_DICTRULES: { // conditional dictionary rules and list entries
-				if (CheckTranslator(translator, langopts_tab, key) != 0)
-					break;
-
 				ReadNumbers(keyValue, &translator->dict_condition, 32, langopts_tab, key);
 				break;
 			}
 		case V_INTONATION: {
 			sscanf(keyValue, "%d", &option_tone_flags);
 			if ((option_tone_flags & 0xff) != 0) {
-				if (CheckTranslator(translator, langopts_tab, key) != 0)
-					break;
-
 				translator->langopts.intonation_group = option_tone_flags & 0xff;
 			}
 			break;
 		}
 		case V_NUMBERS: {
-		//	if (CheckTranslator(translator, langopts_tab, key) != 0)
-				break;
-
 			// expect a list of numbers
 			while (*keyValue != 0) {
 				while (isspace(*keyValue)) keyValue++;
@@ -145,16 +139,10 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 			break;
 		}
 		case V_LOWERCASE_SENTENCE: {
-			if (CheckTranslator(translator, langopts_tab, key) != 0)
-				break;
-
 			translator->langopts.lowercase_sentence = true;
 			break;
 			}
 		case V_STRESSADD: { // stressAdd
-                        if (CheckTranslator(translator, langopts_tab, key) != 0)
-                            break;
-
                         int stress_add_set = 0;
                         int stress_add[8];
 
@@ -167,8 +155,6 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
                         break;
                     }
         case V_STRESSAMP: {
-                if (CheckTranslator(translator, langopts_tab, key) != 0)
-                    break;
 
                 int stress_amps_set = 0;
                 int stress_amps[8];
@@ -182,9 +168,6 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
                 break;
             }
 		case V_STRESSLENGTH: {
-        			if (CheckTranslator(translator, langopts_tab, key) != 0)
-        				break;
-
         			//printf("parsing: %s", keyValue);
         			int stress_lengths_set = 0;
         			int stress_lengths[8];
@@ -196,16 +179,10 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
         			break;
         		}
         case V_STRESSOPT: {
-            if (CheckTranslator(translator, langopts_tab, key) != 0)
-                 break;
-
             ReadNumbers(keyValue, &translator->langopts.stress_flags, 32, langopts_tab, key);
             break;
         }
 		case V_STRESSRULE: {
-			if (CheckTranslator(translator, langopts_tab, key) != 0)
-				break;
-
 			sscanf(keyValue, "%d %d %d", &translator->langopts.stress_rule,
 				   &translator->langopts.unstressed_wd1,
 				   &translator->langopts.unstressed_wd2);
@@ -213,9 +190,6 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 			break;
 		}
             case V_TUNES: {
-                if (CheckTranslator(translator, langopts_tab, key) != 0)
-                    break;
-
 				char names[8][40];
                 n = sscanf(keyValue, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
                 translator->langopts.intonation_group = 0;
@@ -232,10 +206,6 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 			break;
 			}
 			case V_WORDGAP: {
-				if (CheckTranslator(translator, langopts_tab, key) != 0)
-					break;
-
-
 				sscanf(keyValue, "%d %d", &translator->langopts.word_gap, &translator->langopts.vowel_pause);
 				break;
 			}
@@ -246,9 +216,6 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 			break;
 		default: {
 			if ((key & 0xff00) == 0x100) {
-				if (CheckTranslator(translator, langopts_tab, key) != 0)
-					break;
-
 				sscanf(keyValue, "%d", &translator->langopts.param[key &0xff]);
 			}
 		break;
