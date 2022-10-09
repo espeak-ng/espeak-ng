@@ -42,6 +42,9 @@
 #include "translate.h"                // for Translator, LANGUAGE_OPTIONS
 #include "voice.h"                    // for ReadTonePoints, tone_points, voice
 
+int n_tunes = 0;
+TUNE *tunes = NULL;
+
 const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here

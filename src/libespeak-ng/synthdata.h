@@ -56,6 +56,9 @@ int PhonemeCode(unsigned int mnem);
 void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
 
+extern int n_tunes;
+extern TUNE *tunes;
+
 #ifdef __cplusplus
 }
 #endif
