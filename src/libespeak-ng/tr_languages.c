@@ -799,19 +799,12 @@ Translator *SelectTranslator(const char *name)
 		// fallthrough:
 	case L('f', 'i'): // Finnish
 	{
-		static const unsigned char stress_amps_fi[8] = { 18, 16, 22, 22, 20, 22, 22, 22 };
-		static const short stress_lengths_fi[8] = { 150, 180, 200, 200, 0, 0, 210, 250 };
-
-		SetupTranslator(tr, stress_lengths_fi, stress_amps_fi);
-
-		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 		tr->langopts.long_stop = 130;
 
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
 		SetLetterVowel(tr, 'y');
 		tr->langopts.spelling_stress = 1;
-		tr->langopts.intonation_group = 3; // less intonation, don't raise pitch at comma
 	}
 		break;
 	case L('f', 'r'): // french
