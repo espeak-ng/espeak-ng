@@ -35,57 +35,10 @@
 #include "mnemonics.h"                // for MNEM_TAB
 #include "translate.h"                // for Translator
 #include "synthdata.h"                    // for n_tunes, tunes
-#include "voice.h"                    // for ReadNumbers, Read8Numbers
+#include "voice.h"                    // for ReadNumbers, Read8Numbers, ...
 
 static int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key);
 static int LookupTune(const char *name);
-
-enum {
-	V_NAME = 1,
-	V_LANGUAGE,
-	V_GENDER,
-	V_PHONEMES,
-	V_DICTIONARY,
-	V_VARIANTS,
-
-	V_MAINTAINER,
-	V_STATUS,
-
-	// these affect voice quality, are independent of language
-	V_FORMANT,
-	V_PITCH,
-	V_ECHO,
-	V_FLUTTER,
-	V_ROUGHNESS,
-	V_CLARITY,
-	V_TONE,
-	V_VOICING,
-	V_BREATH,
-	V_BREATHW,
-
-	// these override defaults set by the translator
-	V_LOWERCASE_SENTENCE,
-	V_WORDGAP,
-	V_INTONATION,
-	V_TUNES,
-	V_STRESSLENGTH,
-	V_STRESSAMP,
-	V_STRESSADD,
-	V_DICTRULES,
-	V_STRESSRULE,
-	V_STRESSOPT,
-	V_NUMBERS,
-
-	V_MBROLA,
-	V_KLATT,
-	V_FAST,
-	V_SPEED,
-	V_DICTMIN,
-
-	// these need a phoneme table to have been specified
-	V_REPLACE,
-	V_CONSONANTS
-};
 
 extern const MNEM_TAB langopts_tab[];
 
