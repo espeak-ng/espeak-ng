@@ -132,6 +132,10 @@ typedef enum {
 } VOICELANGATTRIBUTES;
 
 static const MNEM_TAB langopts_tab[] = {
+	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
+	{ "brackets",       0x100+LOPT_BRACKET_PAUSE },
+	{ "bracketsAnnounced",       0x100+LOPT_BRACKET_PAUSE_ANNOUNCED },
+	{ "dict_min",     V_DICTMIN },
 	{ "dictrules",    V_DICTRULES },
 	{ "intonation",   V_INTONATION },
 	{ "l_dieresis",       0x100+LOPT_DIERESES },
@@ -178,12 +182,6 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "klatt",        V_KLATT },
 	{ "fast_test2",   V_FAST },
 	{ "speed",        V_SPEED },
-	{ "dict_min",     V_DICTMIN },
-
-
-	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
-	{ "brackets",       0x100+LOPT_BRACKET_PAUSE },
-	{ "bracketsAnnounced",       0x100+LOPT_BRACKET_PAUSE_ANNOUNCED },
 
 	{ NULL, 0 }
 };
