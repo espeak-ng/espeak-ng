@@ -243,6 +243,15 @@ void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 		case V_MAINTAINER:
 		case V_STATUS:
 			break;
+		default: {
+			if ((key & 0xff00) == 0x100) {
+				if (CheckTranslator(translator, langopts_tab, key) != 0)
+					break;
+
+				sscanf(keyValue, "%d", &translator->langopts.param[key &0xff]);
+			}
+		break;
+		}
 	}
 }
 

@@ -123,6 +123,11 @@ enum {
 const MNEM_TAB langopts_tab[] = {
 	{ "dictrules",    V_DICTRULES },
 	{ "intonation",   V_INTONATION },
+	{ "l_dieresis",       0x100+LOPT_DIERESES },
+	{ "l_prefix",         0x100+LOPT_PREFIXES },
+	{ "l_regressive_v",   0x100+LOPT_REGRESSIVE_VOICING },
+	{ "l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE },
+	{ "l_sonorant_min",   0x100+LOPT_SONORANT_MIN },
 	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
 	{ "numbers",      V_NUMBERS },
     { "stressAdd",    V_STRESSADD },
@@ -165,12 +170,7 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "speed",        V_SPEED },
 	{ "dict_min",     V_DICTMIN },
 
-	// these just set a value in langopts.param[]
-	{ "l_dieresis",       0x100+LOPT_DIERESES },
-	{ "l_prefix",         0x100+LOPT_PREFIXES },
-	{ "l_regressive_v",   0x100+LOPT_REGRESSIVE_VOICING },
-	{ "l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE },
-	{ "l_sonorant_min",   0x100+LOPT_SONORANT_MIN },
+
 	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
 	{ "brackets",       0x100+LOPT_BRACKET_PAUSE },
 	{ "bracketsAnnounced",       0x100+LOPT_BRACKET_PAUSE_ANNOUNCED },
@@ -796,12 +796,7 @@ voice_t *LoadVoice(const char *vname, int control)
             case V_STATUS:
                 break;
             default:
-                if ((key & 0xff00) == 0x100) {
-                    if (CheckTranslator(translator, keyword_tab, key) != 0)
-                        break;
-                    sscanf(p, "%d", &translator->langopts.param[key &0xff]);
-                } else
-                    fprintf(stderr, "Bad voice attribute: %s\n", buf);
+                fprintf(stderr, "Bad voice attribute: %s\n", buf);
                 break;
             }
         }
