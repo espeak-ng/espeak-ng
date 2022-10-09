@@ -143,7 +143,7 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 			break;
 		}
             case V_TUNES: {
-				char names[8][40];
+				char names[6][40] = { 0, 0, 0, 0, 0, 0 };
                 n = sscanf(keyValue, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
                 translator->langopts.intonation_group = 0;
 
