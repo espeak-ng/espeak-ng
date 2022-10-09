@@ -326,10 +326,6 @@ typedef struct {
 // 1 = stressed syllable is indicated by capitals
 #define LOPT_CAPS_IN_WORD 13
 
-// bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
-// bit 1=also after a word which ends with a stressed vowel
-#define LOPT_IT_DOUBLING 14
-
 // Call ApplySpecialAttributes() if $alt or $alt2 is set for a word
 // bit 1: stressed syllable: $alt change [e],[o] to [E],[O],  $alt2 change [E],[O] to [e],[o]
 #define LOPT_ALT 15

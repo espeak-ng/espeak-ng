@@ -668,7 +668,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			srcix = source_ix+1;
 		} else if (ph_code == phonX1) {
 			// a language specific action
-			if (tr->langopts.param[LOPT_IT_DOUBLING])
 				flags |= FLAG_DOUBLING;
 		} else {
 			ph_list2[n_ph_list2].phcode = ph_code;
@@ -700,13 +699,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 					next_tone = 0;
 				}
 			} else {
-				if (first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING]) {
-					if (((tr->prev_dict_flags[0] & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
-					    (tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2))) {
-						// italian, double the initial consonant if the previous word ends with a
-						// stressed vowel, or is marked with a flag
-						ph_list2[n_ph_list2].synthflags |= SFLAG_LENGTHEN;
-					}
+				if (first_phoneme && tr->prev_dict_flags[0] & FLAG_DOUBLING) {
+						// double the initial consonant if the previous word is marked with a flag
+					ph_list2[n_ph_list2].synthflags |= SFLAG_LENGTHEN;
 				}
 			}
 

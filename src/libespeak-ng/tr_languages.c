@@ -799,7 +799,6 @@ Translator *SelectTranslator(const char *name)
 		// fallthrough:
 	case L('f', 'i'): // Finnish
 	{
-		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 		tr->langopts.long_stop = 130;
 
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
@@ -929,7 +928,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2 | 0x8000 | S_HYPEN_UNSTRESS;
 		tr->langopts.unstressed_wd1 = 2;
-		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 		tr->langopts.param[LOPT_ANNOUNCE_PUNCT] = 2; // don't break clause before announcing . ? !
 
 		tr->langopts.numbers = NUM_DFRACTION_5 | NUM_ALLOW_SPACE | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND;
@@ -1032,7 +1030,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.unstressed_wd1 = 0;
 		tr->langopts.unstressed_wd2 = 2;
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 2; // remove lengthen indicator from unstressed or non-penultimate syllables
-		tr->langopts.param[LOPT_IT_DOUBLING] = 1; // double the first consonant if the previous word ends in a stressed vowel (changed to =1, 23.01.2014 - only use if prev.word has $double)
 		tr->langopts.param[LOPT_SONORANT_MIN] = 130; // limit the shortening of sonorants before short vowels
 		tr->langopts.param[LOPT_REDUCE] = 1; // reduce vowels even if phonemes are specified in it_list
 		tr->langopts.param[LOPT_ALT] = 2; // call ApplySpecialAttributes2() if a word has $alt or $alt2
@@ -1390,7 +1387,6 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_2_TO_HEAVY; // move secondary stress from light to a following heavy syllable
-		tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 		tr->langopts.long_stop = 130;
 
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
