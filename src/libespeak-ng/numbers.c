@@ -657,7 +657,7 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 		if ((c == phonSTRESS_P) && (n_chars > 1) && (prev != phonSWITCH)) {
 			count++;
 
-			if (tr->langopts.spelling_stress == 1) {
+			if (tr->langopts.spelling_stress) {
 				// stress on initial letter when spelling
 				if (count > 1)
 					c = phonSTRESS_3;
