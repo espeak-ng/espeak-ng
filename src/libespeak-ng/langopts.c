@@ -163,10 +163,6 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 				break;
 			}
 
-
-		case V_MAINTAINER:
-		case V_STATUS:
-			break;
 		default: {
 			if ((key & 0xff00) == 0x100) {
 				sscanf(keyValue, "%d", &translator->langopts.param[key &0xff]);

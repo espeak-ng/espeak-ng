@@ -153,9 +153,6 @@ static const MNEM_TAB langopts_tab[] = {
     { "tunes",        V_TUNES },
     { "words",        V_WORDGAP },
 
-	{ "maintainer",   V_MAINTAINER },
-    { "status",       V_STATUS },
-
     { NULL, 0 }
 };
 
@@ -182,6 +179,10 @@ static const MNEM_TAB keyword_tab[] = {
 	{ "klatt",        V_KLATT },
 	{ "fast_test2",   V_FAST },
 	{ "speed",        V_SPEED },
+
+
+	{ "maintainer",   V_MAINTAINER },
+    { "status",       V_STATUS },
 
 	{ NULL, 0 }
 };
