@@ -804,7 +804,6 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
 		SetLetterVowel(tr, 'y');
-		tr->langopts.spelling_stress = true;
 	}
 		break;
 	case L('f', 'r'): // french

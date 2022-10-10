@@ -7,3 +7,4 @@ stressOpt 1 2 4 6 // (S_NO_DIM + S_FINAL_DIM = S_FINAL_DIM_ONLY), S_FINAL_NO_2, 
 stressRule 0
 
 intonation 3
+spellingStress
