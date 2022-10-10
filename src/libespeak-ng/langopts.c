@@ -147,14 +147,16 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
                 n = sscanf(keyValue, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
                 translator->langopts.intonation_group = 0;
 
+                int value;
                 for (ix = 0; ix < n; ix++) {
                     if (strcmp(names[ix], "NULL") == 0)
                         continue;
 
-                    if ((n = LookupTune(names[ix])) < 0)
+
+                    if ((value = LookupTune(names[ix])) < 0)
                         fprintf(stderr, "Unknown tune '%s'\n", names[ix]);
                     else
-                        translator->langopts.tunes[ix] = n;
+                        translator->langopts.tunes[ix] = value;
                 }
 			break;
 			}
