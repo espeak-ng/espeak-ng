@@ -1,6 +1,7 @@
 //From Unihan database ftp://ftp.unicode.org/Public/UNIDATA/Unihan.zip kMandarin entries (except the ones that have kHanyuPinlu, which are in zh_list)
 //with compounds from CC-CEDICT http://www.mdbg.net/chindict/chindict.php?page=cedict and some corrections
 //21611 single characters plus 36500 compound exceptions (includes 320 added 'yi' and 10721 added 'bu' exceptions, and 9700 extra 2-syllable words for 3rd-tone sandhi blocking)
+$textmode
 〇	ling2
 㐀	qiu1
 㐁	tian3
