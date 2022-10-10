@@ -525,7 +525,7 @@ typedef struct {
 	unsigned char tunes[6];
 	int long_stop;          // extra mS pause for a lengthened stop
 	char max_initial_consonants;
-	char spelling_stress;   // 0=default, 1=stress first letter
+	bool spelling_stress;
 	char tone_numbers;
 	char ideographs;      // treat as separate words
 	bool textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)

@@ -302,6 +302,7 @@ static Translator *NewTranslator(void)
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 's'; // don't count this character at start of word
 	tr->langopts.param[LOPT_BRACKET_PAUSE] = 4; // pause at bracket
 	tr->langopts.param[LOPT_BRACKET_PAUSE_ANNOUNCED] = 2; // pauses when announcing bracket names
+	tr->langopts.spelling_stress = false;
 	tr->langopts.max_initial_consonants = 3;
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.alt_alphabet_lang = L('e', 'n');
@@ -803,7 +804,6 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
 		SetLetterVowel(tr, 'y');
-		tr->langopts.spelling_stress = 1;
 	}
 		break;
 	case L('f', 'r'): // french
@@ -900,7 +900,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_FINAL_NO_2;
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
 		tr->langopts.max_initial_consonants = 5;
-		tr->langopts.spelling_stress = 1;
+		tr->langopts.spelling_stress = true;
 		tr->langopts.accents = 1;
 
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_CAPITALS;
@@ -936,7 +936,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.max_roman = 899;
 		tr->langopts.min_roman = 1;
 		SetLetterVowel(tr, 'y');
-		tr->langopts.spelling_stress = 1;
+		tr->langopts.spelling_stress = true;
 		SetLengthMods(tr, 3); // all equal
 	}
 		break;
@@ -1180,7 +1180,7 @@ Translator *SelectTranslator(const char *name)
 		SetupTranslator(tr, stress_lengths_lv, stress_amps_lv);
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
-		tr->langopts.spelling_stress = 1;
+		tr->langopts.spelling_stress = true;
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
 		tr->langopts.max_digits = 33;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
@@ -1322,7 +1322,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
 		tr->langopts.max_initial_consonants = 5;
-		tr->langopts.spelling_stress = 1;
+		tr->langopts.spelling_stress = true;
 		tr->langopts.param[LOPT_COMBINE_WORDS] = 4; // combine some prepositions with the following word
 
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ROMAN;
@@ -1346,7 +1346,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
-		tr->langopts.spelling_stress = 1;
+		tr->langopts.spelling_stress = true;
 
 		tr->letter_bits_offset = OFFSET_SINHALA;
 		memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
@@ -1391,7 +1391,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
 		SetLetterVowel(tr, 'y');
-		tr->langopts.spelling_stress = 1;
+		tr->langopts.spelling_stress = true;
 		tr->langopts.intonation_group = 3; // less intonation, don't raise pitch at comma
 	}
 		break;
@@ -1450,7 +1450,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2; // use 'diminished' for unstressed final syllable
-		tr->langopts.spelling_stress = 1;
+		tr->langopts.spelling_stress = true;
 		tr->langopts.break_numbers = BREAK_LAKH_DV;
 
 		if (name2 == L('t', 'a')) {

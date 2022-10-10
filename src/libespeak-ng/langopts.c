@@ -95,6 +95,10 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 			translator->langopts.lowercase_sentence = true;
 			break;
 			}
+		case V_SPELLINGSTRESS: {
+			translator->langopts.spelling_stress = true;
+			break;
+		}
 		case V_STRESSADD: { // stressAdd
                         int stress_add_set = 0;
                         int stress_add[8];
