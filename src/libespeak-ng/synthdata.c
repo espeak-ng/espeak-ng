@@ -393,38 +393,6 @@ int SelectPhonemeTableName(const char *name)
 	return ix;
 }
 
-void LoadConfig(void)
-{
-	// Load configuration file, if one exists
-	char buf[sizeof(path_home)+10];
-	FILE *f;
-	int ix;
-	char c1;
-	char string[200];
-
-	sprintf(buf, "%s%c%s", path_home, PATHSEP, "config");
-	if ((f = fopen(buf, "r")) == NULL)
-		return;
-
-	while (fgets(buf, sizeof(buf), f) != NULL) {
-		if (buf[0] == '/')  continue;
-
-		if (memcmp(buf, "tone", 4) == 0)
-			ReadTonePoints(&buf[5], tone_points);
-		else if (memcmp(buf, "soundicon", 9) == 0) {
-			ix = sscanf(&buf[10], "_%c %s", &c1, string);
-			if (ix == 2) {
-				// add sound file information to soundicon array
-				// the file will be loaded to memory by LoadSoundFile2()
-				soundicon_tab[n_soundicon_tab].name = c1;
-				soundicon_tab[n_soundicon_tab].filename = strdup(string);
-				soundicon_tab[n_soundicon_tab++].length = 0;
-			}
-		}
-	}
-	fclose(f);
-}
-
 static void InvalidInstn(PHONEME_TAB *ph, int instn)
 {
 	fprintf(stderr, "Invalid instruction %.4x for phoneme '%s'\n", instn, WordToString(ph->mnemonic));

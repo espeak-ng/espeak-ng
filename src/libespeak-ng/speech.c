@@ -54,9 +54,10 @@
 #include "espeak_command.h"       // for delete_espeak_command, SetParameter
 #include "event.h"                // for event_declare, event_clear_all, eve...
 #include "fifo.h"                 // for fifo_add_command, fifo_add_commands
+#include "langopts.h"             // for LoadConfig
 #include "mbrola.h"               // for mbrola_delay
 #include "readclause.h"           // for PARAM_STACK, param_stack
-#include "synthdata.h"            // for FreePhData, LoadConfig, LoadPhData
+#include "synthdata.h"            // for FreePhData, LoadPhData
 #include "synthesize.h"           // for SpeakNextClause, Generate, Synthesi...
 #include "translate.h"            // for p_decoder, InitText, translator
 #include "voice.h"                // for FreeVoiceList, VoiceReset, current_...
