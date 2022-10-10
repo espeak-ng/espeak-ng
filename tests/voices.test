@@ -5,3 +5,4 @@
 ##### Voice options
 test_phon ka "s'asi,amovn,oa t#k#v'eni g'ats#noba
 r'ogor brdz'andebit#" "სასიამოვნოა თქვენი გაცნობა. როგორ ბრძანდებით" "lowercaseSentence" #872
+test_phon fi "'a:b,e:s,e:" "abc" "spelling_stress"
