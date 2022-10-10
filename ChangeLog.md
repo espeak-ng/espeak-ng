@@ -27,6 +27,7 @@ updated languages:
 *  qya (Quenya) -- Andiv06
 *  quc (K'iche') -- Andiv06
 *  ro (Romanian) -- Andiv06
+*  ru (Russian) -- Kirill-jjj, A11cf0
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tk (Turkmen) -- Andiv06
 *  tr (Turkish) -- Gurbuzguven
