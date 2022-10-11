@@ -1072,6 +1072,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_FINAL_NO_2;
 		tr->letter_bits_offset = OFFSET_GEORGIAN;
 		tr->langopts.max_initial_consonants = 7;
+		tr->langopts.max_digits = 32;
 		tr->langopts.numbers = NUM_VIGESIMAL | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED |NUM_OMIT_1_THOUSAND | NUM_DFRACTION_5 | NUM_ROMAN;
 
 		tr->langopts.alt_alphabet = OFFSET_CYRILLIC;
