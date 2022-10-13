@@ -11,7 +11,7 @@ The espeak-ng project is a fork of the espeak project.
 
 updated languages:
 *  ba (Bashkir) -- Andiv06
-*  be (Belarusian) -- Andiv06
+*  be (Belarusian) -- Andiv06, bespsm, Alaksiej Stankievič
 *  cmn (Mandarin) -- Cameron Wong
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
