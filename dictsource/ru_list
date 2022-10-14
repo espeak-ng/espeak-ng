@@ -133,7 +133,7 @@ _,      zVpit'aja
 
 
 // pronouns
-я         $u         // I
+я     ja    $u         // I
 
 // questions
 что     Sto $u $pause // what, that
@@ -230,7 +230,7 @@ _с      Es
 ь       m;'jaxk;I#jzn'Ak
 э       e
 ю       ju
-я       ja
+я       ja            $atend
 
 // exceptions
 электрификация    $5 // for the unit test pangram
