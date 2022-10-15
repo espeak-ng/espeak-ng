@@ -2,6 +2,9 @@
 // *   Copyright (C) 2007 to 2013 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *   Copyright (C) 2018 Reece H. Dunn                                      *
+// *   Copyright (C) 2022 by Kirill Kolov                                      *
+// *   email: kirillkolovi@gmail.com                                    *
+
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -118,6 +121,7 @@
    _занедоро) г (о_   g   
      _немно) г (о_   g
    _се) г (о    v
+             _страте) г (о_               g // stratego board game
    _стро) г (о   g
  _твое) г (о_   v
  _свое) г (о_   v
@@ -131,7 +135,7 @@
         д (зY   d;
         д (к   t
         д (нь   d;
-        д (пY   t
+        д (п   t
         д (сY   t;
         д (тY   t;
         д (фY   t
@@ -255,7 +259,7 @@
 
 .group о
         о       o
-        ь) о       'j8
+        ь) о       j8
 
 .group п
         п       p

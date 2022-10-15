@@ -25,9 +25,9 @@ _18     vOs;Imn'AttsVt;
 _19     d;E2v;Itn'AttsVt;
 _2X     dv'AttsVt;
 _3X     tr;'ittsVt;
-_4X     s'o@-*Ok
+_4X     s'o@-rOk
 _5X     p;Vd;d;Is;'jat
-_6X     SE2z;d;d;Is;'jat
+_6X     Syz;d;is;'jat
 _7X     s;'emd;E2s;Vt
 _8X     v'os;I3md;E2s;Vt
 _9X     d;E2v;In'ostO
@@ -111,13 +111,19 @@ _»      z'akr uglof
 _,      zVpit'aja
 
 // particle
-// б       by $u         // shortened form of 'бы'
 ж       S $u         // same as the particle form
+же    Zy           $u
+бы    $u  // would
 
 // prepositions
 в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
 для        $u         // for
+за        $u // behind
+за      $atend  // stressed at the end
+из        $u // from
+из    $atend  // stressed at the end
 на  n@ $u         // on
+над                $u
 от        $u         // from
 с       s  $u         // with,from,since
 у       u  $u         // by
@@ -131,15 +137,13 @@ _,      zVpit'aja
 хотя      $2 $pause  // although
 чтобы        $pause  // in order that
 
-
-// pronouns
-я     ja    $u         // I
-
 // questions
 что     Sto $u $pause // what, that
 
 // misc.
 не      $u           // negative
+не    $atend // stressed at the end
+ни      $u // uther form of не
 
 // auxillary verbs
 будем   $u1
@@ -230,7 +234,7 @@ _с      Es
 ь       m;'jaxk;I#jzn'Ak
 э       e
 ю       ju
-я       ja            $atend
+я       ja
 
 // exceptions
 электрификация    $5 // for the unit test pangram
@@ -249,8 +253,8 @@ _с      Es
            (всё-таки)               fs;'8tVk;I
       (где-то)               gd;'etV
            (зачем-то)        zatS;'emtV
-          (из буфера)               'Is||b'uf;ira#
-         (из города)         'Is||g'orVda#
+          (из буфера)               iz||b'uf;ira#
+         (из города)         iz||g'orVda#
          (как-то)               k'AktV
                (какая-то)                kak'AjatV
                (какие-то)           kak;'ijitV#
@@ -264,13 +268,20 @@ _с      Es
              (мои глаза)               mV#'I||glaz'A
              (на свои места)             n@||svV#'I||m;ist'A
           (наконец-то)             nVkV#n;'etstV
+         (на поводу)            n@||pV#vV#d'u
           (не были)              n;'ebyl;I
         (не было)               n;'ebylV
+             (не за что)               n;'ezV#StV#
            (не с чем)              n;'estS;im
              (одной стороны)               V#dn'oj||stV#rV#n'y
            (от числа)          ot||tS;isl'A
+             (по поводу)           pV#p'ovV#du
                           (почему-то)          pVtS;im'utV
           (с высоты)              s||vysV#t'y
           (чего-то)               tS;iv'otV
            (чем-то)           tS;'emtV
            (чему-то)         tS;im'utV
+                (что б)            St'op
+             (что ли)               St'ol;i
+             (что ж)             St'oS
+             (что же)               St'oZy
