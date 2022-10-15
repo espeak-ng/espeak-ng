@@ -35,6 +35,7 @@ updated languages:
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  crh (Crimean Tatar) -- Andiv06
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
 
 ### 1.51
