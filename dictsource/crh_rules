@@ -1,0 +1,145 @@
+// This file has UTF8 encoded
+// Spelling to phoneme rules for Crimean Tatar
+
+// Stress rule: Right-most vowel, but stop before the vowel which is
+// marked as unstressed [%].
+
+.L01 ç f h k p q s ş t   // unvoiced consonants
+
+.L02 ı a o u   // back vowels
+.L03 i e ö ü
+
+.replace
+        а	a
+        б	b
+        к	k
+        д	d
+        е	e
+        ф	f
+        г	g
+        гъ ğ
+        х	h
+        и	i
+        ж	j
+        л	l
+        м	m	
+        н	n
+        нъ ñ
+        о	o
+        п	p
+        къ q
+        р	r
+        с	s
+        т	t
+        у	u
+        в	v
+        ш	ş
+        з	z
+        ё	yo
+        й	i
+        ц	ts
+        ч	ç
+        щ	xtx
+        ы	ı
+        э	e
+        ю	ü
+        я	â
+        
+.group a
+        a             a
+        
+.group â
+        â             ja
+        
+        
+.group b 
+        b             b
+
+.group c
+        c             dZ
+        cc            dZ:
+        
+.group d
+        d             d
+        dd            d:
+        
+.group e
+        e             e
+        
+.group f
+        f             f
+        
+.group g
+        g             g
+        
+.group h
+        h             h
+        
+.group ı
+        ı             ı
+        
+.group i
+        i             i
+        
+.group j
+        j             Z
+        
+.group k
+        k             k
+
+.group l
+        l             l
+        l (L02        L
+   L02) l (K          L
+        
+.group m
+        m             m
+        
+.group n
+        n             n
+        
+.group  ñ
+         ñ            N
+         
+.group o
+        o             o
+        
+.group ö   
+        ö             ö
+        
+.group p
+        p             p
+        pp            p:
+        
+.group q
+        q             q
+        
+.group r
+        r             r
+        
+.group s
+        s             s
+        
+.group ş
+        ş             S
+        
+.group t
+        t             t
+        tt            t:
+        
+.group u 
+        u             u
+        
+.group ü 
+        ü             U
+        
+.group v
+        v             v
+        
+.group y
+        y             j
+        
+.group z
+        z             z
+        
+        
