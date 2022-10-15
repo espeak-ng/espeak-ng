@@ -2,78 +2,79 @@
 // Spelling-to-phoneme words for Belarusian
 
 // Letter names
-а       a
-б       bE
-в       vE
-г       QE
-д       dE
-е       jE
-ё       jO
-ж       z.E
-з       zE
-і       i
-й       i||n;EskladOvajE
-к       ka
-л       El
-м       Em
-н       En
-о       O
-п       pE
-р       Er
-с       Es
-т       tE
-у       u
-ў       u||n;EskladOvajE
-ф       Ef
-х       xa
-ц       tsE
-ч       ts.E
-ш       s.a
-ы       i"
-ь       m;ak;:i||znak
-э       E
-ю       ju
-я       ja
-'       apOstraf
+а       a $u
+б       bE $u
+в       vE $u
+г       QE $u
+д       dE $u
+е       jE $u
+ё       jO $u
+ж       z.E $u
+з       z $u
+і       i $u
+й       i||n;Esklad'OvajE
+к       ka $u
+л       El  $u
+м       Em $u
+н       En $u
+о       O   $u
+п       pE  $u
+р       Er  $u
+с       Es  $u
+т       tE  $u
+у       u $u
+ў       u||n;Esklad'OvajE
+ф       Ef $u
+х       xa $u
+ц       tsE $u
+ч       ts.E $u
+ш       s.a $u
+ы       i" $u
+ь       m;'ak;:i||znak
+э       E $u
+ю       ju $u
+я       ja $u
 
 // Numbers
-_0     nul;
-_1     ad;in
-_2     dva
-_3     tri"
-_4     ts.ati"ri"
-_5     p;at;
-_6     s.Es;t;
-_7     s;Em
-_8     vOs;E2m
-_9     d;Ev;at;
-_10    d;Es;at;
-_11    ad;inats:at;
-_12    dvanats:at;
-_13    tri"nats:at;
-_14    ts.ati"rnats:at;
-_15    p;atnats:at;
-_16    s.asnats:at;
-_17    s;amnats:at;
-_18    vas;amnats:at;
-_19    d;Ev;atnats:at;
-_2X    dvats:at;
-_3X    tri"ts:at;
-_4X    sorak
-_5X    p;adz;:Es;at
-_6X    s.Ezdz;:Es;jat
-_7X    s;Emdz;Es;jat
-_8X    vos;Emdz;Es;at
-_9X    d;Ev;anosta
-_0C    stO
-_2C    d;v;Es;t;E
-_3C    tri"sta
-_4C    ts.ati"ri"sta
-_5C    p;at;sot
-_6C    s.Es;t;sot
-_7C    s;jEmsot
-_8C    vos;jEmsot
-_9C    d;Ev;at;sot
-_1MA1  ti"s;ats.a
-_0MA1  ti"s;ats.i"
-_0M1   ti"s;ats.
+_0     n'ul;
+_1     adz;'in
+_1f    adna
+_2     dv'a
+_2f    dz;v;'E
+_3     tr'i"
+_4     ts.at'i"ri"
+_5     p;'ats;
+_6     s.'Es;ts;
+_7     s;'Em
+_8     v'Os;Em
+_9     dz;'Ev;ats;
+_10    dz;'Es;ats;
+_11    adz;'inats:ats;
+_12    dvan'ats:ats;
+_13    tri"n'ats:ats;
+_14    ts.at'i"rnats:ats;
+_15    p;atn'ats:ats;
+_16    s.asn'ats:ats;
+_17    s;amn'ats:ats;
+_18    vas;amn'ats:ats;
+_19    dz;Ev;atn'ats:ats;
+_2X    dv'ats:ats;||
+_3X    tr'i"ts:ats;||
+_4X    s'Orak||
+_5X    p;adz;:Es;'at||
+_6X    s.Ezdz;:Es;'at||
+_7X    s;'Emdz;Es;at||
+_8X    v'Os;Emdz;Es;at||
+_9X    dz;Ev;an'Osta||
+_0C    st'O
+_2C    dz;v;'Es;ts;E
+_3C    tr'i"sta
+_4C    ts.at'i"ri"sta
+_5C    p;ats;s'Ot
+_6C    s.Es;ts;s'Ot
+_7C    s;Ems'Ot
+_8C    v,Os;Ems'Ot
+_9C    dz;Ev;ats;s'Ot
+_0MB1  t'i"s;ats.a
+_0MA1  t'i"s;ats.i"
+_0M1   t'i"s;ats.      // NOTE: in 10k > appends `_!`
