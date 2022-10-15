@@ -4,6 +4,14 @@
 
 # European Style (hundred, thousand, -illion/-illiard)
 
+echo "... be (Belarusian)" # short scale
+
+test_phon be "n'ul; adz;'in dv'a tr'i\" ts.at'i\"ri\" p;'ats; s.'Es;ts; s;'Em v'Os;Em dz;'Ev;ats;" "0 1 2 3 4 5 6 7 8 9" "units"
+test_phon be "dz;'Es;ats; adz;'inats:ats; dvan'ats:ats; tri\"n'ats:ats; ts.at'i\"rnats:ats; p;atn'ats:ats; s.asn'ats:ats; s;amn'ats:ats; vas;amn'ats:ats; dz;Ev;atn'ats:ats;" "10 11 12 13 14 15 16 17 18 19" "teens"
+test_phon be "dv'ats:ats; adz;'in tr'i\"ts:ats; s'Orak p;adz;:Es;'at s.Ezdz;:Es;'at s;'Emdz;Es;at v'Os;Emdz;Es;at dz;Ev;an'Osta" "21 30 40 50 60 70 80 90" "tens"
+test_phon be "st'O adz;'inats:ats; dz;v;'Es;ts;E dv'ats:ats; dv'a tr'i\"sta ts.at'i\"ri\"sta p;ats;s'Ot s.Es;ts;s'Ot s;Ems'Ot v,Os;Ems'Ot dz;Ev;ats;s'Ot" "111 222 300 400 500 600 700 800 900" "hundreds"
+test_phon be "adna t'i\"s;ats.a dz;v;'Es;ts;E tr'i\"ts:ats; ts.at'i\"ri\" dz;v;'E t'i\"s;ats.i\" tr'i\"sta s'Orak tr'i\" t'i\"s;ats.i\" ts.at'i\"ri\"sta ts.at'i\"ri\" t'i\"s;ats.i\" p;'ats; t'i\"s;ats. dz;'Es;ats; t'i\"s;ats. dz;'Es;ats; t'i\"s;ats._! adz;'in" "1234 2340 3400 4000 5000 10000 10001" "thousands"
+
 echo "... en (English)" # short scale
 
 test_phon en "z'i@roU w'0n t'u: Tr'i: f'o@ f'aIv s'Iks s'Ev@n 'eIt n'aIn" "0 1 2 3 4 5 6 7 8 9" "units"

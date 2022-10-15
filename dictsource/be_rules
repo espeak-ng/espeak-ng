@@ -1,6 +1,23 @@
 // This file is UTF8 encoded
 // Translation rules for Belarusian
 
+// NOTE: LETTERGP_A doesn't work, L01 as replacement
+//letter which can carry vowel phoneme
+.L01 а е ё і о у ы э ю я
+
+// This is more economic way to express assimilation by sibilation
+.replace
+       сш     шш
+       сч     шч
+       цч     чч
+       шс     сс
+       шц     сц
+       чц     цц
+       зж     жж
+       здж    ждж
+       жз     зз
+       ждз    здз
+
 .group а
        а       a
 
@@ -15,12 +32,22 @@
 
 .group д
        д       d
+       дз      dz
+       дж      dz.
 
 .group е
        е       ;E    // ʲɛ
+    _) е       jE
+    ') е       jE
+    ь) е       jE
+  L01) е       jE
 
 .group ё
-       ё       ;O    // ʲɔ
+       ё       ;'O    // ʲ'ɔ
+    _) ё       j'O
+    ') ё       j'O
+    ь) ё       j'O
+  L01) ё       j'O
 
 .group ж
        ж       z.    // ʐ
@@ -30,6 +57,7 @@
 
 .group і
        і       i
+    C) і       ;i
 
 .group й
        й       j
@@ -47,7 +75,7 @@
        н       n
 
 .group о
-       о       o
+       о       'O
 
 .group п
        п       p
@@ -74,16 +102,19 @@
        х       x
 
 .group ц
-       ц       ts    // t̻͡s
+       ц       ts    // t͡s
+       цц      ts:
 
 .group ч
        ч       ts.   // ʈ͡ʂ
+       чч      ts.:
 
 .group ш
        ш       s.    // ʂ
+       шш      s.:
 
 .group ы
-       ы       i"    // (ɨ
+       ы       i"    // ɨ
 
 .group ь
        ь       ;     // ʲ
@@ -93,9 +124,17 @@
 
 .group ю
        ю       ;u    // ʲu
+    _) ю       ju
+    ') ю       ju
+    ь) ю       ju
+  L01) ю       ju
 
 .group я
        я       ;a    // ʲa
+    _) я       ja
+    ') я       ja
+    ь) я       ja
+  L01) я       ja
 
 .group '
-       '       j
+       '

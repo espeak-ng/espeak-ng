@@ -84,20 +84,20 @@ $       d'ollar
 _:      dvVet'otS;ie
 ^       kr'ySka
 _"      kVv'ytS;ka
-_<      m'en;SE
-№       n'omer
+_<      m;'en;SE
+№       n'om;ir
 _{      'otkrfigur
 _(      'otkrkrug
 _[      'otkrkvadrat
 _«      'otkr uglof
 +       pl'jus  $max3
-_       podtS;'8rk  $max3
+_       pV#dtS;'8rk  $max3
 %       prVts'Ent  $max3
 =       ravn'o  $max3
-#       reS'Etka  $max3
+#       r;iS'otka  $max3
 /       sl'ES  $max3
-@       sob'aka
-~       t'ilda
+@       sV#b'aka
+~       t;'ilda
 _.      t'otS;ka
 _;      t'otS;kzap
 _|      v'ert
@@ -107,7 +107,7 @@ _}      z'akrfigur
 _)      z'akrkrug
 _]      z'akrkvadrat
 _»      z'akr uglof
-*       zvezd'a  $max3
+*       zv;izd'A  $max3
 _,      zVpit'aja
 
 // particle
@@ -123,7 +123,6 @@ _,      zVpit'aja
 у       u  $u         // by
 
 // conjunctions
-а            $atend
 а         $u $pause  // and
 и       i $u $pause  // and
 ибо       $u $pause  // for
@@ -134,7 +133,7 @@ _,      zVpit'aja
 
 
 // pronouns
-я         $u         // I
+я     ja    $u         // I
 
 // questions
 что     Sto $u $pause // what, that
@@ -194,7 +193,7 @@ _,      zVpit'aja
 суть    $u1
 
 // Cyrillic letter names
-а       a
+а       a  $atend
 _б      bE
 б       bE  $atend
 _в      vE
@@ -206,7 +205,7 @@ _в      vE
 _ж      ZE
 ж       ZE  $atend
 з       zE
-и       i
+и       i  $atend
 й       ,i'k@-*'AtkOjI
 _к       kA
 к       kA  $atend
@@ -219,7 +218,7 @@ _к       kA
 _с      Es
 с       Es  $atend
 т       tE
-у       u
+у       u  $atend
 ф       Ef
 х       xA
 ц       tsE
@@ -231,7 +230,7 @@ _с      Es
 ь       m;'jaxk;I#jzn'Ak
 э       e
 ю       ju
-я       ja
+я       ja            $atend
 
 // exceptions
 электрификация    $5 // for the unit test pangram
