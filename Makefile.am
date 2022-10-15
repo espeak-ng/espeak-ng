@@ -165,6 +165,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/espeak_api.c \
 	src/libespeak-ng/ieee80.c \
 	src/libespeak-ng/intonation.c \
+	src/libespeak-ng/langopts.c \
 	src/libespeak-ng/mnemonics.c \
 	src/libespeak-ng/numbers.c \
 	src/libespeak-ng/readclause.c \
@@ -195,6 +196,7 @@ noinst_HEADERS = \
 	src/libespeak-ng/ieee80.h \
 	src/libespeak-ng/intonation.h \
 	src/libespeak-ng/klatt.h \
+	src/libespeak-ng/langopts.h \
 	src/libespeak-ng/mbrola.h \
 	src/libespeak-ng/mbrowrap.h \
 	src/libespeak-ng/mnemonics.h \

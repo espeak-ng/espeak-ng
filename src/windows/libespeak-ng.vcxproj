@@ -177,6 +177,7 @@
     <ClCompile Include="..\libespeak-ng\ieee80.c" />
     <ClCompile Include="..\libespeak-ng\intonation.c" />
     <ClCompile Include="..\libespeak-ng\klatt.c" />
+    <ClCompile Include="..\libespeak-ng\langopts.c" />
     <ClCompile Include="..\libespeak-ng\mbrowrap.c" />
     <ClCompile Include="..\libespeak-ng\mnemonics.c" />
     <ClCompile Include="..\libespeak-ng\numbers.c" />
@@ -210,6 +211,7 @@
     <ClInclude Include="..\libespeak-ng\common.h" />
     <ClInclude Include="..\libespeak-ng\error.h" />
     <ClInclude Include="..\libespeak-ng\klatt.h" />
+    <ClInclude Include="..\libespeak-ng\langopts.h" />
     <ClInclude Include="..\libespeak-ng\mbrowrap.h" />
     <ClInclude Include="..\libespeak-ng\phoneme.h" />
     <ClInclude Include="..\libespeak-ng\sintab.h" />

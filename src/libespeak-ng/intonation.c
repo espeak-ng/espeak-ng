@@ -287,9 +287,6 @@ static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
 	{ PITCHfall,   70, 18, PITCHfall,   70, 24, NULL, 32, 20, 0 },      // 12 test
 };
 
-int n_tunes = 0;
-TUNE *tunes = NULL;
-
 #define SECONDARY        3
 #define PRIMARY          4
 #define PRIMARY_STRESSED 6

@@ -164,6 +164,10 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 				wtab->flags &= ~FLAG_FIRST_UPPER;
 			}
 
+			// dictionary_skipwords is a global variable and TranslateWord3 will reset it to 0 at the beginning.
+			// However, dictionary_skipwords value is still needed outside this scope.
+			// So we backup and restore it at the end of this scope.
+			int skipwords = dictionary_skipwords;
 			TranslateWord3(tr, word_out, wtab, NULL, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
 
 			int n;
@@ -182,6 +186,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 				while (!isspace(*word_out)) ++word_out;
 				while (isspace(*word_out))  ++word_out;
 			}
+			dictionary_skipwords = skipwords;
 		}
 
 		// If the list file contains a text replacement to another
@@ -663,7 +668,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			srcix = source_ix+1;
 		} else if (ph_code == phonX1) {
 			// a language specific action
-			if (tr->langopts.param[LOPT_IT_DOUBLING])
 				flags |= FLAG_DOUBLING;
 		} else {
 			ph_list2[n_ph_list2].phcode = ph_code;
@@ -695,13 +699,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 					next_tone = 0;
 				}
 			} else {
-				if (first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING]) {
-					if (((tr->prev_dict_flags[0] & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
-					    (tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2))) {
-						// italian, double the initial consonant if the previous word ends with a
-						// stressed vowel, or is marked with a flag
-						ph_list2[n_ph_list2].synthflags |= SFLAG_LENGTHEN;
-					}
+				if (first_phoneme && tr->prev_dict_flags[0] & FLAG_DOUBLING) {
+						// double the initial consonant if the previous word is marked with a flag
+					ph_list2[n_ph_list2].synthflags |= SFLAG_LENGTHEN;
 				}
 			}
 

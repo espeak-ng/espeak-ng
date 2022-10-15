@@ -1,4 +1,3 @@
-
 _?? @:11   // unrecognized character
 
 //numbers
@@ -26,33 +25,34 @@ _0M1 tS;h'iE55n_|        // 1,000
 _0M2 w'A51n_|            // 10,000
 //_0M3 j'i51_|             // 100,000,000
 
-//Latin letters with Chinese accent
-a ei51
-b pi51
-c sei55
-d ti51
-e ji51
-f ai35f
-g ts.i51
-h ei35ts.h
-i ai51
-j ts.ei51
-k khei51
-l ai35l
-m ai35m
-n @n55
-o ou55
-p phi51
-q khiou55
-r @r35
-s ai35s
-t thi51
-u jiou55
-v vei55
-w ta35pliou
-x ai35ks
-y wuai51
-z zi51
+// Latin letters with Chinese accent
+// This will make letter within English sentense translated not correctly. i.e. "ma is a horse". "a" will be translated as ei51.
+//a ei51
+//b pi51
+//c sei55
+//d ti51
+//e ji51
+//f ai35f
+//g ts.i51
+//h ei35ts.h
+//i ai51
+//j ts.ei51
+//k khei51
+//l ai35l
+//m ai35m
+//n @n55
+//o ou55
+//p phi51
+//q khiou55
+//r @r35
+//s ai35s
+//t thi51
+//u jiou55
+//v vei55
+//w ta35pliou
+//x ai35ks
+//y wuai51
+//z zi51
 
 //bopomofo letters
 ㄅ po55
@@ -92,6 +92,8 @@ z zi51
 ㄧ ji55
 ㄨ wu55
 ㄩ y55
+
+$textmode
 
 // Most frequent pronunciations of the 3799 most common characters (from Unihan database ftp://ftp.unicode.org/Public/UNIDATA/Unihan.zip, kHanyuPinlu field with some corrections)
 涉	she4

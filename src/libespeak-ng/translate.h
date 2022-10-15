@@ -283,14 +283,14 @@ typedef struct {
 #define AL_NOT_CODE     0x08 // don't speak the character code
 #define AL_NO_SYMBOL    0x10 // don't repeat "symbol" or "character"
 
-#define N_LOPTS       22
-#define LOPT_DIERESES  1
+#define N_LOPTS       18
+#define LOPT_DIERESES  0
 // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
 // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
-#define LOPT_IT_LENGTHEN 2
+#define LOPT_IT_LENGTHEN 1
 
 // 1=german
-#define LOPT_PREFIXES 3
+#define LOPT_PREFIXES 2
 
 // non-zero, change voiced/unoiced to match last consonant in a cluster
 // bit 0=use regressive voicing
@@ -299,59 +299,56 @@ typedef struct {
 // bit 3=LANG=pl,  propagate over liquids and nasals
 // bit 4=LANG=cz,sk  don't propagate to [v]
 // bit 8=devoice word-final consonants
-#define LOPT_REGRESSIVE_VOICING 4
+#define LOPT_REGRESSIVE_VOICING 3
 
 // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
-#define LOPT_UNPRONOUNCABLE 5
+#define LOPT_UNPRONOUNCABLE 4
 
 // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
-#define LOPT_SONORANT_MIN 7
+#define LOPT_SONORANT_MIN 5
 
 // bit 0: don't break vowels at word boundary
-#define LOPT_WORD_MERGE 8
+#define LOPT_WORD_MERGE 6
+
 
 // max. amplitude for vowel at the end of a clause
-#define LOPT_MAXAMP_EOC 9
+#define LOPT_MAXAMP_EOC 7
 
 // bit 0=reduce even if phonemes are specified in the **_list file
 // bit 1=don't reduce the strongest vowel in a word which is marked 'unstressed'
-#define LOPT_REDUCE 10
+#define LOPT_REDUCE 8
 
 // LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
 // bits 0-3  N syllables
 // bit 4=only if the second word has $alt attribute
 // bit 5=not if the second word is end-of-sentence
-#define LOPT_COMBINE_WORDS 11
+#define LOPT_COMBINE_WORDS 9
 
 // 1 = stressed syllable is indicated by capitals
-#define LOPT_CAPS_IN_WORD 13
-
-// bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
-// bit 1=also after a word which ends with a stressed vowel
-#define LOPT_IT_DOUBLING 14
+#define LOPT_CAPS_IN_WORD 10
 
 // Call ApplySpecialAttributes() if $alt or $alt2 is set for a word
 // bit 1: stressed syllable: $alt change [e],[o] to [E],[O],  $alt2 change [E],[O] to [e],[o]
-#define LOPT_ALT 15
+#define LOPT_ALT 11
 
 // pause for bracket (default=4), also see LOPT_BRACKET_PAUSE_ANNOUNCED
-#define LOPT_BRACKET_PAUSE 16
+#define LOPT_BRACKET_PAUSE 12
 
 // bit 1, don't break clause before annoucning . ? !
-#define LOPT_ANNOUNCE_PUNCT 17
+#define LOPT_ANNOUNCE_PUNCT 13
 
 // recognize long vowels (0 = don't recognize)
-#define LOPT_LONG_VOWEL_THRESHOLD 18
+#define LOPT_LONG_VOWEL_THRESHOLD 14
 
 // bit 0:  Don't allow suffices if there is no previous syllable
-#define LOPT_SUFFIX 19
+#define LOPT_SUFFIX 15
 
 // bit 0  Apostrophe at start of word is part of the word
 // bit 1  Apostrophe at end of word is part of the word
-#define LOPT_APOSTROPHE 20
+#define LOPT_APOSTROPHE 16
 
 // pause when announcing bracket names (default=2), also see LOPT_BRACKET_PAUSE
-#define LOPT_BRACKET_PAUSE_ANNOUNCED 21
+#define LOPT_BRACKET_PAUSE_ANNOUNCED 17
 
 // stress_rule
 #define STRESSPOSN_1L 0 // 1st syllable
@@ -528,7 +525,7 @@ typedef struct {
 	unsigned char tunes[6];
 	int long_stop;          // extra mS pause for a lengthened stop
 	char max_initial_consonants;
-	char spelling_stress;   // 0=default, 1=stress first letter
+	bool spelling_stress;
 	char tone_numbers;
 	char ideographs;      // treat as separate words
 	bool textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
