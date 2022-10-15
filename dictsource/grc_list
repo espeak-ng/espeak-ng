@@ -1,5 +1,17 @@
 
-?1  _0lang   _^_EN   // speak numbers in English
+// Native Numbers 0-10
+_0n u:d'e:s_:
+_1n h'e:s_:
+_2n d'yo_:
+_3n tR'i;a_:
+_4n t'eseRa_:
+_5n p'ente_:
+_6n h'eks_:
+_7n hept'a_:
+_8n okt'O:_:
+_9n en'ea_:
+_10n d'eka_:
+
 
 // articles
 ɦο	$u	// ὁ
