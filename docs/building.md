@@ -300,15 +300,15 @@ this by:
 1.  Creating a certificate, if you do not already have one:
 
         $ keytool -genkey -keystore [YOUR_CERTIFICATE] -alias [ALIAS] -keyalg RSA -storetype PKCS12
-2. Sign the package using your certificate:
-
-        $ jarsigner -sigalg MD5withRSA -digestalg SHA1 \
-          -keystore [YOUR_CERTIFICATE] \
-          android/build/outputs/apk/release/espeak-release-unsigned.apk [ALIAS]
-3. Align the apk using the zipalign tool.
+2. Align the apk using the zipalign tool.
 
         $ zipalign 4 android/build/outputs/apk/release/espeak-release-unsigned.apk \
-          android/build/outputs/apk/release/espeak-release-signed.apk
+          android/build/outputs/apk/release/espeak-release-zipalign.apk
+3. Sign the package using your certificate:
+
+        $ apksigner --ks [YOUR_CERTIFICATE] --ks-key-alias [ALIAS] \
+          --out android/build/outputs/apk/release/espeak-release-signed.apk \
+          android/build/outputs/apk/release/espeak-release-zipalign.apk
 
 
 ### Opening project in Android Studio
@@ -333,4 +333,3 @@ To enable eSpeak, you need to:
 1.  go into the Android `Text-to-Speech settings` UI;
 2.  select `eSpeak TTS` as the default engine;
 3.  use the `Listen to an example` option to check if everything is working.
-

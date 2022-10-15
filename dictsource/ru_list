@@ -2,16 +2,16 @@
 
 // Numbers
 _0      n'ojl;
-_1      ojd;'in
-_1f     odn'a
+_1      V#d;'in
+_1f     V#dn'a
 _2      dv'A
 _2f     dv;'e
 _3      tR;'i
 _4      tS;It'yR;I
-_5      p;'jat;
+_5      p;'V;t;
 _6      S'Es;t;
 _7      s;'ejm
-_8      v'os;Im
+_8      v'os;im;
 _9      d;'evI3t;
 _10     d;'es;It;
 _11     Od;'innVttsVt;
@@ -29,7 +29,7 @@ _4X     s'o@-*Ok
 _5X     p;Vd;d;Is;'jat
 _6X     SE2z;d;d;Is;'jat
 _7X     s;'emd;E2s;Vt
-_8X     v'os;E2md;E2s;Vt
+_8X     v'os;I3md;E2s;Vt
 _9X     d;E2v;In'ostO
 _0C     st'o
 _2C     dv;'es;t;I
@@ -40,17 +40,36 @@ _6C     S,E#s;t;s'ot
 _7C     s;,Ims'ot
 _8C     vOs;Ims'ot
 _9C     dev;Vts'ot
-_0MB1   t'ys;ItS;V     // keep '1' before thousand
-_0MA1   t'ys;ItS;i
-_0M1    t'ys;VtS;
+_0MB1   t'ys;itS;V     // keep '1' before thousand
+_0MA1   t'ys;itS;i
+_0M1    t'ys;itS;
 _0MB2   m;,Il;I;'on
 _0MA2   m;,IlI;'ona
-_0M2    m;,IlI;'onof
+_0M2    m;,IlI;'onV#f
 _0MB3   m;,IlI;'art
+_0M3    m;,IlI;'ardV#f
 _0MA3   m;,IlI;'arda
-_0M3    m;,IlI;'ardof
-_1M3   ojd;'in||m;,IlI;'art
-_0MA3   m;,IlI;'arda
+_0MB4   tr;,IlI;'on
+_0M4   tr;,IlI;'onV#f
+_0MA4   tr;,IlI;'ona
+_0MB5           kvVd@-r;il;i'on
+_0M5           kvVd@-r;il;i'onV#f
+_0MA5           kvVd@-r;il;i'ona
+_0MB6          kv;int;il;i'on
+_0M6          kv;int;il;i'onof
+_0MA6          kv;int;il;i'ona
+_0MB7           s;iks;t;il;i'on
+_0M7           s;iks;t;il;i'onof
+_0MA7           s;iks;t;il;i'ona
+_0MB8           s;ipt;il;i'on
+_0M8           s;ipt;il;i'onof
+_0MA8           s;ipt;il;i'ona
+_0MB9        Vkt;il;i'on
+_0M9        Vkt;il;i'onof
+_0MA9        Vkt;il;i'ona
+_0MB10        nVn;il;i'on
+_0M10        nVn;il;i'onof
+_0MA10        nVn;il;i'ona
 _dpt    _:'i_:        // start of decimal fraction
 _dpt2   _d;Is;'atYx   // end of decimal fraction
 
@@ -65,20 +84,20 @@ $       d'ollar
 _:      dvVet'otS;ie
 ^       kr'ySka
 _"      kVv'ytS;ka
-_<      m'en;SE
-№       n'omer
+_<      m;'en;SE
+№       n'om;ir
 _{      'otkrfigur
 _(      'otkrkrug
 _[      'otkrkvadrat
 _«      'otkr uglof
 +       pl'jus  $max3
-_       podtS;'8rk  $max3
+_       pV#dtS;'8rk  $max3
 %       prVts'Ent  $max3
 =       ravn'o  $max3
-#       reS'Etka  $max3
+#       r;iS'otka  $max3
 /       sl'ES  $max3
-@       sob'aka
-~       t'ilda
+@       sV#b'aka
+~       t;'ilda
 _.      t'otS;ka
 _;      t'otS;kzap
 _|      v'ert
@@ -88,23 +107,22 @@ _}      z'akrfigur
 _)      z'akrkrug
 _]      z'akrkvadrat
 _»      z'akr uglof
-*       zvezd'a  $max3
+*       zv;izd'A  $max3
 _,      zVpit'aja
 
 // particle
 // б       by $u         // shortened form of 'бы'
- ж       S $u         // same as the particle form
+ж       S $u         // same as the particle form
 
 // prepositions
 в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
 для        $u         // for
-на      n@ $u         // on
-от         $u         // from
+на  n@ $u         // on
+от        $u         // from
 с       s  $u         // with,from,since
 у       u  $u         // by
 
 // conjunctions
-а            $atend
 а         $u $pause  // and
 и       i $u $pause  // and
 ибо       $u $pause  // for
@@ -113,8 +131,9 @@ _,      zVpit'aja
 хотя      $2 $pause  // although
 чтобы        $pause  // in order that
 
+
 // pronouns
-я         $u         // I
+я     ja    $u         // I
 
 // questions
 что     Sto $u $pause // what, that
@@ -164,7 +183,7 @@ _,      zVpit'aja
 смогла  $u2
 смогли  $u2
 смогло  $u2
-смогу   $u1
+смогу   $u2
 смогут  $u1
 сможем  $u1
 сможет  $u1
@@ -174,7 +193,7 @@ _,      zVpit'aja
 суть    $u1
 
 // Cyrillic letter names
-а       a
+а       a  $atend
 _б      bE
 б       bE  $atend
 _в      vE
@@ -186,7 +205,7 @@ _в      vE
 _ж      ZE
 ж       ZE  $atend
 з       zE
-и       i
+и       i  $atend
 й       ,i'k@-*'AtkOjI
 _к       kA
 к       kA  $atend
@@ -199,19 +218,19 @@ _к       kA
 _с      Es
 с       Es  $atend
 т       tE
-у       u
+у       u  $atend
 ф       Ef
 х       xA
 ц       tsE
 ч       tS;e
 ш       SA
 щ       S;ja
-ъ       tv;'8@-*dyjzn'Ak
+ъ       tv;'8@-rdyjzn'Ak
 ы       y
 ь       m;'jaxk;I#jzn'Ak
 э       e
 ю       ju
-я       ja
+я       ja            $atend
 
 // exceptions
 электрификация    $5 // for the unit test pangram
@@ -219,5 +238,39 @@ _с      Es
 на                na $atend
 радио             r'ad;Io
 сельского         $1 // for the unit test pangram
-        (косая черта)        kas'Aja||tS;ert'A
-         (из города)         iz||g'orVda
+
+// phrases
+                   аудиокнига              'Aud;iV#kn;'iga#
+           (в виду)               vv;id'u
+         (в глаза)                v||glaz'A
+               (в города)               v||gV#rV#d'A
+      (в кому)            f||k'omu
+          (во время оно)               v'o||v@-r;'em;V||'onV
+           (всё-таки)               fs;'8tVk;I
+      (где-то)               gd;'etV
+           (зачем-то)        zatS;'emtV
+          (из буфера)               'Is||b'uf;ira#
+         (из города)         'Is||g'orVda#
+         (как-то)               k'AktV
+               (какая-то)                kak'AjatV
+               (какие-то)           kak;'ijitV#
+            (какое-то)         kak'ojitV
+               (какой-то)            kak'ojtV
+          (когда-то)          kV#gd'AtV
+               (кого-то)              kV#v'otV
+            (кому-то)            kV#m'utV
+        (косая черта)        kV#s'Aja||tS;irt'A
+                          (кто-то)               kt'otV
+             (мои глаза)               mV#'I||glaz'A
+             (на свои места)             n@||svV#'I||m;ist'A
+          (наконец-то)             nVkV#n;'etstV
+          (не были)              n;'ebyl;I
+        (не было)               n;'ebylV
+           (не с чем)              n;'estS;im
+             (одной стороны)               V#dn'oj||stV#rV#n'y
+           (от числа)          ot||tS;isl'A
+                          (почему-то)          pVtS;im'utV
+          (с высоты)              s||vysV#t'y
+          (чего-то)               tS;iv'otV
+           (чем-то)           tS;'emtV
+           (чему-то)         tS;im'utV
