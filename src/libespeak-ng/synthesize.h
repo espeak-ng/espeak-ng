@@ -382,8 +382,7 @@ typedef struct {
 	int spare2; // the struct length should be a multiple of 4 bytes
 } TUNE;
 
-extern int n_tunes;
-extern TUNE *tunes;
+
 
 // phoneme table
 extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];

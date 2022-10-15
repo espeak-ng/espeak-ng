@@ -28,6 +28,7 @@
   - [dictrules](#dictrules)
   - [lowercaseSentence](#lowercaseSentence)
   - [replace](#replace)
+  - [spellingStress](#spellingStress)
   - [stressOpt](#stressopt)
   - [stressRule](#stressrule)
   - [stressLength](#stresslength)
@@ -417,6 +418,12 @@ e.g.
 
 The phoneme mnemonics can be defined for each language, but some are
 listed in [Phonemes](phonemes.md).
+
+### spellingStress
+
+	spellingStress
+
+When set, stress first letter when reading abbreviations.
 
 ### stressOpt
 

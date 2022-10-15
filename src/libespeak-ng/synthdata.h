@@ -43,7 +43,6 @@ void InterpretPhoneme2(int phcode,
 void FreePhData(void);
 unsigned char *GetEnvelope(int index);
 espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
-void LoadConfig(void);
 int LookupPhonemeString(const char *string);
 int LookupPhonemeTable(const char *name);
 frameref_t *LookupSpect(PHONEME_TAB *this_ph,
@@ -55,6 +54,9 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph,
 int PhonemeCode(unsigned int mnem);
 void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
+
+extern int n_tunes;
+extern TUNE *tunes;
 
 #ifdef __cplusplus
 }
