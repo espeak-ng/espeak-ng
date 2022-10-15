@@ -31,7 +31,7 @@ test_phon it "s,Ents2a v,U'Esse s'Entsa" "senza vs senza" "\$atend"
 test_phon en "m'eIlstr0m m'eIlstr0m" "mælstrom maelstrom" ".replace"
 # rest of the numbers are tested in other test files
 test_phon en "z'i@roU pOInt n'aIn n'aIn" "0.99" "_dpt"
-test_phon ru "ojd;'in _:'i_: n'ojl n'ojl_d;Is;'AtYx" "1,00" "_dpt2"
+test_phon ru "V#d;'in _:'i_: n'ojl n'ojl_d;Is;'AtYx" "1,00" "_dpt2"
 test_phon en "t'u:h'VndrI2d@n tw'Enti" "220" "_0and"
 test_phon af "(fr)avinj'O~(en) b'0st@n(af) S'ina" "avignon boston china" "_^_"
 test_phon en "s'VtS _a#z" "such as" "(multiple  words)"

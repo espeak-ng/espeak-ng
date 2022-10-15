@@ -30,6 +30,7 @@ ESPEAK_SOURCES := \
   src/libespeak-ng/ieee80.c \
   src/libespeak-ng/intonation.c \
   src/libespeak-ng/klatt.c \
+  src/libespeak-ng/langopts.c \
   src/libespeak-ng/mnemonics.c \
   src/libespeak-ng/numbers.c \
   src/libespeak-ng/phoneme.c \
