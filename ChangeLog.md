@@ -11,7 +11,8 @@ The espeak-ng project is a fork of the espeak project.
 
 updated languages:
 *  ba (Bashkir) -- Andiv06
-*  be (Belarusian) -- Andiv06
+*  be (Belarusian) -- Andiv06, bespsm, Alaksiej Stankievič
+*  cmn (Mandarin) -- Cameron Wong
 *  en (English) -- Bill Dengler
 *  es (Spanish) -- Sukil Etxenike
 *  fa (Persian) -- MH
@@ -27,9 +28,10 @@ updated languages:
 *  qya (Quenya) -- Andiv06
 *  quc (K'iche') -- Andiv06
 *  ro (Romanian) -- Andiv06
+*  ru (Russian) -- Kirill-jjj, a11cf0
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tk (Turkmen) -- Andiv06
-*  tr (Turkish) -- Gurbuzguven
+*  tr (Turkish) -- Gurbuzguven, Qchristensen
 *  uz (Uzbek) -- Andiv06
 
 new languages:

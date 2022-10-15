@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
@@ -41,6 +42,7 @@
 #include "voice.h"                    // for voice_t, DoVoiceChange, N_PEAKS
 #include "common.h"                    // for GetFileLength, strncpy0
 #include "dictionary.h"               // for LoadDictionary
+#include "langopts.h"                 // for LoadLanguageOptions
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
 #include "speech.h"                   // for PATHSEP
@@ -49,6 +51,8 @@
 #include "synthesize.h"               // for SetSpeed, SPEED_FACTORS, speed
 #include "translate.h"                // for LANGUAGE_OPTIONS, DeleteTranslator
 #include "wavegen.h"                  // for InitBreath
+
+
 
 static const MNEM_TAB genders[] = {
 	{ "male", ENGENDER_MALE },
@@ -68,107 +72,6 @@ static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 
 espeak_VOICE current_voice_selected;
-
-enum {
-	V_NAME = 1,
-	V_LANGUAGE,
-	V_GENDER,
-	V_PHONEMES,
-	V_DICTIONARY,
-	V_VARIANTS,
-
-	V_MAINTAINER,
-	V_STATUS,
-
-	// these affect voice quality, are independent of language
-	V_FORMANT,
-	V_PITCH,
-	V_ECHO,
-	V_FLUTTER,
-	V_ROUGHNESS,
-	V_CLARITY,
-	V_TONE,
-	V_VOICING,
-	V_BREATH,
-	V_BREATHW,
-
-	// these override defaults set by the translator
-	V_LOWERCASE_SENTENCE,
-	V_WORDGAP,
-	V_INTONATION,
-	V_TUNES,
-	V_STRESSLENGTH,
-	V_STRESSAMP,
-	V_STRESSADD,
-	V_DICTRULES,
-	V_STRESSRULE,
-	V_STRESSOPT,
-	V_NUMBERS,
-
-	V_MBROLA,
-	V_KLATT,
-	V_FAST,
-	V_SPEED,
-	V_DICTMIN,
-
-	// these need a phoneme table to have been specified
-	V_REPLACE,
-	V_CONSONANTS
-};
-
-static const MNEM_TAB keyword_tab[] = {
-	{ "name",         V_NAME },
-	{ "language",     V_LANGUAGE },
-	{ "gender",       V_GENDER },
-
-	{ "maintainer",   V_MAINTAINER },
-	{ "status",       V_STATUS },
-
-
-	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
-	{ "variants",     V_VARIANTS },
-	{ "formant",      V_FORMANT },
-	{ "pitch",        V_PITCH },
-	{ "phonemes",     V_PHONEMES },
-	{ "dictionary",   V_DICTIONARY },
-	{ "stressLength", V_STRESSLENGTH },
-	{ "stressAmp",    V_STRESSAMP },
-	{ "stressAdd",    V_STRESSADD },
-	{ "intonation",   V_INTONATION },
-	{ "tunes",        V_TUNES },
-	{ "dictrules",    V_DICTRULES },
-	{ "stressRule",   V_STRESSRULE },
-	{ "stressOpt",    V_STRESSOPT },
-	{ "replace",      V_REPLACE },
-	{ "words",        V_WORDGAP },
-	{ "echo",         V_ECHO },
-	{ "flutter",      V_FLUTTER },
-	{ "roughness",    V_ROUGHNESS },
-	{ "clarity",      V_CLARITY },
-	{ "tone",         V_TONE },
-	{ "voicing",      V_VOICING },
-	{ "breath",       V_BREATH },
-	{ "breathw",      V_BREATHW },
-	{ "numbers",      V_NUMBERS },
-	{ "mbrola",       V_MBROLA },
-	{ "consonants",   V_CONSONANTS },
-	{ "klatt",        V_KLATT },
-	{ "fast_test2",   V_FAST },
-	{ "speed",        V_SPEED },
-	{ "dict_min",     V_DICTMIN },
-
-	// these just set a value in langopts.param[]
-	{ "l_dieresis",       0x100+LOPT_DIERESES },
-	{ "l_prefix",         0x100+LOPT_PREFIXES },
-	{ "l_regressive_v",   0x100+LOPT_REGRESSIVE_VOICING },
-	{ "l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE },
-	{ "l_sonorant_min",   0x100+LOPT_SONORANT_MIN },
-	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
-	{ "brackets",       0x100+LOPT_BRACKET_PAUSE },
-	{ "bracketsAnnounced",       0x100+LOPT_BRACKET_PAUSE_ANNOUNCED },
-
-	{ NULL, 0 }
-};
 
 #define N_VOICE_VARIANTS   12
 const char variants_either[N_VOICE_VARIANTS] = { 1, 2, 12, 3, 13, 4, 14, 5, 11, 0 };
@@ -201,17 +104,6 @@ static char *fgets_strip(char *buf, int size, FILE *f_in)
 		*p = 0;
 
 	return buf;
-}
-
-static int LookupTune(const char *name)
-{
-	int ix;
-
-	for (ix = 0; ix < n_tunes; ix++) {
-		if (strcmp(name, tunes[ix].name) == 0)
-			return ix;
-	}
-	return -1;
 }
 
 static void SetToneAdjust(voice_t *voice, int *tone_pts)
@@ -473,7 +365,7 @@ static void PhonemeReplacement(char *p)
 	replace_phonemes[n_replace_phonemes++].type = flags;
 }
 
-static int Read8Numbers(char *data_in, int data[8])
+int Read8Numbers(char *data_in, int data[8])
 {
 	// Read 8 integer numbers
 	memset(data, 0, 8*sizeof(int));
@@ -481,7 +373,7 @@ static int Read8Numbers(char *data_in, int data[8])
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
 
-static void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab, int key) {
+void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab, int key) {
 	// read a list of numbers from string p
 	// store them as flags in *flags
 	// the meaning of the  numbers is bit ordinals, not integer values
@@ -501,18 +393,6 @@ static void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyw
 	}
 }
 
-static int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key)
-{
-	// Return 0 if translator is set.
-	// Return 1 and print an error message for specified key if not
-	// used for parsing language options
-	if (tr)
-		return 0;
-
-	fprintf(stderr, "Cannot set %s: language not set, or is invalid.\n", LookupMnemName(keyword_tab, key));
-	return 1;
-}
-
 voice_t *LoadVoice(const char *vname, int control)
 {
 	// control, bit 0  1= no_default
@@ -527,7 +407,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char *p;
 	int key;
 	int ix;
-	int n;
 	int value;
 	int langix = 0;
 	int tone_only = control & 2;
@@ -543,8 +422,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
 
-	int stress_add[8];
-	char names[8][40];
+
 	char name1[40];
 	char name2[80];
 
@@ -627,312 +505,184 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		if (buf[0] == 0) continue;
 
-		key = LookupMnem(keyword_tab, buf);
+		key = LookupMnem(langopts_tab, buf);
 
-		switch (key)
-		{
-		case V_LANGUAGE:
-		{
-			unsigned int len;
-			int priority;
+        if (key != 0) {
+            LoadLanguageOptions(translator, key, p);
+        } else {
+            key = LookupMnem(keyword_tab, buf);
+            switch (key)
+            {
+            case V_LANGUAGE:
+            {
+                unsigned int len;
+                int priority;
 
-			if (tone_only)
-				break;
+                if (tone_only)
+                    break;
 
-			priority = DEFAULT_LANGUAGE_PRIORITY;
-			language_name[0] = 0;
+                priority = DEFAULT_LANGUAGE_PRIORITY;
+                language_name[0] = 0;
 
-			sscanf(p, "%s %d", language_name, &priority);
-			if (strcmp(language_name, "variant") == 0)
-				break;
+                sscanf(p, "%s %d", language_name, &priority);
+                if (strcmp(language_name, "variant") == 0)
+                    break;
 
-			len = strlen(language_name) + 2;
-			// check for space in languages[]
-			if (len < (sizeof(voice_languages)-langix-1)) {
-				voice_languages[langix] = priority;
+                len = strlen(language_name) + 2;
+                // check for space in languages[]
+                if (len < (sizeof(voice_languages)-langix-1)) {
+                    voice_languages[langix] = priority;
 
-				strcpy(&voice_languages[langix+1], language_name);
-				langix += len;
-			}
+                    strcpy(&voice_languages[langix+1], language_name);
+                    langix += len;
+                }
 
-			// only act on the first language line
-			if (language_set == false) {
-				language_type = strtok(language_name, "-");
-				language_set = true;
-				strcpy(translator_name, language_type);
-				strcpy(new_dictionary, language_type);
-				strcpy(phonemes_name, language_type);
-				SelectPhonemeTableName(phonemes_name);
+                // only act on the first language line
+                if (language_set == false) {
+                    language_type = strtok(language_name, "-");
+                    language_set = true;
+                    strcpy(translator_name, language_type);
+                    strcpy(new_dictionary, language_type);
+                    strcpy(phonemes_name, language_type);
+                    SelectPhonemeTableName(phonemes_name);
 
-				translator = SelectTranslator(translator_name);
-				strncpy0(voice->language_name, language_name, sizeof(voice->language_name));
-			}
-		}
-			break;
-		case V_NAME:
-			if (tone_only == 0) {
-				while (isspace(*p)) p++;
-				strncpy0(voice_name, p, sizeof(voice_name));
-			}
-			break;
-		case V_GENDER:
-		{
-			int age = 0;
-			char vgender[80];
-			sscanf(p, "%s %d", vgender, &age);
-			current_voice_selected.gender = LookupMnem(genders, vgender);
-			current_voice_selected.age = age;
-		}
-			break;
-		case V_DICTIONARY: // dictionary
-			sscanf(p, "%s", new_dictionary);
-			break;
-		case V_PHONEMES: // phoneme table
-			sscanf(p, "%s", phonemes_name);
-			break;
-		case V_FORMANT:
-			VoiceFormant(p);
-			break;
-		case V_LOWERCASE_SENTENCE: {
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
+                    translator = SelectTranslator(translator_name);
+                    strncpy0(voice->language_name, language_name, sizeof(voice->language_name));
+                }
+            }
+                break;
+            case V_NAME:
+                if (tone_only == 0) {
+                    while (isspace(*p)) p++;
+                    strncpy0(voice_name, p, sizeof(voice_name));
+                }
+                break;
+            case V_GENDER:
+            {
+                int age = 0;
+                char vgender[80];
+                sscanf(p, "%s %d", vgender, &age);
+                current_voice_selected.gender = LookupMnem(genders, vgender);
+                current_voice_selected.age = age;
+            }
+                break;
+            case V_DICTIONARY: // dictionary
+                sscanf(p, "%s", new_dictionary);
+                break;
+            case V_PHONEMES: // phoneme table
+                sscanf(p, "%s", phonemes_name);
+                break;
+            case V_FORMANT:
+                VoiceFormant(p);
+                break;
+            case V_PITCH:
+                // default is  pitch 82 118
+                if (sscanf(p, "%d %d", &pitch1, &pitch2) == 2) {
+                    voice->pitch_base = (pitch1 - 9) << 12;
+                    voice->pitch_range = (pitch2 - pitch1) * 108;
+                    double factor = (double)(pitch1 - 82)/82;
+                    voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
+                }
+                break;
 
-			translator->langopts.lowercase_sentence = true;
-			break;
-			}
 
-		case V_PITCH:
-			// default is  pitch 82 118
-			if (sscanf(p, "%d %d", &pitch1, &pitch2) == 2) {
-				voice->pitch_base = (pitch1 - 9) << 12;
-				voice->pitch_range = (pitch2 - pitch1) * 108;
-				double factor = (double)(pitch1 - 82)/82;
-				voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
-			}
-			break;
-		case V_STRESSLENGTH: {// stressLength
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
 
-			int stress_lengths_set = 0;
-			int stress_lengths[8];
-			stress_lengths_set = Read8Numbers(p, stress_lengths);
 
-			for (ix = 0; ix < stress_lengths_set; ix++) {
-				translator->stress_lengths[ix] = stress_lengths[ix];
-			}
 
-			break;
-		}
-		case V_STRESSAMP: { // stressAmp
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
+            case V_REPLACE:
+                if (phonemes_set == false) {
+                    // must set up a phoneme table before we can lookup phoneme mnemonics
+                    SelectPhonemeTableName(phonemes_name);
+                    phonemes_set = true;
+                }
+                PhonemeReplacement(p);
+                break;
 
-			int stress_amps_set = 0;
-			int stress_amps[8];
-			stress_amps_set = Read8Numbers(p, stress_amps);
-			for (ix = 0; ix < stress_amps_set; ix++) {
-				translator->stress_amps[ix] = stress_amps[ix];
-			}
+            case V_ECHO:
+                // echo.  suggest: 135mS  11%
+                value = 0;
+                voice->echo_amp = 0;
+                sscanf(p, "%d %d", &voice->echo_delay, &voice->echo_amp);
+                break;
+            case V_FLUTTER: // flutter
+                if (sscanf(p, "%d", &value) == 1)
+                    voice->flutter = value * 32;
+                break;
+            case V_ROUGHNESS: // roughness
+                if (sscanf(p, "%d", &value) == 1)
+                    voice->roughness = value;
+                break;
+            case V_CLARITY: // formantshape
+                if (sscanf(p, "%d", &value) == 1) {
+                    if (value > 4) {
+                        voice->peak_shape = 1; // squarer formant peaks
+                        value = 4;
+                    }
+                    voice->n_harmonic_peaks = 1+value;
+                }
+                break;
+            case V_TONE:
+            {
+                int tone_data[12];
+                ReadTonePoints(p, tone_data);
+                SetToneAdjust(voice, tone_data);
+            }
+                break;
+            case V_VOICING:
+                if (sscanf(p, "%d", &value) == 1)
+                    voice->voicing = (value * 64)/100;
+                break;
+            case V_BREATH:
+                voice->breath[0] = Read8Numbers(p, &voice->breath[1]);
+                for (ix = 1; ix < 8; ix++) {
+                    if (ix % 2)
+                        voice->breath[ix] = -voice->breath[ix];
+                }
+                break;
+            case V_BREATHW:
+                voice->breathw[0] = Read8Numbers(p, &voice->breathw[1]);
+                break;
+            case V_CONSONANTS:
+                value = sscanf(p, "%d %d", &voice->consonant_amp, &voice->consonant_ampv);
+                break;
+            case V_SPEED:
+                sscanf(p, "%d", &voice->speed_percent);
+                SetSpeed(3);
+                break;
+            case V_MBROLA:
+            {
+                int srate = 16000;
 
-			break;
-		}
-		case V_STRESSADD: { // stressAdd
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
+                name2[0] = 0;
+                sscanf(p, "%s %s %d", name1, name2, &srate);
+                espeak_ng_STATUS status = LoadMbrolaTable(name1, name2, &srate);
+                if (status != ENS_OK) {
+                    espeak_ng_PrintStatusCodeMessage(status, stderr, NULL);
+                    fclose(f_voice);
+                    return NULL;
+                }
+                else
+                    voice->samplerate = srate;
+            }
+                break;
+            case V_KLATT:
+                voice->klattv[0] = 1; // default source: IMPULSIVE
+                Read8Numbers(p, voice->klattv);
+                voice->klattv[KLATT_Kopen] -= 40;
+                break;
+            case V_FAST:
+                sscanf(p, "%d", &speed.fast_settings);
+                SetSpeed(3);
+                break;
 
-			int stress_add_set = 0;
-			stress_add_set = Read8Numbers(p, stress_add);
-
-			for (ix = 0; ix < stress_add_set; ix++) {
-				translator->stress_lengths[ix] += stress_add[ix];
-			}
-
-			break;
-		}
-		case V_INTONATION: // intonation
-			sscanf(p, "%d", &option_tone_flags);
-			if ((option_tone_flags & 0xff) != 0) {
-				if (CheckTranslator(translator, keyword_tab, key) != 0)
-					break;
-
-				translator->langopts.intonation_group = option_tone_flags & 0xff;
-			}
-			break;
-		case V_TUNES:
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
-
-			n = sscanf(p, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
-			translator->langopts.intonation_group = 0;
-
-			for (ix = 0; ix < n; ix++) {
-				if (strcmp(names[ix], "NULL") == 0)
-					continue;
-
-				if ((value = LookupTune(names[ix])) < 0)
-					fprintf(stderr, "Unknown tune '%s'\n", names[ix]);
-				else
-					translator->langopts.tunes[ix] = value;
-			}
-			break;
-
-		case V_DICTRULES: // conditional dictionary rules and list entries
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
-
-			ReadNumbers(p, &translator->dict_condition, 32, keyword_tab, key);
-			break;
-		case V_STRESSOPT:
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				 break;
-
-			ReadNumbers(p, &translator->langopts.stress_flags, 32, keyword_tab, key);
-			break;
-
-		case V_NUMBERS:
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
-
-			// expect a list of numbers
-			while (*p != 0) {
-				while (isspace(*p)) p++;
-				if ((n = atoi(p)) > 0) {
-					p++;
-					if (n < 32) {
-							translator->langopts.numbers |= (1 << n);
-					} else {
-						if (n < 64)
-							translator->langopts.numbers2 |= (1 << (n-32));
-						else
-							fprintf(stderr, "numbers: Bad option number %d\n", n);					}
-				}
-				while (isalnum(*p)) p++;
-			}
-			ProcessLanguageOptions(&(translator->langopts));
-
-			break;
-		case V_REPLACE:
-			if (phonemes_set == false) {
-				// must set up a phoneme table before we can lookup phoneme mnemonics
-				SelectPhonemeTableName(phonemes_name);
-				phonemes_set = true;
-			}
-			PhonemeReplacement(p);
-			break;
-		case V_WORDGAP: // words
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
-
-			sscanf(p, "%d %d", &translator->langopts.word_gap, &translator->langopts.vowel_pause);
-			break;
-		case V_STRESSRULE:
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
-
-			sscanf(p, "%d %d %d", &translator->langopts.stress_rule,
-			       &translator->langopts.unstressed_wd1,
-			       &translator->langopts.unstressed_wd2);
-
-			break;
-		case V_ECHO:
-			// echo.  suggest: 135mS  11%
-			value = 0;
-			voice->echo_amp = 0;
-			sscanf(p, "%d %d", &voice->echo_delay, &voice->echo_amp);
-			break;
-		case V_FLUTTER: // flutter
-			if (sscanf(p, "%d", &value) == 1)
-				voice->flutter = value * 32;
-			break;
-		case V_ROUGHNESS: // roughness
-			if (sscanf(p, "%d", &value) == 1)
-				voice->roughness = value;
-			break;
-		case V_CLARITY: // formantshape
-			if (sscanf(p, "%d", &value) == 1) {
-				if (value > 4) {
-					voice->peak_shape = 1; // squarer formant peaks
-					value = 4;
-				}
-				voice->n_harmonic_peaks = 1+value;
-			}
-			break;
-		case V_TONE:
-		{
-			int tone_data[12];
-			ReadTonePoints(p, tone_data);
-			SetToneAdjust(voice, tone_data);
-		}
-			break;
-		case V_VOICING:
-			if (sscanf(p, "%d", &value) == 1)
-				voice->voicing = (value * 64)/100;
-			break;
-		case V_BREATH:
-			voice->breath[0] = Read8Numbers(p, &voice->breath[1]);
-			for (ix = 1; ix < 8; ix++) {
-				if (ix % 2)
-					voice->breath[ix] = -voice->breath[ix];
-			}
-			break;
-		case V_BREATHW:
-			voice->breathw[0] = Read8Numbers(p, &voice->breathw[1]);
-			break;
-		case V_CONSONANTS:
-			value = sscanf(p, "%d %d", &voice->consonant_amp, &voice->consonant_ampv);
-			break;
-		case V_SPEED:
-			sscanf(p, "%d", &voice->speed_percent);
-			SetSpeed(3);
-			break;
-		case V_MBROLA:
-		{
-			int srate = 16000;
-
-			name2[0] = 0;
-			sscanf(p, "%s %s %d", name1, name2, &srate);
-			espeak_ng_STATUS status = LoadMbrolaTable(name1, name2, &srate);
-			if (status != ENS_OK) {
-				espeak_ng_PrintStatusCodeMessage(status, stderr, NULL);
-				fclose(f_voice);
-				return NULL;
-			}
-			else
-				voice->samplerate = srate;
-		}
-			break;
-		case V_KLATT:
-			voice->klattv[0] = 1; // default source: IMPULSIVE
-			Read8Numbers(p, voice->klattv);
-			voice->klattv[KLATT_Kopen] -= 40;
-			break;
-		case V_FAST:
-			sscanf(p, "%d", &speed.fast_settings);
-			SetSpeed(3);
-			break;
-		case V_DICTMIN: {
-			if (CheckTranslator(translator, keyword_tab, key) != 0)
-				break;
-
-			if (sscanf(p, "%d", &value) == 1)
-				translator->dict_min_size = value;
-			break;
-			}
-
-			break;
-		case V_MAINTAINER:
-		case V_STATUS:
-			break;
-		default:
-			if ((key & 0xff00) == 0x100) {
-				if (CheckTranslator(translator, keyword_tab, key) != 0)
-					break;
-				sscanf(p, "%d", &translator->langopts.param[key &0xff]);
-			} else
-				fprintf(stderr, "Bad voice attribute: %s\n", buf);
-			break;
-		}
+            case V_MAINTAINER:
+            case V_STATUS:
+                break;
+            default:
+                fprintf(stderr, "Bad voice attribute: %s\n", buf);
+                break;
+            }
+        }
 	}
 	if (f_voice != NULL)
 		fclose(f_voice);
