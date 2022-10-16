@@ -1316,7 +1316,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 
 			if (LookupThousands(tr, hundreds / 10, tplex, exact | ordinal, ph_10T) == 0) {
 				x = 0;
-				if (tr->langopts.numbers2 & (1 << tplex))
+				if (tr->langopts.numbers2 & (1 << tplex) && tplex <= 3)
 					x = 8; // use variant (feminine) for before thousands and millions
 				if (tr->translator_name == L('m', 'l'))
 					x = 0x208;
@@ -1419,7 +1419,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 				x |= 4; // tens and units only, no higher digits
 			if (ordinal & 0x20)
 				x |= 0x20; // variant form of ordinal number
-		} else if (tr->langopts.numbers2 & (1 << thousandplex))
+		} else if (tr->langopts.numbers2 & (1 << thousandplex) && thousandplex <= 3)
 			x = 8; // use variant (feminine) for before thousands and millions
 
 		if ((tr->translator_name == L('m', 'l')) && (thousandplex == 1))
