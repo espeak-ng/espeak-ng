@@ -536,6 +536,60 @@ test_espeak_set_voice_by_properties_with_invalid_language()
 	assert(p_decoder == NULL);
 }
 
+static int
+_test_espeak_ng_phoneme_events_cb(short *samples, int num_samples, espeak_EVENT *events) {
+	char *out = events->user_data;
+	size_t offset;
+	for (espeak_EVENT *e = events; e->type != 0; e++) {
+		if (e->type == espeakEVENT_PHONEME) {
+			if (out[0] == 0) offset = 0;
+			else {
+				offset = strlen(out);
+				out[offset++] = ' ';
+			}
+			strncpy(out + offset, e->id.string, sizeof(e->id.string));
+		}
+	}
+	return 0;
+}
+
+static void
+test_espeak_ng_phoneme_events(int enabled, int ipa) {
+	printf("testing espeak_ng_SetPhonemeEvents(enabled=%d, ipa=%d)\n", enabled, ipa);
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	espeak_ng_InitializePath(NULL);
+	espeak_ng_ERROR_CONTEXT context = NULL;
+	assert(espeak_ng_Initialize(&context) == ENS_OK);
+	assert(espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 0, NULL) == ENS_OK);
+	espeak_SetSynthCallback(_test_espeak_ng_phoneme_events_cb);
+	assert(espeak_ng_SetPhonemeEvents(enabled, ipa) == ENS_OK);
+
+	char phoneme_events[256];
+	memset(phoneme_events, 0, sizeof(phoneme_events));
+	const char *test = "test";
+
+	assert(espeak_ng_Synthesize(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, phoneme_events) == ENS_OK);
+	assert(espeak_ng_Synchronize() == ENS_OK);
+	if (enabled) {
+		if (ipa) {
+			assert(strncmp(phoneme_events, "t ɛ s t  ", sizeof(phoneme_events)) == 0);
+		} else {
+			assert(strncmp(phoneme_events, "t E s t _: _", sizeof(phoneme_events)) == 0);
+		}
+	} else {
+		assert(phoneme_events[0] == 0);
+	}
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
 // endregion
 
 int
@@ -570,6 +624,10 @@ main(int argc, char **argv)
 	test_espeak_set_voice_by_properties_blank_language();
 	test_espeak_set_voice_by_properties_with_valid_language();
 	test_espeak_set_voice_by_properties_with_invalid_language();
+
+	test_espeak_ng_phoneme_events(0, 0);
+	test_espeak_ng_phoneme_events(1, 0);
+	test_espeak_ng_phoneme_events(1, 1);
 
 	free(progdir);
 

@@ -122,6 +122,9 @@ espeak_ng_SetParameter(espeak_PARAMETER parameter,
                        int relative);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetPhonemeEvents(int enable, int ipa);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SetPunctuationList(const wchar_t *punctlist);
 
 ESPEAK_NG_API espeak_ng_STATUS
