@@ -321,7 +321,8 @@ tests/ieee80.check: LOG_COMPILER=$(VALGRIND)
 	@echo "  TEST      $<"
 	@ESPEAK_DATA_PATH=$(CURDIR) $(LOG_COMPILER) $< && echo "  PASSED    $<"
 
-TEST = $(filter-out tests/windows-data.test,$(wildcard tests/*.test))
+TEST = $(filter-out tests/windows-data.test,$(wildcard tests/*.test)) \
+       $(check_PROGRAMS)
 
 check:	$(TEST:.test=.check)
 
