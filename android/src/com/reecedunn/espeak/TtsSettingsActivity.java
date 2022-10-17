@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2022 Beka Gozalishvili
  * Copyright (C) 2013 Reece H. Dunn
  * Copyright (C) 2011 The Android Open Source Project
  *
@@ -35,14 +36,21 @@ import com.reecedunn.espeak.preference.SpeakPunctuationPreference;
 import com.reecedunn.espeak.preference.VoiceVariantPreference;
 
 public class TtsSettingsActivity extends PreferenceActivity {
+
+    private static Context storageContext;
+
     @Override
     @SuppressWarnings("deprecation")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        PreferenceManager preferenceManager = getPreferenceManager();
+        preferenceManager.setStorageDeviceProtected ();
+
         // Migrate old eyes-free settings to the new settings:
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        storageContext = EspeakApp.getStorageContext();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
         final SharedPreferences.Editor editor = prefs.edit();
 
         String pitch = prefs.getString(VoiceSettings.PREF_PITCH, null);
@@ -56,7 +64,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         String rate = prefs.getString(VoiceSettings.PREF_RATE, null);
         if (rate == null) {
             // Try the old eyes-free setting:
-            SpeechSynthesis engine = new SpeechSynthesis(this, null);
+            SpeechSynthesis engine = new SpeechSynthesis(storageContext, null);
             int defaultValue = engine.Rate.getDefaultValue();
             int maxValue = engine.Rate.getMaxValue();
 
@@ -164,7 +172,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setMax(parameter.getMaxValue());
         pref.setDefaultValue(defaultValue);
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
         final String prefString = prefs.getString(key, null);
         if (prefString == null) {
             pref.setProgress(defaultValue);
@@ -181,8 +189,8 @@ public class TtsSettingsActivity extends PreferenceActivity {
      * summary with the current entry value.
      */
     private static void createPreferences(Context context, PreferenceGroup group) {
-        SpeechSynthesis engine = new SpeechSynthesis(context, null);
-        VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(context), engine);
+        SpeechSynthesis engine = new SpeechSynthesis(storageContext, null);
+        VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), engine);
 
         group.addPreference(createImportVoicePreference(context));
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));

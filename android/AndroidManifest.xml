@@ -9,12 +9,14 @@
         android:required="false" />
 
     <application
+        android:name="com.reecedunn.espeak.EspeakApp"
         android:icon="@drawable/icon"
         android:theme="@style/AppTheme"
         android:label="@string/app_name" >
         <service
             android:name=".TtsService"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:directBootAware="true">
             <intent-filter>
                 <action android:name="android.intent.action.TTS_SERVICE" />
 
