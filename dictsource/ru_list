@@ -117,7 +117,7 @@ _,      zVpit'aja
 бы    $u  // would
 
 // prepositions
-в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
+в       v  $u         // to,in,at 
 для        $u         // for
 за        $u // behind
 за      $atend  // stressed at the end
@@ -132,6 +132,9 @@ _,      zVpit'aja
 // conjunctions
 а         $u $pause  // and
 и       i $u $pause  // and
+или             $u
+или             $atend       // stressed at the end
+
 ибо       $u $pause  // for
 ибо       $u $pause  // if
 но        $u $pause  // but
