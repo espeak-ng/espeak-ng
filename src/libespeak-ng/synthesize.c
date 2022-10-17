@@ -1043,14 +1043,10 @@ void DoPhonemeMarker(int type, int char_posn, int length, char *name)
 	// This could be used to return an index to the word currently being spoken
 	// Type 7=phoneme
 
-	int *p;
-
 	if (WcmdqFree() > 5) {
 		wcmdq[wcmdq_tail][0] = WCMD_MARKER + (type << 8);
 		wcmdq[wcmdq_tail][1] = (char_posn & 0xffffff) | (length << 24);
-		p = (int *)name;
-		wcmdq[wcmdq_tail][2] = p[0]; // up to 8 bytes of UTF8 characters
-		wcmdq[wcmdq_tail][3] = p[1];
+		memcpy(&wcmdq[wcmdq_tail][2], name, 8); // up to 8 bytes of UTF8 characters
 		WcmdqInc();
 	}
 }
