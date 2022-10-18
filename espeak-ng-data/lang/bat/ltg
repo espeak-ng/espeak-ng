@@ -7,8 +7,6 @@ dictionary lv
 dictrules 2   // Setting for Latgalian pronunciation
 words 0 2
 pitch 64 118
-breath   10 2 1 0 0 0 0 0
-breathw  20 42 85 200 500 1000
 tone 60 150 204 100 400 255 700 10 3000 255
 stressAmp 12 10 8 8 0 0 15 16
 stressLength 160 140 200 140 0 0 240 160
