@@ -4342,7 +4342,7 @@ _nicol) ette       '?Et@-    // Nicolette
 
 // one sylable plus "færdig" - stressed æ
      @) færdig     f'Erdi    // bluf'ærdig
-    @@) færdig     fErdi     $1 // f'ingerfærdig
+    _) færdig fardi      // f'ingerfærdig
 
 // General rule, most words with af- plus consonant: f => w
      a) f (C       w

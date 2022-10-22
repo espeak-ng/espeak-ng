@@ -45,6 +45,8 @@
 #include "speech.h"               // for MAKE_MEM_UNDEFINED
 #include "translateword.h"
 
+static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes);
+
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
 static char translator2_language[20] = { 0 };
@@ -317,7 +319,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int source_ix;
 	int len;
 	int ix;
-	int sylimit; // max. number of syllables in a word to be combined with a preceding preposition
 	const char *new_language;
 	int bad_phoneme;
 	int word_flags;
@@ -429,61 +430,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		}
 
 		if ((flags & FLAG_COMBINE) && !(wtab[1].flags & FLAG_PHONEMES)) {
-			char *p2;
-			bool ok = true;
-			unsigned int flags2[2];
-			int c_word2;
-			char ph_buf[N_WORD_PHONEMES];
-
-			flags2[0] = 0;
-			sylimit = tr->langopts.param[LOPT_COMBINE_WORDS];
-
-			// LANG=cs,sk
-			// combine a preposition with the following word
-			p2 = word;
-			while (*p2 != ' ') p2++;
-
-			utf8_in(&c_word2, p2+1); // first character of the next word;
-			if (!iswalpha(c_word2))
-				ok = false;
-
-			if (ok == true) {
-				strcpy(ph_buf, word_phonemes);
-
-				flags2[0] = TranslateWord(translator, p2+1, wtab+1, NULL);
-				if ((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
-					ok = false;
-
-				if (sylimit & 0x100) {
-					// only if the second word has $alt attribute
-					if ((flags2[0] & FLAG_ALT_TRANS) == 0)
-						ok = false;
-				}
-
-				if ((sylimit & 0x200) && ((wtab+1)->flags & FLAG_LAST_WORD)) {
-					// not if the next word is end-of-sentence
-					ok = false;
-				}
-
-				if (ok == false)
-					strcpy(word_phonemes, ph_buf);
-			}
-
-			if (ok) {
-				*p2 = '-'; // replace next space by hyphen
-				wtab[0].flags &= ~FLAG_ALL_UPPER; // prevent it being considered an abbreviation
-				flags = TranslateWord(translator, word, wtab, NULL); // translate the combined word
-				if ((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f))) {
-					// revert to separate words
-					*p2 = ' ';
-					flags = TranslateWord(translator, word, wtab, NULL);
-				} else {
-					if (flags == 0)
-						flags = flags2[0]; // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
-					flags |= FLAG_SKIPWORDS;
-					dictionary_skipwords = 1;
-				}
-			}
+			CombineFlag(tr, wtab, word, &flags, p, word_phonemes);
 		}
 
 		if (p[0] == phonSWITCH) {
@@ -1761,6 +1708,70 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			*voice_change = voice_change_name;
 		else
 			*voice_change = NULL;
+	}
+}
+
+
+static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes) {
+	// combine a preposition with the following word
+
+
+	int sylimit; // max. number of syllables in a word to be combined with a preceding preposition
+	sylimit = tr->langopts.param[LOPT_COMBINE_WORDS];
+
+
+	char *p2;
+	p2 = word;
+	while (*p2 != ' ') p2++;
+
+	bool ok = true;
+	int c_word2;
+
+	utf8_in(&c_word2, p2+1); // first character of the next word;
+
+	if (!iswalpha(c_word2))
+		ok = false;
+
+	int flags2[2];
+    flags2[0] = 0;
+
+
+	if (ok) {
+		char ph_buf[N_WORD_PHONEMES];
+		strcpy(ph_buf, word_phonemes);
+
+		flags2[0] = TranslateWord(tr, p2+1, wtab+1, NULL);
+		if ((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
+			ok = false;
+
+		if ((sylimit & 0x100) && ((flags2[0] & FLAG_ALT_TRANS) == 0)) {
+			// only if the second word has $alt attribute
+			ok = false;
+		}
+
+		if ((sylimit & 0x200) && ((wtab+1)->flags & FLAG_LAST_WORD)) {
+			// not if the next word is end-of-sentence
+			ok = false;
+		}
+
+		if (ok == false)
+			strcpy(word_phonemes, ph_buf);
+	}
+
+	if (ok) {
+		*p2 = '-'; // replace next space by hyphen
+		wtab[0].flags &= ~FLAG_ALL_UPPER; // prevent it being considered an abbreviation
+		*flags = TranslateWord(translator, word, wtab, NULL); // translate the combined word
+		if ((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f))) {
+			// revert to separate words
+			*p2 = ' ';
+			*flags = TranslateWord(translator, word, wtab, NULL);
+		} else {
+			if (*flags == 0)
+				*flags = flags2[0]; // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
+			*flags |= FLAG_SKIPWORDS;
+			dictionary_skipwords = 1;
+		}
 	}
 }
 
