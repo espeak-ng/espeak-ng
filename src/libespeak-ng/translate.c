@@ -46,6 +46,7 @@
 #include "translateword.h"
 
 static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes);
+static void SwitchLanguage(char *word, char *word_phonemes);
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -391,28 +392,13 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	p = (unsigned char *)word_phonemes;
 	if (word_flags & FLAG_PHONEMES) {
 		// The input is in phoneme mnemonics, not language text
-		int c1;
-		char lang_name[12];
 
 		if (memcmp(word, "_^_", 3) == 0) {
-			// switch languages
-			word += 3;
-			for (ix = 0;;) {
-				c1 = *word++;
-				if ((c1 == ' ') || (c1 == 0))
-					break;
-				lang_name[ix++] = tolower(c1);
-			}
-			lang_name[ix] = 0;
-
-			if ((ix = LookupPhonemeTable(lang_name)) > 0) {
-				SelectPhonemeTable(ix);
-				word_phonemes[0] = phonSWITCH;
-				word_phonemes[1] = ix;
-				word_phonemes[2] = 0;
-			}
-		} else
+			SwitchLanguage(word, word_phonemes);
+		} else {
 			EncodePhonemes(word, word_phonemes, &bad_phoneme);
+		}
+
 		flags = FLAG_FOUND;
 	} else {
 		int c2;
@@ -1711,7 +1697,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 }
 
-
 static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes) {
 	// combine a preposition with the following word
 
@@ -1772,6 +1757,29 @@ static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, 
 			*flags |= FLAG_SKIPWORDS;
 			dictionary_skipwords = 1;
 		}
+	}
+}
+
+static void SwitchLanguage(char *word, char *word_phonemes) {
+	char lang_name[12];
+	int ix;
+	int  c1;
+
+	word += 3;
+
+	for (ix = 0;;) {
+		c1 = *word++;
+		if ((c1 == ' ') || (c1 == 0))
+			break;
+		lang_name[ix++] = tolower(c1);
+	}
+	lang_name[ix] = 0;
+
+	if ((ix = LookupPhonemeTable(lang_name)) > 0) {
+		SelectPhonemeTable(ix);
+		word_phonemes[0] = phonSWITCH;
+		word_phonemes[1] = ix;
+		word_phonemes[2] = 0;
 	}
 }
 
