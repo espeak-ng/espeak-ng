@@ -966,51 +966,48 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 
 	if (ph_buf[0] == 0) {
 		// character name not found
+		speak_letter_number = 1;
+		if (!(al_flags & AL_NO_SYMBOL)) {
+			if (iswalpha(letter))
+				Lookup(translator, "_?A", ph_buf);
 
-		if (ph_buf[0] == 0) {
-			speak_letter_number = 1;
-			if (!(al_flags & AL_NO_SYMBOL)) {
-				if (iswalpha(letter))
-					Lookup(translator, "_?A", ph_buf);
+			if ((ph_buf[0] == 0) && !iswspace(letter))
+				Lookup(translator, "_??", ph_buf);
 
-				if ((ph_buf[0] == 0) && !iswspace(letter))
-					Lookup(translator, "_??", ph_buf);
+			if (ph_buf[0] == 0)
+				EncodePhonemes("l'et@", ph_buf, NULL);
+		}
 
-				if (ph_buf[0] == 0)
-					EncodePhonemes("l'et@", ph_buf, NULL);
-			}
+		if (!(control & 4) && (al_flags & AL_NOT_CODE)) {
+			// don't speak the character code number, unless we want full details of this character
+			speak_letter_number = 0;
+		}
 
-			if (!(control & 4) && (al_flags & AL_NOT_CODE)) {
-				// don't speak the character code number, unless we want full details of this character
-				speak_letter_number = 0;
-			}
-
-			if (speak_letter_number) {
-				if (al_offset == 0x2800) {
-					// braille dots symbol, list the numbered dots
-					p2 = hexbuf;
-					for (ix = 0; ix < 8; ix++) {
-						if (letter & (1 << ix))
-							*p2++ = '1'+ix;
-					}
-					*p2 = 0;
-				} else {
-					// speak the hexadecimal number of the character code
-					sprintf(hexbuf, "%x", letter);
+		if (speak_letter_number) {
+			if (al_offset == 0x2800) {
+				// braille dots symbol, list the numbered dots
+				p2 = hexbuf;
+				for (ix = 0; ix < 8; ix++) {
+					if (letter & (1 << ix))
+						*p2++ = '1'+ix;
 				}
-
-				pbuf = ph_buf;
-				for (p2 = hexbuf; *p2 != 0; p2++) {
-					pbuf += strlen(pbuf);
-					*pbuf++ = phonPAUSE_VSHORT;
-					LookupLetter(translator, *p2, 0, pbuf, 1);
-					if (((pbuf[0] == 0) || (pbuf[0] == phonSWITCH)) && (*p2 >= 'a')) {
-						// This language has no translation for 'a' to 'f', speak English names using base phonemes
-						EncodePhonemes(hex_letters[*p2 - 'a'], pbuf, NULL);
-					}
-				}
-				strcat(pbuf, pause_string);
+				*p2 = 0;
+			} else {
+				// speak the hexadecimal number of the character code
+				sprintf(hexbuf, "%x", letter);
 			}
+
+			pbuf = ph_buf;
+			for (p2 = hexbuf; *p2 != 0; p2++) {
+				pbuf += strlen(pbuf);
+				*pbuf++ = phonPAUSE_VSHORT;
+				LookupLetter(translator, *p2, 0, pbuf, 1);
+				if (((pbuf[0] == 0) || (pbuf[0] == phonSWITCH)) && (*p2 >= 'a')) {
+					// This language has no translation for 'a' to 'f', speak English names using base phonemes
+					EncodePhonemes(hex_letters[*p2 - 'a'], pbuf, NULL);
+				}
+			}
+			strcat(pbuf, pause_string);
 		}
 	}
 
