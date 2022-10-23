@@ -45,6 +45,7 @@
 #include "speech.h"               // for MAKE_MEM_UNDEFINED
 #include "translateword.h"
 
+static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count);
 static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes);
 static void SwitchLanguage(char *word, char *word_phonemes);
 
@@ -1068,15 +1069,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	words[0].start = ix;
 	words[0].flags = 0;
 
-	for (j = 0; charix[j] <= 0; j++) ;
-	words[0].sourceix = charix[j];
-	k = 0;
-	while (charix[j] != 0) {
-		// count the number of characters (excluding multibyte continuation bytes)
-		if (charix[j++] != -1)
-			k++;
-	}
-	words[0].length = k;
+	words[0].length = CalcWordLength(source_index, charix_top, charix, words, 0);
 
 	while (!finished && (ix < (int)sizeof(sbuf) - 1)) {
 		prev_out2 = prev_out;
@@ -1453,16 +1446,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				words[word_count].start = ix;
 				words[word_count].flags = 0;
 
-				for (j = source_index; j < charix_top && charix[j] <= 0; j++) // skip blanks
-					;
-				words[word_count].sourceix = charix[j];
-				k = 0;
-				while (charix[j] != 0) {
-					// count the number of characters (excluding multibyte continuation bytes)
-					if (charix[j++] != -1)
-						k++;
-				}
-				words[word_count].length = k;
+				words[word_count].length = CalcWordLength(source_index, charix_top, charix, words, word_count);
 
 				word_flags = next_word_flags;
 				next_word_flags = 0;
@@ -1696,6 +1680,21 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			*voice_change = NULL;
 	}
 }
+
+static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count) {
+	int j;
+	int k;
+
+	for (j = source_index; j < charix_top && charix[j] <= 0; j++); // skip blanks
+	words[word_count].sourceix = charix[j];
+	k = 0;
+	while (charix[j] != 0) {
+		// count the number of characters (excluding multibyte continuation bytes)
+		if (charix[j++] != -1)
+			k++;
+	}
+	return k;
+	}
 
 static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes) {
 	// combine a preposition with the following word
