@@ -26,6 +26,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <wctype.h>
+#include <errno.h>
+#include <limits.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -1471,7 +1473,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	// "words" of 3 digits may be preceded by another number "word" for thousands or millions
 
 	int n_digits;
-	int value;
+	long value;
 	int ix;
 	int digix;
 	unsigned char c;
@@ -1482,7 +1484,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int thousands_inc = 0;
 	int prev_thousands = 0;
 	int ordinal = 0;
-	int this_value;
+	long this_value;
 	int decimal_count;
 	int max_decimal_count;
 	int decimal_mode;
@@ -1502,6 +1504,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	static const char str_pause[2] = { phonPAUSE_NOLINK, 0 };
 
+	char *end;
+
 	*flags = 0;
 	n_digit_lookup = 0;
 	buf_digit_lookup[0] = 0;
@@ -1510,7 +1514,11 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	for (ix = 0; IsDigit09(word[ix]); ix++) ;
 	n_digits = ix;
-	value = this_value = atoi(word);
+	errno = 0;
+	this_value = strtol(word, &end, 10);
+	if (errno || end == word || this_value > INT_MAX)
+		return 0; // long number, speak as individual digits
+	value = this_value;
 
 	group_len = 3;
 	if (tr->langopts.numbers2 & NUM2_MYRIADS)
