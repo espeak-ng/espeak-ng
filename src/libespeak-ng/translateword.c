@@ -674,16 +674,15 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
 {
 	// apply after the translation is complete
-
-	int ix;
 	int len;
-	char *p;
+
 
 	len = strlen(phonemes);
 
 	if (tr->langopts.param[LOPT_ALT] & 2) {
-		for (ix = 0; ix < (len-1); ix++) {
+		for (int ix = 0; ix < (len-1); ix++) {
 			if (phonemes[ix] == phonSTRESS_P) {
+				char *p;
 				p = &phonemes[ix+1];
 				if ((dict_flags & FLAG_ALT2_TRANS) != 0) {
 					if (*p == PhonemeCode('E'))
@@ -795,18 +794,11 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 	int n_bytes;
 	int letter;
 	int len;
-	int ix;
-	int c;
-	char *p2;
-	char *pbuf;
-	const char *modifier;
 	ALPHABET *alphabet;
 	int al_offset;
 	int al_flags;
-	int language;
 	int number;
 	int phontab_1;
-	int speak_letter_number;
 	char capital[30];
 	char ph_buf[80];
 	char ph_buf2[80];
@@ -834,8 +826,11 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 
 	if (ph_buf[0] == 0) {
 		// is this a subscript or superscript letter ?
+		int c;
 		if ((c = IsSuperscript(letter)) != 0) {
 			letter = c & 0x3fff;
+
+			const char *modifier;
 			if ((control & 4 ) && ((modifier = modifiers[c >> 14]) != NULL)) {
 				// don't say "superscript" during normal text reading
 				Lookup(tr, modifier, capital);
@@ -909,6 +904,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 	// caution: SetWordStress() etc don't expect phonSWITCH + phoneme table number
 
 	if (ph_buf[0] == 0) {
+		int language;
 		if ((al_offset != 0) && (al_offset == translator->langopts.alt_alphabet))
 			language = translator->langopts.alt_alphabet_lang;
 		else if ((alphabet != NULL) && (alphabet->language != 0) && !(al_flags & AL_NOT_LETTERS))
@@ -918,19 +914,21 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 
 		if ((language != tr->translator_name) || (language == L('k', 'o'))) {
 			char *p3;
-			int initial, code;
+			//int initial, code;
 			char hangul_buf[12];
 
 			// speak in the language for this alphabet (or English)
 			ph_buf[2] = SetTranslator3(WordToString2(language));
 
 			if (translator3 != NULL) {
+				int code;
 				if (((code = letter - 0xac00) >= 0) && (letter <= 0xd7af)) {
 					// Special case for Korean letters.
 					// break a syllable hangul into 2 or 3 individual jamo
 
 					hangul_buf[0] = ' ';
 					p3 = &hangul_buf[1];
+					int initial;
 					if ((initial = (code/28)/21) != 11) {
 						p3 += utf8_out(initial + 0x1100, p3);
 					}
@@ -966,7 +964,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 
 	if (ph_buf[0] == 0) {
 		// character name not found
-		speak_letter_number = 1;
+		int speak_letter_number = 1;
 		if (!(al_flags & AL_NO_SYMBOL)) {
 			if (iswalpha(letter))
 				Lookup(translator, "_?A", ph_buf);
@@ -984,10 +982,11 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 		}
 
 		if (speak_letter_number) {
+			char *p2;
 			if (al_offset == 0x2800) {
 				// braille dots symbol, list the numbered dots
 				p2 = hexbuf;
-				for (ix = 0; ix < 8; ix++) {
+				for (int ix = 0; ix < 8; ix++) {
 					if (letter & (1 << ix))
 						*p2++ = '1'+ix;
 				}
@@ -997,6 +996,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 				sprintf(hexbuf, "%x", letter);
 			}
 
+			char *pbuf;
 			pbuf = ph_buf;
 			for (p2 = hexbuf; *p2 != 0; p2++) {
 				pbuf += strlen(pbuf);
@@ -1046,8 +1046,6 @@ static int CheckDottedAbbrev(char *word1)
 {
 	int wc;
 	int count = 0;
-	int nbytes;
-	int ok;
 	int ix;
 	char *word;
 	char *wbuf;
@@ -1057,8 +1055,8 @@ static int CheckDottedAbbrev(char *word1)
 	wbuf = word_buf;
 
 	for (;;) {
-		ok = 0;
-		nbytes = utf8_in(&wc, word);
+		int ok = 0;
+		int nbytes = utf8_in(&wc, word);
 		if ((word[nbytes] == ' ') && IsAlpha(wc)) {
 			if (word[nbytes+1] == '.') {
 				if (word[nbytes+2] == ' ')
