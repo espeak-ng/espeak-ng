@@ -132,7 +132,6 @@ int utf8_in2(int *c, const char *buf, int backwards)
 
 	int c1;
 	int n_bytes;
-	int ix;
 	static const unsigned char mask[4] = { 0xff, 0x1f, 0x0f, 0x07 };
 
 	// find the start of the next/previous character
@@ -155,6 +154,7 @@ int utf8_in2(int *c, const char *buf, int backwards)
 			n_bytes = 3;
 
 		c1 &= mask[n_bytes];
+		int ix;
 		for (ix = 0; ix < n_bytes; ix++)
 		{
 			if (!*buf)
@@ -271,9 +271,7 @@ int IsSpace(unsigned int c)
 int isspace2(unsigned int c)
 {
 	// can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
-	int c2;
-
-	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
+	if ( ((c & 0xff) == 0) || (c > ' '))
 		return 0;
 	return 1;
 }
@@ -290,10 +288,10 @@ int Read4Bytes(FILE *f)
 {
 	// Read 4 bytes (least significant first) into a word
 	int ix;
-	unsigned char c;
 	int acc = 0;
 
 	for (ix = 0; ix < 4; ix++) {
+		unsigned char c;
 		c = fgetc(f) & 0xff;
 		acc += (c << (ix*8));
 	}

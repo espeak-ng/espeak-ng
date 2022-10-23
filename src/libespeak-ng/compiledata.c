@@ -1207,13 +1207,13 @@ static int LoadWavefile(FILE *f, const char *fname)
 	fseek(f, 40, SEEK_SET);
 
 	if ((sr1 != samplerate_native) || (sr2 != sr1*2)) {
-		int fd_temp;
 		char command[sizeof(path_home)+250];
 
 		failed = false;
 
 #ifdef HAVE_MKSTEMP
 		strcpy(fname_temp, "/tmp/espeakXXXXXX");
+		int fd_temp;
 		if ((fd_temp = mkstemp(fname_temp)) >= 0)
 			close(fd_temp);
 #else
