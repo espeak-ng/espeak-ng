@@ -271,9 +271,7 @@ int IsSpace(unsigned int c)
 int isspace2(unsigned int c)
 {
 	// can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
-	int c2;
-
-	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
+	if ( ((c & 0xff) == 0) || (c > ' '))
 		return 0;
 	return 1;
 }
