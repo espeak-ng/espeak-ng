@@ -186,11 +186,11 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 {
 	unsigned int flags[2];
 	char phonemes[55];
-	char phonemes2[55];
 	char *string1 = (char *)string;
 
 	flags[0] = flags[1] = 0;
 	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL)) {
+		char phonemes2[55];
 		SetWordStress(tr, phonemes, flags, -1, 0);
 		DecodePhonemes(phonemes, phonemes2);
 		sprintf(text_out, "[\002%s]]", phonemes2);
@@ -208,7 +208,6 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 	unsigned int flags[2];
 	char single_letter[24];
 	char phonemes[60];
-	char phonemes2[60];
 	const char *lang_name = NULL;
 	char *string;
 	static char buf[60];
@@ -255,6 +254,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 	}
 
 	if (phonemes[0]) {
+		char phonemes2[60];
 		if (lang_name) {
 			SetWordStress(translator2, phonemes, flags, -1, 0);
 			DecodePhonemes(phonemes, phonemes2);
@@ -277,7 +277,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	// c1:  the punctuation character
 	// c2:  the following character
 
-	int punct_count;
+
 	const char *punctname = NULL;
 	int soundicon;
 	int attributes;
@@ -286,7 +286,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int len;
 	int bufix1;
 	char buf[200];
-	char buf2[80];
 	char ph_buf[30];
 
 	c2 = *c2_ptr;
@@ -307,8 +306,9 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		if (punctname == NULL)
 			return -1;
 
+
 		if ((*bufix == 0) || (end_clause == 0) || (tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2)) {
-			punct_count = 1;
+			int punct_count = 1;
 			while (!Eof() && (c2 == c1) && (c1 != '<')) { // don't eat extra '<', it can miss XML tags
 				punct_count++;
 				c2 = GetC();
@@ -324,6 +324,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				if (embedded_value[EMBED_S] < 300)
 					sprintf(buf, "\001+10S"); // Speak punctuation name faster, unless we are already speaking fast.  It would upset Sonic SpeedUp
 
+				char buf2[80];
 				while (punct_count-- > 0) {
 					sprintf(buf2, " %s", punctname);
 					strcat(buf, buf2);
@@ -381,7 +382,6 @@ int AddNameData(const char *name, int wide)
 
 	int ix;
 	int len;
-	void *vp;
 
 	if (wide) {
 		len = (wcslen((const wchar_t *)name)+1)*sizeof(wchar_t);
@@ -391,6 +391,7 @@ int AddNameData(const char *name, int wide)
 
 	if (namedata_ix+len >= n_namedata) {
 		// allocate more space for marker names
+		void *vp;
 		if ((vp = realloc(namedata, namedata_ix+len + 1000)) == NULL)
 			return -1;  // failed to allocate, original data is unchanged but ignore this new name
 		// !!! Bug?? If the allocated data shifts position, then pointers given to user application will be invalid
@@ -490,7 +491,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int c1 = ' '; // current character
 	int c2; // next character
 	int cprev = ' '; // previous character
-	int cprev2 = ' ';
 	int c_next;
 	int parag;
 	int ix = 0;
@@ -548,8 +548,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				return CLAUSE_NONE;
 			}
 		}
-
-		cprev2 = cprev;
+		int cprev2 = cprev;
 		cprev = c1;
 		c1 = c2;
 
