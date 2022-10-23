@@ -72,7 +72,6 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	f = NULL;
 	if ((f = fopen(fname, "rb")) != NULL) {
 		int ix;
-		int fd_temp;
 		int header[3];
 		char command[sizeof(fname2)+sizeof(fname2)+40];
 
@@ -92,6 +91,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 
 #ifdef HAVE_MKSTEMP
 			strcpy(fname_temp, "/tmp/espeakXXXXXX");
+			int fd_temp;
 			if ((fd_temp = mkstemp(fname_temp)) >= 0)
 				close(fd_temp);
 #else
