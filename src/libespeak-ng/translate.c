@@ -349,12 +349,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if ((word[0] == 0) || (word_flags & FLAG_DELETE_WORD)) {
 		// nothing to translate.  Add a dummy phoneme to carry any embedded commands
 		if (embedded_flag) {
-			ph_list2[n_ph_list2].phcode = phonEND_WORD;
-			ph_list2[n_ph_list2].stresslevel = 0;
+			SetPlist2(&ph_list2[n_ph_list2], phonEND_WORD);
 			ph_list2[n_ph_list2].wordstress = 0;
-			ph_list2[n_ph_list2].tone_ph = 0;
-			ph_list2[n_ph_list2].synthflags = embedded_flag;
-			ph_list2[n_ph_list2].sourceix = 0;
 			n_ph_list2++;
 			embedded_flag = 0;
 		}
