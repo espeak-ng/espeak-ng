@@ -145,8 +145,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 {
 	char words_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 	char *phonemes = words_phonemes;
-	int available = N_WORD_PHONEMES;
-	bool first_word = true;
+
 
 	int flags = TranslateWord3(tr, word_start, wtab, word_out, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
 	if (flags & FLAG_TEXTMODE && word_out) {
@@ -158,6 +157,8 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 		strcpy(word+2, word_out);
 		word_out = word+2;
 
+			bool first_word = true;
+			int available = N_WORD_PHONEMES;
 		while (*word_out && available > 1) {
 			int c;
 			utf8_in(&c, word_out);
@@ -234,11 +235,9 @@ static void Word_EmbeddedCmd()
 {
 	// Process embedded commands for emphasis, sayas, and break
 	int embedded_cmd;
-	int value;
-
 	do {
 		embedded_cmd = embedded_list[embedded_read++];
-		value = embedded_cmd >> 8;
+		int value = embedded_cmd >> 8;
 
 		switch (embedded_cmd & 0x1f)
 		{
@@ -320,11 +319,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	bool first_phoneme = true;
 	int source_ix;
 	int len;
-	int ix;
-	const char *new_language;
 	int bad_phoneme;
 	int word_flags;
-	int word_copy_len;
 	char word_copy[N_WORD_BYTES+1];
 	char word_replaced[N_WORD_BYTES+1];
 	char old_dictionary_name[40];
@@ -399,7 +395,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		flags = FLAG_FOUND;
 	} else {
 		int c2;
-		ix = 0;
+		int ix = 0;
+		int word_copy_len;
 		while (((c2 = word_copy[ix] = word[ix]) != ' ') && (c2 != 0) && (ix < N_WORD_BYTES)) ix++;
 		word_copy_len = ix;
 
@@ -423,6 +420,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				// this word uses a different language
 				memcpy(word, word_copy, word_copy_len);
 
+				const char *new_language;
 				new_language = (char *)(&p[1]);
 				if (new_language[0] == 0)
 					new_language = ESPEAKNG_DEFAULT_VOICE;
@@ -836,9 +834,6 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	// To allow language specific examination and replacement of characters
 
 	int code;
-	int initial;
-	int medial;
-	int final;
 	int next2;
 
 	static const unsigned char hangul_compatibility[0x34] = {
@@ -854,9 +849,9 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	// check for Korean Hangul letters
 	if (((code = c - 0xac00) >= 0) && (c <= 0xd7af)) {
 		// break a syllable hangul into 2 or 3 individual jamo
-		initial = (code/28)/21;
-		medial = (code/28) % 21;
-		final = code % 28;
+		int initial = (code/28)/21;
+		int medial = (code/28) % 21;
+		int final = code % 28;
 
 		if (initial == 11) {
 			// null initial
@@ -905,13 +900,12 @@ static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng
 
 static int UpperCaseInWord(Translator *tr, char *word, int c)
 {
-	int ix;
-	int len;
-	const char *p;
-
 	if (tr->translator_name == L('g', 'a')) {
-		// Irish
+		int ix;
+		const char *p;
+
 		for (ix = 0;; ix++) {
+			int len;
 			if ((p = UCase_ga[ix]) == NULL)
 				break;
 
@@ -931,11 +925,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	int c;
 	int cc = 0;
 	unsigned int source_index = 0;
-	unsigned int prev_source_index = 0;
 	int source_index_word = 0;
 	int prev_in;
 	int prev_out = ' ';
-	int prev_out2;
 	int prev_in_save = 0;
 	int next_in;
 	int next_in_nbytes;
@@ -1067,6 +1059,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 	words[0].length = CalcWordLength(source_index, charix_top, charix, words, 0);
 
+	int prev_out2;
 	while (!finished && (ix < (int)sizeof(sbuf) - 1)) {
 		prev_out2 = prev_out;
 		utf8_in2(&prev_out, &sbuf[ix-1], 1);
@@ -1082,7 +1075,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		} else if (source_index > 0)
 			utf8_in2(&prev_in, &source[source_index-1], 1);
 
-		prev_source_index = source_index;
+		unsigned int prev_source_index = source_index;
 
 		if (char_inserted) {
 			c = char_inserted;
@@ -1496,7 +1489,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		int c_temp;
 		char *pn;
 		char *pw;
-		int nw;
 		char number_buf[150];
 		WORD_TAB num_wtab[50]; // copy of 'words', when splitting numbers into parts
 
@@ -1541,12 +1533,13 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 		if (n_digits > 4 && n_digits <= 32) {
 			// word is entirely digits, insert commas and break into 3 digit "words"
+			int nw = 0;
+
 			number_buf[0] = ' ';
 			number_buf[1] = ' ';
 			number_buf[2] = ' ';
 			pn = &number_buf[3];
 			nx = n_digits;
-			nw = 0;
 
 			if ((n_digits > tr->langopts.max_digits) || (word[0] == '0'))
 				words[ix].flags |= FLAG_INDIVIDUAL_DIGITS;
@@ -1758,11 +1751,11 @@ static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, 
 static void SwitchLanguage(char *word, char *word_phonemes) {
 	char lang_name[12];
 	int ix;
-	int  c1;
 
 	word += 3;
 
 	for (ix = 0;;) {
+		int  c1;
 		c1 = *word++;
 		if ((c1 == ' ') || (c1 == 0))
 			break;
