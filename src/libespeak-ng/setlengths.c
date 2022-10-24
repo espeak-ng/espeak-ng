@@ -38,6 +38,8 @@
 #include "synthesize.h"
 #include "translate.h"
 
+static void SetSpeedMods(int wpm, int x);
+
 extern int saved_parameters[];
 
 // convert from words-per-minute to internal speed factor
@@ -143,7 +145,6 @@ static int speed3 = 118;
 void SetSpeed(int control)
 {
 	int x;
-	int s1;
 	int wpm;
 	int wpm2;
 	int wpm_value;
@@ -218,53 +219,8 @@ void SetSpeed(int control)
 	}
 
 	if (control & 2) {
-		// these are used in synthesis file
-
-		if (wpm > 350) {
-			speed.lenmod_factor = 85 - (wpm - 350) / 3;
-			speed.lenmod2_factor = 60 - (wpm - 350) / 8;
-		} else if (wpm > 250) {
-			speed.lenmod_factor = 110 - (wpm - 250)/4;
-			speed.lenmod2_factor = 110 - (wpm - 250)/2;
-		}
-
-		s1 = (x * voice->speedf1)/256;
-
-		if (wpm >= 170)
-			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
-		else
-			speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
-
-		if (wpm >= 350)
-			speed.wav_factor = wav_factor_350[wpm-350];
-
-		if (wpm >= 390) {
-			speed.min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
-			if (wpm > 440)
-				speed.min_sample_len = 420 - (wpm - 440);
-		}
-
-		// adjust for different sample rates
-		speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
-
-		speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
-		speed.clause_pause_factor = 0;
-
-		if (wpm > 430)
-			speed.pause_factor = 12;
-		else if (wpm > 400)
-			speed.pause_factor = 13;
-		else if (wpm > 374)
-			speed.pause_factor = 14;
-		else if (wpm > 350)
-			speed.pause_factor = pause_factor_350[wpm - 350];
-
-		if (speed.clause_pause_factor == 0) {
-			// restrict the reduction of pauses between clauses
-			if ((speed.clause_pause_factor = speed.pause_factor) < 16)
-				speed.clause_pause_factor = 16;
-		}
-	}
+    		SetSpeedMods(wpm, x);
+    	}
 }
 
 #else
@@ -273,7 +229,6 @@ void SetSpeed(int control)
 {
 	// This is the earlier version of SetSpeed() before sonic speed-up was added
 	int x;
-	int s1;
 	int wpm;
 	int wpm2;
 
@@ -314,53 +269,63 @@ void SetSpeed(int control)
 	}
 
 	if (control & 2) {
-		// these are used in synthesis file
-
-		if (wpm > 350) {
-			speed.lenmod_factor = 85 - (wpm - 350) / 3;
-			speed.lenmod2_factor = 60 - (wpm - 350) / 8;
-		} else if (wpm > 250) {
-			speed.lenmod_factor = 110 - (wpm - 250)/4;
-			speed.lenmod2_factor = 110 - (wpm - 250)/2;
-		}
-
-		s1 = (x * voice->speedf1)/256;
-
-		if (wpm >= 170)
-			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
-		else
-			speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
-
-		if (wpm >= 350)
-			speed.wav_factor = wav_factor_350[wpm-350];
-
-		if (wpm >= 390) {
-			speed.min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
-			if (wpm > 440)
-				speed.min_sample_len = 420 - (wpm - 440);
-		}
-
-		speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
-		speed.clause_pause_factor = 0;
-
-		if (wpm > 430)
-			speed.pause_factor = 12;
-		else if (wpm > 400)
-			speed.pause_factor = 13;
-		else if (wpm > 374)
-			speed.pause_factor = 14;
-		else if (wpm > 350)
-			speed.pause_factor = pause_factor_350[wpm - 350];
-
-		if (speed.clause_pause_factor == 0) {
-			// restrict the reduction of pauses between clauses
-			if ((speed.clause_pause_factor = speed.pause_factor) < 16)
-				speed.clause_pause_factor = 16;
-		}
+		SetSpeedMods(wpm, x);
 	}
 }
 
 #endif
+
+static void SetSpeedMods(int wpm, int x) {
+	// these are used in synthesis file
+
+	if (wpm > 350) {
+		speed.lenmod_factor = 85 - (wpm - 350) / 3;
+		speed.lenmod2_factor = 60 - (wpm - 350) / 8;
+	} else if (wpm > 250) {
+		speed.lenmod_factor = 110 - (wpm - 250)/4;
+		speed.lenmod2_factor = 110 - (wpm - 250)/2;
+	}
+
+
+	int s1 = (x * voice->speedf1)/256;
+
+	if (wpm >= 170)
+		speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
+	else
+		speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
+
+	if (wpm >= 350)
+		speed.wav_factor = wav_factor_350[wpm-350];
+
+	if (wpm >= 390) {
+		speed.min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
+		if (wpm > 440)
+			speed.min_sample_len = 420 - (wpm - 440);
+	}
+
+#if HAVE_SONIC_H
+	// adjust for different sample rates
+	speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
+#endif
+
+	speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
+	speed.clause_pause_factor = 0;
+
+	if (wpm > 430)
+		speed.pause_factor = 12;
+	else if (wpm > 400)
+		speed.pause_factor = 13;
+	else if (wpm > 374)
+		speed.pause_factor = 14;
+	else if (wpm > 350)
+		speed.pause_factor = pause_factor_350[wpm - 350];
+
+	if (speed.clause_pause_factor == 0) {
+		// restrict the reduction of pauses between clauses
+		if ((speed.clause_pause_factor = speed.pause_factor) < 16)
+			speed.clause_pause_factor = 16;
+	}
+}
 
 espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 {
