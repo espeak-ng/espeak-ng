@@ -38,7 +38,7 @@
 #include "synthesize.h"
 #include "translate.h"
 
-static void SetSpeedMods(int wpm, int x);
+static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x);
 
 extern int saved_parameters[];
 
@@ -219,8 +219,8 @@ void SetSpeed(int control)
 	}
 
 	if (control & 2) {
-    		SetSpeedMods(wpm, x);
-    	}
+		SetSpeedMods(&speed, voice->speedf1, wpm, x);
+	}
 }
 
 #else
@@ -269,56 +269,70 @@ void SetSpeed(int control)
 	}
 
 	if (control & 2) {
-		SetSpeedMods(wpm, x);
+		SetSpeedMods(&speed, voice->speedf1, wpm, x);
+
 	}
 }
 
 #endif
 
-static void SetSpeedMods(int wpm, int x) {
+static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3) {
+	// set speed factors for different syllable positions within a word
+	// these are used in CalcLengths()
+	speed1 = (x * voice->speedf1)/256;
+	speed2 = (x * voice->speedf2)/256;
+	speed3 = (x * voice->speedf3)/256;
+
+	if (x <= 7) {
+		speed1 = x;
+		speed2 = speed3 = x - 1;
+	}
+}
+
+static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x) {
 	// these are used in synthesis file
 
 	if (wpm > 350) {
-		speed.lenmod_factor = 85 - (wpm - 350) / 3;
-		speed.lenmod2_factor = 60 - (wpm - 350) / 8;
+		speed->lenmod_factor = 85 - (wpm - 350) / 3;
+		speed->lenmod2_factor = 60 - (wpm - 350) / 8;
 	} else if (wpm > 250) {
-		speed.lenmod_factor = 110 - (wpm - 250)/4;
-		speed.lenmod2_factor = 110 - (wpm - 250)/2;
+		speed->lenmod_factor = 110 - (wpm - 250)/4;
+		speed->lenmod2_factor = 110 - (wpm - 250)/2;
 	}
 
 
-	int s1 = (x * voice->speedf1)/256;
+	int s1 = (x * voiceSpeedF1)/256;
 
 	if (wpm >= 170)
-		speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
+		speed->wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
 	else
-		speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
+		speed->wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
 
 	if (wpm >= 350)
-		speed.wav_factor = wav_factor_350[wpm-350];
+		speed->wav_factor = wav_factor_350[wpm-350];
 
 	if (wpm >= 390) {
-		speed.min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
+		speed->min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
 		if (wpm > 440)
-			speed.min_sample_len = 420 - (wpm - 440);
+			speed->min_sample_len = 420 - (wpm - 440);
 	}
 
-	speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
-	speed.clause_pause_factor = 0;
+	speed->pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
+	speed->clause_pause_factor = 0;
 
 	if (wpm > 430)
-		speed.pause_factor = 12;
+		speed->pause_factor = 12;
 	else if (wpm > 400)
-		speed.pause_factor = 13;
+		speed->pause_factor = 13;
 	else if (wpm > 374)
-		speed.pause_factor = 14;
+		speed->pause_factor = 14;
 	else if (wpm > 350)
-		speed.pause_factor = pause_factor_350[wpm - 350];
+		speed->pause_factor = pause_factor_350[wpm - 350];
 
-	if (speed.clause_pause_factor == 0) {
+	if (speed->clause_pause_factor == 0) {
 		// restrict the reduction of pauses between clauses
-		if ((speed.clause_pause_factor = speed.pause_factor) < 16)
-			speed.clause_pause_factor = 16;
+		if ((speed->clause_pause_factor = speed->pause_factor) < 16)
+			speed->clause_pause_factor = 16;
 	}
 }
 
