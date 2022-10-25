@@ -303,11 +303,6 @@ static void SetSpeedMods(int wpm, int x) {
 			speed.min_sample_len = 420 - (wpm - 440);
 	}
 
-#if HAVE_SONIC_H
-	// adjust for different sample rates
-	speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
-#endif
-
 	speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
 	speed.clause_pause_factor = 0;
 
