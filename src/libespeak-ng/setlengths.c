@@ -40,6 +40,7 @@
 
 static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3);
 static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x);
+static void SetSpeedMultiplier(int *x, int *wpm);
 
 extern int saved_parameters[];
 
@@ -193,18 +194,7 @@ void SetSpeed(int control)
 		return;
 	}
 
-	if (wpm > espeakRATE_MAXIMUM)
-		wpm = espeakRATE_MAXIMUM;
-
-	wpm2 = wpm;
-	if (wpm > 359) wpm2 = 359;
-	if (wpm < espeakRATE_MINIMUM) wpm2 = espeakRATE_MINIMUM;
-	x = speed_lookup[wpm2-espeakRATE_MINIMUM];
-
-	if (wpm >= 380)
-		x = 7;
-	if (wpm >= 400)
-		x = 6;
+	SetSpeedMultiplier(&x, &wpm);
 
 	if (control & 1) {
 		SetSpeedFactors(voice, x, &speed1, &speed2, &speed3);
@@ -234,18 +224,8 @@ void SetSpeed(int control)
 
 	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
-	if (wpm > espeakRATE_MAXIMUM)
-		wpm = espeakRATE_MAXIMUM;
 
-	wpm2 = wpm;
-	if (wpm > 359) wpm2 = 359;
-	if (wpm < espeakRATE_MINIMUM) wpm2 = espeakRATE_MINIMUM;
-	x = speed_lookup[wpm2-espeakRATE_MINIMUM];
-
-	if (wpm >= 380)
-		x = 7;
-	if (wpm >= 400)
-		x = 6;
+	SetSpeedMultiplier(&x, &wpm);
 
 	if (control & 1) {
 		SetSpeedFactors(voice, x, &speed1, &speed2, &speed3);
@@ -258,6 +238,26 @@ void SetSpeed(int control)
 }
 
 #endif
+
+static void SetSpeedMultiplier(int *x, int *wpm) {
+	int wpm2;
+
+	if (*wpm > espeakRATE_MAXIMUM)
+		*wpm = espeakRATE_MAXIMUM;
+
+	wpm2 = *wpm;
+	if (*wpm > 359) wpm2 = 359;
+	if (*wpm < espeakRATE_MINIMUM) {
+		wpm2 = espeakRATE_MINIMUM;
+	}
+
+	*x = speed_lookup[wpm2-espeakRATE_MINIMUM];
+
+	if (*wpm >= 380)
+		*x = 7;
+	if (*wpm >= 400)
+		*x = 6;
+}
 
 static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3) {
 	// set speed factors for different syllable positions within a word
