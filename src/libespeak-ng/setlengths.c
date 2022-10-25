@@ -156,10 +156,7 @@ void SetSpeed(int control)
 		wpm = embedded_value[EMBED_S2];
 
 	#if HAVE_SONIC_H
-	int wpm2;
 	int wpm_value;
-	double sonic;
-
 	speed.min_pause = 5;
 
 	wpm_value = wpm;
@@ -170,6 +167,7 @@ void SetSpeed(int control)
 	if (control & 2)
 		DoSonicSpeed(1 * 1024);
 	if ((wpm_value >= espeakRATE_MAXIMUM) || ((wpm_value > speed.fast_settings) && (wpm > 350))) {
+		int wpm2;
 		wpm2 = wpm;
 		wpm = espeakRATE_NORMAL;
 
@@ -182,6 +180,7 @@ void SetSpeed(int control)
 			speed3 = (x * voice->speedf3)/256;
 		}
 		if (control & 2) {
+			double sonic;
 			sonic = ((double)wpm2)/wpm;
 			DoSonicSpeed((int)(sonic * 1024));
 			speed.pause_factor = 85;
@@ -297,11 +296,11 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 	// relative 0=absolute  1=relative
 
 	int new_value = value;
-	int default_value;
 	extern const int param_defaults[N_SPEECH_PARAM];
 
 	if (relative) {
 		if (parameter < 5) {
+			int default_value;
 			default_value = param_defaults[parameter];
 			new_value = default_value + (default_value * value)/100;
 		}
@@ -374,14 +373,13 @@ void CalcLengths(Translator *tr)
 	PHONEME_LIST *p;
 	PHONEME_LIST *p2;
 
-	int stress;
-	int type;
 	static int more_syllables = 0;
 	bool pre_sonorant = false;
 	bool pre_voiced = false;
 	int last_pitch = 0;
 	int pitch_start;
 	int length_mod;
+
 	int next2type;
 	int len;
 	int env2;
@@ -389,12 +387,16 @@ void CalcLengths(Translator *tr)
 	int embedded_ix = 0;
 	int min_drop;
 	int pitch1;
-	int emphasized;
+
 	int tone_mod;
 	unsigned char *pitch_env = NULL;
 	PHONEME_DATA phdata_tone;
 
+
 	for (ix = 1; ix < n_phoneme_list; ix++) {
+		int stress;
+		int emphasized;
+
 		prev = &phoneme_list[ix-1];
 		p = &phoneme_list[ix];
 		stress = p->stresslevel & 0x7;
@@ -405,6 +407,7 @@ void CalcLengths(Translator *tr)
 		if (p->synthflags & SFLAG_EMBEDDED)
 			DoEmbedded2(&embedded_ix);
 
+		int type;
 		type = p->type;
 		if (p->synthflags & SFLAG_SYLLABLE)
 			type = phVOWEL;
