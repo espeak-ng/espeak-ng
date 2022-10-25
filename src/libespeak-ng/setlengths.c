@@ -38,6 +38,7 @@
 #include "synthesize.h"
 #include "translate.h"
 
+static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3);
 static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x);
 
 extern int saved_parameters[];
@@ -206,16 +207,7 @@ void SetSpeed(int control)
 		x = 6;
 
 	if (control & 1) {
-		// set speed factors for different syllable positions within a word
-		// these are used in CalcLengths()
-		speed1 = (x * voice->speedf1)/256;
-		speed2 = (x * voice->speedf2)/256;
-		speed3 = (x * voice->speedf3)/256;
-
-		if (x <= 7) {
-			speed1 = x;
-			speed2 = speed3 = x - 1;
-		}
+		SetSpeedFactors(voice, x, &speed1, &speed2, &speed3);
 	}
 
 	if (control & 2) {
@@ -256,16 +248,7 @@ void SetSpeed(int control)
 		x = 6;
 
 	if (control & 1) {
-		// set speed factors for different syllable positions within a word
-		// these are used in CalcLengths()
-		speed1 = (x * voice->speedf1)/256;
-		speed2 = (x * voice->speedf2)/256;
-		speed3 = (x * voice->speedf3)/256;
-
-		if (x <= 7) {
-			speed1 = x;
-			speed2 = speed3 = x - 1;
-		}
+		SetSpeedFactors(voice, x, &speed1, &speed2, &speed3);
 	}
 
 	if (control & 2) {
@@ -279,13 +262,13 @@ void SetSpeed(int control)
 static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3) {
 	// set speed factors for different syllable positions within a word
 	// these are used in CalcLengths()
-	speed1 = (x * voice->speedf1)/256;
-	speed2 = (x * voice->speedf2)/256;
-	speed3 = (x * voice->speedf3)/256;
+	*speed1 = (x * voice->speedf1)/256;
+	*speed2 = (x * voice->speedf2)/256;
+	*speed3 = (x * voice->speedf3)/256;
 
 	if (x <= 7) {
-		speed1 = x;
-		speed2 = speed3 = x - 1;
+		*speed1 = x;
+		*speed2 = *speed3 = x - 1;
 	}
 }
 
