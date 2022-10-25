@@ -142,24 +142,25 @@ static int speed1 = 130;
 static int speed2 = 121;
 static int speed3 = 118;
 
-#if HAVE_SONIC_H
-
 void SetSpeed(int control)
 {
 	int x;
 	int wpm;
-	int wpm2;
-	int wpm_value;
-	double sonic;
 
 	speed.min_sample_len = espeakRATE_MAXIMUM;
 	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
-	speed.min_pause = 5;
 
 	wpm = embedded_value[EMBED_S];
 	if (control == 2)
 		wpm = embedded_value[EMBED_S2];
+
+	#if HAVE_SONIC_H
+	int wpm2;
+	int wpm_value;
+	double sonic;
+
+	speed.min_pause = 5;
 
 	wpm_value = wpm;
 
@@ -194,36 +195,10 @@ void SetSpeed(int control)
 		return;
 	}
 
-	SetSpeedMultiplier(&x, &wpm);
-
-	if (control & 1) {
-		SetSpeedFactors(voice, x, &speed1, &speed2, &speed3);
-	}
-
-	if (control & 2) {
-		SetSpeedMods(&speed, voice->speedf1, wpm, x);
-	}
-}
-
-#else
-
-void SetSpeed(int control)
-{
-	// This is the earlier version of SetSpeed() before sonic speed-up was added
-	int x;
-	int wpm;
-	int wpm2;
-
-	speed.min_sample_len = espeakRATE_MAXIMUM;
-	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
-	speed.lenmod2_factor = 100;
-
-	wpm = embedded_value[EMBED_S];
-	if (control == 2)
-		wpm = embedded_value[EMBED_S2];
-
+	#else
 	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
+	#endif
 
 	SetSpeedMultiplier(&x, &wpm);
 
@@ -233,11 +208,8 @@ void SetSpeed(int control)
 
 	if (control & 2) {
 		SetSpeedMods(&speed, voice->speedf1, wpm, x);
-
 	}
 }
-
-#endif
 
 static void SetSpeedMultiplier(int *x, int *wpm) {
 	int wpm2;
