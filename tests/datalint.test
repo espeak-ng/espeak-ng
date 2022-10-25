@@ -53,7 +53,7 @@ _lang_line = LineStart() + (
   (Keyword('stressAdd')    + _int + _int + _int + _int + _int + _int + _int + _int) |
   (Keyword('stressAmp')    + _int + _int + _int + _int + _int + _int + _int + _int) |
   (Keyword('intonation') + _int) |
-  (Keyword('dict_min') + _int) | # should be dictmin?
+  (Keyword('dict_min') + _int) |
 
   # Voice attributes - should not be used...
   (Keyword('pitch') + rest_of_line) |
