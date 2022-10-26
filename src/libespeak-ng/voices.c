@@ -112,9 +112,7 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 	int pt;
 	int y;
 	int freq1 = 0;
-	int freq2;
 	int height1 = tone_pts[1];
-	int height2;
 
 	for (pt = 0; pt < 12; pt += 2) {
 		if (tone_pts[pt] == -1) {
@@ -122,6 +120,9 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 			if (pt > 0)
 				tone_pts[pt+1] = tone_pts[pt-1];
 		}
+		int freq2;
+		int height2;
+		
 		freq2 = tone_pts[pt] / 8; // 8Hz steps
 		height2 = tone_pts[pt+1];
 		if ((freq2 - freq1) > 0) {
@@ -378,9 +379,9 @@ void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab
 	// store them as flags in *flags
 	// the meaning of the  numbers is bit ordinals, not integer values
 	// give an error if number > maxValue is read
-	int n;
 	while (*p != 0) {
 		while (isspace(*p)) p++;
+		int n;
 		if ((n = atoi(p)) > 0) {
 			p++;
 			if (n < maxValue) {
@@ -420,9 +421,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char phonemes_name[40] = "";
 	const char *language_type;
 	char buf[sizeof(path_home)+30];
-	char path_voices[sizeof(path_home)+12];
-
-
 	char name1[40];
 	char name2[80];
 
@@ -448,6 +446,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		if (voicename[0] == 0 && !(control & 8)/*compiling phonemes*/)
 			strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
+		char path_voices[sizeof(path_home)+12];
 		sprintf(path_voices, "%s%cvoices%c", path_home, PATHSEP, PATHSEP);
 		sprintf(buf, "%s%s", path_voices, voicename); // look in the main voices directory
 
@@ -729,7 +728,6 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
 	// Remove any voice variant suffix (name or number) from a voice name
 	// Returns the voice variant name
 
-	char *p;
 	static char variant_name[40];
 	char variant_prefix[5];
 
@@ -740,6 +738,7 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
 		variant_prefix[0] = 0;
 
 	if (vname != NULL) {
+		char *p;
 		if ((p = strchr(vname, '+')) != NULL) {
 			// The voice name has a +variant suffix
 			variant_num = 0;
@@ -809,18 +808,9 @@ static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 
 static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
 {
-	int ix;
 	const char *p;
-	int c1, c2;
-	int language_priority;
-	int n_parts;
-	int matching;
-	int matching_parts;
 	int score = 0;
 	int x;
-	int ratio;
-	int required_age;
-	int diff;
 
 	p = voice->languages; // list of languages+dialects for which this voice is suitable
 
@@ -841,13 +831,15 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 
 		// compare the required language with each of the languages of this voice
 		while (*p != 0) {
-			language_priority = *p++;
+			int language_priority = *p++;
 
-			matching = 1;
-			matching_parts = 0;
-			n_parts = 1;
 
+			int n_parts = 1;
+			int matching = 1;
+			int matching_parts = 0;
+			int ix;
 			for (ix = 0;; ix++) {
+				int c1, c2;
 				if ((ix >= spec_lang_len) || ((c1 = spec_language[ix]) == '-'))
 					c1 = 0;
 				if ((c2 = p[ix]) == '-')
@@ -872,6 +864,7 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 
 			x = 5;
 			// reduce the score if not all parts of the required language match
+			int diff;
 			if ((diff = (spec_n_parts - matching_parts)) > 0)
 				x -= diff;
 
@@ -908,11 +901,13 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 		score += 5; // give some preference for non-child female voice if a child is requested
 
 	if (voice->age != 0) {
+		int required_age;
 		if (voice_spec->age == 0)
 			required_age = 30;
 		else
 			required_age = voice_spec->age;
 
+		int ratio;
 		ratio = (required_age*100)/voice->age;
 		if (ratio < 100)
 			ratio = 10000/ratio;
@@ -940,7 +935,6 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 	int lang_len = 0;
 	espeak_VOICE *vp;
 	char language[80];
-	char buf[sizeof(path_home)+80];
 
 	// count number of parts in the specified language
 	if ((voice_select->languages != NULL) && (voice_select->languages[0] != 0)) {
@@ -958,6 +952,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 			lang_len = 2;
 		}
 
+		char buf[sizeof(path_home)+80];
 		sprintf(buf, "%s/voices/%s", path_home, language);
 		if (GetFileLength(buf) == -EISDIR) {
 			// A subdirectory name has been specified.  List all the voices in that subdirectory
@@ -1003,7 +998,6 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 	int match_fname2 = -1;
 	int match_name = -1;
 	const char *id; // this is the filename within espeak-ng-data/voices
-	char *variant_name;
 	int last_part_len;
 	char last_part[41];
 	char name[40];
@@ -1015,10 +1009,6 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 	}
 
 	strncpy0(name, name2, sizeof(name));
-	if ((variant_name = strchr(name, '+')) != NULL) {
-		*variant_name = 0;
-		variant_name++;
-	}
 
 	sprintf(last_part, "%c%s", PATHSEP, name);
 	last_part_len = strlen(last_part);
@@ -1059,7 +1049,6 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	int n_variants;
 	int variant_number;
 	int gender;
-	int skip;
 	int aged = 1;
 	char *variant_name;
 	const char *p, *p_start;
@@ -1138,14 +1127,14 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	for (ix = 0, ix2 = 0; ix < nv; ix++) {
 		vp = voices[ix];
 		// is the main voice the required gender?
-		skip = 0;
+		bool skip = false;
 
 		if ((gender != ENGENDER_UNKNOWN) && (vp->gender != gender))
-			skip = 1;
+			skip = true;
 		if ((ix2 == 0) && aged && (vp->age < AGE_OLD))
-			skip = 1;
+			skip = true;
 
-		if (skip == 0)
+		if (skip == false)
 			voices2[ix2++] = vp;
 
 		for (j = 0; (j < vp->xx1) && (n_variants < N_VOICE_VARIANTS);) {
@@ -1393,8 +1382,6 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {
 	char path_voices[sizeof(path_home)+12];
 
-	int ix;
-	int j;
 	espeak_VOICE *v;
 	static espeak_VOICE **voices = NULL;
 
@@ -1422,6 +1409,9 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 		SetVoiceScores(voice_spec, voices, 1);
 	} else {
 		// list all: omit variant and mbrola voices
+		int ix;
+		int j;
+
 		j = 0;
 		for (ix = 0; (v = voices_list[ix]) != NULL; ix++) {
 			if ((v->languages[0] != 0) && (strcmp(&v->languages[1], "variant") != 0)

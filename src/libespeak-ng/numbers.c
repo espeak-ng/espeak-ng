@@ -1202,15 +1202,14 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 				sprintf(ph_out, "%s%s%s%s", ph_tens, ph_and, ph_digits, ph_ordinal);
 			used_and = 1;
 		} else {
-			if (tr->langopts.numbers & NUM_SINGLE_VOWEL) {
+			if ((tr->langopts.numbers & NUM_SINGLE_VOWEL) && ph_digits[0] != 0) {
 				// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
-				if (((ix = strlen(ph_tens)-1) >= 0) && (ph_digits[0] != 0)) {
-					if ((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
-						next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
+				ix = strlen(ph_tens) - 1;
+				if ((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
+					next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
 
-					if ((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
-						ph_tens[ix] = 0;
-				}
+				if ((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
+					ph_tens[ix] = 0;
 			}
 
 			if ((tr->langopts.numbers2 & NUM2_ORDINAL_DROP_VOWEL) && (ph_ordinal[0] != 0)) {
