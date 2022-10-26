@@ -1054,7 +1054,6 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	int n_variants;
 	int variant_number;
 	int gender;
-	int skip;
 	int aged = 1;
 	char *variant_name;
 	const char *p, *p_start;
@@ -1133,14 +1132,14 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	for (ix = 0, ix2 = 0; ix < nv; ix++) {
 		vp = voices[ix];
 		// is the main voice the required gender?
-		skip = 0;
+		bool skip = false;
 
 		if ((gender != ENGENDER_UNKNOWN) && (vp->gender != gender))
-			skip = 1;
+			skip = true;
 		if ((ix2 == 0) && aged && (vp->age < AGE_OLD))
-			skip = 1;
+			skip = true;
 
-		if (skip == 0)
+		if (skip == false)
 			voices2[ix2++] = vp;
 
 		for (j = 0; (j < vp->xx1) && (n_variants < N_VOICE_VARIANTS);) {
