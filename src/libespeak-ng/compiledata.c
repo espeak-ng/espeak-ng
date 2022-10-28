@@ -2698,7 +2698,19 @@ static int LookupEnvelopeName(const char *name)
 
 espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
+	return espeak_ng_CompileIntonationPath(NULL, NULL, log, context);
+}
+
+espeak_ng_STATUS
+espeak_ng_CompileIntonationPath(const char *source_path,
+                                const char *destination_path,
+                                FILE *log,
+                                espeak_ng_ERROR_CONTEXT *context
+                                )
+{
 	if (!log) log = stderr;
+	if (!source_path) source_path = path_home;
+	if (!destination_path) destination_path = path_home;
 
 	int ix;
 	char *p;
@@ -2722,9 +2734,9 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	error_count = 0;
 	f_errors = log;
 
-	sprintf(buf, "%s/../phsource/intonation.txt", path_home);
+	sprintf(buf, "%s/../phsource/intonation.txt", source_path);
 	if ((f_in = fopen(buf, "r")) == NULL) {
-		sprintf(buf, "%s/../phsource/intonation", path_home);
+		sprintf(buf, "%s/../phsource/intonation", source_path);
 		if ((f_in = fopen(buf, "r")) == NULL) {
 			int error = errno;
 			fclose(f_errors);
@@ -2777,7 +2789,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 		return ENOMEM;
 	}
 
-	sprintf(buf, "%s/intonations", path_home);
+	sprintf(buf, "%s/intonations", destination_path);
 	f_out = fopen(buf, "wb");
 	if (f_out == NULL) {
 		int error = errno;

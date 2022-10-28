@@ -191,6 +191,13 @@ ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileIntonation(FILE *log,
                             espeak_ng_ERROR_CONTEXT *context);
 
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_CompileIntonationPath(const char *source_path,
+                                const char *destination_path,
+                                FILE *log,
+                                espeak_ng_ERROR_CONTEXT *context);
+
 /* eSpeak NG 1.49.1 */
 
 ESPEAK_NG_API espeak_ng_STATUS
