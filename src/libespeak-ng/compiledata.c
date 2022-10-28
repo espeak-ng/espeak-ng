@@ -398,7 +398,6 @@ static FILE *f_phtab;
 static FILE *f_phcontents;
 static FILE *f_errors = NULL;
 static FILE *f_prog_log = NULL;
-static FILE *f_report;
 
 static FILE *f_in;
 static int f_in_linenum;
@@ -478,81 +477,6 @@ static int ref_sorter(char **a, char **b)
 		return ix;
 
 	return p1->ph_mnemonic - p2->ph_mnemonic;
-}
-
-static void CompileReport(void)
-{
-	int ix;
-	int hash;
-	int n;
-	REF_HASH_TAB *p;
-	REF_HASH_TAB **list;
-	const char *data_path;
-	int prev_table;
-	int procedure_num;
-	int prev_mnemonic;
-
-	if (f_report == NULL || count_references == 0)
-		return;
-
-	// make a list of all the references and sort it
-	list = (REF_HASH_TAB **)malloc((count_references)* sizeof(REF_HASH_TAB *));
-	if (list == NULL)
-		return;
-
-	fprintf(f_report, "\n%d phoneme tables\n", n_phoneme_tabs);
-	fprintf(f_report, "          new total\n");
-	for (ix = 0; ix < n_phoneme_tabs; ix++)
-		fprintf(f_report, "%8s %3d %4d\n", phoneme_tab_list2[ix].name, phoneme_tab_list2[ix].n_phonemes, n_phcodes_list[ix]+1);
-	fputc('\n', f_report);
-
-	fprintf(f_report, "Data file      Used by\n");
-	ix = 0;
-	for (hash = 0; (hash < 256) && (ix < count_references); hash++) {
-		p = ref_hash_tab[hash];
-		while (p != NULL) {
-			list[ix++] = p;
-			p = (REF_HASH_TAB *)(p->link);
-		}
-	}
-	n = ix;
-	qsort((void *)list, n, sizeof(REF_HASH_TAB *), (int (*)(const void *, const void *))ref_sorter);
-
-	data_path = "";
-	prev_mnemonic = 0;
-	prev_table = 0;
-	for (ix = 0; ix < n; ix++) {
-		int j = 0;
-
-		if (strcmp(list[ix]->string, data_path) != 0) {
-			data_path = list[ix]->string;
-			j = strlen(data_path);
-			fprintf(f_report, "%s", data_path);
-		} else if ((list[ix]->ph_table == prev_table) && (list[ix]->ph_mnemonic == prev_mnemonic))
-			continue; // same phoneme, don't list twice
-
-		while (j < 14) {
-			fputc(' ', f_report); // pad filename with spaces
-			j++;
-		}
-
-		prev_mnemonic = list[ix]->ph_mnemonic;
-		if ((prev_mnemonic >> 24) == 'P') {
-			// a procedure, not a phoneme
-			procedure_num = atoi(WordToString(prev_mnemonic));
-			fprintf(f_report, "  %s  %s", phoneme_tab_list2[prev_table = list[ix]->ph_table].name, proc_names[procedure_num]);
-		} else
-			fprintf(f_report, "  [%s] %s", WordToString(prev_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
-		fputc('\n', f_report);
-	}
-
-	for (ix = 0; ix < n; ix++) {
-		free(list[ix]);
-		list[ix] = NULL;
-	}
-
-	free(list);
-	list = NULL;
 }
 
 static void error(const char *format, ...)
@@ -2485,14 +2409,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	if (f_in == NULL)
 		return create_file_error_context(context, errno, fname);
 
-	sprintf(fname, "%s/%s", phsrc, "compile_report");
-	f_report = fopen(fname, "w");
-	if (f_report == NULL) {
-		int error = errno;
-		fclose(f_in);
-		return create_file_error_context(context, error, fname);
-	}
-
 	sprintf(fname, "%s/%s", phdst, "phondata-manifest");
 	if ((f_phcontents = fopen(fname, "w")) == NULL)
 		f_phcontents = stderr;
@@ -2516,7 +2432,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	if (f_phdata == NULL) {
 		int error = errno;
 		fclose(f_in);
-		fclose(f_report);
 		fclose(f_phcontents);
 		return create_file_error_context(context, error, fname);
 	}
@@ -2526,7 +2441,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	if (f_phindex == NULL) {
 		int error = errno;
 		fclose(f_in);
-		fclose(f_report);
 		fclose(f_phcontents);
 		fclose(f_phdata);
 		return create_file_error_context(context, error, fname);
@@ -2537,7 +2451,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	if (f_phtab == NULL) {
 		int error = errno;
 		fclose(f_in);
-		fclose(f_report);
 		fclose(f_phcontents);
 		fclose(f_phdata);
 		fclose(f_phindex);
@@ -2578,10 +2491,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 		fclose(f_prog_log);
 
 	LoadPhData(NULL, NULL);
-
-	CompileReport();
-
-	fclose(f_report);
 
 	WavegenFini();
 
