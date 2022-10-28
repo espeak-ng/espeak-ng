@@ -76,7 +76,8 @@ public class TtsService extends TextToSpeechService {
     @Override
     public void onCreate() {
         storageContext = EspeakApp.getStorageContext();
-        storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
         initializeTtsEngine();
         super.onCreate();
     }
