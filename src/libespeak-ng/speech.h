@@ -56,17 +56,21 @@ extern "C"
 
 #define PLATFORM_WINDOWS
 #define PATHSEP '\\'
-#define N_PATH_HOME  230
+#define N_PATH_HOME_DEF  230
 #define NO_VARIADIC_MACROS
 
 #else
 
 #define PLATFORM_POSIX
 #define PATHSEP  '/'
-#define N_PATH_HOME  160
+#define N_PATH_HOME_DEF  160
 #define USE_NANOSLEEP
 #define __cdecl
 
+#endif
+
+#ifndef N_PATH_HOME
+#define N_PATH_HOME N_PATH_HOME_DEF
 #endif
 
 // will look for espeak_data directory here, and also in user's home directory
