@@ -2,6 +2,7 @@
 
 // Numbers
 _0      n'ojl;
+?3 _0      n'ol^
 _1      V#d;'in
 _1f     V#dn'a
 _2      dv'A
@@ -72,6 +73,7 @@ _0M10        nVn;il;i'onV#f
 _0MA10        nVn;il;i'ona
 _dpt    _:'i_:        // start of decimal fraction
 _dpt2   _d;Is;'atYx   // end of decimal fraction
+_dpt3   _sotyx   // end of decimal fraction
 
 // symbols
 _`      akts'Ent
@@ -124,6 +126,7 @@ _,      zVpit'aja
 из        $u // from
 из    $atend  // stressed at the end
 на  n@ $u         // on
+?3 на   $u         // on
 над                $u
 от        $u         // from
 с       s  $u         // with,from,since
@@ -216,6 +219,7 @@ _ж      ZE
 _к       kA
 к       kA  $atend
 л       El;
+?3 л       El^
 м       Em
 н       En_
 о       o
@@ -247,12 +251,14 @@ _с      Es
 
 // phrases
                    аудиокнига              'Aud;iV#kn;'iga#
+?3 аудиокнига              'Aud;iV#kn'iga#
            (в виду)               vv;id'u
          (в глаза)                v||glaz'A
                (в города)               v||gV#rV#d'A
       (в кому)            f||k'omu
           (во время оно)               v'o||v@-r;'em;V||'onV
                      (вряд ли)              v@-r;'Atl;I
+?3         (вряд ли)              v@-r;'Atl^I
            (всё-таки)               fs;'8tVk;I
       (где-то)               gd;'etV
            (зачем-то)        zatS;'emtV
@@ -271,11 +277,16 @@ _с      Es
              (мои глаза)               mV#'I||glaz'A
              (на свои места)             n@||svV#'I||m;ist'A
           (наконец-то)             nVkV#n;'etstV
+?3          (наконец-то)             nVkV#n'etstV#
          (на поводу)            n@||pV#vV#d'u
           (не были)              n;'ebyl;I
+?3          (не были)              n'ebyl;I
         (не было)               n;'ebylV
+?3        (не было)               n'ebylV
              (не за что)               n;'ezV#StV#
+?3             (не за что)               n'ezV#StV#
            (не с чем)              n;'estS;im
+?3           (не с чем)              n'estS;im
              (одной стороны)               V#dn'oj||stV#rV#n'y
            (от числа)          ot||tS;isl'A
              (по поводу)           pV#p'ovV#du
