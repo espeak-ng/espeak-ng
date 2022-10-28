@@ -5,30 +5,41 @@
 //letter which can carry vowel phoneme
 .L01 а е ё і о у ы э ю я
 
+// devoiced
+.L02 п х к т ш с ч ц ф
+
 // This is more economic way to express assimilation by sibilation
 .replace
        сш     шш
        сч     шч
        шс     сс
        зж     жж
-       здж    ждж
 
 .group а
        а       a
 
 .group б
        б       b
+       б (_    p
+       б (L02  p
 
 .group в
        в       v
 
 .group г
        г       Q     // ɣ
+       г (_    x
+       г (L02  x
 
 .group д
        д       d
+       д (_    t
+       д (L02  t
        дз      dz
+       дз (_   ts
        дж      dz.
+       дж (_   ts.
+       дж (L02 ts.
 
 .group е
        е       ;E    // ʲɛ
@@ -46,9 +57,14 @@
 
 .group ж
        ж       z.    // ʐ
+       ж (_    s.
+       ж (L02  s.
 
 .group з
        з       z
+       з (_    s
+       з (L02  s
+       зд (ж   z.d
 
 .group і
        і       i
