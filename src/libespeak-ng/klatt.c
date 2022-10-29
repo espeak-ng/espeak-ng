@@ -1000,9 +1000,7 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 			if ((cmd == WCMD_WAVE) || (cmd == WCMD_PAUSE))
 				break; // next is not from spectrum, so continue until end of wave cycle
 		}
-	}
 
-	if (control & 1) {
 		for (ix = 1; ix < 6; ix++) {
 			if (prev_fr.ffreq[ix] != fr1->ffreq[ix]) {
 				// Discontinuity in formants.
