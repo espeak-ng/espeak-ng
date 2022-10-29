@@ -1193,12 +1193,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 	int max = 0;
 	int length;
 	int sr1, sr2;
-	bool failed;
 	int len;
-	bool resample_wav = false;
-	const char *fname2;
-	char fname_temp[100];
-	char msg[120];
 	int scale_factor = 0;
 
 	fseek(f, 24, SEEK_SET);
@@ -1207,54 +1202,11 @@ static int LoadWavefile(FILE *f, const char *fname)
 	fseek(f, 40, SEEK_SET);
 
 	if ((sr1 != samplerate_native) || (sr2 != sr1*2)) {
-		char command[sizeof(path_home)+250];
-
-		failed = false;
-
-#ifdef HAVE_MKSTEMP
-		strcpy(fname_temp, "/tmp/espeakXXXXXX");
-		int fd_temp;
-		if ((fd_temp = mkstemp(fname_temp)) >= 0)
-			close(fd_temp);
-#else
-		strcpy(fname_temp, tmpnam(NULL));
-#endif
-
-		fname2 = fname;
-		len = strlen(fname);
-		if (strcmp(&fname[len-4], ".wav") == 0) {
-			strcpy(msg, fname);
-			msg[len-4] = 0;
-			fname2 = msg;
-		}
-
-		sprintf(command, "sox \"%s/%s.wav\" -r %d -c1 -t wav %s\n", phsrc, fname2, samplerate_native, fname_temp);
-		if (system(command) != 0)
-			failed = true;
-
-		if (failed || (GetFileLength(fname_temp) <= 0)) {
-			if (resample_fails < 2)
-				error("Resample command failed: %s", command);
-			resample_fails++;
-
-			if (sr1 != samplerate_native)
-				error("Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
-			else
-				error("WAV file is not mono: %s", fname);
-			remove(fname_temp);
-			return 0;
-		}
-
-		f = fopen(fname_temp, "rb");
-		if (f == NULL) {
-			error("Can't read temp file: %s", fname_temp);
-			return 0;
-		}
-		if (f_report != NULL)
-			fprintf(f_report, "resampled  %s\n", fname);
-		resample_count++;
-		resample_wav = true;
-		fseek(f, 40, SEEK_SET); // skip past the WAV header, up to before "data length"
+		if (sr1 != samplerate_native)
+			error("Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
+		else
+			error("WAV file is not mono: %s", fname);
+		return 0;
 	}
 
 	displ = ftell(f_phdata);
@@ -1325,10 +1277,6 @@ static int LoadWavefile(FILE *f, const char *fname)
 		length++;
 	}
 
-	if (resample_wav == true) {
-		fclose(f);
-		remove(fname_temp);
-	}
 	return displ | 0x800000; // set bit 23 to indicate a wave file rather than a spectrum
 }
 
