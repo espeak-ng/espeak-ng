@@ -63,8 +63,6 @@
 #include "voice.h"                // for FreeVoiceList, VoiceReset, current_...
 #include "wavegen.h"              // for WavegenFill, WavegenInit, WcmdqUsed
 
-static espeak_ng_STATUS StatusCreateTerminatedMsg(t_espeak_command *c1, unsigned int *unique_identifier, void *user_data);
-
 unsigned char *outbuf = NULL;
 int outbuf_size = 0;
 unsigned char *out_start;
@@ -688,7 +686,22 @@ espeak_ng_Synthesize(const void *text, size_t size,
 		*unique_identifier = c1->u.my_text.unique_identifier;
 	}
 
-	return StatusCreateTerminatedMsg(c1, unique_identifier, user_data);
+	// Create the "terminated msg" command (same uid)
+	t_espeak_command *c2 = create_espeak_terminated_msg(*unique_identifier, user_data);
+
+	// Try to add these 2 commands (single transaction)
+	if (c1 && c2) {
+		espeak_ng_STATUS status = fifo_add_commands(c1, c2);
+		if (status != ENS_OK) {
+			delete_espeak_command(c1);
+			delete_espeak_command(c2);
+		}
+		return status;
+	}
+
+	delete_espeak_command(c1);
+	delete_espeak_command(c2);
+	return ENOMEM;
 #else
 	return sync_espeak_Synth(0, text, position, position_type, end_position, flags, user_data);
 #endif
@@ -723,7 +736,22 @@ espeak_ng_SynthesizeMark(const void *text,
 		*unique_identifier = c1->u.my_mark.unique_identifier;
 	}
 
-	return StatusCreateTerminatedMsg(c1, unique_identifier, user_data);
+	// Create the "terminated msg" command (same uid)
+	t_espeak_command *c2 = create_espeak_terminated_msg(*unique_identifier, user_data);
+
+	// Try to add these 2 commands (single transaction)
+	if (c1 && c2) {
+		espeak_ng_STATUS status = fifo_add_commands(c1, c2);
+		if (status != ENS_OK) {
+			delete_espeak_command(c1);
+			delete_espeak_command(c2);
+		}
+		return status;
+	}
+
+	delete_espeak_command(c1);
+	delete_espeak_command(c2);
+	return ENOMEM;
 #else
 	return sync_espeak_Synth_Mark(0, text, index_mark, end_position, flags, user_data);
 #endif
@@ -936,25 +964,4 @@ ESPEAK_API const char *espeak_Info(const char **ptr)
 	return version_string;
 }
 
-
 #pragma GCC visibility pop
-
-
-static espeak_ng_STATUS StatusCreateTerminatedMsg(t_espeak_command *c1, unsigned int *unique_identifier, void *user_data) {
-// Create the "terminated msg" command (same uid)
-	t_espeak_command *c2 = create_espeak_terminated_msg(*unique_identifier, user_data);
-
-	// Try to add these 2 commands (single transaction)
-	if (c1 && c2) {
-		espeak_ng_STATUS status = fifo_add_commands(c1, c2);
-		if (status != ENS_OK) {
-			delete_espeak_command(c1);
-			delete_espeak_command(c2);
-		}
-		return status;
-	}
-
-	delete_espeak_command(c1);
-	delete_espeak_command(c2);
-	return ENOMEM;
-}
