@@ -52,6 +52,7 @@
 #include "translate.h"                // for LANGUAGE_OPTIONS, DeleteTranslator
 #include "wavegen.h"                  // for InitBreath
 
+static int AddToVoicesList(const char *fname, int len_path_voices, int is_language_file);
 
 
 static const MNEM_TAB genders[] = {
@@ -1175,9 +1176,6 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 static void GetVoices(const char *path, int len_path_voices, int is_language_file)
 {
-	FILE *f_voice;
-	espeak_VOICE *voice_data;
-	int ftype;
 	char fname[sizeof(path_home)+100];
 
 #ifdef PLATFORM_WINDOWS
@@ -1198,22 +1196,8 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 
 		if (FindFileData.cFileName[0] != '.') {
 			sprintf(fname, "%s%c%s", path, PATHSEP, FindFileData.cFileName);
-			ftype = GetFileLength(fname);
-
-			if (ftype == -EISDIR) {
-				// a sub-directory
-				GetVoices(fname, len_path_voices, is_language_file);
-			} else if (ftype > 0) {
-				// a regular file, add it to the voices list
-				if ((f_voice = fopen(fname, "r")) == NULL)
-					continue;
-
-				// pass voice file name within the voices directory
-				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, is_language_file);
-				fclose(f_voice);
-
-				if (voice_data != NULL)
-					voices_list[n_voices_list++] = voice_data;
+			if (AddToVoicesList(fname, len_path_voices, is_language_file) != 0) {
+				continue;
 			}
 		}
 	} while (FindNextFileA(hFind, &FindFileData) != 0);
@@ -1234,25 +1218,11 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 		if (ent->d_name[0] == '.')
 			continue;
 
-		sprintf(fname, "%s%c%s", path, PATHSEP, ent->d_name);
-
-		ftype = GetFileLength(fname);
-
-		if (ftype == -EISDIR) {
-			// a sub-directory
-			GetVoices(fname, len_path_voices, is_language_file);
-		} else if (ftype > 0) {
-			// a regular file, add it to the voices list
-			if ((f_voice = fopen(fname, "r")) == NULL)
+			 sprintf(fname, "%s%c%s", path, PATHSEP, ent->d_name);
+			if (AddToVoicesList(fname, len_path_voices, is_language_file) != 0) {
 				continue;
+			}
 
-			// pass voice file name within the voices directory
-			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, is_language_file);
-			fclose(f_voice);
-
-			if (voice_data != NULL)
-				voices_list[n_voices_list++] = voice_data;
-		}
 	}
 	closedir(dir);
 #endif
@@ -1429,3 +1399,27 @@ ESPEAK_API espeak_VOICE *espeak_GetCurrentVoice(void)
 }
 
 #pragma GCC visibility pop
+
+static int AddToVoicesList(const char *fname, int len_path_voices, int is_language_file) {
+	int ftype = GetFileLength(fname);
+
+	if (ftype == -EISDIR) {
+		// a sub-directory
+		GetVoices(fname, len_path_voices, is_language_file);
+	} else if (ftype > 0) {
+		// a regular file, add it to the voices list
+		FILE *f_voice;
+		if ((f_voice = fopen(fname, "r")) == NULL)
+			return 1;
+
+		// pass voice file name within the voices directory
+		espeak_VOICE *voice_data;
+		voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, is_language_file);
+		fclose(f_voice);
+
+		if (voice_data != NULL)
+			voices_list[n_voices_list++] = voice_data;
+			return 0;
+	}
+	return 0;
+}
