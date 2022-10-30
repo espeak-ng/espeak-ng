@@ -427,6 +427,7 @@ updated languages:
 
 new languages:
 
+*  crh (Crimean Tatar) -- Andiv06
 *  gn (Guarani) -- ChrisLeo
 *  ky (Kyrgyz) -- JRMeyer
 *  mb-br2 (Brazillian Portuguese)
