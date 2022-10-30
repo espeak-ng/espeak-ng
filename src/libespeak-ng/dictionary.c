@@ -1473,19 +1473,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	int ix;
 
 	int match_type;       // left, right, or consume
-	int failed;
-	int unpron_ignore;
-	int consumed;         // number of letters consumed from input
 	int syllable_count;
 	int vowel;
 	int letter_group;
-	int distance_right;
-	int distance_left;
 	int lg_pts;
 	int n_bytes;
 	int add_points;
 	int command;
-	bool check_atstart;
 	unsigned int *flags;
 
 	MatchRecord match;
@@ -1516,13 +1510,15 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 	// search through dictionary rules
 	while (rule[0] != RULE_GROUP_END) {
-		unpron_ignore = word_flags & FLAG_UNPRON_TEST;
+		bool check_atstart = false;
+		int consumed = 0;         // number of letters consumed from input
+		int distance_left = -2;
+        int distance_right = -6; // used to reduce points for matches further away the current letter
+		int failed = 0;
+		int unpron_ignore = word_flags & FLAG_UNPRON_TEST;
+
 		match_type = 0;
-		consumed = 0;
 		letter_w = 0;
-		distance_right = -6; // used to reduce points for matches further away the current letter
-		distance_left = -2;
-		check_atstart = false;
 
 		match.points = 1;
 		match.end_type = 0;
@@ -1534,9 +1530,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 		// work through next rule until end, or until no-match proved
 		rule_start = rule;
 
-		failed = 0;
 		while (!failed) {
 			rb = *rule++;
+			add_points = 0;
 
 			if (rb <= RULE_LINENUM) {
 				switch (rb)
@@ -1602,8 +1598,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				}
 				continue;
 			}
-
-			add_points = 0;
 
 			switch (match_type)
 			{
@@ -2079,12 +2073,10 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	unsigned char c, c2;
 	unsigned int c12;
 	int wc = 0;
-	int wc_bytes;
 	char *p2;           // copy of p for use in double letter chain match
 	int found;
 	int g;              // group chain number
 	int g1;             // first group for this letter
-	int n;
 	int letter;
 	int any_alpha = 0;
 	int ix;
@@ -2133,11 +2125,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		end_phonemes[0] = 0;
 
 	while (((c = *p) != ' ') && (c != 0)) {
-		wc_bytes = utf8_in(&wc, p);
+		int wc_bytes = utf8_in(&wc, p);
 		if (IsAlpha(wc))
 			any_alpha++;
 
-		n = tr->groups2_count[c];
+		int n = tr->groups2_count[c];
 		if (IsDigit(wc) && ((tr->langopts.tone_numbers == 0) || !any_alpha)) {
 			// lookup the number in *_list not *_rules
 			char string[8];
@@ -2331,8 +2323,6 @@ int TransposeAlphabet(Translator *tr, char *text)
 	// return: number of bytes, bit 6: 1=used compression
 
 	int c;
-	int c2;
-	int ix;
 	int offset;
 	int min;
 	int max;
@@ -2340,10 +2330,7 @@ int TransposeAlphabet(Translator *tr, char *text)
 	char *p = text;
 	char *p2;
 	bool all_alpha = true;
-	int bits;
-	int acc;
 	int pairs_start;
-	const short *pairs_list;
 	int bufix;
 	char buf[N_WORD_BYTES+1];
 
@@ -2380,14 +2367,16 @@ int TransposeAlphabet(Translator *tr, char *text)
 
 	if (all_alpha) {
 		// compress to 6 bits per character
-		acc = 0;
-		bits = 0;
+		int ix;
+		int acc = 0;
+		int bits = 0;
 
 		p = buf;
 		p2 = buf;
 		while ((c = *p++) != 0) {
+			const short *pairs_list;
 			if ((pairs_list = tr->frequent_pairs) != NULL) {
-				c2 = c + (*p << 8);
+				int c2 = c + (*p << 8);
 				for (ix = 0; c2 >= pairs_list[ix]; ix++) {
 					if (c2 == pairs_list[ix]) {
 						// found an encoding for a 2-character pair
@@ -2849,9 +2838,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 
 	int flags0;
 	unsigned int flags[2];
-	int say_as;
 	char *word1 = (char *)word;
-	char text[80];
 
 	flags[0] = 0;
 	flags[1] = FLAG_LOOKUP_SYMBOL;
@@ -2859,11 +2846,13 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		flags0 = flags[0];
 
 	if (flags[0] & FLAG_TEXTMODE) {
-		say_as = option_sayas;
+		int say_as = option_sayas;
 		option_sayas = 0; // don't speak replacement word as letter names
 		// NOTE: TranslateRoman checks text[-2] and IsLetterGroup looks
 		// for a heading \0, so pad the start of text to prevent
 		// it reading data on the stack.
+		char text[80];
+
 		text[0] = 0;
 		text[1] = ' ';
 		text[2] = ' ';
@@ -2902,8 +2891,6 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	char *word_end;
 	int len_ending;
 	int end_flags;
-	const char *p;
-	int len;
 	char ending[50] = {0};
 
 	// these lists are language specific, but are only relevant if the 'e' suffix flag is used
@@ -2972,16 +2959,18 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			if (IsLetter(tr, word_end[-1], LETTERGP_VOWEL2) && IsLetter(tr, word_end[0], 1)) {
 				// vowel(incl.'y') + hard.consonant
 
+				const char *p;
 				for (i = 0; (p = add_e_exceptions[i]) != NULL; i++) {
-					len = strlen(p);
+					int len = strlen(p);
 					if (memcmp(p, &word_end[1-len], len) == 0)
 						break;
 				}
 				if (p == NULL)
 					end_flags |= FLAG_SUFX_E_ADDED; // no exception found
 			} else {
+				const char *p;
 				for (i = 0; (p = add_e_additions[i]) != NULL; i++) {
-					len = strlen(p);
+					int len = strlen(p);
 					if (memcmp(p, &word_end[1-len], len) == 0) {
 						end_flags |= FLAG_SUFX_E_ADDED;
 						break;

@@ -1065,7 +1065,7 @@ static int CheckDottedAbbrev(char *word1)
 					nbytes += 2; // delete the final dot (eg. u.s.a.'s)
 					ok = 2;
 				}
-			} else if ((count > 0) && (word[nbytes] == ' '))
+			} else if ((count > 0))
 				ok = 2;
 		}
 

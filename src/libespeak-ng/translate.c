@@ -763,7 +763,7 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 					nmatched++;
 			}
 
-			if (*from == 0 && matched) {
+			if (matched) {
 				*ignore_next_n = nmatched;
 				return from + 1;
 			}

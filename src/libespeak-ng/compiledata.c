@@ -35,7 +35,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "common.h"                    // for GetFileLength, strncpy0, ...
+#include "common.h"                    // for GetFileLength, strncpy0, ...c
 #include "error.h"                    // for create_file_error_context
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
@@ -500,25 +500,6 @@ static void error_from_status(espeak_ng_STATUS status, const char *context)
 		error("%s: '%s'.", message, context);
 	else
 		error("%s.", message);
-}
-
-static unsigned int StringToWord(const char *string)
-{
-	// Pack 4 characters into a word
-	int ix;
-	unsigned char c;
-	unsigned int word;
-
-	if (string == NULL)
-		return 0;
-
-	word = 0;
-	for (ix = 0; ix < 4; ix++) {
-		if (string[ix] == 0) break;
-		c = string[ix];
-		word |= (c << (ix*8));
-	}
-	return word;
 }
 
 static const MNEM_TAB reserved_phonemes[] = {

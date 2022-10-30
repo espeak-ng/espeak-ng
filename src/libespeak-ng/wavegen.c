@@ -449,7 +449,6 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	int hmax;
 	int hmax_samplerate; // highest harmonic allowed for the samplerate
 	int x;
-	int ix;
 	int h1;
 
 	// initialise as much of *out as we will need
@@ -516,6 +515,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		x = htab[h] >> 15;
 		htab[h] = (x * x) >> 8;
 
+		int ix;
 		if ((ix = (f >> 19)) < N_TONE_ADJUST)
 			htab[h] = (htab[h] * wvoice->tone_adjust[ix]) >> 13; // index tone_adjust with Hz/8
 	}
@@ -666,12 +666,12 @@ static int ApplyBreath(void)
 	int value = 0;
 	int noise;
 	int ix;
-	int amp;
 
 	// use two random numbers, for alternate formants
 	noise = (rand() & 0x3fff) - 0x2000;
 
 	for (ix = 1; ix < N_PEAKS; ix++) {
+		int amp;
 		if ((amp = wvoice->breath[ix]) != 0) {
 			amp *= (peaks[ix].height >> 14);
 			value += (int)resonator(&rbreath[ix], noise) * amp;
@@ -910,7 +910,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 static int PlaySilence(int length, bool resume)
 {
 	static int n_samples;
-	int value = 0;
 
 	nsamples = 0;
 	samplecount = 0;
@@ -922,6 +921,7 @@ static int PlaySilence(int length, bool resume)
 	if (resume == false)
 		n_samples = length;
 
+	int value = 0;
 	while (n_samples-- > 0) {
 		value = (echo_buf[echo_tail++] * echo_amp) >> 8;
 
@@ -1111,12 +1111,12 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 
 void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range)
 {
-	int x;
 	int base;
 	int range;
 	int pitch_value;
 
 	if (pitch1 > pitch2) {
+		int x;
 		x = pitch1; // swap values
 		pitch1 = pitch2;
 		pitch2 = x;
@@ -1171,7 +1171,6 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	int length2;
 	int length4;
 	int qix;
-	int cmd;
 	static const int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
 	static const int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
 
@@ -1194,7 +1193,7 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 		if (qix >= N_WCMDQ) qix = 0;
 		if (qix == wcmdq_tail) break;
 
-		cmd = wcmdq[qix][0];
+		int cmd = wcmdq[qix][0];
 		if (cmd == WCMD_SPECT) {
 			end_wave = 0; // next wave generation is from another spectrum
 			break;

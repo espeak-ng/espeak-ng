@@ -34,6 +34,7 @@ int IsSpace(unsigned int c);
 int isspace2(unsigned int c);
 int is_str_totally_null(const char* str, int size); // Tests if all bytes of str up to size are null
 int Read4Bytes(FILE *f);
+unsigned int StringToWord(const char *string);
 int towlower2(unsigned int c, Translator *translator); // Supports Turkish I
 
 ESPEAK_NG_API int utf8_in(int *c, const char *buf);

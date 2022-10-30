@@ -193,7 +193,6 @@ static void DoPause(int length, int control)
 	// control = 1, less shortening at fast speeds
 
 	unsigned int len;
-	int srate2;
 
 	if (length == 0)
 		len = 0;
@@ -203,7 +202,7 @@ static void DoPause(int length, int control)
 		if (len < 90000)
 			len = (len * samplerate) / 1000; // convert from mS to number of samples
 		else {
-			srate2 = samplerate / 25; // avoid overflow
+			int srate2 = samplerate / 25; // avoid overflow
 			len = (len * srate2) / 40;
 		}
 	}
@@ -402,7 +401,6 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	// RMS just adjust the formant amplitudes by the appropriate ratio
 
 	int x;
-	int h;
 	int ix;
 
 	static const short sqrt_tab[200] = {
@@ -434,6 +432,7 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	x = sqrt_tab[x]; // sqrt(new_rms/fr->rms)*0x200;
 
 	for (ix = 0; ix < 8; ix++) {
+		int h;
 		h = fr->fheight[ix] * x;
 		fr->fheight[ix] = h/0x200;
 	}
@@ -442,13 +441,11 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 static void formants_reduce_hf(frame_t *fr, int level)
 {
 	// change height of peaks 2 to 8, percentage
-	int ix;
-	int x;
-
 	if (voice->klattv[0])
 		return;
 
-	for (ix = 2; ix < 8; ix++) {
+	for (int ix = 2; ix < 8; ix++) {
+		int x;
 		x = fr->fheight[ix] * level;
 		fr->fheight[ix] = x/100;
 	}
@@ -541,10 +538,6 @@ static int VowelCloseness(frame_t *fr)
 
 int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
 {
-	int ix;
-	int formant;
-	int next_rms;
-
 	int len;
 	int rms;
 	int f1;
@@ -593,7 +586,7 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 		seq[0].frflags |= FRFLAG_LEN_MOD2; // reduce length modification
 		fr->frflags |= FRFLAG_LEN_MOD2;
 
-		next_rms = seq[1].frame->rms;
+		int next_rms = seq[1].frame->rms;
 
 		if (voice->klattv[0])
 			fr->klattp[KLATT_AV] = seq[1].frame->klattp[KLATT_AV] - 4;
@@ -637,11 +630,11 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 			set_frame_rms(fr, rms);
 
 			if ((vcolour > 0) && (vcolour <= N_VCOLOUR)) {
-				for (ix = 0; ix < *n_frames; ix++) {
+				for (int ix = 0; ix < *n_frames; ix++) {
 					fr = CopyFrame(seq[ix].frame, 0);
 					seq[ix].frame = fr;
 
-					for (formant = 1; formant <= 5; formant++) {
+					for (int formant = 1; formant <= 5; formant++) {
 						int x;
 						x = fr->ffreq[formant] * vcolouring[vcolour-1][formant-1];
 						fr->ffreq[formant] = x / 256;
@@ -854,12 +847,8 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	int frameix;
 	frame_t *frame1;
 	frame_t *frame2;
-	frame_t *fr;
-	int ix;
 	intptr_t *q;
 	int len;
-	int frame_length;
-	int length_factor;
 	int length_mod;
 	int length_sum;
 	int length_min;
@@ -927,8 +916,9 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 
 			if (last_frame->frflags & FRFLAG_BREAK_LF) {
 				// but flag indicates keep HF peaks in last segment
+				frame_t *fr;
 				fr = CopyFrame(frame1, 1);
-				for (ix = 3; ix < 8; ix++) {
+				for (int ix = 3; ix < 8; ix++) {
 					if (ix < 7)
 						fr->ffreq[ix] = last_frame->ffreq[ix];
 					fr->fheight[ix] = last_frame->fheight[ix];
@@ -947,13 +937,13 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 
 	length_sum = 0;
 	for (frameix = 1; frameix < n_frames; frameix++) {
-		length_factor = length_mod;
+		int length_factor = length_mod;
 		if (frames[frameix-1].frflags & FRFLAG_LEN_MOD) // reduce effect of length mod
 			length_factor = (length_mod*(256-speed.lenmod_factor) + 256*speed.lenmod_factor)/256;
 		else if (frames[frameix-1].frflags & FRFLAG_LEN_MOD2) // reduce effect of length mod, used for the start of a vowel
 			length_factor = (length_mod*(256-speed.lenmod2_factor) + 256*speed.lenmod2_factor)/256;
 
-		frame_length = frames[frameix-1].length;
+		int frame_length = frames[frameix-1].length;
 		len = (frame_length * samplerate)/1000;
 		len = (len * length_factor)/256;
 		length_sum += len;
@@ -1078,10 +1068,11 @@ void DoEmbedded(int *embix, int sourceix)
 {
 	// There were embedded commands in the text at this point
 	unsigned int word; // bit 7=last command for this word, bits 5,6 sign, bits 0-4 command
-	unsigned int value;
-	int command;
 
 	do {
+		unsigned int value;
+		int command;
+
 		word = embedded_list[*embix];
 		value = word >> 8;
 		command = word & 0x7f;
@@ -1133,9 +1124,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	static int ix;
 	static int embedded_ix;
 	static int word_count;
-	PHONEME_LIST *prev;
-	PHONEME_LIST *next;
-	PHONEME_LIST *next2;
 	PHONEME_LIST *p;
 	bool released;
 	int stress;
@@ -1147,7 +1135,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
 	int use_ipa = 0;
-	bool done_phoneme_marker;
 	int vowelstart_prev;
 	char phoneme_name[16];
 	static int sourceix = 0;
@@ -1202,6 +1189,10 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 		if (WcmdqFree() <= free_min)
 			return 1; // wait
 
+			PHONEME_LIST *prev;
+			PHONEME_LIST *next;
+        	PHONEME_LIST *next2;
+
 		prev = &phoneme_list[ix-1];
 		next = &phoneme_list[ix+1];
 		next2 = &phoneme_list[ix+2];
@@ -1229,7 +1220,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 		if ((p->prepause > 0) && !(p->ph->phflags & phPREVOICE))
 			DoPause(p->prepause, 1);
 
-		done_phoneme_marker = false;
+		bool done_phoneme_marker = false;
 		if (option_phoneme_events && (p->ph->code != phonEND_WORD)) {
 			if ((p->type == phVOWEL) && (prev->type == phLIQUID || prev->type == phNASAL)) {
 				// For vowels following a liquid or nasal, do the phoneme event after the vowel-start
@@ -1547,7 +1538,6 @@ int SpeakNextClause(int control)
 
 	int clause_tone;
 	char *voice_change;
-	const char *phon_out;
 
 	if (control == 2) {
 		// stop speaking
@@ -1573,6 +1563,7 @@ int SpeakNextClause(int control)
 	CalcLengths(translator);
 
 	if ((option_phonemes & 0xf) || (phoneme_callback != NULL)) {
+		const char *phon_out;
 		phon_out = GetTranslatedPhonemeString(option_phonemes);
 		if (option_phonemes & 0xf)
 			fprintf(f_trans, "%s\n", phon_out);
