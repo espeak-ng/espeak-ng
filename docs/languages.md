@@ -18,7 +18,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
 | `trk`       | `ba`              | Turkic                | Bashkir                     |                        |
 | `trk`       | `cu`              | Turkic                | Chuvash                     |                        |
-| `trk        | `trk`             | Turkic                | Crimean Tatar               |                        |
+| `trk`       | `trk`             | Turkic                | Crimean Tatar               |                        |
 |             | `eu`              |                       | Basque                      |                        |
 | `zle`       | `be`              | East Slavic           | Belarussian                 |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
