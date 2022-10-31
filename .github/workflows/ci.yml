@@ -176,6 +176,8 @@ jobs:
       if: matrix.os == 'macos-latest' && matrix.arch != 'arm-32' && matrix.arch != 'armel-32' && matrix.arch != 'arm-64'
       run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown ${{ matrix.archdeps }} ;
            brew install --HEAD anarchivist/espeak-ng/waywardgeek-sonic
+    - name: dependencies-pip
+      run: pip3 install -U pyparsing
     - name: autoconf
       if: matrix.arch != 'arm-32' && matrix.arch != 'armel-32' && matrix.arch != 'arm-64'
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
