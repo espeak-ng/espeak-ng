@@ -73,7 +73,6 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	if ((f = fopen(fname, "rb")) != NULL) {
 		int ix;
 		int header[3];
-		char command[sizeof(fname2)+sizeof(fname2)+40];
 
 		if (fseek(f, 20, SEEK_SET) == -1) {
 			int error = errno;

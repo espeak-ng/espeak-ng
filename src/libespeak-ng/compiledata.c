@@ -409,7 +409,6 @@ static int duplicate_references = 0;
 static int count_frames = 0;
 static int error_count = 0;
 static int resample_count = 0;
-static int resample_fails = 0;
 static int then_count = 0;
 static bool after_if = false;
 
@@ -460,24 +459,6 @@ enum {
 int item_type;
 int item_terminator;
 char item_string[N_ITEM_STRING];
-
-static int ref_sorter(char **a, char **b)
-{
-	int ix;
-
-	REF_HASH_TAB *p1 = (REF_HASH_TAB *)(*a);
-	REF_HASH_TAB *p2 = (REF_HASH_TAB *)(*b);
-
-	ix = strcoll(p1->string, p2->string);
-	if (ix != 0)
-		return ix;
-
-	ix = p1->ph_table - p2->ph_table;
-	if (ix != 0)
-		return ix;
-
-	return p1->ph_mnemonic - p2->ph_mnemonic;
-}
 
 static void error(const char *format, ...)
 {
@@ -1098,7 +1079,6 @@ static int LoadWavefile(FILE *f, const char *fname)
 	int max = 0;
 	int length;
 	int sr1, sr2;
-	int len;
 	int scale_factor = 0;
 
 	fseek(f, 24, SEEK_SET);
