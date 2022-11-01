@@ -1,112 +1,118 @@
-// This file is UTF8 encoded
-// Translation rules for Ukrainian
-
-// Special characters:
-// A  vowel:                   а е ё и о у ы э ю я ә ө ұ ү і
-// B  soft consonant:          ь й ч щ
-// C  any consonant:           б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь қ ң һ
-// F  consonant, not hard:     б в г д з й к л м н п р с т ф х ч щ ь
-// G  voiced:                  б в г д ж з
-// H  hard consonant:          ъ ж ц ш
-// Y  iotated vowel, softsign: ь ю я ё
+// This file is UTF-8 encoded
+/// Spelling to phoneme words and exceptions for Ukrainian
+// Author: Andrij Mizyk <andm1zyk@proton.me>, 2022
 
 .group а
-       а       a
+       а     a
 
 .group б
-       б       b
+       б     b
 
 .group в
-       в       v
+       в     B
 
 .group г
-       г       h
+       г     h  // вимовляється як середнє між г та х
 
 .group ґ
-       ґ       g
+       ґ     g
 
 .group д
-       д       d
+       д     d
+       дж    dZ
 
 .group е
-       е       e
+       е     E
 
 .group є
-       є       e
+       є     jE
 
 .group ж
-       ж       Z
+       ж     Z
 
 .group з
-       з       z
+       з     z
 
 .group и
-       и       i
+       и     I
 
 .group і
-       і       i
+       і     i:
 
 .group ї
-       ї       i
-
+       ї     ji:
 
 .group й
-       й       j
+       й     j
 
 .group к
-       к       k
+       к     k
 
 .group л
-       л       l
+       л     l
+       л (і  l^
+       лє    l^E
+       лю    l^u
+       ля    l^a
+       ль    l^
 
 .group м
-       м       m
+       м     m
 
 .group н
-       н       n
+       н     n
+       н (і  n^
+       нє    n^E
+       ню    n^u
+       ня    n^a
+       нь    n^
 
 .group о
-       о       o
+       о     o
 
 .group п
-       п       p
+       п     p
 
 .group р
-       р       r
+       р     R
 
 .group с
-       с       s
+       с     s
 
 .group т
-       т       t
+       т     t[
+       ть    t;
 
 .group у
-       у       u
+       у     u
 
 .group ф
-       ф       f
+       ф     f
 
 .group х
-       х       x
+       х     x
 
 .group ц
-       ц       ts
+       ц     ts
 
 .group ч
-       ч       tS;
+       ч     tS
 
 .group ш
-       ш       S
+       ш     S
+       ш (в  l#  // швеція
 
 .group щ
-       щ       S;
+       щ     StS
 
 .group ь
-       ь       ;
+       ь     ;
 
 .group ю
-       ю       ju
+       ю     ju
 
 .group я
-       я       ja
+       я     ja
 
+.group ʼ
+       ʼ     |

@@ -1811,6 +1811,9 @@ include ph_setswana
 phonemetable tt base1
 include ph_tatar
 
+phonemetable uk base1
+include ph_ukrainian
+
 phonemetable vi base1
 include ph_vietnam
 
@@ -2018,8 +2021,6 @@ include ph_serbian
 
 phonemetable ru-lv ru
 include ph_russian_lv
-
-phonemetable uk ru
 
 phonemetable az tr
 include ph_azerbaijani
