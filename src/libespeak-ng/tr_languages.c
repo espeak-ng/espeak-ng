@@ -1360,7 +1360,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.decimal_sep = ',';
 
 		if (name2 == L('c', 's'))
-			tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR4;
+			tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR2;
 
 		SetLetterVowel(tr, 'y');
 		SetLetterVowel(tr, 'r');

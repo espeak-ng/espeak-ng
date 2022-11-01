@@ -885,7 +885,7 @@ static const char *M_Variant(int value)
 	case NUM2_THOUSANDS_VAR1: // lang=ru
 		if (teens == false) {
 			if ((value % 10) == 1)
-				return "0MB";
+				return "1MA";
 			if (((value % 10) >= 2) && ((value % 10) <= 4))
 				return "0MA";
 		}
