@@ -44,9 +44,11 @@ public class TtsSettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        PreferenceManager preferenceManager = getPreferenceManager();
-        preferenceManager.setStorageDeviceProtected ();
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+        {
+            PreferenceManager preferenceManager = getPreferenceManager();
+            preferenceManager.setStorageDeviceProtected ();
+        }
         // Migrate old eyes-free settings to the new settings:
 
         storageContext = EspeakApp.getStorageContext();

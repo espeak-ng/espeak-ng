@@ -20,6 +20,7 @@ package com.reecedunn.espeak.preference;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
 import android.text.Editable;
@@ -130,8 +131,11 @@ public class SpeakPunctuationPreference extends DialogPreference {
                 onDataChanged(level, characters);
 
                 if (shouldCommit()) {
-                    PreferenceManager preferenceManager = getPreferenceManager();
-                    preferenceManager.setStorageDeviceProtected();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                    {
+                        PreferenceManager preferenceManager = getPreferenceManager();
+                        preferenceManager.setStorageDeviceProtected ();
+                    }
                     SharedPreferences.Editor editor = getEditor();
                     if (editor != null) {
                         editor.putString(VoiceSettings.PREF_PUNCTUATION_CHARACTERS, characters);
