@@ -77,23 +77,13 @@ endprocedure
 
 
 phoneme r
-    vcd uvl frc nopause
-    rhotic
-  starttype #r  endtype #r
-  Vowelin f1=0  f2=1500 -400 400  f3=-400 80
-  lengthmod 7
-  ipa U+0281
-
+  vcd uvl frc
+  ipa ʀ
+  lengthmod 6
   IF nextPh(isNotVowel) THEN
-    ChangePhoneme(r/)
-  ELIF prevPh(isNotVowel) OR prevPh(isPause) THEN
-    ChangePhoneme(r/2)
+    FMT(r3/r_uvl) addWav(r3/r_uvl.wav, 50)
   ENDIF
-
-  CALL pre_r
-  CALL post_r
-
-  FMT(vwl_fr/r)
+  FMT(r3/r_uvl) addWav(r3/r_uvl.wav, 75)
 endphoneme
 
 
@@ -159,7 +149,7 @@ phoneme r/2
     FMT(vwl_fr/br)
   ELSE
     length 80
-    FMT(vwl_fr/r)
+    FMT(r3/r_uvl) addWav(r3/r_uvl.wav, 75)
   ENDIF
 endphoneme
 
