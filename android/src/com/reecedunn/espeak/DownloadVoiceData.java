@@ -132,7 +132,6 @@ public class DownloadVoiceData extends Activity {
 
                     if (entry.isDirectory()) {
                         progress.file.mkdirs();
-                        FileUtils.chmod(progress.file);
                         continue;
                     }
 
@@ -149,9 +148,6 @@ public class DownloadVoiceData extends Activity {
                         outputStream.close();
                     }
                     zipStream.closeEntry();
-
-                    // Make sure the output file is readable.
-                    FileUtils.chmod(progress.file);
                 }
 
                 final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));
