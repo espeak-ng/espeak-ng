@@ -145,7 +145,8 @@ _,      zVpit'aja
 что     Sto $u $pause // what, that
 
 // misc.
-не      $u           // negative
+не   n;I   $u           // negative
+?3 не        nI        $u
 не    $atend // stressed at the end
 ни      $u // uther form of не
 
