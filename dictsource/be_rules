@@ -11,6 +11,9 @@
 // voiced
 .L03 б г д ж з // дз дж
 
+// softening vowels
+.L04 е ё і ь ю я
+
 // This is more economic way to express assimilation by sibilation
 .replace
        сш     шш
@@ -25,9 +28,13 @@
        б       b
        б (_    p
        б (L02  p
+    с) б (L04  ;b
+    з) б (L04  ;b
 
 .group в
        в       v
+    с) в (L04  ;v
+    з) в (L04  ;v
 
 .group г
        г       Q     // ɣ
@@ -40,6 +47,7 @@
        д (L02  t
        дз      dz
        дз (_   ts
+    з) дз (L04 ;dz
        дж      dz.
        дж (_   ts.
        дж (L02 ts.
@@ -68,6 +76,8 @@
        з (_    s
        з (L02  s
        зд (ж   z.d
+    з) з (L04  ;z
+    с) з (і    ;z
 
 .group і
        і       i
@@ -82,12 +92,18 @@
 
 .group л
        л       l
+    з) л (L04  ;l
+    с) л (L04  ;l
 
 .group м
        м       m
+    з) м (L04  ;m
+    с) м (L04  ;m
 
 .group н
        н       n
+    с) н (L04  ;n
+    з) н (L04  ;n
 
 .group о
        о       'O
@@ -95,6 +111,7 @@
 .group п
        п       p
        п (L03  b
+    с) п (L04  ;p
 
 .group р
        р       r
@@ -103,6 +120,7 @@
        с       s
        с (L03  z
        с (ьб   z
+    с) с (L04  ;s
 
 .group т
        т       t
@@ -125,6 +143,8 @@
        ц       ts    // t͡s
        цц      ts:
        ц (L03  dz
+    с) ц (L04  ;ts
+    з) ц (і    ;ts
 
 .group ч
        ч       ts.   // ʈ͡ʂ
