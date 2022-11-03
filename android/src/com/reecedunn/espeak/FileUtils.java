@@ -71,15 +71,6 @@ public class FileUtils {
         } finally {
             outputStream.close();
         }
-        chmod(outputFile);
-    }
-
-    public static void chmod(File file) {
-        try {
-            Runtime.getRuntime().exec("/system/bin/chmod 755 " + file.getAbsolutePath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void rmdir(File directory) {
