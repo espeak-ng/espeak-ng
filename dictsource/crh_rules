@@ -1,0 +1,109 @@
+// This file has UTF8 encoded
+// Translation rules for Crimean Tatar
+
+.group a
+        a          a
+
+.group â
+        â          ja
+
+.group b
+        b          b
+
+.group c
+        c          DZ
+        cc         DZ:
+
+.group ç
+        ç          TS
+        çç         TS:
+
+.group d
+        d          d
+        dd         d:
+
+.group e
+        e          e
+
+.group f
+        f          f
+
+.group g
+        g          g
+
+.group ğ
+        ğ          G
+
+.group h
+        h          x
+
+.group i
+        i          i
+
+.group ı
+        ı          I
+
+.group j
+        j          Z
+
+.group k
+        k          k
+        kk         k:
+
+.group l
+        l          l
+        l (L02     L
+   L02) l (K       L
+
+.group m
+        m          m
+
+.group n
+        n          n
+
+.group ñ
+        ñ          N
+
+.group o
+        o          o
+
+.group ö
+        ö          O
+
+.group p
+        p          p
+        pp         p:
+
+.group q
+        q          q
+
+.group r
+        r          r
+
+.group s
+        s          s
+
+.group ş
+        ş          ş
+
+.group t
+        t          t
+        tt         t:
+
+.group u
+        u          u
+
+.group ü
+        ü          U
+
+.group v
+        v          v
+
+.group w
+        w          w
+
+.group y
+        y          y
+
+.group z
+        z          z
