@@ -1,6 +1,6 @@
 # Languages
 
-Development version of eSpeak NG supports 127 languages and accents,
+Development version of eSpeak NG supports 128 languages and accents,
 which are listed in table below.
 
 To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
@@ -18,6 +18,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
 | `trk`       | `ba`              | Turkic                | Bashkir                     |                        |
 | `trk`       | `cu`              | Turkic                | Chuvash                     |                        |
+| `trk        | `crh`             | Turkic                | Crimean Tatar               |                        |
 |             | `eu`              |                       | Basque                      |                        |
 | `zle`       | `be`              | East Slavic           | Belarusian                  |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
