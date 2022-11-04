@@ -28,7 +28,7 @@ _2X     dv'AttsVt;
 _3X     tr;'ittsVt;
 _4X     s'o@-rOk
 _5X     p;Vd;d;Is;'jat
-_6X     Syz;d;is;'jat
+_6X     SE#z;d;is;'jat
 _7X     s;'emd;E2s;Vt
 _8X     v'os;I3md;E2s;Vt
 _9X     d;E2v;In'ostO
@@ -73,7 +73,6 @@ _0M10        nVn;il;i'onV#f
 _0MA10        nVn;il;i'ona
 _dpt    _:'i_:        // start of decimal fraction
 _dpt2   _d;Is;'atYx   // end of decimal fraction
-_dpt3   _sotyx   // end of decimal fraction
 
 // symbols
 _`      akts'Ent
@@ -133,8 +132,8 @@ _,      zVpit'aja
 у       u  $u         // by
 
 // conjunctions
-а         $u $pause  // and
-и       i $u $pause  // and
+а         $u   // and
+и       I $u   // and
 или             $u
 или             $atend       // stressed at the end
 ибо       $u $pause  // for
@@ -146,7 +145,8 @@ _,      zVpit'aja
 что     Sto $u $pause // what, that
 
 // misc.
-не      $u           // negative
+не   n;I   $u           // negative
+?3 не        nI        $u
 не    $atend // stressed at the end
 ни      $u // uther form of не
 
