@@ -51,6 +51,7 @@
 
 #define N_XML_BUF   500
 
+static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
 static void TerminateBufWithSpaceAndZero(char *buf, int index);
 
 static const char *xmlbase = ""; // base URL from <speak>
@@ -192,10 +193,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 
 	flags[0] = flags[1] = 0;
 	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL)) {
-		char phonemes2[55];
-		SetWordStress(tr, phonemes, flags, -1, 0);
-		DecodePhonemes(phonemes, phonemes2);
-		sprintf(text_out, "[\002%s]]", phonemes2);
+		DecodeWithPhonemeMode(text_out, phonemes, tr, NULL, flags);
 		return text_out;
 	}
 	return NULL;
@@ -256,16 +254,11 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 	}
 
 	if (phonemes[0]) {
-		char phonemes2[60];
 		if (lang_name) {
-			SetWordStress(translator2, phonemes, flags, -1, 0);
-			DecodePhonemes(phonemes, phonemes2);
-			sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(tr->translator_name));
+			DecodeWithPhonemeMode(buf, phonemes, tr, translator2, flags);
 			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 		} else {
-			SetWordStress(tr, phonemes, flags, -1, 0);
-			DecodePhonemes(phonemes, phonemes2);
-			sprintf(buf, "[\002%s]] ", phonemes2);
+			DecodeWithPhonemeMode(buf, phonemes, tr, NULL, flags);
 		}
 	} else if (only == 0)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
@@ -1018,4 +1011,17 @@ void InitText2(void)
 static void TerminateBufWithSpaceAndZero(char *buf, int index) {
 	buf[index] = ' ';
 	buf[index+1] = 0;
+}
+
+static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
+	char phonemes2[55];
+	if (tr2 == NULL) {
+		SetWordStress(tr, phonemes, flags, -1, 0);
+		DecodePhonemes(phonemes, phonemes2);
+		sprintf(buf, "[\002%s]]", phonemes2);
+	} else {
+		SetWordStress(tr2, phonemes, flags, -1, 0);
+	    DecodePhonemes(phonemes, phonemes2);
+	    sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(tr->translator_name));
+    }
 }
