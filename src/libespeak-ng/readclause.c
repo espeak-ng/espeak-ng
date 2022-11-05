@@ -52,7 +52,7 @@
 #define N_XML_BUF   500
 
 static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
-static void TerminateBufWithSpaceAndZero(char *buf, int index);
+static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc);
 
 static const char *xmlbase = ""; // base URL from <speak>
 
@@ -334,9 +334,8 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				        punctname, punct_count, punctname);
 		} else {
 			// end the clause now and pick up the punctuation next time
-			UngetC(c2);
 			ungot_char2 = c1;
-			TerminateBufWithSpaceAndZero(buf, 0);
+			TerminateBufWithSpaceAndZero(buf, 0, &c2);
 		}
 	}
 
@@ -599,9 +598,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if (ix > (n_buf - 20)) {
 						// Perhaps not enough room, end the clause before the SSML tag
-						UngetC(c2);
 						ungot_char2 = c1;
-						TerminateBufWithSpaceAndZero(buf, ix);
+						TerminateBufWithSpaceAndZero(buf, ix, &c2);
 						return CLAUSE_NONE;
 					}
 
@@ -618,7 +616,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
 
 					if (terminator != 0) {
-						TerminateBufWithSpaceAndZero(buf, ix);
+						TerminateBufWithSpaceAndZero(buf, ix, NULL);
 
 						if (terminator & CLAUSE_TYPE_VOICE_CHANGE)
 							strcpy(voice_change, current_voice_id);
@@ -644,7 +642,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				ix += utf8_out(c1, &buf[ix]);
 				terminator = CLAUSE_PERIOD; // line doesn't end in punctuation, assume period
 			}
-			TerminateBufWithSpaceAndZero(buf, ix);
+			TerminateBufWithSpaceAndZero(buf, ix, NULL);
 			return terminator;
 		}
 
@@ -740,11 +738,9 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			}
 			if (parag > 0) {
 				// 2nd newline, assume paragraph
-				UngetC(c2);
-
 				if (end_clause_after_tag)
 					RemoveChar(&buf[end_clause_index]); // delete clause-end punctiation
-				TerminateBufWithSpaceAndZero(buf, ix);
+				TerminateBufWithSpaceAndZero(buf, ix, &c2);
 				if (parag > 3)
 					parag = 3;
 				if (option_ssml) parag = 1;
@@ -753,8 +749,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 			if (linelength <= option_linelength) {
 				// treat lines shorter than a specified length as end-of-clause
-				UngetC(c2);
-				TerminateBufWithSpaceAndZero(buf, ix);
+				TerminateBufWithSpaceAndZero(buf, ix, &c2);
 				return CLAUSE_COLON;
 			}
 
@@ -773,9 +768,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 				if (!iswspace(c1)) {
 					if (!IsAlpha(c1) || !iswlower(c1)) {
-						UngetC(c2);
 						ungot_char2 = c1;
-						TerminateBufWithSpaceAndZero(buf, end_clause_index);
+						TerminateBufWithSpaceAndZero(buf, end_clause_index, &c2);
 						return end_clause_after_tag;
 					}
 					end_clause_after_tag = 0;
@@ -908,8 +902,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				}
 
 				if (is_end_clause) {
-					UngetC(c_next);
-					TerminateBufWithSpaceAndZero(buf, ix);
+					TerminateBufWithSpaceAndZero(buf, ix, &c_next);
 
 					if (iswdigit(cprev) && !IsAlpha(c_next)) // ????
 						punct_data &= ~CLAUSE_DOT_AFTER_LAST_WORD;
@@ -954,8 +947,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			// clause too long, getting near end of buffer, so break here
 			// try to break at a word boundary (unless we actually reach the end of buffer).
 			// (n_buf-4) is to allow for 3 bytes of multibyte character plus terminator.
-			TerminateBufWithSpaceAndZero(buf, ix);
-			UngetC(c2);
+			TerminateBufWithSpaceAndZero(buf, ix, &c2);
 			return CLAUSE_NONE;
 		}
 	}
@@ -964,7 +956,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		ix += utf8_out(CHAR_EMPHASIS, &buf[ix]);
 	if (end_clause_after_tag)
 		RemoveChar(&buf[end_clause_index]); // delete clause-end punctiation
-	TerminateBufWithSpaceAndZero(buf, ix);
+	TerminateBufWithSpaceAndZero(buf, ix, NULL);
 	return CLAUSE_EOF; // end of file
 }
 
@@ -1008,9 +1000,13 @@ void InitText2(void)
 	xmlbase = NULL;
 }
 
-static void TerminateBufWithSpaceAndZero(char *buf, int index) {
+static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
 	buf[index] = ' ';
 	buf[index+1] = 0;
+
+	if (ungetc != NULL) {
+		UngetC(*ungetc);
+	}
 }
 
 static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
