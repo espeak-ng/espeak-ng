@@ -8,6 +8,9 @@
 // devoiced
 .L02 п х к т ш с ч ц ф
 
+// voiced
+.L03 б г д ж з // дз дж
+
 // This is more economic way to express assimilation by sibilation
 .replace
        сш     шш
@@ -75,6 +78,7 @@
 
 .group к
        к       k
+       к (L03  g
 
 .group л
        л       l
@@ -90,15 +94,19 @@
 
 .group п
        п       p
+       п (L03  b
 
 .group р
        р       r
 
 .group с
        с       s
+       с (L03  z
+       с (ьб   z
 
 .group т
        т       t
+       т (L03  d
 
 .group у
        у       u
@@ -111,18 +119,22 @@
 
 .group х
        х       x
+       х (L03  Q
 
 .group ц
        ц       ts    // t͡s
        цц      ts:
+       ц (L03  dz
 
 .group ч
        ч       ts.   // ʈ͡ʂ
        чч      ts.:
+       ч (б    dz.
 
 .group ш
        ш       s.    // ʂ
        шш      s.:
+       ш (L03  z.
 
 .group ы
        ы       i"    // ɨ
