@@ -199,7 +199,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 	return NULL;
 }
 
-static const char *LookupCharName(Translator *tr, int c, int only)
+static const char *LookupCharName(Translator *tr, int c, bool only)
 {
 	// Find the phoneme string (in ascii) to speak the name of character c
 	// Used for punctuation characters and symbols
@@ -238,7 +238,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		}
 	}
 
-	if ((only == 0) && ((phonemes[0] == 0) || (phonemes[0] == phonSWITCH)) && (tr->translator_name != L('e', 'n'))) {
+	if ((only == false) && ((phonemes[0] == 0) || (phonemes[0] == phonSWITCH)) && (tr->translator_name != L('e', 'n'))) {
 		// not found, try English
 		SetTranslator2(ESPEAKNG_DEFAULT_VOICE);
 		string = &single_letter[1];
@@ -260,7 +260,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		} else {
 			DecodeWithPhonemeMode(buf, phonemes, tr, NULL, flags);
 		}
-	} else if (only == 0)
+	} else if (only == false)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
 
 	return buf;
@@ -296,7 +296,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				punctname = ph_buf; // use word for 'period' instead of 'dot'
 		}
 		if (punctname == NULL)
-			punctname = LookupCharName(tr, c1, 0);
+			punctname = LookupCharName(tr, c1, false);
 
 		if (punctname == NULL)
 			return -1;
@@ -831,7 +831,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				char *p2;
 
 				p2 = &buf[ix];
-				sprintf(p2, "%s", LookupCharName(tr, c1, 1));
+				sprintf(p2, "%s", LookupCharName(tr, c1, true));
 				if (p2[0] != 0) {
 					ix += strlen(p2);
 					announced_punctuation = c1;
