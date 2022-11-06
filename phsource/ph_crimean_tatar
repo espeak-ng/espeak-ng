@@ -330,7 +330,7 @@ phoneme ts
 endphoneme
 
 phoneme TS
-  ipa tS
+  ipa tʃ
   vls pla afr sib
   voicingswitch dZ
   lengthmod 2
@@ -343,7 +343,7 @@ phoneme TS
 endphoneme
 
 phoneme DZ
-  ipa dZ
+  ipa dʒ
   vcd pla afr sib
   voicingswitch tS
   lengthmod 5
@@ -542,4 +542,25 @@ phoneme S // **sh**op
     WAV(ufric/sh_)
   ENDIF
   WAV(ufric/sh)
+endphoneme
+
+phoneme Z // plea**s**ure
+  vcd pla frc sib
+  ipa ʒ
+  voicingswitch S
+  lengthmod 6
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/zh_, 60) addWav(vocw/zh, 70)
+    ENDIF
+    FMT(klatt/zh) addWav(vocw/zh, 130)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh_, 60) addWav(vocw/zh, 70)
+  ENDIF
+  FMT(voc/zh) addWav(vocw/zh, 130)
 endphoneme
