@@ -79,20 +79,30 @@ phoneme : //  lengthen previous vowel by "length"
   length 140
 endphoneme
 
-honeme l
-  ipa l
+phoneme l
   liquid
-  starttype l endtype l
   lengthmod 7
 
-  NextVowelStarts
-    VowelStart(l/l@)
-    VowelStart(l/la, -10)
-    VowelStart(l/le, -15)
-    VowelStart(l/li, -15)
-    VowelStart(l/lo, -10)
-    VowelStart(l/lu, -20)
-  EndSwitch
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/)
+  ENDIF
+
+  IF nextPh(isNotVowel) THEN
+    // in case the next phoneme is no longer a vowel, in pass=2
+    PrevVowelEndings
+      VowelEnding(l/L1_@L, -60)
+      VowelEnding(l/L1_aL, -40)
+      VowelEnding(l/L1_eL, -30)
+      VowelEnding(l/L1_iL, -30)
+      VowelEnding(l/L1_oL, -40)
+      VowelEnding(l/L1_uL, -40)
+    EndSwitch
+
+    FMT(l/l_)
+    RETURN
+  ENDIF
+
+  CALL vowelstart_l
 
   IF prevPh(#@) THEN
     VowelEnding(l/xl, -50)
@@ -100,10 +110,7 @@ honeme l
     VowelEnding(l/xl, -40)
   ENDIF
 
-  IF prevPh(isPause) OR thisPh(isWordStart) THEN
-    FMT(l/_l)
-  ENDIF
-  IF prevPh(isRhotic) OR prevPh(isNasal) THEN
+  IF prevPh(isPause) THEN
     FMT(l/_l)
   ENDIF
 
@@ -117,7 +124,6 @@ honeme l
 
   FMT(l/l)
 endphoneme
-
 
 phoneme L
   // 'dark' [l]
