@@ -695,6 +695,10 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		return -1;
 
 	while (*p != RULE_GROUP_END) {
+		// If '~' (no character) is allowed in group, return 0.
+		if (*p == '~')
+			return 0;
+
 		if (pre) {
 			len = strlen(p);
 			w = word;
@@ -702,15 +706,11 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 			{
 				w--;
 				if (*w == 0)
-					// Not found
-					return -1;
+					// Not found, skip the rest of this group.
+					goto skip;
 			}
 		} else
 			w = word;
-
-		// If '~' (no character) is allowed in group, return 0.
-		if (*p == '~')
-			return 0;
 
 		//  Check current group
 		while ((*p == *w) && (*w != 0)) {
@@ -724,6 +724,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		}
 
 		// No match, so skip the rest of this group.
+skip:
 		while (*p++ != 0)
 			;
 	}
