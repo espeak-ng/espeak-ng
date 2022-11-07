@@ -105,3 +105,11 @@ test_phon cmn "ni35X'Au35_| m'A21_| (en)h@44loU11_| De@11(cmn)_|" "你好馬 hel
 test_phon cmn-latn-pinyin "ni35X'Au35_| m'A35_| n'i35_| X'Au35_| m'A214_|" "你好馬 ni3 hao3 ma3"
 
 test_phon cmn "thiE55nt'i51_|" "天地"
+
+# https://github.com/espeak-ng/espeak-ng/issues/1507
+test_phon ml "k'a
+t'a
+p'a
+k'e:r@l.@m
+t'a:m@ra
+p'o:le" "ക: ത: പ: കേരളം: താമര: പോലെ:"
