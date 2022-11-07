@@ -11,6 +11,15 @@
 // voiced
 .L03 б г д ж з // дз дж
 
+// softening vowels
+.L04 е ё і ь ю я
+
+// soft consonants subsequent to soft "с"
+.L05 в л м н п с ц
+
+// soft consonants subsequent to soft "з"
+.L06 б в дз з л м н
+
 // This is more economic way to express assimilation by sibilation
 .replace
        сш     шш
@@ -68,6 +77,8 @@
        з (_    s
        з (L02  s
        зд (ж   z.d
+       з (L06L04 z;
+       з (ці   s;
 
 .group і
        і       i
@@ -103,6 +114,9 @@
        с       s
        с (L03  z
        с (ьб   z
+       с (L05L04 s;
+       с (бL04 z;
+       с (зі   z;
 
 .group т
        т       t
