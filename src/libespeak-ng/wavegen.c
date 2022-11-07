@@ -1369,6 +1369,12 @@ static int WavegenFill2()
 #if HAVE_SONIC_H
 		case WCMD_SONIC_SPEED:
 			sonicSpeed = (double)q[1] / 1024;
+			if (sonicSpeedupStream && (sonicSpeed <= 1.0)) {
+				sonicFlushStream(sonicSpeedupStream);
+				int length = (out_end - out_ptr);
+				length = sonicReadShortFromStream(sonicSpeedupStream, (short*)out_ptr, length/2);
+				out_ptr += length * 2;
+			}
 			break;
 #endif
 		}
