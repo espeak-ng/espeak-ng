@@ -2425,7 +2425,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	unsigned char flag;
 	unsigned int dictionary_flags;
 	unsigned int dictionary_flags2;
-	int condition_failed = 0;
+	bool condition_failed = false;
 	int n_chars;
 	int no_phonemes;
 	int skipwords;
@@ -2499,11 +2499,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				if (flag >= 132) {
 					// fail if this condition is set
 					if ((tr->dict_condition & (1 << (flag-132))) != 0)
-						condition_failed = 1;
+						condition_failed = true;
 				} else {
 					// allow only if this condition is set
 					if ((tr->dict_condition & (1 << (flag-100))) == 0)
-						condition_failed = 1;
+						condition_failed = true;
 				}
 			} else if (flag > 80) {
 				// flags 81 to 90  match more than one word
@@ -2516,12 +2516,13 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				if (wtab != NULL) {
 					for (ix = 0; ix <= skipwords && wtab[ix].length; ix++) {
 						if (wtab[ix].flags & FLAG_EMPHASIZED2)
-							condition_failed = 1;
+							condition_failed = true;
+
 					}
 				}
 
 				if (strncmp(word2, p, n_chars) != 0)
-					condition_failed = 1;
+					condition_failed = true;
 
 				if (condition_failed) {
 					p = next;
@@ -2544,7 +2545,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		}
 
 		if (condition_failed) {
-			condition_failed = 0;
+			condition_failed = false;
 			continue;
 		}
 
