@@ -804,7 +804,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			// add name to circular buffer of marker names
 			attrcopy_utf8(buf, attr1, sizeof(buf));
 
-			if (strcmp(skip_marker, buf) == 0) {
+			if ((buf[0] != 0) && (strcmp(skip_marker, buf) == 0)) {
 				// This is the marker we are waiting for before starting to speak
 				*clear_skipping_text = true;
 				skip_marker[0] = 0;
