@@ -872,6 +872,8 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		if ((attr2 = GetSsmlAttribute(px, "time")) != NULL) {
 			value2 = attrnumber(attr2, 0, 1);   // pause in mS
 
+			espeak_SetParameter(espeakRATE, speech_parameters[espeakRATE], 0);
+
 			// compensate for speaking speed to keep constant pause length, see function PauseLength()
 			// 'value' here is x 10mS
 			value = (value2 * 256) / (speed.clause_pause_factor * 10);
