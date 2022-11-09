@@ -125,7 +125,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	int insert_ph = 0;
 	PHONEME_LIST *phlist;
 	PHONEME_TAB *ph = NULL;
-	PHONEME_TAB *next, *next2;
+	PHONEME_TAB *next;
 	int unstress_count = 0;
 	int word_stress = 0;
 	int current_phoneme_tab;
@@ -441,8 +441,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 			}
 		}
 
-		next2 = phoneme_tab[plist3[2].phcode];
-		plist3[2].ph = next2;
+		plist3[2].ph = phoneme_tab[plist3[2].phcode];
 
 		if ((insert_ph == 0) && (phdata.pd_param[pd_APPENDPHONEME] != 0))
 			insert_ph = phdata.pd_param[pd_APPENDPHONEME];
