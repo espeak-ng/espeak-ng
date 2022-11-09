@@ -128,14 +128,11 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	int word_stress = 0;
 	int current_phoneme_tab;
 	int max_stress;
-	int voicing;
 	int regression;
 	int end_sourceix;
 	int alternative;
 	int delete_count;
 	int word_start;
-	bool inserted;
-	bool deleted;
 	PHONEME_DATA phdata;
 	bool start_of_clause = true;
 
@@ -217,7 +214,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		// Regressive
 		int type;
 		bool stop_propagation = false;
-		voicing = 0;
+		int voicing = 0;
 
 		for (j = n_ph_list2-1; j >= 0; j--) {
 			if (plist2[j].phcode == phonSWITCH) {
@@ -326,8 +323,8 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	for (j = 0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++) {
 		plist3 = &ph_list3[j];
 
-		inserted = false;
-		deleted = false;
+		bool inserted = false;
+		bool deleted = false;
 		if (insert_ph != 0) {
 			// we have a (linking) phoneme which we need to insert here
 			next = phoneme_tab[plist3->phcode];      // this phoneme, i.e. after the insert
@@ -426,8 +423,6 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 
 		if ((ph->type == phVOWEL) && (deleted == false)) {
-			PHONEME_LIST *p;
-
 			// Check for consecutive unstressed syllables, even across word boundaries.
 			// Do this after changing phonemes according to stress level.
 			if (plist3->stresslevel <= 1) {
@@ -436,6 +431,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 
 				if (tr->langopts.stress_flags & 0x08) {
 					// change sequences of consecutive unstressed vowels in unstressed words to diminished stress (TEST)
+					PHONEME_LIST *p;
 					for (p = plist3+1; p->type != phPAUSE; p++) {
 						if (p->type == phVOWEL) {
 							if (p->stresslevel <= 1) {
