@@ -40,6 +40,8 @@
 #include "translate.h"
 #include "speech.h"
 
+static void SetRegressiveVoicing(int regression, PHONEME_LIST2 *plist2, PHONEME_TAB *ph, Translator *tr);
+
 static const unsigned char pause_phonemes[8] = {
 	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
 };
@@ -122,13 +124,12 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	int j;
 	int insert_ph = 0;
 	PHONEME_LIST *phlist;
-	PHONEME_TAB *ph;
+	PHONEME_TAB *ph = NULL;
 	PHONEME_TAB *next, *next2;
 	int unstress_count = 0;
 	int word_stress = 0;
 	int current_phoneme_tab;
 	int max_stress;
-	int regression;
 	int end_sourceix;
 	int alternative;
 	int delete_count;
@@ -209,83 +210,9 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 
 	SelectPhonemeTable(current_phoneme_tab);
 
+	int regression;
 	if ((regression = tr->langopts.param[LOPT_REGRESSIVE_VOICING]) != 0) {
-		// set consonant clusters to all voiced or all unvoiced
-		// Regressive
-		int type;
-		bool stop_propagation = false;
-		int voicing = 0;
-
-		for (j = n_ph_list2-1; j >= 0; j--) {
-			if (plist2[j].phcode == phonSWITCH) {
-				/* Find previous phonSWITCH to determine language we're switching back to */
-				int k;
-				for (k = j-1; k >= 0; k--)
-					if (plist2[k].phcode == phonSWITCH)
-						break;
-				if (k >= 0)
-					SelectPhonemeTable(plist2[k].tone_ph);
-				else
-					SelectPhonemeTable(tr->phoneme_tab_ix);
-			}
-			ph = phoneme_tab[plist2[j].phcode];
-			if (ph == NULL)
-				continue;
-
-			if (plist2[j].synthflags & SFLAG_SWITCHED_LANG) {
-				stop_propagation = false;
-				voicing = 0;
-				if (regression & 0x100)
-					voicing = 1; // word-end devoicing
-				continue;
-			}
-
-			type = ph->type;
-
-			if (regression & 0x2) {
-				// [v] amd [v;] don't cause regression, or [R^]
-				if (((ph->mnemonic & 0xff) == 'v') || ((ph->mnemonic & 0xff) == 'R')) {
-					stop_propagation = true;
-					if (regression & 0x10)
-						voicing = 0;
-				}
-			}
-
-			if ((type == phSTOP) || type == (phFRICATIVE)) {
-				if ((voicing == 0) && (regression & 0xf))
-					voicing = 1;
-				else if ((voicing == 2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
-					plist2[j].phcode = ph->end_type; // change to voiced equivalent
-			} else if ((type == phVSTOP) || type == (phVFRICATIVE)) {
-				if ((voicing == 0) && (regression & 0xf))
-					voicing = 2;
-				else if ((voicing == 1) && (ph->end_type != 0))
-					plist2[j].phcode = ph->end_type; // change to unvoiced equivalent
-			} else {
-				if (regression & 0x8) {
-					// LANG=Polish, propagate through liquids and nasals
-					if ((type == phPAUSE) || (type == phVOWEL))
-						voicing = 0;
-				} else
-					voicing = 0;
-			}
-			if (stop_propagation) {
-				voicing = 0;
-				stop_propagation = false;
-			}
-
-			if (plist2[j].sourceix) {
-				if (regression & 0x04) {
-					// stop propagation at a word boundary
-					voicing = 0;
-				}
-				if (regression & 0x100) {
-					// devoice word-final consonants, unless propagating voiced
-					if (voicing == 0)
-						voicing = 1;
-				}
-			}
-		}
+		SetRegressiveVoicing(regression, plist2, ph, tr);
 	}
 
 	SelectPhonemeTable(tr->phoneme_tab_ix);
@@ -590,3 +517,82 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 
 	SelectPhonemeTable(tr->phoneme_tab_ix);
 }
+
+static void SetRegressiveVoicing(int regression, PHONEME_LIST2 *plist2, PHONEME_TAB *ph, Translator *tr) {
+		// set consonant clusters to all voiced or all unvoiced
+		// Regressive
+		int type;
+		bool stop_propagation = false;
+		int voicing = 0;
+
+		for (int j = n_ph_list2-1; j >= 0; j--) {
+			if (plist2[j].phcode == phonSWITCH) {
+				/* Find previous phonSWITCH to determine language we're switching back to */
+				int k;
+				for (k = j-1; k >= 0; k--)
+					if (plist2[k].phcode == phonSWITCH)
+						break;
+				if (k >= 0)
+					SelectPhonemeTable(plist2[k].tone_ph);
+				else
+					SelectPhonemeTable(tr->phoneme_tab_ix);
+			}
+			ph = phoneme_tab[plist2[j].phcode];
+			if (ph == NULL)
+				continue;
+
+			if (plist2[j].synthflags & SFLAG_SWITCHED_LANG) {
+				stop_propagation = false;
+				voicing = 0;
+				if (regression & 0x100)
+					voicing = 1; // word-end devoicing
+				continue;
+			}
+
+			type = ph->type;
+
+			if (regression & 0x2) {
+				// [v] amd [v;] don't cause regression, or [R^]
+				if (((ph->mnemonic & 0xff) == 'v') || ((ph->mnemonic & 0xff) == 'R')) {
+					stop_propagation = true;
+					if (regression & 0x10)
+						voicing = 0;
+				}
+			}
+
+			if ((type == phSTOP) || type == (phFRICATIVE)) {
+				if ((voicing == 0) && (regression & 0xf))
+					voicing = 1;
+				else if ((voicing == 2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
+					plist2[j].phcode = ph->end_type; // change to voiced equivalent
+			} else if ((type == phVSTOP) || type == (phVFRICATIVE)) {
+				if ((voicing == 0) && (regression & 0xf))
+					voicing = 2;
+				else if ((voicing == 1) && (ph->end_type != 0))
+					plist2[j].phcode = ph->end_type; // change to unvoiced equivalent
+			} else {
+				if (regression & 0x8) {
+					// LANG=Polish, propagate through liquids and nasals
+					if ((type == phPAUSE) || (type == phVOWEL))
+						voicing = 0;
+				} else
+					voicing = 0;
+			}
+			if (stop_propagation) {
+				voicing = 0;
+				stop_propagation = false;
+			}
+
+			if (plist2[j].sourceix) {
+				if (regression & 0x04) {
+					// stop propagation at a word boundary
+					voicing = 0;
+				}
+				if (regression & 0x100) {
+					// devoice word-final consonants, unless propagating voiced
+					if (voicing == 0)
+						voicing = 1;
+				}
+			}
+		}
+	}
