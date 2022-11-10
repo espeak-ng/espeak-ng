@@ -51,5 +51,6 @@ test_ssml_audio "<prosody  50%><break 1000ms>" bc47aac0142243b31dd1930e3462abe54
 test_ssml_audio "<prosody 100%><break 1000ms>" c7b3e92d90063761e9744b40b17bc9204fe7d25b "<speak><prosody rate=\"100%\">Break<break time=\"1000ms\"/>test</prosody></speak>"
 ( test_ssml_audio "<prosody 200%><break 1000ms>" 64213dbaf593b139b0b21840ba938cf597f7ad35 "<speak><prosody rate=\"200%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 200%><break 1000ms>" ff0837020dadeb8c5a20784d31624b8f0221d9a4 "<speak><prosody rate=\"200%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1
-# test_ssml_audio "<prosody 260%><break 1000ms>" 28b4ca77bd987d8a8a722d87f5daea70c2f7133a "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>"
-# libsonic that available in official repositories have a bug and last test is fails on CI
+( test_ssml_audio "<prosody 260%><break 1000ms>" 4eac3d4c5c893824dfa7434d0e66116d8ff18676 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
+( test_ssml_audio "<prosody 260%><break 1000ms>" 28b4ca77bd987d8a8a722d87f5daea70c2f7133a "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
+( test_ssml_audio "<prosody 260%><break 1000ms>" bb172a03c16e90ad537981467059c9e7d28d6aba "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1
