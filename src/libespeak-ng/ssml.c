@@ -135,10 +135,15 @@ static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 	int ix = 0;
 
 	if (pw != NULL) {
+		wchar_t quote = pw[-1];
+		if ((quote != '"') && (quote != '\'')) quote = 0;
+
 		unsigned int c;
 		int prev_c = 0;
 		while ((ix < (len-4)) && ((c = *pw++) != 0)) {
-			if ((c == '"') && (prev_c != '\\'))
+			if ((quote == 0) && (isspace(c) || (c == '/')))
+				break;
+			if ((quote != 0) && (c == quote) && (prev_c != '\\'))
 				break; // " indicates end of attribute, unless preceded by backstroke
 
 			int n = utf8_out(c, &buf[ix]);
@@ -299,8 +304,10 @@ static const wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 				while (iswspace(*pw)) pw++;
 				if ((*pw == '"') || (*pw == '\'')) // allow single-quotes ?
 					return pw+1;
-				else
+				else if (iswspace(*pw) || (*pw == '/')) // end of attribute
 					return empty;
+				else
+					return pw;
 			}
 		}
 		pw++;
@@ -797,7 +804,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			// add name to circular buffer of marker names
 			attrcopy_utf8(buf, attr1, sizeof(buf));
 
-			if (strcmp(skip_marker, buf) == 0) {
+			if ((buf[0] != 0) && (strcmp(skip_marker, buf) == 0)) {
 				// This is the marker we are waiting for before starting to speak
 				*clear_skipping_text = true;
 				skip_marker[0] = 0;
@@ -871,6 +878,8 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		}
 		if ((attr2 = GetSsmlAttribute(px, "time")) != NULL) {
 			value2 = attrnumber(attr2, 0, 1);   // pause in mS
+
+			espeak_SetParameter(espeakRATE, speech_parameters[espeakRATE], 0);
 
 			// compensate for speaking speed to keep constant pause length, see function PauseLength()
 			// 'value' here is x 10mS

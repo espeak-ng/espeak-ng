@@ -561,6 +561,7 @@ echr	$abbrev
 edst	$abbrev
 edt	$abbrev
 eff	$abbrev
+efi	$abbrev
 eg	fO@Egz'aamp@L	$only
 eg	$abbrev $allcaps
 (e . g .) fO@Egz'aamp@L
@@ -665,6 +666,7 @@ ucl	$abbrev
 ucs	$abbrev
 udp	$abbrev
 ueb	$abbrev
+uefi	$abbrev
 ufo	$abbrev
 ui	$abbrev
 uk	$abbrev

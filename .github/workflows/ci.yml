@@ -49,7 +49,7 @@ jobs:
             deps: "clang"
             configenv: "CC=clang CXX=clang++"
             configflags: "-fsanitize=memory -fsanitize-memory-track-origins=2 -g -Og -fno-omit-frame-pointer"
-            config: "--without-pcaudiolib"
+            config: "--without-pcaudiolib --without-sonic"
             build_env: "MSAN_OPTIONS=exitcode=42"
             check_env: "MSAN_OPTIONS=exitcode=42"
 
