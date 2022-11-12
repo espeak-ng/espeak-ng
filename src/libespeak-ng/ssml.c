@@ -879,7 +879,16 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		if ((attr2 = GetSsmlAttribute(px, "time")) != NULL) {
 			value2 = attrnumber(attr2, 0, 1);   // pause in mS
 
-			espeak_SetParameter(espeakRATE, speech_parameters[espeakRATE], 0);
+			int wpm = speech_parameters[espeakRATE];
+			espeak_SetParameter(espeakRATE, wpm, 0);
+
+			#if HAVE_SONIC_H
+			if (wpm >= espeakRATE_MAXIMUM) {
+				// Compensate speedup with libsonic, see function SetSpeed()
+				double sonic = ((double)wpm)/espeakRATE_NORMAL;
+				value2 = value2 * sonic;
+			}
+			#endif
 
 			// compensate for speaking speed to keep constant pause length, see function PauseLength()
 			// 'value' here is x 10mS

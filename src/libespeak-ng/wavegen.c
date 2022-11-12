@@ -918,10 +918,6 @@ static int PlaySilence(int length, bool resume)
 	if (length == 0)
 		return 0;
 
-#if HAVE_SONIC_H
-	length = (int)(length * sonicSpeed);
-#endif
-
 	if (resume == false)
 		n_samples = length;
 
