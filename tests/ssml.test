@@ -46,6 +46,8 @@ for i in `ls tests/ssml/*.ssml2` ; do test_ssml $i punct; done
 test_ssml_audio "<prosody> bug #410" 8d3bace9548ae73c4770a73c88c6f65e848b45cf "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low. </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
 test_ssml_audio "<audio>" 5134c1db757b2d6b8d1f3f2416124462e401b4c6 "<speak>ha: <audio src=\"$PWD/phsource/h/ha.wav\"></audio></speak>"
 
+test_ssml_audio "<break> at start" 949ad49d180108b30c1f0f16bef6ca2f3b6199cd "<speak><break time=\"1000ms\"/>test</speak>"
+
 # Test SSML breaks inside prosody (#1512)
 test_ssml_audio "<prosody  50%><break 1000ms>" bc47aac0142243b31dd1930e3462abe541c1d9ff "<speak><prosody rate=\"50%\">Break<break time=\"1000ms\"/>test</prosody></speak>"
 test_ssml_audio "<prosody 100%><break 1000ms>" c7b3e92d90063761e9744b40b17bc9204fe7d25b "<speak><prosody rate=\"100%\">Break<break time=\"1000ms\"/>test</prosody></speak>"
