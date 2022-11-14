@@ -29,7 +29,8 @@ extern "C"
 char *DecodeRule(const char *group_chars, 
 		int group_length,
 		char *rule,
-		int control);
+		int control,
+		char *output);
 
 void print_dictionary_flags(unsigned int *flags,
 		char *buf,
@@ -40,4 +41,3 @@ void print_dictionary_flags(unsigned int *flags,
 #endif
 
 #endif
-
