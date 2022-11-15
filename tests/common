@@ -20,17 +20,6 @@ check_hash() {
    # Test some common commands to find the correct one for the system being tested on.
 }
 
-# test if Klatt synthesizer is installed
-is_klatt() {
-    echo -n "checking if klatt is installed ... "
-    if [ "`which klatt`" != "" ]; then
-        echo "yes"
-    else
-        echo "no"
-        exit
-    fi
-}
-
 # test if MBROLA synthesizer is installed
 is_mbrola() {
     echo -n "checking if MBROLA is installed ... "
