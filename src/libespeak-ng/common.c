@@ -340,3 +340,10 @@ void espeak_srand(long seed) {
 	(void)espeak_rand(0, 1); // Dummy flush a generator
 }
 
+#pragma GCC visibility push(default)
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetRandSeed(long seed) {
+	espeak_srand(seed);
+	return ENS_OK;
+}
+#pragma GCC visibility pop
