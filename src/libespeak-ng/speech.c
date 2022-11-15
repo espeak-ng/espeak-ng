@@ -404,6 +404,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	option_phonemes = 0;
 	option_phoneme_events = 0;
 
+	// Seed random generator
+	espeak_srand(time(NULL));
+
 	return ENS_OK;
 }
 

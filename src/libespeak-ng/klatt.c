@@ -35,6 +35,7 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "klatt.h"
+#include "common.h"      // for espeak_rand
 #include "synthesize.h"  // for frame_t, WGEN_DATA, STEPSIZE, N_KLATTP, echo...
 #include "voice.h"       // for voice_t, N_PEAKS
 #ifdef INCLUDE_SPEECHPLAYER
@@ -46,11 +47,7 @@ extern unsigned char *out_end;
 static int nsamples;
 static int sample_count;
 
-#ifdef _MSC_VER
-#define getrandom(min, max) ((rand()%(int)(((max)+1)-(min)))+(min))
-#else
-#define getrandom(min, max) ((rand()%(long)(((max)+1)-(min)))+(min))
-#endif
+#define getrandom(min, max) espeak_rand((min), (max))
 
 // function prototypes for functions private to this file
 

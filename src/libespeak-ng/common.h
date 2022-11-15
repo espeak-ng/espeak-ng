@@ -26,6 +26,9 @@
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 
+void espeak_srand(long seed);
+long espeak_rand(long min, long max);
+
 int IsAlpha(unsigned int c);
 int IsBracket(int c);
 int IsDigit(unsigned int c);

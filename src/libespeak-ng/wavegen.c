@@ -33,6 +33,7 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "wavegen.h"
+#include "common.h"                   // for espeak_rand
 #include "synthesize.h"               // for WGEN_DATA, RESONATOR, frame_t
 #include "mbrola.h"                  // for MbrolaFill, MbrolaReset, mbrola...
 
@@ -668,7 +669,7 @@ static int ApplyBreath(void)
 	int ix;
 
 	// use two random numbers, for alternate formants
-	noise = (rand() & 0x3fff) - 0x2000;
+	noise = espeak_rand(-0x2000, 0x1fff);
 
 	for (ix = 1; ix < N_PEAKS; ix++) {
 		int amp;
