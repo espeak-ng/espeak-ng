@@ -1642,8 +1642,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 	n_ph_list2 += 2;
 
-	if (count_words == 0)
-		clause_pause = 0;
 	if (Eof() && ((word_count == 0) || (option_endpause == 0)))
 		clause_pause = 10;
 
