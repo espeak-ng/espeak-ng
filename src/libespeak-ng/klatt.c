@@ -1013,7 +1013,7 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 	}
 
 	for (ix = 0; ix < N_KLATTP; ix++) {
-		if ((ix >= 5) && ((fr1->frflags & FRFLAG_KLATT) == 0)) {
+		if ((ix >= 5) || ((fr1->frflags & FRFLAG_KLATT) == 0)) {
 			klattp1[ix] = klattp[ix] = 0;
 			klattp_inc[ix] = 0;
 		} else {
