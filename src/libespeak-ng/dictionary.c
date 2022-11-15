@@ -2084,7 +2084,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	int ix;
 	unsigned int digit_count = 0;
 	char *p;
-	ALPHABET *alphabet;
+	const ALPHABET *alphabet;
 	int dict_flags0 = 0;
 	MatchRecord match1 = { 0 };
 	MatchRecord match2 = { 0 };

@@ -660,7 +660,7 @@ char *strchr_w(const char *s, int c);
 void InitNamedata(void);
 void InitText(int flags);
 void InitText2(void);
-ALPHABET *AlphabetFromChar(int c);
+const ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);
