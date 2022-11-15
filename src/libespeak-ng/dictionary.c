@@ -2040,12 +2040,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					// show each rule that matches, and it's points score
 					int pts;
 					char decoded_phonemes[80];
+					char output[80];
 
 					pts = match.points;
 					if (group_length > 1)
 						pts += 35; // to account for an extra letter matching
 					DecodePhonemes(match.phonemes, decoded_phonemes);
-					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags), decoded_phonemes);
+					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags, output), decoded_phonemes);
 				}
 			}
 		}
