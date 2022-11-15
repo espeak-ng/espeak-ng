@@ -155,11 +155,10 @@ void SetSpeed(int control)
 	if (control == 2)
 		wpm = embedded_value[EMBED_S2];
 
-	#if HAVE_SONIC_H
-	int wpm_value;
 	speed.min_pause = 5;
 
-	wpm_value = wpm;
+	#if HAVE_SONIC_H
+	int wpm_value = wpm;
 
 	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
