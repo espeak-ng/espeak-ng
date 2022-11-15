@@ -20,17 +20,6 @@ check_hash() {
    # Test some common commands to find the correct one for the system being tested on.
 }
 
-# test if Klatt synthesizer is installed
-is_klatt() {
-    echo -n "checking if klatt is installed ... "
-    if [ "`which klatt`" != "" ]; then
-        echo "yes"
-    else
-        echo "no"
-        exit
-    fi
-}
-
 # test if MBROLA synthesizer is installed
 is_mbrola() {
     echo -n "checking if MBROLA is installed ... "
@@ -75,7 +64,7 @@ test_wav () {
 
         echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-                $VALGRIND src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
+                $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
                 > actual.txt || exit 1
         < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
         echo "${EXPECTED}" > expected.txt
@@ -94,13 +83,13 @@ test_wav_grep () {
         MESSAGE=$4
         echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-                $VALGRIND src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
+                $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
                 > actual.txt || exit 1
         < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
         if [ "$MESSAGE" = "Ignore" ] ; then
             cat sum.txt | grep -E "$EXPECTED" || (echo "... ignoring error" && true)
         else
-            cat sum.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat actual.txt; exit 1; }
+            cat sum.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat sum.txt; exit 1; }
         fi
 }
 

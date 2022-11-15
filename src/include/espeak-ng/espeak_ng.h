@@ -212,6 +212,9 @@ espeak_ng_SetOutputHooks(espeak_ng_OUTPUT_HOOKS* hooks);
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SetConstF0(int f0);
 
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetRandSeed(long seed);
+
 
 #ifdef __cplusplus
 }

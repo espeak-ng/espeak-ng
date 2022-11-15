@@ -79,6 +79,7 @@ static const char *help_text =
     "-x\t   Write phoneme mnemonics to stdout\n"
     "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
     "-z\t   No final sentence pause at the end of the text\n"
+    "-D\t   Enable deterministic random mode\n"
     "--compile=<voice name>\n"
     "\t   Compile pronunciation rules and dictionary from the current\n"
     "\t   directory. <voice name> specifies the language\n"
@@ -353,6 +354,7 @@ int main(int argc, char **argv)
 	int phoneme_options = 0;
 	int option_linelength = 0;
 	int option_waveout = 0;
+	bool deterministic = 0;
 	
 	espeak_VOICE voice_select;
 	char filename[200];
@@ -368,7 +370,7 @@ int main(int argc, char **argv)
 	option_punctlist[0] = 0;
 
 	while (true) {
-		c = getopt_long(argc, argv, "a:b:d:f:g:hk:l:mp:qs:v:w:xXz",
+		c = getopt_long(argc, argv, "a:b:Dd:f:g:hk:l:mp:qs:v:w:xXz",
 		                long_options, &option_index);
 
 		// Detect the end of the options.
@@ -387,6 +389,9 @@ int main(int argc, char **argv)
 			break;
 		case 'd':
 			strncpy0(devicename, optarg2, sizeof(devicename));
+			break;
+		case 'D':
+			deterministic = 1;
 			break;
 		case 'h':
 			printf("\n");
@@ -581,6 +586,11 @@ int main(int argc, char **argv)
 		espeak_ng_PrintStatusCodeMessage(result, stderr, context);
 		espeak_ng_ClearErrorContext(&context);
 		exit(1);
+	}
+
+	if (deterministic) {
+		// Set random generator state to well-known
+		espeak_ng_SetRandSeed(1);
 	}
 
 	if (option_waveout || quiet) {
