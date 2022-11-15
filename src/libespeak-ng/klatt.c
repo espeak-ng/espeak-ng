@@ -215,13 +215,13 @@ static double sampled_source(int source_num)
 
 		temp_diff = ftemp - (double)itemp;
 
-		current_value = samples[itemp];
-		next_value = samples[itemp+1];
+		current_value = samples[(itemp) % kt_globals.num_samples];
+		next_value = samples[(itemp+1) % kt_globals.num_samples];
 
 		diff_value = (double)next_value - (double)current_value;
 		diff_value = diff_value * temp_diff;
 
-		result = samples[itemp] + diff_value;
+		result = samples[(itemp) % kt_globals.num_samples] + diff_value;
 		result = result * kt_globals.sample_factor;
 	} else
 		result = 0;
