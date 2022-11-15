@@ -75,7 +75,7 @@ test_wav () {
 
         echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-                $VALGRIND src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
+                $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
                 > actual.txt || exit 1
         < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
         echo "${EXPECTED}" > expected.txt
@@ -94,13 +94,13 @@ test_wav_grep () {
         MESSAGE=$4
         echo "testing ${VOICE}${MESSAGE}"
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-                $VALGRIND src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
+                $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
                 > actual.txt || exit 1
         < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
         if [ "$MESSAGE" = "Ignore" ] ; then
             cat sum.txt | grep -E "$EXPECTED" || (echo "... ignoring error" && true)
         else
-            cat sum.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat actual.txt; exit 1; }
+            cat sum.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat sum.txt; exit 1; }
         fi
 }
 
