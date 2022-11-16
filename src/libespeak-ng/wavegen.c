@@ -50,7 +50,7 @@
 
 static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 
-voice_t *wvoice = NULL;
+static voice_t *wvoice = NULL;
 
 static int option_harmonic1 = 10;
 static int flutter_amp = 64;
@@ -89,7 +89,7 @@ static int modulation_type = 0;
 static int glottal_flag = 0;
 static int glottal_reduce = 0;
 
-WGEN_DATA wdata;
+static WGEN_DATA wdata;
 
 static int amp_ix;
 static int amp_inc;
@@ -111,7 +111,7 @@ unsigned char *out_ptr;
 unsigned char *out_end;
 
 espeak_ng_OUTPUT_HOOKS* output_hooks = NULL;
-int const_f0 = 0;
+static int const_f0 = 0;
 
 // the queue of operations passed to wavegen from sythesize
 intptr_t wcmdq[N_WCMDQ][4];
@@ -121,8 +121,6 @@ int wcmdq_tail = 0;
 // pitch,speed,
 int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
 static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
-
-int current_source_index = 0;
 
 #if HAVE_SONIC_H
 static sonicStream sonicSpeedupStream = NULL;
@@ -1346,8 +1344,6 @@ static int WavegenFill2()
 		case WCMD_MARKER:
 			marker_type = q[0] >> 8;
 			MarkerEvent(marker_type, q[1], q[2], q[3], out_ptr);
-			if (marker_type == 1) // word marker
-				current_source_index = q[1] & 0xffffff;
 			break;
 		case WCMD_AMPLITUDE:
 			SetAmplitude(length, (unsigned char *)q[2], q[3]);

@@ -77,17 +77,17 @@ char skip_marker[N_MARKER_LENGTH];
 bool skipping_text; // waiting until word count, sentence count, or named marker is reached
 int end_character_position;
 int count_sentences;
-int count_words;
+static int count_words;
 int clause_start_char;
 int clause_start_word;
-bool new_sentence;
+static bool new_sentence;
 static int word_emphasis = 0; // set if emphasis level 3 or 4
 static int embedded_flag = 0; // there are embedded commands to be applied to the next phoneme, used in TranslateWord2()
 
 static int max_clause_pause = 0;
 static bool any_stressed_words;
 int pre_pause;
-ALPHABET *current_alphabet;
+static ALPHABET *current_alphabet;
 
 char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 int n_ph_list2;

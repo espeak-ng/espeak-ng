@@ -50,8 +50,8 @@ static void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flag
 static void ChangeWordStress(Translator *tr, char *word, int new_stress);
 static int CheckDottedAbbrev(char *word1);
 static int NonAsciiNumber(int letter);
-static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, ALPHABET *current_alphabet, char word_phonemes[]);
-static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALPHABET *current_alphabet);
+static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, const ALPHABET *current_alphabet, char word_phonemes[]);
+static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, const ALPHABET *current_alphabet);
 static int Unpronouncable(Translator *tr, char *word, int posn);
 static int Unpronouncable2(Translator *tr, char *word);
 
@@ -746,7 +746,7 @@ static void ChangeWordStress(Translator *tr, char *word, int new_stress)
 	*word = 0;
 }
 
-static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, ALPHABET *current_alphabet, char word_phonemes[])
+static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, const ALPHABET *current_alphabet, char word_phonemes[])
 {
 	int posn = 0;
 	int capitals = 0;
@@ -783,7 +783,7 @@ static const int number_ranges[] = {
 };
 
 
-static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALPHABET *current_alphabet)
+static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, const ALPHABET *current_alphabet)
 {
 	// get pronunciation for an isolated letter
 	// return number of bytes used by the letter
@@ -794,7 +794,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 	int n_bytes;
 	int letter;
 	int len;
-	ALPHABET *alphabet;
+	const ALPHABET *alphabet;
 	int al_offset;
 	int al_flags;
 	int number;
@@ -1123,7 +1123,7 @@ static int Unpronouncable(Translator *tr, char *word, int posn)
 	int vowel_posn = 9;
 	int index;
 	int count;
-	ALPHABET *alphabet;
+	const ALPHABET *alphabet;
 
 	utf8_in(&c, word);
 	if ((tr->letter_bits_offset > 0) && (c < 0x241)) {

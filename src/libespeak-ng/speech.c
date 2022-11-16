@@ -63,16 +63,16 @@
 #include "voice.h"                // for FreeVoiceList, VoiceReset, current_...
 #include "wavegen.h"              // for WavegenFill, WavegenInit, WcmdqUsed
 
-unsigned char *outbuf = NULL;
-int outbuf_size = 0;
-unsigned char *out_start;
+static unsigned char *outbuf = NULL;
+static int outbuf_size = 0;
+static unsigned char *out_start;
 
 espeak_EVENT *event_list = NULL;
-int event_list_ix = 0;
-int n_event_list;
-long count_samples;
+static int event_list_ix = 0;
+static int n_event_list;
+static long count_samples;
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-struct audio_object *my_audio = NULL;
+static struct audio_object *my_audio = NULL;
 #endif
 
 static unsigned int my_unique_identifier = 0;
@@ -83,7 +83,7 @@ static int voice_samplerate = 22050;
 static int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
-t_espeak_callback *synth_callback = NULL;
+static t_espeak_callback *synth_callback = NULL;
 int (*uri_callback)(int, const char *, const char *) = NULL;
 int (*phoneme_callback)(const char *) = NULL;
 

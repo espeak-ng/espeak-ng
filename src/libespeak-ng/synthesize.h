@@ -461,7 +461,6 @@ extern SPEED_FACTORS speed;
 extern unsigned char *out_ptr;
 extern unsigned char *out_end;
 extern espeak_EVENT *event_list;
-extern t_espeak_callback *synth_callback;
 extern const int version_phdata;
 
 void DoEmbedded(int *embix, int sourceix);
