@@ -168,6 +168,10 @@ jobs:
             compiler: clang
             sanitizer: address
 
+          # Disable Thread sanitizer that runs for over 2h on aarch64
+          - arch: aarch64
+            sanitizer: thread
+
     steps:
 
     # Linux - dependencies
