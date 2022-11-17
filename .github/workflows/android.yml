@@ -1,0 +1,36 @@
+name: Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config: [debug, release]
+        include:
+          - config: debug
+            apkname: espeak-debug.apk
+          - config: release
+            apkname: espeak-release-unsigned.apk
+    name: Build ${{ matrix.config }} APK
+    steps:
+      - uses: actions/checkout@v3
+      - name: autoconf
+        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      - name: configure
+        run: ./configure --with-gradle=$(pwd)/android/gradlew
+      - name: make
+        run: make apk-${{ matrix.config }}
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: android-${{ matrix.config }}.apk
+          path: android/build/outputs/apk/${{ matrix.config }}/${{ matrix.apkname }}
+          retention-days: 5
