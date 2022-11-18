@@ -77,7 +77,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	mbr_name_prefix = 0;
 
 	if (mbrola_voice == NULL) {
-		samplerate = samplerate_native;
+		samplerate = samplerate;
 		SetParameter(espeakVOICETYPE, 0, 0);
 		return ENS_OK;
 	}

@@ -271,7 +271,7 @@ void VoiceReset(int tone_only)
 	voice->voicing = 64;
 	voice->consonant_amp = 90; // change from 100 to 90 for v.1.47
 	voice->consonant_ampv = 100;
-	voice->samplerate = samplerate_native;
+	voice->samplerate = samplerate;
 	memset(voice->klattv, 0, sizeof(voice->klattv));
 
 	speed.fast_settings = espeakRATE_MAXIMUM;
