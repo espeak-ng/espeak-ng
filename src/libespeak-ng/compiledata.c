@@ -381,7 +381,6 @@ typedef struct CompileContext {
 	int duplicate_references;
 	int count_frames;
 	int error_count;
-	int resample_count;
 	int then_count;
 	bool after_if;
 
@@ -2382,7 +2381,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	WavegenSetVoice(voice);
 
 	ctx->error_count = 0;
-	ctx->resample_count = 0;
 	ctx->f_errors = log;
 
 	strncpy0(ctx->current_fname, "phonemes", sizeof(ctx->current_fname));
@@ -2483,11 +2481,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 
 	WavegenFini();
 
-	if (ctx->resample_count > 0) {
-		fprintf(ctx->f_errors, "\n%d WAV files resampled to %d Hz\n", ctx->resample_count, samplerate_native);
-		fprintf(log, "Compiled phonemes: %d errors, %d files resampled to %d Hz.\n", ctx->error_count, ctx->resample_count, samplerate_native);
-	} else
-		fprintf(log, "Compiled phonemes: %d errors.\n", ctx->error_count);
+	fprintf(log, "Compiled phonemes: %d errors.\n", ctx->error_count);
 
 	if (ctx->f_errors != stderr && ctx->f_errors != stdout)
 		fclose(ctx->f_errors);
