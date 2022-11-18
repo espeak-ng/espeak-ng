@@ -72,13 +72,10 @@ static voice_t *new_voice = NULL;
 #define RMS_START 28  // 28
 #define VOWEL_FRONT_LENGTH  50
 
-const char *WordToString(unsigned int word)
+const char *WordToString(char buf[5], unsigned int word)
 {
 	// Convert a phoneme mnemonic word into a string
 	int ix;
-	static char buf[5];
-
-	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	for (ix = 0; ix < 4; ix++)
 		buf[ix] = word >> (ix*8);

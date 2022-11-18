@@ -463,7 +463,7 @@ void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
-const char *WordToString(unsigned int word);
+const char *WordToString(char buf[5], unsigned int word);
 
 #ifdef __cplusplus
 }

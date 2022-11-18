@@ -2197,6 +2197,7 @@ static void WritePhonemeTables(CompileContext *ctx)
 static void EndPhonemeTable(CompileContext *ctx)
 {
 	int ix;
+	char buf[5];
 
 	if (ctx->n_phoneme_tabs == 0)
 		return;
@@ -2205,7 +2206,7 @@ static void EndPhonemeTable(CompileContext *ctx)
 	for (ix = 0; ix < ctx->n_phcodes; ix++) {
 		if (ctx->phoneme_tab2[ix].type == phINVALID) {
 			error(ctx, "Phoneme [%s] not declared, referenced at line %d",
-			      WordToString(ctx->phoneme_tab2[ix].mnemonic), (int)(ctx->phoneme_tab2[ix].program));
+			      WordToString(buf, ctx->phoneme_tab2[ix].mnemonic), (int)(ctx->phoneme_tab2[ix].program));
 			ctx->error_count++;
 			ctx->phoneme_tab2[ix].type = 0; // prevent the error message repeating
 		}

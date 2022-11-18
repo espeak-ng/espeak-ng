@@ -391,7 +391,8 @@ int SelectPhonemeTableName(const char *name)
 
 static void InvalidInstn(PHONEME_TAB *ph, int instn)
 {
-	fprintf(stderr, "Invalid instruction %.4x for phoneme '%s'\n", instn, WordToString(ph->mnemonic));
+	char buf[5];
+	fprintf(stderr, "Invalid instruction %.4x for phoneme '%s'\n", instn, WordToString(buf, ph->mnemonic));
 }
 
 static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, int control)
