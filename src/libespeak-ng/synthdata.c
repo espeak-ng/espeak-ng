@@ -319,7 +319,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	return frames;
 }
 
-unsigned char *GetEnvelope(int index)
+const unsigned char *GetEnvelope(int index)
 {
 	if (index == 0) {
 		fprintf(stderr, "espeak: No envelope\n");

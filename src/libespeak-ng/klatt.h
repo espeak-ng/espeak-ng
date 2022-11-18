@@ -89,7 +89,7 @@ typedef struct {
 	double amp_gain0; /* G0 converted to linear gain              */
 	int num_samples; /* number of glottal samples */
 	double sample_factor; /* multiplication factor for glottal samples */
-	short *natural_samples; /* pointer to an array of glottal samples */
+	const short *natural_samples; /* pointer to an array of glottal samples */
 	long original_f0; /* original value of f0 not modified by flutter */
 
 	int fadein;

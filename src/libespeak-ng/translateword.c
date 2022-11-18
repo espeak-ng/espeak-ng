@@ -772,8 +772,8 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 }
 
 
-static const char *hex_letters[] = {"'e:j",	"b'i:",	"s'i:",	"d'i:",	"'i:",	"'ef"};
-static const char *modifiers[] = { NULL, "_sub", "_sup", NULL };
+static const char *const hex_letters[] = {"'e:j",	"b'i:",	"s'i:",	"d'i:",	"'i:",	"'ef"};
+static const char *const modifiers[] = { NULL, "_sub", "_sup", NULL };
 // unicode ranges for non-ascii digits 0-9 (these must be in ascending order)
 static const int number_ranges[] = {
 	0x660, 0x6f0, // arabic

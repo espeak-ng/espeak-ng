@@ -124,7 +124,7 @@ static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 
 
 #if HAVE_SONIC_H
 static sonicStream sonicSpeedupStream = NULL;
-double sonicSpeed = 1.0;
+static double sonicSpeed = 1.0;
 #endif
 
 // 1st index=roughness
@@ -218,7 +218,8 @@ static unsigned char wavemult[N_WAVEMULT] = {
 };
 
 // set from y = pow(2,x) * 128,  x=-1 to 1
-unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
+#define MAX_PITCH_VALUE  101
+static const unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	 64,  65,  66,  67,  68,  69,  70,  71,
 	 72,  73,  74,  75,  76,  77,  78,  79,
 	 80,  81,  82,  83,  84,  86,  87,  88,
@@ -278,7 +279,7 @@ static void WcmdqIncHead()
 
 #define PEAKSHAPEW 256
 
-unsigned char pk_shape1[PEAKSHAPEW+1] = {
+static const unsigned char pk_shape1[PEAKSHAPEW+1] = {
 	255, 254, 254, 254, 254, 254, 253, 253, 252, 251, 251, 250, 249, 248, 247, 246,
 	245, 244, 242, 241, 239, 238, 236, 234, 233, 231, 229, 227, 225, 223, 220, 218,
 	216, 213, 211, 209, 207, 205, 203, 201, 199, 197, 195, 193, 191, 189, 187, 185,
@@ -298,7 +299,7 @@ unsigned char pk_shape1[PEAKSHAPEW+1] = {
 	  0
 };
 
-static unsigned char pk_shape2[PEAKSHAPEW+1] = {
+static const unsigned char pk_shape2[PEAKSHAPEW+1] = {
 	255, 254, 254, 254, 254, 254, 254, 254, 254, 254, 253, 253, 253, 253, 252, 252,
 	252, 251, 251, 251, 250, 250, 249, 249, 248, 248, 247, 247, 246, 245, 245, 244,
 	243, 243, 242, 241, 239, 237, 235, 233, 231, 229, 227, 225, 223, 221, 218, 216,
@@ -318,7 +319,7 @@ static unsigned char pk_shape2[PEAKSHAPEW+1] = {
 	  0
 };
 
-static unsigned char *pk_shape;
+static const unsigned char *pk_shape;
 
 void WavegenInit(int rate, int wavemult_fact)
 {

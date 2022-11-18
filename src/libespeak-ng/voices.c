@@ -75,10 +75,10 @@ static espeak_VOICE *voices_list[N_VOICES_LIST];
 espeak_VOICE current_voice_selected;
 
 #define N_VOICE_VARIANTS   12
-const char variants_either[N_VOICE_VARIANTS] = { 1, 2, 12, 3, 13, 4, 14, 5, 11, 0 };
-const char variants_male[N_VOICE_VARIANTS] = { 1, 2, 3, 4, 5, 6, 0 };
-const char variants_female[N_VOICE_VARIANTS] = { 11, 12, 13, 14, 0 };
-const char *variant_lists[3] = { variants_either, variants_male, variants_female };
+static const char variants_either[N_VOICE_VARIANTS] = { 1, 2, 12, 3, 13, 4, 14, 5, 11, 0 };
+static const char variants_male[N_VOICE_VARIANTS] = { 1, 2, 3, 4, 5, 6, 0 };
+static const char variants_female[N_VOICE_VARIANTS] = { 11, 12, 13, 14, 0 };
+static const char *const variant_lists[3] = { variants_either, variants_male, variants_female };
 
 static voice_t voicedata;
 voice_t *voice = &voicedata;
