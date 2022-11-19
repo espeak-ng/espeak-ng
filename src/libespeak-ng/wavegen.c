@@ -118,7 +118,7 @@ int wcmdq_head = 0;
 int wcmdq_tail = 0;
 
 // pitch,speed,
-int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
+const int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
 static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
 
 #if HAVE_SONIC_H
