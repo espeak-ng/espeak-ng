@@ -40,7 +40,7 @@
 #include "translate.h"
 #include "speech.h"
 
-const unsigned char pause_phonemes[8] = {
+static const unsigned char pause_phonemes[8] = {
 	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
 };
 

@@ -122,7 +122,7 @@ typedef struct { // 44 bytes
 } frame_t2; // without the extra Klatt parameters
 
 typedef struct {
-	unsigned char *pitch_env;
+	const unsigned char *pitch_env;
 	int pitch;      // pitch Hz*256
 	int pitch_ix;   // index into pitch envelope (*256)
 	int pitch_inc;  // increment to pitch_ix
@@ -392,12 +392,7 @@ extern int n_phoneme_list;
 extern PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
 extern unsigned int embedded_list[];
 
-extern unsigned char env_fall[128];
-extern unsigned char env_rise[128];
-extern unsigned char env_frise[128];
-
-#define MAX_PITCH_VALUE  101
-extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
+extern const unsigned char env_fall[128];
 
 // queue of commands for wavegen
 #define WCMD_KLATT  1
@@ -453,7 +448,7 @@ void DoSonicSpeed(int value);
 #define PITCHfall   0  // standard pitch envelopes
 #define PITCHrise   2
 #define N_ENVELOPE_DATA   20
-extern unsigned char *envelope_data[N_ENVELOPE_DATA];
+extern const unsigned char *envelope_data[N_ENVELOPE_DATA];
 
 extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;

@@ -61,7 +61,7 @@
 #define OFFSET_ETHIOPIC 0x1200
 
 // character ranges must be listed in ascending unicode order
-const ALPHABET alphabets[] = {
+static const ALPHABET alphabets[] = {
 	{ "_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e', 'l'), AL_DONT_NAME | AL_NOT_LETTERS | AL_WORDS },
 	{ "_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0 },
 	{ "_hy",    OFFSET_ARMENIAN, 0x530, 0x58f,  L('h', 'y'), AL_WORDS },
@@ -203,8 +203,8 @@ static const unsigned short chars_ignore_zwnj_hyphen[] = {
 	0,      0
 };
 
-const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
-const unsigned char utf8_null[] = { 0 }; // null string, UTF-8
+static const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
+static const unsigned char utf8_null[] = { 0 }; // null string, UTF-8
 
 static Translator *NewTranslator(void)
 {

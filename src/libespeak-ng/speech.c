@@ -959,7 +959,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 	return ENS_OK;
 }
 
-const char *version_string = PACKAGE_VERSION;
+static const char version_string[] = PACKAGE_VERSION;
 ESPEAK_API const char *espeak_Info(const char **ptr)
 {
 	if (ptr != NULL)

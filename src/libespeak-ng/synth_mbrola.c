@@ -241,7 +241,7 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	int pitch_base;
 	int pitch_range;
 	int p1, p2, p_end;
-	unsigned char *pitch_env;
+	const unsigned char *pitch_env;
 	int max = -1;
 	int min = 999;
 	int y_max = 0;

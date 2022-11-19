@@ -896,7 +896,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	return SubstituteChar(tr, c, next_in, ptr, insert, wordflags);
 }
 
-static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
+static const char *const UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
 
 static int UpperCaseInWord(Translator *tr, char *word, int c)
 {

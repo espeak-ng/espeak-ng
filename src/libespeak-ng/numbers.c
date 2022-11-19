@@ -83,7 +83,7 @@ typedef struct {
 } ACCENTS;
 
 // these are tokens to look up in the *_list file.
-static ACCENTS accents_tab[] = {
+static const ACCENTS accents_tab[] = {
 	{ "_lig", 1 },
 	{ "_smc", 0 },  // smallcap
 	{ "_tur", 0 },  // turned
