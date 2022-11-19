@@ -84,7 +84,6 @@ static int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
 static t_espeak_callback *synth_callback = NULL;
-int (*uri_callback)(int, const char *, const char *) = NULL;
 int (*phoneme_callback)(const char *) = NULL;
 
 char path_home[N_PATH_HOME]; // this is the espeak-ng-data directory
@@ -652,11 +651,6 @@ ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback *SynthCallback)
 #ifdef USE_ASYNC
 	event_set_callback(synth_callback);
 #endif
-}
-
-ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
-{
-	uri_callback = UriCallback;
 }
 
 ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
