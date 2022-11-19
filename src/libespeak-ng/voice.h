@@ -79,8 +79,6 @@ typedef struct {
 
 } voice_t;
 
-extern espeak_VOICE current_voice_selected;
-
 extern voice_t *voice;
 extern int tone_points[12];
 

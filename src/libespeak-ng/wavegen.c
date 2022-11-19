@@ -62,7 +62,6 @@ int embedded_value[N_EMBEDDED_VALUES];
 
 static int PHASE_INC_FACTOR;
 int samplerate = 0; // this is set by Wavegeninit()
-int samplerate_native = 0;
 
 static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];
@@ -119,7 +118,7 @@ int wcmdq_head = 0;
 int wcmdq_tail = 0;
 
 // pitch,speed,
-int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
+const int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
 static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
 
 #if HAVE_SONIC_H
@@ -330,7 +329,7 @@ void WavegenInit(int rate, int wavemult_fact)
 		wavemult_fact = 60; // default
 
 	wvoice = NULL;
-	samplerate = samplerate_native = rate;
+	samplerate = rate;
 	PHASE_INC_FACTOR = 0x8000000 / samplerate; // assumes pitch is Hz*32
 	Flutter_inc = (64 * samplerate)/rate;
 	samplecount = 0;

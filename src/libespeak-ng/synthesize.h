@@ -76,7 +76,7 @@ extern "C"
 
 #define N_EMBEDDED_VALUES    15
 extern int embedded_value[N_EMBEDDED_VALUES];
-extern int embedded_default[N_EMBEDDED_VALUES];
+extern const int embedded_default[N_EMBEDDED_VALUES];
 
 #define N_KLATTP   10 // this affects the phoneme data file format
 #define N_KLATTP2  14 // used in vowel files, with extra parameters for future extensions
@@ -423,7 +423,6 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
-extern int samplerate_native;
 
 #define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
 extern int echo_head;
@@ -464,7 +463,7 @@ void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
-const char *WordToString(unsigned int word);
+const char *WordToString(char buf[5], unsigned int word);
 
 #ifdef __cplusplus
 }

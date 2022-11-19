@@ -381,7 +381,6 @@ typedef struct CompileContext {
 	int duplicate_references;
 	int count_frames;
 	int error_count;
-	int resample_count;
 	int then_count;
 	bool after_if;
 
@@ -1104,9 +1103,9 @@ static int LoadWavefile(CompileContext *ctx, FILE *f, const char *fname)
 	sr2 = Read4Bytes(f);
 	fseek(f, 40, SEEK_SET);
 
-	if ((sr1 != samplerate_native) || (sr2 != sr1*2)) {
-		if (sr1 != samplerate_native)
-			error(ctx, "Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
+	if ((sr1 != samplerate) || (sr2 != sr1*2)) {
+		if (sr1 != samplerate)
+			error(ctx, "Can't resample (%d to %d): %s", sr1, samplerate, fname);
 		else
 			error(ctx, "WAV file is not mono: %s", fname);
 		return 0;
@@ -2198,6 +2197,7 @@ static void WritePhonemeTables(CompileContext *ctx)
 static void EndPhonemeTable(CompileContext *ctx)
 {
 	int ix;
+	char buf[5];
 
 	if (ctx->n_phoneme_tabs == 0)
 		return;
@@ -2206,7 +2206,7 @@ static void EndPhonemeTable(CompileContext *ctx)
 	for (ix = 0; ix < ctx->n_phcodes; ix++) {
 		if (ctx->phoneme_tab2[ix].type == phINVALID) {
 			error(ctx, "Phoneme [%s] not declared, referenced at line %d",
-			      WordToString(ctx->phoneme_tab2[ix].mnemonic), (int)(ctx->phoneme_tab2[ix].program));
+			      WordToString(buf, ctx->phoneme_tab2[ix].mnemonic), (int)(ctx->phoneme_tab2[ix].program));
 			ctx->error_count++;
 			ctx->phoneme_tab2[ix].type = 0; // prevent the error message repeating
 		}
@@ -2371,7 +2371,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 		sprintf(phdst, "%s", path_home);
 	}
 
-	samplerate_native = samplerate = rate;
+	samplerate = rate;
 	LoadPhData(NULL, NULL);
 	if (LoadVoice("", 8/*compiling phonemes*/) == NULL) {
 		clean_context(ctx);
@@ -2382,7 +2382,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	WavegenSetVoice(voice);
 
 	ctx->error_count = 0;
-	ctx->resample_count = 0;
 	ctx->f_errors = log;
 
 	strncpy0(ctx->current_fname, "phonemes", sizeof(ctx->current_fname));
@@ -2451,7 +2450,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 
 	// write a word so that further data doesn't start at displ=0
 	Write4Bytes(ctx->f_phdata, version_phdata);
-	Write4Bytes(ctx->f_phdata, samplerate_native);
+	Write4Bytes(ctx->f_phdata, samplerate);
 	Write4Bytes(ctx->f_phindex, version_phdata);
 
 	memset(ctx->ref_hash_tab, 0, sizeof(ctx->ref_hash_tab));
@@ -2483,11 +2482,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 
 	WavegenFini();
 
-	if (ctx->resample_count > 0) {
-		fprintf(ctx->f_errors, "\n%d WAV files resampled to %d Hz\n", ctx->resample_count, samplerate_native);
-		fprintf(log, "Compiled phonemes: %d errors, %d files resampled to %d Hz.\n", ctx->error_count, ctx->resample_count, samplerate_native);
-	} else
-		fprintf(log, "Compiled phonemes: %d errors.\n", ctx->error_count);
+	fprintf(log, "Compiled phonemes: %d errors.\n", ctx->error_count);
 
 	if (ctx->f_errors != stderr && ctx->f_errors != stdout)
 		fclose(ctx->f_errors);

@@ -84,8 +84,6 @@ static int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
 static t_espeak_callback *synth_callback = NULL;
-int (*uri_callback)(int, const char *, const char *) = NULL;
-int (*phoneme_callback)(const char *) = NULL;
 
 char path_home[N_PATH_HOME]; // this is the espeak-ng-data directory
 extern int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
@@ -381,7 +379,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	WavegenInit(srate, 0);
 	LoadConfig();
 
-	memset(&current_voice_selected, 0, sizeof(current_voice_selected));
+	espeak_VOICE *current_voice_selected = espeak_GetCurrentVoice();
+	memset(current_voice_selected, 0, sizeof(espeak_VOICE));
 	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 	InitNamedata();
@@ -651,16 +650,6 @@ ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback *SynthCallback)
 #ifdef USE_ASYNC
 	event_set_callback(synth_callback);
 #endif
-}
-
-ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
-{
-	uri_callback = UriCallback;
-}
-
-ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
-{
-	phoneme_callback = PhonemeCallback;
 }
 
 ESPEAK_NG_API espeak_ng_STATUS

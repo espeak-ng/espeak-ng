@@ -72,7 +72,7 @@ int formant_rate[9]; // values adjusted for actual sample rate
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 
-espeak_VOICE current_voice_selected;
+static espeak_VOICE current_voice_selected;
 
 #define N_VOICE_VARIANTS   12
 static const char variants_either[N_VOICE_VARIANTS] = { 1, 2, 12, 3, 13, 4, 14, 5, 11, 0 };
@@ -271,7 +271,7 @@ void VoiceReset(int tone_only)
 	voice->voicing = 64;
 	voice->consonant_amp = 90; // change from 100 to 90 for v.1.47
 	voice->consonant_ampv = 100;
-	voice->samplerate = samplerate_native;
+	voice->samplerate = samplerate;
 	memset(voice->klattv, 0, sizeof(voice->klattv));
 
 	speed.fast_settings = espeakRATE_MAXIMUM;
@@ -1072,9 +1072,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 	if ((voice_select2.languages == NULL) || (voice_select2.languages[0] == 0)) {
 		// no language is specified. Get language from the named voice
-		static char buf[60];
-
-		MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
+		char buf[60];
 
 		if (voice_select2.name == NULL) {
 			if ((voice_select2.name = voice_select2.identifier) == NULL)

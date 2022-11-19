@@ -2084,6 +2084,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	int ix;
 	unsigned int digit_count = 0;
 	char *p;
+	char word_buf[5];
 	const ALPHABET *alphabet;
 	int dict_flags0 = 0;
 	MatchRecord match1 = { 0 };
@@ -2240,12 +2241,12 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 
 						if (((alphabet = AlphabetFromChar(letter)) != NULL)  && (alphabet->offset != tr->letter_bits_offset)) {
 							if (tr->langopts.alt_alphabet == alphabet->offset) {
-								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(tr->langopts.alt_alphabet_lang));
+								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(word_buf, tr->langopts.alt_alphabet_lang));
 								return 0;
 							}
 							if (alphabet->flags & AL_WORDS) {
 								// switch to the nominated language for this alphabet
-								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(alphabet->language));
+								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(word_buf, alphabet->language));
 								return 0;
 							}
 						}

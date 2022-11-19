@@ -649,9 +649,6 @@ extern char dictionary_name[40];
 extern espeak_ng_TEXT_DECODER *p_decoder;
 extern int dictionary_skipwords;
 
-extern int (*uri_callback)(int, const char *, const char *);
-extern int (*phoneme_callback)(const char *);
-
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000
 

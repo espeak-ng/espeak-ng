@@ -87,6 +87,8 @@ static const MNEM_TAB ssmltags[] = {
 	{ NULL, 0 }
 };
 
+static int (*uri_callback)(int, const char *, const char *) = NULL;
+
 static int attrcmp(const wchar_t *string1, const char *string2)
 {
 	int ix;
@@ -972,6 +974,13 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	}
 	return 0;
 }
+
+#pragma GCC visibility push(default)
+ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
+{
+	uri_callback = UriCallback;
+}
+#pragma GCC visibility pop
 
 static const MNEM_TAB xml_entity_mnemonics[] = {
 	{ "gt",   '>' },

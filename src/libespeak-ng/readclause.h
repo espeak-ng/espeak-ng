@@ -36,7 +36,7 @@ extern PARAM_STACK param_stack[];
 
 int clause_type_from_codepoint(uint32_t c);
 int Eof(void);
-const char *WordToString2(unsigned int word);
+const char *WordToString2(char buf[5], unsigned int word);
 int AddNameData(const char *name,
                 int wide);
 int ReadClause(Translator *tr,
