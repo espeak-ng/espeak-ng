@@ -12,6 +12,11 @@ include(cmake/deps.cmake)
 include(cmake/config.cmake)
 add_subdirectory(src)
 include(cmake/data.cmake)
+
+include(cmake/package.cmake)
+include(CPack)
+
+include(CTest)
 add_subdirectory(tests)
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
