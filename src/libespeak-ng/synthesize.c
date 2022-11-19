@@ -68,6 +68,8 @@ static int syllable_centre;
 
 static voice_t *new_voice = NULL;
 
+static int (*phoneme_callback)(const char *) = NULL;
+
 #define RMS_GLOTTAL1 35   // vowel before glottal stop
 #define RMS_START 28  // 28
 #define VOWEL_FRONT_LENGTH  50
@@ -1588,3 +1590,10 @@ int SpeakNextClause(int control)
 
 	return 1;
 }
+
+#pragma GCC visibility push(default)
+ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
+{
+	phoneme_callback = PhonemeCallback;
+}
+#pragma GCC visibility pop
