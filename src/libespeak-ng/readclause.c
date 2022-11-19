@@ -167,14 +167,11 @@ static void UngetC(int c)
 	ungot_char = c;
 }
 
-const char *WordToString2(unsigned int word)
+const char *WordToString2(char buf[5], unsigned int word)
 {
 	// Convert a language mnemonic word into a string
 	int ix;
-	static char buf[5];
 	char *p;
-
-	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	p = buf;
 	for (ix = 3; ix >= 0; ix--) {
@@ -199,7 +196,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 	return NULL;
 }
 
-static const char *LookupCharName(Translator *tr, int c, bool only)
+static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only)
 {
 	// Find the phoneme string (in ascii) to speak the name of character c
 	// Used for punctuation characters and symbols
@@ -210,9 +207,6 @@ static const char *LookupCharName(Translator *tr, int c, bool only)
 	char phonemes[60];
 	const char *lang_name = NULL;
 	char *string;
-	static char buf[60];
-
-	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	buf[0] = 0;
 	flags[0] = 0;
@@ -284,6 +278,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int bufix1;
 	char buf[200];
 	char ph_buf[30];
+	char cn_buf[60];
 
 	c2 = *c2_ptr;
 	buf[0] = 0;
@@ -298,7 +293,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				punctname = ph_buf; // use word for 'period' instead of 'dot'
 		}
 		if (punctname == NULL)
-			punctname = LookupCharName(tr, c1, false);
+			punctname = LookupCharName(cn_buf, tr, c1, false);
 
 		if (punctname == NULL)
 			return -1;
@@ -833,7 +828,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				char *p2;
 
 				p2 = &buf[ix];
-				sprintf(p2, "%s", LookupCharName(tr, c1, true));
+				char cn_buf[60];
+				sprintf(p2, "%s", LookupCharName(cn_buf, tr, c1, true));
 				if (p2[0] != 0) {
 					ix += strlen(p2);
 					announced_punctuation = c1;
@@ -1020,6 +1016,7 @@ static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Tra
 	} else {
 		SetWordStress(tr2, phonemes, flags, -1, 0);
 	    DecodePhonemes(phonemes, phonemes2);
-	    sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(tr->translator_name));
+			char wbuf[5];
+	    sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
     }
 }

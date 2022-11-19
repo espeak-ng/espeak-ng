@@ -918,7 +918,8 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 			char hangul_buf[12];
 
 			// speak in the language for this alphabet (or English)
-			ph_buf[2] = SetTranslator3(WordToString2(language));
+			char word_buf[5];
+			ph_buf[2] = SetTranslator3(WordToString2(word_buf, language));
 
 			if (translator3 != NULL) {
 				int code;

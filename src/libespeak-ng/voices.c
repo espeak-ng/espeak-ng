@@ -1072,9 +1072,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 	if ((voice_select2.languages == NULL) || (voice_select2.languages[0] == 0)) {
 		// no language is specified. Get language from the named voice
-		static char buf[60];
-
-		MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
+		char buf[60];
 
 		if (voice_select2.name == NULL) {
 			if ((voice_select2.name = voice_select2.identifier) == NULL)
