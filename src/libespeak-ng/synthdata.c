@@ -49,7 +49,7 @@ const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
-int current_phoneme_table;
+static int current_phoneme_table;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 static unsigned short *phoneme_index = NULL;
@@ -164,6 +164,7 @@ void FreePhData(void)
 	phoneme_index = NULL;
 	phondata_ptr = NULL;
 	tunes = NULL;
+	current_phoneme_table = -1;
 }
 
 int PhonemeCode(unsigned int mnem)
@@ -353,6 +354,7 @@ static void SetUpPhonemeTable(int number)
 
 void SelectPhonemeTable(int number)
 {
+	if (current_phoneme_table == number) return;
 	n_phoneme_tab = 0;
 	MAKE_MEM_UNDEFINED(&phoneme_tab, sizeof(phoneme_tab));
 	SetUpPhonemeTable(number); // recursively for included phoneme tables

@@ -1549,8 +1549,7 @@ int SpeakNextClause(int control)
 		return 0;
 	}
 
-	if (current_phoneme_table != voice->phoneme_tab_ix)
-		SelectPhonemeTable(voice->phoneme_tab_ix);
+	SelectPhonemeTable(voice->phoneme_tab_ix);
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
