@@ -41,6 +41,7 @@
 #include "speech.h"
 
 static void SetRegressiveVoicing(int regression, PHONEME_LIST2 *plist2, PHONEME_TAB *ph, Translator *tr);
+static void ReInterpretPhoneme(PHONEME_TAB *ph, PHONEME_TAB *ph2, PHONEME_LIST *plist3, Translator *tr, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
 
 static const unsigned char pause_phonemes[8] = {
 	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
@@ -314,16 +315,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 			plist3->ph = ph;
 			plist3->phcode = alternative;
 
-			if (ph->type == phVOWEL) {
-				plist3->synthflags |= SFLAG_SYLLABLE;
-				if (ph2->type != phVOWEL)
-					plist3->stresslevel = 0; // change from non-vowel to vowel, make sure it's unstressed
-			} else
-				plist3->synthflags &= ~SFLAG_SYLLABLE;
-
-			// re-interpret the changed phoneme
-			// But it doesn't obey a second ChangePhoneme()
-			InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
+			ReInterpretPhoneme(ph, ph2, plist3, tr, &phdata, &worddata);
 		}
 
 		if ((alternative = phdata.pd_param[pd_CHANGEPHONEME]) > 0) {
@@ -336,16 +328,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 			if (alternative == 1)
 				deleted = true; // NULL phoneme, discard
 			else {
-				if (ph->type == phVOWEL) {
-					plist3->synthflags |= SFLAG_SYLLABLE;
-					if (ph2->type != phVOWEL)
-						plist3->stresslevel = 0; // change from non-vowel to vowel, make sure it's unstressed
-				} else
-					plist3->synthflags &= ~SFLAG_SYLLABLE;
-
-				// re-interpret the changed phoneme
-				// But it doesn't obey a second ChangePhoneme()
-				InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
+				ReInterpretPhoneme(ph, ph2, plist3, tr, &phdata, &worddata);
 			}
 		}
 
@@ -595,3 +578,16 @@ static void SetRegressiveVoicing(int regression, PHONEME_LIST2 *plist2, PHONEME_
 			}
 		}
 	}
+
+static void ReInterpretPhoneme(PHONEME_TAB *ph, PHONEME_TAB *ph2, PHONEME_LIST *plist3, Translator *tr, PHONEME_DATA *phdata, WORD_PH_DATA *worddata) {
+if (ph->type == phVOWEL) {
+				plist3->synthflags |= SFLAG_SYLLABLE;
+				if (ph2->type != phVOWEL)
+					plist3->stresslevel = 0; // change from non-vowel to vowel, make sure it's unstressed
+			} else
+				plist3->synthflags &= ~SFLAG_SYLLABLE;
+
+			// re-interpret the changed phoneme
+			// But it doesn't obey a second ChangePhoneme()
+			InterpretPhoneme(tr, 0x100, plist3, phdata, worddata);
+}
