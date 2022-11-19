@@ -47,7 +47,7 @@
 #include "ssml.h"                 // for SSML_STACK, ProcessSsmlTag, N_PARAM...
 #include "synthdata.h"            // for SelectPhonemeTable
 #include "translate.h"            // for Translator, utf8_out, CLAUSE_OPTION...
-#include "voice.h"                // for voice, voice_t, current_voice_selected
+#include "voice.h"                // for voice, voice_t, espeak_GetCurrentVoice
 
 #define N_XML_BUF   500
 
@@ -419,7 +419,7 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 	if (variant_name[0] == '!' && variant_name[1] == 'v' && variant_name[2] == PATHSEP)
 		variant_name += 3; // strip variant directory name, !v plus PATHSEP
 	strncpy0(base_voice_variant_name, variant_name, sizeof(base_voice_variant_name));
-	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
+	memcpy(&base_voice, espeak_GetCurrentVoice(), sizeof(base_voice));
 }
 
 static void RemoveChar(char *p)

@@ -381,7 +381,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	WavegenInit(srate, 0);
 	LoadConfig();
 
-	memset(&current_voice_selected, 0, sizeof(current_voice_selected));
+	espeak_VOICE *current_voice_selected = espeak_GetCurrentVoice();
+	memset(current_voice_selected, 0, sizeof(espeak_VOICE));
 	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 	InitNamedata();

@@ -72,7 +72,7 @@ int formant_rate[9]; // values adjusted for actual sample rate
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 
-espeak_VOICE current_voice_selected;
+static espeak_VOICE current_voice_selected;
 
 #define N_VOICE_VARIANTS   12
 static const char variants_either[N_VOICE_VARIANTS] = { 1, 2, 12, 3, 13, 4, 14, 5, 11, 0 };
