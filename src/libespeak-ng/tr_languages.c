@@ -542,7 +542,7 @@ Translator *SelectTranslator(const char *name)
 	{
 		static const unsigned char stress_amps_be[8] = { 12, 10, 8, 8, 0, 0, 16, 17 };
 		static const short stress_lengths_be[8] = { 160, 140, 200, 140, 0, 0, 240, 160 };
-		static wchar_t vowels_be[] = { // offset by 0x420 -- а е ё о у ы э ю я і
+		static const wchar_t vowels_be[] = { // offset by 0x420 -- а е ё о у ы э ю я і
 			0x10, 0x15, 0x31, 0x1e, 0x23, 0x2b, 0x2d, 0x2e, 0x2f, 0x36, 0
 		};
 		static const unsigned char consonants_be[] = { // б в г д ж з й к л м н п р с т ф х ц ч ш ў
