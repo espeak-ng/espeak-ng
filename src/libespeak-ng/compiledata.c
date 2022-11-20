@@ -686,9 +686,7 @@ static int NextItem(CompileContext *ctx, int type)
 	if ((c == ')') || (c == '(') || (c == ','))
 		ctx->item_terminator = c;
 
-	if ((c == ')') || (c == ','))
-		c = ' ';
-	else if (!feof(ctx->f_in))
+	if (!feof(ctx->f_in) && !(c == ')' || c == ','))
 		unget_char(ctx, c);
 
 	if (type == tSTRING)
