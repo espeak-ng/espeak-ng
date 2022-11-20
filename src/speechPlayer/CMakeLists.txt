@@ -4,5 +4,7 @@ add_library(speechPlayer STATIC
   src/speechWaveGenerator.cpp
 )
 target_include_directories(speechPlayer PUBLIC include)
-target_compile_options(speechPlayer PRIVATE "-fPIC")
+if(NOT MSVC)
+  target_compile_options(speechPlayer PRIVATE "-fPIC")
+endif()
 install(TARGETS speechPlayer ARCHIVE)

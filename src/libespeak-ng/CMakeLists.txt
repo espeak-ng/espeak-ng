@@ -38,23 +38,28 @@ add_library(espeak-ng
   espeak_api.c
 )
 
-target_compile_options(espeak-ng PRIVATE
-  "-fPIC"
-  "-fvisibility=hidden"
-  "-fno-exceptions"
-  "-fwrapv"
+if (NOT MSVC)
+  target_compile_options(espeak-ng PRIVATE
+    "-fPIC"
+    "-fvisibility=hidden"
+    "-fno-exceptions"
+    "-fwrapv"
 
-  "-pedantic"
+    "-pedantic"
 
-  "-Wunused-parameter"
-  "-Wunused"
-  "-Wuninitialized"
-  "-Wreturn-type"
-  "-Wmissing-prototypes"
-  "-Wint-conversion"
-  "-Wimplicit"
-)
-target_compile_definitions(espeak-ng PRIVATE "LIBESPEAK_NG_EXPORT")
+    "-Wunused-parameter"
+    "-Wunused"
+    "-Wuninitialized"
+    "-Wreturn-type"
+    "-Wmissing-prototypes"
+    "-Wint-conversion"
+    "-Wimplicit"
+  )
+endif()
+target_compile_definitions(espeak-ng PRIVATE "LIBESPEAK_NG_EXPORT=1")
+if (NOT BUILD_SHARED_LIBS)
+  target_compile_definitions(espeak-ng INTERFACE "LIBESPEAK_NG_EXPORT=1")
+endif()
 
 if (USE_ASYNC)
   target_sources(espeak-ng PRIVATE
@@ -91,7 +96,10 @@ if (HAVE_LIBPCAUDIO AND USE_LIBPCAUDIO)
   target_include_directories(espeak-ng PRIVATE ${PCAUDIO_INC})
 endif()
 
-target_link_libraries(espeak-ng PRIVATE espeak-ng-config ucd m)
+target_link_libraries(espeak-ng PRIVATE espeak-ng-config ucd)
+if (NOT MSVC)
+  target_link_libraries(espeak-ng PRIVATE m)
+endif()
 target_link_libraries(espeak-ng PUBLIC espeak-include)
 
 install(TARGETS espeak-ng LIBRARY)
