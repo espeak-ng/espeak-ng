@@ -47,6 +47,8 @@
 #include "voice.h"                    // for LoadVoice, voice
 #include "wavegen.h"                  // for WavegenInit, WavegenSetVoice
 
+static int CalculateSample(unsigned char c3, int c1);
+
 #define N_ITEM_STRING 256
 
 typedef struct {
@@ -1088,8 +1090,6 @@ static int LoadWavefile(CompileContext *ctx, FILE *f, const char *fname)
 {
 	int displ;
 	unsigned char c1;
-	unsigned char c3;
-	int c2;
 	int sample;
 	int sample2;
 	float x;
@@ -1125,12 +1125,8 @@ static int LoadWavefile(CompileContext *ctx, FILE *f, const char *fname)
 
 		if ((c = fgetc(f)) == EOF)
 			break;
-		c3 = (unsigned char)c;
 
-		c2 = c3 << 24;
-		c2 = c2 >> 16; // sign extend
-
-		sample = (c1 & 0xff) + c2;
+		sample = CalculateSample((unsigned char) c, c1);
 
 		if (sample > max)
 			max = sample;
@@ -1150,11 +1146,9 @@ static int LoadWavefile(CompileContext *ctx, FILE *f, const char *fname)
 
 	while (!feof(f)) {
 		c1 = fgetc(f);
-		c3 = fgetc(f);
-		c2 = c3 << 24;
-		c2 = c2 >> 16; // sign extend
+		unsigned char c3 = fgetc(f);
 
-		sample = (c1 & 0xff) + c2;
+		sample = CalculateSample(c3, c1);
 
 		if (feof(f)) break;
 
@@ -2807,3 +2801,10 @@ espeak_ng_CompileIntonationPath(const char *source_path,
 }
 
 #pragma GCC visibility pop
+
+static int CalculateSample(unsigned char c3, int c1) {
+	int c2 = c3 << 24;
+	c2 = c2 >> 16; // sign extend
+
+	return (c1 & 0xff) + c2;
+}
