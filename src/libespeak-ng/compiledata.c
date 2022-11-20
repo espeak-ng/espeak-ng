@@ -1204,7 +1204,6 @@ static int Hash8(const char *string)
 
 static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 {
-	int ix, ix2;
 	int displ;
 	int n_points;
 	char line_buf[128];
@@ -1227,15 +1226,14 @@ static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 			}
 		}
 	}
+
 	if (n_points > 0) {
 		env_x[n_points] = env_x[n_points-1];
-		env_y[n_points] = env_y[n_points-1];
-	}
+    	env_y[n_points] = env_y[n_points-1];
 
-	ix = 0;
-	ix2 = 0;
-
-	if (n_points > 0) for (int x = 0; x < ENV_LEN; x++) {
+		int ix = 0;
+    	int ix2 = 0;
+		for (int x = 0; x < ENV_LEN; x++) {
 		if (n_points > 3 && x > env_x[ix+3])
 			ix++;
 		if (n_points > 2 && x >= env_x[ix2+1])
@@ -1251,6 +1249,7 @@ static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 		if (y < 0) y = 0;
 		if (y > 255) y = 255;
 		env[x] = y;
+	}
 	}
 
 	displ = ftell(ctx->f_phdata);
