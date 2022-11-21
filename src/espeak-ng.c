@@ -67,6 +67,8 @@ static const char *help_text =
     "\t   lines less than this length as end-of-clause\n"
     "-p <integer>\n"
     "\t   Pitch adjustment, 0 to 99, default is 50\n"
+    "-P <integer>\n"
+    "\t   Pitch range adjustment, 0 to 99, default is 50\n"
     "-s <integer>\n"
     "\t   Speed in approximate words per minute. The default is 175\n"
     "-v <voice name>\n"
@@ -347,6 +349,7 @@ int main(int argc, char **argv)
 	int volume = -1;
 	int speed = -1;
 	int pitch = -1;
+	int pitch_range = -1;
 	int wordgap = -1;
 	int option_capitals = -1;
 	int option_punctuation = -1;
@@ -370,7 +373,7 @@ int main(int argc, char **argv)
 	option_punctlist[0] = 0;
 
 	while (true) {
-		c = getopt_long(argc, argv, "a:b:Dd:f:g:hk:l:mp:qs:v:w:xXz",
+		c = getopt_long(argc, argv, "a:b:Dd:f:g:hk:l:mp:P:qs:v:w:xXz",
 		                long_options, &option_index);
 
 		// Detect the end of the options.
@@ -412,6 +415,9 @@ int main(int argc, char **argv)
 			break;
 		case 'p':
 			pitch = atoi(optarg2);
+			break;
+		case 'P':
+			pitch_range = atoi(optarg2);
 			break;
 		case 'q':
 			quiet = true;
@@ -655,6 +661,8 @@ int main(int argc, char **argv)
 		espeak_SetParameter(espeakVOLUME, volume, 0);
 	if (pitch >= 0)
 		espeak_SetParameter(espeakPITCH, pitch, 0);
+	if (pitch_range >= 0)
+		espeak_SetParameter(espeakRANGE, pitch_range, 0);
 	if (option_capitals >= 0)
 		espeak_SetParameter(espeakCAPITALS, option_capitals, 0);
 	if (option_punctuation >= 0)
