@@ -290,6 +290,14 @@ src_libespeak_ng_test_la_CFLAGS  = \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 src_libespeak_ng_test_la_SOURCES = $(src_libespeak_ng_la_SOURCES)
 
+if OPT_KLATT
+src_libespeak_ng_test_la_CFLAGS  += -DINCLUDE_KLATT
+endif
+
+if OPT_SPEECHPLAYER
+src_libespeak_ng_test_la_CFLAGS  += -DINCLUDE_SPEECHPLAYER
+endif
+
 check_PROGRAMS += tests/encoding.test
 
 tests_encoding_test_LDADD   = src/libespeak-ng.la
