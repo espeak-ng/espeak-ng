@@ -98,7 +98,9 @@ void KlattInitSP() {
 }
 
 void KlattFiniSP() {
-	speechPlayer_terminate(speechPlayerHandle);
+	if (speechPlayerHandle)
+		speechPlayer_terminate(speechPlayerHandle);
+	speechPlayerHandle = NULL;
 }
 
 void KlattResetSP() {

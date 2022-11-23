@@ -945,6 +945,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 		p_decoder = NULL;
 	}
 
+	WavegenFini();
+
 	return ENS_OK;
 }
 
