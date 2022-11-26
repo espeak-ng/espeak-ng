@@ -21,7 +21,7 @@
 #ifndef GETOPT_H_COMPAT_SHIM
 #define GETOPT_H_COMPAT_SHIM
 
-#if defined(HAVE_GETOPT_H)
+#if __has_include_next(<getopt.h>)
 #pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 #include_next <getopt.h>
 #else

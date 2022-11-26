@@ -31,7 +31,7 @@
 #endif
 
 #ifndef MAKE_MEM_UNDEFINED
-#  ifdef HAVE_VALGRIND_MEMCHECK_H
+#  if __has_include(<valgrind/memcheck.h>)
 #    include <valgrind/memcheck.h>
 #    define MAKE_MEM_UNDEFINED(addr, len) VALGRIND_MAKE_MEM_UNDEFINED(addr, len)
 #  else
