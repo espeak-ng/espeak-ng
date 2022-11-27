@@ -123,9 +123,6 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					// sound was previously open with a different sample rate
 					audio_object_close(my_audio);
 					out_samplerate = 0;
-#ifdef HAVE_SLEEP
-					sleep(1);
-#endif
 				}
 #endif
 #if USE_LIBPCAUDIO

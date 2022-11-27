@@ -832,10 +832,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 		}
 
 		// apply main peaks, formants 0 to 5
-#ifdef USE_ASSEMBLER_1
-		// use an optimised routine for this loop, if available
-		total += AddSineWaves(waveph, h_switch_sign, maxh, harmspect);  // call an assembler code routine
-#else
 		theta = waveph;
 
 		for (h = 1; h <= h_switch_sign; h++) {
@@ -847,7 +843,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 			theta += waveph;
 			h++;
 		}
-#endif
 
 		if (voicing != 64)
 			total = (total >> 6) * voicing;
