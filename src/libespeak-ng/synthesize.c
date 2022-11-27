@@ -1040,7 +1040,7 @@ void DoPhonemeMarker(int type, int char_posn, int length, char *name)
 	}
 }
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 void DoSonicSpeed(int value)
 {
 	// value, multiplier * 1024

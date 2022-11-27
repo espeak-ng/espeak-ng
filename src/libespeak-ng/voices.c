@@ -1176,7 +1176,7 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 {
 	char fname[sizeof(path_home)+100];
 
-#ifdef PLATFORM_WINDOWS
+#if PLATFORM_WINDOWS
 	WIN32_FIND_DATAA FindFileData;
 	HANDLE hFind = INVALID_HANDLE_VALUE;
 

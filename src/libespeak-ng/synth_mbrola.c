@@ -50,7 +50,7 @@
 int mbrola_delay;
 char mbrola_name[20];
 
-#ifdef INCLUDE_MBROLA
+#if USE_MBROLA
 
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
@@ -86,7 +86,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 		return ENS_MBROLA_NOT_FOUND;
 
 	sprintf(path, "%s/mbrola/%s", path_home, mbrola_voice);
-#ifdef PLATFORM_POSIX
+#if PLATFORM_POSIX
 	// if not found, then also look in
 	//   usr/share/mbrola/xx, /usr/share/mbrola/xx/xx, /usr/share/mbrola/voices/xx
 	if (GetFileLength(path) <= 0) {

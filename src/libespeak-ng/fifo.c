@@ -38,7 +38,7 @@
 #include "fifo.h"
 #include "event.h"
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 
 // my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo

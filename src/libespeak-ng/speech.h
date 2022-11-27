@@ -54,14 +54,14 @@ extern "C"
 
 #if defined(_WIN32) || defined(_WIN64) // Windows
 
-#define PLATFORM_WINDOWS
+#define PLATFORM_WINDOWS 1
 #define PATHSEP '\\'
 #define N_PATH_HOME_DEF  230
 #define NO_VARIADIC_MACROS
 
 #else
 
-#define PLATFORM_POSIX
+#define PLATFORM_POSIX 1
 #define PATHSEP  '/'
 #define N_PATH_HOME_DEF  160
 #define USE_NANOSLEEP

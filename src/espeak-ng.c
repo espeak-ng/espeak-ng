@@ -218,7 +218,7 @@ static int OpenWavFile(char *path, int rate)
 	f_wavfile = NULL;
 	if (path[0] != 0) {
 		if (strcmp(path, "stdout") == 0) {
-#ifdef PLATFORM_WINDOWS
+#if PLATFORM_WINDOWS
 			// prevent Windows adding 0x0d before 0x0a bytes
 			_setmode(_fileno(stdout), _O_BINARY);
 #endif

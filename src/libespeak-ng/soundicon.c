@@ -88,7 +88,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 			fclose(f);
 			f = NULL;
 
-#ifdef HAVE_MKSTEMP
+#if HAVE_MKSTEMP
 			strcpy(fname_temp, "/tmp/espeakXXXXXX");
 			int fd_temp;
 			if ((fd_temp = mkstemp(fname_temp)) >= 0)

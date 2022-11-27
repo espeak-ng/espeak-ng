@@ -884,7 +884,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			int wpm = speech_parameters[espeakRATE];
 			espeak_SetParameter(espeakRATE, wpm, 0);
 
-			#if HAVE_SONIC_H
+			#if USE_LIBSONIC
 			if (wpm >= espeakRATE_MAXIMUM) {
 				// Compensate speedup with libsonic, see function SetSpeed()
 				double sonic = ((double)wpm)/espeakRATE_NORMAL;
