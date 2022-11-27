@@ -273,6 +273,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 		my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
+#if USE_ASYNC
+	if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0) fifo_init();
+#endif
 
 	// Don't allow buffer be smaller than safe minimum
 	if (buffer_length < min_buffer_length)
@@ -392,10 +395,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	SetParameter(espeakCAPITALS, option_capitals, 0);
 	SetParameter(espeakPUNCTUATION, option_punctuation, 0);
 	SetParameter(espeakWORDGAP, 0, 0);
-
-#if USE_ASYNC
-	fifo_init();
-#endif
 
 	option_phonemes = 0;
 	option_phoneme_events = 0;
