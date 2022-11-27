@@ -89,8 +89,10 @@ static const char *help_text =
     "\t   Compile pronunciation rules and dictionary from the current\n"
     "\t   directory, including line numbers for use with -X.\n"
     "\t   <voice name> specifies the language\n"
+#if USE_MBROLA
     "--compile-mbrola=<voice name>\n"
     "\t   Compile an MBROLA voice\n"
+#endif
     "--compile-intonations\n"
     "\t   Compile the intonation data\n"
     "--compile-phonemes=<phsource-dir>\n"
@@ -323,7 +325,9 @@ int main(int argc, char **argv)
 		{ "version", no_argument,       0, 0x10b },
 		{ "sep",     optional_argument, 0, 0x10c },
 		{ "tie",     optional_argument, 0, 0x10d },
+#if USE_MBROLA
 		{ "compile-mbrola", optional_argument, 0, 0x10e },
+#endif
 		{ "compile-intonations", no_argument, 0, 0x10f },
 		{ "compile-phonemes", optional_argument, 0, 0x110 },
 		{ "load",    no_argument,       0, 0x111 },
@@ -536,6 +540,7 @@ int main(int argc, char **argv)
 			if (phonemes_separator == 'z')
 				phonemes_separator = 0x200d; // ZWJ
 			break;
+#if USE_MBROLA
 		case 0x10e: // --compile-mbrola
 		{
 			espeak_ng_InitializePath(data_path);
@@ -548,6 +553,7 @@ int main(int argc, char **argv)
 			}
 			return EXIT_SUCCESS;
 		}
+#endif
 		case 0x10f: // --compile-intonations
 		{
 			espeak_ng_InitializePath(data_path);

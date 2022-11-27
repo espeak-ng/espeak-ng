@@ -523,6 +523,10 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	ep->text_position = char_position & 0xffffff;
 	ep->length = char_position >> 24;
 
+#if !USE_MBROLA
+	static const int mbrola_delay = 0;
+#endif
+
 	time = ((double)(count_samples + mbrola_delay + (out_ptr - out_start)/2)*1000.0)/samplerate;
 	ep->audio_position = (int)time;
 	ep->sample = (count_samples + mbrola_delay + (out_ptr - out_start)/2);

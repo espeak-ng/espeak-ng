@@ -305,7 +305,9 @@ void VoiceReset(int tone_only)
 
 	if (tone_only == 0) {
 		n_replace_phonemes = 0;
+#if USE_MBROLA
 		LoadMbrolaTable(NULL, NULL, 0);
+#endif
 	}
 
 // probably unnecessary, but removing this would break tests
@@ -649,6 +651,7 @@ voice_t *LoadVoice(const char *vname, int control)
                 sscanf(p, "%d", &voice->speed_percent);
                 SetSpeed(3);
                 break;
+#if USE_MBROLA
             case V_MBROLA:
             {
                 int srate = 16000;
@@ -665,11 +668,14 @@ voice_t *LoadVoice(const char *vname, int control)
                     voice->samplerate = srate;
             }
                 break;
+#endif
+#if USE_KLATT
             case V_KLATT:
                 voice->klattv[0] = 1; // default source: IMPULSIVE
                 Read8Numbers(p, voice->klattv);
                 voice->klattv[KLATT_Kopen] -= 40;
                 break;
+#endif
             case V_FAST:
                 sscanf(p, "%d", &speed.fast_settings);
                 SetSpeed(3);

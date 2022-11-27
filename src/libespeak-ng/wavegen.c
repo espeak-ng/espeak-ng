@@ -246,8 +246,10 @@ void WcmdqStop()
 	}
 #endif
 
+#if USE_MBROLA
 	if (mbrola_name[0] != 0)
 		MbrolaReset();
+#endif
 }
 
 int WcmdqFree()

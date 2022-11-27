@@ -50,8 +50,7 @@ EXTRA_DIST += ChangeLog
 
 all-local: \
 	espeak-ng-data/phontab \
-	dictionaries \
-	mbrola
+	dictionaries
 
 uninstall-hook:
 	rm -rf $(DESTDIR)$(DATADIR)
@@ -158,7 +157,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/common.c \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
-	src/libespeak-ng/compilembrola.c \
 	src/libespeak-ng/dictionary.c \
 	src/libespeak-ng/encoding.c \
 	src/libespeak-ng/error.c \
@@ -178,7 +176,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/ssml.c \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
-	src/libespeak-ng/synth_mbrola.c \
 	src/libespeak-ng/translate.c \
 	src/libespeak-ng/translateword.c \
 	src/libespeak-ng/tr_languages.c \
@@ -244,7 +241,10 @@ endif
 
 if OPT_MBROLA
 AM_CFLAGS  += -DUSE_MBROLA=1
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/mbrowrap.c
+src_libespeak_ng_la_SOURCES += \
+	src/libespeak-ng/mbrowrap.c \
+	src/libespeak-ng/synth_mbrola.c \
+	src/libespeak-ng/compilembrola.c
 endif
 
 if OPT_ASYNC
@@ -956,6 +956,8 @@ dictsource/yue_emoji:
 
 ##### mbrola:
 
+if OPT_MBROLA
+
 PHSOURCE_MBROLA = \
 	$(wildcard phsource/mbrola/*)
 
@@ -967,3 +969,7 @@ espeak-ng-data/mbrola_ph/%_phtrans: phsource/mbrola/% src/espeak-ng
 	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-mbrola=phsource/mbrola/$*
 
 EXTRA_DIST += $(PHSOURCE_MBROLA)
+
+all-local: mbrola
+
+endif
