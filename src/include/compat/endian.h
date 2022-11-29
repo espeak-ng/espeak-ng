@@ -20,10 +20,10 @@
 #define ENDIAN_H_COMPAT_SHIM
 #pragma once
 
-#if defined(HAVE_ENDIAN_H)
+#if __has_include_next(<endian.h>)
 #	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 #	include_next <endian.h>
-#elif defined(HAVE_SYS_ENDIAN_H)
+#elif __has_include(<sys/endian.h>)
 #	include <sys/endian.h>
 #	if !defined(be16toh)
 #		define be16toh(x) betoh16(x)

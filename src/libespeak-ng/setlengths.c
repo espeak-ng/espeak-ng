@@ -157,7 +157,7 @@ void SetSpeed(int control)
 
 	speed.min_pause = 5;
 
-	#if HAVE_SONIC_H
+	#if USE_LIBSONIC
 	int wpm_value = wpm;
 
 	if (voice->speed_percent > 0)

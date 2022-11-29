@@ -46,7 +46,7 @@ static bool my_stop_is_acknowledged = false;
 static bool my_terminate_is_required = 0;
 // my_thread: polls the audio duration and compares it to the duration of the first event.
 static pthread_t my_thread;
-static bool thread_inited;
+static bool thread_inited = false;
 
 static t_espeak_callback *my_callback = NULL;
 static bool my_event_is_running = false;

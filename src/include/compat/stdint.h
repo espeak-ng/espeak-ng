@@ -45,7 +45,7 @@
 
 #pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 
-#if defined(HAVE_STDINT_H) || !defined(HAVE_INTTYPES_H)
+#if __has_include(<stdint.h>) || !__has_include(<inttypes.h>)
 #include_next <stdint.h>
 #else
 #include_next <inttypes.h>

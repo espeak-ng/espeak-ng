@@ -88,9 +88,11 @@ test_espeak_synth()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -118,7 +120,12 @@ test_espeak_synth_no_voices(const char *path)
 	assert(p_decoder == NULL);
 
 	const char *test = "One two three.";
-	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_NOT_FOUND);
+	int res = espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL);
+#if USE_ASYNC
+	assert(res == EE_OK);
+#else
+	assert(res == EE_NOT_FOUND);
+#endif
 	assert(translator == NULL);
 	assert(p_decoder == NULL);
 
@@ -151,9 +158,11 @@ test_espeak_ng_synthesize()
 
 	const char *test = "One two three.";
 	assert(espeak_ng_Synthesize(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == ENS_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -181,11 +190,16 @@ test_espeak_ng_synthesize_no_voices(const char *path)
 	assert(p_decoder == NULL);
 
 	const char *test = "One two three.";
-	assert(espeak_ng_Synthesize(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == ENS_VOICE_NOT_FOUND);
+	int res = espeak_ng_Synthesize(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL);
+#if USE_ASYNC
+	assert(res == EE_OK);
+#else
+	assert(res == ENS_VOICE_NOT_FOUND);
+#endif
 	assert(translator == NULL);
 	assert(p_decoder == NULL);
 
-	assert(espeak_Synchronize() == EE_OK);
+	assert(espeak_ng_Synchronize() == ENS_OK);
 	assert(translator == NULL);
 	assert(p_decoder == NULL);
 
@@ -218,9 +232,11 @@ test_espeak_set_voice_by_name_null_voice()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -253,9 +269,11 @@ test_espeak_set_voice_by_name_blank_voice()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -289,9 +307,11 @@ test_espeak_set_voice_by_name_valid_voice()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "de") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -324,9 +344,11 @@ test_espeak_set_voice_by_name_invalid_voice()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -360,9 +382,11 @@ test_espeak_set_voice_by_name_language_variant_intonation_parameter()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -402,9 +426,11 @@ test_espeak_set_voice_by_properties_empty()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -442,9 +468,11 @@ test_espeak_set_voice_by_properties_blank_language()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -482,9 +510,11 @@ test_espeak_set_voice_by_properties_with_valid_language()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "mk") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -521,9 +551,11 @@ test_espeak_set_voice_by_properties_with_invalid_language()
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+#if !USE_ASYNC
 	assert(translator != NULL);
 	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
+#endif
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
@@ -564,7 +596,7 @@ test_espeak_ng_phoneme_events(int enabled, int ipa) {
 	espeak_ng_InitializePath(NULL);
 	espeak_ng_ERROR_CONTEXT context = NULL;
 	assert(espeak_ng_Initialize(&context) == ENS_OK);
-	assert(espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 0, NULL) == ENS_OK);
+	assert(espeak_ng_InitializeOutput(0, 0, NULL) == ENS_OK);
 	espeak_SetSynthCallback(_test_espeak_ng_phoneme_events_cb);
 	assert(espeak_ng_SetPhonemeEvents(enabled, ipa) == ENS_OK);
 

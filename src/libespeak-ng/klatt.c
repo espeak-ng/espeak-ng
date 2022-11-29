@@ -38,7 +38,7 @@
 #include "common.h"      // for espeak_rand
 #include "synthesize.h"  // for frame_t, WGEN_DATA, STEPSIZE, N_KLATTP, echo...
 #include "voice.h"       // for voice_t, N_PEAKS
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 #include "sPlayer.h"
 #endif
 
@@ -433,7 +433,7 @@ void KlattReset(int control)
 {
 	int r_ix;
 
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	KlattResetSP();
 #endif
 
@@ -466,7 +466,7 @@ void KlattReset(int control)
 
 void KlattFini(void)
 {
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	KlattFiniSP();
 #endif
 }
@@ -859,7 +859,7 @@ static double klattp_inc[N_KLATTP];
 
 int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata, voice_t *wvoice)
 {
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	if(wvoice->klattv[0] == 6)
 	return Wavegen_KlattSP(wdata, wvoice, length, resume, fr1, fr2);
 #endif
@@ -1078,7 +1078,7 @@ void KlattInit()
 
 	int ix;
 
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	KlattInitSP();
 #endif
 

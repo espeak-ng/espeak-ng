@@ -37,11 +37,11 @@
 #include "synthesize.h"               // for WGEN_DATA, RESONATOR, frame_t
 #include "mbrola.h"                  // for MbrolaFill, MbrolaReset, mbrola...
 
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 #include "klatt.h"
 #endif
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 #include "sonic.h"
 #endif
 
@@ -121,7 +121,7 @@ int wcmdq_tail = 0;
 const int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
 static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 static sonicStream sonicSpeedupStream = NULL;
 static double sonicSpeed = 1.0;
 #endif
@@ -239,15 +239,17 @@ void WcmdqStop()
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 	if (sonicSpeedupStream != NULL) {
 		sonicDestroyStream(sonicSpeedupStream);
 		sonicSpeedupStream = NULL;
 	}
 #endif
 
+#if USE_MBROLA
 	if (mbrola_name[0] != 0)
 		MbrolaReset();
+#endif
 }
 
 int WcmdqFree()
@@ -360,14 +362,14 @@ void WavegenInit(int rate, int wavemult_fact)
 
 	pk_shape = pk_shape2;
 
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 	KlattInit();
 #endif
 }
 
 void WavegenFini(void)
 {
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 	KlattFini();
 #endif
 }
@@ -832,10 +834,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 		}
 
 		// apply main peaks, formants 0 to 5
-#ifdef USE_ASSEMBLER_1
-		// use an optimised routine for this loop, if available
-		total += AddSineWaves(waveph, h_switch_sign, maxh, harmspect);  // call an assembler code routine
-#else
 		theta = waveph;
 
 		for (h = 1; h <= h_switch_sign; h++) {
@@ -847,7 +845,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 			theta += waveph;
 			h++;
 		}
-#endif
 
 		if (voicing != 64)
 			total = (total >> 6) * voicing;
@@ -1300,7 +1297,7 @@ static int WavegenFill2()
 				echo_complete -= length;
 			wdata.n_mix_wavefile = 0;
 			wdata.amplitude_fmt = 100;
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 			KlattReset(1);
 #endif
 			result = PlaySilence(length, resume);
@@ -1308,7 +1305,7 @@ static int WavegenFill2()
 		case WCMD_WAVE:
 			echo_complete = echo_length;
 			wdata.n_mix_wavefile = 0;
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 			KlattReset(1);
 #endif
 			result = PlayWave(length, resume, (unsigned char *)q[2], q[3] & 0xff, q[3] >> 8);
@@ -1333,7 +1330,7 @@ static int WavegenFill2()
 			echo_complete = echo_length;
 			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
 			break;
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_KLATT:
@@ -1355,15 +1352,17 @@ static int WavegenFill2()
 		case WCMD_EMBEDDED:
 			SetEmbedded(q[1], q[2]);
 			break;
+#if USE_MBROLA
 		case WCMD_MBROLA_DATA:
 			if (wvoice != NULL)
 				result = MbrolaFill(length, resume, (general_amplitude * wvoice->voicing)/64);
 			break;
+#endif
 		case WCMD_FMT_AMPLITUDE:
 			if ((wdata.amplitude_fmt = q[1]) == 0)
 				wdata.amplitude_fmt = 100; // percentage, but value=0 means 100%
 			break;
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 		case WCMD_SONIC_SPEED:
 			sonicSpeed = (double)q[1] / 1024;
 			if (sonicSpeedupStream && (sonicSpeed <= 1.0)) {
@@ -1386,7 +1385,7 @@ static int WavegenFill2()
 	return 0;
 }
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 // Speed up the audio samples with libsonic.
 static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text)
 {
@@ -1412,7 +1411,7 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 int WavegenFill(void)
 {
 	int finished;
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 	unsigned char *p_start;
 
 	p_start = out_ptr;
@@ -1420,7 +1419,7 @@ int WavegenFill(void)
 
 	finished = WavegenFill2();
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 	if (sonicSpeed > 1.0) {
 		int length;
 		int max_length;

@@ -639,10 +639,14 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		{
 		case 1: // PreVoicing
 			return control & 1;
+#if USE_KLATT
 		case 2: // KlattSynth
 			return voice->klattv[0] != 0;
+#endif
+#if USE_MBROLA
 		case 3: // MbrolaSynth
 			return mbrola_name[0] != 0;
+#endif
 		}
 	}
 	return false;

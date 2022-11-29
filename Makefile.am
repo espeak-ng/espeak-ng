@@ -50,8 +50,7 @@ EXTRA_DIST += ChangeLog
 
 all-local: \
 	espeak-ng-data/phontab \
-	dictionaries \
-	mbrola
+	dictionaries
 
 uninstall-hook:
 	rm -rf $(DESTDIR)$(DATADIR)
@@ -158,7 +157,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/common.c \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
-	src/libespeak-ng/compilembrola.c \
 	src/libespeak-ng/dictionary.c \
 	src/libespeak-ng/encoding.c \
 	src/libespeak-ng/error.c \
@@ -178,7 +176,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/ssml.c \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
-	src/libespeak-ng/synth_mbrola.c \
 	src/libespeak-ng/translate.c \
 	src/libespeak-ng/translateword.c \
 	src/libespeak-ng/tr_languages.c \
@@ -227,12 +224,12 @@ noinst_HEADERS = \
 	src/ucd-tools/src/include/ucd/ucd.h
 
 if OPT_KLATT
-src_libespeak_ng_la_CFLAGS  += -DINCLUDE_KLATT
+AM_CFLAGS  += -DUSE_KLATT=1
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/klatt.c
 endif
 
 if OPT_SPEECHPLAYER
-src_libespeak_ng_la_CFLAGS  += -DINCLUDE_SPEECHPLAYER
+AM_CFLAGS  += -DUSE_SPEECHPLAYER=1
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/sPlayer.c
 src_libespeak_ng_la_SOURCES += src/speechPlayer/src/frame.cpp
 src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechPlayer.cpp
@@ -243,12 +240,15 @@ src_speak_ng_SOURCES = src/speak-ng.c
 endif
 
 if OPT_MBROLA
-src_libespeak_ng_la_CFLAGS  += -DINCLUDE_MBROLA
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/mbrowrap.c
+AM_CFLAGS  += -DUSE_MBROLA=1
+src_libespeak_ng_la_SOURCES += \
+	src/libespeak-ng/mbrowrap.c \
+	src/libespeak-ng/synth_mbrola.c \
+	src/libespeak-ng/compilembrola.c
 endif
 
 if OPT_ASYNC
-src_libespeak_ng_la_CFLAGS  += -DUSE_ASYNC
+AM_CFLAGS  += -DUSE_ASYNC=1
 src_libespeak_ng_la_SOURCES += \
 	src/libespeak-ng/espeak_command.c \
 	src/libespeak-ng/event.c \
@@ -289,14 +289,6 @@ src_libespeak_ng_test_la_CFLAGS  = \
 	-fPIC -pedantic -fno-exceptions -DPATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 src_libespeak_ng_test_la_SOURCES = $(src_libespeak_ng_la_SOURCES)
-
-if OPT_KLATT
-src_libespeak_ng_test_la_CFLAGS  += -DINCLUDE_KLATT
-endif
-
-if OPT_SPEECHPLAYER
-src_libespeak_ng_test_la_CFLAGS  += -DINCLUDE_SPEECHPLAYER
-endif
 
 check_PROGRAMS += tests/encoding.test
 
@@ -964,6 +956,8 @@ dictsource/yue_emoji:
 
 ##### mbrola:
 
+if OPT_MBROLA
+
 PHSOURCE_MBROLA = \
 	$(wildcard phsource/mbrola/*)
 
@@ -975,3 +969,7 @@ espeak-ng-data/mbrola_ph/%_phtrans: phsource/mbrola/% src/espeak-ng
 	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-mbrola=phsource/mbrola/$*
 
 EXTRA_DIST += $(PHSOURCE_MBROLA)
+
+all-local: mbrola
+
+endif

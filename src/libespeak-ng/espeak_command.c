@@ -27,7 +27,7 @@
 
 #include "espeak_command.h"
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 
 static unsigned int my_current_text_id = 0;
 
