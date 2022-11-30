@@ -2,8 +2,10 @@
 
 echo -n "testing files for executable bits that shouldn't be executable ... "
 
+cd $(dirname $0)/..
 find * -executable -type f | \
 	grep -vE "compile|config\.(guess|status|sub)|configure|depcomp|install-sh|libtool|missing" | # Ignore autotools output \
+	grep -vE "build" | # Ignore cmake output \
 	grep -vE ".*\.test|tests/common|src(/\.libs)?/(e?speak-ng|.*\.so\..*)|src/\.libs/lt-espeak-ng|android" | # Ignore built programs and libraries \
 	grep -vE ".*\.sh|tools/emoji" | # Ignore helper scripts \
 	grep -vE "src/ucd-tools/tools/(.*\.py|mkencodingtable)" | # Ignore ucd-tools helper scripts \
@@ -21,4 +23,3 @@ else
 	echo "none found"
 	true
 fi
-

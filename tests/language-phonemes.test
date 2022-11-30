@@ -8,7 +8,7 @@ is_hash
 # read column 5 (File) of espeak-ng --voices, skip the directory
 echo "checking if all supported languages have phoneme tests ..."
 for lang in $(ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak-ng --voices | awk '{print $5}' | cut -d "/" -f 2-2 | tail -n+2); 
-do if ! grep -q "test_phwav $lang" tests/language-phonemes.test
+do if ! grep -q "test_phwav $lang" $(dirname $0)/language-phonemes.test
 then
 	echo "$lang missing a phoneme test in tests/language-phonemes.test";
 	exit 1;
