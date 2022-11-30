@@ -1,4 +1,4 @@
-
+  
 //====================================================
 //  Spanish  - based on Base2
 //====================================================
@@ -154,11 +154,11 @@ phoneme s
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
 
   IF nextPh(isPause) THEN
-    WAV(ufric/s_, 60)    // quieter 's' at end of word
+    WAV(ufric/s_2, 60)    // quieter 's' at end of word
   ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
-    WAV(ufric/s!)
+    WAV(ufric/s!2)
   ENDIF
-  WAV(ufric/s, 80)
+  WAV(ufric/s2, 80)
 endphoneme
 
 
