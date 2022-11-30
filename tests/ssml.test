@@ -10,12 +10,14 @@ test_ssml_audio() {
 	TEST_TEXT=$3
 
 	echo "testing ${TEST_NAME}"
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" \
-		> actual.txt || exit 1
-	< actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
-	echo "${EXPECTED}" > expected.txt
-	diff expected.txt sum.txt || exit 1
+	RESULT=$(
+		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" | $sha1sum | awk '{ print $1 }' || exit 1
+	)
+	if [ "x$RESULT" != "x$EXPECTED" ] ; then
+		echo "$RESULT != $EXPECTED"
+		exit 1
+	fi
 }
 
 test_ssml() {
@@ -29,15 +31,19 @@ test_ssml() {
 	fi
 
 	echo "testing ${INPUT}"
-	cp $(dirname $INPUT)/$(basename ${INPUT%.*}).expected expected.txt
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		$VALGRIND src/espeak-ng -m -q $PARAMETERS -f ${INPUT} \
-		> actual.txt || exit 1
-	diff expected.txt actual.txt || exit 1
+	EXPECTED=$(cat $(dirname $INPUT)/$(basename ${INPUT%.*}).expected)
+	RESULT=$(
+		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng -m -q $PARAMETERS -f ${INPUT} || exit 1
+	)
+	if [ "x$RESULT" != "x$EXPECTED" ] ; then
+		echo "$RESULT != $EXPECTED"
+		exit 1
+	fi
 }
 
-for i in `ls tests/ssml/*.ssml` ; do test_ssml $i; done
-for i in `ls tests/ssml/*.ssml2` ; do test_ssml $i punct; done
+for i in `ls $(dirname $0)/ssml/*.ssml` ; do test_ssml $i; done
+for i in `ls $(dirname $0)/ssml/*.ssml2` ; do test_ssml $i punct; done
 
 test_ssml_audio "<prosody>" 88fccb35536158f25f4ae44a03fb005fef95c99b "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
 # #410 is a bug in SSML. Sentence termination causes prosody stack to misfunction. 
