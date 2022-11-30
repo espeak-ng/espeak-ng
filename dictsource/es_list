@@ -284,11 +284,14 @@ n	Ene
 ñ	En^e
 p	pe
 q	ku
-r	Ere
+r	ERRe
+?2 r	ER2e
 s	Ese
 t	te
 v	uBe
+?2 v	Be
 w	uBe||d'oBle
+?2 w	dobleB'e
 x	Ekis
 z	TEta
 
@@ -366,6 +369,8 @@ jaws	dZ'os
 jazz	dZ'as
 linux        $1
 live l'aIB
+drive dr'aIB
+reaper R2'iper
 messenger m'esendZer
 microsoft	m'aIkrosoft
 mozilla	moT'ila

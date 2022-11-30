@@ -26,6 +26,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <wctype.h>
+#include <errno.h>
+#include <limits.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -81,7 +83,7 @@ typedef struct {
 } ACCENTS;
 
 // these are tokens to look up in the *_list file.
-static ACCENTS accents_tab[] = {
+static const ACCENTS accents_tab[] = {
 	{ "_lig", 1 },
 	{ "_smc", 0 },  // smallcap
 	{ "_tur", 0 },  // turned
@@ -883,7 +885,7 @@ static const char *M_Variant(int value)
 	case NUM2_THOUSANDS_VAR1: // lang=ru
 		if (teens == false) {
 			if ((value % 10) == 1)
-				return "0MB";
+				return "1MA";
 			if (((value % 10) >= 2) && ((value % 10) <= 4))
 				return "0MA";
 		}
@@ -1200,15 +1202,14 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 				sprintf(ph_out, "%s%s%s%s", ph_tens, ph_and, ph_digits, ph_ordinal);
 			used_and = 1;
 		} else {
-			if (tr->langopts.numbers & NUM_SINGLE_VOWEL) {
+			if ((tr->langopts.numbers & NUM_SINGLE_VOWEL) && ph_digits[0] != 0) {
 				// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
-				if (((ix = strlen(ph_tens)-1) >= 0) && (ph_digits[0] != 0)) {
-					if ((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
-						next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
+				ix = strlen(ph_tens) - 1;
+				if ((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
+					next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
 
-					if ((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
-						ph_tens[ix] = 0;
-				}
+				if ((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
+					ph_tens[ix] = 0;
 			}
 
 			if ((tr->langopts.numbers2 & NUM2_ORDINAL_DROP_VOWEL) && (ph_ordinal[0] != 0)) {
@@ -1316,7 +1317,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 
 			if (LookupThousands(tr, hundreds / 10, tplex, exact | ordinal, ph_10T) == 0) {
 				x = 0;
-				if (tr->langopts.numbers2 & (1 << tplex))
+				if (tr->langopts.numbers2 & (1 << tplex) && tplex <= 3)
 					x = 8; // use variant (feminine) for before thousands and millions
 				if (tr->translator_name == L('m', 'l'))
 					x = 0x208;
@@ -1419,7 +1420,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 				x |= 4; // tens and units only, no higher digits
 			if (ordinal & 0x20)
 				x |= 0x20; // variant form of ordinal number
-		} else if (tr->langopts.numbers2 & (1 << thousandplex))
+		} else if (tr->langopts.numbers2 & (1 << thousandplex) && thousandplex <= 3)
 			x = 8; // use variant (feminine) for before thousands and millions
 
 		if ((tr->translator_name == L('m', 'l')) && (thousandplex == 1))
@@ -1471,7 +1472,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	// "words" of 3 digits may be preceded by another number "word" for thousands or millions
 
 	int n_digits;
-	int value;
+	long value;
 	int ix;
 	int digix;
 	unsigned char c;
@@ -1482,7 +1483,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int thousands_inc = 0;
 	int prev_thousands = 0;
 	int ordinal = 0;
-	int this_value;
+	long this_value;
 	int decimal_count;
 	int max_decimal_count;
 	int decimal_mode;
@@ -1502,6 +1503,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	static const char str_pause[2] = { phonPAUSE_NOLINK, 0 };
 
+	char *end;
+
 	*flags = 0;
 	n_digit_lookup = 0;
 	buf_digit_lookup[0] = 0;
@@ -1510,7 +1513,11 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	for (ix = 0; IsDigit09(word[ix]); ix++) ;
 	n_digits = ix;
-	value = this_value = atoi(word);
+	errno = 0;
+	this_value = strtol(word, &end, 10);
+	if (errno || end == word || this_value > INT_MAX)
+		return 0; // long number, speak as individual digits
+	value = this_value;
 
 	group_len = 3;
 	if (tr->langopts.numbers2 & NUM2_MYRIADS)

@@ -2,6 +2,7 @@
 
 // Numbers
 _0      n'ojl;
+?3 _0      n'ol^
 _1      V#d;'in
 _1f     V#dn'a
 _2      dv'A
@@ -25,50 +26,50 @@ _18     vOs;Imn'AttsVt;
 _19     d;E2v;Itn'AttsVt;
 _2X     dv'AttsVt;
 _3X     tr;'ittsVt;
-_4X     s'o@-*Ok
+_4X     s'o@-rOk
 _5X     p;Vd;d;Is;'jat
-_6X     SE2z;d;d;Is;'jat
+_6X     SE#z;d;is;'jat
 _7X     s;'emd;E2s;Vt
 _8X     v'os;I3md;E2s;Vt
 _9X     d;E2v;In'ostO
 _0C     st'o
 _2C     dv;'es;t;I
 _3C     tr;'ista
-_4C     tS;It'yr;E2sta
+_4C     tS;it'yr;ista
 _5C     p;,It;s'ot
 _6C     S,E#s;t;s'ot
 _7C     s;,Ims'ot
 _8C     vOs;Ims'ot
 _9C     dev;Vts'ot
-_0MB1   t'ys;itS;V     // keep '1' before thousand
+_1MA1   t'ys;itS;V     // keep '1' before thousand
 _0MA1   t'ys;itS;i
 _0M1    t'ys;itS;
-_0MB2   m;,Il;I;'on
+_1MA2   m;,Il;I;'on
 _0MA2   m;,IlI;'ona
 _0M2    m;,IlI;'onV#f
-_0MB3   m;,IlI;'art
+_1MA3   m;,IlI;'art
 _0M3    m;,IlI;'ardV#f
 _0MA3   m;,IlI;'arda
-_0MB4   tr;,IlI;'on
+_1MA4   tr;,IlI;'on
 _0M4   tr;,IlI;'onV#f
 _0MA4   tr;,IlI;'ona
-_0MB5           kvVd@-r;il;i'on
+_1MA5           kvVd@-r;il;i'on
 _0M5           kvVd@-r;il;i'onV#f
 _0MA5           kvVd@-r;il;i'ona
-_0MB6          kv;int;il;i'on
-_0M6          kv;int;il;i'onof
+_1MA6          kv;int;il;i'on
+_0M6          kv;int;il;i'onV#f
 _0MA6          kv;int;il;i'ona
-_0MB7           s;iks;t;il;i'on
-_0M7           s;iks;t;il;i'onof
+_1MA7           s;iks;t;il;i'on
+_0M7           s;iks;t;il;i'onV#f
 _0MA7           s;iks;t;il;i'ona
-_0MB8           s;ipt;il;i'on
-_0M8           s;ipt;il;i'onof
+_1MA8           s;ipt;il;i'on
+_0M8           s;ipt;il;i'onV#f
 _0MA8           s;ipt;il;i'ona
-_0MB9        Vkt;il;i'on
-_0M9        Vkt;il;i'onof
+_1MA9        Vkt;il;i'on
+_0M9        Vkt;il;i'onV#f
 _0MA9        Vkt;il;i'ona
-_0MB10        nVn;il;i'on
-_0M10        nVn;il;i'onof
+_1MA10        nVn;il;i'on
+_0M10        nVn;il;i'onV#f
 _0MA10        nVn;il;i'ona
 _dpt    _:'i_:        // start of decimal fraction
 _dpt2   _d;Is;'atYx   // end of decimal fraction
@@ -111,35 +112,43 @@ _»      z'akr uglof
 _,      zVpit'aja
 
 // particle
-// б       by $u         // shortened form of 'бы'
 ж       S $u         // same as the particle form
+же    Zy           $u
+же    Z'E           $atstart
+бы    $u  // would
 
 // prepositions
-в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
+в       v  $u         // to,in,at 
 для        $u         // for
+за        $u // behind
+за      $atend  // stressed at the end
+из        $u // from
+из    $atend  // stressed at the end
 на  n@ $u         // on
+?3 на   $u         // on
+над                $u
 от        $u         // from
 с       s  $u         // with,from,since
 у       u  $u         // by
 
 // conjunctions
-а         $u $pause  // and
-и       i $u $pause  // and
+а         $u   // and
+и       I $u   // and
+или             $u
+или             $atend       // stressed at the end
 ибо       $u $pause  // for
-ибо       $u $pause  // if
 но        $u $pause  // but
 хотя      $2 $pause  // although
 чтобы        $pause  // in order that
-
-
-// pronouns
-я     ja    $u         // I
 
 // questions
 что     Sto $u $pause // what, that
 
 // misc.
-не      $u           // negative
+не   n;I   $u           // negative
+?3 не        nI        $u
+не    $atend // stressed at the end
+ни      $u // uther form of не
 
 // auxillary verbs
 будем   $u1
@@ -210,6 +219,7 @@ _ж      ZE
 _к       kA
 к       kA  $atend
 л       El;
+?3 л       El^
 м       Em
 н       En_
 о       o
@@ -228,9 +238,9 @@ _с      Es
 ъ       tv;'8@-rdyjzn'Ak
 ы       y
 ь       m;'jaxk;I#jzn'Ak
-э       e
+э       E
 ю       ju
-я       ja            $atend
+я       ja
 
 // exceptions
 электрификация    $5 // for the unit test pangram
@@ -241,16 +251,19 @@ _с      Es
 
 // phrases
                    аудиокнига              'Aud;iV#kn;'iga#
+?3 аудиокнига              'Aud;iV#kn'iga#
            (в виду)               vv;id'u
          (в глаза)                v||glaz'A
                (в города)               v||gV#rV#d'A
       (в кому)            f||k'omu
           (во время оно)               v'o||v@-r;'em;V||'onV
+                     (вряд ли)              v@-r;'Atl;I
+?3         (вряд ли)              v@-r;'Atl^I
            (всё-таки)               fs;'8tVk;I
       (где-то)               gd;'etV
            (зачем-то)        zatS;'emtV
-          (из буфера)               'Is||b'uf;ira#
-         (из города)         'Is||g'orVda#
+          (из буфера)               iz||b'uf;ira#
+         (из города)         iz||g'orVda#
          (как-то)               k'AktV
                (какая-то)                kak'AjatV
                (какие-то)           kak;'ijitV#
@@ -264,13 +277,25 @@ _с      Es
              (мои глаза)               mV#'I||glaz'A
              (на свои места)             n@||svV#'I||m;ist'A
           (наконец-то)             nVkV#n;'etstV
+?3          (наконец-то)             nVkV#n'etstV#
+         (на поводу)            n@||pV#vV#d'u
           (не были)              n;'ebyl;I
+?3          (не были)              n'ebyl;I
         (не было)               n;'ebylV
+?3        (не было)               n'ebylV
+             (не за что)               n;'ezV#StV#
+?3             (не за что)               n'ezV#StV#
            (не с чем)              n;'estS;im
+?3           (не с чем)              n'estS;im
              (одной стороны)               V#dn'oj||stV#rV#n'y
            (от числа)          ot||tS;isl'A
+             (по поводу)           pV#p'ovV#du
                           (почему-то)          pVtS;im'utV
           (с высоты)              s||vysV#t'y
           (чего-то)               tS;iv'otV
            (чем-то)           tS;'emtV
            (чему-то)         tS;im'utV
+                (что б)            St'op
+             (что ли)               St'ol;i
+             (что ж)             St'oS
+             (что же)               St'oZy

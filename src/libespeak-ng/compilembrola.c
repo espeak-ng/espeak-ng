@@ -31,6 +31,7 @@
 #include "mbrola.h"
 
 #include "error.h"                // for create_file_error_context
+#include "common.h"               // for StringToWord
 #include "mbrola.h"               // for MBROLA_TAB
 #include "phoneme.h"              // for N_PHONEME_TAB
 #include "speech.h"               // for path_home
@@ -42,25 +43,6 @@ static const char *basename(const char *filename)
 	while (current != filename && !(*current == '/' || *current == '\\'))
 		--current;
 	return current == filename ? current : current + 1;
-}
-
-static unsigned int StringToWord(const char *string)
-{
-	// Pack 4 characters into a word
-	int ix;
-	unsigned char c;
-	unsigned int word;
-
-	if (string == NULL)
-		return 0;
-
-	word = 0;
-	for (ix = 0; ix < 4; ix++) {
-		if (string[ix] == 0) break;
-		c = string[ix];
-		word |= (c << (ix*8));
-	}
-	return word;
 }
 
 #pragma GCC visibility push(default)

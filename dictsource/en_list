@@ -561,6 +561,7 @@ echr	$abbrev
 edst	$abbrev
 edt	$abbrev
 eff	$abbrev
+efi	$abbrev
 eg	fO@Egz'aamp@L	$only
 eg	$abbrev $allcaps
 (e . g .) fO@Egz'aamp@L
@@ -665,6 +666,7 @@ ucl	$abbrev
 ucs	$abbrev
 udp	$abbrev
 ueb	$abbrev
+uefi	$abbrev
 ufo	$abbrev
 ui	$abbrev
 uk	$abbrev
@@ -1112,6 +1114,7 @@ bison		baIs@n
 bitable		baIt@b@L
 bitecha		baItS@
 ?!3 bitumen	bItSu:m@n
+bitwarden b'ItwO@d@n
 bizarre		bI#z'A@
 bizzare		bI#z'A@
 blanc		blA~nk

@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2022 Beka Gozalishvili
  * Copyright (C) 2013 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +20,9 @@ package com.reecedunn.espeak.preference;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.preference.DialogPreference;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -113,6 +116,11 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         String text = Integer.toString(mProgress);
         callChangeListener(text);
         if (shouldCommit()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            {
+                PreferenceManager preferenceManager = getPreferenceManager();
+                preferenceManager.setStorageDeviceProtected ();
+            }
             SharedPreferences.Editor editor = getEditor();
             editor.putString(getKey(), text);
             editor.commit();

@@ -1,0 +1,38 @@
+//====================================================
+// Ukrainian
+//====================================================
+
+phoneme E
+  vwl  starttype #a  endtype #a
+  length 150
+  IF nextPhW(n) THEN
+    ChangeIfDiminished(@)
+  ELSE
+    ChangeIfDiminished(I2)
+  ENDIF
+  FMT(vowel/ee)
+endphoneme
+
+phoneme I
+  vwl  starttype #i endtype #i
+  length 130
+  IfNextVowelAppend(;)
+  FMT(vowel/ii)
+endphoneme
+
+phoneme I2 // **i**ntend. As \[I\], but also indicates an unstressed syllable.
+  vwl  starttype #i  endtype #i
+  unstressed
+  length 130
+
+  IF MbrolaSynth THEN
+    ChangePhoneme(I)
+  ENDIF
+
+  IfNextVowelAppend(;)
+
+  IF thisPh(isAfterStress) AND thisPh(isFinalVowel) THEN
+    FMT(vowel/ii#_3)
+  ENDIF
+  FMT(vowel/ii_4)
+endphoneme

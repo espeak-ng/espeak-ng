@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2022 Beka Gozalishvili
  * Copyright (C) 2012-2015 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
  *
@@ -61,7 +62,8 @@ public class TtsService extends TextToSpeechService {
     public static final String ESPEAK_INITIALIZED = "com.reecedunn.espeak.ESPEAK_INITIALIZED";
 
     private static final String TAG = TtsService.class.getSimpleName();
-    private static final boolean DEBUG = false;
+    private static Context storageContext;
+    private static final boolean DEBUG = BuildConfig.DEBUG;
 
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
@@ -73,6 +75,9 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public void onCreate() {
+        storageContext = EspeakApp.getStorageContext();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
         initializeTtsEngine();
         super.onCreate();
     }
@@ -94,7 +99,7 @@ public class TtsService extends TextToSpeechService {
             mEngine = null;
         }
 
-        mEngine = new SpeechSynthesis(this, mSynthCallback);
+        mEngine = new SpeechSynthesis(storageContext, mSynthCallback);
         mAvailableVoices.clear();
         for (Voice voice : mEngine.getAvailableVoices()) {
             mAvailableVoices.put(voice.name, voice);
@@ -118,7 +123,7 @@ public class TtsService extends TextToSpeechService {
     }
 
     private Pair<Voice, Integer> findVoice(String language, String country, String variant) {
-        if (!CheckVoiceData.hasBaseResources(this) || CheckVoiceData.canUpgradeResources(this)) {
+        if (!CheckVoiceData.hasBaseResources(storageContext) || CheckVoiceData.canUpgradeResources(storageContext)) {
             if (mOnLanguagesDownloaded == null) {
                 mOnLanguagesDownloaded = new BroadcastReceiver() {
                     @Override
@@ -131,7 +136,7 @@ public class TtsService extends TextToSpeechService {
                 registerReceiver(mOnLanguagesDownloaded, filter);
             }
 
-            final Intent intent = new Intent(this, DownloadVoiceData.class);
+            final Intent intent = new Intent(storageContext, DownloadVoiceData.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
 
@@ -303,7 +308,7 @@ public class TtsService extends TextToSpeechService {
         mCallback = callback;
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount());
 
-        final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(this), mEngine);
+        final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), mEngine);
         mEngine.setVoice(mMatchingVoice, settings.getVoiceVariant());
         mEngine.Rate.setValue(settings.getRate(), request.getSpeechRate());
         mEngine.Pitch.setValue(settings.getPitch(), request.getPitch());

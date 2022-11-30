@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2022 Beka Gozalishvili
  * Copyright (C) 2012-2013 Reece H. Dunn
  * Copyright (C) 2009 The Android Open Source Project
  *
@@ -45,10 +46,11 @@ public class DownloadVoiceData extends Activity {
 
         setContentView(R.layout.download_voice_data);
         mProgress = (ProgressBar)findViewById(R.id.progress);
+        Context storageContext = EspeakApp.getStorageContext();
 
-        final File dataPath = CheckVoiceData.getDataPath(this).getParentFile();
+        final File dataPath = CheckVoiceData.getDataPath(storageContext).getParentFile();
 
-        mAsyncExtract = new AsyncExtract(this, R.raw.espeakdata, dataPath, mProgress) {
+        mAsyncExtract = new AsyncExtract(storageContext, R.raw.espeakdata, dataPath, mProgress) {
             @Override
             protected void onPostExecute(Integer result) {
                 switch (result) {
@@ -130,7 +132,6 @@ public class DownloadVoiceData extends Activity {
 
                     if (entry.isDirectory()) {
                         progress.file.mkdirs();
-                        FileUtils.chmod(progress.file);
                         continue;
                     }
 
@@ -147,9 +148,6 @@ public class DownloadVoiceData extends Activity {
                         outputStream.close();
                     }
                     zipStream.closeEntry();
-
-                    // Make sure the output file is readable.
-                    FileUtils.chmod(progress.file);
                 }
 
                 final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));

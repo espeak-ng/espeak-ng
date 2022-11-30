@@ -44,3 +44,15 @@ test_ssml_audio "<prosody>" 88fccb35536158f25f4ae44a03fb005fef95c99b "<speak><pr
 # Hash 8d3bace is the buggy version and should fail:
 test_ssml_audio "<prosody> bug #410" 8d3bace9548ae73c4770a73c88c6f65e848b45cf "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low. </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
 test_ssml_audio "<audio>" 5134c1db757b2d6b8d1f3f2416124462e401b4c6 "<speak>ha: <audio src=\"$PWD/phsource/h/ha.wav\"></audio></speak>"
+
+test_ssml_audio "<break> at start" 949ad49d180108b30c1f0f16bef6ca2f3b6199cd "<speak><break time=\"1000ms\"/>test</speak>"
+
+# Test SSML breaks inside prosody (#1512)
+test_ssml_audio "<prosody  50%><break 1000ms>" bc47aac0142243b31dd1930e3462abe541c1d9ff "<speak><prosody rate=\"50%\">Break<break time=\"1000ms\"/>test</prosody></speak>"
+test_ssml_audio "<prosody 100%><break 1000ms>" c7b3e92d90063761e9744b40b17bc9204fe7d25b "<speak><prosody rate=\"100%\">Break<break time=\"1000ms\"/>test</prosody></speak>"
+test_ssml_audio "<prosody 200%><break 1000ms>" 64213dbaf593b139b0b21840ba938cf597f7ad35 "<speak><prosody rate=\"200%\">Break<break time=\"1000ms\"/>test</prosody></speak>"
+
+# Three cases following: HEAD#6a16cb3, libsonic 0.2.0-12, and --without-libsonic
+( test_ssml_audio "<prosody 260%><break 1000ms>" 4b4e30a2cfff1889972f013e514e81c1108283a4 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
+( test_ssml_audio "<prosody 260%><break 1000ms>" 9849f0d27f5641db6da1a8aea82578e83656d323 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
+( test_ssml_audio "<prosody 260%><break 1000ms>" 32a9c2887ec5b7d9d33d5503518ac0d384e43448 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1

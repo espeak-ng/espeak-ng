@@ -87,6 +87,8 @@ static const MNEM_TAB ssmltags[] = {
 	{ NULL, 0 }
 };
 
+static int (*uri_callback)(int, const char *, const char *) = NULL;
+
 static int attrcmp(const wchar_t *string1, const char *string2)
 {
 	int ix;
@@ -132,16 +134,21 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 {
 	// Convert attribute string into utf8, write to buf, and return its utf8 length
-	unsigned int c;
 	int ix = 0;
-	int n;
-	int prev_c = 0;
 
 	if (pw != NULL) {
+		wchar_t quote = pw[-1];
+		if ((quote != '"') && (quote != '\'')) quote = 0;
+
+		unsigned int c;
+		int prev_c = 0;
 		while ((ix < (len-4)) && ((c = *pw++) != 0)) {
-			if ((c == '"') && (prev_c != '\\'))
+			if ((quote == 0) && (isspace(c) || (c == '/')))
+				break;
+			if ((quote != 0) && (c == quote) && (prev_c != '\\'))
 				break; // " indicates end of attribute, unless preceded by backstroke
-			n = utf8_out(c, &buf[ix]);
+
+			int n = utf8_out(c, &buf[ix]);
 			ix += n;
 			prev_c = c;
 		}
@@ -208,12 +215,10 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 	const char *p;
 	SSML_STACK *sp;
 	const char *v_id;
-	int voice_name_specified;
 	int voice_found;
 	espeak_VOICE voice_select;
 	static char voice_name[40];
 	char language[40];
-	char buf[80];
 
 	MAKE_MEM_UNDEFINED(&voice_name, sizeof(voice_name));
 
@@ -226,7 +231,7 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 
 	for (ix = 0; ix < n_ssml_stack; ix++) {
 		sp = &ssml_stack[ix];
-		voice_name_specified = 0;
+		int voice_name_specified = 0;
 
 		if ((sp->voice_name[0] != 0) && (SelectVoiceByName(NULL, sp->voice_name) != NULL)) {
 			voice_name_specified = 1;
@@ -270,6 +275,7 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 
 	if ((strchr(v_id, '+') == NULL) && ((voice_select.gender == ENGENDER_UNKNOWN) || (voice_select.gender == base_voice->gender)) && (base_voice_variant_name[0] != 0)) {
 		// a voice variant has not been selected, use the original voice variant
+		char buf[80];
 		sprintf(buf, "%s+%s", v_id, base_voice_variant_name);
 		strncpy0(voice_name, buf, sizeof(voice_name));
 		return voice_name;
@@ -300,8 +306,10 @@ static const wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 				while (iswspace(*pw)) pw++;
 				if ((*pw == '"') || (*pw == '\'')) // allow single-quotes ?
 					return pw+1;
-				else
+				else if (iswspace(*pw) || (*pw == '/')) // end of attribute
 					return empty;
+				else
+					return pw;
 			}
 		}
 		pw++;
@@ -318,12 +326,6 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SS
 	// a voice change.
 	// Returns  CLAUSE_TYPE_VOICE_CHANGE if there is a voice change
 
-	const wchar_t *lang;
-	const wchar_t *gender;
-	const wchar_t *name;
-	const wchar_t *age;
-	const wchar_t *variant;
-	int value;
 	const char *new_voice_id;
 
 	static const MNEM_TAB mnem_gender[] = {
@@ -338,6 +340,12 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SS
 		if (n_ssml_stack > 1)
 			n_ssml_stack--;
 	} else {
+		const wchar_t *lang;
+    	const wchar_t *gender;
+    	const wchar_t *name;
+    	const wchar_t *age;
+    	const wchar_t *variant;
+
 		// add a stack frame if any voice details are specified
 		lang = GetSsmlAttribute(pw, "xml:lang");
 
@@ -358,6 +366,8 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SS
 			return 0; // <s> or <p> without language spec, nothing to do
 
 		ssml_sp = &ssml_stack[n_ssml_stack++];
+
+		int value;
 
 		attrcopy_utf8(ssml_sp->language, lang, sizeof(ssml_sp->language));
 		attrcopy_utf8(ssml_sp->voice_name, name, sizeof(ssml_sp->voice_name));
@@ -384,7 +394,6 @@ static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM
 	// Set the speech parameters from the parameter stack
 	int param;
 	int ix;
-	int value;
 	char buf[20];
 	int new_parameters[N_SPEECH_PARAM];
 	static const char cmd_letter[N_SPEECH_PARAM] = { 0, 'S', 'A', 'P', 'R', 0, 'C', 0, 0, 0, 0, 0, 'F' }; // embedded command letters
@@ -400,6 +409,7 @@ static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM
 	}
 
 	for (param = 0; param < N_SPEECH_PARAM; param++) {
+		int value;
 		if ((value = new_parameters[param]) != speech_parameters[param]) {
 			buf[0] = 0;
 
@@ -471,14 +481,14 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 		{ NULL,            0 }
 	};
 
-	int ix;
 	int letter;
 	char *p;
 
 	p = &outbuf[index];
 
 	if ((letter = LookupMnem(keynames, p)) != 0) {
-		ix = utf8_out(letter, p);
+		int ix;
+		 ix = utf8_out(letter, p);
 		*outix = index + ix;
 		return letter;
 	}
@@ -488,7 +498,7 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *param_stack, int *speech_parameters)
 {
 	int value;
-	int sign;
+
 
 	static const MNEM_TAB mnem_volume[] = {
 		{ "default", 100 },
@@ -539,7 +549,7 @@ static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STAC
 		// mnemonic specifies a value as a percentage of the base pitch/range/rate/volume
 		sp->parameter[param_type] = (param_stack[0].parameter[param_type] * value)/100;
 	} else {
-		sign = attr_prosody_value(param_type, attr1, &value);
+		int sign = attr_prosody_value(param_type, attr1, &value);
 
 		if (sign == 0)
 			sp->parameter[param_type] = value; // absolute value in Hz
@@ -560,7 +570,6 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 
 	unsigned int ix;
 	int index;
-	int c;
 	int tag_type;
 	int value;
 	int value2;
@@ -571,7 +580,6 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	const wchar_t *attr2;
 	const wchar_t *attr3;
 	int terminator;
-	char *uri;
 	int param_type;
 	char tag_name[40];
 	char buf[160];
@@ -653,6 +661,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	};
 
 	for (ix = 0; ix < (sizeof(tag_name)-1); ix++) {
+		int c;
 		if (((c = xml_buf[ix]) == 0) || iswspace(c))
 			break;
 		tag_name[ix] = tolower((char)c);
@@ -797,7 +806,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			// add name to circular buffer of marker names
 			attrcopy_utf8(buf, attr1, sizeof(buf));
 
-			if (strcmp(skip_marker, buf) == 0) {
+			if ((buf[0] != 0) && (strcmp(skip_marker, buf) == 0)) {
 				// This is the marker we are waiting for before starting to speak
 				*clear_skipping_text = true;
 				skip_marker[0] = 0;
@@ -815,11 +824,11 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		sp = PushParamStack(tag_type, n_param_stack, (PARAM_STACK *)param_stack);
 
 		if ((attr1 = GetSsmlAttribute(px, "src")) != NULL) {
-			char fname[256];
 			attrcopy_utf8(buf, attr1, sizeof(buf));
 
 			if (uri_callback == NULL) {
 				if ((xmlbase != NULL) && (buf[0] != '/')) {
+					char fname[256];
 					sprintf(fname, "%s/%s", xmlbase, buf);
 					index = LoadSoundFile2(fname);
 				} else
@@ -832,6 +841,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 				}
 			} else {
 				if ((index = AddNameData(buf, 0)) >= 0) {
+					char *uri;
 					uri = &namedata[index];
 					if (uri_callback(1, uri, xmlbase) == 0) {
 						sprintf(buf, "%c%dU", CTRL_EMBEDDED, index);
@@ -870,6 +880,17 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		}
 		if ((attr2 = GetSsmlAttribute(px, "time")) != NULL) {
 			value2 = attrnumber(attr2, 0, 1);   // pause in mS
+
+			int wpm = speech_parameters[espeakRATE];
+			espeak_SetParameter(espeakRATE, wpm, 0);
+
+			#if USE_LIBSONIC
+			if (wpm >= espeakRATE_MAXIMUM) {
+				// Compensate speedup with libsonic, see function SetSpeed()
+				double sonic = ((double)wpm)/espeakRATE_NORMAL;
+				value2 = value2 * sonic;
+			}
+			#endif
 
 			// compensate for speaking speed to keep constant pause length, see function PauseLength()
 			// 'value' here is x 10mS
@@ -953,6 +974,13 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	}
 	return 0;
 }
+
+#pragma GCC visibility push(default)
+ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
+{
+	uri_callback = UriCallback;
+}
+#pragma GCC visibility pop
 
 static const MNEM_TAB xml_entity_mnemonics[] = {
 	{ "gt",   '>' },

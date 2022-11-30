@@ -45,6 +45,10 @@
 #include "speech.h"               // for MAKE_MEM_UNDEFINED
 #include "translateword.h"
 
+static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count);
+static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes);
+static void SwitchLanguage(char *word, char *word_phonemes);
+
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
 static char translator2_language[20] = { 0 };
@@ -73,17 +77,17 @@ char skip_marker[N_MARKER_LENGTH];
 bool skipping_text; // waiting until word count, sentence count, or named marker is reached
 int end_character_position;
 int count_sentences;
-int count_words;
+static int count_words;
 int clause_start_char;
 int clause_start_word;
-bool new_sentence;
+static bool new_sentence;
 static int word_emphasis = 0; // set if emphasis level 3 or 4
 static int embedded_flag = 0; // there are embedded commands to be applied to the next phoneme, used in TranslateWord2()
 
 static int max_clause_pause = 0;
 static bool any_stressed_words;
 int pre_pause;
-ALPHABET *current_alphabet;
+static ALPHABET *current_alphabet;
 
 char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 int n_ph_list2;
@@ -141,8 +145,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 {
 	char words_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 	char *phonemes = words_phonemes;
-	int available = N_WORD_PHONEMES;
-	bool first_word = true;
+
 
 	int flags = TranslateWord3(tr, word_start, wtab, word_out, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
 	if (flags & FLAG_TEXTMODE && word_out) {
@@ -154,6 +157,8 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 		strcpy(word+2, word_out);
 		word_out = word+2;
 
+			bool first_word = true;
+			int available = N_WORD_PHONEMES;
 		while (*word_out && available > 1) {
 			int c;
 			utf8_in(&c, word_out);
@@ -230,11 +235,9 @@ static void Word_EmbeddedCmd()
 {
 	// Process embedded commands for emphasis, sayas, and break
 	int embedded_cmd;
-	int value;
-
 	do {
 		embedded_cmd = embedded_list[embedded_read++];
-		value = embedded_cmd >> 8;
+		int value = embedded_cmd >> 8;
 
 		switch (embedded_cmd & 0x1f)
 		{
@@ -316,12 +319,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	bool first_phoneme = true;
 	int source_ix;
 	int len;
-	int ix;
-	int sylimit; // max. number of syllables in a word to be combined with a preceding preposition
-	const char *new_language;
 	int bad_phoneme;
 	int word_flags;
-	int word_copy_len;
 	char word_copy[N_WORD_BYTES+1];
 	char word_replaced[N_WORD_BYTES+1];
 	char old_dictionary_name[40];
@@ -346,12 +345,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if ((word[0] == 0) || (word_flags & FLAG_DELETE_WORD)) {
 		// nothing to translate.  Add a dummy phoneme to carry any embedded commands
 		if (embedded_flag) {
-			ph_list2[n_ph_list2].phcode = phonEND_WORD;
-			ph_list2[n_ph_list2].stresslevel = 0;
+			SetPlist2(&ph_list2[n_ph_list2], phonEND_WORD);
 			ph_list2[n_ph_list2].wordstress = 0;
-			ph_list2[n_ph_list2].tone_ph = 0;
-			ph_list2[n_ph_list2].synthflags = embedded_flag;
-			ph_list2[n_ph_list2].sourceix = 0;
 			n_ph_list2++;
 			embedded_flag = 0;
 		}
@@ -390,32 +385,18 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	p = (unsigned char *)word_phonemes;
 	if (word_flags & FLAG_PHONEMES) {
 		// The input is in phoneme mnemonics, not language text
-		int c1;
-		char lang_name[12];
 
 		if (memcmp(word, "_^_", 3) == 0) {
-			// switch languages
-			word += 3;
-			for (ix = 0;;) {
-				c1 = *word++;
-				if ((c1 == ' ') || (c1 == 0))
-					break;
-				lang_name[ix++] = tolower(c1);
-			}
-			lang_name[ix] = 0;
-
-			if ((ix = LookupPhonemeTable(lang_name)) > 0) {
-				SelectPhonemeTable(ix);
-				word_phonemes[0] = phonSWITCH;
-				word_phonemes[1] = ix;
-				word_phonemes[2] = 0;
-			}
-		} else
+			SwitchLanguage(word, word_phonemes);
+		} else {
 			EncodePhonemes(word, word_phonemes, &bad_phoneme);
+		}
+
 		flags = FLAG_FOUND;
 	} else {
 		int c2;
-		ix = 0;
+		int ix = 0;
+		int word_copy_len;
 		while (((c2 = word_copy[ix] = word[ix]) != ' ') && (c2 != 0) && (ix < N_WORD_BYTES)) ix++;
 		word_copy_len = ix;
 
@@ -429,61 +410,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		}
 
 		if ((flags & FLAG_COMBINE) && !(wtab[1].flags & FLAG_PHONEMES)) {
-			char *p2;
-			bool ok = true;
-			unsigned int flags2[2];
-			int c_word2;
-			char ph_buf[N_WORD_PHONEMES];
-
-			flags2[0] = 0;
-			sylimit = tr->langopts.param[LOPT_COMBINE_WORDS];
-
-			// LANG=cs,sk
-			// combine a preposition with the following word
-			p2 = word;
-			while (*p2 != ' ') p2++;
-
-			utf8_in(&c_word2, p2+1); // first character of the next word;
-			if (!iswalpha(c_word2))
-				ok = false;
-
-			if (ok == true) {
-				strcpy(ph_buf, word_phonemes);
-
-				flags2[0] = TranslateWord(translator, p2+1, wtab+1, NULL);
-				if ((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
-					ok = false;
-
-				if (sylimit & 0x100) {
-					// only if the second word has $alt attribute
-					if ((flags2[0] & FLAG_ALT_TRANS) == 0)
-						ok = false;
-				}
-
-				if ((sylimit & 0x200) && ((wtab+1)->flags & FLAG_LAST_WORD)) {
-					// not if the next word is end-of-sentence
-					ok = false;
-				}
-
-				if (ok == false)
-					strcpy(word_phonemes, ph_buf);
-			}
-
-			if (ok) {
-				*p2 = '-'; // replace next space by hyphen
-				wtab[0].flags &= ~FLAG_ALL_UPPER; // prevent it being considered an abbreviation
-				flags = TranslateWord(translator, word, wtab, NULL); // translate the combined word
-				if ((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f))) {
-					// revert to separate words
-					*p2 = ' ';
-					flags = TranslateWord(translator, word, wtab, NULL);
-				} else {
-					if (flags == 0)
-						flags = flags2[0]; // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
-					flags |= FLAG_SKIPWORDS;
-					dictionary_skipwords = 1;
-				}
-			}
+			CombineFlag(tr, wtab, word, &flags, p, word_phonemes);
 		}
 
 		if (p[0] == phonSWITCH) {
@@ -493,6 +420,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				// this word uses a different language
 				memcpy(word, word_copy, word_copy_len);
 
+				const char *new_language;
 				new_language = (char *)(&p[1]);
 				if (new_language[0] == 0)
 					new_language = ESPEAKNG_DEFAULT_VOICE;
@@ -835,7 +763,7 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 					nmatched++;
 			}
 
-			if (*from == 0 && matched) {
+			if (matched) {
 				*ignore_next_n = nmatched;
 				return from + 1;
 			}
@@ -906,9 +834,6 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	// To allow language specific examination and replacement of characters
 
 	int code;
-	int initial;
-	int medial;
-	int final;
 	int next2;
 
 	static const unsigned char hangul_compatibility[0x34] = {
@@ -924,9 +849,9 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	// check for Korean Hangul letters
 	if (((code = c - 0xac00) >= 0) && (c <= 0xd7af)) {
 		// break a syllable hangul into 2 or 3 individual jamo
-		initial = (code/28)/21;
-		medial = (code/28) % 21;
-		final = code % 28;
+		int initial = (code/28)/21;
+		int medial = (code/28) % 21;
+		int final = code % 28;
 
 		if (initial == 11) {
 			// null initial
@@ -971,17 +896,16 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	return SubstituteChar(tr, c, next_in, ptr, insert, wordflags);
 }
 
-static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
+static const char *const UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
 
 static int UpperCaseInWord(Translator *tr, char *word, int c)
 {
-	int ix;
-	int len;
-	const char *p;
-
 	if (tr->translator_name == L('g', 'a')) {
-		// Irish
+		int ix;
+		const char *p;
+
 		for (ix = 0;; ix++) {
+			int len;
 			if ((p = UCase_ga[ix]) == NULL)
 				break;
 
@@ -1001,11 +925,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	int c;
 	int cc = 0;
 	unsigned int source_index = 0;
-	unsigned int prev_source_index = 0;
 	int source_index_word = 0;
 	int prev_in;
 	int prev_out = ' ';
-	int prev_out2;
 	int prev_in_save = 0;
 	int next_in;
 	int next_in_nbytes;
@@ -1135,16 +1057,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	words[0].start = ix;
 	words[0].flags = 0;
 
-	for (j = 0; charix[j] <= 0; j++) ;
-	words[0].sourceix = charix[j];
-	k = 0;
-	while (charix[j] != 0) {
-		// count the number of characters (excluding multibyte continuation bytes)
-		if (charix[j++] != -1)
-			k++;
-	}
-	words[0].length = k;
+	words[0].length = CalcWordLength(source_index, charix_top, charix, words, 0);
 
+	int prev_out2;
 	while (!finished && (ix < (int)sizeof(sbuf) - 1)) {
 		prev_out2 = prev_out;
 		utf8_in2(&prev_out, &sbuf[ix-1], 1);
@@ -1160,7 +1075,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		} else if (source_index > 0)
 			utf8_in2(&prev_in, &source[source_index-1], 1);
 
-		prev_source_index = source_index;
+		unsigned int prev_source_index = source_index;
 
 		if (char_inserted) {
 			c = char_inserted;
@@ -1520,16 +1435,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				words[word_count].start = ix;
 				words[word_count].flags = 0;
 
-				for (j = source_index; j < charix_top && charix[j] <= 0; j++) // skip blanks
-					;
-				words[word_count].sourceix = charix[j];
-				k = 0;
-				while (charix[j] != 0) {
-					// count the number of characters (excluding multibyte continuation bytes)
-					if (charix[j++] != -1)
-						k++;
-				}
-				words[word_count].length = k;
+				words[word_count].length = CalcWordLength(source_index, charix_top, charix, words, word_count);
 
 				word_flags = next_word_flags;
 				next_word_flags = 0;
@@ -1583,7 +1489,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		int c_temp;
 		char *pn;
 		char *pw;
-		int nw;
 		char number_buf[150];
 		WORD_TAB num_wtab[50]; // copy of 'words', when splitting numbers into parts
 
@@ -1628,12 +1533,13 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 		if (n_digits > 4 && n_digits <= 32) {
 			// word is entirely digits, insert commas and break into 3 digit "words"
+			int nw = 0;
+
 			number_buf[0] = ' ';
 			number_buf[1] = ' ';
 			number_buf[2] = ' ';
 			pn = &number_buf[3];
 			nx = n_digits;
-			nw = 0;
 
 			if ((n_digits > tr->langopts.max_digits) || (word[0] == '0'))
 				words[ix].flags |= FLAG_INDIVIDUAL_DIGITS;
@@ -1736,8 +1642,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 	n_ph_list2 += 2;
 
-	if (count_words == 0)
-		clause_pause = 0;
 	if (Eof() && ((word_count == 0) || (option_endpause == 0)))
 		clause_pause = 10;
 
@@ -1761,6 +1665,107 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			*voice_change = voice_change_name;
 		else
 			*voice_change = NULL;
+	}
+}
+
+static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count) {
+	int j;
+	int k;
+
+	for (j = source_index; j < charix_top && charix[j] <= 0; j++); // skip blanks
+	words[word_count].sourceix = charix[j];
+	k = 0;
+	while (charix[j] != 0) {
+		// count the number of characters (excluding multibyte continuation bytes)
+		if (charix[j++] != -1)
+			k++;
+	}
+	return k;
+	}
+
+static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes) {
+	// combine a preposition with the following word
+
+
+	int sylimit; // max. number of syllables in a word to be combined with a preceding preposition
+	sylimit = tr->langopts.param[LOPT_COMBINE_WORDS];
+
+
+	char *p2;
+	p2 = word;
+	while (*p2 != ' ') p2++;
+
+	bool ok = true;
+	int c_word2;
+
+	utf8_in(&c_word2, p2+1); // first character of the next word;
+
+	if (!iswalpha(c_word2))
+		ok = false;
+
+	int flags2[2];
+    flags2[0] = 0;
+
+
+	if (ok) {
+		char ph_buf[N_WORD_PHONEMES];
+		strcpy(ph_buf, word_phonemes);
+
+		flags2[0] = TranslateWord(tr, p2+1, wtab+1, NULL);
+		if ((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
+			ok = false;
+
+		if ((sylimit & 0x100) && ((flags2[0] & FLAG_ALT_TRANS) == 0)) {
+			// only if the second word has $alt attribute
+			ok = false;
+		}
+
+		if ((sylimit & 0x200) && ((wtab+1)->flags & FLAG_LAST_WORD)) {
+			// not if the next word is end-of-sentence
+			ok = false;
+		}
+
+		if (ok == false)
+			strcpy(word_phonemes, ph_buf);
+	}
+
+	if (ok) {
+		*p2 = '-'; // replace next space by hyphen
+		wtab[0].flags &= ~FLAG_ALL_UPPER; // prevent it being considered an abbreviation
+		*flags = TranslateWord(translator, word, wtab, NULL); // translate the combined word
+		if ((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f))) {
+			// revert to separate words
+			*p2 = ' ';
+			*flags = TranslateWord(translator, word, wtab, NULL);
+		} else {
+			if (*flags == 0)
+				*flags = flags2[0]; // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
+			*flags |= FLAG_SKIPWORDS;
+			dictionary_skipwords = 1;
+		}
+	}
+}
+
+static void SwitchLanguage(char *word, char *word_phonemes) {
+	char lang_name[12];
+	int ix;
+
+	word += 3;
+
+	for (ix = 0;;) {
+		int  c1;
+		c1 = *word++;
+		if ((c1 == ' ') || (c1 == 0))
+			break;
+		lang_name[ix++] = tolower(c1);
+	}
+	lang_name[ix] = 0;
+
+	if ((ix = LookupPhonemeTable(lang_name)) > 0) {
+		SelectPhonemeTable(ix);
+		word_phonemes[0] = phonSWITCH;
+		word_phonemes[1] = ix;
+		word_phonemes[2] = 0;
 	}
 }
 

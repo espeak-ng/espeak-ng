@@ -9,7 +9,7 @@
 .L01 l r y
 .L02 b d g n m         // change [s] to [z] before these
 .L03 f h j r s y z       // allow [B] [D] [Q] before these consonants
-.L04 b v f p      // labials, nasals are [m]
+.L04 b v fl fr p      // labials, nasals are [m]
 .L05 g k          // velars, nasals are [N]
 .L06 j w l r b d g n m p t k c
 

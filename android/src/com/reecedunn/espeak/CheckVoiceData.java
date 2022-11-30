@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2022 Beka Gozalishvili
  * Copyright (C) 2012-2013 Reece H. Dunn
  * Copyright (C) 2009 The Android Open Source Project
  *
@@ -83,11 +84,12 @@ public class CheckVoiceData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Context storageContext = EspeakApp.getStorageContext();
         ArrayList<String> availableLanguages = new ArrayList<String>();
         ArrayList<String> unavailableLanguages = new ArrayList<String>();
 
-        boolean haveBaseResources = hasBaseResources(this);
-        if (!haveBaseResources || canUpgradeResources(this)) {
+        boolean haveBaseResources = hasBaseResources(storageContext);
+        if (!haveBaseResources || canUpgradeResources(storageContext)) {
             if (!haveBaseResources) {
                 unavailableLanguages.add(Locale.ENGLISH.toString());
             }
@@ -95,7 +97,7 @@ public class CheckVoiceData extends Activity {
             return;
         }
 
-        final SpeechSynthesis engine = new SpeechSynthesis(this, mSynthReadyCallback);
+        final SpeechSynthesis engine = new SpeechSynthesis(storageContext, mSynthReadyCallback);
         final List<Voice> voices = engine.getAvailableVoices();
 
         for (Voice voice : voices) {

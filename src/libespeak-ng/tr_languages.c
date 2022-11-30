@@ -61,7 +61,7 @@
 #define OFFSET_ETHIOPIC 0x1200
 
 // character ranges must be listed in ascending unicode order
-ALPHABET alphabets[] = {
+static const ALPHABET alphabets[] = {
 	{ "_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e', 'l'), AL_DONT_NAME | AL_NOT_LETTERS | AL_WORDS },
 	{ "_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0 },
 	{ "_hy",    OFFSET_ARMENIAN, 0x530, 0x58f,  L('h', 'y'), AL_WORDS },
@@ -92,10 +92,10 @@ ALPHABET alphabets[] = {
 	{ NULL, 0, 0, 0, 0, 0 }
 };
 
-ALPHABET *AlphabetFromChar(int c)
+const ALPHABET *AlphabetFromChar(int c)
 {
 	// Find the alphabet from a character.
-	ALPHABET *alphabet = alphabets;
+	const ALPHABET *alphabet = alphabets;
 
 	while (alphabet->name != NULL) {
 		if (c <= alphabet->range_max) {
@@ -203,8 +203,8 @@ static const unsigned short chars_ignore_zwnj_hyphen[] = {
 	0,      0
 };
 
-const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
-const unsigned char utf8_null[] = { 0 }; // null string, UTF-8
+static const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
+static const unsigned char utf8_null[] = { 0 }; // null string, UTF-8
 
 static Translator *NewTranslator(void)
 {
@@ -542,7 +542,7 @@ Translator *SelectTranslator(const char *name)
 	{
 		static const unsigned char stress_amps_be[8] = { 12, 10, 8, 8, 0, 0, 16, 17 };
 		static const short stress_lengths_be[8] = { 160, 140, 200, 140, 0, 0, 240, 160 };
-		static wchar_t vowels_be[] = { // offset by 0x420 -- а е ё о у ы э ю я і
+		static const wchar_t vowels_be[] = { // offset by 0x420 -- а е ё о у ы э ю я і
 			0x10, 0x15, 0x31, 0x1e, 0x23, 0x2b, 0x2d, 0x2e, 0x2f, 0x36, 0
 		};
 		static const unsigned char consonants_be[] = { // б в г д ж з й к л м н п р с т ф х ц ч ш ў
@@ -1360,7 +1360,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.decimal_sep = ',';
 
 		if (name2 == L('c', 's'))
-			tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR4;
+			tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR2;
 
 		SetLetterVowel(tr, 'y');
 		SetLetterVowel(tr, 'r');
@@ -1656,5 +1656,6 @@ static void Translator_Russian(Translator *tr)
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 	tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDS_VAR1; // variant numbers before thousands
-	tr->langopts.max_digits = 18;
+	tr->langopts.max_digits = 32;
+	tr->langopts.max_initial_consonants = 5;
 }

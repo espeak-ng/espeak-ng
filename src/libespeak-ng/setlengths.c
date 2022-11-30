@@ -38,6 +38,10 @@
 #include "synthesize.h"
 #include "translate.h"
 
+static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3);
+static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x);
+static void SetSpeedMultiplier(int *x, int *wpm);
+
 extern int saved_parameters[];
 
 // convert from words-per-minute to internal speed factor
@@ -138,27 +142,23 @@ static int speed1 = 130;
 static int speed2 = 121;
 static int speed3 = 118;
 
-#if HAVE_SONIC_H
-
 void SetSpeed(int control)
 {
 	int x;
-	int s1;
 	int wpm;
-	int wpm2;
-	int wpm_value;
-	double sonic;
 
 	speed.min_sample_len = espeakRATE_MAXIMUM;
 	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
-	speed.min_pause = 5;
 
 	wpm = embedded_value[EMBED_S];
 	if (control == 2)
 		wpm = embedded_value[EMBED_S2];
 
-	wpm_value = wpm;
+	speed.min_pause = 5;
+
+	#if USE_LIBSONIC
+	int wpm_value = wpm;
 
 	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
@@ -166,6 +166,7 @@ void SetSpeed(int control)
 	if (control & 2)
 		DoSonicSpeed(1 * 1024);
 	if ((wpm_value >= espeakRATE_MAXIMUM) || ((wpm_value > speed.fast_settings) && (wpm > 350))) {
+		int wpm2;
 		wpm2 = wpm;
 		wpm = espeakRATE_NORMAL;
 
@@ -178,6 +179,7 @@ void SetSpeed(int control)
 			speed3 = (x * voice->speedf3)/256;
 		}
 		if (control & 2) {
+			double sonic;
 			sonic = ((double)wpm2)/wpm;
 			DoSonicSpeed((int)(sonic * 1024));
 			speed.pause_factor = 85;
@@ -191,176 +193,101 @@ void SetSpeed(int control)
 		return;
 	}
 
-	if (wpm > espeakRATE_MAXIMUM)
-		wpm = espeakRATE_MAXIMUM;
-
-	wpm2 = wpm;
-	if (wpm > 359) wpm2 = 359;
-	if (wpm < espeakRATE_MINIMUM) wpm2 = espeakRATE_MINIMUM;
-	x = speed_lookup[wpm2-espeakRATE_MINIMUM];
-
-	if (wpm >= 380)
-		x = 7;
-	if (wpm >= 400)
-		x = 6;
-
-	if (control & 1) {
-		// set speed factors for different syllable positions within a word
-		// these are used in CalcLengths()
-		speed1 = (x * voice->speedf1)/256;
-		speed2 = (x * voice->speedf2)/256;
-		speed3 = (x * voice->speedf3)/256;
-
-		if (x <= 7) {
-			speed1 = x;
-			speed2 = speed3 = x - 1;
-		}
-	}
-
-	if (control & 2) {
-		// these are used in synthesis file
-
-		if (wpm > 350) {
-			speed.lenmod_factor = 85 - (wpm - 350) / 3;
-			speed.lenmod2_factor = 60 - (wpm - 350) / 8;
-		} else if (wpm > 250) {
-			speed.lenmod_factor = 110 - (wpm - 250)/4;
-			speed.lenmod2_factor = 110 - (wpm - 250)/2;
-		}
-
-		s1 = (x * voice->speedf1)/256;
-
-		if (wpm >= 170)
-			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
-		else
-			speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
-
-		if (wpm >= 350)
-			speed.wav_factor = wav_factor_350[wpm-350];
-
-		if (wpm >= 390) {
-			speed.min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
-			if (wpm > 440)
-				speed.min_sample_len = 420 - (wpm - 440);
-		}
-
-		// adjust for different sample rates
-		speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
-
-		speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
-		speed.clause_pause_factor = 0;
-
-		if (wpm > 430)
-			speed.pause_factor = 12;
-		else if (wpm > 400)
-			speed.pause_factor = 13;
-		else if (wpm > 374)
-			speed.pause_factor = 14;
-		else if (wpm > 350)
-			speed.pause_factor = pause_factor_350[wpm - 350];
-
-		if (speed.clause_pause_factor == 0) {
-			// restrict the reduction of pauses between clauses
-			if ((speed.clause_pause_factor = speed.pause_factor) < 16)
-				speed.clause_pause_factor = 16;
-		}
-	}
-}
-
-#else
-
-void SetSpeed(int control)
-{
-	// This is the earlier version of SetSpeed() before sonic speed-up was added
-	int x;
-	int s1;
-	int wpm;
-	int wpm2;
-
-	speed.min_sample_len = espeakRATE_MAXIMUM;
-	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
-	speed.lenmod2_factor = 100;
-
-	wpm = embedded_value[EMBED_S];
-	if (control == 2)
-		wpm = embedded_value[EMBED_S2];
-
+	#else
 	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
-	if (wpm > espeakRATE_MAXIMUM)
-		wpm = espeakRATE_MAXIMUM;
+	#endif
 
-	wpm2 = wpm;
-	if (wpm > 359) wpm2 = 359;
-	if (wpm < espeakRATE_MINIMUM) wpm2 = espeakRATE_MINIMUM;
-	x = speed_lookup[wpm2-espeakRATE_MINIMUM];
-
-	if (wpm >= 380)
-		x = 7;
-	if (wpm >= 400)
-		x = 6;
+	SetSpeedMultiplier(&x, &wpm);
 
 	if (control & 1) {
-		// set speed factors for different syllable positions within a word
-		// these are used in CalcLengths()
-		speed1 = (x * voice->speedf1)/256;
-		speed2 = (x * voice->speedf2)/256;
-		speed3 = (x * voice->speedf3)/256;
-
-		if (x <= 7) {
-			speed1 = x;
-			speed2 = speed3 = x - 1;
-		}
+		SetSpeedFactors(voice, x, &speed1, &speed2, &speed3);
 	}
 
 	if (control & 2) {
-		// these are used in synthesis file
-
-		if (wpm > 350) {
-			speed.lenmod_factor = 85 - (wpm - 350) / 3;
-			speed.lenmod2_factor = 60 - (wpm - 350) / 8;
-		} else if (wpm > 250) {
-			speed.lenmod_factor = 110 - (wpm - 250)/4;
-			speed.lenmod2_factor = 110 - (wpm - 250)/2;
-		}
-
-		s1 = (x * voice->speedf1)/256;
-
-		if (wpm >= 170)
-			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
-		else
-			speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
-
-		if (wpm >= 350)
-			speed.wav_factor = wav_factor_350[wpm-350];
-
-		if (wpm >= 390) {
-			speed.min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
-			if (wpm > 440)
-				speed.min_sample_len = 420 - (wpm - 440);
-		}
-
-		speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
-		speed.clause_pause_factor = 0;
-
-		if (wpm > 430)
-			speed.pause_factor = 12;
-		else if (wpm > 400)
-			speed.pause_factor = 13;
-		else if (wpm > 374)
-			speed.pause_factor = 14;
-		else if (wpm > 350)
-			speed.pause_factor = pause_factor_350[wpm - 350];
-
-		if (speed.clause_pause_factor == 0) {
-			// restrict the reduction of pauses between clauses
-			if ((speed.clause_pause_factor = speed.pause_factor) < 16)
-				speed.clause_pause_factor = 16;
-		}
+		SetSpeedMods(&speed, voice->speedf1, wpm, x);
 	}
 }
 
-#endif
+static void SetSpeedMultiplier(int *x, int *wpm) {
+	int wpm2;
+
+	if (*wpm > espeakRATE_MAXIMUM)
+		*wpm = espeakRATE_MAXIMUM;
+
+	wpm2 = *wpm;
+	if (*wpm > 359) wpm2 = 359;
+	if (*wpm < espeakRATE_MINIMUM) {
+		wpm2 = espeakRATE_MINIMUM;
+	}
+
+	*x = speed_lookup[wpm2-espeakRATE_MINIMUM];
+
+	if (*wpm >= 380)
+		*x = 7;
+	if (*wpm >= 400)
+		*x = 6;
+}
+
+static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3) {
+	// set speed factors for different syllable positions within a word
+	// these are used in CalcLengths()
+	*speed1 = (x * voice->speedf1)/256;
+	*speed2 = (x * voice->speedf2)/256;
+	*speed3 = (x * voice->speedf3)/256;
+
+	if (x <= 7) {
+		*speed1 = x;
+		*speed2 = *speed3 = x - 1;
+	}
+}
+
+static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x) {
+	// these are used in synthesis file
+
+	if (wpm > 350) {
+		speed->lenmod_factor = 85 - (wpm - 350) / 3;
+		speed->lenmod2_factor = 60 - (wpm - 350) / 8;
+	} else if (wpm > 250) {
+		speed->lenmod_factor = 110 - (wpm - 250)/4;
+		speed->lenmod2_factor = 110 - (wpm - 250)/2;
+	}
+
+
+	int s1 = (x * voiceSpeedF1)/256;
+
+	if (wpm >= 170)
+		speed->wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
+	else
+		speed->wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
+
+	if (wpm >= 350)
+		speed->wav_factor = wav_factor_350[wpm-350];
+
+	if (wpm >= 390) {
+		speed->min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
+		if (wpm > 440)
+			speed->min_sample_len = 420 - (wpm - 440);
+	}
+
+	speed->pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
+	speed->clause_pause_factor = 0;
+
+	if (wpm > 430)
+		speed->pause_factor = 12;
+	else if (wpm > 400)
+		speed->pause_factor = 13;
+	else if (wpm > 374)
+		speed->pause_factor = 14;
+	else if (wpm > 350)
+		speed->pause_factor = pause_factor_350[wpm - 350];
+
+	if (speed->clause_pause_factor == 0) {
+		// restrict the reduction of pauses between clauses
+		if ((speed->clause_pause_factor = speed->pause_factor) < 16)
+			speed->clause_pause_factor = 16;
+	}
+}
 
 espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 {
@@ -368,11 +295,11 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 	// relative 0=absolute  1=relative
 
 	int new_value = value;
-	int default_value;
 	extern const int param_defaults[N_SPEECH_PARAM];
 
 	if (relative) {
 		if (parameter < 5) {
+			int default_value;
 			default_value = param_defaults[parameter];
 			new_value = default_value + (default_value * value)/100;
 		}
@@ -445,14 +372,13 @@ void CalcLengths(Translator *tr)
 	PHONEME_LIST *p;
 	PHONEME_LIST *p2;
 
-	int stress;
-	int type;
 	static int more_syllables = 0;
 	bool pre_sonorant = false;
 	bool pre_voiced = false;
 	int last_pitch = 0;
 	int pitch_start;
 	int length_mod;
+
 	int next2type;
 	int len;
 	int env2;
@@ -460,12 +386,16 @@ void CalcLengths(Translator *tr)
 	int embedded_ix = 0;
 	int min_drop;
 	int pitch1;
-	int emphasized;
+
 	int tone_mod;
-	unsigned char *pitch_env = NULL;
+	const unsigned char *pitch_env = NULL;
 	PHONEME_DATA phdata_tone;
 
+
 	for (ix = 1; ix < n_phoneme_list; ix++) {
+		int stress;
+		int emphasized;
+
 		prev = &phoneme_list[ix-1];
 		p = &phoneme_list[ix];
 		stress = p->stresslevel & 0x7;
@@ -476,6 +406,7 @@ void CalcLengths(Translator *tr)
 		if (p->synthflags & SFLAG_EMBEDDED)
 			DoEmbedded2(&embedded_ix);
 
+		int type;
 		type = p->type;
 		if (p->synthflags & SFLAG_SYLLABLE)
 			type = phVOWEL;
@@ -812,7 +743,7 @@ void CalcLengths(Translator *tr)
 // indexes are the "length_mod" value for the following phonemes
 
 // use this table if vowel is not the last in the word
-static unsigned char length_mods_en[100] = {
+static const unsigned char length_mods_en[100] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	100, 120, 100, 105, 100, 110, 110, 100,  95, 100, // a  <- next2
 	105, 120, 105, 110, 125, 130, 135, 115, 125, 100, // ,
@@ -827,7 +758,7 @@ static unsigned char length_mods_en[100] = {
 };
 
 // as above, but for the last syllable in a word
-static unsigned char length_mods_en0[100] = {
+static const unsigned char length_mods_en0[100] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	100, 150, 100, 105, 110, 115, 110, 110, 110, 100, // a  <- next2
 	105, 150, 105, 110, 125, 135, 140, 115, 135, 100, // ,
@@ -842,7 +773,7 @@ static unsigned char length_mods_en0[100] = {
 };
 
 
-static unsigned char length_mods_equal[100] = {
+static const unsigned char length_mods_equal[100] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // a  <- next2
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // ,
@@ -856,7 +787,7 @@ static unsigned char length_mods_equal[100] = {
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110
 };
 
-static unsigned char *length_mod_tabs[6] = {
+static const unsigned char *const length_mod_tabs[6] = {
 	length_mods_en,
 	length_mods_en,    // 1
 	length_mods_en0,   // 2

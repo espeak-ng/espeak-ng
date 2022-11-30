@@ -5,35 +5,53 @@
 //letter which can carry vowel phoneme
 .L01 а е ё і о у ы э ю я
 
+// devoiced
+.L02 п х к т ш с ч ц ф
+
+// voiced
+.L03 б г д ж з // дз дж
+
+// softening vowels
+.L04 е ё і ь ю я
+
+// soft consonants subsequent to soft "с"
+.L05 в л м н п с ц
+
+// soft consonants subsequent to soft "з"
+.L06 б в дз з л м н
+
 // This is more economic way to express assimilation by sibilation
 .replace
        сш     шш
        сч     шч
-       цч     чч
        шс     сс
-       шц     сц
-       чц     цц
        зж     жж
-       здж    ждж
-       жз     зз
-       ждз    здз
 
 .group а
        а       a
 
 .group б
        б       b
+       б (_    p
+       б (L02  p
 
 .group в
        в       v
 
 .group г
        г       Q     // ɣ
+       г (_    x
+       г (L02  x
 
 .group д
        д       d
+       д (_    t
+       д (L02  t
        дз      dz
+       дз (_   ts
        дж      dz.
+       дж (_   ts.
+       дж (L02 ts.
 
 .group е
        е       ;E    // ʲɛ
@@ -51,9 +69,16 @@
 
 .group ж
        ж       z.    // ʐ
+       ж (_    s.
+       ж (L02  s.
 
 .group з
        з       z
+       з (_    s
+       з (L02  s
+       зд (ж   z.d
+       з (L06L04 z;
+       з (ці   s;
 
 .group і
        і       i
@@ -64,6 +89,7 @@
 
 .group к
        к       k
+       к (L03  g
 
 .group л
        л       l
@@ -79,15 +105,22 @@
 
 .group п
        п       p
+       п (L03  b
 
 .group р
        р       r
 
 .group с
        с       s
+       с (L03  z
+       с (ьб   z
+       с (L05L04 s;
+       с (бL04 z;
+       с (зі   z;
 
 .group т
        т       t
+       т (L03  d
 
 .group у
        у       u
@@ -100,18 +133,22 @@
 
 .group х
        х       x
+       х (L03  Q
 
 .group ц
        ц       ts    // t͡s
        цц      ts:
+       ц (L03  dz
 
 .group ч
        ч       ts.   // ʈ͡ʂ
        чч      ts.:
+       ч (б    dz.
 
 .group ш
        ш       s.    // ʂ
        шш      s.:
+       ш (L03  z.
 
 .group ы
        ы       i"    // ɨ

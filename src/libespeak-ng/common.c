@@ -132,7 +132,6 @@ int utf8_in2(int *c, const char *buf, int backwards)
 
 	int c1;
 	int n_bytes;
-	int ix;
 	static const unsigned char mask[4] = { 0xff, 0x1f, 0x0f, 0x07 };
 
 	// find the start of the next/previous character
@@ -155,6 +154,7 @@ int utf8_in2(int *c, const char *buf, int backwards)
 			n_bytes = 3;
 
 		c1 &= mask[n_bytes];
+		int ix;
 		for (ix = 0; ix < n_bytes; ix++)
 		{
 			if (!*buf)
@@ -271,9 +271,7 @@ int IsSpace(unsigned int c)
 int isspace2(unsigned int c)
 {
 	// can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
-	int c2;
-
-	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
+	if ( ((c & 0xff) == 0) || (c > ' '))
 		return 0;
 	return 1;
 }
@@ -290,14 +288,33 @@ int Read4Bytes(FILE *f)
 {
 	// Read 4 bytes (least significant first) into a word
 	int ix;
-	unsigned char c;
 	int acc = 0;
 
 	for (ix = 0; ix < 4; ix++) {
+		unsigned char c;
 		c = fgetc(f) & 0xff;
 		acc += (c << (ix*8));
 	}
 	return acc;
+}
+
+unsigned int StringToWord(const char *string)
+{
+	// Pack 4 characters into a word
+	int ix;
+	unsigned char c;
+	unsigned int word;
+
+	if (string == NULL)
+		return 0;
+
+	word = 0;
+	for (ix = 0; ix < 4; ix++) {
+		if (string[ix] == 0) break;
+		c = string[ix];
+		word |= (c << (ix*8));
+	}
+	return word;
 }
 
 int towlower2(unsigned int c, Translator *translator)
@@ -309,4 +326,24 @@ int towlower2(unsigned int c, Translator *translator)
 	return ucd_tolower(c);
 }
 
+static uint32_t espeak_rand_state = 0;
 
+long espeak_rand(long min, long max) {
+	// Ref: https://github.com/bminor/glibc/blob/glibc-2.36/stdlib/random_r.c#L364
+	espeak_rand_state = (((uint64_t)espeak_rand_state * 1103515245) + 12345) % 0x7fffffff;
+	long res = (long)espeak_rand_state;
+	return (res % (max-min+1))-min;
+}
+
+void espeak_srand(long seed) {
+	espeak_rand_state = (uint32_t)(seed);
+	(void)espeak_rand(0, 1); // Dummy flush a generator
+}
+
+#pragma GCC visibility push(default)
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetRandSeed(long seed) {
+	espeak_srand(seed);
+	return ENS_OK;
+}
+#pragma GCC visibility pop

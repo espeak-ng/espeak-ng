@@ -2,6 +2,9 @@
 // *   Copyright (C) 2007 to 2013 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *   Copyright (C) 2018 Reece H. Dunn                                      *
+// *   Copyright (C) 2022 by Kirill Kolov                                      *
+// *   email: kirillkolovi@gmail.com                                    *
+
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -81,6 +84,7 @@
         в (ч    f
         в (щ    f
         в (ь_   f;
+        в (ьт   f;
      здра) в (ств         // silent v(не произносимая в)
     чу) в (ств      // silent v(не произносимая в)  
 
@@ -118,6 +122,7 @@
    _занедоро) г (о_   g   
      _немно) г (о_   g
    _се) г (о    v
+             _страте) г (о_               g // stratego board game
    _стро) г (о   g
  _твое) г (о_   v
  _свое) г (о_   v
@@ -131,19 +136,26 @@
         д (зY   d;
         д (к   t
         д (нь   d;
-        д (пY   t
+        д (п   t
+        д (с   t
         д (сY   t;
         д (тY   t;
         д (фY   t
         д (ффY  t
         д (х   t
         д (хкY  t
+             д (ш             t
         д (ь_   t;
+        д (ьк   t;
          _бан) д (жо_             // silent д (непроизносимая д)
       з) д (н        // silent d(Непроизносимая д)
     р) д (ц     // Silent D(не произносимая д)
-          мо) де (м        dE#%
-             _ян) де (кс     dE% // яндекс, yandex
+          мо) де (м        dE%
+             н) де (кс     dE2 // яндекс, индекс/ yandex, index
+         мо) де (л               dE
+                 _мо) де (лир              dE%
+               мо) де (льер              dE%
+            мо) де (лист              dE%
 
 .group е
         е          e
@@ -211,6 +223,7 @@
      _) и       I
         и (_    I
      ш) и (_      y
+               шв) и (ли               'I
 
 .group й
         й       j
@@ -234,6 +247,9 @@
         л        l
 ?2      л (Y    l;
         л (Y    l;
+?3        л (Y    l^
+              _дисп) ле                lE
+                 п) ле (ер                  lE
 
 .group м
         м       m
@@ -244,18 +260,23 @@
         м (пY   m;
         м (фY   m;
         м (ффY  m;
+             майоне (з             mVjin'E
 
 .group н
         н       n
 ?2      н (Y    n^
        н (Y    n;
-   биз) не (с   nE
+?3       н (Y    n
+   биз) не (с   nE#
       интер) не (т  nE      // интернет, интернетный, интернета... ??????????
+            _клар) не (т               nE
+             клар) не (тист                 nE%
+           э) не (рг              nE
         н (_    n_
 
 .group о
         о       o
-        ь) о       'j8
+        ь) о       j8
 
 .group п
         п       p
@@ -306,7 +327,6 @@
         с (щ    s;s;
        сь (G                  z;
 
-
 .group т
         т       t
         Y) тс   ts
@@ -325,6 +345,7 @@
         т (сY   t;
         т (тY   t;        
           с) т (н         // Silent t(Непроизносимая т)
+               счас) т (лив            // silent t
      бак) те (р    tE%      // бактериальный, антибактериальный, ...
      бар) те (р    tE%
          аль) те (рнатив        tE#         // альтернатива, альтернативный, альтернатив...
@@ -452,7 +473,7 @@
         щ (ж    Z;
         щ (зY   Z;
         щ (з    Z;
-
+          помо) щ (ник             S
 .group ъ
         ъ (Y    j
 ?2      ъ (Y    _|

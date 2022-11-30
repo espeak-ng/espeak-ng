@@ -3,13 +3,9 @@
 . "`dirname $0`/common"
 # and run needed checks before
 is_hash
-is_klatt
 # call actual test functions
-test_wav_grep en+klatt  "4b91f47e4be93993e53bbc04cbee7378118f990a" "The quick brown fox jumps over the lazy dog"
-test_wav_grep en+klatt2 "bc99291590ff83b1e877688633adf3c20a65cd9c" "The quick brown fox jumps over the lazy dog"
-test_wav_grep en+klatt3 "b6e89f4027d173166f49e4d933361651b43f4ca8|2bcc5a6e6c2fc4cd43f41c6a4bdf026c370a1fe9" "The quick brown fox jumps over the lazy dog"
-# this voice seems to make random sound/hashes
-#test_wav en+klatt4 "377767780368115863cde5cc11c0203cfdd48476" "The quick brown fox jumps over the lazy dog"
-test_wav_grep en+klatt5 "6665329b413244b9846533ce207f0ee3d6e55094" "The quick brown fox jumps over the lazy dog"
-
-
+test_wav en+klatt  "8155a2249db8f6fe5f3b1d4fd00c35d09ceb6c82" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt2 "90559a2ff9973c3ccf1eb7e71579fedfedbd3c67" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt3 "a636bc97d68fbec753c7cecc718b539c87627095" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt4 "653e243019c9462c7a9a90f4b03326d45b45f41c" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt5 "6665329b413244b9846533ce207f0ee3d6e55094" "The quick brown fox jumps over the lazy dog"

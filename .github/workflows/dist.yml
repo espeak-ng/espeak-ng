@@ -1,0 +1,70 @@
+name: Dist
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  deps: libpcaudio-dev libsonic-dev ronn kramdown python3
+
+jobs:
+
+  reprotest:
+
+    runs-on: ubuntu-latest
+    name: Build with reprotest on ${{ matrix.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x86-64, x86-32]
+
+        include:
+          - arch: x86-32
+            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archconfigflags: "-m32"
+
+          - arch: x86-64
+            archdeps: ""
+            archconfigflags: ''
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: enable 32bit architecture
+        run: sudo dpkg --add-architecture i386
+        if: matrix.arch == 'x86-32'
+      - name: dependencies
+        run: sudo apt-get update && sudo apt-get install ${{ env.deps }} reprotest ${{ matrix.archdeps }}
+      - name: autoconf
+        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      - name: run
+        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure --without-gradle && make clean && make && make check && touch success' success
+
+  distcheck:
+
+    runs-on: ubuntu-latest
+    name: Run distcheck
+    steps:
+      - uses: actions/checkout@v3
+      - name: dependencies
+        run: sudo apt-get update && sudo apt-get install ${{ env.deps }}
+      - name: autoconf
+        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: make dist
+        run: make dist
+      - name: unpack
+        run: mkdir unpack && tar -C unpack -xf *.tar.gz
+      - name: re-configure
+        run: cd unpack/espeak-ng-* && ./configure
+      - name: re-make
+        run: cd unpack/espeak-ng-* && make
+      - name: re-make check
+        run: cd unpack/espeak-ng-* && make check

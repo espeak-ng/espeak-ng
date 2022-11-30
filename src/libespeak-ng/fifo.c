@@ -38,7 +38,7 @@
 #include "fifo.h"
 #include "event.h"
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 
 // my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo
@@ -63,6 +63,7 @@ static espeak_ng_STATUS push(t_espeak_command *the_command);
 static t_espeak_command *pop(void);
 static void init(int process_parameters);
 static int node_counter = 0;
+static bool thread_inited = false;
 
 enum {
 	MAX_NODE_COUNTER = 400,
@@ -89,6 +90,7 @@ void fifo_init()
 	                      (void *)NULL)) {
 		assert(0);
 	}
+	thread_inited = true;
 
 	pthread_attr_destroy(&a_attrib);
 
@@ -131,6 +133,9 @@ espeak_ng_STATUS fifo_add_command(t_espeak_command *the_command)
 espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command *command2)
 {
 	espeak_ng_STATUS status;
+	if (!thread_inited) {
+		return ENS_NOT_INITIALIZED;
+	}
 	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
 		return status;
 
@@ -166,6 +171,7 @@ espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command 
 
 espeak_ng_STATUS fifo_stop()
 {
+	if (!thread_inited) return ENS_OK;
 	espeak_ng_STATUS status;
 	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
 		return status;
@@ -193,7 +199,11 @@ espeak_ng_STATUS fifo_stop()
 
 int fifo_is_busy()
 {
-	return my_command_is_running;
+	if (!thread_inited) return false;
+	pthread_mutex_lock(&my_mutex);
+	bool running = my_command_is_running;
+	pthread_mutex_unlock(&my_mutex);
+	return running;
 }
 
 static int sleep_until_start_request_or_inactivity()
@@ -438,12 +448,15 @@ static void init(int process_parameters)
 
 void fifo_terminate()
 {
+	if (!thread_inited) return;
+
 	pthread_mutex_lock(&my_mutex);
 	my_terminate_is_required = true;
 	pthread_mutex_unlock(&my_mutex);
 	pthread_cond_signal(&my_cond_start_is_required);
 	pthread_join(my_thread, NULL);
 	my_terminate_is_required = false;
+	thread_inited = false;
 
 	pthread_mutex_destroy(&my_mutex);
 	pthread_cond_destroy(&my_cond_start_is_required);

@@ -22,7 +22,7 @@ jobs:
             archdeps: ""
             archconfigflags: ''
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
@@ -38,7 +38,7 @@ jobs:
            ./configure --with-libfuzzer
     - name: Store the fuzzer config
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: config-${{ matrix.arch }}-${{ matrix.lang }}.log
         path: config.log
@@ -78,7 +78,7 @@ jobs:
       run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: crash-${{ matrix.arch }}-${{ matrix.lang }}.1
         path: crash-* timeout-*
@@ -86,7 +86,7 @@ jobs:
       run:   cp dictsource/${{ matrix.lang }}_* tests/fuzzing/CORPUS_DIR/ || true ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: crash-${{ matrix.arch }}-${{ matrix.lang }}.2
         path: crash-* timeout-*

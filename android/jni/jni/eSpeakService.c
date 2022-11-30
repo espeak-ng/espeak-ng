@@ -31,7 +31,7 @@
 #include <espeak/speak_lib.h>
 #include <Log.h>
 
-#define BUFFER_SIZE_IN_MILLISECONDS 1000
+#define BUFFER_SIZE_IN_MILLISECONDS 300
 
 /* These are helpers for converting a jstring to wchar_t*.
  *
@@ -195,14 +195,18 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
     sprintf(gender_buf, "%d", v->gender);
     sprintf(age_buf, "%d", v->age);
 
-    (*env)->SetObjectArrayElement(
-        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, lang_name));
-    (*env)->SetObjectArrayElement(
-        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, identifier));
-    (*env)->SetObjectArrayElement(
-        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, gender_buf));
-    (*env)->SetObjectArrayElement(
-        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, age_buf));
+    jstring lang = (*env)->NewStringUTF(env, lang_name);
+    (*env)->SetObjectArrayElement(env, voicesArray, voicesIndex++, lang);
+    (*env)->DeleteLocalRef(env, lang);
+    jstring ident = (*env)->NewStringUTF(env, identifier);
+    (*env)->SetObjectArrayElement(env, voicesArray, voicesIndex++, ident);
+    (*env)->DeleteLocalRef(env, ident);
+    jstring gender = (*env)->NewStringUTF(env, gender_buf);
+    (*env)->SetObjectArrayElement(env, voicesArray, voicesIndex++, gender);
+    (*env)->DeleteLocalRef(env, gender);
+    jstring age = (*env)->NewStringUTF(env, age_buf);
+    (*env)->SetObjectArrayElement(env, voicesArray, voicesIndex++, age);
+    (*env)->DeleteLocalRef(env, age);
   }
 
   return voicesArray;

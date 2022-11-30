@@ -35,9 +35,10 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "klatt.h"
+#include "common.h"      // for espeak_rand
 #include "synthesize.h"  // for frame_t, WGEN_DATA, STEPSIZE, N_KLATTP, echo...
 #include "voice.h"       // for voice_t, N_PEAKS
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 #include "sPlayer.h"
 #endif
 
@@ -46,11 +47,7 @@ extern unsigned char *out_end;
 static int nsamples;
 static int sample_count;
 
-#ifdef _MSC_VER
-#define getrandom(min, max) ((rand()%(int)(((max)+1)-(min)))+(min))
-#else
-#define getrandom(min, max) ((rand()%(long)(((max)+1)-(min)))+(min))
-#endif
+#define getrandom(min, max) espeak_rand((min), (max))
 
 // function prototypes for functions private to this file
 
@@ -74,7 +71,7 @@ static klatt_global_t kt_globals;
 static int scale_wav_tab[] = { 45, 38, 45, 45, 55, 45 }; // scale output from different voicing sources
 
 // For testing, this can be overwritten in KlattInit()
-static short natural_samples2[256] = {
+static const short natural_samples2[256] = {
 	 2583,  2516,  2450,  2384,  2319,  2254,  2191,  2127,
 	 2067,  2005,  1946,  1890,  1832,  1779,  1726,  1675,
 	 1626,  1579,  1533,  1491,  1449,  1409,  1372,  1336,
@@ -108,7 +105,7 @@ static short natural_samples2[256] = {
 	-1680, -1732, -1783, -1839, -1894, -1952, -2010, -2072,
 	-2133, -2196, -2260, -2325, -2390, -2456, -2522, -2589,
 };
-static short natural_samples[100] = {
+static const short natural_samples[100] = {
 	 -310,  -400,   530,   356,   224,    89,   23,  -10, -58, -16, 461,  599,  536,   701,   770,
 	  605,   497,   461,   560,   404,   110,  224,  131, 104, -97, 155,  278, -154, -1165,
 	 -598,   737,   125,  -592,    41,    11, -247,  -10,  65,  92,  80, -304,   71,   167,    -1, 122,
@@ -197,7 +194,7 @@ static double sampled_source(int source_num)
 	int current_value;
 	int next_value;
 	double temp_diff;
-	short *samples;
+	const short *samples;
 
 	if (source_num == 0) {
 		samples = natural_samples;
@@ -215,13 +212,13 @@ static double sampled_source(int source_num)
 
 		temp_diff = ftemp - (double)itemp;
 
-		current_value = samples[itemp];
-		next_value = samples[itemp+1];
+		current_value = samples[(itemp) % kt_globals.num_samples];
+		next_value = samples[(itemp+1) % kt_globals.num_samples];
 
 		diff_value = (double)next_value - (double)current_value;
 		diff_value = diff_value * temp_diff;
 
-		result = samples[itemp] + diff_value;
+		result = samples[(itemp) % kt_globals.num_samples] + diff_value;
 		result = result * kt_globals.sample_factor;
 	} else
 		result = 0;
@@ -436,7 +433,7 @@ void KlattReset(int control)
 {
 	int r_ix;
 
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	KlattResetSP();
 #endif
 
@@ -469,7 +466,7 @@ void KlattReset(int control)
 
 void KlattFini(void)
 {
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	KlattFiniSP();
 #endif
 }
@@ -862,7 +859,7 @@ static double klattp_inc[N_KLATTP];
 
 int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata, voice_t *wvoice)
 {
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	if(wvoice->klattv[0] == 6)
 	return Wavegen_KlattSP(wdata, wvoice, length, resume, fr1, fr2);
 #endif
@@ -1000,9 +997,7 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 			if ((cmd == WCMD_WAVE) || (cmd == WCMD_PAUSE))
 				break; // next is not from spectrum, so continue until end of wave cycle
 		}
-	}
 
-	if (control & 1) {
 		for (ix = 1; ix < 6; ix++) {
 			if (prev_fr.ffreq[ix] != fr1->ffreq[ix]) {
 				// Discontinuity in formants.
@@ -1015,7 +1010,7 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 	}
 
 	for (ix = 0; ix < N_KLATTP; ix++) {
-		if ((ix >= 5) && ((fr1->frflags & FRFLAG_KLATT) == 0)) {
+		if ((ix >= 5) || ((fr1->frflags & FRFLAG_KLATT) == 0)) {
 			klattp1[ix] = klattp[ix] = 0;
 			klattp_inc[ix] = 0;
 		} else {
@@ -1083,7 +1078,7 @@ void KlattInit()
 
 	int ix;
 
-#ifdef INCLUDE_SPEECHPLAYER
+#if USE_SPEECHPLAYER
 	KlattInitSP();
 #endif
 

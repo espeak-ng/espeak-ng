@@ -9,178 +9,228 @@ on:
 
 jobs:
   build:
+    runs-on: ${{ matrix.os }}-${{ matrix.osver }}
 
-    runs-on: ${{ matrix.os }}
-
-    name: Build with ${{ matrix.sanitizer }} sanitizer on ${{ matrix.os }} ${{ matrix.arch }}
+    name: "${{ matrix.os }} ${{ matrix.arch }}: ${{ matrix.compiler }} + ${{ matrix.sanitizer }}"
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        arch: [x86-64, x86-32]
+        os: [ubuntu, macos]
+        arch: [amd64, i386, aarch64, arm, riscv64]
         sanitizer: [no, address, leak, memory, thread, undefined, valgrind]
+        compiler: [gcc, clang]
 
         include:
-          - sanitizer: "no"
-            deps: ""
-            configflags: "-g -Og -fno-omit-frame-pointer"
-            config: ""
-            build_env: ""
-            check_env: ""
+          - os: ubuntu
+            osver: 22.04
+            sys: linux-gnu
+          - os: macos
+            osver: 12
+            sys: apple-darwin21
+          - os: macos
+            compiler: clang
+            sys: apple-darwin21.6.0
+          
+          - compiler: clang
+            compiler_flags: "-fdebug-default-version=4"
+
+          - arch: amd64
+            ccarch: x86_64
+            archcflags: ""
+            cross: no
+          - arch: i386
+            ccarch: x86_64
+            archcflags: "-m32 -msse2 -mfpmath=sse"
+            cross: no
+          - arch: aarch64
+            ccarch: aarch64
+            archcflags: "-Wl,--dynamic-linker=/usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1"
+            runenv: 'LD_LIBRARY_PATH=/usr/aarch64-linux-gnu/lib:$LD_LIBRARY_PATH'
+            cross: yes
+          - arch: arm
+            ccarch: arm
+            sys: linux-gnueabi
+            archcflags: "-D_FILE_OFFSET_BITS=64 -latomic -Wl,--dynamic-linker=/usr/arm-linux-gnueabi/lib/ld-linux.so.3"
+            runenv: 'LD_LIBRARY_PATH=/usr/arm-linux-gnueabi/lib:$LD_LIBRARY_PATH'
+            cross: yes
+          - arch: riscv64
+            ccarch: riscv64
+            archcflags: "-Wl,--dynamic-linker=/usr/riscv64-linux-gnu/lib/ld-linux-riscv64-lp64d.so.1"
+            runenv: 'LD_LIBRARY_PATH=/usr/riscv64-linux-gnu/lib:$LD_LIBRARY_PATH'
+            cross: yes
 
           - sanitizer: "address"
-            deps: ""
-            configflags: "-fsanitize=address -g -Og -fno-omit-frame-pointer"
-            config: ""
-            build_env: "ASAN_OPTIONS=detect_leaks=0"
-            check_env: "ASAN_OPTIONS=detect_leaks=0"
+            sanitizer_cflags: "-fsanitize=address"
+            sanitize_env: "ASAN_OPTIONS=detect_leaks=0"
 
           - sanitizer: "leak"
-            deps: ""
-            configflags: '-fsanitize=leak -g -Og -fno-omit-frame-pointer'
-            config: ""
-            build_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
-            check_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
+            sanitizer_cflags: "-fsanitize=leak"
+            sanitize_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
 
           - sanitizer: "memory"
-            deps: "clang"
             configenv: "CC=clang CXX=clang++"
-            configflags: "-fsanitize=memory -fsanitize-memory-track-origins=2 -g -Og -fno-omit-frame-pointer"
-            config: "--without-pcaudiolib"
-            build_env: "MSAN_OPTIONS=exitcode=42"
-            check_env: "MSAN_OPTIONS=exitcode=42"
+            sanitizer_cflags: "-fsanitize=memory -fsanitize-memory-track-origins=2"
+            config: "--without-pcaudiolib --without-sonic"
+            sanitize_env: "MSAN_OPTIONS=exitcode=42"
 
           - sanitizer: "thread"
-            deps: ""
-            configflags: "-fsanitize=thread -g -Og -fno-omit-frame-pointer"
-            config: ""
-            build_env: ""
-            check_env: ""
+            sanitizer_cflags: "-fsanitize=thread"
 
           - sanitizer: "undefined"
-            deps: ""
-            configflags: "-fsanitize=undefined -g -Og -fno-omit-frame-pointer"
-            config: ""
-            build_env: "UBSAN_OPTIONS=halt_on_error=1"
-            check_env: "UBSAN_OPTIONS=halt_on_error=1"
+            sanitizer_cflags: "-fsanitize=undefined"
+            sanitize_env: "UBSAN_OPTIONS=halt_on_error=1"
 
           - sanitizer: "valgrind"
-            deps: "libtool-bin valgrind"
-            configflags: '-g -Og -fno-omit-frame-pointer'
-            config: ""
-            build_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
-            check_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1" '
-
-          - arch: x86-32
-            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
-            archconfigflags: "-m32"
-
-          - arch: x86-64
-            archdeps: ""
-            archconfigflags: ''
-
+            sanitize_env: 'VALGRIND="libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1"'
+          
         exclude:
-          # These are not supported on 32bit
-          - arch: x86-32
-            sanitizer: leak
-          - arch: x86-32
-            sanitizer: memory
-          - arch: x86-32
-            sanitizer: thread
-          # 32-bit macOS is not supported
-          - os: macos-latest
-            arch: x86-32
-          # These are not supported on macos
-          - os: macos-latest
-            sanitizer: leak
-          - os: macos-latest
-            sanitizer: memory
-          - os: macos-latest
+          - os: macos
+            arch: i386
+          - os: macos
+            arch: aarch64
+          - os: macos
+            arch: arm
+          - os: macos
+            arch: riscv64
+
+          - os: macos
+            sanitizer: valgrind # Not supported on macOS
+
+          - compiler: gcc
+            sanitizer: memory # Not supported by GCC
+
+          - os: macos
+            compiler: clang
+            sanitizer: leak # Not supported by Apple Clang
+          - os: macos
+            compiler: clang
+            sanitizer: memory # Not supported by Apple Clang
+          - os: macos
+            compiler: gcc
+            sanitizer: thread # Failing on CI, should be supported?
+
+          # Valgrind is unavailable for cross-builds
+          - arch: aarch64
+            sanitizer: valgrind
+          - arch: arm
+            sanitizer: valgrind
+          - arch: riscv64
             sanitizer: valgrind
 
+          # Leak sanitizer is unavailable for cross-builds
+          - arch: i386
+            sanitizer: leak
+          - arch: aarch64
+            sanitizer: leak
+          - arch: arm
+            sanitizer: leak
+          - arch: riscv64
+            sanitizer: leak
+          
+          # Thread sanitizer is partially unavailable
+          - arch: i386
+            sanitizer: thread
+          - arch: arm
+            sanitizer: thread
+          - arch: riscv64
+            sanitizer: thread
+          - arch: aarch64
+            compiler: clang
+            sanitizer: thread
+
+          # Undefined sanitizer is partially unavailable
+          - arch: riscv64
+            sanitizer: undefined
+          - arch: arm
+            compiler: clang
+            sanitizer: undefined
+          - arch: aarch64
+            compiler: clang
+            sanitizer: undefined
+
+          # Memory sanitizer is partially unavailable
+          - arch: i386
+            sanitizer: memory
+          - arch: riscv64
+            sanitizer: memory
+          - arch: arm
+            sanitizer: memory
+          - arch: aarch64
+            sanitizer: memory
+
+          # Address sanitizer is partially unavailable
+          - arch: riscv64
+            sanitizer: address
+          - arch: arm
+            compiler: clang
+            sanitizer: address
+          - arch: aarch64
+            compiler: clang
+            sanitizer: address
+
+          # Disable Thread sanitizer that runs for over 2h on aarch64
+          - arch: aarch64
+            sanitizer: thread
+
     steps:
-    - uses: actions/checkout@v2
-    - name: enable 32bit architecture
-      run: sudo dpkg --add-architecture i386
-      if: matrix.arch == 'x86-32'
-    - name: dependencies-apt
-      if: matrix.os == 'ubuntu-latest'
-      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown ${{ matrix.deps }} ${{ matrix.archdeps }}
-    - name: dependencies-brew
-      if: matrix.os == 'macos-latest'
-      run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown ${{ matrix.archdeps }} ;
+
+    # Linux - dependencies
+    - name: apt-build-deps
+      if: matrix.os == 'ubuntu'
+      run: |
+        [ 'x${{ matrix.cross }}' == 'xno' ] && sudo dpkg --add-architecture ${{ matrix.arch }}
+        sudo apt-get update
+        sudo apt-get install ronn kramdown python3
+    - name: apt-arch-deps
+      if: matrix.os == 'ubuntu' && matrix.cross == 'no'
+      run: "sudo apt-get install libtool-bin valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libstdc++-12-dev:${{ matrix.arch }} libc6-dbg:${{ matrix.arch }}"
+    - name: apt-cross-deps
+      if: matrix.cross == 'yes'
+      run: sudo apt-get install qemu-user g++-12-${{ matrix.arch }}-${{ matrix.sys }}
+    - name: apt-compile-clang
+      if: matrix.os == 'ubuntu' && matrix.compiler == 'clang'
+      run: sudo apt-get install clang
+
+    # MacOS - dependencies
+    - name: brew-deps
+      if: matrix.os == 'macos'
+      run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown &&
            brew install --HEAD anarchivist/espeak-ng/waywardgeek-sonic
+    - name: brew-compile-deps
+      if: matrix.os == 'macos' && matrix.compiler == 'gcc'
+      run: brew install gcc@12
+
+    # Checkout code
+    - uses: actions/checkout@v3
+
+    # Configure
     - name: autoconf
-      run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+      run: |
+        ./autogen.sh
+        chmod -x INSTALL m4/*.m4
+
     - name: configure
-      run: ${{ matrix.configenv }}
-           CFLAGS="${{ matrix.configflags }} ${{ matrix.archconfigflags }}"
-           CXXFLAGS="${{ matrix.configflags }} ${{ matrix.archconfigflags }}"
-           ./configure ${{ matrix.config }}
-    - name: Store the config
+      run: |
+        [ 'x${{ matrix.compiler }}' = 'xgcc' ] && export CC="${{ matrix.ccarch }}-${{ matrix.sys }}-gcc-12"
+        [ 'x${{ matrix.compiler }}' = 'xgcc' ] && export CXX="${{ matrix.ccarch }}-${{ matrix.sys }}-g++-12"
+        [ 'x${{ matrix.compiler }}' = 'xclang' ] && export CC="clang --target=${{ matrix.ccarch }}-${{ matrix.sys }}"
+        [ 'x${{ matrix.compiler }}' = 'xclang' ] && export CXX="clang++ --target=${{ matrix.ccarch }}-${{ matrix.sys }}"
+        [ 'x${{ matrix.cross }}' = 'xyes' ] && export LD="${{ matrix.ccarch }}-${{ matrix.sys }}-ld"
+        export CFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.compiler_flags }} ${{ matrix.sanitizer_cflags }} ${{ matrix.archcflags }}"
+        export CXXFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.compiler_flags }} ${{ matrix.sanitizer_cflags }} ${{ matrix.archcflags }}"
+        ./configure --host=${{ matrix.arch }}-${{ matrix.sys }} ${{ matrix.config }}
+
+    - name: config-failed-upload
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
-        name: config-${{ matrix.arch }}-${{ matrix.sanitizer }}.log
+        name: config-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}-${{ matrix.sanitizer }}.log
         path: config.log
-    - name: make
-      run: ${{ matrix.build_env }} make
-    - name: make check
-      run: ${{ matrix.check_env }} make check
 
-  reprotest:
-
-    runs-on: ubuntu-latest
-    name: Build with reprotest on ${{ matrix.arch }}
-    strategy:
-      fail-fast: false
-      matrix:
-        arch: [x86-64, x86-32]
-
-        include:
-          - arch: x86-32
-            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
-            archconfigflags: "-m32"
-
-          - arch: x86-64
-            archdeps: ""
-            archconfigflags: ''
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: enable 32bit architecture
-        run: sudo dpkg --add-architecture i386
-        if: matrix.arch == 'x86-32'
-      - name: dependencies
-        run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown reprotest ${{ matrix.archdeps }}
-      - name: autoconf
-        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
-      - name: run
-        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure --without-gradle && make clean && make && make check && touch success' success
-
-  distcheck:
-
-    runs-on: ubuntu-latest
-    name: Run distcheck
-    steps:
-      - uses: actions/checkout@v2
-      - name: dependencies
-        run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown
-      - name: autoconf
-        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
-      - name: configure
-        run: ./configure
-      - name: make
-        run: make
-      - name: make check
-        run: make check
-      - name: make dist
-        run: make dist
-      - name: unpack
-        run: mkdir unpack && tar -C unpack -xf *.tar.gz
-      - name: re-configure
-        run: cd unpack/espeak-ng-* && ./configure
-      - name: re-make
-        run: cd unpack/espeak-ng-* && make
-      - name: re-make check
-        run: cd unpack/espeak-ng-* && make check
+    # Build and test
+    - name: make-binary
+      run: make src/speak-ng src/espeak-ng
+    - name: make-data
+      run: ${{ matrix.sanitize_env }} ${{ matrix.runenv }} make all-am
+    - name: test
+      run: ${{ matrix.sanitize_env }} ${{ matrix.runenv }} make check
