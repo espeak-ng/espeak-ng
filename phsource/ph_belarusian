@@ -72,6 +72,16 @@ phoneme r
   FMT(r3/r_trill2) addWav(r3/r_trill2.wav, 65)
 endphoneme
 
+phoneme s;
+  import_phoneme base1/s;
+  ipa sʲ
+endphoneme
+
+phoneme z;
+  import_phoneme base1/z;
+  ipa zʲ
+endphoneme
+
 phoneme ;
   liquid pzd
   lengthmod 0
