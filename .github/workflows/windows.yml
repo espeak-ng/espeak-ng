@@ -18,4 +18,4 @@ jobs:
       - name: make
         run: cmake --build build
       - name: make check
-        run: ctest --test-dir build -Ttest -C Debug -j1 --output-on-failure
+        run: ctest --test-dir build -Ttest -C Debug --output-on-failure

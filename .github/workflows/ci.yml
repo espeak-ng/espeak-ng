@@ -229,4 +229,4 @@ jobs:
     - name: test
       run: |
         ${{ matrix.sanitize_env }} ${{ matrix.runenv }} cmake --build build --target tests
-        ${{ matrix.sanitize_env }} ${{ matrix.runenv }} ctest --test-dir build -Ttest -j1 --output-on-failure
+        ${{ matrix.sanitize_env }} ${{ matrix.runenv }} ctest --test-dir build -Ttest --output-on-failure
