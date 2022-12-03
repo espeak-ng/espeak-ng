@@ -80,7 +80,7 @@
        з (L06L04 z;
        з (ці   s;
 
-.group і
+.group і       // NOTE: appends ";" at the end of the words when next starts from "а"
        і       i
     C) і       ;i
 
