@@ -1,0 +1,21 @@
+name: Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    name: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: configure
+        run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF
+      - name: make
+        run: cmake --build build
+      - name: make check
+        run: ctest --test-dir build -Ttest -C Debug -j1 --output-on-failure
