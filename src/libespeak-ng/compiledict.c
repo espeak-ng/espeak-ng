@@ -145,8 +145,8 @@ static const MNEM_TAB mnem_flags[] = {
 
 typedef struct {
 	char name[LEN_GROUP_NAME+1];
-	unsigned int start;
-	unsigned int length;
+	void *start;
+	size_t length;
 	int group3_ix;
 } RGROUP;
 
@@ -1191,10 +1191,10 @@ static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 	if (ix != 0) return ix;
 	ix = strcmp(a->name, b->name);
 	if (ix != 0) return ix;
-	return a->start-b->start;
+	return (uintptr_t)a->start - (uintptr_t)b->start;
 }
 
-static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
+static void* output_rule_group(int n_rules, char **rules, char *name, size_t *outsize)
 {
 	int ix;
 	int len1;
@@ -1203,6 +1203,8 @@ static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name
 	char *p;
 	char *p2, *p3;
 	const char *common;
+	char *outptr = NULL;
+	size_t outpos, outlen = 0;
 
 	short nextchar_count[256];
 	memset(nextchar_count, 0, sizeof(nextchar_count));
@@ -1225,20 +1227,30 @@ static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name
 
 		nextchar_count[(unsigned char)(p2[0])]++; // the next byte after the group name
 
+		outpos = outlen;
 		if ((common[0] != 0) && (strcmp(p, common) == 0)) {
-			fwrite(p2, len2, 1, f_out);
-			fputc(0, f_out); // no phoneme string, it's the same as previous rule
+			outlen += len2 + 1;
+			outptr = realloc(outptr, outlen);
+			memmove(outptr + outpos, p2, len2);
+			outptr[outlen-1] = 0;
 		} else {
 			if ((ix < n_rules-1) && (strcmp(p, rules[ix+1]) == 0)) {
+				outlen ++;
+				outptr = realloc(outptr, outlen);
 				common = rules[ix]; // phoneme string is same as next, set as common
-				fputc(RULE_PH_COMMON, f_out);
+				outptr[outpos++] = RULE_PH_COMMON;
 			}
 
-			fwrite(p2, len2, 1, f_out);
-			fputc(RULE_PHONEMES, f_out);
-			fwrite(p, len1, 1, f_out);
+			outlen += len2 + 1 + len1;
+			outptr = realloc(outptr, outlen);
+			memmove(outptr + outpos, p2, len2);
+			outpos += len2;
+			outptr[outpos++] = RULE_PHONEMES;
+			memmove(outptr + outpos, p, len1);
 		}
 	}
+	if (outsize) *outsize = outlen;
+	return outptr;
 }
 
 static int compile_lettergroup(CompileContext *ctx, char *input, FILE *f_out)
@@ -1320,14 +1332,13 @@ static void free_rules(char **rules, int n_rules)
 	}
 }
 
-static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE *f_out, char *fname_temp, espeak_ng_ERROR_CONTEXT *context)
+static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE *f_out)
 {
 	char *prule;
 	unsigned char *p;
 	int ix;
 	int c;
 	int gp;
-	FILE *f_temp;
 	int n_rules = 0;
 	int count = 0;
 	int different;
@@ -1347,9 +1358,6 @@ static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE 
 	ctx->linenum = 0;
 	ctx->group_name[0] = 0;
 
-	if ((f_temp = fopen(fname_temp, "wb")) == NULL)
-		return create_file_error_context(context, errno, fname_temp);
-
 	for (;;) {
 		ctx->linenum++;
 		buf = fgets(buf1, sizeof(buf1), f_in);
@@ -1366,9 +1374,7 @@ static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE 
 			if (n_rules > 0) {
 				strcpy(rgroup[n_rgroups].name, ctx->group_name);
 				rgroup[n_rgroups].group3_ix = ctx->group3_ix;
-				rgroup[n_rgroups].start = ftell(f_temp);
-				output_rule_group(f_temp, n_rules, rules, ctx->group_name);
-				rgroup[n_rgroups].length = ftell(f_temp) - rgroup[n_rgroups].start;
+				rgroup[n_rgroups].start = output_rule_group(n_rules, rules, ctx->group_name, &rgroup[n_rgroups].length);
 				n_rgroups++;
 
 				count += n_rules;
@@ -1479,20 +1485,12 @@ static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE 
 			break;
 		}
 	}
-	fclose(f_temp);
 
 	qsort((void *)rgroup, n_rgroups, sizeof(rgroup[0]), (int(__cdecl *)(const void *, const void *))rgroup_sorter);
-
-	if ((f_temp = fopen(fname_temp, "rb")) == NULL) {
-		free_rules(rules, n_rules);
-		return create_file_error_context(context, errno, fname_temp);
-	}
 
 	prev_rgroup_name = "\n";
 
 	for (gp = 0; gp < n_rgroups; gp++) {
-		fseek(f_temp, rgroup[gp].start, SEEK_SET);
-
 		if ((different = strcmp(rgroup[gp].name, prev_rgroup_name)) != 0) {
 			// not the same as the previous group
 			if (gp > 0)
@@ -1508,19 +1506,16 @@ static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE 
 			fputc(0, f_out);
 		}
 
-		for (ix = rgroup[gp].length; ix > 0; ix--) {
-			c = fgetc(f_temp);
-			fputc(c, f_out);
-		}
+		fwrite(rgroup[gp].start, rgroup[gp].length, 1, f_out);
 	}
 	fputc(RULE_GROUP_END, f_out);
 	fputc(0, f_out);
 
-	fclose(f_temp);
-	remove(fname_temp);
-
 	fprintf(ctx->f_log, "\t%d rules, %d groups (%d)\n\n", count, n_rgroups, n_groups3);
 	free_rules(rules, n_rules);
+	for (gp = 0; gp < n_rgroups; gp++) {
+		free(rgroup[gp].start);
+	}
 	return ENS_OK;
 }
 
@@ -1539,7 +1534,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	int value;
 	char fname_in[sizeof(path_home)+45];
 	char fname_out[sizeof(path_home)+15];
-	char fname_temp[sizeof(path_home)+15];
 	char path[sizeof(path_home)+40];       // path_dsource+20
 
 	CompileContext *ctx = calloc(1, sizeof(CompileContext));
@@ -1575,9 +1569,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 		clean_context(ctx);
 		return create_file_error_context(context, error, fname_out);
 	}
-	/* Use dictionary-specific temp names to allow parallel compilation
-	 * of multiple ductionaries. */
-	sprintf(fname_temp, "%s%c%stemp", path_home, PATHSEP, dict_name);
 
 	value = N_HASH_DICT;
 	Write4Bytes(f_out, value);
@@ -1602,7 +1593,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 
 	fprintf(ctx->f_log, "Compiling: '%s'\n", fname_in);
 
-	espeak_ng_STATUS status = compile_dictrules(ctx, f_in, f_out, fname_temp, context);
+	espeak_ng_STATUS status = compile_dictrules(ctx, f_in, f_out);
 	fclose(f_in);
 
 	fseek(f_out, 4, SEEK_SET);
