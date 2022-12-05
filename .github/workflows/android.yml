@@ -16,18 +16,16 @@ jobs:
         config: [debug, release]
         include:
           - config: debug
+            target: assembleDebug
             apkname: espeak-debug.apk
           - config: release
+            target: assembleRelease
             apkname: espeak-release-unsigned.apk
     name: Build ${{ matrix.config }} APK
     steps:
       - uses: actions/checkout@v3
-      - name: autoconf
-        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
-      - name: configure
-        run: ./configure --with-gradle=$(pwd)/android/gradlew
       - name: make
-        run: make apk-${{ matrix.config }}
+        run: cd android ; ./gradlew ${{ matrix.target }}
       - name: upload
         uses: actions/upload-artifact@v3
         with:

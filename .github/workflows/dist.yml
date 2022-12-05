@@ -8,7 +8,7 @@ on:
     branches: [ master ]
 
 env:
-  deps: libpcaudio-dev libsonic-dev ronn kramdown python3
+  deps: cmake libpcaudio-dev libsonic-dev ronn kramdown python3
 
 jobs:
 
@@ -37,10 +37,8 @@ jobs:
         if: matrix.arch == 'x86-32'
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }} reprotest ${{ matrix.archdeps }}
-      - name: autoconf
-        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
       - name: run
-        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" ./configure --without-gradle && make clean && make && make check && touch success' success
+        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" rm -rf build && cmake -Bbuild -DUSE_ASYNC:BOOL=OFF && cmake --build build && ctest --test-dir build -Ttest -j1 --output-on-failure && touch success' success
 
   distcheck:
 
@@ -50,21 +48,21 @@ jobs:
       - uses: actions/checkout@v3
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }}
-      - name: autoconf
-        run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
       - name: configure
-        run: ./configure
+        run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF
       - name: make
-        run: make
+        run: cmake --build build
       - name: make check
-        run: make check
-      - name: make dist
-        run: make dist
+        run: ctest --test-dir build -Ttest -j1 --output-on-failure
+
+      - name: make package_source
+        run: cmake --build build --target package_source
       - name: unpack
-        run: mkdir unpack && tar -C unpack -xf *.tar.gz
+        run: mkdir unpack && tar -C unpack -xf build/espeak-ng-*-Source.tar.bz2
+
       - name: re-configure
-        run: cd unpack/espeak-ng-* && ./configure
+        run: cd unpack/espeak-ng-* && cmake -Bbuild -DUSE_ASYNC:BOOL=OFF
       - name: re-make
-        run: cd unpack/espeak-ng-* && make
+        run: cd unpack/espeak-ng-* && cmake --build build
       - name: re-make check
-        run: cd unpack/espeak-ng-* && make check
+        run: cd unpack/espeak-ng-* && ctest --test-dir build -Ttest -j1 --output-on-failure
