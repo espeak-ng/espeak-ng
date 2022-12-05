@@ -230,32 +230,33 @@ endtune
 
 // spanish
 tune s6
-prehead   46 57
-headenv   fall 16
-head       5 79 50 -7 -4
+prehead   57 40
+headenv   rise 26
+head       5 72 49 -10 -10
+headlast 46 10 10
 headextend 0 63 38 13 0
-nucleus0 fall 66 7
-nucleus fall 72 25 16 9
+nucleus0 fall 56 7
+nucleus fall 56 25 16 9
 endtune
-
 tune c6
-prehead   45 55
-headenv   fall 16
-head       4 80 49 -8 -3
-headextend 0 63 38 13 0
-nucleus0 fall-rise 70 15
-nucleus fall-rise 74 26 23 45
+prehead   55 40
+headenv   rise 26
+head       10 72 49 -8 -10
+headlast 40 -20 -26
+headextend 0 38 63 38 13 0
+nucleus0 rise-fall 65 35 
+nucleus fall-rise 30 46 40 54
 endtune
 
 tune q6
 prehead   58 40
-headenv   fall 16
-head       3 74 45 -7 -2
-headextend 10 47 23 9 0
-onset 58 45 48
-headlast 55 32 27
-nucleus0 fall-rise 90 24
-nucleus fall-rise 78 25 90 68
+headenv   rise 26
+head       5 74 45 -4 -7
+headextend 24 47 23 9 0
+onset 68 25 36
+headlast 48 -10 -26
+nucleus0 rise 90 44
+nucleus rise 78 35 90 68
 endtune
 
 tune e6
@@ -268,45 +269,45 @@ nucleus fall  90 77 76 8
 endtune
 
 tune chrs
-prehead		0	0
-headenv		fall	0
-head		1	0	0	0	0
-headextend	0	0	0	0	0	0	0	0
-nucleus		fall	0	0	0	0
-nucleus0	fall	0	0
-onset		0	0	0
-headlast	0	0	0
+prehead  0 0
+headenv  fall 0
+head  1 0 0 0 0
+headextend 0 0 0 0 0 0 0 0
+nucleus  fall 0 0 0 0
+nucleus0 fall 0 0
+onset  0 0 0
+headlast 0 0 0
 endtune
 
 tune chrc
-prehead		0	0
-headenv		fall	0
-head		1	0	0	0	0
-headextend	0	0	0	0	0	0	0	0
-nucleus		fall	0	0	0	0
-nucleus0	fall	0	0
-onset		0	0	0
-headlast	0	0	0
+prehead  0 0
+headenv  fall 0
+head  1 0 0 0 0
+headextend 0 0 0 0 0 0 0 0
+nucleus  fall 0 0 0 0
+nucleus0 fall 0 0
+onset  0 0 0
+headlast 0 0 0
 endtune
 
 tune chrq
-prehead		0	0
-headenv		fall	0
-head		1	0	0	0	0
-headextend	0	0	0	0	0	0	0	0
-nucleus		fall	0	0	0	0
-nucleus0	fall	0	0
-onset		0	0	0
-headlast	0	0	0
+prehead  0 0
+headenv  fall 0
+head  1 0 0 0 0
+headextend 0 0 0 0 0 0 0 0
+nucleus  fall 0 0 0 0
+nucleus0 fall 0 0
+onset  0 0 0
+headlast 0 0 0
 endtune
 
 tune chre
-prehead		0	0
-headenv		fall	0
-head		1	0	0	0	0
-headextend	0	0	0	0	0	0	0	0
-nucleus		fall	0	0	0	0
-nucleus0	fall	0	0
-onset		0	0	0
-headlast	0	0	0
+prehead  0 0
+headenv  fall 0
+head  1 0 0 0 0
+headextend 0 0 0 0 0 0 0 0
+nucleus  fall 0 0 0 0
+nucleus0 fall 0 0
+onset  0 0 0
+headlast 0 0 0
 endtune
