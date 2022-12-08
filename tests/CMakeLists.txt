@@ -18,6 +18,9 @@ macro(compiled_test _test_name)
     $<TARGET_PROPERTY:espeak-ng,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:espeak-ng-config,INTERFACE_INCLUDE_DIRECTORIES>
   )
+  if (MINGW)
+    target_link_options(test_${_test_name} PUBLIC "-static" "-static-libstdc++")
+  endif()
   add_dependencies(test_${_test_name} data)
   add_test(
     NAME ${_test_name}

@@ -108,4 +108,8 @@ if ((MINGW OR WIN32 OR MSVC) AND BUILD_SHARED_LIBS)
   )
 endif()
 
+if (MINGW)
+  target_link_options(espeak-ng PRIVATE "-static-libstdc++" "-static")
+endif()
+
 install(TARGETS espeak-ng LIBRARY)
