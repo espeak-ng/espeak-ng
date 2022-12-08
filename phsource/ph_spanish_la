@@ -2,6 +2,20 @@
 //====================================================
 //  Latin American Spanish  - based on Spanish
 //====================================================
+phoneme s
+  vls alv frc sib
+  lengthmod 3
+  voicingswitch  z
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_, 60)    // quieter 's' at end of word
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!)
+  ENDIF
+  WAV(ufric/s, 80)
+endphoneme
 
 phoneme T
   vls alv frc sib
