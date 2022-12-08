@@ -221,7 +221,7 @@ else
     AC_CHECK_HEADERS([pcaudiolib/audio.h],
         [
             have_pcaudiolib=yes
-            PCAUDIOLIB_CFLAGS=
+            PCAUDIOLIB_CFLAGS=-DUSE_LIBPCAUDIO=1
             PCAUDIOLIB_LIBS=-lpcaudio
         ],[
             have_pcaudiolib=no
@@ -258,12 +258,14 @@ if test "$with_sonic" = "no" ; then
 else
     AC_CHECK_HEADERS([sonic.h],
         [
+            SONIC_CFLAGS=-DUSE_LIBSONIC=1
             AC_CHECK_LIB([sonic], [sonicCreateStream])
             have_sonic=yes
         ],[
             have_sonic=no
         ])
 fi
+AC_SUBST(SONIC_CFLAGS)
 
 AC_CHECK_HEADERS([valgrind/memcheck.h])
 
