@@ -10,6 +10,7 @@ macro(compiled_test _test_name)
   target_link_libraries(test_${_test_name} PRIVATE
     $<TARGET_PROPERTY:espeak-ng,LINK_LIBRARIES>
   )
+  target_compile_definitions(test_${_test_name} PRIVATE LIBESPEAK_NG_EXPORT=1)
   target_include_directories(
     test_${_test_name} PRIVATE
     $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>
@@ -17,6 +18,9 @@ macro(compiled_test _test_name)
     $<TARGET_PROPERTY:espeak-ng,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:espeak-ng-config,INTERFACE_INCLUDE_DIRECTORIES>
   )
+  if (MINGW)
+    target_link_options(test_${_test_name} PUBLIC "-static" "-static-libstdc++")
+  endif()
   add_dependencies(test_${_test_name} data)
   add_test(
     NAME ${_test_name}

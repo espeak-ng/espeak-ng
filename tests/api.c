@@ -630,7 +630,7 @@ main(int argc, char **argv)
 	(void)argc; // unused parameter
 
 	char *progdir = strdup(argv[0]);
-	char *dir = strrchr(progdir, '/');
+	char *dir = strrchr(progdir, PATHSEP);
 	if (dir != NULL) *dir = 0;
 
 	test_espeak_terminate_without_initialize();
