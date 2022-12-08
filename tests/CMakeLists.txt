@@ -10,6 +10,7 @@ macro(compiled_test _test_name)
   target_link_libraries(test_${_test_name} PRIVATE
     $<TARGET_PROPERTY:espeak-ng,LINK_LIBRARIES>
   )
+  target_compile_definitions(test_${_test_name} PRIVATE LIBESPEAK_NG_EXPORT=1)
   target_include_directories(
     test_${_test_name} PRIVATE
     $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>
