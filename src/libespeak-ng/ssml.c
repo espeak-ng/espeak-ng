@@ -870,6 +870,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		if ((attr1 = GetSsmlAttribute(px, "strength")) != NULL) {
 			static const int break_value[6] = { 0, 7, 14, 21, 40, 80 }; // *10mS
 			value = attrlookup(attr1, mnem_break);
+			if (value < 0) value = 2;
 			if (value < 3) {
 				// adjust prepause on the following word
 				sprintf(&outbuf[*outix], "%c%dB", CTRL_EMBEDDED, value);
