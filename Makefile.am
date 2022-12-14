@@ -487,6 +487,7 @@ dictionaries: \
 	espeak-ng-data/hy_dict \
 	espeak-ng-data/ia_dict \
 	espeak-ng-data/id_dict \
+	espeak-ng-data/ie_dict \
 	espeak-ng-data/io_dict \
 	espeak-ng-data/is_dict \
 	espeak-ng-data/it_dict \
@@ -567,6 +568,7 @@ DICTSOURCE = \
 	dictsource/bg_listx \
 	dictsource/he_listx \
 	dictsource/ia_listx \
+	dictsource/ie_listx \
 	dictsource/it_listx \
 	dictsource/tk_listx \
 	dictsource/tr_listx
@@ -701,6 +703,9 @@ espeak-ng-data/ia_dict: dictsource/ia_list dictsource/ia_listx dictsource/ia_rul
 
 id: espeak-ng-data/id_dict
 espeak-ng-data/id_dict: dictsource/id_list dictsource/id_rules dictsource/id_extra dictsource/id_emoji
+
+ie: espeak-ng-data/ie_dict
+espeak-ng-data/ie_dict: dictsource/ie_list dictsource/ie_listx dictsource/ie_rules
 
 io: espeak-ng-data/io_dict
 espeak-ng-data/io_dict: dictsource/io_list dictsource/io_rules dictsource/io_extra
