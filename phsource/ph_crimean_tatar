@@ -39,10 +39,10 @@ phoneme W
   FMT(vowel/y#)
 endphoneme
 
-phoneme u
+phoneme U
   vwl starttype #u endtype #u
-  length 200
-  FMT(vowel/u_bck3)
+  length 180
+  FMT(vowel/uu_2)
 endphoneme
 
 phoneme y
