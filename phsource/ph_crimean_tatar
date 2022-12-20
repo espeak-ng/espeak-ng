@@ -1,0 +1,127 @@
+//===================================
+// Crimean Tatar
+//===================================
+
+// Vowels
+
+phoneme A
+  vwl starttype #a endtype #a
+  length 200
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 200
+  flag1
+  FMT(vdiph2/ii@_2)
+endphoneme
+
+phoneme I
+  vwl starttype #@ endtype #@
+  flag1
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/ii#)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 200
+  FMT(vowel/o_3)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  length 200
+  FMT(vowel/y#)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck3)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  length 200
+  FMT(vowel/y_5)
+endphoneme
+
+// Consonants
+
+phoneme r
+  import_phoneme base1/R2
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme G
+  import_phoneme base1/Q"
+endphoneme
+
+phoneme l
+  ipa l
+  liquid
+  starttype l endtype l
+  lengthmod 7
+
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la, -10)
+    VowelStart(l/le, -15)
+    VowelStart(l/li, -15)
+    VowelStart(vwl_fr/lo, -10)
+    VowelStart(l/lu, -20)
+  EndSwitch
+
+  IF prevPh(#@) THEN
+    VowelEnding(l/xl, -50)
+  ELIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  IF prevPh(isPause) OR thisPh(isWordStart) THEN
+    FMT(l/_l)
+  ENDIF
+  IF prevPh(isRhotic) OR prevPh(isNasal) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)    // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+phoneme L   // velar L
+  liquid
+  lengthmod 7
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(L/)     // use 'dark' [l] after a vowel
+  ENDIF
+
+  VowelEnding(ll/xll, -40)
+
+  IF prevPh(isPause) THEN
+     FMT(ll/_ll)
+  ENDIF
+
+  FMT(ll/ll)
+endphoneme
+
