@@ -2045,6 +2045,9 @@ include ph_sindhi
 
 phonemetable nog kk
 
+phonemetable crh kk
+include ph_crimean_tatar
+
 phonemetable uz kk
 include ph_uzbek
 
