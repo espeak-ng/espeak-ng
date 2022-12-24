@@ -54,6 +54,7 @@ if (NOT MSVC)
     "-Wmissing-prototypes"
     "-Wint-conversion"
     "-Wimplicit"
+    "-Wmisleading-indentation"
   )
 endif()
 target_compile_definitions(espeak-ng PRIVATE "LIBESPEAK_NG_EXPORT=1")

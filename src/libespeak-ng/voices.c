@@ -1423,7 +1423,6 @@ static int AddToVoicesList(const char *fname, int len_path_voices, int is_langua
 
 		if (voice_data != NULL)
 			voices_list[n_voices_list++] = voice_data;
-			return 0;
 	}
 	return 0;
 }

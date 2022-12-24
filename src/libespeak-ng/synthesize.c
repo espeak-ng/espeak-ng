@@ -1190,9 +1190,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 		if (WcmdqFree() <= free_min)
 			return 1; // wait
 
-			PHONEME_LIST *prev;
-			PHONEME_LIST *next;
-        	PHONEME_LIST *next2;
+		PHONEME_LIST *prev;
+		PHONEME_LIST *next;
+		PHONEME_LIST *next2;
 
 		prev = &phoneme_list[ix-1];
 		next = &phoneme_list[ix+1];
