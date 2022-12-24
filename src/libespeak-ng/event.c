@@ -83,9 +83,15 @@ void event_init(void)
 	pthread_mutex_init(&my_mutex, (const pthread_mutexattr_t *)NULL);
 	init();
 
-	assert(-1 != pthread_cond_init(&my_cond_start_is_required, NULL));
-	assert(-1 != pthread_cond_init(&my_cond_stop_is_required, NULL));
-	assert(-1 != pthread_cond_init(&my_cond_stop_is_acknowledged, NULL));
+	int a_status;
+
+	a_status = pthread_cond_init(&my_cond_start_is_required, NULL);
+	assert(-1 != a_status);
+	a_status = pthread_cond_init(&my_cond_stop_is_required, NULL);
+	assert(-1 != a_status);
+	a_status = pthread_cond_init(&my_cond_stop_is_acknowledged, NULL);
+	assert(-1 != a_status);
+	(void)a_status;
 
 	pthread_attr_t a_attrib;
 
@@ -408,7 +414,9 @@ void clock_gettime2(struct timespec *ts)
 	if (!ts)
 		return;
 
-	assert(gettimeofday(&tv, NULL) != -1);
+	int a_status = gettimeofday(&tv, NULL);
+	assert(a_status != -1);
+	(void)a_status;
 	ts->tv_sec = tv.tv_sec;
 	ts->tv_nsec = tv.tv_usec*1000;
 }

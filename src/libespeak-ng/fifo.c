@@ -77,9 +77,13 @@ void fifo_init(void)
 	pthread_mutex_init(&my_mutex, (const pthread_mutexattr_t *)NULL);
 	init(0);
 
-	assert(-1 != pthread_cond_init(&my_cond_command_is_running, NULL));
-	assert(-1 != pthread_cond_init(&my_cond_start_is_required, NULL));
-	assert(-1 != pthread_cond_init(&my_cond_stop_is_acknowledged, NULL));
+	int a_status;
+	a_status = pthread_cond_init(&my_cond_command_is_running, NULL);
+	assert(-1 != a_status);
+	a_status = pthread_cond_init(&my_cond_start_is_required, NULL);
+	assert(-1 != a_status);
+	a_status = pthread_cond_init(&my_cond_stop_is_acknowledged, NULL);
+	assert(-1 != a_status);
 
 	pthread_attr_t a_attrib;
 	if (pthread_attr_init(&a_attrib)
@@ -95,7 +99,9 @@ void fifo_init(void)
 	pthread_attr_destroy(&a_attrib);
 
 	// leave once the thread is actually started
-	assert(-1 != pthread_mutex_lock(&my_mutex));
+	a_status = pthread_mutex_lock(&my_mutex);
+	assert(-1 != a_status);
+	(void)a_status;
 	while (my_stop_is_acknowledged == false) {
 		while ((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR)
 			;
@@ -290,11 +296,16 @@ static void *say_thread(void *p)
 {
 	(void)p; // unused
 
+	int a_status;
+
 	// announce that thread is started
-	assert(-1 != pthread_mutex_lock(&my_mutex));
+	a_status = pthread_mutex_lock(&my_mutex);
+	assert(-1 != a_status);
 	my_stop_is_acknowledged = true;
-	assert(-1 != pthread_cond_signal(&my_cond_stop_is_acknowledged));
-	assert(-1 != pthread_mutex_unlock(&my_mutex));
+	a_status = pthread_cond_signal(&my_cond_stop_is_acknowledged);
+	assert(-1 != a_status);
+	a_status = pthread_mutex_unlock(&my_mutex);
+	assert(-1 != a_status);
 
 	bool look_for_inactivity = false;
 
@@ -307,7 +318,7 @@ static void *say_thread(void *p)
 		}
 		look_for_inactivity = true;
 
-		int a_status = pthread_mutex_lock(&my_mutex);
+		a_status = pthread_mutex_lock(&my_mutex);
 		assert(!a_status);
 
 		if (!a_start_is_required) {
@@ -320,11 +331,13 @@ static void *say_thread(void *p)
 
 		my_command_is_running = true;
 
-		assert(-1 != pthread_cond_broadcast(&my_cond_command_is_running));
-		assert(-1 != pthread_mutex_unlock(&my_mutex));
+		a_status = pthread_cond_broadcast(&my_cond_command_is_running);
+		assert(-1 != a_status);
+		a_status = pthread_mutex_unlock(&my_mutex);
+		assert(-1 != a_status);
 
 		while (my_command_is_running && !my_terminate_is_required) {
-			int a_status = pthread_mutex_lock(&my_mutex);
+			a_status = pthread_mutex_lock(&my_mutex);
 			assert(!a_status);
 			t_espeak_command *a_command = (t_espeak_command *)pop();
 
@@ -349,18 +362,20 @@ static void *say_thread(void *p)
 			// and waiting for my_cond_stop_is_acknowledged
 			init(1);
 
-			assert(-1 != pthread_mutex_lock(&my_mutex));
+			a_status = pthread_mutex_lock(&my_mutex);
+			assert(-1 != a_status);
 			my_start_is_required = false;
 
 			// acknowledge the stop request
 			my_stop_is_acknowledged = true;
-			int a_status = pthread_cond_signal(&my_cond_stop_is_acknowledged);
+			a_status = pthread_cond_signal(&my_cond_stop_is_acknowledged);
 			assert(a_status != -1);
 			pthread_mutex_unlock(&my_mutex);
 
 		}
 		// and wait for the next start
 	}
+	(void)a_status;
 
 	return NULL;
 }
