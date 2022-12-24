@@ -38,11 +38,11 @@
 
 static int frame_width;
 
-static int default_freq[N_PEAKS] =
+static const int default_freq[N_PEAKS] =
 { 200, 500, 1200, 3000, 3500, 4000, 6900, 7800, 9000 };
-static int default_width[N_PEAKS] =
+static const int default_width[N_PEAKS] =
 { 750, 500, 550, 550, 600, 700, 700, 700, 700 };
-static int default_klt_bw[N_PEAKS] =
+static const int default_klt_bw[N_PEAKS] =
 { 89, 90, 140, 260, 260, 260, 500, 500, 500 };
 
 static double read_double(FILE *stream)

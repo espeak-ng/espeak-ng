@@ -80,7 +80,7 @@ static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
-static int min_buffer_length = 60; // minimum buffer length in ms
+static const int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
 static t_espeak_callback *synth_callback = NULL;
@@ -659,7 +659,7 @@ espeak_ng_Synthesize(const void *text, size_t size,
 {
 	(void)size; // unused in non-async modes
 
-	static unsigned int temp_identifier;
+	unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
 		unique_identifier = &temp_identifier;
@@ -708,7 +708,7 @@ espeak_ng_SynthesizeMark(const void *text,
 {
 	(void)size; // unused in non-async modes
 
-	static unsigned int temp_identifier;
+	unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
 		unique_identifier = &temp_identifier;

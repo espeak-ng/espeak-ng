@@ -119,7 +119,7 @@ int wcmdq_tail = 0;
 
 // pitch,speed,
 const int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
-static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
+static const int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
 
 #if USE_LIBSONIC
 static sonicStream sonicSpeedupStream = NULL;
@@ -130,7 +130,7 @@ static double sonicSpeed = 1.0;
 // 2nd index=modulation_type
 // value: bits 0-3  amplitude (16ths), bits 4-7 every n cycles
 #define N_ROUGHNESS 8
-static unsigned char modulation_tab[N_ROUGHNESS][8] = {
+static const unsigned char modulation_tab[N_ROUGHNESS][8] = {
 	{ 0, 0x00, 0x00, 0x00, 0, 0x46, 0xf2, 0x29 },
 	{ 0, 0x2f, 0x00, 0x2f, 0, 0x45, 0xf2, 0x29 },
 	{ 0, 0x2f, 0x00, 0x2e, 0, 0x45, 0xf2, 0x28 },

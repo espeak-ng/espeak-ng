@@ -46,7 +46,7 @@ extern int saved_parameters[];
 
 // convert from words-per-minute to internal speed factor
 // Use this to calibrate speed for wpm 80-450 (espeakRATE_MINIMUM - espeakRATE_MAXIMUM)
-static unsigned char speed_lookup[] = {
+static const unsigned char speed_lookup[] = {
 	255, 255, 255, 255, 255, //  80
 	253, 249, 245, 242, 238, //  85
 	235, 232, 228, 225, 222, //  90
@@ -106,7 +106,7 @@ static unsigned char speed_lookup[] = {
 };
 
 // speed_factor1 adjustments for speeds 350 to 374: pauses
-static unsigned char pause_factor_350[] = {
+static const unsigned char pause_factor_350[] = {
 	22, 22, 22, 22, 22, 22, 22, 21, 21, 21, // 350
 	21, 20, 20, 19, 19, 18, 17, 16, 15, 15, // 360
 	15, 15, 15, 15, 15                      // 370
@@ -114,7 +114,7 @@ static unsigned char pause_factor_350[] = {
 
 // wav_factor adjustments for speeds 350 to 450
 // Use this to calibrate speed for wpm 350-450
-static unsigned char wav_factor_350[] = {
+static const unsigned char wav_factor_350[] = {
 	120, 121, 120, 119, 119, // 350
 	118, 118, 117, 116, 116, // 355
 	115, 114, 113, 112, 112, // 360
