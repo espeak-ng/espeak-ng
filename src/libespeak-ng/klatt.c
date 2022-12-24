@@ -547,7 +547,7 @@ static void frame_init(klatt_frame_ptr frame)
    to Kopen.
  */
 
-static double impulsive_source()
+static double impulsive_source(void)
 {
 	static const double doublet[] = { 0.0, 13000000.0, -13000000.0 };
 	static double vwave;
@@ -567,7 +567,7 @@ static double impulsive_source()
    spectral zero around 800 Hz, magic constants a,b reset pitch synchronously.
  */
 
-static double natural_source()
+static double natural_source(void)
 {
 	double lgtemp;
 	static double vwave;
@@ -1068,7 +1068,7 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 	}
 }
 
-void KlattInit()
+void KlattInit(void)
 {
 
 	static const short formant_hz[10] = { 280, 688, 1064, 2806, 3260, 3700, 6500, 7000, 8000, 280 };

@@ -231,7 +231,7 @@ static int CountSyllables(unsigned char *phonemes)
 	return count;
 }
 
-static void Word_EmbeddedCmd()
+static void Word_EmbeddedCmd(void)
 {
 	// Process embedded commands for emphasis, sayas, and break
 	int embedded_cmd;

@@ -87,7 +87,7 @@ float polint(float xa[], float ya[], int n, float x)
 	return y;
 }
 
-static SpectFrame *SpectFrameCreate()
+static SpectFrame *SpectFrameCreate(void)
 {
 	int ix;
 	SpectFrame *frame;
@@ -230,7 +230,7 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 }
 
 #pragma GCC visibility push(default)
-SpectSeq *SpectSeqCreate()
+SpectSeq *SpectSeqCreate(void)
 {
 	SpectSeq *spect = malloc(sizeof(SpectSeq));
 	if (!spect)

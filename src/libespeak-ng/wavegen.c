@@ -234,7 +234,7 @@ static const unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	242, 246, 249, 252, 254, 255
 };
 
-void WcmdqStop()
+void WcmdqStop(void)
 {
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
@@ -252,7 +252,7 @@ void WcmdqStop()
 #endif
 }
 
-int WcmdqFree()
+int WcmdqFree(void)
 {
 	int i;
 	i = wcmdq_head - wcmdq_tail;
@@ -260,18 +260,18 @@ int WcmdqFree()
 	return i;
 }
 
-int WcmdqUsed()
+int WcmdqUsed(void)
 {
 	return N_WCMDQ - WcmdqFree();
 }
 
-void WcmdqInc()
+void WcmdqInc(void)
 {
 	wcmdq_tail++;
 	if (wcmdq_tail >= N_WCMDQ) wcmdq_tail = 0;
 }
 
-static void WcmdqIncHead()
+static void WcmdqIncHead(void)
 {
 	MAKE_MEM_UNDEFINED(&wcmdq[wcmdq_head], sizeof(wcmdq[wcmdq_head]));
 	wcmdq_head++;
@@ -534,7 +534,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	return hmax; // highest harmonic number
 }
 
-static void AdvanceParameters()
+static void AdvanceParameters(void)
 {
 	// Called every 64 samples to increment the formant freq, height, and widths
 	if (wvoice == NULL)
@@ -643,7 +643,7 @@ void InitBreath(void)
 		setresonator(&rbreath[ix], 2000, 200, 1);
 }
 
-static void SetBreath()
+static void SetBreath(void)
 {
 	int pk;
 
@@ -1001,7 +1001,7 @@ static int SetWithRange0(int value, int max)
 	return value;
 }
 
-static void SetPitchFormants()
+static void SetPitchFormants(void)
 {
 	if (wvoice == NULL)
 		return;
@@ -1253,7 +1253,7 @@ void Write4Bytes(FILE *f, int value)
 	}
 }
 
-static int WavegenFill2()
+static int WavegenFill2(void)
 {
 	// Pick up next wavegen commands from the queue
 	// return: 0  output buffer has been filled

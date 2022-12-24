@@ -85,7 +85,7 @@ const char *WordToString(char buf[5], unsigned int word)
 	return buf;
 }
 
-void SynthesizeInit()
+void SynthesizeInit(void)
 {
 	last_pitch_cmd = 0;
 	last_amp_cmd = 0;
@@ -376,7 +376,7 @@ int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp)
 	return len;
 }
 
-static frame_t *AllocFrame()
+static frame_t *AllocFrame(void)
 {
 	// Allocate a temporary spectrum frame for the wavegen queue. Use a pool which is big
 	// enough to use a round-robin without checks.

@@ -71,7 +71,7 @@ enum {
 	MAX_INACTIVITY_CHECK = 2
 };
 
-void fifo_init()
+void fifo_init(void)
 {
 	// security
 	pthread_mutex_init(&my_mutex, (const pthread_mutexattr_t *)NULL);
@@ -169,7 +169,7 @@ espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command 
 	return ENS_OK;
 }
 
-espeak_ng_STATUS fifo_stop()
+espeak_ng_STATUS fifo_stop(void)
 {
 	if (!thread_inited) return ENS_OK;
 	espeak_ng_STATUS status;
@@ -197,7 +197,7 @@ espeak_ng_STATUS fifo_stop()
 	return ENS_OK;
 }
 
-int fifo_is_busy()
+int fifo_is_busy(void)
 {
 	if (!thread_inited) return false;
 	pthread_mutex_lock(&my_mutex);
@@ -206,7 +206,7 @@ int fifo_is_busy()
 	return running;
 }
 
-static int sleep_until_start_request_or_inactivity()
+static int sleep_until_start_request_or_inactivity(void)
 {
 	int a_start_is_required = false;
 
@@ -242,7 +242,7 @@ static int sleep_until_start_request_or_inactivity()
 	return a_start_is_required;
 }
 
-static espeak_ng_STATUS close_stream()
+static espeak_ng_STATUS close_stream(void)
 {
 	espeak_ng_STATUS status = pthread_mutex_lock(&my_mutex);
 	if (status != ENS_OK)
@@ -368,7 +368,7 @@ static void *say_thread(void *p)
 	return NULL;
 }
 
-int fifo_is_command_enabled()
+int fifo_is_command_enabled(void)
 {
 	return 0 == my_stop_is_required;
 }
@@ -413,7 +413,7 @@ static espeak_ng_STATUS push(t_espeak_command *the_command)
 	return ENS_OK;
 }
 
-static t_espeak_command *pop()
+static t_espeak_command *pop(void)
 {
 	t_espeak_command *the_command = NULL;
 
@@ -446,7 +446,7 @@ static void init(int process_parameters)
 	node_counter = 0;
 }
 
-void fifo_terminate()
+void fifo_terminate(void)
 {
 	if (!thread_inited) return;
 

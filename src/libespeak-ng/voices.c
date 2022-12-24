@@ -1338,7 +1338,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByProperties(espeak_VOICE *voic
 
 #pragma GCC visibility pop
 
-void FreeVoiceList()
+void FreeVoiceList(void)
 {
 	int ix;
 	for (ix = 0; ix < n_voices_list; ix++) {

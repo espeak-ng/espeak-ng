@@ -222,7 +222,7 @@ espeak_ng_STATUS event_declare(espeak_EVENT *event)
 	return status;
 }
 
-espeak_ng_STATUS event_clear_all()
+espeak_ng_STATUS event_clear_all(void)
 {
 	espeak_ng_STATUS status;
 	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
@@ -352,7 +352,7 @@ static espeak_ng_STATUS push(void *the_data)
 	return ENS_OK;
 }
 
-static void *pop()
+static void *pop(void)
 {
 	void *the_data = NULL;
 
@@ -373,7 +373,7 @@ static void *pop()
 }
 
 
-static void init()
+static void init(void)
 {
 	while (event_delete((espeak_EVENT *)pop()))
 		;
@@ -381,7 +381,7 @@ static void init()
 	node_counter = 0;
 }
 
-void event_terminate()
+void event_terminate(void)
 {
 	if (thread_inited) {
 		my_terminate_is_required = true;
