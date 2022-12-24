@@ -223,7 +223,6 @@ static int sleep_until_start_request_or_inactivity(void)
 		i++;
 
 		struct timespec ts;
-		struct timeval tv;
 
 		clock_gettime2(&ts);
 
@@ -232,8 +231,6 @@ static int sleep_until_start_request_or_inactivity(void)
 		while ((err = pthread_cond_timedwait(&my_cond_start_is_required, &my_mutex, &ts)) == -1
 		       && errno == EINTR)
 			continue;
-
-		assert(gettimeofday(&tv, NULL) != -1);
 
 		if (err == 0)
 			a_start_is_required = true;

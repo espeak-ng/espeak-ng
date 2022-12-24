@@ -428,7 +428,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	// Fill the buffer with output sound
 	int length;
 	int finished = 0;
-	int count_buffers = 0;
 
 	if ((outbuf == NULL) || (event_list == NULL))
 		return ENS_NOT_INITIALIZED;
@@ -467,7 +466,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 		event_list[event_list_ix].unique_identifier = unique_identifier;
 		event_list[event_list_ix].user_data = my_user_data;
 
-		count_buffers++;
 		if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 			finished = create_events((short *)outbuf, length, event_list);
 			if (finished < 0)

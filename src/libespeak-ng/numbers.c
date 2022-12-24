@@ -763,7 +763,6 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	int value;
 	int subtract;
 	int repeat = 0;
-	int n_digits = 0;
 	char *word_start;
 	int num_control = 0;
 	unsigned int flags[2];
@@ -817,7 +816,6 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 		else
 			acc += prev;
 		prev = value;
-		n_digits++;
 	}
 
 	if (IsDigit09(word[0]))
