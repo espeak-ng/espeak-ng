@@ -36,8 +36,6 @@
 #include "synthesize.h"                // for KLATT_AV, KLATT_Kopen, N_KLATTP2
 #include "voice.h"                     // for N_PEAKS
 
-static int frame_width;
-
 static const int default_freq[N_PEAKS] =
 { 200, 500, 1200, 3000, 3500, 4000, 6900, 7800, 9000 };
 static const int default_width[N_PEAKS] =
@@ -376,9 +374,6 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 		if (frame->nx * frame->dx > spect->max_x) spect->max_x = (int)(frame->nx * frame->dx);
 	}
 	spect->max_x = 9000; // disable auto-xscaling
-
-	frame_width = (int)((FRAME_WIDTH*spect->max_x)/MAX_DISPLAY_FREQ);
-	if (frame_width > FRAME_WIDTH) frame_width = FRAME_WIDTH;
 
 	// start times from zero
 	time_offset = spect->frames[0]->time;
