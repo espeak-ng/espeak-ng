@@ -1811,9 +1811,6 @@ include ph_setswana
 phonemetable tt base1
 include ph_tatar
 
-phonemetable uk base1
-include ph_ukrainian
-
 phonemetable vi base1
 include ph_vietnam
 
@@ -1821,9 +1818,6 @@ phonemetable yue base1
 include ph_yue
 
 // *** Tables extending base2 ***
-
-phonemetable be base2
-include ph_belarusian
 
 phonemetable chr base2
 include ph_cherokee
@@ -2018,6 +2012,12 @@ include ph_macedonian
 
 phonemetable sr hr
 include ph_serbian
+
+phonemetable uk base1
+include ph_ukrainian
+
+phonemetable be ru
+include ph_belarusian
 
 phonemetable ru-lv ru
 include ph_russian_lv
