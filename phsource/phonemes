@@ -1819,9 +1819,6 @@ include ph_yue
 
 // *** Tables extending base2 ***
 
-phonemetable be base2
-include ph_belarusian
-
 phonemetable chr base2
 include ph_cherokee
 
@@ -2015,6 +2012,9 @@ include ph_macedonian
 
 phonemetable sr hr
 include ph_serbian
+
+phonemetable be ru
+include ph_belarusian
 
 phonemetable ru-lv ru
 include ph_russian_lv
