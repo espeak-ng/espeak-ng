@@ -38,7 +38,7 @@
 #include "synthesize.h"
 #include "translate.h"
 
-static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3);
+static void SetSpeedFactors(voice_t *voice, int x, int speeds[3]);
 static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x);
 static void SetSpeedMultiplier(int *x, int *wpm);
 
@@ -138,9 +138,7 @@ static const unsigned char wav_factor_350[] = {
 	 45                      // 450
 };
 
-static int speed1 = 130;
-static int speed2 = 121;
-static int speed3 = 118;
+static int len_speeds[3] = { 130, 121, 118 };
 
 void SetSpeed(int control)
 {
@@ -174,9 +172,9 @@ void SetSpeed(int control)
 		// The eSpeak output will be speeded up by at least x2
 		x = 73;
 		if (control & 1) {
-			speed1 = (x * voice->speedf1)/256;
-			speed2 = (x * voice->speedf2)/256;
-			speed3 = (x * voice->speedf3)/256;
+			len_speeds[0] = (x * voice->speedf1)/256;
+			len_speeds[1] = (x * voice->speedf2)/256;
+			len_speeds[2] = (x * voice->speedf3)/256;
 		}
 		if (control & 2) {
 			double sonic;
@@ -201,7 +199,7 @@ void SetSpeed(int control)
 	SetSpeedMultiplier(&x, &wpm);
 
 	if (control & 1) {
-		SetSpeedFactors(voice, x, &speed1, &speed2, &speed3);
+		SetSpeedFactors(voice, x, len_speeds);
 	}
 
 	if (control & 2) {
@@ -229,16 +227,16 @@ static void SetSpeedMultiplier(int *x, int *wpm) {
 		*x = 6;
 }
 
-static void SetSpeedFactors(voice_t *voice, int x, int *speed1, int *speed2, int *speed3) {
+static void SetSpeedFactors(voice_t *voice, int x, int speeds[3]) {
 	// set speed factors for different syllable positions within a word
 	// these are used in CalcLengths()
-	*speed1 = (x * voice->speedf1)/256;
-	*speed2 = (x * voice->speedf2)/256;
-	*speed3 = (x * voice->speedf3)/256;
+	speeds[0] = (x * voice->speedf1)/256;
+	speeds[1] = (x * voice->speedf2)/256;
+	speeds[2] = (x * voice->speedf3)/256;
 
 	if (x <= 7) {
-		*speed1 = x;
-		*speed2 = *speed3 = x - 1;
+		speeds[0] = x;
+		speeds[1] = speeds[2] = x - 1;
 	}
 }
 
@@ -523,7 +521,7 @@ void CalcLengths(Translator *tr)
 					p->length = prev->length;
 
 					if (p->type == phLIQUID)
-						p->length = speed1;
+						p->length = len_speeds[0];
 
 					if (next->type == phVSTOP)
 						p->length = (p->length * 160)/100;
@@ -615,11 +613,11 @@ void CalcLengths(Translator *tr)
 			}
 
 			if (more_syllables == 0)
-				length_mod *= speed1;
+				length_mod *= len_speeds[0];
 			else if (more_syllables == 1)
-				length_mod *= speed2;
+				length_mod *= len_speeds[1];
 			else
-				length_mod *= speed3;
+				length_mod *= len_speeds[2];
 
 			length_mod = length_mod / 128;
 
@@ -654,9 +652,9 @@ void CalcLengths(Translator *tr)
 				length_mod = length_mod * (256 + (280 - len)/3)/256;
 			}
 
-			if (length_mod > tr->langopts.max_lengthmod*speed1) {
+			if (length_mod > tr->langopts.max_lengthmod*len_speeds[0]) {
 				// limit the vowel length adjustment for some languages
-				length_mod = (tr->langopts.max_lengthmod*speed1);
+				length_mod = (tr->langopts.max_lengthmod*len_speeds[0]);
 			}
 
 			length_mod = length_mod / 128;
