@@ -17,8 +17,8 @@
  */
 
 #include "config.h"
+#include "test_assert.h"
 
-#include <assert.h>
 #include <errno.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -63,18 +63,18 @@ test_latin()
 {
 	printf("testing Latin (Latn)\n");
 
-	assert(clause_type_from_codepoint('?') == CLAUSE_QUESTION);
-	assert(clause_type_from_codepoint('!') == CLAUSE_EXCLAMATION);
-	assert(clause_type_from_codepoint(',') == CLAUSE_COMMA);
-	assert(clause_type_from_codepoint(':') == CLAUSE_COLON);
-	assert(clause_type_from_codepoint(';') == CLAUSE_SEMICOLON);
+	TEST_ASSERT(clause_type_from_codepoint('?') == CLAUSE_QUESTION);
+	TEST_ASSERT(clause_type_from_codepoint('!') == CLAUSE_EXCLAMATION);
+	TEST_ASSERT(clause_type_from_codepoint(',') == CLAUSE_COMMA);
+	TEST_ASSERT(clause_type_from_codepoint(':') == CLAUSE_COLON);
+	TEST_ASSERT(clause_type_from_codepoint(';') == CLAUSE_SEMICOLON);
 
-	assert(clause_type_from_codepoint(0x00A1) == (CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0x00Bf) == (CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x00A1) == (CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x00Bf) == (CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER));
 
-	assert(clause_type_from_codepoint(0x2013) == CLAUSE_SEMICOLON);
-	assert(clause_type_from_codepoint(0x2014) == CLAUSE_SEMICOLON);
-	assert(clause_type_from_codepoint(0x2026) == (CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x2013) == CLAUSE_SEMICOLON);
+	TEST_ASSERT(clause_type_from_codepoint(0x2014) == CLAUSE_SEMICOLON);
+	TEST_ASSERT(clause_type_from_codepoint(0x2026) == (CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
 static void
@@ -82,8 +82,8 @@ test_latin_sentence()
 {
 	printf("testing Latin (Latn) ... sentence\n");
 
-	assert(clause_type_from_codepoint('a') == CLAUSE_NONE);
-	assert(clause_type_from_codepoint('.') == CLAUSE_PERIOD);
+	TEST_ASSERT(clause_type_from_codepoint('a') == CLAUSE_NONE);
+	TEST_ASSERT(clause_type_from_codepoint('.') == CLAUSE_PERIOD);
 
 	short retix[] = {
 		0, 2, 3, 4, 5, 6, // Jane
@@ -93,20 +93,20 @@ test_latin_sentence()
 		0, 23, 24, 25, // the
 		0, 27, 28, 29, 30 }; // race
 
-	assert(set_text("Janet finished #1 in the race.", "en") == ENS_OK);
+	TEST_ASSERT(set_text("Janet finished #1 in the race.", "en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == (CLAUSE_PERIOD | CLAUSE_DOT_AFTER_LAST_WORD));
-	assert(!strcmp(source, "Janet finished #1 in the race "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == (CLAUSE_PERIOD | CLAUSE_DOT_AFTER_LAST_WORD));
+	TEST_ASSERT(!strcmp(source, "Janet finished #1 in the race "));
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source, " "));
-	assert(charix_top == 0);
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source, " "));
+	TEST_ASSERT(charix_top == 0);
 }
 
 static void
@@ -114,8 +114,8 @@ test_greek()
 {
 	printf("testing Greek (Grek)\n");
 
-	assert(clause_type_from_codepoint(0x037E) == CLAUSE_QUESTION);
-	assert(clause_type_from_codepoint(0x0387) == CLAUSE_SEMICOLON);
+	TEST_ASSERT(clause_type_from_codepoint(0x037E) == CLAUSE_QUESTION);
+	TEST_ASSERT(clause_type_from_codepoint(0x0387) == CLAUSE_SEMICOLON);
 }
 
 static void
@@ -123,11 +123,11 @@ test_armenian()
 {
 	printf("testing Armenian (Armn)\n");
 
-	assert(clause_type_from_codepoint(0x055B) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
-	assert(clause_type_from_codepoint(0x055C) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
-	assert(clause_type_from_codepoint(0x055D) == CLAUSE_COMMA);
-	assert(clause_type_from_codepoint(0x055E) == (CLAUSE_QUESTION | CLAUSE_PUNCTUATION_IN_WORD));
-	assert(clause_type_from_codepoint(0x0589) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x055B) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
+	TEST_ASSERT(clause_type_from_codepoint(0x055C) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
+	TEST_ASSERT(clause_type_from_codepoint(0x055D) == CLAUSE_COMMA);
+	TEST_ASSERT(clause_type_from_codepoint(0x055E) == (CLAUSE_QUESTION | CLAUSE_PUNCTUATION_IN_WORD));
+	TEST_ASSERT(clause_type_from_codepoint(0x0589) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
 static void
@@ -135,10 +135,10 @@ test_arabic()
 {
 	printf("testing Arabic (Arab)\n");
 
-	assert(clause_type_from_codepoint(0x060C) == CLAUSE_COMMA);
-	assert(clause_type_from_codepoint(0x061B) == CLAUSE_SEMICOLON);
-	assert(clause_type_from_codepoint(0x061F) == CLAUSE_QUESTION);
-	assert(clause_type_from_codepoint(0x06D4) == CLAUSE_PERIOD);
+	TEST_ASSERT(clause_type_from_codepoint(0x060C) == CLAUSE_COMMA);
+	TEST_ASSERT(clause_type_from_codepoint(0x061B) == CLAUSE_SEMICOLON);
+	TEST_ASSERT(clause_type_from_codepoint(0x061F) == CLAUSE_QUESTION);
+	TEST_ASSERT(clause_type_from_codepoint(0x06D4) == CLAUSE_PERIOD);
 }
 
 static void
@@ -146,7 +146,7 @@ test_devanagari()
 {
 	printf("testing Devanagari (Deva)\n");
 
-	assert(clause_type_from_codepoint(0x0964) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x0964) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
 static void
@@ -154,8 +154,8 @@ test_tibetan()
 {
 	printf("testing Tibetan (Tibt)\n");
 
-	assert(clause_type_from_codepoint(0x0F0D) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0x0F0E) == CLAUSE_PARAGRAPH);
+	TEST_ASSERT(clause_type_from_codepoint(0x0F0D) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x0F0E) == CLAUSE_PARAGRAPH);
 }
 
 static void
@@ -163,7 +163,7 @@ test_sinhala()
 {
 	printf("testing Sinhala (Sinh)\n");
 
-	assert(clause_type_from_codepoint(0x0DF4) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x0DF4) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
 static void
@@ -171,7 +171,7 @@ test_georgian()
 {
 	printf("testing Georgian (Geor)\n");
 
-	assert(clause_type_from_codepoint(0x10FB) == CLAUSE_PARAGRAPH);
+	TEST_ASSERT(clause_type_from_codepoint(0x10FB) == CLAUSE_PARAGRAPH);
 }
 
 static void
@@ -179,13 +179,13 @@ test_ethiopic()
 {
 	printf("testing Ethiopic (Ethi)\n");
 
-	assert(clause_type_from_codepoint(0x1362) == CLAUSE_PERIOD);
-	assert(clause_type_from_codepoint(0x1363) == CLAUSE_COMMA);
-	assert(clause_type_from_codepoint(0x1364) == CLAUSE_SEMICOLON);
-	assert(clause_type_from_codepoint(0x1365) == CLAUSE_COLON);
-	assert(clause_type_from_codepoint(0x1366) == CLAUSE_COLON);
-	assert(clause_type_from_codepoint(0x1367) == CLAUSE_QUESTION);
-	assert(clause_type_from_codepoint(0x1368) == CLAUSE_PARAGRAPH);
+	TEST_ASSERT(clause_type_from_codepoint(0x1362) == CLAUSE_PERIOD);
+	TEST_ASSERT(clause_type_from_codepoint(0x1363) == CLAUSE_COMMA);
+	TEST_ASSERT(clause_type_from_codepoint(0x1364) == CLAUSE_SEMICOLON);
+	TEST_ASSERT(clause_type_from_codepoint(0x1365) == CLAUSE_COLON);
+	TEST_ASSERT(clause_type_from_codepoint(0x1366) == CLAUSE_COLON);
+	TEST_ASSERT(clause_type_from_codepoint(0x1367) == CLAUSE_QUESTION);
+	TEST_ASSERT(clause_type_from_codepoint(0x1368) == CLAUSE_PARAGRAPH);
 }
 
 static void
@@ -193,8 +193,8 @@ test_ideographic()
 {
 	printf("testing Ideographic (Hani)\n");
 
-	assert(clause_type_from_codepoint(0x3001) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0x3002) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x3001) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0x3002) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
 static void
@@ -202,12 +202,12 @@ test_fullwidth()
 {
 	printf("testing Full Width\n");
 
-	assert(clause_type_from_codepoint(0xFF01) == (CLAUSE_EXCLAMATION | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0xFF0C) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0xFF0E) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0xFF1A) == (CLAUSE_COLON | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0xFF1B) == (CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER));
-	assert(clause_type_from_codepoint(0xFF1F) == (CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0xFF01) == (CLAUSE_EXCLAMATION | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0xFF0C) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0xFF0E) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0xFF1A) == (CLAUSE_COLON | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0xFF1B) == (CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER));
+	TEST_ASSERT(clause_type_from_codepoint(0xFF1F) == (CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
 static void
@@ -223,7 +223,7 @@ test_uts51_emoji_character()
 		5, -1, -1, -1,
 		6 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		"\xE2\x86\x94"      // [2194]  left right arrow
 		"\xE2\x86\x95"      // [2195]  up down arrow
 		"\xE2\x9B\x94"      // [26D5]  no entry
@@ -232,18 +232,18 @@ test_uts51_emoji_character()
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		"\xE2\x86\x94"     // [2194]  left right arrow
 		"\xE2\x86\x95"     // [2195]  up down arrow
 		"\xE2\x9B\x94"     // [26D5]  no entry
 		"\xF0\x9F\x90\x8B" // [1F40B] whale
 		"\xF0\x9F\x90\xAC" // [1F42C] dolphin
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 static void
@@ -258,7 +258,7 @@ test_uts51_text_presentation_sequence()
 		7, -1, -1, -1, 8, -1, -1,
 		9 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		"#\xEF\xB8\x8E"                 // [0023 FE0E]  number sign (text style)
 		"4\xEF\xB8\x8E"                 // [0034 FE0E]  digit four (text style)
 		"\xE2\x80\xBC\xEF\xB8\x8E"      // [203C FE0E]  double exclamation mark (text style)
@@ -266,17 +266,17 @@ test_uts51_text_presentation_sequence()
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		"#\xEF\xB8\x8E"                // [0023 FE0E]  number sign (text style)
 		"4\xEF\xB8\x8E"                // [0034 FE0E]  digit four (text style)
 		"\xE2\x80\xBC\xEF\xB8\x8E"     // [203C FE0E]  double exclamation mark (text style)
 		"\xF0\x9F\x97\x92\xEF\xB8\x8E" // [1F5D2 FE0E] spiral note pad (text style)
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 static void
@@ -291,7 +291,7 @@ test_uts51_emoji_presentation_sequence()
 		7, -1, -1, -1, 8, -1, -1,
 		9 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		"#\xEF\xB8\x8F"                 // [0023 FE0F]  number sign (emoji style)
 		"4\xEF\xB8\x8F"                 // [0034 FE0F]  digit four (emoji style)
 		"\xE2\x80\xBC\xEF\xB8\x8F"      // [203C FE0F]  double exclamation mark (emoji style)
@@ -299,17 +299,17 @@ test_uts51_emoji_presentation_sequence()
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		"#\xEF\xB8\x8F"                // [0023 FE0F]  number sign (emoji style)
 		"4\xEF\xB8\x8F"                // [0034 FE0F]  digit four (emoji style)
 		"\xE2\x80\xBC\xEF\xB8\x8F"     // [203C FE0F]  double exclamation mark (emoji style)
 		"\xF0\x9F\x97\x92\xEF\xB8\x8F" // [1F5D2 FE0F] spiral note pad (emoji style)
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 static void
@@ -323,23 +323,23 @@ test_uts51_emoji_modifier_sequence()
 		5, -1, -1, -1, 6, -1, -1, -1,
 		7 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		"\xE2\x98\x9D\xF0\x9F\x8F\xBB"      // [261D 1F3FB]  index pointing up; light skin tone
 		"\xF0\x9F\x91\xB0\xF0\x9F\x8F\xBD"  // [1F5D2 1F3FD] bride with veil; medium skin tone
 		"\xF0\x9F\x92\xAA\xF0\x9F\x8F\xBF", // [1F4AA 1F3FF] flexed biceps; dark skin tone
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		"\xE2\x98\x9D\xF0\x9F\x8F\xBB"     // [261D 1F3FB]  index pointing up; light skin tone
 		"\xF0\x9F\x91\xB0\xF0\x9F\x8F\xBD" // [1F5D2 1F3FD] bride with veil; medium skin tone
 		"\xF0\x9F\x92\xAA\xF0\x9F\x8F\xBF" // [1F4AA 1F3FF] flexed biceps; dark skin tone
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 static void
@@ -354,7 +354,7 @@ test_uts51_emoji_flag_sequence()
 		7, -1, -1, -1, 8, -1, -1, -1,
 		9 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		"\xF0\x9F\x87\xA6\xF0\x9F\x87\xB7"  // [1F1E6 1F1F7] AR (argentina)
 		"\xF0\x9F\x87\xA7\xF0\x9F\x87\xAC"  // [1F1E7 1F1EC] BG (bulgaria)
 		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xA8"  // [1F1EC 1F1E8] GC -- unknown country flag
@@ -362,17 +362,17 @@ test_uts51_emoji_flag_sequence()
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		"\xF0\x9F\x87\xA6\xF0\x9F\x87\xB7" // [1F1E6 1F1F7] AR (argentina)
 		"\xF0\x9F\x87\xA7\xF0\x9F\x87\xAC" // [1F1E7 1F1EC] BG (bulgaria)
 		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xA8" // [1F1EC 1F1E8] GC -- unknown country flag
 		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xB1" // [1F1EC 1F1F1] GL (greenland)
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 static void
@@ -392,7 +392,7 @@ test_uts51_emoji_tag_sequence_emoji_character()
 		20, -1, -1, -1, // tag term
 		21 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		// tag_base = emoji_character (RGI sequence)
 		"\xF0\x9F\x8F\xB4"  // [1F3F4] flag
 		"\xF3\xA0\x81\xA7"  // [E0067] tag : g
@@ -419,8 +419,8 @@ test_uts51_emoji_tag_sequence_emoji_character()
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		// tag_base = emoji_character (RGI sequence)
 		"\xF0\x9F\x8F\xB4" // [1F3F4] flag
 		"\xF3\xA0\x81\xA7" // [E0067] tag : g
@@ -445,10 +445,10 @@ test_uts51_emoji_tag_sequence_emoji_character()
 		"\xF3\xA0\x81\xA1" // [E006E] tag : a
 		"\xF3\xA0\x81\xBF" // [E007F] tag : (cancel)
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 static void
@@ -462,23 +462,23 @@ test_uts51_emoji_combining_sequence()
 		6, -1, -1, 7, -1, -1, 8, -1, -1, // emoji presentation sequence
 		9 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		"\xE2\x86\x95\xE2\x83\x9E"              // [2195 20DE]      up down arrow; Me (enclosing square)
 		"\xE2\x86\x95\xEF\xB8\x8E\xE2\x83\x9E"  // [2195 FE0E 20DE] up down arrow; Me (enclosing square)
 		"\xE2\x86\x95\xEF\xB8\x8F\xE2\x83\x9E", // [2195 FE0F 20DE] up down arrow; Me (enclosing square)
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		"\xE2\x86\x95\xE2\x83\x9E"             // [2195 20DE]      up down arrow; Me (enclosing square)
 		"\xE2\x86\x95\xEF\xB8\x8E\xE2\x83\x9E" // [2195 FE0E 20DE] up down arrow; Me (enclosing square)
 		"\xE2\x86\x95\xEF\xB8\x8F\xE2\x83\x9E" // [2195 FE0F 20DE] up down arrow; Me (enclosing square)
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 static void
@@ -492,23 +492,23 @@ test_uts51_emoji_keycap_sequence()
 		7, 8, -1, -1, 9, -1, -1,
 		10 };
 
-	assert(set_text(
+	TEST_ASSERT(set_text(
 		"5\xEF\xB8\x8E\xE2\x83\xA3"  // [0035 FE0E 20E3] keycap 5
 		"#\xEF\xB8\x8E\xE2\x83\xA3"  // [0023 FE0E 20E3] keycap #
 		"*\xEF\xB8\x8E\xE2\x83\xA3", // [002A FE0E 20E3] keycap *
 		"en") == ENS_OK);
 
 	charix_top = 0;
-	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
-	assert(!strcmp(source,
+	TEST_ASSERT(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	TEST_ASSERT(!strcmp(source,
 		"5\xEF\xB8\x8E\xE2\x83\xA3" // [0035 FE0E 20E3] keycap 5
 		"#\xEF\xB8\x8E\xE2\x83\xA3" // [0023 FE0E 20E3] keycap #
 		"*\xEF\xB8\x8E\xE2\x83\xA3" // [002A FE0E 20E3] keycap *
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
-	assert(!memcmp(charix, retix, sizeof(retix)));
-	assert(tone2 == 0);
-	assert(voice_change_name[0] == 0);
+	TEST_ASSERT(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	TEST_ASSERT(!memcmp(charix, retix, sizeof(retix)));
+	TEST_ASSERT(tone2 == 0);
+	TEST_ASSERT(voice_change_name[0] == 0);
 }
 
 int
@@ -517,7 +517,7 @@ main(int argc, char **argv)
 	(void)argc; // unused parameter
 	(void)argv; // unused parameter
 
-	assert(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
 
 	test_latin();
 	test_latin_sentence();
@@ -542,7 +542,7 @@ main(int argc, char **argv)
 	test_uts51_emoji_combining_sequence();
 	test_uts51_emoji_keycap_sequence();
 
-	assert(espeak_Terminate() == EE_OK);
+	TEST_ASSERT(espeak_Terminate() == EE_OK);
 
 	return EXIT_SUCCESS;
 }
