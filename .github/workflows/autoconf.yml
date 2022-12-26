@@ -1,0 +1,86 @@
+name: Autoconf
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}-${{ matrix.osver }}
+
+    name: "${{ matrix.os }} ${{ matrix.arch }}: ${{ matrix.compiler }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu, macos]
+        arch: [amd64, i386]
+        compiler: [gcc, clang]
+
+        include:
+          - os: ubuntu
+            osver: 22.04
+          - os: macos
+            osver: 12
+          
+          - arch: i386
+            archcflags: "-m32 -msse2 -mfpmath=sse"
+
+        exclude:
+          - os: macos
+            arch: i386
+
+    steps:
+
+    # Linux - dependencies
+    - name: apt-build-deps
+      if: matrix.os == 'ubuntu'
+      run: |
+        sudo dpkg --add-architecture ${{ matrix.arch }}
+        sudo apt-get update
+        sudo apt-get install ronn kramdown python3
+    - name: apt-arch-deps
+      if: matrix.os == 'ubuntu'
+      run: "sudo apt-get install libtool-bin valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }}"
+    - name: apt-compile-clang
+      if: matrix.os == 'ubuntu' && matrix.compiler == 'clang'
+      run: sudo apt-get install clang
+
+    # MacOS - dependencies
+    - name: brew-deps
+      if: matrix.os == 'macos'
+      run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown
+    - name: brew-compile-deps
+      if: matrix.os == 'macos' && matrix.compiler == 'gcc'
+      run: brew install gcc@12
+
+    # Checkout code
+    - uses: actions/checkout@v3
+
+    # Configure
+    - name: configure
+      run: |
+        ./autogen.sh
+        chmod -x INSTALL m4/*.m4
+        [ 'x${{ matrix.compiler }}' = 'xgcc' ] && export CC="gcc-12"
+        [ 'x${{ matrix.compiler }}' = 'xgcc' ] && export CXX="g++-12"
+        [ 'x${{ matrix.compiler }}' = 'xclang' ] && export CC="clang"
+        [ 'x${{ matrix.compiler }}' = 'xclang' ] && export CXX="clang++"
+        export CFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.archcflags }}"
+        export CXXFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.archcflags }}"
+        ./configure
+
+    - name: config-failed-upload
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: config-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}.log
+        path: config.log
+
+    # Build and test
+    - name: build
+      run: make all-am
+    - name: test
+      run: make check

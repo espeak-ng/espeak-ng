@@ -10,12 +10,24 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    name: build
+    name: "build: ${{ matrix.arch }} ${{ matrix.config }} ${{ matrix.link }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [Win32, x64]
+        config: [Debug, Release]
+        link: [static, dll]
+
+        include:
+        - link: static
+          shlib: "OFF"
+        - link: dll
+          shlib: "ON"
     steps:
       - uses: actions/checkout@v3
       - name: configure
-        run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF
+        run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=${{ matrix.shlib }} -A ${{ matrix.arch }}
       - name: make
-        run: cmake --build build
+        run: cmake --build build --config ${{ matrix.config }}
       - name: make check
-        run: ctest --test-dir build -Ttest -C Debug -j1 --output-on-failure
+        run: ctest --test-dir build -Ttest -C ${{ matrix.config }} -j1 --output-on-failure
