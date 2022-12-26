@@ -1,0 +1,53 @@
+//=======================================
+// Crimean Tatar
+//=======================================
+
+phoneme A
+  vwl starttype #a endtype #a
+  length 200
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 170
+  FMT(vowel/e)
+endphoneme
+
+phoneme I
+  vwl  starttype #i endtype #i
+  length 130
+  IfNextVowelAppend(;)
+  FMT(vowel/ii)
+endphoneme
+
+phoneme o 
+  vwl starttype #o endtype #o
+  length 170
+  FMT(vowel/oo)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  length 180
+  FMT(vowel/uu_2)
+endphoneme
+
+phoneme y
+  vwl starttype #i endtype #i
+  length 180
+  FMT(vowel/y)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  length 200
+  FMT(vowel/y#)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  ipa ɯ
+  length 180
+  FMT(vowel/u#_7)
+endphoneme
