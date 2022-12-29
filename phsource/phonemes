@@ -1828,6 +1828,9 @@ include ph_belarusian
 phonemetable chr base2
 include ph_cherokee
 
+phonemetable crh base2
+include ph_crimean_tatar
+
 phonemetable el base2
 include ph_greek
 
