@@ -1,0 +1,222 @@
+// translation rules for Crimean Tatar
+// This file is UTF-8 encoded
+
+// Stress rule: Right-most vowel, but stop before the vowel which is
+// marked as unstressed [%].
+
+// Vowels
+.L02 ı a o u // back vowels
+.L03 â // not-back vowels
+
+// Consonants
+.L04 b c ç d f g h j k l m n ñ p q r s ş t v y z
+
+.group a        
+        a         A
+        ay        aI
+        ay (_    'aI
+        ay (L04_ 'aI
+        a (_     'A
+        a (L04_  'A
+        
+.group â
+        â        jA
+        â (_     j'A
+        â (L04_  j'A
+                    
+.group b
+        b        b
+        bb       b:
+        
+.group c
+        c        dZ
+        cc       dZ:
+        ce (_    dZ%e
+        
+.group ç 
+        ç        tS
+        çç       tS:
+        çe (_    tS%e 
+        
+.group d
+        d        d        
+        dd       d:
+        
+        da   (_  d'A
+        de   (_  d'e
+        dı   (_  d'@
+        di   (_  d'I
+        dan  (_  d'An
+        den  (_  d'en
+        
+.group e
+        e        e
+        е (_    'e
+        e (L04_ 'e
+        
+            
+.group f
+        f        f
+        
+.group g
+        g        g
+        gg       g:
+       
+        g (L03   J
+   L03) g (K     J
+
+.group ğ
+        ğ        G
+        
+.group h
+        h        x
+        
+.group ı
+        ı        @
+        ı (_    '@
+        ı (L04_ '@
+        ın (_   '@n
+        ız (_   '@z
+        
+        
+.group i
+        i        I
+        i (_    'I
+        i (L04_ 'I
+        iya (_  'IjA
+        in  (_  'In
+        iz  (_  'Iz
+        
+.group j
+        j        Z
+        
+.group k
+        k        k
+        kk       k:
+        
+        k  (L03  c
+        ka (_    k'A
+        ke (_    k'e
+        kan (_   k'An
+        ken (_   k'en
+
+        
+.group l
+        l        l
+        l (L02   L
+   L02) l (K     L
+  
+        la (_    L'A
+	      le (_    l'e
+        
+	      lar (_   L'AR
+	      ler (_   %leR
+
+	      li (_    l'I
+	      lı (_    L'@
+	      lu (_    L'U
+	      lü (_    l'y
+
+	      lik (_   l'Ik
+	      lık (_   L'@k
+	      luk (_   L'Uk
+	      lük (_   l'yk
+   
+   
+.group m
+        m        m                
+        man (_   m'An
+        men (_   m'en
+        mız (_   m'@z
+        miz (_   m'Iz
+        
+        
+.group n
+        n        n
+        ni  (_   n'I
+        nı  (_   n'@
+        nıñ (_   n'@N
+        niñ (_   n'IN
+        nun (_   n'Un
+        nün (_   n'yn
+        nız (_   n'@z
+        niz (_   n'Iz
+
+        na  (_   n'A
+        ne  (_   n'e
+        nar (_   n'AR
+        ner (_   n'eR
+        
+        
+.group ñ
+        ñ        N
+        
+.group o
+        o        o
+        o (_    'o
+        o (L04_ 'o
+        
+.group ö
+        ö        W
+        ö (_    'W
+        ö (L04_ 'W
+        
+.group p
+        p        p
+        pp       p:
+        
+.group q
+        q        q
+        qq       q:
+        
+.group r
+        r        R
+        
+.group s
+        s        s
+        sa  (_   s'A
+        sı  (_   s'@
+        sam (_   s'Am
+        san (_   s'An
+        sen (_   s'en
+        sın (_   %s@n
+        sin (_   %sIn
+        sıñ (_   %s@N
+        siñ (_   %sIN
+        sız (_   %s@z
+        siz (_   %sIz
+        sıñız (_ %s@N@z
+        siñiz (_ %sINIz
+
+.group ş
+        ş        S
+        
+.group t
+        t        t
+        tt       t:
+        
+.group u
+        u        U
+        u (_    'U
+        u (L04_ 'U
+        
+.group ü 
+        ü        y
+        ü (_    'y
+        ü (L04_ 'y
+        
+.group v
+        v        v
+        
+.group w
+        w        w
+        
+.group x
+        x        ks
+        
+.group y
+        y        y
+        
+.group z
+        z        z
+ 
