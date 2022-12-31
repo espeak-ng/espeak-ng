@@ -84,8 +84,6 @@
         i (_    'I
         i (L04_ 'I
         iya (_  'IjA
-        in  (_  'In
-        iz  (_  'Iz
         
 .group j
         j        Z
@@ -109,7 +107,7 @@
         la (_    L'A
 	le (_    l'e
         
-	lar (_   L'AR
+	lar (_   %LAR
 	ler (_   %leR
 
 	li (_    l'I
@@ -220,3 +218,5 @@
 .group z
         z        z
  
+.group 
+       $      doL'AR
