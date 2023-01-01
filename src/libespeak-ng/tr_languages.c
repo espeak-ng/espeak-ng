@@ -1342,7 +1342,7 @@ Translator *SelectTranslator(const char *name)
 	case L('s', 'k'): // Slovak
 	case L('c', 's'): // Czech
 	{
-		static const char *sk_voiced = "bdgjlmnrvwzaeiouy";
+		static const char sk_voiced[] = "bdgjlmnrvwzaeiouy";
 
 		SetupTranslator(tr, stress_lengths_sk, stress_amps_sk);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;

@@ -553,7 +553,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 
 
 // this list must be in ascending order
-static unsigned short derived_letters[] = {
+static const unsigned short derived_letters[] = {
 	0x00aa, 'a'+L_SUP,
 	0x00b2, '2'+L_SUP,
 	0x00b3, '3'+L_SUP,
@@ -763,14 +763,13 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	int value;
 	int subtract;
 	int repeat = 0;
-	int n_digits = 0;
 	char *word_start;
 	int num_control = 0;
 	unsigned int flags[2];
 	char ph_roman[30];
 	char number_chars[N_WORD_BYTES];
 
-	static const char *roman_numbers = "ixcmvld";
+	static const char roman_numbers[] = "ixcmvld";
 	static const int roman_values[] = { 1, 10, 100, 1000, 5, 50, 500 };
 
 	acc = 0;
@@ -817,7 +816,6 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 		else
 			acc += prev;
 		prev = value;
-		n_digits++;
 	}
 
 	if (IsDigit09(word[0]))

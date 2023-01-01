@@ -80,7 +80,7 @@ static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
-static int min_buffer_length = 60; // minimum buffer length in ms
+static const int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
 static t_espeak_callback *synth_callback = NULL;
@@ -428,7 +428,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	// Fill the buffer with output sound
 	int length;
 	int finished = 0;
-	int count_buffers = 0;
 
 	if ((outbuf == NULL) || (event_list == NULL))
 		return ENS_NOT_INITIALIZED;
@@ -467,7 +466,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 		event_list[event_list_ix].unique_identifier = unique_identifier;
 		event_list[event_list_ix].user_data = my_user_data;
 
-		count_buffers++;
 		if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 			finished = create_events((short *)outbuf, length, event_list);
 			if (finished < 0)
@@ -661,7 +659,7 @@ espeak_ng_Synthesize(const void *text, size_t size,
 {
 	(void)size; // unused in non-async modes
 
-	static unsigned int temp_identifier;
+	unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
 		unique_identifier = &temp_identifier;
@@ -710,7 +708,7 @@ espeak_ng_SynthesizeMark(const void *text,
 {
 	(void)size; // unused in non-async modes
 
-	static unsigned int temp_identifier;
+	unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
 		unique_identifier = &temp_identifier;

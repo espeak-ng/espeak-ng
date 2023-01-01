@@ -770,7 +770,6 @@ static void CalcPitches_Tone(Translator *tr)
 {
 	PHONEME_LIST *p;
 	int ix;
-	int count_stressed = 0;
 	int final_stressed = 0;
 
 	int tone_ph;
@@ -791,7 +790,6 @@ static void CalcPitches_Tone(Translator *tr)
 	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
 		if ((p->type == phVOWEL) && (p->stresslevel >= 4)) {
 			final_stressed = ix;
-			count_stressed++;
 		}
 	}
 
