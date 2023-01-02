@@ -10,15 +10,15 @@ e   'e
 f   'ef
 g   g'e
 h   h'a
-i   i
+i   y
 j   dZ'e
-k   k'a
+k   k'e
 l   'el
 m   'em
 n   'en
 o   A
 p   p'e
-q   q'a
+q   q'e
 r   'e*
 s   'es
 t   t'e
@@ -34,9 +34,10 @@ ch  tS'e
 ng  N'e
 
 // numbers
-_0    n'o:l
+
+_0    n'o:L
 _1    b'y*
-_2    'ykky
+_2    yk:'y
 _3    'UtS
 _4    t'o*t
 _5    b'eS
@@ -44,10 +45,11 @@ _6    Alt'y
 _7    jet:'y
 _8    s&k:'yz
 _9    toq:'yz
+_10   'on
 _1X   'on
-_2X   jygyrm'&
-_3X   ott'yz
-_4X   q'yrq
+_2X   jygy*m'&
+_3X   ot:'yz
+_4X   q'y*q
 _5X   ell'yk
 _6X   Altm'yS
 _7X   jetm'yS
@@ -55,16 +57,60 @@ _8X   s&ks'An
 _9X   toqs'An
 _0C   j'Uz
 _0M1  m'yN
-_0M2  milli'on
-_0M3  milli'ard
+_0M2  mylly'on
+_0M3  mylly'&*d
+_0M4  trylly'on
+_0M5  kv&drylly'on
+_0M6  kvyntylly'on
+_0M7  sekstylly'on
+_0M8  septylly'on
+_0M9  oktylly'on
+_0M10 nonylly'on
+_0M11 dekylly'on
+
+_dpt _v,#ergUL_|
+
+// symbols
+
+_, v#'ergUL
+_: yk:'y||n'Uqt&
+_; nUqt&||v'a||v#'ergUL
+_? s'o*Aq||beLg'ysy
+_! 'UndAv||beLg'ysy
+_( 'AtSyq||q'&v#s
+_) j'Apyq||q'&v#s
+_[ 'AtSyq||kv#'&d*&t||q'&v#s
+_] j'Apyq||kv#'&d*&t||q'&v#s
+_{ 'AtSyq||dZyN'&l&k||q&v#sl'&*ny
+_} j'Apyq||dZyN'&l&k||q&v#sl'&*ny
+_| vert'yk&l||b'&*
+_" t'yrnAq||beLg'ysy
+_' &p'Ast*Af
+_< k'&m*Ak||'oq
+_> k&t:'&*Ak||'oq
+_~ t'yld&
+
+. n'Uqt&     $max3
+* jULd'UztS& $max3
+= t'eN       $max3
+# h'&S       $max3
++ qoS'ymtS&  $max3
+& &mp'e*s&nd 
+© mU&LL'yfLyk||hUq'Uqy 
+@ dUm'&LAq
+/ sl'&S
+\ b'&ksl&S
+$ d'ALl&*
+€ j'ev*A
+° d&*&dZ'&
 
 // unstressed words
 atrofida                   $u
 bilan                      $u
 bu                         $u
 bular                      $u
-(dan||tashqari)            $u
-(dan||uzoq)                $u
+(dan tashqari)             $u
+(dan uzoq)                 $u
 davomida                   $u
 ga                         $u
 gacha                      $u
@@ -74,13 +120,13 @@ ichidan                    $u
 ichiga                     $u
 yaqin                      $u
 yonida                     $u
-yonma-yon                  $u
+(yonma-yon)                $u
 keyin                      $u
-(Ko'rsatish||olmoshlari)   $u
+(ko'rsatish olmoshlari)    $u
 lekin                      $u
 lozim                      $u
 mobaynida                  $u
-(narigi||tomonida)         $u
+(narigi tomonida)          $u
 oldin                      $u
 orasidan                   $u
 orqada                     $u
@@ -93,9 +139,9 @@ o'stida                    $u
 o'xshab                    $u
 pastda                     $u
 pastida                    $u
-past||tomoniga             $u
+(past tomoniga)            $u
 qaramay                    $u
-qarama-qarshi              $u
+(qarama-qarshi)            $u
 qarshi                     $u
 qo'shuv                    $u
 sababida                   $u
@@ -106,7 +152,7 @@ tepada                     $u
 tepasida                   $u
 tomonidan                  $u
 u                          $u
-(uchta||so'zlar)           $u
+(uchta so'zlar)            $u
 uchun                      $u
 ular                       $u
 
