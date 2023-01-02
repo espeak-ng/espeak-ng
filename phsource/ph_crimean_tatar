@@ -57,6 +57,12 @@ phoneme aI
   FMT(vdiph/ai)
 endphoneme
 
+phoneme ;
+  liquid pzd
+  lengthmod 0
+  ipa ʲ
+endphoneme
+
 phoneme : //  Lengthen previous vowel by "length"
   virtual
   length 140
