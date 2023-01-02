@@ -32,7 +32,6 @@ endphoneme
 
 phoneme k
   import_phoneme consonants/k-
-  voicingswitch g
 endphoneme
 
 
