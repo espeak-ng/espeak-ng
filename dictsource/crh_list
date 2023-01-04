@@ -80,7 +80,7 @@ _9C doqUzj'yz
 _0M1 b'IN
 _0M2 mIllI'on
 _0M3 mIllI'ARd
-_0M4 tRIllI'ARd
+_0M4 tRIllI'on
 _0M5 kUAdrALlI'on
 _0M6 kvIntIllI'on
 _0M7 sekstIllI'on
@@ -90,3 +90,188 @@ _0M10 nonIllI'on
 _0M11 dekIllI'on
 
 _dpt vIrg,yl
+
+// abbreviations
+
+abc    $abbrev
+adhd   $abbrev
+kb     k,ILobaIt
+mb     m,egAbaIt
+gb     g,IgAbaIt
+tb     t,eRAbaIt
+kg     kIlogR,Am
+ml     mIlIlItR,e
+km     kILometR,e
+cm     sAntImetR,e
+mm     mIlImetR,e
+www    v'ev'ev'e
+
+// symbols
+
+_, vIRg'yl
+_: ek'I||noqt'A
+_; noqt'A||v'e||vIRg'yl
+_? so*'Aq||beLgIs'I
+_! ond'Aw||belgIs'I
+_( 'AtS@q||qASq'A
+_) j'Ab@q||qASq'A
+_[ AtS'@q||kv&dR'At||qASq'A
+_] jAb'@k||kv&dR'At||qASq'A
+_{ AtS'@q||qAS'@q
+_} jAb'@k||qAS'@q
+_| veRtIqAL'@q||b'AR
+_" t'@RmAq||beLgIs'I
+_' ApostR'of
+_< AzR'Aq||belgIs'I
+_> zURR'Aq||belgIs'i
+_~ t'Ilde
+
+. noqt'A     $max3
+* jold@zl'@q $max3
+= tIg'ez     $max3
+# h'AS       $max3
++ pl'ys      $max3
+& v'e        $max3
+© AvtoRl'@q||xoqUq'@ 
+/ sl'&S
+\ b'&ksl&S
+$ d'OLAR
+€ evR'o
+£ lIR'e
+¥ j'en
+° der'edZe
+₸ teng'e
+₽ RUbl'e
+
+// pronouns
+
+anav       $u
+anavğa     $u
+biz        $u
+bizni      $u
+bizim      $u
+bizge      $u
+bizde      $u
+bizden     $u
+bu         $u
+(er kim)   $u
+kim        $u
+mağa       $u
+maña       $u
+men        $u
+mende      $u
+menden     $u
+menim      $u
+mınav      $u
+nau        $u
+o          $u $atend
+olar       $u
+olarda     $u
+olardan    $u
+olarǧa     $u
+olarnı     $u
+olarnıñ    $u
+onı        $u
+onıñ       $u
+oña        $u
+onda       $u
+ondan      $u
+öz         $u
+(öz başına) $u
+özü        $u
+özüm       $u
+özüñ       $u
+qayda      $u
+sağa       $u
+saña       $u
+sen        $u
+seniñ      $u
+siz        $u
+sizde      $u
+sizge      $u
+siziñ      $u
+sizni      $u
+sizniñ     $u
+şu         $u
+
+// possesive pronouns
+
+bizimki    $u
+menimki    $u
+olarnıñki  $u
+onıñki     $u
+seniñki    $u
+sizniñki   $u
+
+// adjectives
+
+// adverbs
+
+aşağı    $brk  $pause
+aysa     $brk  $pause
+ayse     $brk  $pause
+azçıq    $brk  $pause
+bana     $brk  $pause
+bedava   $brk  $pause
+belki    $brk  $pause
+biraz    $brk  $pause
+bosıntay $brk  $pause
+bulay    $brk  $pause
+çoqusı   $brk  $pause
+eken     $brk  $pause
+endi     $brk  $pause
+enqastan $brk  $pause
+eñ       $brk  $pause
+(er daim) $brk $pause
+(er kün) $brk  $pause
+(er yerde) $brk $pause
+(erte-carıq) $brk $pause
+erten    $brk  $pause
+eş       $brk  $pause
+iç       $brk  $pause
+kene     $brk  $pause
+köbisi   $brk  $pause
+mına     $brk  $pause
+mında    $brk  $pause
+mınyaqqa $brk  $pause
+mümkün   $brk  $pause
+nasıl    $u+ $brk  $pause
+nasılsıñ $u+ $brk  $pause
+(ne yapasıñ) $brk  $pause
+neday    $brk  $pause
+nedaysıñ $brk  $pause
+niayet   $brk  $pause
+oñ       $brk  $pause
+ortaqlaşıp   $brk    $pause
+paqıl    $brk  $pause
+qa       $brk  $pause
+qadiy    $brk  $pause
+qadiysiñ $brk  $pause
+qatesiñ  $brk  $pause
+qayaqqa  $brk  $pause
+qayerge  $brk  $pause
+sipti    $brk  $pause
+tolu     $brk  $pause
+zaten    $brk  $pause
+ziyadesinen $brk   $pause
+
+// conjunctions
+
+ancaq   AndZ,aq_: $u  
+
+// prepositions
+
+aldında    $u
+artında    $u
+
+// postpositions
+
+içün       $brk
+ile        $brk
+qadar      $brk
+sebep      $brk
+soñ        $brk
+taba       $brk
+zarfında   $brk
+
+// Character names
