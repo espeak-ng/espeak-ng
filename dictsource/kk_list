@@ -31,13 +31,13 @@
 // Numbers
 _0 n'Yl
 _1 b'Ir
-_2 j'ekI
+_2 ek'I
 _3 u#S
-_4 t8rt
+_4 t'8rt
 _5 b'es
 _6 'Alt@
-_7 Z'etI
-_8 s'egIz
+_7 Zet'I
+_8 seg'Iz
 _9 t'oG@z
 _1X 'on
 _2X Z@j@rm'A
@@ -51,8 +51,76 @@ _9X toqs'An
 _0C Z'u#z
 _0M1 m'@N
 _0M2 m@jLL@j'on
-_1M2 m@jLL@j'on
 _0M3 m@jLL@j'Ard
-_1M3 m@jLL@j'Ard
+_0M4 tr@jll@j'on
+_0M5 kvAdrALl@j'on
+_0M6 kv@jnt@jll@j'on
+_0M7 sekst@jll@j'on
+_0M8 sept@jll@j'on
+_0M9 okt@jll@j'on
+_0M10 non@jll@j'on
+_0M11 dek@jll@j'on
 
 _dpt _Z&n'e_
+
+// symbols
+
+_. nu#kt'e
+_, u#t'Ir
+_; nu#ktel'I||u#t'Ir
+_: ek'I||Up'Aj
+_? sUr'Aq||belgIs'I
+_! l'ep||belgIs'I
+_( 'AS@q||ZAqS'A
+_) j'Ab@q||ZAqS'A
+_[ 'AS@q||t8rtb'Ur@St@||ZAqS'A
+_] Z'Ab@q||S'A*S@||ZAqS'A
+_{ 'AS@q||Ust'Atq@S
+_} j'Ab@q||Ust'Atq@S
+_< 'Az@rAq||belgIs'I
+_> 'Art@q||belgIs'I
+_| t'Ik||ZoL'Aq
+_~ tIld'A
+_' Apostr'of
+_" t@rnAqS'A
+_^ kAr'et
+
++ q'osw     $max3
+= t'eN      $max3
+* Z'ULd@zSA $max3
+& Ampers'And $max3
+@ m'Ajm@L   $max3
+/ q@jG'AS s'@z@q    $max3
+\ ke*'I q@jG'AS s'@z@q $max3
+_ 'Ast@n s'@zw $max3
+% p'Aj@z $max3
+№ nom'er
+# x'eS  $max3
+$ doL'Ar
+₸ teNg'e
+× r'et
+
+// pronouns
+
+мен    $u+
+сен    $u+
+ол     $u+
+біз    $u+
+сіз    $u+
+олар   $u+
+
+// prepositions
+
+есе    $u
+гөрі   $u
+
+// postpositions
+
+арасында  $u
+бойынша   $u
+жөнінде   $u
+сияқты    $u
+таман     $u
+туралы    $u
+
+// Character names
