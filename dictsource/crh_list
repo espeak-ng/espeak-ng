@@ -1,0 +1,276 @@
+// translation rules for Crimean Tatar
+// This file is UTF-8 encoded
+
+// letters
+
+a     A
+b     be
+c     dZe
+ç     tSe
+d     de
+e     e
+f     fe
+g     ge
+ğ     Ge
+h     xe
+ı     @
+i     I
+j     Ze
+k     ke
+l     le
+m     me
+n     ne
+ñ     Ne
+_o    o
+ö     W
+p     pe
+q     q@
+r     Re
+s     se
+ş     Se
+t     te
+u     U
+ü     y
+v     ve
+w     d'ab@ljU
+x     eks
+y     je
+z     ez
+
+// numbers
+
+_0 s@f'@R
+_1 b'IR
+_2 ek'I
+_3 'ytS
+_4 d'WRt
+_5 b'eS
+_6 ALt'@
+_7 jed'I
+_8 sek'Iz
+_9 doq'Uz
+_10 'on
+_11 onb'IR
+_12 onek'I
+_13 on'ytS
+_14 ond'WRt
+_15 onb'eS
+_16 onALt'@
+_17 onjed'I
+_18 onsek'Iz
+_19 ondoq'Uz
+_2X jIgIrm'I
+_3X ot'Uz
+_4X q'@Rq
+_5X ell'I
+_6X ALtm'@S
+_7X jetm'IS
+_8X seks'en
+_9X doqs'An
+_0C j'yz
+_1C j'yz
+_2C ekIj'yz
+_3C ytSj'yz
+_4C dWRtj'yz
+_5C beSj'yz
+_6C ALt@j'yz
+_7C jedIj'yz
+_8C sekIzj'yz
+_9C doqUzj'yz
+_0M1 b'IN
+_0M2 mIllI'on
+_0M3 mIllI'ARd
+_0M4 tRIllI'on
+_0M5 kUAdrALlI'on
+_0M6 kvIntIllI'on
+_0M7 sekstIllI'on
+_0M8 septIllI'on
+_0M9 oktIllI'on
+_0M10 nonIllI'on
+_0M11 dekIllI'on
+
+_dpt vIrg,yl
+
+// abbreviations
+
+abc    $abbrev
+adhd   $abbrev
+kb     k,ILobaIt
+mb     m,egAbaIt
+gb     g,IgAbaIt
+tb     t,eRAbaIt
+kg     kIlogR,Am
+ml     mIlIlItR,e
+km     kILometR,e
+cm     sAntImetR,e
+mm     mIlImetR,e
+www    v'ev'ev'e
+
+// symbols
+
+_, vIRg'yl
+_: ek'I||noqt'A
+_; noqt'A||v'e||vIRg'yl
+_? so*'Aq||beLgIs'I
+_! ond'Aw||belgIs'I
+_( 'AtS@q||qASq'A
+_) j'Ab@q||qASq'A
+_[ AtS'@q||kv&dR'At||qASq'A
+_] jAb'@k||kv&dR'At||qASq'A
+_{ AtS'@q||qAS'@q
+_} jAb'@k||qAS'@q
+_| veRtIqAL'@q||b'AR
+_" t'@RmAq||beLgIs'I
+_' ApostR'of
+_< AzR'Aq||belgIs'I
+_> zURR'Aq||belgIs'i
+_~ t'Ilde
+
+. noqt'A     $max3
+* jold@zl'@q $max3
+= tIg'ez     $max3
+# h'AS       $max3
++ pl'ys      $max3
+& v'e        $max3
+% pRos'ent   $max3
+© AvtoRl'@q||xoqUq'@ 
+/ sl'&S
+\ b'&ksl&S
+$ d'OLAR
+€ evR'o
+£ lIR'e
+¥ j'en
+° der'edZe
+₸ teng'e
+₽ RUbl'e
+
+// pronouns
+
+anav       $u
+anavğa     $u
+biz        $u
+bizni      $u
+bizim      $u
+bizge      $u
+bizde      $u
+bizden     $u
+bu         $u
+(er kim)   $u
+kim        $u
+mağa       $u
+maña       $u
+men        $u
+mende      $u
+menden     $u
+menim      $u
+mınav      $u
+nau        $u
+o          $u $atend
+olar       $u
+olarda     $u
+olardan    $u
+olarǧa     $u
+olarnı     $u
+olarnıñ    $u
+onı        $u
+onıñ       $u
+oña        $u
+onda       $u
+ondan      $u
+öz         $u
+(öz başına) $u
+özü        $u
+özüm       $u
+özüñ       $u
+qayda      $u
+sağa       $u
+saña       $u
+sen        $u
+seniñ      $u
+siz        $u
+sizde      $u
+sizge      $u
+siziñ      $u
+sizni      $u
+sizniñ     $u
+şu         $u
+
+// possesive pronouns
+
+bizimki    $u
+menimki    $u
+olarnıñki  $u
+onıñki     $u
+seniñki    $u
+sizniñki   $u
+
+// adverbs
+
+aşağı    $brk  $pause
+aysa     $brk  $pause
+ayse     $brk  $pause
+azçıq    $brk  $pause
+bana     $brk  $pause
+bedava   $brk  $pause
+belki    $brk  $pause
+biraz    $brk  $pause
+bosıntay $brk  $pause
+bulay    $brk  $pause
+çoqusı   $brk  $pause
+eken     $brk  $pause
+endi     $brk  $pause
+enqastan $brk  $pause
+eñ       $brk  $pause
+(er daim) $brk $pause
+(er kün) $brk  $pause
+(er yerde) $brk $pause
+(erte-carıq) $brk $pause
+erten    $brk  $pause
+eş       $brk  $pause
+iç       $brk  $pause
+kene     $brk  $pause
+köbisi   $brk  $pause
+mına     $brk  $pause
+mında    $brk  $pause
+mınyaqqa $brk  $pause
+mümkün   $brk  $pause
+nasıl    $u+ $brk  $pause
+nasılsıñ $u+ $brk  $pause
+(ne yapasıñ) $brk  $pause
+neday    $brk  $pause
+nedaysıñ $brk  $pause
+niayet   $brk  $pause
+oñ       $brk  $pause
+ortaqlaşıp   $brk    $pause
+paqıl    $brk  $pause
+qa       $brk  $pause
+qadiy    $brk  $pause
+qadiysiñ $brk  $pause
+qatesiñ  $brk  $pause
+qayaqqa  $brk  $pause
+qayerge  $brk  $pause
+sipti    $brk  $pause
+tolu     $brk  $pause
+zaten    $brk  $pause
+ziyadesinen $brk   $pause
+
+// conjunctions
+
+ancaq   AndZ,aq_: $u  
+
+// prepositions
+
+aldında    $u
+artında    $u
+
+// postpositions
+
+içün       $brk
+ile        $brk
+qadar      $brk
+sebep      $brk
+soñ        $brk
+taba       $brk
+zarfında   $brk
+
+// Character names
