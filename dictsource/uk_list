@@ -70,13 +70,13 @@ _9	d'EvjVt;
 _10	d'EsjVt;
 _11	odIn'adsjVt;
 _12	dvan'adsjVt;
-_13	t[Ren'adsjVt;
+_13	t[RIn'adsjVt;
 _14	tSot[IRn'adsjVt;
-_15	pjatn'adsjVt;
-_16	Si:stn'adsjVt;
+_15	pjat[n'adsjVt;
+_16	Si:st[n'adsjVt;
 _17	si:mn'adsjVt;
 _18	vi:si:mn'adsjVt;
-_19	devjatn'adsjVt;
+_19	devjat[n'adsjVt;
 _2X	dv'adsjVt;
 _3X	t[R'edsjVt;
 _4X	s'oRok
@@ -85,15 +85,15 @@ _6X	Si:st[desj'at[
 _7X	si:mdesj'at[
 _8X	vi:si:mdesj'at[
 _9X	devjan'ost[o
-_1C	st'o
+_1C	st['o
 _2C	dv'i:st;i:
-_3C	t[R'est[a
+_3C	t[R'Ist[a
 _4C	tSot['IRIst[a
 _5C	pjats'ot[
 _6C	Si:st[s'ot[
 _7C	si:ms'ot[
 _8C	vi:si:ms'ot[
-_9C	devjats'ot[
+_9C	dEvjats'ot[
 
 // large numbers, short scale
 _0C	st['o
@@ -119,7 +119,7 @@ _в  BE
 д  dE
 _ж  ZE
 _з  zE
-_й  jot
+_й  jot[
 к  ka
 л  El^
 м  Em
