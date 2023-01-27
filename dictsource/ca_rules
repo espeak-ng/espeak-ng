@@ -21,6 +21,7 @@
 .L23 m n               // nasals
 .L24 l ll              // laterals
 .L25 r                 // vibrants
+.L30 a o à ò ó         // vocals centrals i posteriors
 
 
 .group a
@@ -70,7 +71,7 @@
 .group g
         g          g
         g (_       k
-     A) g (A       Q
+     A) g (L30       Q
     A_) g (A       Q
    L01) g (A       Q
   L01_) g (A       Q
@@ -128,6 +129,7 @@
      i) n (_       n
         nt (K      n
         nt (_      =n
+        nt (_A     nt
         ny         n^
      b) n (@       m
      v) n (@       m
@@ -138,7 +140,7 @@
 
 
 .group o
-        o          o
+        o          O
         or (_      'o*
         ou         Ow
 
@@ -174,7 +176,7 @@
      _) s' (P2     s
         ss         s
      A) s (A       z
-     @) s (_S1     s
+        s (_A      z
      -) se (_      s@
 
 
