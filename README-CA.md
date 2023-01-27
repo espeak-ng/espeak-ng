@@ -1,4 +1,5 @@
-# Fork de desenvolupament de noves dades per l'Espeak en català
+# Fork de desenvolupament de noves dades 
+# per l'espeak en català
 
 ## Instal·lació
 1) clonar el repo
@@ -58,6 +59,8 @@ espeak-ng$ src/espeak-ng -vca -X "text"
 [Taules de sons](http://www.ub.edu/sonscatala/ca/central)
 
 [CPNL](https://blogs.cpnl.cat/dgava12/files/2012/12/Full-de-ruta_unitat21.pdf)
+
+[Apunts del IES Olorda](http://iesolorda.cat/departaments/cat/fon_tot.pdf)
 
 
 ## Tests
