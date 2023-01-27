@@ -36,3 +36,53 @@ phoneme I2 // **i**ntend. As \[I\], but also indicates an unstressed syllable.
   ENDIF
   FMT(vowel/ii_4)
 endphoneme
+
+phoneme V
+  vwl  starttype #a  endtype #@
+  length 80
+  unstressed
+
+  IF nextVowel(isMaxStress) THEN
+    ChangePhoneme(a)
+  ENDIF
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(a)
+    ELSE
+      ChangePhoneme(A)
+    ENDIF
+  ENDIF
+
+  FMT(vowel/V_2)
+endphoneme
+
+phoneme t;
+  import_phoneme pl/t;
+endphoneme
+
+phoneme s;
+  vls pal frc sib pzd
+  ipa ʂ
+  voicingswitch z;
+  lengthmod 3
+  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate len=70
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_pzd_)
+  ENDIF
+  WAV(ufric/s_pzd)
+endphoneme
+
+phoneme ts
+  vls alv afr sib
+  voicingswitch dz
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
+endphoneme
