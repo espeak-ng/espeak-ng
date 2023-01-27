@@ -4,6 +4,15 @@
 1) clonar el repo
 
 2) instal·lar
+
+Per instal·lar les dependències:
+```
+sudo apt-get install make autoconf automake libtool pkg-config
+sudo apt-get install gcc libsonic-dev ronn kramdown
+sudo apt-get install libpcaudio-dev
+```
+
+i després per fer el build:
 ```
 $ ./autogen.sh 
 $ ./configure --prefix=/usr
