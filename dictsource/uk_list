@@ -17,13 +17,13 @@
 
 !  zn'ak||'okleku
 "  podv'i:jna||l'apka
-#  RES'i:tka
+#  RES'i:t[ka
 $  d'olaR
-%  vi:ds'otok
+%  vi:ds'ot[ok
 &  ampeRs'and
 //'  odIn'aRna||l'apka
-//(  Bi:dkR'eta||d'uZka
-//)  zakR'eta||d'uZka
+//(  Bi:dkR'et[a||d'uZka
+//)  zakR'et[a||d'uZka
 *  z'i:RotSka
 +  pl^'us
 ,  k'oma
@@ -37,20 +37,20 @@ $  d'olaR
 >  b'i:l^SE
 //?  zn'ak||pIt'an:ja  // не читає
 @  sob'atSka
-[  Bi:dkR'eta||kBadR'atna||d'uZka
+[  Bi:dkR'et[a||kBadR'at[na||d'uZka
 \  ob'ERnEna||kos'a||R'Iska
-]  zakR'eta||kBadR'atna||d'uZka
+]  zakR'et[a||kBadR'atna||d'uZka
 ^  daS'ok
 \\_  n'IZn^e||pi:dkR'EslEn:ja
 `  hRaf'i:s
-{  B'i:dkReta||fi:h'uRna||d'uZka
-|  BERtIk'al^na||R'Iska
-}  zakR'eta||fi:h'uRna||d'uZka
-~  t'Il^da
-ʼ  ap'ostRof
-«  B'i:dkRIti:||lapk'I
-»  z'akRIti:||lapk'I
-…  tR'e||kR'apkI
+{  B'i:dkRet[a||fi:h'uRna||d'uZka
+|  BERt[Ik'al^na||R'Iska
+}  zakR'et[a||fi:h'uRna||d'uZka
+~  t['Il^da
+ʼ  ap'ost[Rof
+«  B'i:dkRIt[i:||lapk'I
+»  z'akRIt[i:||lapk'I
+…  t[R'e||kR'apkI
 
 
 // NUMBERS
@@ -68,20 +68,20 @@ _8	v'i:si:m
 _9	d'EvjVt;
 
 _10	d'EsjVt;
-_11	oden'adsjVt;
+_11	odIn'adsjVt;
 _12	dvan'adsjVt;
-_13	tRen'adsjVt;
-_14	tSoteRn'adsjVt;
+_13	t[Ren'adsjVt;
+_14	tSot[IRn'adsjVt;
 _15	pjatn'adsjVt;
 _16	Si:stn'adsjVt;
 _17	si:mn'adsjVt;
 _18	vi:si:mn'adsjVt;
 _19	devjatn'adsjVt;
 _2X	dv'adsjVt;
-_3X	tR'edsjVt;
+_3X	t[R'edsjVt;
 _4X	s'oRok
 _5X	pjat[desj'at[
-_6X	Si:stdesj'at[
+_6X	Si:st[desj'at[
 _7X	si:mdesj'at[
 _8X	vi:si:mdesj'at[
 _9X	devjan'ost[o
@@ -102,11 +102,11 @@ _0M2	mi:l;j'on
 _0M3	bi:l;j'on
 _0M4	t[RIl;j'on
 _0M5    kvadRal;j'on
-_0M6    kvi:ntIl;j'on
-_0M7    sEkstIl;j'on
-_0M8    sEptIl;j'on
+_0M6    kvi:nt[Il;j'on
+_0M7    sEkst[Il;j'on
+_0M8    sEpt[Il;j'on
 _0M9    okt[Il;j'on
-_0M10   nonel;j'on
+_0M10   nonIl;j'on
 
 
 // LETTERS
