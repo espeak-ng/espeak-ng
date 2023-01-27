@@ -78,6 +78,7 @@
 
 .group с
        с     s
+       сь    s;
 
 .group т
        т     t[
@@ -100,7 +101,6 @@
 
 .group ш
        ш     S
-       ш (в  l#  // швеція
 
 .group щ
        щ     StS
