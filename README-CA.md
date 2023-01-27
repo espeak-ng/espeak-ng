@@ -57,6 +57,12 @@ espeak-ng$ src/espeak-ng -vca -X "text"
 
 [Taules de sons](http://www.ub.edu/sonscatala/ca/central)
 
+[CPNL](https://blogs.cpnl.cat/dgava12/files/2012/12/Full-de-ruta_unitat21.pdf)
+
 
 ## Tests
-Quan el tingui fet pujaré un fitxer de tests
+Poso un exemple de com ho pensava fer.
+
+tsv amb: segment de text    transcripció    descripció  comentaris
+
+a comentaris: "ok" vol dir implementat. "consultar" vol dir que s'ha de mirar la bibliografia.

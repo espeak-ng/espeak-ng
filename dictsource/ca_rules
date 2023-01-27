@@ -31,12 +31,12 @@
 
 
 .group b
-        b          b
-        b (_       p
-     A) b (A       B
-    A_) b (A       B
-   L02) b (A       B
-  L02_) b (A       B
+        b          b    // b sona b
+        b (_       p    // b sona p a final de paraula
+     A) b (A       B    // b és aproximant entre vocals
+    A_) b (A       B    // b és aproximant entre vocals 
+   L02) b (A       B    // b és aproximant entre líquida o fricativa i vocals
+  L02_) b (A       B    // b és aproximant entre líquida o fricativa i vocals
 
 
 .group c
@@ -118,6 +118,7 @@
         m          m
      _) m' (P2     m
         mp (K      m
+        mb (K      m
 //        ment (_    m'En  // ??
 
 
