@@ -61,7 +61,7 @@ espeak-ng$ src/espeak-ng -vca -X "text"
 
 
 ## Tests
-Poso un exemple de com ho pensava fer.
+Poso un [exemple](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/tests.tsv) de com ho pensava fer.
 
 tsv amb: segment de text    transcripció    descripció  comentaris
 
