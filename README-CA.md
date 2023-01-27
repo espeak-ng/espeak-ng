@@ -4,12 +4,12 @@
 1) clonar el repo
 
 2) instal·lar
-'''
+```
 $ ./autogen.sh 
 $ ./configure --prefix=/usr
 $ make
 $ sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
-'''
+``` 
 
 ## Funcionament
 ```
