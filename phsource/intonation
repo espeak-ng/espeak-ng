@@ -63,7 +63,7 @@ headenv   fall 16
 head       4 65 60 -8 -5
 headextend 0 53 38 13 0
 nucleus0 fall 44 28
-nucleus  fall 50 42 34 28 // sidste ord fÃ¸r punktu
+nucleus  fall 50 42 34 28 // sidste ord før punktu
 
 onset 75 -5 -5
 endtune
@@ -78,19 +78,19 @@ nucleus0 rise  60 42
 nucleus  rise 55 42 34 52 // sidste tal: slutniveau
 endtune
 
-// question mark "?" - spÃ¸rgsmÃ¥lste
+// question mark "?" - spørgsmålste
 
 tune q2
 prehead   40 75
 headenv   fall 16
 head       4 75 43 -7 0 //head       4 35 43 -7 0
 headextend 25 63 38 13 0
-nucleus0 rise  70 50 // fÃ¸rste tal: slutniveaue
+nucleus0 rise  70 50 // første tal: slutniveaue
 
 nucleus  rise 35 45 60 70 // sidste tal: slutniveau
 endtune
 
-// exclamation mark "!" - udrÃ¥bsteg
+// exclamation mark "!" - udråbsteg
 
 tune e2
 prehead   46 57
@@ -233,7 +233,7 @@ tune s6
 prehead   55 40
 headenv   rise 26
 onset 70 10 16
-head       4 62 40 -10 -14
+head       6 62 40 -5 14
 headlast 45 10 6
 headextend 38 0 63 38 13 0
 nucleus0 fall 56 7
@@ -244,11 +244,11 @@ tune c6
 prehead   55 40
 headenv   rise 26
 onset 70 10 16
-head       10 62 39 -10 -16
+head       10 62 39 -5 16
 headlast 50 -20 -36
 headextend 38 0 63 38 13 0
-nucleus0 rise-fall 65 35 
-nucleus fall-rise 30 46 40 54
+nucleus0 rise-fall 60  40
+nucleus fall-rise 60 40 30 60
 endtune
 
 tune q6
