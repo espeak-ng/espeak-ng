@@ -35,8 +35,10 @@
         b (_       p    // b sona p a final de paraula
      A) b (A       B    // b és aproximant entre vocals
     A_) b (A       B    // b és aproximant entre vocals 
-   L02) b (A       B    // b és aproximant entre líquida o fricativa i vocals
-  L02_) b (A       B    // b és aproximant entre líquida o fricativa i vocals
+     A) b (_A      B    // b és aproximant entre vocals 
+   L02) b (A       B    // b és aproximant entre r, l o fricativa i vocals
+  L02_) b (A       B    // b és aproximant entre r, l o fricativa i vocals
+   L02) b (_A      B    // b és aproximant entre r, l o fricativa i vocals
 
 
 .group c
@@ -47,12 +49,13 @@
         ç          s
 
 .group d
-        d          d
-        d (_       t
-     A) d (A       D
-    A_) d (A       D
-   L03) d (A       D
-  L03_) d (A       D
+        d          d    // d sona d
+        d (_       t    // d sona t a final de paraula
+     A) d (A       D    // d és aproximant entre vocals
+    A_) d (A       D    // d és aproximant entre vocals
+     A) d (_A      D    // d és aproximant entre vocals
+   L03) d (A       D    // d és aproximant entre r o fricativa i vocals
+  L03_) d (A       D    // d és aproximant entre r o fricativa i vocals
         dj         dZ;
         dv         bb	// Geminació
 
@@ -71,14 +74,21 @@
 .group g
         g          g
         g (_       k
-     A) g (L30       Q
-    A_) g (A       Q
-   L01) g (A       Q
-  L01_) g (A       Q
+     A) g (L30     Q
+    A_) g (L30     Q
+   L01) g (L30     Q
+  L01_) g (L30     Q
      A) g (rA      Q
         g (L04     Z;
+     A) g (L04     Z;
+    A_) g (L04     Z;
+
         gu (L04    g   // front vowels
-        gui        dZ;i
+     A) gu (L04    Q
+    A_) gu (L04    Q       
+   L01) gu (L04    Q
+  L01_) gu (L04    Q 
+
 
 
 .group h
@@ -95,10 +105,14 @@
         i (A       j
         i (a_      i
         i (u       i
+     A) ix (K      S;
+     A) ix (A      S;
+     A) ix (_A     Z;
+     A) ix (_L09   Z;
+     K) ix (A      iS;
      A) ig (_      tS;
-     A) ix         S;
-
-
+     A) ig (_A     dZ;
+     
 .group j
         j          Z;
 
@@ -213,9 +227,6 @@
     _A) x          gz
     _A) x (L05     ks
      K) x          S;
-    Ai) x          S;
-    Au) x          S;
-
 
 .group y
         y          i

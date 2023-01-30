@@ -69,3 +69,9 @@ Poso un [exemple](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/tests.t
 tsv amb: segment de text    transcripció    descripció  comentaris
 
 a comentaris: "ok" vol dir implementat. "consultar" vol dir que s'ha de mirar la bibliografia.
+
+PENDENTS:
+* d aproximant quan no toca (calda, sap donar, )
+* accent 1a pers plural pres ind
+* com és la pronúncia de la d de "compres draps"?
+* repassar les africades
