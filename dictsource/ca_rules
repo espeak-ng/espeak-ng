@@ -27,12 +27,13 @@
 .group a
         a          a
         ae         ,aE2  // Evitem la neutralització
-        amb (_A     am    // Sensibilització
+    _)  amb (_A    amb    // Sensibilització
 
 
 .group b
         b          b    // b sona b
         b (_       p    // b sona p a final de paraula
+     A) b (L05     p    // b sona p davant de consonant sorda
      A) b (A       B    // b és aproximant entre vocals
     A_) b (A       B    // b és aproximant entre vocals 
      A) b (_A      B    // b és aproximant entre vocals 
@@ -51,6 +52,7 @@
 .group d
         d          d    // d sona d
         d (_       t    // d sona t a final de paraula
+     A) d (L05     t    // d sona t davant de consonant sorda
      A) d (A       D    // d és aproximant entre vocals
     A_) d (A       D    // d és aproximant entre vocals
      A) d (_A      D    // d és aproximant entre vocals
@@ -131,7 +133,9 @@
 .group m
         m          m
      _) m' (P2     m
-        mp (K      m
+        mp (C      m
+        mp-        mp
+        mpr        mpr
         mb (K      m
 //        ment (_    m'En  // ??
 
@@ -163,7 +167,8 @@
 .group p
         p          p
         p (t       p:
-
+        p (L09     b   // sonorització davant sonores
+        p (_L09    b
 
 .group q
         q          k
