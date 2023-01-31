@@ -125,6 +125,7 @@
 
 .group l
         l          l
+        lt (_      l
         ll         l^
      _) l' (P2     l
      -) la (_      la#
@@ -134,7 +135,8 @@
         m          m
      _) m' (P2     m
         mp (C      m
-        mp-        mp
+        mp (_      m
+        mp (-h     mp
         mpr        mpr
         mb (K      m
 //        ment (_    m'En  // ??
@@ -146,9 +148,11 @@
         n (_       =n  // unlike Spanish, the vowel is stressed
      e) n (_       n   // except after e, i
      i) n (_       n
-        nt (K      n
+        nt (C      n
         nt (_      =n
+        nd (_      =n
         nt (_A     nt
+        nt (-h     nt // anant-hi
         ny         n^
      b) n (@       m
      v) n (@       m
@@ -189,7 +193,8 @@
      n) r (A       R
      s) r (A       R
         rr         *R
-
+        rd (s_     R
+        rt (s_     R
 
 .group s
         s          s
@@ -209,7 +214,8 @@
         tx         tS;
         tz         dz
         tm         mm	// Geminació
-
+        t (L09     d   // sonorització davant sonores
+        t (_L09    d   // sonorització davant sonores
 
 .group u
         u          u
