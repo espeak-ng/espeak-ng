@@ -13,7 +13,7 @@
 .L03 f h r s v w y z   // continuants, not l
 .L04 i í e é è         // front vowels
 .L05 p t k f s         // sords
-.L09 b d g m v l n d z r q // sonors
+.L09 b d g m v l n r z j // sonors
 .L10 a e o             // vocals fortes
 .L11 i u               // vocals febles
 .L21 p b t d k g       // oclusives
@@ -45,6 +45,10 @@
 .group c
         c          k
         c (L04     s
+        c (_L09    g
+        c (L09     g
+        c (lA      k
+        c (rA      k
 
 .group ç
         ç          s
@@ -84,7 +88,6 @@
         g (L04     Z;
      A) g (L04     Z;
     A_) g (L04     Z;
-
         gu (L04    g   // front vowels
      A) gu (L04    Q
     A_) gu (L04    Q       
@@ -101,9 +104,11 @@
 
 .group i
         i          i
-     A) i (K+      j
+     A) i (K       j
     gü) i (K       i
     qü) i (K       i
+    gu) i (K       i
+    qu) i (K       i
         i (A       j
         i (a_      i
         i (u       i
@@ -154,12 +159,14 @@
         nt (_A     nt
         nt (-h     nt // anant-hi
         ny         n^
-     b) n (@       m
-     v) n (@       m
-     @) n (b       m
-     @) n (v       m
-        n (cK      N
-        ng         N
+     b) n  (@      m
+     v) n  (@      m
+     @) n  (b      m
+     @) n  (v      m
+        nc (K      N
+        n  (cL30   N
+        n  (cL04   n
+        ng (_      N
 
 
 .group o
@@ -173,12 +180,15 @@
         p (t       p:
         p (L09     b   // sonorització davant sonores
         p (_L09    b
+        p (lA      p
+        p (rA      p
 
 .group q
         q          k
         qu (L04    k
-        qui        kwi
+        qu (L30    kw
         qü         kw
+        q (_L09    g
 
 
 .group r
@@ -216,6 +226,7 @@
         tm         mm	// Geminació
         t (L09     d   // sonorització davant sonores
         t (_L09    d   // sonorització davant sonores
+        t (rA      t   // no sonorització davant r + vocal 
 
 .group u
         u          u

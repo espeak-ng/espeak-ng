@@ -167,6 +167,7 @@ entre	$brk
 // conjunctions
 i	$u $pause
 o       $u $pause
+que $u
 
 
 // auxiliary verbs
