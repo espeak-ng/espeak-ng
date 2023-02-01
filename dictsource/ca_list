@@ -128,6 +128,25 @@ una	$u
 uns	$u
 unes	$u
 
+// pronoms febles
+hi  $u
+ho  $u
+em  $u
+me  $u
+et  $u
+te  $u
+lo  $u
+en  $u
+ne  $u
+li  $u
+ens $u
+nos $u
+us  $u
+vos $u
+los $u
+
+
+
 // prepositions
 a	$u $brk
 al	$u $brk
