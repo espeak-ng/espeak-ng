@@ -13,7 +13,7 @@
 .L03 f h r s v w y z   // continuants, not l
 .L04 i í e é è         // front vowels
 .L05 p t k f s         // sords
-.L09 b d g m v l n r z j // sonors
+.L09 b d g m v l n r z j f // sonors
 .L10 a e o             // vocals fortes
 .L11 i u               // vocals febles
 .L21 p b t d k g       // oclusives
@@ -52,6 +52,10 @@
 
 .group ç
         ç          s
+        ç (_A      z
+        ç (_hA     z
+        ç (L09     z
+        ç (_L09    z
 
 .group d
         d          d    // d sona d
@@ -120,6 +124,7 @@
      K) ix (A      iS;
         ig (_      tS;
         ig (_A     dZ;
+        ig (_L09   dZ;
      
 .group j
         j          Z;
@@ -160,6 +165,8 @@
         nt (_A     nt
         nt (-h     nt // anant-hi
         ny         n^
+        nys        n^S
+        nys (_A    n^Z
      b) n  (@      m
      v) n  (@      m
      @) n  (b      m
@@ -213,8 +220,11 @@
         ss         s
      A) s (A       z
         s (_A      z
+        s (_hA     z
+        s (L09     z
+        s (_L09    z
      -) se (_      s@
-
+  aque) s (tKK      
 
 .group t
         t          t
