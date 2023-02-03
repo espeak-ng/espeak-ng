@@ -21,6 +21,8 @@
 .L23 m n               // nasals
 .L24 l ll              // laterals
 .L25 r                 // vibrants
+.L26 c q g              // velars
+.L27 p b v              // labials
 .L30 a o à ò ó         // vocals centrals i posteriors
 
 
@@ -87,6 +89,7 @@
 .group g
         g          g
         g (_       k
+        g (_A      Q
      A) g (L30     Q
     A_) g (L30     Q
    L01) g (L30     Q
@@ -153,6 +156,7 @@
         mp (-h     mp
         mpr        mpr
         mb (K      m
+        
 //        ment (_    m'En  // ??
 
 
@@ -160,24 +164,29 @@
         n          n
      _) n' (P2     n
         n (_       =n  // unlike Spanish, the vowel is stressed
-     e) n (_       n   // except after e, i
-     i) n (_       n
+      e) n (_       n   // except after e, i
+      i) n (_       n
         nt (C      n
         nt (_      =n
         nd (_      =n
         nt (_A     nt
         nt (-h     nt // anant-hi
-        ny         n^
+        ny         n^ // palatalitzacions
         nys        n^S
         nys (_A    n^Z
      b) n  (@      m
      v) n  (@      m
-     @) n  (b      m
-     @) n  (v      m
-        nc (K      N
-        n  (cL30   N
-        n  (cL04   n
+     @) n  (L27    m // labialitzacions
+     @) n  (_L27   m
+        nc (_      N // velaritzacions
         ng (_      N
+        n  (L26_A  N
+        n  (L26    N
+        n  (L26L04 n
+        n  (_L26   N
+   L04) n  (_L26    N
+        n  (_L26L04 n
+               
 
 
 .group o
