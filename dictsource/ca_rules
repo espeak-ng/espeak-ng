@@ -117,8 +117,8 @@
      A) ix (_A     Z;
      A) ix (_L09   Z;
      K) ix (A      iS;
-     A) ig (_      tS;
-     A) ig (_A     dZ;
+        ig (_      tS;
+        ig (_A     dZ;
      
 .group j
         j          Z;
@@ -236,9 +236,13 @@
         uu         uw
 
 .group v
-        v          B
-     _) v          v#
-
+        v          b
+//     _) v          v#
+     A) v (L05     p    // v sona p davant de consonant sorda
+     A) v (A       B    // v és aproximant entre vocals
+    A_) v (A       B    // v és aproximant entre vocals 
+   L02) v (A       B    // v és aproximant entre r, l o fricativa i vocals
+  L02_) v (A       B    // v és aproximant entre r, l o fricativa i vocals
 
 .group w
         w          w
