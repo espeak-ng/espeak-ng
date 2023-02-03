@@ -21,8 +21,8 @@
 .L23 m n               // nasals
 .L24 l ll              // laterals
 .L25 r                 // vibrants
-.L26 c q g              // velars
-.L27 p b v              // labials
+.L26 c q g             // velars
+.L27 p b v             // labials
 .L30 a o à ò ó         // vocals centrals i posteriors
 
 
