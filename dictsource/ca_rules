@@ -80,6 +80,9 @@
 
 .group f
         f          f
+        f (L09     v
+        f (_L09    v
+        f (_A      v
 
 .group g
         g          g
@@ -233,6 +236,8 @@
         tj         dZ;
         tj (_      tS;
         tx         tS;
+        tx (_L09   dZ;
+        tx (_A     dZ;
         tz         dz
         tm         mm	// Geminació
         t (L09     d   // sonorització davant sonores
