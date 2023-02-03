@@ -105,13 +105,14 @@
 .group i
         i          i
      A) i (K       j
+    A_) i (K       j
     gü) i (K       i
     qü) i (K       i
     gu) i (K       i
     qu) i (K       i
-        i (A       j
-        i (a_      i
-        i (u       i
+ //       i (A       j
+ //       i (a_      i
+ //       i (u       i
      A) ix (K      S;
      A) ix (A      S;
      A) ix (_A     Z;
@@ -231,8 +232,10 @@
 .group u
         u          u
      A) u (K       w
+    A_) u (K       w
         u (A       w
         u (i       u
+        u (ï       u
         uu         uw
 
 .group v
