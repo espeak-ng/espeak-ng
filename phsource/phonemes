@@ -1846,11 +1846,11 @@ include ph_indonesian
 phonemetable it base2
 include ph_italian
 
-phonemetable ku base2
-include ph_kurdish
-
 phonemetable krm base2
 include ph_krm
+
+phonemetable ku base2
+include ph_kurdish
 
 phonemetable mi base2
 include ph_maori
