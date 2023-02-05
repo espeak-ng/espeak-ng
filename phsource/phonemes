@@ -1846,6 +1846,9 @@ include ph_indonesian
 phonemetable it base2
 include ph_italian
 
+phonemetable krm base2
+include ph_krm
+
 phonemetable ku base2
 include ph_kurdish
 
