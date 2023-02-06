@@ -123,17 +123,21 @@
  //       i (A       j
  //       i (a_      i
  //       i (u       i
-     A) ix (K      S;
-     A) ix (A      S;
-     A) ix (_A     Z;
-     A) ix (_L09   Z;
-     K) ix (A      iS;
-        ig (_      tS;
-        ig (_A     dZ;
-        ig (_L09   dZ;
+     A) ix (K      S
+     A) ix (A      S
+    gu) ix (K      iS
+    qu) ix (K      iS
+     A) ix (_A     Z
+     A) ix (_L09   Z
+    gu) ix (K      iZ
+    qu) ix (K      iZ
+     K) ix (A      iS
+        ig (_      tS
+        ig (_A     dZ
+        ig (_L09   dZ
      
 .group j
-        j          Z;
+        j          Z
 
 
 .group k
@@ -156,6 +160,7 @@
         mp (-h     mp
         mpr        mpr
         mb (K      m
+//        m  (f      M
         
 //        ment (_    m'En  // ??
 
@@ -241,12 +246,12 @@
 .group t
         t          t
      _) t' (P2     t
-        tg (L04    dZ;
-        tj         dZ;
-        tj (_      tS;
-        tx         tS;
-        tx (_L09   dZ;
-        tx (_A     dZ;
+        tg (L04    dZ
+        tj         dZ
+        tj (_      tS
+        tx         tS
+        tx (_L09   dZ
+        tx (_A     dZ
         tz         dz
         tm         mm	// Geminació
         t (L09     d   // sonorització davant sonores

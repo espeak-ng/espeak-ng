@@ -75,3 +75,14 @@ PENDENTS:
 * accent 1a pers plural pres ind
 * com és la pronúncia de la d de "compres draps"?
 * repassar les africades
+* què passa amb la t de molt?
+* tònica imperatius (irromp, corromp)
+* mirar les u
+
+## Dubtes
+* fem geminades?
+* com volem que soni la v?
+* què fem amb i + vocal (camió, Núria, hi ha, etc.)
+* porta uniforme
+* molt espès
+* els xàfegs, vas xiular; els jocs, has jugat; els rics, vas riure
