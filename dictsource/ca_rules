@@ -95,9 +95,9 @@
    L01) g (L30     Q
   L01_) g (L30     Q
      A) g (rA      Q
-        g (L04     Z;
-     A) g (L04     Z;
-    A_) g (L04     Z;
+        g (L04     Z
+     A) g (L04     Z
+    A_) g (L04     Z
         gu (L04    g   // front vowels
      A) gu (L04    Q
     A_) gu (L04    Q       
@@ -160,7 +160,6 @@
         mp (-h     mp
         mpr        mpr
         mb (K      m
-//        m  (f      M
         
 //        ment (_    m'En  // ??
 

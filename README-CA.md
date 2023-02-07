@@ -32,13 +32,14 @@ src/espeak-ng "Bon dia" --ipa -v ca -q
 ```
 
 ## Editar
+### Regles
 Els diccionaris es troben a [dictsource](https://github.com/projecte-aina/espeak-ng/tree/master/dictsource).
 
 Descripció dels diccionaris: [dictionary.md](https://github.com/espeak-ng/espeak-ng/blob/master/docs/dictionary.md).
 
 1) Editar
 
-2) compilar els diccionaris
+2) compilar les regles i diccionaris
 ```
 espeak-ng/dictsource$ ../src/espeak-ng --compile=ca
 ```
@@ -48,7 +49,31 @@ espeak-ng/dictsource$ ../src/espeak-ng --compile=ca
 espeak-ng$ src/espeak-ng -vca -X "text"
 ```
 
+### Fonemes i al·lòfons
+La definició dels fonemes es troba al directori phsource/
 
+
+    * [instruccions](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/docs/phontab.md#phoneme-definitions)
+    * [característiques dels sons](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/docs/phonemes.md#consonants)
+
+
+1) editar
+Mirar els fitxers phonemes, ph_base2 i ph_catalan
+
+2) compilar els fonemes
+```
+$ ../src/espeak-ng --compile-phonemes
+```
+
+3) compilar les regles i diccionaris
+```
+espeak-ng/dictsource$ ../src/espeak-ng --compile=ca
+```
+
+4) provar
+```
+src/espeak-ng "Bon dia" --ipa -v ca
+```
 ## Documents
 [Estàndard oral IEC](https://publicacions.iec.cat/repository/pdf/00000039/00000072.pdf)
 
