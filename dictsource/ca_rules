@@ -81,11 +81,11 @@
         e (rL27    e // herba, serp, terme (ferm? erm?)
         e (r_      e // Roger
         e (l       E // elm
-        e (r       E  // merla, ferro
+        e (r       E  // merla, ferro (però Berga i Matadepera)
 
 .group f
         f          f
-        f (L09     v
+     @) f (L09     v
         f (_L09    v
         f (_A      v
 
@@ -179,8 +179,6 @@
         nt (_A     nt
         nt (-h     nt // anant-hi
         ny         n^ // palatalitzacions
-        nys        n^S
-        nys (_A    n^Z
      b) n  (@      m
      v) n  (@      m
      @) n  (L27    m // labialitzacions
@@ -200,7 +198,7 @@
      @) or (_      'o // color ('o* per sensibilitzar la r)
         ou         Ow  // cou
      X) o          O  
- //    X) or (_      O 
+ 
 
 
 .group p
@@ -256,7 +254,9 @@
         tx (_L09   dZ
         tx (_A     dZ
         tz         dz
-        tm         mm	// Geminació
+        tll        l^l^ // Geminació (espatlla)
+        tm         mm	// Geminació (setmana)
+        tn         nn	// Geminació (cotna)
         t (L09     d   // sonorització davant sonores
         t (_L09    d   // sonorització davant sonores
         t (rA      t   // no sonorització davant r + vocal 
