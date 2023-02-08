@@ -34,24 +34,11 @@
 
 .group b
         b          b    // b sona b
-        b (_       p    // b sona p a final de paraula
-     A) b (L05     p    // b sona p davant de consonant sorda
-     A) b (A       B    // b és aproximant entre vocals
-    A_) b (A       B    // b és aproximant entre vocals 
-     A) b (_A      B    // b és aproximant entre vocals 
-   L02) b (A       B    // b és aproximant entre r, l o fricativa i vocals
-  L02_) b (A       B    // b és aproximant entre r, l o fricativa i vocals
-   L02) b (_A      B    // b és aproximant entre r, l o fricativa i vocals
-
-
+ 
 .group c
         c          k
         c (L04     s
-        c (_L09    g
-        c (L09     g
-        c (lA      k
-        c (rA      k
-
+     
 .group ç
         ç          s
         ç (_A      z
@@ -61,13 +48,6 @@
 
 .group d
         d          d    // d sona d
-        d (_       t    // d sona t a final de paraula
-     A) d (L05     t    // d sona t davant de consonant sorda
-     A) d (A       D    // d és aproximant entre vocals
-    A_) d (A       D    // d és aproximant entre vocals
-     A) d (_A      D    // d és aproximant entre vocals
-   L03) d (A       D    // d és aproximant entre r o fricativa i vocals
-  L03_) d (A       D    // d és aproximant entre r o fricativa i vocals
         dj         dZ;
         dv         bb	// Geminació
 
@@ -91,23 +71,9 @@
 
 .group g
         g          g
-        g (_       k
-        g (_A      Q
-     A) g (L30     Q
-    A_) g (L30     Q
-   L01) g (L30     Q
-  L01_) g (L30     Q
-     A) g (rA      Q
         g (L04     Z
-     A) g (L04     Z
-    A_) g (L04     Z
-        gu (L04    g   // front vowels
-     A) gu (L04    Q
-    A_) gu (L04    Q       
-   L01) gu (L04    Q
-  L01_) gu (L04    Q 
-
-
+        gu (L04    g   // front vowelw
+        
 
 .group h
         h              // silent
@@ -135,9 +101,9 @@
     gu) ix (K      iZ
     qu) ix (K      iZ
      K) ix (A      iS
-        ig (_      tS
-        ig (_A     dZ
-        ig (_L09   dZ
+     A) ig (_      tS
+     A) ig (_A     dZ
+     A) ig (_L09   dZ
      
 .group j
         j          Z
@@ -162,6 +128,7 @@
         mp (_      m
         mp (-h     mp
         mpr        mpr
+        mbr        mbr
         mb (K      m
         
   //      ment (_    m'en  // ??
@@ -177,6 +144,7 @@
         nt (_      =n
         nd (_      =n
         nt (_A     nt
+        nt (_hA    nt
         nt (-h     nt // anant-hi
         ny         n^ // palatalitzacions
      b) n  (@      m
@@ -204,19 +172,13 @@
 .group p
         p          p
         p (t       p:
-        p (L09     b   // sonorització davant sonores
-        p (_L09    b
-        p (lA      p
-        p (rA      p
-
+        
 .group q
         q          k
         qu (L04    k
         qu (L30    kw
         qü         kw
-        q (_L09    g
-
-
+        
 .group r
         r          R
      _) r          *R
@@ -257,10 +219,7 @@
         tll        l^l^ // Geminació (espatlla)
         tm         mm	// Geminació (setmana)
         tn         nn	// Geminació (cotna)
-        t (L09     d   // sonorització davant sonores
-        t (_L09    d   // sonorització davant sonores
-        t (rA      t   // no sonorització davant r + vocal 
-
+        
 .group u
         u          u
      A) u (K       w
