@@ -22,7 +22,7 @@
 .L24 l ll              // laterals
 .L25 r                 // vibrants
 .L26 c q g             // velars
-.L27 p b v             // labials
+.L27 p b v m            // labials
 .L30 a o à ò ó         // vocals centrals i posteriors
 
 
@@ -73,12 +73,15 @@
 
 
 .group e
-        e          E
+        e          e
         ea         E2,a // Evitem la neutralització
         eo         E2,o // Evitem la neutralització
 
         e (nt_     e
-
+        e (rL27    e // herba, serp, terme (ferm? erm?)
+        e (r_      e // Roger
+        e (l       E // elm
+        e (r       E  // merla, ferro
 
 .group f
         f          f
@@ -161,7 +164,7 @@
         mpr        mpr
         mb (K      m
         
-//        ment (_    m'En  // ??
+  //      ment (_    m'en  // ??
 
 
 .group n
@@ -190,8 +193,7 @@
         n  (_L26   N
    L04) n  (_L26    N
         n  (_L26L04 n
-               
-
+                
 
 .group o
         o          O
@@ -283,7 +285,7 @@
         x          ks
     _A) x          gz
     _A) x (L05     ks
-     K) x          S;
+     K) x          S
 
 .group y
         y          i
