@@ -50,11 +50,11 @@ espeak-ng$ src/espeak-ng -vca -X "text"
 ```
 
 ### Fonemes i al·lòfons
-La definició dels fonemes es troba al directori phsource/
+La definició dels fonemes es troba al directori [phsource/](https://github.com/projecte-aina/espeak-ng/tree/dev-ca/phsource).
 
 
-    * [instruccions](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/docs/phontab.md#phoneme-definitions)
-    * [característiques dels sons](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/docs/phonemes.md#consonants)
+- [instruccions](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/docs/phontab.md#phoneme-definitions)
+- [característiques dels sons](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/docs/phonemes.md#consonants)
 
 
 1) editar
