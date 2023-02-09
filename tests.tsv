@@ -2,8 +2,8 @@ segment	transcripció	explicació	comentaris
 			
 # b  			
 amb tu i amb mi	ˈam tˈu j ˈam mˈi	emmudiment de b després de m	ok
-amb ell	ˈamb ˈɛʎ	sensiblitizació de la b de «amb» davant de vocal	
-rumb a l'oest	ɾrˈum ɐ lʊˈɛst	emmudiment de b després de m	ok
+amb ell	ˈamb ˈɛʎ	sensiblitizació de la b de «amb» davant de vocal	ok
+rumb a l'oest	ɾrˈum ɐ lʊˈest	emmudiment de b després de m	ok
 Abac	ɐβˈak	b aproximant entre vocals	ok
 quatre bacs	kwˈatɾə βˈaks	b aproximant entre vocals	ok
 albarà   	ɐlβɐɾˈa	b aproximant entre líquida o fricativa i vocal	ok
@@ -12,7 +12,7 @@ esbós	əzβˈos	b aproximant entre líquida o fricativa i vocal 	ok
 els boscos	əlz βˈɔskʊs	b aproximant entre líquida o fricativa i vocal	ok
 un tub	ʊn tˈup	b ensordeix a final de paraula	ok
 dissabte	disˈaptə	b ensordeix davant de consonant sorda	
-un tub ample	ʊn tˈuβ ˈamlə	b aproximant entre líquida o fricativa i vocal 	ok
+un tub ample	ʊn tˈup ˈamlə	b ensordeix a final de paraula	ok
 calb i espès	kˈalβ i əspˈɛs	b aproximant entre líquida o fricativa i vocal 	ok
 			
 # c			
@@ -31,7 +31,7 @@ llaç bonic	ʎˈaz βʊnˈik	ç sona «z» davant de consonant sonora	ok
 # d			
 dos	dˈos	d és d a inici de mot	ok
 àcid	ˈasit	d é «t» a final de mot	ok
-àcid sulfúric	ˈasit sʊlfʊɾˈik	d és «t» seguida de consonant sorda	ok
+àcid sulfúric	ˈasit sʊlfˈuɾik	d és «t» seguida de consonant sorda	ok
 àcid aquós			comprovar com ha de ser
 àcid vermell			comprovar com ha de ser
 adscrit	ɐtskɾˈit	d és «t» seguida de consonant sorda	ok
@@ -42,7 +42,7 @@ la diada de demà	lɐ ðiˈaðɐ ðə ðəmˈa	d és aproximant entre vocals	ok
 esdevenir	əzðəβənˈi	d és aproximant entre fricativa i vocal	ok
 es dona	ˈɛz ðˈonɐ	d és aproximant entre fricativa i vocal	ok
 arbust	ɐrβˈust	d és aproximant entre r i vocal	ok
-vidre	ʋˈiðɾə	d és aproximant entre vocal i r	ok
+vidre	bˈiðɾə	d és aproximant entre vocal i r	ok
 examimand	əɡzɐmimˈan	emmudiment de «d» deprés de «n» en final de mot	ok
 			
 # f			
@@ -55,6 +55,7 @@ escalf amic	əskˈalv ɐmˈik	f sona «v» davant de vocal	ok
 groc	ɡɾˈɔk	g és g a inici de mot	ok
 guia	ɡˈiɐ	gu és g davant de i o e, i la u no es pronuncia	ok
 preg	pɾˈɛk	g és k a final de mot	ok
+diàleg amè	diˈalək ɐmˈɛ	g és k a final de mot	ok
 pago	pˈaɣʊ	g és aproximant entre vocal i a o o	ok
 una guia	ˌunɐ ɣˈiɐ	gu és aproximant entre vocal i i o e, i la u no es pronuncia	ok
 En Roger va a Girona	ən ɾrʊʒˈe βˈa ɐ ʒiɾˈɔnɐ	g és Z davant de i o e	ok
@@ -131,6 +132,9 @@ anant	ɐnˈan	emmudiment de «t» després de «n»	ok
 Anant-hi	ɐnˈantˈi	sensiblització de «t» després de «n» seguit de -hi, -ho	ok
 vint anys	ʋˈint ˈaɲs	sensiblització de «t» després de «n» seguit de vocal	ok
 molt	mˈol	emmudiment de «t» desrpés de «l» final de mot	ok
+setmana	səmmˈanɐ	geminació del grup «tm»	ok
+cotna	kˈonnɐ	geminació del grup «tn»	ok
+espatlla	əspˈaʎʎɐ	geminació del grup «tl»	ok
 			
 # u			
 una 	ˈunɐ	u és u	
@@ -178,4 +182,12 @@ serp	sˈerp	e sona [e] davant de r + m/p/b	mirar què passa amb «erm» i «ferm
 element	ələmˈen	e sona [ə] quan és àtona	ok
 fonètica	fʊnˈɛtikɐ	è sona [ɛ] 	ok
 		é sona [e]	
-		e sona [e] a la terminació -er	
+carrer	kɐɾrˈe	e sona [e] a la terminació -er	ok
+			
+# o			
+		o sona [o]	
+mocador	mʊkɐðˈo	o sona [u] quan és àntona	ok
+cosa	kˈɔzɐ	o sona [ɔ] quan la síl·laba tònica és la primera	ok
+flor	flˈɔ	o sona [ɔ] en monosíl·labs	però «moc»
+color	kʊlˈo	o sona [o] en les terminacions en -or	ok
+cou	kˈɔw	o sona [ɔ]  davant de u	ok

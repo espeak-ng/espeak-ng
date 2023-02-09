@@ -3,6 +3,9 @@
 //  Catalan  - based on Spanish and Base2
 //====================================================
 
+// vowels 
+//=============
+
 phoneme a
   vwl starttype #a endtype #a
   length 180
@@ -65,6 +68,9 @@ phoneme u
   ChangeIfUnstressed(U)
   FMT(vowel/u_bck)
 endphoneme
+
+// nasals
+//==============
 
 phoneme M
   vls lbd nas
@@ -143,5 +149,173 @@ phoneme l
   import_phoneme en/l   // use 'dark' [l] after a vowel
 endphoneme
 
+// s
+//================
+phoneme s
+  vls alv frc sib
+  voicingswitch z
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  
+  IF prevPh(isPalatal) THEN
+      ChangePhoneme(S)
+  ENDIF
 
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_)
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!)
+  ENDIF
+  WAV(ufric/s)
+endphoneme
 
+phoneme z
+  vcd alv frc sib
+  voicingswitch s
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  IF prevPh(isPalatal) THEN
+      ChangePhoneme(Z)
+  ENDIF
+  
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1390 -300 300 f3=0 0
+    Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_) addWav(ufric/s_, 70)
+  ENDIF
+  FMT(voc/z) addWav(ufric/s_, 85)
+endphoneme
+
+// plosives (oclusives)
+// ====================
+
+phoneme b
+  vcd blb stp
+
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELSE
+      ChangePhoneme(p)
+    ENDIF
+  ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
+        ChangePhoneme(B)
+      ENDIF
+    ENDIF  
+  ELSE
+    ChangePhoneme(p)
+  ENDIF
+
+  CALL base1/b
+endphoneme
+
+phoneme g
+  vcd vel stp
+  lengthmod 5
+  voicingswitch k
+  Vowelin  f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELSE
+      ChangePhoneme(k)
+    ENDIF
+  ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
+        ChangePhoneme(Q)
+      ENDIF
+    ENDIF  
+  ELSE
+    ChangePhoneme(k)
+  ENDIF
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2)        // weaker [g]
+endphoneme
+
+phoneme d
+  vcd dnt stp
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELSE
+      ChangePhoneme(t)
+    ENDIF
+  ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(**) OR prevPh(R) OR prevPh(isVFricative) THEN
+        ChangePhoneme(D)
+      ENDIF
+    ENDIF  
+  ELSE
+    ChangePhoneme(t)
+  ENDIF
+
+  CALL base2/d
+endphoneme
+
+phoneme p
+  vls blb stp
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_unasp_, 80)
+  ELIF nextPh(isRhotic) THEN
+    WAV(ustop/pr)
+  ELIF nextPh(l) THEN
+    WAV(ustop/pl)
+  ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ChangePhoneme(b)
+  ENDIF
+  WAV(ustop/p_unasp)
+endphoneme
+
+phoneme t        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 30)
+  ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    IF nextPh(**) THEN
+    ELSE
+      ChangePhoneme(d)
+    ENDIF
+  ENDIF
+  WAV(ustop/t_dnt2, 60)
+endphoneme
+
+phoneme k
+  vls vel stp
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(isRhotic) THEN
+    WAV(ustop/kr)
+  ELIF nextPh(#i) OR nextPh(;) THEN
+    WAV(ustop/ki)
+  ELIF nextPh(l) THEN
+    WAV(ustop/kl)
+  ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ChangePhoneme(g)
+  ENDIF
+  WAV(ustop/k_unasp, 70)
+endphoneme
