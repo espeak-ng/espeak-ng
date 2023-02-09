@@ -124,7 +124,7 @@
 .group m
         m          m
      _) m' (P2     m
-        mp (C      m
+  //      mp (C      m
         mp (_      m
         mp (-h     mp
         mpr        mpr
@@ -138,27 +138,17 @@
         n          n
      _) n' (P2     n
         n (_       =n  // unlike Spanish, the vowel is stressed
-      e) n (_       n   // except after e, i
-      i) n (_       n
-        nt (C      n
+   L04) n (_       n   // except after e, i
+//        nt (C      n ??
         nt (_      =n
         nd (_      =n
         nt (_A     nt
         nt (_hA    nt
         nt (-h     nt // anant-hi
         ny         n^ // palatalitzacions
-     b) n  (@      m
-     v) n  (@      m
-     @) n  (L27    m // labialitzacions
-     @) n  (_L27   m
-        nc (_      N // velaritzacions
+        nc (_      N  // velaritzacions
         ng (_      N
-        n  (L26_A  N
-        n  (L26    N
-        n  (L26L04 n
-        n  (_L26   N
-   L04) n  (_L26    N
-        n  (_L26L04 n
+        n  (L26_A  n
                 
 
 .group o
@@ -232,12 +222,7 @@
 .group v
         v          b
 //     _) v          v#
-     A) v (L05     p    // v sona p davant de consonant sorda
-     A) v (A       B    // v és aproximant entre vocals
-    A_) v (A       B    // v és aproximant entre vocals 
-   L02) v (A       B    // v és aproximant entre r, l o fricativa i vocals
-  L02_) v (A       B    // v és aproximant entre r, l o fricativa i vocals
-
+ 
 .group w
         w          w
 
