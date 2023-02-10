@@ -164,7 +164,7 @@ phoneme s
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   
-  IF prevPh(isPalatal) THEN
+  IF prevPh(isPalatal) OR nextPh(S) THEN
       ChangePhoneme(S)
   ENDIF
 
@@ -182,7 +182,7 @@ phoneme z
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
-  IF prevPh(isPalatal) THEN
+  IF prevPh(isPalatal) OR nextPh(Z) THEN
       ChangePhoneme(Z)
   ENDIF
   
