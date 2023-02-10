@@ -77,6 +77,8 @@ src/espeak-ng "Bon dia" --ipa -v ca
 ## Documents
 [Estàndard oral IEC](https://publicacions.iec.cat/repository/pdf/00000039/00000072.pdf)
 
+[Aplicació al català dels principis de transcripció de l'Associació Fonètica Internacional](https://publicacions.iec.cat/repository/pdf/00000041/00000087.pdf)
+
 [Requeriments SC](https://www.softcatala.org/wiki/Usuari:Jmas/TTS_Requeriments)
 
 [Mots amb excepcions](https://ca.wiktionary.org/wiki/Categoria:Mots_en_catal%C3%A0_per_caracter%C3%ADstiques_fon%C3%A8tiques)
@@ -96,11 +98,8 @@ tsv amb: segment de text    transcripció    descripció  comentaris
 a comentaris: "ok" vol dir implementat. "consultar" vol dir que s'ha de mirar la bibliografia.
 
 PENDENTS:
-* d aproximant quan no toca (calda, sap donar, )
+
 * accent 1a pers plural pres ind
-* com és la pronúncia de la d de "compres draps"?
-* repassar les africades
-* què passa amb la t de molt?
 * tònica imperatius (irromp, corromp)
 * mirar les u
 
@@ -111,3 +110,4 @@ PENDENTS:
 * porta uniforme
 * molt espès
 * els xàfegs, vas xiular; els jocs, has jugat; els rics, vas riure
+* neutra ɐ o ə?
