@@ -1,0 +1,10 @@
+language variant
+name Delta
+klatt 6
+voicing 100
+consonants 100 40
+
+formant 2 70 30 200
+formant 2 140 30 200
+formant 2 103 100 70
+formant 3 114 100 60
