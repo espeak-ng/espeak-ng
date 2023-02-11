@@ -1,0 +1,11 @@
+language variant
+name Kevin
+klatt 6
+voicing 100
+pitch 86 125
+breath 20
+formant 1 88 100 60
+formant 2 92 0 100 120
+formant 3 80 80 80 100
+formant 4 122 0 20
+formant 5 -60 0 0 0

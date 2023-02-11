@@ -1,0 +1,12 @@
+language variant
+name weird_variant
+klatt 6
+pitch 80 90
+voicing 80
+formant 1 120 100 75
+formant 2 98 100 75
+formant 3 98 80 75
+formant 4 98 80 75
+formant 5 100 80 7
+speed 10
+stressLength 5 5 5 5 5 5 5 5

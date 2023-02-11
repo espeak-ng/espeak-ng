@@ -1,0 +1,12 @@
+language variant
+name Evil
+klatt 6
+speed 60
+pitch 52 79
+echo 150 100
+words 2
+formant 1 80 100 100
+formant 2 87 100 100
+formant 3 87 100 100
+stressAmp 20 20 23 20 20 20 25 20
+stressAdd -10 -10 -10 -10 -10 -10 -10 -10

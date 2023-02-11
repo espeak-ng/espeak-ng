@@ -1,0 +1,18 @@
+language variant 
+name Alexanderia
+gender female 
+
+pitch 200 265
+roughness 0
+
+formant 0 100  100 100
+formant 1 110  100 80
+formant 2 110  80 80
+formant 3 115  110 80
+formant 4 115  80 100
+formant 5 95  50 100
+formant 6 0 0 0
+formant 7 120  100 100
+formant 8 110  100 100
+intonation 3
+voicing 150

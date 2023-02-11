@@ -1,0 +1,10 @@
+language variant
+name Michel2
+klatt 6
+pitch  82 122
+voicing 100
+consonants 60 40
+formant 1 95 150 120
+formant 2 100 120 140
+formant 3 95 95 800
+formant 4 270 30 30 -30

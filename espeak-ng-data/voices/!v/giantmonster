@@ -1,0 +1,21 @@
+language variant
+maintainer Enes Deniz
+name giantMonster
+gender male
+klatt 6
+pitch 50 90
+speed 70
+words 1
+formant 1 80 100 100
+formant 2 87 100 100
+formant 3 87 100 100
+formant 4 150 60 80
+formant 5 100 85 80
+formant 6 112 100 80
+formant 7 110 95 100
+formant 8 105 110 100
+roughness 10
+consonants 90 80
+tone 530 250 770 100 215 225
+stressAdd 100 130 150 80 0 0 100 100
+stressAmp 16 16 20 16 16 16 24 20

@@ -1,0 +1,15 @@
+language variant
+name Edith
+klatt 6
+consonants 85 85
+voicing 100
+breath 42
+
+pitch 200 340
+
+formant 1 78 100 190 98
+formant 2 86 100 100 500
+formant 3 115 100 100
+formant 4 120 100 40 100
+formant 5 120 100 100
+

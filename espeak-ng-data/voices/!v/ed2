@@ -1,0 +1,12 @@
+language variant
+name Ed2
+klatt 6
+pitch 90 145
+voicing 100
+consonants 55 80
+breath 45
+formant 1 94 100 80 -10
+formant 2 101 120 100 -20
+formant 3 100 80 75
+formant 4 150 30 15
+

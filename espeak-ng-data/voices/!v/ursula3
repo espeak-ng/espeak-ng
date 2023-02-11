@@ -1,0 +1,11 @@
+language variant
+name Ursula3
+klatt 6
+voicing 70
+pitch 100 215
+consonants 70 60
+formant 1 90 100 100 120
+formant 2 120  100 100 100
+formant 3 118  100 700
+formant 4 114  100 15
+formant 5 28  100 100

@@ -1,0 +1,10 @@
+language variant
+name dave6
+klatt 6
+voicing 94
+pitch 80 150
+formant 1 84 100 75
+formant 2 110 90 75
+formant 3 105 120 75
+formant 4 100 80 40
+formant 5 100 80 80

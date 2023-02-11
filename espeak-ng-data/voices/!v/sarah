@@ -1,0 +1,15 @@
+language variant
+name Sarah
+klatt 6
+consonants 85 85
+voicing 100
+breath 45
+
+pitch 140 280
+
+formant 1 77 100 130 100
+formant 2 92 100 100 400
+formant 3 110 100 100
+formant 4 120 100 24 30
+formant 5 95 100 100
+

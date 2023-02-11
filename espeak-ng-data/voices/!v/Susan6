@@ -1,0 +1,13 @@
+language variant 
+name susan6
+klatt 6
+pitch 160 228
+breath 40
+consonants 150 150
+voicing 94
+
+formant 1 110  80 160 
+formant 2 110  70 150 
+formant 3 110  70 150 
+formant 4 115  80 28
+formant 5 115  80 100 

@@ -1,0 +1,9 @@
+language variant
+name Auntie2
+klatt 6
+pitch 204 176
+formant 1 115 80 160 -20
+formant 2 130 75 150 -200
+formant 3 123 75 150
+formant 4 125 80 28
+formant 5 125 80 150

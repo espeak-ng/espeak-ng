@@ -1,0 +1,10 @@
+	language variant
+name Zira
+klatt 6
+voicing 80
+pitch 180 240
+formant 1 120 58 179 -30
+formant 2 135 75 162 -260
+formant 3 125 75 160
+formant 4 135 80 160
+formant 5 135 80 160

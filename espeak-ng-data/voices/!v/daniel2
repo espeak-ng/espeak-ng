@@ -1,0 +1,13 @@
+language variant
+name Daniel2
+gender male
+klatt 6
+pitch 40 120
+consonants 95 90
+voicing 95
+formant 1 85  97 100
+formant 2 97  110 110
+formant 3  96 100 120
+formant 4  90 110 150
+formant 5 95 103 100
+formant 6 100 100 100

@@ -1,0 +1,13 @@
+language variant
+name VoiceoverArtist
+klatt 6
+speed 80
+pitch 75 115
+voicing 80
+consonants 70 60
+formant 1 85 100 100
+formant 2 91 100 100
+formant 3 93 100 100
+breath 40
+stressAmp 19 20 23 19 20 20 24 20
+stressAdd -10 0 -10 -10 -10 -10 0 0

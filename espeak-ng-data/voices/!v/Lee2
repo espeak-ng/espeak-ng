@@ -1,0 +1,11 @@
+language variant
+name Lee2
+klatt 6
+pitch 85 110
+breath 45
+formant 1 80 80 100 100
+formant 2 80 80 80
+formant 3 84 9 9
+formant 4 290 290
+formant 5 130 0 0
+formant 6 90 90 90

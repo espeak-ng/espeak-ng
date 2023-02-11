@@ -1,0 +1,23 @@
+language variant
+name Demonic2
+klatt 4
+stressAmp 20 18  20 20  20 22  22 22
+formant 1 70 100 100
+formant 2 80 100 90
+formant 3 80 160 90
+formant 4 80 80
+formant 5 100 100 80
+formant 6 80 80 100
+formant 7 130 130 110
+formant 8 120 120 150
+intonation 10
+pitch 43 120tone 100 255 1200 255 1500 255
+echo 8 10000
+roughness 3
+breath 20 5 2 10 5 0 27 100
+breathw 255 255 60 180 160 255 255 255
+consonants 194 255
+voicing 65
+stressLength 0 1 2 3 4 5 6 7
+stressAdd 250 350 700 500 450 290 100 225
+stressAmp 16 16 24 24 16 16 20 24

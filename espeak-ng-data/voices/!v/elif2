@@ -1,0 +1,18 @@
+language variant
+name Elif2
+klatt 6
+pitch 250 370
+formant 1 100 80 90
+formant 2 110 80 100
+formant 3 110 75 110
+formant 4 120 100 90
+formant 5 80 100 110
+formant 6 50 50 55
+formant 7 100 0 100
+formant 8 100 0 100
+intonation 2
+speed 97
+voicing 77
+consonants 60 50
+tone 150 75 600 125 1200 100 2000 75 3000 25
+breath 60

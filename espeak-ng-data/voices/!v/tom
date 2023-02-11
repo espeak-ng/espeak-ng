@@ -1,0 +1,23 @@
+language variant
+name Tom
+gender male
+maintainer Enes Deniz
+pitch  80 125
+echo 0 0
+flutter 0
+roughness 0
+stressAmp 17 18  19 18  20 22  23 23
+
+
+formant 0 90 250 120
+formant 1 90 170 130
+formant 2 98 120 120
+formant 3 95 70 200
+formant 4 30 30 30 -100
+formant 5 90 120 150
+formant 6 200 150 65
+formant 7 100 0 100
+formant 8 100 0 100
+voicing 50
+consonants 48 35
+tone 50 50 400 75 1000 50 1500 25

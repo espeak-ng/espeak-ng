@@ -1,0 +1,12 @@
+language variant
+name Gene4
+klatt 6
+pitch  100 130
+voicing 120
+consonants 50 110
+formant 1 90 100 110 -80
+formant 2 100 100 95
+formant 3 90 100 100
+formant 4 90 100 20
+formant 5 90 110 110
+formant 6 100 70 100

@@ -1,0 +1,10 @@
+language variant
+name Edward3
+klatt 6
+voicing 100
+consonants 110 130
+pitch  60 123
+formant 1 92 100 130
+formant 2 103 100 80
+formant 3 103 100 70
+formant 4 114 100 60

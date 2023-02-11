@@ -1,0 +1,9 @@
+language variant
+name tom2
+klatt 6
+pitch  70 110
+voicing 70
+formant 1 90 100 100
+formant 2 97 90 50
+formant 3 101 70 50
+formant 4 110 65 55 

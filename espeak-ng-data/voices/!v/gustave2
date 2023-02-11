@@ -1,0 +1,13 @@
+language variant
+name Gustave2
+klatt 6
+pitch  80 123
+voicing 100
+breath 45
+consonants 115 120
+formant 1 77 131 45
+formant 2 92 70 55
+formant 3 140 50 65
+formant 4 69 65 65
+formant 5 79 60 75
+formant 6 89 60 75

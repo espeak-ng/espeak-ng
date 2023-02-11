@@ -1,0 +1,10 @@
+language variant
+name Marcelo2
+klatt 6
+pitch  65 115
+voicing 88
+formant 1 75 131 65
+formant 2 90 60 70
+formant 3 59 50 5000
+formant 4 69 65 35
+formant 5 69 60 25

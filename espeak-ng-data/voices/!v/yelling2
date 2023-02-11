@@ -1,0 +1,14 @@
+language variant
+name yelling2
+klatt 6
+voicing 68
+consonants 85 80
+speed 80
+pitch  230 320
+breath 15
+formant 1 90 100 80
+formant 2 97 130 110
+formant 3 100 90 400
+formant 4 100 100 90
+formant 5 110 100 100
+formant 6 100 100 100

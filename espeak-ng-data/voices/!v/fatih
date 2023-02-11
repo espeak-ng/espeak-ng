@@ -1,0 +1,21 @@
+language variant
+name Fatih
+gender male
+maintainer Enes Deniz
+roughness 0
+flutter 0
+pitch  75 117
+formant 0 10 150 200
+formant 1 90 100 100
+formant 2 95 75 45
+formant 3 100 90 150
+formant 4 100 100 120
+formant 5  102 10 20
+formant 6  40 100 50
+formant 7 60 50 60
+formant 8 100 50 40
+voicing 90
+consonants 60 55
+tone 60 150 500 210 1000 150 2000 85
+breath 7 5 4 3 2 2
+breathw 150 150 200 200 400 400

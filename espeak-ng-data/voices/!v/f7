@@ -1,0 +1,12 @@
+language variant
+name female7
+klatt 6
+breath 45
+pitch 142 200
+formant 0 120  80 150
+formant 1 115  80 160 -20
+formant 2 130  75 150 -200
+formant 3 123  75 150
+formant 4 125  80 28
+formant 5 125  80 150
+formant 6 110  80 150

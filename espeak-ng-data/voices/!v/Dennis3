@@ -1,0 +1,12 @@
+language variant
+name Dennis3
+klatt 6
+pitch  80 115
+voicing 80
+consonants 80 80
+formant 1 95 95 95
+formant 2 100 100 100
+formant 3 90 90 500
+formant 4 80 40 40
+formant 5 80 80 80
+formant 6 10 10 10

@@ -1,0 +1,11 @@
+language variant
+name Betty4
+klatt 6
+voicing 102
+consonants 70 80
+pitch 220 280
+formant 1 84 100 100 80
+formant 2 118 100 100
+formant 3 110 100 100 300
+formant 4 120 100 15
+formant 5 70 100 100

@@ -1,0 +1,16 @@
+language variant
+name Benjamin3
+klatt 6
+voicing 100
+breath 0 0 0 0 0 0 0 0
+flutter 0
+roughness 0
+formant 0 100 100 100 0
+formant 1 105 100 130 0
+formant 2 105 100 70 0
+formant 3 105 100 100 0
+formant 4 125 100 75 0
+formant 5 125 100 75 0
+formant 6 100 50 100 0
+formant 7 100 100 100 0
+formant 8 100 100 100 0

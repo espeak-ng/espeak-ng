@@ -1,0 +1,13 @@
+language variant
+name Shelley
+klatt 6
+pitch 170 270
+consonants 60 60
+voicing 84
+breath 40
+formant 1 88 80 80
+formant 2 114 100 200
+formant 3 100 100 100
+formant 4 200 100 20 60
+formant 5 70 100 100
+formant 6 30 0 0

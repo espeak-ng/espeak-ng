@@ -1,0 +1,14 @@
+language variant
+name YoungPaul3
+maintainer Enes Deniz
+klatt 6
+consonants 60 65
+voicing 80
+pitch 155 225
+formant 1 75 25 100 60
+formant 2 90 100 100 150
+formant 3 90 100 80 303
+formant 4 114 60 60
+formant 5 100 40 60
+breath 15
+stressAdd 0 30 10 0 0 0 20 10

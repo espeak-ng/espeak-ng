@@ -1,0 +1,16 @@
+language variant
+name Dave
+gender male
+maintainer Enes Deniz
+pitch  65 100
+formant 0 100 100 100
+formant 1 90 100 75
+formant 2 95 75 45
+formant 3 100 90 150
+formant 4 100 100 120
+formant 5 100 10 20
+formant 6  40 100 50
+formant 7 60 50 60
+formant 8 100 50 40
+voicing 100
+tone 60 150 600 250 1200 200 2000 100

@@ -1,0 +1,49 @@
+#Language stuff; All mandatory.
+Language En-US 1
+#Here's the name of the variant.
+name Jason2
+#The voice the variant is based on if any is used at all
+klatt 6
+#Some extra preliminaries.
+Gender Male 0
+Age 38
+Option Reduce_T 999
+#Pitch range
+#First number's the bass value, then the top value.
+pitch 68 114
+#Intonation sets how much pitch change happens during sentence phrases.
+#1: The default,
+#2: Less intonation,
+#3: Even further less intonation (commas don't change pitch),
+#4: Pitch rises (instead of falls) at the sentence end.
+Intonation 1
+#For the next 9 lines:
+#First is the frequency of the formant.
+#Next is the volume of the formant.
+#Finally, the width of that formant's range.
+#Add a fourth number to force a fixed frequency onto that formant.
+formant 0 94 95
+formant 1 93 95
+formant 2 95 95
+formant 3 94 95
+formant 4 93 95
+formant 5 96 95
+formant 6 95 95
+Formant 7 92 95
+Formant 8 98 95
+#And here's the graphic equalizer.
+#Four pairs of numbers: Bass, Mid Low, Mid High and Treble.
+#First number in the pair's the frequency; Second is the volume.
+tone 2000 255 4000 255 6000 255 8000 255
+#Voicing and Consonants change the overall character of a variant.
+#Sounds like someone's missing two front teef if Consonant's two numbers are 0's.
+voicing 50 -55
+consonants 125 -125
+#The following three lines allow stress to be enforced.
+#You can add stress, amplify it, and evenforce it to be a certain length.
+StressAdd 15 15 15 15 15 15 15 15
+StressAmp 40 40 40 40 40 40 40 40
+StressLength 80 80 80 80 80 80 80 80
+#These last two lines add a breath component to a variant.
+Breath 255 255 255 255 255 255 255 255
+BreathW 255 255 255 255 255 255 255 255

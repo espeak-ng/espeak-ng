@@ -1,0 +1,16 @@
+language variant
+maintainer Enes Deniz
+name CrushedBugAboutToDie
+klatt 6
+pitch 200 600
+speed 180
+formant 1 130 100 150
+formant 2 150 100 160
+formant 3 160 125 160
+formant 4 160 100 160
+formant 5 160 100 160
+voicing 15
+consonants 10 30
+breath 60
+stressAdd 100 500 200 200 200 200 1700 100
+stressAmp 10 8 14 12 0 0 25 13

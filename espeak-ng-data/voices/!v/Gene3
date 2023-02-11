@@ -1,0 +1,12 @@
+language variant
+name Gene3
+klatt 6
+pitch  80 110
+voicing 120
+consonants 50 110
+formant 1 90 100 110 -50
+formant 2 100 100 95
+formant 3 90 100 100
+formant 4 90 100 28
+formant 5 90 110 110
+formant 6 100 70 100
