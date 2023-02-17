@@ -165,7 +165,10 @@ phoneme s
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   
   IF prevPh(isPalatal) OR nextPh(S) THEN
+    IF prevPh(j) THEN
+    ELSE
       ChangePhoneme(S)
+    ENDIF
   ENDIF
 
   IF nextPh(isPause) THEN
@@ -183,7 +186,10 @@ phoneme z
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
   IF prevPh(isPalatal) OR nextPh(Z) THEN
+    IF prevPh(j) THEN
+    ELSE
       ChangePhoneme(Z)
+    ENDIF
   ENDIF
   
   IF KlattSynth THEN
@@ -321,7 +327,10 @@ phoneme k
   ELIF nextPh(l) THEN
     WAV(ustop/kl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
-    ChangePhoneme(g)
+    IF nextPh(w) THEN
+    ELSE
+      ChangePhoneme(g)
+    ENDIF
   ENDIF
   WAV(ustop/k_unasp, 70)
 endphoneme
