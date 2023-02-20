@@ -85,29 +85,18 @@ src/espeak-ng "Bon dia" --ipa -v ca
 
 [Taules de sons](http://www.ub.edu/sonscatala/ca/central)
 
+[La fonologia del català](http://diposit.ub.edu/dspace/bitstream/2445/67057/1/Fonologia_catalana.pdf)
+
+[Fonètica del català](https://www.auladecatala.com/fonetica-i-ortografia/) (Aula de català)
 [CPNL](https://blogs.cpnl.cat/dgava12/files/2012/12/Full-de-ruta_unitat21.pdf)
 
 [Apunts del IES Olorda](http://iesolorda.cat/departaments/cat/fon_tot.pdf)
 
+## Altres sistemes de transcripció
+[Segre](https://nlp.lsi.upc.edu/freeling/demo/segre.php)
+
+[TransText](https://sites.google.com/site/juanmariagarrido/research/resources/tools/transtext)
 
 ## Tests
-Poso un [exemple](https://github.com/projecte-aina/espeak-ng/blob/dev-ca/tests.tsv) de com ho pensava fer.
 
-tsv amb: segment de text    transcripció    descripció  comentaris
 
-a comentaris: "ok" vol dir implementat. "consultar" vol dir que s'ha de mirar la bibliografia.
-
-PENDENTS:
-
-* accent 1a pers plural pres ind
-* tònica imperatius (irromp, corromp)
-* mirar les u
-
-## Dubtes
-* fem geminades?
-* com volem que soni la v?
-* què fem amb i + vocal (camió, Núria, hi ha, etc.)
-* porta uniforme
-* molt espès
-* els xàfegs, vas xiular; els jocs, has jugat; els rics, vas riure
-* neutra ɐ o ə?

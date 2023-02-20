@@ -45,14 +45,15 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 170
-  ChangeIfUnstressed(U)
+//  ChangeIfUnstressed(U)
+  ChangeIfUnstressed(u)
   FMT(vowel/oo)
 endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
   length 170
-  ChangeIfUnstressed(U)
+  ChangeIfUnstressed(u)
   FMT(vowel/o)
 endphoneme
 

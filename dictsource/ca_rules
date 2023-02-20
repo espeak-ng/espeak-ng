@@ -102,6 +102,7 @@
     qu) ix (K      iZ
      K) ix (A      iS
      A) ig (_      tS
+     C) ig (_      itS
      A) ig (_A     dZ
      A) ig (_L09   dZ
      
@@ -116,6 +117,7 @@
 .group l
         l          l
         lt (_      l
+        lt (s_     l
         ll         l^
      _) l' (P2     l
      -) la (_      la#
@@ -130,6 +132,7 @@
         mpr        mpr
         mbr        mbr
         mb (K      m
+   _a)  mb (_A     mb
         
   //      ment (_    m'en  // ??
 
@@ -142,12 +145,16 @@
 //        nt (C      n ??
         nt (_      =n
         nd (_      =n
+        nt (s_     =n
+        nd (s_     =n
         nt (_A     nt
         nt (_hA    nt
         nt (-h     nt // anant-hi
         ny         n^ // palatalitzacions
         nc (_      N  // velaritzacions
         ng (_      N
+        nc (s_      N  // velaritzacions
+        ng (s_      N
         n  (L26_A  n
                 
 

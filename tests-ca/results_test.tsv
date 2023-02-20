@@ -1,0 +1,183 @@
+	segment	transcripció	explicació	comentaris	transcripcio_espeak	correccio
+0					nˈan	False
+1	# b  				kʊjɕinˈɛd bˈe	False
+2	amb tu i amb mi	ˈam tˈu j ˈam mˈi	emmudiment de b després de m	ok	ˈam tˈu j ˈam mˈi	True
+3	amb ell	ˈamb ˈɛʎ	sensiblitizació de la b de «amb» davant de vocal	verificar	ˈamp ˈɛʎ	False
+4	rumb a l'oest	rˈum ə luˈest	emmudiment de b després de m	ok	ɾrˈum ə luˈest	False
+5	Abac	əβˈak	b aproximant entre vocals	ok	əβˈak	True
+6	quatre bacs	kwˈatɾə βˈaks	b aproximant entre vocals	ok	kwˈatɾə βˈaks	True
+7	albarà   	əlβəɾˈa	b aproximant entre líquida o fricativa i vocal	ok	əlβəɾˈa	True
+8	al bar	əl βˈar	b aproximant entre líquida o fricativa i vocal 	ok	əl βˈa	False
+9	esbós	əzβˈos	b aproximant entre líquida o fricativa i vocal 	ok	əzβˈos	True
+10	els boscos	əlz βˈɔskus	b aproximant entre líquida o fricativa i vocal	ok	əlz βˈɔskus	True
+11	un tub	un tˈup	b ensordeix a final de paraula	ok	un tˈup	True
+12	dissabte	disˈaptə	b ensordeix davant de consonant sorda	ok	disˈaptə	True
+13	un tub ample	un tˈup ˈamplə	b ensordeix a final de paraula	verificar	un tˈup ˈamplə	True
+14	calbícia	kəlβˈisiə	b aproximant entre líquida o fricativa i vocal 	ok	kəlβˈisiə	True
+15	calb i espès	kˈalp i əspˈɛs	emudiment de b a final de paraula	verificar	kˈalp i əspˈɛs	True
+16					nˈan	False
+17	# c				kʊjɕinˈɛt sˈe	False
+18	catacrac	kətəkɾˈak	c sona k	ok	kətəkɾˈak	True
+19	Cecília	səsˈiliə	c sona s davant de «e» i de «i»	ok	səsˈiliə	True
+20	èczema	ˈɛɡzəmə	c sona [g] davant de consonant sonora	ok	ˈɛɡzəmə	True
+21	soc jo	sˈɔɡ ʒˈɔ	c sona [g] davant de consonant sonora	ok	sˈɔɡ ʒˈɔ	True
+22	encara en tinc	əŋkˈaɾə ən tˈiŋ	c després de «n» fa canviar el punt d’articulació de la nasal, i s’emmudeix a final de mot	ok	əŋkˈaɾə ən tˈiŋ	True
+23	encès	ənsˈɛs	c desrpés de «n» i seguida de «e» o «i» no fa canviar la nasal	ok	ənsˈɛs	True
+24					nˈan	False
+25	# ç				kʊjɕinˈɛt setɾˌəŋkˈaðɐ	False
+26	llaç	ʎˈas	ç sona [s]	ok	ʎˈas	True
+27	llaç estret	ʎˈaz əstɾˈet	ç sona [z] davant de vocal	ok	ʎˈaz əstɾˈet	True
+28	llaç bonic	ʎˈaz βunˈik	ç sona [z] davant de consonant sonora	ok	ʎˈaz βunˈik	True
+29					nˈan	False
+30	# d				kʊjɕinˈɛd dˈe	False
+31	dos	dˈɔs	d és d a inici de mot	ok	dˈɔs	True
+32	àcid	ˈasit	d és [t] a final de mot	ok	ˈasit	True
+33	àcid sulfúric	ˈasit sulfˈuɾik	d és [t] seguida de consonant sorda	ok	ˈasit sulfˈuɾik	True
+34	àcid aquós	ˈasit əkwˈos		comprovar com ha de ser	ˈasit əkwˈos	True
+35	àcid vermell	ˈasid bərmˈɛʎ		comprovar com ha de ser	ˈasid bərmˈɛʎ	True
+36	adscrit	ətskɾˈit	d és [t] seguida de consonant sorda	ok	ətskɾˈit	True
+37	endur	əndˈu	d és d entre nasal i vocal	ok	əndˈu	True
+38	calda	kˈaldə	d és d entre l i vocal	ok	kˈaldə	True
+39	maragda	məɾˈaɡdə	d és d entre oclusiva i vocal	ok	məɾˈaɡdə	True
+40	la diada de demà	lə ðiˈaðə ðə ðəmˈa	d és aproximant entre vocals	ok	lə ðiˈaðə ðə ðəmˈa	True
+41	esdevenir	əzðəβənˈi	d és aproximant entre fricativa i vocal	ok	əzðəβənˈi	True
+42	es dona	ˈez ðˈɔnə	d és aproximant entre fricativa i vocal	ok	ˈez ðˈɔnə	True
+43	arbust	ərβˈust	d és aproximant entre r i vocal	ok	ərβˈust	True
+44	vidre	bˈiðɾə	d és aproximant entre vocal i r	ok	bˈiðɾə	True
+45	examimand	əɡzəmimˈan	emmudiment de «d» deprés de «n» en final de mot	ok	əɡzəmimˈan	True
+46					nˈan	False
+47	# f				kʊjɕinˈɛt ˈɛfɐ	False
+48	fa fred	fˈa fɾˈet	f és f	repassar davant de r	fˈa fɾˈet	True
+49	afganès	əvɣənˈɛs	f sona «v» davant de consonant sonora	ok	əvɣənˈɛs	True
+50	escalf d’amor	əskˈalv ðəmˈo	f sona «v» davant de consonant sonora	ok	əskˈalv ðəmˈo	True
+51	escalf amic	əskˈalv əmˈik	f sona «v» davant de vocal	ok	əskˈalv əmˈik	True
+52					nˈan	False
+53	# g				kʊjɕinˈɛd ɟˈe	False
+54	groc	ɡɾˈɔk	g és [g] a inici de mot	ok	ɡɾˈɔk	True
+55	guia	ɡˈiə	gu és [g] davant de i o e, i la u no es pronuncia	ok	ɡˈiə	True
+56	preg	pɾˈek	g és [k] a final de mot	ok	pɾˈek	True
+57	diàleg amè	diˈalək əmˈɛ	g és [k] a final de mot	ok	diˈalək əmˈɛ	True
+58	pago	pˈaɣʊ	g és aproximant entre vocal i a o o	ok	pˈaɣu	False
+59	una guia	ˌunə ɣˈiə	gu és aproximant entre vocal i i o e, i la u no es pronuncia	ok	ˌunə ɣˈiə	True
+60	En Roger va a Girona	ən ruʒˈe βˈa ə ʒiɾˈonə	g és [ʒ] davant de i o e	ok	ən ɾruʒˈe βˈa ə ʒiɾˈonə	False
+61	esgarrapa i produeix gas	əzɣəɾrˈapə j pɾuðwˈeʒ ɣˈas	g és aproximant entre fricativa i «a» o «o»	ok	əzɣəɾrˈapə j pɾuðwˈeʒ ɣˈas	True
+62	algues i cargols	əlɣˈez i kərɣˈols	g és aproximant entre r o l i a, o, u	ok	əlɣˈez i kərɣˈols	True
+63	aigüera	əjɣwˈeɾə	g és aproximanet entre vocal i ü	ok	əjɣwˈɛɾə	False
+64	anagrama	ənəɣɾˈamə	g és aproximant entre vocal i r + vocal	ok 	ənəɣɾˈamə	True
+65	raig	rˈatʃ	ig és [tʃ] a final de mot	ok	ɾrˈatʃ	False
+66	roig encès	rˈɔdʒ ənsˈɛs	ig és [dʒ] a final de mot seguit de vocal	ok	ɾrˈɔdʒ ənsˈɛs	False
+67	roig feixuc	rˈɔdʒ fəʃˈuk	ig és [dʒ] a final de mot seguit de sonora		ɾrˈɔdʒ fəʃˈuk	False
+68					nˈan	False
+69	# i				kʊjɕinˈɛt ˈi	False
+70	mira	mˈiɾə	i és  [i]	ok	mˈiɾə	True
+71	aigua	ˈajɣwə	i és [j] després de vocal	ok	ˈajɣwə	True
+72	una i mitja	ˌunə j mˈidʒə	i és [j] després de vocal	ok	ˌunə j mˈidʒə	True
+73	quincalla	kiŋkˈaʎə	i és [i] després de «gu» i «qu»	ok	kiŋkˈaʎə	True
+74		nˈan	i és [i] després de «gü» i «qü»	ok	nˈan	True
+75	camió	kəmiˈo	i és [i] abans de vocal	ok	kəmiˈo	True
+76					nˈan	False
+77	# m				kʊjɕinˈɛt ˈɛmɐ	False
+78	mama	mˈamə	m és [m]	ok	mˈamə	True
+79	amfiteatre	əɱfitɛˈatɾə	m és [ɱ] davant de f	ok	əɱfitɛˈatɾə	True
+80	anem fent	ˈanəɱ fˈen	m és [ɱ] davant de f	ok	ˈanəɱ fˈen	True
+81					nˈan	False
+82	# n				kʊjɕinˈɛt ˈɛnɐ	False
+83	nena	nˈenə	n és [n]	ok	nˈenə	True
+84	en veu	əm bˈew	n és [m] quan va seguida de labial	ok	əm bˈew	True
+85	un bol	um bˈɔl	n és [m] quan va seguida de labial	ok	um bˈɔl	True
+86	en pau	əm pˈaw	n és [m] quan va seguida de labial	ok	əm pˈaw	True
+87	confecció	kuɱfəksiˈo	n és [ɱ] davant de f	falta	kuɱfəksiˈo	True
+88	un ferro	uɱ fˈɛɾrʊ	n és [ɱ] davant de f	falta	uɱ fˈɛɾru	False
+89	ungla	ˈuŋɡlə	n és [ŋ] quan va seguida de velar 	ok	ˈuŋɡlə	True
+90	enquesta	əŋkˈestə	n és [ŋ] quan va seguida de velar 	ok	əŋkˈestə	True
+91	un gat	uŋ ɡˈat	n és [ŋ] quan va seguida de velar 	ok	uŋ ɡˈat	True
+92	en compra	əŋ kˈɔmpɾə	n és [ŋ] quan va seguida de velar 	ok	əŋ kˈɔmpɾə	True
+93	tinc sang	tˈiŋ sˈaŋ	n és [ŋ] quan va seguida de velar  + emmudiment de la velar si és al final de paraula	ok	tˈiŋ sˈaŋ	True
+94	sang i fetge	sˈaŋk i fˈedʒə	n és [ŋ] quan va seguida de velar + no emmudiment de velar si va seguida de vocal 	ok	sˈaŋk i fˈedʒə	True
+95					nˈan	False
+96	# p				kʊjɕinˈɛt pˈe	False
+97	a camp obert	ə kˈam uβˈɛɾt	emmudiment de p després de m seguit de vocal	ok	ə kˈam uβˈɛɾt	True
+98	un camp cobert	uŋ kˈam kuβˈɛɾt	emmudiment de p després de m seguit de consonant	ok	uŋ kˈam kuβˈɛɾt	True
+99	compte	kˈɔmpːtə	"emmudiment de «p» després de «m"" seguit de consonant"	ok	kˈɔmpːtə	True
+100	comprar	kumpɾˈa	no emmudiment de «p» entre «m» i «r»	ok	kumpɾˈa	True
+101	Irromp-hi	iɾrˈompi	no emmudiment al final d’imperatiu seguit de «hi» o «ho»	ok	iɾrˈompi	True
+102	hipnosi	ibnˈozi	sonorització davant de consonant sonora	ok	ibnˈozi	True
+103	cap límit	kˈap lˈimit	sonorització davant de consonant sonora	ha de ser aproximant?	kˈap lˈimit	True
+104		nˈan			nˈan	True
+105	# q	kʊjɕinˈɛt kˈu			kʊjɕinˈɛt kˈu	True
+106	Iraq	iɾˈak	q sona k	ok	iɾˈak	True
+107	quatre quintos	kwˈatɾə kˈintʊs	q sona k quan va seguida de u	ok	kwˈatɾə kˈintus	False
+108	Iraq lliure	iɾˈaɡ ʎˈiwɾə	q sona g a final de paraula seguida de sonora	repassar	iɾˈaɡ ʎˈiwɾə	True
+109		nˈan			nˈan	True
+110	# s	kʊjɕinˈɛt ˈɛssə			kʊjɕinˈɛt ˈɛssə	True
+111	sol	sˈɔl	s sona «s»	ok	sˈɔl	True
+112	mossa	mˈɔsə	ss sona «s»	ok	mˈɔsə	True
+113	casa	kˈazə	s sona «z» entre vocals	ok	kˈazə	True
+114	les ones	ləz ˈɔnəs	s sona «z» a final de paraula davant de vocal	ok	ləz ˈɔnəs	True
+115	els uns	əlz ˈuns	s sona «z» a final de paraula davant de vocal	ok	əlz ˈuns	True
+116	els homes	əlz ˈɔməs	s sona «z» a final de paraula davant de «h» + vocal	ok	əlz ˈɔməs	True
+117	els gasos esguerrats	əlz ɣəzˈoz əzɣəɾrˈats	s sona «z» davant de consonant sonora	ok	əlz ɣəzˈoz əzɣəɾrˈats	True
+118	anys	ˈaɲʃ	s sona «S» després de «ny»	ok	ˈaɲʃ	True
+119	anys i anys	ˈaɲʒ i ˈaɲʃ	s sona «S» després de «ny» i abans de vocal	ok	ˈaɲʒ i ˈaɲʃ	True
+120	aquests dies	əkˈedz ðˈiəs	la «s» d’ «aquest/s» no es pronuncia	ok	əkˈedz ðˈiəs	True
+121	aquest amic	əkˈest əmˈik	la «s» d’ «aquest» es pronuncia quan va seguida de vocal	ok	əkˈest əmˈik	True
+122	els xocs	əlʃ ʃˈɔks	«s» sona ʃ davant de ʃ	ok	əlʃ ʃˈɔks	True
+123	els jocs	əlʒ ʒˈɔks	«s» sona  ʒ davant de  ʒ	ok	əlʒ ʒˈɔks	True
+124		nˈan			nˈan	True
+125	# t	kʊjɕinˈɛt tˈe			kʊjɕinˈɛt tˈe	True
+126	atleta	ədlˈetə	sonorització de «t» davant de consonant sonora	ok	ədlˈetə	True
+127	comprat millor	kumpɾˈad miʎˈo	sonorització de «t» davant de consonant sonora	ha de ser aproximant?	kumpɾˈad miʎˈo	True
+128	anant	ənˈan	emmudiment de «t» després de «n»	ok	ənˈan	True
+129	Anant-hi	ənˈanti	sensiblització de «t» després de «n» seguit de -hi, -ho	ok	ənˈanti	True
+130	vint anys	bˈint ˈaɲʃ	sensiblització de «t» després de «n» seguit de vocal	ok	bˈint ˈaɲʃ	True
+131	molt	mˈɔl	emmudiment de «t» desrpés de «l» final de mot	ok	mˈɔl	True
+132	setmana	səmmˈanə	geminació del grup «tm»	ok	səmmˈanə	True
+133	cotna	kˈɔnnə	geminació del grup «tn»	ok	kˈɔnnə	True
+134	espatlla	əspˈaʎʎə	geminació del grup «tl»	ok	əspˈaʎʎə	True
+135		nˈan			nˈan	True
+136	# u	kʊjɕinˈɛt ˈu			kʊjɕinˈɛt ˈu	True
+137	una 	ˈunə	u és u		ˈunə	True
+138	veniu	bənˈiw	u és w després de vocal		bənˈiw	True
+139	quatre 	kwˈatɾə	u és w abans de vocal		kwˈatɾə	True
+140	cuit	kˈujt	u és u davant de i		kˈujt	True
+141	circuït	sirkuˈit	u és u davant de ï		sirkuˈit	True
+142	aigüera	əjɣwˈɛɾə	ü és w abans de vocal		əjɣwˈɛɾə	True
+143		nˈan			nˈan	True
+144	# v	kʊjɕinˈɛd ʋˈe βˈaɪɕɐ			kʊjɕinˈɛd ʋˈe βˈaɪɕɐ	True
+145	vell	bˈɛʎ	v sona «b»	ok	bˈɛʎ	True
+146	avi	ˈaβi	v és aproximant entre vocals	ok	ˈaβi	True
+147	la vella	lə βˈɛʎə	v és aproximant entre vocals	ok	lə βˈɛʎə	True
+148	el vell	əl βˈɛʎ	v és aproximant entre «l», «r» o fricativa i vocal	ok	əl βˈɛʎ	True
+149		nˈan			nˈan	True
+150	# x	kʊjɕinˈɛt ˈiks			kʊjɕinˈɛt ˈiks	True
+151	taxa	tˈaksə	x sona ks	ok	tˈaksə	True
+152	exàmen	əɡzˈamən	x sona gz en paraules començades en vocal, si seguida de vocal o sonora	ok	əɡzˈamən	True
+153	expresident	əkspɾəziðˈen	x sona ks en paraules començades en vocal, si seguida de sorda	ok	əkspɾəziðˈen	True
+154	enxaneta	ənʃənˈetə	x sona S després de no-vocal	ok	ənʃənˈetə	True
+155	caixa	kˈaʃə	ix sona S després de vocal i la i no es pronuncia	ok	kˈaʃə	True
+156	pixa	pˈiʃə	ix sona iS després de no vocal	ok	pˈiʃə	True
+157	calaix 	kəlˈaʃ	ix sona S després de vocal i al final de paraula	ok	kəlˈaʃ	True
+158	calaix tancat	kəlˈaʃ təŋkˈat	ix sona S després de vocal i al final de paraula si la següent paraula comença en sorda	ok	kəlˈaʃ təŋkˈat	True
+159	calaix obert	kəlˈaʒ uβˈɛɾt	ix sona Z després de vocal i al final de paraula si la següent paraula comença en vocal	ok	kəlˈaʒ uβˈɛɾt	True
+160	calaix bonic	kəlˈaʒ βunˈik	ix sona Z després de vocal i al final de paraula si la següent paraula comença en sonora	ok	kəlˈaʒ βunˈik	True
+161	metxa	mˈetʃə	tx sona «tS»	ok	mˈetʃə	True
+162	despatx d’advocat	dəspˈadʒ dəbbʊkˈat	tx sona «dZ» seguida de consonant sonora	ok	dəspˈadʒ dəbbukˈat	False
+163	despatx obert	dəspˈadʒ uβˈɛɾt	tx sona «dZ» seguida de vocal	ok	dəspˈadʒ uβˈɛɾt	True
+164		nˈan			nˈan	True
+165	# e	kʊjɕinˈɛt ˈe			kʊjɕinˈɛt ˈe	True
+166	festa	fˈestə	e sona [e]	ok	fˈestə	True
+167	cel	sˈɛl	e sona [ɛ] davant de l	ok	sˈɛl	True
+168	merla	mˈɛrlə	e sona [ɛ] davant de r	ok	mˈɛrlə	True
+169	serp	sˈerp	e sona [e] davant de r + m/p/b	mirar què passa amb «erm» i «ferm»	sˈerp	True
+170	element	ələmˈen	e sona [ə] quan és àtona	ok	ələmˈen	True
+171	fonètica	funˈɛtikə	è sona [ɛ] 	ok	funˈɛtikə	True
+172		nˈan	é sona [e]		nˈan	True
+173	carrer	kəɾrˈe	e sona [e] a la terminació -er	ok	kəɾrˈe	True
+174		nˈan			nˈan	True
+175	# o	kʊjɕinˈɛt ˈo			kʊjɕinˈɛt ˈo	True
+176		nˈan	o sona [o]		nˈan	True
+177	mocador	mukəðˈo	o sona [u] quan és àntona	ok	mukəðˈo	True
+178	cosa	kˈɔzə	o sona [ɔ] quan la síl·laba tònica és la primera	ok	kˈɔzə	True
+179	flor	flˈɔ	o sona [ɔ] en monosíl·labs	però «moc»	flˈɔ	True
+180	color	kulˈo	o sona [o] en les terminacions en -or	ok	kulˈo	True
+181	cou	kˈɔw	o sona [ɔ]  davant de u	ok	kˈɔw	True
