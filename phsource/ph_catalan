@@ -14,6 +14,12 @@ phoneme a
   FMT(vowel/a_6)
 endphoneme
 
+phoneme a2 // a que no es neutralitza
+  vwl starttype #a endtype #a
+  length 180
+  FMT(vowel/a_6)
+endphoneme
+
 phoneme a#
   vwl starttype #@ endtype #@
   ipa ɐ
@@ -26,6 +32,12 @@ phoneme e
   vwl starttype #e endtype #e
   length 170
   ChangeIfUnstressed(@)
+  FMT(vowel/e)
+endphoneme
+
+phoneme e2
+  vwl starttype #e endtype #e
+  length 170
   FMT(vowel/e)
 endphoneme
 
@@ -54,6 +66,12 @@ phoneme o
   vwl starttype #o endtype #o
   length 170
   ChangeIfUnstressed(u)
+  FMT(vowel/o)
+endphoneme
+
+phoneme o2
+  vwl starttype #o endtype #o
+  length 170
   FMT(vowel/o)
 endphoneme
 

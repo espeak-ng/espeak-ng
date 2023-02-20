@@ -88,6 +88,7 @@ src/espeak-ng "Bon dia" --ipa -v ca
 [La fonologia del català](http://diposit.ub.edu/dspace/bitstream/2445/67057/1/Fonologia_catalana.pdf)
 
 [Fonètica del català](https://www.auladecatala.com/fonetica-i-ortografia/) (Aula de català)
+
 [CPNL](https://blogs.cpnl.cat/dgava12/files/2012/12/Full-de-ruta_unitat21.pdf)
 
 [Apunts del IES Olorda](http://iesolorda.cat/departaments/cat/fon_tot.pdf)
@@ -99,4 +100,4 @@ src/espeak-ng "Bon dia" --ipa -v ca
 
 ## Tests
 
-
+Posats provisionalment al directori [tests-ca](https://github.com/projecte-aina/espeak-ng/tree/dev-ca/tests-ca).

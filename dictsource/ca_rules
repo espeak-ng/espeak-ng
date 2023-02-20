@@ -28,7 +28,7 @@
 
 .group a
         a          a
-        ae         ,aE2  // Evitem la neutralització
+        ae         a2E2  // Evitem la neutralització
     _)  amb (_A    amb    // Sensibilització
 
 
@@ -54,9 +54,10 @@
 
 .group e
         e          e
-        ea         E2,a // Evitem la neutralització
-        eo         E2,o // Evitem la neutralització
-
+        ea         e2a // Evitem la neutralització
+        eo         e2o2 // Evitem la neutralització
+        eò         e2'O // Evitem la neutralització
+        eó         e2'o // Evitem la neutralització
         e (nt_     e
         e (rL27    e // herba, serp, terme (ferm? erm?)
         e (r_      e // Roger
