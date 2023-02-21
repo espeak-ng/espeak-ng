@@ -158,6 +158,8 @@ phoneme n
       ChangePhoneme(N)
   ELIF nextPh(p) OR nextPh(b) OR nextPh(m) THEN
       ChangePhoneme(m)
+  ELIF nextPh(S) OR nextPh(Z) THEN
+      ChangePhoneme(n^)
     
   ENDIF
 
@@ -262,6 +264,9 @@ phoneme g
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
         ChangePhoneme(Q)
       ENDIF
+    ELIF
+      nextPh(n) THEN
+        ChangePhoneme(N)
     ENDIF  
   ELSE
     ChangePhoneme(k)
@@ -347,6 +352,8 @@ phoneme k
     WAV(ustop/kl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
+    ELIF nextPh(n) THEN
+        ChangePhoneme(N)
     ELSE
       ChangePhoneme(g)
     ENDIF

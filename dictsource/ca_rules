@@ -14,6 +14,7 @@
 .L04 i í e é è         // front vowels
 .L05 p t k f s         // sords
 .L09 b d g m v l n r z j f // sonors
+.L12 b d g m v n z j f // sonors
 .L10 a e o             // vocals fortes
 .L11 i u               // vocals febles
 .L21 p b t d k g       // oclusives
@@ -63,12 +64,16 @@
         e (rL27    e // herba, serp, terme (ferm? erm?)
         e (r_      e // Roger
         e (l       E // elm
+        e (u       E // preu
+        e (ll      e // canell
         e (r       E  // merla, ferro (però Berga i Matadepera)
+        e (t       E
+        e (nc_     'E
 
 .group f
         f          f
-     @) f (L09     v
-        f (_L09    v
+     @) f (L12     v
+        f (_L12    v
         f (_A      v
 
 .group g
@@ -76,6 +81,7 @@
     A)  gl (A      ggl
         g (L04     Z
         gu (L04    g   // front vowelw
+        gu (L30    gw
         
 
 .group h
@@ -88,10 +94,13 @@
         i          i
      A) i (K       j
     A_) i (K       j
+     A) i (A       j
+     _) i (A       j
     gü) i (K       i
     qü) i (K       i
     gu) i (K       i
     qu) i (K       i
+    qu) i (A       i
  //       i (A       j
  //       i (a_      i
  //       i (u       i
@@ -171,7 +180,7 @@
 
 .group p
         p          p
-        p (t       p:
+ //       p (t       p:
         
 .group q
         q          k
@@ -183,8 +192,9 @@
         r          R
      _) r          R
         r (_       =        // final r is silent, but stress the vowel
+        r (s_      =        // final r is silent, but stress the vowel
         r (-       =R       // final r is not silent if followed by -, but stress the vowel
-        r (t       **
+ //       r (t       **
      A) r (A       **
      C) r (A       **
      l) r (A       R
@@ -199,14 +209,14 @@
         s          s
      _) s' (P2     s
         ss         s
-        sc         s
-     A) s (A       z
-        s (_A      z
-        s (_hA     z
-        s (L09     z
-        s (_L09    z
+        sc (L04    s
+     A) s  (A      z
+        s  (_A     z
+        s  (_hA    z
+        s  (L09    z
+        s  (_L09   z
      -) se (_      s@
-  aque) s (tKK      
+  aque) s  (tKK      
 
 .group t
         t          t
@@ -226,7 +236,8 @@
         u          u
      A) u (K       w
     A_) u (K       w
-        u (A       w
+     A) u (A       w
+//        u (A       w
         u (i       u
         u (ï       u
         uu         uw
