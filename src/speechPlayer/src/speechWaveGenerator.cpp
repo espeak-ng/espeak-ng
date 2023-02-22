@@ -1,5 +1,5 @@
 /*
-This file is a part of the NV Speech Player project. 
+This file is a part of the NV Speech Player project.
 URL: https://bitbucket.org/nvaccess/speechplayer
 Copyright 2014 NV Access Limited.
 This program is free software: you can redistribute it and/or modify
@@ -136,7 +136,7 @@ class Resonator {
 
 };
 
-class CascadeFormantGenerator { 
+class CascadeFormantGenerator {
 	private:
 	int sampleRate;
 	Resonator r1, r2, r3, r4, r5, r6, rN0, rNP;
@@ -159,7 +159,7 @@ class CascadeFormantGenerator {
 
 };
 
-class ParallelFormantGenerator { 
+class ParallelFormantGenerator {
 	private:
 	int sampleRate;
 	Resonator r1, r2, r3, r4, r5, r6;
@@ -194,8 +194,8 @@ class SpeechWaveGeneratorImpl: public SpeechWaveGenerator {
 	SpeechWaveGeneratorImpl(int sr): sampleRate(sr), voiceGenerator(sr), fricGenerator(), cascade(sr), parallel(sr), frameManager(NULL) {
 	}
 
-	unsigned int generate(const unsigned int sampleCount, sample* sampleBuf) {
-		if(!frameManager) return 0; 
+	unsigned int generate(const unsigned int sampleCount, ::sample* sampleBuf) {
+		if(!frameManager) return 0;
 		double val=0;
 		for(unsigned int i=0;i<sampleCount;++i) {
 			const speechPlayer_frame_t* frame=frameManager->getCurrentFrame();
