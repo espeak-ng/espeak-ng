@@ -24,18 +24,26 @@
 .L25 r                 // vibrants
 .L26 c q g             // velars
 .L27 p b v m            // labials
+.L28 à è é í ò ó ú      // stressed vowels
 .L30 a o à ò ó         // vocals centrals i posteriors
 
 
 .group a
         a          a
-        ae         a2E2  // Evitem la neutralització
+        a (m_      'a // és tònica
+        a (ny_     'a // és tònica
+        a (ns_     'a // és tònica
+ L28J)  a (m_      a // no és tònica
+ L28J)  a (ny_     a // no és tònica
+ L28J)  a (ns_     a // no és tònica
+  //      ae         a2E2  // Evitem la neutralització
     _)  amb (_A    amb    // Sensibilització
 
 
 .group b
         b          b    // b sona b
     A)  bl (A      bbl
+        bm         mm
  
 .group c
         c          k
@@ -52,23 +60,44 @@
         d          d    // d sona d
         dj         dZ;
         dv         bb	// Geminació
+        dm         mm
 
 
 .group e
         e          e
         ea         e2a // Evitem la neutralització
         eo         e2o2 // Evitem la neutralització
-        eò         e2'O // Evitem la neutralització
-        eó         e2'o // Evitem la neutralització
+ //       eò         e2'O // Evitem la neutralització
+ //       eó         e2'o // Evitem la neutralització
         e (nt_     e
         e (rL27    e // herba, serp, terme (ferm? erm?)
         e (r_      e // Roger
+        e (ra_     e // cremallera
         e (l       E // elm
         e (u       E // preu
         e (ll      e // canell
         e (r       E  // merla, ferro (però Berga i Matadepera)
         e (t       E
+        e (c       E
+        e (g       E
+        e (ct      e
+        e (i       E
+        e (s       E
+        e (st      e
+        e (m       E
+        e (m_      'E
+ L28J)  e (m       @
         e (nc_     'E
+        e (ncs_    'E
+        e (ny_     'E
+        e (nys_    'E
+        e (ns_     'E
+ L28J)  e (nc_     @
+ L28J)  e (ncs_    @
+ L28J)  e (ny_     @
+ L28J)  e (nys_    @
+ L28J)  e (ns_     @
+        e (n       E
 
 .group f
         f          f
@@ -95,6 +124,7 @@
      A) i (K       j
     A_) i (K       j
      A) i (A       j
+     u) i (K       i
      _) i (A       j
     gü) i (K       i
     qü) i (K       i
@@ -117,6 +147,9 @@
      C) ig (_      itS
      A) ig (_A     dZ
      A) ig (_L09   dZ
+     ú) ix (K      iks
+        i (ns_     'i
+  L28J) i (ns_     i  
      
 .group j
         j          Z
@@ -143,6 +176,7 @@
         mp (-h     mp
         mpr        mpr
         mbr        mbr
+        mpt        mt
         mb (K      m
    _a)  mb (_A     mb
         
@@ -174,13 +208,31 @@
         o          o
      @) or (_      'o // color ('o* per sensibilitzar la r)
         ou         Ow  // cou
-     X) o          O  
- 
+     X) o          O
+        o (l_      O
+        o (ls_     O
+        o (li_     O
+        o (lis_    O
+        o (ns_     'o
+L28J)   o (ns_     o
+        o (i       O
+        o (c       O
+        o (m       O
+        o (m_      'O
+L28J)   o (m_      O
+        o (r       O
+        o (t       O
+        o (si      O
+        o (st      O
+        o (ni      O
+        o (di      O
+        o (g       O
 
 
 .group p
         p          p
  //       p (t       p:
+        pm         mm
         
 .group q
         q          k
@@ -192,7 +244,9 @@
         r          R
      _) r          R
         r (_       =        // final r is silent, but stress the vowel
+ L28J)  r (_
         r (s_      =        // final r is silent, but stress the vowel
+ L28J)  r (s_
         r (-       =R       // final r is not silent if followed by -, but stress the vowel
  //       r (t       **
      A) r (A       **
@@ -241,6 +295,8 @@
         u (i       u
         u (ï       u
         uu         uw
+        u (m_      'u
+L28J)   u (m_      u
 
 .group v
         v          b

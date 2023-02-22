@@ -62,12 +62,12 @@ _»	t'anka#||kUm'Et@s
 *	aste*'isk  $max3
 
 ^	siRkumfl'Eks
-€	'Ew*U
-%	p@Rs@nt'adZ;@
-&	_:_:'i;||_:a#Nl'Eza#
-@	a*R'oBa
-/	ba*Ra
-©	kopi*R'aIt
+€	'Ew*u
+%	p@Rs@nt'adZ@
+&	_:_:'i;||_:a#Ngl'Eza#
+@	aR'oBa
+/	baRa
+©	kopiR'aIt
 £	lliu**@s
 ¶	pa#**'aQ**a#f
 §	a#pa#**t'at	// o secció?
@@ -77,12 +77,12 @@ _»	t'anka#||kUm'Et@s
 _0	z'e**u
 _1	'u
 _2	d'Os
-_3	t**'es
+_3	t**'Es
 _4	kw'at**@
 _5	s'iNk
 _6	s'is
 _7	s'Et
-_8	v#'ujt
+_8	b'ujt
 _9	n'Ow
 _10	d'Ew
 _11	'onz@
@@ -93,15 +93,15 @@ _15	k'inz@
 _16	s'Edz@
 _17	dis'Et
 _18	diB'ujt
-_19	din'Ou
-_20	v#'int
-_2X	v#,inti
+_19	din'Ow
+_20	b'int
+_2X	b,inti
 _3X	t**'Ent@
 _4X	kw@**'ant@
 _5X	sinkw'ant@
 _6X	s@jS;'ant@
 _7X	s@t'ant@
-_8X	v#ujt'ant@
+_8X	bujt'ant@
 _9X	nu**'ant@
 _0C	s'ent|s
 _1C	s'ent
@@ -120,46 +120,46 @@ vi	vi	// not a Roman number
 // function words
 
 // articles
-el	$u
-la	$u
+el	@l
+la	l@
 els	$u
 les	$u
 un	$u
-una	$u
+una	'un@
 uns	$u
 unes	$u
 
 // pronoms febles
-hi  $u
-ho  $u
-em  $u
-me  $u
-et  $u
-te  $u
-lo  $u
-en  $u
-ne  $u
-li  $u
-ens $u
-nos $u
-us  $u
-vos $u
-los $u
+hi  $u  $verbf
+ho  $u  $verbf
+em  $u  $verbf
+me  $u  $verbf
+et  $u  $verbf
+te  $u  $verbf
+lo  $u  $verbf
+en  $u  $verbf
+ne  $u  $verbf
+li  $u  $verbf
+ens $u  $verbf
+nos $u  $verbf
+us  $u  $verbf
+vos $u  $verbf
+los $u  $verbf
 
 
 
 // prepositions
 a	$u $brk
-al	$u $brk
-als	$u $brk
+al	$u $brk $nounf
+als	$u $brk $nounf
 de	$u
 del	$u
 dels	$u
-el      $u $brk
 en      $u $brk
 per	$u $brk
-pel	$u $brk
+pel	$u $brk $nounf
 pels	$u $brk
+ans $u
 
 amb	$brk
 entre	$brk
@@ -263,4 +263,5 @@ z	zeta#
 
 // pronunciation exceptions
 
-
+moc m'ok    $noun
+dona    d'on@   $verb
