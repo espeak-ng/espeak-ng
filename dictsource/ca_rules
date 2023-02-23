@@ -36,7 +36,8 @@
  L28J)  a (m_      a // no és tònica
  L28J)  a (ny_     a // no és tònica
  L28J)  a (ns_     a // no és tònica
-  //      ae         a2E2  // Evitem la neutralització
+        ae         ae2  // Evitem la neutralització
+        ae (nt_    a'e
     _)  amb (_A    amb    // Sensibilització
 
 
@@ -66,7 +67,7 @@
 .group e
         e          e
         ea         e2a // Evitem la neutralització
-        eo         e2o2 // Evitem la neutralització
+  //      eo         e2o2 // Evitem la neutralització
  //       eò         e2'O // Evitem la neutralització
  //       eó         e2'o // Evitem la neutralització
         e (nt_     e
@@ -209,10 +210,11 @@
      @) or (_      'o // color ('o* per sensibilitzar la r)
         ou         Ow  // cou
      X) o          O
-        o (l_      O
-        o (ls_     O
-        o (li_     O
-        o (lis_    O
+        o (l       O
+//         o (l_      O
+//         o (ls_     O
+//         o (li_     O
+//         o (lis_    O
         o (ns_     'o
 L28J)   o (ns_     o
         o (i       O

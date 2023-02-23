@@ -35,9 +35,10 @@ phoneme e
   FMT(vowel/e)
 endphoneme
 
-phoneme e2
+phoneme e2 // don't reduce + change if tressed: "aeri" vs "aeròdrom".
   vwl starttype #e endtype #e
   length 170
+  ChangeIfStressed(E)
   FMT(vowel/e)
 endphoneme
 
