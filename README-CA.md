@@ -101,3 +101,13 @@ src/espeak-ng "Bon dia" --ipa -v ca
 ## Tests
 
 Posats provisionalment al directori [tests-ca](https://github.com/projecte-aina/espeak-ng/tree/dev-ca/tests-ca).
+
+## Decisions
+
+1) s'han seguit les recomanacions especificades al document [Proposta per a un estàndard oral de la llengua catalana](https://publicacions.iec.cat/repository/pdf/00000039/00000072.pdf) del IEC
+
+2) pel que fa als caràcters de l'AFI, s'han seguit les indicacions del document [Aplicació al català dels principis de transcripció de l'Associació Fonètica Internacional](https://publicacions.iec.cat/repository/pdf/00000041/00000087.pdf)
+
+3) en cas de dubte sobre l'aplicació d'una regla fonètica, s'ha seguit el criteri observat al DOP tal i com es pot consultar a la base de dades [BaDaTran](http://retoc.iula.upf.edu/cgi-bin/BaDaTran.cgi)
+
+4) per a les excepcions a les regles fonètiques, s'han aplicat les llistes publicades al [Viccionari](https://ca.wiktionary.org/wiki/Categoria:Mots_en_catal%C3%A0_per_caracter%C3%ADstiques_fon%C3%A8tiques).
