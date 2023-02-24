@@ -238,8 +238,11 @@ phoneme b
     ENDIF
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-        ChangePhoneme(B)
+      IF prevPh(isVowel) OR prevPh(isLiquid) THEN
+        IF prevPh(**) OR prevPh(R) THEN
+        ELSE
+            ChangePhoneme(B)
+        ENDIF
       ENDIF
     ENDIF  
   ELSE
@@ -248,6 +251,8 @@ phoneme b
 
   CALL base1/b
 endphoneme
+
+
 
 phoneme g
   vcd vel stp
@@ -262,8 +267,11 @@ phoneme g
     ENDIF
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-        ChangePhoneme(Q)
+      IF prevPh(isVowel) OR prevPh(isLiquid) THEN
+        IF prevPh(**) OR prevPh(R) THEN
+        ELSE
+           ChangePhoneme(Q)
+        ENDIF
       ENDIF
     ELIF
       nextPh(n) THEN
@@ -290,7 +298,7 @@ phoneme d
     ENDIF
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(**) OR prevPh(R) OR prevPh(isVFricative) THEN
+      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) THEN
         ChangePhoneme(D)
       ENDIF
     ENDIF  
