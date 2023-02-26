@@ -38,6 +38,8 @@ add_library(espeak-ng
   espeak_api.c
 )
 
+target_include_directories(espeak-ng BEFORE PRIVATE $<TARGET_PROPERTY:espeak-include,INTERFACE_INCLUDE_DIRECTORIES>)
+
 if (NOT MSVC)
   target_compile_options(espeak-ng PRIVATE
     "-fPIC"
