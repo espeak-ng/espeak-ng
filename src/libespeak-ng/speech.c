@@ -349,7 +349,7 @@ const int param_defaults[N_SPEECH_PARAM] = {
 	0,   // wordgap
 	0,   // options
 	0,   // intonation
-	0,
+	100, // ssml break mul
 	0,
 	0,   // emphasis
 	0,   // line length
