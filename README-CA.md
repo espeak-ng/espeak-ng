@@ -108,6 +108,8 @@ Posats provisionalment al directori [tests-ca](https://github.com/projecte-aina/
 
 2) pel que fa als caràcters de l'AFI, s'han seguit les indicacions del document [Aplicació al català dels principis de transcripció de l'Associació Fonètica Internacional](https://publicacions.iec.cat/repository/pdf/00000041/00000087.pdf)
 
-3) en cas de dubte sobre l'aplicació d'una regla fonètica, s'ha seguit el criteri observat al DOP tal i com es pot consultar a la base de dades [BaDaTran](http://retoc.iula.upf.edu/cgi-bin/BaDaTran.cgi)
+3) s'han seguit les especificacions sobre fonètica del portal [ésadir](https://esadir.cat/gramatica/criteris).
 
-4) per a les excepcions a les regles fonètiques, s'han aplicat les llistes publicades al [Viccionari](https://ca.wiktionary.org/wiki/Categoria:Mots_en_catal%C3%A0_per_caracter%C3%ADstiques_fon%C3%A8tiques).
+4) en cas de dubte sobre l'aplicació d'una regla fonètica, s'ha seguit el criteri observat al DOP tal i com es pot consultar a la base de dades [BaDaTran](http://retoc.iula.upf.edu/cgi-bin/BaDaTran.cgi)
+
+5) per a les excepcions a les regles fonètiques, s'han aplicat les llistes publicades al [Viccionari](https://ca.wiktionary.org/wiki/Categoria:Mots_en_catal%C3%A0_per_caracter%C3%ADstiques_fon%C3%A8tiques) i a l'[ésadir](https://esadir.cat/gramatica/criteris). Aquestes llistes han prevalgut sobre el criteri del DOP.

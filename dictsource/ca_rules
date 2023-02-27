@@ -62,6 +62,8 @@
 .group e
         e          e
         e (L02     e2   // do not reduce (teatre, eòlic)
+     ò) e          e2
+     ó) e          e2
         e ($w_alt1 e
         e ($w_alt2 E
         e (nt_     e
@@ -71,7 +73,9 @@
         e (ll      e    // (canell)
         e (ct      e    //
         e (st      e    // 
-        
+     t) e (le      e2   // (teletreball)
+   tel) e          e2   // (teletreball)
+           
                 // e is E
         e (l       E    // (elm)
         e (u       E    // (preu)
@@ -97,6 +101,7 @@
  L05J)  e (nys_    @
  L05J)  e (ns_     @
         
+ L05J)  ee         e2@  // (pàncrees)
 
 .group f
         f          f
@@ -161,7 +166,7 @@
      A) ig (_L11   dZ   // (goig volgut)
      C) ig (_A     dZ   // (desig ardent)
      C) ig (_L11   dZ   // (desig volgut)
- //    C) ig (_$w_alt6    k   // (pròdig)
+     C) ig (_$w_alt4    ik   // (pròdig)
      
      
 .group j
@@ -223,15 +228,20 @@
 .group o
         o          o
 
-     @) or (_      'o   // color ('o* per sensibilitzar la r)
-        ou         Ow   // cou
+     @) o (r_      'o   // color ('o* per sensibilitzar la r)
+     @) o (ra_     'o  // color ('o* per sensibilitzar la r)
+        ou         Ow   // (mou)
+    &)  ou         o2w   // (mouré)
+        ou (JL05     o2w
 
 //         o (l_      O
 //         o (ls_     O
 //         o (li_     O
 //         o (lis_    O
         o (ns_     'o   // stress the vowel
-L05J)   o (ns_     o    // do not stress the vowel
+  L05J) o (ns_     o    // do not stress the vowel
+     f) o (rme     o
+     c) o (mt      o
 
      X) o          O
         o (l       O
@@ -239,7 +249,7 @@ L05J)   o (ns_     o    // do not stress the vowel
         o (c       O    // (poc)
         o (m       O
         o (m_      'O
-L05J)   o (m_      O
+  L05J) o (m_      O
         o (r       O
         o (t       O
         o (si      O
@@ -247,9 +257,11 @@ L05J)   o (m_      O
         o (ni      O
         o (di      O
         o (g       O
+    _c) o (ntra    ,O
+    _s) o (cio     ,O
 
-        o ($w_alt3 o    // list of excepcions of the rules
-        o ($w_alt4 O    // list of excepcions of the rules 
+        o ($w_alt1 o    // list of excepcions of the rules
+        o ($w_alt2 O    // list of excepcions of the rules 
         
 .group p
         p          p
@@ -283,7 +295,7 @@ L05J)   o (m_      O
         r (s_      =    // final r is silent + stress the vowel
  L05J)  r (s_           // final r is silent + do not stress the vowel
         r (-       =R   // final r is not silent + stress the vowel
-        r (_$w_alt5 =R  // final r is not silent + stress the vowel
+        r (_$p_alt5 =R  // final r is not silent + stress the vowel
         r (s_$w_alt5 =R // final r is not silent + stress the vowel
  //       r (t       **
                 // silent consonants
