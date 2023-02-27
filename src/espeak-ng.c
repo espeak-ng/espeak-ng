@@ -77,6 +77,8 @@ static const char *help_text =
     "\t   Write speech to this WAV file, rather than speaking it directly\n"
     "-b\t   Input text encoding, 1=UTF8, 2=8 bit, 4=16 bit \n"
     "-m\t   Interpret SSML markup, and ignore other < > tags\n"
+    "--ssml-break=<percentage>\n"
+    "\t   Set SSML break time multiplier, default is 100\n"
     "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
     "-x\t   Write phoneme mnemonics to stdout\n"
     "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
@@ -331,6 +333,7 @@ int main(int argc, char **argv)
 		{ "compile-intonations", no_argument, 0, 0x10f },
 		{ "compile-phonemes", optional_argument, 0, 0x110 },
 		{ "load",    no_argument,       0, 0x111 },
+		{ "ssml-break", required_argument, 0, 0x112 },
 		{ 0, 0, 0, 0 }
 	};
 
@@ -361,6 +364,7 @@ int main(int argc, char **argv)
 	int phoneme_options = 0;
 	int option_linelength = 0;
 	int option_waveout = 0;
+	int ssml_break = -1;
 	bool deterministic = 0;
 	
 	espeak_VOICE voice_select;
@@ -586,6 +590,9 @@ int main(int argc, char **argv)
 		case 0x111: // --load
 			flag_load = 1;
 			break;
+		case 0x112: // --ssml-break
+			ssml_break = atoi(optarg2);
+			break;
 		default:
 			exit(0);
 		}
@@ -677,6 +684,8 @@ int main(int argc, char **argv)
 		espeak_SetParameter(espeakWORDGAP, wordgap, 0);
 	if (option_linelength > 0)
 		espeak_SetParameter(espeakLINELENGTH, option_linelength, 0);
+	if (ssml_break > 0)
+		espeak_SetParameter(espeakSSML_BREAK_MUL, ssml_break, 0);
 	if (option_punctuation == 2)
 		espeak_SetPunctuationList(option_punctlist);
 
