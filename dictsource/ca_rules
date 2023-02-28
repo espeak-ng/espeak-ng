@@ -163,6 +163,21 @@
   L05J) i (ny_     i    // do not stress the vowel  
 //        ir (_      'i   // stress the vowel + silent r
 //  L05J) ir (_      i    // do not stress the vowel + silent r
+     A) i (r_       i   // verb: not glide (conduir, agrair, etc.)
+     A) i (nt_      i   // verb: not glide (conduint, agraint, etc.)
+     A) i (ré_      i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ràs_     i   // verb: not glide (conduir, agrair, etc.)
+     A) i (rà_      i   // verb: not glide (conduir, agrair, etc.)
+     A) i (rem_     i   // verb: not glide (conduir, agrair, etc.)
+     A) i (reu_     i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ran_     i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ria_     i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ries_    i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ria_     i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ríem_    i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ríeu_    i   // verb: not glide (conduir, agrair, etc.)
+     A) i (ríen_    i   // verb: not glide (conduir, agrair, etc.)
+          
   
 .group ix
      A) ix (K      S    // do not pronounce i (peix)
@@ -357,6 +372,8 @@ _contra) s (A      s    // (contrasentit)
  _ultra) s (A      s    // (ultrasò)
    _uni) s (A      s    // (unisexual)
   _vice) s (A      s    // (vicesecretari)
+  _tran) s (it     z    // (transitar)
+ _enfon) s (a      z    // (enfonsar)
 
 .group t
         t          t
@@ -385,6 +402,7 @@ _contra) s (A      s    // (contrasentit)
         
         u (m_      'u   // stress the vowel (costum)
 L05J)   u (m_      u    // do not stress the vowel
+L05Ji)  u (s_      u    // not a glide (Màrius)
 
 .group v
         v          b
