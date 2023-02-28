@@ -32,6 +32,9 @@
  L05J)  a (ns_     a    // do not stress the vowel
         ae         ae2  // do not reduce
     _)  amb (_A    amb  // Sensibilització
+    _)  a (nte     ,a   // (antepenúltim)
+    _)  a (nti     ,a   // (antepenúltim)
+    _)  a (uto     ,a   // (autodestrucció)
 
 
 .group b
@@ -73,8 +76,13 @@
         e (ll      e    // (canell)
         e (ct      e    //
         e (st      e    // 
-     t) e (le      e2   // (teletreball)
-   tel) e          e2   // (teletreball)
+    _t) e (le      e2   // (teletreball)
+  _tel) e          e2   // (teletreball)
+    _r) e (a       e2   // (reacció)
+    _r) e (ha      e2   // (rehabilitar)
+     _) e (ntreA   ,e   // (entreacte)
+     _) e (ntreC   ,e   // (entresòl)
+    -t) e (_       @
            
                 // e is E
         e (l       E    // (elm)
@@ -90,16 +98,27 @@
         e (m_      'E
         e (nc_     'E   // (santsenc)
         e (ncs_    'E   // (santsencs)
+        e (nca_    'E   // (santsencs)
+        e (nques_  'E   // (santsencs)
         e (ny_     'E   // (estreny)
         e (nys_    'E   // (estrenys)
         e (ns_     'E   // (extens)
+        e (nsa_    'E   // (extensa)
+        e (nsos_   'E   // (extensos)
+        e (nses_   'E   // (extenses)
+    
                 // do not stress if there's a precendent accented vowel
  L05J)  e (m       @
  L05J)  e (nc_     @
  L05J)  e (ncs_    @
+ L05J)  e (nca_    @
+ L05J)  e (nques_  @
  L05J)  e (ny_     @
  L05J)  e (nys_    @
  L05J)  e (ns_     @
+ L05J)  e (nsa_    @
+ L05J)  e (nsos_   @
+ L05J)  e (nses_   @
         
  L05J)  ee         e2@  // (pàncrees)
 
@@ -142,8 +161,8 @@
   L05J) i (ns_     i    // do not stress the vowel
         i (ny_     'i   // stress the vowel
   L05J) i (ny_     i    // do not stress the vowel  
-        ir (_     'i   // stress the vowel + silent r
-  L05J) ir (_     i    // do not stress the vowel + silent r
+//        ir (_      'i   // stress the vowel + silent r
+//  L05J) ir (_      i    // do not stress the vowel + silent r
   
 .group ix
      A) ix (K      S    // do not pronounce i (peix)
@@ -257,8 +276,11 @@
         o (ni      O
         o (di      O
         o (g       O
-    _c) o (ntra    ,O
+    _c) o (ntraA   ,O
+    _c) o (ntraC   ,O
     _s) o (cio     ,O
+    _s) o (breA    ,o
+    _s) o (breC    ,o
 
         o ($w_alt1 o    // list of excepcions of the rules
         o ($w_alt2 O    // list of excepcions of the rules 
@@ -287,6 +309,10 @@
   _neo) r (A       R    // (neorural)
  _orto) r (A       R    // 
   _uni) r (A       R    // 
+_contra) r (A      R    // (contrareforma)
+ _tele) r (A       R    // (telereunió)
+_ultra) r (A       R    // (ultraric)
+// _vice) r (A       R    // (vicerector)
      p) r (end          // (prendre)
      
                 // final r
@@ -313,7 +339,24 @@
         s  (L11    z
         s  (_L11   z
      -) se (_      s@
-  aque) s  (tKK      
+  aque) s  (tKK  
+  aque) s  (tKhA   s
+   _bi) s (A       s    // (bisexual)
+  _neo) s (A       s    // ()
+ _orto) s (A       s    // 
+ _ante) s (A       s    // (antesala)
+ _anti) s (A       s    // (antisocial)
+ _auto) s (A       s    // (autorservei)
+   _bi) s (A       s    // (bisecció)
+_contra) s (A      s    // (contrasentit)
+ _entre) s (A      s    // (entresòl)
+  _mono) s (A      s    // (monosíl·lab)
+  _para) s (A      s    // (parasíntesi)
+ _sobre) s (A      s    // (sobresortir)
+  _tele) s (A      s    // (telestrella)
+ _ultra) s (A      s    // (ultrasò)
+   _uni) s (A      s    // (unisexual)
+  _vice) s (A      s    // (vicesecretari)
 
 .group t
         t          t
@@ -337,7 +380,9 @@
 //        u (A       w
         u (i       u    // not a glide
         u (ï       u    // not a glide
-
+        u (ltraC   ,u   // (ultrasò)
+        u (ltraA   ,u   // (ultraaudió)
+        
         u (m_      'u   // stress the vowel (costum)
 L05J)   u (m_      u    // do not stress the vowel
 
