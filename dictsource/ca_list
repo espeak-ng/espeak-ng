@@ -19,72 +19,72 @@ _#32	@sp'aj
 // Spanish, and need to be changed.
 
 // accent names
-_lig	liQaD'u**a
+_lig	l^iQaD'u**a
 _acu	aQ'ut
-_ac2	d'Oble||aQ'uDo	
+_ac2	d'Oble||aQ'ut	
 _brv	b**'ew
 _ced	t**Enk'aDa
 _cir	siRkumfl'Eks
-_dia	dj'E**esi
+_dia	di'E**esi
 _dac	d'Oble||aQ'ut	
 _dot	p'unt
 _grv	g**'ew
-_hac	ka**'On^
-_mcn	mak**'On
-_ogo	kol'ita
-_rng	an'iJ^o
-_stk	b'aRa	 // ??
-_tld	t'ilde
+_hac	,antisiRkuMfl'Eks
+_mcn	m'ak**on
+_ogo	uQun'Ek    // diacrític que es fa servir en polonès i lituà. En cast, "colita".
+_rng	an'el^     // diacrític en forma de rodoneta
+_stk	b'aRa	  
+_tld	t'itl^@
 
 
 // names of symbols
 _.	pun
 _,	koma
 _;	p,unik'oma
-_:	d'os||p'uns
-_!	s'ign@||d@dmi**@sj'o
-_?	s'ign@||dint@RR2UQ@sj'o
-_¡	aB**'iRaDmi**aTj'On
-_¿	aB**'iRintER,oQaTj'On
-_<	m@n'o||_:_:k@
-_>	m@Z;'o||_:_:k@
-_'	@p'Ost**'Uf
-_"	kUm'Et@s
+_:	d'os|p'uns
+_!	s'ign@||d@dmi**@si'o
+_?	int@RUQ'an
+_¡	'OB**@||@dmi**asi'o
+_¿	'OB**@||int@RUQasi'o
+_<	m@n'oR||_:_:k@
+_>	m@Z'o||_:_:k@
+_'	@p'Ost**'uf
+_"	kum'Et@s
 -	m'En^s
-__	b'aRR2@||B'ajS;@
+__	b'aRR2@||B'aS@
 _/	baRa
-_\	b'aRaimbERt'iDa
-_`	@ks'Ent,UB'E**t
-_(	'ob**@||p@**'Ent@zis
+_\	b'aRa||imb@Rt'iD@
+_`	@ks'Ent,uB'ERt
+_(	'Ob**@||p@**'Ent@zis
 _)	t'ank@||p@**'Ent@zis
-_[	'ob**@||kl@wD'at,o*
-_]	t'ank@||kl@wD'at,o*
-_{	'ob**@||kl'aws
+_[	'Ob**@||kl@wD'at,oR
+_]	t'ank@||kl@wD'at,oR
+_{	'Ob**@||kl'aws
 _}	t'ank@||kl'aws
-_«	'ob**@||kUm'Et@s
-_»	t'ank@||kUm'Et@s
+_«	'Ob**@||kum'Et@s
+_»	t'ank@||kum'Et@s
 
-=	iQw'al $max3
-+	m*es  $max3
-#	kUjS;in'Et  $max3
-*	aste*'isk  $max3
+=	iQw'al    $max3
++	m*es      $max3
+#	kuSin'Et  $max3
+*	@st@*'isk $max3
 
 ^	siRkumfl'Eks
 €	'Ew*u
-%	p@Rs@nt
+%	p@Rs'en
 &	_:_:'i;||_:@Ngl'Ez@
 @	aR'oBa
 /	baRa
-©	kopiR'aIt
-£	lliu**@s
+©	k,OpiR'ajt
+£	l^'iw**@s
 ¶	p@**'aQ**@f
 §	@p@**t'at	// o secció?
 
 
 // numbers
-_0	z'e**u
+_0	z'E**u
 _1	'u
-_2	d'Os
+_2	d'os
 _3	t**'Es
 _4	kw'at**@
 _5	s'iNk
@@ -107,12 +107,15 @@ _2X	b,inti
 _3X	t**'Ent@
 _4X	kw@**'ant@
 _5X	sinkw'ant@
-_6X	s@jS;'ant@
+_6X	s@S'ant@
 _7X	s@t'ant@
 _8X	bujt'ant@
 _9X	nu**'ant@
-_0C	s'ent|s
-_1C	s'ent
+_0C	s'en|s
+_1C	s'en
+_2C	d,os'ens
+_3C	tr,es'ens
+_6C	s,is'ens
 //_5C	sins'Ents
 //_7C	s,ets'Ents
 //_9C	n,Ous'Ents
@@ -163,12 +166,12 @@ a	$u $brk
 al	$u $brk $nounf
 als	$u $brk $nounf
 de	$u
-del	$u
-dels	$u
+del	$u  $nounf
+dels	$u $nounf
 en      $u $brk
 per	$u $brk
 pel	$u $brk $nounf
-pels	$u $brk
+pels	$u $brk    $nounf
 ans $u
 
 amb	$brk
@@ -177,17 +180,17 @@ entre	$brk
 
 // conjunctions
 i	$u $pause
-o       $u $pause
+o       $alt2 $pause
 que $u
 
 
 // auxiliary verbs
-sóc	sok $u+
-ets	ets $u+
-és	es $u+
-som	$u+
-sou	$u+
-són	son $u+
+sóc	s'ok 
+ets	'ets 
+és	'es 
+som	s'om
+sou	s'ow
+són	s'on
 
 era	$u+
 eres	$u+
@@ -217,12 +220,12 @@ seríeu	$u+
 serien	$u+
 
 // haver
-he	E	$u+
-has	as	$u+
-ha	a	$u+
-hem	Em	$u+
-heu	Ew	$u+
-han	an	$u+
+he	'e	
+has	'as	
+ha	'a	
+hem	'Em	
+heu	'Ew	
+han	'an	
 
 havia	$u+
 havies	$u+
@@ -236,39 +239,39 @@ havien	$u+
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
-_a      a
+_a      'a
 a	a  $atend
 _i      i
 i	i  $atend
-_o      o
-o	o  $atend
+_o      'O
+o	'O  $atend
 
-b	be
-c	se
-ç	se,t**@nkaD@
-d	de
-f	Ef@
-g	Je
+b	b'e
+c	s'e
+ç	se,t**@nk'aD@
+d	d'e
+f	'ef@
+g	J'e
 h	ak
-j	Z;Ot@
-k	ke
-l	El@
-ŀl	El@,Z@min'aD@
-l·l	El@,Z@min'aD@
-ll	'Ei@
-m	Em@
-n	En@
-ñ	En^@
-p	pe
-q	ku
-r	ERR2@
-s	Ess@
-t	te
-v	'v#e||b'aIS;@
-w	'v#e||d'obl@
+j	Z'Ot@
+k	k'a
+l	'el@
+ŀl	'el@,Z@min'aD@
+l·l	'el@,Z@min'aD@
+ll	'el^@
+m	'em@
+n	'en@
+ñ	'en^@
+p	p'e
+q	k'u
+r	'eR@
+s	'es@
+t	t'e
+v	'v#'e||b'aS@
+w	'v#'e||d'obbl@
 x	iks
 y	'i||g**EQ@
-z	zet@
+z	z'Et@
 
 
 // pronunciation exceptions
@@ -1113,7 +1116,6 @@ latisepte	$alt2
 laurenci	$alt2
 lek	$alt2
 lepidodendre	$alt2
-les	$alt2
 lesena	$alt2
 leucoderm	$alt2
 lev	$alt2
@@ -1858,7 +1860,6 @@ dolla	$alt1
 dolç	$alt1
 dom	$alt1
 doma	$alt1
-dona	$alt1
 doncs	$alt1
 dormidora	$alt1
 dormidora	$alt1
@@ -2440,7 +2441,6 @@ sofre	$alt1
 sojorn	$alt1
 solc	$alt1
 soll	$alt1
-som	$alt1
 soma	$alt1
 sonda	$alt1
 sondroll	$alt1
@@ -2886,7 +2886,6 @@ nictalop	$alt2
 nifurtimox	$alt2
 niobi	$alt2
 noueta	$alt2
-o	$alt2
 oftalmoscopi	$alt2
 oligohalobi	$alt2
 ondoscopi	$alt2
