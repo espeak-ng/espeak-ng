@@ -18,6 +18,8 @@
 .L11 b d g m v l n r z j f // voiced
 .L12 b d g m v n z j f // voiced, not r or l
 
+.L15 c ç             // ces
+
 .L20 c q g             // velars
 .L21 p b v m           // bilabials
 
@@ -31,10 +33,12 @@
  L05J)  a (ny_     a    // do not stress the vowel
  L05J)  a (ns_     a    // do not stress the vowel
         ae         ae2  // do not reduce
+        ahe        ae2  // do not reduce
     _)  amb (_A    amb  // Sensibilització
-    _)  a (nte     ,a   // (antepenúltim)
-    _)  a (nti     ,a   // (antepenúltim)
-    _)  a (uto     ,a   // (autodestrucció)
+    _)  a (nte@@   ,a   // (antepenúltim)
+    _)  a (nti@@   ,a   // (antepenúltim)
+    _)  a (uto@@   ,a   // (autodestrucció)
+    _)  ae  (ro@@  ,ae2
 
 
 .group b
@@ -64,18 +68,46 @@
 
 .group e
         e          e
-        e (L02     e2   // do not reduce (teatre, eòlic)
+        e (L05     e2   // do not reduce (eòlic)
+        e (a       e2   // do not reduce (teatre)
      ò) e          e2
      ó) e          e2
+        e (o       e2
         e ($w_alt1 e
         e ($w_alt2 E
         e (nt_     e
         e (rL21    e    // (herba, serp, terme. but ferm, erm)
         e (r_      e    // (Roger)
+        e (rs_     e    // (Rogers)
+        e (ro_     e    // (torero)
         e (ra_     e    // (cremallera)
+        e (res_    e    // (cremalleres)
         e (ll      e    // (canell)
         e (ct      e    //
         e (st      e    // 
+        e (mt      e    // 
+        e (nt      e    //
+        e (nd      e    // 
+     v) e (sp      e    // 
+     v) e (tll     e    // 
+    tr) e (t       e    // 
+     l) e (ma_     e    // 
+     l) e (mes_    e    // 
+    cr) e (t       e    // 
+    cr) e (p       e    // 
+     c) e (rcl     e    // 
+    pr) e (g       e    // 
+     n) e (g       e    // 
+    _s) e (g       e    // 
+  sist) e (m       e
+    al) e (gr      e
+   _ll) e          e    // 
+        e (ix      e    // 
+        e (mbr     e
+     f) e (t       e
+    gr) e (u       e
+   arr) e (r       e
+    _r) e (g       e    // (regne, regno, etc.)
     _t) e (le      e2   // (teletreball)
   _tel) e          e2   // (teletreball)
     _r) e (a       e2   // (reacció)
@@ -94,8 +126,30 @@
         e (i       E    //
         e (s       E    //
         e (m       E    //
+        e (na_     E    //
+        e (nes_    E    //
+        e (n    E    //
+        e (d_     E    //
+        e (ds_     E    //
+        e (da_     E    //
+        e (des_    E    //
+    c)  e  (b       E
+        e  (j       E
+        e  (gL01   E
+  //      e  (cte     E
+//         e (nda_     E    //
+//         e (ndes_    E    //
+   con) e (ix      E 
+     n) e (rv      E 
+     v) e (rb      E
+     v) e (rs      E
+        e (nL15      E // (llença, llenca, etc.)
                 // e is E + stress
         e (m_      'E
+        e (t_      'E
+        e (ta_     'E
+        e (ts_     'E
+        e (tes_    'E
         e (nc_     'E   // (santsenc)
         e (ncs_    'E   // (santsencs)
         e (nca_    'E   // (santsencs)
@@ -106,6 +160,7 @@
         e (nsa_    'E   // (extensa)
         e (nsos_   'E   // (extensos)
         e (nses_   'E   // (extenses)
+        e (nse_    'E   // (castrense)
     
                 // do not stress if there's a precendent accented vowel
  L05J)  e (m       @
@@ -149,6 +204,7 @@
     A_) i (K       j    // glide (una història)
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
+     _) i (on      i    // not glide (ions + derivats)
      u) i (K       i    // not glide (cuit)
     gü) i (K       i    // not glide (lingüista)
     qü) i (K       i    // not glide (ubiqüitat)
@@ -215,6 +271,8 @@
         l          l
         lt (_      l    // (alt)
         lt (s_     l    // (alts)
+        ld (_      l    // (Eudald)
+        ld (s_     l    // (Eudalds)
         ll         l^   // (colla)
      _) l' (P2     l
 
@@ -223,7 +281,7 @@
         m          m
      _) m' (P2     m
   //      mp (C      m
-
+  //      m (entS4   m'''en
         mp (-h     mp
         mp (_      m    // do not pronounce final p
         mb (K      m    // do not pronounce final b (amb mi) or before consonant
@@ -234,7 +292,7 @@
         mbl        mbl  // (rambla)
 
         
-  //      ment (_    m'en  // ??
+        ment (_    m'en  // ??
 
 
 .group n
@@ -263,10 +321,14 @@
         o          o
 
      @) o (r_      'o   // color ('o* per sensibilitzar la r)
-     @) o (ra_     'o  // color ('o* per sensibilitzar la r)
-        ou         Ow   // (mou)
-    &)  ou         o2w   // (mouré)
-        ou (JL05     o2w
+     @) o (rs_      'o   // color ('o* per sensibilitzar la r)
+     @) o (ra_     'o   // color ('o* per sensibilitzar la r)
+     @) o (res_     'o   // color ('o* per sensibilitzar la r)
+  L05J) o (r_      o   // do not stress the vowel
+  L05J) o (ra_     o   // do not stress the vowel
+    //    ou_        Ow   // (mou)
+        ou         o2w   // (mouré)
+   //     ou (JL05     o2w
 
 //         o (l_      O
 //         o (ls_     O
@@ -276,6 +338,9 @@
   L05J) o (ns_     o    // do not stress the vowel
      f) o (rme     o
      c) o (mt      o
+     c) o (mpt      o
+     s) o (pa_      o
+     s) o (pes_      o
 
      X) o          O
         o (l       O
@@ -291,6 +356,51 @@
         o (ni      O
         o (di      O
         o (g       O
+        o (nt_     O
+        o (nts_    O
+    c)  o (pi_     O
+    c)  o (pis_    O
+    tr) o (p       O
+    pr) o (p       O
+    cl) o (p       O
+    fl) o (p       O
+    fl) o (r       O
+    tr) o (de_     O
+    tr) o (des_    O
+     m) o (ne_     O
+     m) o (nes_    O
+    gl) o (ss      O
+        o (ndri    O
+        o (br    O
+        o (bi_     O
+        o (bis_     O
+        o (bus_     O
+        o (nd_      O
+        o (nds_     O   
+        o (fa_      O
+        o (fes_     O
+        o (va_      O
+        o (ves_     O
+        o (f_     O
+        o (fs_     O
+    p)  o (n        O
+        o (nci_      O
+        o (ncis_      O
+        o (nça_      O
+        o (nces_      O
+        o (ca_      O
+        o (ques_      O
+        o (ja_      O
+        o (jes_      O
+        o (pa_      O
+        o (pes_      O
+        o (da_      O
+        o (de_      O
+        o (des_      O
+       o (xi       O
+     o (xis       O
+        
+   m)   o (nt      o
     _c) o (ntraA   ,O
     _c) o (ntraC   ,O
     _s) o (cio     ,O
@@ -299,7 +409,7 @@
 
         o ($w_alt1 o    // list of excepcions of the rules
         o ($w_alt2 O    // list of excepcions of the rules 
-        
+//* ["obi", "obis", "pondre", "obus", "ond", "onds"],  la o és "ɔ́". I si acaba en "ofa" o "ofes" també, excepte quan la paraula és esdrúixola (per exemple, "antístrofa")     */  
 .group p
         p          p
  //       p (t       p:
@@ -335,9 +445,29 @@ _ultra) r (A       R    // (ultraric)
  L05J)  r (_            // final r is silent + do not stress the vowel
         r (s_      =    // final r is silent + stress the vowel
  L05J)  r (s_           // final r is silent + do not stress the vowel
+ 
         r (-       =R   // final r is not silent + stress the vowel
-        r (_$p_alt5 =R  // final r is not silent + stress the vowel
-        r (s_$w_alt5 =R // final r is not silent + stress the vowel
+        r (_$w_alt5 =R  // final r is not silent + stress the vowel
+        r (s_$w_alt5    =R // final r is not silent + stress the vowel
+ L05J)  r (_$w_alt5     R     // final r is not silent + do not stress the vowel
+ L05J)  r (s_$w_alt5    R     // final r is silent + do not stress the vowel
+                // suffixes with final R not silent
+  L05Jfo)  r   (_       R
+  L05Jfe)  r   (_       R
+  L05Jfo)  r   (_       R
+  L05Jco)  r   (_       R
+  L05Jge)  r   (_       R
+  L05Jpa)  r   (_       R
+  L05Jte)  r   (_       R
+  L05Jme)  r   (_       R
+  L05Jto)  r   (_       R
+ L05Jpte)  r   (_       R
+ 
+    cula)  r   (_       =R
+L05Jcula)  r   (_       R
+    gula)  r   (_       =R
+L05Jgula)  r   (_       R
+  
  //       r (t       **
                 // silent consonants
         rd (s_     R    // final d is silent
