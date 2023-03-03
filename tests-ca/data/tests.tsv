@@ -2,14 +2,14 @@ segment	transcripció	explicació	comentaris
 			
 # b  			
 amb tu i amb mi	ˈam tˈu j ˈam mˈi	emmudiment de b després de m	ok
-amb ell	ˈamb ˈɛʎ	sensiblitizació de la b de «amb» davant de vocal	verificar
+amb ell	ˈamb ˈeʎ	sensiblitizació de la b de «amb» davant de vocal	verificar
 rumb a l'oest	rˈum ə luˈest	emmudiment de b després de m	ok
 Abac	əβˈak	b aproximant entre vocals	ok
 quatre bacs	kwˈatɾə βˈaks	b aproximant entre vocals	ok
 albarà   	əlβəɾˈa	b aproximant entre líquida o fricativa i vocal	ok
 al bar	əl βˈar	b aproximant entre líquida o fricativa i vocal 	ok
-esbós	əzβˈos	b aproximant entre líquida o fricativa i vocal 	ok
-els boscos	əlz βˈɔskus	b aproximant entre líquida o fricativa i vocal	ok
+esbós	əzbˈos	b aproximant entre líquida o fricativa i vocal 	no al dop
+els boscos	əlz bˈɔskus	b aproximant entre líquida o fricativa i vocal	no al dop
 un tub	un tˈup	b ensordeix a final de paraula	ok
 dissabte	disˈaptə	b ensordeix davant de consonant sorda	ok
 un tub ample	un tˈup ˈamplə	b ensordeix a final de paraula	ok
@@ -28,41 +28,41 @@ encès	ənsˈɛs	c desrpés de «n» i seguida de «e» o «i» no fa canviar la
 # ç			
 llaç	ʎˈas	ç sona [s]	ok
 llaç estret	ʎˈaz əstɾˈet	ç sona [z] davant de vocal	ok
-llaç bonic	ʎˈaz βunˈik	ç sona [z] davant de consonant sonora	ok
+llaç bonic	ʎˈaz bunˈik	ç sona [z] davant de consonant sonora	ok
 			
 # d			
 dos	dˈɔs	d és d a inici de mot	ok
 àcid	ˈasit	d és [t] a final de mot	ok
 àcid sulfúric	ˈasit sulfˈuɾik	d és [t] seguida de consonant sorda	ok
 àcid aquós	ˈasit əkwˈos	d és [t] a final de paraulaseguida de consonant sorda	ok
-àcid vermell	ˈasid bərmˈɛʎ	d és [d] a final de paraulaseguida de consonant sonora	ok
+àcid vermell	ˈasid bərmˈeʎ	d és [d] a final de paraulaseguida de consonant sonora	ok
 adscrit	ətskɾˈit	d és [t] seguida de consonant sorda	ok
 endur	əndˈu	d és d entre nasal i vocal	ok
 calda	kˈaldə	d és d entre l i vocal	ok
 maragda	məɾˈaɡdə	d és d entre oclusiva i vocal	ok
 la diada de demà	lə ðiˈaðə ðə ðəmˈa	d és aproximant entre vocals	ok
-esdevenir	əzðəβənˈi	d és aproximant entre fricativa i vocal	ok
-es dona	ˈez ðˈɔnə	d és aproximant entre fricativa i vocal	ok
-arbust	ərβˈust	d és aproximant entre r i vocal	ok
-vidre	bˈiðɾə	d és aproximant entre vocal i r	ok
+esdevenir	əzdəβənˈi	d és aproximant entre fricativa i vocal	no al dop
+es dona	ˈɛz dˈɔnə	d és aproximant entre fricativa i vocal	no al dop
+arbust	ərbˈust	d és aproximant entre r i vocal	no al dop
+vidre	bˈiðɾə	d és aproximant entre vocal i r	no al dop
 examimand	əɡzəmimˈan	emmudiment de «d» deprés de «n» en final de mot	ok
 			
 # f			
-fa fred	fˈa fɾˈet	f és f	repassar davant de r
-afganès	əvɣənˈɛs	f sona [v] davant de consonant sonora	ok
-escalf d’amor	əskˈalv ðəmˈo	f sona [v] davant de consonant sonora	ok
+fa fred	fˈa fɾˈɛt	f és f	repassar davant de r
+afganès	əvɡənˈɛs	f sona [v] davant de consonant sonora	ok
+escalf d’amor	əskˈalv dəmˈo	f sona [v] davant de consonant sonora	ok
 escalf amic	əskˈalv əmˈik	f sona [v] davant de vocal	ok
 			
 # g			
 groc	ɡɾˈɔk	g és [g] a inici de mot	ok
-guia	ɡˈiə	gu és [g] davant de i o e, i la u no es pronuncia	ok
+guia	ɡiˈa	gu és [g] davant de i o e, i la u no es pronuncia	ok
 preg	pɾˈek	g és [k] a final de mot	ok
 diàleg amè	diˈalək əmˈɛ	g és [k] a final de mot	ok
 pago	pˈaɣu	g és aproximant entre vocal i a o o	ok
-una guia	ˌunə ɣˈiə	gu és aproximant entre vocal i i o e, i la u no es pronuncia	ok
+una guia	ˈunə ɣiˈa	gu és aproximant entre vocal i i o e, i la u no es pronuncia	ok
 En Roger va a Girona	ən ruʒˈe βˈa ə ʒiɾˈonə	g és [ʒ] davant de i o e	ok
-esgarrapa i produeix gas	əzɣərˈapə j pɾuðwˈeʒ ɣˈas	g és aproximant entre fricativa i «a» o «o»	ok
-algues i cargols	əlɣˈez i kərɣˈols	g és aproximant entre r o l i a, o, u	ok
+esgarrapa i produeix gas	əzɡərˈapə j pɾuðuˈeʒ ɡˈas	g és aproximant entre fricativa i «a» o «o»	ok
+algues i cargols	əlɣˈɛz i kərɡˈɔls	g és aproximant entre r o l i a, o, u	ok
 aigüera	əjɣwˈeɾə	g és aproximanet entre vocal i ü	ok
 anagrama	ənəɣɾˈamə	g és aproximant entre vocal i r + vocal	ok 
 raig	rˈatʃ	ig és [tʃ] a final de mot	ok
@@ -74,19 +74,19 @@ aglomeració	əɡɡluməɾəsiˈo	geminació del grup «gl» 	ok
 # i			
 mira	mˈiɾə	i és  [i]	ok
 aigua	ˈajɣwə	i és [j] després de vocal	ok
-una i mitja	ˌunə j mˈidʒə	i és [j] després de vocal	ok
+una i mitja	ˈunə j mˈidʒə	i és [j] després de vocal	ok
 quincalla	kiŋkˈaʎə	i és [i] després de «gu» i «qu»	ok
-əɡɡluməɾəsiˈo	nˈan	i és [i] després de «gü» i «qü»	ok
+lingüista	liŋɡwˈistə	i és [i] després de «gü» i «qü»	ok
 camió	kəmiˈo	i és [i] abans de vocal	ok
 			
 # m			
 mama	mˈamə	m és [m]	ok
-amfiteatre	əɱfitɛˈatɾə	m és [ɱ] davant de f	ok
-anem fent	ˈanəɱ fˈen	m és [ɱ] davant de f	ok
+amfiteatre	əɱfiteˈatɾə	m és [ɱ] davant de f	ok
+anem fent	ənˈɛɱ fˈen	m és [ɱ] davant de f	ok
 			
 # n			
-nena	nˈenə	n és [n]	ok
-en veu	əm bˈew	n és [m] quan va seguida de labial	ok
+nena	nˈɛnə	n és [n]	ok
+en veu	əm bˈɛw	n és [m] quan va seguida de labial	ok
 un bol	um bˈɔl	n és [m] quan va seguida de labial	ok
 en pau	əm pˈaw	n és [m] quan va seguida de labial	ok
 confecció	kuɱfəksiˈo	n és [ɱ] davant de f	falta
@@ -99,12 +99,12 @@ tinc sang	tˈiŋ sˈaŋ	n és [ŋ] quan va seguida de velar  + emmudiment de la 
 sang i fetge	sˈaŋk i fˈedʒə	n és [ŋ] quan va seguida de velar + no emmudiment de velar si va seguida de vocal 	ok
 			
 # p			
-a camp obert	ə kˈam uβˈɛɾt	emmudiment de p després de [m] seguit de vocal	ok
-un camp cobert	uŋ kˈam kuβˈɛɾt	emmudiment de p després de [m] seguit de consonant	ok
-compte	kˈɔmtə	emmudiment de p després de [m] seguit de consonant	ok
+a camp obert	ə kˈam uβˈɛrt	emmudiment de p després de [m] seguit de vocal	ok
+un camp cobert	uŋ kˈam kuβˈɛrt	emmudiment de p després de [m] seguit de consonant	ok
+compte	kˈomtə	emmudiment de p després de [m] seguit de consonant	ok
 comprar	kumpɾˈa	no emmudiment de «p» entre «m» i «r»	ok
-Irromp-hi	irˈompi	no emmudiment al final d’imperatiu seguit de «hi» o «ho»	ok
-hipnosi	ibnˈozi	sonorització davant de consonant sonora	ok
+Irromp-hi	irˈɔmpi	no emmudiment al final d’imperatiu seguit de «hi» o «ho»	ok
+hipnosi	ibnˈɔzi	sonorització davant de consonant sonora	ok
 cap límit	kˈap lˈimit	sonorització davant de consonant sonora	ha de ser aproximant?
 			
 # q			
@@ -114,21 +114,21 @@ Iraq lliure	iɾˈaɡ ʎˈiwɾə	«q» sona [g] a final de paraula seguida de con
 			
 # s			
 sol	sˈɔl	«s» sona [s]	ok
-mossa	mˈɔsə	«ss» sona [s]	ok
+mossa	mˈosə	«ss» sona [s]	ok
 casa	kˈazə	«s» sona [z] entre vocals	ok
-les ones	ləz ˈɔnəs	«s» sona [z] a final de paraula i davant vocal	ok
+les ones	lˈɛz ˈonəs	«s» sona [z] a final de paraula i davant vocal	ok
 els uns	əlz ˈuns	«s» sona [z] a final de paraula i davant vocal	ok
 els homes	əlz ˈɔməs	«s» sona [z] a final de paraula i davant de «h» + vocal	ok
-els gasos esguerrats	əlz ɣəzˈoz əzɣərˈats	«s» sona [z] davant de consonant sonora	ok
+els gasos esguerrats	əlz ɡəzˈoz əzɡərˈats	«s» sona [z] davant de consonant sonora	ok
 anys	ˈaɲʃ	«s» sona [ʃ] després de «ny»	ok
 anys i anys	ˈaɲʒ i ˈaɲʃ	«s» sona [ʒ] després de «ny» i abans de vocal	ok
-aquests dies	əkˈedz ðˈiəs	la «s» d’ «aquest/s» no es pronuncia	ok
+aquests dies	əkˈedz dˈiəs	la «s» d’ «aquest/s» no es pronuncia	ok
 aquest amic	əkˈest əmˈik	la «s» d’ «aquest» es pronuncia quan va seguida de vocal	ok
 els xocs	əlʃ ʃˈɔks	«s» sona [ʃ] davant de [ʃ] 	ok
 els jocs	əlʒ ʒˈɔks	«s» sona [ʒ] davant de [ʒ] 	ok
 			
 # t			
-atleta	ədlˈetə	sonorització de «t» davant de consonant sonora	ok
+atleta	ədlˈɛtə	sonorització de «t» davant de consonant sonora	ok
 comprat millor	kumpɾˈad miʎˈo	sonorització de «t» davant de consonant sonora	ha de ser aproximant?
 anant	ənˈan	emmudiment de «t» després de «n»	ok
 Anant-hi	ənˈanti	sensiblització de «t» després de «n» seguit de -hi, -ho	ok
@@ -142,30 +142,30 @@ espatlla	əspˈaʎʎə	geminació del grup «tl»	ok
 una 	ˈunə	«u» és [u]	
 veniu	bənˈiw	«u» és [w] després de vocal	
 quatre 	kwˈatɾə	«u» és [w] abans de vocal	
-cuit	kˈujt	«u» és [u] davant de i	
+cuit	kujt	«u» és [u] davant de i	
 circuït	sirkuˈit	«u» és [u] davant de ï	
-aigüera	əjɣwˈɛɾə	«ü» és [u] abans de vocal	
+aigüera	əjɣwˈeɾə	«ü» és [u] abans de vocal	
 			
 # v			
-vell	bˈɛʎ	«v» sona [b]	ok
+vell	bˈeʎ	«v» sona [b]	ok
 avi	ˈaβi	«v» és aproximant entre vocals	ok
-la vella	lə βˈɛʎə	«v» és aproximant entre vocals	ok
-el vell	əl βˈɛʎ	«v» és aproximant entre «l», «r» o fricativa i vocal	ok
+la vella	lə βˈeʎə	«v» és aproximant entre vocals	ok
+el vell	əl βˈeʎ	«v» és aproximant entre «l», «r» o fricativa i vocal	ok
 			
 # x			
 taxa	tˈaksə	«x» sona [ks]	ok
 exàmen	əɡzˈamən	«x» sona [gz] en paraules començades en vocal, si seguida de vocal o sonora	ok
 expresident	ekspɾəziðˈen	«x» sona [ks] en paraules començades en vocal, si seguida de sorda	ok
-enxaneta	ənʃənˈetə	«x» sona [ʃ] després de no-vocal	ok
+enxaneta	əɲʃənˈɛtə	«x» sona [ʃ] després de no-vocal	ok
 caixa	kˈaʃə	«ix» sona [iʃ] després de no vocal	ok
 pixa	pˈiʃə	«ix» sona [ʃ] després de vocal i la «i» no es pronuncia	ok
 calaix 	kəlˈaʃ	«ix» sona [ʃ] després de vocal i final de paraula	ok
 calaix tancat	kəlˈaʃ təŋkˈat	«ix» sona [ʃ] després de vocal i final de paraula si la següent paraula comença amb consonant sorda	ok
-calaix obert	kəlˈaʒ uβˈɛɾt	«ix» sona [ʒ] després de vocal i final de paraula si la següent paraula comença vocal	ok
-calaix bonic	kəlˈaʒ βunˈik	«ix» sona [ʒ] després de vocal i final de paraula si la següent paraula comença amb consonant sonora	ok
+calaix obert	kəlˈaʒ uβˈɛrt	«ix» sona [ʒ] després de vocal i final de paraula si la següent paraula comença vocal	ok
+calaix bonic	kəlˈaʒ bunˈik	«ix» sona [ʒ] després de vocal i final de paraula si la següent paraula comença amb consonant sonora	ok
 metxa	mˈetʃə	«tx» sona [tʃ] seguida de vocal	ok
-despatx d’advocat	dəspˈadʒ dəbbʊkˈat	«tx» sona [dʒ] a final de paraula seguida de consonant sonora	ok
-despatx obert	dəspˈadʒ uβˈɛɾt	«tx» sona [dʒ] a final de paraula seguida de vocal	ok
+despatx d’advocat	dəspˈadʒ dədbukˈat	«tx» sona [dʒ] a final de paraula seguida de consonant sonora	ok
+despatx obert	dəspˈadʒ uβˈɛrt	«tx» sona [dʒ] a final de paraula seguida de vocal	ok
 			
 # e			
 festa	fˈestə	«e» sona [e]	ok
@@ -175,7 +175,7 @@ serp	sˈerp	«e» sona [e] davant de r + m/p/b	mirar què passa amb «erm» i «
 element	ələmˈen	«e» sona [ə] quan és àtona	ok
 fonètica	funˈɛtikə	«e» sona [ɛ] 	ok
 carrer	kərˈe	«e» sona [e] a la terminació -er	ok
-panteó neoclàssic	pənteˈo neoklˈasik	«e» sona [e] davant de [a] (no neutralitza)	ok
+panteó neoclàssic	pənteˈo neuklˈasik	«e» sona [e] davant de [a] (no neutralitza)	ok
 teatre real	teˈatɾə reˈal	«e» sona [e] davant de [a] (no neutralitza)	ok
 			
 # o			
