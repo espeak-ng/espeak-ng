@@ -38,7 +38,7 @@ endphoneme
 phoneme e2 // don't reduce + change if tressed: "aeri" vs "aeròdrom".
   vwl starttype #e endtype #e
   length 170
-  ChangeIfStressed(E)
+//  ChangeIfStressed(E)
   FMT(vowel/e)
 endphoneme
 
@@ -73,6 +73,7 @@ endphoneme
 phoneme o2
   vwl starttype #o endtype #o
   length 170
+  ChangeIfStressed(O)
   FMT(vowel/o)
 endphoneme
 
@@ -192,7 +193,11 @@ phoneme s
       ChangePhoneme(S)
     ENDIF
   ENDIF
-
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) THEN
+      ChangePhoneme(z)
+    ENDIF
+  ENDIF
   IF nextPh(isPause) THEN
     WAV(ufric/s_)
   ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
@@ -233,6 +238,7 @@ phoneme b
 
   IF thisPh(isWordEnd) THEN
     IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELIF prevPh(m) THEN
     ELSE
       ChangePhoneme(p)
     ENDIF
