@@ -336,6 +336,8 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 			translator->langopts.intonation_group = new_value & 0xff;
 		option_tone_flags = new_value;
 		break;
+  case espeakSSML_BREAK_MUL:
+    break;
 	default:
 		return EINVAL;
 	}
