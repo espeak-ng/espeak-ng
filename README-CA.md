@@ -120,3 +120,19 @@ Posats provisionalment al directori [tests-ca](https://github.com/projecte-aina/
 
 6) Altres decisions:
 * la conjunció i no fa diftong ni amb les vocals anteriors ni amb les posteriors. "amiga i amada" -> [əmˈiɣə ˈi əmˈaðə]
+
+## Tasques
+- [x]  Paraules amb 2 accents fònics (primari i secundari): benvingut, contrasenya, portaavions, alegrement, economicofinancer, radioaficionat,...
+- [x]  Emmudiment
+    - m davant b o p: camp, rumb,...
+    - t o d finals precedides de n o l: tant, molt, fent, parlant...
+- [x]  Sensibilització: t a final de mot amb contacte vocàlic: fent-ho, parlant-ho, sant Andreu vs. sant Joan
+- [x]  Sonorització: essa a final de mot: les ales vs. les sales
+- [x]  Paraules amb [hac_aspirada](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_hac_aspirada): halar
+- [x]  Paraules amb [ics intervocàlica darrere de i](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_ics_intervoc%C3%A0lica): afixar, fixar vs. pixar
+- [x]  Paraules amb [ics travada darrere de i](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_ics_travada_darrere_i_voc%C3%A0lica): crucifix, afix vs. guix
+- [x]  [Pronúncia en català amb erra interior muda](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_erra_interior_muda)
+- [x]  [Pronúncia en català amb erra final sensible](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_erra_final_sensible)
+- [x]  [Pronúncia en català amb erra vibrant intervocàlica](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_erra_vibrant_intervoc%C3%A0lica)
+- [x]  [Pronúncia en català amb gu formant hiat](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_gu_formant_hiat)
+- [x]  [Pronúncia en català amb i inicial no consonàntica](https://ca.wiktionary.org/wiki/Categoria:Pron%C3%BAncia_en_catal%C3%A0_amb_i_inicial_no_conson%C3%A0ntica)
