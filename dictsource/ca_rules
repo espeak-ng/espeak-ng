@@ -19,6 +19,7 @@
 .L12 b d g m v n z j f // voiced, not r or l
 
 .L15 c ç             // ces
+.L16 q g             // ces
 
 .L20 c q g             // velars
 .L21 p b v m           // bilabials
@@ -39,6 +40,16 @@
     _)  a (nti@@   ,a   // (antepenúltim)
     _)  a (uto@@   ,a   // (autodestrucció)
     _)  ae  (ro@@  ,ae2
+   _f)  a (rmaco   ,a  // (farmacognòsia)
+  _gu)  a (rda      ,a // (guardabosc)
+  _v)  a (so@      ,a // (vasoconstrictor)
+  _m)  a (l@      ,a // (malpensar)
+  _m)  a (lalt      a // (malpensar)
+  _m)  a (lefi      a // (malpensar)
+  _m)  a (lic      a // (maliciós)
+  _m)  a (ll      a // (mallorquí)
+  _m)  a (l·l      a // (mallorquí)
+  _nacion)  a (l      ,a // (nacionalcatòlic)
 
 
 .group b
@@ -128,8 +139,8 @@
         e (m       E    //
         e (na_     E    //
         e (nes_    E    //
-        e (n    E    //
-        e (d_     E    //
+        e (n       E    //
+        e (d_      E    //
         e (ds_     E    //
         e (da_     E    //
         e (des_    E    //
@@ -143,7 +154,7 @@
      n) e (rv      E 
      v) e (rb      E
      v) e (rs      E
-        e (nL15      E // (llença, llenca, etc.)
+  //      e (nL15    E // (llença, llenca, etc.)
                 // e is E + stress
         e (m_      'E
         e (t_      'E
@@ -176,6 +187,36 @@
  L05J)  e (nses_   @
         
  L05J)  ee         e2@  // (pàncrees)
+        
+        // prefixes with secondary stress
+    _a) e (ro      ,e
+    _b) e (ll      ,e
+    _b) e (llug    e
+  _jud) e (o       ,e
+    _c) e (ntre@   ,e
+   _el) e (ctro@   ,E
+     _) e (ntre@   ,e
+     _) e (ntrevis  e // entrevista
+     _) e (ntren    e // entrenar
+  _est) e (reo     ,E // estereotipat
+     _) e (tno     ,E
+     _) e (xtra    ,E
+    _h) e (tero    ,e
+ _magn) e (to      ,E
+    _m) e (dico    ,E
+    _m) e (nys     ,E
+    _n) e (o@      ,e
+    _n) e (uro     ,E
+  _pal) e (o       ,e
+   _ps) e (udo     ,E
+    _r) e (ra      ,e
+    _r) e (tro     ,E
+    _r) e (tron    e // (retronar)
+    _r) e (troc    e // (retrocedir)
+    _r) e (trob    e // (retrobar)
+    _s) e (mi@     ,E // (semiconductor)
+    _s) e (rvo@    ,E // (semiconductor)
+    _t) e (rmo@    ,E // (termogènesi)
 
 .group f
         f          f
@@ -205,9 +246,11 @@
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
      _) i (on      i    // not glide (ions + derivats)
-     u) i (K       i    // not glide (cuit)
-    gü) i (K       i    // not glide (lingüista)
-    qü) i (K       i    // not glide (ubiqüitat)
+  //   u) i (K       i    // not glide (cuit)
+  L16ü) i (K       i    // not glide (lingüista)
+  L16u) i (A       i    // not glide (guia)
+  L16u) i (K       i    // not glide (guia)
+    
         i (sta     i    // not glide (deista)
         i (sme     i    // not glide (deisme)
 //    gu) i (K       i    // not glide (guitarrista)
@@ -233,6 +276,19 @@
      A) i (ríem_    i   // verb: not glide (conduir, agrair, etc.)
      A) i (ríeu_    i   // verb: not glide (conduir, agrair, etc.)
      A) i (ríen_    i   // verb: not glide (conduir, agrair, etc.)
+     
+            // prefixes with secondary stress
+     _ac) i (culi    ,i  // aciculifoli
+     _) i (bero     ,i // iberoromà
+     _) i (ndo      ,i // indoeuropeu
+     _) i (nfra     ,i // indoeuropeu
+     _) i (nfrangi  i  // infrangible (no sec)
+    _l) i (po       ,i
+    _m) i (cro@     ,i
+    _h) i (dro@     ,i
+     _) i (nfra     ,i
+    _x) i (ux       ,i
+     
           
   
 .group ix
@@ -291,8 +347,8 @@
         mbr        mbr  // (cambra)
         mbl        mbl  // (rambla)
 
-        
-        ment (_    m'en  // ??
+   @) ment (_S4t	m'''en 
+    //    ment (_    m'en  // ??
 
 
 .group n
@@ -341,6 +397,7 @@
      c) o (mpt      o
      s) o (pa_      o
      s) o (pes_      o
+     _h) o (mosex   ,O
 
      X) o          O
         o (l       O
@@ -397,19 +454,37 @@
         o (da_      O
         o (de_      O
         o (des_      O
-       o (xi       O
-     o (xis       O
+        o (xi       O
+        o (xis       O
         
-   m)   o (nt      o
-    _c) o (ntraA   ,O
-    _c) o (ntraC   ,O
+  //   m) o (nt      ,o
+            // prefixes with secondary stress
+    _c) o (ntraA   ,o
+    _c) o (ntraK   ,o
+    _c) o (ntract  o    // contracte
+    _c) o (ntrast  o    // contrastar
     _s) o (cio     ,O
-    _s) o (breA    ,o
-    _s) o (breC    ,o
+    _s) o (bre@    ,o
+    _b) o (ca@    ,o
+catalan) o (@      ,o
+    _c) o (ll@     ,O
+    _c) o (ma@     ,o
+    _c) o (mand@   o
+    _c) o (mare    o
+    _c) o (marc@   o
+    _f) o (to      ,o
+    _f) o (togr    o
+    _f) o (tocop   o
+    _f) o (tocòp   ,o
+    _p) o (rta   ,O
+   _pr) o (to   ,o
+   _pr) o (tocol   o
+   _s) o (cio   ,O
+   _s) o (ta   ,o
 
         o ($w_alt1 o    // list of excepcions of the rules
         o ($w_alt2 O    // list of excepcions of the rules 
-//* ["obi", "obis", "pondre", "obus", "ond", "onds"],  la o és "ɔ́". I si acaba en "ofa" o "ofes" també, excepte quan la paraula és esdrúixola (per exemple, "antístrofa")     */  
+ 
 .group p
         p          p
  //       p (t       p:
@@ -429,14 +504,27 @@
         rr         R    // (carro) 
      l) r (A       R    // (colrat)
      n) r (A       R    // (enrere)
+                // prefixes that not change R
+ _anti) r (A       R    // (antiraquític)
+ _auto) r (A       R    // (autoregulació)
+_cefalo) r (A       R    // (cefaloraquidi)
+   _co) r (esponsabili       R    // (coresponsabiliatat)
+   _co) r (efer       R    // (coreferir)
+    _e) r (adi       R    // (eradicar)
   _des) r (A       R    // (desratitzar)
    _bi) r (A       R    // (birotor)
   _neo) r (A       R    // (neorural)
- _orto) r (A       R    // 
+ _orto) r (A       R    //
+  _oto) r (A       R    //
   _uni) r (A       R    // 
 _contra) r (A      R    // (contrareforma)
+_intra) r (A      R    // (inraraquidi)
+ _meso) r (A      R    // ()
+ _mico) r (A      R    // ()
  _tele) r (A       R    // (telereunió)
 _ultra) r (A       R    // (ultraric)
+    _a) r (iz      R    // (arizotònic)
+    _a) r (ítmi    R    // (arítmic)
 // _vice) r (A       R    // (vicerector)
      p) r (end          // (prendre)
      
@@ -454,7 +542,6 @@ _ultra) r (A       R    // (ultraric)
                 // suffixes with final R not silent
   L05Jfo)  r   (_       R
   L05Jfe)  r   (_       R
-  L05Jfo)  r   (_       R
   L05Jco)  r   (_       R
   L05Jge)  r   (_       R
   L05Jpa)  r   (_       R
@@ -479,10 +566,10 @@ L05Jgula)  r   (_       R
         ss         s
         sc (L01    s
      A) s  (A      z
-        s  (_A     z
-        s  (_hA    z
-        s  (L11    z
-        s  (_L11   z
+//         s  (_A     z
+//         s  (_hA    z
+//         s  (L11    z
+//         s  (_L11   z
      -) se (_      s@
   aque) s  (tKK  
   aque) s  (tKhA   s
@@ -496,6 +583,7 @@ L05Jgula)  r   (_       R
 _contra) s (A      s    // (contrasentit)
  _entre) s (A      s    // (entresòl)
   _mono) s (A      s    // (monosíl·lab)
+  _homo) s (A      s    // (homosexual)
   _para) s (A      s    // (parasíntesi)
  _sobre) s (A      s    // (sobresortir)
   _tele) s (A      s    // (telestrella)
@@ -533,7 +621,14 @@ _contra) s (A      s    // (contrasentit)
         u (m_      'u   // stress the vowel (costum)
 L05J)   u (m_      u    // do not stress the vowel
 L05Ji)  u (s_      u    // not a glide (Màrius)
+            // prefixes with secondary stress
 
+   _p)  u (ig      ,u    // (puigmal)
+   _s)  u (per@    ,u    // (supermercat)
+   _s)  u (pra@    ,u    // (suprarenal)
+   _t)  u (rbo@    ,u    // (turboautomòbil)
+    _)  u (ltra@   ,u    // (ultradreta)
+    
 .group v
         v          b
 //     _) v          v#
