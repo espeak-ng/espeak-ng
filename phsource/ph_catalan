@@ -244,7 +244,7 @@ phoneme b
     ENDIF
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(isLiquid) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
         IF prevPh(**) OR prevPh(R) THEN
         ELSE
             ChangePhoneme(B)
@@ -273,7 +273,7 @@ phoneme g
     ENDIF
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(isLiquid) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
         IF prevPh(**) OR prevPh(R) THEN
         ELSE
            ChangePhoneme(Q)
@@ -304,7 +304,7 @@ phoneme d
     ENDIF
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) THEN
         ChangePhoneme(D)
       ENDIF
     ENDIF  

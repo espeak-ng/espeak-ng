@@ -24,6 +24,7 @@
 .L20 c q g             // velars
 .L21 p b v m           // bilabials
 
+.L25 ce sa vi           // +nt
 
 .group a
         a          a
@@ -245,6 +246,7 @@
     A_) i (K       j    // glide (una història)
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
+    _h) i (A       j    // glide (hialita)
      _) i (on      i    // not glide (ions + derivats)
   //   u) i (K       i    // not glide (cuit)
   L16ü) i (K       i    // not glide (lingüista)
@@ -347,7 +349,7 @@
         mbr        mbr  // (cambra)
         mbl        mbl  // (rambla)
 
-   @) ment (_S4t	m'''en 
+   @) ment (_S4t	m''en 
     //    ment (_    m'en  // ??
 
 
@@ -362,9 +364,9 @@
         nd (_      =n   // do not pronounce final d + stress the vowel
         nt (s_     =n   // do not pronounce final t + stress the vowel
         nd (s_     =n   // do not pronounce final d + stress the vowel
-        nt (_A     nt   // pronounce final t if followed by a vowel
-        nt (_hA    nt   // pronounce final t if followed by a vowel
-        nt (-h     nt   // pronounce final t if followed by a pronoun (anant-hi)
+  _L25) nt (_A     nt   // pronounce final t if followed by a vowel
+  _L25) nt (_hA    nt   // pronounce final t if followed by a vowel
+  _L25) nt (-h     nt   // pronounce final t if followed by a pronoun (anant-hi)
         ny         n^   // palatalization
         nc (_      N    // velarization (cranc)
         ng (_      N    // velarization (fang)
@@ -568,7 +570,7 @@ L05Jgula)  r   (_       R
      A) s  (A      z
 //         s  (_A     z
 //         s  (_hA    z
-//         s  (L11    z
+         s  (L11    z
 //         s  (_L11   z
      -) se (_      s@
   aque) s  (tKK  
