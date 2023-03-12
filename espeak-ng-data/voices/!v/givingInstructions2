@@ -1,0 +1,19 @@
+language variant
+words 1
+name givingInstructions2
+klatt 5
+pitch  70 120
+echo 30 30
+stressAmp 18 18 20 20 20 22 23 21
+formant 1 88 120 70
+formant 2 95 110 80
+formant 3 100 70 80
+formant 4 100 100 80
+formant 5 100 100 100
+formant 6 100 100 100
+formant 7 0 0 0
+formant 8 0 0 0
+voicing 100
+consonants 75 70
+tone 60 100 600 175 1200 150 2000 50
+speed 90

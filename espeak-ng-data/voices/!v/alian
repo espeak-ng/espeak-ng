@@ -1,0 +1,16 @@
+language variant
+name Alian
+klatt 6
+pitch 58 116
+voicing 80
+consonants 70 80
+breath 45
+breathw 255 255 255 255 255 255 255 255
+stressAdd 4 4 4 4 4 4 4 4
+StressAmp 12 12 12 12 12 12 12
+
+formant 1 76 75 75 75
+formant 2 88 75 -75 -75
+formant 3 89 75 75 75
+formant 4 91 75 -75 -75
+formant 5 93 75 75 75

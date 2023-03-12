@@ -1,0 +1,13 @@
+name Gary
+language variant
+pitch 48 95
+klatt 6
+voicing 135
+consonants 70 70
+breath 60
+
+formant 1 75 100 100 60
+formant 2 104 100 120 0
+formant 3 100 100 100 100
+formant 4 114 100 35
+formant 5 100 100 100 0

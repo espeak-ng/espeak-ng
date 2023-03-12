@@ -1,0 +1,16 @@
+name Tracy
+language variant
+pitch 70 140
+klatt 5
+voicing 70
+consonants 70 70
+
+formant 1 88 100 100 -60
+formant 2 97 100 100 -0
+formant 3 99 100 -30 0
+formant 4 114 100 40 0
+formant 5 100 100 100 0
+formant 6 100 100 100 0
+formant 7 100 100 100 0
+formant 8 100 100 100 0
+
