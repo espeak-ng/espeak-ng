@@ -1627,7 +1627,7 @@ $textmode
 *️⃣	toets sterretje							// [002A FE0F 20E3]
 0️⃣	toets nul							// [0030 FE0F 20E3]
 1️⃣	toets één							// [0031 FE0F 20E3]
-2️⃣	toets tww							// [0032 FE0F 20E3]
+2️⃣	toets twee							// [0032 FE0F 20E3]
 3️⃣	toets drie							// [0033 FE0F 20E3]
 4️⃣	toets vier							// [0034 FE0F 20E3]
 5️⃣	toets vijf							// [0035 FE0F 20E3]
