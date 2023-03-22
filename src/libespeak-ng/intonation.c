@@ -293,7 +293,6 @@ static const TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
 #define PRIMARY_LAST     7
 
 static int number_pre;
-static int number_body;
 static int number_tail;
 static int last_primary;
 static int tone_posn;
@@ -309,7 +308,6 @@ static void count_pitch_vowels(SYLLABLE *syllable_tab, int start, int end, int c
 	int max_stress_posn2 = 0; // penuntimate syllable of the highest stress
 
 	number_pre = -1; // number of vowels before 1st primary stress
-	number_body = 0;
 	number_tail = 0; // number between tonic syllable and next primary
 	last_primary = -1;
 
