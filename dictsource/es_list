@@ -316,6 +316,7 @@ dpto	departamento	$text
 dr	doctor		$text $capital $dot
 dra	doctora		$text $capital $dot
 (ee.uu)  Est'aDos||un'iDos
+etc	etcétera	$text
 Excmo	excelentísimo	$text $dot
 Excma	excelentísima	$text $dot
 Ilmo	ilustrísimo	$text $dot
@@ -354,11 +355,14 @@ copyright	k'opiRR2,aIt
 chrome	kr'owm
 curriculum	$2
 diem	d'i:em $only
+down	d'awn
 eloquence	'elokwens
 english ínglish      $text
 espeak	'isp'ik
 eyes	'aIs
 facebook f'eIsbuk
+file f'aIL
+files f'aILs
 firefox	f'aIrfoks
 free	fr'i
 google	g'ug@l
@@ -389,7 +393,9 @@ speech	sp'itS
 thunderbird	t'anderbird
 twit	tw'it
 twitter	tw'iter
+up	ap
 window	w'indow
+YouTube	Iut'uB
 
 (e speak) 'isp'ik
 (i phone)	'aIfon
