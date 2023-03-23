@@ -115,4 +115,9 @@ if (MINGW)
   target_link_options(espeak-ng PRIVATE "-static-libstdc++" "-static")
 endif()
 
+set_target_properties(espeak-ng PROPERTIES
+  SOVERSION ${PROJECT_VERSION_MAJOR}
+  VERSION ${PROJECT_VERSION}
+)
+
 install(TARGETS espeak-ng LIBRARY)
