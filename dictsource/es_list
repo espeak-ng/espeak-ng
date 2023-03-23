@@ -359,6 +359,7 @@ down	d'awn
 eloquence	'elokwens
 english ínglish      $text
 espeak	'isp'ik
+ETI	itiaI		$capital
 eyes	'aIs
 facebook f'eIsbuk
 file f'aIL
@@ -378,6 +379,8 @@ kepler	$1
 linux        $1
 live l'aIB
 drive dr'aIB
+gmail	dZimeil
+freedom	fr'idom
 reaper R2'iper
 messenger m'esendZer
 microsoft	m'aIkrosoft
@@ -385,6 +388,7 @@ mozilla	moT'ila
 office	'ofis
 platform	pl'atfom
 power	p'awer
+scientific	$2
 service	s'erBis
 skype	sk'aIp
 snapshot	sn'apS,ot // _^_en
@@ -395,6 +399,7 @@ telegram	$1
 thunderbird	t'anderbird
 twit	tw'it
 twitter	tw'iter
+unigram	$1
 up	ap
 window	w'indow
 YouTube	iut'uB
