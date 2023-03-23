@@ -12,6 +12,7 @@ include(cmake/deps.cmake)
 include(cmake/config.cmake)
 add_subdirectory(src)
 include(cmake/data.cmake)
+include(cmake/docs.cmake)
 
 include(cmake/package.cmake)
 include(CPack)
