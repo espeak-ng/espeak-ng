@@ -194,7 +194,7 @@ static const unsigned char env_risefallrise[128] = {
 	0x50, 0x5a, 0x64, 0x70, 0x7c, 0x83, 0x85, 0x88, 0x8a, 0x8c, 0x8e, 0x8f, 0x91, 0x92, 0x93, 0x93
 };
 
-const unsigned char *envelope_data[N_ENVELOPE_DATA] = {
+const unsigned char *const envelope_data[N_ENVELOPE_DATA] = {
 	env_fall,  env_fall,
 	env_rise,  env_rise,
 	env_frise,  env_r_frise,
