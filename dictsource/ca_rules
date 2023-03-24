@@ -18,22 +18,22 @@
 .L11 b d g m v l n r z j f // voiced
 .L12 b d g m v n z j f // voiced, not r or l
 
-.L15 c ç             // ces
-.L16 q g             // ces
+.L15 c ç               // ces
+.L16 q g               // letters that can be followed by a u
 
 .L20 c q g             // velars
 .L21 p b v m           // bilabials
 
-.L25 ce sa vi           // +nt
+.L25 ce sa vi           // not silent +nt
 
 .group a
         a          a
-        a (m_      'a   // stress the vowel
-        a (ny_     'a   // stress the vowel
-        a (ns_     'a   // stress the vowel
- L05J)  a (m_      a    // do not stress the vowel
- L05J)  a (ny_     a    // do not stress the vowel
- L05J)  a (ns_     a    // do not stress the vowel
+ //       a (m_      'a   // stress the vowel
+ //       a (ny_     'a   // stress the vowel
+ //       a (ns_     'a   // stress the vowel
+//  L05J)  a (m_      a    // do not stress the vowel
+//  L05J)  a (ny_     a    // do not stress the vowel
+//  L05J)  a (ns_     a    // do not stress the vowel
         ae         ae2  // do not reduce
         ahe        ae2  // do not reduce
     _)  amb (_A    amb  // Sensibilització
@@ -41,25 +41,25 @@
     _)  a (nti@@   ,a   // (antepenúltim)
     _)  a (uto@@   ,a   // (autodestrucció)
     _)  ae  (ro@@  ,ae2
-   _f)  a (rmaco   ,a  // (farmacognòsia)
-  _gu)  a (rda      ,a // (guardabosc)
-  _v)  a (so@      ,a // (vasoconstrictor)
-  _m)  a (l@      ,a // (malpensar)
-  _m)  a (lalt      a // (malpensar)
-  _m)  a (lefi      a // (malpensar)
-  _m)  a (lic      a // (maliciós)
-  _m)  a (ll      a // (mallorquí)
-  _m)  a (l·l      a // (mallorquí)
-  _nacion)  a (l      ,a // (nacionalcatòlic)
-
+   _f)  a (rmaco   ,a   // (farmacognòsia)
+  _gu)  a (rda     ,a   // (guardabosc)
+   _v)  a (so@     ,a   // (vasoconstrictor)
+   _m)  a (l@      ,a   // (malpensar)
+            // words that start by mal- but it is not a prefix
+   _m)  a (lalt    a    // (malalt)
+   _m)  a (lefi    a    // (malefici)
+   _m)  a (lic     a    // (maliciós)
+   _m)  a (ll      a    // (mallorquí)
+   _m)  a (l·l     a    // (mal·leable)
+ 
 
 .group b
         b          b    
-    A)  bl (A      bbl // gemination (poble)
+    A)  bl (A      bbl  // gemination (poble)
     A)  bl (A$w_alt7    Bl // avoid gemination (poble)
-  _bi)  bl (io     Bl //
-  _su)  bl (im     Bl //
-        bm         mm  // assimilation (submarí)
+  _bi)  bl (io     Bl   //
+  _su)  bl (im     Bl   //
+        bm         mm   // assimilation (submarí)
  
 .group c
         c          k    // (casa)
@@ -98,21 +98,21 @@
         e (ct      e    //
         e (st      e    // 
         e (mt      e    // 
-        e (nt      e    //
+        e (nt      e    // (menta)
         e (nd      e    // 
-     v) e (sp      e    // 
-     v) e (tll     e    // 
-    tr) e (t       e    // 
+     v) e (sp      e    // (vespre)
+     v) e (tll     e    // (vetlla)
+    tr) e (t       e    // (trets)
      l) e (ma_     e    // 
      l) e (mes_    e    // 
     cr) e (t       e    // 
     cr) e (p       e    // 
      c) e (rcl     e    // 
-    pr) e (g       e    // 
-     n) e (g       e    // 
-    _s) e (g       e    // 
-  sist) e (m       e
-    al) e (gr      e
+    pr) e (g       e    // (prego)
+     n) e (g       e    // (nego)
+    _s) e (g       e    // (sego)
+  sist) e (m       e    // (sistema)
+    al) e (gr      e    // (alegre)
    _ll) e          e    // 
         e (ix      e    // 
         e (mbr     e
@@ -155,37 +155,11 @@
      n) e (rv      E 
      v) e (rb      E
      v) e (rs      E
+  conv) e (x       E
+     d) e (rm      E
+    sp) e (rm      E
   //      e (nL15    E // (llença, llenca, etc.)
-                // e is E + stress
-        e (m_      'E
-        e (t_      'E
-        e (ta_     'E
-        e (ts_     'E
-        e (tes_    'E
-        e (nc_     'E   // (santsenc)
-        e (ncs_    'E   // (santsencs)
-        e (nca_    'E   // (santsencs)
-        e (nques_  'E   // (santsencs)
-        e (ny_     'E   // (estreny)
-        e (nys_    'E   // (estrenys)
-        e (ns_     'E   // (extens)
-        e (nsa_    'E   // (extensa)
-        e (nsos_   'E   // (extensos)
-        e (nses_   'E   // (extenses)
-        e (nse_    'E   // (castrense)
-    
-                // do not stress if there's a precendent accented vowel
- L05J)  e (m       @
- L05J)  e (nc_     @
- L05J)  e (ncs_    @
- L05J)  e (nca_    @
- L05J)  e (nques_  @
- L05J)  e (ny_     @
- L05J)  e (nys_    @
- L05J)  e (ns_     @
- L05J)  e (nsa_    @
- L05J)  e (nsos_   @
- L05J)  e (nses_   @
+            
         
  L05J)  ee         e2@  // (pàncrees)
         
@@ -248,7 +222,6 @@
      _) i (A       j    // glide (iogurt)
     _h) i (A       j    // glide (hialita)
      _) i (on      i    // not glide (ions + derivats)
-  //   u) i (K       i    // not glide (cuit)
   L16ü) i (K       i    // not glide (lingüista)
   L16u) i (A       i    // not glide (guia)
   L16u) i (K       i    // not glide (guia)
@@ -338,8 +311,7 @@
 .group m
         m          m
      _) m' (P2     m
-  //      mp (C      m
-  //      m (entS4   m'''en
+ 
         mp (-h     mp
         mp (_      m    // do not pronounce final p
         mb (K      m    // do not pronounce final b (amb mi) or before consonant
@@ -349,8 +321,8 @@
         mbr        mbr  // (cambra)
         mbl        mbl  // (rambla)
 
-   @) ment (_S4t	m''en 
-    //    ment (_    m'en  // ??
+   @) ment (_S4ment	m''en
+    
 
 
 .group n
@@ -379,11 +351,10 @@
         o          o
 
      @) o (r_      'o   // color ('o* per sensibilitzar la r)
-     @) o (rs_      'o   // color ('o* per sensibilitzar la r)
+     @) o (rs_      o   // color ('o* per sensibilitzar la r)
      @) o (ra_     'o   // color ('o* per sensibilitzar la r)
      @) o (res_     'o   // color ('o* per sensibilitzar la r)
-  L05J) o (r_      o   // do not stress the vowel
-  L05J) o (ra_     o   // do not stress the vowel
+ 
     //    ou_        Ow   // (mou)
         ou         o2w   // (mouré)
    //     ou (JL05     o2w
@@ -392,8 +363,7 @@
 //         o (ls_     O
 //         o (li_     O
 //         o (lis_    O
-        o (ns_     'o   // stress the vowel
-  L05J) o (ns_     o    // do not stress the vowel
+ 
      f) o (rme     o
      c) o (mt      o
      c) o (mpt      o
@@ -406,8 +376,6 @@
         o (i       O    // (boira)
         o (c       O    // (poc)
         o (m       O
-        o (m_      'O
-  L05J) o (m_      O
         o (r       O
         o (t       O
         o (si      O
@@ -484,12 +452,11 @@ catalan) o (@      ,o
    _s) o (cio   ,O
    _s) o (ta   ,o
 
-        o ($w_alt1 o    // list of excepcions of the rules
-        o ($w_alt2 O    // list of excepcions of the rules 
+        o ($w_alt1+ o    // list of excepcions of the rules
+        o ($w_alt2+ O    // list of excepcions of the rules 
  
 .group p
         p          p
- //       p (t       p:
         pm         mm   // gemination (capmoix)
         
 .group q
@@ -552,10 +519,6 @@ _ultra) r (A       R    // (ultraric)
   L05Jto)  r   (_       R
  L05Jpte)  r   (_       R
  
-    cula)  r   (_       =R
-L05Jcula)  r   (_       R
-    gula)  r   (_       =R
-L05Jgula)  r   (_       R
   
  //       r (t       **
                 // silent consonants
@@ -620,8 +583,6 @@ _contra) s (A      s    // (contrasentit)
         u (ltraC   ,u   // (ultrasò)
         u (ltraA   ,u   // (ultraaudió)
         
-        u (m_      'u   // stress the vowel (costum)
-L05J)   u (m_      u    // do not stress the vowel
 L05Ji)  u (s_      u    // not a glide (Màrius)
             // prefixes with secondary stress
 
@@ -640,7 +601,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 
 
 .group x
-        x          ks
+        x          ks   // (taxi)
     _A) x          gz   // (exàmen)
     _A) x (L10     ks   // (exprimir)
      K) x          S    // (linx)

@@ -743,6 +743,14 @@ Translator *SelectTranslator(const char *name)
 	case L('e', 's'): // Spanish
 	case L('a', 'n'): // Aragonese
 	case L('c', 'a'): // Catalan
+	{
+        static const wchar_t ca_punct_within_word[] = { '\'', 0xb7, 0 }; // ca: allow middle-dot within word
+
+        tr->punct_within_word = ca_punct_within_word;
+		tr->langopts.stress_rule = STRESSPOSN_2R; // stress on final syllable
+		tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_NO_2 | S_NO_AUTO_2 | S_FIRST_PRIMARY;
+	}
+		break;
 	case L('i', 'a'): // Interlingua
 	case L3('p', 'a', 'p'): // Papiamento
 	{

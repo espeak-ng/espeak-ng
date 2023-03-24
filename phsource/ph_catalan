@@ -367,8 +367,8 @@ phoneme k
     WAV(ustop/kl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
-    ELIF nextPh(n) THEN
-        ChangePhoneme(N)
+ //   ELIF nextPh(n) THEN
+  //      ChangePhoneme(N)
     ELSE
       ChangePhoneme(g)
     ENDIF
