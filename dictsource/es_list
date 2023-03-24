@@ -284,7 +284,7 @@ n	Ene
 ñ	En^e
 p	pe
 q	ku
-r	ERRe
+r	ER2e
 ?2 r	ER2e
 s	Ese
 t	te
@@ -332,8 +332,8 @@ kg	kilogramo	$text $dot
 Mª	maría		$text $capital $dot
 pag	página	$text $dot
 Pte	presidente	$text $capital $dot
-SAR	su||alt'eTa||re'al		$abbrev
-SNM	soBre||el|niBel||del||mar		$abbrev
+SAR	su||alt'eTa||R2e'al		$abbrev
+SNM	soBre||el|niB'el||del||m'ar		$abbrev
 Sr	señor		$text $capital $dot
 Sra	señora		$text $capital $dot
 Sras	señoras		$text $capital $dot
@@ -341,7 +341,7 @@ Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
 SSS	sErv'iTio||soTi'al||sustitut'orio		$abbrev
 tel	teléfono	$text $dot
-tqm	te||kiero||m'utSo
+tqm	te||ki'ero||m'utSo
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
 //	(/ h)   por||'ora
