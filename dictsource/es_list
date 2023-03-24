@@ -312,6 +312,7 @@ _ó	'o||aTEntw'aDa
 // Abbreviations
 aprox	Aproximadamente		$text
 A. C	antes de cristo		$text $capital $dot
+D. C	después de cristo		$text $capital $dot
 dña	doña		$text
 DNI			$abbrev
 dpto	departamento	$text
