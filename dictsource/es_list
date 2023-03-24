@@ -310,12 +310,15 @@ _ó	'o||aTEntw'aDa
 ç	$accent
 
 // Abbreviations
+aprox	Aproximadamente		$text
+A. C	antes de cristo		$text $capital $dot
 dña	doña		$text
 DNI			$abbrev
 dpto	departamento	$text
 dr	doctor		$text $capital $dot
 dra	doctora		$text $capital $dot
 (ee.uu)  Est'aDos||un'iDos
+ej	Ejemplo	$text $dot
 etc	etcétera	$text
 Excmo	excelentísimo	$text $dot
 Excma	excelentísima	$text $dot
@@ -326,12 +329,18 @@ izqda	izquierda 	$text $dot
 izqdo	izquierdo	$text $dot
 kg	kilogramo	$text $dot
 Mª	maría		$text $capital $dot
+pag	página	$text $dot
 Pte	presidente	$text $capital $dot
+SAR	su alteza real		$abbrev
+SNM	sobre el nivel del mar		$abbrev
 Sr	señor		$text $capital $dot
 Sra	señora		$text $capital $dot
 Sras	señoras		$text $capital $dot
 Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
+SSS	servicio social sustitutorio		$abbrev
+tel	teléfono	$text $dot
+tqm	te ˈkjeɾo ˈmuʧo
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
 //	(/ h)   por||'ora
