@@ -339,7 +339,7 @@ Sra	señora		$text $capital $dot
 Sras	señoras		$text $capital $dot
 Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
-SSS	sErv'iTio||soTj'al||sustitut'orio		$abbrev
+SSS	sErv'iTjo||soTj'al||sustitut'orjo		$abbrev
 tel	teléfono	$text $dot
 tqm	te||kj'ero||m'utSo
 Ud	usted		$text $capital $dot
