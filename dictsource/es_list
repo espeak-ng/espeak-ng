@@ -339,7 +339,7 @@ Sra	señora		$text $capital $dot
 Sras	señoras		$text $capital $dot
 Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
-SSS	sErv'iTjo||soTj'al||sustitut'orjo		$abbrev
+SSS	sErB'iTjo||soTj'al||sustitut'orjo		$abbrev
 tel	teléfono	$text $dot
 tqm	te||kj'ero||m'utSo
 Ud	usted		$text $capital $dot
@@ -361,7 +361,7 @@ vietnam $2
 
 android	'androId
 apple	'ap@l
-copyright	k'opiRR2,aIt
+copyright	k'opiR2,aIt
 chrome	kr'owm
 curriculum	$2
 diem	d'i:em $only
@@ -369,11 +369,11 @@ down	d'awn
 eloquence	'elokwens
 english ínglish      $text
 espeak	'isp'ik
-ETI	iti'aI		$capital
+ETI	itj'aI		$capital
 eyes	'aIs
 facebook f'eIsbuk
-file f'aIL
-files f'aILs
+file f'aIl
+files f'aIls
 firefox	f'aIrfoks
 free	fr'i
 google	g'ug@l
@@ -384,7 +384,7 @@ iphone	'aIfon
 ipod	'aIpod
 jaws	dZ'os
 jazz	dZ'as
-junior	dZ'unior
+junior	dZ'unjor
 kepler	$1
 linux        $1
 live l'aIB
