@@ -339,9 +339,9 @@ Sra	señora		$text $capital $dot
 Sras	señoras		$text $capital $dot
 Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
-SSS	serBiTjo||soTjal||sustitutorjo		$abbrev
+SSS	serB'iTjo||soTj'al||sustitutorjo		$abbrev
 tel	teléfono	$text $dot
-tqm	te||kjero||mutSo
+tqm	te||kj'ero||m'utSo
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
 //	(/ h)   por||'ora
