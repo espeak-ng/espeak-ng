@@ -341,7 +341,7 @@ Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
 SSS	sErv'iTio||soTi'al||sustitut'orio		$abbrev
 tel	teléfono	$text $dot
-tqm	te||ˈkjeɾo||ˈmuʧo
+tqm	te||kiero||m'utSo
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
 //	(/ h)   por||'ora
