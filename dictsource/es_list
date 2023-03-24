@@ -311,8 +311,8 @@ _ó	'o||aTEntw'aDa
 
 // Abbreviations
 aprox	Aproximadamente		$text
-A. C	antes de cristo		$text $capital $dot
-D. C	después de cristo		$text $capital $dot
+a. c	antes||de||cristo		$text $capital $dot
+d. c	después||de||cristo		$text $capital $dot
 dña	doña		$text
 DNI			$abbrev
 dpto	departamento	$text
@@ -332,16 +332,16 @@ kg	kilogramo	$text $dot
 Mª	maría		$text $capital $dot
 pag	página	$text $dot
 Pte	presidente	$text $capital $dot
-SAR	su alteza real		$abbrev
-SNM	sobre el nivel del mar		$abbrev
+SAR	su||alt'eTa||re'al		$abbrev
+SNM	soBre||el|niBel||del||mar		$abbrev
 Sr	señor		$text $capital $dot
 Sra	señora		$text $capital $dot
 Sras	señoras		$text $capital $dot
 Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
-SSS	servicio social sustitutorio		$abbrev
+SSS	sErv'iTio||soTi'al||sustitut'orio		$abbrev
 tel	teléfono	$text $dot
-tqm	te ˈkjeɾo ˈmuʧo
+tqm	te||ˈkjeɾo||ˈmuʧo
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
 //	(/ h)   por||'ora
