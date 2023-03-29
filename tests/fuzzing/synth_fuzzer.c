@@ -40,10 +40,10 @@ espeak_callback(short *data, int samples, espeak_EVENT *events)
 }
 
 /* See http://llvm.org/docs/LibFuzzer.html */
-extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
+extern int LLVMFuzzerRunDriver(int *argc, char ***argv,
+                  int (*UserCb)(const uint8_t *Data, size_t Size));
 
-extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
-
+int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 {
 	int buflength = size+1;
 	if (!initialized)
@@ -77,4 +77,8 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 	free(mutable_data);
 
 	return 0;
+}
+
+int main(int argc, char *argv[]) {
+	LLVMFuzzerRunDriver(&argc, &argv, LLVMFuzzerTestOneInput);
 }
