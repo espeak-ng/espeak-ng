@@ -1,6 +1,6 @@
 
 //====================================================
-//  Catalan  - based on Spanish and Base2
+//  Catalan valencian - based on Spanish and Base2
 //====================================================
 
 // vowels 
@@ -9,8 +9,6 @@
 phoneme a
   vwl starttype #a endtype #a
   length 180
-  ChangeIfUnstressed(@)
-//  ChangeIfUnstressed(a#)
   FMT(vowel/a_6)
 endphoneme
 
@@ -20,32 +18,33 @@ phoneme a2 // a que no es neutralitza
   FMT(vowel/a_6)
 endphoneme
 
-phoneme a#
-  vwl starttype #@ endtype #@
-  ipa ɐ
-  unstressed
-  length 170
-  FMT(vowel/a#_3)
-endphoneme
-
 phoneme e
   vwl starttype #e endtype #e
   length 170
-  ChangeIfUnstressed(@)
+  
+  IF thisPh(isWordStart) THEN
+    IF nextPh(s) OR nextPh(n) THEN
+        ChangeIfUnstressed(a)
+    ENDIF
+  ENDIF
   FMT(vowel/e)
 endphoneme
 
 phoneme e2 // don't reduce + change if tressed: "aeri" vs "aeròdrom".
   vwl starttype #e endtype #e
   length 170
-//  ChangeIfStressed(E)
   FMT(vowel/e)
 endphoneme
 
 phoneme E
   vwl starttype #e endtype #e
   length 180
-  ChangeIfUnstressed(@)
+  
+  IF thisPh(isWordStart) AND nextPh(s) OR nextPh(n) THEN
+    ChangeIfUnstressed(a)
+  ELSE
+    ChangeIfUnstressed(e)
+  ENDIF
   FMT(vowel/e_mid)
 endphoneme
 
@@ -58,36 +57,26 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 170
-//  ChangeIfUnstressed(U)
-  ChangeIfUnstressed(u)
+  ChangeIfUnstressed(o)
   FMT(vowel/oo)
 endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
   length 170
-  ChangeIfUnstressed(u)
   FMT(vowel/o)
 endphoneme
 
 phoneme o2
   vwl starttype #o endtype #o
   length 170
-  ChangeIfStressed(O)
+  ChangeIfStressed(o)
   FMT(vowel/o)
-endphoneme
-
-phoneme U
-  vwl starttype #u endtype #u
-  unstressed
-  length 160
-  FMT(vowel/uu_2)
 endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
   length 160
-//  ChangeIfUnstressed(U)
   FMT(vowel/u_bck)
 endphoneme
 
@@ -258,6 +247,8 @@ phoneme b
   CALL base1/b
 endphoneme
 
+
+
 phoneme g
   vcd vel stp
   lengthmod 5
@@ -365,11 +356,37 @@ phoneme k
     WAV(ustop/kl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
- //   ELIF nextPh(n) THEN
-  //      ChangePhoneme(N)
+    ELIF nextPh(n) THEN
+        ChangePhoneme(N)
     ELSE
       ChangePhoneme(g)
     ENDIF
   ENDIF
   WAV(ustop/k_unasp, 70)
+endphoneme
+
+//================ apitxats
+
+phoneme Z // plea**s**ure
+  vcd pla frc sib
+  voicingswitch S
+  lengthmod 6
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+
+  ChangePhoneme(dZ)
+endphoneme
+
+phoneme S // **sh**op
+  vls pla frc sib
+  voicingswitch Z
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+
+  IF prevPh(i) OR prevPh(j) THEN
+  ELSE
+    ChangePhoneme(tS)
+  ENDIF
+  WAV(ufric/sh)
 endphoneme

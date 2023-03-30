@@ -131,39 +131,39 @@ vi	vi	// not a Roman number
 jo          'ZO         $verbf
 tu          'tu         $verbf
 ell         'el^        $verbf
-ella        'el^@       $verbf
-nosaltres   nuz'alt**@s $verbf
-vosaltres   buz'alt**@s $verbf
+ella        'el^a       $verbf
+nosaltres   noz'alt**es $verbf
+vosaltres   boz'alt**es $verbf
 ells        'el^s       $verbf
-elles       'el^@s      $verbf
+elles       'el^es      $verbf
 
 meu         m'ew        $nounf
 teu         t'ew        $nounf
 seu         s'ew        $nounf
-meva        m'eB@       $nounf
-teva        t'eB@       $nounf
-seva        s'eB@       $nounf
-nostre      n'Ost**@    $nounf
-vostre      b'Ost**@    $nounf
-nostra      n'Ost**@    $nounf
-vostra      b'Ost**@    $nounf
+meva        m'eBa       $nounf
+teva        t'eBa       $nounf
+seva        s'eBa       $nounf
+nostre      n'Ost**e    $nounf
+vostre      b'Ost**e    $nounf
+nostra      n'Ost**a    $nounf
+vostra      b'Ost**a    $nounf
 
 meus        m'ews       $nounf
 teus        t'ews       $nounf
 seus        s'ews       $nounf
-meves       m'eB@s      $nounf
-teves       t'eB@s      $nounf
-seves       s'eB@s      $nounf
-nostres     n'Ost**@s   $nounf
-vostres     b'Ost**@s   $nounf
+meves       m'eBes      $nounf
+teves       t'eBes      $nounf
+seves       s'eBes      $nounf
+nostres     n'Ost**es   $nounf
+vostres     b'Ost**es   $nounf
 
 // articles
-el	@l   $nounf
-la	l@   $nounf
+el	el   $nounf
+la	la   $nounf
 els	$u  $nounf
 les	$u  $nounf
 un	$u   $nounf
-una	'un@    $nounf
+una	'una    $nounf
 uns	$u  $nounf
 unes	$u $nounf
 
@@ -279,40 +279,41 @@ o	'O  $atend
 
 b	b'e
 c	s'e
-ç	se,t**@nk'aD@
+ç	se,t**@nk'aDa
 d	d'e
-f	'ef@
+f	'efa
 g	J'e
 h	ak
-j	Z'Ot@
+j	Z'Ota
 k	k'a
-l	'el@
-ŀl	'el@,Z@min'aD@
-l·l	'el@,Z@min'aD@
-ll	'el^@
-m	'em@
-n	'en@
-ñ	'en^@
+l	'ela
+ŀl	'ela,Z@min'aDa
+l·l	'ela,Z@min'aDa
+ll	'el^a
+m	'ema
+n	'ena
+ñ	'en^a
 p	p'e
 q	k'u
-r	'eR@
-s	'es@
+r	'eRa
+s	'esa
 t	t'e
-v	'v#'e||b'aS@
-w	'v#'e||d'obbl@
+?1  v	'b'e||b'aSa
+?2  v	'b'e||b'aiSa
+w	'v#'e||d'obbla
 x	iks
-y	'i||g**EQ@
-z	z'Et@
+y	'i||g**EQa
+z	z'Eta
 
 
 // pronunciation exceptions
 /// words that change pronunciation depending on POS
 moc m'ok    $noun
-dona    d'on@   $verb
-coure k'ow**@    $noun
+dona    d'ona   $verb
+coure k'ow**e    $noun
 circular    sirkul'a    $verb
 gens m'ok    $noun
-poder puD'e  $verb
+?1  poder poD'e  $verb
 
 /// alternative rules
 //// words with e
@@ -2308,7 +2309,6 @@ mònades	$alt1
 nebot	$alt1
 nebots	$alt1
 no	$alt1
-nos	$alt1
 nomenclàtor	$alt1
 nomenclàtors	$alt1
 nona	$alt1
@@ -3732,6 +3732,7 @@ zíngars	$alt5
 Sàhara	$alt6
 gihadisme	$alt6
 haha	$alt6
+hahaha	$alt6
 haik	$alt6
 haiks	$alt6
 hala	$alt6
@@ -3753,16 +3754,24 @@ hawaiana	$alt6
 hawaianes	$alt6
 hawaians	$alt6
 hawaià	$alt6
+hehe	$alt6
+hehehe	$alt6
+hihi	$alt6
+hihihi	$alt6
 hii	$alt6
 hijab	$alt6
 hijabs	$alt6
 hindi	$alt6
 hinterland	$alt6
 hinyar	$alt6
+hoho	$alt6
+hohoho	$alt6
 hongkonguesa	$alt6
 hongkongueses	$alt6
 hongkonguesos	$alt6
 hongkonguès	$alt6
+huhu	$alt6
+huhuhu	$alt6
 jihadisme	$alt6
 sahariana	$alt6
 saharianes	$alt6
@@ -3833,9 +3842,10 @@ minette		min'Et@
 panel		p@n'El
 polis		p'Olis
 spin		sp'in
-status		@st'atus
+status		est'atus
 surmenage		suRm@n'aZ@
 tanka		t'aNk@
+pinyin      p'injin
 
 // other exceptions
 ió  i'o

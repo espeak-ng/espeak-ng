@@ -84,6 +84,7 @@ ESPEAK_DATA_PATH=<path of repo> src/espeak-ng "Bon dia" --ipa -v ca
 * [Fonètica del català](https://www.auladecatala.com/fonetica-i-ortografia/) (Aula de català)
 * [CPNL](https://blogs.cpnl.cat/dgava12/files/2012/12/Full-de-ruta_unitat21.pdf)
 * [Apunts del IES Olorda](http://iesolorda.cat/departaments/cat/fon_tot.pdf)
+* [Quadre comparatiu de les variants](http://www.xtec.cat/~aribas4/llengua/dialectologia/quadrecomparatiu.htm)
 
 ## Altres sistemes de transcripció
 [Segre](https://nlp.lsi.upc.edu/freeling/demo/segre.php)

@@ -1,7 +1,9 @@
 // translation rules for Catalan
 // This file is UTF-8 encoded
 
-// Conditional rules
+// Otions
+// ?1 central
+// ?2 valencian
 
 
 // letter groups
@@ -55,7 +57,7 @@
 
 .group b
         b          b    
-    A)  bl (A      bbl  // gemination (poble)
+?1    A)  bl (A      bbl  // gemination (poble)
     A)  bl (A$w_alt7    Bl // avoid gemination (poble)
   _bi)  bl (io     Bl   //
   _su)  bl (im     Bl   //
@@ -201,7 +203,7 @@
 
 .group g
         g          g
-    A)  gl (A      ggl // gemination (plexiglàs)
+?1    A)  gl (A      ggl // gemination (plexiglàs)
         g  (L01    Z   // front vowel (gerra)
         gu (L01    g   // front vowel (guitarra)
         gu (L02    gw  // (guaret)
@@ -267,12 +269,14 @@
           
   
 .group ix
-     A) ix (K      S    // do not pronounce i (peix)
-     A) ix (A      S    // do not pronounce i (peixar)
+        ix           iS
+      A) ix         jS
+?1     A) ix (K      S    // do not pronounce i (peix)
+?1     A) ix (A      S    // do not pronounce i (peixar)
     gu) ix (K      iS   // pronounce i (guix)
     qu) ix (K      iS   // pronounce i (Quixot)
-     A) ix (_A     Z    // sonorisation + do not pronounce i (peix amable)
-     A) ix (_L11   Z    // sonorisation + do not pronounce i (peix blau)
+?1     A) ix (_A     Z    // sonorisation + do not pronounce i (peix amable)
+?1     A) ix (_L11   Z    // sonorisation + do not pronounce i (peix blau)
     gu) ix (_A     iZ   // sonorisation + pronounce i (guix esquerdat)
     gu) ix (_L11   iZ   // sonorisation + pronounce i (guix blau)
      K) ix (A      iS   // pronounce i (mixa)
@@ -285,8 +289,8 @@
      C) ig (_      itS  // (desig)
      A) ig (_A     dZ   // (goig ardent)
      A) ig (_L11   dZ   // (goig volgut)
-     C) ig (_A     dZ   // (desig ardent)
-     C) ig (_L11   dZ   // (desig volgut)
+     C) ig (_A     idZ   // (desig ardent)
+     C) ig (_L11   idZ   // (desig volgut)
      C) ig (_$w_alt4    ik   // (pròdig)
      
      
@@ -296,7 +300,7 @@
 
 .group k
         k          k    // (ka)
-
+        kh         X    // 
 
 .group l
         l          l
@@ -313,9 +317,9 @@
      _) m' (P2     m
  
         mp (-h     mp
-        mp (_      m    // do not pronounce final p
-        mb (K      m    // do not pronounce final b (amb mi) or before consonant
-        mpt        mt   // do not pronouce p between m and t (compte)
+?1        mp (_      m    // do not pronounce final p
+?1        mb (K      m    // do not pronounce final b (amb mi) or before consonant
+?1        mpt        mt   // do not pronouce p between m and t (compte)
    _a)  mb (_A     mb   // pronounce final b before vowel (amb ell)
         mpr        mpr  // (compra)
         mbr        mbr  // (cambra)
@@ -332,10 +336,10 @@
    L01) n (_       n    // ... except after e, i
   L05J) n (_       n    // ... or a previous already stressed vowel
 //        nt (C      n ??
-        nt (_      =n   // do not pronounce final t + stress the vowel
-        nd (_      =n   // do not pronounce final d + stress the vowel
-        nt (s_     =n   // do not pronounce final t + stress the vowel
-        nd (s_     =n   // do not pronounce final d + stress the vowel
+?1        nt (_      =n   // do not pronounce final t + stress the vowel
+?1        nd (_      =n   // do not pronounce final d + stress the vowel
+?1        nt (s_     =n   // do not pronounce final t + stress the vowel
+?1        nd (s_     =n   // do not pronounce final d + stress the vowel
   _L25) nt (_A     nt   // pronounce final t if followed by a vowel
   _L25) nt (_hA    nt   // pronounce final t if followed by a vowel
   _L25) nt (-h     nt   // pronounce final t if followed by a pronoun (anant-hi)
@@ -458,6 +462,7 @@ catalan) o (@      ,o
 .group p
         p          p
         pm         mm   // gemination (capmoix)
+        ph         f
         
 .group q
         q          k
@@ -498,16 +503,15 @@ _ultra) r (A       R    // (ultraric)
      p) r (end          // (prendre)
      
                 // final r
-        r (_       =    // final r is silent + stress the vowel
- L05J)  r (_            // final r is silent + do not stress the vowel
-        r (s_      =    // final r is silent + stress the vowel
- L05J)  r (s_           // final r is silent + do not stress the vowel
+?1        r (_       =    // final r is silent + stress the vowel
+?1 L05J)  r (_            // final r is silent + do not stress the vowel
+?1        r (s_      =    // final r is silent + stress the vowel
+?1 L05J)  r (s_           // final r is silent + do not stress the vowel
  
-        r (-       =R   // final r is not silent + stress the vowel
-        r (_$w_alt5 =R  // final r is not silent + stress the vowel
-        r (s_$w_alt5    =R // final r is not silent + stress the vowel
- L05J)  r (_$w_alt5     R     // final r is not silent + do not stress the vowel
- L05J)  r (s_$w_alt5    R     // final r is silent + do not stress the vowel
+        r (-       R   // final r is not silent + stress the vowel
+        r (_$w_alt5 R  // final r is not silent + stress the vowel
+        r (s_$w_alt5    R // final r is not silent + stress the vowel
+
                 // suffixes with final R not silent
   L05Jfo)  r   (_       R
   L05Jfe)  r   (_       R
@@ -522,8 +526,8 @@ _ultra) r (A       R    // (ultraric)
   
  //       r (t       **
                 // silent consonants
-        rd (s_     R    // final d is silent
-        rt (s_     R    // final t is silent
+?1        rd (s_     R    // final d is silent
+?1        rt (s_     R    // final t is silent
 
 .group s
         s          s
@@ -593,7 +597,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
     _)  u (ltra@   ,u    // (ultradreta)
     
 .group v
-        v          b
+?1        v          b
+?2        v          v
 //     _) v          v#
  
 .group w
