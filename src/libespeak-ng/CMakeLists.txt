@@ -38,6 +38,8 @@ add_library(espeak-ng
   espeak_api.c
 )
 
+target_include_directories(espeak-ng BEFORE PRIVATE $<TARGET_PROPERTY:espeak-include,INTERFACE_INCLUDE_DIRECTORIES>)
+
 if (NOT MSVC)
   target_compile_options(espeak-ng PRIVATE
     "-fPIC"
@@ -112,5 +114,10 @@ endif()
 if (MINGW)
   target_link_options(espeak-ng PRIVATE "-static-libstdc++" "-static")
 endif()
+
+set_target_properties(espeak-ng PROPERTIES
+  SOVERSION ${PROJECT_VERSION_MAJOR}
+  VERSION ${PROJECT_VERSION}
+)
 
 install(TARGETS espeak-ng LIBRARY)
