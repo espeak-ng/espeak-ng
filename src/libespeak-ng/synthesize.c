@@ -961,7 +961,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 		if ((fmt_params->wav_addr != 0) && ((frame1->frflags & FRFLAG_DEFER_WAV) == 0)) {
 			// there is a wave file to play along with this synthesis
 			seq_len_adjust = 0;
-	
+
 			int wavefile_amp;
 			if (fmt_params->wav_amp == 0)
 				wavefile_amp = 32;
@@ -1171,12 +1171,14 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
 		p = &phoneme_list[ix];
-		
+
 		if(output_hooks && output_hooks->outputPhoSymbol)
 		{
 			char buf[30];
 			int dummy=0;
-			WritePhMnemonic(buf, p->ph, p, 0, &dummy);
+			//WritePhMnemonic(buf, p->ph, p, 0, &dummy);
+			WritePhMnemonicWithStress(buf, p->ph, p, 0, &dummy);
+
 			DoPhonemeAlignment(strdup(buf),p->type);
 		}
 
@@ -1226,7 +1228,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			if ((p->type == phVOWEL) && (prev->type == phLIQUID || prev->type == phNASAL)) {
 				// For vowels following a liquid or nasal, do the phoneme event after the vowel-start
 			} else {
-				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				//WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				WritePhMnemonicWithStress(phoneme_name, p->ph, p, use_ipa, NULL);
+
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 				done_phoneme_marker = true;
 			}
@@ -1490,7 +1494,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			}
 
 			if ((option_phoneme_events) && (done_phoneme_marker == false)) {
-				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				//WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				WritePhMnemonicWithStress(phoneme_name, p->ph, p, use_ipa, NULL);
+
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 			}
 
