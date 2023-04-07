@@ -266,9 +266,7 @@ phoneme b
 endphoneme
 
 phoneme t
-vls alv stp
-  ipa t
-  WAV(ustop/t, 90)
+ import_phoneme base2/t
 endphoneme
 
 phoneme d
@@ -294,7 +292,7 @@ endphoneme
 phoneme TS
   vls pla afr sib
   ipa ʦ
-  WAV(ustop/tsh)
+  WAV(ustop/ts)
 endphoneme
 
 phoneme dZ
