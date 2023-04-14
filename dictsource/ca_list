@@ -1,6 +1,11 @@
 // translation rules for Catalan
 // This file is UTF8 encoded
 
+// Options
+// ?1 general eastern. central specific characteristics 
+// ?2 general western. north-western specific characteristics 
+// ?3 valencian specific characteristics (valencian is 2+3. 3 over writes 2)
+
 // $alt1: e is an e and o is an o
 // $alt2: e is an E and o is an O
 // $alt3: 
@@ -9,33 +14,54 @@
 // $alt6: h is pronunced [X]
 // $alt7: bl is pronounced  [Bl]
 
-// symbols
+// symbols 
 _cap	m'aJ^us   // eg: "Capital-B"
 _??	s'imbOl
 _#9`	tab
-_#32	@sp'aj
+?1  _#32	@sp'aj
+?2  _#32	asp'aj
 
-// accent names
-_lig	l^iQaD'u**a
-_acu	aQ'ut
-_ac2	d'Oble||aQ'ut	
-_brv	b**'ew
-_ced	t**Enk'aDa
-_cir	siRkumfl'Eks
-_dia	di'E**esi
-_dac	d'Oble||aQ'ut	
-_dot	p'unt
-_grv	g**'ew
-_hac	,antisiRkuMfl'Eks
-_mcn	m'ak**on
-_ogo	uQun'Ek    // diacrític que es fa servir en polonès i lituà. En cast, "colita".
-_rng	an'el^     // diacrític en forma de rodoneta
-_stk	b'aRa	  
-_tld	t'itl^@
+// accent names (eastern variants)
+?1	_lig	l^iQ@D'u**@
+?1	_@cu	@Q'ut
+?1	_@c2	d'oble||@Q'ut	
+?1	_brv	b**'ew
+?1	_ced	t**Enk'aD@
+?1	_cir	siRkumfl'Eks
+?1	_di@	di'E**@si
+?1	_d@c	d'oble||@Q'ut	
+?1	_dot	p'unt
+?1	_grv	g**'ew
+?1	_h@c	,antisiRkuMfl'Eks
+?1	_mcn	m'ak**on
+?1	_ogo	uQun'Ek    // di@crític que es f@ servir en polonès i lituà. En c@st, "colit@".
+?1	_rng	@n'el^     // di@crític en form@ de rodonet@
+?1	_stk	b'aR@	  
+?1	_tld	t'itl^@
+
+// accent names (western variants)
+?2	_lig	l^iQaD'u**a
+?2	_acu	aQ'ut
+?2	_ac2	d'Oble||aQ'ut	
+?2	_brv	b**'ew
+?2	_ced	t**Enk'aDa
+?2	_cir	siRkumfl'Eks
+?2	_dia	di'E**esi
+?2	_dac	d'Oble||aQ'ut	
+?2	_dot	p'unt
+?2	_grv	g**'ew
+?2	_hac	,antisiRkuMfl'Eks
+?2	_mcn	m'ak**on
+?2	_ogo	OQon'Ek    // diacrític que es fa servir en polonès i lituà. En cast, "colita".
+?2	_rng	an'el^     // diacrític en forma de rodoneta
+?2	_stk	b'aRa	  
+?2	_tld	t'itl^@
+
 
 
 // names of symbols
-_.	pun
+?1  _.	pun
+?3  _.	punt
 _,	koma
 _;	p,unik'oma
 _:	d'os|p'uns
@@ -63,7 +89,8 @@ _»	t'ank@||kum'Et@s
 
 =	iQw'al    $max3
 +	m*es      $max3
-#	kuSin'Et  $max3
+?1  #	kuSin'Et  $max3
+?2  #	kojSin'et  $max3
 *	@st@*'isk $max3
 
 ^	siRkumfl'Eks
@@ -79,15 +106,19 @@ _»	t'ank@||kum'Et@s
 
 
 // numbers
-_0	z'E**u
+?1  0	z'E**u
+?2  0	z'E**O
 _1	'u
 _2	d'os
 _3	t**'Es
-_4	kw'at**@
+?1  4	kw'at**@
+?2  4	kw'at**e
 _5	s'iNk
 _6	s'is
 _7	s'Et
-_8	b'ujt
+?1  8	b'ujt
+?2  8	b'ujt
+?3  8	h'ujt
 _9	n'Ow
 _10	d'Ew
 _11	'onz@
@@ -158,8 +189,8 @@ nostres     n'Ost**es   $nounf
 vostres     b'Ost**es   $nounf
 
 // articles
-el	el   $nounf
-la	la   $nounf
+el	$u   $nounf
+la	$u   $nounf
 els	$u  $nounf
 les	$u  $nounf
 un	$u   $nounf
@@ -219,34 +250,6 @@ som	s'om
 sou	s'ow
 són	s'on
 
-// era	$u+
-// eres	$u+
-// érem	$u+
-// éreu	$u+
-// eren	$u+
-// 
-// fui	$u+
-// fores	$u+
-// fou	$u+
-// fórem	$u+
-// fóreu	$u+
-// foren	$u+
-// fóra	$u+
-// 
-// seré	$u+
-// seràs	$u+
-// serà	$u+
-// serem	$u+
-// sereu	$u+
-// seran	$u+
-// 
-// seria	$u+
-// series	$u+
-// seríem	$u+
-// seríeu	$u+
-// serien	$u+
-
-// haver
 he	'e	
 has	'as	
 ha	'a	
@@ -3368,8 +3371,6 @@ despoder	$alt5
 despoders	$alt5
 devers	$alt5
 dextrors	$alt5
-dinar	$alt5
-dinars	$alt5
 discurs	$alt5
 dispers	$alt5
 divers	$alt5
@@ -3850,8 +3851,8 @@ pinyin      p'injin
 // other exceptions
 ió  i'o
 Io  i'o
-arbre   @B**@
-arbres   @B**@s
+arbre   aB**e
+arbres   aB**es
 
 // prefixes and sufixes
 /// words that DO NOT have a secondary stress prefix
@@ -3880,7 +3881,7 @@ bocatxeta		buk@tS'Et@
 bocatxetes		buk@tS'Et@s
 boca		b'ok@
 boques		b'ok@s
-bocaclòs		buk@kl'Os
+//bocaclòs		bokakl'Os
 bocada		buk'aD@
 bocades		buk'aD@s
 		

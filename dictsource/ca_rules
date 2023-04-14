@@ -1,9 +1,10 @@
 // translation rules for Catalan
 // This file is UTF-8 encoded
 
-// Otions
-// ?1 central
-// ?2 valencian
+// Options
+// ?1 general eastern. central specific characteristics 
+// ?2 general western. north-western specific characteristics 
+// ?3 valencian specific characteristics (valencian is 2+3. 3 over writes 2)
 
 
 // letter groups
@@ -304,10 +305,10 @@
 
 .group l
         l          l
-        lt (_      l    // (alt)
-        lt (s_     l    // (alts)
-        ld (_      l    // (Eudald)
-        ld (s_     l    // (Eudalds)
+?1        lt (_      l    // (alt)
+?1        lt (s_     l    // (alts)
+?1        ld (_      l    // (Eudald)
+?1        ld (s_     l    // (Eudalds)
         ll         l^   // (colla)
      _) l' (P2     l
 
@@ -360,7 +361,7 @@
      @) o (res_     'o   // color ('o* per sensibilitzar la r)
  
     //    ou_        Ow   // (mou)
-        ou         o2w   // (mouré)
+?1        ou         o2w   // (mouré) // ARREGLAR AIXÒ!
    //     ou (JL05     o2w
 
 //         o (l_      O
@@ -475,6 +476,7 @@ catalan) o (@      ,o
      _) r          R    // (raig)
      A) r (A       **   // (cara)
      C) r (A       **   // (groc)
+?3       A) r (C       **   // (groc)
         rr         R    // (carro) 
      l) r (A       R    // (colrat)
      n) r (A       R    // (enrere)
@@ -503,11 +505,17 @@ _ultra) r (A       R    // (ultraric)
      p) r (end          // (prendre)
      
                 // final r
-?1        r (_       =    // final r is silent + stress the vowel
-?1 L05J)  r (_            // final r is silent + do not stress the vowel
-?1        r (s_      =    // final r is silent + stress the vowel
-?1 L05J)  r (s_           // final r is silent + do not stress the vowel
- 
+        r (_       =    // final r is silent + stress the vowel
+ L05J)  r (_            // final r is silent + do not stress the vowel
+        r (s_      =    // final r is silent + stress the vowel
+ L05J)  r (s_           // final r is silent + do not stress the vowel
+
+?3        r (_       **=    // final r is silent + stress the vowel
+?3 L05J)  r (_       **     // final r is silent + do not stress the vowel
+?3        r (s_      **=    // final r is silent + stress the vowel
+?3 L05J)  r (s_      **     // final r is silent + do not stress the vowel
+
+
         r (-       R   // final r is not silent + stress the vowel
         r (_$w_alt5 R  // final r is not silent + stress the vowel
         r (s_$w_alt5    R // final r is not silent + stress the vowel
@@ -535,6 +543,8 @@ _ultra) r (A       R    // (ultraric)
         ss         s
         sc (L01    s
      A) s  (A      z
+     A) s  (hA     z
+     A) s  (-A     z
 //         s  (_A     z
 //         s  (_hA    z
          s  (L11    z
@@ -554,6 +564,7 @@ _contra) s (A      s    // (contrasentit)
   _mono) s (A      s    // (monosíl·lab)
   _homo) s (A      s    // (homosexual)
   _para) s (A      s    // (parasíntesi)
+  _para) s (it     z    // (parasitosi)
  _sobre) s (A      s    // (sobresortir)
   _tele) s (A      s    // (telestrella)
  _ultra) s (A      s    // (ultrasò)
@@ -598,7 +609,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
     
 .group v
 ?1        v          b
-?2        v          v
+?3        v          v
 //     _) v          v#
  
 .group w

@@ -38,14 +38,14 @@ endphoneme
 
 phoneme E
   vwl starttype #e endtype #e
-
+//  fnt unr sml
   length 180
-  IF thisPh(isWordStart) AND nextPh(s) OR thisPh(isWordStart) AND nextPh(n) THEN
+  
+  IF thisPh(isWordStart) AND nextPh(s) OR nextPh(n) THEN
     ChangeIfUnstressed(a)
   ELSE
     ChangeIfUnstressed(e)
   ENDIF
-
   FMT(vowel/e_mid)
 endphoneme
 
@@ -71,7 +71,7 @@ endphoneme
 phoneme o2
   vwl starttype #o endtype #o
   length 170
-  ChangeIfStressed(O)
+  ChangeIfStressed(o)
   FMT(vowel/o)
 endphoneme
 

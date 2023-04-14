@@ -33,6 +33,18 @@ Per transcriure un fitxer
 ../espeak-ng/src/espeak-ng --ipa -v ca -q -f elMeuText.txt
 ```
 
+Per seleccionar una variant:
+```
+src/espeak-ng "Bon dia" --ipa -v CODI_VARIANT
+```
+
+Variants previstes:
+* ca (central) - implementat
+* ca-va (valencià) - en procés
+* ca-nw (nord-occidental) - en procés
+* ca-ba (balear) - previst
+* ca-nt (septentrional) - si queda temps
+
 ## Editar
 ### Regles
 Els diccionaris es troben a [dictsource](https://github.com/projecte-aina/espeak-ng/tree/master/dictsource).
@@ -73,6 +85,48 @@ ESPEAK_DATA_PATH=<path of repo> espeak-ng/dictsource$ ../src/espeak-ng --compile
 ```
 ESPEAK_DATA_PATH=<path of repo> src/espeak-ng "Bon dia" --ipa -v ca
 ```
+
+### Implementar variants
+1) crear un fitxer a espeak-ng-data/lang/roa/ amb el nom de la variant. 
+
+Posar-hi:
+
+```
+name Catalan (VARIANT)
+language CODI_VARIANT
+
+phonemes CODI_VARIANT
+
+dictrules NUM_VARIANT
+
+```
+
+Exemple:
+
+```
+name Catalan (Valencian)
+language ca-va
+
+phonemes ca-va
+
+dictrules 3
+
+```
+
+2) crear un fitxer de fonemes phsource/ph_catalan_CODI_VARIANT
+
+3) declarar el fitxer de ph_catalan_CODI_VARIANT a phsource/phonemes.
+
+Exemple:
+```
+phonemetable ca-va es
+include ph_catalan_va
+```
+
+3) adaptar les regles de ca_rules i les llistes de ca_lists. Marcar amb ?NUM_VARIANT les regles o paraules que s'apliquen a cada variant.
+
+Exemple:
+
 
 ## Documents
 * [Estàndard oral IEC](https://publicacions.iec.cat/repository/pdf/00000039/00000072.pdf)
