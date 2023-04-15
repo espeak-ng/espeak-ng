@@ -1,0 +1,135 @@
+// translation rules for Tatar (Romania, Dobrudja)
+// This file is UTF8 encoded
+
+// Stress rule: Right-most vowel, but stop before the vowel which is
+// marked as unstressed [%].
+
+// Vowels
+.L01 ı a o u e i ĭ ö ü
+
+// Consonants
+.L02 b c ç d f g ğ h j k l m n p q r s ş t v w y z
+
+.group a
+        a         a
+        a (_     'a
+        a (L02_  'a
+        
+.group b
+        b         b
+        
+.group c
+        c        DZ
+        cc       DZ:
+        
+.group ç
+        ç        TS
+        çç       TS:
+        
+.group d
+        d        d
+        dd       d:
+        
+.group e
+        e        e
+        e (_    'e
+        e (L02_ 'e
+        
+.group f
+        f        f
+        
+.group g
+        g        g
+        gg       g:
+        
+.group ğ
+        ğ        Q
+         
+.group h         
+        h        h
+
+.group ı
+        ı        @
+        ı (_    '@
+        ı (L02_ '@
+
+.group i
+        i        i
+        i  (_   'i
+        ı (L02_ 'i
+        
+.group ĭ
+        ĭ        @
+        ı (_    '@
+        ı (L02_ '@  
+        
+.group j
+        j        Z
+        
+.group k
+        k        k
+        kk       k:
+        
+.group l
+        l        l
+        
+.group m
+        m        m
+        
+.group n
+        n        n
+
+.group ñ
+        ñ        N
+        
+.group o
+        o        o
+        o (_    'o
+        o (L02_ 'o
+        
+.group ö
+        ö        O
+        ö (_    'O
+        ö (L02_ 'O
+        
+.group p
+        p        p
+        pp       p:
+        
+.group q
+        q        q
+        qq       q:
+        
+.group r
+        r        R
+        
+.group s
+        s        s
+        sın  (_  %s@n
+        sĭn  (_  %s@n
+        
+.group t
+        t        t
+        tt       t:
+        
+.group u
+        u        u
+        u (_    'u
+        u (L02_ 'u
+
+.group ü
+        ü        U
+        ü (_    'U
+        ü (L02_ 'U
+        
+.group v
+        v       v
+        
+.group w
+        w       w2
+        
+.group y
+        y       j
+        
+.group z
+        z       z 

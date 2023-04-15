@@ -498,6 +498,7 @@ dictionaries: \
 	espeak-ng-data/kn_dict \
 	espeak-ng-data/ko_dict \
 	espeak-ng-data/kok_dict \
+	espeak-ng-data/krm_dict \
 	espeak-ng-data/ku_dict \
 	espeak-ng-data/ky_dict \
 	espeak-ng-data/la_dict \
@@ -734,6 +735,9 @@ espeak-ng-data/ko_dict: dictsource/ko_list dictsource/ko_rules dictsource/ko_ext
 
 kok: espeak-ng-data/kok_dict
 espeak-ng-data/kok_dict: dictsource/kok_list dictsource/kok_rules dictsource/kok_extra
+
+krm: espeak-ng-data/krm_dict
+espeak-ng-data/krm_dict: dictsource/krm_list dictsource/krm_rules
 
 ku: espeak-ng-data/ku_dict
 espeak-ng-data/ku_dict: dictsource/ku_list dictsource/ku_rules dictsource/ku_extra
