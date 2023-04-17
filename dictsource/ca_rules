@@ -585,6 +585,7 @@ _contra) s (A      s    // (contrasentit)
         tll        l^l^ // gemination (espatlla)
         tm         mm	// gemination (setmana)
         tn         nn	// gemination (cotna)
+?3      tz         z    // (normabilitzar) MIRAR SI AFECTA TBÉ ?2
         
 .group u
         u          u
@@ -613,7 +614,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 //     _) v          v#
  
 .group w
-        w          w
+        w          b
+?3      w          v
 
 
 .group x
