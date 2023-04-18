@@ -88,8 +88,8 @@
      ò) e          e2
      ó) e          e2
         e (o       e2
-        e ($w_alt1 e
-        e ($w_alt2 E
+        e ($w_alt1++ e
+        e ($w_alt2++ E
         e (nt_     e
         e (rL21    e    // (herba, serp, terme. but ferm, erm)
         e (r_      e    // (Roger)
@@ -98,7 +98,7 @@
         e (ra_     e    // (cremallera)
         e (res_    e    // (cremalleres)
         e (ll      e    // (canell)
-        e (ct      e    //
+?1        e (ct      e    // (subjecte)
         e (st      e    // 
         e (mt      e    // 
         e (nt      e    // (menta)
@@ -120,6 +120,7 @@
         e (ix      e    // 
         e (mbr     e
      f) e (t       e
+?1   t) e (xt      e
     gr) e (u       e
    arr) e (r       e
     _r) e (g       e    // (regne, regno, etc.)
@@ -141,6 +142,7 @@
         e (i       E    //
         e (s       E    //
         e (m       E    //
+        e (x       E    //
         e (na_     E    //
         e (nes_    E    //
         e (n       E    //
@@ -148,6 +150,10 @@
         e (ds_     E    //
         e (da_     E    //
         e (des_    E    //
+        e (ero_      E    //
+        e (eros_     E    //
+        e (era_     E    //
+        e (eres_    E    //
     c)  e  (b       E
         e  (j       E
         e  (gL01   E

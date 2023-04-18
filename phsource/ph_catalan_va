@@ -111,7 +111,7 @@ phoneme m
     VowelStart(m/mu)
   EndSwitch
   
-  IF nextPh(f) THEN
+  IF nextPh(f) OR nextPh(v) THEN
     ChangePhoneme(M)
   ENDIF
 
@@ -144,14 +144,14 @@ phoneme n
     VowelStart(n/nu)
   EndSwitch
   
-  IF nextPh(f) THEN
+  IF nextPh(f) OR nextPh(v) THEN
     ChangePhoneme(M)
   ELIF nextPh(k) OR nextPh(g) THEN
       ChangePhoneme(N)
   ELIF nextPh(p) OR nextPh(b) OR nextPh(m) THEN
       ChangePhoneme(m)
-  ELIF nextPh(S) OR nextPh(Z) THEN
-      ChangePhoneme(n^)
+//  ELIF nextPh(S) OR nextPh(Z) THEN
+  //    ChangePhoneme(n^)
     
   ENDIF
 
