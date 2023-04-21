@@ -10,7 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
-rootProject.name = 'espeak'
-include ':app'
+rootProject.name = "eSpeak NG"
+include(":app")
