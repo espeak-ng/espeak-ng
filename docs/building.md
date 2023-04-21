@@ -262,10 +262,9 @@ branch when the repository tracked eSpeak releases.
 
 In order to build the Android APK file, you need:
 
-1.  the [Android Studio](https://developer.android.com/studio/) with API 26 support;
-2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
-3.  Gradle 7.4+
-4.  JDK 11
+1.  the [Android Studio](https://developer.android.com/studio/) with API 33 support;
+2.  the [Android NDK](https://developer.android.com/ndk);
+3.  JDK 11+
 
 ### Building with Gradle
 
@@ -277,14 +276,7 @@ In order to build the Android APK file, you need:
 2. Configure the project:
 
         $ ./autogen.sh
-        $ ./configure --with-gradle=<path-to-gradle>
-
-Check that log shows following lines:
-
-        ...
-        gradle (Android):              gradle
-        ...
-`<path-to-gradle>` may be just `gradle` if it is found in your path by simple name.
+        $ ./configure
 
 3. Build the project:
 
