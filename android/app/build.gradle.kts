@@ -74,27 +74,24 @@ tasks.register("checkData") {
     }
 }
 
-tasks.register<Zip>("createDataArchive") {
+val dataArchive = tasks.register<Zip>("createDataArchive") {
     isPreserveFileTimestamps = false
     isReproducibleFileOrder = true
     archiveFileName.set("espeakdata.zip")
     destinationDirectory.set(file("src/main/res/raw"))
 
-    from("build/generated/espeak-ng-data/") {
-        into("espeak-ng-data")
-    }
+    from(layout.buildDirectory.dir("generated/espeak-ng-data"))
+    into("espeak-ng-data")
 }
 
-tasks.register<Checksum>("createDataHash") {
-    dependsOn("createDataArchive")
+val dataHash = tasks.register<Checksum>("createDataHash") {
     checksumAlgorithm.set(Checksum.Algorithm.SHA256)
-    inputFiles.setFrom(file("./src/main/res/raw/espeakdata.zip"))
+    inputFiles.setFrom(dataArchive)
     outputDirectory.set(layout.buildDirectory.dir("intermediates/datahash"))
 }
 
 tasks.register<Copy>("createDataVersion") {
-    dependsOn("createDataHash")
-    from(layout.buildDirectory.file("intermediates/datahash/espeakdata.zip.sha256"))
+    from(dataHash)
     rename("espeakdata.zip.sha256", "espeakdata_version")
     into(file("./src/main/res/raw"))
 }
