@@ -193,10 +193,10 @@ el	$u   $nounf
 la	$u   $nounf
 els	$u  $nounf
 les	$u  $nounf
-un	$u   $nounf
+un	$nounf
 una	'una    $nounf
-uns	$u  $nounf
-unes	$u $nounf
+uns	$nounf
+unes	$nounf
 
 // pronoms febles
 hi  $u  $verbf
@@ -227,6 +227,7 @@ de	$u
 del	$u  $nounf
 dels	$u $nounf
 en      $u $brk
+?2  en  en $u
 per	$u p@R  $brk
 pel	$u $brk $nounf
 pels	$u $brk    $nounf
@@ -778,7 +779,7 @@ desplaer	$alt2
 desplaers	$alt2
 despoder	$alt2
 despoders	$alt2
-desprendre	$alt2
+?1  desprendre	$alt2
 dialtea	$alt2
 dialtees	$alt2
 diaprea	$alt2

@@ -136,16 +136,16 @@
         e (l       E    // (elm)
         e (u       E    // (preu)
         e (r       E    // (merla, ferro. but però Berga i Matadepera)
-        e (t       E    // (marlet)
+?1        e (t       E    // (marlet)
         e (c       E    //
         e (g       E    //
-        e (i       E    //
-        e (s       E    //
+?1        e (i       E    //
+?1        e (s       E    //
         e (m       E    //
         e (x       E    //
-        e (na_     E    //
+?1        e (na_     E    //
         e (nes_    E    //
-        e (n       E    //
+?1        e (n       E    //
         e (d_      E    //
         e (ds_     E    //
         e (da_     E    //
@@ -483,6 +483,7 @@ catalan) o (@      ,o
      A) r (A       **   // (cara)
      C) r (A       **   // (groc)
 ?3       A) r (C       **   // (groc)
+?3       A) rr     R   // (darrer)
         rr         R    // (carro) 
      l) r (A       R    // (colrat)
      n) r (A       R    // (enrere)
@@ -508,7 +509,7 @@ _ultra) r (A       R    // (ultraric)
     _a) r (iz      R    // (arizotònic)
     _a) r (ítmi    R    // (arítmic)
 // _vice) r (A       R    // (vicerector)
-     p) r (end          // (prendre)
+?1     p) r (end          // (prendre)
      
                 // final r
         r (_       =    // final r is silent + stress the vowel
@@ -516,10 +517,10 @@ _ultra) r (A       R    // (ultraric)
         r (s_      =    // final r is silent + stress the vowel
  L05J)  r (s_           // final r is silent + do not stress the vowel
 
-?3        r (_       **=    // final r is silent + stress the vowel
-?3 L05J)  r (_       **     // final r is silent + do not stress the vowel
-?3        r (s_      **=    // final r is silent + stress the vowel
-?3 L05J)  r (s_      **     // final r is silent + do not stress the vowel
+?3        r (_       **=    // final r is not silent + stress the vowel
+?3 L05J)  r (_       **     // final r is not silent + do not stress the vowel
+?3        r (s_      **=    // final r is not silent + stress the vowel
+?3 L05J)  r (s_      **     // final r is not silent + do not stress the vowel
 
 
         r (-       R   // final r is not silent + stress the vowel
