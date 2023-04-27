@@ -43,7 +43,8 @@
 
 .group к
         к        k
-
+        кк       k:
+        
 .group л
         л        l
 
@@ -66,10 +67,11 @@
         с        s
 
 .group ҫ
-        ҫ        C
+        ҫ        S;
 
 .group т
         т        t
+        тт       t:
         ть        t;
 
 .group у
@@ -88,13 +90,14 @@
         ц        ts
 
 .group ч
-        ч        tS
+        ч        tS;
+        чч       tS;:
 
 .group ш
         ш        S
 
 .group щ
-        щ        C:
+        щ        S;:
 
 .group ъ
         ъ        ?
