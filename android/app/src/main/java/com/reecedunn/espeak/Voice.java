@@ -17,10 +17,10 @@
 
 package com.reecedunn.espeak;
 
+import android.speech.tts.TextToSpeech;
+
 import java.util.Locale;
 import java.util.MissingResourceException;
-
-import android.speech.tts.TextToSpeech;
 
 public class Voice {
     public final String name;
@@ -42,12 +42,12 @@ public class Voice {
      *
      * @param query The locale to match.
      * @return A text-to-speech availability code. One of:
-     *         <ul>
-     *         <li>{@link TextToSpeech#LANG_NOT_SUPPORTED}
-     *         <li>{@link TextToSpeech#LANG_AVAILABLE}
-     *         <li>{@link TextToSpeech#LANG_COUNTRY_AVAILABLE}
-     *         <li>{@link TextToSpeech#LANG_COUNTRY_VAR_AVAILABLE}
-     *         </ul>
+     * <ul>
+     * <li>{@link TextToSpeech#LANG_NOT_SUPPORTED}
+     * <li>{@link TextToSpeech#LANG_AVAILABLE}
+     * <li>{@link TextToSpeech#LANG_COUNTRY_AVAILABLE}
+     * <li>{@link TextToSpeech#LANG_COUNTRY_VAR_AVAILABLE}
+     * </ul>
      */
     public int match(Locale query) {
         if (!locale.getISO3Language().equals(query.getISO3Language())) {

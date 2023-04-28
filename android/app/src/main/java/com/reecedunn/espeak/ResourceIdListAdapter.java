@@ -23,35 +23,24 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class ResourceIdListAdapter extends ArrayAdapter<Integer>
-{
+public class ResourceIdListAdapter extends ArrayAdapter<Integer> {
     private final LayoutInflater mInflater;
 
-    static class ViewHolder
-    {
-        public TextView text;
-    }
-
-    public ResourceIdListAdapter(Activity context, Integer[] resources)
-    {
+    public ResourceIdListAdapter(Activity context, Integer[] resources) {
         super(context, android.R.layout.simple_list_item_1, resources);
         mInflater = context.getLayoutInflater();
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if (convertView == null)
-        {
+        if (convertView == null) {
             convertView = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
             holder = new ViewHolder();
-            holder.text = (TextView)convertView.findViewById(android.R.id.text1);
+            holder.text = convertView.findViewById(android.R.id.text1);
             convertView.setTag(holder);
-        }
-        else
-        {
-            holder = (ViewHolder)convertView.getTag();
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
         holder.text.setText(getItem(position));
@@ -59,8 +48,11 @@ public class ResourceIdListAdapter extends ArrayAdapter<Integer>
     }
 
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent)
-    {
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
         return getView(position, convertView, parent);
+    }
+
+    static class ViewHolder {
+        public TextView text;
     }
 }

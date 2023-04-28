@@ -30,6 +30,18 @@ import java.util.Locale;
  */
 @SuppressLint("NewApi")
 public class GetSampleText extends Activity {
+    private static Locale getLocaleFromIntent(Intent intent) {
+        if (intent != null) {
+            final String language = intent.getStringExtra("language");
+
+            if (language != null) {
+                return new Locale(language);
+            }
+        }
+
+        return Locale.getDefault();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,17 +54,5 @@ public class GetSampleText extends Activity {
         returnData.putExtra(TextToSpeech.Engine.EXTRA_SAMPLE_TEXT, text);
         setResult(result, returnData);
         finish();
-    }
-
-    private static Locale getLocaleFromIntent(Intent intent) {
-        if (intent != null) {
-            final String language = intent.getStringExtra("language");
-
-            if (language != null) {
-                return new Locale(language);
-            }
-        }
-
-        return Locale.getDefault();
     }
 }

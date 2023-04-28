@@ -24,18 +24,17 @@ public class EspeakApp extends Application {
 
     private static Context storageContext;
 
+    public static Context getStorageContext() {
+        return EspeakApp.storageContext;
+    }
+
     public void onCreate() {
         super.onCreate();
         Context appContext = getApplicationContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             EspeakApp.storageContext = appContext.createDeviceProtectedStorageContext();
-        }
-        else {
+        } else {
             EspeakApp.storageContext = appContext;
         }
-    }
-
-    public static Context getStorageContext() {
-        return EspeakApp.storageContext;
     }
 }

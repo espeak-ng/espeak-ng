@@ -16,6 +16,10 @@
 
 package com.reecedunn.espeak.test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.speech.tts.TextToSpeech;
@@ -28,16 +32,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
-public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
-{
+public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData> {
     Field mResultCode;
     Field mResultData;
 
-    public void setUp() throws Exception
-    {
+    public CheckVoiceDataTest() {
+        super(CheckVoiceData.class);
+    }
+
+    public void setUp() throws Exception {
         super.setUp();
 
         mResultCode = Activity.class.getDeclaredField("mResultCode");
@@ -47,33 +50,23 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
         mResultData.setAccessible(true);
     }
 
-    public int getResultCode() throws IllegalAccessException
-    {
-        return (Integer)mResultCode.get(getActivity());
+    public int getResultCode() throws IllegalAccessException {
+        return (Integer) mResultCode.get(getActivity());
     }
 
-    public Intent getResultData() throws IllegalAccessException
-    {
-        return (Intent)mResultData.get(getActivity());
+    public Intent getResultData() throws IllegalAccessException {
+        return (Intent) mResultData.get(getActivity());
     }
 
-    public CheckVoiceDataTest()
-    {
-        super(CheckVoiceData.class);
-    }
-
-    public Set<String> getExpectedVoices()
-    {
+    public Set<String> getExpectedVoices() {
         Set<String> expected = new HashSet<String>();
-        for (VoiceData.Voice voice : VoiceData.voices)
-        {
+        for (VoiceData.Voice voice : VoiceData.voices) {
             expected.add(voice.locale);
         }
         return expected;
     }
 
-    public void testUnavailableVoices() throws IllegalAccessException
-    {
+    public void testUnavailableVoices() throws IllegalAccessException {
         Intent intent = new Intent(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivity(intent, null, null);
 
@@ -89,8 +82,7 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
         assertThat(unavailable.toString(), is("[]"));
     }
 
-    public void testAvailableVoicesAdded() throws IllegalAccessException
-    {
+    public void testAvailableVoicesAdded() throws IllegalAccessException {
         Intent intent = new Intent(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivity(intent, null, null);
 
@@ -107,10 +99,8 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
         Set<String> expected = getExpectedVoices();
 
         Set<String> added = new HashSet<String>();
-        for (String voice : available)
-        {
-            if (!expected.contains(voice))
-            {
+        for (String voice : available) {
+            if (!expected.contains(voice)) {
                 added.add(voice);
             }
         }
@@ -118,8 +108,7 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
         assertThat(added.toString(), is("[]"));
     }
 
-    public void testAvailableVoicesRemoved() throws IllegalAccessException
-    {
+    public void testAvailableVoicesRemoved() throws IllegalAccessException {
         Intent intent = new Intent(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivity(intent, null, null);
 
@@ -136,10 +125,8 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
         Set<String> expected = getExpectedVoices();
 
         Set<String> removed = new HashSet<String>();
-        for (String voice : expected)
-        {
-            if (!available.contains(voice))
-            {
+        for (String voice : expected) {
+            if (!available.contains(voice)) {
                 removed.add(voice);
             }
         }

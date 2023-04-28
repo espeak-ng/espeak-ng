@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!--
-        Source: App icon label.
-        Description: The name of the application.
-    -->
-  <string name="app_name" translatable="false">eSpeak</string>
+    <!--
+          Source: App icon label.
+          Description: The name of the application.
+      -->
+    <string name="app_name" translatable="false">eSpeak</string>
 
-  <!-- Voice Variants that are people's names. -->
-  <string name="variant_klatt">Klatt</string>
-  <string name="variant_nvda">NVDA</string>
-  <string name="variant_adam">Adam</string>
-  <string name="variant_alex">Alex</string>
-  <string name="variant_alicia">Alicia</string>
-  <string name="variant_andy">Andy</string>
-  <string name="variant_andrea">Andrea</string>
-  <string name="variant_anika">Anika</string>
-  <string name="variant_anika_robot">Anika Robot</string>
-  <string name="variant_annie">Annie</string>
-  <string name="variant_anouncer">Anouncer</string>
-  <string name="variant_antonio">Antonio</string>
-  <string name="variant_anxious_andy">Anxious Andy</string>
-  <string name="variant_aunty">Aunty</string>
-  <string name="variant_belinda">belinda</string>
-  <string name="variant_benjamin">Benjamin</string>
-  <string name="variant_boris">Boris</string>
-  <string name="variant_caleb">Caleb</string>
-  <string name="variant_david">David</string>
-  <string name="variant_demonic">Demonic</string>
-  <string name="variant_denis">Denis</string>
-  <string name="variant_diogo">Diogo</string>
-  <string name="variant_ed">Ed</string>
-  <string name="variant_edward">Edward</string>
-  <string name="variant_edward2">Edward2</string>
-  <string name="variant_gene">Gene</string>
-  <string name="variant_gene2">Gene 2</string>
-  <string name="variant_grandma">Grandma</string>
-  <string name="variant_grandpa">Grandpa</string>
-  <string name="variant_gustave">Gustave</string>
-  <string name="variant_henrique">Henrique</string>
-  <string name="variant_hugo">Hugo</string>
-  <string name="variant_iven">Iven</string>
-  <string name="variant_iven2">Iven 2</string>
-  <string name="variant_iven3">Iven 3</string>
-  <string name="variant_iven4">Iven 4</string>
-  <string name="variant_jacky">Jacky</string>
-  <string name="variant_john">John</string>
-  <string name="variant_kaukovalta">Kaukovalta</string>
-  <string name="variant_lee">Lee</string>
-  <string name="variant_linda">Linda</string>
-  <string name="variant_marcelo">Marcelo</string>
-  <string name="variant_marco">Marco</string>
-  <string name="variant_mario">Mario</string>
-  <string name="variant_max">Max</string>
-  <string name="variant_miguel">Miguel</string>
-  <string name="variant_michael">Michael</string>
-  <string name="variant_michel">Michel</string>
-  <string name="variant_mike">Mike</string>
-  <string name="variant_mr_serious">Mr Serious</string>
-  <string name="variant_nguyen">Nguyen</string>
-  <string name="variant_norbert">Norbert</string>
-  <string name="variant_pablo">Pablo</string>
-  <string name="variant_paul">Paul</string>
-  <string name="variant_pedro">Pedro</string>
-  <string name="variant_quincy">Quincy</string>
-  <string name="variant_ricishay_max">Ricishay Max</string>
-  <string name="variant_ricishay_max2">Ricishay Max 2</string>
-  <string name="variant_ricishay_max3">Ricishay Max 3</string>
-  <string name="variant_rob">Rob</string>
-  <string name="variant_robert">Robert</string>
-  <string name="variant_robosoft">Robosoft</string>
-  <string name="variant_robosoft2">Robosoft 2</string>
-  <string name="variant_robosoft3">Robosoft 3</string>
-  <string name="variant_robosoft4">Robosoft 4</string>
-  <string name="variant_robosoft5">Robosoft 5</string>
-  <string name="variant_robosoft6">Robosoft 6</string>
-  <string name="variant_robosoft7">Robosoft 7</string>
-  <string name="variant_robosoft8">Robosoft 8</string>
-  <string name="variant_sandro">Sandro</string>
-  <string name="variant_shelby">Shelby</string>
-  <string name="variant_steph">Steph</string>
-  <string name="variant_steph2">Steph 2</string>
-  <string name="variant_steph3">Steph 3</string>
-  <string name="variant_storm">Storm</string>
-  <string name="variant_travis">Travis</string>
-  <string name="variant_tweaky">Tweaky</string>
-  <string name="variant_unirobot">UniRobot</string>
-  <string name="variant_victor">Victor</string>
-  <string name="variant_zac">Zac</string>
+    <!-- Voice Variants that are people's names. -->
+    <string name="variant_klatt">Klatt</string>
+    <string name="variant_nvda">NVDA</string>
+    <string name="variant_adam">Adam</string>
+    <string name="variant_alex">Alex</string>
+    <string name="variant_alicia">Alicia</string>
+    <string name="variant_andy">Andy</string>
+    <string name="variant_andrea">Andrea</string>
+    <string name="variant_anika">Anika</string>
+    <string name="variant_anika_robot">Anika Robot</string>
+    <string name="variant_annie">Annie</string>
+    <string name="variant_anouncer">Anouncer</string>
+    <string name="variant_antonio">Antonio</string>
+    <string name="variant_anxious_andy">Anxious Andy</string>
+    <string name="variant_aunty">Aunty</string>
+    <string name="variant_belinda">belinda</string>
+    <string name="variant_benjamin">Benjamin</string>
+    <string name="variant_boris">Boris</string>
+    <string name="variant_caleb">Caleb</string>
+    <string name="variant_david">David</string>
+    <string name="variant_demonic">Demonic</string>
+    <string name="variant_denis">Denis</string>
+    <string name="variant_diogo">Diogo</string>
+    <string name="variant_ed">Ed</string>
+    <string name="variant_edward">Edward</string>
+    <string name="variant_edward2">Edward2</string>
+    <string name="variant_gene">Gene</string>
+    <string name="variant_gene2">Gene 2</string>
+    <string name="variant_grandma">Grandma</string>
+    <string name="variant_grandpa">Grandpa</string>
+    <string name="variant_gustave">Gustave</string>
+    <string name="variant_henrique">Henrique</string>
+    <string name="variant_hugo">Hugo</string>
+    <string name="variant_iven">Iven</string>
+    <string name="variant_iven2">Iven 2</string>
+    <string name="variant_iven3">Iven 3</string>
+    <string name="variant_iven4">Iven 4</string>
+    <string name="variant_jacky">Jacky</string>
+    <string name="variant_john">John</string>
+    <string name="variant_kaukovalta">Kaukovalta</string>
+    <string name="variant_lee">Lee</string>
+    <string name="variant_linda">Linda</string>
+    <string name="variant_marcelo">Marcelo</string>
+    <string name="variant_marco">Marco</string>
+    <string name="variant_mario">Mario</string>
+    <string name="variant_max">Max</string>
+    <string name="variant_miguel">Miguel</string>
+    <string name="variant_michael">Michael</string>
+    <string name="variant_michel">Michel</string>
+    <string name="variant_mike">Mike</string>
+    <string name="variant_mr_serious">Mr Serious</string>
+    <string name="variant_nguyen">Nguyen</string>
+    <string name="variant_norbert">Norbert</string>
+    <string name="variant_pablo">Pablo</string>
+    <string name="variant_paul">Paul</string>
+    <string name="variant_pedro">Pedro</string>
+    <string name="variant_quincy">Quincy</string>
+    <string name="variant_ricishay_max">Ricishay Max</string>
+    <string name="variant_ricishay_max2">Ricishay Max 2</string>
+    <string name="variant_ricishay_max3">Ricishay Max 3</string>
+    <string name="variant_rob">Rob</string>
+    <string name="variant_robert">Robert</string>
+    <string name="variant_robosoft">Robosoft</string>
+    <string name="variant_robosoft2">Robosoft 2</string>
+    <string name="variant_robosoft3">Robosoft 3</string>
+    <string name="variant_robosoft4">Robosoft 4</string>
+    <string name="variant_robosoft5">Robosoft 5</string>
+    <string name="variant_robosoft6">Robosoft 6</string>
+    <string name="variant_robosoft7">Robosoft 7</string>
+    <string name="variant_robosoft8">Robosoft 8</string>
+    <string name="variant_sandro">Sandro</string>
+    <string name="variant_shelby">Shelby</string>
+    <string name="variant_steph">Steph</string>
+    <string name="variant_steph2">Steph 2</string>
+    <string name="variant_steph3">Steph 3</string>
+    <string name="variant_storm">Storm</string>
+    <string name="variant_travis">Travis</string>
+    <string name="variant_tweaky">Tweaky</string>
+    <string name="variant_unirobot">UniRobot</string>
+    <string name="variant_victor">Victor</string>
+    <string name="variant_zac">Zac</string>
 
 </resources>

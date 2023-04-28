@@ -19,7 +19,7 @@ add_library(ttsespeak SHARED
         )
 target_include_directories(ttsespeak PRIVATE
         include
-)
+        )
 target_link_libraries(ttsespeak PRIVATE
         espeak-ng ${A_LOG}
-)
+        )

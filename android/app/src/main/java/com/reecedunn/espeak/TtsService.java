@@ -62,15 +62,39 @@ public class TtsService extends TextToSpeechService {
     public static final String ESPEAK_INITIALIZED = "com.reecedunn.espeak.ESPEAK_INITIALIZED";
 
     private static final String TAG = TtsService.class.getSimpleName();
-    private static Context storageContext;
     private static final boolean DEBUG = BuildConfig.DEBUG;
-
-    private SpeechSynthesis mEngine;
-    private SynthesisCallback mCallback;
-
+    private static Context storageContext;
     private final Map<String, Voice> mAvailableVoices = new HashMap<String, Voice>();
     protected Voice mMatchingVoice = null;
+    private SpeechSynthesis mEngine;
+    private SynthesisCallback mCallback;
+    /**
+     * Pipes synthesizer output from native eSpeak to an {@link AudioTrack}.
+     */
+    private final SpeechSynthesis.SynthReadyCallback mSynthCallback = new SynthReadyCallback() {
+        @Override
+        public void onSynthDataReady(byte[] audioData) {
+            if ((audioData == null) || (audioData.length == 0)) {
+                onSynthDataComplete();
+                return;
+            }
 
+            final int maxBytesToCopy = mCallback.getMaxBufferSize();
+
+            int offset = 0;
+
+            while (offset < audioData.length) {
+                final int bytesToWrite = Math.min(maxBytesToCopy, (audioData.length - offset));
+                mCallback.audioAvailable(audioData, offset, bytesToWrite);
+                offset += bytesToWrite;
+            }
+        }
+
+        @Override
+        public void onSynthDataComplete() {
+            mCallback.done();
+        }
+    };
     private BroadcastReceiver mOnLanguagesDownloaded = null;
 
     @Override
@@ -113,12 +137,12 @@ public class TtsService extends TextToSpeechService {
     protected String[] onGetLanguage() {
         // This is used to specify the language requested from GetSampleText.
         if (mMatchingVoice == null) {
-            return new String[] { "eng", "GBR", "" };
+            return new String[]{"eng", "GBR", ""};
         }
-        return new String[] {
-            mMatchingVoice.locale.getISO3Language(),
-            mMatchingVoice.locale.getISO3Country(),
-            mMatchingVoice.locale.getVariant()
+        return new String[]{
+                mMatchingVoice.locale.getISO3Language(),
+                mMatchingVoice.locale.getISO3Country(),
+                mMatchingVoice.locale.getVariant()
         };
     }
 
@@ -298,8 +322,7 @@ public class TtsService extends TextToSpeechService {
             }
         }
 
-        if (text.startsWith("<?xml"))
-        {
+        if (text.startsWith("<?xml")) {
             // eSpeak does not recognise/skip "<?...?>" preprocessing tags,
             // so need to remove these before passing to synthesize.
             text = text.substring(text.indexOf("?>") + 2).trim();
@@ -318,32 +341,4 @@ public class TtsService extends TextToSpeechService {
         mEngine.setPunctuationCharacters(settings.getPunctuationCharacters());
         mEngine.synthesize(text, text.startsWith("<speak"));
     }
-
-    /**
-     * Pipes synthesizer output from native eSpeak to an {@link AudioTrack}.
-     */
-    private final SpeechSynthesis.SynthReadyCallback mSynthCallback = new SynthReadyCallback() {
-        @Override
-        public void onSynthDataReady(byte[] audioData) {
-            if ((audioData == null) || (audioData.length == 0)) {
-                onSynthDataComplete();
-                return;
-            }
-
-            final int maxBytesToCopy = mCallback.getMaxBufferSize();
-
-            int offset = 0;
-
-            while (offset < audioData.length) {
-                final int bytesToWrite = Math.min(maxBytesToCopy, (audioData.length - offset));
-                mCallback.audioAvailable(audioData, offset, bytesToWrite);
-                offset += bytesToWrite;
-            }
-        }
-
-        @Override
-        public void onSynthDataComplete() {
-            mCallback.done();
-        }
-    };
 }

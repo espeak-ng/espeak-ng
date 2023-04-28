@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <Spinner
+        android:id="@+id/dictionaries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dictionaries"
-        android:gravity="bottom"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:gravity="bottom" />
 
 </LinearLayout>

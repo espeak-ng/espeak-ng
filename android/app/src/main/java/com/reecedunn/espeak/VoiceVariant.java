@@ -19,11 +19,9 @@ package com.reecedunn.espeak;
 import java.util.regex.Pattern;
 
 public class VoiceVariant {
-    private static final Pattern mVariantPattern = Pattern.compile("-");
-
     public static final String MALE = "male";
     public static final String FEMALE = "female";
-
+    private static final Pattern mVariantPattern = Pattern.compile("-");
     public final String variant;
     public final int gender;
     public final int age;
@@ -40,6 +38,21 @@ public class VoiceVariant {
             this.gender = SpeechSynthesis.GENDER_UNSPECIFIED;
         }
         this.age = age;
+    }
+
+    public static VoiceVariant parseVoiceVariant(String value) {
+        String[] parts = mVariantPattern.split(value);
+        int age = SpeechSynthesis.AGE_ANY;
+        switch (parts.length) {
+            case 1: // variant
+                break;
+            case 2: // variant-age
+                age = parts[1].equals("young") ? SpeechSynthesis.AGE_YOUNG : SpeechSynthesis.AGE_OLD;
+                break;
+            default:
+                return null;
+        }
+        return new VoiceVariant(parts[0], age);
     }
 
     @Override
@@ -62,27 +75,12 @@ public class VoiceVariant {
 
     public boolean equals(Object o) {
         if (o instanceof VoiceVariant) {
-            VoiceVariant other = (VoiceVariant)o;
+            VoiceVariant other = (VoiceVariant) o;
             if (variant == null || other.variant == null) {
                 return other.variant == null && variant == null && other.gender == gender && other.age == age;
             }
             return other.variant.equals(variant) && other.gender == gender && other.age == age;
         }
         return false;
-    }
-
-    public static VoiceVariant parseVoiceVariant(String value) {
-        String[] parts = mVariantPattern.split(value);
-        int age = SpeechSynthesis.AGE_ANY;
-        switch (parts.length) {
-        case 1: // variant
-            break;
-        case 2: // variant-age
-            age = parts[1].equals("young") ? SpeechSynthesis.AGE_YOUNG : SpeechSynthesis.AGE_OLD;
-            break;
-        default:
-            return null;
-        }
-        return new VoiceVariant(parts[0], age);
     }
 }

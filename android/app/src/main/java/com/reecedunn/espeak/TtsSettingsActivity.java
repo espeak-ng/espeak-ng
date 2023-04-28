@@ -37,80 +37,33 @@ import com.reecedunn.espeak.preference.VoiceVariantPreference;
 
 public class TtsSettingsActivity extends PreferenceActivity {
 
+    private static final OnPreferenceChangeListener mOnPreferenceChanged =
+            new OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    if (newValue instanceof String) {
+                        String summary = "";
+                        if (preference instanceof ListPreference) {
+                            final ListPreference listPreference = (ListPreference) preference;
+                            final int index = listPreference.findIndexOfValue((String) newValue);
+                            final CharSequence[] entries = listPreference.getEntries();
+
+                            if (index >= 0 && index < entries.length) {
+                                summary = entries[index].toString();
+                            }
+                        } else if (preference instanceof SeekBarPreference) {
+                            final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
+                            String formatter = seekBarPreference.getFormatter();
+                            summary = String.format(formatter, newValue);
+                        } else {
+                            summary = (String) newValue;
+                        }
+                        preference.setSummary(summary);
+                    }
+                    return true;
+                }
+            };
     private static Context storageContext;
-
-    @Override
-    @SuppressWarnings("deprecation")
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-        {
-            PreferenceManager preferenceManager = getPreferenceManager();
-            preferenceManager.setStorageDeviceProtected ();
-        }
-        // Migrate old eyes-free settings to the new settings:
-
-        storageContext = EspeakApp.getStorageContext();
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
-        final SharedPreferences.Editor editor = prefs.edit();
-
-        String pitch = prefs.getString(VoiceSettings.PREF_PITCH, null);
-        if (pitch == null) {
-            // Try the old eyes-free setting:
-            pitch = prefs.getString(VoiceSettings.PREF_DEFAULT_PITCH, "100");
-            int pitchValue = Integer.parseInt(pitch) / 2;
-            editor.putString(VoiceSettings.PREF_PITCH, Integer.toString(pitchValue));
-        }
-
-        String rate = prefs.getString(VoiceSettings.PREF_RATE, null);
-        if (rate == null) {
-            // Try the old eyes-free setting:
-            SpeechSynthesis engine = new SpeechSynthesis(storageContext, null);
-            int defaultValue = engine.Rate.getDefaultValue();
-            int maxValue = engine.Rate.getMaxValue();
-
-            rate = prefs.getString(VoiceSettings.PREF_DEFAULT_RATE, "100");
-            int rateValue = (Integer.parseInt(rate) / 100) * defaultValue;
-            if (rateValue < defaultValue) rateValue = defaultValue;
-            if (rateValue > maxValue) rateValue = maxValue;
-            editor.putString(VoiceSettings.PREF_RATE, Integer.toString(rateValue));
-        }
-
-        String variant = prefs.getString(VoiceSettings.PREF_VARIANT, null);
-        if (variant == null) {
-            String gender = prefs.getString(VoiceSettings.PREF_DEFAULT_GENDER, "0");
-            if (gender.equals("2")) {
-                editor.putString(VoiceSettings.PREF_VARIANT, VoiceVariant.FEMALE);
-            } else {
-                editor.putString(VoiceSettings.PREF_VARIANT, VoiceVariant.MALE);
-            }
-        }
-
-        editor.commit();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-        {
-            getFragmentManager().beginTransaction().replace(
-                    android.R.id.content,
-                    new PrefsEspeakFragment()).commit();
-        }
-        else
-        {
-            addPreferencesFromResource(R.xml.preferences);
-            createPreferences(TtsSettingsActivity.this, getPreferenceScreen());
-        }
-    }
-
-    public static class PrefsEspeakFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            addPreferencesFromResource(R.xml.preferences);
-            createPreferences(getActivity(), getPreferenceScreen());
-        }
-    }
 
     private static Preference createImportVoicePreference(Context context) {
         final String title = context.getString(R.string.import_voice_title);
@@ -158,8 +111,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
 
-        switch (parameter.getUnitType())
-        {
+        switch (parameter.getUnitType()) {
             case Percentage:
                 pref.setFormatter(context.getString(R.string.formatter_percentage));
                 break;
@@ -203,30 +155,72 @@ public class TtsSettingsActivity extends PreferenceActivity {
         group.addPreference(createSeekBarPreference(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
     }
 
-    private static final OnPreferenceChangeListener mOnPreferenceChanged =
-            new OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    if (newValue instanceof String) {
-                        String summary = "";
-                        if (preference instanceof ListPreference) {
-                            final ListPreference listPreference = (ListPreference) preference;
-                            final int index = listPreference.findIndexOfValue((String) newValue);
-                            final CharSequence[] entries = listPreference.getEntries();
+    @Override
+    @SuppressWarnings("deprecation")
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-                            if (index >= 0 && index < entries.length) {
-                                summary = entries[index].toString();
-                            }
-                        } else if (preference instanceof SeekBarPreference) {
-                            final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
-                            String formatter = seekBarPreference.getFormatter();
-                            summary = String.format(formatter, (String)newValue);
-                        } else {
-                            summary = (String)newValue;
-                        }
-                        preference.setSummary(summary);
-                    }
-                    return true;
-                }
-            };
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            PreferenceManager preferenceManager = getPreferenceManager();
+            preferenceManager.setStorageDeviceProtected();
+        }
+        // Migrate old eyes-free settings to the new settings:
+
+        storageContext = EspeakApp.getStorageContext();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
+        final SharedPreferences.Editor editor = prefs.edit();
+
+        String pitch = prefs.getString(VoiceSettings.PREF_PITCH, null);
+        if (pitch == null) {
+            // Try the old eyes-free setting:
+            pitch = prefs.getString(VoiceSettings.PREF_DEFAULT_PITCH, "100");
+            int pitchValue = Integer.parseInt(pitch) / 2;
+            editor.putString(VoiceSettings.PREF_PITCH, Integer.toString(pitchValue));
+        }
+
+        String rate = prefs.getString(VoiceSettings.PREF_RATE, null);
+        if (rate == null) {
+            // Try the old eyes-free setting:
+            SpeechSynthesis engine = new SpeechSynthesis(storageContext, null);
+            int defaultValue = engine.Rate.getDefaultValue();
+            int maxValue = engine.Rate.getMaxValue();
+
+            rate = prefs.getString(VoiceSettings.PREF_DEFAULT_RATE, "100");
+            int rateValue = (Integer.parseInt(rate) / 100) * defaultValue;
+            if (rateValue < defaultValue) rateValue = defaultValue;
+            if (rateValue > maxValue) rateValue = maxValue;
+            editor.putString(VoiceSettings.PREF_RATE, Integer.toString(rateValue));
+        }
+
+        String variant = prefs.getString(VoiceSettings.PREF_VARIANT, null);
+        if (variant == null) {
+            String gender = prefs.getString(VoiceSettings.PREF_DEFAULT_GENDER, "0");
+            if (gender.equals("2")) {
+                editor.putString(VoiceSettings.PREF_VARIANT, VoiceVariant.FEMALE);
+            } else {
+                editor.putString(VoiceSettings.PREF_VARIANT, VoiceVariant.MALE);
+            }
+        }
+
+        editor.commit();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getFragmentManager().beginTransaction().replace(
+                    android.R.id.content,
+                    new PrefsEspeakFragment()).commit();
+        } else {
+            addPreferencesFromResource(R.xml.preferences);
+            createPreferences(TtsSettingsActivity.this, getPreferenceScreen());
+        }
+    }
+
+    public static class PrefsEspeakFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            addPreferencesFromResource(R.xml.preferences);
+            createPreferences(getActivity(), getPreferenceScreen());
+        }
+    }
 }

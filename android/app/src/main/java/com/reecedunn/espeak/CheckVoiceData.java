@@ -41,14 +41,27 @@ import java.util.Locale;
 public class CheckVoiceData extends Activity {
     private static final String TAG = "eSpeakTTS";
 
-    /** Resources required for eSpeak to run correctly. */
+    /**
+     * Resources required for eSpeak to run correctly.
+     */
     private static final String[] BASE_RESOURCES = {
-        "version",
-        "intonations",
-        "phondata",
-        "phonindex",
-        "phontab",
-        "en_dict",
+            "version",
+            "intonations",
+            "phondata",
+            "phonindex",
+            "phontab",
+            "en_dict",
+    };
+    private final SynthReadyCallback mSynthReadyCallback = new SynthReadyCallback() {
+        @Override
+        public void onSynthDataReady(byte[] audioData) {
+            // Do nothing.
+        }
+
+        @Override
+        public void onSynthDataComplete() {
+            // Do nothing.
+        }
     };
 
     public static File getDataPath(Context context) {
@@ -114,16 +127,4 @@ public class CheckVoiceData extends Activity {
         setResult(result, returnData);
         finish();
     }
-
-    private final SynthReadyCallback mSynthReadyCallback = new SynthReadyCallback() {
-        @Override
-        public void onSynthDataReady(byte[] audioData) {
-            // Do nothing.
-        }
-
-        @Override
-        public void onSynthDataComplete() {
-            // Do nothing.
-        }
-    };
 }

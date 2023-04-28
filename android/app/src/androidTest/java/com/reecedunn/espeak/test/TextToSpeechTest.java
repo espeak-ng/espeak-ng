@@ -16,62 +16,53 @@
 
 package com.reecedunn.espeak.test;
 
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.speech.tts.TextToSpeech;
 
-import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
 
-public class TextToSpeechTest extends TextToSpeechTestCase
-{
+public class TextToSpeechTest extends TextToSpeechTestCase {
+    private final Set<String> mAdded = new HashSet<String>();
+    private final Set<String> mRemoved = new HashSet<String>();
     private Set<Object> mVoices = null;
-    private Set<String> mAdded = new HashSet<String>();
-    private Set<String> mRemoved = new HashSet<String>();
 
     @SuppressLint("NewApi")
-    public Set<Object> getVoices()
-    {
-        if (mVoices == null)
-        {
+    public Set<Object> getVoices() {
+        if (mVoices == null) {
             Set<android.speech.tts.Voice> voiceData = getEngine().getVoices();
             assertThat(voiceData, is(notNullValue()));
 
             mVoices = new HashSet<Object>();
-            for (android.speech.tts.Voice voice : voiceData)
-            {
+            for (android.speech.tts.Voice voice : voiceData) {
                 mVoices.add(voice);
             }
 
             Set<String> voices = new HashSet<String>();
-            for (Object data : mVoices)
-            {
-                voices.add(((android.speech.tts.Voice)data).getName());
+            for (Object data : mVoices) {
+                voices.add(((android.speech.tts.Voice) data).getName());
             }
 
             Set<String> expected = new HashSet<String>();
-            for (VoiceData.Voice data : VoiceData.voices)
-            {
+            for (VoiceData.Voice data : VoiceData.voices) {
                 expected.add(data.name);
             }
 
-            for (String voice : voices)
-            {
-                if (!expected.contains(voice))
-                {
+            for (String voice : voices) {
+                if (!expected.contains(voice)) {
                     mAdded.add(voice);
                 }
             }
 
-            for (String voice : expected)
-            {
-                if (!voices.contains(voice))
-                {
+            for (String voice : expected) {
+                if (!voices.contains(voice)) {
                     mRemoved.add(voice);
                 }
             }
@@ -79,20 +70,16 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         return mVoices;
     }
 
-    public VoiceData.Voice getVoiceData(String name)
-    {
-        for (VoiceData.Voice voice : VoiceData.voices)
-        {
-            if (voice.name.equals(name))
-            {
+    public VoiceData.Voice getVoiceData(String name) {
+        for (VoiceData.Voice voice : VoiceData.voices) {
+            if (voice.name.equals(name)) {
                 return voice;
             }
         }
         return null;
     }
 
-    public void testAddedVoices()
-    {
+    public void testAddedVoices() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
             return;
 
@@ -100,8 +87,7 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         assertThat(mAdded.toString(), is("[]"));
     }
 
-    public void testRemovedVoices()
-    {
+    public void testRemovedVoices() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
             return;
 
@@ -110,15 +96,13 @@ public class TextToSpeechTest extends TextToSpeechTestCase
     }
 
     @SuppressLint("NewApi")
-    public void testVoices()
-    {
+    public void testVoices() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
             return;
 
         getVoices(); // Ensure that the voice data has been populated.
-        for (Object item : mVoices)
-        {
-            android.speech.tts.Voice voice = (android.speech.tts.Voice)item;
+        for (Object item : mVoices) {
+            android.speech.tts.Voice voice = (android.speech.tts.Voice) item;
             VoiceData.Voice data = getVoiceData(voice.getName());
 
             assertThat(data, is(notNullValue()));
@@ -149,8 +133,7 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         }
     }
 
-    public void testUnsupportedLanguage()
-    {
+    public void testUnsupportedLanguage() {
         assertThat(getEngine(), is(notNullValue()));
 
         Locale initialLocale = getLanguage(getEngine());
@@ -162,12 +145,10 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         assertThat(getLanguage(getEngine()).getVariant(), is(initialLocale.getVariant()));
     }
 
-    public void checkLanguage(VoiceData.Voice data, Locale locale, int status, String language, String country, String variant)
-    {
+    public void checkLanguage(VoiceData.Voice data, Locale locale, int status, String language, String country, String variant) {
         String langTag = locale.toString().replace('_', '-');
         String context = "";
-        try
-        {
+        try {
             context = "isLanguageAvailable";
             assertThat(getEngine().isLanguageAvailable(locale), isTtsLangCode(status));
             context = "setLanguage";
@@ -176,19 +157,15 @@ public class TextToSpeechTest extends TextToSpeechTestCase
             assertThat(getLanguage(getEngine()).getLanguage(), is(language));
             assertThat(getLanguage(getEngine()).getCountry(), is(country));
             assertThat(getLanguage(getEngine()).getVariant(), is(variant));
-        }
-        catch (AssertionError e)
-        {
+        } catch (AssertionError e) {
             throw new VoiceData.Exception(data, context + "|" + langTag, e);
         }
     }
 
-    public void testLanguages()
-    {
+    public void testLanguages() {
         assertThat(getEngine(), is(notNullValue()));
 
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
+        for (VoiceData.Voice data : VoiceData.voices) {
             final Locale iana1 = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
             final Locale iana2 = new Locale(data.ianaLanguage, data.ianaCountry, "test");
             final Locale iana3 = new Locale(data.ianaLanguage, "VU", data.variant);

@@ -31,8 +31,7 @@ import android.widget.TextView;
 
 import com.reecedunn.espeak.R;
 
-public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener
-{
+public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener {
     private SeekBar mSeekBar;
     private TextView mValueText;
 
@@ -42,6 +41,26 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     private int mMin = 0;
     private int mMax = 100;
     private String mFormatter = "%s";
+
+    public SeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        setDialogLayoutResource(R.layout.seekbar_preference);
+        setLayoutResource(R.layout.information_view);
+        setPositiveButtonText(android.R.string.ok);
+        setNegativeButtonText(android.R.string.cancel);
+    }
+
+    public SeekBarPreference(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public SeekBarPreference(Context context) {
+        this(context, null);
+    }
+
+    public int getProgress() {
+        return mProgress;
+    }
 
     public void setProgress(int progress) {
         mProgress = progress;
@@ -56,59 +75,36 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         mOldProgress = mProgress;
     }
 
-    public int getProgress() {
-        return mProgress;
+    public int getDefaultValue() {
+        return mDefaultValue;
     }
 
     public void setDefaultValue(int defaultValue) {
         mDefaultValue = defaultValue;
     }
 
-    public int getDefaultValue() {
-        return mDefaultValue;
-    }
-
-    public void setMin(int min) {
-        mMin =  min;
-    }
-
     public int getMin() {
         return mMin;
     }
 
-    public void setMax(int max) {
-        mMax =  max;
+    public void setMin(int min) {
+        mMin = min;
     }
 
     public int getMax() {
         return mMax;
     }
 
-    public void setFormatter(String formatter) {
-        mFormatter = formatter;
+    public void setMax(int max) {
+        mMax = max;
     }
 
     public String getFormatter() {
         return mFormatter;
     }
 
-    public SeekBarPreference(Context context, AttributeSet attrs, int defStyle)
-    {
-        super(context, attrs, defStyle);
-        setDialogLayoutResource(R.layout.seekbar_preference);
-        setLayoutResource(R.layout.information_view);
-        setPositiveButtonText(android.R.string.ok);
-        setNegativeButtonText(android.R.string.cancel);
-    }
-
-    public SeekBarPreference(Context context, AttributeSet attrs)
-    {
-        this(context, attrs, 0);
-    }
-
-    public SeekBarPreference(Context context)
-    {
-        this(context, null);
+    public void setFormatter(String formatter) {
+        mFormatter = formatter;
     }
 
     private void persistSettings(int progress) {
@@ -116,10 +112,9 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         String text = Integer.toString(mProgress);
         callChangeListener(text);
         if (shouldCommit()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 PreferenceManager preferenceManager = getPreferenceManager();
-                preferenceManager.setStorageDeviceProtected ();
+                preferenceManager.setStorageDeviceProtected();
             }
             SharedPreferences.Editor editor = getEditor();
             editor.putString(getKey(), text);
@@ -130,14 +125,13 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mSeekBar = (SeekBar)root.findViewById(R.id.seekBar);
-        mValueText = (TextView)root.findViewById(R.id.valueText);
+        mSeekBar = root.findViewById(R.id.seekBar);
+        mValueText = root.findViewById(R.id.valueText);
 
-        Button reset = (Button)root.findViewById(R.id.resetToDefault);
-        reset.setOnClickListener(new View.OnClickListener(){
+        Button reset = root.findViewById(R.id.resetToDefault);
+        reset.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 int defaultValue = getDefaultValue();
                 mSeekBar.setProgress(defaultValue - mMin);
 
@@ -165,13 +159,10 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        switch (which) {
-            case DialogInterface.BUTTON_POSITIVE:
-                // Update the last saved value so this will be persisted when
-                // the dialog is dismissed.
+        if (which == DialogInterface.BUTTON_POSITIVE) {// Update the last saved value so this will be persisted when
+            // the dialog is dismissed.
 
-                mOldProgress = mSeekBar.getProgress() + mMin;
-                break;
+            mOldProgress = mSeekBar.getProgress() + mMin;
         }
         super.onClick(dialog, which);
     }
@@ -198,8 +189,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     }
 
     @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
-    {
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         // This callback gets called frequently when the user is moving the
         // slider, so constantly persisting the seeker value will be annoying.
         //
@@ -207,19 +197,17 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         // value here will cause the speech rate to be set to 80 WPM (via the
         // onBindDialogView handler).
 
-        String text = String.format(getFormatter(), Integer.toString(progress + mMin));
+        String text = String.format(getFormatter(), progress + mMin);
         mValueText.setText(text);
         mSeekBar.setContentDescription(text);
     }
 
     @Override
-    public void onStartTrackingTouch(SeekBar seekBar)
-    {
+    public void onStartTrackingTouch(SeekBar seekBar) {
     }
 
     @Override
-    public void onStopTrackingTouch(SeekBar seekBar)
-    {
+    public void onStopTrackingTouch(SeekBar seekBar) {
         // After the user has let go of the slider, the new value is
         // persisted to ensure that eSpeak is using the new value the
         // next time e.g. TalkBack reads part of the UI.

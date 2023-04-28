@@ -16,22 +16,26 @@
 
 package com.reecedunn.espeak.test;
 
+import android.speech.tts.TextToSpeech;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import android.speech.tts.TextToSpeech;
-
-public class TtsMatcher
-{
+public class TtsMatcher {
     private static String ttsLangCode(final Integer value) {
         if (value == null) return "null";
         switch (value.intValue()) {
-            case TextToSpeech.LANG_AVAILABLE:             return "TextToSpeech.LANG_AVAILABLE";
-            case TextToSpeech.LANG_COUNTRY_AVAILABLE:     return "TextToSpeech.LANG_COUNTRY_AVAILABLE";
-            case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE: return "TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE";
-            case TextToSpeech.LANG_MISSING_DATA:          return "TextToSpeech.LANG_MISSING_DATA";
-            case TextToSpeech.LANG_NOT_SUPPORTED:         return "TextToSpeech.LANG_NOT_SUPPORTED";
+            case TextToSpeech.LANG_AVAILABLE:
+                return "TextToSpeech.LANG_AVAILABLE";
+            case TextToSpeech.LANG_COUNTRY_AVAILABLE:
+                return "TextToSpeech.LANG_COUNTRY_AVAILABLE";
+            case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE:
+                return "TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE";
+            case TextToSpeech.LANG_MISSING_DATA:
+                return "TextToSpeech.LANG_MISSING_DATA";
+            case TextToSpeech.LANG_NOT_SUPPORTED:
+                return "TextToSpeech.LANG_NOT_SUPPORTED";
         }
         return value.toString();
     }

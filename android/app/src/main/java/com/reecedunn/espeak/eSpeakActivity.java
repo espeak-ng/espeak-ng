@@ -34,8 +34,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -45,33 +45,33 @@ import java.util.Locale;
 public class eSpeakActivity extends Activity {
     private static final String ACTION_TTS_SETTINGS = "com.android.settings.TTS_SETTINGS";
 
-    /** Handler code for TTS initialization hand-off. */
+    /**
+     * Handler code for TTS initialization hand-off.
+     */
     private static final int TTS_INITIALIZED = 1;
 
     private static final int REQUEST_CHECK = 1;
     private static final int REQUEST_DEFAULT = 3;
 
-	private static final String TAG = "eSpeakActivity";
-
-    private enum State {
-        LOADING,
-        DOWNLOAD_FAILED,
-        ERROR,
-        SUCCESS
-    }
-
+    private static final String TAG = "eSpeakActivity";
+    private final Handler mHandler = new EspeakHandler(this);
+    private final TextToSpeech.OnInitListener mInitListener = new TextToSpeech.OnInitListener() {
+        @Override
+        public void onInit(int status) {
+            mHandler.obtainMessage(TTS_INITIALIZED, status, 0).sendToTarget();
+        }
+    };
     private State mState;
     private TextToSpeech mTts;
-    private List<Pair<String,String>> mInformation;
+    private List<Pair<String, String>> mInformation;
     private InformationListAdapter mInformationView;
-    private EditText mText;
-
     private final BroadcastReceiver mOnEspeakInitialized = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             populateInformationView();
         }
     };
+    private EditText mText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,10 +79,10 @@ public class eSpeakActivity extends Activity {
 
         setContentView(R.layout.main);
 
-        mInformation = new ArrayList<Pair<String,String>>();
+        mInformation = new ArrayList<Pair<String, String>>();
         mInformationView = new InformationListAdapter(this, mInformation);
-        ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
-        mText = (EditText)findViewById(R.id.editText1);
+        ((ListView) findViewById(R.id.properties)).setAdapter(mInformationView);
+        mText = findViewById(R.id.editText1);
 
         setState(State.LOADING);
         checkVoiceData();
@@ -103,10 +103,10 @@ public class eSpeakActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String ssml =
-                    "<?xml version=\"1.0\"?>\n" +
-                    "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" version=\"1.0\">\n" +
-                    "\n" +
-                    "</speak>";
+                        "<?xml version=\"1.0\"?>\n" +
+                                "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" version=\"1.0\">\n" +
+                                "\n" +
+                                "</speak>";
                 mText.setText(ssml);
             }
         });
@@ -132,8 +132,7 @@ public class eSpeakActivity extends Activity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.options, menu);
         if (Build.VERSION.SDK_INT < 14) {
@@ -144,16 +143,14 @@ public class eSpeakActivity extends Activity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-        case R.id.espeakSettings:
-            startActivityForResult(new Intent(eSpeakActivity.this, TtsSettingsActivity.class), REQUEST_DEFAULT);
-            return true;
-        case R.id.ttsSettings:
-            launchGeneralTtsSettings();
-            return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.espeakSettings:
+                startActivityForResult(new Intent(eSpeakActivity.this, TtsSettingsActivity.class), REQUEST_DEFAULT);
+                return true;
+            case R.id.ttsSettings:
+                launchGeneralTtsSettings();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -165,16 +162,12 @@ public class eSpeakActivity extends Activity {
      */
     private void setState(State state) {
         mState = state;
-        switch (mState)
-        {
-        case LOADING:
+        if (mState == State.LOADING) {
             findViewById(R.id.loading).setVisibility(View.VISIBLE);
             findViewById(R.id.success).setVisibility(View.GONE);
-            break;
-        default:
+        } else {
             findViewById(R.id.loading).setVisibility(View.GONE);
             findViewById(R.id.success).setVisibility(View.VISIBLE);
-            break;
         }
     }
 
@@ -219,30 +212,30 @@ public class eSpeakActivity extends Activity {
         }
 
         final String availableVoices = getString(R.string.available_voices);
-        mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(SpeechSynthesis.getVoiceCount())));
+        mInformation.add(new Pair<String, String>(availableVoices, Integer.toString(SpeechSynthesis.getVoiceCount())));
 
         final String version = getString(R.string.tts_version);
-        mInformation.add(new Pair<String,String>(version, SpeechSynthesis.getVersion()));
+        mInformation.add(new Pair<String, String>(version, SpeechSynthesis.getVersion()));
 
         final String statusText;
         switch (mState) {
-        case ERROR:
-            statusText = getString(R.string.error_message);
-            break;
-        case DOWNLOAD_FAILED:
-            statusText = getString(R.string.voice_data_failed_message);
-            break;
-        default:
-            if (!getPackageName().equals(mTts.getDefaultEngine())) {
-                statusText = getString(R.string.set_default_message);
-            } else {
-                statusText = null;
-            }
-            break;
+            case ERROR:
+                statusText = getString(R.string.error_message);
+                break;
+            case DOWNLOAD_FAILED:
+                statusText = getString(R.string.voice_data_failed_message);
+                break;
+            default:
+                if (!getPackageName().equals(mTts.getDefaultEngine())) {
+                    statusText = getString(R.string.set_default_message);
+                } else {
+                    statusText = null;
+                }
+                break;
         }
         if (statusText != null) {
             final String statusLabel = getString(R.string.status);
-            mInformation.add(new Pair<String,String>(statusLabel, statusText));
+            mInformation.add(new Pair<String, String>(statusLabel, statusText));
         }
 
         mInformationView.notifyDataSetChanged();
@@ -254,7 +247,7 @@ public class eSpeakActivity extends Activity {
      * either launches the installer or attempts to initialize the TTS engine.
      *
      * @param resultCode The result of voice data verification.
-     * @param data The intent containing available voices.
+     * @param data       The intent containing available voices.
      */
     private void onDataChecked(int resultCode, Intent data) {
         if (resultCode != TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
@@ -273,7 +266,7 @@ public class eSpeakActivity extends Activity {
      */
     private void onInitialized(int status) {
         if (status != TextToSpeech.SUCCESS) {
-        	Log.e(TAG, "Initialization failed (status: " + status + ").");
+            Log.e(TAG, "Initialization failed (status: " + status + ").");
             setState(State.ERROR);
         } else {
             setState(State.SUCCESS);
@@ -295,47 +288,39 @@ public class eSpeakActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private final TextToSpeech.OnInitListener mInitListener = new TextToSpeech.OnInitListener() {
-        @Override
-        public void onInit(int status) {
-            mHandler.obtainMessage(TTS_INITIALIZED, status, 0).sendToTarget();
-        }
-    };
-
-    private static class EspeakHandler extends Handler {
-    	private WeakReference<eSpeakActivity> mActivity;
-
-    	public EspeakHandler(eSpeakActivity activity)
-    	{
-    		mActivity = new WeakReference<eSpeakActivity>(activity);
-    	}
-
-    	@Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case TTS_INITIALIZED:
-                    mActivity.get().onInitialized(msg.arg1);
-                    break;
-            }
-        }
-    }
-    private final Handler mHandler = new EspeakHandler(this);
-
-    private void launchGeneralTtsSettings()
-    {
+    private void launchGeneralTtsSettings() {
         Intent intent;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             // The Text-to-Speech settings is a Fragment on 3.x:
             intent = new Intent(android.provider.Settings.ACTION_SETTINGS);
             intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, "com.android.settings.TextToSpeechSettings");
             intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, intent.getExtras());
-        }
-        else
-        {
+        } else {
             // The Text-to-Speech settings is an Activity on 2.x and 4.x:
             intent = new Intent(ACTION_TTS_SETTINGS);
         }
         startActivityForResult(intent, REQUEST_DEFAULT);
+    }
+
+    private enum State {
+        LOADING,
+        DOWNLOAD_FAILED,
+        ERROR,
+        SUCCESS
+    }
+
+    private static class EspeakHandler extends Handler {
+        private final WeakReference<eSpeakActivity> mActivity;
+
+        public EspeakHandler(eSpeakActivity activity) {
+            mActivity = new WeakReference<eSpeakActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == TTS_INITIALIZED) {
+                mActivity.get().onInitialized(msg.arg1);
+            }
+        }
     }
 }

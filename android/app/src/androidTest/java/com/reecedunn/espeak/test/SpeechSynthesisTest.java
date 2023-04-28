@@ -16,27 +16,27 @@
 
 package com.reecedunn.espeak.test;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-
-import com.reecedunn.espeak.SpeechSynthesis;
-import com.reecedunn.espeak.Voice;
+import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.isIn;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 
 import android.media.AudioFormat;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
-import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.core.AnyOf.anyOf;
+import com.reecedunn.espeak.SpeechSynthesis;
+import com.reecedunn.espeak.Voice;
 
-public class SpeechSynthesisTest extends TextToSpeechTestCase
-{
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
+public class SpeechSynthesisTest extends TextToSpeechTestCase {
     public static final Locale af = new Locale("af"); // Afrikaans
     public static final Locale afr = new Locale("afr"); // Afrikaans
 
@@ -92,27 +92,21 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
     public static final Locale eng_GBR_scotland = new Locale("en", "GBR", "scotland"); // English (Scottish,Great Britain)
     public static final Locale eng_GBR_north = new Locale("en", "GBR", "north"); // English (North,Great Britain)
 
-    private SpeechSynthesis.SynthReadyCallback mCallback = new SpeechSynthesis.SynthReadyCallback()
-    {
+    private final SpeechSynthesis.SynthReadyCallback mCallback = new SpeechSynthesis.SynthReadyCallback() {
         @Override
-        public void onSynthDataReady(byte[] audioData)
-        {
+        public void onSynthDataReady(byte[] audioData) {
         }
-        
+
         @Override
-        public void onSynthDataComplete()
-        {
+        public void onSynthDataComplete() {
         }
     };
-
+    private final Set<String> mAdded = new HashSet<String>();
+    private final Set<String> mRemoved = new HashSet<String>();
     private Map<String, Voice> mVoices = null;
-    private Set<String> mAdded = new HashSet<String>();
-    private Set<String> mRemoved = new HashSet<String>();
 
-    public Map<String, Voice> getVoices()
-    {
-        if (mVoices == null)
-        {
+    public Map<String, Voice> getVoices() {
+        if (mVoices == null) {
             final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
             mVoices = new HashMap<String, Voice>();
             for (Voice voice : synth.getAvailableVoices()) {
@@ -122,29 +116,23 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
             assertThat(mVoices, is(notNullValue()));
 
             Set<String> voices = new HashSet<String>();
-            for (Voice data : mVoices.values())
-            {
+            for (Voice data : mVoices.values()) {
                 voices.add(data.name);
             }
 
             Set<String> expected = new HashSet<String>();
-            for (VoiceData.Voice data : VoiceData.voices)
-            {
+            for (VoiceData.Voice data : VoiceData.voices) {
                 expected.add(data.name);
             }
 
-            for (String voice : voices)
-            {
-                if (!expected.contains(voice))
-                {
+            for (String voice : voices) {
+                if (!expected.contains(voice)) {
                     mAdded.add(voice);
                 }
             }
 
-            for (String voice : expected)
-            {
-                if (!voices.contains(voice))
-                {
+            for (String voice : expected) {
+                if (!voices.contains(voice)) {
                     mRemoved.add(voice);
                 }
             }
@@ -152,60 +140,48 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         return mVoices;
     }
 
-    public Voice getVoice(String name)
-    {
+    public Voice getVoice(String name) {
         return getVoices().get(name);
     }
 
-    public void testConstruction()
-    {
+    public void testConstruction() {
         final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
         assertThat(synth.getSampleRate(), is(22050));
         assertThat(synth.getChannelCount(), is(1));
         assertThat(synth.getAudioFormat(), is(AudioFormat.ENCODING_PCM_16BIT));
     }
 
-    public void testJavaToIanaLanguageCode()
-    {
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
+    public void testJavaToIanaLanguageCode() {
+        for (VoiceData.Voice data : VoiceData.voices) {
             assertThat(SpeechSynthesis.getIanaLanguageCode(data.javaLanguage), is(data.ianaLanguage));
         }
     }
 
-    public void testJavaToIanaCountryCode()
-    {
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
+    public void testJavaToIanaCountryCode() {
+        for (VoiceData.Voice data : VoiceData.voices) {
             assertThat(SpeechSynthesis.getIanaCountryCode(data.javaCountry), is(data.ianaCountry));
         }
     }
 
-    public void testAddedVoices()
-    {
+    public void testAddedVoices() {
         getVoices(); // Ensure that the voice data has been populated.
         assertThat(mAdded.toString(), is("[]"));
     }
 
-    public void testRemovedVoices()
-    {
+    public void testRemovedVoices() {
         getVoices(); // Ensure that the voice data has been populated.
         assertThat(mRemoved.toString(), is("[]"));
     }
 
-    public void testVoiceData()
-    {
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
-            if (mRemoved.contains(data.name))
-            {
+    public void testVoiceData() {
+        for (VoiceData.Voice data : VoiceData.voices) {
+            if (mRemoved.contains(data.name)) {
                 Log.i("SpeechSynthesisTest", "Skipping the missing voice '" + data.name + "'");
                 continue;
             }
 
             String context = "[voice]";
-            try
-            {
+            try {
                 final Voice voice = getVoice(data.name);
                 assertThat(voice, is(notNullValue()));
 
@@ -229,16 +205,13 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
                 assertThat(voice.locale.getVariant(), is(data.variant));
                 context = "[toString]";
                 assertThat(voice.toString(), is(data.locale));
-            }
-            catch (AssertionError e)
-            {
+            } catch (AssertionError e) {
                 throw new VoiceData.Exception(data, context, e);
             }
         }
     }
 
-    public void testMatchVoiceWithLanguage()
-    {
+    public void testMatchVoiceWithLanguage() {
         final Voice voice = getVoice("de"); // language="de" country="" variant=""
         assertThat(voice, is(notNullValue()));
 
@@ -258,8 +231,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         assertThat(voice.match(deu_CHE_1901), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
     }
 
-    public void testMatchVoiceWithLanguageAndCountry()
-    {
+    public void testMatchVoiceWithLanguageAndCountry() {
         final Voice voice = getVoice("fr-be"); // language="fr" country="BE" variant=""
         assertThat(voice, is(notNullValue()));
 
@@ -283,8 +255,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         assertThat(voice.match(fra_BEL_1694acad), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
     }
 
-    public void testMatchVoiceWithLanguageCountryAndVariant()
-    {
+    public void testMatchVoiceWithLanguageCountryAndVariant() {
         final Voice voice = getVoice("en-gb-scotland"); // language="en" country="GB" variant="scotland"
         assertThat(voice, is(notNullValue()));
 
@@ -308,37 +279,30 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         assertThat(voice.match(eng_GBR_north), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
     }
 
-    public void testGetSampleText()
-    {
+    public void testGetSampleText() {
         final String[] currentLocales = getContext().getResources().getAssets().getLocales();
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
-            if (mRemoved.contains(data.name))
-            {
+        for (VoiceData.Voice data : VoiceData.voices) {
+            if (mRemoved.contains(data.name)) {
                 Log.i("SpeechSynthesisTest", "Skipping the missing voice '" + data.name + "'");
                 continue;
             }
 
             String context = null;
-            try
-            {
+            try {
                 final Locale ianaLocale = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
                 context = "[iana:sample-text]";
                 assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), isIn(data.sampleText));
                 context = "[iana:resource-locale]";
                 assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
 
-                if (!data.javaLanguage.equals(""))
-                {
+                if (!data.javaLanguage.equals("")) {
                     final Locale javaLocale = new Locale(data.javaLanguage, data.javaCountry, data.variant);
                     context = "[java:sample-text]";
                     assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), isIn(data.sampleText));
                     context = "[java:resource-locale]";
                     assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
                 }
-            }
-            catch (AssertionError e)
-            {
+            } catch (AssertionError e) {
                 throw new VoiceData.Exception(data, context, e);
             }
         }

@@ -26,7 +26,7 @@ import java.io.InputStream;
 
 public class FileUtils {
     public static String read(File file) throws IOException {
-        return readByteArray(new FileInputStream(file), (int)file.length()).toString();
+        return readByteArray(new FileInputStream(file), (int) file.length()).toString();
     }
 
     public static String read(InputStream stream) throws IOException {
@@ -38,7 +38,7 @@ public class FileUtils {
     }
 
     public static byte[] readBinary(File file) throws IOException {
-        return readByteArray(new FileInputStream(file), (int)file.length()).toByteArray();
+        return readByteArray(new FileInputStream(file), (int) file.length()).toByteArray();
     }
 
     public static byte[] readBinary(InputStream stream) throws IOException {
@@ -52,9 +52,8 @@ public class FileUtils {
     private static ByteArrayOutputStream readByteArray(InputStream stream, int length) throws IOException {
         ByteArrayOutputStream content = new ByteArrayOutputStream(length);
         int c = stream.read();
-        while (c != -1)
-        {
-            content.write((byte)c);
+        while (c != -1) {
+            content.write((byte) c);
             c = stream.read();
         }
         return content;
