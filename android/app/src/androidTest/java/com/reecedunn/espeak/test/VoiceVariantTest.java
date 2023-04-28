@@ -16,18 +16,17 @@
 
 package com.reecedunn.espeak.test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
+
 import android.test.AndroidTestCase;
 
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.VoiceVariant;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
-public class VoiceVariantTest extends AndroidTestCase
-{
-    public void testMaleVoiceVariant()
-    {
+public class VoiceVariantTest extends AndroidTestCase {
+    public void testMaleVoiceVariant() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("male");
         assertThat(variant.variant, is(nullValue()));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_MALE));
@@ -35,8 +34,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("male"));
     }
 
-    public void testFemaleVoiceVariant()
-    {
+    public void testFemaleVoiceVariant() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("female");
         assertThat(variant.variant, is(nullValue()));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_FEMALE));
@@ -44,8 +42,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("female"));
     }
 
-    public void testNamedVoiceVariant()
-    {
+    public void testNamedVoiceVariant() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("klatt1");
         assertThat(variant.variant, is("klatt1"));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_UNSPECIFIED));
@@ -53,8 +50,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("klatt1"));
     }
 
-    public void testMaleVoiceVariantYoung()
-    {
+    public void testMaleVoiceVariantYoung() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("male-young");
         assertThat(variant.variant, is(nullValue()));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_MALE));
@@ -62,8 +58,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("male-young"));
     }
 
-    public void testFemaleVoiceVariantYoung()
-    {
+    public void testFemaleVoiceVariantYoung() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("female-young");
         assertThat(variant.variant, is(nullValue()));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_FEMALE));
@@ -71,8 +66,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("female-young"));
     }
 
-    public void testNamedVoiceVariantYoung()
-    {
+    public void testNamedVoiceVariantYoung() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("klatt2-young");
         assertThat(variant.variant, is("klatt2"));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_UNSPECIFIED));
@@ -80,8 +74,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("klatt2-young"));
     }
 
-    public void testMaleVoiceVariantOld()
-    {
+    public void testMaleVoiceVariantOld() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("male-old");
         assertThat(variant.variant, is(nullValue()));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_MALE));
@@ -89,8 +82,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("male-old"));
     }
 
-    public void testFemaleVoiceVariantOld()
-    {
+    public void testFemaleVoiceVariantOld() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("female-old");
         assertThat(variant.variant, is(nullValue()));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_FEMALE));
@@ -98,8 +90,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("female-old"));
     }
 
-    public void testNamedVoiceVariantOld()
-    {
+    public void testNamedVoiceVariantOld() {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("klatt3-old");
         assertThat(variant.variant, is("klatt3"));
         assertThat(variant.gender, is(SpeechSynthesis.GENDER_UNSPECIFIED));

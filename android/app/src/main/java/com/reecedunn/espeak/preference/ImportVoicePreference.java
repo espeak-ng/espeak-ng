@@ -17,7 +17,6 @@
 package com.reecedunn.espeak.preference;
 
 import android.app.Activity;
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,13 +35,11 @@ import com.reecedunn.espeak.R;
 
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 
 public class ImportVoicePreference extends DialogPreference {
-    private File mRoot;
+    private final File mRoot;
     private Spinner mDictionaries;
 
     public ImportVoicePreference(Context context, AttributeSet attrs, int defStyle) {
@@ -70,7 +67,7 @@ public class ImportVoicePreference extends DialogPreference {
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mDictionaries = (Spinner)root.findViewById(R.id.dictionaries);
+        mDictionaries = root.findViewById(R.id.dictionaries);
         return root;
     }
 
@@ -91,33 +88,31 @@ public class ImportVoicePreference extends DialogPreference {
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        switch (which) {
-            case DialogInterface.BUTTON_POSITIVE:
-                new AsyncTask<Object,Object,File>() {
-                    @Override
-                    protected File doInBackground(Object... objects) {
-                        File source = (File)mDictionaries.getSelectedItem();
-                        if (source != null) {
-                            File destination = new File(CheckVoiceData.getDataPath(getContext()), source.getName());
-                            try {
-                                byte[] data = FileUtils.readBinary(source);
-                                FileUtils.write(destination, data);
-                                return source;
-                            } catch (IOException e) {
-                            }
+        if (which == DialogInterface.BUTTON_POSITIVE) {
+            new AsyncTask<Object, Object, File>() {
+                @Override
+                protected File doInBackground(Object... objects) {
+                    File source = (File) mDictionaries.getSelectedItem();
+                    if (source != null) {
+                        File destination = new File(CheckVoiceData.getDataPath(getContext()), source.getName());
+                        try {
+                            byte[] data = FileUtils.readBinary(source);
+                            FileUtils.write(destination, data);
+                            return source;
+                        } catch (IOException e) {
                         }
-                        return null;
                     }
+                    return null;
+                }
 
-                    @Override
-                    protected void onPostExecute(File file) {
-                        if (file != null) {
-                            final Intent intent = new Intent(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
-                            getContext().sendBroadcast(intent);
-                        }
+                @Override
+                protected void onPostExecute(File file) {
+                    if (file != null) {
+                        final Intent intent = new Intent(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
+                        getContext().sendBroadcast(intent);
                     }
-                }.execute();
-                break;
+                }
+            }.execute();
         }
         super.onClick(dialog, which);
     }

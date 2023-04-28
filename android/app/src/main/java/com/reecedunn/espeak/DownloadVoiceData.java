@@ -36,7 +36,8 @@ import java.util.zip.ZipInputStream;
 
 public class DownloadVoiceData extends Activity {
     public static final String BROADCAST_LANGUAGES_UPDATED = "com.reecedunn.espeak.LANGUAGES_UPDATED";
-
+    private static final int PROGRESS_STARTING = 0;
+    private static final int PROGRESS_EXTRACTING = 1;
     private AsyncExtract mAsyncExtract;
     private ProgressBar mProgress;
 
@@ -45,7 +46,7 @@ public class DownloadVoiceData extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.download_voice_data);
-        mProgress = (ProgressBar)findViewById(R.id.progress);
+        mProgress = findViewById(R.id.progress);
         Context storageContext = EspeakApp.getStorageContext();
 
         final File dataPath = CheckVoiceData.getDataPath(storageContext).getParentFile();
@@ -81,9 +82,6 @@ public class DownloadVoiceData extends Activity {
 
         mAsyncExtract.cancel(true);
     }
-
-    private static final int PROGRESS_STARTING = 0;
-    private static final int PROGRESS_EXTRACTING = 1;
 
     private static class ExtractProgress {
         int total;

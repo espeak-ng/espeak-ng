@@ -16,7 +16,10 @@
 
 package com.reecedunn.espeak.test;
 
-import android.os.Build;
+import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.test.AndroidTestCase;
@@ -24,36 +27,34 @@ import android.util.Log;
 
 import java.util.Locale;
 
-import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
-public class TextToSpeechTestCase extends AndroidTestCase
-{
+public class TextToSpeechTestCase extends AndroidTestCase {
     private TextToSpeech mEngine = null;
     private boolean mInitialised = false;
     private int mStatus = TextToSpeech.ERROR;
 
-    private OnInitListener mInitCallback = new OnInitListener()
-    {
+    private final OnInitListener mInitCallback = new OnInitListener() {
         @Override
-        public void onInit(int status)
-        {
+        public void onInit(int status) {
             mStatus = status;
             mInitialised = true;
         }
     };
 
+    @SuppressWarnings("deprecation")
+    public static Locale getLanguage(TextToSpeech engine) {
+        if (engine != null) {
+            return engine.getLanguage();
+        }
+        return null;
+    }
+
     @Override
-    public void setUp() throws Exception
-    {
-        try
-        {
+    public void setUp() throws Exception {
+        try {
             // Wait until the text-to-speech engine is initialised (max: 20 seconds):
 
             mEngine = new TextToSpeech(getContext(), mInitCallback);
-            for (int count = 0; !mInitialised && count < (4 * 20); ++count)
-            {
+            for (int count = 0; !mInitialised && count < (4 * 20); ++count) {
                 Thread.sleep(250);
             }
 
@@ -65,42 +66,28 @@ public class TextToSpeechTestCase extends AndroidTestCase
 
             Locale en = new Locale("en");
             int available = mEngine.isLanguageAvailable(en);
-            for (int count = 0; available != TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE && count < (4 * 20); ++count)
-            {
+            for (int count = 0; available != TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE && count < (4 * 20); ++count) {
                 Thread.sleep(250);
                 available = mEngine.isLanguageAvailable(en);
                 Log.d("TextToSpeechTestCase", "setUp: available = " + available);
             }
 
             assertThat(available, isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             tearDown();
             throw e;
         }
     }
 
     @Override
-    public void tearDown()
-    {
-        if (mEngine != null)
-        {
+    public void tearDown() {
+        if (mEngine != null) {
             mEngine.shutdown();
             mEngine = null;
         }
     }
 
-    public TextToSpeech getEngine()
-    {
+    public TextToSpeech getEngine() {
         return mEngine;
-    }
-
-    @SuppressWarnings("deprecation")
-    public static Locale getLanguage(TextToSpeech engine) {
-        if (engine != null) {
-            return engine.getLanguage();
-        }
-        return null;
     }
 }

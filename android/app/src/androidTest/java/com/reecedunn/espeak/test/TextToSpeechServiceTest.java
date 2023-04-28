@@ -16,6 +16,12 @@
 
 package com.reecedunn.espeak.test;
 
+import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
@@ -28,64 +34,18 @@ import com.reecedunn.espeak.Voice;
 import java.util.Locale;
 import java.util.Set;
 
-import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
-public class TextToSpeechServiceTest extends AndroidTestCase
-{
-    public class TtsServiceTest extends TtsService
-    {
-        public TtsServiceTest(Context context)
-        {
-            attachBaseContext(context);
-        }
-
-        public String[] onGetLanguage() {
-            return super.onGetLanguage();
-        }
-
-        public int onIsLanguageAvailable(String language, String country, String variant) {
-            return super.onIsLanguageAvailable(language, country, variant);
-        }
-
-        public int onLoadLanguage(String language, String country, String variant) {
-            return super.onLoadLanguage(language, country, variant);
-        }
-
-        public Set<String> onGetFeaturesForLanguage(String language, String country, String variant) {
-            return super.onGetFeaturesForLanguage(language, country, variant);
-        }
-
-        public Voice getActiveVoice() {
-            return mMatchingVoice;
-        }
-
-        @SuppressLint("NewApi")
-        private android.speech.tts.Voice getVoice(String name) {
-            for (android.speech.tts.Voice voice : onGetVoices()) {
-                if (voice.getName().equals(name)) {
-                    return voice;
-                }
-            }
-            return null;
-        }
-    }
-
+public class TextToSpeechServiceTest extends AndroidTestCase {
     private TtsServiceTest mService = null;
 
     @Override
-    public void setUp() throws Exception
-    {
+    public void setUp() throws Exception {
         mService = new TtsServiceTest(getContext());
         mService.onCreate();
     }
 
     @Override
-    public void tearDown()
-    {
-        if (mService != null)
-        {
+    public void tearDown() {
+        if (mService != null) {
             mService.onDestroy();
             mService = null;
         }
@@ -229,8 +189,7 @@ public class TextToSpeechServiceTest extends AndroidTestCase
     }
 
     public void testLanguages() {
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
+        for (VoiceData.Voice data : VoiceData.voices) {
             assertThat(mService.onIsLanguageAvailable(data.javaLanguage, data.javaCountry, data.variant), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 assertThat(mService.onLoadLanguage(data.javaLanguage, data.javaCountry, data.variant), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
@@ -252,6 +211,42 @@ public class TextToSpeechServiceTest extends AndroidTestCase
                 assertThat(features, is(notNullValue()));
                 assertThat(features.size(), is(0));
             }
+        }
+    }
+
+    public class TtsServiceTest extends TtsService {
+        public TtsServiceTest(Context context) {
+            attachBaseContext(context);
+        }
+
+        public String[] onGetLanguage() {
+            return super.onGetLanguage();
+        }
+
+        public int onIsLanguageAvailable(String language, String country, String variant) {
+            return super.onIsLanguageAvailable(language, country, variant);
+        }
+
+        public int onLoadLanguage(String language, String country, String variant) {
+            return super.onLoadLanguage(language, country, variant);
+        }
+
+        public Set<String> onGetFeaturesForLanguage(String language, String country, String variant) {
+            return super.onGetFeaturesForLanguage(language, country, variant);
+        }
+
+        public Voice getActiveVoice() {
+            return mMatchingVoice;
+        }
+
+        @SuppressLint("NewApi")
+        private android.speech.tts.Voice getVoice(String name) {
+            for (android.speech.tts.Voice voice : onGetVoices()) {
+                if (voice.getName().equals(name)) {
+                    return voice;
+                }
+            }
+            return null;
         }
     }
 }
