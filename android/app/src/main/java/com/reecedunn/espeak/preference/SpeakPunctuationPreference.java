@@ -83,10 +83,10 @@ public class SpeakPunctuationPreference extends DialogPreference {
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mAll = (RadioButton)root.findViewById(R.id.all);
-        mCustom = (RadioButton)root.findViewById(R.id.custom);
-        mNone = (RadioButton)root.findViewById(R.id.none);
-        mPunctuationCharacters = (EditText)root.findViewById(R.id.punctuation_characters);
+        mAll = root.findViewById(R.id.all);
+        mCustom = root.findViewById(R.id.custom);
+        mNone = root.findViewById(R.id.none);
+        mPunctuationCharacters = root.findViewById(R.id.punctuation_characters);
         return root;
     }
 
@@ -111,39 +111,36 @@ public class SpeakPunctuationPreference extends DialogPreference {
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        switch (which) {
-            case DialogInterface.BUTTON_POSITIVE:
-                Editable text = mPunctuationCharacters.getText();
-                String characters = null;
-                int level;
-                if (text != null) {
-                    characters = text.toString();
-                }
+        if (which == DialogInterface.BUTTON_POSITIVE) {
+            Editable text = mPunctuationCharacters.getText();
+            String characters = null;
+            int level;
+            if (text != null) {
+                characters = text.toString();
+            }
 
-                if (mNone.isChecked()) {
-                    level = SpeechSynthesis.PUNCT_NONE;
-                } else if (characters == null || characters.isEmpty()) {
-                    level = mAll.isChecked() ? SpeechSynthesis.PUNCT_ALL : SpeechSynthesis.PUNCT_NONE;
-                } else {
-                    level = mAll.isChecked() ? SpeechSynthesis.PUNCT_ALL : SpeechSynthesis.PUNCT_SOME;
-                }
+            if (mNone.isChecked()) {
+                level = SpeechSynthesis.PUNCT_NONE;
+            } else if (characters == null || characters.isEmpty()) {
+                level = mAll.isChecked() ? SpeechSynthesis.PUNCT_ALL : SpeechSynthesis.PUNCT_NONE;
+            } else {
+                level = mAll.isChecked() ? SpeechSynthesis.PUNCT_ALL : SpeechSynthesis.PUNCT_SOME;
+            }
 
-                onDataChanged(level, characters);
+            onDataChanged(level, characters);
 
-                if (shouldCommit()) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                    {
-                        PreferenceManager preferenceManager = getPreferenceManager();
-                        preferenceManager.setStorageDeviceProtected ();
-                    }
-                    SharedPreferences.Editor editor = getEditor();
-                    if (editor != null) {
-                        editor.putString(VoiceSettings.PREF_PUNCTUATION_CHARACTERS, characters);
-                        editor.putString(VoiceSettings.PREF_PUNCTUATION_LEVEL, Integer.toString(level));
-                        editor.commit();
-                    }
+            if (shouldCommit()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    PreferenceManager preferenceManager = getPreferenceManager();
+                    preferenceManager.setStorageDeviceProtected();
                 }
-                break;
+                SharedPreferences.Editor editor = getEditor();
+                if (editor != null) {
+                    editor.putString(VoiceSettings.PREF_PUNCTUATION_CHARACTERS, characters);
+                    editor.putString(VoiceSettings.PREF_PUNCTUATION_LEVEL, Integer.toString(level));
+                    editor.commit();
+                }
+            }
         }
         super.onClick(dialog, which);
     }

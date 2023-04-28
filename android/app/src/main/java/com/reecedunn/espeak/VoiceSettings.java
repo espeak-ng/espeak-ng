@@ -22,9 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class VoiceSettings {
-    private final SharedPreferences mPreferences;
-    private final SpeechSynthesis mEngine;
-
     public static final String PREF_DEFAULT_GENDER = "default_gender";
     public static final String PREF_VARIANT = "espeak_variant";
     public static final String PREF_DEFAULT_RATE = "default_rate";
@@ -35,7 +32,6 @@ public class VoiceSettings {
     public static final String PREF_VOLUME = "espeak_volume";
     public static final String PREF_PUNCTUATION_LEVEL = "espeak_punctuation_level";
     public static final String PREF_PUNCTUATION_CHARACTERS = "espeak_punctuation_characters";
-
     public static final String PRESET_VARIANT = "variant";
     public static final String PRESET_RATE = "rate";
     public static final String PRESET_PITCH = "pitch";
@@ -43,10 +39,11 @@ public class VoiceSettings {
     public static final String PRESET_VOLUME = "volume";
     public static final String PRESET_PUNCTUATION_LEVEL = "punctuation-level";
     public static final String PRESET_PUNCTUATION_CHARACTERS = "punctuation-characters";
-
     public static final String PUNCTUATION_NONE = "none";
     public static final String PUNCTUATION_SOME = "some";
     public static final String PUNCTUATION_ALL = "all";
+    private final SharedPreferences mPreferences;
+    private final SpeechSynthesis mEngine;
 
     public VoiceSettings(SharedPreferences preferences, SpeechSynthesis engine) {
         mPreferences = preferences;
@@ -71,7 +68,7 @@ public class VoiceSettings {
 
         int rate = getPreferenceValue(PREF_RATE, Integer.MIN_VALUE);
         if (rate == Integer.MIN_VALUE) {
-            rate = (int)((float)getPreferenceValue(PREF_DEFAULT_RATE, 100) / 100 * (float)mEngine.Rate.getDefaultValue());
+            rate = (int) ((float) getPreferenceValue(PREF_DEFAULT_RATE, 100) / 100 * (float) mEngine.Rate.getDefaultValue());
         }
 
         if (rate > max) rate = max;

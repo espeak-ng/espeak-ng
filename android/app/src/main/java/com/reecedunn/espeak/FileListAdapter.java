@@ -25,35 +25,24 @@ import android.widget.TextView;
 
 import java.io.File;
 
-public class FileListAdapter extends ArrayAdapter<File>
-{
+public class FileListAdapter extends ArrayAdapter<File> {
     private final LayoutInflater mInflater;
 
-    static class ViewHolder
-    {
-        public TextView text;
-    }
-
-    public FileListAdapter(Activity context, File[] resources)
-    {
+    public FileListAdapter(Activity context, File[] resources) {
         super(context, android.R.layout.simple_list_item_1, resources);
         mInflater = context.getLayoutInflater();
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if (convertView == null)
-        {
+        if (convertView == null) {
             convertView = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
             holder = new ViewHolder();
-            holder.text = (TextView)convertView.findViewById(android.R.id.text1);
+            holder.text = convertView.findViewById(android.R.id.text1);
             convertView.setTag(holder);
-        }
-        else
-        {
-            holder = (ViewHolder)convertView.getTag();
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
         File file = getItem(position);
@@ -62,8 +51,11 @@ public class FileListAdapter extends ArrayAdapter<File>
     }
 
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent)
-    {
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
         return getView(position, convertView, parent);
+    }
+
+    static class ViewHolder {
+        public TextView text;
     }
 }

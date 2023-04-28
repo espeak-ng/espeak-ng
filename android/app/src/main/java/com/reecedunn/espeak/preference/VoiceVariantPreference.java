@@ -39,119 +39,42 @@ import com.reecedunn.espeak.VoiceSettings;
 import com.reecedunn.espeak.VoiceVariant;
 
 public class VoiceVariantPreference extends DialogPreference {
-    private Spinner mCategory;
-    private Spinner mVariant;
-
-    private int mCategoryIndex = 0;
-    private int mVariantIndex = 0;
-
-    static class ViewHolder
-    {
-        public TextView text;
-    }
-
-    private class VariantData {
-        private final int name;
-        private final Object arg;
-        private final VoiceVariant variant;
-
-        protected VariantData(int name, String variant) {
-            this(name, null, variant);
-        }
-
-        protected VariantData(int name, Object arg, String variant) {
-            this.name = name;
-            this.arg = arg;
-            this.variant = VoiceVariant.parseVoiceVariant(variant);
-        }
-
-        public String getDisplayName(Context context) {
-            String text = context.getText(name).toString();
-            if (arg == null) {
-                return text;
-            }
-            return String.format(text, arg);
-        }
-
-        public VoiceVariant getVariant() {
-            return variant;
-        }
-    }
-
-    public class VariantDataListAdapter extends ArrayAdapter<VariantData>
-    {
-        private final LayoutInflater mInflater;
-
-        public VariantDataListAdapter(Activity context, VariantData[] resources)
-        {
-            super(context, android.R.layout.simple_list_item_1, resources);
-            mInflater = context.getLayoutInflater();
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
-            ViewHolder holder;
-            if (convertView == null)
-            {
-                convertView = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
-                holder = new ViewHolder();
-                holder.text = (TextView)convertView.findViewById(android.R.id.text1);
-                convertView.setTag(holder);
-            }
-            else
-            {
-                holder = (ViewHolder)convertView.getTag();
-            }
-
-            holder.text.setText(getItem(position).getDisplayName(getContext()));
-            return convertView;
-        }
-
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent)
-        {
-            return getView(position, convertView, parent);
-        }
-    }
-
-    private Integer[] categories = {
-        R.string.variant_male,
-        R.string.variant_female,
-        R.string.variant_klatt,
-        R.string.variant_nvda,
-        R.string.variant_young,
-        R.string.variant_old,
-        R.string.variant_croak,
-        R.string.variant_whisper,
+    private final Integer[] categories = {
+            R.string.variant_male,
+            R.string.variant_female,
+            R.string.variant_klatt,
+            R.string.variant_nvda,
+            R.string.variant_young,
+            R.string.variant_old,
+            R.string.variant_croak,
+            R.string.variant_whisper,
     };
-
-    private VariantData[][] variants = {
-        {   // Male
-            new VariantData(R.string.variant_default, "male"),
-            new VariantData(R.string.variant_n, 1, "m1"),
-            new VariantData(R.string.variant_n, 2, "m2"),
-            new VariantData(R.string.variant_n, 3, "m3"),
-            new VariantData(R.string.variant_n, 4, "m4"),
-            new VariantData(R.string.variant_n, 5, "m5"),
-            new VariantData(R.string.variant_n, 6, "m6"),
-            new VariantData(R.string.variant_n, 7, "m7"),
-            new VariantData(R.string.variant_n, 8, "m8"),
-        },{ // Female
+    private final VariantData[][] variants = {
+            {   // Male
+                    new VariantData(R.string.variant_default, "male"),
+                    new VariantData(R.string.variant_n, 1, "m1"),
+                    new VariantData(R.string.variant_n, 2, "m2"),
+                    new VariantData(R.string.variant_n, 3, "m3"),
+                    new VariantData(R.string.variant_n, 4, "m4"),
+                    new VariantData(R.string.variant_n, 5, "m5"),
+                    new VariantData(R.string.variant_n, 6, "m6"),
+                    new VariantData(R.string.variant_n, 7, "m7"),
+                    new VariantData(R.string.variant_n, 8, "m8"),
+            }, { // Female
             new VariantData(R.string.variant_default, "female"),
             new VariantData(R.string.variant_n, 1, "f1"),
             new VariantData(R.string.variant_n, 2, "f2"),
             new VariantData(R.string.variant_n, 3, "f3"),
             new VariantData(R.string.variant_n, 4, "f4"),
             new VariantData(R.string.variant_n, 5, "f5"),
-        },{ // Klatt
+    }, { // Klatt
             new VariantData(R.string.variant_n, 1, "klatt"),
             new VariantData(R.string.variant_n, 2, "klatt2"),
             new VariantData(R.string.variant_n, 3, "klatt3"),
             new VariantData(R.string.variant_n, 4, "klatt4"),
             new VariantData(R.string.variant_n, 5, "klatt5"),
             new VariantData(R.string.variant_n, 6, "klatt6"),
-        },{ // NVDA
+    }, { // NVDA
             new VariantData(R.string.variant_adam, "adam"),
             new VariantData(R.string.variant_alex, "Alex"),
             new VariantData(R.string.variant_alicia, "Alicia"),
@@ -232,19 +155,23 @@ public class VoiceVariantPreference extends DialogPreference {
             new VariantData(R.string.variant_unirobot, "UniRobot"),
             new VariantData(R.string.variant_victor, "victor"),
             new VariantData(R.string.variant_zac, "zac"),
-        },{ // Young
+    }, { // Young
             new VariantData(R.string.variant_male, "male-young"),
             new VariantData(R.string.variant_female, "female-young"),
-        },{ // Old
+    }, { // Old
             new VariantData(R.string.variant_male, "male-old"),
             new VariantData(R.string.variant_female, "female-old"),
-        },{ // Croak
+    }, { // Croak
             new VariantData(R.string.variant_male, "croak"),
-        },{ // Whisper
+    }, { // Whisper
             new VariantData(R.string.variant_male, "whisper"),
             new VariantData(R.string.variant_female, "whisperf"),
-        },
+    },
     };
+    private Spinner mCategory;
+    private Spinner mVariant;
+    private int mCategoryIndex = 0;
+    private int mVariantIndex = 0;
 
     public VoiceVariantPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -268,7 +195,7 @@ public class VoiceVariantPreference extends DialogPreference {
             for (int j = 0; j < items.length; ++j) {
                 if (items[j].getVariant().equals(variant)) {
                     mCategoryIndex = i;
-                    mVariantIndex  = j;
+                    mVariantIndex = j;
                     onDataChanged();
                     return;
                 }
@@ -280,8 +207,8 @@ public class VoiceVariantPreference extends DialogPreference {
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mCategory = (Spinner)root.findViewById(R.id.category);
-        mVariant = (Spinner)root.findViewById(R.id.variant);
+        mCategory = root.findViewById(R.id.category);
+        mVariant = root.findViewById(R.id.variant);
         return root;
     }
 
@@ -291,9 +218,9 @@ public class VoiceVariantPreference extends DialogPreference {
 
         // Cache the indices so they don't get overwritten by the OnItemSelectedListener handlers.
         final int category = mCategoryIndex;
-        final int variant  = mVariantIndex;
+        final int variant = mVariantIndex;
 
-        mCategory.setAdapter(new ResourceIdListAdapter((Activity)getContext(), categories));
+        mCategory.setAdapter(new ResourceIdListAdapter((Activity) getContext(), categories));
         mCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             private boolean mInitializing = true;
 
@@ -327,23 +254,20 @@ public class VoiceVariantPreference extends DialogPreference {
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        switch (which) {
-            case DialogInterface.BUTTON_POSITIVE:
-                onDataChanged();
-                if (shouldCommit()) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                    {
-                        PreferenceManager preferenceManager = getPreferenceManager();
-                        preferenceManager.setStorageDeviceProtected ();
-                    }
-                    SharedPreferences.Editor editor = getEditor();
-                    if (editor != null) {
-                        VoiceVariant variant = variants[mCategoryIndex][mVariantIndex].getVariant();
-                        editor.putString(VoiceSettings.PREF_VARIANT, variant.toString());
-                        editor.commit();
-                    }
+        if (which == DialogInterface.BUTTON_POSITIVE) {
+            onDataChanged();
+            if (shouldCommit()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    PreferenceManager preferenceManager = getPreferenceManager();
+                    preferenceManager.setStorageDeviceProtected();
                 }
-                break;
+                SharedPreferences.Editor editor = getEditor();
+                if (editor != null) {
+                    VoiceVariant variant = variants[mCategoryIndex][mVariantIndex].getVariant();
+                    editor.putString(VoiceSettings.PREF_VARIANT, variant.toString());
+                    editor.commit();
+                }
+            }
         }
         super.onClick(dialog, which);
     }
@@ -351,7 +275,69 @@ public class VoiceVariantPreference extends DialogPreference {
     private void onDataChanged() {
         Context context = getContext();
         CharSequence category = context.getText(categories[mCategoryIndex]);
-        CharSequence variant  = variants[mCategoryIndex][mVariantIndex].getDisplayName(context);
+        CharSequence variant = variants[mCategoryIndex][mVariantIndex].getDisplayName(context);
         callChangeListener(String.format("%s (%s)", category, variant));
+    }
+
+    static class ViewHolder {
+        public TextView text;
+    }
+
+    private class VariantData {
+        private final int name;
+        private final Object arg;
+        private final VoiceVariant variant;
+
+        protected VariantData(int name, String variant) {
+            this(name, null, variant);
+        }
+
+        protected VariantData(int name, Object arg, String variant) {
+            this.name = name;
+            this.arg = arg;
+            this.variant = VoiceVariant.parseVoiceVariant(variant);
+        }
+
+        public String getDisplayName(Context context) {
+            String text = context.getText(name).toString();
+            if (arg == null) {
+                return text;
+            }
+            return String.format(text, arg);
+        }
+
+        public VoiceVariant getVariant() {
+            return variant;
+        }
+    }
+
+    public class VariantDataListAdapter extends ArrayAdapter<VariantData> {
+        private final LayoutInflater mInflater;
+
+        public VariantDataListAdapter(Activity context, VariantData[] resources) {
+            super(context, android.R.layout.simple_list_item_1, resources);
+            mInflater = context.getLayoutInflater();
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
+            if (convertView == null) {
+                convertView = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+                holder = new ViewHolder();
+                holder.text = convertView.findViewById(android.R.id.text1);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            holder.text.setText(getItem(position).getDisplayName(getContext()));
+            return convertView;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            return getView(position, convertView, parent);
+        }
     }
 }
