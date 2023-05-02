@@ -1,0 +1,52 @@
+// translation rules for Q'eqchi'
+// This file is UTF8 encoded
+
+// numbers
+
+_0    tSab?al
+_1    xun
+_2    wi:b?
+_3    oSib?
+_4    kahib?
+_5    o:b?
+_6    gwaqi?
+_7    gwuqub?
+_8    gwaxSaqib?
+_9    bele:b?
+_10   laxe:b?
+_11   xunlaxu
+_12   kab?laxu
+_13   oSlaxu
+_14   ka:laxu
+_15   o?laxu
+_16   gwaq?laxu
+_17   gwuqlaxu
+_18   gwaSaqlaxu
+_19   b?ele:laxu
+_20   xunmaj
+_21   xunSka?k?a:l
+_22   wi:b?Ska?k?a:l
+_23   oSib?Ska?k?a:l
+_24   kahib?Ska?k?a:l
+_25   o:b?Ska?k?a:l
+_26   gwaqi?Ska?k?a:l
+_27   gwuqub?Ska?k?a:l
+_28   gwaxSaqib?Ska?k?a:l
+_29   bele:b?Ska?k?a:l
+_30   laxe:b?Ska?k?a:l
+_31   xunlaxuSka?k?a:l
+_32   kab?laxuSka?k?a:l
+_33   oSlaxuSka?k?a:l
+_34   ka:laxuSka?k?a:l
+_35   o?laxuSka?k?a:l
+_36   gwaq?laxuSka?k?a:l
+_37   gwuq?laxuSka?k?a:l
+_38   gwaSaqlaxuSka?k?a:l
+_39   b?ele:laxuSka?k?a:l
+_4X   kak?a:l
+_5X   laxe:broSk?a:l
+_6X   oSk?a:l
+_7X   laxe:b?Ska:k?a:l
+_8X   ka:k?a:l
+_9X   lax:eb?ro?k?a:l
+_0C   o?k?a:l
