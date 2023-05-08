@@ -9,8 +9,9 @@
 phoneme a
   vwl starttype #a endtype #a
   length 180
-  ChangeIfUnstressed(@)
-//  ChangeIfUnstressed(a#)
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(@)
+  ENDIF
   FMT(vowel/a_6)
 endphoneme
 
@@ -31,7 +32,9 @@ endphoneme
 phoneme e
   vwl starttype #e endtype #e
   length 170
-  ChangeIfUnstressed(@)
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(@)
+  ENDIF
   FMT(vowel/e)
 endphoneme
 
@@ -45,7 +48,9 @@ endphoneme
 phoneme E
   vwl starttype #e endtype #e
   length 180
-  ChangeIfUnstressed(@)
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(@)
+  ENDIF
   FMT(vowel/e_mid)
 endphoneme
 
@@ -59,14 +64,18 @@ phoneme O
   vwl starttype #o endtype #o
   length 170
 //  ChangeIfUnstressed(U)
-  ChangeIfUnstressed(u)
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(u)
+  ENDIF
   FMT(vowel/oo)
 endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
   length 170
-  ChangeIfUnstressed(u)
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(u)
+  ENDIF
   FMT(vowel/o)
 endphoneme
 

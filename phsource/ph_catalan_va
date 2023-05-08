@@ -23,8 +23,8 @@ phoneme e
   length 170
   
   IF thisPh(isWordStart) THEN
-    IF nextPh(s) OR nextPh(n) THEN
-        ChangeIfUnstressed(a)
+    IF nextPh(s) OR nextPh(n) AND thisPh(isUnstressed)THEN
+        ChangePhoneme(a)
     ENDIF
   ENDIF
   FMT(vowel/e)
@@ -40,10 +40,12 @@ phoneme E
   vwl starttype #e endtype #e
 
   length 180
-  IF thisPh(isWordStart) AND nextPh(s) OR thisPh(isWordStart) AND nextPh(n) THEN
-    ChangeIfUnstressed(a)
-  ELSE
-    ChangeIfUnstressed(e)
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) AND nextPh(s) OR thisPh(isWordStart) AND nextPh(n) THEN
+        ChangePhoneme(a)
+    ELSE
+        ChangePhoneme(e)
+    ENDIF
   ENDIF
 
   FMT(vowel/e_mid)
@@ -58,20 +60,22 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 170
-  ChangeIfUnstressed(o)
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(o)
+  ENDIF
   FMT(vowel/oo)
-endphoneme
-
-phoneme o
-  vwl starttype #o endtype #o
-  length 170
-  FMT(vowel/o)
 endphoneme
 
 phoneme o2
   vwl starttype #o endtype #o
   length 170
   ChangeIfStressed(O)
+  FMT(vowel/o)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 170
   FMT(vowel/o)
 endphoneme
 
@@ -84,10 +88,6 @@ endphoneme
 // nasals
 //==============
 
-phoneme M
-  vls lbd nas
-  ipa ɱ
-endphoneme
 
 phoneme m
   vcd blb nas
@@ -164,6 +164,14 @@ phoneme n
   ENDIF
 endphoneme
 
+phoneme M
+  vls lbd nas
+  ipa ɱ
+endphoneme
+
+
+// l
+//====================
 phoneme l
   import_phoneme en/l   // use 'dark' [l] after a vowel
 endphoneme

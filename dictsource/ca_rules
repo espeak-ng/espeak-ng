@@ -351,10 +351,10 @@
   _L25) nt (_hA    nt   // pronounce final t if followed by a vowel
   _L25) nt (-h     nt   // pronounce final t if followed by a pronoun (anant-hi)
         ny         n^   // palatalization
-        nc (_      N    // velarization (cranc)
-        ng (_      N    // velarization (fang)
-        nc (s_     N    // velarization (crancs)
-        ng (s_     N    // velarization (fangs)
+?1        nc (_      N    // velarization (cranc)
+?1        ng (_      N    // velarization (fang)
+?1        nc (s_     N    // velarization (crancs)
+?1        ng (s_     N    // velarization (fangs)
         n  (L20_A  n    // avoid veralization before vowel  (fang espès)
                 
 
@@ -366,8 +366,10 @@
      @) o (ra_     'o   // color ('o* per sensibilitzar la r)
      @) o (res_     'o   // color ('o* per sensibilitzar la r)
  
-    //    ou_        Ow   // (mou)
-?1        ou         o2w   // (mouré) // ARREGLAR AIXÒ!
+        ou         o2w   // (mou)
+?3      ou         Ow   // (mou)
+//        ou        Ow   // (dijous)
+//?1      ou         o2w   // (mouré) // ARREGLAR AIXÒ!
    //     ou (JL05     o2w
 
 //         o (l_      O
@@ -407,6 +409,7 @@
     tr) o (des_    O
      m) o (ne_     O
      m) o (nes_    O
+     t) o (ng      O
     gl) o (ss      O
         o (ndri    O
         o (br    O
@@ -458,13 +461,13 @@ catalan) o (@      ,o
     _f) o (tocop   o
     _f) o (tocòp   ,o
     _p) o (rta   ,O
-   _pr) o (to   ,o
-   _pr) o (tocol   o
+//   _pr) o (to   ,o
+//   _pr) o (tocol   o
    _s) o (cio   ,O
    _s) o (ta   ,o
 
-        o ($w_alt1+ o    // list of excepcions of the rules
-        o ($w_alt2+ O    // list of excepcions of the rules 
+        o ($w_alt1+++ o    // list of excepcions of the rules
+        o ($w_alt2+++ O    // list of excepcions of the rules 
  
 .group p
         p          p
