@@ -36,7 +36,7 @@
         з        z
 
 .group и
-        и        @j
+        и        Ij
 
 .group й
         й        j
@@ -69,7 +69,7 @@
         п        p
 
 .group р
-        р        *
+        р        r
 
 .group с
         с        s
@@ -126,4 +126,4 @@
         ю        ju
 
 .group я
-        я        ja
+        я        jA
