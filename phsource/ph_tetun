@@ -1,0 +1,149 @@
+ 
+phoneme @
+  vwl starttype #@ endtype #@
+  unstressed
+  length 140
+  IF prevPh(@) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  FMT(vowel/@_low)
+endphoneme
+
+
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 180
+  IF prevPh(a) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  ChangeIfUnstressed(a/)
+  FMT(vowel/a)
+endphoneme
+
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 180
+  IF prevPh(#e) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  ChangeIfUnstressed(@)
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme E2   // as [E] but don't reduce to [@]
+  vwl starttype #e endtype #e
+  length 180
+  IF prevPh(#e) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  FMT(vowel/e_mid)
+endphoneme
+
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 180
+  IF prevPh(#e) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 180
+  IF prevPh(i) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  FMT(vowel/i_6)
+endphoneme
+
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 180
+  IF prevPh(#o) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  FMT(vowel/oo)
+endphoneme
+
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 180
+  IF prevPh(#o) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 180
+  IF prevPh(u) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  FMT(vowel/u)
+endphoneme
+
+
+phoneme aI
+  vwl starttype #a endtype #i
+  length 240
+  IF prevPh(isVowel) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  IF nextPh(isVowel) THEN
+    AppendPhoneme(_|)
+  ENDIF
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme eI
+  vwl starttype #e endtype #i
+  length 240
+  FMT(vdiph/eei_2)
+endphoneme
+
+phoneme OI
+  vwl starttype #o endtype #i
+  length 240
+  IF prevPh(isVowel) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  IF nextPh(isVowel) THEN
+    AppendPhoneme(_|)
+  ENDIF
+  FMT(vdiph/ooi)
+endphoneme
+
+phoneme aU
+  vwl starttype #a endtype #u
+  length 240
+  IF prevPh(isVowel) THEN
+    InsertPhoneme(_|)
+  ENDIF
+  IF nextPh(isVowel) THEN
+    AppendPhoneme(_|)
+  ENDIF
+  FMT(vdiph/au_4)
+endphoneme
+
+phoneme @U
+  vwl starttype #@ endtype #u
+  length 240
+  FMT(vdiph/@u_en)
+endphoneme
+
+
+
+phoneme d   // English [d]
+  import_phoneme base1/d
+  voicingswitch t
+endphoneme
+
