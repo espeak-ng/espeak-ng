@@ -138,6 +138,9 @@ k,ep\\uko'ete
 w,eCimos'esuN\\" "イロハニホヘト. チリヌルヲ. ワカヨタレソ. ツネナラム. ウヰノオクヤマ. ケフコエテ. アサキユメミシ. ヱヒモセスン." "Kana"
 test_phon jbo "l,o R,o R'emna_! S,u s,e Z'inzi l,o k,a_! S,ehu z'ifRe_! Z,e l,o k,a S_!k,in@duns'ihu g,e l,o k,a_! S,ehu_! S,ehu s,e n,ilsels'inma_:_: g,i l,o k,a_! S,ehu_! S,ehu s,e kR'ali _!__;__'i R,a z'aNkaI l,o k,a s'uho d,a_! S,ehu m'enli_! Z,e l,o k,a s'uho d,a_! S,ehu m'aRde keI_:: _;_g'ihe b'ilga l,o k,a_! S,ehu_! S,ehu f'aRtRa s'uho Z,aI s,e t'asmi b,e l,o n,u R,a t,unb@s'ihu" "lo ro remna cu se jinzi lo ka ce'u zifre je lo ka ckinydunsi'u ge lo ka ce'u ce'u se nilselsinma gi lo ka ce'u ce'u se krali .i ra zankai lo ka su'o da ce'u menli je lo ka su'o da ce'u marde kei gi'e bilga lo ka ce'u ce'u fartra su'o jai se tasmi be lo nu ra tunbysi'u" "Latn"
 test_phon jbo "s'uho S'ilSe _!R'atat,aR_! S,u tolS'anSi _!__;__'i m,i Rivl'iha f'aha l,a _!S_!f,aRtsen'ek_!" "su'o cilce .RAtatar. cu tolcanci .i mi rivli'a fa'a la .cfartseNEK." "Latn"
+test_phon kek "tS,ixun'il l'i p,ojan'am xuntaq`?'e:t gw,ank'il Sloq`?'al n'aq n,ake?jo?l'a
+'ut k,am'a? 'ak r,eh'eb n'aq gw'an Sn,a?leb?'eb 'ut n,ake?r,e:k`?'a r'ib?
+t,ent'o n'aq te?'Sk`?'am r'ib? s'a? ,usil'al tSirib?ilrib?'eb?" "Chijunil li poyanam juntaq'eet wankil xloq'al naq nake'yo'la, ut kama' ak reheb' naq wan xna'leb'eb ut nake'reek'a rib', tento naq te'xk'am rib' sa' usilal chirib'ilrib'eb'." "Latn"
 test_phon ky "bard'Iq adamd'ar 'Oz b,edelind'e dZan,a ,uquqtarInd'a erk'in dZan,a t'eN ,uquqt'u: bol'up dZaral'at
 alard'In 'aNs,ezim'i men'en ab,ijir'i b'ar dZan,a bir'ib,irin'e b'ir t,u:Gand'Iq mamil'e q,Ilu:G'a tij'iS" "Бардык адамдар өз беделинде жана укуктарында эркин жана тең укуктуу болуп жаралат. Алардын аң-сезими менен абийири бар жана бири-бирине бир туугандык мамиле кылууга тийиш." "Cyrl"
 test_phon kl  "inu'itS; tam'armik in,uNN'orput nammin,E:rs,inn,a:ssusEq'arl#utsik ,assiQ,i:mm'il#u at,aqqinassusEq,arl#uts'il#u pis,inn,a:tsit,a:ffEq'arl#utsik
