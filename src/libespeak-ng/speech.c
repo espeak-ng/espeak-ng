@@ -850,6 +850,31 @@ ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
 		f_trans = stderr;
 }
 
+// Same as espeak_TextToPhonemes except we also get the clause terminator used (full stop, comma, etc.).
+// Depends on the added TranslateClauseWithTerminator in
+ESPEAK_API const char* espeak_TextToPhonemesWithTerminator(const void** textptr, int textmode, int phonememode, int* terminator)
+{
+  /* phoneme_mode
+      bit 1:   0=eSpeak's ascii phoneme names, 1= International Phonetic
+     Alphabet (as UTF-8 characters). bit 7:   use (bits 8-23) as a tie within
+     multi-letter phonemes names bits 8-23:  separator character, between
+     phoneme names
+   */
+
+  if (p_decoder == NULL)
+    p_decoder = create_text_decoder();
+
+  if (text_decoder_decode_string_multibyte(
+          p_decoder, *textptr, translator->encoding, textmode)
+      != ENS_OK)
+    return NULL;
+
+  TranslateClauseWithTerminator(translator, NULL, NULL, terminator);
+  *textptr = text_decoder_get_buffer(p_decoder);
+
+  return GetTranslatedPhonemeString(phonememode);
+}
+
 ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode)
 {
 	/* phoneme_mode
@@ -858,16 +883,7 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 	    bits 8-23:  separator character, between phoneme names
 	 */
 
-	if (p_decoder == NULL)
-		p_decoder = create_text_decoder();
-
-	if (text_decoder_decode_string_multibyte(p_decoder, *textptr, translator->encoding, textmode) != ENS_OK)
-		return NULL;
-
-	TranslateClause(translator, NULL, NULL);
-	*textptr = text_decoder_get_buffer(p_decoder);
-
-	return GetTranslatedPhonemeString(phonememode);
+	return espeak_TextToPhonemesWithTerminator(textptr, textmode, phonememode, NULL);
 }
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
