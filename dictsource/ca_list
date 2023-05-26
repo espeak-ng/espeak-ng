@@ -2,7 +2,7 @@
 // This file is UTF8 encoded
 
 // Options
-// ?1 general eastern. central specific characteristics 
+// ?1 general eastern. central specific characteristics -> unestressed vowels and [v] are treated at the phonemes definition (ph_catalan file)
 // ?2 general western. north-western specific characteristics 
 // ?3 valencian specific characteristics (valencian is 2+3. 3 over writes 2)
 
@@ -18,8 +18,8 @@
 _cap	m'aJ^us   // eg: "Capital-B"
 _??	s'imbOl
 _#9`	tab
-?1  _#32	@sp'aj
-?2  _#32	asp'aj
+?1  _#32	esp'aj
+?2  _#32	esp'aj
 
 // accent names
 _lig	l^iQaD'u**a
@@ -12572,1887 +12572,2119 @@ xarbotaments		SaRBotam'ens
 ?3 xarbotaments		tSa**Botam'ents
 
 /// words with secondary stress (TO REVIEW)
-aferrapedres	@f,ER@p'eD**@s
-
-bentanacs		b,ent@n'aks
+aferrapedres		afeRap'ED**es
+		
+bentanacs		b,entan'aks
 benveure		b,emb'Ew**@
-benveures		b,emb'Ew**@s
-benvinguda		b,embiNg'uD@
-benvingudes		b,embiNg'uD@s
-benvingut		b,embiNg'ut
-benvinguts		b,embiNg'uts
-benvist		b,emb'ist
-benvists		b,emb'ists
-benviure		b,emb'iw**@
-benviures		b,emb'iw**@s
-benvolença		b,embul'Ens@
-benvolences		b,embul'Ens@s
-benvolent		b,embul'en
-benvolents		b,embul'ens
-benvoler		b,embul'E
-benvolers		b,embul'Es
-benvolgut		b,embulQ'ut
-benvolguts		b,embulQ'uts
-benamat		b,en@m'at
-benamats		b,en@m'ats
-benanada		b,en@n'aD@
-benanades		b,en@n'aD@s
-benanança		b,en@n'ans@
-benanances		b,en@n'ans@s
-benanant		b,en@n'an
-benanants		b,en@n'ans
-benastruc		b,en@st**'uk
-benastrucs		b,en@st**'uks
-benastrugança		b,en@st**uQ'ans@
-benastrugances		b,en@st**uQ'ans@s
-benauradament		b@n@w**,aD@m'en
-benauradaments		b@n@w**,aD@m'ens
-benaurança		b,en@w**'ans@
-benaurances		b,en@w**'ans@s
-benaurat		b,en@w**'at
-benaurats		b,en@w**'ats
-benavenir		b,en@B@n'i
-benavenirs		b,en@B@n'is
-benaventura		b,en@B@nt'u**@
-benaventures		b,en@B@nt'u**@s
-benaventurança		b,en@B@ntu**'ans@
-benaventurances		b,en@B@ntu**'ans@s
-benaventurat		b,en@B@ntu**'at
-benaventurats		b,en@B@ntu**'ats
-benaventurós		b,en@B@ntu**'os
-benaventurosament		b@n@B@ntu**,oz@m'en
-benaventurosaments		b@n@B@ntu**,oz@m'ens
-bencarat		b,enk@**'at
-bencarats		b,enk@**'ats
-bencossat		b,enkus'at
-bencossats		b,enkus'ats
+?2 benveure		b,eMv'ew**e
+benvinguda		b,eMviNg'uDa
+benvingut		b,eMviNg'ut
+benvist		b,eMv'ist
+benviure		b,eMv'iw**e
+benvolença		b,eMvol'Ensa
+benvolent		b,eMvol'en
+?3 benvolent		b,eMvol'ent
+benvoler		b,eMvol'E*
+?3 benvoler		b,eMvol'E**
+benvolgut		b,eMvolQ'ut
+benamat		b,enam'at
+benanada		b,enan'aDa
+benanança		b,enan'ansa
+benanant		b,enan'an
+?3 benanant		b,enan'ant
+benastruc		b,enast**'uk
+benastrugança		b,enast**uQ'ansa
+benauradament		benaw**,aD@m'en
+?3 benauradament		benaw**,aDam'ent
+benaurança		b,enaw**'ansa
+benaurat		b,enaw**'at
+benavenir		b,enaven'i
+?3 benavenir		b,enaven'i**
+benaventura		b,enavent'u**a
+benaventurança		b,enaventu**'ansa
+benaventurat		b,enaventu**'at
+benaventurós		b,enaventu**'os
+benaventurosament		benaventu**,ozam'en
+?3 benaventurosament		benaventu**,ozam'ent
+bencarat		b,eNka**'at
+bencossat		b,eNkos'at
 bendir		b,end'i
-bendirs		b,end'is
-benèficament		b@n,Efik@m'en
-benentès		b,en@nt'Es
+?3 bendir		b,end'i**
+benèficament		ben,Efikam'en
+?3 benèficament		ben,Efikam'ent
+benentès		b,enent'Es
+benentés		b,enent'es
 benfet		b,eMf'et
-benfets		b,eMf'ets
-bengalina		b,eng@l'in@
-bengalines		b,eng@l'in@s
-benignament		b@n,iNn@m'en
-benignaments		b@n,iNn@m'ens
-benlloc		b@n^l^'Ok
-benllocs		b@n^l^'Oks
-benmereixença		b,emm@**@S'Ens@
-benmereixences		b,emm@**@S'Ens@s
-benmereixent		b,emm@**@S'en
-benmereixents		b,emm@**@S'ens
-benparlant		b,emp@Rl'an
-benparlants		b,emp@Rl'ans
-benparlat		b,emp@Rl'at
-benparlats		b,emp@Rl'ats
-benpensant		b,emp@ns'an
-benpensants		b,emp@ns'ans
-benestant		b,en@st'an
-benestants		b,en@st'ans
-benestar		b,en@st'a
-benestars		b,en@st'as
-benfactor		b,enf@kt'o
-benfactors		b,enf@kt'os
+bengalina		beNgal'ina
+benignament		ben,iNnam'en
+?3 benignament		benignam'ent
+benlloc		b,en^l^'Ok
+?3 benlloc		b,enl^'Ok
+benmereixença		b,emme**eS'Ensa
+?2 benmereixença		b,emme**ejS'Ensa
+benmereixent		b,emme**eS'en
+?2 benmereixent		b,emme**ejS'ent
+benparlant		b,empaRl'an
+?3 benparlant		b,enpa**l'ant
+benparlat		b,empaRl'at
+?3 benparlat		b,enpa**l'at
+benpensant		b,enpens'an
+?3 benpensant		b,enpens'ant
+benestant		b,enest'an
+?3 benestant		b,enest'ant
+benestar		b,enest'a
+?3 benestar		b,enest'a**
+benfactor		b,enfakt'o
+?3 benfactor		b,eMfakt'o**
 benfer		b,eMf'e
-benfers		b,eMf'es
+?3 benfer		b,eMf'e**
 		
-besamà		b,ez@m'a
-besamàs		b,ez@m'as
-besamans		b,ez@m'ans
+besamà		b,ezam'a
+besamans		b,ezam'ans
 		
-bonabé		b,On@B'e
-bonabés		b,On@B'es
-bonabre		b,On'aB**@
-bonabres		b,On'aB**@s
-bonaigua		b,On'ajQw@
-bonaigües		b,On'ajQw@s
-bonaire		b,On'aj**@
-bonaires		b,On'aj**@s
-bonamic		b,On@m'ik
-bonamics		b,On@m'iks
-bonamusa		b,On@m'uz@
-bonamuses		b,On@m'uz@s
+bonabé		b,OnaB'e
+bonabre		b,On'aB**e
+bonaigua		b,On'ajQwa
+bonaire		b,On'aj**e
+bonamic		b,Onam'ik
+bonamusa		b,Onam'uza
 bonany		b,On'an^
-bonanys		b,On'an^S
-bonaterra		b,On@t'ER@
-bonaterres		b,On@t'ER@s
-bonaventura		b,On@B@nt'u**@
-bonaventures		b,On@B@nt'u**@s
-bonavista		b,On@B'ist@
-bonavistes		b,On@B'ist@s
+bonaterra		b,Onat'ERa
+bonaventura		b,Onavent'u**a
+bonavista		b,Onav'ista
 bondéu		b,Ond'eu
-bondéus		b,Ond'eus
-bondia		b,Ond'i@
-bondies		b,Ond'i@s
-bonegre		b,On'EQ**@
-bonegres		b,On'EQ**@s
-bonestarre		b,On@st'aR@
-bonestarres		b,On@st'aR@s
-bonesvalls		b,On@zb'al^s
+bondia		b,Ond'ia
+bonegre		b,On'EQ**e
+bonestarre		b,Onest'aRe
+bonesvalls		b,Onezv'al^s
 bonfill		b,OMf'il^
-bonfills		b,OMf'il^s
-bonmatí		b,Omm@t'i
-bonrepòs		b,OnR@p'Os
-bonretorn		b,OnR@t'ORn
-bonretorns		b,OnR@t'ORns
+bonmatí		b,Ommat'i
+bonrepòs		b,OnRep'Os
+bonretorn		b,OnRet'ORn
+?3 bonretorn		b,OnRet'O**n
 bonsfills		b,Onsf'il^s
 bonsol		b,Ons'Ol
-bonsols		b,Ons'Ols
-bonveí		b,Omb@'i
-bonveís		b,Omb@'is
-bonvilar		b,ombil'a
-bonvilars		b,ombil'as
+bonveí		b,OMve'i
+bonvilar		b,oMvil'a
+?3 bonvilar		b,oMvil'a**
 		
-bufacanyes		b,uf@k'an^@s
-bufafocs		b,uf@f'Oks
-bufaforats		b,uf@fu**'ats
-bufallums		b,uf@l^'ums
-bufanúvols		b,uf@n'uBuls
-buidaampolles		b,ujD@mp'ol^@s
-buidabots		 b,ujD@B'ots
-buidabutxaques		b,ujD@ButS'ak@s
+bufacanyes		b,ufak'an^es
+bufafocs		b,ufaf'Oks
+bufaforats		b,ufafo**'ats
+bufallums		b,ufal^'ums
+bufanúvols		b,ufan'uvols
+buidaampolles		b,ujDamp'ol^es
+buidabots		 b,ujDaB'ots
+buidabutxaques		b,ujDaButS'akes
 		
-cagacalces		k,aQ@k'als@s
-cagadubtes		k,aQ@D'upt@s
-cagadur		k,aQ@D'u
-cagadurs		k,aQ@D'us
-cagaferrar		k,aQ@f@R'a
-cagaferrars		k,aQ@f@R'as
-cagaferro		k,aQ@f'ERu
-cagaferros		k,aQ@f'ERus
-cagaloca		k,aQ@l'Ok@
-cagaloques		k,aQ@l'Ok@s
-cagamànecs		k,aQ@m'an@ks
-cagamiques		k,aQ@m'ik@s
-cagamuja		k,aQ@m'uZ@
-cagamuges		k,aQ@m'uZ@s
-caganiu		k,aQ@n'iw
-caganius		k,aQ@n'iws
+cagacalces		k,aQak'alses
+cagadubtes		k,aQaD'uptes
+cagadur		k,aQaD'u
+?3 cagadur		k,aQaD'u**
+cagaferrar		k,aQafeR'a
+?3 cagaferrar		k,aQafeR'a**
+cagaferro		k,aQaf'ERo
+cagaloca		k,aQal'Oka
+cagamànecs		k,aQam'aneks
+cagamiques		k,aQam'ikes
+cagamuja		k,aQam'uZa
+?3 cagamuja		k,aQam'udZa
+caganiu		k,aQan'iw
 		
-camabruna		k,am@B**'un@
-camabrunes		k,am@B**'un@s
+camabruna		k,amaB**'una
 camacoix		k,am@k'oS
-camacoixs		k,am@k'oSs
-camacrua		k,am@k**'u@
-camacrues		k,am@k**'u@s
-camacurt		k,am@k'uRt
-camacurts		k,am@k'uRts
-camagroc		k,am@Q**'Ok
-camagrocs		k,am@Q**'Oks
-camallarg		k,am@l^'aRk
-camallargs		k,am@l^'aRks
-camalliga		k,am@l^'iQ@
-camalligues		k,am@l^'iQ@s
-camalluent		k,am@l^u'en
-camalluents		k,am@l^u'ens
-camaobert		k,amuB'ERt
-camaoberts		k,amuB'ERts
-camaprim		k,am@p**'im
-camaprims		k,am@p**'ims
-camatimó		k,am@tim'o
-camatimós		k,am@tim'os
-camatort		k,am@t'ORt
-camatorts		k,am@t'ORts
-camatrencar		k,am@t**@Nk'a
-camatrencars		k,am@t**@Nk'as
+?2 camacoix		k,amak'ojS
+camacrua		k,amak**'ua
+camacurt		k,amak'uRt
+?3 camacurt		k,amak'u**t
+camagroc		k,amaQ**'Ok
+camallarg		k,amal^'aRk
+?3 camallarg		k,amal^'a**k
+camalliga		k,amal^'iQa
+camalluent		k,amal^u'en
+?3 camalluent		k,amal^u'ent
+camaobert		k,amoB'ERt
+?3 camaobert		k,amaoB'E**t
+camaprim		k,amap**'im
+camatimó		k,amatim'o
+camatort		k,amat'ORt
+?3 camatort		k,amat'O**t
+camatrencar		k,amat**eNk'a
+?3 camatrencar		k,amat**eNk'a**
 		
-cantacorbs		k,ant@k'ORps
-cantafaula		k,ant@f'awl@
-cantafaules		k,ant@f'awl@s
-cantagallo		k,ant@Q'al^u
-cantagallos		k,ant@Q'al^us
-cantagalls		k,ant@Q'al^s
-cantaguineus		k,ant@Qin'Ews
-cantallops		k,ant@l^'ops
-cantalosella		k,ant@luz'el^@
-cantaloselles		k,ant@luz'el^@s
-cantanoella		k,ant@nu'el^@
-cantanoelles		k,ant@nu'el^@s
-cantaperdiu		k,ant@p@Rd'iw
-cantaperdius		k,ant@p@Rd'iws
-cantaperdius		k,ant@p@Rd'iws
+cantacorbs		k,antak'ORps
+?3 cantacorbs		k,antak'O**ps
+cantafaula		k,antaf'awla
+cantagallo		k,antaQ'al^o
+cantagalls		k,antaQ'al^s
+cantaguineus		k,antaQin'Ews
+cantallops		k,antal^'ops
+cantalosella		k,antaloz'el^a
+cantanoella		k,antano'el^a
+cantaperdiu		k,antape**D'iw
+cantaperdius		k,antape**D'iws
+cantaperdius		k,antape**D'iws
 cantiprim		k,antip**'im
-cantiprims		k,antip**'ims
 cantonigròs		k,ant,OniQ**'Os
 		
-caraalegre		k,a**@l'eQ**@
-caraalegres		k,a**@l'eQ**@s
-caraample		k,a**'ampl@
-caraamples		k,a**'ampl@s
-carabrú		k,a**@B**'u
-carabruns		k,a**@B**'uns
-carabrut		k,a**@B**'ut
-carabruts		k,a**@B**'uts
-caracul		k,a**@k'ul
-caraculs		k,a**@k'uls
-carafresc		k,a**@f**'Esk
-carafrescs		k,a**@f**'Esks
-caragirar		k,a**@Zi**'a
-caragirars		k,a**@Zi**'as
-caragirat		k,a**@Zi**'at
-caragirats		k,a**@Zi**'ats
-caragròs		k,a**@Q**'Os
-carallarg		k,a**@l^'aRk
-carallargs		k,a**@l^'aRks
-caramenut		k,a**@m@n'ut
-caramenuts		k,a**@m@n'uts
-caranegre		k,a**@n'EQ**@
-caranegres		k,a**@n'EQ**@s
-caraplè		k,a**@pl'E
-caraplens		k,a**@pl'Ens
+caraalegre		k,a**al'eQ**e
+caraample		k,a**a'ample
+carabrú		k,a**aB**'u
+carabrut		k,a**aB**'ut
+caracul		k,a**ak'ul
+carafresc		k,a**af**'Esk
+?2 carafresc		k,a**af**'esk
+caragirar		k,a**aZi**'a
+?3 caragirar		k,a**adZi**'a**
+caragirat		k,a**aZi**'at
+?3 caragirat		k,a**adZi**'at
+caragròs		k,a**aQ**'Os
+carallarg		k,a**al^'aRk
+?3 carallarg		k,a**al^'a**k
+caramenut		k,a**amen'ut
+caranegre		k,a**an'EQ**e
+?2 caranegre		k,a**an'eQ**e
+caraplè		k,a**apl'E
 		
-casabella		k,az@B'el^@
-casabelles		k,az@B'el^@s
-casablanca		k,az@Bl'aNk@
-casablanques		k,az@Bl'aNk@s
-casacoberta		k,az@kuB'ERt@
-casacobertes		k,az@kuB'ERt@s
-casacremada		k,az@k**@m'aD@
-casacremades		k,az@k**@m'aD@s
-casadamunt		k,az@D@m'un
-casadamunts		k,az@D@m'uns
-casadejús		k,az@D@Z'us
-casademunt		k,az@D@m'un
-casademunts		k,az@D@m'uns
-casadessús		k,az@D@s'us
-casadevall		k,az@D@B'al^
-casadevalls		k,az@D@B'al^s
-casafont		k,az@f'On
-casafonts		k,az@f'Ons
-casafort		k,az@f'ORt
-casaforts		k,az@f'ORts
-casagemes		k,az@Z'em@s
-casagolda		k,az@Q'Old@
-casagoldes		k,az@Q'Old@s
-casajoana		k,az@Zu'an@
-casajoanes		k,az@Zu'an@s
-casamartina		k,az@m@Rt'in@
-casamartines		k,az@m@Rt'in@s
-casamitjana		k,az@midZ'an@
-casamitjanes		k,az@midZ'an@s
-casampons		k,az@mp'ons
-casanova		k,az@n'OB@
-casanoves		k,az@n'OB@s
-casaolius		k,az@wl'iws
-casaponça		k,az@p'Ons@
-casaponces		k,az@p'Ons@s
-casatinent		k,az@tin'en
-casatinents		k,az@tin'ens
-casavells		k,az@B'el^s
-cascaborres		k,ask@B'oR@s
-casesnoves		k,az@zn'OB@s
-casesvelles		k,az@zb'el^@s
+casabella		k,azaB'el^a
+casablanca		k,azaBl'aNka
+casablanques		k,azaBl'aNkes
+casacoberta		k,azakoB'ERta
+?3 casacoberta		k,azakoB'E**ta
+casacremada		k,azak**em'aDa
+casadamunt		k,azaDam'unt
+casadejús		k,azaDedZ'us
+casademunt		k,azaDem'unt
+casadessús		k,azaDes'us
+casadevall		k,azaDev'al^
+casafont		k,azaf'Ont
+casafort		k,azaf'ORt
+?3 casafort		k,azaf'O**t
+casagemes		k,azaZ'emes
+?3 casagemes		k,azadZ'emes
+casagolda		k,azaQ'Olda
+casajoana		k,azaZo'ana
+?3 casajoana		k,azadZo'ana
+casamartina		k,azama**t'ina
+casamitjana		k,azamidZ'ana
+casampons		k,azamp'ons
+casanova		k,azan'Ova
+casanoves		k,azan'Oves
+casaolius		k,azaol'iws
+casaponça		k,azap'Onsa
+casatinent		k,azatin'en
+?3 casatinent		k,azatin'ent
+casavells		k,azav'el^s
+cascaborres		k,askaB'oRes
+casesnoves		k,azezn'Oves
+casesvelles		k,azezv'el^es
 		
-castelladral		k@st,el^@D**'al
-castellarnau		k@st,el^@Rn'aw
-castellbell		k@st,el^b'el^
-castellbisbal		k@st,el^bizb'al
-castellblanc		k@st,el^bl'aN
-castellbò		k@st,el^b'O
-castellciuró		k@st,el^siw**'o
-castellciutat		k@st,el^siwt'at
-castelldans		k@st,el^d'ans
-castelldefels		k@st,el^d@f'Els
-castellfollit		k@st,el^ful^'it
-castellgalí		k@st,el^g@l'i
-castellgermà		k@st,el^Z@Rm'a
-castellmeià		k@st,el^m@j'a
-castellmoster		k@st,el^must'e
-castellnegrar		k@st,el^n@Q**'a
-castellnou		k@st,el^n'Ow
-castellnovet		k@st,el^nuB'Et
-castellolí		k@st,el^ul'i
-castellruf		k@st,el^R'uf
-castellsapera		k@st,el^s@p'E**@
-castellsec		k@st,el^s'Ek
-castellseguer		k@st,el^s@Q'e
-castellserà		k@st,el^s@**'a
-castelltallat		k@st,el^t@l^'at
-castellterçol		k@st,el^t@Rs'Ol
-castelltort		k@st,el^t'ORt
-castellveire		k@st,el^b'Ej**@
-castellvell		k@st,el^b'el^
-castellví		k@st,el^b'i
-castellviny		k@st,el^b'in^
+castelladral		kast,el^aD**'al
+castellarnau		kast,el^aRn'aw
+?3 castellarnau		kast,el^a**n'aw
+castellbell		kast,el^b'el^
+castellbisbal		kast,el^bizB'al
+castellblanc		kast,el^bl'aN
+?3 castellblanc		kast,el^bl'aNk
+castellbò		kast,el^b'O
+castellciuró		kast,el^siw**'o
+castellciutat		kast,el^siwt'at
+castelldans		kast,el^d'ans
+castelldefels		kast,el^def'Els
+castellfollit		kast,el^fol^'it
+castellgalí		kast,el^gal'i
+castellgermà		kast,el^Ze**m'a
+?3 castellgermà		kast,el^dZe**m'a
+castellmeià		kast,el^mej'a
+castellmoster		kast,el^most'e
+?3 castellmoster		kast,el^most'e**
+castellnegrar		kast,el^neQ**'a
+?3 castellnegrar		kast,el^neQ**'a**
+castellnou		kast,el^n'Ow
+castellnovet		kast,el^nov'Et
+castellolí		kast,el^ol'i
+castellruf		kast,el^R'uf
+castellsapera		kast,el^sap'E**a
+castellsec		kast,el^s'Ek
+castellseguer		kast,el^seQ'e
+?3 castellseguer		kast,el^seQ'e**
+castellserà		kast,el^se**'a
+castelltallat		kast,el^tal^'at
+castellterçol		kast,el^t@Rs'Ol
+?3 castellterçol		kast,el^te**s'Ol
+castelltort		kast,el^t'ORt
+?3 castelltort		kast,el^t'O**t
+castellveire		kast,el^v'Ej**e
+castellvell		kast,el^v'el^
+castellví		kast,el^v'i
+castellviny		kast,el^v'in^
 		
-cellacanut		s,El^@k@n'ut
-cellacanuts		s,El^@k@n'uts
-cellajunt		s,El^@Z'un
-cellajunts		s,El^@Z'uns
-cellanegre		s,El^@n'EQ**@
-cellanegres		s,El^@n'EQ**@s
+cellacanut		s,El^akan'ut
+?2 cellacanut		s,el^akan'ut
+cellajunt		s,El^aZ'un
+?2 cellajunt		s,el^adZ'un
+?3 cellajunt		s,el^adZ'unt
+cellanegre		s,El^an'EQ**e
+?2 cellanegre		s,el^an'eQ**e
 		
-celobert		s,EluB'ERt
-celoberts		s,EluB'ERts
-centcames		s,eNk'am@s
+celobert		s,EeloB'E**t
+centcames		s,eNk'ames
+?3 centcames		s,entk'ames
 centcaps		s,eNk'aps
 centpeus		s,emp'Ews
+?3 centpeus		s,entp'Ews
 		
-cercabregues		s,ERk@B**'EQ@s
-cercadits		s,ERk@D'its
-cercafresses		s,ERk@f**'Es@s
-cercapoals		s,ERk@pu'als
-cercapols		s,aRk@p'Ols
-cercapous		s,ERk@p'ows
-cercavila		s,ERk@B'il@
-cercaviles		s,ERk@B'il@s
-cercavins		s,ERk@B'ins
-cercavores		s,ERk@B'O**@s
+cercabregues		s,ERkaB**'EQes
+?2 cercabregues		s,e**kaB**'eQes
+cercadits		s,ERkaD'its
+?2 cercadits		s,e**kaD'its
+cercafresses		s,ERkaf**'Eses
+?2 cercafresses		s,e**kaf**'eses
+cercapoals		s,ERkapu'als
+?2 cercapoals		s,e**kapo'als
+cercapols		s,aRkap'Ols
+?2 cercapols		s,e**kap'Ols
+cercapous		s,ERkap'ows
+?2 cercapous		s,e**kap'ows
+cercavila		s,ERkaB'ila
+?2 cercavila		s,e**kav'ila
+cercavins		s,ERkav'ins
+?2 cercavins		s,E**kav'ins
+cercavores		s,ERkav'O**es
+?2 cercavores		s,e**kav'o**es
 		
-cobrecadena		k,OB**@k@D'an@
-cobrecadenes		k,OB**@k@D'an@s
-cobrecalze		k,OB**@k'alz@
-cobrecalzes		k,OB**@k'alz@s
-cobrellit		k,OB**@l^'it
-cobrellits		k,OB**@l^'its
-cobreobjectes		k,OB**ewbZ'ekt@s
-cobretaula		k,OB**@t'awl@
-cobretaules		k,OB**@t'awl@s
-cobricelar		kuB**is@l'a
-cobricelars		kuB**is@l'as
+cobrecadena		k,OB**ekaD'ena
+cobrecalze		k,OB**ek'alze
+cobrellit		k,OB**el^'it
+cobreobjectes		k,OB**eobZ'ektes
+?3 cobreobjectes		k,OB**eobdZ'ektes
+cobretaula		k,OB**et'awla
+cobricelar		k,OB**isel'a
+?3 cobricelar		k,OB**isel'a**
 cobricel		k,OB**is'El
-cobricels		k,OB**is'Els
-cobriespatlles		k,OB**i@sp'al^l^@s
-cobrijunta		k,OB**iZ'unt@
-cobrijuntes		k,OB**iZ'unt@s
+cobriespatlles		k,OB**iesp'al^l^es
+?3 cobriespatlles		k,OB**iesp'ales
+cobrijunta		k,OB**iZ'unta
+?3 cobrijunta		k,OB**idZ'unta
 		
-cocatedral		k,ok@t@D**'al
-cocatedrals		k,ok@t@D**'als
+cocatedral		k,okateD**'al
 		
-comptafils		k,omt@f'ils
-comptagotes		k,omt@Q'ot@s
-comptapasses		k,omt@p'as@s
-comptaquilòmetres		k,omt@kil'Om@t**@s
-comptecorrentista		k,omt@kuR@nt'ist@
-comptecorrentistes		k,omt@kuR@nt'ist@s
+comptafils		k,omtaf'ils
+comptagotes		k,omtaQ'otes
+comptapasses		k,omtap'ases
+comptaquilòmetres		k,omtakil'Omet**es
+comptecorrentista		k,omtekoRent'ista
 		
-comsevulla		k,Oms@B'ul^@
-comsevulles		k,Oms@B'ul^@s
+comsevulla		k,OmseB'ul^@
+?3 comsevulla		komsev'ul^a
 		
-concabella		k,oNk@B'el^@
-concabelles		k,oNk@B'el^@s
+concabella		k,oNkaB'el^a
 		
-copyright*		k,OpiR'ajt
-copyright*s		k,OpiR'ajts
-
-coragre		k,O**'aQ**@
-coragres		k,O**'aQ**@s
-coragró		k,O**@Q**'o
-coragrons		k,O**@Q**'ons
-corcorcar		k,ORkuRk'a
+coragre		k,O**'aQ**e
+coragró		k,O**aQ**'o
+corcorcar		k,ORkoRk'a
+?3 corcorcar		k,O**ko**k'a**
 corcuitós		k,ORkujt'os
-cordabotes		k,ORd@B'Ot@s
-cordimarià		k,ORdim@**i'a
-cordimarians		k,ORdim@**i'ans
-coresforçar		k,OR@sfuRs'a
-coresforçars		k,OR@sfuRs'as
-coresforç		k,OR@sf'ORs
-corferir		k,ORf@**'i
-corferirs		k,ORf@**'is
+?3 corcuitós		k,O**kujt'os
+cordabotes		k,ORdaB'Otes
+?3 cordabotes		k,O**DaB'Otes
+cordimarià		k,ORdima**i'a
+?3 cordimarià		k,O**Dima**i'a
+coresforçar		k,OResfoRs'a
+?3 coresforçar		k,O**esfo**s'a**
+coresforç		k,OResf'ORs
+?3 coresforç		k,O**esf'O**s
+corferir		k,ORfe**'i
+?3 corferir		k,O**fe**'i**
 corfondre		k,ORf'ond**@
-corfondres		k,ORf'ond**@s
-corgelar		k,ORZ@l'a
-corgelars		k,ORZ@l'as
-corglaçar		k,ORQl@s'a
-corglaçars		k,ORQl@s'as
-cornamusaire		k,oRn@muz'aj**@
-cornamusaires		k,oRn@muz'aj**@s
-cornamusa		k,oRn@m'uz@
-cornamuses		k,oRn@m'uz@s
-cornicabra		k,ORnik'aB**@
-cornicabres		k,ORnik'aB**@s
+?3 corfondre		k,O**f'ond**e
+corgelar		k,ORZel'a
+?3 corgelar		k,O**dZel'a**
+corglaçar		k,ORQlas'a
+?3 corglaçar		k,O**glas'a**
+cornamusaire		k,oRnamuz'aj**e
+?3 cornamusaire		ko**namuz'aj**e
+cornamusa		k,oRnam'uza
+?3 cornamusa		ko**nam'uza
+cornicabra		k,ORnik'aB**a
+?3 cornicabra		ko**nik'aB**a
 cornuar		k,ORnu'a
-cornuars		k,ORnu'as
-cornucòpia		k,oRnuk'Opi@
-cornucòpies		k,oRnuk'Opi@s
-cornúpeta		k,oRn'up@t@
-cornúpetes		k,oRn'up@t@s
+?3 cornuar		ko**nu'a**
+cornucòpia		k,oRnuk'Opia
+?3 cornucòpia		ko**nuk'Opia
+cornúpeta		k,oRn'upeta
+?3 cornúpeta		ko**n'upeta
 corprendre		k,ORp'End**@
-corprendres		k,ORp'End**@s
-corprenedor		k,ORp**@n@D'o
-corprenedors		k,ORp**@n@D'os
+?3 corprendre		 k'O**p'end**e
+corprenedor		k,ORp**eneD'o
+?3 corprenedor		ko**p**eneD'o**
 		
 cosmonau		k,Ozmun'aw
-cosmonaus		k,Ozmun'aws
-cosmonauta		k,Ozmun'awt@
-cosmonautes		k,Ozmun'awt@s
-cosmonàutica		k,Ozmun'awtik@
-cosmonàutices		k,Ozmun'awtik@s
+?3 cosmonau		kozmon'aw
+cosmonauta		k,Ozmun'awta
+?3 cosmonauta		kozmon'awta
+cosmonàutica		k,Ozmun'awtika
+?3 cosmonàutica		kozmon'awtika
 cosmovisió		k,OzmuBizi'o
-cosmovisiós		k,OzmuBizi'os
+?3 cosmovisió		kozmovizi'o
 		
-costabella		k,ost@B'el^@
-costablanca		k,Ost@Bl'aNk@
-costabona		k,ost@B'on@
-costafreda		k,Ost@f**'ED@
-costamala		k,Ost@m'al@
+costabella		k,ostaB'el^a
+costablanca		k,OstaBl'aNka
+costabona		k,ostaB'ona
+costafreda		k,Ostaf**'EDa
+costamala		k,Ostam'ala
 		
-cromosfera		k**,omusf'e**@
-cromosferes		k**,omusf'e**@s
-cromotipografia		k**,omutipuQ**@f'i@
-cromotipografies		k**,omutipuQ**@f'i@s
+cromosfera		k**,omosf'e**a
+cromotipografia		k**,omotipoQ**af'ia
 		
-cuablanc		k,u@bl'aN
-cuablancs		k,u@bl'aNs
-cuacurt		k,u@k'uRt
-cuacurts		k,u@k'uRts
-cuadret		k,u@D**'Et
-cuadrets		k,u@D**'Ets
-cuaenlairat		k,u@nl@j**'at
-cuaenlairats		k,u@nl@j**'ats
-cuallarg		k,u@l^'aRk
-cuallargs		k,u@l^'aRks
-cuixatrencat		k,uS@t**@Nk'at
-cuixatrencats		k,uS@t**@Nk'ats
+cuablanc		k,uabl'aN
+?3 cuablanc		k,uaBl'aNk
+cuacurt		k,uak'uRt
+?3 cuacurt		k,uak'u**t
+cuadret		k,uaD**'Et
+?2 cuadret		k,uaD**'et
+cuaenlairat		k,uanlaj**'at
+?3 cuaenlairat		k,uaenlaj**'at
+cuallarg		k,ual^'aRk
+?3 cuallarg		k,ual^'a**k
+cuixatrencat		k,uSat**eNk'at
+?2 cuixatrencat		k,ujSat**eNk'at
 		
-daltabaix		d@lt@B'aS
+daltabaix		dalt@B'aS
+?2 daltabaix		daltaB'ajS
 daltmar		d,alm'aR
+?3 daltmar		daldm'a**
 		
-desferracavalls		d@sf,ER@k@B'al^s
-desoxiribonucleasa		d@z,OksiRiBunukle'az@
-desoxiribonucleases		d@z,OksiRiBunukle'az@s
-desoxiribonucleic		d@z,OksiRiBunukl'Ejk
-desoxiribonucleics		d@z,OksiRiBunukl'Ejks
+desferracavalls		desf,ERakav'al^s
+desoxiribonucleasa		dez,OksiRiBunukle'aza
+?3 desoxiribonucleasa		dezoksiRiBonukle'aza
+desoxiribonucleic		dez,OksiRiBunukl'Ejk
+?2 desoxiribonucleic		dezoksiRiBonukl'ejk
 		
-deumilionèsim		d,Ewmiliun'Ezim
-deumilionèsims		d,Ewmiliun'Ezims
-deumil·lèsim		d,Ewmill'Ezim
-deumil·lèsims		d,Ewmill'Ezims
+deumilionèsim		d,Ewmilion'Ezim
 		
-dosdies		d,ozd'i@s
+dosdies		d,ozd'ies
 dosmunts		d,ozm'uns
+?3 dosmunts		d,ozm'unts
 dospeus		d,osp'Ews
-dosrius		d,oR'iws
+dosrius		d,ozR'iws
 		
-drogaaddicció		d**,OQ@ddiksi'o
-drogaaddiccions		d**,OQ@ddiksi'ons
-drogaaddicte		d**,OQ@dd'ikt@
-drogaaddictes		d**,OQ@dd'ikt@s
-duesaigües		d,u@z'ajQw@s
-duodecennal		d,uoD@s@nn'al
-duodecennals		d,uoD@s@nn'als
-duodecenni		d,uoD@s'Enni
-duodecennis		d,uoD@s'Ennis
-duodecimal		d,uoD@sim'al
-duodecimals		d,uoD@sim'als
-duodècuple		d,uoD'Ekupl@
-duodècuples		d,uoD'Ekupl@s
+drogaaddicció		d**,OQaddiksi'o
+drogaaddicte		d**,OQadd'ikte
+duesaigües		d,uez'ajQwes
+duodecennal		d,uoDesenn'al
+duodecenni		d,uoDes'Enni
+duodecimal		d,uoDesim'al
+duodècuple		d,uoD'Ekuple
 		
-eixugacabells		@S,uQ@k@B'El^s
-eixugamà		@S,uQ@m'a
-eixugamans		@S,uQ@m'ans
-eixugaparabrisa		@S,uQ@p@**@B**'iz@
-eixugavidre		@S,uQ@B'iD**@
-eixugavidres		@S,uQ@B'iD**@s
+eixugacabells		eS,uQakaB'El^s
+?2 eixugacabells		ejS,uQakaB'el^s
+eixugamà		eS,uQ@m'a
+?2 eixugamà		ejS,uQam'a
+eixugamans		eS,uQ@m'ans
+?2 eixugamans		ejS,uQam'ans
+eixugaparabrisa		eS,uQapa**aB**'iza
+?2 eixugaparabrisa		ejS,uQapa**aB**'iza
+eixugavidre		eS,uQaB'iD**e
+?2 eixugavidre		ejS,uQav'iD**e
 		
-encefalografia		@ns,Ef@luQ**@f'i@
-encefalografies		@ns,Ef@luQ**@f'i@s
+encefalografia		ens,EfaluQ**af'ia
+?2 encefalografia		ensefaloQ**af'ia
 		
-enganxadones		@Ng,an^S@D'On@s
+enganxadones		eNg,an^SaD'Ones
+?3 enganxadones		eNg,antSaD'Ones
 		
-enganyabadocs		@Ng,an^@B@D'Oks
-enganyapastors		@Ng,an^@p@st'os
+enganyabadocs		eNg,an^aBaD'Oks
+enganyapastors		eNg,an^apast'os
+?3 enganyapastors		eNg,an^apast'o**s
 		
-enhorabona		@n,o**@B'On@
+enhorabona		en,O**aB'Ona
 		
-enterramorts		@nt,ER@m'ORts
+enterramorts		ent,ERam'ORts
+?3 enterramorts		ent,ERam'O**ts
 		
-escalfabraguetes		@sk,alf@B**@Q'Et@s
-escalfacadires		@sk,alf@k@D'i**@s
-escalfallits		@sk,alf@l^'its
-escalfapanxes		@sk,alf@p'an^S@s
+escalfabraguetes		esk,alfaB**aQ'Etes
+?2 escalfabraguetes		esk,alfaB**aQ'etes
+escalfacadires		esk,alfakaD'i**es
+escalfallits		esk,alfal^'its
+escalfapanxes		esk,alfap'an^Ses
+?3 escalfapanxes		esk,alfap'antSes
 		
-escanyabruixot		@sk,an^@B**uS'Ot
-escanyabruixots		@sk,an^@B**uS'Ots
-escanyacabres		@sk,an^@k'aB**@s
-escanyagats		@sk,an^@Q'ats
-escanyagossos		@sk,an^@Q'osus
-escanyallops		@sk,an^@l^'ops
-escanyamarits		@sk,an^@m@**'its
-escanyamullers		@sk,an^@mul^'es
-escanyapits		@sk,an^@p'its
-escanyapobres		@sk,an^@p'OB**@s
-escanyapolls		@sk,an^@p'ol^s
-escanyavelles		@sk,an^@B'el^@s
+escanyabruixot		esk,an^aB**uS'Ot
+?2 escanyabruixot		esk,an^aB**ujS'Ot
+escanyacabres		esk,an^ak'aB**es
+escanyagats		esk,an^aQ'ats
+escanyagossos		esk,an^aQ'osos
+escanyallops		esk,an^al^'ops
+escanyamarits		esk,an^ama**'its
+escanyamullers		esk,an^amul^'es
+?3 escanyamullers		esk,an^amul^'e**s
+escanyapits		esk,an^ap'its
+escanyapobres		esk,an^ap'OB**es
+escanyapolls		esk,an^ap'ol^s
+escanyavelles		esk,an^av'el^es
 		
-esclafaterrossos		@skl,af@t@R'Osus
-esclatabufa		@skl,at@B'uf@
-esclatabufes		@skl,at@B'uf@s
-escombracarrers		@sk,omb**@k@R'es
+esclafaterrossos		eskl,afateR'Osos
+esclatabufa		eskl,ataB'ufa
+escombracarrers		esk,omb**akaR'es
+?3 escombracarrers		esk,omb**akaR'e**s
 		
-escorreplats		@sk,oR@pl'ats
+escorreplats		esk,oRepl'ats
 		
-escurabasses		@sk,u**@B'as@s
-escurabosses		@sk,u**@B'os@s
-escurabutxaques		@sk,u**@ButS'ak@s
-escuracassoles		@sk,u**@k@s'Ol@s
-escuradents		@sk,u**@D'ens
-escuraflascons		@sk,u**@fl@sk'ons
-escuraorelles		@sk,u**@u**'El^@s
-escuraplats		@sku**@pl'ats
-escurapous		@sk,u**@p'ows
-escuraungles		@sk,u**@'uNgl@s
+escurabasses		esk,u**aB'ases
+escurabosses		esk,u**aB'oses
+escurabutxaques		esk,u**aButS'akes
+escuracassoles		esk,u**akas'Oles
+escuradents		esk,u**aD'ens
+escuraflascons		esk,u**aflask'ons
+escuraorelles		esk,u**ao**'El^es
+?2 escuraorelles		esk,u**ao**'el^es
+escuraplats		esk,u**apl'ats
+escurapous		esk,u**ap'ows
+?3 escurapous		esk,u**ap'Ows
+escuraungles		esk,u**a'uNgles
 		
-espantacaçadors		@sp,ant@k@s@D'os
-espantaflares		@sp,ant@fl'a**@s
-espantallops		@sp,ant@l^'ops
-espantamosques		@sp,ant@m'osk@s
-espantaocells		@sp,antus'el^s
-espanyaportes		@sp,an^@p'ORt@s
-espiadimonis		@sp,i@Dim'Onis
-esplugabous		@spl,uQ@B'Ows
-espolsabutxaques		@sp,ols@ButS'ak@s
-esquenadret		@sk,En@D**'Et
-esquenadrets		@sk,En@D**'Ets
+espantacaçadors		esp,antakasaD'os
+?3 espantacaçadors		esp,antakasaD'o**s
+espantaflares		esp,antafl'a**es
+espantallops		esp,antal^'ops
+espantamosques		esp,antam'oskes
+espantaocells		esp,antaos'el^s
+espanyaportes		esp,an^ap'ORtes
+?3 espanyaportes		esp,an^ap'O**tes
+espiadimonis		esp,iaDim'Onis
+esplugabous		espl,uQaB'Ows
+espolsabutxaques		esp,olsaButS'akes
+esquenadret		esk,En@D**'Et
+?2 esquenadret		esk,enaD**'et
 		
-fontbernat		f,Omb@Rn'at
-fontbona		f,Omb'On@
-fontcalçada		f,ONk@ls'aD@
-fontcalda		f,ONk'ald@
-fontcaldes		f,ONk'ald@s
+fontbernat		f,OmbeRn'at
+?3 fontbernat		f,Ondbe**n'at
+fontbona		f,Omb'Ona
+?3 fontbona		f,Ondb'Ona
+fontcalçada		f,ONkals'aDa
+?3 fontcalçada		f,Ontkals'aDa
+fontcalda		f,ONk'alda
+?3 fontcalda		f,Ontk'alda
+fontcaldes		f,ONk'aldes
+?3 fontcaldes		f,Ontk'aldes
 fontcalent		f,ONk@l'en
-fontcendra		f,Ons'End**@
-fontclara		f,ONkl'a**@
-fontcoberta		f,ONkuB'ERt@
-fontdemany		f,Ond@m'an^
-fontdepou		f,Ond@p'ow
-fontderola		f,Ond@**'Ol@
-fontdevila		f,Ond@B'il@
-fontfiguera		f,OMfiQ'e**@
-fontfreda		f,OMf**'ED@
-fontfregona		f,OMf**@Q'on@
-fontjoana		f,onZu'an@
-fontllarga		f,Onl^'aRg@
-fontllebrera		f,Onl^@B**'e**@
-fontlledó		f,Onl^@D'o
+?3 fontcalent		f,Ontkal'ent
+fontcendra		f,Ons'End**a
+?3 fontcendra		f,Onts'End**a
+fontclara		f,ONkl'a**a
+?3 fontclara		f,Ontkl'a**a
+fontcoberta		f,ONkoB'ERta
+?3 fontcoberta		f,OntkoB'E**ta
+fontdemany		f,Ondem'an^
+?3 fontdemany		f,Onddem'an^
+fontdepou		f,Ondep'ow
+?3 fontdepou		f,Onddep'ow
+fontderola		f,Onde**'Ola
+?3 fontderola		f,Ondde**'Ola
+fontdevila		f,Ondev'ila
+?3 fontdevila		f,Onddev'ila
+fontfiguera		f,OMfiQ'e**a
+?3 fontfiguera		f,OntfiQ'e**a
+fontfreda		f,OMf**'EDa
+?3 fontfreda		f,Ontf**'EDa
+fontfregona		f,OMf**eQ'ona
+?3 fontfregona		f,Ontf**eQ'ona
+fontjoana		f,onZu'ana
+?3 fontjoana		f,onddZo'ana
+fontllarga		f,Onl^'aRga
+?3 fontllarga		f,Ondl^'a**Qa
+fontllebrera		f,Onl^eB**'e**a
+?3 fontllebrera		f,Ondl^eB**'e**a
+fontlledó		f,Onl^eD'o
+?3 fontlledó		f,Ondl^eD'o
 fontlletera		f,Onl^@t'e**@
-fontllonga		f,Onl^'ONg@
-fontmartina		f,Omm@Rt'in@
-fontnegra		f,Onn'EQ**@
-fontordera		f,OntuRd'e**@
-fontpedrós		f,Omp@D**'os
-fontpineda		f,Ompin'ED@
-fontpobra		f,Omp'OB**@
-fontsagrada		f,Ons@Q**'aD@
-fontsanta		f,Ons'ant@
-fontscaldes		f,Onsk'ald@s
-fontscaldetes		f,Onsk@ld'Et@s
-fontscalents		f,Onsk@l'ens
-fontseca		f,Ons'Ek@
-fontsentes		f,Ons'Ent@s
-fontvella		f,Omb'el^@
-fontxinxella		f,OnSin^S'el^@
+?3 fontlletera		f,Ondl^et'e**a
+fontllonga		f,Onl^'ONga
+?3 fontllonga		f,Ondl^'ONga
+fontmartina		f,OmmaRt'ina
+?3 fontmartina		f,Ondma**t'ina
+fontnegra		f,Onn'EQ**a
+?3 fontnegra		f,Ondn'EQ**a
+fontordera		f,OntuRd'e**a
+?3 fontordera		f,Onto**D'e**a
+fontpedrós		f,OmpeD**'os
+?3 fontpedrós		f,OntpeD**'os
+fontpineda		f,Ompin'EDa
+?3 fontpineda		f,Ontpin'EDa
+fontpobra		f,Omp'OB**a
+?3 fontpobra		f,Ontp'OB**a
+fontsagrada		f,OnsaQ**'aDa
+?3 fontsagrada		f,OntsaQ**'aDa
+fontsanta		f,Ons'anta
+?3 fontsanta		f,Onts'anta
+fontscaldes		f,Onsk'aldes
+?3 fontscaldes		f,Ontsk'aldes
+fontscaldetes		f,Onskald'Etes
+?3 fontscaldetes		f,Ontskald'Etes
+fontscalents		f,Onskal'ens
+?3 fontscalents		f,Ontskal'ents
+fontseca		f,Ons'Eka
+?3 fontseca		f,Onts'Eka
+fontsentes		f,Ons'Entes
+?3 fontsentes		f,Onts'Entes
+fontvella		f,Omb'el^a
+?3 fontvella		f,Ondv'el^a
+fontxinxella		f,OnSin^S'el^a
+?3 fontxinxella		f,OndtSintS'el^a
 		
-forabord		f,O**@B'oRt
-forabords		f,O**@B'oRts
-forallançar		f,O**@l^@ns'a
-forallançars		f,O**@l^@ns'as
-foraminal		f,O**@min'al
-foraminals		f,O**@min'als
-foraminífer		f,O**@min'if@R
-foraminífers		f,O**@min'if@Rs
-forassenyat		f,O**@s@n^'at
-forassenyats		f,O**@s@n^'ats
-foravial		f,O**@Bi'al
-foravials		f,O**@Bi'als
-foraviar		f,O**@Bi'a
-foraviars		f,O**@Bi'as
-foravila		f,O**@B'il@
-foraviles		f,O**@B'il@s
-foraviler		f,O**@Bil'e
-foravilers		f,O**@Bil'es
+forabord		f,O**aB'oRt
+?3 forabord		f,O**aB'o**t
+forallançar		f,O**al^ens'a
+?3 forallançar		fo**al^ans'a**
+foraminal		f,O**amin'al
+foraminífer		f,O**amin'ifeR
+?3 foraminífer		fo**amin'ife**
+forassenyat		f,O**asen^'at
+?3 forassenyat		fo**asen^'at
+foravial		f,O**avi'al
+?3 foravial		fo**avi'al
+foraviar		f,O**avi'a
+?3 foraviar		fo**avi'a**
+foravila		f,O**av'ila
+foraviler		f,O**avil'e
+?3 foraviler		fo**avil'e**
 		
-foradataps		fu**,aD@t'aps
+foradataps		fo**,aDat'aps
 		
-francmaçó		f**,aNm@s'o
-francmaçons		f**,aNm@s'ons
-francmaçoneria		f**,aNm@sun@**'i@
-francmaçoneries		f**,aNm@sun@**'i@s
-francmaçònic		f**,aNm@s'Onik
-francmaçònics		f**,aNm@s'Oniks
-francoamericà		f**,aNkum@**ik'a
-francoamericàs		f**,aNkum@**ik'as
-francoprovençal		f**,aNkup**uB@ns'al
-francoprovençals		f**,aNkup**uB@ns'als
-		
-gratabous		g**,at@B'Ows
-gratacel		g**@t@s'El
-gratacels		g**@t@s'Els
-gratallops		g**,at@l^'ops
-gratanúvols		g**,at@n'uBuls
-gratapalles		g**,at@p'al^@s
-gratapeus		g**,at@p'Ews
-gratcient		g**,atsi'en
-gratcients		g**,atsi'ens
-		
-horabaixa		,O**@B'aS@
-horabaixes		,O**@B'aS@s
-horabaixenc		,O**@B@S'EN
-horabaixencs		,O**@B@S'ENs
-horabona		,O**@B'On@
-horabones		,O**@B'On@s
-		
-llançaarpons		l^,ans@Rp'ons
-llançabombes		l^,ans@B'omb@s
-llançacaps		l^,ans@k'aps
-llançacoets		l^,ans@ku'Ets
-llançaflames		l^,ans@fl'am@s
-llançafum		l^,ans@f'um
-llançafums		l^,ans@f'ums
-llançagranades		l^,ans@Q**@n'aD@s
-llançamíssils		l^,ans@m'isils
-llançatorpedes		l^,ans@tuRp'ED@s
-		
-llenguadocià		l^,eNgw@Dusi'a
-llenguadocians		l^,eNgw@Dusi'ans
-llenguaeixuta		l^,eNgw@S'ut@
-llenguaeixutes		l^,eNgw@S'ut@s
-llenguallarg		l^,eNgw@l^'aRk
-llenguallargs		l^,eNgw@l^'aRks
-		
-llepaculs		l^,ep@k'uls
-llepafils		l^,ep@f'ils
-llepapedres		l^,ep@p'eD**@s
-llepaplats		l^,ep@pl'ats
-		
-lletraferit		l^,Et**@f@**'it
-lletraferits		l^,Et**@f@**'its
-		
-llevamà		l^@B@m'a
-llevamans		l^@B@m'ans
-llevaneu		l^,eB@n'ew
-llevaneus		l^,eB@n'ews
-llevataps		l^,eB@t'aps
-		
-lligabosc		l^,iQ@B'Osk
-lligaboscos		l^,iQ@B'Oskus
-lligacama		l^,iQ@k'am@
-lligacames		l^,iQ@k'am@s
-lligamosques		l^,iQ@m'osk@s
-		
-lliurecanvisme		l^,iw**@k@mb'izm@
-lliurecanvismes		l^,iw**@k@mb'izm@s
-lliurecanvista		l^,iw**@k@mb'ist@
-lliurecanvistes		l^,iw**@k@mb'ist@s
-		
-lloctinència		l^,Oktin'Ensi@
-lloctinències		l^,Oktin'Ensi@s
-lloctinent		l^,Oktin'en
-lloctinents		l^,Oktin'ens
-		
-maremàgnum		m,a**@m'aNnum
-maremàgnums		m,a**@m'aNnums
-mareperla		m,a**@p'ERl@
-mareperles		m,a**@p'ERl@s
-mareselva		m,a**@s'ElB@
-mareselves		m,a**@s'ElB@s
+francmaçó		f**,aNmas'o
+francmaçoneria		f**,aNmasone**'ia
+francmaçònic		f**,aNmas'Onik
 
-masdartús		m,azd@Rt'us
-masdencoll		m,azd@Nk'Ol^
-masdengoles		m,azd@Ng'Ol@s
-masdenverge		m,azd@mb'ERZ@
-masdexeixars		m,azd@S@S'as
-masferrer		m,asf@R'e
+francoamericà		f**,aNkoame**ik'a
+francoprovençal		f**,aNkop**ovens'al
+		
+gratabous		g**,ataB'Ows
+gratacel		g**atas'El
+gratallops		g**,atal^'ops
+gratanúvols		g**,atan'uvols
+gratapalles		g**,atap'al^es
+gratapeus		g**,atap'Ews
+gratcient		g**,atsi'en
+?3 gratcient		g**atsi'ent
+		
+horabaixa		,O**@B'aSa
+?2 horabaixa		,O**aB'ajSa
+horabaixenc		,O**aBaS'EN
+?2 horabaixenc		,O**aBajS'eNk
+horabona		,O**aB'Ona
+		
+llançaarpons		l^,ansaRp'ons
+?3 llançaarpons		l^,ansa**p'ons
+llançabombes		l^,ansaB'ombes
+llançacaps		l^,ansak'aps
+llançacoets		l^,ansako'Ets
+?2 llançacoets		l^,ansako'ets
+llançaflames		l^,ansafl'ames
+llançafum		l^,ansaf'um
+llançagranades		l^,ansaQ**an'aDes
+llançamíssils		l^,ansam'isils
+llançatorpedes		l^,ansatoRp'EDes
+?2 llançatorpedes		l^,ansato**p'eDes
+		
+llenguadocià		l^eNgwaDosi'a
+llenguaeixuta		l^,eNgwaS'uta
+?2 llenguaeixuta		l^,eNgwaejS'uta
+llenguallarg		l^,eNgwal^'aRk
+?3 llenguallarg		l^,eNgwal^'a**k
+		
+llepaculs		l^,epak'uls
+llepafils		l^,epaf'ils
+llepapedres		l^,epap'eD**es
+llepaplats		l^,epapl'ats
+		
+lletraferit		l^,Et**afe**'it
+?2 lletraferit		l^,et**afe**'it
+		
+llevamà		l^,evam'a
+llevaneu		l^,evan'ew
+llevataps		l^,evat'aps
+		
+lligabosc		l^,iQaB'Osk
+lligacama		l^,iQak'ama
+lligamosques		l^,iQam'oskes
+		
+lliurecanvisme		l^,iw**ekaMv'izme
+lliurecanvista		l^,iw**ekaMv'ista
+		
+lloctinència		l^,Oktin'Ensia
+lloctinent		l^,Oktin'en
+?3 lloctinent		l^,Oktin'ent
+		
+maremàgnum		m,a**em'agnum
+mareperla		m,a**ep'ERla
+?3 mareperla		m,a**ep'E**la
+mareselva		m,a**es'ElBa
+?2 mareselva		m,a**es'elva
+		
+masdartús		m,azdaRt'us
+?3 masdartús		m,azda**t'us
+masdencoll		m,azdeNk'Ol^
+masdengoles		m,azdeNg'Oles
+masdenverge		m,azdemb'ERZe
+?3 masdenverge		m,azdeMv'E**dZe
+masdexeixars		m,azdeSeS'as
+?2 masdexeixars		m,azdeSejS'as
+?3 masdexeixars		m,azdetSejS'a**s
+masferrer		m,asfeR'e
+?3 masferrer		masfeR'e**
 masfont		m,asf'On
-masfred		m,asf**'Et
-masgoret		m,azgu**'Et
+?3 masfont		masf'Ont
+masfred		masf**'Et
+masgoret		m,azgo**'Et
 masgrau		m,azg**'aw
 masgrill		m,azg**'il^
-masjoan		m,azZu'an
-masllobet		m,azl^uB'Et
+masjoan		m,azZo'an
+?3 masjoan		masdZo'an
+masllobet		m,azl^oB'Et
 masllong		m,azl^'oN
-masllorenç		m,azl^u**'Ens
+?3 masllong		m,azl^'oNk
+masllorenç		m,azl^o**'Ens
 masmiquel		m,azmik'El
 masmitjà		m,azmidZ'a
-masmontalt		m,azmunt'al
-masoliver		m,azuliB'e
+masmontalt		m,azmont'al
+masoliver		m,azoliv'e
+?3 masoliver		m,azoliv'e**
 masponç		m,asp'Ons
 maspujols		m,aspuZ'Ols
+?3 maspujols		maspudZ'Ols
 masriudoms		m,azR,iwd'oms
 masrocs		m,azR'Oks
 masroig		m,azR'OtS
 		
-marialluïsa		m@**,i@l^u'iz@
-marialluïses		m@**,i@l^u'iz@s
+marialluïsa		ma**,ial^u'iza
 		
-matablat		m,at@Bl'at
-matablats		m,at@Bl'ats
-matabou		m,at@B'Ow
-matabous		m,at@B'Ows
-matacabra		m,at@k'aB**@
-matacabres		m,at@k'aB**@s
-matacabrit		m,at@k@B**'it
-matacabrits		m,at@k@B**'its
-matacoix		m,at@k'oS
-matacoixos		m,at@k'oSus
-matafaluga		m,at@f@l'uQ@
-matafaluges		m,at@f@l'uQ@s
-mataferrera		m,at@f@R'e**@
-mataferreres		m,at@f@R'e**@s
-matafoc		m,at@f'Ok
-matafocs		m,at@f'Oks
-matafred		m,at@f**'Et
-matafreds		m,at@f**'Ets
-matagall		m,at@Q'al^
-matagalls		m,at@Q'al^s
-matagats		m,at@Q'ats
-matagent		m,at@Z'en
-matagents		m,at@Z'ens
-matajaia		m,at@Z'aj@
-matajaies		m,at@Z'aj@s
-matajudaica		m,at@ZuD'ajk@
-matajudaiques		m,at@ZuD'ajk@s
-matalescabres		m,at@l@sk'aB**@s
-matallongues		m,at@l^'oNg@s
-matallops		m,at@l^'ops
-matallums		m,at@l^'ums
-matamoixons		m,at@muS'ons
-matamoros		m,at@m'O**us
-matamosques		m,at@m'osk@s
-matanegra		m,at@n'EQ**@
-matanegres		m,at@n'EQ**@s
-mataparent		m,at@p@**'en
-mataparents		m,at@p@**'ens
-matapoll		m,at@p'ol^
-matapolls		m,at@p'ol^s
-matavaques		m,at@B'ak@s
-matavicaris		m,at@Bik'a**is
-matavinya		m,at@B'in^@
-matavinyes		m,at@B'in^@s
+matablat		m,ataBl'at
+m,atabou		m,ataB'Ow
+m,atacabra		m,atak'aB**a
+m,atacabrit		m,atakaB**'it
+m,atacoix		m,atak'oS
+?2 m,atacoix		m,atak'ojS
+m,atafaluga		m,atafal'uQa
+m,ataferrera		m,atafeR'e**a
+m,atafoc		m,ataf'Ok
+m,atafred		m,ataf**'Et
+?2 m,atafred		m,ataf**'et
+m,atagall		m,ataQ'al^
+m,atagats		m,at@Q'ats
+m,atagent		m,at@Z'en
+?3 m,atagent		m,atadZ'ent
+m,atajaia		m,ataZ'aja
+?3 m,atajaia		m,atadZ'aja
+m,atajudaica		m,ataZuD'ajka
+m,atalescabres		m,atalesk'aB**es
+m,atallongues		m,atal^'oNges
+m,atallops		m,atal^'ops
+m,atallums		m,atal^'ums
+m,atamoixons		m,atamoS'ons
+?2 m,atamoixons		m,atamojS'ons
+m,atamoros		m,atam'O**os
+m,atamosques		m,atam'oskes
+m,atanegra		m,atan'EQ**a
+m,ataparent		m,atapa**'en
+?3 m,ataparent		m,atapa**'ent
+m,atapoll		m,atap'ol^
+m,atavaques		m,atav'akes
+m,atavicaris		m,atavik'a**is
+m,atavinya		m,atav'in^a
 		
-menjacapellans		m,en^Z@k@p@l^'ans
-menjafestucs		m,en^Z@f@st'uks
-menjafigues		m,en^Z@f'iQ@s
-menjamiques		m,en^Z@m'ik@s
-menjamoixines		m,en^Z@muS'in@s
-menjapalla		m,En^Z@p'al^@
-menjapalles		m,En^Z@p'al^@s
-menjapà		m,en^Z@p'a
-menjapàs		m,en^Z@p'as
-menjapinyols		m,en^Z@pin^'Ols
+m,atamenjacapellans		m,enZakapel^'ans
+m,atamenjafestucs		m,enZafest'uks
+m,atamenjafigues		m,enZaf'iQes
+m,atamenjamiques		m,enZam'ikes
+m,atamenjamoixines		m,enZamojS'ines
+m,atamenjapalla		m,EnZap'al^a
+m,atamenjapà		m,enZap'a
+m,atamenjapinyols		m,enZapin^'ols
 menjavents		m,en^Z@B'ens
+?3 menjavents		m,enZav'ents
 		
-mentrestant		m,ent**@st'an
-mentrestants		m,ent**@st'ans
+mentrestant		m,ent**est'an
+?3 mentrestant		ment**est'ant
 		
-migdiada		m,idZdi'aD@
-migdiades		m,idZdi'aD@s
-migdia		m,idZd'i@
-migdies		m,idZd'i@s
-migjornada		m,idZuRn'aD@
-migjornades		m,idZuRn'aD@s
-migjornejar		m,idZuRn@Z'a
-migjornejars		m,idZuRn@Z'as
-migjornell		midZuRn'el^
-migjornells		midZuRn'el^s
+migdiada		m,idZdi'aDa
+migdia		m,idZd'ia
+migjornada		m,idZoRn'aDa
+migjornejar		m,idZuRneZ'a
+?3 migjornejar		m,idZo**neZ'a**
+migjornell		m,idZo**n'el^
 migjorn		m,idZ'oRn
-migjorns		m,idZ'oRns
-migpartir		m,itSp@Rt'i
-migpartirs		m,itSp@Rt'is
-migpartit		m,itSp@Rt'it
-migpartits		m,itSp@Rt'its
+?3 migjorn		m,idZ'o**n
+migpartir		m,itSpaRt'i
+?3 migpartir		m,itSpa**t'i**
+migpartit		m,itSpaRt'it
+?3 migpartit		m,itSpa**t'it
 migtemps		m,itSt'ems
 migtruncat		m,itSt**uNk'at
-migtruncats		m,itSt**uNk'ats
 		
-milfulles		m,ilf'ul^@s
+milfulles		m,ilf'ul^es
 milpunts		milp'uns
 		
-montalegre		m,on@l'eQ**@
+montalegre		m,ontal'eQ**e
 montbaig		m,omb'atS
+?3 montbaig		m,ondb'atS
 montbaix		m,omb'aS
-montbarbat		m,omb@Rb'at
+?3 montbaix		m,ondb'ajS
+montbarbat		m,ombaRb'at
+?3 montbarbat		m,ondba**B'at
 montblanc		m,ombl'aN
-montblanquet		m,ombl@Nk'Et
-montblanquets		m,ombl@Nk'Ets
+?3 montblanc		m,ondbl'aNk
+montblanquet		m,omblaNk'Et
+?3 montblanquet		m,ondblaNk'Et
+montblanquets		m,omblaNk'Ets
+?3 montblanquets		m,ondblaNk'Ets
 montbó		m,omb'o
-montbordó		m,ombuRd'o
+?3 montbó		m,ondb'o
+montbordó		m,omboRd'o
+?3 montbordó		m,ondbo**D'o
 montbrió		m,omb**i'o
+?3 montbrió		m,ondb**i'o
 montbrugós		m,omb**uQ'os
+?3 montbrugós		m,ondb**uQ'os
 montbrú		m,omb**'u
-montbui		m,omb'uj
-montcabrer		m,oNk@B**'e
+?3 montbrú		m,ondb**'u
+
+castell-montbui		kast,el^m,omb'uj
+?3 castell-montbui		kast,el^m,ondb'uj
+
+montcabrer		m,oNkaB**'e
+?3 montcabrer		m,ontkaB**'e**
 montcalb		m,oNk'alp
-montcalbos		m,oNk'alBus
+?3 montcalb		m,ontk'alp
+montcalbos		m,oNk'alBos
+?3 montcalbos		m,ontk'alBos
 montcal		m,oNk'al
-montcanut		m,oNk@n'ut
+?3 montcal		m,ontk'al
+montcanut		m,oNkan'ut
+?3 montcanut		m,ontkan'ut
 montcau		m,oNk'aw
+?3 montcau		m,ontk'aw
 montcel		m,ons'El
-montcerdà		m,ons@Rd'a
+?3 montcel		m,onts'El
+montcerdà		m,onseRd'a
+?3 montcerdà		m,ontse**D'a
 montclar		m,oNkl'a
+?3 montclar		m,ontkl'a**
 montclí		m,oNkl'i
+?3 montclí		m,ontkl'i
 montclús		m,oNkl'us
-montcofre		m,oNk'of**@
+?3 montclús		m,ontkl'us
+montcofre		m,oNk'of**e
+?3 montcofre		m,ontk'of**e
 montcogul		m,oNkuQ'ul
+?3 montcogul		m,ontkoQ'ul
 montconill		m,oNkun'il^
+?3 montconill		m,ontkon'il^
 montcorb		m,oNk'ORp
+?3 montcorb		m,ontk'O**p
 montcortal		m,oNkuRt'al
-montcortès		m,oNkuRt'Es
-montcurto		m,oNk'uRtu
+?3 montcortal		m,ontko**t'al
+montcortès		m,oNkoRt'Es
+?3 montcortès		m,ontko**t'Es
+montcurto		m,oNk'uRto
+?3 montcurto		m,ontk'u**to
 montdarn		m,ond'aRn
-montdellit		m,ond@l^'it
+?3 montdarn		m,ondd'a**n
+montdellit		m,ondel^'it
+?3 montdellit		m,onddel^'it
 montderm		m,ond'ERm
-montdeví		m,ond@B'i
+?3 montderm		m,ondd'E**m
+montdeví		m,ondev'i
+?3 montdeví		m,onddev'i
 montdois		m,ond'Ojs
-monteugues		m,on'ewQ@s
-montfalcó		m,oMf@lk'o
-montfalgars		m,oMf@lQ'as
-montfalgó		m,oMf@lQ'o
+?3 montdois		m,ondd'Ojs
+monteugues		m,on'ewQes
+?3 monteugues		m,ont'ewQes
+montfalcó		m,oMfalk'o
+?3 montfalcó		m,ontfalk'o
+montfalgars		m,oMfalQ'as
+?3 montfalgars		m,ontfalQ'a**s
+montfalgó		m,oMfalQ'o
+?3 montfalgó		m,ontfalQ'o
 montfar		m,oMf'aR
-montferrer		m,oMf@R'e
+?3 montfar		m,ontf'a**
+montferrer		m,oMfeR'e
+?3 montferrer		m,ontfeR'e**
 montferri		m,oMf'ERi
-montfina		m,oMf'in@
+?3 montferri		m,ontf'ERi
+montfina		m,oMf'ina
+?3 montfina		m,ontf'ina
 montflorit		m,oMflu**'it
+?3 montflorit		m,ontflo**'it
 montfort		m,oMf'ORt
+?3 montfort		m,ontf'O**t
 montfred		m,oMf**'Et
+?3 montfred		m,ontf**'Et
 montfullà		m,oMful^'a
+?3 montfullà		m,ontful^'a
 montgai		m,oNg'aj
+?3 montgai		m,ondg'aj
 montgat		m,oNg'at
-montgavina		m,oNg@B'in@
-montgoda		m,oNg'OD@
+?3 montgat		m,ondg'at
+montgavina		m,oNgaB'ina
+?3 montgavina		m,ondgav'ina
+montgoda		m,oNg'ODa
+?3 montgoda		m,ondg'ODa
 montgoi		m,oNg'Oj
+?3 montgoi		m,ondg'Oj
 montgosso		m,oNg'Osu
+?3 montgosso		m,ondg'Oso
 montgràs		m,oNg**'as
+?3 montgràs		m,ondg**'as
 montgrat		m,oNg**'at
+?3 montgrat		m,ondg**'at
 montgres		m,oNg**'es
+?3 montgres		m,ondg**'es
 montgrony		m,oNg**'on^
+?3 montgrony		m,ondg**'on^
 montgròs		m,oNg**'Os
+?3 montgròs		m,ondg**'Os
 montjubrí		m,onZuB**'i
+?3 montjubrí		m,onddZuB**'i
 montjuïc		m,onZu'ik
-montlleó		m,onl^@'o
-montlleví		m,onl^@B'i
+?3 montjuïc		m,onddZu'ik
+montlleó		m,onl^e'o
+?3 montlleó		m,ondl^e'o
+montlleví		m,onl^ev'i
+?3 montlleví		m,ondl^ev'i
 montllobar		m,onl^uB'a
+?3 montllobar		m,ondl^oB'a**
 montllober		m,onl^uB'e
-montllorer		m,onl^u**'e
+?3 montllober		m,ondl^oB'e**
+montllorer		m,onl^o**'e
+?3 montllorer		m,ondl^o**'e**
 montlloret		m,onl^u**'Et
+?3 montlloret		m,ondl^o**'Et
 montllor		m,onl^'o
+?3 montllor		m,ondl^'o**
 montmar		m,omm'aR
+?3 montmar		m,ondm'a**
 montnar		m,onn'a
-montnegre		m,onn'EQ**@
+?3 montnar		m,ondn'a**
+montnegre		m,onn'EQ**e
+?3 montnegre		m,ondn'EQ**e
 montnou		m,onn'Ow
+?3 montnou		m,ondn'Ow
 montpalau		m,omp@l'aw
-montpaó		m,omp@'o
+?3 montpalau		m,ontpal'aw
+montpaó		m,ompa'o
+?3 montpaó		m,ontpa'o
 montpar		m,omp'aR
+?3 montpar		m,ontp'a**
 montpàs		m,omp'as
-montpedrós		m,omp@D**'os
-montperdut		m,omp@Rd'ut
-montperler		m,omp@Rl'e
-montpetit		m,omp@t'it
+?3 montpàs		m,ontp'as
+montpedrós		m,ompeD**'os
+?3 montpedrós		m,ontpeD**'os
+montperdut		m,ompeRd'ut
+?3 montperdut		m,ontpe**D'ut
+montperler		m,ompeRl'e
+?3 montperler		m,ontpe**l'e**
+montpetit		m,ompet'it
+?3 montpetit		m,ontpet'it
 montplà		m,ompl'a
+?3 montplà		m,ontpl'a
 montplet		m,ompl'Et
+?3 montplet		m,ontpl'Et
 montpol		m,omp'Ol
+?3 montpol		m,ontp'Ol
 montpolt		m,omp'Ol
+?3 montpolt		m,ontp'Olt
 montpou		m,omp'ow
-montsacopa		m,ons@k'op@
-montsagre		m,ons'aQ**@
-montsaliente		m,ons@li'ent@
+?3 montpou		m,ontp'ow
+montsacopa		m,onsak'opa
+?3 montsacopa		m,ontsak'opa
+montsagre		m,ons'aQ**e
+?3 montsagre		m,onts'aQ**e
+montsaliente		m,ons@li'ente
+?3 montsaliente		m,ontsali'ente
 montsant		m,ons'an
-montsarra		m,ons'aR@
-montsec		m,ons'Ek
+?3 montsant		m,onts'ant
+montsarra		m,ons'aRa
+?3 montsarra		m,onts'aRa
+montsec		muns'Ek
+?3 montsec		monts'Ek
 montsent		m,ons'en
-montserè		m,ons@**'E
-montserrada		m,ons@R'aD@
-montserrats		m,ons@R'ats
-montservó		m,ons@Rb'o
+?3 montsent		m,onts'ent
+montserè		m,onse**'E
+?3 montserè		m,ontse**'E
+montserrada		m,ons@R'aDa
+?3 montserrada		m,ontseR'aDa
+montserrats		m,onseR'ats
+?3 montserrats		m,ontseR'ats
+montservó		m,onseRv'o
+?3 montservó		m,ontse**v'o
 montservós		m,ons@Rb'os
+?3 montservós		m,ontse**v'os
 montsipòsit		m,onsip'Ozit
+?3 montsipòsit		m,ondsip'Ozit
 montsolís		m,onsul'is
+?3 montsolís		m,ontsol'is
 montsó		m,ons'o
-montsonís		m,onsun'is
-montsoriu		m,onsu**'iw
+?3 montsó		m,onts'o
+montsonís		m,onson'is
+?3 montsonís		m,ontson'is
+montsoriu		m,onso**'iw
+?3 montsoriu		m,ontso**'iw
 montsor		m,ons'o
+?3 montsor		m,onts'o**
 montsuar		m,onsu'a
-montvallet		m,omb@l^'Et
-montvall		m,omb'al^
-montverdor		m,omb@Rd'o
-montvià		m,ombi'a
-montví		m,omb'i
+?3 montsuar		m,ontsu'a**
+montvallet		m,onval^'Et
+?3 montvallet		m,ondval^'Et
+montvall		m,onv'al^
+?3 montvall		m,ondv'al^
+montverdor		m,onveRd'o
+?3 montverdor		m,ondve**D'o**
+montvià		m,omvi'a
+?3 montvià		m,ondvi'a
+montví		m,onv'i
+?3 montví		m,ondv'i
 		
-noucasat		n,Owk@z'at
-noucasats		n,Owk@z'ats
-noucentisme		n,Ows@nt'izm@
-noucentismes		n,Ows@nt'izm@s
-noucentista		n,Ows@nt'ist@
-noucentistes		n,Ows@nt'ist@s
+noucasat		n,Owkaz'at
+?3 noucasat		nowkaz'at
+noucentisme		n,Owsent'izme
+?3 noucentisme		nowsent'izme
+noucentista		n,Owsent'ista
+?3 noucentista		nowsent'ista
 noucreus		n,Owk**'Ews
 noufonts		n,Owf'Ons
+?3 noufonts		n,Owf'Onts
 nounat		n,Own'at
-nounats		n,Own'ats
-nouvingut		n,OwBiNg'ut
-nouvinguts		n,OwBiNg'uts
+nouvingut		n,OwviNg'ut
 		
-nogensmenys		n,oZ,enzm'En^S
+nogensmenys		n,oZ,enzm'En^s
 		
-offset		,Ofs'Et
-offsets		,Ofs'Ets
+onsevol		,onsev'Ol
+onsevulga		,onsev'ulQa
+onsevulla		,onsev'ul^a
 		
-oidà		,Ojd'a
-oidàs		,Ojd'as
+palaudalba		pal,awd'alBa
+palaudàries		pal,awd'a**ies
+palautordera		pal,awto**D'e**a
 		
-onsevol		,ons@B'Ol
-onsevulga		,ons@B'ulQ@
-onsevulges		,ons@B'ulQ@s
-onsevulla		,ons@B'ul^@
-onsevulles		,ons@B'ul^@s
+panxabuit		p,an^SaB'ujt
+panxacontent		p,antSakont'ent
 		
-palaudalba		p@l,awd'alB@
-palaudalbes		p@l,awd'alB@s
-palaudàries		p@l,awd'a**i@s
-palautordera		p@l,awtuRd'e**@
-palautorderes		p@l,awtuRd'e**@s
+papabenet		p,apaB@n'Et
+?3 papabenet		p,apaBen'et
+papadiners		p,apaDin'es
+?3 papadiners		p,apaDin'e**s
+papafiga		p,apaf'iQa
+papafigues		papaf'iQes
+papafigo		p,apaf'iQo
+papamosques		p,apam'oskes
+papaorelles		p,apao**'El^es
+?3 papaorelles		p,apao**'el^es
 		
-panxabuit		p,an^S@B'ujt
-panxabuits		p,an^S@B'ujts
-panxacontent		p,an^S@kunt'en
-panxacontents		p,an^S@kunt'ens
+parenostre		p,a**en'Ost**e
 		
-papabenet		p,ap@B@n'Et
-papabenets		p,ap@B@n'Ets
-papadiners		p,ap@Din'es
-papafiga		p,ap@f'iQ@
-papafigues		p,ap@f'iQ@s
-papafigo		p@p@f'iQu
-papafigos		p@p@f'iQus
-papamosques		p,ap@m'osk@s
-papaorelles		p,ap@u**'El^@s
+peçaborrosa		p,esaBoR'oza
+peçaplana		p,esapl'ana
 		
-parenostre		p,a**@n'Ost**@
-parenostres		p,a**@n'Ost**@s
+pedracastell		p,eD**akast'el^
+pedraferit		p,eD**afe**'it
+pedrafita		p,eD**af'ita
+pedraforca		p,eD**af'o**ka
+pedralta		p,eD**'alta
+pedrapiquer		p,eD**apik'e
+?3 pedrapiquer		peD**apik'e**
 		
-peçaborrosa		p,es@BuR'oz@
-peçaborroses		p,es@BuR'oz@s
-peçaplana		p,es@pl'an@
-peçaplanes		p,es@pl'an@s
-		
-pedracastell		p,eD**@k@st'el^
-pedraferit		p,eD**@f@**'it
-pedrafita		p,eD**@f'it@
-pedraforca		p,eD**@f'oRk@
-pedraforques		p,eD**@f'oRk@s
-pedralta		p,eD**'alt@
-pedraltes		p,eD**'alt@s
-pedrapiquer		p,eD**@pik'e
-pedrapiquers		p,eD**@pik'es
-		
-pelacanyes		p,El@k'an^@s
-peladits		p,El@D'its
-pelasquenes		p,El@sk'En@s
+pelacanyes		p,Elak'an^es
+?2 pelacanyes		pelak'an^es
+peladits		p,ElaD'its
+?2 peladits		pelaD'its
+pelasquenes		p,Elask'Enes
 		
 pèlllarg		p,Ell^'aRk
-pèlllargs		p,Ell^'aRks
-
-pellobrir		p,el^uB**'i
-pellpartir		p,el^p@Rt'i
-pellroja		p@l^**'OZ@
-pellroges		p@l^**'OZ@s
-pelltrencar		p,el^t**@Nk'a
+?3 pèlllarg		p,Ell^'a**k
 		
-penjabocs		p,en^Z@B'oks
-penjacans		p,en^Z@k'ans
-penjallops		p,en^Z@l^'ops
+pellobrir		p,el^oB**'i
+?3 pellobrir		p,el^oB**'i**
+pellpartir		p,el^paRt'i
+?3 pellpartir		p,el^pa**t'i**
+pellroja		p,el^**'OZa
+pelltrencar		p,el^t**eNk'a
+?3 pelltrencar		p,el^t**eNk'a**
 		
-penyafel		p,en^@f'El
-penyafels		p,en^@f'Els
-penyaflor		p,En^@fl'O
-penyaflors		p,En^@fl'Os
-penyafort		p,En^@f'ORt
-penyaforts		p,En^@f'ORts
-penyagats		p,En^@Q'ats
-penyalba		p,En^'alB@
-penyalbes		p,En^'alB@s
+penjabocs		p,en^ZaB'oks
+penjacans		p,en^Zak'ans
+penjallops		p,en^Zal^'ops
 		
-peratallada		p,e**@t@l^'aD@
-peratallades		p,e**@t@l^'aD@s
+penyafel		p,en^af'El
+penyaflor		p,En^afl'O
+?3 penyaflor		p,En^afl'O**
+penyafort		p,En^af'ORt
+?3 penyafort		p,En^af'O**t
+penyagats		p,En^aQ'ats
+penyalba		p,En^'alBa
 		
-perdonavides		p@Rd,on@B'iD@s
+peratallada		p,e**atal^'aDa
 		
-perejaia		p,e**@Z'aj@
-perejaies		p,e**@Z'aj@s
-perejoan		p,e**@Zu'an
-perejoans		p,e**@Zu'ans
+perdonavides		peRd,onav'iDes
+?3 perdonavides		pe**D,onav'iDes
 		
-pesabebès		p,ez@B@B'Es
-pesacartes		p,ez@k'aRt@s
-pesafiltres		p,ez@f'ilt**@s
-pesainfants		p,ez@jMf'ans
-pesalicors		p,ez@lik'oRs
+perejaia		p,e**eZ'aja
+perejoan		p,e**eZu'an
 		
-pescamines		p,Esk@m'in@s
+pesabebès		p,ezaBeB'es
+pesacartes		p,ezak'aRtes
+?3 pesacartes		p,ezak'a**tes
+pesafiltres		p,ezaf'ilt**es
+pesainfants		p,ezajMf'ans
+?3 pesainfants		pezaiMf'ants
+pesalicors		p,ezalik'oRs
+?3 pesalicors		p,ezalik'o**s
 		
-pessiganassos		p@s,iQ@n'asus
+pescamines		p,Eskam'ines
 		
-petjapapers		p,edZ@p@p'es
+pessiganassos		pes,iQan'asos
+		
+petjapapers		p,edZapap'es
+?3 petjapapers		p,edZapap'e**s
 		
 peualt		p,Ew'al
-peualts		p,Ew'als
-peucalcigar		p,Ewk@lsiQ'a
+?3 peualt		p,Ew'alt
+peucalcigar		p,EwkalsiQ'a
+?3 peucalcigar		p,EwkalsiQ'a**
 peucrist		p,Ewk**'ist
-peucrists		p,Ewk**'ists
 peucurt		p,Ewk'uRt
-peucurts		p,Ewk'uRts
+?3 peucurt		p,Ewk'u**t
 peugròs		p,Ewg**'Os
-peuterrós		p,Ewt@R'os
+peuterrós		p,EwteR'os
 		
-picaaranyes		p,ik@**'an^@s
-picabaralla		p,ik@B@**'al^@
-picabaralles		p,ik@B@**'al^@s
-picacancell		p,ik@k@ns'el^
-picacancells		p,ik@k@ns'el^s
-picacarrasques		p,ik@k@R'ask@s
-picaferro		p,ik@f'ERu
-picaferros		p,ik@f'ERus
-picaflor		p,ik@fl'O
-picaflors		p,ik@fl'Os
+picaaranyes		p,ikaa**'an^es
+picabaralla		p,ikaBa**'al^a
+picacancell		p,ikakans'el^
+picacarrasques		p,ikakaR'askes
+picaferro		p,ikaf'ERo
+picaflor		p,ikafl'O
+?3 picaflor		p,ikafl'O**
 picamà		p,ik@m'a
-picamans		p,ik@m'ans
-picamatalassos		p,ik@m@t@l'asus
+?3 picamà		pikam'a
+picamatalassos		p,ikamatal'asos
 picantment		pik,amm'en
-picantments		pik,amm'ens
-picapedra		p,ik@p'eD**@
-picapedres		p,ik@p'eD**@s
-picapedrell		p,ik@p@D**'el^
-picapedrells		p,ik@p@D**'el^s
-picapedrer		p,ik@p@D**'e
-picapedrers		p,ik@p@D**'es
-picapedres		p,ik@p'eD**@s
-pica-pica		p,ik@p'ik@
-pica-piques		p,ik@p'ik@s
-picapinyes		p,ik@p'in^@s
-picaplatges		p,ik@pl'adZ@s
-picaplets		p,ik@pl'ets
-picapoll		p,ik@p'ol^
-picapolls		p,ik@p'ol^s
-picaporta		p,ik@p'ORt@
-picaportes		p,ik@p'ORt@s
-picaport		p,ik@p'ORt
-picaports		p,ik@p'ORts
-picapunt		p,ik@p'un
-picapunts		p,ik@p'uns
-picarescament		pik@**,Esk@m'en
-picarescaments		pik@**,Esk@m'ens
-pica-sal		p,ik@s'al
-pica-sals		p,ik@s'als
-pica-soques		p,ik@s'Ok@s
-picatatxes		p,ik@t'atS@s
+?3 picantment		p,ikandm'ent
+picapedra		p,ikap'eD**a
+picapedres		p,ikap'eD**es
+picapedrell		p,ikapeD**'el^
+picapedrer		p,ikapeD**'e
+?3 picapedrer		p,ikapeD**'e**
+picapedres		p,ikap'eD**es
+pica-pica		p,ikap'ika
+picapinyes		p,ikap'in^es
+picaplatges		p,ikapl'adZes
+picaplets		p,ikapl'ets
+picapoll		p,ikap'ol^
+picaporta		p,ikap'ORta
+?3 picaporta		p,ikap'O**ta
+picaportes		pikap'ORtes
+?3 picaportes		pikap'O**tes
+picaport		p,ikap'ORt
+?3 picaport		p,ikap'O**t
+picapunt		p,ikap'un
+?3 picapunt		p,ikap'unt
+picarescament		pika**,Eskam'en
+?3 picarescament		pika**,Eskam'ent
+pica-sal		p,ikas'al
+pica-soques		p,ikas'Okes
+picatatxes		p,ikat'atSes
 		
-poblenou		p,Obbl@n'Ow
-poblenous		p,Obbl@n'Ows
+poblenou		p,Obblen'Ow
+?3 poblenou		p,OBlen'Ow
 		
-pocafarina		p,Ok@f@**'in@
-pocafarines		p,Ok@f@**'in@s
-pocavergonya		p,Ok@B@Rg'On^@
-pocavergonyes		p,Ok@B@Rg'On^@s
+pocafarina		p,Okafa**'ina
+pocavergonya		p,OkaveRg'On^a
+?3 pocavergonya		p,Okave**Q'On^a
 		
 policíclic		p,Olis'iklik
-policíclics		p,Olis'ikliks
-policlínica		p,Olikl'inik@
-policlíniques		p,Olikl'inik@s
-policonreu		p,OlikunR'Ew
-policonreus		p,OlikunR'Ews
-policoral		p,Oliku**'al
-policorals		p,Oliku**'als
+?3 policíclic		polis'iklik
+policlínica		p,Olikl'inika
+?3 policlínica		polikl'inika
+policonreu		p,OlikonR'Ew
+?3 policonreu		polikonR'Ew
+policoral		p,Oliko**'al
+?3 policoral		poliko**'al
 policord		p,Olik'ORt
-policords		p,Olik'ORts
+?3 policord		polik'O**t
 policultiu		p,Olikult'iw
-policultius		p,Olikult'iws
+?3 policultiu		polikult'iw
 policultura		p,Olikult'u**@
-policultures		p,Olikult'u**@s
-polifonemàtic		p,Olifun@m'atik
-polifonemàtics		p,Olifun@m'atiks
-poligènesi		p,OliZ'En@zi
-poligènesis		p,OliZ'En@zis
-poligenètic		p,OliZ@n'Etik
-poligenètics		p,OliZ@n'Etiks
+?3 policultura		polikult'u**a
+polifonemàtic		p,Olifonem'atik
+?3 polifonemàtic		polifonem'atik
+poligènesi		p,OliZ'Enezi
+?3 poligènesi		poliZ'Enezi
+poligenètic		p,OliZen'Etik
+?3 poligenètic		poliZen'Etik
 poligènic		p,OliZ'Enik
-poligènics		p,OliZ'Eniks
-polimodalitat		p,OlimuD@lit'at
-polimodalitats		p,OlimuD@lit'ats
+?3 poligènic		poliZ'Enik
+polimodalitat		p,OlimoDalit'at
+?3 polimodalitat		polimoDalit'at
 polinuclear		p,Olinukle'aR
-polinuclears		p,Olinukle'aRs
-poliomielitis		p,oliumi@l'itis
-polirítmia		p,Oli**'idmi@
-polirítmies		p,Oli**'idmi@s
-polisèpal		p,Olis'Ep@l
-polisèpals		p,Olis'Ep@ls
-polisil·làbic		p,Olisill'aBik
-polisil·làbics		p,Olisill'aBiks
-polisíl·lab		p,Olis'ill@p
-polisíl·labs		p,Olis'ill@ps
-polisil·logisme		p,OlisilluZ'izm@
-polisil·logismes		p,OlisilluZ'izm@s
+?3 polinuclear		polinukle'a**
+poliomielitis		p,oliomiel'itis
+?3 poliomielitis		poliomiel'itis
+polirítmia		p,Oli**'idmia
+?3 polirítmia		poli**'idmia
+polisèpal		p,Olis'Epal
+?3 polisèpal		polis'Epal
 polisintètic		p,Olisint'Etik
-polisintètics		p,Olisint'Etiks
-polisintetisme		p,Olisint@t'izm@
-polisintetismes		p,Olisint@t'izm@s
-polispèrmia		p,Olisp'ERmi@
-polispèrmies		p,Olisp'ERmi@s
-polisportiu		p,OlispuRt'iw
-polisportius		p,OlispuRt'iws
-politonalisme		p,Olitun@l'izm@
-politonalismes		p,Olitun@l'izm@s
-politonalitat		p,Olitun@lit'at
-politonalitats		p,Olitun@lit'ats
+?3 polisintètic		polisint'Etik
+polisintetisme		p,Olisintet'izme
+?3 polisintetisme		polisintet'izme
+polispèrmia		p,Olisp'ERmia
+?3 polispèrmia		pOlisp'E**mia
+polisportiu		p,OlispoRt'iw
+?3 polisportiu		polispo**t'iw
+politonalisme		p,Olitonal'izme
+?3 politonalisme		politonal'izme
+politonalitat		p,Olitonalit'at
+?3 politonalitat		politonalit'at
 politonal		p,Olitun'al
-politonals		p,Olitun'als
-polivalència		p,OliB@l'Ensi@
-polivalències		p,OliB@l'Ensi@s
-polivalent		p,OliB@l'en
-polivalents		p,OliB@l'ens
+?3 politonal		politon'al
+polivalència		p,Olival'Ensia
+?3 polivalència		polival'Ensia
+polivalent		p,Olival'en
+?3 polivalent		polival'ent
 		
-postdata		p,Osd'at@
-postdates		p,Osd'at@s
-postdatar		p,Osd@t'a
-postdatars		p,Osd@t'as
-postdental		p,Osd@nt'al
-postdentals		p,Osd@nt'als
-postdiluvià		p,OsdiluBi'a
-postdiluviàs		p,OsdiluBi'as
-postdorsal		p,OsduRs'al
-postdorsals		p,OsduRs'als
-postencesa		p,Ost@ns'Ez@
-postenceses		p,Ost@ns'Ez@s
-postglacial		p,Osgl@si'al
-postglacials		p,Osgl@si'als
-postgraduat		p,Osg**@Du'at
-postgraduats		p,Osg**@Du'ats
-postguerra		p,Osg'ER@
-postguerres		p,Osg'ER@s
-postimpressionisme		p,Ostimp**@siun'izm@
-postimpressionismes		p,Ostimp**@siun'izm@s
+postdata		 pOsd'ata
+postdatar		p,Osdat'a
+?3 postdatar		posdat'a**
+postdental		p,Osdent'al
+?3 postdental		posdent'al
+postdiluvià		p,Osdiluvi'a
+?3 postdiluvià		posdiluvi'a
+postdorsal		p,OsdoRs'al
+?3 postdorsal		pOsdo**s'al
+postencesa		p,Ostens'Eza
+?3 postencesa		postens'eza
+postglacial		p,Osglasi'al
+?3 postglacial		posglasi'al
+postgraduat		p,Osg**aDu'at
+?3 postgraduat		posg**aDu'at
+postguerra		p,Osg'ERa
+?3 postguerra		posg'ERa
+postimpressionisme		p,Ostimp**esion'izme
+?3 postimpressionisme		postimp**esion'izme
 postlingual		p,OsliNgw'al
-postlinguals		p,OsliNgw'als
+?3 postlingual		posliNgw'al
 postludi		p,Osl'uDi
-postludis		p,Osl'uDis
-postmeridià		p,Osm@**iDi'a
-postmeridiàs		p,Osm@**iDi'as
-postnominal		p,Osnumin'al
-postnominals		p,Osnumin'als
-postoperatori		p,Ostup@**@t'O**i
-postoperatoris		p,Ostup@**@t'O**is
-postpalatal		p,Ostp@l@t'al
-postpalatals		p,Ostp@l@t'als
-postprandial		p,Ostp**@ndi'al
-postprandials		p,Ostp**@ndi'als
-postprecipitació		p,Ostp**@sipit@si'o
-postprecipitaciós		p,Ostp**@sipit@si'os
+?3 postludi		posl'uDi
+postmeridià		p,Osme**iDi'a
+?3 postmeridià		posme**iDi'a
+postnominal		p,Osnomin'al
+?3 postnominal		posnomin'al
+postoperatori		p,Ostope**at'O**i
+postpalatal		p,Ostpalat'al
+?3 postpalatal		pospalat'al
+postprandial		p,Ostp**andi'al
+?3 postprandial		posp**andi'al
+postprecipitació		p,Ostp**esipitasi'o
+?3 postprecipitació		posp**esipitasi'o
 postsinàptic		p,Ostsin'aptik
-postsinàptics		p,Ostsin'aptiks
+?3 postsinàptic		possin'aptik
 posttònic		p,Ost'Onik
-posttònics		p,Ost'Oniks
-posttraumàtic		p,Ost**@wm'atik
-posttraumàtics		p,Ost**@wm'atiks
-postverbal		p,Osb@Rb'al
-postverbals		p,Osb@Rb'als
+?3 posttònic		post'Onik
+posttraumàtic		p,Ost**awm'atik
+?3 posttraumàtic		post**awm'atik
+postverbal		p,OsveRb'al
+?3 postverbal		p,Ozdve**B'al
 		
-pratdavall		p**,add@B'al^
+pratdavall		p**,addav'al^
 pratfang		p**,atf'aN
-pratformiu		p**,atfuRm'iw
-pratmajor		p**,adm@Z'o
-pratnavall		p**,adn@B'al^
+?3 pratfang		p**,atf'aNk
+pratformiu		p**,atfo**m'iw
+pratmajor		p**,admaZ'o**
+pratnavall		p**,adnav'al^
 pratprimer		p**,atp**im'e
+?3 pratprimer		p**atp**im'e**
 		
-propioceptiu		p**,Opius@pt'iw
-propioceptius		p**,Opius@pt'iws
+propioceptiu		p**,Opiusept'iw
+?3 propioceptiu		p**opiosept'iw
 		
-preamplificador		p**,e@mplifik@D'o
-preamplificadors		p**,e@mplifik@D'os
-preanestèsia		p**,e@n@st'Ezi@
-preanestèsies		p**,e@n@st'Ezi@s
+preamplificador		p**,eamplifikaD'o
+?3 preamplificador		p**eamplifikaD'o**
+preanestèsia		p**,eanest'Ezia
 		
-qualsevol		kw,als@B'Ol
-qualssevol		kw,als@B'Ol
-qualsevols		kw,als@B'Ols
-qualsevulla		kw,als@B'ul^@
-qualsevulles		kw,als@B'ul^@s
+qualsevol		kw,alsev'Ol
+qualsevulla		kw,alsev'ul^a
 		
 quartogènit		kw,aRtuZ'Enit
-quartogènits		kw,aRtuZ'Enits
-quatrecases		kw,at**@k'az@s
-quatrecentista		kw,at**@s@nt'ist@
-quatrecentistes		kw,at**@s@nt'ist@s
-quatrecorns		kw,at**@k'ORns
+?3 quartogènit		kwa**toZ'Enit
+quatrecases		kw,at**ek'azes
+quatrecentista		kw,at**esent'ista
+quatrecorns		kw,at**ek'ORns
+?3 quatrecorns		kwat**ek'O**ns
 		
-querforadat		k,efu**@D'at
-querforadats		k,efu**@D'ats
+querforadat		k,efo**aD'at
 		
-rataconill		R,at@kun'il^
-rataconills		R,at@kun'il^s
-ratapeus		R,at@p'Ews
+rataconill		R,atakon'il^
+ratapeus		R,atap'Ews
 		
-rentacares		R,ent@k'a**@s
-rentamans		R,ent@m'ans
-rentapeus		R,ent@p'Ews
-rentaplats		R,ent@pl'ats
-rentavaixella		R,ent@B@S'el^@
-rentavaixelles		R,ent@B@S'el^@s
+rentacares		R,entak'a**es
+rentamans		R,entam'ans
+rentapeus		R,entap'Ews
+rentaplats		R,entapl'ats
+rentavaixella		R,entavaS'el^a
+?2 rentavaixella		R,entavajS'el^a
 		
 riudoms		R,iwd'oms
 riumar		R,iwm'aR
-riurau		Riw**'aw
+?3 riumar		Riwm'a**
+riurau		R,iw**'aw
 		
-rocabandera		R,Ok@B@nd'e**@
-rocabertí		R,Ok@B@Rt'i
-rocablanca		R,Ok@Bl'aNk@
-rocabruna		R,Ok@B**'un@
-rocacinta		R,Ok@s'int@
-rocacorba		R,Ok@k'oRb@
-rocacrespa		R,Ok@k**'esp@
-rocadreta		R,Ok@D**'Et@
-rocafarigola		R,Ok@f@**iQ'Ol@
-rocaferrera		R,Ok@f@R'e**@
-rocafesa		R,Ok@f'Ez@
-rocafiguera		R,Ok@fiQ'e**@
-rocafonda		R,Ok@f'ond@
-rocafortà		R,Ok@fuRt'a
-rocafort		R,Ok@f'ORt
-rocagelera		R,Ok@Z@l'e**@
-rocagran		R,Ok@Q**'an
-rocagrossa		R,Ok@Q**'Os@
-rocaguinarda		R,Ok@Qin'aRd@
-rocallarga		R,Ok@l^'aRg@
-rocallaura		R,Ok@l^'aw**@
-rocallisa		R,Ok@l^'iz@
-rocalta		R,Ok'alt@
-rocamala		R,Ok@m'al@
-rocamalera		R,Ok@m@l'e**@
-rocamar		R,Ok@m'aR
-rocamentidera		R,Ok@m@ntiD'e**@
-rocamirall		R,ok@mi**'al^
-rocamora		R,Ok@m'o**@
-rocamur		R,Ok@m'u
-rocanegra		R,Ok@n'EQ**@
-rocapedra		R,Ok@p'eD**@
-rocaprevera		R,Ok@p**@B'e**@
-rocaquirol		R,Ok@ki**'Ol
-rocaterçana		R,Ok@t@Rs'an@
-rocatosa		R,Ok@t'oz@
-rocatrencada		R,Ok@t**@Nk'aD@
+rocabandera		R,OkaBand'e**a
+rocabertí		R,OkaBeRt'i
+?3 rocabertí		RokaBe**t'i
+rocablanca		R,OkaBl'aNka
+rocabruna		R,OkaB**'una
+rocacinta		R,Okas'inta
+rocacorba		R,Ok@k'oRba
+?3 rocacorba		R,Okak'o**Ba
+rocacrespa		R,Okak**'espa
+rocadreta		R,OkaD**'Eta
+rocafarigola		R,Okafa**iQ'Ola
+rocaferrera		R,OkafeR'e**a
+rocafesa		R,Okaf'Eza
+rocafiguera		R,OkafiQ'e**a
+rocafonda		R,Okaf'onda
+rocafortà		R,Ok@foRt'a
+?3 rocafortà		Rokafo**t'a
+rocafort		R,Okaf'ORt
+?3 rocafort		Rokaf'O**t
+rocagelera		R,OkaZel'e**a
+rocagran		R,OkaQ**'an
+rocagrossa		R,OkaQ**'Osa
+rocaguinarda		R,OkaQin'aRda
+?3 rocaguinarda		R,OkaQin'a**Da
+rocallarga		R,Okal^'aRga
+?3 rocallarga		R,Okal^'a**Qa
+rocallaura		R,Okal^'aw**a
+rocallisa		R,Okal^'iza
+rocalta		R,Ok'alta
+rocamala		R,Okam'ala
+rocamalera		R,Okamal'e**a
+rocamar		R,Okam'aR
+?3 rocamar		R,Okam'a**
+rocamentidera		R,OkamentiD'e**a
+rocamirall		R,okami**'al^
+rocamora		R,Okam'o**a
+rocamur		R,Okam'u
+?3 rocamur		R,Okam'u**
+rocanegra		R,Okan'EQ**a
+rocapedra		R,Okap'eD**a
+rocaprevera		R,Okap**ev'e**a
+rocaquirol		R,Okaki**'Ol
+rocaterçana		R,OkateRs'ana
+?3 rocaterçana		R,Okate**s'ana
+rocatosa		R,Okat'oza
+rocatrencada		R,Okat**eNk'aDa
 		
-rodadits		R,OD@D'its
-rodamilans		R,OD@mil'ans
-rodamón		R,OD@m'on
-rodamóns		R,OD@m'ons
-rodamot		R,OD@m'ot
-rodamots		R,OD@m'ots
+rodadits		R,ODaD'its
+rodamilans		R,ODamil'ans
+rodamón		R,ODam'on
+rodamot		R,ODam'ot
 		
-roquesblanques		R,Ok@zbl'aNk@s
-roquesbrunes		R,Ok@zb**'un@s
+roquesblanques		R,Okezbl'aNkes
+roquesbrunes		R,Okezb**'unes
 		
-salanova		s,al@n'OB@
-salanoves		s,al@n'OB@s
-salconduit		s,alkund'ujt
-salconduits		s,alkund'ujts
+salanova		s,alan'Ova
+salconduit		s,alkond'ujt
 salfumant		s,alfum'an
-salfumants		s,alfum'ans
-salmorrar		s,almuR'a
-salmorrars		s,almuR'as
-salmorra		s,alm'oR@
-salmorres		s,alm'oR@s
-salmorrat		s@lmuR'at
-salmorrats		s@lmuR'ats
-salnitrera		s@lnit**'e**@
-salnitreres		s@lnit**'e**@s
-salnitre		s,aln'it**@
-salnitres		s,aln'it**@s
-salnitrós		s@lnit**'os
+?3 salfumant		salfum'ant
+salmorrar		s,almoR'a
+?3 salmorrar		salmoR'a**
+salmorra		s,alm'oRa
+?3 salmorra		salm'oRa
+salmorrat		salmoR'at
+salnitrera		salnit**'e**a
+salnitre		s,aln'it**e
+salnitrós		salnit**'os
 salpàs		s,alp'as
-salpebrar		s,alp@B**'a
-salpebrars		s,alp@B**'as
-salpebre		s,alp'EB**@
-salpebres		s,alp'EB**@s
+salpebrar		s,alpeB**'a
+?3 salpebrar		salpeB**'a**
+salpebre		s,alp'EB**e
+23 salpebre		s,alp'eB**e
 salpetre		s,alp'Et**@
-salpetres		s,alp'Et**@s
-salprendre		s,alp'End**@
-salprendres		s,alp'End**@s
+?2 salpetre		salp'et**e
+salprendre		s,alp'End**e
+?2 salprendre		salp**'end**e
 		
-saltabardissa		s,alt@B@Rd'is@
-saltabardisses		s,alt@B@Rd'is@s
-saltabarrancs		s,alt@B@R'aNs
-saltamarges		s@lt@m'aRZ@s
-saltamartí		s@lt@m@Rt'i
-saltamartís		s@lt@m@Rt'is
-saltamurades		s,alt@mu**'aD@s
-saltaparets		s,alt@p@**'Ets
-saltataulells		s,alt@t@wl'el^s
-saltaterrats		s,alt@t@R'ats
-saltimbanqui		s@ltimb'aNki
-saltimbanquis		s@ltimb'aNkis
-saltseseugues		s,als@z'EwQ@s
-salvaespasa		s,alB@sp'az@
-salvaespases		s,alB@sp'az@s
-salvaguardar		s,alB@Qw@Rd'a
-salvaguardars		s,alB@Qw@Rd'as
-salvaguarda		s,alB@Qw'aRd@
-salvaguardes		s,alB@Qw'aRd@s
-salvallançadora		s,alB@l^@ns@D'o**@
-salvallançadores		s,alB@l^@ns@D'o**@s
-salvatot		s,alB@t'ot
-salvatots		s,alB@t'ots
-salvavides		s@lB@B'iD@s
+saltabardissa		s,altaBaRd'isa
+?3 saltabardissa		s,altaBa**D'isa
+saltabarrancs		s,altaBaR'aNs
+?3 saltabarrancs		s,altaBaR'aNks
+saltamarges		saltam'aRZes
+?3 saltamarges		s,altam'a**dZes
+saltamartí		s,altama**t'i
+saltamurades		s,altamu**'aDes
+saltaparets		s,altapa**'Ets
+?2 saltaparets		s,altapa**'ets
+saltataulells		s,altatawl'el^s
+saltaterrats		s,altateR'ats
+saltimbanqui		saltimb'aNki
+saltseseugues		s,alsez'EwQes
+salvaespasa		s,alvaesp'aza
+salvaguardar		s,alvaQwaRd'a
+?3 salvaguardar		s,alvagwa**D'a**
+salvaguarda		s,alvaQw'aRda
+?3 salvaguarda		s,alvagw'a**Da
+salvallançadora		s,alval^ansaD'o**a
+salvallançadores		salval^ansaD'o**es
+salvatot		s,alvat'ot
+salvavides		s,alvav'iDes
 		
-sanaporcs		s,an@p'ORks
-sanatruges		s,an@t**'uZ@s
+sanaporcs		s,anap'ORks
+?3 sanaporcs		s,anap'O**ks
+sanatruges		s,anat**'uZes
 		
-sancta sanctorum		s,aNt@s@Ntu**'um
-sancta sanctorums		s,aNt@s@Ntu**'ums
+sancta sanctorum*		s,aNktasaNkto**'um
 		
-sangcremar		s,aNk**@m'a
-sangcremars		s,aNk**@m'as
+sangcremar		s,aNk**em'a
+?3 sangcremar		s,aNkk**em'a**
 sangfluix		s,aNfl'uS
-sangfluixos		s,aNfl'uSus
-sangglaçar		s,aNgl@s'a
+?2 sangfluix		s,aNkfl'ujS
+sangglaçar		s,aNglas'a
+?3 sangglaçar		s,aNgglas'a**
 sangprès		s,aNp**'Es
-sangtraït		s,aNt**@'it
-sangtraïts		s,aNt**@'its
+?2 sangprès		saNkp**'es
+sangtraït		s,aNt**a'it
 		
-santabàrbara		s,ant@B'aRb@**@
-santacreu		s,ant@k**'Ew
-santaeugènia		s,ant@wZ'Eni@
-santaeulàlia		s,ant@wl'ali@
-santaeularienc		s@nt@wl@**i'EN
-santamaria		s,ant@m@**'i@
-santandreu		s,an@nd**'ew
-santantonienc		s,ant@ntuni'EN
-santanyiner		s@nt@n^in'e
-santapau		s,ant@p'aw
-santapoler		s@nt@pul'e
-santasusanna		s,ant@suz'ann@
-santboienc		s@mbuj'EN
-santcebrià		s,ans@B**i'a
+santabàrbara		s,antaB'aRba**@
+?3 santabàrbara		s,antaB'a**Ba**a
+santacreu		s,antak**'Ew
+santaeugènia		s,antaewZ'Enia
+santaeulàlia		s,antaewl'alia
+santaeularienc		s,antawla**i'EN
+?3 santaeularienc		s,antaewla**i'eNk
+santamaria		s,antama**'ia
+santandreu		santand**'ew
+santantonienc		s,antantoni'EN
+?3 santantonienc		s,antantoni'eNk
+santanyiner		santan^in'e
+?3 santanyiner		santan^in'e**
+santapau		s,antap'aw
+santapoler		s,antapol'e
+?3 santapoler		s,antapol'e**
+santasusanna		s,antasuz'anna
+?3 santasusanna		s,antasuz'anna
+santboienc		sambuj'EN
+?2 santboienc		samboj'eNk
+santcebrià		s,antseB**i'a
 santclimenç		s,aNklim'ens
+?3 santclimenç		santklim'ens
 santcrist		s,aNk**'ist
-santesmasses		s,ant@zm'as@s
-santeugini		s,ant@wZ'ini
-santfeliu		s,aMf@l'iw
-santfrancisco		s,aMf**@ns'isku
+santesmasses		s,antezm'ases
+santeugini		s,antewZ'ini
+santfeliu		s,aMfel'iw
+?3 santfeliu		santfel'iw
+santfrancisco		s,aMf**ans'isko
+?3 santfrancisco		santf**ans'isko
 santgelis		s,anZ'Elis
+?3 santgelis		sanddZ'Elis
 santgrà		s,aNg**'a
-santjaume		s,anZ'awm@
-santjoanada		s,an^Zu@n'aD@
-santjoaner		s,an^Zu@n'e
-santjoanista		s,an^Zu@n'ist@
-santjoan		s,anZu'an
-santjoans		s,anZu'ans
+?3 santgrà		sandg**'a
+santjaume		s,anZ'awme
+?3 santjaume		sanddZ'awme
+santjoanada		s,an^Zoan'aDa
+?3 santjoanada		s,andZoan'aDa
+santjoaner		s,an^Zoan'e
+?3 santjoaner		s,andZoan'e**
+santjoanista		s,an^Zoan'ista
+?3 santjoanista		s,andZoan'ista
+santjoan		san^Zo'an
+?3 santjoan		sandZo'an
+santjoans		s,anZo'ans
+?3 santjoans		sanddZo'ans
 santjustenc		s,an^Zust'EN
+?2 santjustenc		s,an^Zust'eN
+?3 santjustenc		s,andZust'eNk
 santjust		s,anZ'ust
-santmaí		s,amm@'i
+?3 santjust		s,anddZ'ust
+santmaí		s,amma'i
+?3 santmaí		sandma'i
 santmarc		s,amm'aRk
-santmartí		s,amm@Rt'i
-santmiquelada		s,ammik@l'aD@
+?3 santmarc		s,andm'a**k
+santmartí		s,ammaRt'i
+?3 santmartí		sandma**t'i
+santmiquelada		s,ammikel'aDa
 santmiquel		s,ammik'El
-santpare		s,amp'a**@
+?3 santmiquel		s,andmik'El
+santpare		s,amp'a**e
+?3 santpare		santp'a**e
 santpau		s,amp'aw
-santpedor		s,amp@D'o
-santpere		s,amp'e**@
+?3 santpau		s,antp'aw
+santpedor		s,ampeD'o
+?3 santpedor		santpeD'o**
+santpere		s,amp'e**e
+?3 santpere		s,antp'e**e
 santpou		s,amp'ow
-santvicenter		s,ambis@nt'e
-santvicentí		s,ambis@nt'i
+?3 santpou		santp'ow
+santvicenter		s,aMvisent'e
+?3 santvicenter		s,aMvisent'e**
+santvicentí		s,aMvisent'i
 		
-segabosses		s,eQ@B'Os@s
+segabosses		s,eQaB'Oses
+?3 segabosses		s,eQaB'oses
 		
-serrabadal		s,ER@B@D'al
-serrabana		s,ER@B'an@
-serrabardina		s,ER@B@Rd'in@
-serrabarona		s,ER@B@**'on@
-serrabassa		s,ER@B'as@
-serrabiaixos		s,ER@Bi'aSus
-serrabona		s,ER@B'On@
-serrabonica		s,ER@Bun'ik@
-serrabosses		s,ER@B'os@s
-serrabou		s,ER@B'Ow
-serrabrava		s,ER@B**'aB@
-serrabrisa		s,ER@B**'iz@
-serracaps		s,ER@k'aps
-serradalt		s,ER@D'al
-serradamunt		s,ER@D@m'un
-serradarques		s,ER@D'aRk@s
-serradavall		s,ER@D@B'al^
-serradebosc		s,ER@D@B'Osk
-serradellops		s,ER@D@l^'ops
-serradussà		s,ER@Dus'a
-serrafossà		s,ER@fus'a
-serragallarda		s,ER@Q@l^'aRd@
-serrajoana		s,ER@Zu'an@
-serrallarga		s,ER@l^'aRg@
-serrallebró		s,ER@l^@B**'o
-serrallímpia		s,ER@l^'impi@
-serrallonga		s,ER@l^'oNg@
-serralta		s,ER'alt@
-serramagra		s,ER@m'aQ**@
-serramala		s,ER@m'al@
-serramar		s,ER@m'aR
-serramelera		s,ER@m@l'e**@
-serramitja		s,ER@m'idZ@
-serramola		s,ER@m'Ol@
-serramoneda		s,ER@mun'ED@
-serramont		s,ER@m'On
-serramorena		s,ER@mu**'En@
-serraperera		s,ER@p@**'e**@
-serrapinyana		s,ER@pin^'an@
-serrassola		s,ER@s'Ol@
-serrassoles		s,ER@s'Ol@s
-serratacó		s,ER@t@k'o
-serratalt		s@R,at'al
-serratosa		s,ER@t'oz@
-serratsacastell		s@R,ats@k@st'el^
-serravilla		s,ER@b'il^@
+serrabadal		s,ERaBaD'al
+serrabana		s,ERaB'ana
+serrabardina		s,ERaBaRd'ina
+?3 serrabardina		s,ERaBa**D'ina
+serrabarona		s,ERaBa**'ona
+serrabassa		s,ERaB'asa
+serrabiaixos		s,ERaBi'aSos
+?2 serrabiaixos		s,ERaBi'ajSos
+serrabona		s,ERaB'Ona
+serrabonica		s,ERaBon'ika
+serrabosses		s,ERaB'oses
+serrabou		s,ERaB'Ow
+serrabrava		s,ERaB**'ava
+serrabrisa		s,ERaB**'iza
+serracaps		s,ERak'aps
+serradalt		s,ERaD'al
+?3 serradalt		s,ERaD'alt
+serradamunt		s,ERaDam'un
+?3 serradamunt		s,ERaDam'unt
+serradarques		s,ERaD'aRkes
+?3 serradarques		s,ERaD'a**kes
+serradavall		s,ERaDav'al^
+serradebosc		s,ERaDeB'Osk
+serradellops		s,ERaDel^'ops
+serradussà		s,ERaDus'a
+serrafossà		s,ERafos'a
+serragallarda		s,ERaQal^'aRda
+?3 serragallarda		s,ERaQal^'a**Da
+serrajoana		s,ERaZo'ana
+serrallarga		s,ERel^'aRga
+?3 serrallarga		s,ERal^'a**Qa
+serrallebró		s,ERal^eB**'o
+serrallímpia		s,ERal^'impia
+serrallonga		s,ERal^'oNga
+serralta		s,ER'alta
+serramagra		s,ERam'aQ**a
+serramala		s,ERam'ala
+serramar		s,ERam'aR
+?3 serramar		s,ERam'a**
+serramelera		s,ERamel'e**a
+serramitja		s,ERam'idZa
+serramola		s,ERam'Ola
+serramoneda		s,ERamon'EDa
+serramont		s,ERam'On
+?3 serramont		s,ERam'Ont
+serramorena		s,ERamo**'Ena
+serraperera		s,ERape**'e**a
+serrapinyana		s,ERapin^'ana
+serrassola		s,ERas'Ola
+serrassoles		s,ERas'Oles
+serratacó		s,ERatak'o
+serratalt		seR,at'al
+?3 serratalt		seRat'alt
+serratosa		s,ERat'oza
+serratsacastell		s,eRatsakast'el^
+serravilla		s,ERav'il^a
 		
-setcases		s,Etk'az@s
+setcases		s,Etk'azes
 setfonts		s,Etf'Ons
-setmesó		s,Edm@z'o
+?3 setfonts		s,Etf'Onts
+setmesó		s,Edmez'o
 		
-socialdemocràcia		susi,ald@muk**'asi@
-socialdemocràcies		susi,ald@muk**'asi@s
-socialdemòcrata		susi,ald@m'Ok**@t@
-socialdemòcrates		susi,ald@m'Ok**@t@s
+socialdemocràcia		sosi,aldemok**'asia
+socialdemòcrata		sosi,aldem'Ok**ata
 		
-solallong		s,ol@l^'oN
+solallong		s,olal^'oN
+?3 solallong		s,olal^'oNk
 solcuit		s,Olk'ujt
-soldevila		s,Old@B'il@
+soldevila		s,Oldev'ila
 solerbrocó		sul,eB**uk'o
-solergibert		sul,eZiB'ERt
+?3 solerbrocó		sol,e**b**ok'o
+solergibert		sol,eZiB'ERt
+?3 solergibert		sol,e**ZiB'E**t
 solifluxió		s,Olifluksi'o
 solimar		s,Olim'aR
-solivent		s,OliB'en
-solpostada		s,Olpust'aD@
-solterra		s,Olt'ER@
+?3 solimar		s,Olim'a**
+solivent		s,Oliv'en
+?3 solivent		s,Oliv'ent
+solpostada		s,Olpost'aDa
+solterra		s,Olt'ERa
 		
-sostremort		s,Ost**@m'ORt
-sostremorts		s,Ost**@m'ORts
+sostremort		s,Ost**em'ORt
+?3 sostremort		s,Ost**em'O**t
 		
-tallaarrels		t,al^@R'Els
-tallabarder		t,al^@B@Rd'e
-tallabarders		t,al^@B@Rd'es
-tallabosses		t,al^@B'os@s
-tallacircuit		t,al^@siRk'ujt
-tallacircuits		t,al^@siRk'ujts
-talladits		t,al^@D'its
-tallaferro		t,al^@f'ERu
-tallaferros		t,al^@f'ERus
-tallafoc		t,al^@f'Ok
-tallafocs		t,al^@f'Oks
-tallagespa		t,al^@Z'esp@
-tallagespes		t,al^@Z'esp@s
-tallahams		t,al^@'ams
+tallaarrels		t,al^aR'Els
+tallabarder		t,al^aBaRd'e
+?3 tallabarder		t,al^aBa**D'e**
+tallabosses		t,al^aB'oses
+tallacircuit		t,al^asiRk'ujt
+?3 tallacircuit		t,al^asi**k'ujt
+talladits		t,al^aD'its
+tallaferro		t,al^af'ERo
+tallafoc		t,al^af'Ok
+tallagespa		t,al^aZ'espa
+tallahams		t,al^a'ams
 tallamar		t,al^@m'aR
-tallamars		t,al^@m'aRs
-tallapapers		t,al^@p@p'es
-tallaplomes		t,al^@pl'om@s
+?3 tallamar		t,al^am'a**
+tallapapers		t,al^apap'es
+?3 tallapapers		t,al^apap'e**s
+tallaplomes		t,al^apl'omes
 		
-tanmateix		t,amm@t'eS
+tanmateix		t,ammat'eS
+?2 tanmateix		tammat'ejS
 		
-tapaboques		t,ap@B'ok@s
-tapabruts		t,ap@B**'uts
-tapacoll		t,ap@k'Ol^
-tapacolls		t,ap@k'Ol^s
-tapacostures		t,ap@kust'u**@s
-tapaforats		t,ap@fu**'ats
-tapajuntes		t,ap@Z'unt@s
-tapajunts		t,ap@Z'uns
-tapapunts		t,ap@p'uns
+tapaboques		t,apaB'okes
+tapabruts		t,apaB**'uts
+tapacoll		t,apak'Ol^
+tapacostures		t,apakost'u**es
+tapaforats		t,apafo**'ats
+tapajuntes		t,apaZ'untes
+tapajunts		t,apaZ'uns
+tapapunts		t,apap'uns
 		
-tastaolletes		t,astul^'Et@s
-tastavins		t,ast@B'ins
+tastaolletes		t,astol^'Etes
+?3 tastaolletes		t,astaol^'etes
+tastavins		t,astav'ins
 		
-telecabina		t,El@k@B'in@
-telecabines		t,El@k@B'in@s
-telecadira		t,El@k@D'i**@
-telecadires		t,El@k@D'i**@s
-telecomandar		t,El@kum@nd'a
-telecomandars		t,El@kum@nd'as
-telecomanda		t,El@kum'and@
-telecomandes		t,El@kum'and@s
-telecomunicació		t,El@kumunik@si'o
-telecomunicacions		t,El@kumunik@si'ons
-telecontrol		t,El@kunt**'Ol
-telecontrols		t,El@kunt**'Ols
-teledetecció		t,El@D@t@ksi'o
-teledeteccions		t,El@D@t@ksi'ons
-teledirecció		t,El@Di**@ksi'o
-teledireccions		t,El@Di**@ksi'ons
-teledirigit		t,El@Di**iZ'it
-teledirigits		t,El@Di**iZ'its
-telefotografia		t,El@futuQ**@f'i@
-telefotografies		t,El@futuQ**@f'i@s
-telefotògraf		t,El@fut'OQ**@f
-telefotògrafs		t,El@fut'OQ**@fs
-telefotograma		t,El@futuQ**'am@
-telefotogrames		t,El@futuQ**'am@s
-telefoto		t,El@f'otu
-telefotos		t,El@f'otus
-telegovernar		t,El@QuB@Rn'a
-telegovernars		t,El@QuB@Rn'as
-teleimpressora		t,Elimp**@s'o**@
-teleimpressores		t,Elimp**@s'o**@s
-teleimpressor		t,Elimp**@s'o
-teleimpressors		t,Elimp**@s'os
+telecabina		t,ElekaB'ina
+?3 telecabina		telekaB'ina
+telecadira		t,ElekaD'i**a
+?3 telecadira		telekaD'i**a
+telecomandar		t,Elekomand'a
+?3 telecomandar		telekomand'a**
+telecomanda		t,Elekom'anda
+?3 telecomanda		telekom'anda
+telecomunicació		t,Elekomunikasi'o
+?3 telecomunicació		telekomunikasi'o
+telecontrol		t,Elekont**'Ol
+?3 telecontrol		telekont**'Ol
+teledetecció		t,EleDeteksi'o
+?3 teledetecció		teleDeteksi'o
+teledirecció		t,EleDi**@ksi'o
+?3 teledirecció		teleDi**eksi'o
+teledirigit		t,EleDi**iZ'it
+?3 teledirigit		teleDi**iZ'it
+telefotografia		t,ElefotoQ**af'ia
+?3 telefotografia		telefotoQ**af'ia
+telefotògraf		t,Elefot'OQ**af
+?3 telefotògraf		telefot'OQ**af
+telefotograma		t,ElefotoQ**'ama
+?3 telefotograma		telefotoQ**'ama
+telefoto		t,Elef'oto
+?3 telefoto		telef'oto
+telegovernar		t,EleQoveRn'a
+?3 telegovernar		teleQove**n'a**
+teleimpressora		t,Elimp**es'o**a
+?3 teleimpressora		teleimp**es'o**a
+teleimpressor		t,Elimp**es'o
+?3 teleimpressor		teleimp**es'o**
 teleinformàtic		t,EliMfuRm'atik
-teleinformàtics		t,EliMfuRm'atiks
+?3 teleinformàtic		teleiMfo**m'atik
 teleinscriptor		t,Elinsk**ipt'o
-teleinscriptors		t,Elinsk**ipt'os
-telemesura		t,El@m@z'u**@
-telemesures		t,El@m@z'u**@s
-teleobjectiu		t,ElubZ@kt'iw
-teleobjectius		t,ElubZ@kt'iws
-teleradar		t,El@**@D'aR
-teleradars		t,El@**@D'aRs
-teleradiografia		t,El@R,aDiuQ**@f'i@
-teleradiografies		t,El@R,aDiuQ**@f'i@s
-teleradioscòpia		t,El@R,aDiusk'Opi@
-teleradioscòpies		t,El@R,aDiusk'Opi@s
-teleradioteràpia		t,el@R,aDiut@**'api@
-teleradioteràpies		t,el@R,aDiut@**'api@s
-telereceptor		t,El@R@s@pt'o
-telereceptors		t,El@R@s@pt'os
-teleregulació		t,El@R@Qul@si'o
-teleregulaciós		t,El@R@Qul@si'os
-telesella		t,El@s'el^@
-teleselles		t,El@s'el^@s
-telesenyalització		t,El@s@n^@lidz@si'o
-telesenyalitzaciós		t,El@s@n^@lidz@si'os
-telespectador		t,El@sp@kt@D'o
-telespectadors		t,El@sp@kt@D'os
+?3 teleinscriptor		teleinsk**ipt'o**
+telemesura		t,Elemez'u**a
+?3 telemesura		telemez'u**a
+teleobjectiu		t,ElobZekt'iw
+?3 teleobjectiu		teleobZekt'iw
+teleradar		t,Ele**aD'aR
+?3 teleradar		teleRaD'a**
+teleradiografia		t,EleR,aDiuQ**af'ia
+?3 teleradiografia		teleRaDioQ**af'ia
+teleradioscòpia		t,EleR,aDiosk'Opia
+?3 teleradioscòpia		teleRaDiosk'Opia
+teleradioteràpia		t,eleR,aDiote**'apia
+?3 teleradioteràpia		teleRaDiote**'apia
+telereceptor		t,EleResept'o
+?3 telereceptor		teleResept'o**
+teleregulació		t,EleReQulasi'o
+?3 teleregulació		teleReQulasi'o
+telesella		t,Eles'el^a
+?3 telesella		teles'el^a
+telesenyalització		t,Elesen^alidzasi'o
+?3 telesenyalització		telesen^alizasi'o
+telespectador		t,ElespektaD'o
+?3 telespectador		telespektaD'o**
 		
-tercermundista		t@Rs,emund'ist@
-tercermundistes		t@Rs,emund'ist@s
+tercermundista		teRs,emund'ista
+?3 tercermundista		te**s,e**mund'ista
 		
-terrabuit		t,ER@B'ujt
-terrabuits		t,ER@B'ujts
-terranova		t@R@n'OB@
-terranoves		t@R@n'OB@s
-terraplenada		t@R@pl@n'aD@
-terraplenades		t@R@pl@n'aD@s
-terraplenar		t@R@pl@n'a
-terraplenars		t@R@pl@n'as
-terraplè		t@R@pl'E
-terraplès		t@R@pl'Es
-terraprim		t@R@p**'im
-terraprims		t@R@p**'ims
-terratinent		t,ER@tin'en
-terratinents		t,ER@tin'ens
-terratrémer		t,ER@t**'em@
-terratrémers		t,ER@t**'em@s
-terratrèmol		t,ER@t**'Emul
-terratrèmols		t,ER@t**'Emuls
+terrabuit		t,ERaB'ujt
+terranova		t,ERan'Ova
+terraplenada		teRaplen'aDa
+terraprim		t,eRap**'im
+terratinent		t,ERatin'en
+?3 terratinent		teRatin'ent
+terratrémer		t,ERat**'eme
+?3 terratrémer		teRat**'eme**
+terratrèmol		t,ERat**'Emol
+?3 terratrèmol		teRat**'emol
 		
-testaferro		t,est@f'ERu
-testaferros		t,est@f'ERus
-testavirar		t@st@Bi**'a
-testavirars		t@st@Bi**'as
+testaferro		t,estaf'ERo
+?3 testaferro		testaf'ERo
+testavirar		testavi**'a
+?3 testavirar		t,estavi**'a**
 		
-tirafons		ti**@f'ons
-tiralínies		ti**@l'ini@s
-tirallonga		ti**@l^'oNg@
-tirallonges		ti**@l^'oNg@s
-tiranosaure		ti**,anus'aw**@
-tiranosaures		ti**,anus'aw**@s
-tirapits		ti**@p'its
-tiratemples		t,i**@t'empl@s
+tirafons		ti**af'ons
+tiralínies		ti**al'inies
+tirallonga		ti**al^'oNga
+tiranosaure		ti**,anos'aw**e
+tirapits		ti**ap'its
+?3 tiratemples		t,i**at'emples
 		
-tocaboires		t,Ok@B'Oj**@s
-tocacampanes		t,Ok@k@mp'an@s
-tocadiscos		t,Ok@D'iskus
-tocadiscs		t,Ok@D'isks
+tocaboires		t,OkaB'Oj**es
+tocacampanes		t,Okakamp'anes
+tocadiscos		t,OkaD'iskos
+tocadiscs		t,OkaD'isks
 		
-tocatardà		t,Ok@t@Rd'a
-tocatardans		t,Ok@t@Rd'ans
-torcaboques		t,oRk@B'ok@s
-torcacoltells		t,ORk@kult'el^s
-torcamans		t,oRk@m'ans
+tocatardà		t,OkataRd'a
+?3 tocatardà		t,Okata**D'a
+torcaboques		t,oRkaB'okes
+?3 torcaboques		t,O**kaB'okes
+torcacoltells		t,ORkakolt'el^s
+?3 torcacoltells		t,O**kakolt'el^s
+torcamans		t,oRkam'ans
+?3 torcamans		t,O**kam'ans
 		
-torcecoll		t,ORs@k'Ol^
-torcecolls		t,ORs@k'Ol^s
+torcecoll		t,ORsek'Ol^
+?3 torcecoll		t,O**sek'Ol^
 		
-tornaboda		t,oRn@B'oD@
-tornabodes		t,oRn@B'oD@s
-tornabous		t,oRn@B'Ows
-tornafort		t,oRn@f'ORt
-tornaforts		t,oRn@f'ORts
-tornaguia		t,oRn@Q'i@
-tornaguies		t,oRn@Q'i@s
-tornapunta		t,oRn@p'unt@
-tornapuntes		t,oRn@p'unt@s
-tornassolar		tuRn@sul'a
-tornassolars		tuRn@sul'as
-tornassolat		tuRn@sul'at
-tornassolats		tuRn@sul'ats
-tornassol		t,oRn@s'Ol
-tornassols		t,oRn@s'Ols
-tornaveu		t,oRn@B'Ew
-tornaveus		t,oRn@B'Ews
-tornavís		t,oRn@B'is
+tornaboda		t,oRnaB'oDa
+?3 tornaboda		t,o**naB'oDa
+tornabous		t,oRnaB'Ows
+?3 tornabous		t,o**naB'Ows
+tornafort		t,oRnaf'ORt
+?3 tornafort		t,o**naf'O**t
+tornaguia		t,oRnaQ'ia
+?3 tornaguia		t,o**naQ'ia
+tornapunta		t,oRnap'unta
+?3 tornapunta		t,o**nap'unta
+tornassolar		t,oRn@sol'a
+?3 tornassolar		to**nasol'a**
+tornassolat		t,oRn@sol'at
+?3 tornassolat		to**nasol'at
+tornassol		t,oRnas'Ol
+?3 tornassol		to**nas'Ol
+tornaveu		t,oRnav'Ew
+?3 tornaveu		to**nav'ew
+tornavís		t,oRnav'is
+?3 tornavís		to**nav'is
 		
-torracollons		t,oR@kul^'ons
-torrapà		t,oR@p'a
-torrapans		t,oR@p'ans
-torrapipes		t,oR@p'ip@s
+torracollons		t,oRakol^'ons
+torrapà		t,oRop'a
+torrapipes		t,oRap'ipes
 		
-torrebadella		t,oR@B@D'el^@
-torrebesses		t,oR@B'es@s
-torreblanca		t,oR@Bl'aNk@
-torrebonica		t,oR@Bun'ik@
-torrebruna		t,oR@B**'un@
-torrebusqueta		t,oR@Busk'Et@
-torrecabota		t,oR@k@B'Ot@
-torrecanuda		t,oR@k@n'uD@
-torrededia		t,oR@D@d'i@
-torredeflot		t,oR@D@fl'Ot
-torredembarra		t,oR@D@mb'aR@
-torredenegó		t,oR@D@n@Q'o
-torredenuça		t,oR@D@n'us@
-torrefarrera		t,oR@f@R'e**@
-torrefaves		t,oR@f'aB@s
-torreferrada		t,oR@f@R'aD@
-torreferrera		t,oR@f@R'e**@
-torreferrussa		t,oR@f@R'us@
-torrefeta		t,oR@f'et@
-torreforta		t,oR@f'ORt@
-torregodall		t,oR@QuD'al^
-torregrossa		t,oR@Q**'Os@
-torreguinarda		t,oR@Qin'aRd@
-torreguitart		t,oR@Qit'aRt
-torrellardona		t,oR@l^@Rd'on@
-torrellebreta		t,oR@l^@B**'Et@
-torremirona		t,oR@mi**'on@
-torremorell		t,oR@mu**'el^
-torrenegra		t,oR@n'EQ**@
-torreneules		t,oR@n'ewl@s
-torrentbò		tuR,emb'O
-torreponça		t,oR@p'Ons@
-torrescassana		t,oR@sk@s'an@
+torrebadella		t,oReBaD'el^a
+torrebesses		t,oReB'eses
+torreblanca		t,oReBl'aNka
+torrebonica		t,oReBon'ika
+torrebruna		t,oReB**'una
+torrebusqueta		t,oReBusk'Eta
+torrecabota		t,oRekaB'Ota
+torrecanuda		t,oRekan'uDa
+torrededia		t,oReDed'ia
+torredeflot		t,oReDefl'Ot
+torredembarra		t,oReDemb'aRa
+torredenegó		t,oReDeneQ'o
+torredenuça		t,oReDen'usa
+torrefarrera		t,oRefaR'e**a
+torrefaves		t,oRef'aves
+torreferrada		t,oRefeR'aDa
+torreferrera		t,oRefeR'e**a
+torreferrussa		t,oRefeR'usa
+torrefeta		t,oRef'eta
+torreforta		t,oRef'ORta
+?3 torreforta		t,oRef'O**ta
+torregodall		t,oReQoD'al^
+torregrossa		t,oReQ**'Osa
+torreguinarda		t,oReQin'aRda
+?3 torreguinarda		t,oReQin'a**Da
+torreguitart		t,oReQit'aRt
+?3 torreguitart		t,oReQit'a**t
+torrellardona		t,oRel^aRd'ona
+?3 torrellardona		t,oRel^a**D'ona
+torrellebreta		t,oRel^eB**'Eta
+torremirona		t,oRemi**'ona
+torremorell		t,oRemo**'el^
+torrenegra		t,oRen'EQ**a
+torreneules		t,oRen'ewles
+torrentbò		toR,emb'O
+?3 torrentbò		toR,endb'O
+torreponça		t,oRep'Onsa
+torrescassana		t,oReskas'ana
 		
 tostemps		t,ost'ems
-tothora		t,ot'O**@
-tothores		t,ot'O**@s
-totipotent		tutiput'en
-totipotents		tutiput'ens
-totlomón		t,odlum'on
-totpoderós		t,otpuD@**'os
+tothora		t,ot'O**a
+totipotent		t,otiput'en
+?3 totipotent		t,otipot'ent
+totlomón		t,odlom'on
+totpoderós		t,otpoDe**'os
 		
-travacavalls		t**,aB@k@B'al^s
+travacavalls		t**,avakav'al^s
 		
-trempaplomes		t**,emp@pl'om@s
+trempaplomes		t**,empapl'omes
 		
-trencaaigües		t**,ENk'ajQw@s
-trencaavellanes		t**,ENk@B@l^'an@s
-trencabraços		t**,ENk@B**'asus
-trencacalders		t**,ENk@k@ld'es
-trencacaps		t**,ENk@k'aps
-trencaclosques		t**,ENk@kl'Osk@s
-trencacolls		t**,ENk@k'Ol^s
-trencacorrents		t**,ENk@kuR'ens
-trencafila		t**,ENk@f'il@
-trencafiles		t**,ENk@f'il@s
-trencaglaç		t**,ENk@Ql'as
-trencaglaços		t**,ENk@Ql'asus
+trencaaigües		t**,ENk'ajQwes
+?2 trencaaigües		t**,eNka'ajQwes
+trencaavellanes		t**,ENkavel^'anes
+?2 trencaavellanes		t**,eNkavel^'anes
+trencabraços		t**,ENkaB**'asos
+trencacalders		t**,ENkakald'es
+?2 trencacalders		t**,eNkakald'es
+?2 trencacalders		t**,eNkakald'e**s
+trencacaps		t**,ENkak'aps
+?2 trencacaps		t**,eNkak'aps
+trencaclosques		t**,ENkakl'Oskes
+?2 trencaclosques		t**,eNkakl'Oskes
+trencacolls		t**,ENkak'Ol^s
+?2 trencacolls		t**,eNkak'Ol^s
+trencacorrents		t**,ENkakoR'ens
+?2 trencacorrents		t**,eNkakoR'ens
+?3 trencacorrents		t**,eNkakoR'ents
+trencafila		t**,ENkaf'ila
+?2 trencafila		t**,eNkaf'ila
+trencaglaç		t**,ENkaQl'as
+?2 trencaglaç		t**,eNkaQl'as
 trencahams		t**,ENk'ams
-trencallums		t**,ENk@l^'ums
-trencalòs		t**,ENk@l'Os
-trencanous		t**,ENk@n'Ows
-trencapassa		t**,ENk@p'as@
-trencapasses		t**,ENk@p'as@s
-trencapedra		t**,ENk@p'eD**@
-trencapedres		t**,ENk@p'eD**@s
-trencapins		t**,ENk@p'ins
-trencapinyes		t**,ENk@p'in^@s
-trencapinyons		t**,ENk@pin^'ons
-trencaportells		t**,ENk@puRt'el^s
-trencarroques		t**,ENk@R'Ok@s
-trencatrama		t**,ENk@t**'am@
-trencatrames		t**,ENk@t**'am@s
-trencavits		t**,ENk@B'its
+?2 trencahams		t**,eNka'ams
+trencallums		t**,ENkal^'ums
+?2 trencallums		t**,eNkal^'ums
+trencalòs		t**,ENkal'Os
+?2 trencalòs		t**eNkal'Os
+trencanous		t**,ENkan'Ows
+?2 trencanous		t**,eNkan'Ows
+trencapassa		t**,ENkap'asa
+?2 trencapassa		t**,eNkap'asa
+trencapedra		t**,ENkap'eD**a
+?2 trencapedra		t**,eNkap'eD**a
+trencapins		t**,ENkap'ins
+?2 trencapins		t**,eNkap'ins
+trencapinyes		t**,ENkap'in^es
+?2 trencapinyes		t**,eNkap'in^es
+trencapinyons		t**,ENkapin^'ons
+?2 trencapinyons		t**,eNkapin^'ons
+trencaportells		t**,ENkapoRt'el^s
+?2 trencaportells		t**,ENkapo**t'el^s
+trencarroques		t**,ENkaR'Okes
+?2 trencarroques		t**,ENka**R'Okes
+trencatrama		t**,ENkat**'ama
+?2 trencatrama		t**,eNkat**'ama
+trencavits		t**,ENkav'its
+?2 trencavits		t**,eNkav'its
 		
 tresfonts		t**,Esf'Ons
-treslliures		t**,Ezl^'iw**@s
+?2 tresfonts		t**,esf'Ons
+?3 tresfonts		t**,esf'Onts
+treslliures		t**,Ezl^'iw**es
+?2 treslliures		t**,ezl^'iw**es
 trespeus		t**,Esp'Ews
+?2 trespeus		t**,esp'Ews
 trespics		t**,Esp'iks
 tresponts		t**,Esp'Ons
+?2 tresponts		t**,Esp'Ons
+?3 tresponts		t**,Esp'Onts
 tresquarts		t**,Eskw'aRts
-tresserres		t**,Es'ER@s
+?2 tresquarts		t**,eskw'a**ts
+tresserres		t**,Es'ERes
 		
-triapedres		t**,i@p'eD**@s
+triapedres		t**,iap'eD**es
 		
-ullblau		,ul^Bl'aw
-ullblaus		,ul^Bl'aws
+ullblau		,ul^bl'aw
 ullcluc		,ul^kl'uk
-ullclucs		,ul^kl'uks
-ulldellops		,ul^d@l^'ops
-ullnegre		,ul^n'EQ**@
-ullnegres		,ul^n'EQ**@s
-ullprendre		,ul^p'End**@
-ullprenedor		,ul^p**@n@D'o
-ullprenedors		,ul^p**@n@D'os
-ullvert		,ul^b'ERt
-ullverts		,ul^b'ERts
+ulldellops		,ul^del^'ops
+ullnegre		,ul^n'EQ**e
+?2 ullnegre		,ul^n'eQ**e
+ullprendre		,ul^p'End**e
+?2 ullprendre		,ul^p'end**e
+ullprenedor		,ul^p**eneD'o
+?3 ullprenedor		,ul^p**eneD'o**
+ullvert		,ul^v'ERt
+?3 ullvert		,ul^v'E**t
 		
-vacamorta		b,ak@m'ORt@
-vacamortes		b,ak@m'ORt@s
-vaitot		b,ajt'ot
-vaitots		b,ajt'ots
-vaivé		b,ajB'e
-vaivés		b,ajB'es
-vaiver		b,ajB'e
-vaivers		b,ajB'es
+vacamorta		v,akam'ORta
+?3 vacamorta		vakam'O**ta
+vaitot		v,ajt'ot
+vaivé		v,ajv'e
+vaiver		v,ajv'e
+?3 vaiver		vajv'e**
 		
-valdellenes		b,ald@l^'en@s
+valdellenes		b,ald@l^'enes
+?3 valdellenes		valdel^'enes
 vallalta		b,al^'alt@
+?3 vallalta		val^'alta
 vallbardina		b,al^b@Rd'in@
+?3 vallbardina		val^ba**D'ina
 vallbona		b,al^b'On@
+?3 vallbona		val^b'Ona
 vallbonica		b,al^bun'ik@
+?3 vallbonica		val^bon'ika
 vallcanera		b,al^k@n'e**@
+?3 vallcanera		val^kan'e**a
 vallcarca		b,al^k'aRk@
+?3 vallcarca		val^k'a**ka
 vallcarga		b,al^k'aRg@
+?3 vallcarga		val^k'a**Qa
 vallcàrquera		b,al^k'aRk@**@
+?3 vallcàrquera		val^k'a**ke**a
 vallcebre		b,al^s'eB**@
+?3 vallcebre		val^s'eB**e
 vallcirera		b,al^si**'e**@
+?3 vallcirera		val^si**'e**a
 vallcivera		b,al^siB'e**@
+?3 vallcivera		val^siv'e**a
 vallclara		b,al^kl'a**@
+?3 vallclara		val^kl'a**a
 vallcodina		b,al^kuD'in@
+?3 vallcodina		val^koD'ina
 vallcorba		b,al^k'oRb@
+?3 vallcorba		val^k'o**Ba
 valldaina		b,al^d'ajn@
+?3 valldaina		val^d'ajna
 valldaneu		b,al^d@n'ew
+?3 valldaneu		val^dan'ew
 valldans		b,al^d'ans
-valldarenyes		b,al^d@**'En^@s
-valldàries		b,al^d'a**i@s
+?3 valldans		val^d'ans
+valldarenyes		b,al^d@**'En^es
+?3 valldarenyes		val^da**'En^es
+valldàries		b,al^d'a**ies
+?3 valldàries		val^d'a**ies
 valldarnàs		b,al^d@Rn'as
-valldarques		b,al^d'aRk@s
+?3 valldarnàs		val^da**n'as
+valldarques		b,al^d'aRkes
+?3 valldarques		val^d'a**kes
 valldaura		b,al^d'aw**@
+?3 valldaura		val^d'aw**a
 valldavall		b,al^d@B'al^
+?3 valldavall		val^dav'al^
 valldebanador		b,al^d@B@n@D'o
+?3 valldebanador		val^deBanaD'o**
 valldebous		b,al^d@B'Ows
-valldeceres		b,al^d@s'e**@s
+?3 valldebous		val^deB'Ows
+valldeceres		b,al^d@s'e**es
+?3 valldeceres		val^des'e**es
 valldecom		b,al^d@k'Om
+?3 valldecom		val^dek'Om
 valldeix		b,al^d'eS
+?3 valldeix		val^d'ejS
 valldeixils		b,al^d@S'ils
+?3 valldeixils		val^dejS'ils
 valldejuli		b,al^d@Z'uli
+?3 valldejuli		val^dedZ'uli
 valldemar		b,al^d@m'aR
+?3 valldemar		val^dem'a**
 valldemaria		b,al^d@m@**'i@
-valldembles		b,al^d'embl@s
+?3 valldemaria		val^dema**'ia
+valldembles		b,al^d'embles
+?3 valldembles		val^d'embles
 valldemóra		b,al^d@m'o**@
+?3 valldemóra		val^dem'o**a
 valldenguli		b,al^d@Ng'uli
+?3 valldenguli		val^deNg'uli
 valldenou		b,al^d@n'Ow
-valldepenes		b,al^d@p'En@s
-valldeperes		b,al^d@p'E**@s
+?3 valldenou		val^den'Ow
+valldepenes		b,al^d@p'Enes
+?3 valldepenes		val^dep'Enes
+valldeperes		b,al^d@p'E**es
+?3 valldeperes		val^dep'E**es
 valldepins		b,al^d@p'ins
+?3 valldepins		val^dep'ins
 valldeporcs		b,al^d@p'ORks
+?3 valldeporcs		val^dep'O**ks
 vallderrós		b,al^d@R'os
-valldeserves		b,al^d@s'eRb@s
+?3 vallderrós		val^deR'os
+valldeserves		b,al^d@s'eRbes
+?3 valldeserves		val^des'e**ves
 valldevià		b,al^d@Bi'a
+?3 valldevià		val^devi'a
 valldolcet		b,al^duls'Et
+?3 valldolcet		val^dols'Et
 valldolig		b,al^dul'itS
+?3 valldolig		val^dol'itS
 valldombrenc		b,al^dumb**'EN
+?3 valldombrenc		val^domb**'ENk
 valldora		b,al^d'o**@
+?3 valldora		val^d'o**a
 valldoreix		b,al^du**'ES
+?3 valldoreix		val^do**'EjS
 valldòria		b,al^d'O**i@
+?3 valldòria		val^d'O**ia
 valldoriola		b,al^du**i'Ol@
+?3 valldoriola		val^do**i'Ola
 valldoriolf		b,al^du**i'Olf
+?3 valldoriolf		val^do**i'Olf
 valldossera		b,al^dus'e**@
+?3 valldossera		val^dos'e**a
 valldostà		b,al^dust'a
+?3 valldostà		val^dost'a
 valldou		b,al^d'Ow
-vallespirà		b@l^@spi**'a
-vallespirenc		b@l^@spi**'EN
+?3 valldou		val^d'Ow
+vallespirà		val^espi**'a
+vallespirenc		val^espi**'EN
+?3 vallespirenc		val^espi**'ENk
 vallfenosa		b,al^f@n'oz@
-vallfenoses		b,al^f@n'oz@s
+?3 vallfenosa		val^fen'oza
+vallfenoses		b,al^f@n'ozes
+?3 vallfenoses		val^fen'ozes
 vallfera		b,al^f'e**@
+?3 vallfera		val^f'e**a
 vallferosa		b,al^f@**'oz@
+?3 vallferosa		val^fe**'oza
 vallferrera		b,al^f@R'e**@
+?3 vallferrera		val^feR'e**a
 vallfiguera		b,al^fiQ'e**@
-vallfigueres		b,al^fiQ'e**@s
+?3 vallfiguera		val^fiQ'e**a
+vallfigueres		b,al^fiQ'e**es
+?3 vallfigueres		val^fiQ'e**es
 vallflor		b,al^fl'O
+?3 vallflor		val^fl'O**
 vallfogona		b,al^fuQ'on@
+?3 vallfogona		val^foQ'ona
 vallfogonisme		b,al^fuQun'izm@
+?3 vallfogonisme		val^foQon'izme
 vallformosa		b,al^fuRm'oz@
+?3 vallformosa		val^fo**m'oza
 vallfornès		b,al^fuRn'Es
+?3 vallfornès		val^fo**n'Es
 vallfort		b,al^f'ORt
+?3 vallfort		val^f'O**t
 vallgatina		b,al^g@t'in@
+?3 vallgatina		val^gat'ina
 vallgorguina		b,al^guRg'in@
+?3 vallgorguina		val^go**Q'ina
 vallgornera		b,al^guRn'e**@
+?3 vallgornera		val^go**n'e**a
 vallgrassa		b,al^g**'as@
+?3 vallgrassa		val^g**'asa
 vallhonesta		b,al^un'est@
+?3 vallhonesta		val^on'esta
 vallhonrat		b,al^unR'at
+?3 vallhonrat		val^onR'at
 valljardina		b,al^Z@Rd'in@
+?3 valljardina		val^dZa**D'ina
 valljordà		b,al^ZuRd'a
+?3 valljordà		val^dZo**D'a
 valljordans		b,al^ZuRd'ans
+?3 valljordans		val^dZo**D'ans
 vallmadrals		b,al^m@D**'als
+?3 vallmadrals		val^maD**'als
 vallmaiola		b,al^m@j'Ol@
+?3 vallmaiola		val^maj'Ola
 vallmajor		b,al^m@Z'o
+?3 vallmajor		val^madZ'o**
 vallmala		b,al^m'al@
+?3 vallmala		val^m'ala
 vallmanya		b,al^m'an^@
+?3 vallmanya		val^m'an^a
 vallmitjana		b,al^midZ'an@
+?3 vallmitjana		val^midZ'ana
 vallmoll		b,al^m'Ol^
+?3 vallmoll		val^m'Ol^
 vallmora		b,al^m'o**@
+?3 vallmora		val^m'o**a
 vallmorta		b,al^m'ORt@
+?3 vallmorta		val^m'O**ta
 vallnegra		b,al^n'EQ**@
+?3 vallnegra		val^n'EQ**a
 vallnova		b,al^n'OB@
+?3 vallnova		val^n'Ova
 vallombrosà		b,al^umb**uz'a
+?3 vallombrosà		val^omb**oz'a
 vallpalmera		b,al^p@lm'e**@
+?3 vallpalmera		val^palm'e**a
 vallparadís		b,al^p@**@D'is
+?3 vallparadís		val^pa**aD'is
 vallpeguera		b,al^p@Q'e**@
+?3 vallpeguera		val^peQ'e**a
 vallpineda		b,al^pin'ED@
+?3 vallpineda		val^pin'EDa
 vallplana		b,al^pl'an@
+?3 vallplana		val^pl'ana
 vallpresona		b,al^p**@z'on@
+?3 vallpresona		val^p**ez'ona
 vallroja		b,al^R'OZ@
-vallromanes		b,al^Rum'an@s
+?3 vallroja		val^R'OdZa
+vallromanes		b,al^Rum'anes
+?3 vallromanes		val^Rom'anes
 vallsadolla		b,al^s@D'Ol^@
+?3 vallsadolla		val^saD'Ol^a
 vallsanta		b,al^s'ant@
+?3 vallsanta		val^s'anta
 vallseca		b,al^s'Ek@
+?3 vallseca		val^s'Eka
 vallserena		b,al^s@**'En@
+?3 vallserena		val^se**'Ena
 vallserrat		b,al^s@R'at
+?3 vallserrat		val^seR'at
 valltova		b,al^t'oB@
+?3 valltova		val^t'ova
 vallvallida		b,al^b@l^'iD@
+?3 vallvallida		val^val^'iDa
 vallvanera		b,al^b@n'e**@
+?3 vallvanera		val^van'e**a
 vallvella		b,al^b'el^@
+?3 vallvella		val^v'el^a
 vallverd		b,al^b'ERt
+?3 vallverd		val^v'E**t
 vallverdú		b,al^b@Rd'u
+?3 vallverdú		val^ve**D'u
 vallvidrera		b,al^biD**'e**@
+?3 vallvidrera		val^viD**'e**a
 vallvigil		b,al^biZ'il
+?3 vallvigil		val^vidZ'il
 vallxiquer		b,al^Sik'e
+?3 vallxiquer		val^tSik'e**
 		
-vanaglòria		b@n@Ql'O**i@
-vanaglòries		b@n@Ql'O**i@s
+vanaglòria		vanaQl'O**ia
 		
-velnegrar		b@ln@Q**'a
+velnegrar		velneQ**'a*
+?3 velnegrar		velneQ**'a**
 		
-ventafarines		b,ent@f@**'in@s
-ventafocs		b,ent@f'Oks
+ventafarines		v,entafa**'ines
+ventafocs		v,entaf'Oks
 		
 veracreu		b,e**@k**'Ew
-veracreus		b,e**@k**'Ews
+?3 veracreu		v,e**ak**'ew
 verbigràcia		b,ERbiQ**'asi@
-verbigràcies		b,ERbiQ**'asi@s
-viacrucis		b,i@k**'usis
+?3 verbigràcia		v,e**BiQ**'asia
+viacrucis		v,iak**'usis
 		
 viladonja		b,il@D'on^Z@
+?3 viladonja		vilaD'ondZa
 vilaespinosa		b,il@spin'oz@
+?3 vilaespinosa		vilaespin'oza
 vilalta		b,il'alt@
-vilaltes		b,il'alt@s
+?3 vilalta		vil'alta
+vilaltes		billtes
+?3 vilaltes		viltes
 		
 voleibol		b,OlEjb'Ol
-voltadits		b,Olt@D'its
+?3 voleibol		vol,ejb'Ol
+voltadits		v,OltaD'its
 voltamper		b,Ol@mp'ER
-voltampers		b,Ol@mp'ERs
+?3 voltamper		v,Oltamp'e**
 voltamperímetre		b,Ol@mp@**'im@t**@
-voltamperímetres		b,Ol@mp@**'im@t**@s
+?3 voltamperímetre		voltampe**'imet**e
 voltampèrmetre		b,Ol@mp'ERm@t**@
-voltampèrmetres		b,Ol@mp'ERm@t**@s
+?3 voltampèrmetre		v,Oltamp'E**met**e
 		
-voravall		b,O**@B'al^
-voravalls		b,O**@B'al^s
+voravall		v,O**av'al^
 voravia		b,O**@B'i@
-voravies		b,O**@B'i@s
+?3 voravia		v,o**av'ia
 voraviu		b,O**@B'iw
-voravius		b,O**@B'iws
+?3 voraviu		v,o**av'iw
 		
 waterpolo		b,at@Rp'Olu
-waterpolos		b,at@Rp'Olus
+?3 waterpolo		v,ate**p'olo
 		
 xafaterrossos		S@f@t@R'Osus
+?3 xafaterrossos		tS,afateR'Osos
 		
 xucladit		S,ukl@D'it
-xucladits		S,ukl@D'its
+?3 xucladit		tS,uklaD'it
 xuclamel		Sukl@m'El
-xuclamels		Sukl@m'Els
+?3 xuclamel		tS,uklam'El
 
 // intervocalic R
 
