@@ -106,6 +106,9 @@ endphoneme
 phoneme M
   vls lbd nas
   ipa ɱ
+  IF nextPh(v) THEN
+    ChangePhoneme(m)
+  ENDIF
 endphoneme
 
 phoneme m
@@ -167,7 +170,7 @@ phoneme n
     ChangePhoneme(M)
   ELIF nextPh(k) OR nextPh(g) THEN
       ChangePhoneme(N)
-  ELIF nextPh(p) OR nextPh(b) OR nextPh(m) THEN
+  ELIF nextPh(p) OR nextPh(b) OR nextPh(v) OR nextPh(m) THEN
       ChangePhoneme(m)
   ELIF nextPh(S) OR nextPh(Z) THEN
       ChangePhoneme(n^)
@@ -269,10 +272,12 @@ endphoneme
 
 phoneme v   // sounds like b
   vcd blb stp
-
   IF thisPh(isWordEnd) THEN
     IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+        ChangePhoneme(b)
     ELIF prevPh(m) THEN
+        ChangePhoneme(b)
+
     ELSE
       ChangePhoneme(B)
     ENDIF
@@ -280,9 +285,13 @@ phoneme v   // sounds like b
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
         IF prevPh(**) OR prevPh(R) THEN
+            ChangePhoneme(b)
+
         ELSE
             ChangePhoneme(B)
         ENDIF
+      ELSE
+          ChangePhoneme(b)
       ENDIF
     ENDIF  
   ELSE
