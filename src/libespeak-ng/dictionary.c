@@ -2700,6 +2700,11 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	while ((word2[nbytes = utf8_nbytes(word2)] == ' ') && (word2[nbytes+1] == '.')) {
 		// look for an abbreviation of the form a.b.c
 		// try removing the spaces between the dots and looking for a match
+		if (length + 1 > sizeof(word)) {
+			/* Too long abbreviation, leave as it is */
+			length = 0;
+			break;
+		}
 		memcpy(&word[length], word2, nbytes);
 		length += nbytes;
 		word[length++] = '.';
@@ -2710,14 +2715,16 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		nbytes = 0;
 		while (((c = word2[nbytes]) != 0) && (c != ' '))
 			nbytes++;
-		memcpy(&word[length], word2, nbytes);
-		word[length+nbytes] = 0;
-		found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
-		if (found) {
-			// set the skip words flag
-			flags[0] |= FLAG_SKIPWORDS;
-			dictionary_skipwords = length;
-			return 1;
+		if (length + nbytes + 1 <= sizeof(word)) {
+			memcpy(&word[length], word2, nbytes);
+			word[length+nbytes] = 0;
+			found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
+			if (found) {
+				// set the skip words flag
+				flags[0] |= FLAG_SKIPWORDS;
+				dictionary_skipwords = length;
+				return 1;
+			}
 		}
 	}
 
