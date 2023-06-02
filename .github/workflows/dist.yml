@@ -23,7 +23,7 @@ jobs:
 
         include:
           - arch: x86-32
-            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386 libgcc-s1:i386"
             archconfigflags: "-m32"
 
           - arch: x86-64
