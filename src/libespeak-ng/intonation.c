@@ -194,7 +194,7 @@ static const unsigned char env_risefallrise[128] = {
 	0x50, 0x5a, 0x64, 0x70, 0x7c, 0x83, 0x85, 0x88, 0x8a, 0x8c, 0x8e, 0x8f, 0x91, 0x92, 0x93, 0x93
 };
 
-const unsigned char *envelope_data[N_ENVELOPE_DATA] = {
+const unsigned char *const envelope_data[N_ENVELOPE_DATA] = {
 	env_fall,  env_fall,
 	env_rise,  env_rise,
 	env_frise,  env_r_frise,
@@ -293,7 +293,6 @@ static const TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
 #define PRIMARY_LAST     7
 
 static int number_pre;
-static int number_body;
 static int number_tail;
 static int last_primary;
 static int tone_posn;
@@ -309,7 +308,6 @@ static void count_pitch_vowels(SYLLABLE *syllable_tab, int start, int end, int c
 	int max_stress_posn2 = 0; // penuntimate syllable of the highest stress
 
 	number_pre = -1; // number of vowels before 1st primary stress
-	number_body = 0;
 	number_tail = 0; // number between tonic syllable and next primary
 	last_primary = -1;
 
@@ -770,7 +768,6 @@ static void CalcPitches_Tone(Translator *tr)
 {
 	PHONEME_LIST *p;
 	int ix;
-	int count_stressed = 0;
 	int final_stressed = 0;
 
 	int tone_ph;
@@ -791,7 +788,6 @@ static void CalcPitches_Tone(Translator *tr)
 	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
 		if ((p->type == phVOWEL) && (p->stresslevel >= 4)) {
 			final_stressed = ix;
-			count_stressed++;
 		}
 	}
 

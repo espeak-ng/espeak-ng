@@ -64,7 +64,7 @@ static const MNEM_TAB genders[] = {
 int tone_points[12] = { 600, 170, 1200, 135, 2000, 110, 3000, 110, -1, 0 };
 
 // limit the rate of change for each formant number
-static int formant_rate_22050[9] = { 240, 170, 170, 170, 170, 170, 170, 170, 170 }; // values for 22kHz sample rate
+static const int formant_rate_22050[9] = { 240, 170, 170, 170, 170, 170, 170, 170, 170 }; // values for 22kHz sample rate
 int formant_rate[9]; // values adjusted for actual sample rate
 
 #define DEFAULT_LANGUAGE_PRIORITY  5
@@ -424,8 +424,10 @@ voice_t *LoadVoice(const char *vname, int control)
 	char phonemes_name[40] = "";
 	const char *language_type;
 	char buf[sizeof(path_home)+30];
+#if USE_MBROLA
 	char name1[40];
 	char name2[80];
+#endif
 
 	int pitch1;
 	int pitch2;
@@ -1338,7 +1340,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByProperties(espeak_VOICE *voic
 
 #pragma GCC visibility pop
 
-void FreeVoiceList()
+void FreeVoiceList(void)
 {
 	int ix;
 	for (ix = 0; ix < n_voices_list; ix++) {
@@ -1423,7 +1425,6 @@ static int AddToVoicesList(const char *fname, int len_path_voices, int is_langua
 
 		if (voice_data != NULL)
 			voices_list[n_voices_list++] = voice_data;
-			return 0;
 	}
 	return 0;
 }

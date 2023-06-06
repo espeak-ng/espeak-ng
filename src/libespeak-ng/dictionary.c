@@ -43,8 +43,8 @@
 #include "synthesize.h"                    // for STRESS_IS_PRIMARY, phoneme...
 #include "translate.h"                     // for Translator, utf8_in, LANGU...
 
-static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out);
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, unsigned int *flags, int command, int *failed, int *add_points);
+static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[2]);
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points);
 
 typedef struct {
 	int points;
@@ -63,7 +63,7 @@ static const unsigned short diereses_list[7] = { 0xe4, 0xeb, 0xef, 0xf6, 0xfc, 0
 // convert characters to an approximate 7 bit ascii equivalent
 // used for checking for vowels (up to 0x259=schwa)
 #define N_REMOVE_ACCENT  0x25e
-static unsigned char remove_accent[N_REMOVE_ACCENT] = {
+static const unsigned char remove_accent[N_REMOVE_ACCENT] = {
 	'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i',  // 0c0
 	'd', 'n', 'o', 'o', 'o', 'o', 'o',   0, 'o', 'u', 'u', 'u', 'u', 'y', 't', 's',  // 0d0
 	'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i',  // 0e0
@@ -396,7 +396,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 	unsigned char c;
 	unsigned int mnem;
 	PHONEME_TAB *ph;
-	static const char *stress_chars = "==,,'*  ";
+	static const char stress_chars[] = "==,,'*  ";
 
 	sprintf(outptr, "* ");
 	while ((phcode = *inptr++) > 0) {
@@ -551,7 +551,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	char phon_buf2[30];
 	PHONEME_LIST *plist;
 
-	static const char *stress_chars = "==,,''";
+	static const char stress_chars[] = "==,,''";
 
 	if (phon_out_buf == NULL) {
 		phon_out_size = N_PHON_OUT;
@@ -1480,10 +1480,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	int n_bytes;
 	int add_points;
 	int command;
-	unsigned int *flags = NULL;
 
 	MatchRecord match;
-	static MatchRecord best;
+	MatchRecord best;
 
 	int total_consumed; // letters consumed for best match
 
@@ -1699,7 +1698,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						else
 							failed = 1;
 					} else if (((command & 0xf0) == 0x20) || (command == DOLLAR_LIST)) {
-						DollarRule(word, word_start, consumed, group_length, word_buf, tr, flags, command, &failed, &add_points);
+						DollarRule(word, word_start, consumed, group_length, word_buf, tr, command, &failed, &add_points);
 					}
 
 					break;
@@ -1888,7 +1887,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					pre_ptr++;
 					command = *rule++;
 					if ((command == DOLLAR_LIST) || ((command & 0xf0) == 0x20)) {
-						DollarRule(word, word_start, consumed, group_length, word_buf, tr, flags, command, &failed, &add_points);
+						DollarRule(word, word_start, consumed, group_length, word_buf, tr, command, &failed, &add_points);
 					}
 					break;
 				case RULE_SYLLABLE:
@@ -2842,7 +2841,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 	return flags0;
 }
 
-static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out)
+static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[2])
 {
 	char buf[100];
 	static unsigned int flags[2];
@@ -2850,7 +2849,8 @@ static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_ou
 
 	flags[0] = flags[1] = 0;
 	LookupDictList(tr, &word1, buf, flags, 0, NULL);
-	*flags_out = flags;
+	flags_out[0] = flags[0];
+	flags_out[1] = flags[1];
 	return flags[0];
 }
 
@@ -2979,14 +2979,15 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	return end_flags;
 }
 
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, unsigned int *flags, int command, int *failed, int *add_points) {
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points) {
 	// $list or $p_alt
 	// make a copy of the word up to the post-match characters
 	int ix = *word - word_start + consumed + group_length + 1;
 	memcpy(word_buf, word_start-1, ix);
 	word_buf[ix] = ' ';
 	word_buf[ix+1] = 0;
-	LookupFlags(tr, &word_buf[1], &flags);
+	unsigned int flags[2];
+	LookupFlags(tr, &word_buf[1], flags);
 
 	if ((command == DOLLAR_LIST) && (flags[0] & FLAG_FOUND) && !(flags[1] & FLAG_ONLY))
 		*add_points = 23;

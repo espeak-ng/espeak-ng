@@ -480,7 +480,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int c1 = ' '; // current character
 	int c2; // next character
 	int cprev = ' '; // previous character
-	int c_next;
+	int c_next = 0;
 	int parag;
 	int ix = 0;
 	int j;

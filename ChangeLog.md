@@ -17,7 +17,7 @@ updated languages:
 *  be (Belarusian) -- Andiv06, bespsm, Alaksiej Stankievič
 *  cmn (Mandarin) -- Cameron Wong
 *  en (English) -- Bill Dengler
-*  es (Spanish) -- Sukil Etxenike
+*  es (Spanish) -- Sukil Etxenike, Rmcpantoja, gregodejesus
 *  fa (Persian) -- MH
 *  gn (Guarani) -- Andiv06
 *  he (Hebrew) -- Omer I.S, Andiv06

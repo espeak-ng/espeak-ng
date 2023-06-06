@@ -3,7 +3,7 @@
 // Numbers
 _0      n'ojl;
 ?3 _0      n'ol^
-_1      V#d;'in
+_1      V#d;'in_
 _1f     V#dn'a
 _2      dv'A
 _2f     dv;'e
@@ -40,7 +40,7 @@ _5C     p;,Its'ot
 _6C     S,E#s;t;s'ot
 _7C     s;,Ims'ot
 _8C     vOs;Ims'ot
-_9C     dIv;its'ot
+_9C     d;Iv;its'ot
 _1MA1   t'ys;itS;V     // keep '1' before thousand
 _0MA1   t'ys;itS;i
 _0M1    t'ys;itS;
@@ -138,6 +138,8 @@ _,      zVpit'aja
 или             $atend       // stressed at the end
 ибо       $u $pause  // for
 но        $u $pause  // but
+            при           $u
+            при           $atend
 хотя      $2 $pause  // although
 чтобы        $pause  // in order that
 
