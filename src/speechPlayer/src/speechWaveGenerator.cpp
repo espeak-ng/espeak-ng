@@ -196,7 +196,6 @@ class SpeechWaveGeneratorImpl: public SpeechWaveGenerator {
 
 	unsigned int generate(const unsigned int sampleCount, sample* sampleBuf) {
 		if(!frameManager) return 0; 
-		double val=0;
 		for(unsigned int i=0;i<sampleCount;++i) {
 			const speechPlayer_frame_t* frame=frameManager->getCurrentFrame();
 			if(frame) {
