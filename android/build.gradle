@@ -32,7 +32,7 @@ android {
     namespace "com.reecedunn.espeak"
 
     defaultConfig {
-        minSdk 19
+        minSdk 25
         targetSdk 33
         versionCode 22
         versionName "1.52-dev"
