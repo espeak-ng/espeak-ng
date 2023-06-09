@@ -98,7 +98,7 @@
         e (ra_     e    // (cremallera)
         e (res_    e    // (cremalleres)
         e (ll      e    // (canell)
-?1        e (ct      e    // (subjecte)
+?1      e (ct      e    // (subjecte)
         e (st      e    // 
         e (mt      e    // 
         e (nt      e    // (menta)
@@ -136,7 +136,7 @@
         e (l       E    // (elm)
         e (u       E    // (preu)
         e (r       E    // (merla, ferro. but però Berga i Matadepera)
-?1        e (t       E    // (marlet)
+?1      e (t       E    // (marlet)
         e (c       E    //
         e (g       E    //
 ?1        e (i       E    //
@@ -442,7 +442,7 @@
         o (xis       O
         
   //   m) o (nt      ,o
-            // prefixes with secondary stress
+    // prefixes with secondary stress
     _c) o (ntraA   ,o
     _c) o (ntraK   ,o
     _c) o (ntract  o    // contracte
@@ -648,6 +648,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         à          ''a   // force stress onto this vowel
         é          ''e
         è          ''E
+?2      ès (_      ''es // final "ès" is pronounced "és" in western accents (francès)
         í          ''i
         ó          ''o
         ò          ''O
