@@ -1,151 +1,386 @@
+// Tetun Dili lists. (Based on Indonesian and Portuguese files)
+// This file in UTF8 encoded
 
-// This file is UTF8 encoded 
-// Spelling-to-phoneme words for Indonesian
-
+// Letter names
 a	a
 b	be
-c	tSe
+c	se
 d	de
-e	e
+e      e
 f	Ef
 g	ge
 h	ha
-i	i
-j	dZe
+i	i 
+j	Z'Ota
 k	ka
-l	El
-m	Em
-n	En
-o	o
+l	Eli
+m	Emi
+n	Eni
+o	O
 p	pe
-q	ki
-r	ER
-s	Es
+q	ke
+r	Eri
+s	Esi
 t	te
 u	u
-v	fe
+v	ve
 w	we
-x	Eks
+x	Sis
 y	je
-z	zEt
+z	zE
 
-_0	n'ol
-_1	s'atu
-_2	d'ua
-_3	t'iga
-_4	'@mpat
+// Numbers. Read in Tetun
+_0	z'Ero
+_1	'ida
+_2	r'ua
+_3	t'olu
+_4	h'at
 _5	l'ima
-_6	'@nam
-_7	t'udZuh
-_8	d@l'apan
-_9	s@mb'ilan
-_10	s@p'uluh
-_11	s'@b@las
-_12	d'uab@las
-_13	t'igab@las
-_14	'@mpatb@las
-_15	l'imab@las
-_16	'@namb@las
-_17	t'udZuhb@las
-_18	d@l'apanb@las
-_19	s@mb'ilanb@las
-_2X	d'uapuluh
-_3X	t'igapuluh
-_4X	'Empatpuluh
-_5X	l'imapuluh
-_6X	'Enampuluh
-_7X	t'udZuhpuluh
-_8X	d@l'apanpuluh
-_9X	s@mb'ilanpuluh
-_0C	R'atus_|
-_1C	s@R2'atus_|
-_0M1	R'ibu_
-_1M1	s@r'ibu_
-_0M2	dZ'uta_
-_1M2	s@dZ'uta_
-_0M3	m'iljaR
-_1M3	s@m'iljaR
-_dpt	_k,oma_
+_6	n'en
+_7	h'itu
+_8	w'alu
+_9	s'ia
+_10	san'ulu
+_11	san'ulu r,esin 'ida
+_12	san'ulu r,esin r'ua
+_13	san'ulu r,esin t'olu
+_14	san'ulu r,esin h'at
+_15	san'ulu r,esin l'ima
+_16	san'ulu r,esin n'en
+_17	san'ulu r,esin h'itu
+_18	san'ulu r,esin w'alu
+_19	san'ulu r,esin s'ia
+_2X	r'uan,ulu
+_3X	t'olun,ulu
+_4X	h'atn,ulu
+_5X	l'iman,ulu
+_6X	n'en,ulu
+_7X	h'itun,ulu
+_8X	w'alun,ulu
+_9X	s'ian,ulu
+_0C	'atus
+_1C	,atus'ida
+_0M1	r'ihun
+_1M1	r,ihun'ida
+_0M2	mil'jaun
+_0M3	bil'jaun
+_0M4	trilj'aun
+_dpt	_v'irgula
 
-_cap	b'EsaR    // after the letter
-_??	k,odeh'uR2uf
+// Unstressed words ($u = unstressed)
+la		$u
+iha		$u
+hosi		$u
+husi		$u
+ba		$u
+kona ba		$u
+atu		$u
+sei		$u
+ka		$u
+i		$u
+no		$u
+mak		$u
+ke		$u
+katak		$u
+se		$u
+pur		$u // Portuguese loans
+per		$u
+desde		$u
+entre		$u
+sobre		$u
+en		$u
+de		$u
+purke		$u
+komu		$u
+antes		$u
+sein		$u
 
-// accented letters
-_lig	d'aIgRaf
-_acu	akj'ut
-_ac2	dub@lakj'ut
-_brv	bR2'i:v
-_ced	s@d'ila
-_cir	t'opi
-_dia	'umlaUt
-_dot	d'Ot
-_grv	gR2'av
-_hac	h'atSEk
-_mcn	m'akR2On
-_ogo	'OgonEk
-_rng	R2'iNg
-_stk	stR'ok
-_tld	t'ild@
+// Accent names
+_lig	ligad'ura
+_acu	ag'udu
+_ac2	ag'udud'uplu	
+_brv	br'Evi
+_ced	sed'ilja
+_cir	sirkuNfl'Eksu
+_dia	tr'ema
+_dot	p'oNtu
+_grv	gr'avi
+_hac	kar'oN
+_mcn	makr'oN
+_ogo	ogon'ek
+_rng	an'Eu
+_stk	b'axa
+_tld	til
 
-// punctuation
-_!	t,anda||s'ER2u
-_"	t,andak'utip
-£	ponst'ER2liN
-%	p@R2s'En	$max3
-^	t,andat'opi
-&	t,andad'an
-*	b'intaN		$max3
-+	t'ambah		$max3
-=	s,ama||d'ENan	$max3
-~	t'ilde
-#	p'agaR		$max3
-@	a||k'EOng
-/	g,aR2is||m'iR2iN	$max3
-\	'bEkslES
-_(	k,uR2uN||b'uka
-_)	k,uR2uN||t'utup
-__	g,aR2is||b'awah
-_-	t,andah'ubuN
-_{	k,uR2uN||kuR2'awal
-_}	k,uR2uN||kuR2,awal||t'utup
-_[	k,uR2uN||s'iku
-_]	k,uR2uN||s,iku||t'utup
-_:	t,iti?||d'ua
-_;	t,iti?||k'oma
-_'	k,utip||t'uNgal
-_<	k,uR2aN||d'aR2i
-_>	l,Ebih||d'aR2i
-_,	k'oma
-_.	t'iti?
-_?	t,anda||t'an^a
+// alphabets
+_ar	'arabi
+_cyr	sir'iliku
+_he	ebr'aIku
+_zh	Sin'es
 
+// Character names
+_á	$accent
+_à	$accent   // à can be a word
+â	$accent
+ã	$accent
+ç	$accent
+_é	$accent   // é can be a word
+ê	$accent
+í	$accent
+_ó	$accent
+ô	$accent
+õ	$accent
+ú	$accent
+ü	$accent
+v	ve       // not roman numbers
+x	Sis#
 
-// unstressed words
-suatu		$u
-dari		$u
-pada		$u
-daripada	$u
-ke		k@ $u
-di		$u
-si		$u
-sang		$u
-hang		$u
-yang		$u
-dan		$u
-atau		$u
-untuk		$u
-ialah		$u
-adalah		$u
-sebagai		$u
-bahwa		$u
-per		p@r $u
+// Fonts and symbols
+_cap	maI'uskulu
+_sub	||subskr'itu
+_sup	||sobreskr'itu
+_?A	l'etra_
+_??	s'imbolu_
+_#32	esp'asu
+_#9	tab
+*	f'itun
+=	__igw'al_	$max3
+.	p'oNtu		$max3
++	maIs#		$max3
+%	pors'eNtu	$max3
+&	_'e_
+@	ar'oba
+€	'euru
+£	l'ibra
+¥	j'en
+¢	seNt'avus#
+§	ses'aun
+_!	eSklamas'auN
+_"	'aspas#
+_#	k,ardin'al
+_&	'i
+_'	ap'Ostr,ofu`
+_(	l,okepar'eNteze
+¶	par'agrafu
+●	s'ir-kulu
+■	k'aixa
+÷	divid'irp'or
+ ×	v'ezis#
+µ	m'ikru
+_)	t,akapar'eNteze
+_*	f'itun
+_−	m'enus
+№	n'umeru
+∞	iNfin'itu
+∫	iNtegr'al
+⅓	uNt'er-su
+⅔	doIs#t'er-sus#
+¼	uNku'ar-tu
+½	m'eIu
+¾	tres#kw'ar-tus#
+®	reZistr'adu
+↑	s'Etabal'eten
+↓	s'Etabakr'aik
+←	s'Etabak'aruk
+→	s'Etabal'os
+™	m'ar-kareZiSt'a
+_,	v'irgula
+_-	'ifeN
+_/	b'ara
+_:	d,oIsp'oNtus
+_;	p,oNtu_iv'irgula
+_<      men'Or
+u
+_>	maI'Or
+_?	,iNter,ogas'aun
+_[	l,okekowS'etSi
+_\	b,ara,iNvert'ida
+_]	t,akakowS'etSi
+_^	s,irkuNfl'Eksu
+_´	as'eNtu,ag'udu
+·	p'oNtuseINtr'adu
+__	s,ublin^'adu
+_`	gr'avi
+_{	l,okeS'avi
+_|	b,arav,ertik'al
+_}	t,akaS'avi
+_~	t'il
+_¡	,esklamas,auN,iNvert'ida
+_¿	,iNtex,ogas,auN iNvert'ida
+_"	l'oke'aspas||d'uplas#
+º	maskul'inu
+ª	femin'inu
+°	gr'au
 
+// Ordinal numbers
+_#º	u
+_#ª	a
+_ord	o
+_1o	prim'eIr
+_2o	seg'uNd
+_3o	ter-s'eIr
+_4o	badalah'at // 4 up in Tetun
+_5o	badalal'ima
+_6o	badalan'en
+_7o	badalah'itu
+_8o	badalaw'alu
+_9o	badalas'ia
+_1Xo	badalas'anulu
 
-// exceptions
-// (use phoneme [E2] for an unstressed 'e' which does not reduce to [@] )
+// Abbreviations
+abc	$abbrev
+ac	'as'e
+etc	,ets'Et:ra
+(http ://)	h,atete'pe_
+jpeg	Ze'Eg
+mpeg	,Emp'Eg
+nvda	$abbrev
+oms	$abbrev 
+usb	$abbrev
+dr	dowtor	$dot
+dra	dowt'ora	$dot
+mr	m'ister	$dot
+mrs	m'irsis	$dot
+prof	pr'Of	$dot
+profº	pr,ofes'or
+profª	pr,ofes'ora
+engº	enZen^'eIru
+engª	enZen^'eIra
+nº	n'umeru
+sr	sen^'Or dot
+sra	sen^'Ora dot
 
-bebek		bEbE2?
-becek		bEtSE2?
-bekas		$2
-perang		$2
+// Main word dictionary
+
+// Foreign words
+alt        'alt
+back       b'Ek
+backup     bEk'ap
+backups    bEk'aps
+cancel     k'EnsEl
+caps       k'aps
+ctrl       k,oNt:r'Ol
+doc        d'Ok
+delete     d'il'it
+design     d,iz'ain
+designer	dez'aIner
+desktop	'desktOp
+dj         d,i:dZ'eI
+download   d'awnl,Od
+drive	dr'aIv
+end        'end
+enter	'eNter
+esc     'Esk
+explorer   ,ekspl'O:rar
+flash	'flES
+frame      fr'eIm
+game	g'eIm
+gay	geI
+gmail      j,im'eIl
+google     g'u:gal 
+hardware   h'ard,w'Er
+happy      h'Epi
+home       h'om
+hotmail    h'Otm'eIl
+install    ,inst'al
+Intranet   iNtran'Et
+jazz	     dZEs
+laser		l'eIzer
+lasers	l'eIzers
+laptop	'lEptOp
+layout     l'eI,aut
+login      'logiN
+mail       m'eIl
+marketing	m'arketiN
+master	m'aster
+mouse      m'aus
+next       n'Ekst
+ok         Ok'eI
+offline    Ofl'aIN
+online     oNlaIN
+org        Org
+pause      p'au:z
+page       p'eIdZ
+podcast	pOdkEst
+ranking	r'aNkIN
+readme     r'i:dmi:
+right      r'aIt
+scanner     sk'Enar
+sky         sk'aI
+shake	      S'eIk
+shift      S'ift
+scroll     sk:r'ol
+site       s'aIt
+shopping	S'OpiN
+slide		sl'aId
+software   s'Oft,w'Er
+space      sp'eIs
+sporting   sp'Ort,ing
+ tab       t'ab
+ tablet    t'ablet
+  tablets  t'ablets
+update		apd'eIt
+upgrade		apgr'eId
+upload		apl'oud
+web              w'Eb
+writer r'aIter
+xerox	S'ErOks
+yahoo      'i,ah'u
+yes        j'Es
+
+// Foreign product names
+access      'aks,Es
+adobe       ad'Obi
+android     aNdr'Oid
+apple      'Epol
+outdoor	autd'Or
+baby	      b'eIbi
+campari	kamp'ari
+chrome	kr'om
+corpus	k'Or@-pus#
+excel       ,Eks'El
+express     ,Ekspr'Es
+espeak      isp'i:k
+espeakedit   isp'i:kEd,it
+facebook  feIsbuk
+firefox     f'air@fOks
+front       fr'ont
+high        haI
+jaws        dZ'au:z
+lady	      l'eIdy
+linux       l,in'uks
+ live        l'aiv
+maker       m'eIkar-
+mac         mEk
+media       m'Ed,ia
+messenger   m'EsandZar-
+microsoft   m,ik:r'os,Oft
+netbooks   nEtbuks
+notebook   nowtbuk
+notebooks   nowtbuks
+office      'Of,is
+openoffice  'opeN|'Ofis
+outlook     'autl'uk
+paint       p'aint
+player      pl'eIar-
+point       p'oint
+power       p'auar-
+product     p:r'odakt
+Publisher   p'abl,iSar-
+reader      r'id,ar-
+setup       s'Et'ap
+scout       sk'aut
+skype       sk'aip
+Slackware   sl'akwer-
+smart       sm'art
+society     sos'aIty
+speak       spi:k
+start       st'art 
+time        t'aIm 
+twitter     tw'iter
+ubuntu      ub'untu
+unix        ,u:n'iks
+unix        j'uniks
+wagner     v'agner
+windows     w'iNd'ou:z
 

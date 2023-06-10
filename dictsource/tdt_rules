@@ -1,123 +1,222 @@
-
 // This file is UTF8 encoded 
-// Spelling-to-phoneme rules for Indonesian
+// Tetun Dili Spelling-to-phoneme rules. This assumes inconsistent spelling, ignores glottals, accepts Portuguese, Indonesian and English spelling where it doesn’t conflict with Tetun (e.g. for “q”, “ff”. Double vowels convert to stressed vowels.
+
+// Letter groups (for Portuguese rules)
+// A  a vowel
+// B  a consonant, except h l r w y
+// C  a consonant
+// G  a voiced consonant
+// K  not a vowel
 
 .group a
         a        a
-     a) a        _|a
-    A_) a        _|a
-    au) a        _|a
+        á        ''a
+        à        ''a  // Portuguese
+        aa       ''a
+        ae       aE
         ai       aI
-        au       aU
+        ao       aO
+        au       au
+
+.group ã // Portuguese
+        ã          aN
+        ão         auN
 
 .group b
         b        b
-     _) be (@@   b@
-        be (n    b@
 
-
-.group c
-        c        tS
-        ch       X
+.group c // Portuguese
+     _) c (_       se
+        c          k
+        c (Y       s         // ce ci
+        c (B       kI
+        c (s       k
+        c (t       k
+        c (_C      k_
+        ch         S
+        chr        kr
+        ck         k
+       c (c               //drop “c” (eg: seleccionar)
+   A) ct         t         //drop “c” (eg: exacto)
+   A) cç         s         //drop “c” in European Portuguese (eg: selecção)
+ conta) ct (A      kt        // eg: contacto, contactar, contactável, incontactável, etc...
 
 .group d
         d        d
-        dj       dZ     / Dutch
 
 .group e
         e        E
-     e) e        _|E
-    A_) e        _|E
-        e (_     E
+        é        ''E
+        ea       Ea
+        ee       ''E
+        ei       ei
+        eo       EO
+        eu       eu
+        _) e (_      i // Portuguese “and”
+
+.group ê
+        ê          ''e
+        êm (_      ''eIN
+        êm (C      ''eIm
+        ên (K      ''eIN
+        ênh        ''en^
+        êu         ''eu
 
 .group f
         f        f
-        ff       f
+        ff       f //English
 
 .group g
         g        g
+        gg       g // English
 
 .group h
-        h        h
+        h        h // Will pronounce even in Portuguese words
 
 .group i
         i        i
-        ie       i
-     i) i        _|i
-    A_) i        _|i
+        í        ''i
+        ia       ia
+        ie       ie
+        ii       ''i
+        io       io
+        iu       iu
+        im (_      iN // Portuguese
+        im (C      im
+        in (g      iN
+        in (k      iN
+        inh        in^
 
 .group j
-        j        dZ
+        j        Z
 
 .group k
         k        k
-        k (_     k
-        kh       x
-     _) ke (@@   k@
-        ke (n    k@
-
 
 .group l
         l        l
-        ll       l
+        ll       l^ // INL
+        lh       l^ // Portuguese
+        ly       l^ // Rare
 
 .group m
         m        m
-
-     _) me (@@   m@
-     _) mempe (@    m@mp@
+     A) mm (A       m // English
 
 .group n
         n        n
-        ng       N
-        ny       n^
+        nn       n // “connosco”
+        ng       N // English, Indonesian
+        nh       n^
+        ainhira  ,ainh'ira // bainhira, wainhira
+        ainhaat  ,ainh'at 
+        ainhitu  ,ainh'itu 
+        ñ        n^ / INL
+        ny       n^ 
 
 .group o
         o        o
-     o) o        _|o
-    A_) o        _|o
-        o (r     O
-        oe       u        // Dutch spelling
+        ó       ''O // Portuguese
+        oa       Oa
+        oe       oe
+        oi       oi
+        oo       ''O
+        ou       ou
+        _) os (_      us // Portuguese
+        _) os (_A     uz // Portuguese
+        om (_      oN // Portuguese
+
+.group ô  // Portuguese
+        ô          ''o
+        ôm (_      ''oN
+        ôm (C      ''om
+        ôn (K      ''oN
+        ônh        ''on^
+
+.group õ // Portuguese
+        õ          oi
+        õe         oin
 
 .group p
         p        p
-        pp       p
-        ph       f
+     A) pp (A    p // English
+        ph       f // English
 
-     _) pe (@@   p@
-
-
-.group q
-        q        k
-        qu       kw
+.group q // Portuguese
+     _) q (_       ke
+        q          k
+        qu         kw
+        qü         kw
+        qu (Y      k
+        qu (K      ku
+     _) que (_     ky
+     _) que        ke        // quente, etc.
+     _) quei (C    k'eI      // queira, queima, etc
+     @) quên       kw'eIN    // frequência, etc.
+   ade) qu (e      kw
+     A) qu (idade_ kw
+    _a) qu (ífero_ kw
+     e) qu (estr   kw
+    _e) qu (in     kw
+   exe) qu (AC     kw
+   fre) qu (ent    kw
+    lo) qu (en     kw
+     n) qu (en     kw
+     _) qu (inquAn kw
+     _) qu (inquag kw
+   _se) qu (el     kw
+    se) qu (en     kw
+  tran) qu (il     kw
+        queç       kes       // esqueça.
+     A) que (nA_   ke        // pequeno, etc.
+     C) quê (_     ke        // porquê, etc.
+        que (l     ke        // aquele, etc.
+        que (r_    kE        // qualquer, etc.
+        qui        ki        // quinta, esquilo, etc.
+     _) qu (inde   ku        // quindecágono, etc.
+     _) quo        kuo       // quoficiente, etc.
 
 .group r
-        r        R2
-        r (K     R
-     e) r (K     R
-
+        r        r
+        rr       r
 
 .group s
         s        s
-        ss       s
-        sy       C   // perhaps [S;] ??
-        sj       C
-
-     _) se (@@   s@
-@) s (_S1 s
+        ss       s // Portuguese
+        ss         s // Portuguese
+        sc (Y      s // Portuguese
+        sç         s // Portuguese
+        sh         S // English
+        sj       C // Indonesian
+     A) s (C       s# // Portuguese
+     A) ss         s
+     A) s (G+      Z
+     A) s (_KS1    s#
+     A) s (_G+S1   Z
+        s (G       z
+        s (w+      s
+        sr         zx
+     _) sobre (@P5 sobre
+  tran) s (A       z
+ _trân) s (ito_    z
+  _sub) s (ist     z
+        ssion (_   _^_EN
 
 .group t
         t        t
-        tj       tS      // Dutch
-     _) tel      t@l
-     _) ter (@@  t@R
-
-
+        tt       t // English
+        th         _^_EN // English
+        tion (_    _^_EN // English
 
 .group u
         u        u
-     u) u        _|u
-    A_) u        _|u
+        ú        ''u
+        ua       ua
+        ue       ue
+        ui       ui
+        uo       uo
+        uu       ''u
+        um (_      uN // Portuguese
 
 .group v
         v        v
@@ -126,24 +225,29 @@
         w        w
 
 .group x
-        x        ks
-     _) x        z
+        x          S
+        x (_       ks // Portuguese
 
 .group y
         y        j
 
 .group z
         z        z
+   _pi) zz (a      ts // pizza..
 
 .group
-        $        dOlaR
+        ‘                // Ignore glottals
+        ç          s
+    D_) º          %o        // Portuguese ordinal
+    D_) ª          %a        // Portuguese ordinal
 
+.group
+        $        dOlar
 
-    __) - (_D    t,andak'uR2aN
-
-        *        b'intaN
-     *) * (*
-        ** 
-    **) * (_         _::
-
+// Reading maths
+        , (D       v'irgula
+    __) - (_D      m'enus
+    D_) - (_D      m'enus
+    A_) - (_D      _
+    C_) - (_D      _
 
