@@ -127,6 +127,8 @@
     _r) e (g       e    // (regne, regno, etc.)
     _t) e (le      e2   // (teletreball)
   _tel) e          e2   // (teletreball)
+   fon) e (m       E    // (fonema)
+?2 fon) e (m       e    // (fonema)
 
      _) e (ntreA   ,e   // (entreacte)
      _) e (ntreC   ,e   // (entresòl)
@@ -137,19 +139,19 @@
         e (u       E    // (preu)
         e (r       E    // (merla, ferro. but però Berga i Matadepera)
 ?1      e (t       E    // (marlet)
-        e (c       E    //
+?1      e (c       E    //
         e (g       E    //
 ?1        e (i       E    //
 ?1        e (s       E    //
-        e (m       E    //
+?1        e (m       E    //
         e (x       E    //
 ?1        e (na_     E    //
         e (nes_    E    //
-?1        e (n       E    //
-        e (d_      E    //
-        e (ds_     E    //
-        e (da_     E    //
-        e (des_    E    //
+?1      e (n       E    //
+?1      e (d_      E    //
+?1      e (ds_     E    //
+?1      e (da_     E    //
+?1      e (des_    E    //
         e (ero_      E    //
         e (eros_     E    //
         e (era_     E    //
@@ -179,6 +181,7 @@
   _jud) e (o       ,e
     _c) e (ntre@   ,e
    _el) e (ctro@   ,E
+?2 _el) e (ctro@   ,e
      _) e (ntre@   ,e
      _) e (ntrevis  e // entrevista
      _) e (ntren    e // entrenar
@@ -189,18 +192,21 @@
  _magn) e (to      ,E
     _m) e (dico    ,E
     _m) e (nys     ,E
+?2  _m) e (nys     ,e
     _n) e (o@      ,e
-    _n) e (uro     ,E
+?1  _n) e (uro     ,E
   _pal) e (o       ,e
    _ps) e (udo     ,E
     _r) e (ra      ,e
     _r) e (tro     ,E
+?2  _r) e (tro     ,e
     _r) e (tron    e // (retronar)
     _r) e (troc    e // (retrocedir)
     _r) e (trob    e // (retrobar)
     _s) e (mi@     ,E // (semiconductor)
     _s) e (rvo@    ,E // (semiconductor)
     _t) e (rmo@    ,E // (termogènesi)
+?2  _t) e (rmo@    ,e // (termogènesi)
 
 .group f
         f          f
@@ -483,6 +489,7 @@ catalan) o (@      ,o
         pm         mm   // gemination (capmoix)
         ph         f
      _) pn         n    // (pneumàtic)
+?2   _) ps         s    // (psicoanalista)
         
 .group q
         q          k
@@ -674,7 +681,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         // cross-accent adaptations
 ?2      è (s_      ''e // final "ès" is pronounced "és" in western accents (francès)
 ?2      è (s_      ''e // final "èn" is pronounced "én" in western accents (francès)
-?2      è (_       ''s // final "è" is pronounced "é" in western accents (francès)
+?2      è (_       ''e // final "è" is pronounced "é" in western accents (francès)
 ?2      è (ixer_   ''e
 ?2      è (ncer_   ''e
 ?2      è (nyer_   ''e
