@@ -214,12 +214,17 @@
         g  (L01    Z   // front vowel (gerra)
         gu (L01    g   // front vowel (guitarra)
         gu (L02    gw  // (guaret)
+?3   _) gn         n   // gnom
         
 
 .group h
         h              // silent
-        -) hi (_   'i
-        -) ho (_   o
+     -) hi (_   'i
+     -) ho (_    o
+    A-) ho (_    w   // porta-ho [pɔ́ ɾtaw]
+     _) ho (_A   w   //  ho entra [wéntɾa]
+?3  K_) ho (_C   ew  //  ho porta [ewpɔ́ɾta]
+    A_) ho (_C   w   //  no ho porta [n'owpɔ́ɾta]
         h ($w_alt6  X   // (halar)
 
 
@@ -311,11 +316,12 @@
 
 .group l
         l          l
-?1        lt (_      l    // (alt)
-?1        lt (s_     l    // (alts)
-?1        ld (_      l    // (Eudald)
-?1        ld (s_     l    // (Eudalds)
+?1      lt (_      l    // (alt)
+?1      lt (s_     l    // (alts)
+?1      ld (_      l    // (Eudald)
+?1      ld (s_     l    // (Eudalds)
         ll         l^   // (colla)
+?3      l·l        l    // (il·lusió)
      _) l' (P2     l
 
 
@@ -331,8 +337,9 @@
         mpr        mpr  // (compra)
         mbr        mbr  // (cambra)
         mbl        mbl  // (rambla)
+   _)   mn         n    // (mnemotècnic)
 
-   @) ment (_S4ment	m''en
+    @) ment (_S4ment	m''en
 ?3  @) ment (_S4ment	m''ent
     
 
@@ -384,6 +391,7 @@
      s) o (pa_      o
      s) o (pes_      o
      _h) o (mosex   ,O
+     _) o (leo     o2  // (oleoducte)
 
      X) o          O
         o (l       O
@@ -474,6 +482,7 @@ catalan) o (@      ,o
         p          p
         pm         mm   // gemination (capmoix)
         ph         f
+     _) pn         n    // (pneumàtic)
         
 .group q
         q          k
@@ -513,7 +522,7 @@ _ultra) r (A       R    // (ultraric)
     _a) r (iz      R    // (arizotònic)
     _a) r (ítmi    R    // (arítmic)
 // _vice) r (A       R    // (vicerector)
-?1     p) r (end          // (prendre)
+     p) r (end          // (prendre)
      
                 // final r
         r (_       =    // final r is silent + stress the vowel
@@ -594,6 +603,8 @@ _contra) s (A      s    // (contrasentit)
         tx (_A     dZ   // (esquitx amic)
         tz         dz   // (dotzena)
         tll        l^l^ // gemination (espatlla)
+?3      tll        l^   // assimilation (espatlla)
+?3      tl         ll   // ametla, atlas
         tm         mm	// gemination (setmana)
         tn         nn	// gemination (cotna)
 ?3      tz         z    // (normabilitzar) MIRAR SI AFECTA TBÉ ?2
@@ -649,7 +660,6 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         à          ''a   // force stress onto this vowel
         é          ''e
         è          ''E
-?2      ès (_      ''es // final "ès" is pronounced "és" in western accents (francès)
         í          ''i
         ó          ''o
         ò          ''O
@@ -661,3 +671,18 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         ñ          n^
 
         $          dolaR
+        // cross-accent adaptations
+?2      è (s_      ''e // final "ès" is pronounced "és" in western accents (francès)
+?2      è (s_      ''e // final "èn" is pronounced "én" in western accents (francès)
+?2      è (_       ''s // final "è" is pronounced "é" in western accents (francès)
+?2      è (ixer_   ''e
+?2      è (ncer_   ''e
+?2      è (nyer_   ''e
+?2      è (iem_    ''e
+?2      è (ieu_    ''e
+
+?1      é (ixer_   ''E
+?1      é (ncer_   ''E
+?1      é (nyer_   ''E
+?1      é (iem_    ''E
+?1      é (ieu_    ''E

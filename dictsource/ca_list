@@ -161,7 +161,7 @@ vi	vi	// not a Roman number
 // function words
 
 // pronouns
-jo          'ZO         $verbf
+jo          'jO         $verbf
 tu          'tu         $verbf
 ell         'el^        $verbf
 ella        'el^a       $verbf
@@ -224,8 +224,6 @@ los $u  $verbf
 es  $u  $verbf
 se  $u  $verbf
 
-
-
 // prepositions
 a	$u $brk
 al	$u $brk $nounf
@@ -246,7 +244,7 @@ entre	$brk
 
 // conjunctions
 i	'i    $pause
-o       $alt2 $pause
+o   'O    $pause
 que $u
 
 
@@ -387,6 +385,8 @@ creixa	$alt1
 creixes	$alt1
 crema	$alt1
 cremes	$alt1
+?2 creu $alt1
+?2 creus     $alt1
 dimecres	$alt1
 ditrema	$alt1
 ditremes	$alt1
@@ -2370,10 +2370,6 @@ most	$alt1
 mosts	$alt1
 mot	$alt1
 mots	$alt1
-mèlton	$alt1
-mèltons	$alt1
-mònade	$alt1
-mònades	$alt1
 nebot	$alt1
 nebots	$alt1
 no	$alt1
@@ -2383,10 +2379,6 @@ nona	$alt1
 nones	$alt1
 ?1 nyora	$alt1
 ?1 nyores	$alt1
-nòctul	$alt1
-nòctuls	$alt1
-o	$alt1
-os	$alt1
 octa	$alt1
 octes	$alt1
 odontoma	$alt1
@@ -2397,16 +2389,6 @@ oix	$alt1
 oixs	$alt1
 oixque	$alt1
 oixques	$alt1
-oleoducte	$alt1
-oleoductes	$alt1
-oleografia	$alt1
-oleografies	$alt1
-oleogràfic	$alt1
-oleogràfics	$alt1
-oleòmetre	$alt1
-oleòmetres	$alt1
-ollaó	$alt1
-ollaós	$alt1
 om	$alt1
 oms	$alt1
 oma	$alt1
@@ -2423,8 +2405,6 @@ oncle	$alt1
 oncles	$alt1
 onda	$alt1
 ondes	$alt1
-onomàsticon	$alt1
-onomàsticons	$alt1
 onze	$alt1
 onzes	$alt1
 opistosoma	$alt1
@@ -2440,12 +2420,6 @@ ordres	$alt1
 oremus	$alt1
 osa	$alt1
 oses	$alt1
-osteogènia	$alt1
-osteogènies	$alt1
-osteogènic	$alt1
-osteogènics	$alt1
-osteològic	$alt1
-osteològics	$alt1
 ?1 pailebot	$alt1
 ?1 pailebots	$alt1
 palafolls	$alt1
@@ -3877,8 +3851,11 @@ google      g'ugel
 gouache		gw'aS
 jazz		dZ'as
 manco		m'aNku
+mèlton      m'Elto2n
 mikwà		migb'a
 minette		min'Ete
+onomàsticon	o2no2mˈastiko2n
+
 panel		pan'El
 polis		p'Olis
 spin		sp'in
@@ -3894,8 +3871,14 @@ calvados    cal'Bados
 // other exceptions
 ió  i'o
 Io  i'o
-arbre   aB**e
-arbres   aB**es
+arbre       aB**e
+arbres      aB**es
+diners      din'es
+dimarts     dim'aRs
+?2 dimarts  dim'ats
+?3 llavors  l^av'Os // adverb
+?2 marbre   m'ab**e
+?2 socors   s'ocos
 
 // prefixes and sufixes
 /// words that DO NOT have a secondary stress prefix

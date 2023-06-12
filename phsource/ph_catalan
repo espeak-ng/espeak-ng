@@ -56,7 +56,6 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 170
-//  ChangeIfUnstressed(U)
   IF thisPh(isUnstressed) THEN
     ChangePhoneme(u)
   ENDIF
@@ -401,8 +400,8 @@ phoneme k
     WAV(ustop/kl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
- //   ELIF nextPh(n) THEN
-  //      ChangePhoneme(N)
+    ELIF nextPh(n) THEN
+      ChangePhoneme(N)
     ELSE
       ChangePhoneme(g)
     ENDIF
