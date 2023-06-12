@@ -97,6 +97,7 @@ _0	z'E**O
 _1	'u
 _2	d'os
 _3	t**'Es
+?2 _3	t**'es
 _4	kw'at**e
 _5	s'iNk
 _6	s'is
@@ -136,18 +137,18 @@ _2C	d,os'ens
 ?3 _2C	d,os'ents
 _3C	tr,es'ens
 ?3 _3C	tr,es'ents
-_4C	kw'at**es'Ens
-?3 _4C	kw'at**es'Ents
-_5C	s,ins'Ens
-?3 _5C	s,ins'Ents
+_4C	kw'at**es'ens
+?3 _4C	kw'at**es'ents
+_5C	s,ins'ens
+?3 _5C	s,ins'ents
 _6C	s,is'ens
 ?3 _6C	s,is'ents
-_7C	s,ets'Ens
-?3 _7C	s,ets'Ents
-_8C	b'ujts'Ens
-?3 _8C	'ujts'Ents
-_9C	n,Ous'Ens
-?3 _9C	n,Ous'Ents
+_7C	s,ets'ens
+?3 _7C	s,ets'ents
+_8C	b'ujts'ens
+?3 _8C	'ujts'ents
+_9C	n,Ous'ens
+?3 _9C	n,Ous'ents
 _0M1	m'il
 _0M2	mili'ons
 _1M2    ummili'o
@@ -179,9 +180,9 @@ meua        m'ewa       $nounf
 teua        t'ewa       $nounf
 seua        s'ewa       $nounf
 nostre      n'Ost**e    $nounf
-vostre      b'Ost**e    $nounf
+vostre      v'Ost**e    $nounf
 nostra      n'Ost**a    $nounf
-vostra      b'Ost**a    $nounf
+vostra      v'Ost**a    $nounf
 
 meus        m'ews       $nounf
 teus        t'ews       $nounf
@@ -193,7 +194,7 @@ meues       m'ewes      $nounf
 teues       t'ewes      $nounf
 seues       s'ewes      $nounf
 nostres     n'Ost**es   $nounf
-vostres     b'Ost**es   $nounf
+vostres     v'Ost**es   $nounf
 
 // articles
 el	$u   $nounf
@@ -213,7 +214,6 @@ me  $u  $verbf
 et  $u  $verbf
 te  $u  $verbf
 lo  $u  $verbf
-en  $u  $verbf
 ne  $u  $verbf
 li  $u  $verbf
 ens $u  $verbf
@@ -234,7 +234,7 @@ de	$u
 del	$u  $nounf
 dels	$u $nounf
 en      $u $brk
-?2  en  en $u
+?2  en  e2n $u
 per	$u  $brk
 pel	$u $brk $nounf
 pels	$u $brk    $nounf
@@ -610,8 +610,10 @@ aqueix	$alt2
 aqueixos	$alt2
 aquell	$alt2
 aquells	$alt2
-aquest	$alt2
-aquests	$alt2
+?1 aquest	$alt2
+?1 aquests	$alt2
+?1 aquesta	$alt2
+?1 aquestes	$alt2
 aresnegre	$alt2
 aresnegres	$alt2
 arquitecte	$alt2
@@ -3871,6 +3873,7 @@ derrich		deR'ik
 folk		f'Olk
 freudisme		f**OjD'izme
 frottis		f**'Otis
+google      g'ugel
 gouache		gw'aS
 jazz		dZ'as
 manco		m'aNku

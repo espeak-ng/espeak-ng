@@ -133,6 +133,8 @@ Exemple:
 * [Aplicació al català dels principis de transcripció de l'Associació Fonètica Internacional](https://publicacions.iec.cat/repository/pdf/00000041/00000087.pdf)
 * [Requeriments SC](https://www.softcatala.org/wiki/Usuari:Jmas/TTS_Requeriments)
 * [Mots amb excepcions](https://ca.wiktionary.org/wiki/Categoria:Mots_en_catal%C3%A0_per_caracter%C3%ADstiques_fon%C3%A8tiques)
+* [Tot dret](https://totdret.uib.cat/model.html), llibre d'estil de IB3
+* [Llibre d'estil de la CVMA](https://static.apuntmedia.es/apunt/public/content/file/original/2021/0228/10/llibre-d-estil-86bdcdb.pdf): recomanacions fonètiques a partir de la pg. 163.
 * [Taules de sons](http://www.ub.edu/sonscatala/ca/central)
 * [La fonologia del català](http://diposit.ub.edu/dspace/bitstream/2445/67057/1/Fonologia_catalana.pdf)
 * [Fonètica del català](https://www.auladecatala.com/fonetica-i-ortografia/) (Aula de català)

@@ -21,14 +21,6 @@ phoneme a2 // a que no es neutralitza
   FMT(vowel/a_6)
 endphoneme
 
-phoneme a#
-  vwl starttype #@ endtype #@
-  ipa ɐ
-  unstressed
-  length 170
-  FMT(vowel/a#_3)
-endphoneme
-
 phoneme e
   vwl starttype #e endtype #e
   length 170
@@ -57,6 +49,7 @@ endphoneme
 phoneme E2    // don't reduce
   vwl starttype #e endtype #e
   length 180
+  ChangeIfUnstressed(e2)
   FMT(vowel/e_mid)
 endphoneme
 

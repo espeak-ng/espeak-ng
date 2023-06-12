@@ -37,8 +37,8 @@
 //  L05J)  a (m_      a    // do not stress the vowel
 //  L05J)  a (ny_     a    // do not stress the vowel
 //  L05J)  a (ns_     a    // do not stress the vowel
-        ae         ae2  // do not reduce
-        ahe        ae2  // do not reduce
+        ae         aE2  // do not reduce
+        ahe        aE2  // do not reduce
     _)  amb (_A    amb  // Sensibilització
     _)  a (nte@@   ,a   // (antepenúltim)
     _)  a (nti@@   ,a   // (antepenúltim)
@@ -85,6 +85,7 @@
         e          e
         e (L05     e2   // do not reduce (eòlic)
         e (a       e2   // do not reduce (teatre)
+        e (ha      e2
      ò) e          e2
      ó) e          e2
         e (o       e2
@@ -126,8 +127,7 @@
     _r) e (g       e    // (regne, regno, etc.)
     _t) e (le      e2   // (teletreball)
   _tel) e          e2   // (teletreball)
-    _r) e (a       e2   // (reacció)
-    _r) e (ha      e2   // (rehabilitar)
+
      _) e (ntreA   ,e   // (entreacte)
      _) e (ntreC   ,e   // (entresòl)
     -t) e (_       @
@@ -219,7 +219,7 @@
 .group h
         h              // silent
         -) hi (_   'i
-        -) ho (_   'u
+        -) ho (_   o
         h ($w_alt6  X   // (halar)
 
 
@@ -333,6 +333,7 @@
         mbl        mbl  // (rambla)
 
    @) ment (_S4ment	m''en
+?3  @) ment (_S4ment	m''ent
     
 
 
@@ -485,7 +486,7 @@ catalan) o (@      ,o
      _) r          R    // (raig)
      A) r (A       **   // (cara)
      C) r (A       **   // (groc)
-?3       A) r (C       **   // (groc)
+?3       A) r (C       **   // 
 ?3       A) rr     R   // (darrer)
         rr         R    // (carro) 
      l) r (A       R    // (colrat)
@@ -526,8 +527,8 @@ _ultra) r (A       R    // (ultraric)
 ?3 L05J)  r (s_      **     // final r is not silent + do not stress the vowel
 
 
-        r (-       R   // final r is not silent + stress the vowel
-        r (_$w_alt5 R  // final r is not silent + stress the vowel
+        r (-       **   // final r is not silent if followed by a pronoun + stress the vowel
+//         r (_$w_alt5     R  // final r is not silent + stress the vowel
         r (s_$w_alt5    R // final r is not silent + stress the vowel
 
                 // suffixes with final R not silent
@@ -560,8 +561,8 @@ _ultra) r (A       R    // (ultraric)
          s  (L11    z
 //         s  (_L11   z
      -) se (_      s@
-  aque) s  (tKK  
-  aque) s  (tKhA   s
+?1  aque) s  (tKK  
+?1  aque) s  (tKhA   s
    _bi) s (A       s    // (bisexual)
   _neo) s (A       s    // ()
  _orto) s (A       s    // 
@@ -659,4 +660,4 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
      g) ü          w
         ñ          n^
 
-        $          dola#*
+        $          dolaR

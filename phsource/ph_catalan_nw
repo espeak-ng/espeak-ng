@@ -52,6 +52,7 @@ endphoneme
 phoneme E2    // don't reduce
   vwl starttype #e endtype #e
   length 180
+  ChangeIfUnstressed(e2)
   FMT(vowel/e_mid)
 endphoneme
 
