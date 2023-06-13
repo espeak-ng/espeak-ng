@@ -1,35 +1,32 @@
 // This file is UTF8 encoded 
-// Tetun Dili Spelling-to-phoneme rules. This assumes inconsistent spelling, ignores glottals, accepts Portuguese, Indonesian and English spelling where it doesn’t conflict with Tetun (e.g. for “q”, “ff”. Double vowels convert to stressed vowels.
-
+// Spelling-to-phoneme rules for Tetun Dili. This assumes inconsistent spelling, ignores glottals, accepts Portuguese, Indonesian and English spelling where it doesn’t conflict with Tetun (e.g. for “q”, “ff”. Double vowels convert to stressed vowels.
 // Letter groups (for Portuguese rules)
 // A  a vowel
 // B  a consonant, except h l r w y
 // C  a consonant
 // G  a voiced consonant
 // K  not a vowel
-
 .group a
         a        a
-        á        ''a
-        à        ''a  // Portuguese
         aa       ''a
         ae       aE
         ai       aI
         ao       aO
         au       au
-
+.group á // Stressed vowel
+        á        ''a
+.group à // Portuguese
+        à        ''a
 .group ã // Portuguese
         ã          aN
         ão         auN
-
 .group b
         b        b
-
 .group c // Portuguese
      _) c (_       se
         c          k
         c (Y       s         // ce ci
-        c (B       kI
+        c (B       ki
         c (s       k
         c (t       k
         c (_C      k_
@@ -40,20 +37,18 @@
    A) ct         t         //drop “c” (eg: exacto)
    A) cç         s         //drop “c” in European Portuguese (eg: selecção)
  conta) ct (A      kt        // eg: contacto, contactar, contactável, incontactável, etc...
-
 .group d
         d        d
-
 .group e
         e        E
-        é        ''E
         ea       Ea
         ee       ''E
         ei       ei
         eo       EO
         eu       eu
         _) e (_      i // Portuguese “and”
-
+.group é
+        é        ''E
 .group ê
         ê          ''e
         êm (_      ''eIN
@@ -61,21 +56,16 @@
         ên (K      ''eIN
         ênh        ''en^
         êu         ''eu
-
 .group f
         f        f
         ff       f //English
-
 .group g
         g        g
         gg       g // English
-
 .group h
         h        h // Will pronounce even in Portuguese words
-
 .group i
         i        i
-        í        ''i
         ia       ia
         ie       ie
         ii       ''i
@@ -86,37 +76,30 @@
         in (g      iN
         in (k      iN
         inh        in^
-
+.group í
+        í        ''i
 .group j
         j        Z
-
 .group k
         k        k
-
 .group l
         l        l
         ll       l^ // INL
         lh       l^ // Portuguese
         ly       l^ // Rare
-
 .group m
         m        m
      A) mm (A       m // English
-
 .group n
         n        n
         nn       n // “connosco”
         ng       N // English, Indonesian
         nh       n^
-        ainhira  ,ainh'ira // bainhira, wainhira
-        ainhaat  ,ainh'at 
-        ainhitu  ,ainh'itu 
-        ñ        n^ / INL
         ny       n^ 
-
+.group ñ // INL
+        ñ       n^
 .group o
         o        o
-        ó       ''O // Portuguese
         oa       Oa
         oe       oe
         oi       oi
@@ -125,23 +108,21 @@
         _) os (_      us // Portuguese
         _) os (_A     uz // Portuguese
         om (_      oN // Portuguese
-
+.group ó
+        ó       ''O // Portuguese
 .group ô  // Portuguese
         ô          ''o
         ôm (_      ''oN
         ôm (C      ''om
         ôn (K      ''oN
         ônh        ''on^
-
 .group õ // Portuguese
         õ          oi
         õe         oin
-
 .group p
         p        p
-     A) pp (A    p // English
+     A) pp (A       p // English
         ph       f // English
-
 .group q // Portuguese
      _) q (_       ke
         q          k
@@ -175,11 +156,9 @@
         qui        ki        // quinta, esquilo, etc.
      _) qu (inde   ku        // quindecágono, etc.
      _) quo        kuo       // quoficiente, etc.
-
 .group r
         r        r
         rr       r
-
 .group s
         s        s
         ss       s // Portuguese
@@ -188,10 +167,10 @@
         sç         s // Portuguese
         sh         S // English
         sj       C // Indonesian
-     A) s (C       s# // Portuguese
+     A) s (C       s // Portuguese
      A) ss         s
      A) s (G+      Z
-     A) s (_KS1    s#
+     A) s (_KS1    s
      A) s (_G+S1   Z
         s (G       z
         s (w+      s
@@ -201,49 +180,40 @@
  _trân) s (ito_    z
   _sub) s (ist     z
         ssion (_   _^_EN
-
 .group t
         t        t
         tt       t // English
         th         _^_EN // English
         tion (_    _^_EN // English
-
 .group u
         u        u
-        ú        ''u
         ua       ua
         ue       ue
         ui       ui
         uo       uo
         uu       ''u
         um (_      uN // Portuguese
-
+.group ú
+        ú        ''u
 .group v
         v        v
-
 .group w
         w        w
-
 .group x
         x          S
         x (_       ks // Portuguese
-
 .group y
         y        j
-
 .group z
         z        z
    _pi) zz (a      ts // pizza..
-
 .group
         ‘                // Ignore glottals
         ç          s
     D_) º          %o        // Portuguese ordinal
     D_) ª          %a        // Portuguese ordinal
-
 .group
         $        dOlar
-
 // Reading maths
         , (D       v'irgula
     __) - (_D      m'enus

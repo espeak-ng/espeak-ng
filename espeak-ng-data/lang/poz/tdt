@@ -1,6 +1,7 @@
 name Tetun Dili
 language tdt
 
+stressRule 2 // Stress on penultimate syllable. Phoneme rules override this if stress is marked on the vowel.
 stressLength 160 200  180 180  0 0  220 240
 stressAmp    16  18   18  18   0 0  22  21
 
