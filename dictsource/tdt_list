@@ -1,6 +1,5 @@
 // Tetun Dili lists. (Based on Indonesian and Portuguese files)
 // This file in UTF8 encoded
-
 // Letter names
 a	a
 b	be
@@ -10,7 +9,7 @@ e      e
 f	Ef
 g	ge
 h	ha
-i	i 
+i	i
 j	Z'Ota
 k	ka
 l	Eli
@@ -28,7 +27,6 @@ w	we
 x	Sis
 y	je
 z	zE
-
 // Numbers. Read in Tetun
 _0	z'Ero
 _1	'ida
@@ -66,7 +64,6 @@ _0M2	mil'jaun
 _0M3	bil'jaun
 _0M4	trilj'aun
 _dpt	_v'irgula
-
 // Unstressed words ($u = unstressed)
 la		$u
 iha		$u
@@ -94,7 +91,6 @@ purke		$u
 komu		$u
 antes		$u
 sein		$u
-
 // Accent names
 _lig	ligad'ura
 _acu	ag'udu
@@ -111,13 +107,11 @@ _ogo	ogon'ek
 _rng	an'Eu
 _stk	b'axa
 _tld	til
-
 // alphabets
 _ar	'arabi
 _cyr	sir'iliku
 _he	ebr'aIku
 _zh	Sin'es
-
 // Character names
 _á	$accent
 _à	$accent   // à can be a word
@@ -133,8 +127,7 @@ _ó	$accent
 ú	$accent
 ü	$accent
 v	ve       // not roman numbers
-x	Sis#
-
+x	Sis
 // Fonts and symbols
 _cap	maI'uskulu
 _sub	||subskr'itu
@@ -146,26 +139,26 @@ _#9	tab
 *	f'itun
 =	__igw'al_	$max3
 .	p'oNtu		$max3
-+	maIs#		$max3
++	maIs		$max3
 %	pors'eNtu	$max3
 &	_'e_
 @	ar'oba
 €	'euru
 £	l'ibra
 ¥	j'en
-¢	seNt'avus#
+¢	seNt'avus
 §	ses'aun
 _!	eSklamas'auN
-_"	'aspas#
+_"	'aspas
 _#	k,ardin'al
 _&	'i
-_'	ap'Ostr,ofu`
+_'	ap'Ostr,ofu
 _(	l,okepar'eNteze
 ¶	par'agrafu
 ●	s'ir-kulu
 ■	k'aixa
 ÷	divid'irp'or
- ×	v'ezis#
+ ×	v'ezis
 µ	m'ikru
 _)	t,akapar'eNteze
 _*	f'itun
@@ -174,10 +167,10 @@ _−	m'enus
 ∞	iNfin'itu
 ∫	iNtegr'al
 ⅓	uNt'er-su
-⅔	doIs#t'er-sus#
+⅔	doIst'er-sus
 ¼	uNku'ar-tu
 ½	m'eIu
-¾	tres#kw'ar-tus#
+¾	treskw'ar-tus
 ®	reZistr'adu
 ↑	s'Etabal'eten
 ↓	s'Etabakr'aik
@@ -198,7 +191,7 @@ _\	b,ara,iNvert'ida
 _]	t,akakowS'etSi
 _^	s,irkuNfl'Eksu
 _´	as'eNtu,ag'udu
-·	p'oNtuseINtr'adu
+·	p'oNtuseiNtr'adu
 __	s,ublin^'adu
 _`	gr'avi
 _{	l,okeS'avi
@@ -207,11 +200,10 @@ _}	t,akaS'avi
 _~	t'il
 _¡	,esklamas,auN,iNvert'ida
 _¿	,iNtex,ogas,auN iNvert'ida
-_"	l'oke'aspas||d'uplas#
+_"	l'oke'aspas||d'uplas
 º	maskul'inu
 ª	femin'inu
 °	gr'au
-
 // Ordinal numbers
 _#º	u
 _#ª	a
@@ -226,7 +218,10 @@ _7o	badalah'itu
 _8o	badalaw'alu
 _9o	badalas'ia
 _1Xo	badalas'anulu
-
+// Exceptions to “nh” rule: “bain/wain”+number
+ainhira       ,ainh'ira
+ainhaat       ,ainh'at
+ainhitu       ,ainh'itu
 // Abbreviations
 abc	$abbrev
 ac	'as'e
@@ -235,7 +230,7 @@ etc	,ets'Et:ra
 jpeg	Ze'Eg
 mpeg	,Emp'Eg
 nvda	$abbrev
-oms	$abbrev 
+oms	$abbrev
 usb	$abbrev
 dr	dowtor	$dot
 dra	dowt'ora	$dot
@@ -249,9 +244,7 @@ engª	enZen^'eIra
 nº	n'umeru
 sr	sen^'Or dot
 sra	sen^'Ora dot
-
 // Main word dictionary
-
 // Foreign words
 alt        'alt
 back       b'Ek
@@ -277,7 +270,7 @@ frame      fr'eIm
 game	g'eIm
 gay	geI
 gmail      j,im'eIl
-google     g'u:gal 
+google     g'u:gal
 hardware   h'ard,w'Er
 happy      h'Epi
 home       h'om
@@ -302,7 +295,7 @@ org        Org
 pause      p'au:z
 page       p'eIdZ
 podcast	pOdkEst
-ranking	r'aNkIN
+ranking	r'aNkiN
 readme     r'i:dmi:
 right      r'aIt
 scanner     sk'Enar
@@ -327,7 +320,6 @@ writer r'aIter
 xerox	S'ErOks
 yahoo      'i,ah'u
 yes        j'Es
-
 // Foreign product names
 access      'aks,Es
 adobe       ad'Obi
@@ -337,7 +329,7 @@ outdoor	autd'Or
 baby	      b'eIbi
 campari	kamp'ari
 chrome	kr'om
-corpus	k'Or@-pus#
+corpus	k'Or@-pus
 excel       ,Eks'El
 express     ,Ekspr'Es
 espeak      isp'i:k
@@ -375,8 +367,8 @@ Slackware   sl'akwer-
 smart       sm'art
 society     sos'aIty
 speak       spi:k
-start       st'art 
-time        t'aIm 
+start       st'art
+time        t'aIm
 twitter     tw'iter
 ubuntu      ub'untu
 unix        ,u:n'iks
