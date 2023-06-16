@@ -59,12 +59,21 @@ _8X	w'alun,ulu
 _9X	s'ian,ulu
 _0C	'atus
 _1C	,atus'ida
+_2C	,atus'r'ua
+_3C	,atus't'olu
+_4C	,atus'h'at
+_5C	,atus'l'ima
+_6C	,atus'n'en
+_7C	,atus'h'itu
+_8C	,atus'w'alu
+_9C	,atus's'ia
 _0M1	r'ihun
 _1M1	r,ihun'ida
 _0M2	mil'jaun
 _0M3	bil'jaun
 _0M4	trilj'aun
 _dpt	_v'irgula
+_0and	r,esin
 
 // Unstressed words ($u = unstressed)
 la		$u
