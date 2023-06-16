@@ -1,32 +1,33 @@
-// Tetun Dili lists. (Based on Indonesian and Portuguese files)
+﻿// Tetun Dili lists. (Based on Indonesian and Portuguese files)
 // This file in UTF8 encoded
 // Letter names
-a	a
-b	be
-c	se
-d	de
-e      e
-f	Ef
-g	ge
-h	ha
-i	i
+a	'a
+b	'be
+c	'se
+d	'de
+e     'e // Also Portuguese spelling of ‘and’
+f	'Efi
+g	'ge
+h	'ha
+i	i // Also an unstressed word ‘and’
 j	Z'Ota
-k	ka
-l	Eli
-m	Emi
-n	Eni
-o	O
-p	pe
-q	ke
-r	Eri
-s	Esi
-t	te
-u	u
-v	ve
-w	we
-x	Sis
-y	je
-z	zE
+k	'ka
+l	'Eli
+m	'Emi
+n	'Eni
+o	'O
+p	'pe
+q	'ke
+r	'Eri
+s	'Esi
+t	'te
+u	'u
+v	've
+w	'we
+x	'Sis
+y	'je
+z	'zE
+
 // Numbers. Read in Tetun
 _0	z'Ero
 _1	'ida
@@ -64,6 +65,7 @@ _0M2	mil'jaun
 _0M3	bil'jaun
 _0M4	trilj'aun
 _dpt	_v'irgula
+
 // Unstressed words ($u = unstressed)
 la		$u
 iha		$u
@@ -91,27 +93,30 @@ purke		$u
 komu		$u
 antes		$u
 sein		$u
+
 // Accent names
 _lig	ligad'ura
-_acu	ag'udu
-_ac2	ag'udud'uplu	
-_brv	br'Evi
+_acu	as'entuag'udu // á
+_ac2	as'entuag'udud'uplu
+_brv	br'Eve
 _ced	sed'ilja
 _cir	sirkuNfl'Eksu
 _dia	tr'ema
 _dot	p'oNtu
-_grv	gr'avi
+_grv	a'entugr'ave
 _hac	kar'oN
 _mcn	makr'oN
 _ogo	ogon'ek
 _rng	an'Eu
 _stk	b'axa
-_tld	til
+_tld	t'il
+
 // alphabets
 _ar	'arabi
 _cyr	sir'iliku
 _he	ebr'aIku
 _zh	Sin'es
+
 // Character names
 _á	$accent
 _à	$accent   // à can be a word
@@ -128,6 +133,7 @@ _ó	$accent
 ü	$accent
 v	ve       // not roman numbers
 x	Sis
+
 // Fonts and symbols
 _cap	maI'uskulu
 _sub	||subskr'itu
@@ -141,7 +147,7 @@ _#9	tab
 .	p'oNtu		$max3
 +	maIs		$max3
 %	pors'eNtu	$max3
-&	_'e_
+&	_'i_
 @	ar'oba
 €	'euru
 £	l'ibra
@@ -150,7 +156,7 @@ _#9	tab
 §	ses'aun
 _!	eSklamas'auN
 _"	'aspas
-_#	k,ardin'al
+#	l'utu
 _&	'i
 _'	ap'Ostr,ofu
 _(	l,okepar'eNteze
@@ -160,7 +166,7 @@ _(	l,okepar'eNteze
 ÷	divid'irp'or
  ×	v'ezis
 µ	m'ikru
-_)	t,akapar'eNteze
+_)	t,akapar'ENteze
 _*	f'itun
 _−	m'enus
 №	n'umeru
@@ -183,20 +189,19 @@ _/	b'ara
 _:	d,oIsp'oNtus
 _;	p,oNtu_iv'irgula
 _<      men'Or
-u
 _>	maI'Or
 _?	,iNter,ogas'aun
-_[	l,okekowS'etSi
+_[	l,okepar'Entezekuadr'adu
 _\	b,ara,iNvert'ida
-_]	t,akakowS'etSi
+_]	t,akapar'Entezekuadr'adu
 _^	s,irkuNfl'Eksu
 _´	as'eNtu,ag'udu
 ·	p'oNtuseiNtr'adu
 __	s,ublin^'adu
-_`	gr'avi
-_{	l,okeS'avi
+_`	as'entugr'ave
+_{	l,okepar'EntezeS'avi
 _|	b,arav,ertik'al
-_}	t,akaS'avi
+_}	t,akapar'EntezeS'avi
 _~	t'il
 _¡	,esklamas,auN,iNvert'ida
 _¿	,iNtex,ogas,auN iNvert'ida
@@ -204,7 +209,10 @@ _"	l'oke'aspas||d'uplas
 º	maskul'inu
 ª	femin'inu
 °	gr'au
+
 // Ordinal numbers
+_1º	prim'eIru
+_1ª	prim'eIra
 _#º	u
 _#ª	a
 _ord	o
@@ -218,10 +226,15 @@ _7o	badalah'itu
 _8o	badalaw'alu
 _9o	badalas'ia
 _1Xo	badalas'anulu
+
 // Exceptions to “nh” rule: “bain/wain”+number
-ainhira       ,ainh'ira
-ainhaat       ,ainh'at
-ainhitu       ,ainh'itu
+bainhira       b,ainh'ira
+bainhaat       b,ainh'at
+bainhitu       b,ainh'itu
+wainhira       w,ainh'ira
+wainhaat       w,ainh'at
+wainhitu       w,ainh'itu
+
 // Abbreviations
 abc	$abbrev
 ac	'as'e
@@ -244,6 +257,7 @@ engª	enZen^'eIra
 nº	n'umeru
 sr	sen^'Or dot
 sra	sen^'Ora dot
+
 // Main word dictionary
 // Foreign words
 alt        'alt
@@ -333,8 +347,9 @@ corpus	k'Or@-pus
 excel       ,Eks'El
 express     ,Ekspr'Es
 espeak      isp'i:k
-espeakedit   isp'i:kEd,it
-facebook  feIsbuk
+espeakedit  isp'i:kEd,it
+facebook    f'eIsbuk
+file        f'ail.
 firefox     f'air@fOks
 front       fr'ont
 high        haI
