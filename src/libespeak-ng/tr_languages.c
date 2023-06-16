@@ -1321,6 +1321,12 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.accents = 2; // 'capital' after letter name
 	}
 		break;
+	case L3('t', 'd', 't'): // Tetun
+	{
+		tr->langopts.numbers = NUM_AND_UNITS;
+		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
+	}
+		break;
 	case L('r', 'o'): // Romanian
 	{
 		static const short stress_lengths_ro[8] = { 170, 170,  180, 180,  0, 0,  240, 260 };
