@@ -1,4 +1,4 @@
-// This file is UTF8 encoded 
+﻿// This file is UTF8 encoded
 // Spelling-to-phoneme rules for Tetun Dili. This assumes inconsistent spelling, ignores glottals, accepts Portuguese, Indonesian and English spelling where it doesn’t conflict with Tetun (e.g. for “q”, “ff”. Double vowels convert to stressed vowels.
 // Letter groups (for Portuguese rules)
 // A  a vowel
@@ -6,6 +6,7 @@
 // C  a consonant
 // G  a voiced consonant
 // K  not a vowel
+
 .group a
         a        a
         aa       ''a
@@ -130,7 +131,6 @@
         qü         kw
         qu (Y      k
         qu (K      ku
-     _) que (_     ky
      _) que        ke        // quente, etc.
      _) quei (C    k'eI      // queira, queima, etc
      @) quên       kw'eIN    // frequência, etc.
@@ -207,17 +207,19 @@
 .group z
         z        z
    _pi) zz (a      ts // pizza..
+
 .group
         ‘                // Ignore glottals
         ç          s
     D_) º          %o        // Portuguese ordinal
     D_) ª          %a        // Portuguese ordinal
+
 .group
         $        dOlar
+
 // Reading maths
         , (D       v'irgula
     __) - (_D      m'enus
     D_) - (_D      m'enus
     A_) - (_D      _
     C_) - (_D      _
-
