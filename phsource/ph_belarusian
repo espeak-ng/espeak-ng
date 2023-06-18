@@ -17,8 +17,14 @@ phoneme i"
 endphoneme
 
 phoneme Q
-  import_phoneme base1/Q"
+  vcd uvl frc
   ipa ɣ
+  lengthmod 6
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/Q_ulv) addWav(ufric/xx, 60)
+  ENDIF
+  FMT(voc/Q_ulv) addWav(ufric/xx, 80)
 endphoneme
 
 phoneme ts
@@ -27,19 +33,12 @@ phoneme ts
   ipa t͡s
 endphoneme
 
-phoneme ts;
-  CALL base1/tS;
-  voicingswitch dz;
-  ipa t͡sʲ
-endphoneme
-
 phoneme ts.
-  vls pla afr sib
-  ipa ʈ͡ʂ
-  lengthmod 2
-  voicingswitch dz.
-  Vowelin f1=0  f2=2300 200 400  f3=-100 80
-  WAV(ustop/tsh_sr, 50)
+  vls pla frc sib
+  lengthmod 3
+  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  Vowelout f1=0  f2=1800 -100 300  f3=-300 80
+  WAV(ustop/ts_rfx_unasp)
 endphoneme
 
 phoneme dz
@@ -48,20 +47,21 @@ phoneme dz
   ipa d͡z
 endphoneme
 
-phoneme dz;
-  import_phoneme pl/dz;
-  CALL base1/dZ;
-  voicingswitch ts;
-  ipa d͡zʲ
-endphoneme
-
 phoneme dz.
   vcd pla afr sib
-  ipa ɖ͡ʐ
   lengthmod 5
-  voicingswitch ts.
-  Vowelin f1=2  f2=2300 200 400  f3=100 80
-  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+  voicingswitch tS
+  Vowelin f1=2  f2=1900 100 300  f3=100 80
+  Vowelout f1=2  f2=1900 100 300  f3=100 80 brk
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(ustop/tsh2, 50)
+  ENDIF
+  FMT(dzh/dzh2) addWav(ustop/tsh2, 80)
 endphoneme
 
 phoneme r
@@ -78,12 +78,37 @@ phoneme s;
 endphoneme
 
 phoneme z;
-  import_phoneme base1/z;
-  ipa zʲ
+  vcd alp sib frc
+  ipa ʑ
+  voicingswitch s;
+  lengthmod 6
+  Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_pzd_) addWav(ufric/s_pzd_, 80)
+  ENDIF
+  FMT(voc/z_pzd) addWav(ufric/s_pzd, 80)
 endphoneme
 
-phoneme ;
+phoneme ;     // linking j, used between (i) vowels and a following vowel
+              // also to palatalize consonants
   liquid pzd
   lengthmod 0
-  ipa ʲ
-endphoneme
+
+  IF prevPh(#i) THEN
+    ipa NULL   // linking after i vowel, don't show in ipa
+  ENDIF
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(NULL)   // this is to ignore this phoneme if not before a vowel
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(j2/j2@)
+    VowelStart(j2/j2a)
+    VowelStart(j2/j2e)
+    VowelStart(j2/j2i)
+    VowelStart(j2/j2o)
+    VowelStart(j2/j2u)
+  EndSwitch
