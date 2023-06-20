@@ -633,6 +633,7 @@ arpeggier	arpEdZ'i:r
 arrangier	araNZ'i:r
 Art	A:rt	$capital
 arterie	$alt
+artischocke	arti:'SOk@	$3
 asphalt	$2
 atommüll	at'o:mmyl
 aubergine	,obEr'Zi:n@
@@ -661,6 +662,7 @@ blamage	$alt
 braille	braIj
 bratschen	br'a:tSn-
 bronchie	$alt
+bredouille	bre'dUlj@
 buch	b'u:x
 buche	b'u:x@
 buchen	b'u:x@n
@@ -677,6 +679,7 @@ cembalo	tS'Embalo:
 centre	center	$text
 champagner	Samp'anj3
 champignon	S'ampInjON
+charisma	ka:rIsma
 ciao	tSaU
 clique	klIk@
 cognac	k'Onjak
@@ -686,6 +689,7 @@ dahlie	$alt
 dazwishen	$2
 debatte	$2
 deshalb	$2
+desaster	de'za:st3
 detail	de:t'aI
 dezember	$2
 diadem	di:ad'e:m
@@ -720,6 +724,8 @@ erstmal	e:rstmA:l
 erzgebirg	Ertsg@bIrg
 eunuch	OI'nu:x
 europä	$3
+essentiell	EsEn'tsiEl
+espresso	,Es'prEso
 expedient	Ekspe:dI'Ent
 extravagant	$1
 extrem	Ekstr'e:m
@@ -737,6 +743,7 @@ gegenständ	$1
 gegenüber	ge:g@n_|'y:b3
 geglichen	g@glIC@n
 gemach	g@'ma:x
+gemälde	g@'mE:ld@'
 gemein	g@maIn
 gen	ge:n
 gene	ge:n@
@@ -757,6 +764,8 @@ hausier	haUz'i:r
 heimat	$1
 herberg	hErbErg
 hi	haI
+highend	hai_||::Ent'
+hifi	haI,fi'	%only
 hinweg	hInv'Ek
 hinweg	h'Inve:g	$capital
 historie	$alt
@@ -766,7 +775,11 @@ hostie	$alt
 humor	$2
 hrhr	harhar
 husten	h'u:st@n
-hypothese	hypo'te:z@'
+hypothese	hypo'te:z@
+hypothenuse	hypo'te'nu:z@	$4
+hypothenusen	hypo'te'nu:zn-	$4
+hypothenusenabschitt	hypo'te'nu:zn-,?apSnIt	$4
+
 
 illegitim	Ile:gi:t'i:m
 illiberal	Ili:b@r'A:l
@@ -803,6 +816,7 @@ kanoe	kan'u:
 kartonage	$alt
 kastanie	$alt
 kid	kId
+klimbim	klIm'bIm'	$2
 klops	kl'Ops
 kloster	klo:st3
 kognak	kOnjak
@@ -819,6 +833,7 @@ kurie	$alt
 küchentisch	k'yC@ntIS
 kwaß	kvas
 
+lache	la:x@
 lagunen	la'gu:n@n'
 lappalie	$alt
 lilie	$alt
@@ -828,12 +843,14 @@ lucent	lu:sEnt
 luetisch	lu:'e:tIS
 
 machen	max@n
+maloche	ma'lo:x@'
 maßgeblich	ma:s,ge:plIC
 magnet	magn'e:t
 mannequin	man@k'W~
 marginalie	$alt
 massage	$2
 materie	$alt
+mathematik	matema'ti:k
 medaille	me:d'alI@
 meldung	m'EldUN
 menuette	mEnu:'Et
@@ -851,12 +868,15 @@ monsun	$2
 mond	mo:nt
 montag	mo:ntA:k
 mors	mOrs
+mückenstich 	myk'n-,St'IC
 mumie	$alt
+mycroft	maikROft
 
 nachdem	naxd'e:m
 nage	$alt
 nebulos	$3
 negligent	ne:gli:dZ'Ent
+nervig	nErfIC'
 netzbetrieb	n'Etsb@tri:b
 nisch	ni:S
 nische	ni:S@
@@ -918,6 +938,7 @@ selbst	zElpst
 september	$2
 serie	$alt
 service	_^_EN
+serviette	zEr'viEt@'
 ski	S'i:
 sodass	%zo:d,as
 soeben	zo:_'e:b@n
@@ -930,6 +951,7 @@ spezies	Sp'e:tsI@s
 spinozaisch	spi:n'o:tsaIS
 spionage	$alt
 stalagmit	stalagm'It
+stofftier	StOfti:3
 subjekt	$1
 
 tag	tA:g
@@ -961,6 +983,7 @@ vielbesprochen	$3
 vielleicht	fIl'aICt
 vorherig	fo:rh'e:rIg#
 vorig	fo:rIg#
+voigt	fo:kt
 
 wahrscheinlich	$2
 warum	vA:r'Um
@@ -984,104 +1007,106 @@ zymbal	$1
 
 
 // Names
-Albanien	$2
+albanien	$2
 adrian	A:dri:A:n
-Alditalk	aldi:tO:k
-Alea	$2
+alditalk	aldi:tO:k
+alea	$2
 amerika	$2
-Andorra	and'OrA:
-Andrea	andr'e:A:
-Andreas	andr'e:A:s
-Anika	ani:kA:
-Armin	$1
+andorra	and'OrA:
+andrea	andr'e:A:
+andreas	andr'e:A:s
+anika	ani:kA:
+armin	$1
 aserbaidschan	A:z3baIdZ'A:n
-Asien	A:zI@n
-Bochum	bo:xUm
-Bremerhaven	bre:m3h'Af@n
-Cathleen	katle:n
-Cedric	sEdrIk
-Chiara	kjA:rA:
-Chile	'tSi:l@
-Chris	krIs
-Christian	$1
-Christina	$2
-Cuxhaven	kUks'ha:fn-
-Daniel	dA:nI@l
-Daniela	danj'e:lA:
-Djakarta	dZak'artA:
-Djibouti	dZi:b'u:ti:
+asien	A:zI@n
+bochum	bo:xUm
+bremerhaven	bre:m3h'Af@n
+cathleen	katle:n
+cedric	sEdrIk
+ciara	kjA:rA:
+chile	'tSi:l@
+chris	krIs
+christian	$1
+christina	$2
+cuxhaven	kUks'ha:fn-
+daniel	dA:nI@l
+daniela	danj'e:lA:
+djakarta	dZak'artA:
+djibouti	dZi:b'u:ti:
 duisburg	dy:sbUrg
-Erfurt	'ErfUrt
-Eric	e:rIk
-Erik	e:rIk
+erfurt	'ErfUrt
+eric	e:rIk
+erik	e:rIk
 florian	$1
-Fruecht	fr'yCt
-Georg	ge:Ork	$only
-George	dZO:rdZ
+fruecht	fr'yCt
+georg	ge:Ork	$only
+george	dZO:rdZ
 gibraltar	$2
-Gina	dZi:nA:
+hina	dZi:nA:
 hannover	han'o:f3
-Herzegowina	hErtse:g'Ovi:nA
-Ines	i:n@s
-Italien	i:t'A:lI@n
-Johann	jo:han
-Johanna	jo:h'anA:
-Johannes	jo:h'an@s
-John	dZOn
-Jon	dZOn
+herzegowina	hErtse:g'Ovi:nA
+ines	i:n@s
+italien	i:t'A:lI@n
+johann	jo:han
+johanna	jo:h'anA:
+johannes	jo:h'an@s
+john	dZOn
+jon	dZOn
 jonatan	$1
 jonathan	jonatan	$text
 jonny	dZOni:
-Josef	j'o:zEf
-Katharina	katar'i:nA:
-Kasachstan	$1
-Kirgisien	$2
-Klango	kl'aNgo:
-Khmer	kme:r
+kosef	j'o:zEf
+katharina	katar'i:nA:
+kasachstan	$1
+kirgisien	$2
+klango	kl'aNgo:
+khmer	kme:r
 kosovo	kOso:vo:
 kristina	$2
 kroatien	kro:'A:tsI@n
-Leon	le:On
-Leonie	$1
-Liam	_^_EN
-Lüneburg	ly:n@bUrg
-Maria	$2
-Marian	$1
-Marlene	marl'e:n@
+leon	le:On
+leonie	$1
+liam	_^_EN
+lüneburg	ly:n@bUrg
+mallorca	ma'jOrka
+maria	$2
+marian	$1
+marlene	marl'e:n@
 mathias	mat'i:A:s
-Matthias	mathias	$text
-Matias	mathias	$text
-Mattias	mathias	$text
+matthias	mathias	$text
+matias	mathias	$text
+mattias	mathias	$text
 Mc	%mEk
 michael	mICae:l
 michaela	mICa'e:lA:
-Montenegro	mOnt@n'e:gro:
-Moradi	$2
+montenegro	mOnt@n'e:gro:
+moradi	$2
 münchen	mynC@n
 naomi	$2
-Neumexiko	$2
-Neuseeland	$2
+neumexiko	$2
+neuseeland	$2
 nordrhein	nOrd||raIn
 portugal	pOrtu:gal
-Rumänien	$2
-Rwanda	rU'andA:
+rumänien	$2
+rwanda	rU'andA:
 san	%zan
 saarbrücken	$2
 schlesien	Sle:zI@n
 schleswig	Sle:svIg#
-Sebastian	$2
+schwerin	Sve'ri:n'	$2
+sebastian	$2
 slowenien	$2
-Sri	%sri:
+sri	%sri:
 steve	_^_EN
 soest	zo:st
 sultan	$1
-Tom	tOm	$only
-Tim	tIm	$only
-Tübingen	'ty:bIN@n'
-Turkmenistan	$2
+tibet	'ti:_bEt'
+tim	tIm	$only
+tom	tOm	$only
+tübingen	'ty:bIN@n'
+turkmenistan	$2
 ukraine	UkrA'i:n@
 vatikanstadt	vA:ti:k'A:nStat
 vera	v'e:rA:
 verena	ve:r'e:nA:
 westfalen	$2
-
