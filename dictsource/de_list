@@ -650,7 +650,7 @@ beben	be:b@n
 bebung	b'e:bUN
 beere	be:r@
 bestie	bEstI@
-best	 bEst
+best	bEst
 bestem	b'Est@m
 beta	b'e:tA:
 beten	be:t@n
@@ -1016,8 +1016,8 @@ Eric	e:rIk
 Erik	e:rIk
 florian	$1
 Fruecht	fr'yCt
-Georg	:Ork	$only
-George	:rdZ
+Georg	ge:Ork	$only
+George	dZO:rdZ
 gibraltar	$2
 Gina	dZi:nA:
 hannover	han'o:f3
@@ -1043,7 +1043,7 @@ kristina	$2
 kroatien	kro:'A:tsI@n
 Leon	le:On
 Leonie	$1
-Liam	^_EN
+Liam	_^_EN
 Lüneburg	ly:n@bUrg
 Maria	$2
 Marian	$1
@@ -1052,7 +1052,7 @@ mathias	mat'i:A:s
 Matthias	mathias	$text
 Matias	mathias	$text
 Mattias	mathias	$text
-Mc	mEk
+Mc	%mEk
 michael	mICae:l
 michaela	mICa'e:lA:
 Montenegro	mOnt@n'e:gro:
@@ -1064,16 +1064,16 @@ Neuseeland	$2
 nordrhein	nOrd||raIn
 portugal	pOrtu:gal
 Rumänien	$2
-Rwanda	'andA:
+Rwanda	rU'andA:
 san	%zan
 saarbrücken	$2
 schlesien	Sle:zI@n
 schleswig	Sle:svIg#
 Sebastian	$2
 slowenien	$2
-Sri	sri:
-steve	^_EN
-soest	zo: st
+Sri	%sri:
+steve	_^_EN
+soest	zo:st
 sultan	$1
 Tom	tOm	$only
 Tim	tIm	$only
