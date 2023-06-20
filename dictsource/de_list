@@ -24,7 +24,7 @@ _*	StErn	$max3
 &	Unt
 @	'Et
 ~	tIld@
-\ 	bEkslES
+\	bEkslES
 €	OYro:
 °	grA:d
 _,	kOmA:
@@ -32,7 +32,7 @@ _|	St'A:b
 _:	d'Op@lp,UNkt
 _;	Str'ICpUNkt
 __	,Unt3Str'IC
-_-	b'Ind@str,IC	
+_-	b'Ind@str,IC
 −	mi:nUs
 _!	'aUs_|r,u:f@ts,aIC@n
 _?	fr'Ag@ts,aIC@n
@@ -114,7 +114,7 @@ _5	'fynf
 _6	'zEks
 _7	'zi:b@n
 _8	'_axt
-_9 	'nOYn
+_9	'nOYn
 _10	'tse:n
 _11	'_Elf
 _12	'tsvWlf
@@ -138,9 +138,9 @@ _0C	h'Und3t
 _0M1	t'aUz@nt
 _0M2	||mIlj'o:n@n
 _1M2	_'aIn@||mIlj'o:n
-_0M3    ||mIlj'ard@n
-_1M3    _'aIn@||mIlj'ard@
-_0M4    bIlj'o:n@n
+_0M3	||mIlj'ard@n
+_1M3	_'aIn@||mIlj'ard@
+_0M4	bIlj'o:n@n
 _1M4	'aIn@||bIlj'o:n
 _0M5	bIlj'ard@n
 _1M5	'aIn@||bIlj'ard@
@@ -190,82 +190,82 @@ _8o	_'axt@
 _0Co	'hUnd3tst@
 
 // definite article
-der             %dEr
-die             %di:
-das             %das
-den             %de:n
-dem             %de:m
-des             %dEs
+der	%dEr
+die	%di:
+das	%das
+den	%de:n
+dem	%de:m
+des	%dEs
 
-derselb          $2
-desselb         dEsz'Elb
-dieselb          $2
-dasselb         dasz'Elb
-demselb          de:mz'Elb
-denselb          de:nz'Elb
+derselb	$2
+desselb	dEsz'Elb
+dieselb	$2
+dasselb	dasz'Elb
+demselb	de:mz'Elb
+denselb	de:nz'Elb
 
 // conjunctions
-und		Unt	$u+ $pause
-aber		A:b3	$u+ $pause
-oder		o:d3	$u+ $pause
+und	Unt	$u+	$pause
+aber	A:b3	$u+	$pause
+oder	o:d3	$u+	$pause
 sondern			$pause
-denn		dEn	$u+ $pause
+denn	dEn	$u+	$pause
 wegen	ve:g@n	$u+
-weil	v,aIl		$only
-als		als	$u+ $brk
-bevor		b@fo:r	$2 $pause
-also			$pause
-wenn		,vEn	$pause $strend
-sowie			$2 $pause
-obgleich		$2 $pause
-obwohl			$2 $pause
-deren		de:r@n	$u+ $brk
-ebenfalls		$pause
+weil	v,aIl	$only
+als	als	$u+	$brk
+bevor	b@fo:r	$2	$pause
+also		$pause
+wenn	,vEn	$pause	$strend
+sowie		$2	$pause
+obgleich		$2	$pause
+obwohl		$2	$pause
+deren	de:r@n	$u+	$brk
+ebenfalls			$pause
 
 // prepositions
-ab		ap	$u+ $brk
-an		an	$u+ $brk
-am		am	$u+ $brk
-auf		aUf	$u+ $brk
-aus		,aUs	$brk $strend
-bei		baI	$u+ $brk $only
-beim		baIm	$u+ $brk
-bis		bIs	$u+ $pause
-da			$u+
-durch			$u+ $pause
-für		fy:r	$u+ $pause $only
-fuer		fy:r	$u+ $pause $only
-gegen		ge:g@n	$u+ $pause
-hin		hIn
-in		In        $u+ $brk
-//(in die)        %Ind%i:
-//(in den)        %Ind%e:n
-//(in der)        %Ind%Er
-im		Im	$u+ $brk
-ins		Ins	$u+ $brk
-mit		mIt	$u+ $pause
-nach		nA:x	$u+ $brk
-neben			$u+ $brk
-ob		,Ob	$pause $strend $only
-per		pEr	$u+ $brk
-pro		pro:	$u
-von		fOn	$u+ $brk
+ab	ap	$u+	$brk
+an	an	$u+	$brk
+am	am	$u+	$brk
+auf	aUf	$u+	$brk
+aus	,aUs	$brk	$strend
+bei	baI	$u+	$brk $only
+beim	baIm	$u+	$brk
+bis	bIs	$u+	$pause
+da		$u+
+durch		$u+	$pause
+für	fy:r	$u+	$pause $only
+fuer	fy:r	$u+	$pause $only
+gegen	ge:g@n	$u+	$pause
+hin	hIn
+in	In	$u+	$brk
+//(in die)	%Ind%i:
+//(in den)	%Ind%e:n
+//(in der)	%Ind%Er
+im	Im	$u+	$brk
+ins	Ins	$u+	$brk
+mit	mIt	$u+	$pause
+nach	nA:x	$u+	$brk
+neben		$u+	$brk
+ob	,Ob	$pause	$strend $only
+per	pEr	$u+	$brk
+pro	pro:	$u
+von	fOn	$u+	$brk
 //(von dem)	%fOn%de:m	$brk
-vom		fOm	$u+ $brk
-vor		,fOr	$strend
-zu		tsu:	$u+ $brk
-zum		tsUm	$u+ $pause
-zur		tsu:r	$u+ $pause
-über		,y:b3	$pause $strend
-unter		,Unt3	$pause $strend $only
-um		Um	$u+ $brk
+vom	fOm	$u+	$brk
+vor	,fOr	$strend
+zu	tsu:	$u+	$brk
+zum	tsUm	$u+	$pause
+zur	tsu:r	$u+	$pause
+über	,y:b3	$pause	$strend
+unter	,Unt3	$pause	$strend $only
+um	Um	$u+	$brk
 //(um die)	%Umd%i:	$brk
 //(um den)	%Umd%e:n	$brk
 während		$pause
 
 // misc
-so		zo:	$u+
-doch		dOx	$u+
+so	zo:	$u+
+doch	dOx	$u+
 noch	$u
 (noch nicht)	n'Ox||n'ICt	$brk
 (nicht mehr)	n'ICt||,me:r
@@ -275,51 +275,51 @@ noch	$u
 
 // should these be in the Rules if they can be a prefix in a
 // compound verb ?
-dadurch		dA:d'UrC
-dagegen		$2
-damit		dA:m'It
-danach		$2
-umher		Umh'Er
-umhin		Umh'In
-woran		vo:r'an
-worauf		$2
-woraus		$2
-worin		vo:r'In
+dadurch	dA:d'UrC
+dagegen	$2
+damit	dA:m'It
+danach	$2
+umher	Umh'Er
+umhin	Umh'In
+woran	vo:r'an
+worauf	$2
+woraus	$2
+worin	vo:r'In
 
 // pronouns
-ich		$u  $only
-mich		$u  $only
-mir		$u+ $only
-du		$u  $only
-dich		$u+ $only
-dir		$u+ $only
-er		Er	$u $brk $only
-es		Es	$u $only
-ihn		$u+ $only
-ihm		$u+ $only
-sie		zi:	$u $only
-ihnen		$u+ $only
-wir		vi:r	$u $only
-uns		$u+ $only
-ihr		i:r	$u
-euch		$u+ $only
-man		man	$u $only
-sich		zIC	$u $only
+ich		$u	$only
+mich		$u	$only
+mir		$u+	$only
+du		$u	$only
+dich		$u+	$only
+dir		$u+	$only
+er	Er	$u	$brk $only
+es	Es	$u	$only
+ihn		$u+	$only
+ihm		$u+	$only
+sie	zi:	$u	$only
+ihnen		$u+	$only
+wir	vi:r	$u	$only
+uns		$u+	$only
+ihr	i:r	$u
+euch		$u+	$only
+man	man	$u	$only
+sich	zIC	$u	$only
 (es ist)	%Es%Ist
 
 
-daß		das	$u+
-dass		das	$u+
+daß	das	$u+
+dass	das	$u+
 
-ein		aIn	$u+
-eine		aIn@	$u
-einem		aIn@m	$u
-einen		aIn@n	$u
-einer		aIn3	$u
-eines		aIn@s	$u
+ein	aIn	$u+
+eine	aIn@	$u
+einem	aIn@m	$u
+einen	aIn@n	$u
+einer	aIn3	$u
+eines	aIn@s	$u
 
-//kein            $u+
-//keine           $u+
+//kein		$u+
+//keine		$u+
 
 mein		$u+
 meine		$u+
@@ -327,189 +327,189 @@ meine		$u+
 dein		$u+
 deine		$u+
 
-sein		$u            // can also be verb "to be"
+sein		$u	// can also be verb "to be"
 seine		$u+
 
-unsre		Unzr@	$u
-unsere		Unzr@	$u
-unser		Unz3	$u
-unserm		Unz3m	$u
-unserem		Unz@r@m	$u
-unseren		Unz@r@n	$u
-unserer	$u
-unseres	$u
-ihre		i:r@	$u
-ihrem		i:r@m	$u
-ihrer		i:r3	$u
+unsre	Unzr@	$u
+unsere	Unzr@	$u
+unser	Unz3	$u
+unserm	Unz3m	$u
+unserem	Unz@r@m	$u
+unseren	Unz@r@n	$u
+unserer		$u
+unseres		$u
+ihre	i:r@	$u
+ihrem	i:r@m	$u
+ihrer	i:r3	$u
 
-dies		di:z	$u
-diese		di:z@	$u
+dies	di:z	$u
+diese	di:z@	$u
 
 //
-was		vas
-wie		$u $pause
+was	vas
+wie		$u	$pause
 
 // abverbs
-auch		,aUx
-dann			$u
-etwa			$u
-ganz		g,ants	$only
-je			$u
-nur			$brk
-jetzt		j,Etst	$strend2
-schon		S,o:n	$strend2
-einst		'aInst	// not 'ein' + st
+auch	,aUx
+dann		$u
+etwa		$u
+ganz	g,ants	$only
+je		$u
+nur		$brk
+jetzt	j,Etst	$strend2
+schon	S,o:n	$strend2
+einst	'aInst	// not 'ein' + st
 zwar		$u
-wo		v,o:
+wo	v,o:
 während		$u
 
 
 // verbs
 
-bin		bIn	$u
-bist		bIst	$u
-ist		Ist	$u
-sind		zInt	$u
-seit		zaIt	$u $only
+bin	bIn	$u
+bist	bIst	$u
+ist	Ist	$u
+sind	zInt	$u
+seit	zaIt	$u	$only
 
-habe		%hA:b@  $only
-habest		hA:b@st  $only $u
-hast		%hast   $only
-hat		%hat    $only
-haben		h,A:b@n $only $strend2
-hatte		h,at@   $only
-hatten		h,at@n  $only
-hätte		h,Et@   $only
-hättest		h,Et@st $only
-hättet		h,Et@t  $only
-hätten		h,Et@n  $only
+habe	%hA:b@	$only
+habest	hA:b@st	$only	$u
+hast	%hast	$only
+hat	%hat	$only
+haben	h,A:b@n	$only	$strend2
+hatte	h,at@	$only
+hatten	h,at@n	$only
+hätte	h,Et@	$only
+hättest	h,Et@st	$only
+hättet	h,Et@t	$only
+hätten	h,Et@n	$only
 
-war		%vA:r   $only
-warst		%vA:rst $only
-wart		%vA:rt  $only
-waren		%vA:r@n
+war	%vA:r	$only
+warst	%vA:rst	$only
+wart	%vA:rt	$only
+waren	%vA:r@n
 
-will		%vIl   $only
-willst		%vIlst $only
-wollen		%vOl@n $only
-wollt		%vOlt
+will	%vIl	$only
+willst	%vIlst	$only
+wollen	%vOl@n	$only
+wollt	%vOlt
 
-werden		v,Erd@n	$u
-werde		v,Erd@	$u
-wirst		v,Irst
-wird		v,Ird
-werdet		v,Erd@t
-worden	$u
-wurden		v,Urd@n
-wurde		v,Urd@
-wurdest		v,Urd@st
-wurdet		v,Urd@t
+werden	v,Erd@n	$u
+werde	v,Erd@	$u
+wirst	v,Irst
+wird	v,Ird
+werdet	v,Erd@t
+worden		$u
+wurden	v,Urd@n
+wurde	v,Urd@
+wurdest	v,Urd@st
+wurdet	v,Urd@t
 
-können		,kWn@n  $only $strend2
-kann		,kan    $only
-kannst		,kanst  $only
-könnt		,kWnt   $only
-konnt		,kOnt   $only
+können	,kWn@n	$only	$strend2
+kann	,kan	$only
+kannst	,kanst	$only
+könnt	,kWnt	$only
+konnt	,kOnt	$only
 
-sollen		,zOl@n
-soll		,zOl
-sollst		,zOlst
-sollte		,zOlt@
-sollten		,zOlt@n
+sollen	,zOl@n
+soll	,zOl
+sollst	,zOlst
+sollte	,zOlt@
+sollten	,zOlt@n
 
-kam		,kA:m
+kam	,kA:m
 
 
 
 // English words 
 //==============
 // de_rules includes the words ending in "-ing"
-access		_^_EN
-account		_^_EN
-aid		_^_EN
+access	_^_EN
+account	_^_EN
+aid	_^_EN
 aids	_^_EN
 america	_^_EN
-appeal		_^_EN
-apple		_^_EN
+appeal	_^_EN
+apple	_^_EN
 association	_^_EN
 baseball	_^_EN
-bbc		_^_EN
-beat		_^_EN
+bbc	_^_EN
+beat	_^_EN
 britain	_^_EN
 british	_^_EN
-browser         _^_EN
-byte		_^_EN
-bytes		_^_EN
+browser	_^_EN
+byte	_^_EN
+bytes	_^_EN
 camcorder	_^_EN
 cancel	_^_EN
-certificate		_^_EN
-change		_^_EN
-chart		_^_EN
-chat		_^_EN
+certificate	_^_EN
+change	_^_EN
+chart	_^_EN
+chat	_^_EN
 chicken	_^_en
 chrome	_^_EN
-cleaner		_^_EN
-coach		_^_EN
-coke		_^_EN
+cleaner	_^_EN
+coach	_^_EN
+coke	_^_EN
 computer	kOmpj'u:t3
-cool		_^_EN
-copy		_^_EN
-couch		_^_EN
+cool	_^_EN
+copy	_^_EN
+couch	_^_EN
 cover	_^_EN
-cursor		_^_EN
+cursor	_^_EN
 daisy	_^_EN
-date		_^_EN
+date	_^_EN
 debugger	_^_EN
-dj		d'i:dZEI
-email		_^_EN
+dj	d'i:dZEI
+email	_^_EN
 empire	_^_EN
 enterprise	_^_EN
 escape	_^_EN
-espeak		_^_EN
-event		_^_EN
-execute		_^_EN
+espeak	_^_EN
+event	_^_EN
+execute	_^_EN
 explorer	Ekspl'Or3r
-file		_^_EN
-firefox		_^_EN
+file	_^_EN
+firefox	_^_EN
 firewall	_^_EN
-foul		_^_EN
-frame		_^_EN
-freak		_^_EN
+foul	_^_EN
+frame	_^_EN
+freak	_^_EN
 german	_^_EN
 germany	_^_EN
-gin		_^_EN
+gin	_^_EN
 google	_^_EN
 great	_^_EN
-groupie		_^_EN
-hip		_^_EN
+groupie	_^_EN
+hip	_^_EN
 homepage	_^_EN
 hooligan	_^_EN
 house	_^_EN
 interface	_^_EN
-jaws		_^_EN
-jean		_^_EN
-jet		_^_EN
-job		_^_EN
-joint		_^_EN
-joke		_^_EN
+jaws	_^_EN
+jean	_^_EN
+jet	_^_EN
+job	_^_EN
+joint	_^_EN
+joke	_^_EN
 joystick	_^_EN
-junkie		_^_EN
+junkie	_^_EN
 kingdom	_^_EN
-laptop		_^_EN
-laser		_^_EN
-level		_^_EN
+laptop	_^_EN
+laser	_^_EN
+level	_^_EN
 like	_^_EN
-login		_^_EN
-look		_^_EN
-macho		_^_EN
-mail		_^_EN
+login	_^_EN
+look	_^_EN
+macho	_^_EN
+mail	_^_EN
 mailbox	_^_EN
-message		_^_EN
+message	_^_EN
 moodle	_^_EN
-move		_^_EN
-my		_^_EN
-mysql		_^_EN
-notebook		_^_EN
+move	_^_EN
+my	_^_EN
+mysql	_^_EN
+notebook	_^_EN
 notepad	_^_EN
 nugget	_^_EN
 nvda	_^_EN
@@ -517,444 +517,470 @@ nvaccess	_^_EN
 of	_^_EN
 office	_^_EN
 offices	_^_EN
-offline		_^_EN
-online		_^_EN
-out		_^_EN
+offline	_^_EN
+online	_^_EN
+out	_^_EN
 overwrite	_^_EN
-pair		_^_EN
+pair	_^_EN
 penthouse	_^_EN
-pidgin		_^_EN
+pidgin	_^_EN
 player	_^_EN
-plot		_^_EN
-poster		_^_EN
-quiz		_^_EN
+plot	_^_EN
+poster	_^_EN
+quiz	_^_EN
 reader	_^_EN
 receiver	_^_EN
 recovery	_^_EN
 registry	_^_EN
-release		_^_EN
-remake		_^_EN
+release	_^_EN
+remake	_^_EN
 research	_^_EN
 return	_^_EN
-roadie		_^_EN
+roadie	_^_EN
 roastbeef	_^_EN
-run             _^_EN
+run	_^_EN
 running	_^_EN
-save		_^_EN
-scanner		_^_EN
-science		_^_EN
-server		_^_EN
-seven		_^_EN
-sex		_^_EN
-sexy		_^_EN
-shirt		_^_EN
-show		_^_EN
+save	_^_EN
+scanner	_^_EN
+science	_^_EN
+server	_^_EN
+seven	_^_EN
+sex	_^_EN
+sexy	_^_EN
+shirt	_^_EN
+show	_^_EN
 showdown	_^_EN
-single          _^_EN
-size		_^_EN
-slip		_^_EN
-slum		_^_EN
-small		_^_EN
-smiley		_^_EN
-snob		_^_EN
+single	_^_EN
+size	_^_EN
+slip	_^_EN
+slum	_^_EN
+small	_^_EN
+smiley	_^_EN
+snob	_^_EN
 solution	_^_EN
-song		_^_EN
-sorry		_^_EN
-source		_^_EN
+song	_^_EN
+sorry	_^_EN
+source	_^_EN
 space	_^_EN
 spaces	_^_EN
-spam		_^_EN
-speak		_^_EN
-spirit          _^_EN
-squaw		_^_EN
+spam	_^_EN
+speak	_^_EN
+spirit	_^_EN
+squaw	_^_EN
 state	_^_EN
 states	_^_EN
-stream		_^_EN
-suite		_^_EN
+stream	_^_EN
+suite	_^_EN
 sweatshirt	_^_EN
-sync		_^_EN
-team		_^_EN
-teaser		_^_EN
-tech		_^_EN
+sync	_^_EN
+team	_^_EN
+teaser	_^_EN
+tech	_^_EN
 terminal	_^_EN
 the	_^_EN
 their	_^_EN
 they	_^_EN
 this	_^_EN
-thunderbird		_^_EN
-time		_^_EN
+thunderbird	_^_EN
+time	_^_EN
 timer	_^_EN
 to	_^_EN	$only
 tool	_^_EN
-trip		_^_EN
-tuner		_^_EN
+trip	_^_EN
+tuner	_^_EN
 turn	_^_EN
 united	_^_EN
-unix		_^_EN
-update		_^_EN
-updates		_^_EN
-venture		_^_EN
-verify		_^_EN
+unix	_^_EN
+update	_^_EN
+updates	_^_EN
+venture	_^_EN
+verify	_^_EN
 very	_^_EN
-voice		_^_EN
-voices		_^_EN
-weather		_^_EN
-web	w'Eb $only
-website		_^_EN
-window		_^_EN
-wipe		_^_EN
+voice	_^_EN
+voices	_^_EN
+weather	_^_EN
+web	w'Eb	$only
+website	_^_EN
+window	_^_EN
+wipe	_^_EN
 with	_^_EN
-word		_^_EN
+word	_^_EN
 
 
 // Main exceptions list
 //=====================
-abort           ab'Ort
-absentier       apzEnt'i:r
+abort	ab'Ort
+absentier	apzEnt'i:r
 absolut	$3
-abstinent        $3
+abstinent	$3
 accessoire	asEsw'A:r
-achso           axz'o:
+achso	axz'o:
 adress	$2
-akazie           $alt
+akazie	$alt
 akkord	$2
+akquise	a'kvi:z@
 alarm	$2
-allein           $2
+allein	$2
 allgemein	'alg@maIn
-andre           andr@        // andere
+andre	andr@        // andere
 aneinander	an1aIn'and3
-anomalie         $2
-antik           ant'i:k
-archaik         arC'A:Ik
+anomalie	$2
+antik	ant'i:k
+archaik	arC'A:Ik
 archiv	$2
-arie             $alt
-arpeggier       arpEdZ'i:r
-arrangier       araNZ'i:r
-Art		A:rt		$capital
-arterie          $alt
-asphalt          $2
-atommüll         at'o:mmyl
-ausgeschamt     aUsg@SA:mt
-außerdem        'aUs3d,e:m
+arie	$alt
+arpeggier	arpEdZ'i:r
+arrangier	araNZ'i:r
+Art	A:rt	$capital
+arterie	$alt
+asphalt	$2
+atommüll	at'o:mmyl
+aubergine	,obEr'Zi:n@
+ausgeschamt	aUsg@SA:mt
+außerdem	'aUs3d,e:m
 automatisch	$3
-aventurin       avEntu:r'i:n
-ave             A:vE
+aventurin	avEntu:r'i:n
+ave	A:vE
 
 baguette	bag'Et
-balkan           $1
-balkon           $2
-bandagier       bandaZ'i:r
-beben           be:b@n
+balkan	$1
+balkon	$2
+bandagier	bandaZ'i:r
+beben	be:b@n
 bebung	b'e:bUN
-beere           be:r@
-bestie          bEstI@
-best            bEst
+beere	be:r@
+bestie	bEstI@
+best	 bEst
 bestem	b'Est@m
 beta	b'e:tA:
-beten           be:t@n
+beten	be:t@n
+biotechnologie	bi:otECnolo,gi:
 bisschen	b'IsC@n
-bizarr           $2
-blamage		$alt
+bizarr	$2
+blamage	$alt
 braille	braIj
-bronchie         $alt
-buch            b'u:x
-buchen          b'u:x@n
+bratschen	br'a:tSn-
+bronchie	$alt
+buch	b'u:x
+buche	b'u:x@
+buchen	b'u:x@n
 buchstabierfunktion	$3
-bucht           b'u:xt
-bucht           b'Uxt   $capital $verbf
-buchte          b'u:xt@
-buchten         b'u:xt@n
-buchten         b'Uxt@n $capital $verbf
+bucht	b'u:xt
+bucht	b'Uxt	$capital	$verbf
+buchte	b'u:xt@
+buchten	b'u:xt@n
+buchten	b'Uxt@n	$capital	$verbf
 bürostuhl	by:r'o:Stu:l
 
-changier        SaNZ'i:r
+changier	SaNZ'i:r
 cembalo	tS'Embalo:
 centre	center	$text
 champagner	Samp'anj3
 champignon	S'ampInjON
-ciao            tSaU
-clique          klIk@
+ciao	tSaU
+clique	klIk@
 cognac	k'Onjak
-coup            ku:
+coup	ku:
 
-dahlie           $alt
+dahlie	$alt
 dazwishen	$2
-debatte          $2
-deshalb          $2
-detail		de:t'aI
-dezember         $2
-diadem          di:ad'e:m
-dient           di:nt
-dividend        di:vi:d'Ent
-dragier         draZ'i:r
-dritte          drIt@
-duett           du:'Et
+debatte	$2
+deshalb	$2
+detail	de:t'aI
+dezember	$2
+diadem	di:ad'e:m
+dient	di:nt
+dividend	di:vi:d'Ent
+dragier	draZ'i:r
+dritte	drIt@
+duett	du:'Et
+düster	dy:st3
 
-ebendaher       e:b@ndah'e:r
-ebendahin       e:b@ndah'In
-ebenso          $1
-einander        aIn'and3
-einerlei        aIn@rlaI
-einher          aInh'e:r
-einig           aInIg#
-einige          aInIg@ $u+
-einiges         aInIg@s $u+
+ebendaher	e:b@ndah'e:r
+ebendahin	e:b@ndah'In
+ebenso	$1
+einander	aIn'and3
+einerlei	aIn@rlaI
+einher	aInh'e:r
+einig	aInIg#
+einige	aInIg@	$u+
+einiges	aInIg@s	$u+
 einzig	'aIntsIg#
 elektronisch	e:lEktr'o:nIS
 elementansicht	e:l@m'Ent_|anzICt
-engagier        aNgaZ'i:r
-endivie          $alt
-endlich         EntlIC
-ensemble        A~s'A~b@l
-episkopal       e:pIsko:p'A:l
-erde            e:rd@
-erst            e:rst
-ersten          e:rst@n
-erstmal         e:rstmA:l
-erzgebirg       Ertsg@bIrg
+engagier	aNgaZ'i:r
+endivie	$alt
+endlich	EntlIC
+ensemble	A~s'A~b@l
+episkopal	e:pIsko:p'A:l
+erde	e:rd@
+erst	e:rst
+ersten	e:rst@n
+erstmal	e:rstmA:l
+erzgebirg	Ertsg@bIrg
+eunuch	OI'nu:x
 europä	$3
-expedient       Ekspe:dI'Ent
-extravagant      $1
-extrem          Ekstr'e:m
+expedient	Ekspe:dI'Ent
+extravagant	$1
+extrem	Ekstr'e:m
 
 fond	fO~
-foyer		fOj'e:
-friedvoll       fr'i:tfOl
-furchen         fUrC@n
-furie            $alt
+foyer	fOj'e:
+friedvoll	fr'i:tfOl
+furchen	fUrC@n
+furie	$alt
 
-geben           ge:b@n
-gebt            ge:bt
+geben	ge:b@n
+gebt	ge:bt
 gegenstand	$1
 gegenständ	$1
-gegenüber       ge:g@n_|'y:b3
-geglichen       g@glIC@n
-gemein          g@maIn
+gegenüber	ge:g@n_|'y:b3
+geglichen	g@glIC@n
+gemach	g@'ma:x
+gemein	g@maIn
 gen	ge:n
 gene	ge:n@
-genial          ge:nj'A:l
-geranie         ge:r'A:nI@
-gessen          gEs@n
-geste           ge:st@
-gestern         gEst3n
-gitarre		$2
-glorie           $alt
+genial	ge:nj'A:l
+geranie	ge:r'A:nI@
+gessen	gEs@n
+geste	ge:st@
+gestern	gEst3n
+gitarre	$2
+glorie	$alt
 grafem	grA:f'e:m
 graphem	grA:f'e:m
-grazie           $alt
+grazie	$alt
 
-handy           hEndi:
-häuschen        hOYsC@n
-hausier         haUz'i:r
-heimat           $1
-herberg         hErbErg
-hi              haI
+handy	hEndi:
+häuschen	hOYsC@n
+hausier	haUz'i:r
+heimat	$1
+herberg	hErbErg
+hi	haI
 hinweg	hInv'Ek
 hinweg	h'Inve:g	$capital
-historie         $alt
-hm              h@m
-horsam          hO3zA:m
-hostie           $alt
+historie	$alt
+hm	h@m
+horsam	hO3zA:m
+hostie	$alt
 humor	$2
-hrhr            harhar
-husten          h'u:st@n
+hrhr	harhar
+husten	h'u:st@n
+hypothese	hypo'te:z@'
 
 illegitim	Ile:gi:t'i:m
 illiberal	Ili:b@r'A:l
-illoyal		IlOajA:l
+illoyal	IlOajA:l
 immobilie	$alt
-indem		Ind'e:m
-inden		Ind'e:n
-inder		Ind3
-indes		Ind'Es
+indem	Ind'e:m
+inden	Ind'e:n
+inder	Ind3
+indes	Ind'Es
 indessen	Ind'Es@n
 ingenieur	IndZ@nj'Y:r
-ingenieurin IndZ@nj'Y:rin
-ingenieurinnen IndZ@nj'Y:rinnen
-injurie		$alt
-inka		INkA:
+ingenieurin	IndZ@nj'Y:rin
+ingenieurinnen	IndZ@nj'Y:rinnen
+injurie	$alt
+inka	INkA:
 inkaisch	INkA:IS
 inkonstant	$1
 insbesondere	$3
 interess	Int@r'Es
-intern		Int'Ern
+intern	Int'Ern
 internet	Int@rnEt
 internetzugriff	'Int3nEtts,u:grIf
 inzwischen	$2
+isotropie	izotro'pi:'
 
-jahrhundert		$2
-januar		janu:A:r
+jahrhundert	$2
+januar	janu:A:r
 
 kalender	kal'End3
-Kamel	kam'e:l
-kamelie		$alt
+kamel	kam'e:l
+kamelie	$alt
 kanäl	$2
-kanoe		kan'u:
+kanoe	kan'u:
 kartonage	$alt
 kastanie	$alt
-kid		kId
+kid	kId
 klops	kl'Ops
+kloster	klo:st3
 kognak	kOnjak
-kombinationsfeld		$4
-komödie		$alt
+kombinationsfeld	$4
+komödie	$alt
 kompass	$1
 konservativ	k'OnzErvat,i:v
-konsul		$1
-konto		$1
-kurie		$alt
+koryphäe	kory'fE:@
+koscher	ko:S3
+kuchen	k'u:x@n
+konsul	$1
+konto	$1
+kurie	$alt
 küchentisch	k'yC@ntIS
-kwaß		kvas
+kwaß	kvas
 
-lappalie         $alt
-lilie            $alt
-logier          lo:Z'i:r
-lucent          lu:sEnt
-luetisch        lu:'e:tIS
+lagunen	la'gu:n@n'
+lappalie	$alt
+lilie	$alt
+logier	lo:Z'i:r
+lok	lOk
+lucent	lu:sEnt
+luetisch	lu:'e:tIS
 
-machen          max@n
+machen	max@n
+maßgeblich	ma:s,ge:plIC
 magnet	magn'e:t
 mannequin	man@k'W~
-marginalie       $alt
+marginalie	$alt
 massage	$2
-materie          $alt
+materie	$alt
 medaille	me:d'alI@
 meldung	m'EldUN
-menuette        mEnu:'Et
+menuette	mEnu:'Et
 menü	$2
-minut            $2
+minut	$2
 mikrofiche	mi:kro:fi:S
-miteinander      $1
-modell          mo:d'El
-modem		mo:dEm
+miteinander	$1
+modell	mo:d'El
+modem	mo:dEm
 modern	$2
 monat	$1
 monitor	$1
-monoton          $3
-monsun           $2
-montag          mo:ntA:k
-mors            mOrs
-mumie            $alt
+monoton	$3
+monsun	$2
+mond	mo:nt
+montag	mo:ntA:k
+mors	mOrs
+mumie	$alt
 
-nachdem         naxd'e:m
-nage		$alt
-nebulos          $3
-negligent       ne:gli:dZ'Ent
+nachdem	naxd'e:m
+nage	$alt
+nebulos	$3
+negligent	ne:gli:dZ'Ent
 netzbetrieb	n'Etsb@tri:b
-nisch		ni:S
+nisch	ni:S
+nische	ni:S@
 normal	$2
 november	$2
-numero           $1
+numero	$1
 
-oboe            o:b'o:@
+oboe	o:b'o:@
+obsolet	Opzo'le:t
 orchester	$2
-orgie            $alt
-ok              o:k'e:
+orgie	$alt
+ok	o:k'e:
 oktober	$2
 optimal	$3
-ödem		Y:d'e:m
+ödem	Y:d'e:m
 
 pardon	pard'O~
-paradies         $3
+paradies	$3
 passage	$alt
-perplex          $2
-petersilie       $alt
-pinie            $alt
-planet          plan'e:t
-pochier         pOS'i:r
-pochs           pOxs
+perplex	$2
+petersilie	$alt
+phänomen	fEno'me:n
+pinie	$alt
+pipi	pi'pi:
+planet	plan'e:t
+pochier	pOS'i:r
+pochs	pOxs
 portemonnaie	pOrtmOn'e:
-präsident        $3
-prämie           $alt
+präsident	$3
+prämie	$alt
+präzise	prE'tsi:z@
 prinzip	$2
 prinzipien	prInts'i:pI@n
 protokoll	$3
 
+rätsel	rE:tsl-
 referendum	$3
 refrain	rEfr'W~
-reliquie         $alt
+reliquie	$alt
 rendezvous	rA~de:v'u:
 restaurant	rEsto:r'A~
-risik           $1
+risik	$1
 ruhezustand	ru:@ts,u:Stand
-rupie            $alt
+rupie	$alt
 
-sabbat          zabat
-sagt            zA:gt
+sabbat	zabat
+sagt	zA:gt
 saison	zE:z'O~
-salopp           $2
+salopp	$2
 schieberegler	S'i:b@re:gl3
 schokolad	$3
 schreibung	Sr'aIbUN
-schult          Su:lt
+schult	Su:lt
 schulter	S'Ult3
 schultern	S'Ult3n
+schuster	'Su:st3
 sekund	$2
-selbst          zElpst
+selbst	zElpst
 september	$2
-serie           $alt
-service		_^_EN
+serie	$alt
+service	_^_EN
 ski	S'i:
 sodass	%zo:d,as
-soeben          zo:_'e:b@n
-sofort           $2
-sogar            $2
-soweit           $2
-sowohl           $2
-sparsam         SpA:rzA:m
+soeben	zo:_'e:b@n
+sofort	$2
+sogar	$2
+soweit	$2
+sowohl	$2
+sparsam	SpA:rzA:m
 spezies	Sp'e:tsI@s
-spinozaisch     spi:n'o:tsaIS
-spionage        $alt
-stalagmit       stalagm'It
-subjekt		$1
+spinozaisch	spi:n'o:tsaIS
+spionage	$alt
+stalagmit	stalagm'It
+subjekt	$1
 
-tag             tA:g
+tag	tA:g
 teint	tW~
-telegen         te:le:g'e:n
+telegen	te:le:g'e:n
 terrain	tEr'W~
-theater         te:'A:t3
-tja		tjA:
-tonnage		$alt
+theater	te:'A:t3
+tja	tjA:
+tonnage	$alt
 tragödie	$alt
-train           tre:n
+train	tre:n
 trapez	$2
 trolley	tr'Oli:
 trost	tr'o:st
-tsunami		tsu:n'A:mi:
-turin            tu:r'i:n
+tsunami	tsu:n'A:mi:
+turin	tu:r'i:n
 
 überschrift	$1
 umgehen	$2
 umrahmen	$2
-unten           Unt@n
+unten	Unt@n
 untermenü	'Unt3me:n,y:
 unterschrift	$1
 urin	u:r'i:n
 übrig	'y:brIg#
 
-verein          fEr_|'aIn
-vielbesprochen   $3
-vielleicht       fIl'aICt
-vorherig        fo:rh'e:rIg#
-vorig           fo:rIg#
+verein	fEr_|'aIn
+vielbesprochen	$3
+vielleicht	fIl'aICt
+vorherig	fo:rh'e:rIg#
+vorig	fo:rIg#
 
-wahrscheinlich   $2
-warum		vA:r'Um
+wahrscheinlich	$2
+warum	vA:r'Um
 wasserung	vas@rUN    // because -ung isn't marked as a suffix
 weg	v'Ek
 Weg	v'e:g		$capital
-weither		vaIth'Er
-weitum		vaIt_|'Um
+weither	vaIth'Er
+weitum	vaIt_|'Um
 willkommen	$2
-woher		vo:h'e:r
+woher	vo:h'e:r
+wust	vuu:st'
 
-zloty		slOti:
-zoom		zu:m
-zudem		tsu:'de:m
-zugegen		tsu:g'e:g@n
-zurück		$2
+zloty	slOti:
+zoom	zu:m
+zudem	tsu:'de:m
+zugegen	tsu:g'e:g@n
+zurück	$2
 zustand	ts'u:Stand	$only
 zuständ	ts'u:StEnd
-zymbal		$1
+zymbal	$1
 
 
 // Names
@@ -970,24 +996,28 @@ Anika	ani:kA:
 Armin	$1
 aserbaidschan	A:z3baIdZ'A:n
 Asien	A:zI@n
+Bochum	bo:xUm
 Bremerhaven	bre:m3h'Af@n
 Cathleen	katle:n
 Cedric	sEdrIk
 Chiara	kjA:rA:
+Chile	'tSi:l@
 Chris	krIs
 Christian	$1
 Christina	$2
+Cuxhaven	kUks'ha:fn-
 Daniel	dA:nI@l
 Daniela	danj'e:lA:
 Djakarta	dZak'artA:
 Djibouti	dZi:b'u:ti:
 duisburg	dy:sbUrg
+Erfurt	'ErfUrt
 Eric	e:rIk
 Erik	e:rIk
 florian	$1
 Fruecht	fr'yCt
-Georg		ge:Ork	$only
-George		dZO:rdZ
+Georg	:Ork	$only
+George	:rdZ
 gibraltar	$2
 Gina	dZi:nA:
 hannover	han'o:f3
@@ -1004,16 +1034,16 @@ jonathan	jonatan	$text
 jonny	dZOni:
 Josef	j'o:zEf
 Katharina	katar'i:nA:
-Kasachstan $1
-Kirgisien $2
+Kasachstan	$1
+Kirgisien	$2
 Klango	kl'aNgo:
-Khmer		kme:r
+Khmer	kme:r
 kosovo	kOso:vo:
 kristina	$2
 kroatien	kro:'A:tsI@n
 Leon	le:On
 Leonie	$1
-Liam		_^_EN
+Liam	^_EN
 Lüneburg	ly:n@bUrg
 Maria	$2
 Marian	$1
@@ -1022,34 +1052,36 @@ mathias	mat'i:A:s
 Matthias	mathias	$text
 Matias	mathias	$text
 Mattias	mathias	$text
-Mc		%mEk
+Mc	mEk
 michael	mICae:l
 michaela	mICa'e:lA:
 Montenegro	mOnt@n'e:gro:
 Moradi	$2
 münchen	mynC@n
 naomi	$2
-Neumexiko       $2
+Neumexiko	$2
 Neuseeland	$2
 nordrhein	nOrd||raIn
 portugal	pOrtu:gal
 Rumänien	$2
-Rwanda		rU'andA:
+Rwanda	'andA:
 san	%zan
 saarbrücken	$2
 schlesien	Sle:zI@n
 schleswig	Sle:svIg#
 Sebastian	$2
 slowenien	$2
-Sri		%sri:
-steve		_^_EN
-soest	zo:st
+Sri	sri:
+steve	^_EN
+soest	zo: st
 sultan	$1
-Tom		tOm	$only
-Tim		tIm	$only
+Tom	tOm	$only
+Tim	tIm	$only
+Tübingen	'ty:bIN@n'
 Turkmenistan	$2
 ukraine	UkrA'i:n@
 vatikanstadt	vA:ti:k'A:nStat
 vera	v'e:rA:
 verena	ve:r'e:nA:
 westfalen	$2
+
