@@ -6,6 +6,8 @@
 // C  a consonant
 // G  a voiced consonant
 // K  not a vowel
+// D  a digit
+// _ beginning or end of word
 
 .group a
         a        a
@@ -21,8 +23,10 @@
 .group ã // Portuguese
         ã          aN
         ão         auN
+
 .group b
         b        b
+
 .group c // Portuguese
      _) c (_       se
         c          k
@@ -38,8 +42,10 @@
    A) ct         t         //drop “c” (eg: exacto)
    A) cç         s         //drop “c” in European Portuguese (eg: selecção)
  conta) ct (A      kt        // eg: contacto, contactar, contactável, incontactável, etc...
+
 .group d
         d        d
+
 .group e
         e        E
         ea       Ea
@@ -57,14 +63,18 @@
         ên (K      ''eIN
         ênh        ''en^
         êu         ''eu
+
 .group f
         f        f
         ff       f //English
+
 .group g
         g        g
         gg       g // English
+
 .group h
         h        h // Will pronounce even in Portuguese words
+
 .group i
         i        i
         ia       ia
@@ -79,26 +89,32 @@
         inh        in^
 .group í
         í        ''i
+
 .group j
         j        Z
+
 .group k
         k        k
+
 .group l
         l        l
         ll       l^ // INL
         lh       l^ // Portuguese
-        ly       l^ // Rare
+        ly       lj // Rare
+
 .group m
         m        m
      A) mm (A       m // English
+
 .group n
         n        n
         nn       n // “connosco”
         ng       N // English, Indonesian
         nh       n^
-        ny       n^ 
+        ny       n^
 .group ñ // INL
         ñ       n^
+
 .group o
         o        o
         oa       Oa
@@ -120,10 +136,12 @@
 .group õ // Portuguese
         õ          oi
         õe         oin
+
 .group p
         p        p
      A) pp (A       p // English
         ph       f // English
+
 .group q // Portuguese
      _) q (_       ke
         q          k
@@ -156,9 +174,11 @@
         qui        ki        // quinta, esquilo, etc.
      _) qu (inde   ku        // quindecágono, etc.
      _) quo        kuo       // quoficiente, etc.
+
 .group r
         r        r
         rr       r
+
 .group s
         s        s
         ss       s // Portuguese
@@ -180,11 +200,13 @@
  _trân) s (ito_    z
   _sub) s (ist     z
         ssion (_   _^_EN
+
 .group t
         t        t
         tt       t // English
         th         _^_EN // English
         tion (_    _^_EN // English
+
 .group u
         u        u
         ua       ua
@@ -195,31 +217,37 @@
         um (_      uN // Portuguese
 .group ú
         ú        ''u
+
 .group v
         v        v
+
 .group w
         w        w
+
 .group x
         x          S
         x (_       ks // Portuguese
+
 .group y
         y        j
+
 .group z
         z        z
    _pi) zz (a      ts // pizza..
 
 .group
-        ‘                // Ignore glottals
         ç          s
-    D_) º          %o        // Portuguese ordinal
-    D_) ª          %a        // Portuguese ordinal
-
-.group
-        $        dOlar
+	)A ' (A		//Ignore glottal stop between two vowels
+	)A ’ (A		//Ignore glottal stop between two vowels
 
 // Reading maths
         , (D       v'irgula
+    D_) , (_D      v'irgula
+    D_) . (_D      p'ontu
     __) - (_D      m'enus
     D_) - (_D      m'enus
-    A_) - (_D      _
-    C_) - (_D      _
+    D_) / (_D      divid'irp'or		// For laws want 'bara'
+    D_) * (_D      v'ezes
+//    A_) - (_D      _              What do these 2 lines do?
+//    C_) - (_D      _
+
