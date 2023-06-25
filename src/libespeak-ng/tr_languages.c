@@ -1323,8 +1323,8 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L3('t', 'd', 't'): // Tetun
 	{
-		tr->langopts.numbers = NUM_AND_UNITS;
-		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
+		tr->langopts.numbers = NUM_AND_UNITS | NUM_DECIMAL_COMMA;
+		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS | NUM2_PERCENT_BEFORE;
 	}
 		break;
 	case L('r', 'o'): // Romanian
