@@ -1811,9 +1811,6 @@ include ph_setswana
 phonemetable tt base1
 include ph_tatar
 
-phonemetable uk base1
-include ph_ukrainian
-
 phonemetable vi base1
 include ph_vietnam
 
@@ -1872,6 +1869,9 @@ include ph_turkmen
 
 phonemetable tr base2
 include ph_turkish
+
+phonemetable uk base2
+include ph_ukrainian
 
 // *** Tables extending en ***
 
