@@ -25,6 +25,11 @@ jobs:
           shlib: "ON"
     steps:
       - uses: actions/checkout@v3
+      - name: Checkout pcaudiolib
+        uses: actions/checkout@v3
+        with:
+          repository: espeak-ng/pcaudiolib
+          path: src/pcaudiolib
       - name: configure
         run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=${{ matrix.shlib }} -A ${{ matrix.arch }}
       - name: make
