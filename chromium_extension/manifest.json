@@ -1,0 +1,41 @@
+{
+  "name": "Native Messaging espeak-ng",
+  "short_name": "nm_espeakng",
+  "description": "externally_connectable => Native Messaging => eSpeak NG => MediaStreamTrack",
+  "version": "2.0",
+  "manifest_version": 3,
+  "permissions": [
+    "nativeMessaging",
+    "activeTab",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*js"
+      ],
+      "matches": [
+        "https://github.com/*"
+      ],
+      "extensions": []
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://*.github.com/*"
+    ],
+    "ids": [
+      "*"
+    ]
+  },
+  "action": {},
+  "author": "guest271314",
+  "homepage_url": "https://github.com/guest271314/native-messaging-espeak-ng/"
+}
