@@ -31,3 +31,10 @@ jobs:
         run: cmake --build build --config ${{ matrix.config }}
       - name: make check
         run: ctest --test-dir build -Ttest -C ${{ matrix.config }} -j1 --output-on-failure
+      - name: build MSI
+        run: msbuild src/windows/espeak-ng.sln
+      - name: Upload MSI
+        uses: actions/upload-artifact@v2
+        with:
+          name: MSI
+          path: '**/*.msi'

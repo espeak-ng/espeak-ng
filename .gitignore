@@ -230,3 +230,4 @@ espeak-ng-data/mbrola_ph/*_phtrans
 
 # macOS
 .DS_Store
+.venv
