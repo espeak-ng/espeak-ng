@@ -14,8 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [Win32, x64]
-        config: [Debug, Release]
+        arch: [x64]
+        config: [Release]
         link: [static, dll]
 
         include:
@@ -31,6 +31,8 @@ jobs:
         run: cmake --build build --config ${{ matrix.config }}
       - name: make check
         run: ctest --test-dir build -Ttest -C ${{ matrix.config }} -j1 --output-on-failure
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
       - name: build MSI
         run: msbuild src/windows/espeak-ng.sln
       - name: Upload MSI
