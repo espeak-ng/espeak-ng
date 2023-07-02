@@ -1,0 +1,7 @@
+{
+  "name": "nm_espeakng",
+  "description": "eSpeak NG => MediaStreamTrack",
+  "path": "/path/to/nm_espeakng.sh",
+  "type": "stdio",
+  "allowed_origins": [ "chrome-extension://<id>/" ]
+}
