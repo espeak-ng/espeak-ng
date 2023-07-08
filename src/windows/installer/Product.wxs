@@ -375,6 +375,9 @@
                 <Component Id="ta_dict" Guid="9EBC11A7-D7C9-488C-84F8-3DD8701534C8">
                     <File Id="ta_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\ta_dict" />
                 </Component>
+                <Component Id="tdt_dict" Guid="EF7DAE55-A7AA-4509-A6CD-1EE6507DC889">
+                    <File Id="tdt_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\tdt_dict" />
+                </Component>
                 <Component Id="te_dict" Guid="5AF4321F-78F0-4556-A913-2FD7E4AD152F">
                     <File Id="te_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\te_dict" />
                 </Component>
@@ -685,6 +688,9 @@
                         </Component>
                         <Component Id="ms" Guid="80E22B61-F278-44AB-BD66-5013E6568A26">
                             <File Id="ms" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\poz\ms" />
+                        </Component>
+                        <Component Id="tdt" Guid="80E22B61-F278-44AB-BD66-5013E6568A26">
+                            <File Id="tdt" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\poz\tdt" />
                         </Component>
                     </Directory>
                     <Directory Id="roa" Name="roa">
@@ -1567,6 +1573,7 @@
       <ComponentRef Id="sv_dict" />
       <ComponentRef Id="sw_dict" />
       <ComponentRef Id="ta_dict" />
+      <ComponentRef Id="tdt_dict" />
       <ComponentRef Id="te_dict" />
       <ComponentRef Id="th_dict" />
       <ComponentRef Id="tk_dict" />
@@ -1656,6 +1663,7 @@
       <ComponentRef Id="id" />
       <ComponentRef Id="mi" />
       <ComponentRef Id="ms" />
+      <ComponentRef Id="tdt" />
       <ComponentRef Id="an" />
       <ComponentRef Id="ca" />
       <ComponentRef Id="es" />
