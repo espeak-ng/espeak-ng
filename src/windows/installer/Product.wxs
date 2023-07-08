@@ -375,7 +375,7 @@
                 <Component Id="ta_dict" Guid="9EBC11A7-D7C9-488C-84F8-3DD8701534C8">
                     <File Id="ta_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\ta_dict" />
                 </Component>
-                <Component Id="tdt_dict" Guid="EF7DAE55-A7AA-4509-A6CD-1EE6507DC889">
+                <Component Id="tdt_dict" Guid="3FEC3927-27BF-4EFA-BBF7-318C9F972911">
                     <File Id="tdt_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\tdt_dict" />
                 </Component>
                 <Component Id="te_dict" Guid="5AF4321F-78F0-4556-A913-2FD7E4AD152F">

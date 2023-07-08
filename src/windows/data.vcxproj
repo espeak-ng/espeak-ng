@@ -386,6 +386,9 @@
   <Target Name="ta" Inputs="$(ProjectDir)..\..\dictsource\ta_rules;$(ProjectDir)..\..\dictsource\ta_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ta_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ta" />
   </Target>
+  <Target Name="tdt" Inputs="$(ProjectDir)..\..\dictsource\tdt_rules;$(ProjectDir)..\..\dictsource\tdt_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\tdt_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=tdt" />
+  </Target>
   <Target Name="te" Inputs="$(ProjectDir)..\..\dictsource\te_rules;$(ProjectDir)..\..\dictsource\te_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\te_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=te" />
   </Target>
