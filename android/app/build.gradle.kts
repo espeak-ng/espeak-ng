@@ -69,16 +69,23 @@ dependencies {
 
 tasks.register("checkData") {
     doFirst {
-        assert(file("../../espeak-ng-data/en_dict").exists())
-        assert(file("../../espeak-ng-data/intonations").exists())
-        assert(file("../../espeak-ng-data/phondata").exists())
-        assert(file("../../espeak-ng-data/phondata-manifest").exists())
-        assert(file("../../espeak-ng-data/phonindex").exists())
-        assert(file("../../espeak-ng-data/phontab").exists())
+        val dataFiles = listOf(
+            "en_dict",
+            "intonations",
+            "phondata",
+            "phondata-manifest",
+            "phonindex",
+            "phontab"
+        )
+        dataFiles.forEach {
+            assert(file("../../espeak-ng-data/$it").exists()) {
+                "Data file $it not found."
+            }
+        }
     }
 }
 
-val dataArchive = tasks.register<Zip>("createDataArchive") {
+val dataArchive by tasks.register<Zip>("createDataArchive") {
     isPreserveFileTimestamps = false
     isReproducibleFileOrder = true
     archiveFileName.set("espeakdata.zip")
@@ -88,7 +95,7 @@ val dataArchive = tasks.register<Zip>("createDataArchive") {
     into("espeak-ng-data")
 }
 
-val dataHash = tasks.register<Checksum>("createDataHash") {
+val dataHash by tasks.register<Checksum>("createDataHash") {
     checksumAlgorithm.set(Checksum.Algorithm.SHA256)
     inputFiles.setFrom(dataArchive)
     outputDirectory.set(layout.buildDirectory.dir("intermediates/datahash"))
@@ -101,8 +108,27 @@ tasks.register<Copy>("createDataVersion") {
 }
 
 project.afterEvaluate {
-    tasks.named("checkData") { dependsOn("externalNativeBuildDebug") }
-    tasks.named("createDataArchive") { dependsOn("externalNativeBuildDebug") }
-    tasks.named("javaPreCompileDebug") { dependsOn("createDataVersion") }
-    tasks.named("javaPreCompileRelease") { dependsOn("createDataVersion") }
+    tasks.named("checkData") {
+        dependsOn("externalNativeBuildDebug")
+    }
+
+    tasks.named("createDataArchive") {
+        dependsOn("checkData")
+    }
+
+    val tasksDependingOnCreateDataVersion = listOf(
+        "mapDebugSourceSetPaths",
+        "mapReleaseSourceSetPaths",
+        "mergeDebugResources",
+        "mergeReleaseResources",
+        "packageDebugResources",
+        "packageReleaseResources",
+        "lintVitalAnalyzeRelease"
+    )
+
+    tasksDependingOnCreateDataVersion.forEach { taskName ->
+        tasks.named(taskName) {
+            dependsOn("createDataVersion")
+        }
+    }
 }
