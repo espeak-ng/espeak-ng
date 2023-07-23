@@ -24,7 +24,7 @@ android {
         versionCode = 22
         versionName = "1.52-dev"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "android.test.InstrumentationTestRunner"
         testApplicationId = "com.reecedunn.espeak.test"
         externalNativeBuild {
             cmake {
@@ -62,9 +62,8 @@ android {
 }
 
 dependencies {
-    testImplementation("junit:junit:4.13.2")
     androidTestImplementation("com.google.android:android-test:4.1.1.4")
-    androidTestImplementation("org.hamcrest:hamcrest-all:1.3")
+    androidTestImplementation("org.hamcrest:hamcrest-library:1.3")
 }
 
 tasks.register("checkData") {
