@@ -144,13 +144,13 @@ public class eSpeakActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.espeakSettings:
-                startActivityForResult(new Intent(eSpeakActivity.this, TtsSettingsActivity.class), REQUEST_DEFAULT);
-                return true;
-            case R.id.ttsSettings:
-                launchGeneralTtsSettings();
-                return true;
+        int itemId = item.getItemId();
+        if (itemId == R.id.espeakSettings) {
+            startActivityForResult(new Intent(eSpeakActivity.this, TtsSettingsActivity.class), REQUEST_DEFAULT);
+            return true;
+        } else if (itemId == R.id.ttsSettings) {
+            launchGeneralTtsSettings();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
