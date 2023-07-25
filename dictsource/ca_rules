@@ -71,6 +71,7 @@
 
 .group d
         d          d    // d sona d
+     _) d' (A      d    // d sona d
    //     dj         dZ;
    //     dv         bb	// Geminació
    //     dm         mm   // assimilation (admira)
@@ -646,7 +647,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
     _)  u (ltra@   ,u    // (ultradreta)
     
 .group v
-?1        v          b
+          v          b
 ?3        v          v
 //     _) v          v#
  
@@ -701,3 +702,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 ?1      é (nyer_   ''E
 ?1      é (iem_    ''E
 ?1      é (ieu_    ''E
+
+.group '
+        'n          n
+        'm          m
+        't          t
