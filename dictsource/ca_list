@@ -176,6 +176,9 @@ seu         s'ew        $nounf
 meva        m'eBa       $nounf
 teva        t'eBa       $nounf
 seva        s'eBa       $nounf
+?2 meva     m'ewa       $nounf
+?2 teva     t'ewa       $nounf
+?2 seva     s'ewa       $nounf
 meua        m'ewa       $nounf
 teua        t'ewa       $nounf
 seua        s'ewa       $nounf
@@ -190,6 +193,9 @@ seus        s'ews       $nounf
 meves       m'eBes      $nounf
 teves       t'eBes      $nounf
 seves       s'eBes      $nounf
+?2 meves    m'ewes      $nounf
+?2 teves    t'ewes      $nounf
+?2 seves    s'ewes      $nounf
 meues       m'ewes      $nounf
 teues       t'ewes      $nounf
 seues       s'ewes      $nounf
@@ -688,6 +694,7 @@ carbamilurea	$alt2
 carbamilurees	$alt2
 catalexi	$alt2
 catalexis	$alt2
+catequesi   $alt2
 caterva	$alt2
 caterves	$alt2
 catexi	$alt2

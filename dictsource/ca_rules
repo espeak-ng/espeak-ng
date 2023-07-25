@@ -4,7 +4,7 @@
 // Options
 // ?1 general eastern. central specific characteristics 
 // ?2 general western. north-western specific characteristics 
-// ?3 valencian specific characteristics (valencian is 2+3. 3 over writes 2)
+// ?3 valencian specific characteristics (valencian is 2+3. 3 overwrites 2)
 
 
 // letter groups
@@ -31,14 +31,9 @@
 
 .group a
         a          a
- //       a (m_      'a   // stress the vowel
- //       a (ny_     'a   // stress the vowel
- //       a (ns_     'a   // stress the vowel
-//  L05J)  a (m_      a    // do not stress the vowel
-//  L05J)  a (ny_     a    // do not stress the vowel
-//  L05J)  a (ns_     a    // do not stress the vowel
         ae         aE2  // do not reduce
         ahe        aE2  // do not reduce
+        // prefixes
     _)  amb (_A    amb  // Sensibilització
     _)  a (nte@@   ,a   // (antepenúltim)
     _)  a (nti@@   ,a   // (antepenúltim)
@@ -58,11 +53,11 @@
 
 .group b
         b          b    
-?1    A)  bl (A      bbl  // gemination (poble)
     A)  bl (A$w_alt7    Bl // avoid gemination 
   _bi)  bl (io     Bl   //
   _su)  bl (im     Bl   //
         bm         mm   // assimilation (submarí)
+?1  A)  bl (A      bbl  // gemination (poble)
  
 .group c
         c          k    // (casa)
@@ -83,14 +78,11 @@
 
 .group e
         e          e
-        e (L05     e2   // do not reduce (eòlic)
-        e (a       e2   // do not reduce (teatre)
-        e (ha      e2
-     ò) e          e2
-     ó) e          e2
-        e (o       e2
-        e ($w_alt1++ e
-        e ($w_alt2++ E
+        e ($w_alt1++ e  // wordlist
+        e ($w_alt2++ E  // wordlist
+    -t) e (_       e
+    
+        // contextual e rules
         e (nt_     e
         e (rL21    e    // (herba, serp, terme. but ferm, erm)
         e (r_      e    // (Roger)
@@ -99,11 +91,12 @@
         e (ra_     e    // (cremallera)
         e (res_    e    // (cremalleres)
         e (ll      e    // (canell)
-?1      e (ct      e    // (subjecte)
         e (st      e    // 
         e (mt      e    // 
         e (nt      e    // (menta)
         e (nd      e    // 
+        e (ix      e    // 
+        e (mbr     e
      v) e (sp      e    // (vespre)
      v) e (tll     e    // (vetlla)
     tr) e (t       e    // (trets)
@@ -118,50 +111,35 @@
   sist) e (m       e    // (sistema)
     al) e (gr      e    // (alegre)
    _ll) e          e    // 
-        e (ix      e    // 
-        e (mbr     e
      f) e (t       e
-?1   t) e (xt      e
     gr) e (u       e
    arr) e (r       e
+    _b) e (llug    e
     _r) e (g       e    // (regne, regno, etc.)
-    _t) e (le      e2   // (teletreball)
-  _tel) e          e2   // (teletreball)
-   fon) e (m       E    // (fonema)
+     _) e (ntrevis e    // entrevista
+     _) e (ntren   e    // entrenar
+    _r) e (tron    e    // (retronar)
+    _r) e (troc    e    // (retrocedir)
+    _r) e (trob    e    // (retrobar)
+         
+        // accent variants
+?1      e (ct      e    // (subjecte)
+?1   t) e (xt      e    // (text)
 ?2 fon) e (m       e    // (fonema)
-
-     _) e (ntreA   ,e   // (entreacte)
-     _) e (ntreC   ,e   // (entresòl)
-    -t) e (_       @
            
-                // e is E
+        // contextual E rules
         e (l       E    // (elm)
         e (u       E    // (preu)
-        e (r       E    // (merla, ferro. but però Berga i Matadepera)
-?1      e (t       E    // (marlet)
-?1      e (c       E    //
         e (g       E    //
-?1        e (i       E    //
-?1        e (s       E    //
-?1        e (m       E    //
         e (x       E    //
-?1        e (na_     E    //
-        e (nes_    E    //
-?1      e (n       E    //
-?1      e (d_      E    //
-?1      e (ds_     E    //
-?1      e (da_     E    //
-?1      e (des_    E    //
-        e (ero_      E    //
-        e (eros_     E    //
-        e (era_     E    //
-        e (eres_    E    //
-    c)  e  (b       E
-        e  (j       E
+        e (r       E    // (merla, ferro. but però Berga i Matadepera)
+        e (ero_    E    //
+        e (eros_   E    //
+        e (era_    E    //
+        e (eres_   E    //
+        e  (j      E
         e  (gL01   E
-  //      e  (cte     E
-//         e (nda_     E    //
-//         e (ndes_    E    //
+    c)  e  (b      E
    con) e (ix      E 
      n) e (rv      E 
      v) e (rb      E
@@ -169,44 +147,75 @@
   conv) e (x       E
      d) e (rm      E
     sp) e (rm      E
-  //      e (nL15    E // (llença, llenca, etc.)
-            
-        
- L05J)  ee         e2@  // (pàncrees)
-        
+   fon) e (m       E    // (fonema)
+
+    
+
+
+  //      e  (cte     E
+//         e (nda_     E    //
+//         e (ndes_    E    //
+
+    
+        // accent variants
+?1      e (t       E    // (marlet)
+?1      e (c       E    //
+?1      e (i       E    //
+?1      e (s       E    //
+?1      e (m       E    //
+?1      e (na_     E    //
+?1      e (nes_    E    //
+?1      e (n       E    //
+?1      e (d_      E    //
+?1      e (ds_     E    //
+?1      e (da_     E    //
+?1      e (des_    E    //
+
+?2      e (ixu     a    // (eixugar. according with https://giec.iec.cat/textgramatica/codi/3.3.4.1 -e)
+ 
         // prefixes with secondary stress
+     _) e (ntreA   ,e   // (entreacte)
+     _) e (ntreC   ,e   // (entresòl)
     _a) e (ro      ,e
-    _b) e (ll      ,e
-    _b) e (llug    e
+    _b) e (ll      ,e    
   _jud) e (o       ,e
     _c) e (ntre@   ,e
-   _el) e (ctro@   ,E
-?2 _el) e (ctro@   ,e
      _) e (ntre@   ,e
-     _) e (ntrevis  e // entrevista
-     _) e (ntren    e // entrenar
-  _est) e (reo     ,E // estereotipat
+    _h) e (tero    ,e
+    _n) e (o@      ,e
+  _pal) e (o       ,e
+    _r) e (ra      ,e
+   _el) e (ctro@   ,E
+  _est) e (reo     ,E   // estereotipat
      _) e (tno     ,E
      _) e (xtra    ,E
-    _h) e (tero    ,e
  _magn) e (to      ,E
     _m) e (dico    ,E
     _m) e (nys     ,E
-?2  _m) e (nys     ,e
-    _n) e (o@      ,e
-?1  _n) e (uro     ,E
-  _pal) e (o       ,e
+    _n) e (uro     ,E
    _ps) e (udo     ,E
-    _r) e (ra      ,e
     _r) e (tro     ,E
+    _s) e (mi@     ,E   // (semiconductor)
+    _s) e (rvo@    ,E   // (semiconductor)
+    _t) e (rmo@    ,E   // (termogènesi)
+
+         // accent variants for prefixes with secondary stress
+?2  _m) e (nys     ,e
+?2  _n) e (uro     ,e
 ?2  _r) e (tro     ,e
-    _r) e (tron    e // (retronar)
-    _r) e (troc    e // (retrocedir)
-    _r) e (trob    e // (retrobar)
-    _s) e (mi@     ,E // (semiconductor)
-    _s) e (rvo@    ,E // (semiconductor)
-    _t) e (rmo@    ,E // (termogènesi)
-?2  _t) e (rmo@    ,e // (termogènesi)
+?2  _t) e (rmo@    ,e   // (termogènesi)
+?2 _el) e (ctro@   ,e
+
+        // non reduction contexts
+        e (L05     e2   // (eòlic)
+        e (a       e2   // (teatre)
+        e (ha      e2
+     ò) e          e2
+     ó) e          e2
+        e (o       e2
+ L05J)  e (e       e2   // (pàncrees)
+    _t) e (le      e2   // (teletreball)
+  _tel) e          e2   // (teletreball)
 
 .group f
         f          f
@@ -216,47 +225,39 @@
 
 .group g
         g          g
-?1    A)  gl (A      ggl // gemination (plexiglàs)
         g  (L01    Z   // front vowel (gerra)
         gu (L01    g   // front vowel (guitarra)
         gu (L02    gw  // (guaret)
+?1   A) gl (A      ggl // gemination (plexiglàs)
 ?3   _) gn         n   // gnom
         
-
 .group h
         h              // silent
      -) hi (_   'i
      -) ho (_    o
     A-) ho (_    w   // porta-ho [pɔ́ ɾtaw]
      _) ho (_A   w   //  ho entra [wéntɾa]
-?3  K_) ho (_C   ew  //  ho porta [ewpɔ́ɾta]
     A_) ho (_C   w   //  no ho porta [n'owpɔ́ɾta]
+?3  K_) ho (_C   ew  //  ho porta [ewpɔ́ɾta]
         h ($w_alt6  X   // (halar)
-
 
 .group i
         i          i
+        
+        // glide rules
      A) i (K       j    // glide (aigua)
     A_) i (K       j    // glide (una història)
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
     _h) i (A       j    // glide (hialita)
+    
+        // not glide rules
      _) i (on      i    // not glide (ions + derivats)
   L16ü) i (K       i    // not glide (lingüista)
   L16u) i (A       i    // not glide (guia)
-  L16u) i (K       i    // not glide (guia)
-    
+  L16u) i (K       i    // not glide (guia)    
         i (sta     i    // not glide (deista)
         i (sme     i    // not glide (deisme)
-//    gu) i (K       i    // not glide (guitarrista)
- //   qu) i (K       i    // (quincalla)
- //   qu) i (A       i    // (brànquia)
-        i (ns_     'i   // stress the vowel
-  L05J) i (ns_     i    // do not stress the vowel
-        i (ny_     'i   // stress the vowel
-  L05J) i (ny_     i    // do not stress the vowel  
-//        ir (_      'i   // stress the vowel + silent r
-//  L05J) ir (_      i    // do not stress the vowel + silent r
      A) i (r_       i   // verb: not glide (conduir, agrair, etc.)
      A) i (nt_      i   // verb: not glide (conduint, agraint, etc.)
      A) i (ré_      i   // verb: not glide (conduir, agrair, etc.)
@@ -272,35 +273,41 @@
      A) i (ríeu_    i   // verb: not glide (conduir, agrair, etc.)
      A) i (ríen_    i   // verb: not glide (conduir, agrair, etc.)
      
-            // prefixes with secondary stress
-     _ac) i (culi    ,i  // aciculifoli
-     _) i (bero     ,i // iberoromà
-     _) i (ndo      ,i // indoeuropeu
-     _) i (nfra     ,i // indoeuropeu
-     _) i (nfrangi  i  // infrangible (no sec)
+        // prefixes with secondary stress
+   _ac) i (culi     ,i  // aciculifoli
+     _) i (bero     ,i  // iberoromà
+     _) i (ndo      ,i  // indoeuropeu
     _l) i (po       ,i
     _m) i (cro@     ,i
     _h) i (dro@     ,i
      _) i (nfra     ,i
     _x) i (ux       ,i
+     _) i (nfra     ,i  // 
+     _) i (nfrangi  i   // infrangible (no sec)
      
-          
+          // stress rules
+        i (ns_     'i   // stress the vowel
+  L05J) i (ns_     i    // do not stress the vowel
+        i (ny_     'i   // stress the vowel
+  L05J) i (ny_     i    // do not stress the vowel          
   
 .group ix
-        ix           iS
-      A) ix         jS
-?1     A) ix (K      S    // do not pronounce i (peix)
-?1     A) ix (A      S    // do not pronounce i (peixar)
+        ix         iS
+     A) ix         jS
     gu) ix (K      iS   // pronounce i (guix)
     qu) ix (K      iS   // pronounce i (Quixot)
-?1     A) ix (_A     Z    // sonorisation + do not pronounce i (peix amable)
-?1     A) ix (_L11   Z    // sonorisation + do not pronounce i (peix blau)
     gu) ix (_A     iZ   // sonorisation + pronounce i (guix esquerdat)
     gu) ix (_L11   iZ   // sonorisation + pronounce i (guix blau)
      K) ix (A      iS   // pronounce i (mixa)
      ú) ix (K      iks  //
      f) ix (A      iks  // (fixar)
      f) ix (K      iks  // (prefix)
+     
+        // accent variants
+?1   A) ix (K      S    // do not pronounce i (peix)
+?1   A) ix (A      S    // do not pronounce i (peixar)
+?1   A) ix (_A     Z    // sonorisation + do not pronounce i (peix amable)
+?1   A) ix (_L11   Z    // sonorisation + do not pronounce i (peix blau)
      
 .group ig
      A) ig (_      tS   // (goig)
@@ -322,33 +329,34 @@
 
 .group l
         l          l
+        ll         l^   // (colla)
+     _) l' (P2     l
+        // accent variants
 ?1      lt (_      l    // (alt)
 ?1      lt (s_     l    // (alts)
 ?1      ld (_      l    // (Eudald)
 ?1      ld (s_     l    // (Eudalds)
-        ll         l^   // (colla)
 ?3      l·l        l    // (il·lusió)
-     _) l' (P2     l
-
 
 .group m
         m          m
      _) m' (P2     m
  
         mp (-h     mp
-?1        mp (_      m    // do not pronounce final p
-?1        mb (K      m    // do not pronounce final b (amb mi) or before consonant
-?1        mpt        mt   // do not pronouce p between m and t (compte)
    _a)  mb (_A     mb   // pronounce final b before vowel (amb ell)
         mpr        mpr  // (compra)
         mbr        mbr  // (cambra)
         mbl        mbl  // (rambla)
    _)   mn         n    // (mnemotècnic)
+     // accent variants
+?1      mp (_      m    // do not pronounce final p
+?1      mp (s_     m    // do not pronounce final p
+?1      mb (K      m    // do not pronounce final b (amb mi) or before consonant
+?1      mpt        mt   // do not pronouce p between m and t (compte)
 
+    // adverbs
     @) ment (_S4ment	m''en
 ?3  @) ment (_S4ment	m''ent
-    
-
 
 .group n
         n          n
@@ -544,7 +552,7 @@ _ultra) r (A       R    // (ultraric)
 
 
         r (-       **   // final r is not silent if followed by a pronoun + stress the vowel
-//         r (_$w_alt5     R  // final r is not silent + stress the vowel
+        r (_$w_alt5     R  // final r is not silent + stress the vowel
         r (s_$w_alt5    R // final r is not silent + stress the vowel
 
                 // suffixes with final R not silent
@@ -614,7 +622,7 @@ _contra) s (A      s    // (contrasentit)
 ?3      tl         ll   // ametla, atlas
         tm         mm	// gemination (setmana)
         tn         nn	// gemination (cotna)
-?3      tz         z    // (normabilitzar) MIRAR SI AFECTA TBÉ ?2
+?3   i) tz (a         z    // (normabilitzar) MIRAR SI AFECTA TBÉ ?2
         
 .group u
         u          u

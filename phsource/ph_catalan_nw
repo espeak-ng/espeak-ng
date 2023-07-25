@@ -9,6 +9,9 @@
 phoneme a
   vwl starttype #a endtype #a
   length 180
+  IF thisPh(isWordEnd) THEN
+    ChangeIfUnstressed(E)
+  ENDIF
   FMT(vowel/a_6)
 endphoneme
 
@@ -59,14 +62,37 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 170
-  ChangeIfUnstressed(o)
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) THEN 
+        ChangePhoneme(aw)
+    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
+        ChangePhoneme(u)
+    ELSE
+        ChangePhoneme(o)
+    ENDIF
+  ENDIF
   FMT(vowel/oo)
 endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
   length 170
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) THEN 
+        ChangePhoneme(aw)
+    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
+        ChangePhoneme(u)
+    ENDIF
+    
+  ENDIF
   FMT(vowel/o)
+endphoneme
+
+phoneme aw // revisar
+  vwl starttype a endtype w
+  length 170
+  ipa aw
+//  FMT(vowel/a)
 endphoneme
 
 phoneme o2
