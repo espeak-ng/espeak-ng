@@ -348,6 +348,26 @@ phoneme d
   CALL base2/d
 endphoneme
 
+phoneme d
+  vcd dnt stp
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELSE
+      ChangePhoneme(t)
+    ENDIF
+  ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) OR prevPh(**) THEN
+        ChangePhoneme(D)
+      ENDIF
+    ENDIF  
+  ELSE
+    ChangePhoneme(t)
+  ENDIF
+
+  CALL base2/d
+endphoneme
+
 phoneme p
   vls blb stp
   lengthmod 2
@@ -361,6 +381,8 @@ phoneme p
   ELIF nextPh(l) THEN
     WAV(ustop/pl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ChangePhoneme(b)
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
     ChangePhoneme(b)
   ENDIF
   WAV(ustop/p_unasp)
@@ -379,6 +401,8 @@ phoneme t        // dental variant of /t/
     ELSE
       ChangePhoneme(d)
     ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+    ChangePhoneme(d)
   ENDIF
   WAV(ustop/t_dnt2, 60)
 endphoneme
@@ -401,10 +425,12 @@ phoneme k
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
     ELIF nextPh(n) THEN
-      ChangePhoneme(N)
+        ChangePhoneme(N)
     ELSE
       ChangePhoneme(g)
     ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+    ChangePhoneme(g)
   ENDIF
   WAV(ustop/k_unasp, 70)
 endphoneme

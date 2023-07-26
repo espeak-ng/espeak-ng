@@ -22,11 +22,11 @@ phoneme e
   vwl starttype #e endtype #e
   length 170
   
-  IF thisPh(isWordStart) THEN
-    IF nextPh(s) OR nextPh(n) AND thisPh(isUnstressed)THEN
-        ChangePhoneme(a)
-    ENDIF
-  ENDIF
+//  IF thisPh(isWordStart) THEN
+//    IF nextPh(s) OR nextPh(n) AND thisPh(isUnstressed)THEN
+//        ChangePhoneme(a)
+//    ENDIF
+//  ENDIF
   FMT(vowel/e)
 endphoneme
 
@@ -86,6 +86,15 @@ phoneme u
   FMT(vowel/u_bck)
 endphoneme
 
+phoneme i
+  vwl starttype #i endtype #i
+  length 170
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(j)
+  ENDIF
+  FMT(vowel/i)
+endphoneme
+
 // nasals
 //==============
 
@@ -114,6 +123,7 @@ phoneme m
   
   IF nextPh(f) OR nextPh(v) THEN
     ChangePhoneme(M)
+ 
   ENDIF
 
   IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
@@ -124,7 +134,6 @@ phoneme m
     FMT(m/m_)
   ENDIF
 endphoneme
-
 
 phoneme n
   vcd alv nas
@@ -191,6 +200,8 @@ phoneme s
     ELSE
       ChangePhoneme(S)
     ENDIF
+//  ELIF prevPh(isVoiced) AND nextPh(isVowel) THEN
+//    ChangePhoneme(z)
   ENDIF
   IF thisPh(isWordEnd) THEN
     IF nextPh(isVoiced) THEN
@@ -328,6 +339,8 @@ phoneme p
     WAV(ustop/pl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     ChangePhoneme(b)
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+    ChangePhoneme(b)
   ENDIF
   WAV(ustop/p_unasp)
 endphoneme
@@ -345,6 +358,8 @@ phoneme t        // dental variant of /t/
     ELSE
       ChangePhoneme(d)
     ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+    ChangePhoneme(d)
   ENDIF
   WAV(ustop/t_dnt2, 60)
 endphoneme
@@ -371,6 +386,8 @@ phoneme k
     ELSE
       ChangePhoneme(g)
     ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+    ChangePhoneme(g)
   ENDIF
   WAV(ustop/k_unasp, 70)
 endphoneme
@@ -395,6 +412,9 @@ phoneme S // **sh**op
   Vowelout f1=0  f2=2100 100 300  f3=-100 80
 
   IF prevPh(i) OR prevPh(j) THEN
+    IF nextPh(isVoiced) THEN
+        ChangePhoneme(Z)
+    ENDIF
   ELSE
     ChangePhoneme(tS)
   ENDIF
