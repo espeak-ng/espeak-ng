@@ -103,7 +103,7 @@ _5	s'iNk
 _6	s'is
 _7	s'Et
 _8	b'ujt
-?3  _8	'ujt
+?3  _8	'wit
 _9	n'Ow
 _10	d'Ew
 _11	'onze
@@ -123,6 +123,7 @@ _20	b'int
 _2X	b,inti
 ?3 _2X	v,inti
 _3X	t**'Enta
+?2 _3X	t**'enta
 _4X	kwa**'anta
 _5X	sinkw'anta
 _6X	seS'anta
@@ -143,8 +144,7 @@ _5C	s,ins'ens
 ?3 _5C	s,ins'ents
 _6C	s,is'ens
 ?3 _6C	s,is'ents
-_7C	s,ets'ens
-?3 _7C	s,ets'ents
+_7C	s,Ets'ens
 _8C	b'ujts'ens
 ?3 _8C	'ujts'ents
 _9C	n,Ous'ens
@@ -231,28 +231,30 @@ es  $u  $verbf
 se  $u  $verbf
 
 // prepositions
-a	$u $brk
-al	$u $brk $nounf
-als	$u $brk $nounf
+a	$u 
+al	$u $nounf
+als	$u $nounf
 de	$u
 del	$u  $nounf
 dels	$u $nounf
-en      $u $brk
+en      $u 
 ?2  en  e2n $u
-per	$u  $brk
-pel	$u $brk $nounf
-pels	$u $brk    $nounf
+per	$u  
+pel	$u $nounf
+pels	$u $nounf
 ans $u
 
-//amb	$brk
-entre	$brk
+//amb	
+entre	
 
 
 // conjunctions
-i	'i    $pause
-o   'O    $pause
-que $u
-
+//i	'i    $pause
+o       'O 
+?2 o    'o
+que     $u
+?2 però pe**o
+?3 ja   ja
 
 // auxiliary verbs
 sóc	s'ok
@@ -287,11 +289,9 @@ caldrà  $verbf
 // prefixed by a _ character.
 
 _a      'a
-a	a  $atend
+a	a  
 _i      i
-i	i  $atend
 _o      'O
-o	'O  $atend
 
 b	b'e
 c	s'e
@@ -623,8 +623,8 @@ aprehendre	$alt2
 aprendre	$alt2
 aqueix	$alt2
 aqueixos	$alt2
-aquell	$alt2
-aquells	$alt2
+?1 aquell	$alt2
+?1 aquells	$alt2
 ?1 aquest	$alt2
 ?1 aquests	$alt2
 ?1 aquesta	$alt2
@@ -1390,8 +1390,6 @@ prostatorrees	$alt2
 ?2  protest    $alt2
 ?2  protests   $alt2
 ?2  protestos  $alt2
-?2  protesta   $alt2
-?2  protestes  $alt2
 proterv	$alt2
 protervs	$alt2
 ptialorrea	$alt2
@@ -1410,8 +1408,8 @@ quermes	$alt2
 ?2  quimeres   $alt2
 ?1 rafet	$alt2
 ?1 rafets	$alt2
-res	$alt2
-rebre	$alt2
+?1 res	$alt2
+?1 rebre	$alt2
 ?2  recepta    $alt2
 ?2  receptes   $alt2
 recol·lecte	$alt2
@@ -1864,6 +1862,7 @@ colze	$alt1
 colzes	$alt1
 colèdoc	$alt1
 colèdocs	$alt1
+?2 com  $alt1
 coma	$alt1
 comes	$alt1
 coma	$alt1
@@ -2131,14 +2130,6 @@ forroll	$alt1
 forrolls	$alt1
 forrolla	$alt1
 forrolles	$alt1
-fosa	$alt1
-foses	$alt1
-fosc	$alt1
-foscs	$alt1
-?1 fossa	$alt1
-?1 fosses	$alt1
-fost	$alt1
-fosts	$alt1
 fotja	$alt1
 fotjes	$alt1
 foto	$alt1
@@ -3006,6 +2997,8 @@ ferodos	$alt2
 floronco	$alt2
 floroncos	$alt2
 folondres	$alt2
+?2 fossa	$alt2
+?2 fosses	$alt2
 fragmocon	$alt2
 fragmocons	$alt2
 galofre	$alt2
@@ -3877,6 +3870,7 @@ dimarts     dim'aRs
 ?3 llavors  l^av'Os // adverb
 ?2 marbre   m'ab**e
 ?2 socors   s'ocos
+?3 avui     wi
 
 // prefixes and sufixes
 /// words that DO NOT have a secondary stress prefix

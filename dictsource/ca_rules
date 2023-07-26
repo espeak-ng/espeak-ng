@@ -131,7 +131,8 @@
         // contextual E rules
         e (l       E    // (elm)
         e (u       E    // (preu)
-        e (g       E    //
+?1   v) e (u       E    // (veu, veure)
+?1      e (g       E    //
         e (x       E    //
         e (r       E    // (merla, ferro. but però Berga i Matadepera)
         e (ero_    E    //
@@ -139,7 +140,7 @@
         e (era_    E    //
         e (eres_   E    //
         e  (j      E
-        e  (gL01   E
+//        e  (gL01   E
     c)  e  (b      E
    con) e (ix      E 
      n) e (rv      E 
@@ -172,7 +173,14 @@
 ?1      e (da_     E    //
 ?1      e (des_    E    //
 
+?2      e (cte_    E    // (perfecte)
+?2      e (cta_    E    // (perfecta)
+?2      e (ctes_   E    // (perfectes)
+
 ?2      e (ixu     a    // (eixugar. according with https://giec.iec.cat/textgramatica/codi/3.3.4.1 -e)
+?3   @) eix (_     iS     // terminació verbs incoatius (afegeix)
+?3   @) eix (@     iS     // terminació verbs incoatius (afegeix)
+
  
         // prefixes with secondary stress
      _) e (ntreA   ,e   // (entreacte)
@@ -251,6 +259,10 @@
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
     _h) i (A       j    // glide (hialita)
+//?3      i (A       j    // glide (conseqüències)
+?3  _)  i (_A      j    // glide (i altres)
+?3  _)  i (_hA     j    // glide (i habitants)
+?3 _h)  i (_hA     j    // glide (hi ha)
     
         // not glide rules
      _) i (on      i    // not glide (ions + derivats)
@@ -399,7 +411,8 @@
 //         o (ls_     O
 //         o (li_     O
 //         o (lis_    O
- 
+     f) o (s       o // (fos, fosca, fosa, etc.)
+     f) o (sf      O // (fosfo...)
      f) o (rme     o
      c) o (mt      o
      c) o (mpt      o
@@ -555,6 +568,8 @@ _ultra) r (A       R    // (ultraric)
         r (-       **   // final r is not silent if followed by a pronoun + stress the vowel
         r (_$w_alt5     R  // final r is not silent + stress the vowel
         r (s_$w_alt5    R // final r is not silent + stress the vowel
+?3      r (_$w_alt5     **  // final r is not silent + stress the vowel
+?3      r (s_$w_alt5    ** // final r is not silent + stress the vowel
 
                 // suffixes with final R not silent
   L05Jfo)  r   (_       R
@@ -581,9 +596,10 @@ _ultra) r (A       R    // (ultraric)
      A) s  (A      z
      A) s  (hA     z
      A) s  (-A     z
-//         s  (_A     z
-//         s  (_hA    z
-         s  (L11    z
+ //  L12) s  (A      z
+//        s  (_A     z
+//        s  (_hA    z
+        s  (L11    z
 //         s  (_L11   z
      -) se (_      s@
 ?1  aque) s  (tKK  
@@ -607,6 +623,7 @@ _contra) s (A      s    // (contrasentit)
    _uni) s (A      s    // (unisexual)
   _vice) s (A      s    // (vicesecretari)
   _tran) s (it     z    // (transitar)
+  _tràn) s (it     z    // (transitar)
  _enfon) s (a      z    // (enfonsar)
 
 .group t
@@ -622,6 +639,7 @@ _contra) s (A      s    // (contrasentit)
 ?3      tll        l^   // assimilation (espatlla)
 ?3      tl         ll   // ametla, atlas
         tm         mm	// gemination (setmana)
+?3      tm         m	// gemination (setmana)
         tn         nn	// gemination (cotna)
 ?3   i) tz (a         z    // (normabilitzar) MIRAR SI AFECTA TBÉ ?2
         

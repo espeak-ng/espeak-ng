@@ -89,8 +89,11 @@ endphoneme
 phoneme i
   vwl starttype #i endtype #i
   length 170
-  IF nextPh(isVowel) THEN
-    ChangePhoneme(j)
+  IF thisPh(isUnstressed) AND nextPh(isVowel) AND nextPh(isUnstressed) THEN
+    IF thisPh(isWordEnd) THEN
+    ELSE
+      ChangePhoneme(j)
+    ENDIF
   ENDIF
   FMT(vowel/i)
 endphoneme
@@ -197,11 +200,11 @@ phoneme s
   
   IF prevPh(isPalatal) OR nextPh(S) THEN
     IF prevPh(j) THEN
+    ELIF nextPh(isVoiced) THEN
+      ChangePhoneme(Z)
     ELSE
       ChangePhoneme(S)
     ENDIF
-//  ELIF prevPh(isVoiced) AND nextPh(isVowel) THEN
-//    ChangePhoneme(z)
   ENDIF
   IF thisPh(isWordEnd) THEN
     IF nextPh(isVoiced) THEN
@@ -339,7 +342,7 @@ phoneme p
     WAV(ustop/pl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     ChangePhoneme(b)
-  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(b)
   ENDIF
   WAV(ustop/p_unasp)
@@ -358,7 +361,7 @@ phoneme t        // dental variant of /t/
     ELSE
       ChangePhoneme(d)
     ENDIF
-  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(d)
   ENDIF
   WAV(ustop/t_dnt2, 60)
@@ -386,7 +389,7 @@ phoneme k
     ELSE
       ChangePhoneme(g)
     ENDIF
-  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(g)
   ENDIF
   WAV(ustop/k_unasp, 70)
@@ -412,7 +415,7 @@ phoneme S // **sh**op
   Vowelout f1=0  f2=2100 100 300  f3=-100 80
 
   IF prevPh(i) OR prevPh(j) THEN
-    IF nextPh(isVoiced) THEN
+    IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
         ChangePhoneme(Z)
     ENDIF
   ELSE

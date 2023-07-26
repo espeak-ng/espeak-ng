@@ -206,6 +206,8 @@ phoneme s
   
   IF prevPh(isPalatal) OR nextPh(S) THEN
     IF prevPh(j) THEN
+    ELIF nextPh(isVoiced) THEN
+      ChangePhoneme(Z)
     ELSE
       ChangePhoneme(S)
     ENDIF
@@ -366,7 +368,7 @@ phoneme p
     WAV(ustop/pl)
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     ChangePhoneme(b)
-  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(b)
   ENDIF
   WAV(ustop/p_unasp)
@@ -385,7 +387,7 @@ phoneme t        // dental variant of /t/
     ELSE
       ChangePhoneme(d)
     ENDIF
-  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(d)
   ENDIF
   WAV(ustop/t_dnt2, 60)
@@ -413,7 +415,7 @@ phoneme k
     ELSE
       ChangePhoneme(g)
     ENDIF
-  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVowel) THEN // sonority propagation
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(g)
   ENDIF
   WAV(ustop/k_unasp, 70)
