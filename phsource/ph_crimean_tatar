@@ -70,7 +70,7 @@ phoneme d
 endphoneme
 
 phoneme t
-  import_phoneme base2/t[
+  import_phoneme base1/t[
 endphoneme
 
 phoneme c
