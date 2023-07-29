@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loading" />
@@ -40,14 +40,14 @@
 
         </ListView>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/synthesis_demo"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/editText1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -55,19 +55,19 @@
             android:ems="10"
             android:inputType="textMultiLine">
 
-        </EditText>
+        </android.support.v7.widget.AppCompatEditText>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/speak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/speak" />
 
-            <Button
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/ssml"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

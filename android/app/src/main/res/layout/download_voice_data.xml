@@ -8,14 +8,14 @@
 
     <ProgressBar
         android:id="@+id/progress"
-        style="@android:style/Widget.ProgressBar.Horizontal"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:indeterminate="false"
         android:longClickable="false" />
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/installing_voice_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
