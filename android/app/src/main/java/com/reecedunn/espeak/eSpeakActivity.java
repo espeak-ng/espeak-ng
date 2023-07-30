@@ -17,7 +17,6 @@
 
 package com.reecedunn.espeak;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -26,15 +25,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.PreferenceActivity;
 import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import java.lang.ref.WeakReference;
@@ -42,7 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class eSpeakActivity extends Activity {
+public class eSpeakActivity extends AppCompatActivity {
     private static final String ACTION_TTS_SETTINGS = "com.android.settings.TTS_SETTINGS";
 
     /**
@@ -71,7 +70,7 @@ public class eSpeakActivity extends Activity {
             populateInformationView();
         }
     };
-    private EditText mText;
+    private AppCompatEditText mText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -135,10 +134,6 @@ public class eSpeakActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.options, menu);
-        if (Build.VERSION.SDK_INT < 14) {
-            // Hide the eSpeak setting menu item on pre-ICS.
-            menu.findItem(R.id.espeakSettings).setVisible(false);
-        }
         return true;
     }
 
@@ -290,15 +285,7 @@ public class eSpeakActivity extends Activity {
 
     private void launchGeneralTtsSettings() {
         Intent intent;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            // The Text-to-Speech settings is a Fragment on 3.x:
-            intent = new Intent(android.provider.Settings.ACTION_SETTINGS);
-            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, "com.android.settings.TextToSpeechSettings");
-            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, intent.getExtras());
-        } else {
-            // The Text-to-Speech settings is an Activity on 2.x and 4.x:
-            intent = new Intent(ACTION_TTS_SETTINGS);
-        }
+        intent = new Intent(ACTION_TTS_SETTINGS);
         startActivityForResult(intent, REQUEST_DEFAULT);
     }
 

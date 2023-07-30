@@ -57,11 +57,13 @@ android {
     }
     buildFeatures {
         buildConfig = true
-        viewBinding = true
+        // viewBinding = true
     }
 }
 
 dependencies {
+    implementation("com.android.support:appcompat-v7:28.0.0")
+    implementation("com.android.support:preference-v7:28.0.0")
     androidTestImplementation("com.google.android:android-test:4.1.1.4")
     androidTestImplementation("org.hamcrest:hamcrest-library:1.3")
 }

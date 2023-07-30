@@ -24,11 +24,11 @@
 
 package com.reecedunn.espeak;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech.Engine;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class CheckVoiceData extends Activity {
+public class CheckVoiceData extends AppCompatActivity {
     private static final String TAG = "eSpeakTTS";
 
     /**

@@ -16,16 +16,16 @@
 
 package com.reecedunn.espeak.preference;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.preference.DialogPreference;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatSpinner;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Spinner;
 
 import com.reecedunn.espeak.CheckVoiceData;
 import com.reecedunn.espeak.DownloadVoiceData;
@@ -40,7 +40,7 @@ import java.util.Arrays;
 
 public class ImportVoicePreference extends DialogPreference {
     private final File mRoot;
-    private Spinner mDictionaries;
+    private AppCompatSpinner mDictionaries;
 
     public ImportVoicePreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -82,7 +82,7 @@ public class ImportVoicePreference extends DialogPreference {
         });
         if (dictionaries != null) {
             Arrays.sort(dictionaries);
-            mDictionaries.setAdapter(new FileListAdapter((Activity) getContext(), dictionaries));
+            mDictionaries.setAdapter(new FileListAdapter((AppCompatActivity) getContext(), dictionaries));
         }
     }
 
