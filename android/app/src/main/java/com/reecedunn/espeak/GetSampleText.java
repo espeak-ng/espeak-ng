@@ -18,10 +18,10 @@
 package com.reecedunn.espeak;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.Locale;
 
@@ -29,7 +29,7 @@ import java.util.Locale;
  * Returns the sample text string for the language requested
  */
 @SuppressLint("NewApi")
-public class GetSampleText extends Activity {
+public class GetSampleText extends AppCompatActivity {
     private static Locale getLocaleFromIntent(Intent intent) {
         if (intent != null) {
             final String language = intent.getStringExtra("language");

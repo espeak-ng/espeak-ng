@@ -25,17 +25,17 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 
 import com.reecedunn.espeak.preference.ImportVoicePreference;
 import com.reecedunn.espeak.preference.SeekBarPreference;
 import com.reecedunn.espeak.preference.SpeakPunctuationPreference;
 import com.reecedunn.espeak.preference.VoiceVariantPreference;
 
-public class TtsSettingsActivity extends PreferenceActivity {
+public class TtsSettingsActivity extends AppCompatActivity {
 
     private static final OnPreferenceChangeListener mOnPreferenceChanged =
             new OnPreferenceChangeListener() {
@@ -160,10 +160,6 @@ public class TtsSettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            PreferenceManager preferenceManager = getPreferenceManager();
-            preferenceManager.setStorageDeviceProtected();
-        }
         // Migrate old eyes-free settings to the new settings:
 
         storageContext = EspeakApp.getStorageContext();
@@ -204,14 +200,9 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         editor.commit();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getFragmentManager().beginTransaction().replace(
-                    android.R.id.content,
-                    new PrefsEspeakFragment()).commit();
-        } else {
-            addPreferencesFromResource(R.xml.preferences);
-            createPreferences(TtsSettingsActivity.this, getPreferenceScreen());
-        }
+        getFragmentManager().beginTransaction().replace(
+                android.R.id.content,
+                new PrefsEspeakFragment()).commit();
     }
 
     public static class PrefsEspeakFragment extends PreferenceFragment {
@@ -221,6 +212,10 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
             addPreferencesFromResource(R.xml.preferences);
             createPreferences(getActivity(), getPreferenceScreen());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                PreferenceManager preferenceManager = getPreferenceManager();
+                preferenceManager.setStorageDeviceProtected();
+            }
         }
     }
 }

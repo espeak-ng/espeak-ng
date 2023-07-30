@@ -18,11 +18,11 @@
 
 package com.reecedunn.espeak;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.ProgressBar;
 
@@ -34,7 +34,7 @@ import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class DownloadVoiceData extends Activity {
+public class DownloadVoiceData extends AppCompatActivity {
     public static final String BROADCAST_LANGUAGES_UPDATED = "com.reecedunn.espeak.LANGUAGES_UPDATED";
     private static final int PROGRESS_STARTING = 0;
     private static final int PROGRESS_EXTRACTING = 1;

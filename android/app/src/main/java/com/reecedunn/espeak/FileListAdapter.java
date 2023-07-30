@@ -16,19 +16,19 @@
 
 package com.reecedunn.espeak;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import java.io.File;
 
 public class FileListAdapter extends ArrayAdapter<File> {
     private final LayoutInflater mInflater;
 
-    public FileListAdapter(Activity context, File[] resources) {
+    public FileListAdapter(AppCompatActivity context, File[] resources) {
         super(context, android.R.layout.simple_list_item_1, resources);
         mInflater = context.getLayoutInflater();
     }
@@ -56,6 +56,6 @@ public class FileListAdapter extends ArrayAdapter<File> {
     }
 
     static class ViewHolder {
-        public TextView text;
+        public AppCompatTextView text;
     }
 }

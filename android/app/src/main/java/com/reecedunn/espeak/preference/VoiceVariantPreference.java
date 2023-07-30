@@ -17,21 +17,21 @@
 
 package com.reecedunn.espeak.preference;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatSpinner;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.reecedunn.espeak.R;
 import com.reecedunn.espeak.ResourceIdListAdapter;
@@ -168,8 +168,8 @@ public class VoiceVariantPreference extends DialogPreference {
             new VariantData(R.string.variant_female, "whisperf"),
     },
     };
-    private Spinner mCategory;
-    private Spinner mVariant;
+    private AppCompatSpinner mCategory;
+    private AppCompatSpinner mVariant;
     private int mCategoryIndex = 0;
     private int mVariantIndex = 0;
 
@@ -220,13 +220,13 @@ public class VoiceVariantPreference extends DialogPreference {
         final int category = mCategoryIndex;
         final int variant = mVariantIndex;
 
-        mCategory.setAdapter(new ResourceIdListAdapter((Activity) getContext(), categories));
+        mCategory.setAdapter(new ResourceIdListAdapter((AppCompatActivity) getContext(), categories));
         mCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             private boolean mInitializing = true;
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                mVariant.setAdapter(new VariantDataListAdapter((Activity) getContext(), variants[position]));
+                mVariant.setAdapter(new VariantDataListAdapter((AppCompatActivity) getContext(), variants[position]));
                 if (mInitializing) {
                     mVariant.setSelection(variant);
                     mInitializing = false;
@@ -280,7 +280,7 @@ public class VoiceVariantPreference extends DialogPreference {
     }
 
     static class ViewHolder {
-        public TextView text;
+        public AppCompatTextView text;
     }
 
     private class VariantData {
@@ -314,7 +314,7 @@ public class VoiceVariantPreference extends DialogPreference {
     public class VariantDataListAdapter extends ArrayAdapter<VariantData> {
         private final LayoutInflater mInflater;
 
-        public VariantDataListAdapter(Activity context, VariantData[] resources) {
+        public VariantDataListAdapter(AppCompatActivity context, VariantData[] resources) {
             super(context, android.R.layout.simple_list_item_1, resources);
             mInflater = context.getLayoutInflater();
         }
