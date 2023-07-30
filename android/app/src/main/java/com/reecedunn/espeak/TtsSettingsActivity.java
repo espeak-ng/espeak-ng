@@ -28,7 +28,8 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.reecedunn.espeak.preference.ImportVoicePreference;
 import com.reecedunn.espeak.preference.SeekBarPreference;

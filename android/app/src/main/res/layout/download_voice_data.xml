@@ -15,7 +15,7 @@
         android:indeterminate="false"
         android:longClickable="false" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/installing_voice_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
