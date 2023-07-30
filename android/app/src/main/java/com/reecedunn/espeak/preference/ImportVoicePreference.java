@@ -22,10 +22,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.preference.DialogPreference;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatSpinner;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
 
 import com.reecedunn.espeak.CheckVoiceData;
 import com.reecedunn.espeak.DownloadVoiceData;
