@@ -23,11 +23,12 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.SeekBar;
+
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.reecedunn.espeak.R;
 

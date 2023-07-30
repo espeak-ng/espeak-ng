@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:focusable="false">
 
-        <android.support.v7.widget.AppCompatRadioButton
+        <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/all"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -20,7 +20,7 @@
             android:focusableInTouchMode="false"
             android:text="@string/punctuation_all" />
 
-        <android.support.v7.widget.AppCompatRadioButton
+        <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/custom"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -29,14 +29,14 @@
             android:focusableInTouchMode="false"
             android:text="@string/punctuation_custom" />
 
-        <android.support.v7.widget.AppCompatRadioButton
+        <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/none"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="@string/punctuation_none" />
     </RadioGroup>
 
-    <android.support.v7.widget.AppCompatEditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/punctuation_characters"
         android:layout_width="fill_parent"
         android:layout_height="48dp"
