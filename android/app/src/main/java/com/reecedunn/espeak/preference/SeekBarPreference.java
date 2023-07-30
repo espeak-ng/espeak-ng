@@ -28,12 +28,13 @@ import android.view.View;
 import android.widget.SeekBar;
 
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatSeekBar;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.reecedunn.espeak.R;
 
-public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener {
-    private SeekBar mSeekBar;
+public class SeekBarPreference extends DialogPreference implements AppCompatSeekBar.OnSeekBarChangeListener {
+    private AppCompatSeekBar mSeekBar;
     private AppCompatTextView mValueText;
 
     private int mOldProgress = 0;
