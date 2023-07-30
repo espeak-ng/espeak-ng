@@ -23,21 +23,21 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.text.Editable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.RadioButton;
 
 import com.reecedunn.espeak.R;
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.VoiceSettings;
 
 public class SpeakPunctuationPreference extends DialogPreference {
-    private RadioButton mAll;
-    private RadioButton mCustom;
-    private RadioButton mNone;
-    private EditText mPunctuationCharacters;
+    private AppCompatRadioButton mAll;
+    private AppCompatRadioButton mCustom;
+    private AppCompatRadioButton mNone;
+    private AppCompatEditText mPunctuationCharacters;
 
     private VoiceSettings mSettings;
 

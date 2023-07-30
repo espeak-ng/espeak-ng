@@ -15,7 +15,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textIsSelectable="false" />
 
-    <android.support.v7.widget.AppCompatSeekBar
+    <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -23,17 +23,17 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
 import com.reecedunn.espeak.R;
 
 public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener {
     private SeekBar mSeekBar;
-    private TextView mValueText;
+    private AppCompatTextView mValueText;
 
     private int mOldProgress = 0;
     private int mProgress = 0;
@@ -128,7 +128,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         mSeekBar = root.findViewById(R.id.seekBar);
         mValueText = root.findViewById(R.id.valueText);
 
-        Button reset = root.findViewById(R.id.resetToDefault);
+        AppCompatButton reset = root.findViewById(R.id.resetToDefault);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
