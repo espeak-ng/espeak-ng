@@ -90,6 +90,7 @@ _»	t'anka||kum'Etes
 £	l^'iw**es
 ¶	pa**'aQ**af
 §	apaRt'at	// o secció?
+~   t'itl^a
 
 
 // numbers
@@ -298,7 +299,7 @@ c	s'e
 ç	s,et**@nk'aDa
 d	d'e
 f	'efa
-g	J'e
+g	Z'e
 h	ak
 j	Z'Ota
 k	k'a
@@ -3205,6 +3206,7 @@ càstig  $alt4
 pròdig  $alt4
 pèmfig  $alt4
 
+
 /// final r is not silent
 
 acer	$alt5
@@ -3324,8 +3326,6 @@ capil·lar	$alt5
 capil·lars	$alt5
 car	$alt5
 cars	$alt5
-caràcter	$alt5
-caràcters	$alt5
 carbur	$alt5
 carburs	$alt5
 cardiovascular	$alt5
@@ -3856,8 +3856,8 @@ tanka		t'aNka
 pinyin      p'injin
 kirieleison k,i**iel'Ejzon
 logos   l'oQos
-calvados    cal'Bados
-?3 calvados    cal'vados
+calvados    kal'Bados
+?3 calvados    kal'vados
 
 // other exceptions
 ió  i'o
@@ -3869,7 +3869,7 @@ dimarts     dim'aRs
 ?2 dimarts  dim'ats
 ?3 llavors  l^av'Os // adverb
 ?2 marbre   m'ab**e
-?2 socors   s'ocos
+?2 socors   s'okos
 ?3 avui     wi
 
 // prefixes and sufixes

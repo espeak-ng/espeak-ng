@@ -22,11 +22,11 @@ phoneme e
   vwl starttype #e endtype #e
   length 170
   
-//  IF thisPh(isWordStart) THEN
-//    IF nextPh(s) OR nextPh(n) AND thisPh(isUnstressed)THEN
-//        ChangePhoneme(a)
-//    ENDIF
-//  ENDIF
+  IF thisPh(isWordStart) THEN
+    IF nextPh(s) OR nextPh(n) AND thisPh(isUnstressed)THEN
+        ChangePhoneme(a)
+    ENDIF
+  ENDIF
   FMT(vowel/e)
 endphoneme
 

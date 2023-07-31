@@ -344,11 +344,21 @@
         l          l
         ll         l^   // (colla)
      _) l' (P2     l
+        lt (_      l    // (alt)
+        lt (s_     l    // (alts)
+        ld (_      l    // (Eudald)
+        ld (s_     l    // (Eudalds)
+        
         // accent variants
-?1      lt (_      l    // (alt)
-?1      lt (s_     l    // (alts)
-?1      ld (_      l    // (Eudald)
-?1      ld (s_     l    // (Eudalds)
+?3      lt (_      lt   // (alt)
+?3      lt (_A     lt   // (alt)
+?3      lt (_C     l    // (alt)
+?3      ld (_      ld    // (alt)
+?3      ld (_A     ld    // (alt)
+?3      ld (_C     l    // (alt)
+
+
+
 ?3      l·l        l    // (il·lusió)
 
 .group m
@@ -377,20 +387,36 @@
         n (_       =n   // stress the vowel..
    L01) n (_       n    // ... except after e, i
   L05J) n (_       n    // ... or a previous already stressed vowel
-//        nt (C      n ??
-?1        nt (_      =n   // do not pronounce final t + stress the vowel
-?1        nd (_      =n   // do not pronounce final d + stress the vowel
-?1        nt (s_     =n   // do not pronounce final t + stress the vowel
-?1        nd (s_     =n   // do not pronounce final d + stress the vowel
+        ny         n^   // palatalization
+  
+  
+        nt (_      =n   // do not pronounce final t + stress the vowel
+        nd (_      =n   // do not pronounce final d + stress the vowel
+        nt (s_     =n   // do not pronounce final t + stress the vowel
+        nd (s_     =n   // do not pronounce final d + stress the vowel
+        nc (s_     N    // velarization (crancs)
+        ng (s_     N    // velarization (fangs)
+        n  (L20_A  n    // avoid veralization before vowel  (fang espès)
+        
+            // accent variants
+?3      nt (_      nt   // (alt)
+?3      nt (_A     nt   // (alt)
+?3      nt (_hA    nt   // (alt)
+?3      nt (_C     n    // (alt)
+?3      nd (_      nd   // (alt)
+?3      nd (_A     nd   // (alt)
+?3      nd (_hA    nd   // (alt)
+?3      nd (_C     n    // (alt)
+?1      nc (_      N    // velarization (cranc)
+?1      ng (_      N    // velarization (fang)
+
+          
+            // sant, cent, vint
   _L25) nt (_A     nt   // pronounce final t if followed by a vowel
   _L25) nt (_hA    nt   // pronounce final t if followed by a vowel
   _L25) nt (-h     nt   // pronounce final t if followed by a pronoun (anant-hi)
-        ny         n^   // palatalization
-?1        nc (_      N    // velarization (cranc)
-?1        ng (_      N    // velarization (fang)
-?1        nc (s_     N    // velarization (crancs)
-?1        ng (s_     N    // velarization (fangs)
-        n  (L20_A  n    // avoid veralization before vowel  (fang espès)
+
+
                 
 
 .group o
@@ -602,8 +628,12 @@ _ultra) r (A       R    // (ultraric)
         s  (L11    z
 //         s  (_L11   z
      -) se (_      s@
-?1  aque) s  (tKK  
-?1  aque) s  (tKhA   s
+?1  aque) s  (t_
+    aque) s  (ts_
+    aque) s  (t_A   s
+    aque) s  (t_hA  s
+    aque) s  (t_C
+//?1  aque) s  (tKhA   s
    _bi) s (A       s    // (bisexual)
   _neo) s (A       s    // ()
  _orto) s (A       s    // 
