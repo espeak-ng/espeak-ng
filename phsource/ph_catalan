@@ -236,6 +236,24 @@ phoneme z
   FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 
+// f
+//====================
+phoneme f
+  vls lbd frc
+  voicingswitch v
+  lengthmod 3
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  
+  IF nextPh(isVoiced) THEN
+    ChangePhoneme(v)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/f_)
+  ENDIF
+  WAV(ufric/f)
+endphoneme
+
 // plosives (oclusives)
 // ====================
 
@@ -251,45 +269,14 @@ phoneme b
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-        IF prevPh(**) OR prevPh(R) THEN
-        ELSE
+  //      IF prevPh(**) OR prevPh(R) THEN ***"embarbussa"***
+  //      ELSE
             ChangePhoneme(B)
-        ENDIF
+  //      ENDIF
       ENDIF
     ENDIF  
   ELSE
     ChangePhoneme(p)
-  ENDIF
-
-  CALL base1/b
-endphoneme
-
-phoneme v   // sounds like b
-  vcd blb stp
-  IF thisPh(isWordEnd) THEN
-    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
-        ChangePhoneme(b)
-    ELIF prevPh(m) THEN
-        ChangePhoneme(b)
-
-    ELSE
-      ChangePhoneme(B)
-    ENDIF
-  ELIF nextPh(isVoiced) THEN
-    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-        IF prevPh(**) OR prevPh(R) THEN
-            ChangePhoneme(b)
-
-        ELSE
-            ChangePhoneme(B)
-        ENDIF
-      ELSE
-          ChangePhoneme(b)
-      ENDIF
-    ENDIF  
-  ELSE
-    ChangePhoneme(f)
   ENDIF
 
   CALL base1/b
@@ -359,7 +346,7 @@ phoneme d
     ENDIF
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) OR prevPh(**) THEN
+      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) OR prevPh(**) OR prevPh(dZ) THEN
         ChangePhoneme(D)
       ENDIF
     ENDIF  
