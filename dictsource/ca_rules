@@ -18,8 +18,8 @@
 .L05 à è é í ò ó ú     // stressed vowels
 
 .L10 p t k f s         // unvoiced
-.L11 b d g m v l n r z j f // voiced
-.L12 b d g m v n z j f // voiced, not r or l
+.L11 b d g m v l n r z j // voiced
+.L12 b d g m v n z j // voiced, not r or l
 
 .L15 c ç               // ces
 .L16 q g               // letters that can be followed by a u
@@ -53,11 +53,14 @@
 
 .group b
         b          b    
-    A)  bl (A$w_alt7    Bl // avoid gemination 
   _bi)  bl (io     Bl   //
   _su)  bl (im     Bl   //
         bm         mm   // assimilation (submarí)
-?1  A)  bl (A      bbl  // gemination (poble)
+    A)  bl (A      bbl  // gemination (poble)
+    A)  bl (A$w_alt3+    Bl // avoid gemination 
+    o)  bl (id     Bl // avoid gemination (oblidar) 
+?3  A)  bl (A      Bl   // avoid gemination in valencian (poble)
+  _su)  b  (A      p    // prefix "sub-"
  
 .group c
         c          k    // (casa)
@@ -82,7 +85,7 @@
         e          e
         e ($w_alt1++ e  // wordlist
         e ($w_alt2++ E  // wordlist
-    -t) e (_       e
+    -t) e (_       e%
     
         // contextual e rules
         e (nt_     e
@@ -238,7 +241,10 @@
         g  (L01    Z   // front vowel (gerra)
         gu (L01    g   // front vowel (guitarra)
         gu (L02    gw  // (guaret)
-?1   A) gl (A      ggl // gemination (plexiglàs)
+     A) gl (A      ggl // gemination (segle)
+     A) gl (Aw_alt3      Ql // avoid gemination (aglà)
+   _ne) gl (ig     QL // avoid gemination (negligència, etc.)
+?3   A) gl (A      Ql // avoid gemination (segle)
 ?3   _) gn         n   // gnom
         
 .group h
@@ -366,7 +372,7 @@
         m          m
      _) m' (P2     m
  
-        mp (-h     mp
+        mp (-h     mp   // followed by clitic (interromp-ho)
    _a)  mb (_A     mb   // pronounce final b before vowel (amb ell)
         mpr        mpr  // (compra)
         mbr        mbr  // (cambra)
@@ -374,8 +380,9 @@
    _)   mn         n    // (mnemotècnic)
      // accent variants
 ?1      mp (_      m    // do not pronounce final p
-?1      mp (s_     m    // do not pronounce final p
-?1      mb (K      m    // do not pronounce final b (amb mi) or before consonant
+        mp (s_     m    // do not pronounce final p
+        mp (_K     m    // do not pronounce final p
+        mb (K      m    // do not pronounce final b (amb mi) or before consonant
 ?1      mpt        mt   // do not pronouce p between m and t (compte)
 
     // adverbs
@@ -398,6 +405,9 @@
         nc (s_     N    // velarization (crancs)
         ng (s_     N    // velarization (fangs)
         n  (L20_A  n    // avoid veralization before vowel  (fang espès)
+
+        nt (-      =nt   // followed by clitic
+        nd (-      =nt   // followed by clitic
         
             // accent variants
 ?3      nt (_      nt   // (alt)
@@ -587,7 +597,7 @@ _ultra) r (A       R    // (ultraric)
      p) r (end          // (prendre)
      
                 // final r
-         r (_            // final r is silent
+         r (_        =   // final r is silent
          r (s_       =   // final r is silent + stress the vowel
   L05J)  r (_            // final r is not silent + do not stress the vowel
 
@@ -597,8 +607,8 @@ _ultra) r (A       R    // (ultraric)
 
 
         r (-            R   // final r is not silent if followed by a pronoun
-        r (_$w_alt5     R   // final r is not silent
-        r (s_$w_alt5    R   // final r is not silent
+        r (_$w_alt5+     R   // final r is not silent
+        r (s_$w_alt5+    R   // final r is not silent
     
 
                 // suffixes with final R not silent

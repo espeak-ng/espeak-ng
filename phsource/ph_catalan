@@ -125,7 +125,7 @@ phoneme m
     VowelStart(m/mu)
   EndSwitch
   
-  IF nextPh(f) THEN
+  IF nextPh(f) OR nextPh(v) THEN
     ChangePhoneme(M)
   ENDIF
 
@@ -164,8 +164,8 @@ phoneme n
       ChangePhoneme(N)
   ELIF nextPh(p) OR nextPh(b) OR nextPh(v) OR nextPh(m) THEN
       ChangePhoneme(m)
-  ELIF nextPh(S) OR nextPh(Z) THEN
-      ChangePhoneme(n^)
+ // ELIF nextPh(S) OR nextPh(Z) THEN ***no surt a https://giec.iec.cat/textgramatica/codi/4.4.2.1
+  //    ChangePhoneme(n^)
     
   ENDIF
 
@@ -281,6 +281,7 @@ phoneme b
     ELSE
       ChangePhoneme(p)
     ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
@@ -308,13 +309,14 @@ phoneme g
     ELSE
       ChangePhoneme(k)
     ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-        IF prevPh(**) OR prevPh(R) THEN
-        ELSE
+  //      IF prevPh(**) OR prevPh(R) THEN
+  //      ELSE
            ChangePhoneme(Q)
-        ENDIF
+ //       ENDIF
       ENDIF
     ELIF
       nextPh(n) THEN
@@ -339,9 +341,10 @@ phoneme d
     ELSE
       ChangePhoneme(t)
     ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) THEN
         ChangePhoneme(D)
       ENDIF
     ENDIF  
@@ -352,25 +355,6 @@ phoneme d
   CALL base2/d
 endphoneme
 
-phoneme d
-  vcd dnt stp
-  IF thisPh(isWordEnd) THEN
-    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
-    ELSE
-      ChangePhoneme(t)
-    ENDIF
-  ELIF nextPh(isVoiced) THEN
-    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) OR prevPh(**) OR prevPh(dZ) THEN
-        ChangePhoneme(D)
-      ENDIF
-    ENDIF  
-  ELSE
-    ChangePhoneme(t)
-  ENDIF
-
-  CALL base2/d
-endphoneme
 
 phoneme p
   vls blb stp
@@ -384,6 +368,7 @@ phoneme p
     WAV(ustop/pr)
   ELIF nextPh(l) THEN
     WAV(ustop/pl)
+  ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     ChangePhoneme(b)
   ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
@@ -400,6 +385,7 @@ phoneme t        // dental variant of /t/
   Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   IF nextPh(isPause2) THEN
     WAV(ustop/t_dnt, 30)
+  ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(**) THEN
     ELSE
@@ -426,6 +412,7 @@ phoneme k
     WAV(ustop/ki)
   ELIF nextPh(l) THEN
     WAV(ustop/kl)
+  ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
     ELIF nextPh(n) THEN

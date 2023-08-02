@@ -4,15 +4,14 @@
 // Options
 // ?1 general eastern. central specific characteristics -> unestressed vowels and [v] are treated at the phonemes definition (ph_catalan file)
 // ?2 general western. north-western specific characteristics 
-// ?3 valencian specific characteristics (valencian is 2+3. 3 over writes 2)
+// ?3 valencian specific characteristics (valencian is 2+3. 3 overwrites 2)
 
 // $alt1: e is an e and o is an o
 // $alt2: e is an E and o is an O
-// $alt3: 
+// $alt3: avoid BL and GL gemination
 // $alt4: final -ig is [ik]
 // $alt5: final r is not silent
 // $alt6: h is pronunced [X]
-// $alt7: bl is pronounced  [Bl]
 
 // symbols 
 _cap	m'aJ^us   // eg: "Capital-B"
@@ -76,7 +75,7 @@ _»	t'anka||kum'Etes
 =	iQw'al    $max3
 +	m*es      $max3
 #	koSin'Et  $max3
-?3  #	kojSin'et  $max3
+?2  #	kojSin'et  $max3
 *	aste*'isk $max3
 
 ^	siRkoMfl'Eks
@@ -240,7 +239,7 @@ del	$u  $nounf
 dels	$u $nounf
 en      $u 
 ?2  en  e2n $u
-per	$u  
+per	$u  $alt5
 pel	$u $nounf
 pels	$u $nounf
 ans $u
@@ -1526,7 +1525,7 @@ superbs	$alt2
 supercomplex	$alt2
 supercomplexos	$alt2
 suspendre	$alt2
-te	$alt2
+//te	$alt2
 tes	$alt2
 tebeo	$alt2
 tebeos	$alt2
@@ -3314,6 +3313,7 @@ búlgars	$alt5
 cadars	$alt5
 cadàver	$alt5
 cadàvers	$alt5
+caixmir     $alt5
 calamar	$alt5	
 calamars	$alt5
 calicular	$alt5
@@ -3433,6 +3433,8 @@ futurs	$alt5
 galavars	$alt5
 gir	$alt5
 girs	$alt5
+glamur	$alt5
+glamurs	$alt5
 guèiser	$alt5
 guèisers	$alt5
 hangar	$alt5
@@ -3487,6 +3489,8 @@ llaor	$alt5
 llaors	$alt5
 llar	$alt5
 llars	$alt5
+llor	$alt5
+llors	$alt5
 lumbar	$alt5
 lumbars	$alt5
 lunar	$alt5
@@ -3603,6 +3607,7 @@ pulvinar	$alt5
 pulvinars	$alt5
 pur	$alt5
 purs	$alt5
+quar	$alt5
 quars	$alt5
 quer	$alt5
 quers	$alt5
@@ -3664,6 +3669,7 @@ temor	$alt5
 temors	$alt5
 tenor	$alt5
 tenors	$alt5
+ter	    $alt5
 testicular	$alt5
 testiculars	$alt5
 tiktoker	$alt5
@@ -3784,47 +3790,52 @@ saharià	$alt6
 taixelhit	$alt6
 
 /// -bl- is pronouced [Bl] 
-ablació	$alt7
-ablactació	$alt7
-ablamar	$alt7
-ablanidor	$alt7
-ablaniment	$alt7
-ablanir	$alt7
-ablatiu	$alt7
-ablatiu	$alt7
-ablenar	$alt7
-ablució	$alt7
-abluent	$alt7
-abluir	$alt7
-bable	$alt7
-inoblidable	$alt7
-oblació	$alt7
-oblada	$alt7
-oblat	$alt7
-oblatiu	$alt7
-oblic	$alt7
-oblidable	$alt7
-oblidadís	$alt7
-oblidament	$alt7
-oblidança	$alt7
-oblidar	$alt7
-oblidós	$alt7
-obligacionista	$alt7
-obligació	$alt7
-obligador	$alt7
-obligant	$alt7
-obligança	$alt7
-obligar	$alt7
-obligat	$alt7
-obligatori	$alt7
-obligatorietat	$alt7
-obliquangle	$alt7
-obliquar	$alt7
-oblit	$alt7
-problema	$alt7
-problemàtic	$alt7
-reblaniment	$alt7
-reblanir	$alt7
+ablació	$alt3
+ablactació	$alt3
+ablamar	$alt3
+ablanidor	$alt3
+ablaniment	$alt3
+ablanir	$alt3
+ablatiu	$alt3
+ablatiu	$alt3
+ablenar	$alt3
+ablució	$alt3
+abluent	$alt3
+abluir	$alt3
+bable	$alt3
+inoblidable	$alt3
+oblació	$alt3
+oblada	$alt3
+oblat	$alt3
+oblatiu	$alt3
+oblic	$alt3
+oblidable	$alt3
+oblidadís	$alt3
+oblidament	$alt3
+oblidança	$alt3
+oblidar	$alt3
+oblidós	$alt3
+obligacionista	$alt3
+obligació	$alt3
+obligador	$alt3
+obligant	$alt3
+obligança	$alt3
+obligar	$alt3
+obligat	$alt3
+obligatori	$alt3
+obligatorietat	$alt3
+obliquangle	$alt3
+obliquar	$alt3
+oblit	$alt3
+problema	$alt3
+problemàtic	$alt3
+reblaniment	$alt3
+reblanir	$alt3
+
+/// -gl- is pronouced [Gl] 
+ègloga      $alt3
+negligir    $alt3
+aglà        $alt3
 
 // some foreign words
 amateur		amat'eR
