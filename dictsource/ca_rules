@@ -34,7 +34,6 @@
         ae         aE2  // do not reduce
         ahe        aE2  // do not reduce
         // prefixes
-    _)  amb (_A    amb  // Sensibilització
     _)  a (nte@@   ,a   // (antepenúltim)
     _)  a (nti@@   ,a   // (antepenúltim)
     _)  a (uto@@   ,a   // (autodestrucció)
@@ -59,7 +58,7 @@
     A)  bl (A      bbl  // gemination (poble)
     A)  bl (A$w_alt3+    Bl // avoid gemination 
     o)  bl (id     Bl // avoid gemination (oblidar) 
-?3  A)  bl (A      Bl   // avoid gemination in valencian (poble)
+?2  A)  bl (A      Bl   // avoid gemination in western accents (poble)
   _su)  b  (A      p    // prefix "sub-"
  
 .group c
@@ -131,6 +130,8 @@
 ?1      e (ct      e    // (subjecte)
 ?1   t) e (xt      e    // (text)
 ?2 fon) e (m       e    // (fonema)
+?2 _des) e (s      a    // (desesperats)
+?2 _des) e (n      a    // (desencisats)
            
         // contextual E rules
         e (l       E    // (elm)
@@ -168,6 +169,7 @@
 ?1      e (c       E    //
 ?1      e (i       E    //
 ?1      e (s       E    //
+        e (ssi     e    // subjuntius
 ?1      e (m       E    //
 ?1      e (na_     E    //
 ?1      e (nes_    E    //
@@ -220,7 +222,8 @@
 ?2 _el) e (ctro@   ,e
 
         // non reduction contexts
-        e (L05     e2   // (eòlic)
+        e (ò     e2   // (eòlic)
+        e (ó     e2   // (eòlic)
         e (a       e2   // (teatre)
         e (ha      e2
      ò) e          e2
@@ -232,6 +235,7 @@
 
 .group f
         f          f
+        ff         f
 //     @) f (L12     v    
 //        f (_L12    v    // (escalf dolç)
 //        f (_A      v    // (escalf amic)
@@ -269,7 +273,12 @@
 //?3      i (A       j    // glide (conseqüències)
 ?3  _)  i (_A      j    // glide (i altres)
 ?3  _)  i (_hA     j    // glide (i habitants)
-?3 _h)  i (_hA     j    // glide (hi ha)
+   _h)  i (_hA     j    // glide (hi ha)
+   _h)  i (_A     j     // glide (hi anem)
+   _l)  i (_hA     j    // glide (li ha amagat)
+   _l)  i (_ho_    i    // no glide (li ho porta)
+   _l)  i (_A     j     // glide (li amaga)
+    _)  i (_A     j     // glide (i altres)
     
         // not glide rules
      _) i (on      i    // not glide (ions + derivats)
@@ -345,7 +354,7 @@
 
 .group k
         k          k    // (ka)
-        kh         X    // 
+ //       kh         X    // 
 
 .group l
         l          l
@@ -374,6 +383,9 @@
  
         mp (-h     mp   // followed by clitic (interromp-ho)
    _a)  mb (_A     mb   // pronounce final b before vowel (amb ell)
+   _a)  mb (_hA     mb   // pronounce final b before vowel (amb ell)
+?3 _a)  mb (_A     m   // pronounce "am" before vowel (amb ell)
+?3 _a)  mb (_C     n   // pronounce "an" before consonant (amb tu)
         mpr        mpr  // (compra)
         mbr        mbr  // (cambra)
         mbl        mbl  // (rambla)
@@ -402,6 +414,8 @@
         nd (_      =n   // do not pronounce final d + stress the vowel
         nt (s_     =n   // do not pronounce final t + stress the vowel
         nd (s_     =n   // do not pronounce final d + stress the vowel
+        nc (_      N    // velarization (cranc)
+        ng (_      N    // velarization (fang)
         nc (s_     N    // velarization (crancs)
         ng (s_     N    // velarization (fangs)
         n  (L20_A  n    // avoid veralization before vowel  (fang espès)
@@ -418,8 +432,8 @@
 ?3      nd (_A     nd   // (alt)
 ?3      nd (_hA    nd   // (alt)
 ?3      nd (_C     n    // (alt)
-?1      nc (_      N    // velarization (cranc)
-?1      ng (_      N    // velarization (fang)
+?3      nc (_      Nk    // velarization (cranc)
+?3      ng (_      Nk    // velarization (fang)
 
           
             // sant, cent, vint
@@ -432,14 +446,14 @@
 
 .group o
         o          o
+     _) o (_       w    // (o aquest o aquell) 
 
      @) o (r_      'o   // color ('o* per sensibilitzar la r)
      @) o (rs_      o   // color ('o* per sensibilitzar la r)
      @) o (ra_     'o   // color ('o* per sensibilitzar la r)
      @) o (res_     'o   // color ('o* per sensibilitzar la r)
  
-        ou         o2w   // (mou)
-?3      ou         Ow   // (mou)
+        ou         O2w   // (mou)
 //        ou        Ow   // (dijous)
 //?1      ou         o2w   // (mouré) // ARREGLAR AIXÒ!
    //     ou (JL05     o2w
@@ -559,13 +573,14 @@ catalan) o (@      ,o
 .group r
         r          R
      _) r          R    // (raig)
-        rr         R    // (carro) 
+     A) rr (A         R    // (carro) 
         
      A) r (A       **   // (cara)
      C) r (A       **   // (groc)
+?3   A) r (C       **   // (exercici)
      
-?2   A) r (C_      **   // coda position (forn)
-?2   A) r (Cs_     **   // coda position (forns)
+?2   A) r (C_      **   // end word position (forn)
+?2   A) r (Cs_     **   // end word position (forns)
      
      l) r (A       R    // (colrat)
      m) r (A       R    // (somrient)
@@ -598,11 +613,11 @@ _ultra) r (A       R    // (ultraric)
      
                 // final r
          r (_        =   // final r is silent
-         r (s_       =   // final r is silent + stress the vowel
+     A)  r (s_       =   // final r is silent + stress the vowel
   L05J)  r (_            // final r is not silent + do not stress the vowel
 
-?3       r (_       **   // final r is not silent
-?3       r (s_      **=  // final r is not silent + stress the vowel
+?3   A)  r (_+      **    // final r is not silent
+?3   A)  r (s_      **=  // final r is not silent + stress the vowel
 ?3 L05J) r (s_      **   // final r is not silent + do not stress the vowel
 
 
@@ -625,8 +640,25 @@ _ultra) r (A       R    // (ultraric)
   
  //       r (t       **
                 // silent consonants
-?1        rd (s_     R    // final d is silent
-?1        rt (s_     R    // final t is silent
+     A)   rt (_     R    // (art)
+     A)   rd (_     R    // (record)
+     A)   rt (_A     **    // (art abstracte)
+     A)   rd (_A     **    // (record abstracte)
+
+     A)   rt (s_     R    // (arts)
+     A)   rd (s_     R    // (records)
+        
+        // accent variants
+?2   A)   rt (s_     **    // (arts)
+?2   A)   rd (s_     **    // (records)
+?3   A)   rt (_      **t   // (art)
+?3   A)   rt (_A     **t   // (art amic)
+?3   A)   rt (s_     **t   // (arts)        !!! PREGUNTAR SI ES MANTÉ LA R (dimarts, coberts)
+?3   A)   rt (_C     **    // (art bonic)
+?3   A)   rd (_      **d    // (record)
+?3   A)   rd (_A     **d    // (record amic)
+?3   A)   rd (s_     **d    // (record)
+?3   A)   rd (_C     **    // (record bonic)
 
 .group s
         s          s
@@ -642,6 +674,8 @@ _ultra) r (A       R    // (ultraric)
         s  (L11    z
 //         s  (_L11   z
      -) se (_      s@
+     
+        s (_s       // do not pronounce -s if followed by an s
 ?1  aque) s  (t_
     aque) s  (ts_
     aque) s  (t_A   s

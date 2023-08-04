@@ -9,8 +9,8 @@
 phoneme a
   vwl starttype #a endtype #a
   length 180
-  IF thisPh(isWordEnd) THEN
-    ChangeIfUnstressed(E)
+  IF thisPh(isWordEnd) AND thisPh(isUnstressed) THEN
+    ChangePhoneme(E)
   ENDIF
   FMT(vowel/a_6)
 endphoneme
@@ -29,6 +29,9 @@ phoneme e
     IF nextPh(s) OR nextPh(n) THEN
         ChangeIfUnstressed(a)
     ENDIF
+  ELIF thisPh(isUnstressed) AND prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
+    ChangePhoneme(a)
+  
   ENDIF
   FMT(vowel/e)
 endphoneme
@@ -63,10 +66,12 @@ phoneme O
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordStart) THEN 
-        ChangePhoneme(aw)
-    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
-        ChangePhoneme(u)
+//    IF thisPh(isWordStart) THEN 
+//        ChangePhoneme(aw)
+//    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
+//        ChangePhoneme(u)
+    IF nextVowel(isStressed) AND nextVowel(i) THEN
+          ChangePhoneme(u)
     ELSE
         ChangePhoneme(o)
     ENDIF
@@ -78,10 +83,12 @@ phoneme o
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordStart) THEN 
-        ChangePhoneme(aw)
-    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
-        ChangePhoneme(u)
+ //   IF thisPh(isWordStart) THEN 
+ //       ChangePhoneme(aw) no treure-ho per si canviem d'opinió
+//    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
+  //      ChangePhoneme(u)
+      IF nextVowel(isStressed) AND nextVowel(i) THEN
+          ChangePhoneme(u)
     ENDIF
     
   ENDIF
@@ -132,8 +139,9 @@ phoneme Z // plea**s**ure
   lengthmod 6
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80
   Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
-
-  ChangePhoneme(dZ)
+  IF thisPh(isWordStart) OR prevPh(isNotVowel) THEN
+    ChangePhoneme(dZ)
+  ENDIF
 endphoneme
 
 phoneme S // **sh**op
@@ -143,9 +151,41 @@ phoneme S // **sh**op
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80
   Vowelout f1=0  f2=2100 100 300  f3=-100 80
 
-  IF prevPh(i) OR prevPh(j) THEN
-  ELSE
+//  IF prevPh(i) OR prevPh(j) THEN
+//  ELSE
+//    ChangePhoneme(tS)
+//  ENDIF
+  IF thisPh(isWordStart) THEN // africada en posició inicial o post consonàntica
     ChangePhoneme(tS)
+  ELIF prevPh(isNotVowel) THEN 
+    IF  prevPh(j) THEN
+    ELSE
+        ChangePhoneme(tS)
+    ENDIF
   ENDIF
   WAV(ufric/sh)
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  voicingswitch f
+  lengthmod 6
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+
+  IF KlattSynth THEN
+    Vowelout f1=1  f2=1000 -500 -300  f3=-300 60  len=50 brk
+    IF nextPh(isPause2) THEN
+      FMT(klatt/v_) addWav(vocw/v)
+    ENDIF
+    FMT(klatt/v) addWav(vocw/v, 150)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  IF thisPh(isWordStart) AND nextPhW(isLiquid) THEN
+    length 70
+  ENDIF
+  FMT(voc/v) addWav(vocw/v)
 endphoneme

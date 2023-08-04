@@ -161,8 +161,9 @@ vi	vi	// not a Roman number
 // function words
 
 // pronouns
-jo          'jO         $verbf
-tu          'tu         $verbf
+jo          Z'O         $verbf
+?2 jo       j'o         $verbf
+tu          t'u         $verbf
 ell         'el^        $verbf
 ella        'el^a       $verbf
 nosaltres   noz'alt**es $verbf
@@ -205,10 +206,11 @@ vostres     v'Ost**es   $nounf
 // articles
 el	$u   $nounf
 la	$u   $nounf
+?2 la   la2 $u $nounf
 els	$u  $nounf
 les	$u  $nounf
-un	$nounf
-una	'una    $nounf
+un	$u  $nounf
+una	una $nounf
 uns	$nounf
 unes	$nounf
 
@@ -224,14 +226,17 @@ ne  $u  $verbf
 li  $u  $verbf
 ens $u  $verbf
 nos $u  $verbf
+?3 nos mos  $u  $verbf
 us  $u  $verbf
 vos $u  $verbf
 los $u  $verbf
 es  $u  $verbf
+?2  es  e2s $u  $verbf
 se  $u  $verbf
 
 // prepositions
 a	$u 
+?2  a	$u a2
 al	$u $nounf
 als	$u $nounf
 de	$u
@@ -244,17 +249,17 @@ pel	$u $nounf
 pels	$u $nounf
 ans $u
 
-//amb	
+amb $u	
 entre	
 
 
 // conjunctions
-//i	'i    $pause
+i	i $u    $pause
 o       'O 
 ?2 o    'o
 que     $u
-?2 però pe**o
-?3 ja   ja
+?2 però pe**'o
+?2 ja   ja
 
 // auxiliary verbs
 sóc	s'ok
@@ -288,8 +293,8 @@ caldrà  $verbf
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
-_a      'a
-a	a  
+//_a      'a
+//a	a  
 _i      i
 _o      'O
 
@@ -351,6 +356,7 @@ becs	$alt1
 ?2 becos    $alt1
 beix	$alt1
 beixos	$alt1
+ben	    $alt1
 berga	$alt1
 bergues	$alt1
 bes	$alt1
@@ -467,6 +473,13 @@ mastigonema	$alt1
 mastigonemes	$alt1
 mediateca	$alt1
 mediateces	$alt1
+menjo	$alt1
+menges	$alt1
+menja	$alt1
+mengen	$alt1
+mengi	$alt1
+mengis	$alt1
+mengin	$alt1
 mes	$alt1
 metge	$alt1
 metges	$alt1
@@ -536,7 +549,7 @@ sellens	$alt1
 sempre	$alt1
 sempres	$alt1
 sens	$alt1
-sens	$alt1
+sense	$alt1
 serf	$alt1
 serfs	$alt1
 setra	$alt1
@@ -783,6 +796,10 @@ decaedres	$alt2
 decrescendo	$alt2
 decrescendos	$alt2
 defendre	$alt2
+defineixo    $alt2
+defineixes    $alt2
+defineix    $alt2
+defineixen    $alt2
 deixeble	$alt2
 deixebles	$alt2
 deler	$alt2
@@ -880,7 +897,7 @@ emblemes	$alt2
 ?1 empremtes	$alt2
 encep	$alt2
 enceps	$alt2
-ens	$alt2
+//ens	$alt2
 entameba	$alt2
 entamebes	$alt2
 epanalepsi	$alt2
@@ -969,6 +986,10 @@ fitoglees	$alt2
 flavedo	$alt2
 flavedos	$alt2
 flendi	$alt2
+floreixo    $alt2
+floreixes    $alt2
+floreix    $alt2
+floreixen    $alt2
 ?1 forfet	$alt2
 ?1 forfets	$alt2
 fre	$alt2
@@ -1161,6 +1182,10 @@ lleute	$alt2
 lleutes	$alt2
 llomello	$alt2
 llomellos	$alt2
+llueixo    $alt2
+llueixes    $alt2
+llueix    $alt2
+llueixen    $alt2
 malonilurea	$alt2
 malonilurees	$alt2
 malvapeix	$alt2
@@ -1464,7 +1489,7 @@ sarcosepte	$alt2
 sarcoseptes	$alt2
 sarcotesta	$alt2
 sarcotestes	$alt2
-se	$alt2
+//se	$alt2
 ses	$alt2
 sebest	$alt2
 sebests	$alt2
@@ -2112,6 +2137,7 @@ fong	$alt1
 fongs	$alt1
 fonoll	$alt1
 fonolls	$alt1
+fons    $alt1
 for	$alt1
 fors	$alt1
 forc	$alt1
@@ -2612,6 +2638,7 @@ singlots	$alt1
 sobre	$alt1
 sobres	$alt1
 sobretot	$alt1
+sobte	$alt1
 sofre	$alt1
 sofres	$alt1
 sojorn	$alt1
@@ -3838,17 +3865,17 @@ negligir    $alt3
 aglà        $alt3
 
 // some foreign words
-amateur		amat'eR
-andante		and'ante
-andantino		andant'ino
-bobsleigh		b'obslej
-box		b'Oks
+amateur		amat'e2R
+andante		and'ante2
+andantino		andant'ino2
+bobsleigh		b'o2bslej
+box		b'O2ks
 christmas		k**'istmas
 cracking		k**ak'iN
-derrich		deR'ik
-folk		f'Olk
-freudisme		f**OjD'izme
-frottis		f**'Otis
+derrich		de2R'ik
+folk		f'o2lk
+freudisme		f**O2jD'izme
+frottis		f**'O2tis
 google      g'ugel
 gouache		gw'aS
 jazz		dZ'as
@@ -3859,16 +3886,17 @@ minette		min'Ete
 onomàsticon	o2no2m'astiko2n
 
 panel		pan'El
-polis		p'Olis
+polis		p'O2lis
 spin		sp'in
 status		est'atus
 surmenage		suRmen'aZe
 tanka		t'aNka
 pinyin      p'injin
 kirieleison k,i**iel'Ejzon
-logos   l'oQos
-calvados    kal'Bados
-?3 calvados    kal'vados
+logos   l'o2Qo2s
+calvados    kal'Bado2s
+?3 calvados    kal'vado2s
+Wolfgang    wo2lvgaN
 
 // other exceptions
 ió  i'o
@@ -3882,7 +3910,8 @@ dimarts     dim'aRs
 ?2 marbre   m'ab**e
 ?2 socors   s'okos
 ?3 avui     wi
-
+?2 joan     dZu'an
+?2 josep    dZus'Ep
 // prefixes and sufixes
 /// words that DO NOT have a secondary stress prefix
 aciculita		asikul'ita
@@ -3998,12 +4027,12 @@ collonuts		kol^on'uts
 collonuda		kol^on'uDa
 collonudes		kol^on'uDes
 collderes		kol^d'e**es
-collir		kol^'i
-?3 collir		kol^'i**
-collirs		kol^'is
-?3 collirs		kol^'i**s
-collita		kol^'ita
-collites		kol^'ites
+collir		kOl^'i
+?3 collir		kOl^'i**
+collirs		kOl^'is
+?3 collirs		kOl^'i**s
+collita		kOl^'ita
+collites		kOl^'ites
 colliter		kol^it'e
 ?3 colliter		kol^it'e**
 colliters		kol^it'es
@@ -4069,42 +4098,42 @@ collar		kul^'a
 collars		kol^'as
 ?3 collars		kol^'a**s
 
-collí		kol^'i
-collia		kol^'ia
-collida		kol^'iDa
-collides		kol^'iDes
-collíem		kol^'iem
-collien		kol^'ien
-collies		kol^'ies
-collíeu		kol^'iew
-collim		kol^'im
-collint		kol^'int
-collir		kol^'i
-?3 collir		kol^'i**
-collira		kol^'i**a
-collirà		kol^i**'a
-colliran		kol^i**'an
-colliràs		kol^i**'as
-colliré		kol^i**'e
-collirem		kol^i**'Em
-collírem		kol^'i**em
-colliren		kol^'i**en
-collires		kol^'i**es
-collireu		kol^i**'Ew
-collíreu		kol^'i**ew
-colliria		kol^i**'ia
-colliríem		kol^i**'iem
-collirien		kol^i**'ien
-colliries		kol^i**'ies
-colliríeu		kol^i**'iew
-collís		kol^'is
-collíssim		kol^'isim
-collissin		kol^'isin
-collissis		kol^'isis
-collíssiu		kol^'isiw
-collit		kol^'it
-collits		kol^'its
-colliu		kol^'iw
+collí		kOl^'i
+collia		kOl^'ia
+collida		kOl^'iDa
+collides		kOl^'iDes
+collíem		kOl^'iem
+collien		kOl^'ien
+collies		kOl^'ies
+collíeu		kOl^'iew
+collim		kOl^'im
+collint		kOl^'int
+collir		kOl^'i
+?3 collir		kOl^'i**
+collira		kOl^'i**a
+collirà		kOl^i**'a
+colliran		kOl^i**'an
+colliràs		kOl^i**'as
+colliré		kOl^i**'e
+collirem		kOl^i**'Em
+collírem		kOl^'i**em
+colliren		kOl^'i**en
+collires		kOl^'i**es
+collireu		kOl^i**'Ew
+collíreu		kOl^'i**ew
+colliria		kOl^i**'ia
+colliríem		kOl^i**'iem
+collirien		kOl^i**'ien
+colliries		kOl^i**'ies
+colliríeu		kOl^i**'iew
+collís		kOl^'is
+collíssim		kOl^'isim
+collissin		kOl^'isin
+collissis		kOl^'isis
+collíssiu		kOl^'isiw
+collit		kOl^'it
+collits		kOl^'its
+colliu		kOl^'iw
 
 comanador		komanaD'o
 ?3 comanador		komanaD'o**
@@ -4703,6 +4732,8 @@ maleesquin		male'eskin
 maleesquis		male'eskis
 maleí		male'i
 maleïa		male'ia
+?2 maleïa		male'ie
+?3 maleïa		male'ia
 maleïda		male'iDa
 maleïdes		male'iDes
 maleíem		malE'iem

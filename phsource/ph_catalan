@@ -10,7 +10,17 @@ phoneme a
   vwl starttype #a endtype #a
   length 180
   IF thisPh(isUnstressed) THEN
-    ChangePhoneme(@)
+    IF thisPh(isWordEnd) THEN        
+        IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN // "Quina il·lusió!"
+            ChangePhoneme(@)
+        ELIF nextPh(isVowel) THEN // "Quina hora és?"
+            ipa NULL
+        ELSE
+            ChangePhoneme(@)
+        ENDIF
+    ELSE
+        ChangePhoneme(@)
+    ENDIF
   ENDIF
   FMT(vowel/a_6)
 endphoneme
@@ -30,7 +40,7 @@ phoneme e
   FMT(vowel/e)
 endphoneme
 
-phoneme e2 // don't reduce + change if tressed: "aeri" vs "aeròdrom".
+phoneme e2 // don't reduce 
   vwl starttype #e endtype #e
   length 170
 //  ChangeIfStressed(E)
@@ -66,7 +76,17 @@ phoneme o
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-    ChangePhoneme(u)
+    IF thisPh(isWordEnd) THEN
+        IF nextPh(u) OR nextPh(w) THEN
+            ipa NULL
+        ELIF nextPh(isVowel) THEN
+            ChangePhoneme(w)
+        ELSE
+            ChangePhoneme(u)
+        ENDIF
+    ELSE
+        ChangePhoneme(u)
+    ENDIF
   ENDIF
   FMT(vowel/o)
 endphoneme
@@ -74,8 +94,13 @@ endphoneme
 phoneme o2
   vwl starttype #o endtype #o
   length 170
-  ChangeIfStressed(O)
   FMT(vowel/o)
+endphoneme
+
+phoneme O2
+  vwl starttype #o endtype #o
+  length 170
+  FMT(vowel/oo)
 endphoneme
 
 phoneme U
@@ -164,6 +189,8 @@ phoneme n
       ChangePhoneme(N)
   ELIF nextPh(p) OR nextPh(b) OR nextPh(v) OR nextPh(m) THEN
       ChangePhoneme(m)
+  ELIF nextPh(l^) OR nextPh(n^) THEN
+      ChangePhoneme(n^)
  // ELIF nextPh(S) OR nextPh(Z) THEN ***no surt a https://giec.iec.cat/textgramatica/codi/4.4.2.1
   //    ChangePhoneme(n^)
     
@@ -236,6 +263,37 @@ phoneme z
   FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 
+phoneme v // = b
+    vcd blb stp
+
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELIF prevPh(m) THEN
+    ELSE
+      ChangePhoneme(p)
+    ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
+    ChangePhoneme(b)
+  ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
+  //      IF prevPh(**) OR prevPh(R) THEN ***"embarbussa"***
+  //      ELSE
+            ChangePhoneme(B)
+  //      ENDIF
+      ELSE
+        ChangePhoneme(b)
+      ENDIF
+    ELSE
+        ChangePhoneme(b) 
+    ENDIF  
+  ELSE
+    ChangePhoneme(p)
+  ENDIF
+
+  CALL base1/b
+endphoneme
+
 // f
 //====================
 phoneme f
@@ -245,7 +303,7 @@ phoneme f
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   
   IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
-    ChangePhoneme(v)
+    ipa v
   ENDIF
 
   IF nextPh(isPause) THEN
@@ -344,7 +402,7 @@ phoneme d
   ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) THEN
+      IF prevPh(isVowel) OR prevPh(**) OR prevPh(R) OR prevPh(j) OR prevPh(w) OR prevPh(isVFricative) THEN
         ChangePhoneme(D)
       ENDIF
     ENDIF  
@@ -425,3 +483,5 @@ phoneme k
   ENDIF
   WAV(ustop/k_unasp, 70)
 endphoneme
+
+

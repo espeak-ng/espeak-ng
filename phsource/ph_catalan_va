@@ -62,7 +62,11 @@ phoneme O
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-    ChangePhoneme(o)
+    IF nextVowel(isStressed) AND nextVowel(i) OR nextPh(p) OR nextPh(b) THEN
+      ChangePhoneme(u)
+    ELSE
+      ChangePhoneme(o)
+    ENDIF
   ENDIF
   FMT(vowel/oo)
 endphoneme
@@ -183,4 +187,29 @@ phoneme S // **sh**op
     ChangePhoneme(tS)
   ENDIF
   WAV(ufric/sh)
+endphoneme
+
+
+phoneme v
+  vcd lbd frc
+  voicingswitch f
+  lengthmod 6
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+
+  IF KlattSynth THEN
+    Vowelout f1=1  f2=1000 -500 -300  f3=-300 60  len=50 brk
+    IF nextPh(isPause2) THEN
+      FMT(klatt/v_) addWav(vocw/v)
+    ENDIF
+    FMT(klatt/v) addWav(vocw/v, 150)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  IF thisPh(isWordStart) AND nextPhW(isLiquid) THEN
+    length 70
+  ENDIF
+  FMT(voc/v) addWav(vocw/v)
 endphoneme
