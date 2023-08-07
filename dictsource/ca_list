@@ -108,10 +108,13 @@ _9	n'Ow
 _10	d'Ew
 _11	'onze
 _12	d'odze
+?3 _12	d'oddze
 _13	t**'edze
+?3 _13	t**'eddze
 _14	kat'oRze
 _15	k'inze
 _16	s'Edze
+?3 _16	s'eddze
 _17	dis'Et
 ?3 _17  d'eset
 _18	diB'ujt
@@ -3863,6 +3866,11 @@ reblanir	$alt3
 ègloga      $alt3
 negligir    $alt3
 aglà        $alt3
+aglomerar   $alt3
+aglutinar   $alt3
+jeroglífic  $alt3
+jeroglífics $alt3
+
 
 // some foreign words
 amateur		amat'e2R
@@ -3904,14 +3912,20 @@ Io  i'o
 arbre       aB**e
 arbres      aB**es
 diners      din'es
+doblers     doBl'es
 dimarts     dim'aRs
 ?2 dimarts  dim'ats
 ?3 llavors  l^av'Os // adverb
-?2 marbre   m'ab**e
-?2 socors   s'okos
+?3 marbre   m'ab**e
+?3 socors   s'okos
 ?3 avui     wi
 ?2 joan     dZu'an
 ?2 josep    dZus'Ep
+?3 atzavara addzav'a**a
+
+
+
+
 // prefixes and sufixes
 /// words that DO NOT have a secondary stress prefix
 aciculita		asikul'ita

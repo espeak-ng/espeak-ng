@@ -55,6 +55,7 @@
   _bi)  bl (io     Bl   //
   _su)  bl (im     Bl   //
         bm         mm   // assimilation (submarí)
+?3      bm         bm   // (submarí)
     A)  bl (A      bbl  // gemination (poble)
     A)  bl (A$w_alt3+    Bl // avoid gemination 
     o)  bl (id     Bl // avoid gemination (oblidar) 
@@ -375,7 +376,7 @@
 
 
 
-?3      l·l        l    // (il·lusió)
+?2      l·l        l    // (il·lusió)
 
 .group m
         m          m
@@ -434,7 +435,8 @@
 ?3      nd (_C     n    // (alt)
 ?3      nc (_      Nk    // velarization (cranc)
 ?3      ng (_      Nk    // velarization (fang)
-
+?3      nn         n    // (ennuvolat)
+?3  _i) nn         nn   // (innecessari)
           
             // sant, cent, vint
   _L25) nt (_A     nt   // pronounce final t if followed by a vowel
@@ -560,6 +562,7 @@ catalan) o (@      ,o
 .group p
         p          p
         pm         mm   // gemination (capmoix)
+?3      pm         bm   // (Capmany)
         ph         f
      _) pn         n    // (pneumàtic)
 ?2   _) ps         s    // (psicoanalista)

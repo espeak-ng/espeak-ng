@@ -1937,10 +1937,10 @@ include ph_spanish_la
 phonemetable ca es
 include ph_catalan
 
-phonemetable ca-nw es
+phonemetable ca-nw ca
 include ph_catalan_nw
 
-phonemetable ca-va es
+phonemetable ca-va ca
 include ph_catalan_va
 
 phonemetable an es
