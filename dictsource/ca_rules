@@ -42,7 +42,6 @@
   _gu)  a (rda     ,a   // (guardabosc)
    _v)  a (so@     ,a   // (vasoconstrictor)
    _m)  a (l@      ,a   // (malpensar)
-   
             // words that start by mal- but it is not a prefix
    _m)  a (lalt    a    // (malalt)
    _m)  a (lefi    a    // (malefici)
@@ -81,7 +80,7 @@
 
 .group d
         d          d    // d sona d
-     _) d' (A      d    // d sona d
+     _) d' (P2     d    // apostrophe
    //     dj         dZ;
    //     dv         bb	// Geminació
    //     dm         mm   // assimilation (admira)
@@ -403,8 +402,10 @@
 
 .group l
         l          l
+     _) l' (P2     l    // apostrophe
+
         ll         l^   // (colla)
-     _) l' (P2     l
+
         lt (_      l    // (alt)
         lt (s_     l    // (alts)
         ld (_      l    // (Eudald)
@@ -424,7 +425,7 @@
 
 .group m
         m          m
-     _) m' (P2     m
+     _) m' (P2     m    // apostrophe
  
         mp (-h     mp   // followed by clitic (interromp-ho)
    _a)  mb (_A     mb   // pronounce final b before vowel (amb ell)
@@ -452,7 +453,7 @@
 
 .group n
         n          n
-     _) n' (P2     n
+     _) n' (P2     n    // apostrophe
         n (_       =n   // stress the vowel..
    L01) n (_       n    // ... except after e, i
   L05J) n (_       n    // ... or a previous already stressed vowel
@@ -728,7 +729,7 @@ _ultra) r (A       R    // (ultraric)
 
 .group s
         s          s
-     _) s' (P2     s
+     _) s' (P2     s    // apostrophe
         ss         s
         sc (L01    s
      A) s  (A      z
@@ -772,7 +773,7 @@ _contra) s (A      s    // (contrasentit)
 
 .group t
         t          t
-     _) t' (P2     t
+     _) t' (P2     t    // apostrophe
         tg (L01    dZ   // (metge)
         tj         dZ   // (mitjà)
         tx         tS   // (esquitx)
@@ -873,6 +874,10 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 ?1      é (ieu_    ''E
 
 .group '
-        'n          n
-        'm (_S2t     m
-        't          t
+        'n (_S2t    n
+        'm (_S2t    m
+        't (_S2t    t
+        'ns (_S3t   ns
+        'us (_S3t   us
+     A) 'us (_S3t   ws
+        'ls (_S3t   ls
