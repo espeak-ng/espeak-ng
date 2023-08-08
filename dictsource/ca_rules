@@ -33,7 +33,7 @@
         a          a
         ae         aE2  // do not reduce
         ahe        aE2  // do not reduce
-        // prefixes
+        // prefixes with secondary stress
     _)  a (nte@@   ,a   // (antepenúltim)
     _)  a (nti@@   ,a   // (antepenúltim)
     _)  a (uto@@   ,a   // (autodestrucció)
@@ -42,12 +42,18 @@
   _gu)  a (rda     ,a   // (guardabosc)
    _v)  a (so@     ,a   // (vasoconstrictor)
    _m)  a (l@      ,a   // (malpensar)
+   
             // words that start by mal- but it is not a prefix
    _m)  a (lalt    a    // (malalt)
    _m)  a (lefi    a    // (malefici)
    _m)  a (lic     a    // (maliciós)
    _m)  a (ll      a    // (mallorquí)
    _m)  a (l·l     a    // (mal·leable)
+    _)  a (nte@@$w_alt5 a   // (anterior)
+    _)  a (nti@@$w_alt5 a   // (antilop)
+    _)  a (uto@@$w_alt5 a   // (autodestrucció)
+  _gu)  a (rda$w_alt5   a   // (guardabosc)
+   _m)  a (l@$w_alt5    a   // (malpensar)
  
 
 .group b
@@ -222,6 +228,33 @@
 ?2  _t) e (rmo@    ,e   // (termogènesi)
 ?2 _el) e (ctro@   ,e
 
+        // non secondary stress
+     _) e (ntreA$w_alt5	e   // (entreacte)
+     _) e (ntreC$w_alt5	e   // (entresòl)
+    _a) e (ro$w_alt5	e
+    _b) e (ll$w_alt5	e    
+  _jud) e (o$w_alt5	e
+    _c) e (ntre@$w_alt5	e
+     _) e (ntre@$w_alt5	e
+    _h) e (tero$w_alt5	e
+    _n) e (o@$w_alt5	e
+  _pal) e (o$w_alt5	e
+    _r) e (ra$w_alt5	e
+   _el) e (ctro@$w_alt5	E
+  _est) e (reo$w_alt5	E   // estereotipat
+     _) e (tno$w_alt5	E
+     _) e (xtra$w_alt5	E
+ _magn) e (to$w_alt5	E
+    _m) e (dico$w_alt5	E
+    _m) e (nys$w_alt5	E
+    _n) e (uro$w_alt5	E
+   _ps) e (udo$w_alt5	E
+    _r) e (tro$w_alt5	E
+    _s) e (mi@$w_alt5	E   // (semiconductor)
+    _s) e (rvo@$w_alt5	E   // (semiconductor)
+    _t) e (rmo@$w_alt5	E   // (termogènesi)
+
+
         // non reduction contexts
         e (ò     e2   // (eòlic)
         e (ó     e2   // (eòlic)
@@ -313,6 +346,17 @@
      _) i (nfra     ,i
     _x) i (ux       ,i
      _) i (nfra     ,i  // 
+     
+            // not secondary stress
+   _ac) i (culi$w_alt5	i  // aciculifoli
+     _) i (bero$w_alt5	i  // iberoromà
+     _) i (ndo$w_alt5	i  // indoeuropeu
+    _l) i (po$w_alt5	i
+    _m) i (cro@$w_alt5	i
+    _h) i (dro@$w_alt5	i
+     _) i (nfra$w_alt5	i
+    _x) i (ux$w_alt5	i
+     _) i (nfra$w_alt5	i  // 
      _) i (nfrangi  i   // infrangible (no sec)
      
           // stress rules
@@ -399,8 +443,12 @@
 ?1      mpt        mt   // do not pronouce p between m and t (compte)
 
     // adverbs
-    @) ment (_S4ment	m''en
-?3  @) ment (_S4ment	m''ent
+    @) ment (_S4t	m''en
+?3  @) ment (_S4t   m''ent
+
+    // not adverbs
+    @) ment (_$w_alt5+	m'en
+?3  @) ment (_$w_alt5+  m'ent
 
 .group n
         n          n
@@ -535,26 +583,41 @@
     // prefixes with secondary stress
     _c) o (ntraA   ,o
     _c) o (ntraK   ,o
-    _c) o (ntract  o    // contracte
-    _c) o (ntrast  o    // contrastar
     _s) o (cio     ,O
     _s) o (bre@    ,o
     _b) o (ca@    ,o
 catalan) o (@      ,o
     _c) o (ll@     ,O
     _c) o (ma@     ,o
-    _c) o (mand@   o
-    _c) o (mare    o
-    _c) o (marc@   o
     _f) o (to      ,o
-    _f) o (togr    o
-    _f) o (tocop   o
     _f) o (tocòp   ,o
     _p) o (rta   ,O
 //   _pr) o (to   ,o
 //   _pr) o (tocol   o
    _s) o (cio   ,O
    _s) o (ta   ,o
+   // no secondary stress
+    _c) o (ntraA$w_alt5    o
+    _c) o (ntraK$w_alt5    o
+    _c) o (ntract  o    // contracte
+    _c) o (ntrast  o    // contrastar
+    _s) o (cio$w_alt5    O
+    _s) o (bre@$w_alt5    o
+    _b) o (ca@$w_alt5    o
+    _c) o (ll@$w_alt5    O
+    _c) o (ma@$w_alt5    o
+    _c) o (mand@   o
+    _c) o (mare    o
+    _c) o (marc@   o
+    _f) o (to$w_alt5    o
+    _f) o (togr    o
+    _f) o (tocop   o
+    _f) o (tocòp$w_alt5    o
+    _p) o (rta$w_alt5    O
+//   _pr) o (to   ,o
+//   _pr) o (tocol   o
+   _s) o (cio$w_alt5    O
+   _s) o (ta$w_alt5    o
 
         o ($w_alt1+++ o    // list of excepcions of the rules
         o ($w_alt2+++ O    // list of excepcions of the rules 
@@ -625,8 +688,8 @@ _ultra) r (A       R    // (ultraric)
 
 
         r (-            R   // final r is not silent if followed by a pronoun
-        r (_$w_alt5+     R   // final r is not silent
-        r (s_$w_alt5+    R   // final r is not silent
+        r (_$w_alt4+     R   // final r is not silent
+        r (s_$w_alt4+    R   // final r is not silent
     
 
                 // suffixes with final R not silent
@@ -745,6 +808,12 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
    _s)  u (pra@    ,u    // (suprarenal)
    _t)  u (rbo@    ,u    // (turboautomòbil)
     _)  u (ltra@   ,u    // (ultradreta)
+            // no secondary stress
+   _p)  u (ig$w_alt5      ,u    // (puigmal)
+   _s)  u (per@$w_alt5    ,u    // (supermercat)
+   _s)  u (pra@$w_alt5    ,u    // (suprarenal)
+   _t)  u (rbo@$w_alt5    ,u    // (turboautomòbil)
+    _)  u (ltra@$w_alt5   ,u    // (ultradreta)
     
 .group v
           v          b
@@ -805,5 +874,5 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 
 .group '
         'n          n
-        'm          m
+        'm (_S2t     m
         't          t
