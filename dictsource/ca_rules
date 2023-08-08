@@ -407,6 +407,7 @@
         ll         l^   // (colla)
 
         lt (_      l    // (alt)
+        lt (_$w_alt4      lt   // do pronounce final t
         lt (s_     l    // (alts)
         ld (_      l    // (Eudald)
         ld (s_     l    // (Eudalds)
@@ -450,6 +451,7 @@
     // not adverbs
     @) ment (_$w_alt5+	m'en
 ?3  @) ment (_$w_alt5+  m'ent
+?3  @) ment (_C$w_alt5+ m'en
 
 .group n
         n          n
@@ -709,6 +711,8 @@ _ultra) r (A       R    // (ultraric)
                 // silent consonants
      A)   rt (_     R    // (art)
      A)   rd (_     R    // (record)
+     A)   rt (_$w_alt4     Rt    // (sort)
+     A)   rd (_$w_alt4     Rt    // (sord)
      A)   rt (_A     **    // (art abstracte)
      A)   rd (_A     **    // (record abstracte)
 

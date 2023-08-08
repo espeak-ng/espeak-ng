@@ -9,7 +9,7 @@
 // $alt1: e is an e and o is an o
 // $alt2: e is an E and o is an O
 // $alt3: avoid BL and GL gemination
-// $alt4: final -ig is [ik] or final r is not silent
+// $alt4: final -ig is [ik] or last consonant (r, t) is not silent
 // $alt5: not secondary stress
 // $alt6: h is pronunced [X]
 
@@ -2671,7 +2671,7 @@ sora	$alt1
 sores	$alt1
 sorba	$alt1
 sorbes	$alt1
-sord	$alt1
+sord	$alt1  $alt4
 sords	$alt1
 sorgues	$alt1
 sorn	$alt1
@@ -3767,6 +3767,15 @@ Xóvars	$alt4
 zíngar	$alt4
 zíngars	$alt4
 
+/// final t/d is not silent
+absolt	$alt4
+resolt	$alt4
+insult	$alt4
+ocult	$alt4
+indult	$alt4
+cobalt 	$alt4
+sort	$alt4
+tard	$alt4
 
 /// h is pronounced X
 Sàhara	$alt6
