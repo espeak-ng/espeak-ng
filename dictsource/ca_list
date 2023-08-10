@@ -213,7 +213,7 @@ la	$u   $nounf
 els	$u  $nounf
 les	$u  $nounf
 un	$u  $nounf
-una	una $nounf
+una	$nounf
 uns	$nounf
 unes	$nounf
 
@@ -257,8 +257,8 @@ entre
 
 
 // conjunctions
-i	i $u    $pause
-o       'O 
+i $u  
+//o       'O 
 ?2 o    'o
 que     $u
 ?2 però pe**'o

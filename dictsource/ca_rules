@@ -33,6 +33,12 @@
         a          a
         ae         aE2  // do not reduce
         ahe        aE2  // do not reduce
+        
+    un) a (_hora     // elision 
+ _quin) a (_hora     // elision 
+  _bon) a (_hora     // elision 
+ _mitj) a (_hora     // elision 
+   _ar) a (_A       // elision
         // prefixes with secondary stress
     _)  a (nte@@   ,a   // (antepenúltim)
     _)  a (nti@@   ,a   // (antepenúltim)
@@ -42,12 +48,13 @@
   _gu)  a (rda     ,a   // (guardabosc)
    _v)  a (so@     ,a   // (vasoconstrictor)
    _m)  a (l@      ,a   // (malpensar)
-            // words that start by mal- but it is not a prefix
+            // words that it is not a prefix
    _m)  a (lalt    a    // (malalt)
    _m)  a (lefi    a    // (malefici)
    _m)  a (lic     a    // (maliciós)
    _m)  a (ll      a    // (mallorquí)
    _m)  a (l·l     a    // (mal·leable)
+    _)  a (utoritz a   // (autorització)
     _)  a (nte@@$w_alt5 a   // (anterior)
     _)  a (nti@@$w_alt5 a   // (antilop)
     _)  a (uto@@$w_alt5 a   // (autodestrucció)
@@ -81,6 +88,7 @@
 .group d
         d          d    // d sona d
      _) d' (P2     d    // apostrophe
+   _su) d (-      t
    //     dj         dZ;
    //     dv         bb	// Geminació
    //     dm         mm   // assimilation (admira)
@@ -91,7 +99,8 @@
         e ($w_alt1++ e  // wordlist
         e ($w_alt2++ E  // wordlist
     -t) e (_       e%
-    
+    qu) e (_e           // elision (que ell...)
+    qu) e (_a           // elision (que ara...)
         // contextual e rules
         e (nt_     e
         e (rL21    e    // (herba, serp, terme. but ferm, erm)
@@ -299,7 +308,7 @@
         
         // glide rules
      A) i (K       j    // glide (aigua)
-    A_) i (K       j    // glide (una història)
+ //   A_) i (K       j    // glide (una història)
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
     _h) i (A       j    // glide (hialita)
@@ -312,6 +321,9 @@
    _l)  i (_ho_    i    // no glide (li ho porta)
    _l)  i (_A     j     // glide (li amaga)
     _)  i (_A     j     // glide (i altres)
+   A_)  i (_     j      // glide (faré i desfaré)
+    
+ 'i_)  i  (K++            // following and stressed i -> elision (matí incomplet)
     
         // not glide rules
      _) i (on      i    // not glide (ions + derivats)
@@ -499,7 +511,8 @@
 
 .group o
         o          o
-     _) o (_       w    // (o aquest o aquell) 
+    A_) o (_A       w    // (o aquest o aquell) 
+    A_) o (_hA      w    // (o aquest o aquell) 
 
      @) o (r_      'o   // color ('o* per sensibilitzar la r)
      @) o (rs_      o   // color ('o* per sensibilitzar la r)
@@ -796,7 +809,7 @@ _contra) s (A      s    // (contrasentit)
 .group u
         u          u
      A) u (K       w    // glide
-    A_) u (K       w    // glide
+//    A_) u (K       w    // glide // això ho fem a fonemes
      A) u (A       w    // glide
         uu         uw   // glide
 //        u (A       w
