@@ -30,13 +30,13 @@
         ё        jo
 
 .group ж
-        ж        Z
+        ж        z.
 
 .group з
         з        z
 
 .group и
-        и        @j
+        и        Ij
 
 .group й
         й        j
@@ -84,7 +84,7 @@
         ұ        U
 
 .group ү
-        ү        u#
+        ү        y
 
 .group ф
         ф        f
@@ -99,13 +99,13 @@
         ц        ts
 
 .group ч
-        ч        tS
+        ч        tS;
 
 .group ш
-        ш        S
+        ш        s.
 
 .group щ
-        щ        SS
+        щ        S;
 
 .group ъ
         ъ        ?
@@ -120,10 +120,10 @@
         ь        ?
 
 .group э
-        э        e
+        э        E
 
 .group ю
-        ю        ju
+        ю        jU
 
 .group я
-        я        ja
+        я        jA
