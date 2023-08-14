@@ -161,9 +161,171 @@ _dpt	_koma
 vi	vi	// not a Roman number
 
 
+/// ordinal numbers
+_#r     'e
+?3 _#r  'e**
+_#ra    'e**a
+_#rs    'es
+_#res   'e**es
+
+_#n     'on
+_#na    'ona
+_#ns    'ons
+_#nes   'ones
+
+_#t     **t
+_#ta    **ta
+_#ts    **ts
+_#tes   **tes
+_#rt     **t
+_#rta    **ta
+_#rts    **ts
+_#rtes   **tes
+
+_#è         'E
+_#é         'E
+_#ena       'Ena
+_#ens       'Es
+_#enes      'Enes
+?2 _#è      'e
+?2 _#é      'e
+?2 _#ena    'ena
+?2 _#ens    'es
+?2 _#enes   'enes
+
+
+_1ox 	p**im
+_2ox    seQ
+_3ox    te**s
+_4ox 	kw'a
+
+_1o     un
+_2o     doz
+_3o     t**Ez
+?2 _3o  t**ez
+_4ox 	kw'at**
+_5o	    siNk
+_6o	    siz
+_7o	    set
+_8o	    vujt
+?3 _8o  wit
+_9o	    nov
+?3 _9o	nou
+_10o	dez
+_11o    'onz
+_12o    d'odz
+?3 _12o d'oddz
+_13o    t**'edz
+?3 _13o	t**'eddz
+_14o    kat'oRz
+_15o    k'inz
+_16o    s'Edz
+?3 _16o	s'eddz
+_17o    dis'Et
+?3 _17o d'eset
+_18o    diB'ujt
+?3 _18o d'iujt
+_19o    din'Ow
+?3 _19o d'enOw
+_100o	sent
+
+// abbreviations	$dot
+
+/// directions	$dot
+a/e	    aD**'esa elekt**'Onika	$dot
+apmt	apa**tam'en	$dot
+?3 apmt	apa**tam'ent	$dot
+àt	    'atik	$dot
+av	    aviNg'uDa	$dot
+bda	    baS'aDa	$dot
+?3 bda	bajS'aDa	$dot
+bxs	    b'aSos	$dot
+?3 bxs	b'ajSos	$dot
+bnc	    baR'aNk	$dot
+bl	    bl'Ok	$dot
+c/	    kaR'e	$dot
+?3 c/	kaR'e**	$dot
+cró	$hasdot	kaRe**'o	$dot
+crta	kaRet'e**a	$dot
+cint	sintu**'o	$dot
+distr	dist**'ikte	$dot
+dta	    d**'eta	$dot
+entl	,ent**es'Ol	$dot
+esc	$hasdot	esk'ala	$dot
+esq	    esk'ERa	$dot
+núm	    n'ume**o	$dot
+nº	    n'ume**o	$dot
+pdís	pasaD'is	$dot
+ptge	pas'adZe	$dot
+pg	    pas'etS	$dot
+pav	    pavel^'o	$dot
+pl	    pl'asa	$dot
+pcta	plas'eta	$dot
+pobl	pobblasi'o	$dot
+?3 pobl	poBlasi'o	$dot
+pta	    p'O**ta	$dot
+ptal	po**t'al	$dot
+pral	p**insip'al	$dot
+prov	p**ov'insja	$dot
+pda	    puZ'aDa	$dot
+rbla	R'ambla	$dot
+rda	    R'onda	$dot
+(s/n)	    s'ense||n'ume**o
+s/àt	s,oB**e'atik	$dot
+trav	t**aves'e**a	$dot
+trv	    t**aves'ia	$dot
+viad	viaD'ukte	$dot
+
+/// months	$dot
+gen	    Zen'e	$dot
+?3      gen	Zen'e**	$dot
+febr	feB**'e	$dot
+?3 febr	feB**'e**	$dot
+abr	    aB**'il	$dot
+jul	    Zuli'Ol	$dot
+ag	    aQ'ost	$dot
+oct	    okt'uB**e	$dot
+nov	    nov'emb**e	$dot
+des	    dez'emb**e	$hasdot
+
+/// form of adress	$dot
+dr      dokt'o  $dot
+?3 dr   dokt'o**    $dot
+dra     dokt'o**a   $dot
+Emm	    eminent'isim	$dot
+Emma	eminent'isima	$dot
+Exc	    egzsel'en	$dot
+?3 Exc	egzsel'ent	$dot
+Excm	egzselent'isim	$dot
+Excma	egzselent'isima	$dot
+Hble	ono**'aBle	$dot
+Il·ltre	il'ust**e	$dot
+Il·lm	ilust**'isim	$dot
+Il·lma	ilust**'isima	$dot
+Mgfc	maNn'ifik	$dot
+Mgfca	maNn'ifika	$dot
+Mons	monsen^'o	$dot
+?3 Mons	monsen^'o**	$dot
+Mn	    mos'En	$dot
+?2 Mn	mos'en	$dot
+prof    p**ofes'o	$dot
+?3 prof    p**ofes'o**	$dot
+profa   p**ofes'o**a	$dot
+pvre	p**ev'e**e	$dot
+Rnd	    Reve**'en	$dot
+?3 Rnd	Reve**'ent	$dot
+Rvdm	Reve**end'isim	$dot
+SAR 	s,a||alt'eza||Rei'al	$dot
+SM 	    s,a||maZest'at	$dot
+sr	    sen^'o	$dot
+?3 sr	sen^'o**	$dot
+sra 	sen^'o**a	$dot
+st	    s'ant	$dot
+sta	    s'anta	$dot
+
 // function words
 
-// pronouns
+/// pronouns
 jo          Z'O         $verbf
 ?2 jo       j'o         $verbf
 tu          t'u         $verbf
@@ -206,7 +368,7 @@ seues       s'ewes      $nounf
 nostres     n'Ost**es   $nounf
 vostres     v'Ost**es   $nounf
 
-// articles
+/// articles
 el	$u   $nounf
 la	$u   $nounf
 ?2 la   la2 $u $nounf
@@ -217,7 +379,7 @@ una	$nounf
 uns	$nounf
 unes	$nounf
 
-// pronoms febles
+/// pronoms febles
 hi  $u  $verbf
 ho  $u  $verbf
 em  $u  $verbf
@@ -237,7 +399,7 @@ es  $u  $verbf
 ?2  es  e2s $u  $verbf
 se  $u  $verbf
 
-// prepositions
+/// prepositions
 a	$u 
 ?2  a	$u a2
 al	$u $nounf
@@ -256,7 +418,7 @@ amb $u
 entre	
 
 
-// conjunctions
+/// conjunctions
 i $u  
 //o       'O 
 ?2 o    'o
@@ -264,7 +426,7 @@ que     $u
 ?2 però pe**'o
 ?2 ja   ja
 
-// auxiliary verbs
+/// auxiliary verbs
 sóc	s'ok
 soc	s'ok
 ets	'ets 
@@ -328,6 +490,33 @@ w	v'e||d'obbla
 x	iks
 y	'i||g**EQa
 z	z'Eta
+
+/// greek letters
+α	'alfa
+β	b'Eta
+γ	g'amma
+δ	d'Elta
+ε	'Epsilo2n
+ζ	z'Eta
+η	'Eta
+θ	t'Eta
+ι	j'Ota
+κ	k'apa
+λ	l'amda
+μ	m'i
+ν	n'i
+ξ	ks'i
+ο	'Omik**o2n
+π	p'i
+ρ	R'o
+σ	s'igma
+τ	t'aw
+υ	'ipsilo2n
+φ	f'i
+χ	k'i
+ψ	ps'i
+ω	o2m'eQa
+
 
 
 // pronunciation exceptions
@@ -9961,7 +10150,7 @@ salpàs		s,alp'as
 salpebrar		s,alpeB**'a
 ?3 salpebrar		salpeB**'a**
 salpebre		s,alp'EB**e
-23 salpebre		s,alp'eB**e
+?2 salpebre		s,alp'eB**e
 salpetre		s,alp'Et**e
 ?2 salpetre		salp'et**e
 salprendre		s,alp'End**e
