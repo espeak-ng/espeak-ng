@@ -602,6 +602,8 @@ durbec	$alt1
 durbecs	$alt1
 egua	$alt1
 egues	$alt1
+època   $alt1
+èpoques $alt1
 ei	$alt1
 empra	$alt1
 empres	$alt1
@@ -742,6 +744,8 @@ sempre	$alt1
 sempres	$alt1
 sens	$alt1
 sense	$alt1
+?2 sèrie   $alt1
+?2 sèries  $alt1
 serf	$alt1
 serfs	$alt1
 setra	$alt1
@@ -782,6 +786,7 @@ trempen	$alt1
 trempo	$alt1
 utoasteca	$alt1
 utoasteces	$alt1
+?2 valència $alt1
 verra	$alt1
 verres	$alt1
 verso	$alt1
@@ -2059,6 +2064,15 @@ cobla	$alt1
 cobles	$alt1
 coble	$alt1
 cobles	$alt1
+?2 cobra	alt1
+?2 cobre	alt1
+?2 cobren	alt1
+?2 cobres	alt1
+?2 cobri	alt1
+?2 cobrí	alt1
+?2 cobrin	alt1
+?2 cobris	alt1
+?2 cobro	alt1
 coca	$alt1
 coces	$alt1
 coco	$alt1
@@ -2158,6 +2172,21 @@ cotorres	$alt1
 cotxa	$alt1
 cotxe	$alt1
 cotxes	$alt1
+?2 cou	$alt1
+?2 couen	$alt1
+?2 courà	$alt1
+?2 couran	$alt1
+?2 couràs	$alt1
+?2 coure	$alt1
+?2 couré	$alt1
+?2 courem	$alt1
+?2 coures	$alt1
+?2 coureu	$alt1
+?2 couria	$alt1
+?2 couríem	$alt1
+?2 courien	$alt1
+?2 couries	$alt1
+?2 couríeu	$alt1
 courim	$alt1
 courims	$alt1
 crioll	$alt1
@@ -2354,6 +2383,7 @@ foto	$alt1
 fotos	$alt1
 fotre	$alt1
 fotres	$alt1
+fou 	$alt1
 fronda	$alt1
 frondes	$alt1
 front	$alt1
@@ -2710,8 +2740,8 @@ porra	$alt1
 porres	$alt1
 porro	$alt1
 porros	$alt1
-?1 pou	$alt1
-?1 pous	$alt1
+pou	$alt1
+pous	$alt1
 poua	$alt1
 poues	$alt1
 ?1 prenom	$alt1
@@ -2827,6 +2857,13 @@ simbombes	$alt1
 ?1 simetrodonts	$alt1
 singlot	$alt1
 singlots	$alt1
+?2 sobra	alt1
+?2 sobren	alt1
+?2 sobri	alt1
+?2 sobrí	alt1
+?2 sobrin	alt1
+?2 sobris	alt1
+?2 sobro	alt1
 sobre	$alt1
 sobres	$alt1
 sobretot	$alt1
@@ -2884,8 +2921,6 @@ sotes	$alt1
 sotorres	$alt1
 suborn	$alt1
 suborns	$alt1
-sènior	$alt1
-sèniors	$alt1
 taboll	$alt1
 tabolls	$alt1
 tecodont	$alt1
@@ -4075,12 +4110,16 @@ amateur		amat'e2R
 andante		and'ante2
 andantino		andant'ino2
 bobsleigh		b'o2bslej
+bonsai  bo2ns'aj
 box		b'O2ks
+clàxon  kl'akso2n
 christmas		k**'istmas
 cracking		k**ak'iN
 derrich		de2R'ik
+ego         'e2Qo2
 folk		f'o2lk
 freudisme		f**O2jD'izme
+frenadol    f**e2nad'O2l
 frottis		f**'O2tis
 google      g'ugel
 gouache		gw'aS
@@ -4090,9 +4129,9 @@ mèlton      m'Elto2n
 mikwà		migb'a
 minette		min'Ete
 onomàsticon	o2no2m'astiko2n
-
 panel		pan'El
 polis		p'O2lis
+porno       po2Rno2
 spin		sp'in
 status		est'atus
 surmenage		suRmen'aZe
@@ -4102,6 +4141,9 @@ kirieleison k,i**iel'Ejzon
 logos   l'o2Qo2s
 calvados    kal'Bado2s
 ?3 calvados    kal'vado2s
+unesco      une2sko2
+víctor      b'ikto2R
+?3 víctor   v'ikto**
 Wolfgang    wo2lvgaN
 
 // other exceptions

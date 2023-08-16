@@ -24,15 +24,18 @@ endphoneme
 phoneme e
   vwl starttype #e endtype #e
   length 170
-  
-  IF thisPh(isWordStart) THEN
-    IF nextPh(s) OR nextPh(n) THEN
-        ChangeIfUnstressed(a)
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+            ChangePhoneme(a)
+        ELIF nextPh(j) AND next2Ph(S) THEN
+            ChangePhoneme(a)
+        ENDIF
+ //   ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
+ //       ChangePhoneme(a)
     ENDIF
-  ELIF thisPh(isUnstressed) AND prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
-    ChangePhoneme(a)
-  
   ENDIF
+ 
   FMT(vowel/e)
 endphoneme
 
@@ -47,10 +50,20 @@ phoneme E
 //  fnt unr sml
   length 180
   
-  IF thisPh(isWordStart) AND nextPh(s) OR nextPh(n) THEN
-    ChangeIfUnstressed(a)
-  ELSE
-    ChangeIfUnstressed(e)
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+            ChangePhoneme(a)
+        ELIF nextPh(j) AND next2Ph(S) THEN
+            ChangePhoneme(a)
+        ELSE 
+            ChangePhoneme(e)
+        ENDIF
+//    ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
+//        ChangePhoneme(a)
+    ELSE
+        ChangePhoneme(e)
+    ENDIF
   ENDIF
   FMT(vowel/e_mid)
 endphoneme

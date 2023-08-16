@@ -22,9 +22,15 @@ phoneme e
   vwl starttype #e endtype #e
   length 170
   
-  IF thisPh(isWordStart) THEN
-    IF nextPh(s) OR nextPh(n) AND thisPh(isUnstressed)THEN
-        ChangePhoneme(a)
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+            ChangePhoneme(a)
+        ELIF nextPh(j) AND next2Ph(S) THEN
+            ChangePhoneme(a)
+        ENDIF
+ //   ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
+ //       ChangePhoneme(a)
     ENDIF
   ENDIF
   FMT(vowel/e)
@@ -40,14 +46,23 @@ phoneme E
   vwl starttype #e endtype #e
 
   length 180
+  
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordStart) AND nextPh(s) OR thisPh(isWordStart) AND nextPh(n) THEN
-        ChangePhoneme(a)
+    IF thisPh(isWordStart) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+            ChangePhoneme(a)
+        ELIF nextPh(j) AND next2Ph(S) THEN
+            ChangePhoneme(a)
+        ELSE 
+            ChangePhoneme(e)
+        ENDIF
+//    ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
+//        ChangePhoneme(a)
     ELSE
         ChangePhoneme(e)
     ENDIF
   ENDIF
-
+  
   FMT(vowel/e_mid)
 endphoneme
 
@@ -62,11 +77,11 @@ phoneme O
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-    IF nextVowel(isStressed) AND nextVowel(i) OR nextPh(p) OR nextPh(b) THEN
-      ChangePhoneme(u)
-    ELSE
+ //   IF nextVowel(isStressed) AND nextVowel(i) OR nextPh(p) OR nextPh(b) THEN
+ //     ChangePhoneme(u)    PREGUNTAR (coixí, collir, cobert)
+ //   ELSE
       ChangePhoneme(o)
-    ENDIF
+ //   ENDIF
   ENDIF
   FMT(vowel/oo)
 endphoneme

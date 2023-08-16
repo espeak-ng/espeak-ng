@@ -298,6 +298,10 @@
      -) hi (_   'i
      -) ho (_    o
     A-) ho (_    w   // porta-ho [pɔ́ ɾtaw]
+?2  C-) ho (_    u   // portar-ho [pɔ́ ɾtaru]
+?3  C-) ho (_+   o   // portar-ho [pɔ́ ɾtaru]
+   Au-) ho (_    u   // dueu-ho [duˈɛwu]
+?3 Au-) ho (_+   o   // dueu-ho [duˈɛwo]
      _) ho (_A   w   //  ho entra [wéntɾa]
     A_) ho (_C   w   //  no ho porta [n'owpɔ́ɾta]
 ?3  K_) ho (_C   ew  //  ho porta [ewpɔ́ɾta]
@@ -349,7 +353,7 @@
      
         // prefixes with secondary stress
    _ac) i (culi     ,i  // aciculifoli
-     _) i (bero     ,i  // iberoromà
+     _) ibero       ,iBe2**o2  // iberoromà
      _) i (ndo      ,i  // indoeuropeu
     _l) i (po       ,i
     _m) i (cro@     ,i
@@ -684,6 +688,7 @@ _cefalo) r (A       R    // (cefaloraquidi)
   _uni) r (A       R    // 
 _contra) r (A      R    // (contrareforma)
 _intra) r (A      R    // (inraraquidi)
+_ibero) r (A      R    // (iberoromà)
  _meso) r (A      R    // ()
  _mico) r (A      R    // ()
  _tele) r (A       R    // (telereunió)
@@ -812,6 +817,7 @@ _contra) s (A      s    // (contrasentit)
 //    A_) u (K       w    // glide // això ho fem a fonemes
      A) u (A       w    // glide
         uu         uw   // glide
+?3      ui         wi   // (hui, huit)
 //        u (A       w
         u (i       u    // not a glide
         u (ï       u    // not a glide
@@ -883,6 +889,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 ?2      è (nyer_   ''e
 ?2      è (iem_    ''e
 ?2      è (ieu_    ''e
+?2      è ($w_alt1++    ''e
 
 ?1      é (ixer_   ''E
 ?1      é (ncer_   ''E
