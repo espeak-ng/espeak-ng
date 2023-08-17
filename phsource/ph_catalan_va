@@ -9,6 +9,19 @@
 phoneme a
   vwl starttype #a endtype #a
   length 180
+  IF thisPh(isWordEnd) THEN
+    IF thisPh(isUnstressed) AND nextPh(isVowel) AND nextPh(isStressed) THEN
+        ipa NULL
+    ELIF nextPh(a) THEN
+        IF thisPh(isUnstressed) OR nextPh(isStressed) THEN
+            ipa NULL
+        ENDIF
+    ENDIF
+  ELIF thisPh(isWordStart) THEN
+    IF thisPh(isUnstressed) AND prevPh(a) AND prevPh(isStressed) THEN
+        ipa NULL
+    ENDIF
+  ENDIF
   FMT(vowel/a_6)
 endphoneme
 
@@ -24,21 +37,28 @@ phoneme e
   
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordStart) THEN
-        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+        IF prevPh(isVowel) THEN
+            ipa NULL
+        ELIF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
             ChangePhoneme(a)
         ELIF nextPh(j) AND next2Ph(S) THEN
             ChangePhoneme(a)
         ENDIF
  //   ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
  //       ChangePhoneme(a)
+    ELIF thisPh(isWordEnd) AND nextPh(isVowel) AND nextPh(isStressed) THEN
+        ipa NULL
     ENDIF
   ENDIF
   FMT(vowel/e)
 endphoneme
 
-phoneme e2 // don't reduce + change if tressed: "aeri" vs "aeròdrom".
+phoneme e2 // don't reduce
   vwl starttype #e endtype #e
   length 170
+  IF thisPh(isUnstressed) AND thisPh(isWordStart) AND prevPh(isVowel) THEN
+    ipa NULL
+  ENDIF
   FMT(vowel/e)
 endphoneme
 
@@ -49,7 +69,9 @@ phoneme E
   
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordStart) THEN
-        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+        IF prevPh(isVowel) THEN
+            ipa NULL
+        ELIF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
             ChangePhoneme(a)
         ELIF nextPh(j) AND next2Ph(S) THEN
             ChangePhoneme(a)
@@ -58,6 +80,8 @@ phoneme E
         ENDIF
 //    ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
 //        ChangePhoneme(a)
+    ELIF thisPh(isWordEnd) AND nextPh(isVowel) AND nextPh(isStressed) THEN
+        ipa NULL
     ELSE
         ChangePhoneme(e)
     ENDIF
@@ -76,12 +100,18 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 170
-  IF thisPh(isUnstressed) THEN
- //   IF nextVowel(isStressed) AND nextVowel(i) OR nextPh(p) OR nextPh(b) THEN
+  //   IF nextVowel(isStressed) AND nextVowel(i) OR nextPh(p) OR nextPh(b) THEN
  //     ChangePhoneme(u)    PREGUNTAR (coixí, collir, cobert)
  //   ELSE
-      ChangePhoneme(o)
- //   ENDIF
+ 
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(o) OR nextPh(O) THEN
+       ipa NULL
+    ELSE
+        ChangeIfUnstressed(o)
+    ENDIF
+  ELIF thisPh(isUnstressed) THEN
+    ChangePhoneme(o)
   ENDIF
   FMT(vowel/oo)
 endphoneme
@@ -96,20 +126,42 @@ endphoneme
 phoneme o
   vwl starttype #o endtype #o
   length 170
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(o) OR nextPh(O) THEN
+       ipa NULL
+    ENDIF
+  ENDIF
   FMT(vowel/o)
 endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
   length 160
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordEnd) THEN
+        IF nextPh(isVowel) THEN
+            IF nextPh(u) OR nextPh(w) THEN
+                ipa NULL
+            ELSE
+                ChangePhoneme(w)
+            ENDIF
+        ENDIF
+    ELIF thisPh(isWordStart) THEN
+        IF prevPh(isVowel) THEN
+            ChangePhoneme(w)
+        ENDIF
+    ENDIF
+  ENDIF
+  
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme i
   vwl starttype #i endtype #i
   length 170
-  IF thisPh(isUnstressed) AND nextPh(isVowel) AND nextPh(isUnstressed) THEN
-    IF thisPh(isWordEnd) THEN
+  IF thisPh(isUnstressed) AND nextPh(isVowel) THEN
+    IF nextPh(i) THEN
+        ipa NULL
     ELSE
       ChangePhoneme(j)
     ENDIF

@@ -391,7 +391,7 @@ ne  $u  $verbf
 li  $u  $verbf
 ens $u  $verbf
 nos $u  $verbf
-?3 nos mos  $u  $verbf
+//?3 nos mos  $u  $verbf
 us  $u  $verbf
 vos $u  $verbf
 los $u  $verbf
@@ -555,6 +555,11 @@ bes	$alt1
 besos	$alt1
 besneula	$alt1
 besneules	$alt1
+?2 beure    $alt1
+?2 bec      $alt1
+?2 beus     $alt1
+?2 beu      $alt1
+?2 beuen    $alt1
 blancor $alt1
 blancors $alt1
 bleix	$alt1
@@ -792,6 +797,11 @@ verres	$alt1
 verso	$alt1
 versos	$alt1
 ves	$alt1
+?2 veure    $alt1
+?2 veig     $alt1
+?2 veus     $alt1
+?2 veu      $alt1
+?2 veuen    $alt1
 videoteca	$alt1
 videoteces	$alt1
 virrei	$alt1

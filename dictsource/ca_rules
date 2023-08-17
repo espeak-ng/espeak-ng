@@ -101,6 +101,13 @@
     -t) e (_       e%
     qu) e (_e           // elision (que ell...)
     qu) e (_a           // elision (que ara...)
+    
+    
+        // initial e pronounced a - western accents (test)
+?2   _) e (n@       a // (entendre)
+?2   _) e (m@       a // (embolicar)
+?2   _) e (s@       a // (estendre)
+?2   _) e (ix@      a // (eixir)
         // contextual e rules
         e (nt_     e
         e (rL21    e    // (herba, serp, terme. but ferm, erm)
@@ -817,7 +824,7 @@ _contra) s (A      s    // (contrasentit)
 //    A_) u (K       w    // glide // això ho fem a fonemes
      A) u (A       w    // glide
         uu         uw   // glide
-?3      ui         wi   // (hui, huit)
+?3      u (i       w   // (hui, huit)
 //        u (A       w
         u (i       u    // not a glide
         u (ï       u    // not a glide
