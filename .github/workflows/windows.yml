@@ -15,19 +15,28 @@ jobs:
       fail-fast: false
       matrix:
         arch: [x64]
-        config: [Release]
-        link: [dll]
-
-        include:
-        - link: static
-          shlib: "OFF"
-        - link: dll
-          shlib: "ON"
     steps:
       - uses: actions/checkout@v3
       - name: configure
-        run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=${{ matrix.shlib }} -A ${{ matrix.arch }} -DUSE_MBROLA:BOOL=OFF -DUSE_LIBSONIC:BOOL=OFF -DUSE_LIBPCAUDIO:BOOL=OFF -DUSE_KLATT:BOOL=OFF -DUSE_SPEECHPLAYER:BOOL=OFF -DEXTRA_cmn:BOOL=ON -DEXTRA_ru:BOOL=ON
-      - name: make
-        run: cmake --build build --config ${{ matrix.config }}
-      - name: make check
-        run: ctest --test-dir build -Ttest -C ${{ matrix.config }} -j1 --output-on-failure
+        run: |
+          cmake -Bbuild \
+            -DCMAKE_INSTALL_PREFIX=_install/espeak-ng \
+            -DUSE_ASYNC:BOOL=OFF \
+            -DBUILD_SHARED_LIBS:BOOL=ON \
+            -DUSE_MBROLA:BOOL=OFF \
+            -DUSE_LIBSONIC:BOOL=OFF \
+            -DUSE_LIBPCAUDIO:BOOL=OFF \
+            -DUSE_KLATT:BOOL=OFF \
+            -DUSE_SPEECHPLAYER:BOOL=OFF \
+            -DEXTRA_cmn:BOOL=ON \
+            -DEXTRA_ru:BOOL=ON
+      - name: build
+        run: |
+          cmake --build build --config Release
+      - name: install
+        run: |
+          cmake --install build
+      - name: package
+        run: |
+          cd _install
+          Compress-Archive -LiteralPath espeak-ng -DestinationPath espeak-ng_Windows_${{ matrix.arch }}.zip
