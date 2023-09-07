@@ -95,5 +95,5 @@ jobs:
         with:
           upload_url: ${{ needs.create_release.outputs.upload_url }}
           asset_path: _install/windows_amd64.zip
-          asset_name: windows-amd64.zip
+          asset_name: windows_amd64.zip
           asset_content_type: application/zip
