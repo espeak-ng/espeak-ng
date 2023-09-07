@@ -1,4 +1,4 @@
-name: Windows
+name: main
 
 on:
   workflow_dispatch:
@@ -45,7 +45,7 @@ jobs:
               --without-sonic \
               --with-extdict-cmn \
               --with-extdict-ru \
-              --prefix=_install/espeak-ng
+              --prefix=$PWD/_install/espeak-ng
       - name: make
         run: |
           make
