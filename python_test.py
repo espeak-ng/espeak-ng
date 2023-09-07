@@ -11,12 +11,27 @@ CLAUSE_INTONATION_FULL_STOP = 0x00000000
 CLAUSE_INTONATION_COMMA = 0x00001000
 CLAUSE_INTONATION_QUESTION = 0x00002000
 CLAUSE_INTONATION_EXCLAMATION = 0x00003000
+CLAUSE_INTONATION_NONE = 0x00004000
 
+CLAUSE_TYPE_NONE = 0x00000000
+CLAUSE_TYPE_EOF = 0x00010000
+CLAUSE_TYPE_CLAUSE = 0x00040000
 CLAUSE_TYPE_SENTENCE = 0x00080000
 
-EXPECTED_PHONEMES = """ðˈɪs, ˌaɪˌɛsˈeɪ tˈɛst!
+CLAUSE_NONE = 0 | CLAUSE_INTONATION_NONE | CLAUSE_TYPE_NONE
+CLAUSE_PARAGRAPH = 70 | CLAUSE_INTONATION_FULL_STOP | CLAUSE_TYPE_SENTENCE
+CLAUSE_EOF = 40 | CLAUSE_INTONATION_FULL_STOP | CLAUSE_TYPE_SENTENCE | CLAUSE_TYPE_EOF
+CLAUSE_PERIOD = 40 | CLAUSE_INTONATION_FULL_STOP | CLAUSE_TYPE_SENTENCE
+CLAUSE_COMMA = 20 | CLAUSE_INTONATION_COMMA | CLAUSE_TYPE_CLAUSE
+CLAUSE_QUESTION = 40 | CLAUSE_INTONATION_QUESTION | CLAUSE_TYPE_SENTENCE
+CLAUSE_EXCLAMATION = 45 | CLAUSE_INTONATION_EXCLAMATION | CLAUSE_TYPE_SENTENCE
+CLAUSE_COLON = 30 | CLAUSE_INTONATION_FULL_STOP | CLAUSE_TYPE_CLAUSE
+CLAUSE_SEMICOLON = 30 | CLAUSE_INTONATION_COMMA | CLAUSE_TYPE_CLAUSE
+
+EXPECTED_PHONEMES = """ðˈɪs, ˌaɪˌɛsˈeɪ; ɡˈʊd: tˈɛst!
 ˌoʊkˈeɪ?
 """
+
 
 def main() -> None:
     """Verify espeak_TextToPhonemesWithTerminator function"""
@@ -34,7 +49,7 @@ def main() -> None:
     lib.espeak_TextToPhonemesWithTerminator.restype = ctypes.c_char_p
 
     # Should split into 3 sentences, highlighting each punctuation type.
-    text = "this, I.S. a test! ok?"
+    text = "this, I.S. a; good: test! ok?"
     text_bytes = text.encode("utf-8")
     text_pointer = ctypes.c_char_p(text_bytes)
 
@@ -54,14 +69,17 @@ def main() -> None:
             phonemes += clause_phonemes.decode()
 
         # Check for punctuation.
-        # The testing order here is critical.
-        if (terminator.value & CLAUSE_INTONATION_EXCLAMATION) == CLAUSE_INTONATION_EXCLAMATION:
+        if terminator.value == CLAUSE_EXCLAMATION:
             phonemes += "!"
-        elif (terminator.value & CLAUSE_INTONATION_QUESTION) == CLAUSE_INTONATION_QUESTION:
+        elif terminator.value == CLAUSE_QUESTION:
             phonemes += "?"
-        elif (terminator.value & CLAUSE_INTONATION_COMMA) == CLAUSE_INTONATION_COMMA:
+        elif terminator.value == CLAUSE_COMMA:
             phonemes += ","
-        elif (terminator.value & CLAUSE_INTONATION_FULL_STOP) == CLAUSE_INTONATION_FULL_STOP:
+        elif terminator.value == CLAUSE_COLON:
+            phonemes += ":"
+        elif terminator.value == CLAUSE_SEMICOLON:
+            phonemes += ";"
+        elif terminator.value == CLAUSE_PERIOD:
             phonemes += "."
 
         # Check for end of sentence
@@ -70,7 +88,9 @@ def main() -> None:
         else:
             phonemes += " "
 
-    assert phonemes == EXPECTED_PHONEMES, f"Expected: {EXPECTED_PHONEMES}\n Got: {phonemes}"
+    assert (
+        phonemes == EXPECTED_PHONEMES
+    ), f"Expected: {EXPECTED_PHONEMES}\n Got: {phonemes}"
 
     print("It works!")
 
