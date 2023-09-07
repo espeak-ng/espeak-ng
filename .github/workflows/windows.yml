@@ -3,9 +3,8 @@ name: Windows
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -29,4 +28,23 @@ jobs:
       - name: package
         run: |
           cd _install
-          Compress-Archive -LiteralPath espeak-ng -DestinationPath espeak-ng_Windows_${{ matrix.arch }}.zip
+          Compress-Archive -LiteralPath espeak-ng -DestinationPath windows_amd64.zip
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ github.ref }}
+          tag_name: ${{ github.ref }}
+      - name: upload
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: _install//bin/windows_amd64.zip
+          asset_name: windows-amd64.zip
+          asset_content_type: application/zip
