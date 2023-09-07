@@ -25,7 +25,7 @@ jobs:
           prerelease: false
   build_linux:
     name: "linux build: ${{ matrix.arch }}"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04 # use older version on purpose for GLIBC
     needs: create_release # we need to know the upload URL
     strategy:
       fail-fast: true
