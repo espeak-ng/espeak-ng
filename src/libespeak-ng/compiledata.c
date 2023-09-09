@@ -2339,7 +2339,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	if (source_path) {
 		sprintf(ctx->phsrc, "%s", source_path);
 	} else {
-		sprintf(ctx->phsrc, "%s/phsource", path_home);
+		sprintf(ctx->phsrc, "%s/../phsource", path_home);
 	}
 
 	if (destination_path) {
