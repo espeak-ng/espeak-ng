@@ -88,7 +88,8 @@
 .group d
         d          d    // d sona d
      _) d' (P2     d    // apostrophe
-   _su) d (-      t
+   _su) d (-       t
+  _nor) d (-       t
    //     dj         dZ;
    //     dv         bb	// Geminació
    //     dm         mm   // assimilation (admira)
@@ -154,11 +155,11 @@
 ?2 fon) e (m       e    // (fonema)
 ?2 _des) e (s      a    // (desesperats)
 ?2 _des) e (n      a    // (desencisats)
+?1    @) e (ix      E    // 
            
         // contextual E rules
         e (l       E    // (elm)
-        e (u       E    // (preu)
-?1   v) e (u       E    // (veu, veure)
+?1      e (u       E    // (creu, veu, deu)
 ?1      e (g       E    //
         e (x       E    //
         e (r       E    // (merla, ferro. but però Berga i Matadepera)
@@ -499,16 +500,19 @@
         nd (-      =nt   // followed by clitic
         
             // accent variants
-?3      nt (_      nt   // (alt)
-?3      nt (_A     nt   // (alt)
-?3      nt (_hA    nt   // (alt)
-?3      nt (_C     n    // (alt)
-?3      nd (_      nd   // (alt)
-?3      nd (_A     nd   // (alt)
-?3      nd (_hA    nd   // (alt)
-?3      nd (_C     n    // (alt)
+?3      nt (_      =nt   // (alt)
+?3      nt (_A     =nt   // (alt)
+?3      nt (_hA    =nt   // (alt)
+?3      nt (_C     =n    // (alt)
+?3      nd (_      =nd   // (alt)
+?3      nd (_A     =nd   // (alt)
+?3      nd (_hA    =nd   // (alt)
+?3      nd (_C     =n    // (alt)
 ?3      nc (_      Nk    // velarization (cranc)
 ?3      ng (_      Nk    // velarization (fang)
+?3      nc (_C     N     // velarization (cranc)
+?3      ng (_C     N     // velarization (fang)
+
 ?3      nn         n    // (ennuvolat)
 ?3  _i) nn         nn   // (innecessari)
           
@@ -672,8 +676,8 @@ catalan) o (@      ,o
      C) r (A       **   // (groc)
 ?3   A) r (C       **   // (exercici)
      
-?2   A) r (C_      **   // end word position (forn)
-?2   A) r (Cs_     **   // end word position (forns)
+//?2   A) r (C_      **   // end word position (forn)
+//?2   A) r (Cs_     **   // end word position (forns)
      
      l) r (A       R    // (colrat)
      m) r (A       R    // (somrient)
@@ -683,6 +687,7 @@ catalan) o (@      ,o
                 // prefixes that not change R
  _anti) r (A       R    // (antiraquític)
  _auto) r (A       R    // (autoregulació)
+  _auto) r (itz       **    // (autoritzar)
 _cefalo) r (A       R    // (cefaloraquidi)
    _co) r (esponsabili       R    // (coresponsabiliatat)
    _co) r (efer       R    // (coreferir)
@@ -745,8 +750,8 @@ _ultra) r (A       R    // (ultraric)
      A)   rd (s_     R    // (records)
         
         // accent variants
-?2   A)   rt (s_     **    // (arts)
-?2   A)   rd (s_     **    // (records)
+//?2   A)   rt (s_     **    // (arts)
+//?2   A)   rd (s_     **    // (records)
 ?3   A)   rt (_      **t   // (art)
 ?3   A)   rt (_A     **t   // (art amic)
 ?3   A)   rt (s_     **t   // (arts)        !!! PREGUNTAR SI ES MANTÉ LA R (dimarts, coberts)
@@ -777,6 +782,9 @@ _ultra) r (A       R    // (ultraric)
     aque) s  (t_A   s
     aque) s  (t_hA  s
     aque) s  (t_C
+    
+       e) st (_C    s
+    
 //?1  aque) s  (tKhA   s
    _bi) s (A       s    // (bisexual)
   _neo) s (A       s    // ()
@@ -815,16 +823,18 @@ _contra) s (A      s    // (contrasentit)
         tm         mm	// gemination (setmana)
 ?3      tm         m	// gemination (setmana)
         tn         nn	// gemination (cotna)
-     i) tz (a      z    // (normalitzar) en totes les variants menys central
-?1   i) tz (a      tz   // (normalitzar) en totes les variants menys central
-        
+?3   i) tz (a      z    // (normalitzar) 
+     i) tz (a      tz   // (normalitzar) 
+
 .group u
         u          u
      A) u (K       w    // glide
 //    A_) u (K       w    // glide // això ho fem a fonemes
      A) u (A       w    // glide
         uu         uw   // glide
-?3      u (i       w   // (hui, huit)
+?3      ui         wi   // (hui, huit)
+?3      uix        ujS   // (bruixa)
+?3      uig        udZ   // (rebuig)
 //        u (A       w
         u (i       u    // not a glide
         u (ï       u    // not a glide

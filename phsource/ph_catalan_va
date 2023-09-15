@@ -280,3 +280,30 @@ phoneme v
   ENDIF
   FMT(voc/v) addWav(vocw/v)
 endphoneme
+
+//================= oclusives
+phoneme b
+  vcd blb stp
+
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELIF prevPh(m) THEN
+    ELSE
+      ChangePhoneme(p)
+    ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
+  ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
+        IF prevPh(**) OR prevPh(R) THEN //***"embarbussa"***
+        ELSE
+            ChangePhoneme(B)
+        ENDIF
+      ENDIF
+    ENDIF  
+  ELSE
+    ChangePhoneme(p)
+  ENDIF
+
+  CALL base1/b
+endphoneme

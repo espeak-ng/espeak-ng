@@ -158,7 +158,8 @@ _1M2    ummili'o
 _dpt	_koma
 //_roman	Rom'a
 
-vi	vi	// not a Roman number
+vi	bi	// not a Roman 
+?3 vi	vi	// not a Roman number
 
 
 /// ordinal numbers
@@ -185,7 +186,7 @@ _#rtes   **tes
 _#è         'E
 _#é         'E
 _#ena       'Ena
-_#ens       'Es
+_#ens       'Ens
 _#enes      'Enes
 ?2 _#è      'e
 ?2 _#é      'e
@@ -327,7 +328,7 @@ sta	    s'anta	$dot
 
 /// pronouns
 jo          Z'O         $verbf
-?2 jo       j'o         $verbf
+?2 jo       j'O         $verbf
 tu          t'u         $verbf
 ell         'el^        $verbf
 ella        'el^a       $verbf
@@ -374,7 +375,7 @@ la	$u   $nounf
 ?2 la   la2 $u $nounf
 els	$u  $nounf
 les	$u  $nounf
-un	$u  $nounf
+un	$nounf
 una	$nounf
 uns	$nounf
 unes	$nounf
@@ -390,6 +391,7 @@ lo  $u  $verbf
 ne  $u  $verbf
 li  $u  $verbf
 ens $u  $verbf
+?2 ens e2ns $u $verbf
 nos $u  $verbf
 //?3 nos mos  $u  $verbf
 us  $u  $verbf
@@ -1139,7 +1141,6 @@ esquer	$alt2
 esquers	$alt2
 esquerp	$alt2
 esquerps	$alt2
-?2  est $alt2
 estaferm	$alt2
 estaferms	$alt2
 esteatorrea	$alt2
@@ -1193,10 +1194,10 @@ fitoglees	$alt2
 flavedo	$alt2
 flavedos	$alt2
 flendi	$alt2
-floreixo    $alt2
-floreixes    $alt2
-floreix    $alt2
-floreixen    $alt2
+//floreixo    $alt2
+//floreixes    $alt2
+//floreix    $alt2
+//floreixen    $alt2
 ?1 forfet	$alt2
 ?1 forfets	$alt2
 fre	$alt2
@@ -1389,10 +1390,10 @@ lleute	$alt2
 lleutes	$alt2
 llomello	$alt2
 llomellos	$alt2
-llueixo    $alt2
-llueixes    $alt2
-llueix    $alt2
-llueixen    $alt2
+//llueixo    $alt2
+//llueixes    $alt2
+//llueix    $alt2
+//llueixen    $alt2
 malonilurea	$alt2
 malonilurees	$alt2
 malvapeix	$alt2
@@ -1608,6 +1609,8 @@ prestos	$alt2
 ?2  pretextos  $alt2
 ?2  pretexta   $alt2
 ?2  pretextes  $alt2
+preu	$alt2
+preus	$alt2
 preufet	$alt2
 preufets	$alt2
 prevaler	$alt2
@@ -2103,7 +2106,7 @@ colze	$alt1
 colzes	$alt1
 colèdoc	$alt1
 colèdocs	$alt1
-?2 com  $alt1
+?3 com  $alt1
 coma	$alt1
 comes	$alt1
 coma	$alt1
@@ -3735,6 +3738,7 @@ intramuscular	$alt4
 intramusculars	$alt4
 irregular	$alt4
 irregulars	$alt4
+jaguar  $alt4
 jugular	$alt4
 jugulars	$alt4
 kàiser	$alt4
