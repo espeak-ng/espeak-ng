@@ -119,14 +119,19 @@ dictrules 3
 
 Exemple:
 ```
-phonemetable ca-va es
+phonemetable ca-va ca
 include ph_catalan_va
 ```
+A la primera línia especifiquem d'on hereta els fonemes (en aquest cas, de `ca`), i a la segona, d'on obté els fonemes específics.
 
 3) adaptar les regles de ca_rules i les llistes de ca_lists. Marcar amb ?NUM_VARIANT les regles o paraules que s'apliquen a cada variant.
 
-Exemple:
+Exemple (emmudeix la r final en totes les variants menys en valencià):
+```
+         r (_        =   // final r is silent + stress the vowel
+?3   A)  r (_+      **    // final r is not silent
 
+```
 
 ## Documents
 * [Estàndard oral IEC](https://publicacions.iec.cat/repository/pdf/00000039/00000072.pdf)

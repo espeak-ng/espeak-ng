@@ -5,6 +5,7 @@
 // ?1 general eastern. central specific characteristics -> unestressed vowels and [v] are treated at the phonemes definition (ph_catalan file)
 // ?2 general western. north-western specific characteristics 
 // ?3 valencian specific characteristics (valencian is 2+3. 3 overwrites 2)
+// ?4 balearic specific characteristics (balearic is 1+4. 4 overwrites 1)
 
 // $alt1: e is an e and o is an o
 // $alt2: e is an E and o is an O

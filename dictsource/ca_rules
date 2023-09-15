@@ -5,6 +5,7 @@
 // ?1 general eastern. central specific characteristics 
 // ?2 general western. north-western specific characteristics 
 // ?3 valencian specific characteristics (valencian is 2+3. 3 overwrites 2)
+// ?4 balearic specific characteristics (balearic is 1+4. 4 overwrites 1)
 
 
 // letter groups
@@ -777,6 +778,9 @@ _ultra) r (A       R    // (ultraric)
      -) se (_      s@
      
         s (_s       // do not pronounce -s if followed by an s
+        s (_cL01    // do not pronounce -s if followed by -ce/ci 
+        s (-cL01    // do not pronounce -s if followed by -ce/ci
+        
 ?1  aque) s  (t_
     aque) s  (ts_
     aque) s  (t_A   s

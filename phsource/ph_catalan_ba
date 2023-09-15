@@ -8,3 +8,42 @@
 // ====================
 
 // mirar https://giec.iec.cat/textgramatica/codi/4.2.1
+
+// vowels
+//=====================================================
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 170
+  
+  IF thisPh(isUnstressed) AND thisPh(isWordEnd) THEN
+     ChangePhoneme(o)
+  ENDIF
+  FMT(vowel/e)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 170
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(o) OR nextPh(O) THEN
+       ipa NULL
+    ELSE
+        ChangeIfUnstressed(o)
+    ENDIF
+  ELIF thisPh(isUnstressed) THEN
+    ChangePhoneme(o)
+  ENDIF
+  FMT(vowel/oo)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 170
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(o) OR nextPh(O) THEN
+       ipa NULL
+    ENDIF
+  ENDIF
+  FMT(vowel/o)
+endphoneme
