@@ -74,6 +74,11 @@
     o)  bl (id     Bl // avoid gemination (oblidar) 
 ?2  A)  bl (A      Bl   // avoid gemination in western accents (poble)
   _su)  b  (A      p    // prefix "sub-"
+?3 _su) b  (sC         // (subscriure)
+?4 _su) b  (sC         // (subscriure)
+?3  _o) b  (sC         // (subscriure)
+?4  _o) b  (sC         // (subscriure)
+  
  
 .group c
         c          k    // (casa)
@@ -94,6 +99,8 @@
    //     dj         dZ;
    //     dv         bb	// Geminació
    //     dm         mm   // assimilation (admira)
+?3  _a) d (sC       // (adscriure)
+?4  _a) d (sC
 
 
 .group e
@@ -203,6 +210,22 @@
 ?1      e (da_     E    //
 ?1      e (des_    E    //
 
+?4      e (t+       @    // (marlet)
+?4      e (c+       @    //
+?4      e (c_+      e    // (mànec)
+
+?4      e (i+       @    //
+?4      e (s+       @    //
+        e (ssi     e    // subjuntius
+?4      e (m+       @    //
+?4      e (na_+     @    //
+?4      e (nes_+    @    //
+?4      e (n+       @    //
+?4      e (d_+      @    //
+?4      e (ds_+     @    //
+?4      e (da_+     @    //
+?4      e (des_+    @    //
+
 ?2      e (cte_    E    // (perfecte)
 ?2      e (cta_    E    // (perfecta)
 ?2      e (ctes_   E    // (perfectes)
@@ -300,7 +323,10 @@
      A) gl (Aw_alt3      Ql // avoid gemination (aglà)
    _ne) gl (ig     QL // avoid gemination (negligència, etc.)
 ?3   A) gl (A      Ql // avoid gemination (segle)
-?3   _) gn         n   // gnom
+     _) gn         n   // gnom
+        gn         gn   // designar
+?4      gn         nn   // designar
+
         
 .group h
         h              // silent
@@ -432,7 +458,7 @@
      _) l' (P2     l    // apostrophe
 
         ll         l^   // (colla)
-
+?4      ll         j
         lt (_      l    // (alt)
         lt (_$w_alt4      lt   // do pronounce final t
         lt (s_     l    // (alts)
@@ -447,9 +473,13 @@
 ?3      ld (_A     ld    // (alt)
 ?3      ld (_C     l    // (alt)
 
-
+?4      lt (_      lt   // (alt)
+?4      ld (_      ld    // (alt)
 
 ?2      l·l        l    // (il·lusió)
+
+?4   _e) ls (_A   ddz   // dissimilation in balearic (els arbres)
+?4   _e) ls (_hA   ddz  // dissimilation in balearic (els homes)
 
 .group m
         m          m
@@ -465,20 +495,26 @@
         mbl        mbl  // (rambla)
    _)   mn         n    // (mnemotècnic)
      // accent variants
-?1      mp (_      m    // do not pronounce final p
+        mp (_      m    // do not pronounce final p
+?3      mp (_      mp   // do pronounce final p (valencian)
+?4      mp (_      mp   // do pronounce final p (balearic)
+
         mp (s_     m    // do not pronounce final p
-        mp (_K     m    // do not pronounce final p
+        mp (_C     m    // do not pronounce final p
         mb (K      m    // do not pronounce final b (amb mi) or before consonant
 ?1      mpt        mt   // do not pronouce p between m and t (compte)
 
     // adverbs
     @) ment (_S4t	m''en
 ?3  @) ment (_S4t   m''ent
+?4  @) ment (_S4t   m''ent
 
     // not adverbs
     @) ment (_$w_alt5+	m'en
 ?3  @) ment (_$w_alt5+  m'ent
 ?3  @) ment (_C$w_alt5+ m'en
+?4  @) ment (_$w_alt5+  m'ent
+?4  @) ment (_C$w_alt5+ m'en
 
 .group n
         n          n
@@ -487,6 +523,7 @@
    L01) n (_       n    // ... except after e, i
   L05J) n (_       n    // ... or a previous already stressed vowel
         ny         n^   // palatalization
+?4      ny (C      in   // pany
   
   
         nt (_      =n   // do not pronounce final t + stress the vowel
@@ -515,6 +552,20 @@
 ?3      ng (_      Nk    // velarization (fang)
 ?3      nc (_C     N     // velarization (cranc)
 ?3      ng (_C     N     // velarization (fang)
+
+?4      nt (_      =nt   // (alt)
+?4      nt (_A     =nt   // (alt)
+?4      nt (_hA    =nt   // (alt)
+?4      nt (_C     =n    // (alt)
+?4      nd (_      =nd   // (alt)
+?4      nd (_A     =nd   // (alt)
+?4      nd (_hA    =nd   // (alt)
+?4      nd (_C     =n    // (alt)
+?4      nc (_      Nk    // velarization (cranc)
+?4      ng (_      Nk    // velarization (fang)
+?4      nc (_C     N     // velarization (cranc)
+?4      ng (_C     N     // velarization (fang)
+
 
 ?3      nn         n    // (ennuvolat)
 ?3  _i) nn         nn   // (innecessari)
@@ -662,7 +713,7 @@ catalan) o (@      ,o
 ?3      pm         bm   // (Capmany)
         ph         f
      _) pn         n    // (pneumàtic)
-?2   _) ps         s    // (psicoanalista)
+     _) ps         s    // (psicoanalista)
         
 .group q
         q          k
@@ -678,6 +729,7 @@ catalan) o (@      ,o
      A) r (A       **   // (cara)
      C) r (A       **   // (groc)
 ?3   A) r (C       **   // (exercici)
+?4   A) r (C       **   // (exercici)
      
 //?2   A) r (C_      **   // end word position (forn)
 //?2   A) r (Cs_     **   // end word position (forns)
@@ -768,8 +820,10 @@ _ultra) r (A       R    // (ultraric)
         s          s
      _) s' (P2     s    // apostrophe
         ss         s
-        sc (L01    s
-     A) s  (A      z
+        sc (L01    s    // (piscina, escena)
+?4      sc (L01    ts   // (piscina, escena)
+
+        A) s  (A      z
      A) s  (hA     z
      A) s  (-A     z
  //  L12) s  (A      z
@@ -780,8 +834,15 @@ _ultra) r (A       R    // (ultraric)
      -) se (_      s@
      
         s (_s       // do not pronounce -s if followed by an s
+        s (_z       // do not pronounce -s if followed by an z
         s (_cL01    // do not pronounce -s if followed by -ce/ci 
         s (-cL01    // do not pronounce -s if followed by -ce/ci
+
+?4    A)  s (_s     t  // pronounce -s as -t if followed by an s (dos sacs)
+?4    A)  s (_z     d  // pronounce -s as -d if followed by an z (sis zones)
+?4    A)  s (_cL01  t  // pronounce -s as -t  if followed by -ce/ci 
+?4    A)  s (-cL01  t  // pronounce -s as -t  if followed by -ce/ci
+
         
 ?1  aque) s  (t_
     aque) s  (ts_
@@ -830,6 +891,8 @@ _contra) s (A      s    // (contrasentit)
         tll        l^l^ // gemination (espatlla)
 ?3      tll        l^   // assimilation (espatlla)
 ?3      tl         ll   // ametla, atlas
+?4      tll        ll   // assimilation (espatlla)
+
         tm         mm	// gemination (setmana)
 ?3      tm         m	// gemination (setmana)
         tn         nn	// gemination (cotna)
@@ -872,6 +935,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 .group v
           v          b
 ?3        v          v
+?4        v          v
+
 //     _) v          v#
  
 .group w
@@ -882,7 +947,10 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 .group x
         x          ks   // (taxi)
     _A) x          gz   // (exàmen)
+?4  _A) x          gZ   // (exàmen)
+
     _A) x (L10     ks   // (exprimir)
+  _L05) x          ks   // (èxode)
      K) x          S    // (linx)
 
 .group y

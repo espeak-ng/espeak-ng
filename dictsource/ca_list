@@ -370,6 +370,12 @@ seues       s'ewes      $nounf
 nostres     n'Ost**es   $nounf
 vostres     v'Ost**es   $nounf
 
+mon         mon  $u       $nounf
+ton         ton  $u         $nounf
+son         son  $u         $nounf
+ma          ma  $u         $nounf
+ta          ta  $u         $nounf
+sa          sa  $u         $nounf
 /// articles
 el	$u   $nounf
 la	$u   $nounf
@@ -380,6 +386,9 @@ un	$nounf
 una	$nounf
 uns	$nounf
 unes	$nounf
+?4  es  $u	$nounf
+?4  sa  $u	$nounf
+?4  ses  $u	$nounf
 
 /// pronoms febles
 hi  $u  $verbf
@@ -1701,7 +1710,6 @@ sarcoseptes	$alt2
 sarcotesta	$alt2
 sarcotestes	$alt2
 //se	$alt2
-ses	$alt2
 sebest	$alt2
 sebests	$alt2
 secta	$alt2

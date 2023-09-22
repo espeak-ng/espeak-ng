@@ -16,8 +16,13 @@ phoneme e
   vwl starttype #e endtype #e
   length 170
   
-  IF thisPh(isUnstressed) AND thisPh(isWordEnd) THEN
-     ChangePhoneme(o)
+  IF thisPh(isUnstressed) THEN
+    IF prevVowel(O) AND thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
+        ChangePhoneme(o)
+    ELSE
+        ChangePhoneme(@)
+    
+    ENDIF
   ENDIF
   FMT(vowel/e)
 endphoneme
@@ -40,10 +45,48 @@ endphoneme
 phoneme o
   vwl starttype #o endtype #o
   length 170
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(u)
+  ENDIF
+  
   IF thisPh(isWordEnd) THEN
     IF nextPh(o) OR nextPh(O) THEN
        ipa NULL
     ENDIF
   ENDIF
   FMT(vowel/o)
+endphoneme
+
+
+
+
+phoneme @    //  Schwa, e.g. alph**a**
+  vwl   starttype #@  endtype #@
+  length 140
+  FMT(vowel/@)
+endphoneme
+
+
+phoneme v
+  vcd lbd frc
+  voicingswitch f
+  lengthmod 6
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+
+  IF KlattSynth THEN
+    Vowelout f1=1  f2=1000 -500 -300  f3=-300 60  len=50 brk
+    IF nextPh(isPause2) THEN
+      FMT(klatt/v_) addWav(vocw/v)
+    ENDIF
+    FMT(klatt/v) addWav(vocw/v, 150)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  IF thisPh(isWordStart) AND nextPhW(isLiquid) THEN
+    length 70
+  ENDIF
+  FMT(voc/v) addWav(vocw/v)
 endphoneme
