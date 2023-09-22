@@ -142,15 +142,15 @@ _2C	d,os'ens
 ?3 _2C	d,os'ents
 _3C	tr,es'ens
 ?3 _3C	tr,es'ents
-_4C	kw'at**es'ens
-?3 _4C	kw'at**es'ents
-_5C	s,ins'ens
-?3 _5C	s,ins'ents
+_4C	kw,at**es'ens
+?3 _4C	kw,at**es'ents
+_5C	s,iNs'ens
+?3 _5C	s,iNs'ents
 _6C	s,is'ens
 ?3 _6C	s,is'ents
 _7C	s,Ets'ens
-_8C	b'ujts'ens
-?3 _8C	'ujts'ents
+_8C	b,ujts'ens
+?3 _8C	,ujts'ents
 _9C	n,Ous'ens
 ?3 _9C	n,Ous'ents
 _0M1	m'il
@@ -4023,13 +4023,50 @@ haha	$alt6
 hahaha	$alt6
 haik	$alt6
 haiks	$alt6
-hala	$alt6
 halal	$alt6
 halant	$alt6
-halar	$alt6
-halar-se	$alt6
-halat	$alt6
-halen	$alt6
+halà	$alt5
+halada	$alt5
+halades	$alt5
+halam	$alt5
+halant	$alt5
+halara	$alt5
+halarà	$alt5
+halaran	$alt5
+halaràs	$alt5
+halaré	$alt5
+halarem	$alt5
+halàrem	$alt5
+halaren	$alt5
+halares	$alt5
+halareu	$alt5
+halàreu	$alt5
+halaria	$alt5
+halaríem	$alt5
+halarien	$alt5
+halaries	$alt5
+halaríeu	$alt5
+halàs	$alt5
+halàssim	$alt5
+halassin	$alt5
+halassis	$alt5
+halàssiu	$alt6
+halau	$alt5
+halava	$alt5
+halàvem	$alt5
+halaven	$alt5
+halaves	$alt5
+halàveu	$alt5
+hale	$alt5
+halem	$alt5
+halés	$alt5
+haléssim	$alt5
+halessin	$alt5
+halessis	$alt5
+haléssiu	$alt5
+haleu	$alt5
+halí	$alt5
+hamlet	$alt6
 hamletiana	$alt6
 hamletianes	$alt6
 hamletians	$alt6
@@ -8888,6 +8925,8 @@ benveure		b,emb'Ew**e
 ?2 benveure		b,eMv'ew**e
 benvinguda		b,eMviNg'uDa
 benvingut		b,eMviNg'ut
+benvingudes		b,eMviNg'uDes
+benvinguts		b,eMviNg'uts
 benvist		b,eMv'ist
 benviure		b,eMv'iw**e
 benvolença		b,eMvol'Ensa
@@ -10901,7 +10940,14 @@ arínies		aR'inies
 batireòmetre		batiRe'Omet**e
 batireòmetres		batiRe'Omet**es
 belarús		b,elaR'us
-bielorús		bi,eluR'us
+belarusa		b,elaR'usa
+belarussos		b,elaR'usos
+belarusses		b,elaR'usses
+bielorús		bi,eloR'us
+bielorusa		bi,eloR'usa
+bielorussos		bi,eloR'usos
+bielorusses		bi,eloR'uses
+bielorúsia		bi,eloR'usia
 bioreologia		bioReoloZ'ia
 calciorodocrosita		kalsioRoDok**oz'ita
 calciorodocrosites		kalsioRoDok**oz'ites
@@ -10972,6 +11018,118 @@ nissorinc		nis'ORiN
 nissorincs		nis'ORiNs
 ornitorinc		oRnit'ORiN
 ornitorincs		oRnit'ORiNs
+oxirinc         ,OksiR'iNk
+oxirinca        ,OksiR'iNka
+oxirincs        ,OksiR'iNks
+oxirinques      ,OksiR'iNkes
+piloriza        p,iloR'iza
+pilorizes       p,iloR'iza
+platirí         platiR'i
+platirina       platiR'ina
+platirines      platiR'ines
+platirins       platiR'ins
+radioreceptor   ,RaDioResept'o
+?3 radioreceptor   ,RaDioResept'o**
+
+// intervocalic s
+alfisol		alfis'Ol
+alfisols		alfis'Ols
+alisol		alis'Ol
+alisols		alis'Ols
+andisol		andis'Ol
+andisols		andis'Ols
+andosol		andos'Ol
+andosols		andos'Ols
+antrosol		ant**os'Ol
+antrosols		ant**os'Ols
+arenosol		a**enos'Ol
+arenosols		a**enos'Ols
+aridisol		a**iDis'Ol
+aridisols		a**iDis'Ols
+asèpsia		as'Epsia
+asèpsies		as'Epsies
+asèptic		as'Eptik
+asèptica		as'Eptika
+asèptics		as'Eptiks
+asèptiques		as'Eptikes
+calcisol		kalsis'Ol
+calcisols		kalsis'Ols
+cambisol		kambis'Ol
+cambisols		kambis'Ols
+cosenyor		kosen^'o**
+cosenyora		kosen^'o**a
+cosenyoriu		kosen^o**'iw
+cosenyorius		kosen^o**'iws
+cosenyors		kosen^'o**s
+cosenyores		kosen^'o**es
+criosol		k**ios'Ol
+criosols		k**ios'Ols
+durisol		du**is'Ol
+durisols		du**is'Ols
+entisol		antis'Ol
+entisols		antis'Ols
+espodosol		aspoDos'Ol
+espodosols		aspoDos'Ols
+fluvisol		fluvis'Ol
+fluvisols		fluvis'Ols
+gelisol		Zelis'Ol
+gelisols		Zelis'Ols
+geosinònim		Zeosin'Onim
+gipsisol		Zipsis'Ol
+gipsisols		Zipsis'Ols
+gleïsol		gleis'Ol
+gleïsols		gleis'Ols
+hipopotomonstrosesquipedaliofòbia		ipopotomonst**oseskipeDaliof'OBia
+histosol		istos'Ol
+histosols		istos'Ols
+inceptisol		inseptis'Ol
+inceptisols		inseptis'Ols
+latosol		latos'Ol
+latosols		latos'Ols
+leptosol		leptos'Ol
+leptosols		leptos'Ols
+litosol		litos'Ol
+litosols		litos'Ols
+lixisol		liSis'Ol
+lixisols		liSis'Ols
+luvisol		luvis'Ol
+luvisols		luvis'Ols
+malavesem		m,alaves'em
+malaveséssem		m,alaves'esem
+malavesessen		m,alaves'esen
+malavesesses		m,alaves'eses
+malavesésseu		m,alaves'esew
+malaveseu		m,alaves'ew
+mil·lisegon		miliseQ'on
+mil·lisegons		miliseQ'ons
+mol·lisol		molis'Ol
+mol·lisols		molis'Ols
+nitisol		nitis'Ol
+nitisols		nitis'Ols
+oxisol		ogzis'Ol
+oxisòl		ogzis'Ol
+oxisols		ogzis'Ols
+oxisòls		ogzis'Ols
+paleosol		pal,eos'Ol
+paleosols		pal,eos'Ols
+pergelisol		pe**Zelis'Ol
+pergelisols		pe**Zelis'Ols
+planosol		planos'Ol
+planosols		planos'Ols
+primarosol		p**ima**os'Ol
+primarosols		p**ima**os'Ols
+prosoviètic		p**osovj'Etik
+prosoviètica		p**osovj'Etika
+prosoviètics		p**osovj'Etiks
+prosoviètiques		p**osovj'Etikes
+prosovietisme		p**osovjet'izme
+regosol		ReQos'Ol
+regosols		ReQos'Ols
+Serracarabasa		seRaka**aB'asa
+trisecar		t**isek'a
+?3 trisecar		t**isek'a**
+vertisol		ve**tis'Ol
+vertisols		ve**tis'Ols
 
 // gu hiatus
 

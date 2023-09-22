@@ -394,6 +394,8 @@
      A) ix         jS
     gu) ix (K      iS   // pronounce i (guix)
     qu) ix (K      iS   // pronounce i (Quixot)
+    gu) ix (A      iS   // pronounce i (guixa)
+    qu) ix (A      iS   // pronounce i (Quixot)
     gu) ix (_A     iZ   // sonorisation + pronounce i (guix esquerdat)
     gu) ix (_L11   iZ   // sonorisation + pronounce i (guix blau)
      K) ix (A      iS   // pronounce i (mixa)
@@ -802,6 +804,10 @@ _contra) s (A      s    // (contrasentit)
   _mono) s (A      s    // (monosíl·lab)
   _homo) s (A      s    // (homosexual)
   _para) s (A      s    // (parasíntesi)
+      @) s (òl     s    // (entresòl)@) s (òl     s    // (entresòl)
+ _entre) s (ol     s    // (entresolar)
+ _sobre) s (ol     s    // (sobresolar)
+      @) s (exual  s    // (bisexualitat)
   _para) s (it     z    // (parasitosi)
  _sobre) s (A      s    // (sobresortir)
   _tele) s (A      s    // (telestrella)
@@ -836,23 +842,26 @@ _contra) s (A      s    // (contrasentit)
 //    A_) u (K       w    // glide // això ho fem a fonemes
      A) u (A       w    // glide
         uu         uw   // glide
-?3      ui         wi   // (hui, huit)
-?3      uix        ujS   // (bruixa)
-?3      uig        udZ   // (rebuig)
 //        u (A       w
         u (i       u    // not a glide
         u (ï       u    // not a glide
-        u (ltraC   ,u   // (ultrasò)
-        u (ltraA   ,u   // (ultraaudió)
+        uïx        uiS   // (traduïx)
+
+        
+?3      ui         wi   // (hui, huit)
+?3      uix        ujS   // (bruixa)
+?3      uig        udZ   // (rebuig)
         
 L05Ji)  u (s_      u    // not a glide (Màrius)
-            // prefixes with secondary stress
 
+            // prefixes with secondary stress
    _p)  u (ig      ,u    // (puigmal)
    _s)  u (per@    ,u    // (supermercat)
    _s)  u (pra@    ,u    // (suprarenal)
    _t)  u (rbo@    ,u    // (turboautomòbil)
-    _)  u (ltra@   ,u    // (ultradreta)
+    _)  u (ltra@   ,u    // 
+        u (ltraC   ,u   // (ultrasò)
+        u (ltraA   ,u   // (ultraaudió)
             // no secondary stress
    _p)  u (ig$w_alt5      ,u    // (puigmal)
    _s)  u (per@$w_alt5    ,u    // (supermercat)
