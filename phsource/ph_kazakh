@@ -13,25 +13,6 @@ phoneme I
   FMT(vowel/ii#)
 endphoneme
 
-phoneme 8
-  vwl starttype #@ endtype #@
-  length 100
-  IF thisPh(isWordEnd) THEN
-    length 140
-  ENDIF
-  FMT(vowel/8)
-endphoneme
-
-phoneme u#
-  vwl starttype @ endtype @
-  length 100
-  flag1
-  IF thisPh(isWordEnd) THEN
-    length 140
-  ENDIF
-  FMT(vdiph2/uw_6)
-endphoneme
-
 phoneme U
   vwl starttype #u endtype #u
   length 100
@@ -41,19 +22,12 @@ phoneme U
   FMT(vowel/uu_2)
 endphoneme
 
-
 // long vowels
 
 phoneme A
   vwl starttype #a endtype #a
   length 200
-  FMT(vowel/aa_9)
-endphoneme
-
-phoneme a
-  vwl starttype #a endtype #a
-  length 200
-  FMT(vowel/a_5)
+  FMT(vowel/aa_8)
 endphoneme
 
 phoneme &
@@ -63,17 +37,16 @@ phoneme &
   FMT(vowel/ee_2)
 endphoneme
 
-phoneme e
+phoneme E
   vwl starttype #e endtype #e
   length 200
-  flag1
-  FMT(vdiph2/ii@_2)
+  FMT(vowel/e_mid)
 endphoneme
 
-phoneme E
-  vwl starttype @ endtype @
+phoneme e
+  vwl  starttype #e  endtype #e
   length 200
-  FMT(vowel/@_fnt)
+  FMT(vwl_ru/e)
 endphoneme
 
 phoneme i
@@ -88,45 +61,41 @@ phoneme o
   FMT(vowel/o_3)
 endphoneme
 
-phoneme Y
+phoneme 8
   vwl starttype #@ endtype #@
-  length 200
-  flag1
-  FMT(vowel/y#_4)
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/8)
 endphoneme
 
-phoneme u
-  vwl starttype #u endtype #u
-  length 200
-  FMT(vowel/u_bck3)
+phoneme d
+  import_phoneme base1/d[
 endphoneme
 
-
-
-phoneme r
-  import_phoneme base1/R2
+phoneme t    // dental /t/ from sq
+  import_phoneme base1/t[
 endphoneme
 
-phoneme t
-  import_phoneme base2/t
+phoneme ts
+  import_phoneme consonants/ts
 endphoneme
 
 phoneme G
-  import_phoneme base1/r"
+  import_phoneme base1/Q
 endphoneme
 
-phoneme X
-  vls uvl frc
-  lengthmod 3
-  Vowelin f1=0  f2=2300 200 400  f3=-100 100
-  Vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
-  lengthmod 3
-  WAV(ufric/x2, 60)
+phoneme s.
+  import_phoneme base1/s.
 endphoneme
 
-phoneme L
-  import_phoneme sq/ll
-//  import_phoneme base1/l-
+phoneme z.
+  import_phoneme base1/z.
+endphoneme
+
+phoneme L   // velar L
+  import_phoneme base1/L
 endphoneme
 
 phoneme l
