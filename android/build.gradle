@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'com.android.tools.build:gradle:7.4.2'
     }
 }
 plugins {
@@ -27,7 +27,8 @@ dependencies {
 
 android {
     compileSdk 33
-    ndkVersion "25.1.8937393"
+    buildToolsVersion "33.0.2"
+    ndkVersion "25.2.9519653"
     namespace "com.reecedunn.espeak"
 
     defaultConfig {

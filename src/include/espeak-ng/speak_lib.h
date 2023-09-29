@@ -416,8 +416,8 @@ typedef enum {
   espeakWORDGAP=7,
   espeakOPTIONS=8,   // reserved for misc. options.  not yet used
   espeakINTONATION=9,
+  espeakSSML_BREAK_MUL=10,
 
-  espeakRESERVED1=10,
   espeakRESERVED2=11,
   espeakEMPHASIS,   /* internal use */
   espeakLINELENGTH, /* internal use */

@@ -5,13 +5,13 @@
   <string name="tts_settings_label">Ustawienia zamiany tekstu na mowę eSpeak</string>
   <!--Source: Preference title.
         Description: Title for the preference that controls default voice pitch.-->
-  <string name="setting_default_pitch">Domyślny ton</string>
+  <string name="setting_default_pitch">Wysokość</string>
   <!--Source: Preference title.
         Description: Title for the preference that controls default speech rate.-->
-  <string name="setting_default_rate">Mnożnik szybkości mowy</string>
+  <string name="setting_default_rate">Prędkość mowy</string>
   <!--Source: Dialog text.
         Description: Status message shown when installing voice data.-->
-  <string name="installing_voice_data">Instalowanie danych głosowych...</string>
+  <string name="installing_voice_data">Instalowanie danych głosowych…</string>
   <!--Source: Dialog message.
         Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
   <string name="set_default_message">eSpeak nie jest ustawiony jako domyślny mechanizm odczytywania tekstu.</string>
@@ -32,11 +32,40 @@
   <string name="tts_settings">Ogólne ustawienia odczytywania tekstu</string>
   <!--Source: Button label.
         Description: Button for launching eSpeak-specific settings.-->
-  <string name="engine_settings">Ustawienia eSpeak</string>
+  <string name="engine_settings">Ustawienia eSpeak TTS</string>
   <!--Source: Label text.
         Description: Label informing the user that eSpeak is loading resources.-->
-  <string name="loading">Wczytywanie. Czekaj...</string>
+  <string name="loading">Wczytywanie. Czekaj…</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">To jest przykład tekstu mówionego przy ustawieniu %s</string>
+  <string name="status">Status</string>
+  <string name="tts_version">Wersja eSpeak</string>
+  <string name="speak">Powiedz</string>
+  <string name="ssml">Wczytaj Szablon SSML</string>
+  <string name="synthesis_demo">Wprowadź tekst do powiedzenia:</string>
+  <string name="espeak_volume">Głośność</string>
+  <string name="formatter_wpm">%s SNM</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Ustaw domyślną</string>
+  <string name="espeak_pitch_range">Zakres wysokości</string>
+  <string name="espeak_variant">Wariant głosu</string>
+  <string name="espeak_speak_punctuation">Interpunkcja mowy</string>
+  <string name="punctuation_all">Wszystko</string>
+  <string name="punctuation_custom">Własna</string>
+  <string name="punctuation_custom_fmt">Własna: %s</string>
+  <string name="punctuation_none">Brak</string>
+  <string name="punctuation_characters">Znaki interpunkcji</string>
+  <string name="category">Kategoria</string>
+  <string name="variant">Wariant</string>
+  <string name="variant_male">Męski</string>
+  <string name="variant_female">Żeński</string>
+  <string name="variant_default">Domyślny</string>
+  <string name="variant_n">Wariant %d</string>
+  <string name="variant_young">Młody</string>
+  <string name="variant_old">Stary</string>
+  <string name="variant_croak">Rechotliwy</string>
+  <string name="variant_whisper">Szeptany</string>
+  <string name="import_voice_title">Importuj słownik eSpeak</string>
+  <string name="import_voice_description">Zaimportuj plik słownika głosowego eSpeak z karty SD.</string>
 </resources>

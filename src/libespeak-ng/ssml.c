@@ -882,6 +882,8 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		if ((attr2 = GetSsmlAttribute(px, "time")) != NULL) {
 			value2 = attrnumber(attr2, 0, 1);   // pause in mS
 
+			value2 = value2 * speech_parameters[espeakSSML_BREAK_MUL] / 100;
+
 			int wpm = speech_parameters[espeakRATE];
 			espeak_SetParameter(espeakRATE, wpm, 0);
 

@@ -12,6 +12,7 @@ include(cmake/deps.cmake)
 include(cmake/config.cmake)
 add_subdirectory(src)
 include(cmake/data.cmake)
+include(cmake/docs.cmake)
 
 include(cmake/package.cmake)
 include(CPack)
@@ -29,3 +30,7 @@ message(STATUS "  libpcaudio: ${USE_LIBPCAUDIO} (${PCAUDIO_LIB} ${PCAUDIO_INC})"
 message(STATUS "  klatt: ${USE_KLATT}")
 message(STATUS "  speech-player: ${USE_SPEECHPLAYER}")
 message(STATUS "  async: ${USE_ASYNC}")
+
+install(
+  DIRECTORY vim/ftdetect vim/syntax DESTINATION share/vim/vimfiles
+)

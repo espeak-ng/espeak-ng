@@ -7,4 +7,3 @@ add_library(ucd STATIC
   src/tostring.c
 )
 target_include_directories(ucd PUBLIC src/include)
-install(TARGETS ucd ARCHIVE)

@@ -447,15 +447,12 @@ phoneme V#
   IF thisPh(isMaxStress) THEN
     IF prevPhW(j) THEN
       ChangePhoneme(A)
-    ELSE
-      ChangePhoneme(ja)
     ENDIF
   ENDIF
 
   IF prevPhW(isPalatal) THEN
     ChangePhoneme(V)
   ENDIF
-
   FMT(vowel/V_2)
 endphoneme
 

@@ -16,6 +16,7 @@
  *             <http://www.gnu.org/licenses/>.
  */
 
+#undef NDEBUG
 #include "config.h"
 #include "common.h"
 

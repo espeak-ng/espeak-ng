@@ -8,10 +8,11 @@ test_ssml_audio() {
 	TEST_NAME=$1
 	EXPECTED=$2
 	TEST_TEXT=$3
+	OPTS=$4
 
 	echo "testing ${TEST_NAME}"
 	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" \
+		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" ${OPTS} \
 		> actual.txt || exit 1
 	< actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
 	echo "${EXPECTED}" > expected.txt
@@ -56,3 +57,6 @@ test_ssml_audio "<prosody 200%><break 1000ms>" 64213dbaf593b139b0b21840ba938cf59
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 4b4e30a2cfff1889972f013e514e81c1108283a4 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 9849f0d27f5641db6da1a8aea82578e83656d323 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 32a9c2887ec5b7d9d33d5503518ac0d384e43448 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1
+
+# Test break multiplier
+test_ssml_audio "<break 1000ms> mul=10" 9f3b0f34eb605fcecfc573fc215626f634b46756 "<speak>Break<break time=\"1000ms\"/>test</speak>" "--ssml-break=10"

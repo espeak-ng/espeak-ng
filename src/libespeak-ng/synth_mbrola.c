@@ -164,7 +164,7 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 	MBROLA_TAB *pr;
 	PHONEME_TAB *other_ph;
 	bool found = false;
-	static int mnem;
+	int mnem;
 
 	// control
 	// bit 0  skip the next phoneme

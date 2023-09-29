@@ -320,7 +320,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 			}
 			c = ' ';
 		} else if (rb == RULE_ENDING) {
-			static const char *flag_chars = "eipvdfq tba ";
+			static const char flag_chars[] = "eipvdfq tba ";
 			flags = ((rule[0] & 0x7f)<< 8) + (rule[1] & 0x7f);
 			suffix_char = 'S';
 			if (flags & (SUFX_P >> 8))

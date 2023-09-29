@@ -16,6 +16,7 @@ jobs:
         include:
           - arch: x86-32
             archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archconfig: "--host=i686-linux-gnu"
             archconfigflags: "-m32"
 
           - arch: x86-64
@@ -31,11 +32,11 @@ jobs:
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
-      run: CC=clang CXX=clang++
-           CFLAGS="${{ matrix.archconfigflags }} -fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
+      run: CC="clang ${{ matrix.archconfigflags }}" CXX="clang++ ${{ matrix.archconfigflags }}"
+           CFLAGS="-fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
            CXXFLAGS="${{ matrix.archconfigflags }} -fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
            LDFLAGS="-fsanitize=address,undefined -lubsan"
-           ./configure --with-libfuzzer
+           ./configure ${{ matrix.archconfig }} --with-libfuzzer
     - name: Store the fuzzer config
       if: ${{ failure() }}
       uses: actions/upload-artifact@v3

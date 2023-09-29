@@ -447,7 +447,7 @@ void DoSonicSpeed(int value);
 #define PITCHfall   0  // standard pitch envelopes
 #define PITCHrise   2
 #define N_ENVELOPE_DATA   20
-extern const unsigned char *envelope_data[N_ENVELOPE_DATA];
+extern const unsigned char *const envelope_data[N_ENVELOPE_DATA];
 
 extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;

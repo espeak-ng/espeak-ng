@@ -262,7 +262,7 @@ man1_MANS += src/speak-ng.1
 endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
-src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS}
+src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
 src_speak_ng_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 
 bin_PROGRAMS += src/espeak-ng
@@ -271,7 +271,7 @@ if HAVE_RONN
 man1_MANS += src/espeak-ng.1
 endif
 
-src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS}
+src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
 src_espeak_ng_SOURCES = src/espeak-ng.c
 if HAVE_LIBFUZZER
 nodist_EXTRA_src_espeak_ng_SOURCES = force-cxx-linking.cxx
@@ -354,14 +354,11 @@ endif
 
 
 if HAVE_LIBFUZZER
-tests_ssml_fuzzer_test_CFLAGS += -fsanitize=fuzzer
-tests_ssml_fuzzer_test_LDFLAGS = -fsanitize=fuzzer
-
 noinst_PROGRAMS =  tests/fuzzing/synth_fuzzer.test
 tests_fuzzing_synth_fuzzer_test_SOURCES = tests/fuzzing/synth_fuzzer.c
 tests_fuzzing_synth_fuzzer_test_LDADD =  src/libespeak-ng.la
-tests_fuzzing_synth_fuzzer_test_CFLAGS=  ${AM_CFLAGS} -fsanitize=fuzzer -DPATH_ESPEAK_DATA=\"$(abs_top_srcdir)/espeak-ng-data\" -Isrc/libespeak-ng
-tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -fsanitize=fuzzer -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS}
+tests_fuzzing_synth_fuzzer_test_CFLAGS=  ${AM_CFLAGS} -DPATH_ESPEAK_DATA=\"$(abs_top_srcdir)/espeak-ng-data\" -Isrc/libespeak-ng
+tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
 else
 tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
 endif
