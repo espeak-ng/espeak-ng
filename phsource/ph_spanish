@@ -1,6 +1,8 @@
+
 //====================================================
 //  Spanish  - based on Base2
 //====================================================
+
 
 phoneme a
   vwl starttype #a endtype #a
@@ -80,6 +82,7 @@ phoneme oI
   ENDIF
   FMT(vwl_es/ooi)
 endphoneme
+
 
 phoneme g
   vcd vel stp
@@ -186,5 +189,4 @@ phoneme r
 
   CALL base1/*
 endphoneme
-
 
