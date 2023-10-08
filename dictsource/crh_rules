@@ -1,0 +1,169 @@
+// This file is UTF-8 encoded
+// translation rules for crh
+
+// Vowels
+.L01 a ı o u
+.L02 e i ö ü
+.L03 â
+
+// Consonants
+.L04 b c ç d f g ğ h j k l m n ñ p q r s ş t v y z
+
+.group a
+        a            A
+        a     (_    'A
+        a    (L04_  'A
+        akmız (_    'Akm@z
+        anımız (_   'An@m@z
+        alar  (_    'ALAR
+        asın  (_    'As@n
+        asınız (_   'As@n@z
+        aymız  (_   'Ajm@z
+
+.group â
+        â           a
+        â     (_   'a
+        â     (L04_ 'a
+
+.group b
+        b           b
+        bb          b:
+
+.group c
+        c           dZ
+        cc          dZ:
+        ce     (_  =dZe
+
+.group ç
+        ç           tS
+        çç          tS:
+        çe     (_  =tSe
+
+.group d
+        d           d
+        dd          d:
+        da     (_  d'A
+        de     (_  d'e
+        dın    (_  d'@n
+        din    (_  d'In
+        dıñ    (_  d'@N
+        diñ    (_  d'IN
+        dır    (_  =d@R
+        dir    (_  =dIR
+
+.group e
+        e           e
+        e      (_  'e
+        e      (L04_ 'e
+        eler   (_   =eleR
+        esın   (_   'es@n
+        esınız (_   'es@n@z
+
+.group f
+        f            f
+
+.group g
+        g            g
+        g     (L03   J
+        gg           g:
+
+.group ğ
+        ğ            Q
+        
+.group h
+        h            x
+
+.group ı
+        ı            @
+        ı     (_    '@
+        ı     (L04_ '@
+        ın    (_    '@n
+        ınız  (_    =@n@z
+        ır    (_    '@r
+
+.group i
+        i           I
+        i    (_    'I
+        i    (L04_ 'I
+        ir   (_    =IR
+        iya  (_    =I;A                                                                
+
+.group j
+        j           Z
+
+.group k
+        k           k
+        k    (L03   c
+        kk          k:
+
+.group l
+        l           l
+        l    (L02   L
+  L02)  l    (K     L
+        lar  (_    =LAR
+        ler  (_    =leR
+
+.group m
+        m           m
+        
+.group n
+        n           n
+
+.group ñ
+        ñ           N
+
+.group o
+        o           o
+        o    (_    'o
+        o    (L04_ 'o
+
+.group ö
+        ö           8
+        ö    (_    '8
+        ö    (L04_ '8
+       
+.group p
+        p           p
+        pp          p:
+
+.group q
+        q           q
+        qq          q:
+
+.group r
+        r           R
+
+.group s
+        s           s
+        sın   (_   =s@n
+        sınız (_   =s@n@z 
+        sız   (_   =s@z
+        sin   (_   =sIn
+        siniz (_   =sInIz
+        siz   (_   =sIz
+
+.group ş
+        ş           S
+
+.group t
+        t           t
+        ts          ts
+        tt          t:
+
+.group u
+        u           u
+        u    (_    'u
+        u    (L04_ 'u
+
+.group v
+        v           w
+
+.group y
+        y           j
+        
+.group z
+        z           z     
+
+.group 
+       $            doLAR
+      

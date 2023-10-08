@@ -1,0 +1,82 @@
+// This file is UTF-8 encoded
+// translation rules for Crimean Tatar
+
+// letters
+
+_a          A
+b           be
+c           dZe
+ç           tSe
+d           de
+_e          e
+f           fe
+g           ge
+ğ           Qe
+h           xe
+_ı          @
+_i          I
+j           Ze
+k           ke
+l           le
+m           me
+n           ne
+ñ           Ne
+_o          o
+_ö          8
+p           pe
+q           q@
+r           eR
+s           es
+ş           Se
+t           te
+_u          u
+_ü          y
+v           we
+y           je
+z           ez
+
+// numbers
+
+_0      s@f@R
+_1      bIR
+_2      ekI
+_3      ytS
+_4      d8Rt
+_5      beS
+_6      ALt@
+_7      jedI
+_8      sekIz
+_9      doquz
+_10     on
+_11     onbIR
+_12     onekI
+_13     onytS
+_14     ond8Rt
+_15     onbeS
+_16     onALt@
+_17     onjedI
+_18     onsekIz
+_19     ondoquz
+_2X     j@g@Rm@
+_3X     otUz
+_4X     q@Rq
+_5X     ellI
+_6X     ALtm@S
+_7X     jetm@S
+_8X     seksen
+_9X     doqsAn
+_0C     jyz
+_1C     jyz
+_2C     ekIjyz
+_3C     ytSjyz
+_4C     d8Rtjyz
+_5C     beSjyz
+_6C     ALt@jyz
+_7C     jedIjyz
+_8C     sekIzjyz
+_9C     doquzjyz
+_0M1    mIN
+_0M2    mIllIon
+_0M3    mIllIARd
+
+_dpt    _vIrg,yl
