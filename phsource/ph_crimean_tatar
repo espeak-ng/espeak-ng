@@ -37,7 +37,7 @@ phoneme o
   FMT(vwl_ru/o)
 endphoneme
 
-phoneme U
+phoneme u
   vwl starttype #u endtype #u
   length 180
   FMT(vwl_ru/u)
