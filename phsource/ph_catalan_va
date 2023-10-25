@@ -218,9 +218,11 @@ phoneme R
   lengthmod 6
   ipa r
   IF thisPh(isWordEnd) THEN
-    ChangePhoneme(**)
-  ELIF nextPh(isWordEnd) AND nextPh(s) THEN
-    ChangePhoneme(**)
+    IF nextPh(R) THEN
+        ipa NULL
+    ELSE
+        ChangePhoneme(**)
+    ENDIF
   ENDIF
   Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
   Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk

@@ -17,8 +17,12 @@ phoneme e
   length 170
   
   IF thisPh(isUnstressed) THEN
-    IF prevVowel(O) AND thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
-        ChangePhoneme(o)
+    IF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
+        IF prevVowel(O) OR prevVowel(o) THEN
+            ChangePhoneme(o)
+        ELSE
+            ChangePhoneme(@)
+        ENDIF
     ELSE
         ChangePhoneme(@)
     
@@ -57,7 +61,7 @@ phoneme o
   FMT(vowel/o)
 endphoneme
 
-
+// En alguns parlars mallorquins i occidentals, és habitual el tancament de la o àtona en u quan es troba en síl·laba àtona seguida d’una síl·laba tònica o pretònica amb [i] i, més esporàdicament, seguida d’una síl·laba tònica amb [u] o, només en parlars mallorquins, d’una síl·laba pretònica amb [u]: conill, cosí, coixí, tossir, cossiol, comú, consumirà [u]. També és habitual el tancament de la o àtona en u quan la o va precedida d’una consonant palatoalveolar, com en Josep, Joan o joventut [u].
 
 
 phoneme @    //  Schwa, e.g. alph**a**

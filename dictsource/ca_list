@@ -40,8 +40,6 @@ _rng	an'el^     // diacrític en forma de rodoneta
 _stk	b'aRa	  
 _tld	t'itl^a
 
-
-
 // names of symbols
     _.	pun
 ?3  _.	punt
@@ -118,10 +116,13 @@ _16	s'Edze
 ?3 _16	s'eddze
 _17	dis'Et
 ?3 _17  d'eset
+?4 _17  d'eset
 _18	diB'ujt
 ?3 _18 d'iujt
+?4 _18 dev'ujt
 _19	din'Ow
 ?3 _19 d'enOw
+?4 _19 d'enOw
 _20	b'int
 ?3 _20	v'int
 _2X	b,inti
@@ -425,6 +426,7 @@ per	$u  $alt4
 pel	$u $nounf
 pels	$u $nounf
 ans $u
+des des
 
 amb $u	
 entre	
@@ -539,6 +541,7 @@ coure   k'ow**e    $noun
 circular    sirkul'a    $verb
 gens    gEns    $noun
 ?1  poder poD'e  $verb
+tens     t'ens   $verb
 
 /// alternative rules
 //// words with e
@@ -650,6 +653,7 @@ feltre	$alt1
 feltres	$alt1
 fem	$alt1   $noun
 fems	$alt1 
+fes	$alt1 
 fletxa	$alt1
 fletxes	$alt1
 gema	$alt1
@@ -682,6 +686,10 @@ ludoteces	$alt1
 masdeus	$alt1
 mastigonema	$alt1
 mastigonemes	$alt1
+mateix	$alt1
+mateixa	$alt1
+mateixos	$alt1
+mateixes	$alt1
 mediateca	$alt1
 mediateces	$alt1
 menjo	$alt1
@@ -808,6 +816,7 @@ verra	$alt1
 verres	$alt1
 verso	$alt1
 versos	$alt1
+ve	$alt1
 ves	$alt1
 ?2 veure    $alt1
 ?2 veig     $alt1
@@ -857,6 +866,8 @@ aqueix	$alt2
 aqueixos	$alt2
 ?1 aquell	$alt2
 ?1 aquells	$alt2
+?1 aquella	$alt2
+?1 aquelles	$alt2
 ?1 aquest	$alt2
 ?1 aquests	$alt2
 ?1 aquesta	$alt2
@@ -1185,7 +1196,6 @@ faenes	$alt2
 ?1 fatxenda	$alt2
 ?1 fatxendes	$alt2
 fe	$alt2
-fes	$alt2
 fems	$alt2
 fendi	$alt2
 fendis	$alt2
@@ -1595,6 +1605,7 @@ plepa	$alt2
 plepes	$alt2
 plexe	$alt2
 plexes	$alt2
+poder	$alt2
 poder	$alt2 $alt4 $noun
 poders	$alt2
 poiquiloterm	$alt2
@@ -2264,7 +2275,9 @@ dolls	$alt1
 dolla	$alt1
 dolles	$alt1
 dolç	$alt1
-dolçs	$alt1
+dolços	$alt1
+dolça	$alt1
+dolces	$alt1
 dom	$alt1
 doms	$alt1
 doma	$alt1
@@ -3812,6 +3825,8 @@ molecular	$alt4
 moleculars	$alt4
 mor	$alt4
 mors	$alt4
+motor	$alt4
+motors	$alt4
 mular	$alt4
 mulars	$alt4
 mur	$alt4
@@ -3906,6 +3921,8 @@ respirs	$alt4
 revers	$alt4
 Rober	$alt4
 Robers	$alt4
+rotor   $alt4
+rotors  $alt4
 Ruber	$alt4
 Rubers	$alt4
 sabor	$alt4
@@ -4014,14 +4031,453 @@ Xóvars	$alt4
 zíngar	$alt4
 zíngars	$alt4
 
+//// first person verbs finished by -r (balearic)
+?4	abander	$alt4
+?4	abeur	$alt4
+?4	abjur	$alt4
+?4	abroquer	$alt4
+?4	acalor	$alt4
+?4	acapar	$alt4
+?4	acar	$alt4
+?4	acceler	$alt4
+?4	acer	$alt4
+?4	aclapar	$alt4
+?4	acolor	$alt4
+?4	acultur	$alt4
+?4	acur	$alt4
+?4	adiner	$alt4
+?4	adjur	$alt4
+?4	administr	$alt4
+?4	admir	$alt4
+?4	adolor	$alt4
+?4	ador	$alt4
+?4	adulter	$alt4
+?4	adver	$alt4
+?4	aferr	$alt4
+?4	afigur	$alt4
+?4	afiler	$alt4
+?4	aflor	$alt4
+?4	agarr	$alt4
+?4	aglomer	$alt4
+?4	albir	$alt4
+?4	alegr	$alt4
+?4	allar	$alt4
+?4	alliber	$alt4
+?4	alter	$alt4
+?4	amaner	$alt4
+?4	amar	$alt4
+?4	amarr	$alt4
+?4	amer	$alt4
+?4	amorr	$alt4
+?4	ampr	$alt4
+?4	amuller	$alt4
+?4	amur	$alt4
+?4	ancor	$alt4
+?4	aombr	$alt4
+?4	apesar	$alt4
+?4	apoder	$alt4
+?4	apur	$alt4
+?4	aquarter	$alt4
+?4	arbitr	$alt4
+?4	arbor	$alt4
+?4	arbr	$alt4
+?4	arrengler	$alt4
+?4	aspir	$alt4
+?4	assegur	$alt4
+?4	assessor	$alt4
+?4	assever	$alt4
+?4	assilvestr	$alt4
+?4	astor	$alt4
+?4	aterr	$alt4
+?4	atresor	$alt4
+?4	atrinxer	$alt4
+?4	atur	$alt4
+?4	augur	$alt4
+?4	autodepur	$alt4
+?4	avar	$alt4
+?4	aventur	$alt4
+?4	barr	$alt4
+?4	calibr	$alt4
+?4	capgir	$alt4
+?4	captur	$alt4
+?4	carbur	$alt4
+?4	caricatur	$alt4
+?4	castr	$alt4
+?4	celebr	$alt4
+?4	censur	$alt4
+?4	centr	$alt4
+?4	cercior	$alt4
+?4	clausur	$alt4
+?4	clor	$alt4
+?4	cobr	$alt4
+?4	cogener	$alt4
+?4	colider	$alt4
+?4	col·labor	$alt4
+?4	commemor	$alt4
+?4	commensur	$alt4
+?4	compar	$alt4
+?4	compr	$alt4
+?4	concelebr	$alt4
+?4	concentr	$alt4
+?4	concorr	$alt4
+?4	condecor	$alt4
+?4	confeder	$alt4
+?4	configur	$alt4
+?4	conglomer	$alt4
+?4	conjectur	$alt4
+?4	conjur	$alt4
+?4	consagr	$alt4
+?4	consider	$alt4
+?4	conspir	$alt4
+?4	contrabalançar	$alt4
+?4	cooper	$alt4
+?4	corr	$alt4
+?4	corrobor	$alt4
+?4	cronometr	$alt4
+?4	cur	$alt4
+?4	daur	$alt4
+?4	declar	$alt4
+?4	decor	$alt4
+?4	deflagr	$alt4
+?4	degener	$alt4
+?4	deliber	$alt4
+?4	delir	$alt4
+?4	demacr	$alt4
+?4	demor	$alt4
+?4	demostr	$alt4
+?4	denigr	$alt4
+?4	depauper	$alt4
+?4	deplor	$alt4
+?4	depur	$alt4
+?4	desacalor	$alt4
+?4	desacceler	$alt4
+?4	desaferr	$alt4
+?4	desafor	$alt4
+?4	desarbor	$alt4
+?4	desbarr	$alt4
+?4	descarbur	$alt4
+?4	descar	$alt4
+?4	desceler	$alt4
+?4	descentr	$alt4
+?4	desclorur	$alt4
+?4	desconcentr	$alt4
+?4	desconsider	$alt4
+?4	descorr	$alt4
+?4	descur	$alt4
+?4	desemmascar	$alt4
+?4	desempaper	$alt4
+?4	desempar	$alt4
+?4	desempenyor	$alt4
+?4	desenamor	$alt4
+?4	desenterr	$alt4
+?4	desequilibr	$alt4
+?4	desesper	$alt4
+?4	desestructur	$alt4
+?4	desferr	$alt4
+?4	desfigur	$alt4
+?4	desflor	$alt4
+?4	desguitarr	$alt4
+?4	deshonr	$alt4
+?4	desintegr	$alt4
+?4	deslliur	$alt4
+?4	desllustr	$alt4
+?4	desmembr	$alt4
+?4	desmillor	$alt4
+?4	despar	$alt4
+?4	desquadr	$alt4
+?4	dessulfur	$alt4
+?4	desterr	$alt4
+?4	desvalor	$alt4
+?4	desxifr	$alt4
+?4	deterior	$alt4
+?4	devor	$alt4
+?4	discorr	$alt4
+?4	dispar	$alt4
+?4	doctor	$alt4
+?4	dur	$alt4
+?4	edulcor	$alt4
+?4	eixancarr	$alt4
+?4	elabor	$alt4
+?4	elucubr	$alt4
+?4	embarr	$alt4
+?4	emboir	$alt4
+?4	emigr	$alt4
+?4	emmar	$alt4
+?4	emmascar	$alt4
+?4	emmotllur	$alt4
+?4	emmotlur	$alt4
+?4	empaper	$alt4
+?4	empar	$alt4
+?4	emparr	$alt4
+?4	empedr	$alt4
+?4	empenyor	$alt4
+?4	empitjor	$alt4
+?4	emplastr	$alt4
+?4	empolvor	$alt4
+?4	empr	$alt4
+?4	enamor	$alt4
+?4	enarbor	$alt4
+?4	encabestr	$alt4
+?4	encaparr	$alt4
+?4	encarcar	$alt4
+?4	encarcer	$alt4
+?4	encar	$alt4
+?4	encer	$alt4
+?4	enclaustr	$alt4
+?4	encofr	$alt4
+?4	enegendr	$alt4
+?4	engendr	$alt4
+?4	engraner	$alt4
+?4	enlair	$alt4
+?4	enllustr	$alt4
+?4	enquadr	$alt4
+?4	enreder	$alt4
+?4	enregistr	$alt4
+?4	enriostr	$alt4
+?4	ensinistr	$alt4
+?4	ensobr	$alt4
+?4	ensorr	$alt4
+?4	ensostr	$alt4
+?4	ensucr	$alt4
+?4	entafor	$alt4
+?4	enterr	$alt4
+?4	entreobr	$alt4
+?4	entr	$alt4
+?4	enumer	$alt4
+?4	envidr	$alt4
+?4	envinagr	$alt4
+?4	enyor	$alt4
+?4	equilibr	$alt4
+?4	equipar	$alt4
+?4	err	$alt4
+?4	esborr	$alt4
+?4	escair	$alt4
+?4	escalabr	$alt4
+?4	escombr	$alt4
+?4	escor	$alt4
+?4	escorr	$alt4
+?4	escriptur	$alt4
+?4	escur	$alt4
+?4	esfondr	$alt4
+?4	esgarr	$alt4
+?4	esguerr	$alt4
+?4	esparver	$alt4
+?4	esper	$alt4
+?4	espir	$alt4
+?4	esquarter	$alt4
+?4	esquer	$alt4
+?4	estir	$alt4
+?4	estructur	$alt4
+?4	esvar	$alt4
+?4	esver	$alt4
+?4	evapor	$alt4
+?4	exager	$alt4
+?4	exasper	$alt4
+?4	excarcer	$alt4
+?4	exclaustr	$alt4
+?4	execr	$alt4
+?4	exoner	$alt4
+?4	expector	$alt4
+?4	expir	$alt4
+?4	explor	$alt4
+?4	factur	$alt4
+?4	feder	$alt4
+?4	ferr	$alt4
+?4	figur	$alt4
+?4	filtr	$alt4
+?4	fir	$alt4
+?4	fluor	$alt4
+?4	folr	$alt4
+?4	fractur	$alt4
+?4	frustr	$alt4
+?4	gebr	$alt4
+?4	gener	$alt4
+?4	gir	$alt4
+?4	honor	$alt4
+?4	honr	$alt4
+?4	idolatr	$alt4
+?4	ignor	$alt4
+?4	il·lustr	$alt4
+?4	immigr	$alt4
+?4	imper	$alt4
+?4	impetr	$alt4
+?4	implor	$alt4
+?4	inaugur	$alt4
+?4	inciner	$alt4
+?4	incorpor	$alt4
+?4	incorr	$alt4
+?4	infiltr	$alt4
+?4	infravalor	$alt4
+?4	inspir	$alt4
+?4	instaur	$alt4
+?4	integr	$alt4
+?4	involucr	$alt4
+?4	iter	$alt4
+?4	itiner	$alt4
+?4	jur	$alt4
+?4	labor	$alt4
+?4	lacer	$alt4
+?4	lacr	$alt4
+?4	lider	$alt4
+?4	lladr	$alt4
+?4	llastr	$alt4
+?4	llaur	$alt4
+?4	lliur	$alt4
+?4	llustr	$alt4
+?4	lucr	$alt4
+?4	lustr	$alt4
+?4	macer	$alt4
+?4	madur	$alt4
+?4	major	$alt4
+?4	maniobr	$alt4
+?4	manufactur	$alt4
+?4	marr	$alt4
+?4	massacr	$alt4
+?4	menysvalor	$alt4
+?4	mesur	$alt4
+?4	migr	$alt4
+?4	mil·limetr	$alt4
+?4	millor	$alt4
+?4	minor	$alt4
+?4	mir	$alt4
+?4	moder	$alt4
+?4	monitor	$alt4
+?4	mor	$alt4
+?4	mostr	$alt4
+?4	motllur	$alt4
+?4	motlur	$alt4
+?4	murmur	$alt4
+?4	mur	$alt4
+?4	nafr	$alt4
+?4	narr	$alt4
+?4	numer	$alt4
+?4	obliter	$alt4
+?4	obr	$alt4
+?4	obtur	$alt4
+?4	ocorr	$alt4
+?4	olor	$alt4
+?4	ombr	$alt4
+?4	oper	$alt4
+?4	or	$alt4
+?4	orquestr	$alt4
+?4	par	$alt4
+?4	pastur	$alt4
+?4	penetr	$alt4
+?4	perdur	$alt4
+?4	perfor	$alt4
+?4	peror	$alt4
+?4	perpetr	$alt4
+?4	persever	$alt4
+?4	pignor	$alt4
+?4	plor	$alt4
+?4	ponder	$alt4
+?4	postgener	$alt4
+?4	prefigur	$alt4
+?4	prepar	$alt4
+?4	procur	$alt4
+?4	prolifer	$alt4
+?4	prosper	$alt4
+?4	prostr	$alt4
+?4	quadr	$alt4
+?4	quarter	$alt4
+?4	quilometr	$alt4
+?4	ranur	$alt4
+?4	rasur	$alt4
+?4	reassegur	$alt4
+?4	recalibr	$alt4
+?4	recaptur	$alt4
+?4	recobr	$alt4
+?4	recompr	$alt4
+?4	reconcentr	$alt4
+?4	reconfigur	$alt4
+?4	reconsider	$alt4
+?4	recorr	$alt4
+?4	recuper	$alt4
+?4	reelabor	$alt4
+?4	reequilibr	$alt4
+?4	reestructur	$alt4
+?4	refriger	$alt4
+?4	regener	$alt4
+?4	regir	$alt4
+?4	registr	$alt4
+?4	reinaugur	$alt4
+?4	reincorpor	$alt4
+?4	reinstaur	$alt4
+?4	reintegr	$alt4
+?4	reiter	$alt4
+?4	rememor	$alt4
+?4	remir	$alt4
+?4	remuner	$alt4
+?4	renombr	$alt4
+?4	reobr	$alt4
+?4	reoper	$alt4
+?4	reorquestr	$alt4
+?4	repar	$alt4
+?4	respir	$alt4
+?4	ressembr	$alt4
+?4	restaur	$alt4
+?4	retir	$alt4
+?4	revalor	$alt4
+?4	reverber	$alt4
+?4	salpebr	$alt4
+?4	satur	$alt4
+?4	sembr	$alt4
+?4	separ	$alt4
+?4	serr	$alt4
+?4	sincer	$alt4
+?4	sobresatur	$alt4
+?4	sobrevalor	$alt4
+?4	sobr	$alt4
+?4	socarr	$alt4
+?4	socorr	$alt4
+?4	sospir	$alt4
+?4	soterr	$alt4
+?4	sotsobr	$alt4
+?4	subministr	$alt4
+?4	subvalor	$alt4
+?4	sulfur	$alt4
+?4	super	$alt4
+?4	supur	$alt4
+?4	sur	$alt4
+?4	sutur	$alt4
+?4	temper	$alt4
+?4	textur	$alt4
+?4	timbr	$alt4
+?4	tir	$alt4
+?4	toler	$alt4
+?4	torr	$alt4
+?4	tortur	$alt4
+?4	transcorr	$alt4
+?4	transfigur	$alt4
+?4	transliter	$alt4
+?4	transmigr	$alt4
+?4	transpir	$alt4
+?4	traspaper	$alt4
+?4	tritur	$alt4
+?4	ulcer	$alt4
+?4	valor	$alt4
+?4	vener	$alt4
+?4	vertebr	$alt4
+?4	vibr	$alt4
+?4	vir	$alt4
+?4	vituper	$alt4
+?4	vocifer	$alt4
+?4	vulner	$alt4
+?4	xarr	$alt4
+?4	xerr	$alt4
+?4	xifr	$alt4
+
 /// final t/d is not silent
 absolt	$alt4
+concert	$alt4
 resolt	$alt4
 insult	$alt4
 ocult	$alt4
 indult	$alt4
 cobalt 	$alt4
+sord	$alt4
 sort	$alt4
+mort	$alt4
 tard	$alt4
 
 /// h is pronounced X
@@ -4033,47 +4489,49 @@ haik	$alt6
 haiks	$alt6
 halal	$alt6
 halant	$alt6
-halà	$alt5
-halada	$alt5
-halades	$alt5
-halam	$alt5
-halant	$alt5
-halara	$alt5
-halarà	$alt5
-halaran	$alt5
-halaràs	$alt5
-halaré	$alt5
-halarem	$alt5
-halàrem	$alt5
-halaren	$alt5
-halares	$alt5
-halareu	$alt5
-halàreu	$alt5
-halaria	$alt5
-halaríem	$alt5
-halarien	$alt5
-halaries	$alt5
-halaríeu	$alt5
-halàs	$alt5
-halàssim	$alt5
-halassin	$alt5
-halassis	$alt5
+hala	$alt6
+halà	$alt6
+halada	$alt6
+halades	$alt6
+halam	$alt6
+halant	$alt6
+halar	$alt6
+halara	$alt6
+halarà	$alt6
+halaran	$alt6
+halaràs	$alt6
+halaré	$alt6
+halarem	$alt6
+halàrem	$alt6
+halaren	$alt6
+halares	$alt6
+halareu	$alt6
+halàreu	$alt6
+halaria	$alt6
+halaríem	$alt6
+halarien	$alt6
+halaries	$alt6
+halaríeu	$alt6
+halàs	$alt6
+halàssim	$alt6
+halassin	$alt6
+halassis	$alt6
 halàssiu	$alt6
-halau	$alt5
-halava	$alt5
-halàvem	$alt5
-halaven	$alt5
-halaves	$alt5
-halàveu	$alt5
-hale	$alt5
-halem	$alt5
-halés	$alt5
-haléssim	$alt5
-halessin	$alt5
-halessis	$alt5
-haléssiu	$alt5
-haleu	$alt5
-halí	$alt5
+halau	$alt6
+halava	$alt6
+halàvem	$alt6
+halaven	$alt6
+halaves	$alt6
+halàveu	$alt6
+hale	$alt6
+halem	$alt6
+halés	$alt6
+haléssim	$alt6
+halessin	$alt6
+halessis	$alt6
+haléssiu	$alt6
+haleu	$alt6
+halí	$alt6
 hamlet	$alt6
 hamletiana	$alt6
 hamletianes	$alt6
@@ -4114,13 +4572,16 @@ taixelhit	$alt6
 
 /// -bl- is pronouced [Bl] 
 ablació	$alt3
+ablacions	$alt3
 ablactació	$alt3
+ablactacions	$alt3
 ablamar	$alt3
 ablanidor	$alt3
 ablaniment	$alt3
+ablaniments	$alt3
 ablanir	$alt3
 ablatiu	$alt3
-ablatiu	$alt3
+ablatius	$alt3
 ablenar	$alt3
 ablució	$alt3
 abluent	$alt3
@@ -4128,31 +4589,68 @@ abluir	$alt3
 bable	$alt3
 inoblidable	$alt3
 oblació	$alt3
+oblacions	$alt3
 oblada	$alt3
+oblades	$alt3
 oblat	$alt3
+oblats	$alt3
+oblada	$alt3
+oblades	$alt3
 oblatiu	$alt3
+oblatius	$alt3
 oblic	$alt3
+oblics	$alt3
+obliqua	$alt3
+obliques	$alt3
 oblidable	$alt3
+oblidables	$alt3
 oblidadís	$alt3
+oblidadissa	$alt3
+oblidadissos	$alt3
+oblidadisses	$alt3
 oblidament	$alt3
+oblidaments	$alt3
 oblidança	$alt3
+oblidances	$alt3
 oblidar	$alt3
 oblidós	$alt3
 obligacionista	$alt3
+obligacionistes	$alt3
 obligació	$alt3
+obligacions	$alt3
 obligador	$alt3
 obligant	$alt3
+obligants	$alt3
+obligances	$alt3
 obligança	$alt3
 obligar	$alt3
 obligat	$alt3
+obligada	$alt3
+obligats	$alt3
+obligades	$alt3
 obligatori	$alt3
+obligatòria	$alt3
+obligatoris	$alt3
+obligatòries	$alt3
 obligatorietat	$alt3
+obligatorietats	$alt3
 obliquangle	$alt3
 obliquar	$alt3
 oblit	$alt3
 problema	$alt3
+problemes	$alt3
 problemàtic	$alt3
+problemàtica	$alt3
+problemàtics	$alt3
+problemàtiques	$alt3
+publicitat	$alt3
+publicitats	$alt3
+publicitari	$alt3
+publicitaris	$alt3
+publicitària	$alt3
+publicitàries	$alt3
 reblaniment	$alt3
+reblaniments	$alt3
 reblanir	$alt3
 
 /// -gl- is pronouced [Gl] 
@@ -11201,3 +11699,6 @@ argüibles		aRgu'ibbles
 argüir		aRgu'i
 argüix		'aRguS
 ?3 argüix		'aRgujS
+
+// kings, queens and popes (to translate roman numbers as ordinals)
+(felip vi)  fel'ip||siz'E

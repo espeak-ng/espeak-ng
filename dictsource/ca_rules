@@ -12,8 +12,10 @@
 // A  any vowel
 // C  any consonant
 // K  not a vowel (i.e. consonant or word boundary)
+// X  There is no vowel until the word boundary.
+
 .L01 i í e é è         // front vowels
-.L02 a o à ò ó         // center and back vowels
+.L02 a o à ò ó u         // center and back vowels
 .L03 a e o             // strong vowels
 .L04 i u               // weak vowels
 .L05 à è é í ò ó ú     // stressed vowels
@@ -187,7 +189,9 @@
     sp) e (rm      E
    fon) e (m       E    // (fonema)
 
-    
+    bl) e (ma_     E    // 
+    bl) e (mes_    E    // 
+   
 
 
   //      e  (cte     E
@@ -330,17 +334,27 @@
         
 .group h
         h              // silent
+        h ($w_alt6  X   // (halar)
+        
+        // enclitics
      -) hi (_   'i
      -) ho (_    o
     A-) ho (_    w   // porta-ho [pɔ́ ɾtaw]
-?2  C-) ho (_    u   // portar-ho [pɔ́ ɾtaru]
-?3  C-) ho (_+   o   // portar-ho [pɔ́ ɾtaru]
    Au-) ho (_    u   // dueu-ho [duˈɛwu]
+?2  C-) ho (_    u   // portar-ho [pɔ́ ɾtaru]
+?3  C-) ho (_+   o   // portar-ho [pɔ́ ɾtaro]
 ?3 Au-) ho (_+   o   // dueu-ho [duˈɛwo]
+
+        //proclitics
      _) ho (_A   w   //  ho entra [wéntɾa]
     A_) ho (_C   w   //  no ho porta [n'owpɔ́ɾta]
+?4  C_) ho (_C   o2   //  m'ho diu [mo ðˈiw]
+?4   _) ho (_C   @w   //  ho diu [əw ðˈiw]
+?4   _) ho (_A   w    //  ho admet [w ədmˈət]
+?4  A_) ho (_    w   //  no ho diu [nˈo w ðˈiw]
+?4   _) ho (_hA  w   //  ho ha dit [w ˈa ðˈit]
 ?3  K_) ho (_C   ew  //  ho porta [ewpɔ́ɾta]
-        h ($w_alt6  X   // (halar)
+        
 
 .group i
         i          i
@@ -458,7 +472,9 @@
      _) l' (P2     l    // apostrophe
 
         ll         l^   // (colla)
-?4      ll         j
+        l (_ll     l^   // (del llop)
+?4   A) ll (_      j
+?4 L02) ll (@      j
         lt (_      l    // (alt)
         lt (_$w_alt4      lt   // do pronounce final t
         lt (s_     l    // (alts)
@@ -535,9 +551,11 @@
         nc (s_     N    // velarization (crancs)
         ng (s_     N    // velarization (fangs)
         n  (L20_A  n    // avoid veralization before vowel  (fang espès)
+        nt (C      n   // do not pronounce t
+        
 
-        nt (-      =nt   // followed by clitic
-        nd (-      =nt   // followed by clitic
+        nt (-hA      =nt   // followed by clitic
+        nd (-hA      =nt   // followed by clitic
         
             // accent variants
 ?3      nt (_      =nt   // (alt)
@@ -725,6 +743,7 @@ catalan) o (@      ,o
         r          R
      _) r          R    // (raig)
      A) rr (A         R    // (carro) 
+     A) rr (_      **   // (xerr) 
         
      A) r (A       **   // (cara)
      C) r (A       **   // (groc)
@@ -776,6 +795,9 @@ _ultra) r (A       R    // (ultraric)
 
 
         r (-            R   // final r is not silent if followed by a pronoun
+     A) r (-A           **   // final r is not silent if followed by a pronoun
+     A) r (-hA          **   // final r is not silent if followed by a pronoun
+        
         r (_$w_alt4+     R   // final r is not silent
         r (s_$w_alt4+    R   // final r is not silent
     
@@ -796,11 +818,17 @@ _ultra) r (A       R    // (ultraric)
                 // silent consonants
      A)   rt (_     R    // (art)
      A)   rd (_     R    // (record)
-     A)   rt (_$w_alt4     Rt    // (sort)
-     A)   rd (_$w_alt4     Rt    // (sord)
-     A)   rt (_A     **    // (art abstracte)
-     A)   rd (_A     **    // (record abstracte)
+?1   A)   rt (_$w_alt4     Rt    // (sort)
+?1   A)   rd (_$w_alt4     Rt    // (sord)
+     A)   rt (_A     Rt    // (art abstracte)
+     A)   rd (_A     Rt    // (record abstracte)
+     A)   rt (_C     R    // (art contemporani)
+     A)   rd (_C     R    // (record tormentós)
+?1   A)   rt (_C$w_alt4     R    // (sort)
+?1   A)   rd (_C$w_alt4     R    // (sord)
 
+
+     
      A)   rt (s_     R    // (arts)
      A)   rd (s_     R    // (records)
         
@@ -826,6 +854,7 @@ _ultra) r (A       R    // (ultraric)
         A) s  (A      z
      A) s  (hA     z
      A) s  (-A     z
+     A) s  (-L11     z
  //  L12) s  (A      z
 //        s  (_A     z
 //        s  (_hA    z
@@ -833,10 +862,10 @@ _ultra) r (A       R    // (ultraric)
 //         s  (_L11   z
      -) se (_      s@
      
-        s (_s       // do not pronounce -s if followed by an s
-        s (_z       // do not pronounce -s if followed by an z
-        s (_cL01    // do not pronounce -s if followed by -ce/ci 
-        s (-cL01    // do not pronounce -s if followed by -ce/ci
+   //     s (_s       // do not pronounce -s if followed by an s
+   //     s (_z       // do not pronounce -s if followed by an z
+   //     s (_cL01    // do not pronounce -s if followed by -ce/ci 
+   //      s (-cL01    // do not pronounce -s if followed by -ce/ci
 
 ?4    A)  s (_s     t  // pronounce -s as -t if followed by an s (dos sacs)
 ?4    A)  s (_z     d  // pronounce -s as -d if followed by an z (sis zones)
@@ -946,6 +975,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 
 .group x
         x          ks   // (taxi)
+        xt (_      ks   // (text)
     _A) x          gz   // (exàmen)
 ?4  _A) x          gZ   // (exàmen)
 
