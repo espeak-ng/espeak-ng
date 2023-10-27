@@ -11,29 +11,7 @@ phoneme a
   vwl starttype #a endtype #a
   length 180
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordEnd) THEN        
-        IF nextPh(isVowel) AND nextPh(isStressed) THEN
-            ipa NULL
-        ELIF nextPh(isUnstressed) THEN
-            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
-                ChangePhoneme(@)
-            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
-                ipa NULL
-            ELSE
-                ChangePhoneme(@)
-            ENDIF           
-        ELSE
             ChangePhoneme(@)
-        ENDIF
-    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
-        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
-            ipa NULL
-        ELSE
-            ChangePhoneme(@)
-        ENDIF
-    ELSE
-        ChangePhoneme(@)
-    ENDIF
   ENDIF
   FMT(vowel/a_6)
 endphoneme
@@ -48,29 +26,7 @@ phoneme e
   vwl starttype #e endtype #e
   length 170
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordEnd) THEN   
-        IF nextPh(isVowel) AND nextPh(isStressed) THEN
-            ipa NULL
-        ELIF nextPh(isUnstressed) THEN
-            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
-                ChangePhoneme(@)
-            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
-                ipa NULL
-            ELSE
-                ChangePhoneme(@)
-            ENDIF           
-        ELSE
-            ChangePhoneme(@)
-        ENDIF
-    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
-        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
-            ipa NULL
-        ELSE
-            ChangePhoneme(@)
-        ENDIF
-    ELSE
         ChangePhoneme(@)
-    ENDIF
   ENDIF
   
   FMT(vowel/e)
@@ -87,29 +43,7 @@ phoneme E
   vwl starttype #e endtype #e
   length 180
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordEnd) THEN   
-        IF nextPh(isVowel) AND nextPh(isStressed) THEN
-            ipa NULL
-        ELIF nextPh(isUnstressed) THEN
-            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
-                ChangePhoneme(@)
-            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
-                ipa NULL
-            ELSE
-                ChangePhoneme(@)
-            ENDIF           
-        ELSE
-            ChangePhoneme(@)
-        ENDIF
-    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
-        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
-            ipa NULL
-        ELSE
-            ChangePhoneme(@)
-        ENDIF
-    ELSE
-        ChangePhoneme(@)
-    ENDIF
+     ChangePhoneme(@)
   ENDIF
   FMT(vowel/e_mid)
 endphoneme
@@ -134,17 +68,7 @@ phoneme o
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordEnd) THEN
-        IF nextPh(u) OR nextPh(w) THEN
-            ipa NULL
-        ELIF nextPh(isVowel) THEN
-            ChangePhoneme(w)
-        ELSE
-            ChangePhoneme(u)
-        ENDIF
-    ELSE
-        ChangePhoneme(u)
-    ENDIF
+     ChangePhoneme(u)
   ENDIF
   FMT(vowel/o)
 endphoneme
@@ -171,29 +95,20 @@ endphoneme
 phoneme u
   vwl starttype #u endtype #u
   length 160
-//  ChangeIfUnstressed(U)
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordEnd) THEN
-        IF nextPh(isUnstressed) THEN
-            IF nextPh(a) OR nextPh(@) OR nextPh(e) OR nextPh(E) THEN
-                ChangePhoneme(w)
-            ELIF nextPh(u) OR nextPh(w) THEN
-                ipa NULL
-            ENDIF
-        ENDIF
-    ELIF thisPh(isWordStart) THEN
-        IF prevPh(isStressed) AND prevPh(isVowel) THEN
-            IF prevPh(u) THEN
-                ipa NULL
+        IF nextPh(isVowel) THEN
+            IF nextPh(i) THEN
             ELSE
                 ChangePhoneme(w)
             ENDIF
-        ELSE
-          IF prevPh(isUnstressed) THEN
-            IF prevPh(a) OR prevPh(@) OR prevPh(e) OR prevPh(E) THEN
+        ENDIF
+    ELIF thisPh(isWordStart) THEN
+        IF prevPh(isVowel) THEN
+            IF prevPh(i) THEN
+            ELSE
                 ChangePhoneme(w)
             ENDIF
-          ENDIF
         ENDIF
     ENDIF
   ENDIF
@@ -205,26 +120,12 @@ phoneme i
   length 170
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordEnd) THEN
-        IF nextPh(isUnstressed) THEN
-            IF nextPh(a) OR nextPh(@) OR nextPh(e) OR nextPh(E) THEN
-                ChangePhoneme(j)
-            ELIF nextPh(i) THEN
-                ipa NULL
-            ENDIF
+        IF nextPh(isVowel) THEN
+            ChangePhoneme(j)
         ENDIF
     ELIF thisPh(isWordStart) THEN
-        IF prevPh(isStressed) AND prevPh(isVowel) THEN
-            IF prevPh(i) THEN
-                ipa NULL
-            ELSE
-                ChangePhoneme(j)
-            ENDIF
-        ELSE
-          IF prevPh(isUnstressed) THEN
-            IF prevPh(a) OR prevPh(@) OR prevPh(e) OR prevPh(E) THEN
-                ChangePhoneme(j)
-            ENDIF
-          ENDIF
+        IF prevPh(isVowel) THEN
+            ChangePhoneme(j)
         ENDIF
     ENDIF
   ENDIF
@@ -605,3 +506,185 @@ phoneme k
 endphoneme
 
 
+//================== phonemes with elisions ===========================
+
+
+////phoneme a
+////  vwl starttype #a endtype #a
+////  length 180
+////  IF thisPh(isUnstressed) THEN
+////    IF thisPh(isWordEnd) THEN        
+////        IF nextPh(isVowel) AND nextPh(isStressed) THEN
+////            ipa NULL
+////        ELIF nextPh(isUnstressed) THEN
+////            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
+////                ChangePhoneme(@)
+////            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
+////                ipa NULL
+////            ELSE
+////                ChangePhoneme(@)
+////            ENDIF           
+////        ELSE
+////            ChangePhoneme(@)
+////        ENDIF
+////    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
+////        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
+////            ipa NULL
+////        ELSE
+////            ChangePhoneme(@)
+////        ENDIF
+////    ELSE
+////        ChangePhoneme(@)
+////    ENDIF
+////  ENDIF
+////  FMT(vowel/a_6)
+////endphoneme
+
+////
+////phoneme e
+////  vwl starttype #e endtype #e
+////  length 170
+////  IF thisPh(isUnstressed) THEN
+////    IF thisPh(isWordEnd) THEN   
+////        IF nextPh(isVowel) AND nextPh(isStressed) THEN
+////            ipa NULL
+////        ELIF nextPh(isUnstressed) THEN
+////            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
+////                ChangePhoneme(@)
+////            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
+////                ipa NULL
+////            ELSE
+////                ChangePhoneme(@)
+////            ENDIF           
+////        ELSE
+////            ChangePhoneme(@)
+////        ENDIF
+////    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
+////        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
+////            ipa NULL
+////        ELSE
+////            ChangePhoneme(@)
+////        ENDIF
+////    ELSE
+////        ChangePhoneme(@)
+////    ENDIF
+////  ENDIF
+////  
+////  FMT(vowel/e)
+////endphoneme
+////
+////
+////phoneme E
+////  vwl starttype #e endtype #e
+////  length 180
+////  IF thisPh(isUnstressed) THEN
+////    IF thisPh(isWordEnd) THEN   
+////        IF nextPh(isVowel) AND nextPh(isStressed) THEN
+////            ipa NULL
+////        ELIF nextPh(isUnstressed) THEN
+////            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
+////                ChangePhoneme(@)
+////            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
+////                ipa NULL
+////            ELSE
+////                ChangePhoneme(@)
+////            ENDIF           
+////        ELSE
+////            ChangePhoneme(@)
+////        ENDIF
+////    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
+////        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
+////            ipa NULL
+////        ELSE
+////            ChangePhoneme(@)
+////        ENDIF
+////    ELSE
+////        ChangePhoneme(@)
+////    ENDIF
+////  ENDIF
+////  FMT(vowel/e_mid)
+////endphoneme
+////
+////phoneme o
+////  vwl starttype #o endtype #o
+////  length 170
+////  IF thisPh(isUnstressed) THEN
+////    IF thisPh(isWordEnd) THEN
+////        IF nextPh(u) OR nextPh(w) THEN
+////            ipa NULL
+////        ELIF nextPh(isVowel) THEN
+////            ChangePhoneme(w)
+////        ELSE
+////            ChangePhoneme(u)
+////        ENDIF
+////    ELSE
+////        ChangePhoneme(u)
+////    ENDIF
+////  ENDIF
+////  FMT(vowel/o)
+////endphoneme
+////
+////
+////phoneme u
+////  vwl starttype #u endtype #u
+////  length 160
+//////  ChangeIfUnstressed(U)
+////  IF thisPh(isUnstressed) THEN
+////    IF thisPh(isWordEnd) THEN
+////        IF nextPh(isUnstressed) THEN
+////            IF nextPh(a) OR nextPh(@) OR nextPh(e) OR nextPh(E) THEN
+////                ChangePhoneme(w)
+////            ELIF nextPh(u) OR nextPh(w) THEN
+////                ipa NULL
+////            ENDIF
+////        ENDIF
+////    ELIF thisPh(isWordStart) THEN
+////        IF prevPh(isStressed) AND prevPh(isVowel) THEN
+////            IF prevPh(u) THEN
+////                ipa NULL
+////            ELSE
+////                ChangePhoneme(w)
+////            ENDIF
+////        ELSE
+////          IF prevPh(isUnstressed) THEN
+////            IF prevPh(a) OR prevPh(@) OR prevPh(e) OR prevPh(E) THEN
+////                ChangePhoneme(w)
+////            ENDIF
+////          ENDIF
+////        ENDIF
+////    ENDIF
+////  ENDIF
+////  FMT(vowel/u_bck)
+////endphoneme
+////
+////
+////phoneme i
+////  vwl starttype #i endtype #i
+////  length 170
+////  IF thisPh(isUnstressed) THEN
+////    IF thisPh(isWordEnd) THEN
+////        IF nextPh(isUnstressed) THEN
+////            IF nextPh(a) OR nextPh(@) OR nextPh(e) OR nextPh(E) THEN
+////                ChangePhoneme(j)
+////            ELIF nextPh(i) THEN
+////                ipa NULL
+////            ENDIF
+////        ENDIF
+////    ELIF thisPh(isWordStart) THEN
+////        IF prevPh(isStressed) AND prevPh(isVowel) THEN
+////            IF prevPh(i) THEN
+////                ipa NULL
+////            ELSE
+////                ChangePhoneme(j)
+////            ENDIF
+////        ELSE
+////          IF prevPh(isUnstressed) THEN
+////            IF prevPh(a) OR prevPh(@) OR prevPh(e) OR prevPh(E) THEN
+////                ChangePhoneme(j)
+////            ENDIF
+////          ENDIF
+////        ENDIF
+////    ENDIF
+////  ENDIF
+////  FMT(vowel/i)
+////endphoneme
