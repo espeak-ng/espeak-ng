@@ -1,0 +1,286 @@
+phoneme a
+  vwl flag1 starttype #a endtype #a
+  length 160
+  ChangeIfNotStressed(a/)
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(a:)
+  ENDIF
+  FMT(vowel/a_2)
+endphoneme
+
+phoneme a:
+  vwl starttype #a endtype #a
+  length 240
+  ipa aː
+  FMT(vowel/a_2)
+endphoneme
+
+
+phoneme e
+  vwl flag1 starttype #e endtype #e
+  length 160
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(E:)
+  ENDIF
+  FMT(vowel/e)
+endphoneme
+
+phoneme e:
+  vwl starttype #e endtype #e
+  length 240
+  ipa eː
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme E
+  vwl flag1 starttype #e endtype #e
+  length 150
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(E:)
+  ENDIF
+  FMT(vowel/ee_1)
+endphoneme
+
+phoneme E:
+  vwl starttype #e endtype #e
+  length 230
+  ipa ɛː
+  FMT(vowel/ee_1)
+endphoneme
+
+
+phoneme i
+  vwl flag1 starttype #i endtype #i
+  length 155
+  IfNextVowelAppend(;)
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(i:)
+  ENDIF
+  FMT(vowel/i)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  length 235
+  ipa iː
+  FMT(vowel/i)
+endphoneme
+
+
+phoneme O
+  vwl flag1 starttype #o endtype #o
+  length 150
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(O:)
+  ENDIF
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme O:
+  vwl starttype #o endtype #o
+  length 230
+  ipa ɔː
+  FMT(vowel/oo_4)
+endphoneme
+
+
+phoneme u
+  vwl flag1 starttype #u endtype #u
+  length 170
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(u:)
+  ENDIF
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  length 250
+  ipa uː
+  FMT(vowel/u_bck)
+endphoneme
+
+
+phoneme y
+  vwl flag1 starttype #i endtype #i
+  length 175
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(y:)
+  ENDIF
+  FMT(vowel/y)
+endphoneme
+
+phoneme y:
+  vwl starttype #u endtype #u
+  length 255
+  ipa yː
+  FMT(vowel/y)
+endphoneme
+
+
+phoneme Y
+  vwl flag1 starttype #@ endtype #@
+  length 180
+  IF thisPh(isStressed) AND nextPhW(R) AND next2PhW(isNotVowel) THEN
+    ChangePhoneme(Y:)
+  ENDIF
+  FMT(vowel/y#)
+endphoneme
+
+phoneme Y:
+  vwl starttype #@ endtype #@
+  length 260
+  ipa øː
+  FMT(vowel/y#)
+endphoneme
+
+phoneme b
+  CALL base1/b
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa bˑ
+  ENDIF
+endphoneme
+
+phoneme k
+  CALL base1/k
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa kˑ
+  ENDIF
+endphoneme
+
+phoneme tS
+  CALL base1/tS
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa tʃˑ
+  ENDIF
+endphoneme
+
+phoneme d
+  CALL base1/d
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa dˑ
+  ENDIF
+endphoneme
+
+phoneme f
+  CALL base1/f
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa fˑ
+  ENDIF
+endphoneme
+
+phoneme g
+  CALL base1/g
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa ɡˑ
+  ENDIF
+endphoneme
+
+phoneme dZ
+  CALL base1/dZ
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa dʒˑ
+  ENDIF
+endphoneme
+
+phoneme n^
+  CALL base1/n^
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa ɲˑ
+  ENDIF
+endphoneme
+
+phoneme l
+  CALL base1/l
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa lˑ
+  ENDIF
+endphoneme
+
+phoneme l/
+  CALL base1/l/
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa lˑ
+  ENDIF
+endphoneme
+
+phoneme m
+  CALL base1/m
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa mˑ
+  ENDIF
+endphoneme
+
+phoneme n
+  CALL base1/n
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa nˑ
+  ENDIF
+endphoneme
+
+phoneme N
+  CALL base1/N
+  IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
+    ChangePhoneme(n)
+  ENDIF
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextPhW(isVowel) AND nextPhW(isWordEnd) THEN
+    ipa ŋˑ
+  ENDIF
+endphoneme
+
+phoneme p
+  CALL base1/p
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa pˑ
+  ENDIF
+endphoneme
+
+phoneme R
+  CALL base1/R
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa rˑ
+  ENDIF
+endphoneme
+
+phoneme s
+  CALL base1/s
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextPhW(isWordEnd) THEN
+    ipa sˑ
+  ENDIF
+endphoneme
+
+phoneme S
+  CALL base1/S
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextPhW(isWordEnd) THEN
+    ipa ʃˑ
+  ENDIF
+endphoneme
+
+phoneme t
+  CALL base1/t
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa tˑ
+  ENDIF
+endphoneme
+
+phoneme v
+  CALL base1/v
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa vˑ
+  ENDIF
+endphoneme
+
+phoneme z
+  CALL base1/z
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa zˑ
+  ENDIF
+endphoneme
+
+phoneme j
+  CALL base1/j
+  IF prevPhW(isStressed) AND prevPhW(isFlag1) AND nextVowel(isWordEnd) THEN
+    ipa jˑ
+  ENDIF
+endphoneme
