@@ -594,7 +594,8 @@
   _L25) nt (-h     nt   // pronounce final t if followed by a pronoun (anant-hi)
 
 
-                
+.group ñ // spanish words
+         ñ         n^       
 
 .group o
         o          o
