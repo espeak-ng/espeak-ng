@@ -243,9 +243,7 @@ phoneme s
     ENDIF
   ENDIF
   IF thisPh(isWordEnd) THEN
-    IF nextPh(s) OR nextPh(z) OR nextPh(**) OR nextPh(R) OR nextPh(Z) THEN
-        ipa NULL
-    ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVoiced) THEN
       ChangePhoneme(z)
     ENDIF
   ENDIF
@@ -687,4 +685,34 @@ endphoneme
 ////    ENDIF
 ////  ENDIF
 ////  FMT(vowel/i)
+////endphoneme
+
+////phoneme s
+////  vls alv frc sib
+////  voicingswitch z
+////  lengthmod 3
+////  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+////  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+////  
+////  IF prevPh(isPalatal) OR nextPh(S) THEN
+////    IF prevPh(j) THEN
+////    ELIF nextPh(isVoiced) THEN
+////      ChangePhoneme(Z)
+////    ELSE
+////      ChangePhoneme(S)
+////    ENDIF
+////  ENDIF
+////  IF thisPh(isWordEnd) THEN
+////    IF nextPh(s) OR nextPh(z) OR nextPh(**) OR nextPh(R) OR nextPh(Z) THEN
+////        ipa NULL
+////    ELIF nextPh(isVoiced) THEN
+////      ChangePhoneme(z)
+////    ENDIF
+////  ENDIF
+////  IF nextPh(isPause) THEN
+////    WAV(ufric/s_)
+////  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+////    WAV(ufric/s!)
+////  ENDIF
+////  WAV(ufric/s)
 ////endphoneme

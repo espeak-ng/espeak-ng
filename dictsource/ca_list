@@ -81,7 +81,8 @@ _»	t'anka||kum'Etes
 €	'Ew*o
 %	peRs'en
 ?3 %	peRs'ent
-&	_:_:'i;||_:aNgl'Eza
+// &	_:_:'i;||_:aNgl'Eza
+&	'an
 @	aR'oBa
 /	baRa
 ©	k,OpiR'ajt
@@ -90,7 +91,7 @@ _»	t'anka||kum'Etes
 §	apaRt'at	// o secció?
 ~   t'itl^a
 '   aks'en
-
+º   g**'aws
 
 // numbers
 _0	z'E**O
@@ -234,6 +235,18 @@ _19o    din'Ow
 _100o	sent
 
 // abbreviations	$dot
+
+/// abbreviations that doesn't follow the rules
+upc     ,up,es'e
+upn     ,u,pe'ena
+psoe    p,es'o,e
+fnac    efn'ak
+mc      mak $u
+ia      ,i'a
+ccma    s,es,e'ema,a
+acn     ,as'e,ena
+cdti    s,ed,et'e,i
+erc     'ERk
 
 /// directions	$dot
 a/e	    aD**'esa elekt**'Onika	$dot
@@ -813,10 +826,10 @@ trempo	$alt1
 utoasteca	$alt1
 utoasteces	$alt1
 ?2 valència $alt1
-verra	$alt1
-verres	$alt1
-verso	$alt1
-versos	$alt1
+//verra	$alt1
+//verres	$alt1
+//verso	$alt1
+//versos	$alt1
 ve	$alt1
 ves	$alt1
 ?2 veure    $alt1
@@ -1844,8 +1857,8 @@ valer	$alt2
 valers	$alt2
 valer	$alt2
 valers	$alt2
-ve	$alt2
-ves	$alt2
+//ve	$alt2
+//ves	$alt2
 ?1 venda	$alt2
 ?1 vendes	$alt2
 vende	$alt2
@@ -2283,8 +2296,8 @@ dom	$alt1
 doms	$alt1
 doma	$alt1
 domes	$alt1
-dona	$alt1
-dones	$alt1
+//dona	$alt1
+//dones	$alt1
 dos	$alt1
 dotze	$alt1
 dotzes	$alt1
@@ -4672,6 +4685,7 @@ jeroglífics $alt3
 amateur		amat'e2R
 andante		and'ante2
 andantino		andant'ino2
+attico  'attiko2
 bobsleigh		b'o2bslej
 bonsai  bo2ns'aj
 box		b'O2ks
@@ -4709,6 +4723,7 @@ calvados    kal'Bado2s
 unesco      une2sko2
 víctor      b'ikto2R
 ?3 víctor   v'ikto**
+washington  w'aSiNto2n
 wolfgang    wo2lvgaN
 
 // other languages names
@@ -4728,12 +4743,14 @@ carrasco		_^_es
 castillo		_^_es
 castro		_^_es
 cortés		_^_es
+conde       _^_es
 crespo		_^_es
 cruz		_^_es
 delgado		_^_es
 diez		_^_es
 domínguez		_^_es
 díaz		_^_es
+feijóo      _^_es
 fernández		_^_es
 flores		_^_es
 fuentes		_^_es
@@ -4752,6 +4769,7 @@ hidalgo		_^_es
 ibáñez		_^_es
 iglesias		_^_es
 jimenez		_^_es
+lago        _^_es
 león		_^_es
 lorenzo		_^_es
 lozano		_^_es
@@ -5560,6 +5578,7 @@ thorpe		T'Op
 todd		t'ad
 tomlinson		t'amlinsan
 townsend		t'awnsEnd
+trump       t**'am
 tucker		t'aka
 turnbull		t'anbwl
 turner		t'ana
@@ -5624,18 +5643,6 @@ dimarts     dim'aRs
 ?2 joan     dZu'an
 ?2 josep    dZus'Ep
 ?3 atzavara addzav'a**a
-
-// abbreviations that doesn't follow the rules
-upc     ,up,es'e
-upn     ,u,pe'ena
-psoe    p,es'o,e
-fnac    efn'ak
-mc      mak $u
-ia      ,i'a
-ccma    c,ec,e'ema,a
-acn     ,ac'e,ena
-
-
 
 // prefixes and sufixes
 /// words that DO NOT have a secondary stress prefix

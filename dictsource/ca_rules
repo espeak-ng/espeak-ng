@@ -551,7 +551,7 @@
         nc (s_     N    // velarization (crancs)
         ng (s_     N    // velarization (fangs)
         n  (L20_A  n    // avoid veralization before vowel  (fang espès)
-        nt (C      n   // do not pronounce t
+        nt (_C     =n   // do not pronounce t
         
 
         nt (-hA      =nt   // followed by clitic
@@ -853,7 +853,9 @@ _ultra) r (A       R    // (ultraric)
 ?4      sc (L01    ts   // (piscina, escena)
 
         A) s  (A      z
-     A) s  (hA     z
+     A) s  (-hA     z
+     A) s  (_hA     z
+     
      A) s  (-A     z
      A) s  (-L11     z
  //  L12) s  (A      z
@@ -908,6 +910,8 @@ _contra) s (A      s    // (contrasentit)
   _tran) s (A      z    // (transitar)
   _tràn) s (A      z    // (transitar)
  _enfon) s (a      z    // (enfonsar)
+ 
+        sh          S   // foreign words
 
 .group t
         t          t
