@@ -99,17 +99,3 @@
 
 .group '
        '        _! // short non-breking pause instead of standard ? glottal stop
-
-
-// other Latin letters, to not switch to standard English during pronunciation
-.group
-       b        b
-       c        ts
-       d        d
-       f        f
-       g        g
-       q        k
-       r        r
-       s        s
-       t        t
-       z        z
