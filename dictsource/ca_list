@@ -154,8 +154,8 @@ _6C	s,is'ens
 _7C	s,Ets'ens
 _8C	b,ujts'ens
 ?3 _8C	,ujts'ents
-_9C	n,Ous'ens
-?3 _9C	n,Ous'ents
+_9C	n,Ows'ens
+?3 _9C	n,Ows'ents
 _0M1	m'il
 _0M2	mili'ons
 _1M2    ummili'o
@@ -3821,8 +3821,8 @@ menor	$alt4
 menors	$alt4
 mer	$alt4
 mers	$alt4
-miliar	$alt4
-miliars	$alt4
+militar	$alt4
+militars	$alt4
 mínbar	$alt4
 mínbars	$alt4
 minipímer	$alt4
@@ -4483,6 +4483,7 @@ zíngars	$alt4
 
 /// final t/d is not silent
 absolt	$alt4
+quart   $alt4
 concert	$alt4
 resolt	$alt4
 insult	$alt4
@@ -4491,8 +4492,10 @@ indult	$alt4
 cobalt 	$alt4
 sord	$alt4
 sort	$alt4
+suport  $alt4
 mort	$alt4
 tard	$alt4
+verd    $alt4
 
 /// h is pronounced X
 sàhara	$alt6
@@ -4693,14 +4696,18 @@ clàxon  kl'akso2n
 christmas		k**'istmas
 cracking		k**ak'iN
 derrich		de2R'ik
+(e street band)   i||st**'it||b'and
 ego         'e2Qo2
 folk		f'o2lk
+free        f**'i
+freedom     f**'ido2m
 freudisme		f**O2jD'izme
 frenadol    f**e2nad'O2l
 frottis		f**'O2tis
 google      g'ugel
 gouache		gw'aS
-jazz		dZ'as
+jazz		Z'as
+jersey      Z'ERsi
 manco		m'aNku
 mèlton      m'Elto2n
 mikwà		migb'a
@@ -4715,6 +4722,7 @@ status		est'atus
 surmenage		suRmen'aZe
 tanka		t'aNka
 tour        t'uR
+twitter     tw'iteR
 pinyin      p'injin
 kirieleison k,i**iel'Ejzon
 logos   l'o2Qo2s
@@ -4788,7 +4796,7 @@ márquez		_^_es
 méndez		_^_es
 navarro		_^_es
 nieto		_^_es
-nuñez		_^_es
+núñez		_^_es
 ortega		_^_es
 ortiz		_^_es
 parra		_^_es
@@ -4955,7 +4963,7 @@ victoria		_^_es
 virginia		_^_es
 yolanda		_^_es
 
-// enlgish names
+// english names
 		
 		
 albie		'albi
@@ -5066,6 +5074,7 @@ maisie		m'eisi
 margot		m'agat
 maryam		m'ea**i,am
 mason		m'eisan
+matt        m'at
 max		m'aks
 maya		m'aia
 michael		m'aikal
@@ -5085,6 +5094,7 @@ olive		'aliv
 ollie		'ali
 orla		'Ola
 otis		'awtis
+patrick     p'at**ik
 penelope		pan'Elapi
 phoebe		f'ibi
 poppy		p'api

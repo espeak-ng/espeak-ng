@@ -86,7 +86,7 @@
         c          k    // (casa)
         c (L01     s    // (cirera)
         ch         tS   // (chihuahua)
-     
+        ck         k    // foreign words
 .group ç
         ç          s    // (llaç)
         ç (_A      z    // (llaç estret)
@@ -347,12 +347,11 @@
 
         //proclitics
      _) ho (_A   w   //  ho entra [wéntɾa]
+     _) ho (_hA  w   //  ho ha entrat
     A_) ho (_C   w   //  no ho porta [n'owpɔ́ɾta]
 ?4  C_) ho (_C   o2   //  m'ho diu [mo ðˈiw]
 ?4   _) ho (_C   @w   //  ho diu [əw ðˈiw]
-?4   _) ho (_A   w    //  ho admet [w ədmˈət]
 ?4  A_) ho (_    w   //  no ho diu [nˈo w ðˈiw]
-?4   _) ho (_hA  w   //  ho ha dit [w ˈa ðˈit]
 ?3  K_) ho (_C   ew  //  ho porta [ewpɔ́ɾta]
         
 
@@ -552,7 +551,7 @@
         ng (s_     N    // velarization (fangs)
         n  (L20_A  n    // avoid veralization before vowel  (fang espès)
         nt (_C     =n   // do not pronounce t
-        
+        ntm        mm	// (recentment)
 
         nt (-hA      =nt   // followed by clitic
         nd (-hA      =nt   // followed by clitic
@@ -882,7 +881,7 @@ _ultra) r (A       R    // (ultraric)
     aque) s  (t_hA  s
     aque) s  (t_C
     
-       e) st (_C    s
+       A) st (_C    s
     
 //?1  aque) s  (tKhA   s
    _bi) s (A       s    // (bisexual)
