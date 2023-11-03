@@ -59,7 +59,18 @@ phoneme O
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-    ChangePhoneme(u)
+    IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
+        IF nextPh(i) THEN
+            ChangePhoneme(u)
+    
+        ELSE
+           ChangePhoneme(w)
+        ENDIF
+    ELIF thisPh(isWordStart) AND prevPh(isVowel) THEN
+        ChangePhoneme(w)
+    ELSE
+        ChangePhoneme(u)
+    ENDIF
   ENDIF
   FMT(vowel/oo)
 endphoneme
@@ -68,7 +79,18 @@ phoneme o
   vwl starttype #o endtype #o
   length 170
   IF thisPh(isUnstressed) THEN
-     ChangePhoneme(u)
+    IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
+        IF nextPh(i) THEN
+            ChangePhoneme(u)
+    
+        ELSE
+           ChangePhoneme(w)
+        ENDIF
+    ELIF thisPh(isWordStart) AND prevPh(isVowel) THEN
+        ChangePhoneme(w)
+    ELSE
+        ChangePhoneme(u)
+    ENDIF
   ENDIF
   FMT(vowel/o)
 endphoneme
@@ -234,7 +256,7 @@ phoneme s
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   
-  IF prevPh(isPalatal) OR nextPh(S) THEN
+  IF prevPh(isPalatal) OR nextPh(S) OR nextPh(Z) THEN
     IF prevPh(j) THEN
     ELIF nextPh(isVoiced) THEN
       ChangePhoneme(Z)
@@ -502,6 +524,21 @@ phoneme k
   ENDIF
   WAV(ustop/k_unasp, 70)
 endphoneme
+
+phoneme tS     // **ch**urch
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
+    ChangePhoneme(dZ)
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
+    ChangePhoneme(dZ)
+  ENDIF
+  WAV(ustop/tsh)
+endphoneme
+
 
 
 //================== phonemes with elisions ===========================

@@ -397,9 +397,9 @@ la	$u   $nounf
 ?2 la   la2 $u $nounf
 els	$u  $nounf
 les	$u  $nounf
-un	$nounf
+un	$nounf $u
 una	$nounf
-uns	$nounf
+uns	$nounf $u
 unes	$nounf
 ?4  es  $u	$nounf
 ?4  sa  $u	$nounf
@@ -453,6 +453,7 @@ i $u
 que     $u
 ?2 però pe**'o
 ?2 ja   ja
+?1 si $u
 
 /// auxiliary verbs
 sóc	s'ok
@@ -2195,8 +2196,21 @@ corma	$alt1
 cormes	$alt1
 corra	$alt1
 corres	$alt1
+corre	$alt1
+corren	$alt1
+corri	$alt1
+corrin	$alt1
+corris	$alt1
+corro	$alt1
 corrompre	$alt1
-corrompres	$alt1
+corrompe	$alt1
+corrompen	$alt1
+corrompes	$alt1
+corrompi	$alt1
+corrompin	$alt1
+corrompis	$alt1
+corrompo	$alt1
+corromp     $alt1
 cors	$alt1
 cors	$alt1
 ?1 cort	$alt1
@@ -2515,11 +2529,28 @@ idiomes	$alt1
 infòlio	$alt1
 infòlios	$alt1
 interrompre	$alt1
+interrompre	$alt1
+interrompren	$alt1
 interrompres	$alt1
+interrompri	$alt1
+interromprin	$alt1
+interrompris	$alt1
+interrompro	$alt1
+interromp	$alt1
+interromps	$alt1
 iodoform	$alt1
 iodoforms	$alt1
 irrompre	$alt1
 irrompres	$alt1
+irrompre	$alt1
+irrompren	$alt1
+irrompres	$alt1
+irrompri	$alt1
+irromprin	$alt1
+irrompris	$alt1
+irrompro	$alt1
+irromp	$alt1
+irromps	$alt1
 jofre	$alt1
 jofres	$alt1
 jona	$alt1
@@ -2800,7 +2831,15 @@ prohoms	$alt1
 pron	$alt1
 prons	$alt1
 prorrompre	$alt1
-prorrompres	$alt1
+prorompre	$alt1
+prorompren	$alt1
+prorompres	$alt1
+prorompri	$alt1
+proromprin	$alt1
+prorompris	$alt1
+prorompro	$alt1
+proromp	$alt1
+proromps	$alt1
 psora	$alt1
 psores	$alt1
 quocient	$alt1
@@ -2856,7 +2895,14 @@ rombes	$alt1
 romboll	$alt1
 rombolls	$alt1
 rompre	$alt1
+rompre	$alt1
+rompren	$alt1
 rompres	$alt1
+rompri	$alt1
+romprin	$alt1
+rompris	$alt1
+rompro	$alt1
+romp	$alt1
 ronc	$alt1
 roncs	$alt1
 ronc	$alt1
@@ -3026,7 +3072,9 @@ toscs	$alt1
 tostorro	$alt1
 tostorros	$alt1
 tot	$alt1
+tota	$alt1
 tots	$alt1
+totes	$alt1
 totx	$alt1
 totxs	$alt1
 totxo	$alt1
@@ -3431,8 +3479,13 @@ politop	$alt2
 politops	$alt2
 proloqui	$alt2
 proloquis	$alt2
-provolone	$alt2
-provolones	$alt2
+?1 proposa	$alt2
+?1 proposen	$alt2
+?1 proposes	$alt2
+?1 proposi	$alt2
+?1 proposin	$alt2
+?1 proposis	$alt2
+?1 proposo	$alt2
 quimono	$alt2
 quimonos	$alt2
 quinoa	$alt2
@@ -3507,6 +3560,10 @@ càstig  $alt4
 àzig    $alt4
 pròdig  $alt4
 pèmfig  $alt4
+càstigs  $alt4
+àzigs    $alt4
+pròdigs  $alt4
+pèmfigs  $alt4
 
 
 /// final r is not silent
@@ -4488,6 +4545,7 @@ concert	$alt4
 resolt	$alt4
 insult	$alt4
 ocult	$alt4
+port	$alt4
 indult	$alt4
 cobalt 	$alt4
 sord	$alt4
@@ -4496,6 +4554,22 @@ suport  $alt4
 mort	$alt4
 tard	$alt4
 verd    $alt4
+
+absolts	$alt4
+quarts   $alt4
+concerts	$alt4
+resolts	$alt4
+insults	$alt4
+ocults	$alt4
+ports	$alt4
+indults	$alt4
+cobalts	$alt4
+sords	$alt4
+sorts	$alt4
+suports  $alt4
+morts	$alt4
+tards	$alt4
+verds    $alt4
 
 /// h is pronounced X
 sàhara	$alt6
@@ -4924,7 +4998,6 @@ luisa		_^_es
 luz		_^_es
 manuel		_^_es
 manuela		_^_es
-mar		_^_es
 marco		_^_es
 marcos		_^_es
 margarita		_^_es
@@ -5648,6 +5721,8 @@ ió  i'o
 Io  i'o
 arbre       aB**e
 arbres      aB**es
+algoritme   alQo**'idme
+algoritmes  alQo**'idmes
 diners      din'es
 doblers     doBl'es
 dimarts     dim'aRs

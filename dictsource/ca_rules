@@ -69,8 +69,8 @@
         b          b    
   _bi)  bl (io     Bl   //
   _su)  bl (im     Bl   //
-        bm         mm   // assimilation (submarí)
-?3      bm         bm   // (submarí)
+        bm         mm   // assimilation 
+  _su)  bm         bm   // avoid assimilation (submissió, submarí)
     A)  bl (A      bbl  // gemination (poble)
     A)  bl (A$w_alt3+    Bl // avoid gemination 
     o)  bl (id     Bl // avoid gemination (oblidar) 
@@ -451,11 +451,16 @@
 .group ig
      A) ig (_      tS   // (goig)
      C) ig (_      itS  // (desig)
+     A) ig (s_      tS   // (goigs)
+     C) ig (s_      itS  // (desigs)
      A) ig (_A     dZ   // (goig ardent)
      A) ig (_L11   dZ   // (goig volgut)
      C) ig (_A     idZ   // (desig ardent)
      C) ig (_L11   idZ   // (desig volgut)
      C) ig (_$w_alt4    ik   // (pròdig)
+     C) ig (s_$w_alt4   ik   // (pròdig)
+     A) ig (p      tS   // (puigpelat)
+     u) ig (m      tS   // (puigmal)
      
      
 .group j
@@ -477,6 +482,7 @@
         lt (_      l    // (alt)
         lt (_$w_alt4      lt   // do pronounce final t
         lt (s_     l    // (alts)
+        lt (s_$w_alt4      lt   // do pronounce final t
         ld (_      l    // (Eudald)
         ld (s_     l    // (Eudalds)
         
@@ -797,9 +803,11 @@ _ultra) r (A       R    // (ultraric)
         r (-            R   // final r is not silent if followed by a pronoun
      A) r (-A           **   // final r is not silent if followed by a pronoun
      A) r (-hA          **   // final r is not silent if followed by a pronoun
+        r (_$w_alt4+    R   // final r is not silent (motor)
+        r (_A$w_alt4+   **   // final r is not silent (motor acústic)
+        r (_hA$w_alt4+  **   // final r is not silent (motor hidràulic)
         
-        r (_$w_alt4+     R   // final r is not silent
-        r (s_$w_alt4+    R   // final r is not silent
+        r (s_$w_alt4+   R   // final r is not silent
     
 
                 // suffixes with final R not silent
@@ -820,6 +828,8 @@ _ultra) r (A       R    // (ultraric)
      A)   rd (_     R    // (record)
 ?1   A)   rt (_$w_alt4     Rt    // (sort)
 ?1   A)   rd (_$w_alt4     Rt    // (sord)
+?1   A)   rt (s_$w_alt4     Rt    // (sort)
+?1   A)   rd (s_$w_alt4     Rt    // (sord)
      A)   rt (_A     Rt    // (art abstracte)
      A)   rd (_A     Rt    // (record abstracte)
      A)   rt (_C     R    // (art contemporani)
@@ -852,8 +862,8 @@ _ultra) r (A       R    // (ultraric)
 ?4      sc (L01    ts   // (piscina, escena)
 
         A) s  (A      z
+
      A) s  (-hA     z
-     A) s  (_hA     z
      
      A) s  (-A     z
      A) s  (-L11     z
@@ -918,8 +928,8 @@ _contra) s (A      s    // (contrasentit)
         tg (L01    dZ   // (metge)
         tj         dZ   // (mitjà)
         tx         tS   // (esquitx)
-        tx (_L11   dZ   // (esquitx verd)
-        tx (_A     dZ   // (esquitx amic)
+     //   tx (_L11   dZ   // (esquitx verd)
+    //    tx (_A     dZ   // (esquitx amic)
         tz         dz   // (dotzena)
         tll        l^l^ // gemination (espatlla)
 ?3      tll        l^   // assimilation (espatlla)
@@ -927,6 +937,7 @@ _contra) s (A      s    // (contrasentit)
 ?4      tll        ll   // assimilation (espatlla)
 
         tm         mm	// gemination (setmana)
+   _so) tm         dm   // avoid gemination (sotmès)
 ?3      tm         m	// gemination (setmana)
         tn         nn	// gemination (cotna)
 ?3   i) tz (a      z    // (normalitzar) 
