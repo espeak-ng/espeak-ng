@@ -56,7 +56,7 @@ _<	men'o**||_:_:ka
 _>	maZ'o**||_:_:k@
 _'	ap'Ost**of
 _"	kom'Etes
--	m'En^s
+//-	m'En^s
 __	b'aRR2a||B'aSa
 ?3 __	b'aRR2a||B'ajSa
 _/	baRa
@@ -3803,6 +3803,8 @@ helicòpter	$alt4
 helicòpters	$alt4
 honor	$alt4
 honors	$alt4
+horror	$alt4
+horrors	$alt4
 hússar	$alt4
 hússars	$alt4
 iar	$alt4
@@ -4035,6 +4037,8 @@ temors	$alt4
 tenor	$alt4
 tenors	$alt4
 ter	    $alt4
+terror  $alt4
+terrors $alt4
 testicular	$alt4
 testiculars	$alt4
 tiktoker	$alt4
@@ -5084,7 +5088,6 @@ eleanor		il'ina
 elijah		il'aidZa
 eliza		il'aiza
 elizabeth		il'izabaT
-ella		'Ela
 ellie		'Eli
 elliot		'Eliat
 ellis		'Elis
