@@ -143,6 +143,8 @@
     cr) e (p       e    // 
      c) e (rcl     e    // 
     pr) e (g       e    // (prego)
+   _pr) e (A       e2    // (preescriptura)
+    _r) e (A       e2    // (reescriptura)
      n) e (g       e    // (nego)
     _s) e (g       e    // (sego)
   sist) e (m       e    // (sistema)
@@ -191,7 +193,8 @@
 
     bl) e (ma_     E    // 
     bl) e (mes_    E    // 
-   
+     t) e (ca_     E    //
+     t) e (ques_   E    //
 
 
   //      e  (cte     E
@@ -303,6 +306,8 @@
         e (ò     e2   // (eòlic)
         e (ó     e2   // (eòlic)
         e (a       e2   // (teatre)
+        e (à       e2   // (oceà)
+    a)  e        e2   // (baells)
         e (ha      e2
      ò) e          e2
      ó) e          e2
@@ -785,6 +790,7 @@ _ibero) r (A      R    // (iberoromà)
  _mico) r (A      R    // ()
  _tele) r (A       R    // (telereunió)
 _ultra) r (A       R    // (ultraric)
+  _pre) r (A       R    // (preromànic)
     _a) r (iz      R    // (arizotònic)
     _a) r (ítmi    R    // (arítmic)
 // _vice) r (A       R    // (vicerector)
@@ -793,14 +799,14 @@ _ultra) r (A       R    // (ultraric)
                 // final r
          r (_        =   // final r is silent
      A)  r (s_       =   // final r is silent + stress the vowel
-  L05J)  r (_            // final r is not silent + do not stress the vowel
+  L05J)  r (_            // final r is silent + do not stress the vowel
 
 ?3   A)  r (_+      **    // final r is not silent
 ?3   A)  r (s_      **=  // final r is not silent + stress the vowel
 ?3 L05J) r (s_      **   // final r is not silent + do not stress the vowel
 
 
-        r (-            R   // final r is not silent if followed by a pronoun
+        r (-++          R   // final r is not silent if followed by a pronoun
      A) r (-A           **   // final r is not silent if followed by a pronoun
      A) r (-hA          **   // final r is not silent if followed by a pronoun
         r (_$w_alt4+    R   // final r is not silent (motor)
@@ -891,7 +897,7 @@ _ultra) r (A       R    // (ultraric)
     aque) s  (t_hA  s
     aque) s  (t_C
     
-       A) st (_C    s
+       A) st (_C    =s
     
 //?1  aque) s  (tKhA   s
    _bi) s (A       s    // (bisexual)

@@ -247,6 +247,7 @@ ccma    s,es,e'ema,a
 acn     ,as'e,ena
 cdti    s,ed,et'e,i
 erc     'ERk
+renfe   re2nfe2
 
 /// directions	$dot
 a/e	    aD**'esa elekt**'Onika	$dot
@@ -560,40 +561,91 @@ tens     t'ens   $verb
 
 /// alternative rules
 //// words with e
+?2 bec      $alt1
+?2 beco    $alt1
+?2 becos    $alt1
+?2 beu      $alt1
+?2 beuen    $alt1
+?2 beure    $alt1
+?2 beus     $alt1
+?2 creu $alt1
+?2 creus     $alt1
+?2 delta $alt1
+?2 deltes     $alt1
+?2 haver    $alt1
+?2 jeure    $alt1
+?2 reveure  $alt1
+?2 sèrie   $alt1
+?2 sèries  $alt1
+?2 valència $alt1
+?2 veig     $alt1
+?2 veu      $alt1
+?2 veuen    $alt1
+?2 veure    $alt1
+?2 veus     $alt1
+acceleren	$alt1
+accessos	$alt1
+adrecen	$alt1
+adreces	$alt1
+adreci	$alt1
+agrega	$alt1
+aiguaneu	$alt1
 aixec	$alt1
+aixeca	$alt1
+aixeco	$alt1
 aixecs	$alt1
 aleix	$alt1
 aleixs	$alt1
+alleta	$alt1
+alletin	$alt1
+alliberen	$alt1
+alteren	$alt1
 andreu	$alt1
 andreus	$alt1
 angioedema	$alt1
 angioedemes	$alt1
+aparegueren	$alt1
+apoderen	$alt1
+apressa	$alt1
+apressen	$alt1
 arec	$alt1
 arecs	$alt1
+arregla	$alt1
+arreglen	$alt1
+arregli	$alt1
+arreglin	$alt1
+arreglo	$alt1
+arxivers	$alt1
+assetgen	$alt1
+assetja	$alt1
+atempta	$alt1
+atempten	$alt1
+atempti	$alt1
+atemptin	$alt1
+atengui	$alt1
+atenguin	$alt1
 ateu	$alt1
 ateus	$alt1
+baells	$alt1
+be	$alt1
 bec	$alt1
 becs	$alt1
-?2 beco    $alt1
-?2 becos    $alt1
 beix	$alt1
 beixos	$alt1
 ben	    $alt1
+bens	$alt1
 berga	$alt1
 bergues	$alt1
 bes	$alt1
-besos	$alt1
 besneula	$alt1
 besneules	$alt1
-?2 beure    $alt1
-?2 bec      $alt1
-?2 beus     $alt1
-?2 beu      $alt1
-?2 beuen    $alt1
+beso	$alt1
+besos	$alt1
 blancor $alt1
 blancors $alt1
 bleix	$alt1
 bleixos	$alt1
+boleà	$alt1
 bolero	$alt1
 boleros	$alt1
 bres	$alt1
@@ -604,32 +656,79 @@ breu	$alt1
 breus	$alt1
 buixalleu	$alt1
 buixalleus	$alt1
+calderos	$alt1
 cec	$alt1
 cecs	$alt1
 cega	$alt1
 cegues	$alt1
+celestes	$alt1
 cenema	$alt1
-cenemes	$alt1
 cenematema	$alt1
 cenematemes	$alt1
+cenemes	$alt1
+cessa	$alt1
+cessen	$alt1
 classema	$alt1
 classemes	$alt1
 cletxa	$alt1
 cletxes	$alt1
+combrega	$alt1
+combrego	$alt1
+combreguen	$alt1
+comparseros	$alt1
+complaent	$alt1
+complaents	$alt1
 condemna	$alt1
-condemnes	$alt1
 condemnen	$alt1
+condemnes	$alt1
+condemni	$alt1
+condemnin	$alt1
 condemno	$alt1
+congrega	$alt1
+congreguen	$alt1
+congressos	$alt1
+consideren	$alt1
+consideri	$alt1
+considerin	$alt1
+contempla	$alt1
+contemplen	$alt1
+contempli	$alt1
+contemplin	$alt1
+contenen	$alt1
+contreta	$alt1
+convenen	$alt1
+cooperen	$alt1
+cooperi	$alt1
+cooperin	$alt1
+coreà	$alt1
+creà	$alt1
+cregueren	$alt1
 creix	$alt1
-creixos	$alt1
 creixa	$alt1
+creixen	$alt1
+créixer	$alt1
 creixes	$alt1
+creixos	$alt1
 crema	$alt1
+creme	$alt1
+cremen	$alt1
 cremes	$alt1
-?2 creu $alt1
-?2 creus     $alt1
-?2 delta $alt1
-?2 deltes     $alt1
+cremi	$alt1
+cremin	$alt1
+crestes	$alt1
+curanderos	$alt1
+decreix	$alt1
+deixeble	$alt1
+deixebles	$alt1
+delega	$alt1
+desa	$alt1
+desesperis	$alt1
+desi	$alt1
+desintegra	$alt1
+deso	$alt1
+despenja	$alt1
+destemps	$alt1
+digueren	$alt1
 dimecres	$alt1
 ditrema	$alt1
 ditremes	$alt1
@@ -637,44 +736,108 @@ durbec	$alt1
 durbecs	$alt1
 egua	$alt1
 egues	$alt1
-època   $alt1
-èpoques $alt1
 ei	$alt1
+ela	$alt1
+ema	$alt1
 empra	$alt1
+empremta	$alt1
+empremtes	$alt1
+empren	$alt1
 empres	$alt1
+empri	$alt1
+ena	$alt1
+encenc	$alt1
+encens	$alt1
+ene	$alt1
 enfeltre	$alt1
 enfeltres	$alt1
+engega	$alt1
+engego	$alt1
+engeguen	$alt1
+engreix	$alt1
+engreixen	$alt1
 enrere	$alt1
 enreres	$alt1
 entema	$alt1
 entemes	$alt1
+entenc	$alt1
+entenen	$alt1
+entengui	$alt1
+entenguin	$alt1
+entens	$alt1
+entrega	$alt1
+entrego	$alt1
+entreguen	$alt1
+entregues	$alt1
+entregui	$alt1
+entreguin	$alt1
+entretenen	$alt1
+enumeren	$alt1
 eonotema	$alt1
 eonotemes	$alt1
+època   $alt1
+èpoques $alt1
 eratema	$alt1
 eratemes	$alt1
+eren	$alt1
+erra	$alt1
+erres	$alt1
 esclerema	$alt1
 escleremes	$alt1
 escletxa	$alt1
 escletxes	$alt1
+escreix	$alt1
+esdevenen	$alt1
+esperen	$alt1
+esperi	$alt1
+esperin	$alt1
+esperis	$alt1
+esquer	$alt1
+esquers	$alt1
+esquetx	$alt1
+esquetxos	$alt1
+estengui	$alt1
+estenguin	$alt1
 estirabec	$alt1
 estirabecs	$alt1
+exageren	$alt1
 exemple	$alt1
 exemples	$alt1
 exempt	$alt1
+exempta	$alt1
+exemptes	$alt1
 exempts	$alt1
+expressa	$alt1
+expressen	$alt1
+expresses	$alt1
+expresso	$alt1
+expressos	$alt1
 extrem	$alt1
+extrema	$alt1
+extremes	$alt1
+extremi	$alt1
+extremin	$alt1
+extremis	$alt1
+extremo	$alt1
 extrems	$alt1
 feltre	$alt1
 feltres	$alt1
 fem	$alt1   $noun
+fems	$alt1
 fems	$alt1 
+fen	$alt1
+feren	$alt1
 fes	$alt1 
 fletxa	$alt1
 fletxes	$alt1
+forfets	$alt1
+freàtiques	$alt1
 gema	$alt1
-gemes	$alt1
 gemec	$alt1
 gemecs	$alt1
+gemes	$alt1
+gemma	$alt1
+generen	$alt1
 genoteca	$alt1
 genoteces	$alt1
 gens	$alt1
@@ -682,168 +845,302 @@ gespa	$alt1
 gespes	$alt1
 gramema	$alt1
 gramemes	$alt1
-?2 haver    $alt1
+grec	$alt1
+grecs	$alt1
+grega	$alt1
+gregues	$alt1
+hagueren	$alt1
+hereta	$alt1
+hereten	$alt1
 heretge	$alt1
 heretges	$alt1
+hipertext	$alt1
+imperen	$alt1
+ineptes	$alt1
+ingressa	$alt1
+ingressen	$alt1
+ingresses	$alt1
+ingresso	$alt1
+ingressos	$alt1
+inquiet	$alt1
+inquieta	$alt1
+inquieten	$alt1
+inquietes	$alt1
+inquietin	$alt1
+inquieto	$alt1
+inquiets	$alt1
+integra	$alt1
+integren	$alt1
+integri	$alt1
+integrin	$alt1
+interpreta	$alt1
+interpreten	$alt1
+interpreti	$alt1
+interpretin	$alt1
+interpreto	$alt1
 interregne	$alt1
 interregnes	$alt1
-?2 jeure    $alt1
+irredempts	$alt1
 jueu	$alt1
 jueus	$alt1
 karate	$alt1
 karates	$alt1
+lideren	$alt1
 lipsanoteca	$alt1
 lipsanoteces	$alt1
 litodema	$alt1
 litodemes	$alt1
 ludoteca	$alt1
 ludoteces	$alt1
+mantenen	$alt1
+mantingueren	$alt1
 masdeus	$alt1
 mastigonema	$alt1
 mastigonemes	$alt1
 mateix	$alt1
 mateixa	$alt1
-mateixos	$alt1
 mateixes	$alt1
+mateixos	$alt1
+me	$alt1
 mediateca	$alt1
 mediateces	$alt1
-menjo	$alt1
-menges	$alt1
-menja	$alt1
 mengen	$alt1
+menges	$alt1
 mengi	$alt1
-mengis	$alt1
 mengin	$alt1
+mengis	$alt1
+menja	$alt1
+menjo	$alt1
+mero	$alt1
 mes	$alt1
+mesos	$alt1
 metge	$alt1
 metges	$alt1
+metros	$alt1
 metxa	$alt1
 metxes	$alt1
+moderen	$alt1
 morfofonema	$alt1
 morfofonemes	$alt1
 muricec	$alt1
 muricecs	$alt1
+naixeren	$alt1
+neda	$alt1
+nedes	$alt1
+neerlandès	$alt1
+neerlandesa	$alt1
+negues	$alt1
+néixer	$alt1
 nespla	$alt1
 nesples	$alt1
 nespra	$alt1
 nespres	$alt1
 neu	$alt1
-neus	$alt1
 neula	$alt1
 neules	$alt1
+neus	$alt1
 neva    $alt1
+numeren	$alt1
+obtenen	$alt1
+olivers	$alt1
+operen	$alt1
+palestra	$alt1
+parers	$alt1
+passatemps	$alt1
+peces	$alt1
+pega	$alt1
+pego	$alt1
+peguen	$alt1
+pegues	$alt1
+penetra	$alt1
+penetren	$alt1
+pengen	$alt1
+penges	$alt1
+pengi	$alt1
+pengin	$alt1
+penja	$alt1
+penjo	$alt1
 pere	$alt1
 peres	$alt1
+permeteren	$alt1
+perpetra	$alt1
+perpetren	$alt1
+pesa	$alt1
+pesen	$alt1
+peses	$alt1
+pesi	$alt1
+peso	$alt1
 petge	$alt1
 petges	$alt1
+petja	$alt1
+pintorescos	$alt1
 plet	$alt1
 plets	$alt1
+pogueren	$alt1
 prec	$alt1
 precs	$alt1
+prem	$alt1
 premsa	$alt1
-premses	$alt1
 premsen	$alt1
+premses	$alt1
 premso	$alt1
+prengueren	$alt1
 pressa	$alt1
 presses	$alt1
+pretenc	$alt1
+pretenen	$alt1
+pretengui	$alt1
+pretenguin	$alt1
+pretens	$alt1
 prevere	$alt1
 preveres	$alt1
+processa	$alt1
+processen	$alt1
+processos	$alt1
+professa	$alt1
+professen	$alt1
+progressa	$alt1
+progressen	$alt1
+progressos	$alt1
+proliferen	$alt1
+prosperen	$alt1
 pteroteca	$alt1
 pteroteces	$alt1
 queda   $alt1
+quedes	$alt1
+quiet	$alt1
+quieta	$alt1
+quietes	$alt1
+quiets	$alt1
 rampeu  $alt1
+reberen	$alt1
 rec	$alt1
+reconegueren	$alt1
 recs	$alt1
+recuperen	$alt1
 rei	$alt1
-reis	$alt1
 reig	$alt1
 reigs	$alt1
 reina	$alt1
 reines	$alt1
+reis	$alt1
+relega	$alt1
 relleu	$alt1
 relleus	$alt1
 rema	$alt1
-remes	$alt1
 remen	$alt1
+remes	$alt1
 remo	$alt1
 renec	$alt1
 renecs	$alt1
+reneix	$alt1
+renéixer	$alt1
 rere	$alt1
 reres	$alt1
+resa	$alt1
+resen	$alt1
+reso	$alt1
 ret	$alt1
-rets	$alt1
+retenen	$alt1
+retrocessos	$alt1
 retrofeu	$alt1
 retrofeus	$alt1
+rets	$alt1
 reula	$alt1
 reules	$alt1
 revessa	$alt1
 revesses	$alt1
-?2 reveure  $alt1
+revessos	$alt1
+saberen	$alt1
+segreguen	$alt1
 sellens	$alt1
+sembra	$alt1
 sempre	$alt1
 sempres	$alt1
 sens	$alt1
 sense	$alt1
-?2 sèrie   $alt1
-?2 sèries  $alt1
 serf	$alt1
 serfs	$alt1
+setge	$alt1
+setges	$alt1
 setra	$alt1
 setres	$alt1
+severs	$alt1
 sineu	$alt1
 sineus	$alt1
 sirveri	$alt1
 sirveris	$alt1
+sospesa	$alt1
+sospesen	$alt1
+subtema	$alt1
+subtemes	$alt1
+successos	$alt1
 suprem	$alt1
+suprema	$alt1
+supremes	$alt1
 suprems	$alt1
 tecla	$alt1
 tecles	$alt1
+tem	$alt1
 tema	$alt1
+temen	$alt1
 temes	$alt1
+temo	$alt1
 templa	$alt1
-temples	$alt1
 temple	$alt1
+temples	$alt1
 temps	$alt1
+tempta	$alt1
+tems	$alt1
+tenen	$alt1
+tens	$alt1
+terrestre	$alt1
+terrestres	$alt1
+tingueren	$alt1
 tirabec	$alt1
 tirabecs	$alt1
 tirallet	$alt1
 tirallets	$alt1
+toleren	$alt1
+toreros	$alt1
+transmeteren	$alt1
 travessa	$alt1
-travesses	$alt1
 travessen	$alt1
+travesses	$alt1
 travesso	$alt1
 trehalosa	$alt1
 trehaloses	$alt1
 trema	$alt1
-tremes	$alt1
 tremen	$alt1
+tremes	$alt1
 tremo	$alt1
 tremp	$alt1
-tremps	$alt1
 trempa	$alt1
-trempes	$alt1
 trempen	$alt1
+trempes	$alt1
 trempo	$alt1
+tremps	$alt1
 utoasteca	$alt1
 utoasteces	$alt1
-?2 valència $alt1
+ve	$alt1
+veneren	$alt1
+venta	$alt1
+ventes	$alt1
 //verra	$alt1
 //verres	$alt1
 //verso	$alt1
 //versos	$alt1
-ve	$alt1
 ves	$alt1
-?2 veure    $alt1
-?2 veig     $alt1
-?2 veus     $alt1
-?2 veu      $alt1
-?2 veuen    $alt1
+vessen	$alt1
 videoteca	$alt1
 videoteces	$alt1
+vingueren	$alt1
 virrei	$alt1
-virreis	$alt1
 virreina	$alt1
 virreines	$alt1
+virreis	$alt1
+vivers	$alt1
+vulneren	$alt1
 xambergo	$alt1
 xambergos	$alt1
 xiribec	$alt1
@@ -851,14 +1148,226 @@ xiribecs	$alt1
 
 //// words with E (netejat i arranjat per occidental)
 ?1 abell	$alt2
-?1 abells	$alt2
 ?1 abella	$alt2
 ?1 abelles	$alt2
+?1 abells	$alt2
+?1 aquell	$alt2
+?1 aquella	$alt2
+?1 aquelles	$alt2
+?1 aquells	$alt2
+?1 aquest	$alt2
+?1 aquesta	$alt2
+?1 aquestes	$alt2
+?1 aquests	$alt2
+?1  barrufet	$alt2
+?1  barrufeta	$alt2
+?1  barrufetes	$alt2
+?1  barrufets	$alt2
+?1 bimestre	$alt2
+?1 bimestres	$alt2
+?1 bufet	$alt2
+?1 bufets	$alt2
+?1 burgmestre	$alt2
+?1 burgmestres	$alt2
+?1 cabell	$alt2
+?1 cabells	$alt2
+?1 cabestre	$alt2
+?1 cabestres	$alt2
+?1 cadafet	$alt2
+?1 cadafets	$alt2
+?1 campestre	$alt2
+?1 campestres	$alt2
+?1 clavenda	$alt2
+?1 clavendes	$alt2
+?1 compravenda	$alt2
+?1 compravendes	$alt2
+?1 consell	$alt2
+?1 consells	$alt2
+?1 creuenda	$alt2
+?1 creuendes	$alt2
+?1 desaparell	$alt2
+?1 desaparells	$alt2
+?1  desprendre	$alt2
+?1 diatreta	$alt2
+?1 diatretes	$alt2
+?1 dienda	$alt2
+?1 diendes	$alt2
+?1 distenta	$alt2
+?1 distentes	$alt2
+?1 electret	$alt2
+?1 electrets	$alt2
+?1 emenda	$alt2
+?1 emendes	$alt2
+?1 empenta	$alt2
+?1 empentes	$alt2
+?1 empremta	$alt2
+?1 empremtes	$alt2
+?1 eqüestre	$alt2
+?1 eqüestres	$alt2
+?1 espenta	$alt2
+?1 espentes	$alt2
+?1 estre	$alt2
+?1 estres	$alt2
+?1 estret	$alt2
+?1 estreta	$alt2
+?1 estretes	$alt2
+?1 estrets	$alt2
+?1 fatxenda	$alt2
+?1 fatxendes	$alt2
+?1 finestreta	$alt2
+?1 finestretes	$alt2
+?1 forfet	$alt2
+?1 forfets	$alt2
+?1 gafet	$alt2
+?1 gafets	$alt2
+?1 germen	$alt2
+?1 justifet	$alt2
+?1 marenda	$alt2
+?1 marendes	$alt2
+?1 mestre	$alt2
+?1 mestres	$alt2
+?1 metaestre	$alt2
+?1 metaestres	$alt2
+?1 nomparell	$alt2
+?1 nomparells	$alt2
+?1 orella	$alt2
+?1 orelles	$alt2
+?1 ovella	$alt2
+?1 ovelles	$alt2
+?1 palestra	$alt2
+?1 palestres	$alt2
+?1 parell	$alt2
+?1 parells	$alt2
+?1  patufet	$alt2
+?1  patufeta	$alt2
+?1  patufetes	$alt2
+?1  patufets	$alt2
+?1 pedestre	$alt2
+?1 pedestres	$alt2
+?1 postvenda	$alt2
+?1 postvendes	$alt2
+?1 quadrimestre	$alt2
+?1 quadrimestres	$alt2
+?1 quatreta	$alt2
+?1 quatretes	$alt2
+?1 rafet	$alt2
+?1 rafets	$alt2
+?1 rebre	$alt2
+?1 res	$alt2
+?1 restret	$alt2
+?1 restrets	$alt2
+?1 revenda	$alt2
+?1 revendes	$alt2
+?1 revendre	$alt2
+?1 rovell	$alt2
+?1 rovells	$alt2
+?1 rupestre	$alt2
+?1 rupestres	$alt2
+?1 semestre	$alt2
+?1 semestres	$alt2
+?1 sufet	$alt2
+?1 sufets	$alt2
+?1 terrestre	$alt2
+?1 terrestres	$alt2
+?1 trenta	$alt2
+?1 trimestre	$alt2
+?1 trimestres	$alt2
+?1 venda	$alt2
+?1 vendes	$alt2
+?1 vendre	$alt2
+?1 venta	$alt2
+?1 ventes	$alt2
+?1 vermell	$alt2
+?1 vermells	$alt2
+?1 xereix	$alt2
+?1 xereixos	$alt2
+?2  deshonest	$alt2
+?2  deshonesta	$alt2
+?2  deshonestes	$alt2
+?2  deshonestos	$alt2
+?2  deshonests	$alt2
+?2  digest	$alt2
+?2  digestos	$alt2
+?2  digests	$alt2
+?2  honest	$alt2
+?2  honesta	$alt2
+?2  honestes	$alt2
+?2  honestos	$alt2
+?2  honests	$alt2
+?2  immodest	$alt2
+?2  immodesta	$alt2
+?2  immodestes	$alt2
+?2  immodestos	$alt2
+?2  immodests	$alt2
+?2  indigest	$alt2
+?2  indigesta	$alt2
+?2  indigestes	$alt2
+?2  indigestos	$alt2
+?2  indigests	$alt2
+?2  infest	$alt2
+?2  infesta	$alt2
+?2  infestes	$alt2
+?2  infestos	$alt2
+?2  infests	$alt2
+?2  inhonest	$alt2
+?2  inhonesta	$alt2
+?2  inhonestes	$alt2
+?2  inhonestos	$alt2
+?2  inhonests	$alt2
+?2  jueu	$alt2
+?2  jueua	$alt2
+?2  jueues	$alt2
+?2  jueus	$alt2
+?2  jueva	$alt2
+?2  jueves	$alt2
+?2  modest	$alt2
+?2  modesta	$alt2
+?2  modestes	$alt2
+?2  modestos	$alt2
+?2  modests	$alt2
+?2  molest	$alt2
+?2  molesta	$alt2
+?2  molestes	$alt2
+?2  molestos	$alt2
+?2  molests	$alt2
+?2  oest    $alt2
+?2  pesta    $alt2
+?2  pestes    $alt2
+?2  pretext    $alt2
+?2  pretexta   $alt2
+?2  pretextes  $alt2
+?2  pretextos  $alt2
+?2  pretexts   $alt2
+?2  protest    $alt2
+?2  protestos  $alt2
+?2  protests   $alt2
+?2  quimera    $alt2
+?2  quimeres   $alt2
+?2  recepta    $alt2
+?2  receptes   $alt2
+?2  reg    $alt2
+?2  regs   $alt2
+?2  serf    $alt2
+?2  serfs   $alt2
+?2  tempesta    $alt2
+?2  tempestes   $alt2
+?2  text    $alt2
+?2  textos    $alt2
+?2  texts   $alt2
+?2  verra    $alt2
+?2  verres   $alt2
+?2  xalest      $alt2
+?2  xalestos    $alt2
+?2  xalests     $alt2
+?2  xambergo    $alt2
+?2  xambergos   $alt2
 acerb	$alt2
 acerbs	$alt2
+afermen	$alt2
 agatodicea	$alt2
 agatodicees	$alt2
 agrejar	$alt2
+alegreu $alt2
 almagest	$alt2
 almagests	$alt2
 almofreix	$alt2
@@ -873,43 +1382,34 @@ anapests	$alt2
 angers	$alt2
 annex	$alt2
 annexos	$alt2
+aparell	$alt2
+aparells	$alt2
 aparer	$alt2
 aparers	$alt2
 aprehendre	$alt2
 aprendre	$alt2
 aqueix	$alt2
 aqueixos	$alt2
-?1 aquell	$alt2
-?1 aquells	$alt2
-?1 aquella	$alt2
-?1 aquelles	$alt2
-?1 aquest	$alt2
-?1 aquests	$alt2
-?1 aquesta	$alt2
-?1 aquestes	$alt2
 aresnegre	$alt2
 aresnegres	$alt2
+arquitecta	$alt2
 arquitecte	$alt2
 arquitectes	$alt2
 asbest	$alt2
 asbests	$alt2
+assequen	$alt2
 baixest	$alt2
 baixests	$alt2
-?1  barrufet	$alt2
-?1  barrufets	$alt2
-?1  barrufeta	$alt2
-?1  barrufetes	$alt2
 be	$alt2
-bens	$alt2
+beç	$alt2
 befa	$alt2
 befes	$alt2
+bens	$alt2
 bentos	$alt2
+beques	$alt2
 berma	$alt2
 bermes	$alt2
 betzef	$alt2
-beç	$alt2
-?1 bimestre	$alt2
-?1 bimestres	$alt2
 bioderma	$alt2
 biodermes	$alt2
 bioherm	$alt2
@@ -924,25 +1424,14 @@ boleros	$alt2
 breç	$alt2
 broncorrea	$alt2
 broncorrees	$alt2
-?1 bufet	$alt2
-?1 bufets	$alt2
-?1 burgmestre	$alt2
-?1 burgmestres	$alt2
-?1 cabell	$alt2
-?1 cabells	$alt2
+bufeta	$alt2
+cabeça	$alt2
 caber	$alt2
 cabestra	$alt2
-?1 cabestres	$alt2
-?1 cabestre	$alt2
-cabeça	$alt2
-?1 cadafet	$alt2
-?1 cadafets	$alt2
 caler	$alt2
 camanegre	$alt2
 camanegres	$alt2
 camedris	$alt2
-?1 campestre	$alt2
-?1 campestres	$alt2
 campodea	$alt2
 campodees	$alt2
 cangrea	$alt2
@@ -983,33 +1472,34 @@ cipripedi	$alt2
 cipripedis	$alt2
 citarede	$alt2
 citaredes	$alt2
-?1 clavenda	$alt2
-?1 clavendes	$alt2
 clepsa	$alt2
 clepses	$alt2
 clero	$alt2
 cleros	$alt2
 coer	$alt2
 coers	$alt2
-collnegre	$alt2
-collnegres	$alt2
 col·lecta	$alt2
 col·lectes	$alt2
+collnegre	$alt2
+collnegres	$alt2
 compendi	$alt2
 compendis	$alt2
 complaença	$alt2
 complex	$alt2
-?1 compravenda	$alt2
-?1 compravendes	$alt2
+concep	$alt2
+conegui	$alt2
+coneguin	$alt2
+coneguis	$alt2
 confeti	$alt2
 confetis	$alt2
 connex	$alt2
-?1 consell	$alt2
-?1 consells	$alt2
+conrea	$alt2
+conreen	$alt2
 contreta	$alt2
 contretes	$alt2
 copeo	$alt2
 copeos	$alt2
+correcta	$alt2
 correcte	$alt2
 correctes	$alt2
 creatorrea	$alt2
@@ -1018,14 +1508,12 @@ credo	$alt2
 credos	$alt2
 creixen	$alt2
 crep	$alt2
-creps	$alt2
 crepis	$alt2
+creps	$alt2
 cresta	$alt2
 crestes	$alt2
 creta	$alt2
 cretes	$alt2
-?1 creuenda	$alt2
-?1 creuendes	$alt2
 cuanegre	$alt2
 cuanegres	$alt2
 cubeba	$alt2
@@ -1038,13 +1526,14 @@ cutxef	$alt2
 cutxefs	$alt2
 decaedre	$alt2
 decaedres	$alt2
+decep	$alt2
 decrescendo	$alt2
 decrescendos	$alt2
 defendre	$alt2
-defineixo    $alt2
-defineixes    $alt2
 defineix    $alt2
 defineixen    $alt2
+defineixes    $alt2
+defineixo    $alt2
 deixeble	$alt2
 deixebles	$alt2
 deler	$alt2
@@ -1054,39 +1543,27 @@ deltoedres	$alt2
 dependre	$alt2
 derbi	$alt2
 derbis	$alt2
-?1 desaparell	$alt2
-?1 desaparells	$alt2
 desaprendre	$alt2
-?2  deshonest	$alt2
-?2  deshonests	$alt2
-?2  deshonestos	$alt2
-?2  deshonesta	$alt2
-?2  deshonestes	$alt2
+desconeguin	$alt2
+desferma	$alt2
 despendre	$alt2
 desplaença	$alt2
 desplaer	$alt2
 desplaers	$alt2
 despoder	$alt2
 despoders	$alt2
-?1  desprendre	$alt2
+dialecte	$alt2
+dialectes	$alt2
 dialtea	$alt2
 dialtees	$alt2
 diaprea	$alt2
 diaprees	$alt2
 diatomea	$alt2
 diatomees	$alt2
-diatomees	$alt2
-?1 diatreta	$alt2
-?1 diatretes	$alt2
 didodecaedre	$alt2
 didodecaedres	$alt2
 diedre	$alt2
 diedres	$alt2
-?1 dienda	$alt2
-?1 diendes	$alt2
-?2  digest	$alt2
-?2  digests	$alt2
-?2  digestos	$alt2
 dilecte	$alt2
 dilectes	$alt2
 dilema	$alt2
@@ -1095,19 +1572,20 @@ dionea	$alt2
 dionees	$alt2
 diploedre	$alt2
 diploedres	$alt2
+directa	$alt2
 directe	$alt2
 directes	$alt2
+disfressi	$alt2
 dispendi	$alt2
 dispendis	$alt2
 dispersa	$alt2
-dispersos	$alt2
 disperses	$alt2
-?1 distenta	$alt2
-?1 distentes	$alt2
+dispersos	$alt2
 divendres	$alt2
 dodecaedre	$alt2
 dodecaedres	$alt2
 doler	$alt2
+e	$alt2
 ebri	$alt2
 ebris	$alt2
 efeb	$alt2
@@ -1117,15 +1595,13 @@ efedra	$alt2
 efedres	$alt2
 eh	$alt2
 eixe	$alt2
-eixes	$alt2
 eixea	$alt2
 eixees	$alt2
+eixes	$alt2
 electe	$alt2
 electes	$alt2
 electre	$alt2
 electres	$alt2
-?1 electret	$alt2
-?1 electrets	$alt2
 electrofeble	$alt2
 electrofebles	$alt2
 elodea	$alt2
@@ -1134,33 +1610,29 @@ embero	$alt2
 emberos	$alt2
 emblema	$alt2
 emblemes	$alt2
-?1 emenda	$alt2
-?1 emendes	$alt2
-?1 empenta	$alt2
-?1 empentes	$alt2
-?1 empremta	$alt2
-?1 empremtes	$alt2
 encep	$alt2
 enceps	$alt2
+engendra	$alt2
 //ens	$alt2
 entameba	$alt2
 entamebes	$alt2
+entendres	$alt2
 epanalepsi	$alt2
 epanalepsis	$alt2
-?1 eqüestre	$alt2
-?1 eqüestres	$alt2
 er	$alt2
-ers	$alt2
 erb	$alt2
-erbs	$alt2
 erbi	$alt2
 erbis	$alt2
+erbs	$alt2
+erecta	$alt2
 erecte	$alt2
 erectes	$alt2
 eritea	$alt2
 eritees	$alt2
 erm	$alt2
+erma	$alt2
 erms	$alt2
+ers	$alt2
 escalenoedre	$alt2
 escalenoedres	$alt2
 escamonea	$alt2
@@ -1171,14 +1643,15 @@ escolopendra	$alt2
 escolopendres	$alt2
 espatodea	$alt2
 espatodees	$alt2
-?1 espenta	$alt2
-?1 espentes	$alt2
+espurnegen	$alt2
 esquer	$alt2
-esquers	$alt2
 esquerp	$alt2
+esquerpa	$alt2
 esquerps	$alt2
+esquers	$alt2
 estaferm	$alt2
 estaferms	$alt2
+estafeta	$alt2
 esteatorrea	$alt2
 esteatorrees	$alt2
 estenoterm	$alt2
@@ -1187,15 +1660,10 @@ estepa	$alt2
 estepes	$alt2
 estipendi	$alt2
 estipendis	$alt2
-?1 estre	$alt2
-?1 estres	$alt2
-?1 estret	$alt2
-?1 estrets	$alt2
-?1 estreta	$alt2
-?1 estretes	$alt2
 estri	$alt2
 estris	$alt2
 estupend	$alt2
+estupenda	$alt2
 estupends	$alt2
 eureka	$alt2
 euriterm	$alt2
@@ -1208,37 +1676,32 @@ extra	$alt2
 extres	$alt2
 faena	$alt2
 faenes	$alt2
-?1 fatxenda	$alt2
-?1 fatxendes	$alt2
 fe	$alt2
 fems	$alt2
 fendi	$alt2
 fendis	$alt2
 fendre	$alt2
 ferm	$alt2
-ferms	$alt2
+ferma	$alt2
+fermes	$alt2
 fermi	$alt2
 fermis	$alt2
+ferms	$alt2
 fetus	$alt2
 filodendre	$alt2
 filodendres	$alt2
-?1 finestreta	$alt2
-?1 finestretes	$alt2
 fitoglea	$alt2
 fitoglees	$alt2
 flavedo	$alt2
 flavedos	$alt2
 flendi	$alt2
-//floreixo    $alt2
-//floreixes    $alt2
+fleques	$alt2
 //floreix    $alt2
 //floreixen    $alt2
-?1 forfet	$alt2
-?1 forfets	$alt2
+//floreixes    $alt2
+//floreixo    $alt2
 fre	$alt2
 fres	$alt2
-?1 gafet	$alt2
-?1 gafets	$alt2
 galactorrea	$alt2
 galactorrees	$alt2
 galilea	$alt2
@@ -1251,7 +1714,6 @@ gelea	$alt2
 gelees	$alt2
 gendre	$alt2
 gendres	$alt2
-?1 germen	$alt2
 girapeix	$alt2
 gleva	$alt2
 gleves	$alt2
@@ -1262,8 +1724,7 @@ gueez	$alt2
 haptobentos	$alt2
 hartree	$alt2
 hartrees	$alt2
-haver	$alt2
-havers	$alt2
+havent	$alt2
 haver	$alt2
 havers	$alt2
 hedra	$alt2
@@ -1276,6 +1737,8 @@ hemorrea	$alt2
 hemorrees	$alt2
 heptaedre	$alt2
 heptaedres	$alt2
+hereva	$alt2
+hereves	$alt2
 herpes	$alt2
 hevea	$alt2
 hevees	$alt2
@@ -1290,17 +1753,13 @@ hipertexts	$alt2
 hipocrepis	$alt2
 hipomenorrea	$alt2
 hipomenorrees	$alt2
+hipotequen	$alt2
 holoedre	$alt2
 holoedres	$alt2
 homeoterm	$alt2
 homeoterms	$alt2
 homoterm	$alt2
 homoterms	$alt2
-?2  honest	$alt2
-?2  honests	$alt2
-?2  honestos	$alt2
-?2  honesta	$alt2
-?2  honestes	$alt2
 icosaedre	$alt2
 icosaedres	$alt2
 icositetraedre	$alt2
@@ -1309,11 +1768,7 @@ idioreflex	$alt2
 idioreflexos	$alt2
 imberbe	$alt2
 imberbes	$alt2
-?2  immodest	$alt2
-?2  immodests	$alt2
-?2  immodestos	$alt2
-?2  immodesta	$alt2
-?2  immodestes	$alt2
+immers	$alt2
 implex	$alt2
 implexos	$alt2
 incendi	$alt2
@@ -1324,41 +1779,32 @@ incomplex	$alt2
 incomplexos	$alt2
 inconnex	$alt2
 inconnexos	$alt2
-?2  indigest	$alt2
-?2  indigests	$alt2
-?2  indigestos	$alt2
-?2  indigesta	$alt2
-?2  indigestes	$alt2
+incorrecta	$alt2
+incorrecte	$alt2
+incorrectes	$alt2
+indirecta	$alt2
 indirecte	$alt2
 indirectes	$alt2
 inepte	$alt2
 ineptes	$alt2
 inerme	$alt2
 inermes	$alt2
-?2  infest	$alt2
-?2  infests	$alt2
-?2  infestos	$alt2
-?2  infesta	$alt2
-?2  infestes	$alt2
 inflex	$alt2
 inflexos	$alt2
-?2  inhonest	$alt2
-?2  inhonests	$alt2
-?2  inhonestos	$alt2
-?2  inhonesta	$alt2
-?2  inhonestes	$alt2
 insurrecte	$alt2
 insurrectes	$alt2
 intel·lecte	$alt2
 intel·lectes	$alt2
+interessi	$alt2
+interessin	$alt2
 intermedi	$alt2
 intermedis	$alt2
 intersexe	$alt2
 intersexes	$alt2
 isal·loterm	$alt2
-isal·loterms	$alt2
 isal·loterma	$alt2
 isal·lotermes	$alt2
+isal·loterms	$alt2
 isoterm	$alt2
 isoterms	$alt2
 iterbi	$alt2
@@ -1367,15 +1813,9 @@ jeep	$alt2
 jeeps	$alt2
 jerbu	$alt2
 jerbus	$alt2
-?2  jueu	$alt2
-?2  jueus	$alt2
-?2  jueva	$alt2
-?2  jueves	$alt2
-?2  jueua	$alt2
-?2  jueues	$alt2
+josep	$alt2
 julep	$alt2
 juleps	$alt2
-?1 justifet	$alt2
 kea	$alt2
 kees	$alt2
 kendo	$alt2
@@ -1409,10 +1849,16 @@ llefres	$alt2
 lleix	$alt2
 lleme	$alt2
 llemes	$alt2
-llenega	$alt2
 llenç	$alt2
+llenca	$alt2
 llença	$alt2
+llencen	$alt2
+llenci	$alt2
+llencin	$alt2
+llenço	$alt2
+llenega	$alt2
 llesca	$alt2
+llesques	$alt2
 lletra	$alt2
 lletres	$alt2
 lletxa	$alt2
@@ -1425,20 +1871,22 @@ lleute	$alt2
 lleutes	$alt2
 llomello	$alt2
 llomellos	$alt2
-//llueixo    $alt2
-//llueixes    $alt2
 //llueix    $alt2
 //llueixen    $alt2
+//llueixes    $alt2
+//llueixo    $alt2
+longeva	$alt2
 malonilurea	$alt2
 malonilurees	$alt2
 malvapeix	$alt2
 malvapeixos	$alt2
 manefla	$alt2
 manefles	$alt2
+manega	$alt2
+manegen	$alt2
+maneguen	$alt2
 manyefla	$alt2
 manyefles	$alt2
-?1 marenda	$alt2
-?1 marendes	$alt2
 mazedi	$alt2
 mazedis	$alt2
 mede	$alt2
@@ -1450,11 +1898,9 @@ meixos	$alt2
 mendelevi	$alt2
 mendelevis	$alt2
 mero	$alt2
-meros	$alt2
-mero	$alt2
-meros	$alt2
 meroedre	$alt2
 meroedres	$alt2
+meros	$alt2
 mesogea	$alt2
 mesogees	$alt2
 mesoglea	$alt2
@@ -1463,12 +1909,9 @@ mesonefre	$alt2
 mesonefres	$alt2
 mesoterm	$alt2
 mesoterms	$alt2
-?1 mestre	$alt2
-?1 mestres	$alt2
+mestra	$alt2
 metacentre	$alt2
 metacentres	$alt2
-?1 metaestre	$alt2
-?1 metaestres	$alt2
 metalepsi	$alt2
 metalepsis	$alt2
 metanefre	$alt2
@@ -1483,16 +1926,7 @@ miosepte	$alt2
 mioseptes	$alt2
 mixameba	$alt2
 mixamebes	$alt2
-?2  modest	$alt2
-?2  modests	$alt2
-?2  modestos	$alt2
-?2  modesta	$alt2
-?2  modestes	$alt2
-?2  molest	$alt2
-?2  molests	$alt2
-?2  molestos	$alt2
-?2  molesta	$alt2
-?2  molestes	$alt2
+mofeta	$alt2
 moher	$alt2
 mohers	$alt2
 morfea	$alt2
@@ -1500,9 +1934,6 @@ morfees	$alt2
 napea	$alt2
 napees	$alt2
 negra	$alt2
-negres	$alt2
-negre	$alt2
-negres	$alt2
 negre	$alt2
 negres	$alt2
 negues	$alt2
@@ -1518,8 +1949,6 @@ nexe	$alt2
 nexes	$alt2
 nimfea	$alt2
 nimfees	$alt2
-?1 nomparell	$alt2
-?1 nomparells	$alt2
 notonecta	$alt2
 notonectes	$alt2
 nyepa	$alt2
@@ -1530,54 +1959,42 @@ obsequi	$alt2
 obsequis	$alt2
 octaedre	$alt2
 octaedres	$alt2
-?2  oest    $alt2
 ofendre	$alt2
 oftalmoblennorrea	$alt2
 oftalmoblennorrees	$alt2
 oligomenorrea	$alt2
 oligomenorrees	$alt2
+onegi	$alt2
 oocentre	$alt2
 oocentres	$alt2
+oremus	$alt2
 oremus    $alt2
-?1 orella	$alt2
-?1 orelles	$alt2
 ortoedre	$alt2
 ortoedres	$alt2
-?1 ovella	$alt2
-?1 ovelles	$alt2
 ovotestis	$alt2
-?1 palestra	$alt2
-?1 palestres	$alt2
 palmatisecte	$alt2
 palmatisectes	$alt2
 palpebra	$alt2
 palpebres	$alt2
 pandero	$alt2
 panderos	$alt2
+papallonegen	$alt2
 paraheli	$alt2
 parahelis	$alt2
 paral·lex	$alt2
 paral·lexos	$alt2
 parasceve	$alt2
 parasceves	$alt2
-?1 parell	$alt2
-?1 parells	$alt2
+parella	$alt2
+parelles	$alt2
 pareo	$alt2
 pareos	$alt2
 parer	$alt2
 parers	$alt2
-?2  pesta    $alt2
-?2  pestes    $alt2
-?1  patufet	$alt2
-?1  patufets	$alt2
-?1  patufeta	$alt2
-?1  patufetes	$alt2
 pebre	$alt2
 pebres	$alt2
 peciloterm	$alt2
 peciloterms	$alt2
-?1 pedestre	$alt2
-?1 pedestres	$alt2
 pedi	$alt2
 pedis	$alt2
 pehlevi	$alt2
@@ -1592,11 +2009,12 @@ pentareixa	$alt2
 pentareixes	$alt2
 pepa	$alt2
 pepes	$alt2
-pepa	$alt2
-pepes	$alt2
 peple	$alt2
 peples	$alt2
+pequen	$alt2
 pera	$alt2
+percep	$alt2
+perceps	$alt2
 peres	$alt2
 periblema	$alt2
 periblemes	$alt2
@@ -1612,14 +2030,18 @@ pitnegre	$alt2
 pitnegres	$alt2
 plaer	$alt2
 plaers	$alt2
+planegen	$alt2
+planeges	$alt2
 ple	$alt2
 plebs	$alt2
 plectre	$alt2
 plectres	$alt2
 plepa	$alt2
 plepes	$alt2
+pler	$alt2
 plexe	$alt2
 plexes	$alt2
+podent	$alt2
 poder	$alt2
 poder	$alt2 $alt4 $noun
 poders	$alt2
@@ -1629,82 +2051,72 @@ poliedre	$alt2
 poliedres	$alt2
 posterma	$alt2
 postermes	$alt2
-?1 postvenda	$alt2
-?1 postvendes	$alt2
 predi	$alt2
-predis	$alt2
+predilecta	$alt2
 predilecte	$alt2
 predilectes	$alt2
+predis	$alt2
 prendre	$alt2
 presepi	$alt2
 presepis	$alt2
 presto	$alt2
 prestos	$alt2
-?2  pretext    $alt2
-?2  pretexts   $alt2
-?2  pretextos  $alt2
-?2  pretexta   $alt2
-?2  pretextes  $alt2
 preu	$alt2
-preus	$alt2
 preufet	$alt2
 preufets	$alt2
+preus	$alt2
 prevaler	$alt2
 previ	$alt2
 previs	$alt2
+profeta	$alt2
+profetes	$alt2
 prolepsi	$alt2
 prolepsis	$alt2
 pronefre	$alt2
 pronefres	$alt2
 prostatorrea	$alt2
 prostatorrees	$alt2
-?2  protest    $alt2
-?2  protests   $alt2
-?2  protestos  $alt2
 proterv	$alt2
 protervs	$alt2
 ptialorrea	$alt2
 ptialorrees	$alt2
-?1 quadrimestre	$alt2
-?1 quadrimestres	$alt2
-?1 quatreta	$alt2
-?1 quatretes	$alt2
 queb	$alt2
 quebs	$alt2
 quepis	$alt2
 quer	$alt2
-quers	$alt2
 quermes	$alt2
-?2  quimera    $alt2
-?2  quimeres   $alt2
-?1 rafet	$alt2
-?1 rafets	$alt2
-?1 res	$alt2
-?1 rebre	$alt2
-?2  recepta    $alt2
-?2  receptes   $alt2
+quers	$alt2
+reben	$alt2
+rebi	$alt2
+rebin	$alt2
+rebo	$alt2
 recol·lecte	$alt2
 recol·lectes	$alt2
+reconegui	$alt2
+reconeguin	$alt2
+recta	$alt2
 recte	$alt2
 rectes	$alt2
+reemprendre	$alt2
+referma	$alt2
+refermen	$alt2
 reflex	$alt2
 reflexos	$alt2
-?2  reg    $alt2
-?2  regs   $alt2
+refredi	$alt2
+refredin	$alt2
 regi	$alt2
 regis	$alt2
 rellisquentes	$alt2
 remolest	$alt2
 remolests	$alt2
+rep	$alt2
 reprendre	$alt2
 reps	$alt2
-?1 restret	$alt2
-?1 restrets	$alt2
+resseques	$alt2
+reu	$alt2
+reus	$alt2
 reva	$alt2
 reves	$alt2
-?1 revenda	$alt2
-?1 revendes	$alt2
-?1 revendre	$alt2
 rhe	$alt2
 rhes	$alt2
 rinorrea	$alt2
@@ -1717,12 +2129,7 @@ rombododecaedre	$alt2
 rombododecaedres	$alt2
 romboedre	$alt2
 romboedres	$alt2
-?1 rovell	$alt2
-?1 rovells	$alt2
-?1 rupestre	$alt2
-?1 rupestres	$alt2
-saber	$alt2
-sabers	$alt2
+sabent	$alt2
 saber	$alt2
 sabers	$alt2
 salep	$alt2
@@ -1742,39 +2149,41 @@ secta	$alt2
 sectes	$alt2
 sefe	$alt2
 sefes	$alt2
+segui	$alt2
+seguin	$alt2
+selecta	$alt2
 selecte	$alt2
 selectes	$alt2
 sembra	$alt2
 sembres	$alt2
-?1 semestre	$alt2
-?1 semestres	$alt2
 sencer	$alt2
+sencera	$alt2
+senceres	$alt2
 sencers	$alt2
 septe	$alt2
 septes	$alt2
+seques	$alt2
 sequi	$alt2
 sequis	$alt2
 serbi	$alt2
 serbis	$alt2
-?2  serf    $alt2
-?2  serfs   $alt2
 servo	$alt2
 servos	$alt2
 sex	$alt2
 sexe	$alt2
 sexes	$alt2
 sext	$alt2
-sexts	$alt2
 sexta	$alt2
 sextes	$alt2
+sexts	$alt2
 sexy	$alt2
 sexys	$alt2
 sialorrea	$alt2
 sialorrees	$alt2
-silvostepa	$alt2
-silvostepes	$alt2
 sil·lepsi	$alt2
 sil·lepsis	$alt2
+silvostepa	$alt2
+silvostepes	$alt2
 sinalefa	$alt2
 sinalefes	$alt2
 sintexi	$alt2
@@ -1788,33 +2197,30 @@ subdialecte	$alt2
 subdialectes	$alt2
 sucorrea	$alt2
 sucorrees	$alt2
-?1 sufet	$alt2
-?1 sufets	$alt2
+sueques	$alt2
 superb	$alt2
 superbs	$alt2
 supercomplex	$alt2
 supercomplexos	$alt2
 suspendre	$alt2
 //te	$alt2
-tes	$alt2
 tebeo	$alt2
 tebeos	$alt2
 tebi	$alt2
 tebis	$alt2
 tedi	$alt2
 tedis	$alt2
-?2  tempesta    $alt2
-?2  tempestes   $alt2
+teles	$alt2
+tendra	$alt2
 tendre	$alt2
 tendres	$alt2
 tentipotenti	$alt2
 ter	$alt2
-ters	$alt2
 terbi	$alt2
 terbis	$alt2
 termos	$alt2
-?1 terrestre	$alt2
-?1 terrestres	$alt2
+ters	$alt2
+tes	$alt2
 testes	$alt2
 tetartoedre	$alt2
 tetartoedres	$alt2
@@ -1823,9 +2229,6 @@ tetraedres	$alt2
 tetrahexaedre	$alt2
 tetrahexaedres	$alt2
 tex	$alt2
-?2  text    $alt2
-?2  texts   $alt2
-?2  textos    $alt2
 torpede	$alt2
 torpedes	$alt2
 trapezi	$alt2
@@ -1834,17 +2237,15 @@ trapezoedre	$alt2
 trapezoedres	$alt2
 trefle	$alt2
 trefles	$alt2
-?1 trenta	$alt2
 tricorrexi	$alt2
 tricorrexis	$alt2
 triedre	$alt2
 triedres	$alt2
-?1 trimestre	$alt2
-?1 trimestres	$alt2
 trisoctaedre	$alt2
 trisoctaedres	$alt2
 tristetraedre	$alt2
 tristetraedres	$alt2
+txeques	$alt2
 ulema	$alt2
 ulemes	$alt2
 unisex	$alt2
@@ -1856,29 +2257,21 @@ uzbek	$alt2
 uzbeks	$alt2
 valer	$alt2
 valers	$alt2
-valer	$alt2
-valers	$alt2
 //ve	$alt2
-//ves	$alt2
-?1 venda	$alt2
-?1 vendes	$alt2
+veça	$alt2
 vende	$alt2
 vendes	$alt2
-?1 vendre	$alt2
-?1 venta	$alt2
-?1 ventes	$alt2
 vepse	$alt2
 vepses	$alt2
 verm	$alt2
-verms	$alt2
-?1 vermell	$alt2
-?1 vermells	$alt2
+vermella	$alt2
+vermelles	$alt2
 vermis	$alt2
+verms	$alt2
 verpa	$alt2
 verpes	$alt2
-?2  verra    $alt2
-?2  verres   $alt2
-veça	$alt2
+//ves	$alt2
+vicent	$alt2
 vilablareix	$alt2
 vilablareixos	$alt2
 vilacendra	$alt2
@@ -1887,28 +2280,20 @@ vilanegra	$alt2
 vilanegres	$alt2
 vilipendi	$alt2
 vilipendis	$alt2
-voler	$alt2
-volers	$alt2
+volent	$alt2
 voler	$alt2
 volers	$alt2
 xarnego	$alt2
 xarnegos	   $alt2
-?2  xalest      $alt2
-?2  xalests     $alt2
-?2  xalestos    $alt2
-?2  xambergo    $alt2
-?2  xambergos   $alt2
 xe	$alt2
-xes	$alt2
 xef	$alt2
-xefs	$alt2
 xefla	$alt2
 xefles	$alt2
 xeflis	$alt2
-?1 xereix	$alt2
-?1 xereixos	$alt2
+xefs	$alt2
 xerpa	$alt2
 xerpes	$alt2
+xes	$alt2
 xilema	$alt2
 xilemes	$alt2
 zero	$alt2
@@ -1918,14 +2303,128 @@ zoees	$alt2
 zooglea	$alt2
 zooglees	$alt2
 
-
-/// words with o (provisional)
+/// words with o 
+?1 bicorn	$alt1
+?1 bicorns	$alt1
+?1 boc	$alt1
+?1 bocs	$alt1
+?1 bolla	$alt1
+?1 bolles	$alt1
+?1 bora	$alt1
+?1 bores	$alt1
+?1 botges	$alt1
+?1 botja	$alt1
+?1 brom	$alt1
+?1 broms	$alt1
+?1 cadolla	$alt1
+?1 cadolles	$alt1
+?1 clop	$alt1
+?1 clops	$alt1
+?1 cort	$alt1
+?1 corts	$alt1
+?1  cossa	$alt1
+?1 eixorc	$alt1
+?1 eixorca	$alt1
+?1 eixorcs	$alt1
+?1 eixorques	$alt1
+?1 flota	$alt1
+?1 flotes	$alt1
+?1 gadolla	$alt1
+?1 gadolles	$alt1
+?1 glosa	$alt1
+?1 gloses	$alt1
+?1 gord	$alt1
+?1 gords	$alt1
+?1 gorga	$alt1
+?1 gorges	$alt1
+?1 gorja	$alt1
+?1 mesomorf	$alt1
+?1 mesomorfs	$alt1
+?1 mormol	$alt1
+?1 mormols	$alt1
+?1 mossa	$alt1
+?1 mosses	$alt1
+?1 nyora	$alt1
+?1 nyores	$alt1
+?1 ohm	$alt1
+?1 ohms	$alt1
+?1 ora	$alt1
+?1 ores	$alt1
+?1 pailebot	$alt1
+?1 pailebots	$alt1
+?1 por	$alt1
+?1 pors	$alt1
+?1 prenom	$alt1
+?1 prenoms	$alt1
+?1 ripoll	$alt1
+?1 ripolls	$alt1
+?1 rost	$alt1
+?1 rosta	$alt1
+?1 rostes	$alt1
+?1 rostos	$alt1
+?1 rosts	$alt1
+?1 saboc	$alt1
+?1 sabocs	$alt1
+?1 simetrodont	$alt1
+?1 simetrodonts	$alt1
+?1 sostre	$alt1
+?1 sostres	$alt1
+?1 tou	$alt1
+?1 tous	$alt1
+?2 cobra	alt1
+?2 cobre	alt1
+?2 cobren	alt1
+?2 cobres	alt1
+?2 cobri	alt1
+?2 cobrí	alt1
+?2 cobrin	alt1
+?2 cobris	alt1
+?2 cobro	alt1
+?2 cou	$alt1
+?2 couen	$alt1
+?2 courà	$alt1
+?2 couran	$alt1
+?2 couràs	$alt1
+?2 coure	$alt1
+?2 couré	$alt1
+?2 courem	$alt1
+?2 coures	$alt1
+?2 coureu	$alt1
+?2 couria	$alt1
+?2 couríem	$alt1
+?2 courien	$alt1
+?2 couries	$alt1
+?2 couríeu	$alt1
+?2 sobra	alt1
+?2 sobren	alt1
+?2 sobri	alt1
+?2 sobrí	alt1
+?2 sobrin	alt1
+?2 sobris	alt1
+?2 sobro	alt1
+?3 com  $alt1
+abandoni	$alt1
+abandonin	$alt1
+abdomen	$alt1
+aboca	$alt1
+aboni	$alt1
+aborda	$alt1
+aborden	$alt1
+abordi	$alt1
+abordin	$alt1
 acrodont	$alt1
 acrodonts	$alt1
+adoni	$alt1
+adonin	$alt1
+adonis	$alt1
+adoren	$alt1
 adorn	$alt1
+adorna	$alt1
+adornen	$alt1
 adorns	$alt1
 adrenocrom	$alt1
 adrenocroms	$alt1
+advoca	$alt1
 afoll	$alt1
 afolls	$alt1
 afront	$alt1
@@ -1934,26 +2433,38 @@ agnom	$alt1
 agnoms	$alt1
 agost	$alt1
 agosts	$alt1
+agredolç	$alt1
+agredolça	$alt1
+agredolces	$alt1
+agredolços	$alt1
 aixoll	$alt1
 aixolls	$alt1
+ajorna	$alt1
+ajornen	$alt1
+ajorni	$alt1
+ajornin	$alt1
+ajorno	$alt1
 alcofoll	$alt1
 alcofolls	$alt1
 alentorn	$alt1
 alentorns	$alt1
-alvèol	$alt1
-alvèols	$alt1
+alíquota	$alt1
+alíquotes	$alt1
 al·ligàtor	$alt1
 al·ligàtors	$alt1
 al·luvionament	$alt1
 al·luvionaments	$alt1
-alíquota	$alt1
-alíquotes	$alt1
+àloe	$alt1
+àloes	$alt1
+alvèol	$alt1
+alvèols	$alt1
 amom	$alt1
 amoms	$alt1
 ampolla	$alt1
 ampolles	$alt1
 anafront	$alt1
 anafronts	$alt1
+andorra	$alt1
 angoixa	$alt1
 angoixes	$alt1
 angost	$alt1
@@ -1966,12 +2477,17 @@ aquositat	$alt1
 aquositats	$alt1
 aroma	$alt1
 aromes	$alt1
+assessoren	$alt1
 atot	$alt1
 atots	$alt1
+atotxa	$alt1
+àudio	$alt1
+àudios	$alt1
 aurèola	$alt1
 aurèoles	$alt1
 auxocrom	$alt1
 auxocroms	$alt1
+avorta	$alt1
 babord	$alt1
 babords	$alt1
 barbolla	$alt1
@@ -1982,56 +2498,54 @@ batolla	$alt1
 batolles	$alt1
 bedoll	$alt1
 bedolls	$alt1
+benidorm	$alt1
 besnebot	$alt1
 besnebots	$alt1
 bestorre	$alt1
 bestorres	$alt1
 bicoca	$alt1
 bicoces	$alt1
-?1 bicorn	$alt1
-?1 bicorns	$alt1
 bifront	$alt1
 bifronts	$alt1
 blonda	$alt1
 blondes	$alt1
-?1 boc	$alt1
-?1 bocs	$alt1
+boç	$alt1
 boca	$alt1
 boces	$alt1
+boçs	$alt1
 boda	$alt1
 bodes	$alt1
+boga	$alt1
 boix	$alt1
-boixs	$alt1
 boixa	$alt1
 boixes	$alt1
+boixs	$alt1
 bolc	$alt1
+bolca	$alt1
 bolcs	$alt1
 boll	$alt1
 bolls	$alt1
-?1 bolla	$alt1
-?1 bolles	$alt1
+bolquen	$alt1
 bom	$alt1
-boms	$alt1
 bomba	$alt1
 bombes	$alt1
 bombo	$alt1
-bombos	$alt1
 bombolla	$alt1
 bombolles	$alt1
-bonicor $alt1
-bonicors    $alt1
+bombos	$alt1
+boms	$alt1
 bonda	$alt1
 bondes	$alt1
+bonicor $alt1
+bonicors    $alt1
 bony	$alt1
 bonys	$alt1
-?1 bora	$alt1
-?1 bores	$alt1
 bord	$alt1
-bords	$alt1
-bord	$alt1
-bords	$alt1
 borda	$alt1
+borden	$alt1
 bordes	$alt1
+bordo	$alt1
+bords	$alt1
 borm	$alt1
 borms	$alt1
 born	$alt1
@@ -2044,30 +2558,33 @@ borsa	$alt1
 borses	$alt1
 bossa	$alt1
 bosses	$alt1
+bòston	$alt1
+bòstons	$alt1
 bot	$alt1
-bots	$alt1
-?1 botja	$alt1
-?1 botges	$alt1
+bota	$alt1
+botes	$alt1
+boti	$alt1
 botorn	$alt1
 botorns	$alt1
 botre	$alt1
 botres	$alt1
+bots	$alt1
 botxa	$alt1
 botxes	$alt1
 boxa	$alt1
+bòxer	$alt1
+bòxers	$alt1
 boxes	$alt1
-boç	$alt1
-boçs	$alt1
 bravo	$alt1
 bravos	$alt1
+broda	$alt1
 broix	$alt1
 broixs	$alt1
 broll	$alt1
-brolls	$alt1
 brolla	$alt1
+brollen	$alt1
 brolles	$alt1
-?1 brom	$alt1
-?1 broms	$alt1
+brolls	$alt1
 broma	$alt1
 bromes	$alt1
 bronc	$alt1
@@ -2075,13 +2592,8 @@ broncs	$alt1
 bronze	$alt1
 bronzes	$alt1
 brot	$alt1
+brota	$alt1
 brots	$alt1
-bòston	$alt1
-bòstons	$alt1
-bòxer	$alt1
-bòxers	$alt1
-?1 cadolla	$alt1
-?1 cadolles	$alt1
 caos	$alt1
 capitomba	$alt1
 capitombes	$alt1
@@ -2101,26 +2613,15 @@ cinetosomes	$alt1
 claudàtor	$alt1
 claudàtors	$alt1
 clofoll	$alt1
-clofolls	$alt1
 clofolla	$alt1
 clofolles	$alt1
-?1 clop	$alt1
-?1 clops	$alt1
+clofolls	$alt1
+clons	$alt1
 cloroform	$alt1
 cloroforms	$alt1
 cobla	$alt1
-cobles	$alt1
 coble	$alt1
 cobles	$alt1
-?2 cobra	alt1
-?2 cobre	alt1
-?2 cobren	alt1
-?2 cobres	alt1
-?2 cobri	alt1
-?2 cobrí	alt1
-?2 cobrin	alt1
-?2 cobris	alt1
-?2 cobro	alt1
 coca	$alt1
 coces	$alt1
 coco	$alt1
@@ -2130,36 +2631,41 @@ cogombres	$alt1
 coi	$alt1
 cois	$alt1
 coix	$alt1
+coixa	$alt1
 coixs	$alt1
+colèdoc	$alt1
+colèdocs	$alt1
 coliform	$alt1
 coliforms	$alt1
 colom	$alt1
-coloms	$alt1
 coloma	$alt1
 colomes	$alt1
+coloms	$alt1
+còlon	$alt1
+còlons	$alt1
+colps	$alt1
 colze	$alt1
 colzes	$alt1
-colèdoc	$alt1
-colèdocs	$alt1
-?3 com  $alt1
 coma	$alt1
-comes	$alt1
-coma	$alt1
-comes	$alt1
 comba	$alt1
 combes	$alt1
 comble	$alt1
 combles	$alt1
+comes	$alt1
+commemoren	$alt1
 compra	$alt1
+compren	$alt1
 compres	$alt1
+compro	$alt1
 con	$alt1
-cons	$alt1
 cona	$alt1
-cones	$alt1
 conc	$alt1
-concs	$alt1
 conca	$alt1
 conces	$alt1
+concorre	$alt1
+concorren	$alt1
+concs	$alt1
+cones	$alt1
 confront	$alt1
 confronts	$alt1
 conga	$alt1
@@ -2170,39 +2676,52 @@ congost	$alt1
 congosts	$alt1
 congre	$alt1
 congres	$alt1
+conques	$alt1
+cons	$alt1
+consta	$alt1
+consten	$alt1
+conta	$alt1
 conte	$alt1
+conten	$alt1
 contes	$alt1
 contorn	$alt1
 contorns	$alt1
+contres	$alt1
+convoca	$alt1
 conxo	$alt1
 conxos	$alt1
 cony	$alt1
-conys	$alt1
 conya	$alt1
 conyes	$alt1
+conys	$alt1
 copa	$alt1
+copen	$alt1
 copes	$alt1
+copla	$alt1
+copsa	$alt1
 copte	$alt1
 coptes	$alt1
+coques	$alt1
 corba	$alt1
 corbes	$alt1
-corba	$alt1
-corbes	$alt1
+corbs	$alt1
 corc	$alt1
-corcs	$alt1
 corcoll	$alt1
 corcolls	$alt1
+corcs	$alt1
 corma	$alt1
 cormes	$alt1
+corn	$alt1
 corra	$alt1
-corres	$alt1
 corre	$alt1
 corren	$alt1
+corres	$alt1
 corri	$alt1
 corrin	$alt1
 corris	$alt1
 corro	$alt1
-corrompre	$alt1
+corroboren	$alt1
+corromp     $alt1
 corrompe	$alt1
 corrompen	$alt1
 corrompes	$alt1
@@ -2210,19 +2729,18 @@ corrompi	$alt1
 corrompin	$alt1
 corrompis	$alt1
 corrompo	$alt1
-corromp     $alt1
+corrompre	$alt1
 cors	$alt1
-cors	$alt1
-?1 cort	$alt1
-?1 corts	$alt1
+corsa	$alt1
+corses	$alt1
+corsos	$alt1
 coscoll	$alt1
-coscolls	$alt1
 coscolla	$alt1
 coscolles	$alt1
+coscolls	$alt1
 coscorra	$alt1
 coscorres	$alt1
 cosmos	$alt1
-?1  cossa	$alt1
 cosses	$alt1
 cotilèdon	$alt1
 cotilèdons	$alt1
@@ -2233,21 +2751,6 @@ cotorres	$alt1
 cotxa	$alt1
 cotxe	$alt1
 cotxes	$alt1
-?2 cou	$alt1
-?2 couen	$alt1
-?2 courà	$alt1
-?2 couran	$alt1
-?2 couràs	$alt1
-?2 coure	$alt1
-?2 couré	$alt1
-?2 courem	$alt1
-?2 coures	$alt1
-?2 coureu	$alt1
-?2 couria	$alt1
-?2 couríem	$alt1
-?2 courien	$alt1
-?2 couries	$alt1
-?2 couríeu	$alt1
 courim	$alt1
 courims	$alt1
 crioll	$alt1
@@ -2255,76 +2758,101 @@ criolls	$alt1
 criptomònade	$alt1
 criptomònades	$alt1
 crom	$alt1
-croms	$alt1
 croma	$alt1
 cromes	$alt1
 cromo	$alt1
 cromos	$alt1
 cromosoma	$alt1
 cromosomes	$alt1
+croms	$alt1
+crúor	$alt1
 cruorina	$alt1
 cruorines	$alt1
-crúor	$alt1
 crúors	$alt1
-còlon	$alt1
-còlons	$alt1
+cupons	$alt1
 dasipròctid	$alt1
 dasipròctids	$alt1
+decoren	$alt1
+deforma	$alt1
 dejorn	$alt1
 dejorns	$alt1
+desconvoca	$alt1
+desemboca	$alt1
+desemborses	$alt1
 desembroll	$alt1
 desembrolls	$alt1
 desordre	$alt1
 desordres	$alt1
 desplom	$alt1
+desploma	$alt1
+desplomen	$alt1
 desploms	$alt1
 dessota	$alt1
 dessotes	$alt1
 destorb	$alt1
+destorben	$alt1
 destorbs	$alt1
 destrudo	$alt1
 destrudos	$alt1
+deterioren	$alt1
+devoro	$alt1
 dicroisme	$alt1
 dicroismes	$alt1
+difondre	$alt1
 diploma	$alt1
 diplomes	$alt1
+discorre	$alt1
 do	$alt1
-dos	$alt1
 dobla	$alt1
-dobles	$alt1
 doble	$alt1
+doblen	$alt1
 dobles	$alt1
 dogma	$alt1
 dogmes	$alt1
 dojo	$alt1
 dojos	$alt1
-doll	$alt1
-dolls	$alt1
-dolla	$alt1
-dolles	$alt1
 dolç	$alt1
-dolços	$alt1
 dolça	$alt1
 dolces	$alt1
+dolços	$alt1
+doll	$alt1
+dolla	$alt1
+dolles	$alt1
+dolls	$alt1
 dom	$alt1
-doms	$alt1
 doma	$alt1
 domes	$alt1
+doms	$alt1
 //dona	$alt1
+donen	$alt1
 //dones	$alt1
+dong	$alt1
+doni	$alt1
+donin	$alt1
+donis	$alt1
+dono	$alt1
+dora	$alt1
+doro	$alt1
 dos	$alt1
+dosos	$alt1
 dotze	$alt1
 dotzes	$alt1
 duo	$alt1
 duos	$alt1
-?1 eixorc	$alt1
-?1 eixorcs	$alt1
-?1 eixorca	$alt1
-?1 eixorques	$alt1
+elaboren	$alt1
+elabori	$alt1
+elaborin	$alt1
 embrolla	$alt1
 embrolles	$alt1
 empatoll	$alt1
 empatolls	$alt1
+empitjoren	$alt1
+empitjori	$alt1
+enamoren	$alt1
+enamori	$alt1
+enamoro	$alt1
+encontre	$alt1
+encontres	$alt1
 endoll	$alt1
 endolls	$alt1
 enfarfoll	$alt1
@@ -2333,37 +2861,70 @@ enfront	$alt1
 enfronts	$alt1
 enorme	$alt1
 enormes	$alt1
+ensorra	$alt1
+ensorren	$alt1
 ensota	$alt1
 ensotes	$alt1
+entoma	$alt1
 entorn	$alt1
+entorno	$alt1
 entorns	$alt1
+enyoren	$alt1
+enyoro	$alt1
+equivoca	$alt1
+equivoco	$alt1
+equivoques	$alt1
 eros	$alt1
+esborra	$alt1
+esborren	$alt1
+esborri	$alt1
+esborrin	$alt1
+esborris	$alt1
 escalaborn	$alt1
 escalaborns	$alt1
 esclofolla	$alt1
 esclofolles	$alt1
+escolta	$alt1
+escolten	$alt1
+escoltes	$alt1
+escolti	$alt1
+escoltin	$alt1
+escolto	$alt1
 escombra	$alt1
 escombres	$alt1
+escorç	$alt1
 escorcoll	$alt1
+escorcolla	$alt1
 escorcolls	$alt1
+escorçs	$alt1
 escorta	$alt1
 escortes	$alt1
-escorç	$alt1
-escorçs	$alt1
+esgoten	$alt1
+esgoti	$alt1
+esmicola	$alt1
+esmorzen	$alt1
 espiritrompa	$alt1
 espiritrompes	$alt1
 esporga	$alt1
 esporges	$alt1
+estèreo	$alt1
+estèreos	$alt1
+estofa	$alt1
 estoig	$alt1
 estoigs	$alt1
 estoma	$alt1
 estomes	$alt1
+estopa	$alt1
 estrafolla	$alt1
 estrafolles	$alt1
 estribord	$alt1
 estribords	$alt1
-estèreo	$alt1
-estèreos	$alt1
+evoca	$alt1
+exploren	$alt1
+explota	$alt1
+exploten	$alt1
+exploti	$alt1
+explotin	$alt1
 extorn	$alt1
 extorns	$alt1
 farfolla	$alt1
@@ -2374,18 +2935,18 @@ fenoll	$alt1
 fenolls	$alt1
 fibroma	$alt1
 fibromes	$alt1
-?1 flota	$alt1
-?1 flotes	$alt1
+fiord	$alt1
+fiords	$alt1
 fluoració	$alt1
 fluoraciós	$alt1
 fluorar	$alt1
 fluorars	$alt1
 fluorat	$alt1
 fluorats	$alt1
-fluorescent	$alt1
-fluorescents	$alt1
 fluorescència	$alt1
 fluorescències	$alt1
+fluorescent	$alt1
+fluorescents	$alt1
 fluorhídric	$alt1
 fluorhídrics	$alt1
 fluorita	$alt1
@@ -2400,103 +2961,115 @@ fofos	$alt1
 foix	$alt1
 foixs	$alt1
 folc	$alt1
+folch	$alt1
 folcs	$alt1
 folga	$alt1
 folges	$alt1
 foll	$alt1
+folla	$alt1
+folles	$alt1
 folls	$alt1
 folre	$alt1
 folres	$alt1
 folro	$alt1
 folros	$alt1
+fon	$alt1
 fona	$alt1
-fones	$alt1
 fonda	$alt1
 fondes	$alt1
 fondo	$alt1
 fondos	$alt1
 fondre	$alt1
 fondres	$alt1
+fones	$alt1
 fong	$alt1
 fongs	$alt1
 fonoll	$alt1
 fonolls	$alt1
 fons    $alt1
+foques	$alt1
 for	$alt1
-fors	$alt1
 forc	$alt1
-forcs	$alt1
 forca	$alt1
 forces	$alt1
+forcs	$alt1
+foren	$alt1
+fores	$alt1
 forma	$alt1
 formes	$alt1
+formi	$alt1
+formin	$alt1
+formo	$alt1
 forn	$alt1
 forns	$alt1
+forques	$alt1
 forra	$alt1
 forres	$alt1
 forro	$alt1
-forros	$alt1
 forroll	$alt1
-forrolls	$alt1
 forrolla	$alt1
 forrolles	$alt1
+forrolls	$alt1
+forros	$alt1
+fors	$alt1
+fot	$alt1
+foten	$alt1
+foti	$alt1
+fotin	$alt1
+fotis	$alt1
 fotja	$alt1
 fotjes	$alt1
 foto	$alt1
 fotos	$alt1
 fotre	$alt1
 fotres	$alt1
+fots	$alt1
 fou 	$alt1
 fronda	$alt1
 frondes	$alt1
 front	$alt1
 fronts	$alt1
-?1 gadolla	$alt1
-?1 gadolles	$alt1
+funcioni	$alt1
+funcionin	$alt1
+fusionin	$alt1
 gaullisme	$alt1
 gaullismes	$alt1
 genoll	$alt1
 genolls	$alt1
+genoma	$alt1
+genomes	$alt1
 geobiont	$alt1
 geobionts	$alt1
 girientorn	$alt1
 girientorns	$alt1
 glop	$alt1
 glops	$alt1
-?1 glosa	$alt1
-?1 gloses	$alt1
 gnom	$alt1
 gnoms	$alt1
 gola	$alt1
 goles	$alt1
 golf	$alt1
-golfs	$alt1
 golfa	$alt1
 golfes	$alt1
 golfo	$alt1
 golfos	$alt1
+golfs	$alt1
 goll	$alt1
 golls	$alt1
 gom	$alt1
-goms	$alt1
 goma	$alt1
 gomes	$alt1
+goms	$alt1
 gona	$alt1
 gones	$alt1
-?1 gord	$alt1
-?1 gords	$alt1
 gorg	$alt1
 gorgs	$alt1
-?1 gorga	$alt1
-?1 gorges	$alt1
-?1 gorja	$alt1
-?1 gorges	$alt1
 gorra	$alt1
 gorres	$alt1
 gos	$alt1
-gossos	$alt1
 gossa	$alt1
 gosses	$alt1
+gossos	$alt1
 gota	$alt1
 gotes	$alt1
 gotzo	$alt1
@@ -2504,10 +3077,11 @@ gotzos	$alt1
 grifoll	$alt1
 grifolls	$alt1
 gro	$alt1
+gronxa	$alt1
 grop	$alt1
-grops	$alt1
 gropa	$alt1
 gropes	$alt1
+grops	$alt1
 grumoll	$alt1
 grumolls	$alt1
 haloform	$alt1
@@ -2524,11 +3098,17 @@ honda	$alt1
 hondes	$alt1
 honra	$alt1
 honres	$alt1
+hormones	$alt1
 idioma	$alt1
 idiomes	$alt1
+ignoren	$alt1
+ignoro	$alt1
+incorporen	$alt1
+incorre	$alt1
+incorren	$alt1
 infòlio	$alt1
 infòlios	$alt1
-interrompre	$alt1
+interromp	$alt1
 interrompre	$alt1
 interrompren	$alt1
 interrompres	$alt1
@@ -2536,12 +3116,14 @@ interrompri	$alt1
 interromprin	$alt1
 interrompris	$alt1
 interrompro	$alt1
-interromp	$alt1
 interromps	$alt1
+invoca	$alt1
 iodoform	$alt1
 iodoforms	$alt1
-irrompre	$alt1
-irrompres	$alt1
+ípsilon	$alt1
+ípsilons	$alt1
+irromp	$alt1
+irrompen	$alt1
 irrompre	$alt1
 irrompren	$alt1
 irrompres	$alt1
@@ -2549,18 +3131,17 @@ irrompri	$alt1
 irromprin	$alt1
 irrompris	$alt1
 irrompro	$alt1
-irromp	$alt1
 irromps	$alt1
 jofre	$alt1
 jofres	$alt1
 jona	$alt1
-jones	$alt1
 jonc	$alt1
-joncs	$alt1
 jonca	$alt1
-jonces	$alt1
 jonça	$alt1
+jonces	$alt1
 jonçes	$alt1
+joncs	$alt1
+jones	$alt1
 jorba	$alt1
 jorbes	$alt1
 jorn	$alt1
@@ -2568,13 +3149,14 @@ jorns	$alt1
 jou	$alt1
 jous	$alt1
 jova	$alt1
-joves	$alt1
 jove	$alt1
 joves	$alt1
 judo	$alt1
 judos	$alt1
 júnior	$alt1
 júniors	$alt1
+laboren	$alt1
+lapona	$alt1
 leptomònade	$alt1
 leptomònades	$alt1
 libido	$alt1
@@ -2586,46 +3168,48 @@ lingots	$alt1
 lipoma	$alt1
 lipomes	$alt1
 llagost	$alt1
-llagosts	$alt1
 llagosta	$alt1
 llagostes	$alt1
+llagosts	$alt1
 llamborda	$alt1
 llambordes	$alt1
 lloa	$alt1
-lloes	$alt1
 lloba	$alt1
 llobes	$alt1
+lloen	$alt1
+lloes	$alt1
 llom	$alt1
-lloms	$alt1
 lloma	$alt1
 llomes	$alt1
+lloms	$alt1
 llondro	$alt1
 llondros	$alt1
 llones	$alt1
 llong	$alt1
 llongs	$alt1
 llonza	$alt1
-llonzes	$alt1
 llonze	$alt1
 llonzes	$alt1
 llop	$alt1
 llops	$alt1
 llora	$alt1
-llores	$alt1
 llord	$alt1
 llords	$alt1
+llores	$alt1
 llosc	$alt1
 lloscs	$alt1
 llot	$alt1
 llots	$alt1
+lom	$alt1
 lona	$alt1
+londres	$alt1
 lones	$alt1
 lora	$alt1
 lores	$alt1
 majordom	$alt1
-majordoms	$alt1
 majordoma	$alt1
 majordomes	$alt1
+majordoms	$alt1
 manoll	$alt1
 manolls	$alt1
 maroma	$alt1
@@ -2634,125 +3218,148 @@ masmorra	$alt1
 masmorres	$alt1
 matoll	$alt1
 matolls	$alt1
+melanoma	$alt1
+melanomes	$alt1
 mercurocrom	$alt1
 mercurocroms	$alt1
-?1 mesomorf	$alt1
-?1 mesomorfs	$alt1
+mesotelioma	$alt1
+milloren	$alt1
+millori	$alt1
+millorin	$alt1
+moa	$alt1
 moc	$alt1
 mocs	$alt1
+modus	$alt1
 moix	$alt1
-moixs	$alt1
-moix	$alt1
-moixs	$alt1
 moixa	$alt1
 moixes	$alt1
+moixos	$alt1
+moixs	$alt1
 molsa	$alt1
 molses	$alt1
 molt	$alt1
 molta	$alt1
+moltes	$alt1
 molts	$alt1
 mom	$alt1
-moms	$alt1
 moma	$alt1
 momes	$alt1
+moms	$alt1
 mona	$alt1
 mones	$alt1
 monocrom	$alt1
 monocroms	$alt1
+mont	$alt1
+montse	$alt1
 monya	$alt1
 monyes	$alt1
 monyo	$alt1
 monyos	$alt1
 mora	$alt1
-mores	$alt1
 morca	$alt1
 morces	$alt1
+mores	$alt1
 morma	$alt1
 mormes	$alt1
-?1 mormol	$alt1
-?1 mormols	$alt1
 morra	$alt1
 morres	$alt1
 morro	$alt1
 morros	$alt1
 morsa	$alt1
 morses	$alt1
+mos	$alt1
 mosca	$alt1
 mosces	$alt1
-?1 mossa	$alt1
-?1 mosses	$alt1
+mosques	$alt1
 mosso	$alt1
 mossos	$alt1
 most	$alt1
 mosts	$alt1
 mot	$alt1
+moto	$alt1
+motos	$alt1
 mots	$alt1
+neboda	$alt1
+nebodes	$alt1
 nebot	$alt1
 nebots	$alt1
+nipona	$alt1
+nipones	$alt1
+nipons	$alt1
 no	$alt1
 nomenclàtor	$alt1
 nomenclàtors	$alt1
 nona	$alt1
 nones	$alt1
-?1 nyora	$alt1
-?1 nyores	$alt1
+obsta	$alt1
+ocorre	$alt1
+ocorren	$alt1
 octa	$alt1
 octes	$alt1
 odontoma	$alt1
 odontomes	$alt1
-?1 ohm	$alt1
-?1 ohms	$alt1
 oix	$alt1
-oixs	$alt1
 oixque	$alt1
 oixques	$alt1
+oixs	$alt1
+oloro	$alt1
 om	$alt1
-oms	$alt1
 oma	$alt1
-omes	$alt1
 ombra	$alt1
 ombres	$alt1
+omes	$alt1
+òmicron	$alt1
+òmicrons	$alt1
 ommocrom	$alt1
 ommocroms	$alt1
+omple	$alt1
+omplen	$alt1
+omples	$alt1
+omplo	$alt1
+oms	$alt1
 on	$alt1
-ons	$alt1
 ona	$alt1
-ones	$alt1
 oncle	$alt1
 oncles	$alt1
 onda	$alt1
 ondes	$alt1
+ones	$alt1
+ons	$alt1
 onze	$alt1
 onzes	$alt1
 opistosoma	$alt1
 opistosomes	$alt1
 opopònac	$alt1
 opopònacs	$alt1
-?1 ora	$alt1
-?1 ores	$alt1
+opta	$alt1
+opten	$alt1
+opto	$alt1
+orca	$alt1
 orde	$alt1
 ordes	$alt1
 ordre	$alt1
 ordres	$alt1
 oremus	$alt1
+orques	$alt1
 osa	$alt1
 oses	$alt1
-?1 pailebot	$alt1
-?1 pailebots	$alt1
 palafolls	$alt1
 paloma	$alt1
 palomes	$alt1
 panolla	$alt1
 panolles	$alt1
+pasdoble	$alt1
+pasdobles	$alt1
 patoll	$alt1
-patolls	$alt1
 patolla	$alt1
 patolles	$alt1
+patolls	$alt1
 penombra	$alt1
 penombres	$alt1
 perboc	$alt1
 perbocs	$alt1
 perdols	$alt1
+perforen	$alt1
 peristoma	$alt1
 peristomes	$alt1
 peroxisoma	$alt1
@@ -2769,68 +3376,78 @@ pirrònic	$alt1
 pirrònics	$alt1
 placentoma	$alt1
 placentomes	$alt1
+plàncton	$alt1
 plasmocitoma	$alt1
 plasmocitomes	$alt1
+plataforma	$alt1
 pleroma	$alt1
 pleromes	$alt1
 pleurodont	$alt1
 pleurodonts	$alt1
 plom	$alt1
-ploms	$alt1
 ploma	$alt1
 plomes	$alt1
+plomo	$alt1
+ploms	$alt1
+poblen	$alt1
+podi	$alt1
+podis	$alt1
 polca	$alt1
-polques	$alt1
 policrom	$alt1
 policroms	$alt1
 polioma	$alt1
 poliomes	$alt1
 poll	$alt1
-polls	$alt1
 polla	$alt1
 polles	$alt1
+polls	$alt1
+polp	$alt1
 polpa	$alt1
 polpes	$alt1
-polp	$alt1
 polps	$alt1
+polques	$alt1
 pols	$alt1
 poltre	$alt1
 poltres	$alt1
 polze	$alt1
 polzes	$alt1
 pom	$alt1
-poms	$alt1
 poma	$alt1
 pomes	$alt1
 pompa	$alt1
 pompes	$alt1
+poms	$alt1
 pona	$alt1
 pones	$alt1
 pop	$alt1
-pops	$alt1
 popa	$alt1
-popes	$alt1
 pope	$alt1
 popes	$alt1
-?1 por	$alt1
-?1 pors	$alt1
+pops	$alt1
 porpra	$alt1
 porpres	$alt1
 porra	$alt1
 porres	$alt1
 porro	$alt1
 porros	$alt1
+porus	$alt1
 pou	$alt1
-pous	$alt1
 poua	$alt1
 poues	$alt1
-?1 prenom	$alt1
-?1 prenoms	$alt1
+pous	$alt1
+pressioni	$alt1
+pressionin	$alt1
+proa	$alt1
 prohom	$alt1
 prohoms	$alt1
+promourà	$alt1
+promouran	$alt1
+prompte	$alt1
 pron	$alt1
 prons	$alt1
-prorrompre	$alt1
+proporcioni	$alt1
+proporcionin	$alt1
+proromp	$alt1
 prorompre	$alt1
 prorompren	$alt1
 prorompres	$alt1
@@ -2838,63 +3455,82 @@ prorompri	$alt1
 proromprin	$alt1
 prorompris	$alt1
 prorompro	$alt1
-proromp	$alt1
 proromps	$alt1
+prorrompre	$alt1
+provoca	$alt1
 psora	$alt1
 psores	$alt1
 quocient	$alt1
 quocients	$alt1
 quotidià	$alt1
 quotidiàs	$alt1
+reaccioni	$alt1
+reaccionin	$alt1
 reboll	$alt1
 rebolls	$alt1
 rebot	$alt1
-rebots	$alt1
+reboten	$alt1
 rebotre	$alt1
 rebotres	$alt1
+rebots	$alt1
 rebroll	$alt1
 rebrolls	$alt1
 rebrot	$alt1
+rebroti	$alt1
 rebrots	$alt1
+recolza	$alt1
 recolze	$alt1
+recolzen	$alt1
 recolzes	$alt1
+recolzo	$alt1
+recompra	$alt1
+recorre	$alt1
+recorren	$alt1
 recto	$alt1
 rectos	$alt1
+reemborso	$alt1
 reforma	$alt1
 reformes	$alt1
+reformi	$alt1
+reformin	$alt1
 regolf	$alt1
 regolfs	$alt1
+rememoren	$alt1
 remost	$alt1
 remosts	$alt1
+rencontre	$alt1
 renebot	$alt1
 renebots	$alt1
 restollo	$alt1
 restollos	$alt1
 retorn	$alt1
+retorna	$alt1
+retornen	$alt1
+retornes	$alt1
+retorno	$alt1
 retorns	$alt1
+revoca	$alt1
 rho	$alt1
 rhos	$alt1
+ribagorça	$alt1
 ridorsa	$alt1
 ridorses	$alt1
-?1 ripoll	$alt1
-?1 ripolls	$alt1
+rinoceront	$alt1
+rinoceronts	$alt1
 riudefoix	$alt1
 riudefoixs	$alt1
 rizoma	$alt1
 rizomes	$alt1
 ro	$alt1
-ros	$alt1
 roll	$alt1
 rolls	$alt1
 rom	$alt1
-roms	$alt1
-rom	$alt1
-roms	$alt1
+roma	$alt1
 rombe	$alt1
 rombes	$alt1
 romboll	$alt1
 rombolls	$alt1
-rompre	$alt1
+romp	$alt1
 rompre	$alt1
 rompren	$alt1
 rompres	$alt1
@@ -2902,30 +3538,29 @@ rompri	$alt1
 romprin	$alt1
 rompris	$alt1
 rompro	$alt1
-romp	$alt1
+roms	$alt1
 ronc	$alt1
-roncs	$alt1
-ronc	$alt1
+ronca	$alt1
 roncs	$alt1
 ronda	$alt1
+ronden	$alt1
 rondes	$alt1
+rondo	$alt1
 ronsa	$alt1
 ronses	$alt1
+ronya	$alt1
 ros	$alt1
+rossa	$alt1
+rosses	$alt1
 rossos	$alt1
-?1 rost	$alt1
-?1 rosts	$alt1
-?1 rostos	$alt1
-?1 rosta	$alt1
-?1 rostes	$alt1
 rostoll	$alt1
 rostolls	$alt1
 rot	$alt1
+rota	$alt1
+roti	$alt1
 rots	$alt1
 roure	$alt1
 roures	$alt1
-?1 saboc	$alt1
-?1 sabocs	$alt1
 sadoll	$alt1
 sadolls	$alt1
 salom	$alt1
@@ -2940,6 +3575,8 @@ satorre	$alt1
 satorres	$alt1
 secodont	$alt1
 secodonts	$alt1
+seleccioni	$alt1
+seleccionin	$alt1
 selenodont	$alt1
 selenodonts	$alt1
 serpoll	$alt1
@@ -2948,21 +3585,14 @@ simbiont	$alt1
 simbionts	$alt1
 simbomba	$alt1
 simbombes	$alt1
-?1 simetrodont	$alt1
-?1 simetrodonts	$alt1
 singlot	$alt1
 singlots	$alt1
-?2 sobra	alt1
-?2 sobren	alt1
-?2 sobri	alt1
-?2 sobrí	alt1
-?2 sobrin	alt1
-?2 sobris	alt1
-?2 sobro	alt1
 sobre	$alt1
 sobres	$alt1
 sobretot	$alt1
+sobta	$alt1
 sobte	$alt1
+socorro	$alt1
 sofre	$alt1
 sofres	$alt1
 sojorn	$alt1
@@ -2973,51 +3603,56 @@ solenodont	$alt1
 solenodonts	$alt1
 soll	$alt1
 solls	$alt1
+solucioni	$alt1
+solucionin	$alt1
 soma	$alt1
-somes	$alt1
 sombra	$alt1
 sombres	$alt1
+somes	$alt1
 sonda	$alt1
 sondes	$alt1
 sondroll	$alt1
 sondrolls	$alt1
 sopa	$alt1
+sopen	$alt1
 sopes	$alt1
 sopols	$alt1
 soprano	$alt1
 sopranos	$alt1
 sor	$alt1
-sors	$alt1
 sora	$alt1
-sores	$alt1
 sorba	$alt1
 sorbes	$alt1
+sord	$alt1
 sord	$alt1  $alt4
+sorda	$alt1
+sordes	$alt1
 sords	$alt1
+sores	$alt1
 sorgues	$alt1
 sorn	$alt1
-sorns	$alt1
 sorna	$alt1
 sornes	$alt1
+sorns	$alt1
 soroll	$alt1
+sorolla	$alt1
+sorollen	$alt1
 sorolls	$alt1
 sorra	$alt1
-sorres	$alt1
 sorre	$alt1
 sorres	$alt1
+sors	$alt1
 sosa	$alt1
 soses	$alt1
-?1 sostre	$alt1
-?1 sostres	$alt1
-sota	$alt1
-sotes	$alt1
 sota	$alt1
 sotes	$alt1
 sotorres	$alt1
+sou	$alt1
 suborn	$alt1
 suborns	$alt1
 taboll	$alt1
 tabolls	$alt1
+tampons	$alt1
 tecodont	$alt1
 tecodonts	$alt1
 tecoma	$alt1
@@ -3034,127 +3669,146 @@ tirolles	$alt1
 toix	$alt1
 toixos	$alt1
 toll	$alt1
-tolls	$alt1
 tolla	$alt1
 tolles	$alt1
+tolls	$alt1
 tom	$alt1
-toms	$alt1
+toma	$alt1
 tomb	$alt1
-tombs	$alt1
 tomba	$alt1
+tomben	$alt1
 tombes	$alt1
+tombs	$alt1
+toms	$alt1
 tona	$alt1
 tones	$alt1
 tonyo	$alt1
 tonyos	$alt1
 top	$alt1
+topen	$alt1
+topi	$alt1
+topin	$alt1
+topo	$alt1
 tops	$alt1
 tor	$alt1
-tors	$alt1
 tora	$alt1
+torba	$alt1
+torben	$alt1
 tores	$alt1
 torm	$alt1
 torms	$alt1
 torn	$alt1
-torns	$alt1
 torna	$alt1
-tornes	$alt1
 tornado	$alt1
 tornados	$alt1
+tornen	$alt1
+tornes	$alt1
+torni	$alt1
+tornin	$alt1
+tornis	$alt1
+torno	$alt1
+torns	$alt1
 torre	$alt1
 torres	$alt1
+tors	$alt1
 tortogues	$alt1
 tos	$alt1
 tosa	$alt1
-toses	$alt1
 tosc	$alt1
+tosca	$alt1
 toscs	$alt1
+toses	$alt1
 tostorro	$alt1
 tostorros	$alt1
 tot	$alt1
 tota	$alt1
-tots	$alt1
 totes	$alt1
+tots	$alt1
 totx	$alt1
-totxs	$alt1
 totxo	$alt1
 totxos	$alt1
-?1 tou	$alt1
-?1 tous	$alt1
+totxs	$alt1
+tova	$alt1
 tracoma	$alt1
 tracomes	$alt1
 trafolla	$alt1
 trafolles	$alt1
 transbord	$alt1
 transbords	$alt1
+transcorre	$alt1
+transcorren	$alt1
+transforma	$alt1
 trastorn	$alt1
 trastorns	$alt1
 trescollo	$alt1
 trescollos	$alt1
 triapolls	$alt1
 triomf	$alt1
+triomfa	$alt1
+triomfen	$alt1
 triomfs	$alt1
 tromba	$alt1
-trombes	$alt1
 trombe	$alt1
 trombes	$alt1
 trompa	$alt1
 trompes	$alt1
 tronc	$alt1
-troncs	$alt1
 tronca	$alt1
 tronces	$alt1
+troncs	$alt1
 trontoll	$alt1
+trontolla	$alt1
+trontollen	$alt1
 trontolls	$alt1
 tronxo	$alt1
 tronxos	$alt1
 tropa	$alt1
 tropes	$alt1
+udol	$alt1
+udolo	$alt1
+udols	$alt1
+unicorn	$alt1
 urbapol	$alt1
 urbapols	$alt1
 urdoll	$alt1
 urdolls	$alt1
+vacúol	$alt1
 vacuolar	$alt1
 vacuolars	$alt1
 vacuolitzat	$alt1
 vacuolitzats	$alt1
-vacúol	$alt1
 vacúols	$alt1
 vallatorres	$alt1
+valoren	$alt1
+valoro	$alt1
 vídeo	$alt1
 vídeos	$alt1
+vodka	$alt1
+voten	$alt1
+voto	$alt1
 xipoll	$alt1
 xipolls	$alt1
 xo	$alt1
-xos	$alt1
 xoll	$alt1
-xolls	$alt1
 xolla	$alt1
 xolles	$alt1
+xolls	$alt1
 xombo	$alt1
 xombos	$alt1
 xona	$alt1
 xones	$alt1
 xop	$alt1
-xops	$alt1
-xop	$alt1
-xops	$alt1
+xopa	$alt1
 xopoll	$alt1
 xopolls	$alt1
+xops	$alt1
+xos	$alt1
 xosa	$alt1
 xoses	$alt1
 zona	$alt1
 zones	$alt1
 zoo	$alt1
 zoos	$alt1
-àloe	$alt1
-àloes	$alt1
-àudio	$alt1
-àudios	$alt1
-ípsilon	$alt1
-ípsilons	$alt1
-òmicron	$alt1
-òmicrons	$alt1
 
 /// words with O (repassat per les dues variants)
 actinofris	$alt2
@@ -3735,6 +4389,8 @@ despoders	$alt4
 devers	$alt4
 dextrors	$alt4
 discurs	$alt4
+dispar	$alt4
+dispars	$alt4
 dispers	$alt4 $alt2
 divers	$alt4
 dors	$alt4
@@ -3852,6 +4508,7 @@ llaor	$alt4
 llaors	$alt4
 llar	$alt4
 llars	$alt4
+llavors	$alt4
 llor	$alt4
 llors	$alt4
 lumbar	$alt4
@@ -4004,6 +4661,7 @@ secular	$alt4
 seculars	$alt4
 semicircular	$alt4
 semicirculars	$alt4
+sers	$alt4
 sicòmor	$alt4
 sicòmors	$alt4
 similar	$alt4
@@ -4095,6 +4753,8 @@ vigor	$alt4
 vigors	$alt4
 visir	$alt4
 visirs	$alt4
+vulgar	$alt4
+vulgars	$alt4
 xador	$alt4
 xadors	$alt4
 Xestalgar	$alt4
@@ -4643,6 +5303,7 @@ hawaians	$alt6
 hawaià	$alt6
 hehe	$alt6
 hehehe	$alt6
+hena    $alt6
 hihi	$alt6
 hihihi	$alt6
 hii	$alt6
@@ -4663,6 +5324,9 @@ jihadisme	$alt6
 mohamed		$alt6
 mohammed		$alt6
 mujahidins      $alt6
+sahara $alt6
+saharaui	$alt6
+sahraui	$alt6
 sahariana	$alt6
 saharianes	$alt6
 saharians	$alt6
@@ -4785,6 +5449,7 @@ frenadol    f**e2nad'O2l
 frottis		f**'O2tis
 google      g'ugel
 gouache		gw'aS
+halloween   xalo2w'in
 jazz		Z'as
 jersey      Z'ERsi
 manco		m'aNku
@@ -5063,7 +5728,6 @@ arthur		'aTa
 ava		'ava
 ayla		'aila
 beatrice		b'iat**is
-bella		b'Ela
 benjamin		b'EndZamin
 blake		bl'eik
 bobby		b'abi
@@ -5729,6 +6393,22 @@ algoritmes  alQo**'idmes
 diners      din'es
 doblers     doBl'es
 dimarts     dim'aRs
+ergo        'e2RQo2
+eso         'e2so2
+gueto       g'eto2
+guetos      g'eto2s
+lego        l'eQo2
+legos       l'eQo2s
+pime        p'ime2
+presto      p**'esto2
+proforma    p**o2f'oRma
+promo       p**'omo2
+promos      p**'omo2s
+quimono     kim'ono2
+tebeo       te2B'e2o2
+word        w'o**d
+zoo         z'o
+zoom        z'um
 ?2 dimarts  dim'ats
 ?3 llavors  l^av'Os // adverb
 ?3 marbre   m'ab**e
@@ -5763,7 +6443,7 @@ bocatge	$alt5
 bocatges	$alt5
 bocatxeta	$alt5
 bocatxetes	$alt5
-boca	$alt5
+boca	$alt5 $alt1
 boques	$alt5
 bocada	$alt5
 bocades	$alt5
