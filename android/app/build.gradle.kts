@@ -12,8 +12,8 @@ java {
 }
 
 android {
-    compileSdk = 33
-    buildToolsVersion = "33.0.2"
+    compileSdk = 34
+    buildToolsVersion = "34.0.0"
     ndkVersion = "26.1.10909125"
     namespace = "com.reecedunn.espeak"
 
