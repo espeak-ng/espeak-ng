@@ -14,7 +14,7 @@ java {
 android {
     compileSdk = 33
     buildToolsVersion = "33.0.2"
-    ndkVersion = "25.2.9519653"
+    ndkVersion = "26.1.10909125"
     namespace = "com.reecedunn.espeak"
 
     defaultConfig {
