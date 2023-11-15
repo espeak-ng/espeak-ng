@@ -1,8 +1,17 @@
+import java.io.FileInputStream
+import java.util.Properties
 import org.gradle.crypto.checksum.Checksum
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.crypto.checksum)
+}
+
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val useKeystoreProperties = keystorePropertiesFile.canRead()
+val keystoreProperties = Properties()
+if (useKeystoreProperties) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 java {
@@ -12,6 +21,20 @@ java {
 }
 
 android {
+    if (useKeystoreProperties) {
+        signingConfigs {
+            create("release") {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"]!!)
+                storePassword = keystoreProperties["storePassword"] as String
+                enableV2Signing = true
+                enableV3Signing = true
+                enableV4Signing = true
+            }
+        }
+    }
+
     compileSdk = 34
     buildToolsVersion = "34.0.0"
     ndkVersion = "26.1.10909125"
@@ -41,6 +64,17 @@ android {
                     "ttsespeak",
                     "espeak-data"
                 )
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            if (useKeystoreProperties) {
+                signingConfig = signingConfigs.getByName("release")
             }
         }
     }
