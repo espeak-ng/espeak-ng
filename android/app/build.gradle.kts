@@ -1,13 +1,13 @@
 import org.gradle.crypto.checksum.Checksum
 
 plugins {
-    id("com.android.application")
-    id("org.gradle.crypto.checksum") version "1.4.0"
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.crypto.checksum)
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -26,6 +26,11 @@ android {
 
         testInstrumentationRunner = "android.test.InstrumentationTestRunner"
         testApplicationId = "com.reecedunn.espeak.test"
+        ndk {
+            abiFilters += listOf(
+                "arm64-v8a"
+            )
+        }
         externalNativeBuild {
             cmake {
                 arguments += listOf(
@@ -52,8 +57,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility(JavaVersion.VERSION_11)
-        targetCompatibility(JavaVersion.VERSION_11)
+        sourceCompatibility(JavaVersion.VERSION_17)
+        targetCompatibility(JavaVersion.VERSION_17)
     }
     buildFeatures {
         buildConfig = true
@@ -61,9 +66,9 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    androidTestImplementation("com.google.android:android-test:4.1.1.4")
-    androidTestImplementation("org.hamcrest:hamcrest-library:1.3")
+    implementation(libs.androidx.appcompat)
+    androidTestImplementation(libs.android.test)
+    androidTestImplementation(libs.hamcrest)
 }
 
 tasks.register("checkData") {
