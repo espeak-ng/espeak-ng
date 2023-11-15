@@ -28,6 +28,7 @@ libttsespeak.so
 android/app/src/main/res/raw/espeakdata.zip
 android/app/src/main/res/raw/espeakdata_version
 android/res/raw/espeakdata_version
+android/keystore.properties
 
 local.properties
 
