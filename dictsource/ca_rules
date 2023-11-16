@@ -51,6 +51,7 @@
   _gu)  a (rda     ,a   // (guardabosc)
    _v)  a (so@     ,a   // (vasoconstrictor)
    _m)  a (l@      ,a   // (malpensar)
+   _m)  a (cro@     ,a  // (macro-)
             // words that it is not a prefix
    _m)  a (lalt    a    // (malalt)
    _m)  a (lefi    a    // (malefici)
@@ -88,7 +89,9 @@
         ch         tS   // (chihuahua)
         ck         k    // foreign words
 .group ç
-        ç          s    // (llaç)
+        ç          =s    // (llaç)
+  L05J) ç          s    // (llaç)
+        
         ç (_A      z    // (llaç estret)
         ç (_hA     z    // (llaç hebreu)
         ç (_L11    z    // (llaç bonic
@@ -387,8 +390,12 @@
   L16ü) i (K       i    // not glide (lingüista)
   L16u) i (A       i    // not glide (guia)
   L16u) i (K       i    // not glide (guia)    
-        i (sta     i    // not glide (deista)
-        i (sme     i    // not glide (deisme)
+        i (sta_     i    // not glide (deista)
+        i (sme_     i    // not glide (deisme)
+        i (stes_    i    // not glide (deistes)
+        i (smes_    i    // not glide (deismes)
+        i (ta_      i    // not glide (deita)
+        i (tes_     i    // not glide (deites)
      A) i (r_       i   // verb: not glide (conduir, agrair, etc.)
      A) i (nt_      i   // verb: not glide (conduint, agraint, etc.)
      A) i (ré_      i   // verb: not glide (conduir, agrair, etc.)
@@ -403,7 +410,9 @@
      A) i (ríem_    i   // verb: not glide (conduir, agrair, etc.)
      A) i (ríeu_    i   // verb: not glide (conduir, agrair, etc.)
      A) i (ríen_    i   // verb: not glide (conduir, agrair, etc.)
-     
+  _pre) i (@        i   // prefix: not glide (preinscripció)    
+  _pro) i (@        i   // prefix: not glide (preinscripció)
+_macro) i (@        i   // prefix: not glide (macroilla)     
         // prefixes with secondary stress
    _ac) i (culi     ,i  // aciculifoli
      _) ibero       ,iBe2**o2  // iberoromà
@@ -611,11 +620,14 @@
         o          o
     A_) o (_A       w    // (o aquest o aquell) 
     A_) o (_hA      w    // (o aquest o aquell) 
-
-     @) o (r_      'o   // color ('o* per sensibilitzar la r)
+// REPASSAR
+     //@) o (r_      'o   // color ('o* per sensibilitzar la r)
      @) o (rs_      o   // color ('o* per sensibilitzar la r)
      @) o (ra_     'o   // color ('o* per sensibilitzar la r)
      @) o (res_     'o   // color ('o* per sensibilitzar la r)
+ L05J) o (r_      o   // color ('o* per sensibilitzar la r)
+ L05J) o (ra_     o   // color ('o* per sensibilitzar la r)
+    L05J) o (res_     o   // color ('o* per sensibilitzar la r)
  
         ou         O2w   // (mou)
 //        ou        Ow   // (dijous)
@@ -732,10 +744,12 @@ catalan) o (@      ,o
 //   _pr) o (tocol   o
    _s) o (cio$w_alt5    O
    _s) o (ta$w_alt5    o
+   macr) o (@          o2
 
         o ($w_alt1+++ o    // list of excepcions of the rules
         o ($w_alt2+++ O    // list of excepcions of the rules 
- 
+  L05J) or (_$w_alt4+   %oR   // final r is not silent and unestressed vowel
+   
 .group p
         p          p
         pm         mm   // gemination (capmoix)
@@ -998,6 +1012,9 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         x          ks   // (taxi)
         xt (_      ks   // (text)
     _A) x          gz   // (exàmen)
+    _A) xj         gZ   // (exàmen)
+_    A) xs         ks
+// (exàmen)
 ?4  _A) x          gZ   // (exàmen)
 
     _A) x (L10     ks   // (exprimir)
