@@ -71,9 +71,9 @@ enableV1Signing = true
 
     buildTypes {
         debug {
-            applicationIdSuffix = ".dev"
-            versionNameSuffix = "-DEV"
-            resValue("string", "app_name", "eSpeak dev")
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-DEBUG"
+            resValue("string", "app_name", "eSpeak debug")
         }
         release {
             isMinifyEnabled = false
