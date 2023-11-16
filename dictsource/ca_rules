@@ -45,12 +45,12 @@
         // prefixes with secondary stress
     _)  a (nte@@   ,a   // (antepenúltim)
     _)  a (nti@@   ,a   // (antepenúltim)
-    _)  a (uto@@   ,a   // (autodestrucció)
+//    _)  a (uto@@   ,a   // (autodestrucció)
     _)  ae  (ro@@  ,ae2
    _f)  a (rmaco   ,a   // (farmacognòsia)
   _gu)  a (rda     ,a   // (guardabosc)
    _v)  a (so@     ,a   // (vasoconstrictor)
-   _m)  a (l@      ,a   // (malpensar)
+ //  _m)  a (l@      ,a   // (malpensar)
    _m)  a (cro@     ,a  // (macro-)
             // words that it is not a prefix
    _m)  a (lalt    a    // (malalt)
@@ -89,8 +89,9 @@
         ch         tS   // (chihuahua)
         ck         k    // foreign words
 .group ç
-        ç          =s    // (llaç)
-  L05J) ç          s    // (llaç)
+        ç (_       =s    // (llaç)
+  L05J) ç         s    // (llaç)
+        ç         s
         
         ç (_A      z    // (llaç estret)
         ç (_hA     z    // (llaç hebreu)
@@ -147,7 +148,7 @@
      c) e (rcl     e    // 
     pr) e (g       e    // (prego)
    _pr) e (A       e2    // (preescriptura)
-    _r) e (A       e2    // (reescriptura)
+    _r) e (L03     e2    // (reescriptura)
      n) e (g       e    // (nego)
     _s) e (g       e    // (sego)
   sist) e (m       e    // (sistema)
@@ -163,6 +164,17 @@
     _r) e (tron    e    // (retronar)
     _r) e (troc    e    // (retrocedir)
     _r) e (trob    e    // (retrobar)
+    _r) eu (bi     e2u  // (reubicar)
+    _r) eu (nifi   e2u  // (reunificar)
+    _r) eu (rbanitz  e2u  // (reurbanitzar)
+    _r) eu (tilitz   e2u  // (reutilitzar)
+    _r) ee (ixi    e    // (reeixir)
+    _r) ei (mpr    e2i    // (reimpressió)
+    _r) ei (nc    e2i    // (reincidència, reincorporació)
+    _r) ei (naugur    e2i    // (reinaugur)
+    _r) ei (ngr    e2i    // (reingressar)
+    _r) ei (ntent    e2i    // (reintentar)
+    _r) ei (inter    e2i    // (reinterpretar)
          
         // accent variants
 ?1      e (ct      e    // (subjecte)
@@ -259,12 +271,12 @@
     _r) e (ra      ,e
    _el) e (ctro@   ,E
   _est) e (reo     ,E   // estereotipat
-     _) e (tno     ,E
+ //    _) e (tno     ,E
      _) e (xtra    ,E
  _magn) e (to      ,E
     _m) e (dico    ,E
     _m) e (nys     ,E
-    _n) e (uro     ,E
+    _n) euro (@     ,Ew**o2
    _ps) e (udo     ,E
     _r) e (tro     ,E
     _s) e (mi@     ,E   // (semiconductor)
@@ -318,6 +330,9 @@
  L05J)  e (e       e2   // (pàncrees)
     _t) e (le      e2   // (teletreball)
   _tel) e          e2   // (teletreball)
+        // e > i
+  _vid) eo         io2  // (videoteca)
+  _lin) e (a       i    // lienal
 
 .group f
         f          f
@@ -368,6 +383,7 @@
         
         // glide rules
      A) i (K       j    // glide (aigua)
+     u) i (K       i    // not glide (creui)
  //   A_) i (K       j    // glide (una història)
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
@@ -409,20 +425,21 @@
      A) i (ria_     i   // verb: not glide (conduir, agrair, etc.)
      A) i (ríem_    i   // verb: not glide (conduir, agrair, etc.)
      A) i (ríeu_    i   // verb: not glide (conduir, agrair, etc.)
-     A) i (ríen_    i   // verb: not glide (conduir, agrair, etc.)
+     A) i (rien_    i   // verb: not glide (conduir, agrair, etc.)
   _pre) i (@        i   // prefix: not glide (preinscripció)    
   _pro) i (@        i   // prefix: not glide (preinscripció)
+   _co) i (ns@        i   // prefix: not glide (coincideix)
 _macro) i (@        i   // prefix: not glide (macroilla)     
         // prefixes with secondary stress
    _ac) i (culi     ,i  // aciculifoli
      _) ibero       ,iBe2**o2  // iberoromà
-     _) i (ndo      ,i  // indoeuropeu
-    _l) i (po       ,i
-    _m) i (cro@     ,i
-    _h) i (dro@     ,i
-     _) i (nfra     ,i
+//     _) i (ndo      ,i  // indoeuropeu
+//    _l) i (po       ,i
+//    _m) i (cro@     ,i
+//    _h) i (dro@     ,i
+//     _) i (nfra     ,i
     _x) i (ux       ,i
-     _) i (nfra     ,i  // 
+//     _) i (nfra     ,i  // 
      
             // not secondary stress
    _ac) i (culi$w_alt5	i  // aciculifoli
@@ -526,6 +543,9 @@ _macro) i (@        i   // prefix: not glide (macroilla)
 ?3 _a)  mb (_A     m   // pronounce "am" before vowel (amb ell)
 ?3 _a)  mb (_C     n   // pronounce "an" before consonant (amb tu)
         mpr        mpr  // (compra)
+   _co) mpr (endr  mp   // (comprendran)
+    _e) mpr (endr  mp   // (emprendran)
+   
         mbr        mbr  // (cambra)
         mbl        mbl  // (rambla)
    _)   mn         n    // (mnemotècnic)
@@ -572,6 +592,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         n  (L20_A  n    // avoid veralization before vowel  (fang espès)
         nt (_C     =n   // do not pronounce t
         ntm        mm	// (recentment)
+        ntb        mb   // (avantbraç)
+        ntp        mb   // (avantpassat)
 
         nt (-hA      =nt   // followed by clitic
         nd (-hA      =nt   // followed by clitic
@@ -621,14 +643,15 @@ _macro) i (@        i   // prefix: not glide (macroilla)
     A_) o (_A       w    // (o aquest o aquell) 
     A_) o (_hA      w    // (o aquest o aquell) 
 // REPASSAR
-     //@) o (r_      'o   // color ('o* per sensibilitzar la r)
+     @) o (r_      'o   // color ('o* per sensibilitzar la r)
      @) o (rs_      o   // color ('o* per sensibilitzar la r)
      @) o (ra_     'o   // color ('o* per sensibilitzar la r)
      @) o (res_     'o   // color ('o* per sensibilitzar la r)
  L05J) o (r_      o   // color ('o* per sensibilitzar la r)
  L05J) o (ra_     o   // color ('o* per sensibilitzar la r)
     L05J) o (res_     o   // color ('o* per sensibilitzar la r)
- 
+    t) o (r_        o2  // (pantocràtor)
+    t) o (rs_       o2  // (pantocràtors)
         ou         O2w   // (mou)
 //        ou        Ow   // (dijous)
 //?1      ou         o2w   // (mouré) // ARREGLAR AIXÒ!
@@ -712,7 +735,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
     _s) o (cio     ,O
     _s) o (bre@    ,o
     _b) o (ca@    ,o
-catalan) o (@      ,o
+catalan) o (@      o2
     _c) o (ll@     ,O
     _c) o (ma@     ,o
     _f) o (to      ,o
@@ -796,8 +819,10 @@ _cefalo) r (A       R    // (cefaloraquidi)
   _neo) r (A       R    // (neorural)
  _orto) r (A       R    //
   _oto) r (A       R    //
-  _uni) r (A       R    // 
+//  _uni) r (A       R    // 
 _contra) r (A      R    // (contrareforma)
+_contra) r (i      **   // (contrari)
+
 _intra) r (A      R    // (inraraquidi)
 _ibero) r (A      R    // (iberoromà)
  _meso) r (A      R    // ()
@@ -814,6 +839,7 @@ _ultra) r (A       R    // (ultraric)
          r (_        =   // final r is silent
      A)  r (s_       =   // final r is silent + stress the vowel
   L05J)  r (_            // final r is silent + do not stress the vowel
+  L05J)  r (s_            // final r is silent + do not stress the vowel
 
 ?3   A)  r (_+      **    // final r is not silent
 ?3   A)  r (s_      **=  // final r is not silent + stress the vowel
@@ -841,6 +867,15 @@ _ultra) r (A       R    // (ultraric)
   L05Jto)  r   (_       R
  L05Jpte)  r   (_       R
  
+  L05Jfo)  r   (s_       R
+  L05Jfe)  r   (s_       R
+  L05Jco)  r   (s_       R
+  L05Jge)  r   (s_       R
+  L05Jpa)  r   (s_       R
+  L05Jte)  r   (s_       R
+  L05Jme)  r   (s_       R
+  L05Jto)  r   (s_       R
+ L05Jpte)  r   (s_       R
   
  //       r (t       **
                 // silent consonants
@@ -880,7 +915,8 @@ _ultra) r (A       R    // (ultraric)
         ss         s
         sc (L01    s    // (piscina, escena)
 ?4      sc (L01    ts   // (piscina, escena)
-
+        sj          Z   // (cisjordània)
+        sx          S   // (desxifrar)
         A) s  (A      z
 
      A) s  (-hA     z
@@ -1012,8 +1048,9 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         x          ks   // (taxi)
         xt (_      ks   // (text)
     _A) x          gz   // (exàmen)
-    _A) xj         gZ   // (exàmen)
-_    A) xs         ks
+    _A) xj         gZ   // (exjutge)
+    _A) xg (L01    gZ   // (exgeneral)
+        xs         ks  //  (exsecretari)
 // (exàmen)
 ?4  _A) x          gZ   // (exàmen)
 
@@ -1067,6 +1104,7 @@ _    A) xs         ks
         'n (_S2t    n
         'm (_S2t    m
         't (_S2t    t
+        's (_S2t    s
         'ns (_S3t   ns
         'us (_S3t   us
      A) 'us (_S3t   ws
