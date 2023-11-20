@@ -514,7 +514,7 @@ phoneme k
   ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
-    ELIF nextPh(n) THEN // arreglar
+    ELIF nextPh(n) OR nextPh(d) OR nextPh(z) THEN // arreglar
         ChangePhoneme(g)
     ELIF thisPh(isWordEnd) THEN
       ChangePhoneme(g)

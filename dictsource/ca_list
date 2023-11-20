@@ -645,9 +645,6 @@ blancor $alt1
 blancors $alt1
 bleix	$alt1
 bleixos	$alt1
-boleà	$alt1
-bolero	$alt1
-boleros	$alt1
 bres	$alt1
 bressos	$alt1
 bretxa	$alt1
@@ -700,13 +697,12 @@ convenen	$alt1
 cooperen	$alt1
 cooperi	$alt1
 cooperin	$alt1
-coreà	$alt1
-creà	$alt1
 cregueren	$alt1
 creix	$alt1
 creixa	$alt1
 creixen	$alt1
-créixer	$alt1
+créixer	k**'eSe
+?3 créixer	k**'ejSe**
 creixes	$alt1
 creixos	$alt1
 crema	$alt1
@@ -732,6 +728,7 @@ digueren	$alt1
 dimecres	$alt1
 ditrema	$alt1
 ditremes	$alt1
+diumenge    $alt1
 durbec	$alt1
 durbecs	$alt1
 egua	$alt1
@@ -807,6 +804,7 @@ exempt	$alt1
 exempta	$alt1
 exemptes	$alt1
 exempts	$alt1
+excessos    $alt1
 expressa	$alt1
 expressen	$alt1
 expresses	$alt1
@@ -831,7 +829,6 @@ fes	$alt1
 fletxa	$alt1
 fletxes	$alt1
 forfets	$alt1
-freàtiques	$alt1
 gema	$alt1
 gemec	$alt1
 gemecs	$alt1
@@ -892,6 +889,11 @@ litodema	$alt1
 litodemes	$alt1
 ludoteca	$alt1
 ludoteces	$alt1
+malinterpreta	$alt1
+malinterpreten	$alt1
+malinterpreti	$alt1
+malinterpretin	$alt1
+malinterpreto	$alt1
 mantenen	$alt1
 mantingueren	$alt1
 masdeus	$alt1
@@ -926,8 +928,6 @@ muricecs	$alt1
 naixeren	$alt1
 neda	$alt1
 nedes	$alt1
-neerlandès	$alt1
-neerlandesa	$alt1
 negues	$alt1
 néixer	$alt1
 nespla	$alt1
@@ -1199,8 +1199,6 @@ xiribecs	$alt1
 ?1 emendes	$alt2
 ?1 empenta	$alt2
 ?1 empentes	$alt2
-?1 empremta	$alt2
-?1 empremtes	$alt2
 ?1 eqüestre	$alt2
 ?1 eqüestres	$alt2
 ?1 espenta	$alt2
@@ -1399,7 +1397,6 @@ asbests	$alt2
 assequen	$alt2
 baixest	$alt2
 baixests	$alt2
-be	$alt2
 beç	$alt2
 befa	$alt2
 befes	$alt2
@@ -1494,8 +1491,6 @@ confetis	$alt2
 connex	$alt2
 conrea	$alt2
 conreen	$alt2
-contreta	$alt2
-contretes	$alt2
 copeo	$alt2
 copeos	$alt2
 correcta	$alt2
@@ -1505,7 +1500,6 @@ creatorrea	$alt2
 creatorrees	$alt2
 credo	$alt2
 credos	$alt2
-creixen	$alt2
 crep	$alt2
 crepis	$alt2
 creps	$alt2
@@ -1533,8 +1527,6 @@ defineix    $alt2
 defineixen    $alt2
 defineixes    $alt2
 defineixo    $alt2
-deixeble	$alt2
-deixebles	$alt2
 deler	$alt2
 delers	$alt2
 deltoedre	$alt2
@@ -1643,11 +1635,9 @@ escolopendres	$alt2
 espatodea	$alt2
 espatodees	$alt2
 espurnegen	$alt2
-esquer	$alt2
 esquerp	$alt2
 esquerpa	$alt2
 esquerps	$alt2
-esquers	$alt2
 estaferm	$alt2
 estaferms	$alt2
 estafeta	$alt2
@@ -1676,7 +1666,6 @@ extres	$alt2
 faena	$alt2
 faenes	$alt2
 fe	$alt2
-fems	$alt2
 fendi	$alt2
 fendis	$alt2
 fendre	$alt2
@@ -1709,8 +1698,6 @@ gallerbo	$alt2
 gallerbos	$alt2
 garrepa	$alt2
 garrepes	$alt2
-gelea	$alt2
-gelees	$alt2
 gendre	$alt2
 gendres	$alt2
 girapeix	$alt2
@@ -1747,8 +1734,6 @@ hipercomplex	$alt2
 hipercomplexos	$alt2
 hipermenorrea	$alt2
 hipermenorrees	$alt2
-hipertext	$alt2
-hipertexts	$alt2
 hipocrepis	$alt2
 hipomenorrea	$alt2
 hipomenorrees	$alt2
@@ -1784,8 +1769,6 @@ incorrectes	$alt2
 indirecta	$alt2
 indirecte	$alt2
 indirectes	$alt2
-inepte	$alt2
-ineptes	$alt2
 inerme	$alt2
 inermes	$alt2
 inflex	$alt2
@@ -1935,7 +1918,6 @@ napees	$alt2
 negra	$alt2
 negre	$alt2
 negres	$alt2
-negues	$alt2
 negus	$alt2
 nentsi	$alt2
 nepentes	$alt2
@@ -2096,7 +2078,6 @@ reconeguin	$alt2
 recta	$alt2
 recte	$alt2
 rectes	$alt2
-reemprendre	$alt2
 referma	$alt2
 refermen	$alt2
 reflex	$alt2
@@ -2153,8 +2134,6 @@ seguin	$alt2
 selecta	$alt2
 selecte	$alt2
 selectes	$alt2
-sembra	$alt2
-sembres	$alt2
 sencer	$alt2
 sencera	$alt2
 senceres	$alt2
@@ -2485,6 +2464,8 @@ aurèoles	$alt1
 auxocrom	$alt1
 auxocroms	$alt1
 avorta	$alt1
+axioma  $alt1
+axiomes $alt1
 babord	$alt1
 babords	$alt1
 barbolla	$alt1
@@ -3456,8 +3437,6 @@ quocient	$alt1
 quocients	$alt1
 quotidià	$alt1
 quotidiàs	$alt1
-reaccioni	$alt1
-reaccionin	$alt1
 reboll	$alt1
 rebolls	$alt1
 rebot	$alt1
@@ -3480,7 +3459,6 @@ recorre	$alt1
 recorren	$alt1
 recto	$alt1
 rectos	$alt1
-reemborso	$alt1
 reforma	$alt1
 reformes	$alt1
 reformi	$alt1
@@ -3811,7 +3789,6 @@ encontres	$alt1
 fote	$alt1
 pasdoble	$alt1
 pasdobles	$alt1
-reemborsa	$alt1
 rencontre	$alt1
 espolsa	$alt1
 sord	$alt1
@@ -4222,15 +4199,11 @@ pèmfigs  $alt4
 
 /// final r is not silent
 absort	$alt4
-absorts	$alt4
 absurd	$alt4
-absurds	$alt4
 acer	$alt4
 acers	$alt4
 acomplert	$alt4
-acomplerts	$alt4
 acord	$alt4
-acords	$alt4
 acròspor	$alt4
 acròspors	$alt4
 adar	$alt4
@@ -4247,7 +4220,6 @@ agar-agars	$alt4
 agars	$alt4
 Agenor	$alt4
 aiguafort	$alt4
-aiguaforts	$alt4
 alar	$alt4
 alars	$alt4
 àlber	$alt4
@@ -4286,11 +4258,9 @@ anular	$alt4
 anulars	$alt4
 anvers	$alt4
 apart	$alt4
-aparts	$alt4
 art	$alt4
 articular	$alt4
 articulars	$alt4
-arts	$alt4
 artur	$alt4
 arturs	$alt4
 ascòfor	$alt4
@@ -4321,15 +4291,12 @@ axil·lars	$alt4
 balear	$alt4
 balears	$alt4
 baluard	$alt4
-baluards	$alt4
 bar	$alt4
 bard	$alt4
-bards	$alt4
 bars	$alt4
 basar	$alt4
 basars	$alt4
 bastard	$alt4
-bastards	$alt4
 biliar	$alt4
 biliars	$alt4
 billar	$alt4
@@ -4356,9 +4323,7 @@ boiars	$alt4
 bolívar	$alt4
 bolívars	$alt4
 bord	$alt4
-bords	$alt4
 bulevard	$alt4
-bulevards	$alt4
 búlgar	$alt4
 búlgars	$alt4
 búnquer	$alt4
@@ -4385,7 +4350,6 @@ carburs	$alt4
 card	$alt4
 cardiovascular	$alt4
 cardiovasculars	$alt4
-cards	$alt4
 carnívor	kaRn'ivo**
 carnívors	$alt4
 carpòfor	$alt4
@@ -4400,7 +4364,6 @@ caviars	$alt4
 cel·lular	$alt4
 cel·lulars	$alt4
 cert	$alt4
-certs	$alt4
 cèsar	$alt4
 cèsars	$alt4
 cianur	$alt4
@@ -4418,11 +4381,9 @@ clors	$alt4
 clorur	$alt4
 clorurs	$alt4
 cobert	$alt4
-coberts	$alt4
 coclear	$alt4
 coclears	$alt4
 complert	$alt4
-complerts	$alt4
 concurs	$alt4
 cóndor      $alt4
 còndor      $alt4
@@ -4440,41 +4401,31 @@ còrner	$alt4
 còrners	$alt4
 cors	$alt4
 cort	$alt4
-corts	$alt4
 covard	$alt4
-covards	$alt4
 crepuscular	$alt4
 crepusculars	$alt4
 curricular	$alt4
 curriculars	$alt4
 curs	$alt4
 curt	$alt4
-curts	$alt4
 dactilar	$alt4
 dactilars	$alt4
 dard	$alt4
-dards	$alt4
 decor	$alt4
 decors	$alt4
 decurs	$alt4
 desacord	$alt4
-desacords	$alt4
 desamor	$alt4
 desamors	$alt4
 descobert	$alt4
-descoberts	$alt4
 desconcert	$alt4
-desconcerts	$alt4
 desencert	$alt4
-desencerts	$alt4
 desert	$alt4
-deserts	$alt4
 desesper	$alt4
 desespers	$alt4
 desimbolt	$alt4
 desimbolts	$alt4
 despert	$alt4
-desperts	$alt4
 despoder	$alt4
 despoders	$alt4
 devers	$alt4
@@ -4486,7 +4437,6 @@ dispers	$alt4 $alt2
 dissolt	$alt4
 dissolts	$alt4
 dissort	$alt4
-dissorts	$alt4
 divers	$alt4
 dòlar	$alt4
 dòlars	$alt4
@@ -4494,9 +4444,7 @@ dors	$alt4
 duumvir	$alt4
 duumvirs	$alt4
 edgard	$alt4
-edgards	$alt4
 eduard	$alt4
-eduards	$alt4
 efímer	$alt4
 efímers	$alt4
 elixir	$alt4
@@ -4504,11 +4452,8 @@ elixirs	$alt4
 emir	$alt4
 emirs	$alt4
 encert	$alt4
-encerts	$alt4
 encobert	$alt4
-encoberts	$alt4
 ensurt	$alt4
-ensurts	$alt4
 enter	$alt4
 enters	$alt4
 envers	$alt4
@@ -4521,13 +4466,11 @@ equilàters	$alt4
 error	$alt4
 errors	$alt4
 esbart	$alt4
-esbarts	$alt4
 escolar	$alt4
 escolars	$alt4
 escúter	$alt4
 escúters	$alt4
 esguard	$alt4
-esguards	$alt4
 espars	$alt4
 espectacular	$alt4
 espectaculars	$alt4
@@ -4540,17 +4483,13 @@ espónsors   $alt4
 espònsors	$alt4
 espònsors   $alt4
 esport	$alt4
-esports	$alt4
 esprínter	$alt4
 esprínters	$alt4
 ésser	$alt4
 éssers	$alt4
 establert	$alt4
-establerts	$alt4
 estàndard	$alt4
-estàndards	$alt4
 estendard	$alt4
-estendards	$alt4
 ester	$alt4
 esters	$alt4
 estilar	$alt4
@@ -4567,7 +4506,6 @@ exemplars	$alt4
 exmilitar	$alt4
 exmilitars	$alt4
 expert	$alt4
-experts	$alt4
 exterior	$alt4
 exteriors	$alt4
 extitular	$alt4
@@ -4580,7 +4518,6 @@ faquirs	$alt4
 far	$alt4
 fars	$alt4
 fart	$alt4
-farts	$alt4
 favor	$alt4
 favors	$alt4
 fèmur	$alt4
@@ -4588,11 +4525,8 @@ fèmurs	$alt4
 fer	$alt4   $noun // adj, in fact
 fers	$alt4
 fiord	$alt4
-fiords	$alt4
 fort	$alt4
-forts	$alt4
 frankfurt	$alt4
-frankfurts	$alt4
 funicular	$alt4
 funiculars	$alt4
 fur	$alt4
@@ -4600,18 +4534,15 @@ furor	$alt4
 furors	$alt4
 furs	$alt4
 furt	$alt4
-furts	$alt4
 futur	$alt4
 futurs	$alt4
 galavars	$alt4
 gaspart	$alt4
-gasparts	$alt4
 gir	$alt4
 girs	$alt4
 glamur	$alt4
 glamurs	$alt4
 guard	$alt4
-guards	$alt4
 guèiser	$alt4
 guèisers	$alt4
 günther	$alt4
@@ -4621,7 +4552,6 @@ hangars	$alt4
 helicòpter	$alt4
 helicòpters	$alt4
 heliport	$alt4
-heliports	$alt4
 híper	$alt4
 hípers	$alt4
 honor	$alt4
@@ -4629,7 +4559,6 @@ honors	$alt4
 horror	$alt4
 horrors	$alt4
 hort	$alt4
-horts	$alt4
 humor	$alt4
 humors	$alt4
 hússar	$alt4
@@ -4641,23 +4570,18 @@ ibers	$alt4
 Ícar	$alt4
 Ícars	$alt4
 icart	$alt4
-icarts	$alt4
 impopular	$alt4
 impopulars	$alt4
 import	$alt4
-imports	$alt4
 impur	$alt4
 impurs	$alt4
 incert	$alt4
-incerts	$alt4
 incolor	$alt4
 incolors	$alt4
 incomplert	$alt4
-incomplerts	$alt4
 indult	$alt4
 indults	$alt4
 inexpert	$alt4
-inexperts	$alt4
 inferior	$alt4
 inferiors	$alt4
 influencer	$alt4
@@ -4682,13 +4606,11 @@ jaguar  $alt4
 jugular	$alt4
 jugulars	$alt4
 julivert	$alt4
-juliverts	$alt4
 kàiser	$alt4
 kàisers	$alt4
 khmer	$alt4
 khmers	$alt4
 kurd	$alt4
-kurds	$alt4
 labor	$alt4
 labors	$alt4
 laminar	$alt4
@@ -4713,7 +4635,6 @@ llors	$alt4
 llur	$alt4
 llurs	$alt4
 lord	$alt4
-lords	$alt4
 lumbar	$alt4
 lumbars	$alt4
 lunar	$alt4
@@ -4729,10 +4650,8 @@ mars	$alt4
 mart	$alt4
 màrtir	$alt4
 màrtirs	$alt4
-marts	$alt4
 màster	$alt4
 mastercard	$alt4
-mastercards	$alt4
 màsters	$alt4
 maxil·lar	$alt4
 maxil·lars	$alt4
@@ -4755,7 +4674,6 @@ mínbars	$alt4
 minibar	$alt4
 minibars	$alt4
 miniconcert	$alt4
-miniconcerts	$alt4
 minipímer	$alt4
 minipímers	$alt4
 Mir	$alt4
@@ -4793,20 +4711,16 @@ Nígers	$alt4
 nomenclàtor	$alt4
 nomenclàtors	$alt4
 nord	$alt4
-nords	$alt4
 nuclear	$alt4
 nuclears	$alt4
 obert	$alt4
-oberts	$alt4
 obscur	$alt4
 obscurs	$alt4
 obvers	$alt4
 ocular	$alt4
 oculars	$alt4
 ofert	$alt4
-oferts	$alt4
 omplert	$alt4
-omplerts	$alt4
 opípar	$alt4
 opípars	$alt4
 or	$alt4
@@ -4824,9 +4738,7 @@ paramilitars	$alt4
 part	$alt4
 particular	$alt4
 particulars	$alt4
-parts	$alt4
 passaport	$alt4
-passaports	$alt4
 paternòster	$alt4
 paternòsters	$alt4
 peculiar	$alt4
@@ -4836,16 +4748,13 @@ pel·liculars	$alt4
 peninsular	$alt4
 peninsulars	$alt4
 perd	$alt4
-perds	$alt4
 perpendicular	$alt4
 perpendiculars	$alt4
 pervers	$alt4
 petard	$alt4
-petards	$alt4
 petricor	$alt4
 petricors	$alt4
 placard	$alt4
-placards	$alt4
 plantar	$alt4
 plantars	$alt4
 pler	$alt4
@@ -4869,7 +4778,6 @@ pòquers	$alt4
 posterior	$alt4
 posteriors	$alt4
 preestablert	$alt4
-preestablerts	$alt4
 prematur	$alt4
 prematurs	$alt4
 prémer	$alt4
@@ -4903,14 +4811,10 @@ radars	$alt4
 rar	$alt4
 rars	$alt4
 recobert	$alt4
-recoberts	$alt4
 record	$alt4
 rècord	$alt4
-records	$alt4
-rècords	$alt4
 recurs	$alt4
 redescobert	$alt4
-redescoberts	$alt4
 regular	$alt4
 regulars	$alt4
 repòquer	$alt4
@@ -4918,30 +4822,23 @@ repòquers	$alt4
 report	$alt4
 repòrter	$alt4
 repòrters	$alt4
-reports	$alt4
 resguard	$alt4
-resguards	$alt4
 respir	$alt4
 respirs	$alt4
 ressort	$alt4
-ressorts	$alt4
 restablert	$alt4
-restablerts	$alt4
 retard	$alt4
-retards	$alt4
 retir	$alt4
 retirs	$alt4
 revers	$alt4
 revòlver	$alt4
 revòlvers	$alt4
 ricard	$alt4
-ricards	$alt4
 rigor	$alt4
 rigors	$alt4
 Rober	$alt4
 Robers	$alt4
 robert	$alt4
-roberts	$alt4
 rotor   $alt4
 rotors  $alt4
 Ruber	$alt4
@@ -4971,13 +4868,11 @@ singular	$alt4
 singulars	$alt4
 sinistrors	$alt4
 sofert	$alt4
-soferts	$alt4
 solar	$alt4
 solars	$alt4
 somnífer	$alt4
 somnífers	$alt4
 somort	$alt4
-somorts	$alt4
 sonor	$alt4
 sonors	$alt4
 sopor	$alt4
@@ -4987,13 +4882,11 @@ sospirs	$alt4
 subtitular	$alt4
 subtitulars	$alt4
 suert	$alt4
-suerts	$alt4
 súper	$alt4
 superior	$alt4
 superiors	$alt4
 súpers	$alt4
 surt	$alt4
-surts	$alt4
 tafur	$alt4
 tafurs	$alt4
 talar	$alt4
@@ -5032,10 +4925,8 @@ tors	$alt4
 tràiler	$alt4
 tràilers	$alt4
 transbord	$alt4
-transbords	$alt4
 transcurs	$alt4
 transport	$alt4
-transports	$alt4
 transvers	$alt4
 tresor	$alt4   $alt2
 tresors	$alt4   $alt2
@@ -5054,7 +4945,6 @@ ulteriors	$alt4
 ultramar	$alt4
 ultramars	$alt4
 umbert	$alt4
-umberts	$alt4
 univers	$alt4
 úter	$alt4
 úters	$alt4
@@ -5639,7 +5529,7 @@ hawaians	$alt6
 hawaià	$alt6
 hehe	$alt6
 hehehe	$alt6
-hena    $alt6
+henna    $alt6
 hihi	$alt6
 hihihi	$alt6
 hii	$alt6
@@ -5816,8 +5706,12 @@ víctor      b'ikto2R
 ?3 víctor   v'ikto**
 washington  w'aSiNto2n
 wolfgang    wo2lvgaN
+ibarretxe   ibaR'e2tSe
 
 // other languages names
+/// spanish toponims
+badajoz     _^_es
+
 /// spanish surnames
 aguilar		_^_es
 alonso		_^_es
@@ -5937,7 +5831,6 @@ andrés		_^_es
 ángel		_^_es
 ángela		_^_es
 ángeles		_^_es
-anna		_^_es
 antonia		_^_es
 antonio		_^_es
 arturo		_^_es
@@ -6721,6 +6614,11 @@ young		j'aN
 // other exceptions
 ió  i'o
 Io  i'o
+altisonant  ,altison'an
+altisonants  ,altison'ans
+?3 altisonant  ,altison'ant
+asímptota   as'imptota
+asímptotes  as'imptotes
 arbre       aB**e
 arbres      aB**es
 attrezzo    at**'etzo2
@@ -6728,6 +6626,7 @@ algoritme   alQo**'idme
 algoritmes  alQo**'idmes
 boom        b'um
 caos        k'ao2s
+cosinus     kos'inus
 darwin      d'aRwin
 darwinista  d'aRwinista
 darwinistes d'aRwinista
@@ -6749,6 +6648,7 @@ lego        l'eQo2
 legos       l'eQo2s
 leopardi    le2o2p'a**di
 peó         pe'o
+neó         ne'o
 peons       pe'ons
 pime        p'ime2
 plàncton	pl'ankto2n
@@ -6765,6 +6665,13 @@ tebeo       te2B'e2o2
 tebeos      te2B'e2o2s
 tornado     to2**n'aDo2
 tornados    to2**n'aDo2s
+sacrosant   sak**os'an
+?3 sacrosant   sak**os'ant
+sacrosants  sak**os'ans
+sacrosanta  sak**os'anta
+sacrosantes sak**os'antes
+uníson      un'ison
+unísons     un'isons
 word        w'o**d
 zoo         z'o
 zoom        z'um
@@ -6782,7 +6689,24 @@ zoom        z'um
 júniors	    Z'unio2rs
 júnior	    Z'unio2rs
 judo	    Z'udo2
-
+haixix	    xaS'iS
+repix	    rep'iS
+mix	        m'iks
+ceratiomixal	se**atiomiks'al
+fibromixoma	fib**omiks'Oma
+pixidi	piks'idi
+pixidial	piksidi'al
+dixi	d'iksi
+dixit	d'iksit
+praxi	pr'aksi
+endomixi	endum'iksi
+panmixi	pamm'iksi
+actinomixidi	aktinumiks'idi
+tixotropia	tiksut**up'ia
+hitchcockià xitSko2ki'a
+hitchcockiana   xitSko2ki'ana
+multiusos   multi'usos
+reina       re'ina
 
 // prefixes and sufixes
 /// words that DO NOT have a secondary stress prefix

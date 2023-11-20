@@ -87,6 +87,7 @@
         c          k    // (casa)
         c (L01     s    // (cirera)
         ch         tS   // (chihuahua)
+        ch (_      k   // (lluch, llach, folch, etc.)
         ck         k    // foreign words
 .group ç
         ç (_       =s    // (llaç)
@@ -383,7 +384,10 @@
         
         // glide rules
      A) i (K       j    // glide (aigua)
-     u) i (K       i    // not glide (creui)
+    Au) i (K       i    // not glide (creui)
+     u) i (r_      i    // not glide ()
+     u) i (sme_      i    // not glide ()
+     u) i (sme_      i    // not glide ()
  //   A_) i (K       j    // glide (una història)
      A) i (A       j    // glide (maia)
      _) i (A       j    // glide (iogurt)
@@ -398,6 +402,7 @@
    _l)  i (_A     j     // glide (li amaga)
     _)  i (_A     j     // glide (i altres)
    A_)  i (_     j      // glide (faré i desfaré)
+        
     
  'i_)  i  (K++            // following and stressed i -> elision (matí incomplet)
     
@@ -428,8 +433,10 @@
      A) i (rien_    i   // verb: not glide (conduir, agrair, etc.)
   _pre) i (@        i   // prefix: not glide (preinscripció)    
   _pro) i (@        i   // prefix: not glide (preinscripció)
-   _co) i (ns@        i   // prefix: not glide (coincideix)
-_macro) i (@        i   // prefix: not glide (macroilla)     
+   _co) i (nc@        i   // prefix: not glide (coincideix)
+_macro) i (@        i   // prefix: not glide (macroilla) 
+  _bio) i (@        i   // prefix: not glide
+   _re) i (n@        i   // prefix: not glide
         // prefixes with secondary stress
    _ac) i (culi     ,i  // aciculifoli
      _) ibero       ,iBe2**o2  // iberoromà
@@ -461,6 +468,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
   
 .group ix
         ix         iS
+     
      A) ix         jS
     gu) ix (K      iS   // pronounce i (guix)
     qu) ix (K      iS   // pronounce i (Quixot)
@@ -471,7 +479,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
      K) ix (A      iS   // pronounce i (mixa)
      ú) ix (K      iks  //
      f) ix (A      iks  // (fixar)
-     f) ix (K      iks  // (prefix)
+     l) ix (i      iks  // (lixi)
+     C) ix (K      iks  // (prefix)
      
         // accent variants
 ?1   A) ix (K      S    // do not pronounce i (peix)
@@ -513,7 +522,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         lt (_      l    // (alt)
         lt (_$w_alt4      lt   // do pronounce final t
         lt (s_     l    // (alts)
-        lt (s_$w_alt4      lt   // do pronounce final t
+   //     lt (s_$w_alt4      lt   // do pronounce final t
         ld (_      l    // (Eudald)
         ld (s_     l    // (Eudalds)
         
@@ -554,7 +563,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
 ?3      mp (_      mp   // do pronounce final p (valencian)
 ?4      mp (_      mp   // do pronounce final p (balearic)
 
-        mp (s_     m    // do not pronounce final p
+        mp (s      m    // do not pronounce final p
+        mp (cL01   m    //  (assumpció)
         mp (_C     m    // do not pronounce final p
         mb (K      m    // do not pronounce final b (amb mi) or before consonant
 ?1      mpt        mt   // do not pronouce p between m and t (compte)
@@ -577,6 +587,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         n (_       =n   // stress the vowel..
    L01) n (_       n    // ... except after e, i
   L05J) n (_       n    // ... or a previous already stressed vowel
+     ï) n (_       n    // ... or a dieresi
         ny         n^   // palatalization
 ?4      ny (C      in   // pany
   
@@ -594,6 +605,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         ntm        mm	// (recentment)
         ntb        mb   // (avantbraç)
         ntp        mb   // (avantpassat)
+        nts        ns   // (avantsala)
 
         nt (-hA      =nt   // followed by clitic
         nd (-hA      =nt   // followed by clitic
@@ -883,8 +895,8 @@ _ultra) r (A       R    // (ultraric)
      A)   rd (_     R    // (record)
 ?1   A)   rt (_$w_alt4     Rt    // (sort)
 ?1   A)   rd (_$w_alt4     Rt    // (sord)
-?1   A)   rt (s_$w_alt4     Rt    // (sort)
-?1   A)   rd (s_$w_alt4     Rt    // (sord)
+//?1   A)   rt (s_$w_alt4     Rt    // (sort)
+//?1   A)   rd (s_$w_alt4     Rt    // (sord)
      A)   rt (_A     Rt    // (art abstracte)
      A)   rd (_A     Rt    // (record abstracte)
      A)   rt (_C     R    // (art contemporani)
@@ -950,16 +962,25 @@ _ultra) r (A       R    // (ultraric)
        A) st (_C    =s
     
 //?1  aque) s  (tKhA   s
+    _a) s (imetri   s   // (asimetria)
+    _a) s (imètri   s   // (asimètriques)
    _bi) s (A       s    // (bisexual)
+  _bio) s (A       s    // (bioseguretat)
+  _eco) s (A       s    // (ecosistema)
   _neo) s (A       s    // ()
  _orto) s (A       s    // 
  _ante) s (A       s    // (antesala)
+ _anglo) s (A      s    // (anglosaxó)
  _anti) s (A       s    // (antisocial)
  _auto) s (A       s    // (autorservei)
    _bi) s (A       s    // (bisecció)
 _contra) s (A      s    // (contrasentit)
  _entre) s (A      s    // (entresòl)
+  _fito) s (A      s    // (fitosanitari)
+  _idio) s (A      s    // (idiosincràcia)
+  _mini) s (A      s    // (minisèrie)
   _mono) s (A      s    // (monosíl·lab)
+ _multi) s (A      s    // (multisala)
   _homo) s (A      s    // (homosexual)
   _para) s (A      s    // (parasíntesi)
       @) s (òl     s    // (entresòl)@) s (òl     s    // (entresòl)
@@ -969,6 +990,9 @@ _contra) s (A      s    // (contrasentit)
   _para) s (it     z    // (parasitosi)
  _sobre) s (A      s    // (sobresortir)
   _tele) s (A      s    // (telestrella)
+   _pre) s (elecci s    // (preselecció)
+    _re) s (itua   s    // (resituar)
+ 
  _ultra) s (A      s    // (ultrasò)
    _uni) s (A      s    // (unisexual)
   _vice) s (A      s    // (vicesecretari)
@@ -977,6 +1001,7 @@ _contra) s (A      s    // (contrasentit)
  _enfon) s (a      z    // (enfonsar)
  
         sh          S   // foreign words
+        sch         S   // foreign words
 
 .group t
         t          t
@@ -998,6 +1023,7 @@ _contra) s (A      s    // (contrasentit)
         tn         nn	// gemination (cotna)
 ?3   i) tz (a      z    // (normalitzar) 
      i) tz (a      tz   // (normalitzar) 
+        tt         t
 
 .group u
         u          u
@@ -1047,14 +1073,21 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 .group x
         x          ks   // (taxi)
         xt (_      ks   // (text)
-    _A) x          gz   // (exàmen)
+    _e) x  (A        gz   // (examen)
+  _coe) x  (A        gz   // (coexistir)
+    
+    _è) x  (A        gz   // (èxode)
+    _e) x  (L11      gz   // ()
+    
+    _A) x  (A      ks   // (oxigen)
+    _A) x  (L10    ks   // unvoiced consonant (excampió) 
     _A) xj         gZ   // (exjutge)
     _A) xg (L01    gZ   // (exgeneral)
-        xs         ks  //  (exsecretari)
+    _A) xs         ks  //  (exsecretari)
+        xc (L01    ks  //  (excedeix)
 // (exàmen)
 ?4  _A) x          gZ   // (exàmen)
 
-    _A) x (L10     ks   // (exprimir)
   _L05) x          ks   // (èxode)
      K) x          S    // (linx)
 
@@ -1065,6 +1098,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 
 .group z
         z          z
+        zs         s
 
 
 
@@ -1094,7 +1128,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 ?2      è (ieu_    ''e
 ?2      è ($w_alt1++    ''e
 
-?1      é (ixer_   ''E
+//?1      é (ixer_   ''E
 ?1      é (ncer_   ''E
 ?1      é (nyer_   ''E
 ?1      é (iem_    ''E
@@ -1104,6 +1138,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         'n (_S2t    n
         'm (_S2t    m
         't (_S2t    t
+        'l (_S2t    l
         's (_S2t    s
         'ns (_S3t   ns
         'us (_S3t   us
