@@ -11,14 +11,18 @@ include(CTest)
 include(cmake/deps.cmake)
 include(cmake/config.cmake)
 add_subdirectory(src)
-include(cmake/data.cmake)
+if(NOT CMAKE_CROSSCOMPILING)
+  include(cmake/data.cmake)
+endif()
 include(cmake/docs.cmake)
 
 include(cmake/package.cmake)
 include(CPack)
 
-include(CTest)
-add_subdirectory(tests)
+if(NOT CMAKE_CROSSCOMPILING)
+  include(CTest)
+  add_subdirectory(tests)
+endif()
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
