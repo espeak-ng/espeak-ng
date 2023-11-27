@@ -6,7 +6,6 @@ add_subdirectory(speechPlayer)
 add_subdirectory(libespeak-ng)
 
 add_executable(espeak-ng-bin espeak-ng.c)
-set_target_properties(espeak-ng-bin PROPERTIES OUTPUT_NAME espeak-ng)
 target_link_libraries(
   espeak-ng-bin PRIVATE espeak-ng espeak-ng-config
 )
