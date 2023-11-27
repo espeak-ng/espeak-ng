@@ -105,19 +105,8 @@ if (NOT MSVC)
 endif()
 target_link_libraries(espeak-ng PUBLIC espeak-include)
 
-if ((MINGW OR WIN32 OR MSVC) AND BUILD_SHARED_LIBS)
-  set_target_properties(espeak-ng PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ..
-  )
-endif()
-
 if (MINGW)
   target_link_options(espeak-ng PRIVATE "-static-libstdc++" "-static")
 endif()
 
-set_target_properties(espeak-ng PROPERTIES
-  SOVERSION ${PROJECT_VERSION_MAJOR}
-  VERSION ${PROJECT_VERSION}
-)
-
-install(TARGETS espeak-ng LIBRARY)
+install(TARGETS espeak-ng)
