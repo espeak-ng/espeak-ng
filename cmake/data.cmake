@@ -60,14 +60,11 @@ file(COPY "${DATA_SRC_DIR}/lang" DESTINATION "${DATA_DIST_DIR}")
 file(COPY "${DATA_SRC_DIR}/voices/!v" DESTINATION "${DATA_DIST_DIR}/voices")
 file(COPY "${PHONEME_SRC_DIR}" DESTINATION "${DATA_DIST_ROOT}")
 
-set(ESPEAK_RUN_ENV ${CMAKE_COMMAND} -E env "ESPEAK_DATA_PATH=${DATA_DIST_ROOT}")
+set(ESPEAK_RUN_ENV ${CMAKE_COMMAND} -E env "ESPEAK_DATA_PATH=${DATA_DIST_ROOT}" "PATH=$<TARGET_FILE_DIR:espeak-ng>")
 set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "$<TARGET_FILE:espeak-ng-bin>")
-
-set(espeak_ng_dll_path "$<TARGET_FILE_DIR:espeak-ng>")
 
 add_custom_command(
   OUTPUT "${DATA_DIST_DIR}/intonations"
-  COMMAND set "PATH=${espeak_ng_dll_path};%PATH%"
   COMMAND ${ESPEAK_RUN_CMD} --compile-intonations
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile intonations"
@@ -98,7 +95,6 @@ add_custom_command(
     "${DATA_DIST_DIR}/phondata-manifest"
     "${DATA_DIST_DIR}/phonindex"
     "${DATA_DIST_DIR}/phontab"
-  COMMAND set "PATH=${espeak_ng_dll_path};%PATH%"
   COMMAND ${ESPEAK_RUN_CMD} --compile-phonemes
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile phonemes"
@@ -135,7 +131,6 @@ foreach(_dict_name ${_dict_compile_list})
 
   add_custom_command(
     OUTPUT "${_dict_target}"
-    COMMAND set "PATH=${espeak_ng_dll_path};%PATH%"
     COMMAND ${CMAKE_COMMAND} -E copy ${_dict_deps} "${DICT_TMP_DIR}/"
     COMMAND ${ESPEAK_RUN_CMD} --compile=${_dict_name}
     WORKING_DIRECTORY "${DICT_TMP_DIR}"
