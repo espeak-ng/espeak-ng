@@ -2664,7 +2664,7 @@ zooglees	$alt2
 ?2 sobrin	alt1
 ?2 sobris	alt1
 ?2 sobro	alt1
-?3 com  $alt1
+?2 com  $alt1
 abandoni	$alt1
 abandonin	$alt1
 abdomen	$alt1
@@ -4884,6 +4884,8 @@ interventricular	$alt4
 interventriculars	$alt4
 intramuscular	$alt4
 intramusculars	$alt4
+iogur	$alt4
+iogurs	$alt4
 irregular	$alt4
 irregulars	$alt4
 jaguar  $alt4
@@ -6409,7 +6411,7 @@ nicolás		niko2l'as
 nieto		nj'e2to2
 nieves		nj'e2Be2s
 noelia		no2'e2lja
-nóos		n'o2o2s
+nóos		n'o2s
 núñez		n'un^e2T
 orbán		o2**B'an
 ortega		o2**t'e2Qa
@@ -7267,11 +7269,13 @@ zachary		z'aka**i
 // other exceptions
 
 ?2 dimarts  dim'ats
+?2 estiu    ist'iw
 ?2 joan     dZu'an
 ?2 josep    dZus'Ep
 ?3 altisonant  ,altison'ant
 ?3 atzavara addzav'a**a
 ?3 avui     wi
+?3 estiu    est'iw
 ?3 llavors  l^av'Os // adverb
 ?3 marbre   m'ab**e
 ?3 sacrosant   sak**os'ant

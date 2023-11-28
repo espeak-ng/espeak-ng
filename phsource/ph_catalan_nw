@@ -122,11 +122,11 @@ phoneme o2
   FMT(vowel/o)
 endphoneme
 
-phoneme u
-  vwl starttype #u endtype #u
-  length 160
-  FMT(vowel/u_bck)
-endphoneme
+//phoneme u
+//  vwl starttype #u endtype #u
+//  length 160
+//  FMT(vowel/u_bck)
+//endphoneme
 
 phoneme i
   vwl starttype #i endtype #i

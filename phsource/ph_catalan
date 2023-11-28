@@ -505,10 +505,11 @@ phoneme k
 
   IF nextPh(isPause2) THEN
     WAV(ustop/k_)
+  
   ELIF nextPh(isRhotic) THEN
     WAV(ustop/kr)
-  ELIF nextPh(#i) OR nextPh(;) THEN
-    WAV(ustop/ki)
+//  ELIF nextPh(#i) OR nextPh(;) THEN
+//    WAV(ustop/ki)
 //  ELIF nextPh(l) THEN
 //    WAV(ustop/kl)
   ELIF thisPh(isWordStart) THEN // don't change it if it's word start
@@ -519,6 +520,7 @@ phoneme k
     ELIF thisPh(isWordEnd) THEN
       ChangePhoneme(g)
     ENDIF
+  
   ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(g)
   ENDIF

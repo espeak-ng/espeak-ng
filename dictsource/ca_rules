@@ -115,8 +115,8 @@
         e ($w_alt1++ e  // wordlist
         e ($w_alt2++ E  // wordlist
     -t) e (_       e%
-    qu) e (_e           // elision (que ell...)
-    qu) e (_a           // elision (que ara...)
+?1  qu) e (_e           // elision (que ell...)
+?1  qu) e (_a           // elision (que ara...)
     
     
         // initial e pronounced a - western accents (test)
@@ -377,7 +377,10 @@
 ?4   _) ho (_C   @w   //  ho diu [əw ðˈiw]
 ?4  A_) ho (_    w   //  no ho diu [nˈo w ðˈiw]
 ?3  K_) ho (_C   ew  //  ho porta [ewpɔ́ɾta]
-        
+?2   _) ho (_A   o   //  ho entra [wéntɾa]
+?2   _) ho (_hA  o   //  ho ha entrat
+?2  A_) ho (_C   o   //  no ho porta [n'owpɔ́ɾta]
+      
 
 .group i
         i          i
