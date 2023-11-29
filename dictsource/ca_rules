@@ -184,6 +184,7 @@
 ?2 _des) e (s      a    // (desesperats)
 ?2 _des) e (n      a    // (desencisats)
 ?1    @) e (ix      E    // 
+//?4    p) e         e2    // (especial)
            
         // contextual E rules
         e (l       E    // (elm)
@@ -235,7 +236,8 @@
 
 ?4      e (t+       @    // (marlet)
 ?4      e (c+       @    //
-?4      e (c_+      e    // (mànec)
+?4      e (c_+      E    // (espetec)
+?4      e (g_+      E    // ()
 
 ?4      e (i+       @    //
 ?4      e (s+       @    //
@@ -290,6 +292,9 @@
 ?2  _r) e (tro     ,e
 ?2  _t) e (rmo@    ,e   // (termogènesi)
 ?2 _el) e (ctro@   ,e
+
+?4  _m) e (nys++     ,@
+
 
         // non secondary stress
      _) e (ntreA$w_alt5	e   // (entreacte)
@@ -593,6 +598,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
      ï) n (_       n    // ... or a dieresi
         ny         n^   // palatalization
 ?4      ny (C      in   // pany
+?4   A) ny (C      jn   // pany
   
   
         nt (_      =n   // do not pronounce final t + stress the vowel
