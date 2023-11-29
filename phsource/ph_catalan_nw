@@ -83,11 +83,11 @@ phoneme O
 //        ChangePhoneme(aw)
 //    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
 //        ChangePhoneme(u)
-    IF nextVowel(isStressed) AND nextVowel(i) THEN
-          ChangePhoneme(u)
-    ELSE
+//    IF nextVowel(isStressed) AND nextVowel(i) THEN
+//          ChangePhoneme(u)
+//    ELSE
         ChangePhoneme(o)
-    ENDIF
+//    ENDIF
   ENDIF
   FMT(vowel/oo)
 endphoneme
@@ -95,17 +95,17 @@ endphoneme
 phoneme o
   vwl starttype #o endtype #o
   length 170
-  IF thisPh(isUnstressed) THEN
+//  IF thisPh(isUnstressed) THEN
  //   IF thisPh(isWordStart) THEN 
  //       ChangePhoneme(aw) no treure-ho per si canviem d'opinió
 //    ELIF nextVowel(isStressed) OR prevPh(dZ) OR prevPh(Z) THEN
   //      ChangePhoneme(u)
-      IF nextVowel(isStressed) AND nextVowel(i) THEN
-          ChangePhoneme(u)
-    ENDIF
+//      IF nextVowel(isStressed) AND nextVowel(i) THEN
+//          ChangePhoneme(u)
+//    ENDIF
     
-  ENDIF
-  FMT(vowel/o)
+//  ENDIF
+//  FMT(vowel/o)
 endphoneme
 
 phoneme aw // revisar
@@ -185,6 +185,9 @@ phoneme S // **sh**op
     ChangePhoneme(tS)
   ELIF prevPh(isNotVowel) THEN 
     IF  prevPh(j) THEN
+        IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
+            ChangePhoneme(Z)
+        ENDIF
     ELSE
         ChangePhoneme(tS)
     ENDIF
