@@ -164,7 +164,7 @@ _dpt	_koma
 
 vi	bi	// not a Roman 
 ?3 vi	vi	// not a Roman number
-
+?4 vi	vi
 
 /// ordinal numbers
 _#r     'e
@@ -17654,3 +17654,5 @@ argüix		'aRguS
 ?4 vessin		v'esin
 ?4 vessis		v'esis
 ?4 vesso		v'esu
+
+?4 temps		t'em

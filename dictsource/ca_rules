@@ -525,8 +525,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
 
         ll         l^   // (colla)
         l (_ll     l^   // (del llop)
-?4   A) ll (_      j
-?4 L02) ll (@      j
+//?4   A) ll (_      j
+//?4 L02) ll (@      j
         lt (_      l    // (alt)
         lt (_$w_alt4      lt   // do pronounce final t
         lt (s_     l    // (alts)
@@ -871,6 +871,8 @@ _ultra) r (A       R    // (ultraric)
      A) r (-A           **   // final r is not silent if followed by a pronoun
      A) r (-hA          **   // final r is not silent if followed by a pronoun
         r (_$w_alt4+    R   // final r is not silent (motor)
+?4      r (_$w_alt4+    **   // final r is not silent (motor)
+
         r (_A$w_alt4+   **   // final r is not silent (motor acústic)
         r (_hA$w_alt4+  **   // final r is not silent (motor hidràulic)
         
@@ -929,6 +931,16 @@ _ultra) r (A       R    // (ultraric)
 ?3   A)   rd (_A     **d    // (record amic)
 ?3   A)   rd (s_     **d    // (record)
 ?3   A)   rd (_C     **    // (record bonic)
+
+
+?4   A)   rt (_     **    // (art)
+?4   A)   rd (_     **    // (record)
+?4   A)   rt (_A     **t    // (art abstracte)
+?4   A)   rd (_A     **t    // (record abstracte)
+?4   A)   rt (_C     **    // (art contemporani)
+?4   A)   rd (_C     **    // (record tormentós)   
+?4   A)   rt (s_     **    // (arts)
+?4   A)   rd (s_     **    // (records)
 
 .group s
         s          s

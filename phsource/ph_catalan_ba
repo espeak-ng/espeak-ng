@@ -94,3 +94,50 @@ phoneme v
   ENDIF
   FMT(voc/v) addWav(vocw/v)
 endphoneme
+
+phoneme l^    // palatal l, e.g. Italian **g**li
+  liquid
+  ipa ʎ
+  lengthmod 7
+  Vowelout len=60 lenadd rate
+  length 100
+
+  NextVowelStarts
+    VowelStart(l^/j2@)
+    VowelStart(l^/j2a)
+    VowelStart(l^/j2e)
+    VowelStart(l^/j2i)
+    VowelStart(l^/j2o)
+    VowelStart(l^/j2u)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(l^/_l^)
+  ELIF prevPh(isVowel) THEN
+    IF thisPh(isWordEnd) THEN
+        ChangePhoneme(j)
+    ELIF nextPh(s) AND nextPh(isWordEnd) THEN
+        ChangePhoneme(j)
+  
+  
+    ELIF nextPh(isVowel) THEN
+        IF nextPh(isStressed) THEN
+            IF nextPh(i) OR nextPh(e) THEN
+                ipa NULL
+            ELSE
+                ChangePhoneme(j)
+            ENDIF
+        ELIF prevPh(isStressed) THEN
+            IF prevPh(i) OR prevPh(e) THEN
+                ipa NULL
+            ELSE
+                ChangePhoneme(j)
+            ENDIF
+        ELSE
+            ChangePhoneme(j)
+        ENDIF
+    ENDIF
+  ENDIF
+
+  FMT(l^/l^)
+endphoneme
