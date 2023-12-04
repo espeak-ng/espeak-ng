@@ -89,6 +89,11 @@
         ch         tS   // (chihuahua)
         ch (_      k   // (lluch, llach, folch, etc.)
         ck         k    // foreign words
+           
+?4 Aix_) c (L01    ts    // dissimilation (peix celíac)
+?4   s_) c (L01    ts    // (dos celíacs)
+?4   ç_) c (L01    ts    // (dos celíacs)
+
 .group ç
         ç (_       =s    // (llaç)
   L05J) ç         s    // (llaç)
@@ -97,7 +102,15 @@
         ç (_A      z    // (llaç estret)
         ç (_hA     z    // (llaç hebreu)
         ç (_L11    z    // (llaç bonic
-
+        
+?4   A) ç (_s     t  // pronounce -s as -t if followed by an s (llaç sedós)
+?4   A) ç (_z     d  // pronounce -s as -d if followed by an z (llaç zenital)
+?4   A) ç (_cL01  t  // pronounce -s as -t  if followed by -ce/ci 
+?4   A) ç (-cL01  t  // pronounce -s as -t  if followed by -ce/ci
+?4   A) ç (_x     t    // dissimilation (llaç xarop)
+?4   A) ç (_j     d    // dissimilation (llaç joc)
+?4   A) ç (_gL01  d    // dissimilation (llaç gerro)
+ 
 .group d
         d          d    // d sona d
      _) d' (P2     d    // apostrophe
@@ -360,7 +373,10 @@
         gn         gn   // designar
 ?4      gn         nn   // designar
 
-        
+?4 Aix_) g (L01    dZ    // dissimilation (peix gelat)
+?4   s_) g (L01    dZ    // (dos gelats)
+?4   ç_) g (L01    dZ    // (llaç gelat)
+
 .group h
         h              // silent
         h ($w_alt6  X   // (halar)
@@ -495,6 +511,14 @@ _macro) i (@        i   // prefix: not glide (macroilla)
 ?1   A) ix (A      S    // do not pronounce i (peixar)
 ?1   A) ix (_A     Z    // sonorisation + do not pronounce i (peix amable)
 ?1   A) ix (_L11   Z    // sonorisation + do not pronounce i (peix blau)
+
+?4   A) ix (_r     j    // (mateix roc)
+?4   A) ix (_s     t    // dissimilation (peix salat)
+?4   A) ix (_cL01  t    // dissimilation (peix celíac)
+?4   A) ix (_z     d    // dissimilation (mateix zero)
+?4   A) ix (_x     t    // dissimilation (mateix xarop)
+?4   A) ix (_j     d    // dissimilation (mateix joc)
+?4   A) ix (_gL01  d    // dissimilation (mateix gerro)
      
 .group ig
      A) ig (_      tS   // (goig)
@@ -513,8 +537,11 @@ _macro) i (@        i   // prefix: not glide (macroilla)
      
 .group j
         j          Z    // (jota)
-
-
+     
+?4 Aix_) j         dZ    // dissimilation (mateix joc)
+?4   s_) j         dZ    // (dos jocs)
+?4   ç_) j         dZ    // (dos celíacs)
+        
 .group k
         k          k    // (ka)
  //       kh         X    // 
@@ -967,12 +994,6 @@ _ultra) r (A       R    // (ultraric)
    //     s (_z       // do not pronounce -s if followed by an z
    //     s (_cL01    // do not pronounce -s if followed by -ce/ci 
    //      s (-cL01    // do not pronounce -s if followed by -ce/ci
-
-?4    A)  s (_s     t  // pronounce -s as -t if followed by an s (dos sacs)
-?4    A)  s (_z     d  // pronounce -s as -d if followed by an z (sis zones)
-?4    A)  s (_cL01  t  // pronounce -s as -t  if followed by -ce/ci 
-?4    A)  s (-cL01  t  // pronounce -s as -t  if followed by -ce/ci
-
         
 ?1  aque) s  (t_
     aque) s  (ts_
@@ -1023,6 +1044,17 @@ _contra) s (A      s    // (contrasentit)
  
         sh          S   // foreign words
         sch         S   // foreign words
+// balearic dissimilation
+?4 Aix_) s         ts    // dissimilation (peix salat)
+?4   s_) s         ts    // (dos sacs)
+
+?4   A) s (_s     t  // pronounce -s as -t if followed by an s (dos sacs)
+?4   A) s (_z     d  // pronounce -s as -d if followed by an z (sis zones)
+?4   A) s (_cL01  t  // pronounce -s as -t  if followed by -ce/ci 
+?4   A) s (-cL01  t  // pronounce -s as -t  if followed by -ce/ci
+?4   A) s (_x     t    // dissimilation (mateix xarop)
+?4   A) s (_j     d    // dissimilation (mateix joc)
+?4   A) s (_gL01  d    // dissimilation (mateix gerro)
 
 .group t
         t          t
@@ -1106,9 +1138,14 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
     _A) xg (L01    gZ   // (exgeneral)
     _A) xs         ks  //  (exsecretari)
         xc (L01    ks  //  (excedeix)
+        
 // (exàmen)
 ?4  _A) x          gZ   // (exàmen)
-
+        
+?4 Aix_) x         tS    // dissimilation (mateix xarop)
+?4   s_) x         tS    // (compres xarop)
+?4   ç_) x         tS    // (llaç xamós)
+     
   _L05) x (A         ks   // ()
      K) x          S    // (linx)
 
@@ -1121,7 +1158,9 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         z          z
         zs         s
 
-
+?4 Aix_) z         dz    // dissimilation (sis zones)
+?4   s_) z         dz    // (mateix zero)
+?4   ç_) z         dz    // (llaç zenital)
 
 .group
         à          ''a   // force stress onto this vowel

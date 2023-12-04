@@ -141,3 +141,43 @@ phoneme l^    // palatal l, e.g. Italian **g**li
 
   FMT(l^/l^)
 endphoneme
+
+
+phoneme dz //
+  vcd alv afr sib
+  voicingswitch ts
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 400  f3=100 80
+  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+
+endphoneme
+
+phoneme s
+  vls alv frc sib
+  voicingswitch z
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(ts) OR nextPh(dz) OR nextPh(tS) OR nextPh(dZ) THEN
+      ChangePhoneme(t)
+    ELIF nextPh(isVoiced) THEN
+      ChangePhoneme(z)
+    ENDIF
+  ELIF prevPh(isPalatal) OR nextPh(S) OR nextPh(Z) THEN
+    IF prevPh(j) THEN
+    ELIF nextPh(isVoiced) THEN
+      ChangePhoneme(Z)
+    ELSE
+      ChangePhoneme(S)
+    ENDIF
+  ENDIF
+  
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_)
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!)
+  ENDIF
+  WAV(ufric/s)
+endphoneme
+
