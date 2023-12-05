@@ -965,9 +965,13 @@ _ultra) r (A       R    // (ultraric)
 ?4   A)   rt (_A     **t    // (art abstracte)
 ?4   A)   rd (_A     **t    // (record abstracte)
 ?4   A)   rt (_C     **    // (art contemporani)
-?4   A)   rd (_C     **    // (record tormentós)   
+?4   A)   rd (_C     **    // (record tormentós) 
+?4   A)   rc (_C     **    // (porc petit)
+?4   A)   rp (_C     **    // (serp grossa)
 ?4   A)   rt (s_     **    // (arts)
 ?4   A)   rd (s_     **    // (records)
+?4   A)   rt (_C$w_alt4     **    // (sort)
+?4   A)   rd (_C$w_alt4     **    // (sord)
 
 .group s
         s          s
@@ -1002,6 +1006,7 @@ _ultra) r (A       R    // (ultraric)
     aque) s  (t_C
     
        A) st (_C    =s
+?4     A) st (_C    =t // post
     
 //?1  aque) s  (tKhA   s
     _a) s (imetri   s   // (asimetria)
