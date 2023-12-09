@@ -52,3 +52,7 @@ endphoneme
 phoneme d;
   import_phoneme pl/d;
 endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
