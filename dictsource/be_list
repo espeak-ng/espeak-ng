@@ -2,38 +2,39 @@
 // Spelling-to-phoneme words for Belarusian
 
 // Letter names
-а       a $u
-б       b $u
-в       vE $u
-г       QE $u
-д       dE $u
-е       jE $u
-ё       jO $u
-ж       z. $u
-з       z $u
-і       i $u
-й       i $u
-к       ka $u
-л       El  $u
-м       Em $u
-н       En $u
-о       O   $u
-п       pE  $u
-р       Er  $u
-с       Es  $u
-т       tE  $u
-у       u $u
-ў       w $u
-ф       Ef $u
-х       xa $u
-ц       tsE $u
-ч       ts.E $u
-ш       s.a $u
-ы       i" $u
+а       a 
+б       be
+в       vE
+г       QE
+д       dE
+е       jE
+ё       jO
+ж       z.E
+з       zE
+і       i
+й       in;Esklad'OvajE
+к       ka
+л       El
+м       Em 
+н       En
+о       O
+п       pE
+р       Er
+с       Es
+т       tE
+у       u
+ў       w
+ф       Ef
+х       xa
+ц       tsE
+ч       ts.E
+ш       s.a
+ы       i"
 ь       m;'ak;:i||znak
-э       E $u
-ю       ju $u
-я       ja $u
+э       E
+ю       ju
+я       ja
+
 
 // Numbers
 _0     n'ul;
