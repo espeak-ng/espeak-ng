@@ -36,3 +36,11 @@ phoneme I2 // **i**ntend. As \[I\], but also indicates an unstressed syllable.
   ENDIF
   FMT(vowel/ii_4)
 endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
