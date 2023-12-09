@@ -44,3 +44,11 @@ endphoneme
 phoneme d
   import_phoneme base1/d[
 endphoneme
+
+phoneme t;
+  import_phoneme pl/t;
+endphoneme
+
+phoneme d;
+  import_phoneme pl/d;
+endphoneme
