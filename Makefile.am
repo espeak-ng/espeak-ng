@@ -545,6 +545,7 @@ dictionaries: \
 	espeak-ng-data/sw_dict \
 	espeak-ng-data/ta_dict \
 	espeak-ng-data/te_dict \
+	espeak-ng-data/ti_dict \
 	espeak-ng-data/th_dict \
 	espeak-ng-data/tk_dict \
 	espeak-ng-data/tn_dict \
@@ -889,6 +890,9 @@ espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_ext
 
 te: espeak-ng-data/te_dict
 espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra dictsource/te_emoji
+
+ti: espeak-ng-data/ti_dict
+espeak-ng-data/ti_dict: dictsource/ti_list dictsource/ti_rules dictsource/ti_extra dictsource/ti_emoji
 
 th: espeak-ng-data/th
 espeak-ng-data/th: dictsource/th dictsource/th dictsource/te_extra
