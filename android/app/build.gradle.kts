@@ -122,8 +122,8 @@ tasks.register("checkData") {
             "phontab"
         )
         dataFiles.forEach {
-            assert(file("../../espeak-ng-data/$it").exists()) {
-                "Data file $it not found."
+            if (!file(layout.buildDirectory.dir("generated/espeak-ng-data/$it")).exists()) {
+                throw GradleException("Data file $it not found.")
             }
         }
     }
