@@ -127,6 +127,7 @@
         e          e
         e ($w_alt1++ e  // wordlist
         e ($w_alt2++ E  // wordlist
+?4      e ($w_alt5++ @  // wordlist: balearic stressed @
     -t) e (_       e%
 ?1  qu) e (_e           // elision (que ell...)
 ?1  qu) e (_a           // elision (que ara...)
@@ -197,6 +198,7 @@
 ?2 _des) e (s      a    // (desesperats)
 ?2 _des) e (n      a    // (desencisats)
 ?1    @) e (ix      E    // 
+?4    C) e (ix+      e    // 
 //?4    p) e         e2    // (especial)
            
         // contextual E rules
@@ -247,18 +249,22 @@
 ?1      e (da_     E    //
 ?1      e (des_    E    //
 
-?4      e (t+       @    // (marlet)
-?4      e (c+       @    //
+?4      e (t_+       @    // (marlet)
+?4      e (ta_+       @    // (marlet)
+?4      e (ts_+       @    // (marlet)
+?4      e (tes_+       @    // (marlet)
+
+//?4      e (c+       @    //
 ?4      e (c_+      E    // (espetec)
 ?4      e (g_+      E    // ()
 
 ?4      e (i+       @    //
 ?4      e (s+       @    //
         e (ssi     e    // subjuntius
-?4      e (m+       @    //
+?4      e (m@+       @    //
 ?4      e (na_+     @    //
 ?4      e (nes_+    @    //
-?4      e (n+       @    //
+//?4      e (n+       @    //
 ?4      e (d_+      @    //
 ?4      e (ds_+     @    //
 ?4      e (da_+     @    //
@@ -367,7 +373,7 @@
         gu (L02    gw  // (guaret)
      A) gl (A      ggl // gemination (segle)
      A) gl (Aw_alt3      Ql // avoid gemination (aglà)
-   _ne) gl (ig     QL // avoid gemination (negligència, etc.)
+   _ne) gl (ig     Ql // avoid gemination (negligència, etc.)
 ?3   A) gl (A      Ql // avoid gemination (segle)
      _) gn         n   // gnom
         gn         gn   // designar
@@ -820,6 +826,7 @@ catalan) o (@      o2
         o ($w_alt1+++ o    // list of excepcions of the rules
         o ($w_alt2+++ O    // list of excepcions of the rules 
   L05J) or (_$w_alt4+   %oR   // final r is not silent and unestressed vowel
+?4   L05J) or (_$w_alt4+   %o   // final r is silent and unestressed vowel
    
 .group p
         p          p
@@ -898,7 +905,12 @@ _ultra) r (A       R    // (ultraric)
      A) r (-A           **   // final r is not silent if followed by a pronoun
      A) r (-hA          **   // final r is not silent if followed by a pronoun
         r (_$w_alt4+    R   // final r is not silent (motor)
-?4      r (_$w_alt4+    **   // final r is not silent (motor)
+//?4      r (_$w_alt4+    **   // final r is not silent (motor)
+?4      r (_$w_alt4+       // final r is always silent (motor)       
+?4   A) r (-l+          l   // final r is assimilated if followed by a pronoun
+?4   A) r (-t+          t   // final r is assimilated if followed by a pronoun
+?4   A) r (-m+          m   // final r is assimilated if followed by a pronoun
+?4   A) r (-s+          t   // final r is assimilated if followed by a pronoun
 
         r (_A$w_alt4+   **   // final r is not silent (motor acústic)
         r (_hA$w_alt4+  **   // final r is not silent (motor hidràulic)
@@ -1145,7 +1157,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         xc (L01    ks  //  (excedeix)
         
 // (exàmen)
-?4  _A) x          gZ   // (exàmen)
+?4  _A) x (A          dZ   // (exàmen)
+?4  _e) x (A         dZ   // (exàmen)
         
 ?4 Aix_) x         tS    // dissimilation (mateix xarop)
 ?4   s_) x         tS    // (compres xarop)
@@ -1182,6 +1195,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         ñ          n^
 
         $          dolaR
+        
+?4      è ($w_alt5++ '@  // wordlist: balearic stressed @
         // cross-accent adaptations
 ?2      è (s_      ''e // final "ès" is pronounced "és" in western accents (francès)
 ?2      è (s_      ''e // final "èn" is pronounced "én" in western accents (francès)
@@ -1198,6 +1213,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 ?1      é (nyer_   ''E
 ?1      é (iem_    ''E
 ?1      é (ieu_    ''E
+
 
 .group '
         'n (_S2t    n
