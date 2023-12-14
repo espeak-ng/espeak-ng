@@ -83,7 +83,7 @@ class FrameManagerImpl: public FrameManager {
 
 	public:
 
-	FrameManagerImpl(): curFrame(), curFrameIsNULL(true), sampleCounter(0), newFrameRequest(NULL), lastUserIndex(-1)  {
+	FrameManagerImpl(): newFrameRequest(NULL), curFrame(), curFrameIsNULL(true), sampleCounter(0), lastUserIndex(-1)  {
 		oldFrameRequest=new frameRequest_t();
 		oldFrameRequest->NULLFrame=true;
 	}

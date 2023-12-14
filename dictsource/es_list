@@ -284,7 +284,7 @@ n	Ene
 ñ	En^e
 p	pe
 q	ku
-r	ERRe
+r	ER2e
 ?2 r	ER2e
 s	Ese
 t	te
@@ -310,12 +310,17 @@ _ó	'o||aTEntw'aDa
 ç	$accent
 
 // Abbreviations
+aprox	Aproximadamente		$text
+a. c	antes||de||cristo		$text $capital $dot
+d. c	después||de||cristo		$text $capital $dot
 dña	doña		$text
 DNI			$abbrev
 dpto	departamento	$text
 dr	doctor		$text $capital $dot
 dra	doctora		$text $capital $dot
 (ee.uu)  Est'aDos||un'iDos
+ej	Ejemplo	$text $dot
+etc	etcétera	$text
 Excmo	excelentísimo	$text $dot
 Excma	excelentísima	$text $dot
 Ilmo	ilustrísimo	$text $dot
@@ -325,12 +330,18 @@ izqda	izquierda 	$text $dot
 izqdo	izquierdo	$text $dot
 kg	kilogramo	$text $dot
 Mª	maría		$text $capital $dot
+pag	página	$text $dot
 Pte	presidente	$text $capital $dot
+SAR	su||alt'eTa||R2e'al		$abbrev
+SNM	soBre||el|niB'el||del||m'ar		$abbrev
 Sr	señor		$text $capital $dot
 Sra	señora		$text $capital $dot
 Sras	señoras		$text $capital $dot
 Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
+SSS	serB'iTjo||soTj'al||sustitut'orjo		$abbrev
+tel	teléfono	$text $dot
+tqm	te||kj'ero||m'utSo
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
 //	(/ h)   por||'ora
@@ -350,26 +361,36 @@ vietnam $2
 
 android	'androId
 apple	'ap@l
-copyright	k'opiRR2,aIt
+copyright	k'opiR2,aIt
 chrome	kr'owm
 curriculum	$2
 diem	d'i:em $only
+down	d'awn
 eloquence	'elokwens
 english ínglish      $text
 espeak	'isp'ik
+ETI	itj'aI		$capital
 eyes	'aIs
 facebook f'eIsbuk
+file f'aIl
+files f'aIls
 firefox	f'aIrfoks
 free	fr'i
 google	g'ug@l
 hardware h'ardwer
+hitler	x'itler
+instagram	$1
 iphone	'aIfon
 ipod	'aIpod
 jaws	dZ'os
 jazz	dZ'as
+junior	dZ'unjor
+kepler	$1
 linux        $1
 live l'aIB
 drive dr'aIB
+freedom	fr'idom
+gmail	dZimeIL
 reaper R2'iper
 messenger m'esendZer
 microsoft	m'aIkrosoft
@@ -377,16 +398,21 @@ mozilla	moT'ila
 office	'ofis
 platform	pl'atfom
 power	p'awer
+scientific	$2
 service	s'erBis
 skype	sk'aIp
 snapshot	sn'apS,ot // _^_en
 software	s'oftwer
 spanish      sp'aniS
 speech	sp'itS
+telegram	$1
 thunderbird	t'anderbird
 twit	tw'it
 twitter	tw'iter
+unigram	$1
+up	ap
 window	w'indow
+YouTube	iut'uB		$capital
 
 (e speak) 'isp'ik
 (i phone)	'aIfon
@@ -394,4 +420,4 @@ window	w'indow
 
 // Main  nouns Dictionary
 cataplum	$3
-
+progrom	$3

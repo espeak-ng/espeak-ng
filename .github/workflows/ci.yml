@@ -189,7 +189,7 @@ jobs:
         sudo apt-get install ronn kramdown python3
     - name: apt-arch-deps
       if: matrix.os == 'ubuntu' && matrix.cross == 'no'
-      run: "sudo apt-get install cmake valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libstdc++-12-dev:${{ matrix.arch }} libc6-dbg:${{ matrix.arch }}"
+      run: "sudo apt-get install cmake valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libc6-dbg:${{ matrix.arch }} libgcc-s1:${{ matrix.arch }}"
     - name: apt-cross-deps
       if: matrix.cross == 'yes'
       run: sudo apt-get install qemu-user g++-12-${{ matrix.arch }}-${{ matrix.sys }}

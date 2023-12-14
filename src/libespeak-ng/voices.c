@@ -424,8 +424,10 @@ voice_t *LoadVoice(const char *vname, int control)
 	char phonemes_name[40] = "";
 	const char *language_type;
 	char buf[sizeof(path_home)+30];
+#if USE_MBROLA
 	char name1[40];
 	char name2[80];
+#endif
 
 	int pitch1;
 	int pitch2;
