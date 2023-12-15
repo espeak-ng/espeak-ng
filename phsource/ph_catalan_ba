@@ -117,7 +117,7 @@ phoneme k
     ELIF nextPh(n) OR nextPh(d) OR nextPh(z) THEN 
         ChangePhoneme(g)
     ENDIF
-  ELIF nextPh(t) THEN
+  ELIF nextPh(t) OR nextPh(s) OR nextPh(ts) THEN
     ChangePhoneme(t)  
   ELIF nextPh(s) THEN
     IF nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
@@ -371,13 +371,11 @@ phoneme l^    // palatal l, e.g. Italian **g**li
   IF prevPh(isPause) THEN
     FMT(l^/_l^)
   ELIF prevPh(isVowel) THEN
-    IF thisPh(isWordEnd) THEN
+    IF nextPh(isPause) THEN
         ChangePhoneme(j)
-    ELIF nextPh(s) AND nextPh(isWordEnd) THEN
+    ELIF nextPh(s) AND next2Ph(isPause) THEN
         ChangePhoneme(j)
-  
-  
-    ELIF nextPh(isVowel) THEN
+    ELIF nextPh(isVowel) AND NOT thisPh(isWordEnd) THEN
         IF nextPh(isStressed) THEN
             IF nextPh(i) OR nextPh(e) THEN
                 ipa NULL
