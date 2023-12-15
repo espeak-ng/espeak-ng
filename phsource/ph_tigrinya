@@ -22,13 +22,6 @@ phoneme y
   ipa ɨ
   length 180
 
-  // assume that word-final [y] are not added by am_rules
-  // Only allow [y] in first or last syllables
-//  IF thisPh(isFinalVowel) THEN
-//  ELIF thisPh(isFirstVowel) THEN
-//  ELSE
-//    ChangePhoneme(NULL)
-//  ENDIF
   FMT(vowel/ii#_2)
 endphoneme
 
@@ -134,4 +127,14 @@ phoneme x
   ELSE
     CALL base1/x
   ENDIF
+endphoneme
+
+phoneme A       // Tigrinya Aamet (year)
+  vcd frc
+  ipa ʕ
+  voicingswitch a
+  length 160
+  Vowelin  f1=2  f2=2300 -400 500  f3=300 80
+  Vowelout f1=2  f2=2300 -300 450  f3=-100 10
+  FMT(r/xr,25) addWav(h/h_,30)
 endphoneme
