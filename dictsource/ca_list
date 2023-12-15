@@ -850,6 +850,7 @@ tens     t'ens   $verb
 
 /// alternative rules
 //// words with e
+
 ?2 bec      $alt1
 ?2 beco    $alt1
 ?2 becos    $alt1
@@ -872,19 +873,27 @@ tens     t'ens   $verb
 ?2 veuen    $alt1
 ?2 veure    $alt1
 ?2 veus     $alt1
+?3 créixer	k**'ejSe**
 acceleren	$alt1
 accessos	$alt1
 adrecen	$alt1
 adreces	$alt1
 adreci	$alt1
 agrega	$alt1
+agrega	$alt1
+agregues	$alt1
 aiguaneu	$alt1
 aixec	$alt1
 aixeca	$alt1
+aixeca	$alt1
 aixeco	$alt1
 aixecs	$alt1
+aixecs	$alt1
+aixeques	$alt1
 aleix	$alt1
 aleixs	$alt1
+al·lega	$alt1
+al·legues	$alt1
 alleta	$alt1
 alletin	$alt1
 alliberen	$alt1
@@ -907,6 +916,8 @@ arreglo	$alt1
 arxivers	$alt1
 assetgen	$alt1
 assetja	$alt1
+assossega	$alt1
+assossegues	$alt1
 atempta	$alt1
 atempten	$alt1
 atempti	$alt1
@@ -918,6 +929,7 @@ ateus	$alt1
 baells	$alt1
 be	$alt1
 bec	$alt1
+becs	$alt1
 becs	$alt1
 beix	$alt1
 beixos	$alt1
@@ -934,6 +946,8 @@ blancor $alt1
 blancors $alt1
 bleix	$alt1
 bleixos	$alt1
+brega	$alt1
+bregues	$alt1
 bres	$alt1
 bressos	$alt1
 bretxa	$alt1
@@ -944,6 +958,8 @@ buixalleu	$alt1
 buixalleus	$alt1
 calderos	$alt1
 cec	$alt1
+cec	$alt1
+cecs	$alt1
 cecs	$alt1
 cega	$alt1
 cegues	$alt1
@@ -959,11 +975,17 @@ classemes	$alt1
 cletxa	$alt1
 cletxes	$alt1
 combrega	$alt1
+combrega	$alt1
 combrego	$alt1
 combreguen	$alt1
+combregues	$alt1
 comparseros	$alt1
 complaent	$alt1
 complaents	$alt1
+concreta	$alt1
+concret	$alt1
+concretes	$alt1
+concrets	$alt1
 condemna	$alt1
 condemnen	$alt1
 condemnes	$alt1
@@ -971,7 +993,9 @@ condemni	$alt1
 condemnin	$alt1
 condemno	$alt1
 congrega	$alt1
+congrega	$alt1
 congreguen	$alt1
+congregues	$alt1
 congressos	$alt1
 consideren	$alt1
 consideri	$alt1
@@ -981,6 +1005,10 @@ contemplen	$alt1
 contempli	$alt1
 contemplin	$alt1
 contenen	$alt1
+contrafeta	$alt1
+contrafet	$alt1
+contrafetes	$alt1
+contrafets	$alt1
 contreta	$alt1
 convenen	$alt1
 cooperen	$alt1
@@ -991,7 +1019,6 @@ creix	$alt1
 creixa	$alt1
 creixen	$alt1
 créixer	k**'eSe
-?3 créixer	k**'ejSe**
 creixes	$alt1
 creixos	$alt1
 crema	$alt1
@@ -1006,8 +1033,14 @@ decreix	$alt1
 deixeble	$alt1
 deixebles	$alt1
 delega	$alt1
+delega	$alt1
+delegues	$alt1
 desa	$alt1
 desesperis	$alt1
+desfeta	$alt1
+desfet	$alt1
+desfetes	$alt1
+desfets	$alt1
 desi	$alt1
 desintegra	$alt1
 deso	$alt1
@@ -1015,6 +1048,10 @@ despenja	$alt1
 destemps	$alt1
 digueren	$alt1
 dimecres	$alt1
+distreta	$alt1
+distret	$alt1
+distretes	$alt1
+distrets	$alt1
 ditrema	$alt1
 ditremes	$alt1
 diumenge    $alt1
@@ -1032,6 +1069,8 @@ empren	$alt1
 empres	$alt1
 empri	$alt1
 ena	$alt1
+encega	$alt1
+encegues	$alt1
 encenc	$alt1
 encens	$alt1
 ene	$alt1
@@ -1078,10 +1117,10 @@ esperen	$alt1
 esperi	$alt1
 esperin	$alt1
 esperis	$alt1
-esqueixs	$alt1
 esqueixas	$alt1
-esqueixoss	$alt1
 esqueixess	$alt1
+esqueixoss	$alt1
+esqueixs	$alt1
 esquer	$alt1
 esquers	$alt1
 esquetx	$alt1
@@ -1090,14 +1129,18 @@ estengui	$alt1
 estenguin	$alt1
 estirabec	$alt1
 estirabecs	$alt1
+estrafeta	$alt1
+estrafet	$alt1
+estrafetes	$alt1
+estrafets	$alt1
 exageren	$alt1
+excessos    $alt1
 exemple	$alt1
 exemples	$alt1
 exempt	$alt1
 exempta	$alt1
 exemptes	$alt1
 exempts	$alt1
-excessos    $alt1
 expressa	$alt1
 expressen	$alt1
 expresses	$alt1
@@ -1119,12 +1162,20 @@ fems	$alt1
 fen	$alt1
 feren	$alt1
 fes	$alt1 
+feta	$alt1
+fet	$alt1
+fetes	$alt1
+fets	$alt1
 fletxa	$alt1
 fletxes	$alt1
 forfets	$alt1
 gema	$alt1
 gemec	$alt1
+gemec	$alt1
 gemecs	$alt1
+gemecs	$alt1
+gemega	$alt1
+gemegues	$alt1
 gemes	$alt1
 gemma	$alt1
 generen	$alt1
@@ -1136,6 +1187,8 @@ gespes	$alt1
 gramema	$alt1
 gramemes	$alt1
 grec	$alt1
+grec	$alt1
+grecs	$alt1
 grecs	$alt1
 grega	$alt1
 gregues	$alt1
@@ -1146,6 +1199,8 @@ heretge	$alt1
 heretges	$alt1
 hipertext	$alt1
 imperen	$alt1
+impreca	$alt1
+impreques	$alt1
 ineptes	$alt1
 ingressa	$alt1
 ingressen	$alt1
@@ -1180,6 +1235,10 @@ lipsanoteca	$alt1
 lipsanoteces	$alt1
 litodema	$alt1
 litodemes	$alt1
+llec	$alt1
+llecs	$alt1
+llega	$alt1
+llegues	$alt1
 ludoteca	$alt1
 ludoteces	$alt1
 malinterpreta	$alt1
@@ -1221,6 +1280,8 @@ muricecs	$alt1
 naixeren	$alt1
 neda	$alt1
 nedes	$alt1
+nega	$alt1
+negues	$alt1
 negues	$alt1
 néixer	$alt1
 nespla	$alt1
@@ -1233,16 +1294,22 @@ neules	$alt1
 neus	$alt1
 neva    $alt1
 numeren	$alt1
+obceca	$alt1
+obceques	$alt1
 obtenen	$alt1
 olivers	$alt1
 operen	$alt1
 palestra	$alt1
 parers	$alt1
 passatemps	$alt1
+pec	$alt1
 peces	$alt1
+pecs	$alt1
+pega	$alt1
 pega	$alt1
 pego	$alt1
 peguen	$alt1
+pegues	$alt1
 pegues	$alt1
 penetra	$alt1
 penetren	$alt1
@@ -1258,7 +1325,9 @@ permeteren	$alt1
 perpetra	$alt1
 perpetren	$alt1
 pesa	$alt1
+pesa	$alt1
 pesen	$alt1
+peses	$alt1
 peses	$alt1
 pesi	$alt1
 peso	$alt1
@@ -1270,7 +1339,11 @@ plet	$alt1
 plets	$alt1
 pogueren	$alt1
 prec	$alt1
+prec	$alt1
 precs	$alt1
+precs	$alt1
+prega	$alt1
+pregues	$alt1
 prem	$alt1
 premsa	$alt1
 premsen	$alt1
@@ -1307,9 +1380,18 @@ quiets	$alt1
 rampeu  $alt1
 reberen	$alt1
 rec	$alt1
+reca	$alt1
+rec	$alt1
 reconegueren	$alt1
 recs	$alt1
+recs	$alt1
 recuperen	$alt1
+refeta	$alt1
+refet	$alt1
+refetes	$alt1
+refets	$alt1
+rega	$alt1
+regues	$alt1
 rei	$alt1
 reig	$alt1
 reigs	$alt1
@@ -1324,13 +1406,18 @@ remen	$alt1
 remes	$alt1
 remo	$alt1
 renec	$alt1
+renec	$alt1
+renecs	$alt1
 renecs	$alt1
 reneix	$alt1
 renéixer	$alt1
+reques	$alt1
 rere	$alt1
 reres	$alt1
 resa	$alt1
+resa	$alt1
 resen	$alt1
+reses	$alt1
 reso	$alt1
 ret	$alt1
 retenen	$alt1
@@ -1344,7 +1431,11 @@ revessa	$alt1
 revesses	$alt1
 revessos	$alt1
 saberen	$alt1
+sega	$alt1
+segrega	$alt1
 segreguen	$alt1
+segregues	$alt1
+segues	$alt1
 sellens	$alt1
 sembra	$alt1
 sempre	$alt1
@@ -1412,6 +1503,10 @@ trempen	$alt1
 trempes	$alt1
 trempo	$alt1
 tremps	$alt1
+treta	$alt1
+tret	$alt1
+tretes	$alt1
+trets	$alt1
 utoasteca	$alt1
 utoasteces	$alt1
 ve	$alt1
@@ -1438,7 +1533,7 @@ xambergos	$alt1
 xiribec	$alt1
 xiribecs	$alt1
 
-//// words with E (netejat i arranjat per occidental)
+//// words with E 
 ?1 abell	$alt2
 ?1 abella	$alt2
 ?1 abelles	$alt2
@@ -1686,6 +1781,8 @@ arquitectes	$alt2
 asbest	$alt2
 asbests	$alt2
 assequen	$alt2
+assutzena	$alt2
+assutzenes	$alt2
 baixest	$alt2
 baixests	$alt2
 beç	$alt2
@@ -1694,6 +1791,8 @@ befes	$alt2
 bens	$alt2
 bentos	$alt2
 beques	$alt2
+berbena	$alt2
+berbenes	$alt2
 berma	$alt2
 bermes	$alt2
 betzef	$alt2
@@ -1919,10 +2018,14 @@ escalenoedre	$alt2
 escalenoedres	$alt2
 escamonea	$alt2
 escamonees	$alt2
+escena	$alt2
+escenes	$alt2
 esclerosepte	$alt2
 escleroseptes	$alt2
 escolopendra	$alt2
 escolopendres	$alt2
+esmena	$alt2
+esmenes	$alt2
 espatodea	$alt2
 espatodees	$alt2
 espurnegen	$alt2
@@ -1987,6 +2090,8 @@ galilea	$alt2
 galilees	$alt2
 gallerbo	$alt2
 gallerbos	$alt2
+gangrena	$alt2
+gangrenes	$alt2
 garrepa	$alt2
 garrepes	$alt2
 gendre	$alt2
@@ -2021,6 +2126,8 @@ hevea	$alt2
 hevees	$alt2
 hidrosembra	$alt2
 hidrosembres	$alt2
+hiena	$alt2
+hienes	$alt2
 hipercomplex	$alt2
 hipercomplexos	$alt2
 hipermenorrea	$alt2
@@ -2273,6 +2380,8 @@ pehlevi	$alt2
 pehlevis	$alt2
 pehlvi	$alt2
 pehlvis	$alt2
+pena	$alt2
+penes	$alt2
 pentadodecaedre	$alt2
 pentadodecaedres	$alt2
 pentaedre	$alt2
@@ -2573,11 +2682,7 @@ zooglea	$alt2
 zooglees	$alt2
 
 /// words with stressed @ (balearic)
-?4 abella	$alt5
-?4 abelles	$alt5
-?4 abraçadetes	$alt5
 ?4 abstinència	$alt5
-?4 abstrets	$alt5
 ?4 abstreure	$alt5
 ?4 abstreure's	$alt5
 ?4 absència	$alt5
@@ -2590,150 +2695,78 @@ zooglees	$alt2
 ?4 acadèmiques	$alt5
 ?4 accèssit	$alt5
 ?4 accèssits	$alt5
-?4 acidesa	$alt5
 ?4 acèrrim	$alt5
 ?4 adena	$alt5
 ?4 adherència	$alt5
-?4 admesa	$alt5
-?4 admeses	$alt5
-?4 admesos	$alt5
-?4 admet	$alt5
 ?4 admetre	$alt5
 ?4 admès	$alt5
 ?4 adolescència	$alt5
-?4 adrianenc	$alt5
-?4 adrianenques	$alt5
 ?4 advertència	$alt5
 ?4 advertències	$alt5
-?4 afganesa	$alt5
-?4 afganeses	$alt5
-?4 afganesos	$alt5
 ?4 afganès	$alt5
 ?4 afluència	$alt5
-?4 agudesa	$alt5
 ?4 agència	$alt5
 ?4 agències	$alt5
-?4 aixeta	$alt5
-?4 aixetes	$alt5
-?4 alabesa	$alt5
-?4 alabesos	$alt5
 ?4 alabès	$alt5
-?4 albanesa	$alt5
-?4 albaneses	$alt5
-?4 albanesos	$alt5
 ?4 albanès	$alt5
 ?4 alcoholèmia	$alt5
-?4 aleta	$alt5
 ?4 alfabenzopirè	$alt5
-?4 alfabet	$alt5
 ?4 alfabètic	$alt5
 ?4 alfabètica	$alt5
-?4 algueresa	$alt5
-?4 algueresos	$alt5
 ?4 alguerès	$alt5
 ?4 algèria	$alt5
 ?4 aliena	$alt5
 ?4 alienes	$alt5
 ?4 aliens	$alt5
 ?4 aliè	$alt5
-?4 alleta	$alt5
 ?4 alopècia	$alt5
 ?4 altempordanès	$alt5
-?4 altesa	$alt5
-?4 altivesa	$alt5
 ?4 alè	$alt5
 ?4 ambivalència	$alt5
 ?4 ambivalències	$alt5
 ?4 amena	$alt5
 ?4 amenes	$alt5
-?4 amiguet	$alt5
-?4 amigueta	$alt5
-?4 amiguets	$alt5
 ?4 amnèsia	$alt5
 ?4 amnèsic	$alt5
 ?4 amnèsica	$alt5
-?4 amulet	$alt5
 ?4 amè	$alt5
-?4 analfabet	$alt5
-?4 analfabeta	$alt5
-?4 analfabets	$alt5
 ?4 analgèsic	$alt5
 ?4 analgèsics	$alt5
 ?4 analgèsiques	$alt5
 ?4 androcèntrica	$alt5
-?4 aneguet	$alt5
 ?4 anestèsia	$alt5
 ?4 anestèsic	$alt5
 ?4 anestèsics	$alt5
 ?4 anestèsies	$alt5
-?4 angelet	$alt5
-?4 angelets	$alt5
-?4 anglesa	$alt5
-?4 angleses	$alt5
-?4 anglesos	$alt5
-?4 angloholandesa	$alt5
 ?4 anglès	$alt5
-?4 angolesa	$alt5
-?4 angolesos	$alt5
 ?4 angolès	$alt5
 ?4 angèlic	$alt5
 ?4 angèlica	$alt5
-?4 animalet	$alt5
 ?4 anomena	$alt5
 ?4 anomenes	$alt5
 ?4 anorèxia	$alt5
 ?4 anorèxica	$alt5
-?4 anyets	$alt5
 ?4 anècdota	$alt5
 ?4 anècdotes	$alt5
 ?4 anèmia	$alt5
 ?4 anèmic	$alt5
-?4 aparell	$alt5
-?4 aparells	$alt5
 ?4 aparèixer	$alt5
 ?4 apetències	$alt5
-?4 aplega	$alt5
-?4 apologetes	$alt5
 ?4 aprens	$alt5
-?4 apresa	$alt5
-?4 apreses	$alt5
-?4 apreta	$alt5
-?4 aprovadet	$alt5
 ?4 aprèn	$alt5
 ?4 après	$alt5
 ?4 apèndix	$alt5
-?4 aquell	$alt5
-?4 aquells	$alt5
 ?4 aquiescència	$alt5
-?4 aragonesa	$alt5
-?4 aragoneses	$alt5
-?4 aragonesos	$alt5
 ?4 aragonès	$alt5
-?4 aranesa	$alt5
-?4 aranesos	$alt5
 ?4 aranès	$alt5
 ?4 arena	$alt5
-?4 arenyencs	$alt5
-?4 arenys	$alt5
-?4 aridesa	$alt5
-?4 ariet	$alt5
 ?4 aristotèlica	$alt5
 ?4 aritmètic	$alt5
 ?4 aritmètica	$alt5
 ?4 aritmètiques	$alt5
-?4 armariets	$alt5
 ?4 armènia	$alt5
-?4 arnesos	$alt5
-?4 arquet	$alt5
-?4 arqueta	$alt5
-?4 arregladeta	$alt5
 ?4 arremetre	$alt5
-?4 arrenca	$alt5
-?4 arreplega	$alt5
 ?4 arreveure	$alt5
-?4 arriet	$alt5
-?4 arrossega	$alt5
-?4 arturet	$alt5
 ?4 artèria	$alt5
 ?4 artèries	$alt5
 ?4 arxipèlag	$alt5
@@ -2745,7 +2778,6 @@ zooglees	$alt2
 ?4 asimètrica	$alt5
 ?4 asimètrics	$alt5
 ?4 asimètriques	$alt5
-?4 asseia	$alt5
 ?4 asseuen	$alt5
 ?4 asseure	$alt5
 ?4 asseure'm	$alt5
@@ -2757,14 +2789,7 @@ zooglees	$alt2
 ?4 asèpsia	$alt5
 ?4 asèptic	$alt5
 ?4 asèptica	$alt5
-?4 atenenc	$alt5
 ?4 atenes	$alt5
-?4 ateny	$alt5
-?4 atesa	$alt5
-?4 ateses	$alt5
-?4 atesos	$alt5
-?4 atleta	$alt5
-?4 atletes	$alt5
 ?4 atlètic	$alt5
 ?4 atlètica	$alt5
 ?4 atlètics	$alt5
@@ -2773,11 +2798,6 @@ zooglees	$alt2
 ?4 atmosfèrica	$alt5
 ?4 atmosfèrics	$alt5
 ?4 atmosfèriques	$alt5
-?4 atreia	$alt5
-?4 atret	$alt5
-?4 atreta	$alt5
-?4 atretes	$alt5
-?4 atrets	$alt5
 ?4 atreuen	$alt5
 ?4 atreure	$alt5
 ?4 atènyer	$alt5
@@ -2789,50 +2809,16 @@ zooglees	$alt2
 ?4 autèntica	$alt5
 ?4 autèntics	$alt5
 ?4 autèntiques	$alt5
-?4 avet	$alt5
-?4 avidesa	$alt5
-?4 avinentesa	$alt5
-?4 avinenteses	$alt5
-?4 avioneta	$alt5
-?4 avionetes	$alt5
-?4 avorridet	$alt5
 ?4 aèria	$alt5
 ?4 aèries	$alt5
 ?4 bactèries	$alt5
-?4 bagenc	$alt5
-?4 bagenca	$alt5
-?4 baixesa	$alt5
-?4 baixet	$alt5
 ?4 balena	$alt5
 ?4 balenes	$alt5
-?4 ballet	$alt5
-?4 ballets	$alt5
-?4 banderetes	$alt5
-?4 banquet	$alt5
-?4 banqueta	$alt5
-?4 banquetes	$alt5
-?4 banquets	$alt5
-?4 baquetes	$alt5
-?4 baralleta	$alt5
-?4 barbeta	$alt5
-?4 barceloneta	$alt5
 ?4 barcelonès	$alt5
-?4 barqueta	$alt5
-?4 barret	$alt5
-?4 barrets	$alt5
-?4 barrufet	$alt5
-?4 barrufets	$alt5
 ?4 bascofrancès	$alt5
-?4 bastonets	$alt5
-?4 batalletes	$alt5
-?4 batega	$alt5
-?4 bavaresa	$alt5
-?4 bavaresos	$alt5
 ?4 bavarès	$alt5
 ?4 bebè	$alt5
 ?4 bebès	$alt5
-?4 bellesa	$alt5
-?4 belleses	$alt5
 ?4 bena	$alt5
 ?4 benasquès	$alt5
 ?4 beneficència	$alt5
@@ -2847,168 +2833,50 @@ zooglees	$alt2
 ?4 benèfiques	$alt5
 ?4 benèvol	$alt5
 ?4 benèvola	$alt5
-?4 berlinesa	$alt5
-?4 berlineses	$alt5
-?4 berlinesos	$alt5
 ?4 berlinès	$alt5
-?4 bestiesa	$alt5
-?4 bestieses	$alt5
-?4 bestreta	$alt5
-?4 beta	$alt5
 ?4 beuen	$alt5
 ?4 beure	$alt5
-?4 biatleta	$alt5
-?4 bicicleta	$alt5
-?4 bicicletes	$alt5
-?4 bidet	$alt5
 ?4 biomèdica	$alt5
 ?4 biomèdics	$alt5
 ?4 biomètrica	$alt5
 ?4 bioètica	$alt5
-?4 bisbalenc	$alt5
-?4 bitllet	$alt5
-?4 bitllets	$alt5
-?4 blanquets	$alt5
-?4 bodega	$alt5
-?4 bodegues	$alt5
 ?4 bohèmia	$alt5
-?4 bolet	$alt5
-?4 boleta	$alt5
-?4 boletes	$alt5
-?4 bolets	$alt5
-?4 bolonyesa	$alt5
 ?4 bolonyès	$alt5
-?4 bombeta	$alt5
-?4 bombetes	$alt5
-?4 bombolleta	$alt5
-?4 bonet	$alt5
-?4 boqueta	$alt5
-?4 bosquet	$alt5
-?4 bosseta	$alt5
-?4 botifarretes	$alt5
-?4 bracet	$alt5
-?4 bragueta	$alt5
-?4 braçalet	$alt5
-?4 braçalets	$alt5
-?4 brometa	$alt5
 ?4 brètol	$alt5
 ?4 brètols	$alt5
-?4 bufet	$alt5
-?4 bufeta	$alt5
-?4 bufets	$alt5
-?4 burgesa	$alt5
-?4 burgesos	$alt5
 ?4 burgès	$alt5
-?4 burlesc	$alt5
-?4 burleta	$alt5
-?4 butlleta	$alt5
-?4 butlletes	$alt5
 ?4 bèlgica	$alt5
 ?4 bèstia	$alt5
 ?4 bèsties	$alt5
 ?4 bètic	$alt5
 ?4 bètica	$alt5
 ?4 bètics	$alt5
-?4 cabaret	$alt5
-?4 cabarets	$alt5
-?4 cabell	$alt5
-?4 cabells	$alt5
-?4 cabilencs	$alt5
-?4 cabretes	$alt5
 ?4 cadena	$alt5
 ?4 cadenes	$alt5
-?4 cadet	$alt5
-?4 cadireta	$alt5
-?4 cadiretes	$alt5
 ?4 cadència	$alt5
 ?4 cadències	$alt5
 ?4 cafè	$alt5
 ?4 cafès	$alt5
-?4 caixetes	$alt5
-?4 calaixets	$alt5
-?4 caldencs	$alt5
 ?4 caler	$alt5
-?4 calidesa	$alt5
-?4 calçotets	$alt5
-?4 camarasenc	$alt5
-?4 camerunesos	$alt5
 ?4 camerunès	$alt5
-?4 caminets	$alt5
-?4 camioneta	$alt5
-?4 camionetes	$alt5
-?4 camiseta	$alt5
 ?4 camèlies	$alt5
-?4 canadenc	$alt5
-?4 canadenca	$alt5
-?4 canadencs	$alt5
-?4 canadenques	$alt5
-?4 candeletes	$alt5
-?4 candidesa	$alt5
-?4 cançoneta	$alt5
-?4 capelletes	$alt5
-?4 capseta	$alt5
-?4 caputxeta	$alt5
-?4 carbonet	$alt5
 ?4 carena	$alt5
 ?4 carenes	$alt5
-?4 careta	$alt5
-?4 caretes	$alt5
-?4 caribeny	$alt5
-?4 caribenys	$alt5
-?4 caricaturesc	$alt5
-?4 caricaturesca	$alt5
-?4 carnet	$alt5
-?4 carnets	$alt5
-?4 carpeta	$alt5
-?4 carpetes	$alt5
-?4 carrega	$alt5
-?4 carret	$alt5
-?4 carrets	$alt5
-?4 carrilet	$alt5
-?4 cartaginesos	$alt5
-?4 cartellet	$alt5
 ?4 carència	$alt5
 ?4 carències	$alt5
-?4 caseta	$alt5
-?4 casetes	$alt5
-?4 casquet	$alt5
-?4 casquets	$alt5
-?4 casset	$alt5
-?4 cassets	$alt5
-?4 castellet	$alt5
-?4 castellonenc	$alt5
-?4 castellonenca	$alt5
-?4 castellonenques	$alt5
-?4 catalanets	$alt5
-?4 catalanoaragonesa	$alt5
 ?4 catorzena	$alt5
 ?4 catorzenes	$alt5
 ?4 catorzens	$alt5
 ?4 catorzè	$alt5
-?4 catxet	$alt5
-?4 cavalleresc	$alt5
-?4 cavallet	$alt5
-?4 cavallets	$alt5
-?4 cega	$alt5
-?4 cegues	$alt5
-?4 ceguesa	$alt5
 ?4 celebèrrim	$alt5
-?4 cella	$alt5
-?4 celles	$alt5
 ?4 cena	$alt5
 ?4 cens	$alt5
 ?4 centena	$alt5
 ?4 centenes	$alt5
 ?4 centens	$alt5
-?4 centraleta	$alt5
-?4 centraletes	$alt5
 ?4 centè	$alt5
 ?4 centèsima	$alt5
 ?4 centèsimes	$alt5
-?4 certesa	$alt5
-?4 certeses	$alt5
-?4 cervesa	$alt5
-?4 cerveses	$alt5
 ?4 cibercafè	$alt5
 ?4 cibercafès	$alt5
 ?4 ciberdelinqüència	$alt5
@@ -3016,11 +2884,6 @@ zooglees	$alt2
 ?4 cibernètica	$alt5
 ?4 cibernètics	$alt5
 ?4 cibernètiques	$alt5
-?4 ciega	$alt5
-?4 cigarret	$alt5
-?4 cigarreta	$alt5
-?4 cigarretes	$alt5
-?4 cigarrets	$alt5
 ?4 cinquantè	$alt5
 ?4 cinquena	$alt5
 ?4 cinquenes	$alt5
@@ -3031,53 +2894,23 @@ zooglees	$alt2
 ?4 cinèfiles	$alt5
 ?4 cinèfils	$alt5
 ?4 circumferència	$alt5
-?4 cirereta	$alt5
-?4 cistercenc	$alt5
-?4 cistercencs	$alt5
 ?4 ciència	$alt5
 ?4 ciències	$alt5
-?4 claqueta	$alt5
-?4 claret	$alt5
-?4 clarinet	$alt5
-?4 clarinets	$alt5
 ?4 clarividència	$alt5
 ?4 clavicèmbal	$alt5
 ?4 clemència	$alt5
-?4 coet	$alt5
-?4 coets	$alt5
 ?4 coexistència	$alt5
 ?4 coherència	$alt5
 ?4 coincidència	$alt5
 ?4 coincidències	$alt5
-?4 collaret	$alt5
-?4 collarets	$alt5
-?4 comedieta	$alt5
-?4 comesa	$alt5
-?4 comeses	$alt5
-?4 comesos	$alt5
-?4 comet	$alt5
-?4 cometa	$alt5
-?4 cometes	$alt5
 ?4 cometre	$alt5
 ?4 comitè	$alt5
 ?4 comitès	$alt5
 ?4 comparèixer	$alt5
 ?4 competència	$alt5
 ?4 competències	$alt5
-?4 complet	$alt5
-?4 completa	$alt5
-?4 completes	$alt5
-?4 complets	$alt5
 ?4 compravenda	$alt5
-?4 comprenc	$alt5
 ?4 comprens	$alt5
-?4 compresa	$alt5
-?4 compreses	$alt5
-?4 compresos	$alt5
-?4 compromesa	$alt5
-?4 compromeses	$alt5
-?4 compromesos	$alt5
-?4 compromet	$alt5
 ?4 comprometre	$alt5
 ?4 comprometre's	$alt5
 ?4 compromès	$alt5
@@ -3097,31 +2930,20 @@ zooglees	$alt2
 ?4 confidència	$alt5
 ?4 confidències	$alt5
 ?4 confluència	$alt5
-?4 congolesa	$alt5
-?4 congolesos	$alt5
 ?4 congolès	$alt5
 ?4 congèneres	$alt5
 ?4 congènit	$alt5
 ?4 congènita	$alt5
-?4 conillet	$alt5
-?4 conillets	$alt5
 ?4 connivència	$alt5
 ?4 connivències	$alt5
 ?4 consciència	$alt5
 ?4 consciències	$alt5
-?4 consell	$alt5
-?4 consells	$alt5
 ?4 consens	$alt5
 ?4 conseqüència	$alt5
 ?4 conseqüències	$alt5
 ?4 consistència	$alt5
-?4 contesa	$alt5
-?4 conteses	$alt5
 ?4 contingència	$alt5
 ?4 contingències	$alt5
-?4 contret	$alt5
-?4 contreta	$alt5
-?4 contrets	$alt5
 ?4 contreure	$alt5
 ?4 controvèrsia	$alt5
 ?4 controvèrsies	$alt5
@@ -3135,58 +2957,26 @@ zooglees	$alt2
 ?4 convivències	$alt5
 ?4 convèncer	$alt5
 ?4 conèixer	$alt5
-?4 copet	$alt5
-?4 copets	$alt5
 ?4 copresidència	$alt5
-?4 coqueta	$alt5
-?4 corbetes	$alt5
-?4 cordovesos	$alt5
 ?4 cordovès	$alt5
-?4 corneta	$alt5
 ?4 corprèn	$alt5
 ?4 correspondència	$alt5
 ?4 correspondències	$alt5
-?4 cortesa	$alt5
-?4 cortineta	$alt5
-?4 corunyesa	$alt5
-?4 corunyesos	$alt5
 ?4 corunyès	$alt5
-?4 coseta	$alt5
-?4 cosetes	$alt5
-?4 cosinet	$alt5
 ?4 cosmètic	$alt5
 ?4 cosmètica	$alt5
 ?4 cosmètics	$alt5
-?4 cotxet	$alt5
-?4 cotxets	$alt5
-?4 creia	$alt5
-?4 creies	$alt5
 ?4 cresta	$alt5
 ?4 crestes	$alt5
-?4 creta	$alt5
 ?4 creuen	$alt5
-?4 creueta	$alt5
 ?4 creure	$alt5
 ?4 creure'ns	$alt5
 ?4 creure's	$alt5
 ?4 creure't	$alt5
-?4 criatureta	$alt5
-?4 criquet	$alt5
-?4 crispetes	$alt5
-?4 croquet	$alt5
-?4 croquetes	$alt5
-?4 cruesa	$alt5
 ?4 crèdit	$alt5
 ?4 crèdits	$alt5
 ?4 crèduls	$alt5
 ?4 crèiem	$alt5
-?4 culet	$alt5
-?4 cultureta	$alt5
-?4 cuneta	$alt5
-?4 cunetes	$alt5
-?4 cuplets	$alt5
-?4 curset	$alt5
-?4 cursets	$alt5
 ?4 cèdula	$alt5
 ?4 cèlebre	$alt5
 ?4 cèlebres	$alt5
@@ -3200,73 +2990,45 @@ zooglees	$alt2
 ?4 cèrcol	$alt5
 ?4 cèrcols	$alt5
 ?4 cèsar	$alt5
-?4 danesa	$alt5
-?4 daneses	$alt5
-?4 danesos	$alt5
 ?4 danès	$alt5
 ?4 decadència	$alt5
 ?4 decebre	$alt5
 ?4 decebre't	$alt5
-?4 decret	$alt5
-?4 decreta	$alt5
-?4 decrets	$alt5
 ?4 decrèpit	$alt5
 ?4 decència	$alt5
 ?4 deferència	$alt5
 ?4 deficiència	$alt5
 ?4 deficiències	$alt5
-?4 deia	$alt5
-?4 deies	$alt5
-?4 deixadesa	$alt5
-?4 delicadesa	$alt5
 ?4 delinqüència	$alt5
 ?4 demència	$alt5
 ?4 demèrit	$alt5
 ?4 demèrits	$alt5
-?4 denega	$alt5
 ?4 dens	$alt5
 ?4 dependència	$alt5
 ?4 dependències	$alt5
 ?4 depèn	$alt5
-?4 desa	$alt5
 ?4 desaparèixer	$alt5
-?4 desateses	$alt5
-?4 desatesos	$alt5
 ?4 desatès	$alt5
-?4 descarrega	$alt5
-?4 descarregues	$alt5
 ?4 descendència	$alt5
 ?4 descens	$alt5
 ?4 desconèixer	$alt5
 ?4 descrèdit	$alt5
-?4 desdeny	$alt5
-?4 desempallega	$alt5
 ?4 desena	$alt5
 ?4 desencadena	$alt5
 ?4 desenes	$alt5
 ?4 desens	$alt5
 ?4 desentès	$alt5
-?4 desfeia	$alt5
 ?4 desinterès	$alt5
 ?4 desmerèixer	$alt5
 ?4 desobediència	$alt5
-?4 despesa	$alt5
-?4 despeses	$alt5
-?4 desplega	$alt5
 ?4 desprèn	$alt5
 ?4 desprès	$alt5
-?4 destresa	$alt5
-?4 destret	$alt5
 ?4 desè	$alt5
 ?4 desèrtic	$alt5
 ?4 desèrtica	$alt5
 ?4 desèrtics	$alt5
-?4 detallet	$alt5
-?4 detectivesc	$alt5
-?4 detectivesca	$alt5
 ?4 deuen	$alt5
 ?4 deure	$alt5
-?4 deveses	$alt5
 ?4 diabètic	$alt5
 ?4 diabètica	$alt5
 ?4 diabètics	$alt5
@@ -3274,9 +3036,6 @@ zooglees	$alt2
 ?4 dialèctica	$alt5
 ?4 dialèctics	$alt5
 ?4 dialèctiques	$alt5
-?4 dibuixets	$alt5
-?4 dieta	$alt5
-?4 dietes	$alt5
 ?4 dietètica	$alt5
 ?4 dietètics	$alt5
 ?4 diferència	$alt5
@@ -3287,25 +3046,13 @@ zooglees	$alt2
 ?4 dinovenes	$alt5
 ?4 dinovens	$alt5
 ?4 dinovè	$alt5
-?4 discret	$alt5
-?4 discreta	$alt5
-?4 discretes	$alt5
-?4 discrets	$alt5
-?4 discurset	$alt5
 ?4 displicència	$alt5
-?4 disquet	$alt5
-?4 disquets	$alt5
-?4 disseny	$alt5
-?4 dissenys	$alt5
-?4 disset	$alt5
 ?4 dissetena	$alt5
 ?4 dissetenes	$alt5
 ?4 dissetens	$alt5
 ?4 dissetè	$alt5
 ?4 dissidència	$alt5
 ?4 dissidències	$alt5
-?4 distesa	$alt5
-?4 distesos	$alt5
 ?4 distreuen	$alt5
 ?4 distreure	$alt5
 ?4 distreure'm	$alt5
@@ -3318,26 +3065,16 @@ zooglees	$alt2
 ?4 divuitens	$alt5
 ?4 divuitè	$alt5
 ?4 dièsel	$alt5
-?4 doblega	$alt5
-?4 doblet	$alt5
 ?4 docència	$alt5
 ?4 domèstic	$alt5
 ?4 domèstica	$alt5
 ?4 domèstics	$alt5
 ?4 domèstiques	$alt5
-?4 dormilega	$alt5
 ?4 dotzena	$alt5
 ?4 dotzenes	$alt5
 ?4 dotzens	$alt5
 ?4 dotzè	$alt5
-?4 dret	$alt5
-?4 dreta	$alt5
-?4 dretes	$alt5
-?4 drets	$alt5
 ?4 drogodependències	$alt5
-?4 duet	$alt5
-?4 duets	$alt5
-?4 duresa	$alt5
 ?4 dèbil	$alt5
 ?4 dèbils	$alt5
 ?4 dèbit	$alt5
@@ -3354,7 +3091,6 @@ zooglees	$alt2
 ?4 dèria	$alt5
 ?4 dèries	$alt5
 ?4 dèspota	$alt5
-?4 ebrenques	$alt5
 ?4 eclèctic	$alt5
 ?4 eclèctica	$alt5
 ?4 eclèctics	$alt5
@@ -3365,19 +3101,9 @@ zooglees	$alt2
 ?4 efemèrides	$alt5
 ?4 efervescència	$alt5
 ?4 eficiència	$alt5
-?4 egarenc	$alt5
-?4 egarencs	$alt5
 ?4 egocèntric	$alt5
 ?4 egocèntrics	$alt5
 ?4 egocèntriques	$alt5
-?4 ei	$alt5
-?4 eia	$alt5
-?4 eina	$alt5
-?4 eines	$alt5
-?4 eivissenc	$alt5
-?4 eivissenca	$alt5
-?4 eivissencs	$alt5
-?4 elisabet	$alt5
 ?4 eloqüència	$alt5
 ?4 elèctric	$alt5
 ?4 elèctrica	$alt5
@@ -3385,30 +3111,15 @@ zooglees	$alt2
 ?4 elèctriques	$alt5
 ?4 elèctrode	$alt5
 ?4 elèctrodes	$alt5
-?4 embriaguesa	$alt5
 ?4 emergència	$alt5
 ?4 emergències	$alt5
-?4 emesa	$alt5
-?4 emeses	$alt5
-?4 emesos	$alt5
-?4 emet	$alt5
 ?4 emetre	$alt5
 ?4 emetre's	$alt5
 ?4 eminència	$alt5
-?4 empaqueta	$alt5
 ?4 empenta	$alt5
 ?4 empentes	$alt5
-?4 empeny	$alt5
-?4 empesa	$alt5
-?4 empesca	$alt5
-?4 empeses	$alt5
-?4 empesos	$alt5
 ?4 emplena	$alt5
-?4 empordanesa	$alt5
-?4 empordanesos	$alt5
 ?4 empordanès	$alt5
-?4 empresa	$alt5
-?4 empreses	$alt5
 ?4 emprèn	$alt5
 ?4 emprès	$alt5
 ?4 empènyer	$alt5
@@ -3417,14 +3128,7 @@ zooglees	$alt2
 ?4 emèrits	$alt5
 ?4 emès	$alt5
 ?4 encadena	$alt5
-?4 encarrega	$alt5
-?4 encarrega'ls	$alt5
-?4 encenc	$alt5
 ?4 encens	$alt5
-?4 encesa	$alt5
-?4 enceses	$alt5
-?4 encesos	$alt5
-?4 enceta	$alt5
 ?4 enciclopèdia	$alt5
 ?4 enciclopèdic	$alt5
 ?4 enciclopèdica	$alt5
@@ -3438,20 +3142,9 @@ zooglees	$alt2
 ?4 energètica	$alt5
 ?4 energètics	$alt5
 ?4 energètiques	$alt5
-?4 engega	$alt5
-?4 engresca	$alt5
-?4 engrunetes	$alt5
-?4 ensopega	$alt5
 ?4 entelèquia	$alt5
-?4 entenc	$alt5
 ?4 entens	$alt5
-?4 enteresa	$alt5
-?4 entesa	$alt5
-?4 enteses	$alt5
-?4 entesos	$alt5
 ?4 entès	$alt5
-?4 enxaneta	$alt5
-?4 enxanetes	$alt5
 ?4 enèrgic	$alt5
 ?4 enèrgica	$alt5
 ?4 enèrgics	$alt5
@@ -3465,26 +3158,11 @@ zooglees	$alt2
 ?4 epidèrmica	$alt5
 ?4 epilèpsia	$alt5
 ?4 epilèptics	$alt5
-?4 epopeia	$alt5
-?4 epopeies	$alt5
-?4 equipet	$alt5
 ?4 equivalència	$alt5
 ?4 equivalències	$alt5
 ?4 erèctil	$alt5
-?4 esbufega	$alt5
-?4 escaleta	$alt5
-?4 escassesa	$alt5
-?4 escocesa	$alt5
-?4 escoceses	$alt5
-?4 escocesos	$alt5
 ?4 escocès	$alt5
-?4 escolanet	$alt5
-?4 escolanets	$alt5
-?4 escomesa	$alt5
-?4 escomeses	$alt5
 ?4 escometre	$alt5
-?4 escopeta	$alt5
-?4 escopetes	$alt5
 ?4 escènic	$alt5
 ?4 escènica	$alt5
 ?4 escènics	$alt5
@@ -3499,7 +3177,6 @@ zooglees	$alt2
 ?4 eslovènia	$alt5
 ?4 esotèric	$alt5
 ?4 esotèrica	$alt5
-?4 espanyolet	$alt5
 ?4 esperpèntic	$alt5
 ?4 esperpèntica	$alt5
 ?4 esplèndid	$alt5
@@ -3512,9 +3189,6 @@ zooglees	$alt2
 ?4 espècimen	$alt5
 ?4 espècimens	$alt5
 ?4 espès	$alt5
-?4 esqueia	$alt5
-?4 esquelet	$alt5
-?4 esquelets	$alt5
 ?4 esquena	$alt5
 ?4 esquenes	$alt5
 ?4 esquizofrènia	$alt5
@@ -3523,49 +3197,20 @@ zooglees	$alt2
 ?4 esquizofrènics	$alt5
 ?4 essència	$alt5
 ?4 essències	$alt5
-?4 estadounidenc	$alt5
-?4 estafeta	$alt5
-?4 estampeta	$alt5
-?4 estampetes	$alt5
-?4 estatueta	$alt5
-?4 estatuetes	$alt5
 ?4 esterlinès	$alt5
-?4 estesa	$alt5
-?4 esteses	$alt5
-?4 estesos	$alt5
-?4 estilet	$alt5
-?4 estilets	$alt5
-?4 estiuenc	$alt5
-?4 estiuenca	$alt5
-?4 estiuencs	$alt5
-?4 estiuenques	$alt5
-?4 estiuet	$alt5
-?4 estoneta	$alt5
-?4 estoreta	$alt5
-?4 estoretes	$alt5
-?4 estranyesa	$alt5
-?4 estrategues	$alt5
 ?4 estratègia	$alt5
 ?4 estratègic	$alt5
 ?4 estratègica	$alt5
 ?4 estratègics	$alt5
 ?4 estratègies	$alt5
 ?4 estratègiques	$alt5
-?4 estrelletes	$alt5
 ?4 estrena	$alt5
 ?4 estrenes	$alt5
-?4 estreny	$alt5
-?4 estret	$alt5
-?4 estreta	$alt5
-?4 estretes	$alt5
-?4 estrets	$alt5
 ?4 estridència	$alt5
 ?4 estridències	$alt5
 ?4 estrènyer	$alt5
 ?4 estrèpit	$alt5
 ?4 estrès	$alt5
-?4 estupidesa	$alt5
-?4 estupideses	$alt5
 ?4 estèril	$alt5
 ?4 estèrils	$alt5
 ?4 estès	$alt5
@@ -3575,9 +3220,6 @@ zooglees	$alt2
 ?4 estètiques	$alt5
 ?4 etcètera	$alt5
 ?4 etilè	$alt5
-?4 etiqueta	$alt5
-?4 etiquetes	$alt5
-?4 ets	$alt5
 ?4 etèria	$alt5
 ?4 etèries	$alt5
 ?4 euroescèptic	$alt5
@@ -3595,28 +3237,15 @@ zooglees	$alt2
 ?4 excèntrica	$alt5
 ?4 excèntrics	$alt5
 ?4 excèntriques	$alt5
-?4 exegetes	$alt5
 ?4 exigència	$alt5
 ?4 exigències	$alt5
 ?4 existència	$alt5
 ?4 existències	$alt5
-?4 expaleta	$alt5
 ?4 experiència	$alt5
 ?4 experiències	$alt5
-?4 expertesa	$alt5
-?4 exquisidesa	$alt5
-?4 exrei	$alt5
-?4 exreina	$alt5
 ?4 exsoviètica	$alt5
 ?4 exsoviètiques	$alt5
 ?4 extens	$alt5
-?4 extesos	$alt5
-?4 extreia	$alt5
-?4 extremeny	$alt5
-?4 extret	$alt5
-?4 extreta	$alt5
-?4 extretes	$alt5
-?4 extrets	$alt5
 ?4 extreuen	$alt5
 ?4 extreure	$alt5
 ?4 extreure'n	$alt5
@@ -3624,71 +3253,19 @@ zooglees	$alt2
 ?4 extècnics	$alt5
 ?4 exèrcit	$alt5
 ?4 exèrcits	$alt5
-?4 faceta	$alt5
-?4 facetes	$alt5
 ?4 facècia	$alt5
 ?4 facècies	$alt5
-?4 falset	$alt5
 ?4 famèlics	$alt5
-?4 fanalet	$alt5
-?4 fanalets	$alt5
-?4 farinetes	$alt5
 ?4 farmacèutic	$alt5
 ?4 farmacèutica	$alt5
 ?4 farmacèutics	$alt5
 ?4 farmacèutiques	$alt5
-?4 feblesa	$alt5
-?4 febleses	$alt5
-?4 feia	$alt5
-?4 feies	$alt5
-?4 feina	$alt5
-?4 feines	$alt5
-?4 feligresos	$alt5
-?4 fermesa	$alt5
-?4 festetes	$alt5
-?4 figuerenc	$alt5
-?4 figuerencs	$alt5
-?4 figuretes	$alt5
-?4 filet	$alt5
-?4 finesa	$alt5
-?4 finestreta	$alt5
-?4 finestretes	$alt5
-?4 finetes	$alt5
-?4 finlandesa	$alt5
-?4 finlandesos	$alt5
 ?4 finlandès	$alt5
 ?4 finès	$alt5
-?4 fireta	$alt5
-?4 flamenc	$alt5
-?4 flamenca	$alt5
-?4 flamencs	$alt5
-?4 flamenques	$alt5
 ?4 flatulències	$alt5
-?4 floreta	$alt5
-?4 floretes	$alt5
-?4 fluixesa	$alt5
-?4 fluixet	$alt5
-?4 fluïdesa	$alt5
-?4 fogonet	$alt5
-?4 follet	$alt5
-?4 follets	$alt5
 ?4 fonètica	$alt5
 ?4 fonètiques	$alt5
-?4 forfets	$alt5
-?4 formigueta	$alt5
-?4 formiguetes	$alt5
-?4 fortalesa	$alt5
-?4 fortaleses	$alt5
-?4 fotesa	$alt5
-?4 foteses	$alt5
-?4 francesa	$alt5
-?4 francesc	$alt5
-?4 franceses	$alt5
-?4 francesos	$alt5
 ?4 francès	$alt5
-?4 franquesa	$alt5
-?4 frega	$alt5
-?4 fregues	$alt5
 ?4 frena	$alt5
 ?4 frens	$alt5
 ?4 frenètic	$alt5
@@ -3696,19 +3273,6 @@ zooglees	$alt2
 ?4 frenètics	$alt5
 ?4 freqüència	$alt5
 ?4 freqüències	$alt5
-?4 fresa	$alt5
-?4 fresc	$alt5
-?4 fresca	$alt5
-?4 fresques	$alt5
-?4 fresquets	$alt5
-?4 fuet	$alt5
-?4 fuets	$alt5
-?4 fullet	$alt5
-?4 fulletonesc	$alt5
-?4 fullets	$alt5
-?4 furgoneta	$alt5
-?4 furgonetes	$alt5
-?4 fusteta	$alt5
 ?4 fèiem	$alt5
 ?4 fèlids	$alt5
 ?4 fèlix	$alt5
@@ -3721,33 +3285,11 @@ zooglees	$alt2
 ?4 fèrtil	$alt5
 ?4 fèrtils	$alt5
 ?4 fèrula	$alt5
-?4 gabinet	$alt5
-?4 gabinets	$alt5
-?4 galet	$alt5
-?4 galeta	$alt5
-?4 galetes	$alt5
-?4 gallega	$alt5
-?4 gallegues	$alt5
-?4 gallet	$alt5
-?4 gallets	$alt5
-?4 gandesa	$alt5
-?4 ganivet	$alt5
-?4 ganivets	$alt5
-?4 ganxet	$alt5
-?4 garrinet	$alt5
-?4 gasetes	$alt5
-?4 gateta	$alt5
-?4 gatets	$alt5
 ?4 gaèlic	$alt5
 ?4 gaèlics	$alt5
 ?4 gaèliques	$alt5
-?4 genet	$alt5
-?4 genets	$alt5
-?4 genovesa	$alt5
 ?4 genovès	$alt5
 ?4 gens	$alt5
-?4 genteta	$alt5
-?4 gentilesa	$alt5
 ?4 genèric	$alt5
 ?4 genèrica	$alt5
 ?4 genèrics	$alt5
@@ -3756,46 +3298,10 @@ zooglees	$alt2
 ?4 genètica	$alt5
 ?4 genètics	$alt5
 ?4 genètiques	$alt5
-?4 germanet	$alt5
-?4 germaneta	$alt5
 ?4 gerència	$alt5
-?4 gibraltareny	$alt5
-?4 golet	$alt5
-?4 gosset	$alt5
-?4 gossets	$alt5
-?4 graciencs	$alt5
-?4 gracieta	$alt5
-?4 gramenet	$alt5
-?4 grandesa	$alt5
-?4 grandeses	$alt5
-?4 grandet	$alt5
-?4 grandeta	$alt5
 ?4 grandiloqüència	$alt5
 ?4 grandiloqüències	$alt5
-?4 granet	$alt5
-?4 graset	$alt5
-?4 grassonet	$alt5
-?4 grega	$alt5
-?4 gregues	$alt5
-?4 gresca	$alt5
-?4 groguenc	$alt5
-?4 groguenca	$alt5
-?4 grotesc	$alt5
-?4 grotesca	$alt5
-?4 grotesques	$alt5
-?4 grupet	$alt5
-?4 grupets	$alt5
 ?4 guaianès	$alt5
-?4 guardameta	$alt5
-?4 guaret	$alt5
-?4 guatemalenca	$alt5
-?4 guingueta	$alt5
-?4 guinguetes	$alt5
-?4 guionet	$alt5
-?4 guitarreta	$alt5
-?4 guixetes	$alt5
-?4 guixolenc	$alt5
-?4 gurmet	$alt5
 ?4 guèiser	$alt5
 ?4 gèlid	$alt5
 ?4 gèlida	$alt5
@@ -3805,14 +3311,10 @@ zooglees	$alt2
 ?4 gènesi	$alt5
 ?4 gènesis	$alt5
 ?4 gènica	$alt5
-?4 hamburguesa	$alt5
-?4 hamburgueses	$alt5
 ?4 haver	$alt5
 ?4 helvètic	$alt5
 ?4 helvètica	$alt5
 ?4 hemisfèric	$alt5
-?4 herbei	$alt5
-?4 hereta	$alt5
 ?4 hermenèutic	$alt5
 ?4 hermenèutica	$alt5
 ?4 hermètic	$alt5
@@ -3834,32 +3336,15 @@ zooglees	$alt2
 ?4 hipotètics	$alt5
 ?4 hipotètiques	$alt5
 ?4 hispanoamèrica	$alt5
-?4 historieta	$alt5
-?4 historietes	$alt5
 ?4 histèria	$alt5
 ?4 histèric	$alt5
 ?4 histèrica	$alt5
 ?4 histèrics	$alt5
 ?4 histèries	$alt5
 ?4 histèriques	$alt5
-?4 holandesa	$alt5
-?4 holandeses	$alt5
-?4 holandesos	$alt5
 ?4 holandès	$alt5
-?4 hollywoodenc	$alt5
-?4 hollywoodenca	$alt5
-?4 homenet	$alt5
-?4 homenets	$alt5
 ?4 homèrica	$alt5
-?4 hondureny	$alt5
-?4 hongaresa	$alt5
-?4 hongaresos	$alt5
 ?4 hongarès	$alt5
-?4 honradesa	$alt5
-?4 hoquei	$alt5
-?4 horeta	$alt5
-?4 hortet	$alt5
-?4 hospitalet	$alt5
 ?4 hèlix	$alt5
 ?4 hèlsinki	$alt5
 ?4 hèrnia	$alt5
@@ -3872,37 +3357,22 @@ zooglees	$alt2
 ?4 idèntics	$alt5
 ?4 idèntiques	$alt5
 ?4 iens	$alt5
-?4 igualet	$alt5
-?4 illenc	$alt5
-?4 illenca	$alt5
-?4 illencs	$alt5
-?4 illenques	$alt5
-?4 illetes	$alt5
 ?4 imbècil	$alt5
 ?4 imbècils	$alt5
-?4 immaduresa	$alt5
-?4 immediatesa	$alt5
 ?4 immens	$alt5
 ?4 imminència	$alt5
 ?4 immunodeficiència	$alt5
 ?4 impaciència	$alt5
 ?4 impaciències	$alt5
-?4 imperiet	$alt5
 ?4 impertinència	$alt5
 ?4 impertinències	$alt5
 ?4 impertèrrita	$alt5
 ?4 impotència	$alt5
-?4 impresa	$alt5
-?4 impreses	$alt5
-?4 impresos	$alt5
 ?4 improcedència	$alt5
 ?4 imprudència	$alt5
 ?4 imprudències	$alt5
 ?4 imprès	$alt5
-?4 impuresa	$alt5
 ?4 incandescència	$alt5
-?4 incertesa	$alt5
-?4 incerteses	$alt5
 ?4 incidència	$alt5
 ?4 incidències	$alt5
 ?4 inclemència	$alt5
@@ -3911,13 +3381,7 @@ zooglees	$alt2
 ?4 incoherències	$alt5
 ?4 incompetència	$alt5
 ?4 incompetències	$alt5
-?4 incomplet	$alt5
-?4 incompleta	$alt5
-?4 incompletes	$alt5
-?4 incompresa	$alt5
-?4 incompresos	$alt5
 ?4 incomprès	$alt5
-?4 inconcret	$alt5
 ?4 incongruència	$alt5
 ?4 incongruències	$alt5
 ?4 inconsciència	$alt5
@@ -3932,13 +3396,8 @@ zooglees	$alt2
 ?4 independències	$alt5
 ?4 indiferència	$alt5
 ?4 indigència	$alt5
-?4 indiscret	$alt5
-?4 indiscreta	$alt5
-?4 indiscrets	$alt5
 ?4 indolència	$alt5
 ?4 indonèsia	$alt5
-?4 indret	$alt5
-?4 indrets	$alt5
 ?4 indulgència	$alt5
 ?4 ineficiència	$alt5
 ?4 inexistència	$alt5
@@ -3949,18 +3408,9 @@ zooglees	$alt2
 ?4 infèrtils	$alt5
 ?4 ingerència	$alt5
 ?4 ingerències	$alt5
-?4 ingravidesa	$alt5
 ?4 ingènua	$alt5
 ?4 ingènues	$alt5
 ?4 innocència	$alt5
-?4 inquiet	$alt5
-?4 inquieta	$alt5
-?4 inquietes	$alt5
-?4 inquiets	$alt5
-?4 insatisfet	$alt5
-?4 insatisfeta	$alt5
-?4 insatisfets	$alt5
-?4 insensatesa	$alt5
 ?4 insistència	$alt5
 ?4 insolvència	$alt5
 ?4 insolvències	$alt5
@@ -3975,108 +3425,39 @@ zooglees	$alt2
 ?4 interferències	$alt5
 ?4 intermèdia	$alt5
 ?4 intermèdies	$alt5
-?4 internet	$alt5
-?4 interpreta	$alt5
 ?4 interès	$alt5
 ?4 interètnic	$alt5
-?4 intranet	$alt5
-?4 intranets	$alt5
 ?4 intranscendència	$alt5
 ?4 intransigència	$alt5
-?4 intrepidesa	$alt5
 ?4 intrèpid	$alt5
 ?4 intrèpida	$alt5
 ?4 intrèpids	$alt5
-?4 intèrpret	$alt5
-?4 intèrprets	$alt5
-?4 invalidesa	$alt5
 ?4 inèdit	$alt5
 ?4 inèdita	$alt5
 ?4 inèdites	$alt5
 ?4 inèdits	$alt5
 ?4 inèrcia	$alt5
 ?4 inèrcies	$alt5
-?4 irlandesa	$alt5
-?4 irlandeses	$alt5
-?4 irlandesos	$alt5
 ?4 irlandès	$alt5
 ?4 irreverència	$alt5
-?4 islandesa	$alt5
-?4 islandesos	$alt5
 ?4 islandès	$alt5
 ?4 isquèmia	$alt5
 ?4 isquèmic	$alt5
 ?4 isquèmica	$alt5
-?4 japonesa	$alt5
-?4 japoneses	$alt5
-?4 japonesos	$alt5
 ?4 japonès	$alt5
-?4 jaqueta	$alt5
-?4 jaquetes	$alt5
-?4 jardinet	$alt5
-?4 jardinets	$alt5
-?4 jeia	$alt5
-?4 jersei	$alt5
-?4 jerseis	$alt5
-?4 jet	$alt5
 ?4 jeure	$alt5
-?4 joguet	$alt5
-?4 joguets	$alt5
-?4 jovenet	$alt5
-?4 joveneta	$alt5
-?4 jovenets	$alt5
-?4 juntets	$alt5
 ?4 jurisprudència	$alt5
-?4 justesa	$alt5
-?4 justet	$alt5
-?4 justeta	$alt5
 ?4 kinètiques	$alt5
 ?4 latència	$alt5
-?4 legues	$alt5
-?4 leis	$alt5
-?4 lesa	$alt5
 ?4 leucèmia	$alt5
 ?4 leucèmies	$alt5
-?4 libanesa	$alt5
-?4 libaneses	$alt5
-?4 libanesos	$alt5
 ?4 libanès	$alt5
 ?4 libèrrima	$alt5
-?4 lisboeta	$alt5
-?4 llagrimeta	$alt5
-?4 llei	$alt5
-?4 lleis	$alt5
-?4 llenca	$alt5
-?4 llengüeta	$alt5
-?4 llengüetes	$alt5
-?4 llesques	$alt5
-?4 llet	$alt5
-?4 lleugeresa	$alt5
-?4 lleugeret	$alt5
 ?4 lleure	$alt5
-?4 llibret	$alt5
-?4 llibreta	$alt5
-?4 llibretes	$alt5
-?4 llibreteta	$alt5
-?4 llibrets	$alt5
 ?4 llicència	$alt5
 ?4 llicències	$alt5
-?4 lligueta	$alt5
-?4 lliguetes	$alt5
-?4 llogaret	$alt5
-?4 llogarret	$alt5
-?4 llonguets	$alt5
-?4 lloret	$alt5
-?4 llumeta	$alt5
-?4 llumetes	$alt5
 ?4 logopèdia	$alt5
 ?4 logronyès	$alt5
-?4 londinenc	$alt5
-?4 londinenca	$alt5
-?4 londinencs	$alt5
-?4 londinenques	$alt5
-?4 lucidesa	$alt5
-?4 luxemburguesa	$alt5
 ?4 luxemburguès	$alt5
 ?4 lègolas	$alt5
 ?4 lèmurs	$alt5
@@ -4086,10 +3467,6 @@ zooglees	$alt2
 ?4 lèxica	$alt5
 ?4 lèxics	$alt5
 ?4 lèxiques	$alt5
-?4 madrileny	$alt5
-?4 madrilenys	$alt5
-?4 maduresa	$alt5
-?4 madurets	$alt5
 ?4 magdalena	$alt5
 ?4 magdalenes	$alt5
 ?4 magnificència	$alt5
@@ -4097,21 +3474,8 @@ zooglees	$alt2
 ?4 magnètica	$alt5
 ?4 magnètics	$alt5
 ?4 magnètiques	$alt5
-?4 maionesa	$alt5
-?4 malagueny	$alt5
-?4 malaguenys	$alt5
 ?4 maledicència	$alt5
-?4 malentesos	$alt5
 ?4 malentès	$alt5
-?4 maleses	$alt5
-?4 maleta	$alt5
-?4 maletes	$alt5
-?4 malifetes	$alt5
-?4 malinterpreta	$alt5
-?4 malmesa	$alt5
-?4 malmeses	$alt5
-?4 malmesos	$alt5
-?4 malmet	$alt5
 ?4 malmetre	$alt5
 ?4 malmès	$alt5
 ?4 maltès	$alt5
@@ -4122,40 +3486,15 @@ zooglees	$alt2
 ?4 malèvola	$alt5
 ?4 malèvoles	$alt5
 ?4 malèvols	$alt5
-?4 manega	$alt5
-?4 maneta	$alt5
-?4 manetes	$alt5
-?4 manresa	$alt5
-?4 manxega	$alt5
-?4 maqueta	$alt5
-?4 maquetes	$alt5
 ?4 maquiavèlica	$alt5
-?4 maquineta	$alt5
-?4 maquinetes	$alt5
-?4 maresmencs	$alt5
-?4 marieta	$alt5
-?4 marioneta	$alt5
-?4 marionetes	$alt5
-?4 marquesa	$alt5
 ?4 marquès	$alt5
-?4 marsellesa	$alt5
-?4 marsellesos	$alt5
 ?4 marsellès	$alt5
-?4 martinet	$alt5
-?4 martinets	$alt5
-?4 mascareta	$alt5
-?4 mascaretes	$alt5
-?4 mastega	$alt5
-?4 matxet	$alt5
 ?4 matèria	$alt5
 ?4 matèric	$alt5
 ?4 matèries	$alt5
 ?4 matèriques	$alt5
-?4 maulets	$alt5
 ?4 mecenes	$alt5
-?4 medalleta	$alt5
 ?4 mefistofèlic	$alt5
-?4 megues	$alt5
 ?4 melena	$alt5
 ?4 memètica	$alt5
 ?4 mena	$alt5
@@ -4164,23 +3503,11 @@ zooglees	$alt2
 ?4 mercè	$alt5
 ?4 mercès	$alt5
 ?4 merèixer	$alt5
-?4 mesa	$alt5
-?4 meses	$alt5
-?4 mesos	$alt5
-?4 mesquinesa	$alt5
-?4 mesquineses	$alt5
-?4 meta	$alt5
 ?4 metapoètica	$alt5
-?4 metes	$alt5
-?4 metralletes	$alt5
 ?4 metre	$alt5
 ?4 microcrèdits	$alt5
-?4 microempresa	$alt5
-?4 microempreses	$alt5
 ?4 microtelèfon	$alt5
 ?4 microtelèfons	$alt5
-?4 migradesa	$alt5
-?4 milanesa	$alt5
 ?4 milanès	$alt5
 ?4 milena	$alt5
 ?4 milionèsima	$alt5
@@ -4191,42 +3518,21 @@ zooglees	$alt2
 ?4 mimètiques	$alt5
 ?4 minisèrie	$alt5
 ?4 minisèries	$alt5
-?4 minusvalidesa	$alt5
-?4 miqueta	$alt5
-?4 mirallets	$alt5
 ?4 misèria	$alt5
 ?4 misèries	$alt5
-?4 mitgencs	$alt5
-?4 mitjanetes	$alt5
-?4 modelets	$alt5
 ?4 modèlic	$alt5
 ?4 modèlica	$alt5
 ?4 modèlics	$alt5
 ?4 modèliques	$alt5
 ?4 modèstia	$alt5
-?4 mofeta	$alt5
-?4 moixetes	$alt5
-?4 molinet	$alt5
-?4 molinets	$alt5
-?4 mollet	$alt5
 ?4 molècula	$alt5
 ?4 molècules	$alt5
 ?4 molèstia	$alt5
 ?4 molèsties	$alt5
-?4 monedeta	$alt5
-?4 mongeta	$alt5
-?4 mongetes	$alt5
-?4 moqueta	$alt5
-?4 moquetes	$alt5
 ?4 morena	$alt5
 ?4 morenes	$alt5
-?4 moret	$alt5
 ?4 morè	$alt5
-?4 mossega	$alt5
 ?4 mossèn	$alt5
-?4 motets	$alt5
-?4 motocicleta	$alt5
-?4 motocicletes	$alt5
 ?4 moçambiquès	$alt5
 ?4 mudèjar	$alt5
 ?4 mudèjars	$alt5
@@ -4235,16 +3541,8 @@ zooglees	$alt2
 ?4 multigènica	$alt5
 ?4 multimèdia	$alt5
 ?4 multireincidència	$alt5
-?4 multitramesa	$alt5
 ?4 multiètnica	$alt5
 ?4 multiètnics	$alt5
-?4 muniquesos	$alt5
-?4 muntanyenc	$alt5
-?4 muntanyenca	$alt5
-?4 muntanyencs	$alt5
-?4 muntanyenques	$alt5
-?4 muntanyeta	$alt5
-?4 musiqueta	$alt5
 ?4 mèdia	$alt5
 ?4 mèdic	$alt5
 ?4 mèdica	$alt5
@@ -4258,227 +3556,89 @@ zooglees	$alt2
 ?4 mètric	$alt5
 ?4 mètrica	$alt5
 ?4 mèxic	$alt5
-?4 nadalenc	$alt5
-?4 nadalenca	$alt5
-?4 nadalencs	$alt5
-?4 nadalenques	$alt5
 ?4 nanomètrica	$alt5
-?4 naturalesa	$alt5
-?4 navarresa	$alt5
-?4 navarreses	$alt5
-?4 navarresos	$alt5
 ?4 navarrès	$alt5
-?4 navega	$alt5
-?4 navegues	$alt5
-?4 neerlandesa	$alt5
 ?4 neerlandès	$alt5
 ?4 negligència	$alt5
 ?4 negligències	$alt5
-?4 negreta	$alt5
-?4 negretes	$alt5
-?4 negrets	$alt5
 ?4 nena	$alt5
 ?4 nenes	$alt5
 ?4 nens	$alt5
-?4 nepalesa	$alt5
-?4 nepaleses	$alt5
-?4 nepalesos	$alt5
 ?4 nepalès	$alt5
-?4 net	$alt5
-?4 neta	$alt5
-?4 netes	$alt5
-?4 nets	$alt5
-?4 nicaragüenc	$alt5
-?4 niciesa	$alt5
-?4 nineta	$alt5
-?4 ninetes	$alt5
-?4 ninotets	$alt5
-?4 nitidesa	$alt5
-?4 noblesa	$alt5
-?4 noiet	$alt5
-?4 noieta	$alt5
-?4 noietes	$alt5
 ?4 nomena	$alt5
-?4 nonet	$alt5
 ?4 norantè	$alt5
-?4 noruega	$alt5
-?4 noruegues	$alt5
-?4 novaiorquesa	$alt5
-?4 novaiorqueses	$alt5
-?4 novaiorquesos	$alt5
 ?4 novaiorquès	$alt5
 ?4 novena	$alt5
 ?4 novenes	$alt5
 ?4 novens	$alt5
 ?4 novè	$alt5
-?4 nuesa	$alt5
-?4 numerets	$alt5
 ?4 numèric	$alt5
 ?4 numèrica	$alt5
 ?4 numèrics	$alt5
 ?4 numèriques	$alt5
-?4 nuvolets	$alt5
 ?4 nèctar	$alt5
 ?4 obediència	$alt5
 ?4 obediències	$alt5
-?4 obesa	$alt5
-?4 obeses	$alt5
-?4 obesos	$alt5
 ?4 oboè	$alt5
 ?4 oboès	$alt5
-?4 obreta	$alt5
 ?4 obscena	$alt5
 ?4 obscenes	$alt5
 ?4 obscens	$alt5
 ?4 obscè	$alt5
 ?4 obsolescència	$alt5
-?4 obsolet	$alt5
-?4 obsoleta	$alt5
-?4 obsoletes	$alt5
-?4 obsolets	$alt5
-?4 ocellet	$alt5
-?4 ocellets	$alt5
-?4 octavetes	$alt5
-?4 octet	$alt5
-?4 octets	$alt5
 ?4 ocurrència	$alt5
 ?4 ocurrències	$alt5
-?4 ofega	$alt5
-?4 ofeses	$alt5
-?4 ofesos	$alt5
 ?4 ofrena	$alt5
 ?4 ofrenes	$alt5
 ?4 ofèn	$alt5
 ?4 ofès	$alt5
-?4 omega	$alt5
-?4 omet	$alt5
 ?4 ometre	$alt5
 ?4 omnipotència	$alt5
 ?4 omnipresència	$alt5
 ?4 omès	$alt5
-?4 onomatopeia	$alt5
-?4 onomatopeies	$alt5
 ?4 onzena	$alt5
 ?4 onzenes	$alt5
 ?4 onzens	$alt5
 ?4 onzè	$alt5
-?4 opereta	$alt5
-?4 operetes	$alt5
 ?4 opulència	$alt5
 ?4 ordena	$alt5
-?4 orella	$alt5
-?4 orelles	$alt5
-?4 oreneta	$alt5
 ?4 orfebre	$alt5
 ?4 orfebres	$alt5
-?4 orfenesa	$alt5
 ?4 ortopèdia	$alt5
 ?4 ortopèdic	$alt5
 ?4 ortopèdica	$alt5
 ?4 ortopèdiques	$alt5
-?4 osonenc	$alt5
-?4 osonenca	$alt5
-?4 osonencs	$alt5
-?4 osset	$alt5
-?4 ossets	$alt5
-?4 ovella	$alt5
-?4 ovelles	$alt5
 ?4 paciència	$alt5
-?4 pagesa	$alt5
-?4 pageses	$alt5
-?4 pagesos	$alt5
 ?4 pagès	$alt5
-?4 pakistanesa	$alt5
-?4 pakistaneses	$alt5
-?4 pakistanesos	$alt5
 ?4 pakistanès	$alt5
-?4 palauet	$alt5
-?4 palesa	$alt5
-?4 paleses	$alt5
-?4 palesos	$alt5
-?4 paleta	$alt5
-?4 paletes	$alt5
-?4 palets	$alt5
-?4 pallaresa	$alt5
 ?4 palmarès	$alt5
 ?4 palès	$alt5
-?4 pamflet	$alt5
-?4 pamflets	$alt5
-?4 pamplonesa	$alt5
-?4 pamplonesos	$alt5
 ?4 pamplonès	$alt5
-?4 panameny	$alt5
-?4 pandereta	$alt5
 ?4 pandèmia	$alt5
 ?4 pandèmies	$alt5
-?4 panellets	$alt5
-?4 panet	$alt5
-?4 panets	$alt5
 ?4 pantagruèlic	$alt5
 ?4 pantagruèlics	$alt5
-?4 panxeta	$alt5
-?4 paperet	$alt5
-?4 papereta	$alt5
-?4 paperetes	$alt5
 ?4 papiroflèxia	$alt5
-?4 paquet	$alt5
-?4 paquetet	$alt5
-?4 paquets	$alt5
-?4 paquistanesos	$alt5
-?4 paradeta	$alt5
-?4 paradetes	$alt5
 ?4 paraplègic	$alt5
 ?4 paraplègiques	$alt5
-?4 parauleta	$alt5
-?4 parell	$alt5
-?4 parella	$alt5
-?4 parelles	$alt5
-?4 parells	$alt5
-?4 parentesc	$alt5
 ?4 parer	$alt5
 ?4 parers	$alt5
-?4 paret	$alt5
-?4 parets	$alt5
-?4 parisenc	$alt5
-?4 parisenca	$alt5
-?4 parisencs	$alt5
-?4 parisenques	$alt5
-?4 parquet	$alt5
-?4 parquets	$alt5
-?4 partidet	$alt5
-?4 partideta	$alt5
 ?4 parèntesi	$alt5
 ?4 parèntesis	$alt5
-?4 passet	$alt5
-?4 pastissets	$alt5
-?4 pastorets	$alt5
 ?4 patena	$alt5
-?4 patinet	$alt5
-?4 patinets	$alt5
-?4 patufet	$alt5
-?4 patuleia	$alt5
 ?4 patuès	$alt5
 ?4 patètic	$alt5
 ?4 patètica	$alt5
 ?4 patètics	$alt5
 ?4 patètiques	$alt5
 ?4 paupèrrim	$alt5
+?4 paupèrrims	$alt5
 ?4 pebre	$alt5
-?4 peceta	$alt5
-?4 pecetes	$alt5
-?4 pedretes	$alt5
-?4 peineta	$alt5
-?4 peixet	$alt5
-?4 peixets	$alt5
+?4 pebres	$alt5
 ?4 penitència	$alt5
-?4 penques	$alt5
-?4 pequinesos	$alt5
 ?4 pera	$alt5
 ?4 percebre	$alt5
-?4 perepunyetes	$alt5
 ?4 peres	$alt5
-?4 peresa	$alt5
-?4 perfet	$alt5
 ?4 perifèria	$alt5
 ?4 perifèric	$alt5
 ?4 perifèrica	$alt5
@@ -4489,14 +3649,9 @@ zooglees	$alt2
 ?4 peripècia	$alt5
 ?4 peripècies	$alt5
 ?4 permanència	$alt5
-?4 permesa	$alt5
-?4 permeses	$alt5
-?4 permesos	$alt5
-?4 permet	$alt5
 ?4 permetre	$alt5
 ?4 permetre'ns	$alt5
 ?4 permetre's	$alt5
-?4 permets	$alt5
 ?4 permès	$alt5
 ?4 perpinyanès	$alt5
 ?4 perpètua	$alt5
@@ -4506,97 +3661,30 @@ zooglees	$alt2
 ?4 pertenències	$alt5
 ?4 pertinència	$alt5
 ?4 pervivència	$alt5
-?4 pesadeta	$alt5
-?4 pesca	$alt5
-?4 pesos	$alt5
-?4 pesseta	$alt5
-?4 pessetes	$alt5
 ?4 pestilència	$alt5
-?4 pet	$alt5
-?4 peta	$alt5
-?4 petitburgesa	$alt5
 ?4 petitburgès	$alt5
-?4 petitesa	$alt5
-?4 petiteses	$alt5
-?4 petitet	$alt5
-?4 petonet	$alt5
-?4 petonets	$alt5
-?4 pets	$alt5
-?4 peuets	$alt5
-?4 picaresc	$alt5
-?4 picaresca	$alt5
-?4 piloteta	$alt5
-?4 pintoresc	$alt5
-?4 pintoresca	$alt5
-?4 pintoresques	$alt5
-?4 piolet	$alt5
-?4 piquet	$alt5
-?4 piquets	$alt5
 ?4 piretre	$alt5
-?4 pirinenc	$alt5
-?4 pirinenca	$alt5
-?4 pirinencs	$alt5
-?4 pirinenques	$alt5
 ?4 pirotècnia	$alt5
 ?4 pirotècnic	$alt5
 ?4 pirotècnica	$alt5
 ?4 pirotècnics	$alt5
-?4 pirueta	$alt5
-?4 piruetes	$alt5
-?4 piset	$alt5
-?4 placeta	$alt5
-?4 placetes	$alt5
-?4 placidesa	$alt5
 ?4 pladellorens	$alt5
-?4 planeta	$alt5
-?4 planetes	$alt5
-?4 plaquetes	$alt5
-?4 plateret	$alt5
-?4 platerets	$alt5
-?4 platet	$alt5
-?4 platets	$alt5
-?4 plaçeta	$alt5
-?4 plega	$alt5
 ?4 plena	$alt5
 ?4 plenes	$alt5
 ?4 plens	$alt5
-?4 plet	$alt5
-?4 plets	$alt5
 ?4 pliocè	$alt5
 ?4 plèiade	$alt5
 ?4 plètora	$alt5
-?4 poblet	$alt5
-?4 poblets	$alt5
-?4 pobresa	$alt5
-?4 pobret	$alt5
-?4 pobrets	$alt5
 ?4 poder	$alt5
 ?4 poders	$alt5
-?4 poeta	$alt5
-?4 poetes	$alt5
-?4 pollet	$alt5
-?4 polonesa	$alt5
-?4 poloneses	$alt5
-?4 polonesos	$alt5
 ?4 polonès	$alt5
 ?4 polèmic	$alt5
 ?4 polèmica	$alt5
 ?4 polèmics	$alt5
 ?4 polèmiques	$alt5
-?4 pometa	$alt5
-?4 pometes	$alt5
 ?4 ponència	$alt5
 ?4 ponències	$alt5
-?4 poquet	$alt5
-?4 poqueta	$alt5
-?4 poquets	$alt5
-?4 porquet	$alt5
-?4 porquets	$alt5
-?4 portuguesa	$alt5
-?4 portugueses	$alt5
-?4 portuguesos	$alt5
 ?4 portuguès	$alt5
-?4 potetes	$alt5
 ?4 potència	$alt5
 ?4 potències	$alt5
 ?4 poètic	$alt5
@@ -4609,66 +3697,36 @@ zooglees	$alt2
 ?4 preferència	$alt5
 ?4 preferències	$alt5
 ?4 première	$alt5
-?4 prenc	$alt5
 ?4 prens	$alt5
-?4 prepirinenca	$alt5
 ?4 prepotència	$alt5
 ?4 prepotències	$alt5
-?4 presa	$alt5
-?4 preses	$alt5
 ?4 presidència	$alt5
 ?4 presidències	$alt5
-?4 presos	$alt5
-?4 prestesa	$alt5
 ?4 presència	$alt5
 ?4 presències	$alt5
-?4 pretenc	$alt5
 ?4 pretens	$alt5
-?4 pretesa	$alt5
-?4 preteses	$alt5
-?4 pretesos	$alt5
 ?4 pretèrit	$alt5
 ?4 pretèrita	$alt5
 ?4 pretèrits	$alt5
 ?4 pretès	$alt5
-?4 preveia	$alt5
 ?4 preveuen	$alt5
 ?4 preveure	$alt5
 ?4 prevèiem	$alt5
-?4 primerenc	$alt5
-?4 primerenca	$alt5
-?4 primerencs	$alt5
-?4 primerenques	$alt5
 ?4 primigènia	$alt5
 ?4 primigènies	$alt5
 ?4 primogènit	$alt5
 ?4 primogènits	$alt5
-?4 princesa	$alt5
-?4 princeses	$alt5
-?4 privadesa	$alt5
 ?4 procedència	$alt5
 ?4 procedències	$alt5
-?4 proesa	$alt5
-?4 proeses	$alt5
-?4 profeta	$alt5
-?4 profetes	$alt5
 ?4 profètic	$alt5
 ?4 profètica	$alt5
 ?4 profètics	$alt5
-?4 programets	$alt5
-?4 proirlandesos	$alt5
-?4 promesa	$alt5
-?4 promeses	$alt5
-?4 promesos	$alt5
-?4 promet	$alt5
 ?4 prometre	$alt5
 ?4 prometre'm	$alt5
 ?4 promès	$alt5
 ?4 propens	$alt5
 ?4 propilè	$alt5
 ?4 providència	$alt5
-?4 proxeneta	$alt5
-?4 proxenetes	$alt5
 ?4 prudència	$alt5
 ?4 prudències	$alt5
 ?4 prèdica	$alt5
@@ -4683,12 +3741,6 @@ zooglees	$alt2
 ?4 psicotècnica	$alt5
 ?4 psicotècnics	$alt5
 ?4 psicotècniques	$alt5
-?4 pujadeta	$alt5
-?4 puntetes	$alt5
-?4 punyeta	$alt5
-?4 punyetes	$alt5
-?4 puresa	$alt5
-?4 pureta	$alt5
 ?4 pèl	$alt5
 ?4 pèls	$alt5
 ?4 pèndol	$alt5
@@ -4713,47 +3765,23 @@ zooglees	$alt2
 ?4 pètal	$alt5
 ?4 pètals	$alt5
 ?4 pètria	$alt5
-?4 quadradet	$alt5
-?4 quadrets	$alt5
 ?4 quarantè	$alt5
-?4 quartet	$alt5
-?4 quartets	$alt5
-?4 quebequesa	$alt5
-?4 quebequeses	$alt5
-?4 quebequesos	$alt5
 ?4 quebequès	$alt5
-?4 queia	$alt5
 ?4 querosè	$alt5
-?4 quiet	$alt5
-?4 quieta	$alt5
-?4 quietes	$alt5
-?4 quiets	$alt5
 ?4 quilomètric	$alt5
 ?4 quilomètriques	$alt5
 ?4 quimicotèxtil	$alt5
 ?4 quimèrica	$alt5
-?4 quintet	$alt5
-?4 quintets	$alt5
 ?4 quintigèmins	$alt5
 ?4 quinzena	$alt5
 ?4 quinzenes	$alt5
 ?4 quinzens	$alt5
 ?4 quinzè	$alt5
 ?4 què	$alt5
-?4 raconet	$alt5
-?4 radiocasset	$alt5
 ?4 radioelèctric	$alt5
 ?4 radioelèctrica	$alt5
 ?4 radiofreqüència	$alt5
 ?4 radiofreqüències	$alt5
-?4 rapidesa	$alt5
-?4 raqueta	$alt5
-?4 raquetes	$alt5
-?4 raresa	$alt5
-?4 rareses	$alt5
-?4 raret	$alt5
-?4 rateta	$alt5
-?4 ravenets	$alt5
 ?4 re	$alt5
 ?4 readmetre	$alt5
 ?4 readmès	$alt5
@@ -4762,116 +3790,47 @@ zooglees	$alt2
 ?4 rebre'l	$alt5
 ?4 rebre'ls	$alt5
 ?4 rebre'n	$alt5
-?4 recarrega	$alt5
 ?4 reconèixer	$alt5
 ?4 recurrència	$alt5
-?4 redisseny	$alt5
 ?4 reemergència	$alt5
-?4 reengega	$alt5
 ?4 reestrena	$alt5
 ?4 reestrenes	$alt5
 ?4 referència	$alt5
 ?4 referències	$alt5
 ?4 referèndum	$alt5
 ?4 referèndums	$alt5
-?4 refresc	$alt5
-?4 refresca	$alt5
-?4 refrescs	$alt5
 ?4 refulgència	$alt5
-?4 regalet	$alt5
-?4 regalets	$alt5
-?4 rei	$alt5
-?4 reialesa	$alt5
-?4 reiet	$alt5
-?4 reina	$alt5
 ?4 reincidència	$alt5
-?4 reines	$alt5
-?4 reinetes	$alt5
-?4 reinterpreta	$alt5
-?4 reis	$alt5
-?4 reixeta	$alt5
-?4 relega	$alt5
-?4 remei	$alt5
-?4 remeis	$alt5
 ?4 remena	$alt5
 ?4 remenes	$alt5
-?4 remesa	$alt5
-?4 remeses	$alt5
-?4 remet	$alt5
 ?4 remetre	$alt5
 ?4 remetre'ns	$alt5
 ?4 remetre's	$alt5
 ?4 reminiscència	$alt5
 ?4 reminiscències	$alt5
 ?4 remès	$alt5
-?4 renega	$alt5
 ?4 rens	$alt5
-?4 repesca	$alt5
-?4 replega	$alt5
-?4 replet	$alt5
-?4 repleta	$alt5
-?4 represa	$alt5
-?4 represes	$alt5
 ?4 reprèn	$alt5
 ?4 reprès	$alt5
-?4 requeia	$alt5
 ?4 residència	$alt5
 ?4 residències	$alt5
 ?4 resistència	$alt5
 ?4 resistències	$alt5
-?4 ret	$alt5
 ?4 reticència	$alt5
 ?4 reticències	$alt5
-?4 retransmesa	$alt5
-?4 retransmesos	$alt5
-?4 retransmet	$alt5
 ?4 retransmetre	$alt5
 ?4 retransmès	$alt5
 ?4 retre	$alt5
-?4 retreia	$alt5
-?4 retret	$alt5
-?4 retrets	$alt5
 ?4 retreuen	$alt5
 ?4 retreure	$alt5
 ?4 retreure'ls	$alt5
-?4 reusenc	$alt5
-?4 reusenca	$alt5
-?4 reusencs	$alt5
 ?4 reverència	$alt5
 ?4 reverències	$alt5
 ?4 reveure	$alt5
-?4 rialleta	$alt5
-?4 ridiculesa	$alt5
-?4 ridiculeses	$alt5
-?4 rigidesa	$alt5
-?4 rigideses	$alt5
-?4 rinxolets	$alt5
-?4 ripollet	$alt5
 ?4 ripollès	$alt5
-?4 riquesa	$alt5
-?4 riqueses	$alt5
-?4 rivets	$alt5
-?4 rocambolesc	$alt5
-?4 rocambolesca	$alt5
-?4 rocambolesques	$alt5
-?4 rodet	$alt5
-?4 rodets	$alt5
-?4 rogenques	$alt5
-?4 romanesa	$alt5
-?4 romanesos	$alt5
 ?4 romanès	$alt5
-?4 rossellonesa	$alt5
 ?4 rossellonès	$alt5
-?4 rosset	$alt5
-?4 rotllet	$alt5
-?4 rovell	$alt5
-?4 rovells	$alt5
-?4 ruandesa	$alt5
-?4 ruandesos	$alt5
 ?4 ruandès	$alt5
-?4 rudesa	$alt5
-?4 ruleta	$alt5
-?4 ruqueta	$alt5
 ?4 rècord	$alt5
 ?4 rècords	$alt5
 ?4 rèdit	$alt5
@@ -4889,71 +3848,29 @@ zooglees	$alt2
 ?4 rètol	$alt5
 ?4 rètols	$alt5
 ?4 s'anomena	$alt5
-?4 s'emet	$alt5
-?4 s'encarrega	$alt5
-?4 s'engega	$alt5
-?4 sabadellenc	$alt5
-?4 sabadellenca	$alt5
-?4 sabadellencs	$alt5
 ?4 saber	$alt5
-?4 sabonets	$alt5
-?4 sageta	$alt5
-?4 sagetes	$alt5
-?4 sainet	$alt5
-?4 saleta	$alt5
-?4 saltets	$alt5
-?4 samarreta	$alt5
-?4 samarretes	$alt5
 ?4 sapiència	$alt5
-?4 satisfet	$alt5
-?4 satisfeta	$alt5
-?4 satisfetes	$alt5
-?4 satisfets	$alt5
-?4 saviesa	$alt5
-?4 secret	$alt5
-?4 secreta	$alt5
-?4 secretes	$alt5
-?4 secrets	$alt5
-?4 segarrenc	$alt5
-?4 seguret	$alt5
-?4 seia	$alt5
-?4 seis	$alt5
 ?4 seixantè	$alt5
 ?4 sena	$alt5
 ?4 sencer	$alt5
 ?4 sencera	$alt5
 ?4 senceres	$alt5
 ?4 sencers	$alt5
-?4 senegalesa	$alt5
-?4 senegalesos	$alt5
 ?4 senegalès	$alt5
 ?4 sens	$alt5
-?4 sensatesa	$alt5
 ?4 sentència	$alt5
 ?4 sentències	$alt5
-?4 seny	$alt5
-?4 senyoret	$alt5
-?4 senyoreta	$alt5
-?4 senyoretes	$alt5
-?4 senyorets	$alt5
-?4 senzillesa	$alt5
-?4 septet	$alt5
 ?4 seqüència	$alt5
 ?4 seqüències	$alt5
 ?4 serena	$alt5
 ?4 serenes	$alt5
 ?4 serens	$alt5
-?4 servei	$alt5
-?4 serveis	$alt5
-?4 serviticket	$alt5
 ?4 serè	$alt5
 ?4 setantè	$alt5
 ?4 setciències	$alt5
 ?4 setena	$alt5
 ?4 setenes	$alt5
 ?4 setens	$alt5
-?4 setmaneta	$alt5
-?4 sets	$alt5
 ?4 setzena	$alt5
 ?4 setzenes	$alt5
 ?4 setzens	$alt5
@@ -4961,13 +3878,6 @@ zooglees	$alt2
 ?4 setè	$alt5
 ?4 seuen	$alt5
 ?4 seure	$alt5
-?4 sextet	$alt5
-?4 siameses	$alt5
-?4 siamesos	$alt5
-?4 silueta	$alt5
-?4 siluetes	$alt5
-?4 simiesca	$alt5
-?4 simiescs	$alt5
 ?4 simètric	$alt5
 ?4 simètrica	$alt5
 ?4 simètrics	$alt5
@@ -4986,36 +3896,11 @@ zooglees	$alt2
 ?4 sisens	$alt5
 ?4 sistèmica	$alt5
 ?4 sisè	$alt5
-?4 soldadets	$alt5
-?4 solet	$alt5
-?4 solets	$alt5
-?4 solidesa	$alt5
-?4 solideses	$alt5
 ?4 solvència	$alt5
 ?4 somnolència	$alt5
-?4 somreia	$alt5
-?4 sonet	$alt5
-?4 sonets	$alt5
-?4 sordesa	$alt5
-?4 sordidesa	$alt5
-?4 sorollet	$alt5
-?4 sorollets	$alt5
-?4 sorpresa	$alt5
-?4 sorpreses	$alt5
-?4 sorpresos	$alt5
 ?4 sorprèn	$alt5
 ?4 sorprès	$alt5
-?4 sorrencs	$alt5
-?4 sorreta	$alt5
-?4 sospesa	$alt5
-?4 sostret	$alt5
-?4 sostretes	$alt5
-?4 sostrets	$alt5
 ?4 sostreure	$alt5
-?4 sotmesa	$alt5
-?4 sotmeses	$alt5
-?4 sotmesos	$alt5
-?4 sotmet	$alt5
 ?4 sotmetre	$alt5
 ?4 sotmetre'l	$alt5
 ?4 sotmetre'ls	$alt5
@@ -5029,8 +3914,6 @@ zooglees	$alt2
 ?4 subgènere	$alt5
 ?4 subgèneres	$alt5
 ?4 subsistència	$alt5
-?4 subtilesa	$alt5
-?4 subtileses	$alt5
 ?4 sudanès	$alt5
 ?4 suficiència	$alt5
 ?4 suggerència	$alt5
@@ -5040,12 +3923,7 @@ zooglees	$alt2
 ?4 supèrbia	$alt5
 ?4 supèrflua	$alt5
 ?4 supèrflues	$alt5
-?4 suquet	$alt5
-?4 suquets	$alt5
 ?4 suspens	$alt5
-?4 suspesa	$alt5
-?4 suspeses	$alt5
-?4 suspesos	$alt5
 ?4 suspèn	$alt5
 ?4 suspès	$alt5
 ?4 suècia	$alt5
@@ -5060,33 +3938,12 @@ zooglees	$alt2
 ?4 sèrie	$alt5
 ?4 sèries	$alt5
 ?4 sèrum	$alt5
-?4 tailandesa	$alt5
-?4 tailandesos	$alt5
 ?4 tailandès	$alt5
-?4 taipei	$alt5
-?4 talladet	$alt5
-?4 tamboret	$alt5
 ?4 tamoxifè	$alt5
-?4 tanquetes	$alt5
-?4 tardorenca	$alt5
-?4 targeta	$alt5
-?4 targetes	$alt5
-?4 tarjeta	$alt5
 ?4 tarragonès	$alt5
-?4 tastaolletes	$alt5
-?4 tastet	$alt5
-?4 tastets	$alt5
-?4 tauleta	$alt5
-?4 tauletes	$alt5
-?4 teatret	$alt5
-?4 tebiesa	$alt5
-?4 teia	$alt5
-?4 teies	$alt5
 ?4 telèfon	$alt5
 ?4 telèfons	$alt5
-?4 temorenc	$alt5
 ?4 tena	$alt5
-?4 tendresa	$alt5
 ?4 tendència	$alt5
 ?4 tendències	$alt5
 ?4 tens	$alt5
@@ -5094,43 +3951,16 @@ zooglees	$alt2
 ?4 terapèutica	$alt5
 ?4 terapèutics	$alt5
 ?4 terapèutiques	$alt5
-?4 terbolesa	$alt5
-?4 tercet	$alt5
-?4 tercets	$alt5
-?4 teresa	$alt5
-?4 terreny	$alt5
-?4 terrenys	$alt5
-?4 teta	$alt5
 ?4 tetraplègic	$alt5
 ?4 tetraplègica	$alt5
 ?4 tetraplègiques	$alt5
-?4 tiet	$alt5
-?4 tieta	$alt5
-?4 tietes	$alt5
-?4 timidesa	$alt5
-?4 tinerfeny	$alt5
-?4 tiquet	$alt5
-?4 tiquets	$alt5
-?4 tiretes	$alt5
-?4 tontet	$alt5
-?4 tontets	$alt5
-?4 torinesos	$alt5
 ?4 torinès	$alt5
-?4 torradetes	$alt5
-?4 torretes	$alt5
-?4 tossudesa	$alt5
 ?4 totèmiques	$alt5
-?4 toveta	$alt5
-?4 tovets	$alt5
 ?4 tragicomèdia	$alt5
 ?4 tragicomèdies	$alt5
 ?4 tragèdia	$alt5
 ?4 tragèdies	$alt5
-?4 tramesa	$alt5
-?4 trameses	$alt5
-?4 tramet	$alt5
 ?4 trametre	$alt5
-?4 trampetes	$alt5
 ?4 tramès	$alt5
 ?4 transcendència	$alt5
 ?4 transcendències	$alt5
@@ -5139,24 +3969,13 @@ zooglees	$alt2
 ?4 transgènic	$alt5
 ?4 transgènica	$alt5
 ?4 transgènics	$alt5
-?4 transmesa	$alt5
-?4 transmeses	$alt5
-?4 transmesos	$alt5
-?4 transmet	$alt5
 ?4 transmetre	$alt5
 ?4 transmetre'ls	$alt5
 ?4 transmès	$alt5
 ?4 transparència	$alt5
 ?4 transparències	$alt5
-?4 traveta	$alt5
-?4 travetes	$alt5
-?4 treia	$alt5
 ?4 trena	$alt5
-?4 trenc	$alt5
-?4 trenca	$alt5
 ?4 trenes	$alt5
-?4 trenet	$alt5
-?4 trenetes	$alt5
 ?4 trens	$alt5
 ?4 trenta	$alt5
 ?4 trentena	$alt5
@@ -5164,7 +3983,6 @@ zooglees	$alt2
 ?4 trentens	$alt5
 ?4 trentè	$alt5
 ?4 tres	$alt5
-?4 tresc	$alt5
 ?4 tretzena	$alt5
 ?4 tretzenes	$alt5
 ?4 tretzens	$alt5
@@ -5177,17 +3995,7 @@ zooglees	$alt2
 ?4 treure's	$alt5
 ?4 treure't	$alt5
 ?4 trigonomètriques	$alt5
-?4 trinquet	$alt5
-?4 triplet	$alt5
-?4 tripleta	$alt5
-?4 tristesa	$alt5
-?4 tristeses	$alt5
-?4 trobadoresca	$alt5
-?4 trompeta	$alt5
-?4 trompetes	$alt5
 ?4 troposfèric	$alt5
-?4 trosset	$alt5
-?4 trossets	$alt5
 ?4 truculència	$alt5
 ?4 truculències	$alt5
 ?4 trèvol	$alt5
@@ -5221,52 +4029,20 @@ zooglees	$alt2
 ?4 tètrica	$alt5
 ?4 tèxtil	$alt5
 ?4 tèxtils	$alt5
-?4 ucraïnesa	$alt5
-?4 ucraïneses	$alt5
-?4 ucraïnesos	$alt5
 ?4 ucraïnès	$alt5
-?4 ullet	$alt5
-?4 ullets	$alt5
-?4 urgellenc	$alt5
-?4 urgellenca	$alt5
 ?4 urgència	$alt5
 ?4 urgències	$alt5
-?4 vagonetes	$alt5
-?4 vailet	$alt5
 ?4 vaivens	$alt5
 ?4 valer	$alt5
-?4 validesa	$alt5
-?4 vallenc	$alt5
-?4 vallenca	$alt5
-?4 vallencs	$alt5
-?4 vallenques	$alt5
 ?4 vallès	$alt5
-?4 valset	$alt5
 ?4 valència	$alt5
-?4 vampiresa	$alt5
-?4 vaqueta	$alt5
-?4 vareta	$alt5
-?4 vedet	$alt5
-?4 vedets	$alt5
 ?4 vehemència	$alt5
-?4 veia	$alt5
-?4 veies	$alt5
-?4 vellesa	$alt5
-?4 vellet	$alt5
-?4 velleta	$alt5
-?4 vellets	$alt5
 ?4 vena	$alt5
-?4 venc	$alt5
 ?4 venda	$alt5
 ?4 vendes	$alt5
 ?4 venes	$alt5
 ?4 vens	$alt5
 ?4 venèria	$alt5
-?4 vermell	$alt5
-?4 vermells	$alt5
-?4 vet	$alt5
-?4 veta	$alt5
-?4 vetes	$alt5
 ?4 veuen	$alt5
 ?4 veure	$alt5
 ?4 veure'l	$alt5
@@ -5279,30 +4055,18 @@ zooglees	$alt2
 ?4 vicepresidències	$alt5
 ?4 vidència	$alt5
 ?4 viena	$alt5
-?4 vienesa	$alt5
-?4 vienesos	$alt5
 ?4 vienès	$alt5
 ?4 viguès	$alt5
 ?4 vigència	$alt5
-?4 vilesa	$alt5
 ?4 vintena	$alt5
 ?4 vintenes	$alt5
 ?4 vintens	$alt5
 ?4 vintè	$alt5
-?4 vinyeta	$alt5
-?4 vinyetes	$alt5
-?4 violeta	$alt5
-?4 violetes	$alt5
 ?4 violència	$alt5
 ?4 violències	$alt5
-?4 virrei	$alt5
-?4 virreina	$alt5
-?4 virreis	$alt5
 ?4 virulència	$alt5
-?4 vivesa	$alt5
 ?4 vivència	$alt5
 ?4 vivències	$alt5
-?4 vodevilesques	$alt5
 ?4 voler	$alt5
 ?4 volumètriques	$alt5
 ?4 vostè	$alt5
@@ -5318,38 +4082,13 @@ zooglees	$alt2
 ?4 vèrtebres	$alt5
 ?4 vèrtex	$alt5
 ?4 vèrtexs	$alt5
-?4 xalet	$alt5
-?4 xalets	$alt5
-?4 xancletes	$alt5
-?4 xaret	$alt5
-?4 xarnega	$alt5
-?4 xemeneia	$alt5
-?4 xemeneies	$alt5
-?4 xiclet	$alt5
-?4 xiclets	$alt5
-?4 xicotet	$alt5
-?4 xicotets	$alt5
 ?4 xilena	$alt5
 ?4 xilenes	$alt5
 ?4 xilens	$alt5
 ?4 xilè	$alt5
-?4 ximplet	$alt5
-?4 ximpleta	$alt5
-?4 ximplets	$alt5
-?4 xinesa	$alt5
-?4 xineses	$alt5
-?4 xinesos	$alt5
 ?4 xinès	$alt5
-?4 xiquet	$alt5
-?4 xiqueta	$alt5
-?4 xiquets	$alt5
-?4 xisclets	$alt5
-?4 xiulet	$alt5
-?4 xiulets	$alt5
-?4 xumet	$alt5
 ?4 xènia	$alt5
 ?4 xèrifs	$alt5
-?4 zenc	$alt5
 ?4 ègida	$alt5
 ?4 èmfasi	$alt5
 ?4 èmul	$alt5
@@ -5444,15 +4183,15 @@ zooglees	$alt2
 ?1 sostres	$alt1
 ?1 tou	$alt1
 ?1 tous	$alt1
-?2 cobra	alt1
-?2 cobre	alt1
-?2 cobren	alt1
-?2 cobres	alt1
-?2 cobri	alt1
-?2 cobrí	alt1
-?2 cobrin	alt1
-?2 cobris	alt1
-?2 cobro	alt1
+?2 cobra	$alt1
+?2 cobre	$alt1
+?2 cobren	$alt1
+?2 cobres	$alt1
+?2 cobri	$alt1
+?2 cobrí	$alt1
+?2 cobrin	$alt1
+?2 cobris	$alt1
+?2 cobro	$alt1
 ?2 cou	$alt1
 ?2 couen	$alt1
 ?2 courà	$alt1
@@ -5468,13 +4207,13 @@ zooglees	$alt2
 ?2 courien	$alt1
 ?2 couries	$alt1
 ?2 couríeu	$alt1
-?2 sobra	alt1
-?2 sobren	alt1
-?2 sobri	alt1
-?2 sobrí	alt1
-?2 sobrin	alt1
-?2 sobris	alt1
-?2 sobro	alt1
+?2 sobra	$alt1
+?2 sobren	$alt1
+?2 sobri	$alt1
+?2 sobrí	$alt1
+?2 sobrin	$alt1
+?2 sobris	$alt1
+?2 sobro	$alt1
 ?2 com  $alt1
 ?2 volen	$alt1
 ?4 volen	$alt1
@@ -8525,6 +7264,10 @@ zíngars	$alt4
 ?4	xarr	$alt4
 ?4	xerr	$alt4
 ?4	xifr	$alt4
+
+/// other balearic exceptions
+?4 home     'Omo
+?4 cotxe    k'otSo
 
 /// final t/d is not silent
 absolt	$alt4

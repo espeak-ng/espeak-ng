@@ -251,10 +251,44 @@
 ?1      e (da_     E    //
 ?1      e (des_    E    //
 
-?4      e (t_+       @    // (marlet)
-?4      e (ta_+       @    // (marlet)
-?4      e (ts_+       @    // (marlet)
-?4      e (tes_+       @    // (marlet)
+?4      e (t_       @    // (marlet)
+?4      e (ta_       @    // (marlet)
+?4      e (ts_       @    // (marlet)
+?4      e (tes_       @    // (marlet)
+
+?4      e (ll_       @    // 
+?4      e (lla_       @    //
+?4      e (lls_       @    //
+?4      e (lles_       @    //
+
+?4      e (nc_       @    // 
+?4      e (nca_       @    //
+?4      e (ncs_       @    //
+?4      e (nques_       @    //
+
+?4      e (ny_       @    // 
+?4      e (nys_       @    //
+
+?4      e (sc_       @    // 
+?4      e (sca_       @    //
+?4      e (scs_       @    //
+?4      e (scos_       @    //
+?4      e (sques_       @    //
+
+?4      e (sa_       @    //
+?4      e (sos_       @    //
+?4      e (ses_       @    //
+
+?4      e (i_       @    // 
+?4      e (ia_       @    //
+?4      e (is_       @    //
+?4      e (ies_       @    //
+?4      e (ina_       @    //
+?4      e (ines_       @    //
+
+?4      e (na_       @    // 
+?4      e (ns_       @    //
+?4      e (nes_       @    //
 
 //?4      e (c+       @    //
 ?4      e (c_+      E    // (espetec)
@@ -264,13 +298,13 @@
 ?4      e (s+       @    //
         e (ssi     e    // subjuntius
 ?4      e (m@+       @    //
-?4      e (na_+     @    //
-?4      e (nes_+    @    //
 //?4      e (n+       @    //
 ?4      e (d_+      @    //
 ?4      e (ds_+     @    //
 ?4      e (da_+     @    //
 ?4      e (des_+    @    //
+?4      e (ga_+      @    //
+?4      e (gues_+     @    //
 
 ?2      e (cte_    E    // (perfecte)
 ?2      e (cta_    E    // (perfecta)
@@ -634,6 +668,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         ny         n^   // palatalization
 ?4      ny (C      in   // pany
 ?4   A) ny (C      jn   // pany
+?4      ny (_C      in   // pany
+?4   A) ny (_C      jn   // pany
   
   
         nt (_      =n   // do not pronounce final t + stress the vowel
@@ -1212,7 +1248,9 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 
         $          dolaR
         
-?4      è ($w_alt5++ '@  // wordlist: balearic stressed @
+?4      è          ''@  // wordlist: balearic stressed @
+?4      é ($w_alt5++ ''@  // wordlist: balearic stressed @
+
         // cross-accent adaptations
 ?2      è (s_      ''e // final "ès" is pronounced "és" in western accents (francès)
 ?2      è (s_      ''e // final "èn" is pronounced "én" in western accents (francès)

@@ -228,16 +228,16 @@ phoneme e
   length 170
   
   IF thisPh(isUnstressed) THEN
-    IF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
-        IF prevVowel(O) OR prevVowel(o) THEN
-            ChangePhoneme(o)
-        ELSE
-            ChangePhoneme(@)
-        ENDIF
-    ELSE
+ //   IF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
+     //   IF prevVowel(O) OR prevVowel(o) THEN
+     //       ChangePhoneme(o)
+     //   IF
+//            ChangePhoneme(@)
+    //    ENDIF
+//    ELSE
         ChangePhoneme(@)
     
-    ENDIF
+//    ENDIF
   ENDIF
   FMT(vowel/e)
 endphoneme
@@ -506,7 +506,7 @@ phoneme n
     VowelStart(n/nu)
   EndSwitch
   
-  IF nextPh(f) THEN
+  IF nextPh(f) OR nextPh(v) THEN
     ChangePhoneme(M)
   ELIF nextPh(k) OR nextPh(g) THEN
       ChangePhoneme(N)
