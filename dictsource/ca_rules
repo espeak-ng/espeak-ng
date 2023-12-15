@@ -23,6 +23,8 @@
 .L10 p t k f s         // unvoiced
 .L11 b d g m v l n r z j // voiced
 .L12 b d g m v n z j // voiced, not r or l
+.L13 p t k b d g q // plosives
+
 
 .L15 c ç               // ces
 .L16 q g               // letters that can be followed by a u
@@ -892,9 +894,9 @@ _ultra) r (A       R    // (ultraric)
      
                 // final r
          r (_        =   // final r is silent
-     A)  r (s_       =   // final r is silent + stress the vowel
+     A)  rs (_       =s   // final r is silent + stress the vowel
   L05J)  r (_            // final r is silent + do not stress the vowel
-  L05J)  r (s_            // final r is silent + do not stress the vowel
+  L05J)  rs (_       s     // final r is silent + do not stress the vowel
 
 ?3   A)  r (_+      **    // final r is not silent
 ?3   A)  r (s_      **=  // final r is not silent + stress the vowel
@@ -945,6 +947,9 @@ _ultra) r (A       R    // (ultraric)
      A)   rd (_     R    // (record)
 ?1   A)   rt (_$w_alt4     Rt    // (sort)
 ?1   A)   rd (_$w_alt4     Rt    // (sord)
+?4   A)   rt (_$w_alt4     **t    // (sort)
+?4   A)   rd (_$w_alt4     **t    // (sord)
+
 //?1   A)   rt (s_$w_alt4     Rt    // (sort)
 //?1   A)   rd (s_$w_alt4     Rt    // (sord)
      A)   rt (_A     Rt    // (art abstracte)
@@ -1072,6 +1077,17 @@ _contra) s (A      s    // (contrasentit)
 ?4   A) s (_x     t    // dissimilation (mateix xarop)
 ?4   A) s (_j     d    // dissimilation (mateix joc)
 ?4   A) s (_gL01  d    // dissimilation (mateix gerro)
+
+// balearic elision
+?4  AL04) s (_C       // semivowel + s + _ + consonnant (feis cas, caus molt)
+?4  AL04) s (_hA    s   // avoid elision
+?4 L16ui) s (_C     s  // avoid elision
+
+?4        s (L13_C       // s + plosive + _ + consonnant (post de planxar)
+?4        s (c_C       // s + c + _ + consonnant (casc petit)
+
+?4     C) s (_C       // consonnant + s + _ + consonnant (caps petits)
+?4     C) s (_hA    s   // avoid elision
 
 .group t
         t          t

@@ -16,7 +16,7 @@ phoneme p
   IF thisPh(isWordEnd) AND nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
     IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
         ipa NULL
-    ELIF nextPh(t) OR nextPh(s) THEN
+    ELIF nextPh(t) OR nextPh(s) OR nextPh(ts) THEN
         ChangePhoneme(t)
     ELIF nextPh(g) THEN
         ChangePhoneme(g)
@@ -65,6 +65,9 @@ phoneme t        // dental variant of /t/
         ChangePhoneme(k)
     ELIF nextPh(b) THEN
         ChangePhoneme(b)
+    ELIF nextPh(f) THEN
+        ChangePhoneme(f)
+    
     ELIF nextPh(isVoiced) THEN
         ChangePhoneme(d)        
     ENDIF
@@ -103,10 +106,11 @@ phoneme k
   ELIF thisPh(isWordEnd) AND nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
     IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
         ipa NULL
+    ELIF nextPh(t) OR nextPh(s) OR nextPh(ts) THEN
+        ChangePhoneme(t)  
     ELIF nextPh(isVoiced) THEN
         ChangePhoneme(g)        
     ENDIF
-
   ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) THEN
@@ -411,46 +415,22 @@ phoneme s // dissimilation
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-  IF thisPh(isWordEnd) THEN
-    IF nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
-        IF prevPh(p) OR prevPh(t) OR prevPh(k) OR prevPh(isNasal) OR prevPh(isLiquid) THEN
-            ipa NULL
-            
-        ELIF nextPh(ts) OR nextPh(tS) THEN
-            IF prevPh(t) THEN
-                ipa NULL
-            ELSE
-                ChangePhoneme(t)
-            ENDIF
-        ELIF nextPh(dz) OR nextPh(dZ) THEN
-            IF prevPh(t) THEN
-                ipa NULL
-            ELSE
-                ChangePhoneme(d)
-            ENDIF
-        ELIF nextPh(isVoiced) THEN
-            ChangePhoneme(z)
-        ELSE
-        ENDIF
-    ELIF nextPh(isVowel) THEN
+  IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
+    
         ChangePhoneme(z)
-    ENDIF
-  ELIF nextPh(isWordEnd) THEN
-    IF nextPh(t) OR nextPh(p) OR nextPh(k) OR nextPh(d) OR nextPh(p) OR nextPh(g) THEN
-        ipa NULL
-    ENDIF
+  
     
   ELIF thisPh(isWordStart) THEN
     IF prevPh(t) THEN
         ChangePhoneme(ts)
     ENDIF
-  ELIF prevPh(isPalatal) OR nextPh(S) OR nextPh(Z) THEN
-    IF prevPh(j) THEN
-    ELIF nextPh(isVoiced) THEN
-      ChangePhoneme(Z)
-    ELSE
-      ChangePhoneme(S)
-    ENDIF
+ // ELIF prevPh(isPalatal) OR nextPh(S) OR nextPh(Z) THEN
+ //   IF prevPh(j) THEN
+ //   ELIF nextPh(isVoiced) THEN
+ //     ChangePhoneme(Z)
+ //   ELSE
+ //     ChangePhoneme(S)
+ //   ENDIF
   ENDIF
   
   IF nextPh(isPause) THEN
