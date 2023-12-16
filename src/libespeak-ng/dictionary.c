@@ -2897,6 +2897,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			*word_end = 'e';
 	}
 	i = word_end - word;
+	if (i >= N_WORD_BYTES) i = N_WORD_BYTES-1;
 
 	if (word_copy != NULL) {
 		memcpy(word_copy, word, i);
