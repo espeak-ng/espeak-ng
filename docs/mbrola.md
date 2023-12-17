@@ -216,6 +216,11 @@ which then can be played by ALSA (`aplay`) or PulseAudio (`paplay`) player throu
 
 ## Adding new MBROLA voice entry to eSpeak NG
 
+> [!IMPORTANT]
+> This documentation based on autotools build system. For new CMake-based, make sure to add new language
+> to [cmake/data.cmake](/cmake/data.cmake) file (`_mbrola_lang_list` section) and consult
+> [building.md](building.md) for updated build instructions
+
 To add new MBROLA voice entry for eSpeak NG you have to:
 
 1. add MBROLA voice definition file,
@@ -365,4 +370,3 @@ in espeak-ng project folder:
 cd espeak-ng-data/voices/mb/; for i in $(ls); do printf "$i "; grep name $i|awk '{print $2}'; done
 ```
 <a name="footnote2">2</a>: This voice has very limited set of diphones and is usable only for reading numbers.
-
