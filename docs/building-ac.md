@@ -208,9 +208,9 @@ to build:
 
 | Option               | Extended Dictionary | Default |
 |----------------------|---------------------|---------|
-| `--with-extdict-ru`  | Russian             | no      |
-| `--with-extdict-cmn` | Mandarin Chinese    | no      |
-| `--with-extdict-yue` | Cantonese           | no      |
+| `--with-extdict-ru`  | Russian             | yes     |
+| `--with-extdict-cmn` | Mandarin Chinese    | yes     |
+| `--with-extdict-yue` | Cantonese           | yes     |
 
 The extended dictionaries are taken from
 [http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/) and
