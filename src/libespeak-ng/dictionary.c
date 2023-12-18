@@ -927,6 +927,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 	static const char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
 
+	memset(syllable_weight, 0, sizeof(syllable_weight));
+	memset(vowel_length, 0, sizeof(vowel_length));
+
 	stressflags = tr->langopts.stress_flags;
 
 	if (dictionary_flags != NULL)
@@ -2897,6 +2900,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			*word_end = 'e';
 	}
 	i = word_end - word;
+	if (i >= N_WORD_BYTES) i = N_WORD_BYTES-1;
 
 	if (word_copy != NULL) {
 		memcpy(word_copy, word, i);

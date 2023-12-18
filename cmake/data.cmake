@@ -99,6 +99,7 @@ add_custom_command(
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile phonemes"
   DEPENDS
+    "${DATA_DIST_DIR}/intonations"
     "$<TARGET_FILE:espeak-ng-bin>"
     ${_phon_deps}
 )
