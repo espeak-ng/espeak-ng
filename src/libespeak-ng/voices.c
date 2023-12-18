@@ -442,6 +442,10 @@ voice_t *LoadVoice(const char *vname, int control)
 		MAKE_MEM_UNDEFINED(&voice_languages, sizeof(voice_languages));
 	}
 
+	if ((vname == NULL || vname[0] == 0) && !(control & 8)) {
+		return NULL;
+	}
+
 	strncpy0(voicename, vname, sizeof(voicename));
 	if (control & 0x10) {
 		strcpy(buf, vname);
@@ -702,14 +706,14 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	if (!tone_only) {
 		if (!!(control & 8/*compiling phonemes*/)) {
-                        /* Set by espeak_ng_CompilePhonemeDataPath when it
-                         * calls LoadVoice("", 8) to set up a dummy(?) voice.
-                         * As phontab may not yet exist this avoids the spurious
-                         * error message and guarantees consistent results by
-                         * not actually reading a potentially bogus phontab...
-                         */
-                        ix = 0;
-                } else if ((ix = SelectPhonemeTableName(phonemes_name)) < 0) {
+			/* Set by espeak_ng_CompilePhonemeDataPath when it
+				* calls LoadVoice("", 8) to set up a dummy(?) voice.
+				* As phontab may not yet exist this avoids the spurious
+				* error message and guarantees consistent results by
+				* not actually reading a potentially bogus phontab...
+				*/
+			ix = 0;
+		} else if ((ix = SelectPhonemeTableName(phonemes_name)) < 0) {
 			fprintf(stderr, "Unknown phoneme table: '%s'\n", phonemes_name);
 			ix = 0;
 		}
