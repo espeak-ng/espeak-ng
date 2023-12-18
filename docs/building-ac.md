@@ -76,12 +76,10 @@ Optionally, you need:
 
 1.  the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) development library
     to enable audio output;
-2.  the speechPlayer development library to
-    enable the speechPlayer Klatt implementation;
-3.  the [sonic](https://github.com/espeak-ng/sonic) development library to
+2.  the [sonic](https://github.com/espeak-ng/sonic) development library to
     enable sonic audio speed up support;
-4.  the `ronn` man-page markdown processor to build the man pages.
-5. sox (http://sox.sourceforge.net/) to enable audio output for SSML <audio> tag
+3.  the `ronn` man-page markdown processor to build the man pages.
+4.  sox (http://sox.sourceforge.net/) to enable audio output for SSML <audio> tag
 
 To build the documentation, you need:
 
