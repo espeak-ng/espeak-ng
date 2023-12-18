@@ -67,6 +67,8 @@ phoneme t        // dental variant of /t/
         ChangePhoneme(b)
     ELIF nextPh(f) THEN
         ChangePhoneme(f)
+    ELIF nextPh(p) THEN
+        ChangePhoneme(p)
     
     ELIF nextPh(isVoiced) THEN
         ChangePhoneme(d)        
@@ -117,7 +119,7 @@ phoneme k
     ELIF nextPh(n) OR nextPh(d) OR nextPh(z) THEN 
         ChangePhoneme(g)
     ENDIF
-  ELIF nextPh(t) OR nextPh(s) OR nextPh(ts) THEN
+  ELIF nextPh(t) OR nextPh(ts) THEN
     ChangePhoneme(t)  
   ELIF nextPh(s) THEN
     IF nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
@@ -131,12 +133,16 @@ endphoneme
 
 phoneme b
   vcd blb stp
-  IF thisPh(isWordEnd) AND nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
-    IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
-        ipa NULL
-    
-    ELIF NOT nextPh(isVoiced) THEN
-        ChangePhoneme(p)        
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
+        IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
+            ipa NULL
+        
+        ELIF NOT nextPh(isVoiced) THEN
+            ChangePhoneme(p)        
+        ENDIF
+    ELSE
+        ChangePhoneme(p)
     ENDIF
   ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
   ELIF nextPh(s) OR nextPh(t) THEN
@@ -163,15 +169,24 @@ phoneme g
   voicingswitch k
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-  IF thisPh(isWordEnd) AND nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
-    IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
-        ipa NULL
-    
-    ELIF NOT nextPh(isVoiced) THEN
-        ChangePhoneme(k)        
-    ENDIF  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
+        IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
+            ipa NULL
+        
+        ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority
+        ELIF NOT nextPh(isVoiced) THEN
+            ChangePhoneme(k)        
+        ENDIF
+    ELSE
+        ChangePhoneme(k)
+    ENDIF
   ELIF nextPh(isVoiced) THEN
-    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+    IF nextPh(m) THEN
+        ChangePhoneme(m)
+    ELIF nextPh(d) THEN
+        ChangePhoneme(g)
+    ELIF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
   //      IF prevPh(**) OR prevPh(R) THEN
   //      ELSE
@@ -199,12 +214,15 @@ phoneme d
   IF thisPh(isWordEnd) AND nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
     IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
         ipa NULL
+    ELIF nextPh(p) THEN
+        ChangePhoneme(p)
     ELIF NOT nextPh(isVoiced) THEN
         ChangePhoneme(t)        
     ENDIF  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
   ELIF nextPh(isVoiced) THEN
-    
-    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+    IF nextPh(m) THEN
+        ChangePhoneme(m)
+    ELIF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(**) OR prevPh(R) OR prevPh(j) OR prevPh(w) OR prevPh(s) OR prevPh(z) THEN
         ChangePhoneme(D)
      
@@ -375,7 +393,7 @@ phoneme l^    // palatal l, e.g. Italian **g**li
         ChangePhoneme(j)
     ELIF nextPh(s) AND next2Ph(isPause) THEN
         ChangePhoneme(j)
-    ELIF nextPh(isVowel) AND NOT thisPh(isWordEnd) THEN
+    ELIF nextPh(isVowel) AND NOT thisPh(isWordEnd) AND NOT thisPh(isWordStart) THEN
         IF nextPh(isStressed) THEN
             IF nextPh(i) OR nextPh(e) THEN
                 ipa NULL

@@ -83,6 +83,7 @@
 ?4 _su) b  (sC         // (subscriure)
 ?3  _o) b  (sC         // (subscriure)
 ?4  _o) b  (sC         // (subscriure)
+?4   A) brs (_A     dds          // (obrs una porta)
   
  
 .group c
@@ -200,7 +201,8 @@
 ?2 _des) e (s      a    // (desesperats)
 ?2 _des) e (n      a    // (desencisats)
 ?1    @) e (ix      E    // 
-?4    C) e (ix+      e    // 
+?4    @) e (ix_+     @    // 
+?4    C) e (ix      e    // 
 //?4    p) e         e2    // (especial)
            
         // contextual E rules
@@ -251,10 +253,10 @@
 ?1      e (da_     E    //
 ?1      e (des_    E    //
 
-?4      e (t_       @    // (marlet)
-?4      e (ta_       @    // (marlet)
-?4      e (ts_       @    // (marlet)
-?4      e (tes_       @    // (marlet)
+?4      e (t_++       @    // (marlet)
+?4      e (ta_++       @    // (marlet)
+?4      e (ts_++       @    // (marlet)
+?4      e (tes_++       @    // (marlet)
 
 ?4      e (ll_       @    // 
 ?4      e (lla_       @    //
@@ -639,6 +641,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         mp (_      m    // do not pronounce final p
 ?3      mp (_      mp   // do pronounce final p (valencian)
 ?4      mp (_      mp   // do pronounce final p (balearic)
+?4      mpls (_      ms   // do pronounce final p (balearic)
 
         mp (s      m    // do not pronounce final p
         mp (cL01   m    //  (assumpció)
@@ -686,7 +689,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         ntb        mb   // (avantbraç)
         ntp        mb   // (avantpassat)
         nts        ns   // (avantsala)
-
+        ntg        ns   // (avantguarda)
+        
         nt (-hA      =nt   // followed by clitic
         nd (-hA      =nt   // followed by clitic
         
@@ -1102,7 +1106,7 @@ _contra) s (A      s    // (contrasentit)
  
         sh          S   // foreign words
         sch         S   // foreign words
-// balearic dissimilation
+// balearic assimilation and dissimilation
 ?4 Aix_) s         ts    // dissimilation (peix salat)
 ?4   s_) s         ts    // (dos sacs)
 
@@ -1113,6 +1117,9 @@ _contra) s (A      s    // (contrasentit)
 ?4   A) s (_x     t    // dissimilation (mateix xarop)
 ?4   A) s (_j     d    // dissimilation (mateix joc)
 ?4   A) s (_gL01  d    // dissimilation (mateix gerro)
+?4   A) s (_l     l    // dissimilation (es literat)
+?4   A) s (_ll    l^    // dissimilation (dos llits)
+?4   A) s (_r         // dissimilation (dos rius)
 
 // balearic elision
 ?4  AL04) s (_C       // semivowel + s + _ + consonnant (feis cas, caus molt)

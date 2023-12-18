@@ -748,8 +748,8 @@ que     $u
 /// auxiliary verbs
 sóc	s'ok
 soc	s'ok
-ets	'ets 
-és	'es 
+//ets	'ets 
+//és	'es 
 som	s'om
 sou	s'ow
 són	s'on
@@ -1778,6 +1778,9 @@ aresnegres	$alt2
 arquitecta	$alt2
 arquitecte	$alt2
 arquitectes	$alt2
+?4 arquitecta	$alt1
+?4 arquitecte	$alt1
+?4 arquitectes	$alt1
 asbest	$alt2
 asbests	$alt2
 assequen	$alt2
@@ -3253,6 +3256,7 @@ zooglees	$alt2
 ?4 extècnics	$alt5
 ?4 exèrcit	$alt5
 ?4 exèrcits	$alt5
+?4 és	$alt5
 ?4 facècia	$alt5
 ?4 facècies	$alt5
 ?4 famèlics	$alt5
@@ -18112,12 +18116,10 @@ argüix		'aRguS
 ?4 benzines		be2nz'in@s
 ?4 berlina		be2**l'in@
 ?4 berlines		be2**l'in@s
-?4 crema		k**'e2m@
-?4 cremes		k**'e2m@s
-?4 cremeta		k**@m'@t@
-?4 cremetes		k**@m'@t@s
-?4 cremosos		k**@m'o2zus
-?4 cremós		k**@m'o2s
+?4 cremeta		k**e2m'@t@
+?4 cremetes		k**e2m'@t@s
+?4 cremosos		k**e2m'o2zus
+?4 cremós		k**e2m'o2s
 ?4 deumeuet		d@wme2w'Et
 ?4 deumeuets		d@wme2w'@ts
 ?4 especial		@spe2si'al
@@ -18174,8 +18176,8 @@ argüix		'aRguS
 ?4 medalles		me2D'aj@s
 ?4 medicacions		me2Dik@si'o2ns
 ?4 medicació		me2Dik@si'o2
-?4 medicament		me2Dik@m'e2nt
-?4 medicaments		me2Dik@m'@ns
+?4 medicament		me2Dik@m'ent
+?4 medicaments		me2Dik@m'ens
 ?4 medicina		me2Dis'in@
 ?4 medicines		me2Dis'in@s
 ?4 medieval		me2Di@v'al
@@ -18208,8 +18210,6 @@ argüix		'aRguS
 ?4 meteorits		me2te2o2**'its
 ?4 metet		me2t'Et
 ?4 metets		me2t'@ts
-?4 metge		m'e2dZ@
-?4 metges		m'e2dZ@s
 ?4 metgessa		me2dZ'@s@
 ?4 metgesses		me2dZ'@s@s
 ?4 metiderrani		me2tiD@R'ani
@@ -18232,8 +18232,6 @@ argüix		'aRguS
 ?4 pedants		pe2D'ans
 ?4 pediatre		pe2Di'at**@
 ?4 pediatres		pe2Di'at**@s
-?4 pedra		p'e2D**@
-?4 pedres		p'e2D**@s
 ?4 pedrota		pe2D**'Ot@
 ?4 pedrotes		pe2D**'Ot@s
 ?4 peixet		pe2S'Et
@@ -18272,12 +18270,10 @@ argüix		'aRguS
 ?4 peuots		pe2w'Ots
 ?4 recuperar		R@kupe2**'a
 ?4 recuperars		R@kupe2**'as
-?4 serp		s'e**p
 ?4 serpeta		s@**p'@t@
 ?4 serpetes		s@**p'@t@s
 ?4 serpota		s@**p'Ot@
 ?4 serpotes		s@**p'Ot@s
-?4 serps		s'e2**ps
 ?4 supeditar		supe2Dit'a
 ?4 supeditars		supe2Dit'as
 ?4 testet		t@st'Et
@@ -18343,7 +18339,6 @@ argüix		'aRguS
 ?4 vàter		v'ateR
 ?4 vàters		v'ateRs
 
-?4 aixeca		@S'e2k@
 ?4 aixecada		@Se2k'aD@
 ?4 aixecades		@Se2k'aD@s
 ?4 aixecam		@Se2k'am
@@ -18364,17 +18359,8 @@ argüix		'aRguS
 ?4 aixecava		@Se2k'av@
 ?4 aixecaven		@Se2k'av@n
 ?4 aixecaves		@Se2k'ave2s
-?4 aixeco		@S'e2ku
-?4 aixeque		@S'e2k@
 ?4 aixequem		@Se2k'@m
-?4 aixequen		@S'e2k@n
-?4 aixeques		@S'e2k@s
-?4 aixequessin		@Se2k'e2sin
-?4 aixequessis		@Se2k'e2sis
 ?4 aixequeu		@Se2k'Ew
-?4 aixequi		@S'e2ki
-?4 aixequin		@S'e2kin
-?4 aixequis		@S'e2kis
 ?4 alegrada		@le2Q**'aD@
 ?4 alegrades		@le2Q**'aD@s
 ?4 alegram		@le2Q**'am
