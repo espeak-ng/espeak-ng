@@ -1601,6 +1601,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			if (dict_flags & FLAG_SPELLWORD) {
 				// redo the word, speaking single letters
 				for (pw = word; *pw != ' ';) {
+					memset(number_buf, 0, sizeof(number_buf));
 					memset(number_buf, ' ', 9);
 					nx = utf8_in(&c_temp, pw);
 					memcpy(&number_buf[2], pw, nx);

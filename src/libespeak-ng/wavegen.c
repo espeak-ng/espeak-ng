@@ -540,14 +540,14 @@ static void AdvanceParameters(void)
 	if (wvoice == NULL)
 		return;
 
-	int x;
+	int x = 0;
 	int ix;
 	static int Flutter_ix = 0;
 
 	// advance the pitch
 	wdata.pitch_ix += wdata.pitch_inc;
 	if ((ix = wdata.pitch_ix>>8) > 127) ix = 127;
-	x = wdata.pitch_env[ix] * wdata.pitch_range;
+	if (wdata.pitch_env) x = wdata.pitch_env[ix] * wdata.pitch_range;
 	wdata.pitch = (x>>8) + wdata.pitch_base;
 	
 	
@@ -563,7 +563,7 @@ static void AdvanceParameters(void)
 	
 	if(const_f0)
 		wdata.pitch = (const_f0<<12);
-	
+
 	if (wdata.pitch < 102400)
 		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
@@ -1264,6 +1264,9 @@ static int WavegenFill2(void)
 	int marker_type;
 	static bool resume = false;
 	static int echo_complete = 0;
+
+	if (wdata.pitch < 102400)
+		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
 	while (out_ptr < out_end) {
 		if (WcmdqUsed() <= 0) {
