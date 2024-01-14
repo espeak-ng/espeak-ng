@@ -16,7 +16,7 @@ SHARED_VERSION=2:51:1 # = *.so.1.1.51
 MKDIR=mkdir -p
 
 AM_CFLAGS = \
-	-Isrc/include -Isrc/include/compat -I$(srcdir)/src/speechPlayer/include -I$(srcdir)/src/ucd-tools/src/include \
+	-I$(srcdir)/src/include -Isrc/include/compat -I$(srcdir)/src/speechPlayer/include -I$(srcdir)/src/ucd-tools/src/include \
 	-D_BSD_SOURCE -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=200112L
 AM_CXXFLAGS =
 
