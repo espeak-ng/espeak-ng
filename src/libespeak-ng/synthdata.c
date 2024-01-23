@@ -79,8 +79,15 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	if ((f_in = fopen(buf, "rb")) == NULL)
 		return create_file_error_context(context, errno, buf);
 
-	if (*ptr != NULL)
+	if (*ptr != NULL) {
 		free(*ptr);
+		*ptr = NULL;
+	}
+	
+	if (length == 0) {
+		*ptr = NULL;
+		return 0;
+	}
 
 	if ((*ptr = malloc(length)) == NULL) {
 		fclose(f_in);
@@ -90,6 +97,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 		int error = errno;
 		fclose(f_in);
 		free(*ptr);
+		*ptr = NULL;
 		return create_file_error_context(context, error, buf);
 	}
 
@@ -122,9 +130,11 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 	// read the version number and sample rate from the first 8 bytes of phondata
 	version = 0; // bytes 0-3, version number
 	rate = 0;    // bytes 4-7, sample rate
-	for (ix = 0; ix < 4; ix++) {
-		version += (wavefile_data[ix] << (ix*8));
-		rate += (wavefile_data[ix+4] << (ix*8));
+	if (wavefile_data) {
+		for (ix = 0; ix < 4; ix++) {
+			version += (wavefile_data[ix] << (ix*8));
+			rate += (wavefile_data[ix+4] << (ix*8));
+		}
 	}
 
 	if (version != version_phdata)

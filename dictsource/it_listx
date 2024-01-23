@@ -38,8 +38,8 @@ acetil	atSe'til
 achei $2
 achemene $2
 acheni  $alt
-achillea	$2
-achillee	$2
+achillea	$3
+achillee	$3
 acin $1
 acquafredd  $alt2
 acquaragia	a/k:ua_R'adZa/
@@ -95,7 +95,7 @@ agora $3
 agord $1
 agost  $alt2
 agrifogli  $alt
-agronomi	$2
+agronom	$2
 agrosistem  $alt
 aikido	$2
 ailoche  $alt
@@ -215,6 +215,7 @@ anglosassoni $3
 angol $1
 angor $1
 angoscia	ang'OSa
+angustia	$2
 angustie	$2
 anidr $1
 anidrid	anid@-*'Id
@@ -361,6 +362,7 @@ asintot $2
 asol $1
 asparag $2
 asparagine	$4
+aspecifici	$3
 aspett  $alt
 assaggini	$3
 assedi  $alt
@@ -710,9 +712,9 @@ canter $1
 canterellio	$4
 cantoria $3
 canzoncine	$3
-caorle $1
 capannori $2
 capell	$alt2
+capezzal	kapets:'al
 capifila	$3
 capiner  $alt2
 capocchia  $alt
@@ -1042,6 +1044,7 @@ coppol  $alt
 coprolalia $4
 copt  $alt
 copti  $alt
+cordami	$2
 cordenons $3  $alt
 cordob $1  $alt2
 cordogli  $alt
@@ -1292,8 +1295,6 @@ doma	$alt
 domandone	$3
 domenic	$alt2
 domicili	$3
-domini	$2
-domino	$1
 domusnovas  $alt
 don  $alt2
 dondolio	$3
@@ -1331,6 +1332,7 @@ ec  $alt
 ecate $1  $alt
 eccentric  $alt
 ecceter $2  $alt
+Ecchimosi	$2
 echo	'e:ko
 economy	$2
 ecosistem  $alt
@@ -1620,6 +1622,7 @@ ferrei	$1
 ferreo	$1
 ferrovia $3
 fes  $alt
+festicciol	festitS:Ol
 festival $1
 fet  $alt
 fettuccine	$3
@@ -1921,7 +1924,9 @@ idroterapeutiche	$5
 idrovor $2
 iempsale $1  $alt
 ifigenia $4
-ifit $1
+ignifughe	$2
+ignifughi	$2
+ignifug	$2
 ignitor $1
 ignot  $alt
 ileo $1
@@ -2069,6 +2074,7 @@ jesi  $alt
 jesol  $alt
 joppol  $alt
 juazeir $1
+juta	j'uta
 juventin	juvent'in
 kairos $2
 kampuchea  $alt2
@@ -3498,7 +3504,7 @@ schem  $alt
 scherm  $alt2
 schern  $alt2
 scherz  $alt2
-schettin $1  $alt2
+schiaccine	$2
 schiribizz	skiRib'its2:
 schivenoglia  $alt
 schizofrenia $4
@@ -3507,7 +3513,7 @@ schizoid	skits'O:jd
 schizoid	skits'ojd
 schizzati	skits2:'ati
 sciabol $1
-sciliar $3
+sciabordio	Sabo@-*d'i:o
 scioper $1
 sciovia $2
 sclerodermia $4
@@ -3941,6 +3947,7 @@ teroldeg $2  $alt
 terranov  $alt
 terremot  $alt
 terren  $alt2
+terreo	$1
 terzogenit $3
 teschi  $alt
 teser $1
