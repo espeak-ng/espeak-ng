@@ -68,9 +68,7 @@ clean-local:
 	cd src && rm -f *.o *~ && cd ..
 	cd src/libespeak-ng/ && rm -f *.o *.lo && cd ../..
 	cd tests && rm -f *.o *.lo && cd ..
-if HAVE_GRADLE
-	cd android && $(GRADLE) clean
-endif
+	cd android && ./gradlew clean
 
 distclean-local:
 	rm -f espeak-ng-data/*_dict
@@ -403,13 +401,13 @@ phsource/phonemes.stamp: \
 ##### android targets:
 
 apk-release: espeakdata
-	cd android && $(GRADLE) assembleRelease
+	cd android && ./gradlew assembleRelease
 
 apk-debug: espeakdata
-	cd android && $(GRADLE) assembleDebug
+	cd android && ./gradlew assembleDebug
 
 apk-check: espeakdata
-	cd android && $(GRADLE) connectedCheck
+	cd android && ./gradlew connectedCheck
 
 espeakdata: espeak-ng-data/phontab dictionaries
 
