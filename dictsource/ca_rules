@@ -79,6 +79,7 @@
     o)  bl (id     Bl // avoid gemination (oblidar) 
 ?2  A)  bl (A      Bl   // avoid gemination in western accents (poble)
   _su)  b  (A      p    // prefix "sub-"
+  _su)  b  (urbi   b    // not prefix "sub-"
 ?3 _su) b  (sC         // (subscriure)
 ?4 _su) b  (sC         // (subscriure)
 ?3  _o) b  (sC         // (subscriure)
@@ -453,6 +454,7 @@
         // glide rules
      A) i (K       j    // glide (aigua)
     Au) i (K       i    // not glide (creui)
+   _re) i (K       i    // not glide (reu)
      u) i (r_      i    // not glide ()
      u) i (sme_      i    // not glide ()
      u) i (sme_      i    // not glide ()
@@ -575,8 +577,10 @@ _macro) i (@        i   // prefix: not glide (macroilla)
      C) ig (_L11   idZ   // (desig volgut)
      C) ig (_$w_alt4    ik   // (pròdig)
      C) ig (s_$w_alt4   ik   // (pròdig)
-     A) ig (p      tS   // (puigpelat)
-     u) ig (m      tS   // (puigmal)
+    //A) ig (p      tS   // (puigpelat)
+   _pu) ig (A      dZ   // (puigàlber)
+   _pu) ig (L11      dZ   // (puigmal)
+   _pu) ig (L10      dZ   // (puigtort)
      
      
 .group j
@@ -647,7 +651,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         mp (cL01   m    //  (assumpció)
         mp (_C     m    // do not pronounce final p
         mb (K      m    // do not pronounce final b (amb mi) or before consonant
-?1      mpt        mt   // do not pronouce p between m and t (compte)
+        mpt        mt   // do not pronouce p between m and t (compte)
 
     // adverbs
     @) ment (_S4t	m''en
@@ -690,6 +694,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         ntp        mb   // (avantpassat)
         nts        ns   // (avantsala)
         ntg        ns   // (avantguarda)
+    tra) n (scend       // (transcendència)
         
         nt (-hA      =nt   // followed by clitic
         nd (-hA      =nt   // followed by clitic
@@ -939,8 +944,8 @@ _ultra) r (A       R    // (ultraric)
   L05J)  rs (_       s     // final r is silent + do not stress the vowel
 
 ?3   A)  r (_+      **    // final r is not silent
-?3   A)  r (s_      **=  // final r is not silent + stress the vowel
-?3 L05J) r (s_      **   // final r is not silent + do not stress the vowel
+?3   A)  r (s_+      **=  // final r is not silent + stress the vowel
+?3 L05J) r (s_+      **   // final r is not silent + do not stress the vowel
 
 
         r (-++          R   // final r is not silent if followed by a pronoun
@@ -949,6 +954,7 @@ _ultra) r (A       R    // (ultraric)
         r (_$w_alt4+    R   // final r is not silent (motor)
 //?4      r (_$w_alt4+    **   // final r is not silent (motor)
 ?4      r (_$w_alt4+       // final r is always silent (motor)       
+?4      r (s_$w_alt4+       // final r is always silent (motor)       
 ?4   A) r (-l+          l   // final r is assimilated if followed by a pronoun
 ?4   A) r (-t+          t   // final r is assimilated if followed by a pronoun
 ?4   A) r (-m+          m   // final r is assimilated if followed by a pronoun
@@ -958,6 +964,7 @@ _ultra) r (A       R    // (ultraric)
         r (_hA$w_alt4+  **   // final r is not silent (motor hidràulic)
         
         r (s_$w_alt4+   R   // final r is not silent
+?3      r (s_$w_alt4+   **   // final r is not silent
     
 
                 // suffixes with final R not silent
@@ -1104,7 +1111,7 @@ _contra) s (A      s    // (contrasentit)
   _tràn) s (A      z    // (transitar)
  _enfon) s (a      z    // (enfonsar)
  
-        sh          S   // foreign words
+  //      sh          S   // foreign words
         sch         S   // foreign words
 // balearic assimilation and dissimilation
 ?4 Aix_) s         ts    // dissimilation (peix salat)
@@ -1257,6 +1264,7 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
         
 ?4      è          ''@  // wordlist: balearic stressed @
 ?4      é ($w_alt5++ ''@  // wordlist: balearic stressed @
+
 
         // cross-accent adaptations
 ?2      è (s_      ''e // final "ès" is pronounced "és" in western accents (francès)
