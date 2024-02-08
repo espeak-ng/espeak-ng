@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.2.2'
     }
 }
 plugins {
@@ -26,13 +26,17 @@ dependencies {
 }
 
 android {
-    compileSdk 33
-    buildToolsVersion "33.0.2"
-    ndkVersion "25.2.9519653"
+    compileSdk 34
+    buildToolsVersion "34.0.0"
+    ndkVersion "26.1.10909125"
     namespace "com.reecedunn.espeak"
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
-        minSdk 19
+        minSdk 21
         targetSdk 33
         versionCode 22
         versionName "1.52-dev"
@@ -105,9 +109,34 @@ tasks.register('createDataVersion', Copy) {
     into file("./res/raw")
 }
 
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleDebug' || task.name == 'assembleRelease') {
+        task.dependsOn createDataVersion
+    }
+}
+
+createDataVersion.mustRunAfter 'externalNativeBuildDebug'
+createDataVersion.mustRunAfter 'externalNativeBuildRelease'
+
 project.afterEvaluate {
     tasks.checkData.dependsOn(externalNativeBuildDebug)
     tasks.createDataArchive.dependsOn(externalNativeBuildDebug)
-    javaPreCompileDebug.dependsOn(tasks.createDataVersion)
-    javaPreCompileRelease.dependsOn(tasks.createDataVersion)
+    tasks.named('mapDebugSourceSetPaths') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('mergeDebugResources') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('packageDebugResources') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('mapReleaseSourceSetPaths') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('mergeReleaseResources') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('packageReleaseResources') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
 }
