@@ -135,6 +135,7 @@
     -t) e (_       e%
 ?1  qu) e (_e           // elision (que ell...)
 ?1  qu) e (_a           // elision (que ara...)
+        es  (-C     %ez // digues-me
     
     
         // initial e pronounced a - western accents (test)
@@ -1051,6 +1052,7 @@ _ultra) r (A       R    // (ultraric)
      
      A) s  (-A     z
      A) s  (-L11     z
+        
  //  L12) s  (A      z
 //        s  (_A     z
 //        s  (_hA    z
