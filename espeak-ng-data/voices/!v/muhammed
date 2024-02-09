@@ -1,0 +1,18 @@
+language variant
+name Muhammed
+roughness 0
+flutter 0
+pitch  75 113
+formant 1 90 80 70
+formant 2 95 90 45
+formant 3 100 75 150
+formant 4 100 75 120
+formant 5 100 10 20
+formant 6  40 100 50
+formant 7 60 50 60
+formant 8 100 50 40
+voicing 175
+consonants 85 80
+tone 60 150 600 200 1000 150 2000 75
+breath 7 5 4 3 2 2
+breathw 150 150 200 200 400 400

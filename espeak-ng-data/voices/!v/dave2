@@ -1,0 +1,23 @@
+language variant
+words 1
+name Dave2
+gender male
+maintainer Enes Deniz
+speed  80
+pitch  67 97
+formant 1 90 50 90
+formant 2 93 60 25
+formant 3 90 50 110
+formant 4 95 50 60
+formant 5 100 10 20
+formant 6  25 75 50
+formant 7 60 25 60
+formant 8 100 50 40
+intonation 2
+voicing 150
+consonants 35 35
+stressAmp 17 18 20 18 20 22 22 21
+stressAdd 5 10 10 10 0 0 20 20
+tone 250 125 600 250 1200 200 2000 75
+breath 15 15 10 5 3 3
+breathw 100 100 50 50 75 75

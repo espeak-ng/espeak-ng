@@ -1,0 +1,12 @@
+language variant 1
+name Alian
+klatt 4
+pitch 58 116
+echo 50 25
+
+formant 1 75 75 75 75
+formant 2 88 75 -75 -75
+formant 3 89 75 75 75
+formant 4 91 75 -75 -75
+formant 5 93 75 75 75
+voicing 2

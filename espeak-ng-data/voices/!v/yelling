@@ -1,0 +1,19 @@
+language variant
+name yelling
+gender male
+maintainer Enes Deniz
+pitch  230 320
+stressAmp 18 18 23 20 20 22 28 22
+formant 1 95 100 80
+formant 2 97 130 110
+formant 3 100 90 80
+formant 4 100 100 90
+formant 5 110 100 100
+formant 6 100 100 100
+formant 7 0 0 0
+formant 8 0 0 0
+voicing 130
+consonants 85 80
+tone 60 50 1200 150 1500 100 2000 75
+speed 80
+stressAdd 2 7 5 2 0 0 7 2
