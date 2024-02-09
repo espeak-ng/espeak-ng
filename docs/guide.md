@@ -10,7 +10,6 @@
   - [Integration guide](integration.md)
 - [Error solutions](#error-solutions)
   - [Problems with pcaudiolib](#problems-with-pcaudiolib)
-  - [Problems with pulseaudio](#problems-with-pulseaudio)
 - [Full list of documents](index.md)
 
 ## Installation
@@ -50,29 +49,4 @@ Then usual workaround with sending data standard output and piping it to `aplay`
 
 But, when `pcaudiolib` is compiled and installed and espeak-ng is reconfigured, recompiled and reinstalled again, simple call works properly.
 
-If espeak-ng is built from source code, ensure that `libpulse-dev` package is installed, or [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) built and installed and, when do `./configure` command, check that status says:
-
-    PulseAudio support:            yes
-
-Then recmpile and install espeak-ng aganin.
-
-
-## Problems with pulseaudio
-
-If Linux distribution doesn't support pulseaudio sound system (or it doesn't work):
-
-1. Remove _pulseaudio_ package install _alsa_:
-
-       sudo apt purge pulseaudio
-       sudo apt autoremove
-       sudo apt install --reinstall alsa
-2. Reboot
-
-       sudo reboot
-3. Recompile espeak-ng with ` --with-pulseaudio=no` support:
-
-       ./autogen.sh
-       ./configure --prefix=/usr --with-pulseaudio=no
-       make -B
-       sudo make install
-
+If espeak-ng is built from source code, ensure that [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) built and installed.
