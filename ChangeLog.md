@@ -9,6 +9,8 @@ The espeak-ng project is a fork of the espeak project.
 
 ### 1.52 (In Development)
 
+* Configuration espeak-ng-data/config can now be used to overwrite language options.
+
 android:
 *  Added directBoot support -- beqabeqa473
 
