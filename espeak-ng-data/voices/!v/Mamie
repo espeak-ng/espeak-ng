@@ -1,0 +1,13 @@
+language variant
+name Mamie
+ consonants 80 70
+voicing 60
+pitch 80 130
+klatt 6
+breath 28
+formant 1 88 100 200 72
+formant 2 108 100 100 100
+formant 3 95 100 200 60
+formant 4 105 100 80
+formant 5 4000 100 100 100
+formant 6 100 100 100

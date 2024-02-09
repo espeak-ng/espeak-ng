@@ -1,0 +1,21 @@
+language variant
+name Wave2
+klatt 6
+gender male 35
+pitch  60 123
+flutter 0
+roughness 0
+stressLength 160 170  175 180  0 0  180 200
+
+
+formant 0 90 110 120
+formant 1 95 85 85 -30
+formant 2 100 60 80
+formant 3 100 60 70
+formant 4 100 15 15
+formant 5 80 40 60
+formant 6 30 0 0
+formant 7 10 0 0
+formant 8 10 0 0
+consonants 100 60
+clarity 4
