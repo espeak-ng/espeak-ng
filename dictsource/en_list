@@ -3369,6 +3369,7 @@ shampoo		$2
 shaoni	SaI'oUni
 shareable	Se@@b@L
 sharpie		$alt2
+shavian		$alt6
 shazam		$alt3
 shea S'eI $only
 shebang		SI#baN
@@ -5703,3 +5704,81 @@ sterile		$alt2
 tensile		$alt2
 virile		$alt2
 ?3 volatile	v0la#t@L
+
+
+
+// Shavian (phonemic alphabet for English)
+// Community Shavian letter names
+𐑐	p'In
+𐑚	b'El
+_𐑑	t'an
+𐑛	d'Vn
+𐑒	k'i:
+𐑜	g'Il
+_𐑓	f'eI
+_𐑝	v'aI
+𐑔	T'O@n
+_𐑞	D'aU
+𐑕	s'i:
+𐑟	z'u:
+𐑖	S'aI
+𐑠	Z'oU
+𐑗	tS'A:
+𐑡	dZ'OI
+𐑘	j'En
+_𐑢	w'eI
+𐑙	s'0N
+𐑣	h'u:
+𐑤	l'am
+𐑮	r'oU
+𐑥	m'i:
+_𐑯	n'aU
+𐑦	'In
+𐑰	'i:v
+𐑧	'EdZ
+𐑱	'eIm
+𐑨	'aS
+_𐑲	'aIz
+_𐑩	@g'oU
+𐑳	'Vp
+𐑪	'0n
+_𐑴	'oUT
+𐑫	'Umf
+_𐑵	'u:z
+𐑬	'aUns
+𐑶	'OIl
+𐑭	'A:mz
+𐑷	'O:t
+_𐑸	'a:ri;@
+_𐑹	'O:r@
+𐑻	'3:rlI
+𐑼	@r'eI
+_𐑽	'i@3ri
+𐑾	'i:;@n
+_𐑿	j'u:l
+
+// Shavian short forms and single letter words
+𐑩	$nounf
+𐑸	%A@		$pastf $only
+𐑲	aI		$u+ $verbf $only
+𐑯	and		$u $pause $only
+𐑞	D@2		$only $nounf
+𐑓	fO@		$u
+𐑽	i@3		$noun
+𐑿	ju:		$u $verbf
+𐑴	'oU
+𐑵	'u:		// "ooh"
+𐑹	O@		$u $pause $only
+𐑝	02v		$u $only
+𐑑	t@5		$verbf $alt7    // @ change to U before vowel
+𐑢	wID		$u   // used sometimes
+
+// Shavian dictionary
+𐑥𐑲	maI 	$u $nounf $strend2
+𐑦𐑯	%In 	$strend $only $nounf
+𐑦𐑟	%Iz 	$pastf $only
+𐑣𐑨𐑛	%had	$pastf $strend2 $only
+𐑖𐑰	Si: 	$u $only $verbsf
+𐑕𐑳𐑥	,sVm	$nounf $unstressend $only
+𐑚𐑳𐑑	,bVt	$pause $only
+𐑢𐑦𐑗	,wItS	$pause $strend2 $only $verbf
