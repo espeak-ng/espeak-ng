@@ -469,7 +469,10 @@ phoneme p
     WAV(ustop/pl)
   ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
-    ChangePhoneme(b)
+    IF nextPh(w) OR nextPh(j) THEN
+    ELSE
+        ChangePhoneme(b)
+    ENDIF
   ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(b)
   ENDIF
@@ -486,7 +489,7 @@ phoneme t        // dental variant of /t/
     WAV(ustop/t_dnt, 30)
   ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
-    IF nextPh(**) THEN
+    IF nextPh(**) OR nextPh(w) OR nextPh(j) THEN
     ELSE
       ChangePhoneme(d)
     ENDIF
@@ -514,7 +517,7 @@ phoneme k
 //    WAV(ustop/kl)
   ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
-    IF nextPh(w) THEN
+    IF nextPh(w) OR nextPh(j) THEN
     ELIF nextPh(n) OR nextPh(d) OR nextPh(z) THEN // arreglar
         ChangePhoneme(g)
     ELIF thisPh(isWordEnd) THEN

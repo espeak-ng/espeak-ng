@@ -105,7 +105,7 @@ phoneme o
 //    ENDIF
     
 //  ENDIF
-//  FMT(vowel/o)
+  FMT(vowel/o)
 endphoneme
 
 phoneme aw // revisar
@@ -166,7 +166,10 @@ phoneme Z // plea**s**ure
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80
   Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
   IF thisPh(isWordStart) OR prevPh(isNotVowel) THEN
-    ChangePhoneme(dZ)
+    IF prevPh(d) THEN
+    ELSE
+        ChangePhoneme(dZ)
+    ENDIF
   ENDIF
 endphoneme
 

@@ -73,7 +73,8 @@
   _bi)  bl (io     Bl   //
   _su)  bl (im     Bl   //
         bm         mm   // assimilation 
-  _su)  bm         bm   // avoid assimilation (submissió, submarí)
+?3      bm         bm   // assimilation 
+//  _su)  bm         bm   // avoid assimilation (submissió, submarí)
     A)  bl (A      bbl  // gemination (poble)
     A)  bl (A$w_alt3+    Bl // avoid gemination 
     o)  bl (id     Bl // avoid gemination (oblidar) 
@@ -200,8 +201,8 @@
 ?1      e (ct      e    // (subjecte)
 ?1   t) e (xt      e    // (text)
 ?2 fon) e (m       e    // (fonema)
-?2 _des) e (s      a    // (desesperats)
-?2 _des) e (n      a    // (desencisats)
+//?2 _des) e (s      a    // (desesperats)
+//?2 _des) e (n      a    // (desencisats)
 ?1    @) e (ix      E    // 
 ?4    @) e (ix_+     @    // 
 ?4    C) e (ix      e    // 
@@ -774,7 +775,7 @@ _macro) i (@        i   // prefix: not glide (macroilla)
      _) o (leo     o2  // (oleoducte)
 
      X) o          O
-?1      o (l       O
+        o (l       O
         o (i       O    // (boira)
         o (c       O    // (poc)
         o (m       O
@@ -1058,7 +1059,7 @@ _ultra) r (A       R    // (ultraric)
 //        s  (_hA    z
         s  (L11    z
 //         s  (_L11   z
-     -) se (_      s@
+     -) se (_      se
      
    //     s (_s       // do not pronounce -s if followed by an s
    //     s (_z       // do not pronounce -s if followed by an z

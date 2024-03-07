@@ -470,7 +470,7 @@ seat		s'eat
 sem			s'Em
 sepc		s,ep'es,e
 sepe		s'epa
-ser			s'e**
+//ser			s'e**
 sim			s'im
 sl			,esa'ela
 sms			,esa,ema'esa
@@ -741,7 +741,6 @@ i $u
 //o       'O 
 ?2 o    'o
 que     $u
-?2 però pe**'o
 ?2 ja   ja
 ?1 si $u
 
@@ -1664,6 +1663,7 @@ xiribecs	$alt1
 ?1 vermells	$alt2
 ?1 xereix	$alt2
 ?1 xereixos	$alt2
+?2  deu     $alt2
 ?2  digest	$alt2
 ?2  digestos	$alt2
 ?2  digests	$alt2
@@ -1677,6 +1677,7 @@ xiribecs	$alt1
 ?2  infestes	$alt2
 ?2  infestos	$alt2
 ?2  infests	$alt2
+?2  lleida  $alt2
 ?2  protest    $alt2
 ?2  protestos  $alt2
 ?2  protests   $alt2
@@ -2514,6 +2515,7 @@ serbi	$alt2
 serbis	$alt2
 servo	$alt2
 servos	$alt2
+set	$alt2
 sex	$alt2
 sext	$alt2
 sexta	$alt2
@@ -4164,6 +4166,13 @@ zooglees	$alt2
 ?2 sobrin	$alt1
 ?2 sobris	$alt1
 ?2 sobro	$alt1
+?2 trobo     $alt1
+?2 trobes    $alt1
+?2 troba     $alt1
+?2 troben    $alt1
+?2 trobi     $alt1
+?2 trobis    $alt1
+?2 trobin    $alt1
 ?2 com  $alt1
 ?2 volen	$alt1
 ?4 volen	$alt1
@@ -5574,6 +5583,7 @@ zona	$alt1
 zones	$alt1
 
 /// words with O (repassat per les dues variants)
+
 actinofris	$alt2
 afores	$alt2
 aixarop	$alt2
@@ -8830,7 +8840,7 @@ zachary		z'aka**i
 ?2 estiu    ist'iw
 ?2 entre    'ent**e
 ?2 joan     dZu'an
-?2 josep    dZus'Ep
+?2 josep    dZos'Ep
 ?3 altisonant  ,altison'ant
 ?3 atzavara addzav'a**a
 ?3 avui     wi
@@ -15288,9 +15298,9 @@ santjoan		sanZo'an
 ?3 santjoan		sandZo'an
 santjoans		s,anZo'ans
 ?3 santjoans		sanddZo'ans
-santjustenc		s,an^Zust'EN
-?2 santjustenc		s,an^Zust'eN
-?3 santjustenc		s,andZust'eNk
+santjustenc		s,an^Zost'EN
+?2 santjustenc		s,an^Zost'eN
+?3 santjustenc		s,andZost'eNk
 santjust		s,anZ'ust
 ?3 santjust		s,andZ'ust
 santmaí		s,amma'i
@@ -16146,9 +16156,9 @@ argüix		'aRguS
 ?3 argüix		'aRgujS
 
 // kings, queens and popes (to translate roman numbers as ordinals)
-(alfons i) alf'ons||p**im'e
-(adrià i)		aD**i'a||p**im'e
-?3 (adrià i)		aD**i'a||p**im'e**
+//(alfons i) alf'ons||p**im'e
+//(adrià i)		aD**i'a||p**im'e
+//?3 (adrià i)		aD**i'a||p**im'e**
 (adrià ii)		aD**i'a||seQ'on
 (adrià iii)		aD**i'a||ters'e
 ?3 (adrià iii)		aD**i'a||ters'e**
@@ -16164,8 +16174,8 @@ argüix		'aRguS
 ?3 (adrià viii)		aD**i'a||ujt'e
 (adrià ix)		aD**i'a||nov'E
 ?2 (adrià ix)		aD**i'a||nov'e
-(agapit i)		aQap'it||p**im'e
-?3 (agapit i)		aQap'it||p**im'e**
+//(agapit i)		aQap'it||p**im'e
+//?3 (agapit i)		aQap'it||p**im'e**
 (agapit ii)		aQap'it||seQ'on
 (agapit iii)		aQap'it||ters'e
 ?3 (agapit iii)		aQap'it||ters'e**
@@ -16181,8 +16191,8 @@ argüix		'aRguS
 ?3 (agapit viii)		aQap'it||ujt'e
 (agapit ix)		aQap'it||nov'E
 ?2 (agapit ix)		aQap'it||nov'e
-(agató i)		aQat'o||p**im'e
-?3 (agató i)		aQat'o||p**im'e**
+//(agató i)		aQat'o||p**im'e
+//?3 (agató i)		aQat'o||p**im'e**
 (agató ii)		aQat'o||seQ'on
 (agató iii)		aQat'o||ters'e
 ?3 (agató iii)		aQat'o||ters'e**
@@ -16198,8 +16208,8 @@ argüix		'aRguS
 ?3 (agató viii)		aQat'o||ujt'e
 (agató ix)		aQat'o||nov'E
 ?2 (agató ix)		aQat'o||nov'e
-(alexandre i)		aleks'and**e||p**im'e
-?3 (alexandre i)		aleks'and**e||p**im'e**
+//(alexandre i)		aleks'and**e||p**im'e
+//?3 (alexandre i)		aleks'and**e||p**im'e**
 (alexandre ii)		aleks'and**e||seQ'on
 (alexandre iii)		aleks'and**e||ters'e
 ?3 (alexandre iii)		aleks'and**e||ters'e**
@@ -16215,8 +16225,8 @@ argüix		'aRguS
 ?3 (alexandre viii)		aleks'and**e||ujt'e
 (alexandre ix)		aleks'and**e||nov'E
 ?2 (alexandre ix)		aleks'and**e||nov'e
-(alfons i)		alf'ons||p**im'e
-?3 (alfons i)		alf'ons||p**im'e**
+//(alfons i)		alf'ons||p**im'e
+//?3 (alfons i)		alf'ons||p**im'e**
 (alfons ii)		alf'ons||seQ'on
 (alfons iii)		alf'ons||ters'e
 ?3 (alfons iii)		alf'ons||ters'e**
@@ -16232,16 +16242,16 @@ argüix		'aRguS
 ?3 (alfons viii)		alf'ons||ujt'e
 (alfons ix)		alf'ons||nov'E
 ?2 (alfons ix)		alf'ons||nov'e
-(amadeu i)		amaD'Ew||p**im'e
-?2 (amadeu )		amaD'ew||p**im'e
-?3 (amadeu i)		amaD'ew||p**im'e**
+//(amadeu i)		amaD'Ew||p**im'e
+//?2 (amadeu )		amaD'ew||p**im'e
+//?3 (amadeu i)		amaD'ew||p**im'e**
 (amadeu ii)		amaD'Ew||seQ'on
-?2 (amadeu i)		amaD'ew||seQ'on
+?2 (amadeu ii)		amaD'ew||seQ'on
 (amadeu iii)		amaD'Ew||ters'e
-?2 (amadeu ii)		amaD'ew||ters'e
+?2 (amadeu iii)		amaD'ew||ters'e
 ?3 (amadeu iii)		amaD'ew||ters'e**
 (amadeu iv)		amaD'Ew||qw'art
-?2 (amadeu i)		amaD'ew||qw'art
+?2 (amadeu iv)		amaD'ew||qw'art
 (amadeu v)		amaD'Ew||sink'E
 ?2 (amadeu v)		amaD'ew||sink'e
 (amadeu vi)		amaD'Ew||siz'E
@@ -16253,16 +16263,16 @@ argüix		'aRguS
 ?3 (amadeu viii)		amaD'ew||ujt'e
 (amadeu ix)		amaD'Ew||nov'E
 ?2 (amadeu ix)		amaD'ew||nov'e
-(anaclet i)		anagl'Et||p**im'e
-?2 (anaclet )		anagl'et||p**im'e
-?3 (anaclet i)		anagl'et||p**im'e**
+//(anaclet i)		anagl'Et||p**im'e
+//?2 (anaclet )		anagl'et||p**im'e
+//?3 (anaclet i)		anagl'et||p**im'e**
 (anaclet ii)		anagl'Et||seQ'on
 ?2 (anaclet i)		anagl'et||seQ'on
 (anaclet iii)		anagl'Et||ters'e
-?2 (anaclet ii)		anagl'et||ters'e
+?2 (anaclet iii)		anagl'et||ters'e
 ?3 (anaclet iii)		anagl'et||ters'e**
 (anaclet iv)		anagl'Et||qw'art
-?2 (anaclet i)		anagl'et||qw'art
+?2 (anaclet iv)		anagl'et||qw'art
 (anaclet v)		anagl'Et||sink'E
 ?2 (anaclet v)		anagl'et||sink'e
 (anaclet vi)		anagl'Et||siz'E
@@ -16274,8 +16284,8 @@ argüix		'aRguS
 ?3 (anaclet viii)		anagl'et||ujt'e
 (anaclet ix)		anagl'Et||nov'E
 ?2 (anaclet ix)		anagl'et||nov'e
-(anastasi i)		anast'azi||p**im'e
-?3 (anastasi i)		anast'azi||p**im'e**
+//(anastasi i)		anast'azi||p**im'e
+//?3 (anastasi i)		anast'azi||p**im'e**
 (anastasi ii)		anast'azi||seQ'on
 (anastasi iii)		anast'azi||ters'e
 ?3 (anastasi iii)		anast'azi||ters'e**
@@ -16291,16 +16301,16 @@ argüix		'aRguS
 ?3 (anastasi viii)		anast'azi||ujt'e
 (anastasi ix)		anast'azi||nov'E
 ?2 (anastasi ix)		anast'azi||nov'e
-(anicet i)		anis'Et||p**im'e
-?2 (anicet )		anis'et||p**im'e
-?3 (anicet i)		anis'et||p**im'e**
+//(anicet i)		anis'Et||p**im'e
+//?2 (anicet )		anis'et||p**im'e
+//?3 (anicet i)		anis'et||p**im'e**
 (anicet ii)		anis'Et||seQ'on
-?2 (anicet i)		anis'et||seQ'on
+?2 (anicet ii)		anis'et||seQ'on
 (anicet iii)		anis'Et||ters'e
-?2 (anicet ii)		anis'et||ters'e
+?2 (anicet iii)		anis'et||ters'e
 ?3 (anicet iii)		anis'et||ters'e**
 (anicet iv)		anis'Et||qw'art
-?2 (anicet i)		anis'et||qw'art
+?2 (anicet iv)		anis'et||qw'art
 (anicet v)		anis'Et||sink'E
 ?2 (anicet v)		anis'et||sink'e
 (anicet vi)		anis'Et||siz'E
@@ -16312,8 +16322,8 @@ argüix		'aRguS
 ?3 (anicet viii)		anis'et||ujt'e
 (anicet ix)		anis'Et||nov'E
 ?2 (anicet ix)		anis'et||nov'e
-(anter i)		ant'e||p**im'e
-?3 (anter i)		ant'e||p**im'e**
+//(anter i)		ant'e||p**im'e
+//?3 (anter i)		ant'e||p**im'e**
 (anter ii)		ant'e||seQ'on
 ?3 (anter ii)		ant'e**||seQ'on
 (anter iii)		ant'e||ters'e
@@ -16336,8 +16346,8 @@ argüix		'aRguS
 (anter ix)		ant'e||nov'E
 ?3 (anter ix)		ant'e**||nov'e
 ?2 (anter ix)		ant'e||nov'e
-(balduí i)		baldu'i||p**im'e
-?3 (balduí i)		baldu'i||p**im'e**
+//(balduí i)		baldu'i||p**im'e
+//?3 (balduí i)		baldu'i||p**im'e**
 (balduí ii)		baldu'i||seQ'on
 (balduí iii)		baldu'i||ters'e
 ?3 (balduí iii)		baldu'i||ters'e**
@@ -16353,16 +16363,16 @@ argüix		'aRguS
 ?3 (balduí viii)		baldu'i||ujt'e
 (balduí ix)		baldu'i||nov'E
 ?2 (balduí ix)		baldu'i||nov'e
-(benet i)		ben'Et||p**im'e
-?2 (benet )		ben'et||p**im'e
-?3 (benet i)		ben'et||p**im'e**
+//(benet i)		ben'Et||p**im'e
+//?2 (benet )		ben'et||p**im'e
+//?3 (benet i)		ben'et||p**im'e**
 (benet ii)		ben'Et||seQ'on
-?2 (benet i)		ben'et||seQ'on
+?2 (benet ii)		ben'et||seQ'on
 (benet iii)		ben'Et||ters'e
-?2 (benet ii)		ben'et||ters'e
+?2 (benet iii)		ben'et||ters'e
 ?3 (benet iii)		ben'et||ters'e**
 (benet iv)		ben'Et||qw'art
-?2 (benet i)		ben'et||qw'art
+?2 (benet iv)		ben'et||qw'art
 (benet v)		ben'Et||sink'E
 ?2 (benet v)		ben'et||sink'e
 (benet vi)		ben'Et||siz'E
@@ -16374,8 +16384,8 @@ argüix		'aRguS
 ?3 (benet viii)		ben'et||ujt'e
 (benet ix)		ben'Et||nov'E
 ?2 (benet ix)		ben'et||nov'e
-(berenguer ramon i)		be**eNg'e||Ram'on||p**im'e
-?3 (berenguer ramon i)		be**eNg'e||Ram'on||p**im'e**
+//(berenguer ramon i)		be**eNg'e||Ram'on||p**im'e
+//?3 (berenguer ramon i)		be**eNg'e||Ram'on||p**im'e**
 (berenguer ramon ii)		be**eNg'e||Ram'on||seQ'on
 ?3 (berenguer ramon ii)		be**eNg'e** Ram'on||seQ'on
 (berenguer ramon iii)		be**eNg'e||Ram'on||ters'e
@@ -16398,8 +16408,8 @@ argüix		'aRguS
 (berenguer ramon ix)		be**eNg'e||Ram'on||nov'E
 ?3 (berenguer ramon ix)		be**eNg'e** Ram'on||nov'e
 ?2 (berenguer ramon ix)		be**eNg'e||Ram'on||nov'e
-(bonifaci i)		bonif'asi||p**im'e
-?3 (bonifaci i)		bonif'asi||p**im'e**
+//(bonifaci i)		bonif'asi||p**im'e
+//?3 (bonifaci i)		bonif'asi||p**im'e**
 (bonifaci ii)		bonif'asi||seQ'on
 (bonifaci iii)		bonif'asi||ters'e
 ?3 (bonifaci iii)		bonif'asi||ters'e**
@@ -16415,8 +16425,8 @@ argüix		'aRguS
 ?3 (bonifaci viii)		bonif'asi||ujt'e
 (bonifaci ix)		bonif'asi||nov'E
 ?2 (bonifaci ix)		bonif'asi||nov'e
-(borrell i)		boR'el^||p**im'e
-?3 (borrell i)		boR'el^||p**im'e**
+//(borrell i)		boR'el^||p**im'e
+//?3 (borrell i)		boR'el^||p**im'e**
 (borrell ii)		boR'el^||seQ'on
 (borrell iii)		boR'el^||ters'e
 ?3 (borrell iii)		boR'el^||ters'e**
@@ -16432,8 +16442,8 @@ argüix		'aRguS
 ?3 (borrell viii)		boR'el^||ujt'e
 (borrell ix)		boR'el^||nov'E
 ?2 (borrell ix)		boR'el^||nov'e
-(calixt i)		kal'iSt||p**im'e
-?3 (calixt i)		kal'iSt||p**im'e**
+//(calixt i)		kal'iSt||p**im'e
+//?3 (calixt i)		kal'iSt||p**im'e**
 (calixt ii)		kal'iSt||seQ'on
 (calixt iii)		kal'iSt||ters'e
 ?3 (calixt iii)		kal'iSt||ters'e**
@@ -16449,16 +16459,16 @@ argüix		'aRguS
 ?3 (calixt viii)		kal'iSt||ujt'e
 (calixt ix)		kal'iSt||nov'E
 ?2 (calixt ix)		kal'iSt||nov'e
-(carles i)		k'aRlEs||p**im'e
-?2 (carles )		k'aRles||p**im'e
-?3 (carles i)		k'aRles||p**im'e**
+//(carles i)		k'aRlEs||p**im'e
+//?2 (carles )		k'aRles||p**im'e
+//?3 (carles i)		k'aRles||p**im'e**
 (carles ii)		k'aRlEs||seQ'on
-?2 (carles i)		k'aRles||seQ'on
+?2 (carles ii)		k'aRles||seQ'on
 (carles iii)		k'aRlEs||ters'e
 ?2 (carles ii)		k'aRles||ters'e
 ?3 (carles iii)		k'aRles||ters'e**
 (carles iv)		k'aRlEs||qw'art
-?2 (carles i)		k'aRles||qw'art
+?2 (carles iv)		k'aRles||qw'art
 (carles v)		k'aRlEs||sink'E
 ?2 (carles v)		k'aRles||sink'e
 (carles vi)		k'aRlEs||siz'E
@@ -16470,8 +16480,8 @@ argüix		'aRguS
 ?3 (carles viii)		k'aRles||ujt'e
 (carles ix)		k'aRlEs||nov'E
 ?2 (carles ix)		k'aRles||nov'e
-(carloman i)		kaRlom'an||p**im'e
-?3 (carloman i)		kaRlom'an||p**im'e**
+//(carloman i)		kaRlom'an||p**im'e
+//?3 (carloman i)		kaRlom'an||p**im'e**
 (carloman ii)		kaRlom'an||seQ'on
 (carloman iii)		kaRlom'an||ters'e
 ?3 (carloman iii)		kaRlom'an||ters'e**
@@ -16487,8 +16497,8 @@ argüix		'aRguS
 ?3 (carloman viii)		kaRlom'an||ujt'e
 (carloman ix)		kaRlom'an||nov'E
 ?2 (carloman ix)		kaRlom'an||nov'e
-(celestí i)		selest'i||p**im'e
-?3 (celestí i)		selest'i||p**im'e**
+//(celestí i)		selest'i||p**im'e
+//?3 (celestí i)		selest'i||p**im'e**
 (celestí ii)		selest'i||seQ'on
 (celestí iii)		selest'i||ters'e
 ?3 (celestí iii)		selest'i||ters'e**
@@ -16504,8 +16514,8 @@ argüix		'aRguS
 ?3 (celestí viii)		selest'i||ujt'e
 (celestí ix)		selest'i||nov'E
 ?2 (celestí ix)		selest'i||nov'e
-(climent i)		klim'en||p**im'e
-?3 (climent i)		klim'en||p**im'e**
+//(climent i)		klim'en||p**im'e
+//?3 (climent i)		klim'en||p**im'e**
 (climent ii)		klim'en||seQ'on
 (climent iii)		klim'en||ters'e
 ?3 (climent iii)		klim'en||ters'e**
@@ -16521,8 +16531,8 @@ argüix		'aRguS
 ?3 (climent viii)		klim'en||ujt'e
 (climent ix)		klim'en||nov'E
 ?2 (climent ix)		klim'en||nov'e
-(conó i)		kon'o||p**im'e
-?3 (conó i)		kon'o||p**im'e**
+//(conó i)		kon'o||p**im'e
+//?3 (conó i)		kon'o||p**im'e**
 (conó ii)		kon'o||seQ'on
 (conó iii)		kon'o||ters'e
 ?3 (conó iii)		kon'o||ters'e**
@@ -16538,8 +16548,8 @@ argüix		'aRguS
 ?3 (conó viii)		kon'o||ujt'e
 (conó ix)		kon'o||nov'E
 ?2 (conó ix)		kon'o||nov'e
-(constantí i)		konstant'i||p**im'e
-?3 (constantí i)		konstant'i||p**im'e**
+//(constantí i)		konstant'i||p**im'e
+//?3 (constantí i)		konstant'i||p**im'e**
 (constantí ii)		konstant'i||seQ'on
 (constantí iii)		konstant'i||ters'e
 ?3 (constantí iii)		konstant'i||ters'e**
@@ -16555,8 +16565,8 @@ argüix		'aRguS
 ?3 (constantí viii)		konstant'i||ujt'e
 (constantí ix)		konstant'i||nov'E
 ?2 (constantí ix)		konstant'i||nov'e
-(corneli i)		koRn'Eli||p**im'e
-?3 (corneli i)		koRn'Eli||p**im'e**
+//(corneli i)		koRn'Eli||p**im'e
+//?3 (corneli i)		koRn'Eli||p**im'e**
 (corneli ii)		koRn'Eli||seQ'on
 (corneli iii)		koRn'Eli||ters'e
 ?3 (corneli iii)		koRn'Eli||ters'e**
@@ -16589,8 +16599,8 @@ argüix		'aRguS
 ?3 (cristòfol viii)		k**ist'Ofol||ujt'e
 (cristòfol ix)		k**ist'Ofol||nov'E
 ?2 (cristòfol ix)		k**ist'Ofol||nov'e
-(damas i)		d'amas||p**im'e
-?3 (damas i)		d'amas||p**im'e**
+//(damas i)		d'amas||p**im'e
+//?3 (damas i)		d'amas||p**im'e**
 (damas ii)		d'amas||seQ'on
 (damas iii)		d'amas||ters'e
 ?3 (damas iii)		d'amas||ters'e**
@@ -16606,8 +16616,8 @@ argüix		'aRguS
 ?3 (damas viii)		d'amas||ujt'e
 (damas ix)		d'amas||nov'E
 ?2 (damas ix)		d'amas||nov'e
-(deodat i)		deoD'at||p**im'e
-?3 (deodat i)		deoD'at||p**im'e**
+//(deodat i)		deoD'at||p**im'e
+//?3 (deodat i)		deoD'at||p**im'e**
 (deodat ii)		deoD'at||seQ'on
 (deodat iii)		deoD'at||ters'e
 ?3 (deodat iii)		deoD'at||ters'e**
@@ -16623,8 +16633,8 @@ argüix		'aRguS
 ?3 (deodat viii)		deoD'at||ujt'e
 (deodat ix)		deoD'at||nov'E
 ?2 (deodat ix)		deoD'at||nov'e
-(dionís i)		djun'is||p**im'e
-?3 (dionís i)		djun'is||p**im'e**
+//(dionís i)		djun'is||p**im'e
+//?3 (dionís i)		djun'is||p**im'e**
 (dionís ii)		djun'is||seQ'on
 (dionís iii)		djun'is||ters'e
 ?3 (dionís iii)		djun'is||ters'e**
@@ -16640,8 +16650,8 @@ argüix		'aRguS
 ?3 (dionís viii)		djun'is||ujt'e
 (dionís ix)		djun'is||nov'E
 ?2 (dionís ix)		djun'is||nov'e
-(donus i)		d'Onus||p**im'e
-?3 (donus i)		d'Onus||p**im'e**
+//(donus i)		d'Onus||p**im'e
+//?3 (donus i)		d'Onus||p**im'e**
 (donus ii)		d'Onus||seQ'on
 (donus iii)		d'Onus||ters'e
 ?3 (donus iii)		d'Onus||ters'e**
@@ -16657,8 +16667,8 @@ argüix		'aRguS
 ?3 (donus viii)		d'Onus||ujt'e
 (donus ix)		d'Onus||nov'E
 ?2 (donus ix)		d'Onus||nov'e
-(eleuteri i)		elewt'E**i||p**im'e
-?3 (eleuteri i)		elewt'E**i||p**im'e**
+//(eleuteri i)		elewt'E**i||p**im'e
+//?3 (eleuteri i)		elewt'E**i||p**im'e**
 (eleuteri ii)		elewt'E**i||seQ'on
 (eleuteri iii)		elewt'E**i||ters'e
 ?3 (eleuteri iii)		elewt'E**i||ters'e**
@@ -16674,8 +16684,8 @@ argüix		'aRguS
 ?3 (eleuteri viii)		elewt'E**i||ujt'e
 (eleuteri ix)		elewt'E**i||nov'E
 ?2 (eleuteri ix)		elewt'E**i||nov'e
-(enric i)		anR'ik||p**im'e
-?3 (enric i)		anR'ik||p**im'e**
+//(enric i)		anR'ik||p**im'e
+//?3 (enric i)		anR'ik||p**im'e**
 (enric ii)		anR'ik||seQ'on
 (enric iii)		anR'ik||ters'e
 ?3 (enric iii)		anR'ik||ters'e**
@@ -16691,8 +16701,8 @@ argüix		'aRguS
 ?3 (enric viii)		anR'ik||ujt'e
 (enric ix)		anR'ik||nov'E
 ?2 (enric ix)		anR'ik||nov'e
-(esteve i)		ast'eBe||p**im'e
-?3 (esteve i)		ast'eBe||p**im'e**
+//(esteve i)		ast'eBe||p**im'e
+//?3 (esteve i)		ast'eBe||p**im'e**
 (esteve ii)		ast'eBe||seQ'on
 (esteve iii)		ast'eBe||ters'e
 ?3 (esteve iii)		ast'eBe||ters'e**
@@ -16708,8 +16718,8 @@ argüix		'aRguS
 ?3 (esteve viii)		ast'eBe||ujt'e
 (esteve ix)		ast'eBe||nov'E
 ?2 (esteve ix)		ast'eBe||nov'e
-(eugeni i)		ewdZ'eni||p**im'e
-?3 (eugeni i)		ewdZ'eni||p**im'e**
+//(eugeni i)		ewdZ'eni||p**im'e
+//?3 (eugeni i)		ewdZ'eni||p**im'e**
 (eugeni ii)		ewdZ'eni||seQ'on
 (eugeni iii)		ewdZ'eni||ters'e
 ?3 (eugeni iii)		ewdZ'eni||ters'e**
@@ -16725,8 +16735,8 @@ argüix		'aRguS
 ?3 (eugeni viii)		ewdZ'eni||ujt'e
 (eugeni ix)		ewdZ'eni||nov'E
 ?2 (eugeni ix)		ewdZ'eni||nov'e
-(eusebi i)		ewz'eBi||p**im'e
-?3 (eusebi i)		ewz'eBi||p**im'e**
+//(eusebi i)		ewz'eBi||p**im'e
+//?3 (eusebi i)		ewz'eBi||p**im'e**
 (eusebi ii)		ewz'eBi||seQ'on
 (eusebi iii)		ewz'eBi||ters'e
 ?3 (eusebi iii)		ewz'eBi||ters'e**
@@ -16742,8 +16752,8 @@ argüix		'aRguS
 ?3 (eusebi viii)		ewz'eBi||ujt'e
 (eusebi ix)		ewz'eBi||nov'E
 ?2 (eusebi ix)		ewz'eBi||nov'e
-(eutiquià i)		ewtiki'a||p**im'e
-?3 (eutiquià i)		ewtiki'a||p**im'e**
+//(eutiquià i)		ewtiki'a||p**im'e
+//?3 (eutiquià i)		ewtiki'a||p**im'e**
 (eutiquià ii)		ewtiki'a||seQ'on
 (eutiquià iii)		ewtiki'a||ters'e
 ?3 (eutiquià iii)		ewtiki'a||ters'e**
@@ -16759,8 +16769,8 @@ argüix		'aRguS
 ?3 (eutiquià viii)		ewtiki'a||ujt'e
 (eutiquià ix)		ewtiki'a||nov'E
 ?2 (eutiquià ix)		ewtiki'a||nov'e
-(evarist i)		eBa**'ist||p**im'e
-?3 (evarist i)		eBa**'ist||p**im'e**
+//(evarist i)		eBa**'ist||p**im'e
+//?3 (evarist i)		eBa**'ist||p**im'e**
 (evarist ii)		eBa**'ist||seQ'on
 (evarist iii)		eBa**'ist||ters'e
 ?3 (evarist iii)		eBa**'ist||ters'e**
@@ -16776,8 +16786,8 @@ argüix		'aRguS
 ?3 (evarist viii)		eBa**'ist||ujt'e
 (evarist ix)		eBa**'ist||nov'E
 ?2 (evarist ix)		eBa**'ist||nov'e
-(fabià i)		faBi'a||p**im'e
-?3 (fabià i)		faBi'a||p**im'e**
+//(fabià i)		faBi'a||p**im'e
+//?3 (fabià i)		faBi'a||p**im'e**
 (fabià ii)		faBi'a||seQ'on
 (fabià iii)		faBi'a||ters'e
 ?3 (fabià iii)		faBi'a||ters'e**
@@ -16793,8 +16803,8 @@ argüix		'aRguS
 ?3 (fabià viii)		faBi'a||ujt'e
 (fabià ix)		faBi'a||nov'E
 ?2 (fabià ix)		faBi'a||nov'e
-(felip i)		fel'ip||p**im'e
-?3 (felip i)		fel'ip||p**im'e**
+//(felip i)		fel'ip||p**im'e
+//?3 (felip i)		fel'ip||p**im'e**
 (felip ii)		fel'ip||seQ'on
 (felip iii)		fel'ip||ters'e
 ?3 (felip iii)		fel'ip||ters'e**
@@ -16810,8 +16820,8 @@ argüix		'aRguS
 ?3 (felip viii)		fel'ip||ujt'e
 (felip ix)		fel'ip||nov'E
 ?2 (felip ix)		fel'ip||nov'e
-(fèlix i)		f'Eliks||p**im'e
-?3 (fèlix i)		f'Eliks||p**im'e**
+//(fèlix i)		f'Eliks||p**im'e
+//?3 (fèlix i)		f'Eliks||p**im'e**
 (fèlix ii)		f'Eliks||seQ'on
 (fèlix iii)		f'Eliks||ters'e
 ?3 (fèlix iii)		f'Eliks||ters'e**
@@ -16827,8 +16837,8 @@ argüix		'aRguS
 ?3 (fèlix viii)		f'Eliks||ujt'e
 (fèlix ix)		f'Eliks||nov'E
 ?2 (fèlix ix)		f'Eliks||nov'e
-(ferran i)		feR'an||p**im'e
-?3 (ferran i)		feR'an||p**im'e**
+//(ferran i)		feR'an||p**im'e
+//?3 (ferran i)		feR'an||p**im'e**
 (ferran ii)		feR'an||seQ'on
 (ferran iii)		feR'an||ters'e
 ?3 (ferran iii)		feR'an||ters'e**
@@ -16844,8 +16854,8 @@ argüix		'aRguS
 ?3 (ferran viii)		feR'an||ujt'e
 (ferran ix)		feR'an||nov'E
 ?2 (ferran ix)		feR'an||nov'e
-(formós i)		foRm'os||p**im'e
-?3 (formós i)		foRm'os||p**im'e**
+//(formós i)		foRm'os||p**im'e
+//?3 (formós i)		foRm'os||p**im'e**
 (formós ii)		foRm'os||seQ'on
 (formós iii)		foRm'os||ters'e
 ?3 (formós iii)		foRm'os||ters'e**
@@ -16861,8 +16871,8 @@ argüix		'aRguS
 ?3 (formós viii)		foRm'os||ujt'e
 (formós ix)		foRm'os||nov'E
 ?2 (formós ix)		foRm'os||nov'e
-(francesc i)		f**ans'Esk||p**im'e
-?3 (francesc i)		f**ans'esk||p**im'e**
+//(francesc i)		f**ans'Esk||p**im'e
+//?3 (francesc i)		f**ans'esk||p**im'e**
 (francesc ii)		f**ans'Esk||seQ'on
 ?2 (francesc ii)		f**ans'esk||seQ'on
 (francesc iii)		f**ans'Esk||ters'e
@@ -16881,8 +16891,8 @@ argüix		'aRguS
 ?3 (francesc viii)		f**ans'esk||ujt'e
 (francesc ix)		f**ans'Esk||nov'E
 ?2 (francesc ix)		f**ans'esk||nov'e
-(gai i)		g'aj||p**im'e
-?3 (gai i)		g'aj||p**im'e**
+//(gai i)		g'aj||p**im'e
+//?3 (gai i)		g'aj||p**im'e**
 (gai ii)		g'aj||seQ'on
 (gai iii)		g'aj||ters'e
 ?3 (gai iii)		g'aj||ters'e**
@@ -16898,8 +16908,8 @@ argüix		'aRguS
 ?3 (gai viii)		g'aj||ujt'e
 (gai ix)		g'aj||nov'E
 ?2 (gai ix)		g'aj||nov'e
-(gelasi i)		Zel'azi||p**im'e
-?3 (gelasi i)		Zel'azi||p**im'e**
+//(gelasi i)		Zel'azi||p**im'e
+//?3 (gelasi i)		Zel'azi||p**im'e**
 (gelasi ii)		Zel'azi||seQ'on
 (gelasi iii)		Zel'azi||ters'e
 ?3 (gelasi iii)		Zel'azi||ters'e**
@@ -16915,8 +16925,8 @@ argüix		'aRguS
 ?3 (gelasi viii)		Zel'azi||ujt'e
 (gelasi ix)		Zel'azi||nov'E
 ?2 (gelasi ix)		Zel'azi||nov'e
-(gregori i)		g**eQ'O**i||p**im'e
-?3 (gregori i)		g**eQ'O**i||p**im'e**
+//(gregori i)		g**eQ'O**i||p**im'e
+//?3 (gregori i)		g**eQ'O**i||p**im'e**
 (gregori ii)		g**eQ'O**i||seQ'on
 (gregori iii)		g**eQ'O**i||ters'e
 ?3 (gregori iii)		g**eQ'O**i||ters'e**
@@ -16932,8 +16942,8 @@ argüix		'aRguS
 ?3 (gregori viii)		g**eQ'O**i||ujt'e
 (gregori ix)		g**eQ'O**i||nov'E
 ?2 (gregori ix)		g**eQ'O**i||nov'e
-(guifré i)		gif**'e||p**im'e
-?3 (guifré i)		gif**'e||p**im'e**
+//(guifré i)		gif**'e||p**im'e
+//?3 (guifré i)		gif**'e||p**im'e**
 (guifré ii)		gif**'e||seQ'on
 (guifré iii)		gif**'e||ters'e
 ?3 (guifré iii)		gif**'e||ters'e**
@@ -16949,8 +16959,8 @@ argüix		'aRguS
 ?3 (guifré viii)		gif**'e||ujt'e
 (guifré ix)		gif**'e||nov'E
 ?2 (guifré ix)		gif**'e||nov'e
-(higini i)		iZ'ini||p**im'e
-?3 (higini i)		iZ'ini||p**im'e**
+//(higini i)		iZ'ini||p**im'e
+//?3 (higini i)		iZ'ini||p**im'e**
 (higini ii)		iZ'ini||seQ'on
 (higini iii)		iZ'ini||ters'e
 ?3 (higini iii)		iZ'ini||ters'e**
@@ -16966,8 +16976,8 @@ argüix		'aRguS
 ?3 (higini viii)		iZ'ini||ujt'e
 (higini ix)		iZ'ini||nov'E
 ?2 (higini ix)		iZ'ini||nov'e
-(hilari i)		il'a**i||p**im'e
-?3 (hilari i)		il'a**i||p**im'e**
+//(hilari i)		il'a**i||p**im'e
+//?3 (hilari i)		il'a**i||p**im'e**
 (hilari ii)		il'a**i||seQ'on
 (hilari iii)		il'a**i||ters'e
 ?3 (hilari iii)		il'a**i||ters'e**
@@ -16983,8 +16993,8 @@ argüix		'aRguS
 ?3 (hilari viii)		il'a**i||ujt'e
 (hilari ix)		il'a**i||nov'E
 ?2 (hilari ix)		il'a**i||nov'e
-(honori i)		on'o**i||p**im'e
-?3 (honori i)		on'o**i||p**im'e**
+//(honori i)		on'o**i||p**im'e
+//?3 (honori i)		on'o**i||p**im'e**
 (honori ii)		on'o**i||seQ'on
 (honori iii)		on'o**i||ters'e
 ?3 (honori iii)		on'o**i||ters'e**
@@ -17000,29 +17010,29 @@ argüix		'aRguS
 ?3 (honori viii)		on'o**i||ujt'e
 (honori ix)		on'o**i||nov'E
 ?2 (honori ix)		on'o**i||nov'e
-(hormisdes i)		uRm'izDEs||p**im'e
-?2 (hormisdes )		uRm'izDes||p**im'e
-?3 (hormisdes i)		uRm'izDes||p**im'e**
-(hormisdes ii)		uRm'izDEs||seQ'on
-?2 (hormisdes i)		uRm'izDes||seQ'on
-(hormisdes iii)		uRm'izDEs||ters'e
-?2 (hormisdes ii)		uRm'izDes||ters'e
-?3 (hormisdes iii)		uRm'izDes||ters'e**
-(hormisdes iv)		uRm'izDEs||qw'art
-?2 (hormisdes i)		uRm'izDes||qw'art
-(hormisdes v)		uRm'izDEs||sink'E
-?2 (hormisdes v)		uRm'izDes||sink'e
-(hormisdes vi)		uRm'izDEs||siz'E
-?2 (hormisdes vi)		uRm'izDes||siz'e
-(hormisdes vii)		uRm'izDEs||set'E
-?2 (hormisdes vii)		uRm'izDes||set'e
-(hormisdes viii)		uRm'izDEs||buit'E
-?2 (hormisdes viii)		uRm'izDes||buit'e
-?3 (hormisdes viii)		uRm'izDes||ujt'e
-(hormisdes ix)		uRm'izDEs||nov'E
-?2 (hormisdes ix)		uRm'izDes||nov'e
-(hug i)		'uk||p**im'e
-?3 (hug i)		'uk||p**im'e**
+//(hormisdes i)		uRm'izDEs||p**im'e
+//?2 (hormisdes )		uRm'izDes||p**im'e
+//?3 (hormisdes i)		uRm'izDes||p**im'e**
+(hormisdes ii)		oRm'izDEs||seQ'on
+?2 (hormisdes i)		oRm'izDes||seQ'on
+(hormisdes iii)		oRm'izDEs||ters'e
+?2 (hormisdes ii)		oRm'izDes||ters'e
+?3 (hormisdes iii)		oRm'izDes||ters'e**
+(hormisdes iv)		oRm'izDEs||qw'art
+?2 (hormisdes i)		oRm'izDes||qw'art
+(hormisdes v)		oRm'izDEs||sink'E
+?2 (hormisdes v)		oRm'izDes||sink'e
+(hormisdes vi)		oRm'izDEs||siz'E
+?2 (hormisdes vi)		oRm'izDes||siz'e
+(hormisdes vii)		oRm'izDEs||set'E
+?2 (hormisdes vii)		oRm'izDes||set'e
+(hormisdes viii)		oRm'izDEs||buit'E
+?2 (hormisdes viii)		oRm'izDes||buit'e
+?3 (hormisdes viii)		oRm'izDes||ujt'e
+(hormisdes ix)		oRm'izDEs||nov'E
+?2 (hormisdes ix)		oRm'izDes||nov'e
+//(hug i)		'uk||p**im'e
+//?3 (hug i)		'uk||p**im'e**
 (hug ii)		'uk||seQ'on
 (hug iii)		'uk||ters'e
 ?3 (hug iii)		'uk||ters'e**
@@ -17038,8 +17048,8 @@ argüix		'aRguS
 ?3 (hug viii)		'uk||ujt'e
 (hug ix)		'uk||nov'E
 ?2 (hug ix)		'uk||nov'e
-(innocenci i)		innos'ensi||p**im'e
-?3 (innocenci i)		innos'ensi||p**im'e**
+//(innocenci i)		innos'ensi||p**im'e
+//?3 (innocenci i)		innos'ensi||p**im'e**
 (innocenci ii)		innos'ensi||seQ'on
 (innocenci iii)		innos'ensi||ters'e
 ?3 (innocenci iii)		innos'ensi||ters'e**
@@ -17055,118 +17065,111 @@ argüix		'aRguS
 ?3 (innocenci viii)		innos'ensi||ujt'e
 (innocenci ix)		innos'ensi||nov'E
 ?2 (innocenci ix)		innos'ensi||nov'e
-(isabel i)		izaB'El||p**im'e
-?2 (isabel )		izaB'El||p**im'e
-?3 (isabel i)		izaB'El||p**im'e**
-(isabel ii)		izaB'El||seQ'on
-?2 (isabel i)		izaB'El||seQ'on
-(isabel iii)		izaB'El||ters'e
-?2 (isabel ii)		izaB'El||ters'e
-?3 (isabel iii)		izaB'El||ters'e**
-(isabel iv)		izaB'El||qw'art
-?2 (isabel i)		izaB'El||qw'art
-(isabel v)		izaB'El||sink'E
-?2 (isabel v)		izaB'El||sink'e
-(isabel vi)		izaB'El||siz'E
-?2 (isabel vi)		izaB'El||siz'e
-(isabel vii)		izaB'El||set'E
-?2 (isabel vii)		izaB'El||set'e
-(isabel viii)		izaB'El||buit'E
-?2 (isabel viii)		izaB'El||buit'e
-?3 (isabel viii)		izaB'El||ujt'e
+//(isabel i)		izaB'El||p**im'e
+//?2 (isabel )		izaB'El||p**im'e
+//?3 (isabel i)		izaB'El||p**im'e**
+(isabel ii)		izaB'El||seQ'ona
+(isabel iii)		izaB'El||ters'e**a
+(isabel iv)		izaB'El||qw'arta
+(isabel v)		izaB'El||sink'Ena
+?2 (isabel v)		izaB'El||sink'ena
+(isabel vi)		izaB'El||siz'Ena
+?2 (isabel vi)		izaB'El||siz'ena
+(isabel vii)		izaB'El||set'Ena
+?2 (isabel vii)		izaB'El||set'ena
+(isabel viii)		izaB'El||buit'Ena
+?2 (isabel viii)		izaB'El||uit'ena
+?3 (isabel viii)		izaB'El||ujt'ena
 (isabel ix)		izaB'El||nov'E
 ?2 (isabel ix)		izaB'El||nov'e
-(jaume i)		dZ'awme||p**im'e
-?3 (jaume i)		dZ'awme||p**im'e**
-(jaume ii)		dZ'awme||seQ'on
-(jaume iii)		dZ'awme||ters'e
+//(jaume i)		dZ'awme||p**im'e
+//?3 (jaume i)		dZ'awme||p**im'e**
+(jaume ii)		Z'awme||seQ'on
+(jaume iii)		Z'awme||ters'e
 ?3 (jaume iii)		dZ'awme||ters'e**
-(jaume iv)		dZ'awme||qw'art
-(jaume v)		dZ'awme||sink'E
-?2 (jaume v)		dZ'awme||sink'e
-(jaume vi)		dZ'awme||siz'E
-?2 (jaume vi)		dZ'awme||siz'e
-(jaume vii)		dZ'awme||set'E
-?2 (jaume vii)		dZ'awme||set'e
-(jaume viii)		dZ'awme||buit'E
-?2 (jaume viii)		dZ'awme||buit'e
-?3 (jaume viii)		dZ'awme||ujt'e
-(jaume ix)		dZ'awme||nov'E
-?2 (jaume ix)		dZ'awme||nov'e
-(joan i)		dZu'an||p**im'e
-?3 (joan i)		dZu'an||p**im'e**
-(joan ii)		dZu'an||seQ'on
-(joan iii)		dZu'an||ters'e
+(jaume iv)		Z'awme||qw'art
+(jaume v)		Z'awme||sink'E
+?2 (jaume v)		Z'awme||sink'e
+(jaume vi)		Z'awme||siz'E
+?2 (jaume vi)		Z'awme||siz'e
+(jaume vii)		Z'awme||set'E
+?2 (jaume vii)		Z'awme||set'e
+(jaume viii)		Z'awme||buit'E
+?2 (jaume viii)		Z'awme||buit'e
+?3 (jaume viii)		Z'awme||ujt'e
+(jaume ix)		Z'awme||nov'E
+?2 (jaume ix)		Z'awme||nov'e
+//(joan i)		dZu'an||p**im'e
+//?3 (joan i)		dZu'an||p**im'e**
+(joan ii)		Zu'an||seQ'on
+(joan iii)		Zu'an||ters'e
 ?3 (joan iii)		dZu'an||ters'e**
-(joan iv)		dZu'an||qw'art
-(joan v)		dZu'an||sink'E
-?2 (joan v)		dZu'an||sink'e
-(joan vi)		dZu'an||siz'E
-?2 (joan vi)		dZu'an||siz'e
-(joan vii)		dZu'an||set'E
-?2 (joan vii)		dZu'an||set'e
-(joan viii)		dZu'an||buit'E
-?2 (joan viii)		dZu'an||buit'e
-?3 (joan viii)		dZu'an||ujt'e
-(joan ix)		dZu'an||nov'E
-?2 (joan ix)		dZu'an||nov'e
-(joana i)		dZo'anE||p**im'e
-?3 (joana i)		dZo'anE||p**im'e**
-(joana ii)		dZo'anE||seQ'on
-(joana iii)		dZo'anE||ters'e
-?3 (joana iii)		dZo'anE||ters'e**
-(joana iv)		dZo'anE||qw'art
-(joana v)		dZo'anE||sink'E
-?2 (joana v)		dZo'anE||sink'e
-(joana vi)		dZo'anE||siz'E
-?2 (joana vi)		dZo'anE||siz'e
-(joana vii)		dZo'anE||set'E
-?2 (joana vii)		dZo'anE||set'e
-(joana viii)		dZo'anE||buit'E
-?2 (joana viii)		dZo'anE||buit'e
-?3 (joana viii)		dZo'anE||ujt'e
-(joana ix)		dZo'anE||nov'E
-?2 (joana ix)		dZo'anE||nov'e
-(josep i)		dZus'Ep||p**im'e
-?2 (josep )		dZus'Ep||p**im'e
-?3 (josep i)		dZus'Ep||p**im'e**
-(josep ii)		dZus'Ep||seQ'on
-?2 (josep i)		dZus'Ep||seQ'on
-(josep iii)		dZus'Ep||ters'e
-?2 (josep ii)		dZus'Ep||ters'e
-?3 (josep iii)		dZus'Ep||ters'e**
-(josep iv)		dZus'Ep||qw'art
-?2 (josep i)		dZus'Ep||qw'art
-(josep v)		dZus'Ep||sink'E
-?2 (josep v)		dZus'Ep||sink'e
-(josep vi)		dZus'Ep||siz'E
-?2 (josep vi)		dZus'Ep||siz'e
-(josep vii)		dZus'Ep||set'E
-?2 (josep vii)		dZus'Ep||set'e
-(josep viii)		dZus'Ep||buit'E
-?2 (josep viii)		dZus'Ep||buit'e
-?3 (josep viii)		dZus'Ep||ujt'e
-(josep ix)		dZus'Ep||nov'E
-?2 (josep ix)		dZus'Ep||nov'e
-(juli i)		dZ'uli||p**im'e
-?3 (juli i)		dZ'uli||p**im'e**
-(juli ii)		dZ'uli||seQ'on
-(juli iii)		dZ'uli||ters'e
-?3 (juli iii)		dZ'uli||ters'e**
-(juli iv)		dZ'uli||qw'art
-(juli v)		dZ'uli||sink'E
-?2 (juli v)		dZ'uli||sink'e
-(juli vi)		dZ'uli||siz'E
-?2 (juli vi)		dZ'uli||siz'e
-(juli vii)		dZ'uli||set'E
-?2 (juli vii)		dZ'uli||set'e
-(juli viii)		dZ'uli||buit'E
-?2 (juli viii)		dZ'uli||buit'e
-?3 (juli viii)		dZ'uli||ujt'e
-(juli ix)		dZ'uli||nov'E
-?2 (juli ix)		dZ'uli||nov'e
-(landó i)		land'o||p**im'e
-?3 (landó i)		land'o||p**im'e**
+(joan iv)		Zu'an||qw'art
+(joan v)		Zu'an||sink'E
+?2 (joan v)		Zu'an||sink'e
+(joan vi)		Zu'an||siz'E
+?2 (joan vi)		Zu'an||siz'e
+(joan vii)		Zu'an||set'E
+?2 (joan vii)		Zu'an||set'e
+(joan viii)		Zu'an||buit'E
+?2 (joan viii)		Zu'an||buit'e
+?3 (joan viii)		Zu'an||ujt'e
+(joan ix)		Zu'an||nov'E
+?2 (joan ix)		Zu'an||nov'e
+(joana ii)		Zo'ana||seQ'ona
+(joana iii)		Zo'ana||ters'e**a
+(joana iv)		Zo'ana||qw'arta
+(joana v)		Zo'ana||sink'Ena
+?2 (joana v)		Zo'ana||sink'ena
+(joana vi)		Zo'ana||siz'Ena
+?2 (joana vi)		Zo'ana||siz'ena
+(joana vii)		Zo'ana||set'Ena
+?2 (joana vii)		Zo'ana||set'ena
+(joana viii)		Zo'ana||buit'Ena
+?2 (joana viii)		Zo'ana||uit'ena
+?3 (joana viii)		Zo'ana||ujt'ena
+(joana ix)		Zo'ana||nov'E
+?2 (joana ix)		Zo'ana||nov'e
+//(josep i)		dZos'Ep||p**im'e
+//?2 (josep )		dZos'Ep||p**im'e
+//?3 (josep i)		dZos'Ep||p**im'e**
+(josep ii)		Zos'Ep||seQ'on
+?2 (josep ii)		Zos'Ep||seQ'on
+(josep iii)		Zos'Ep||ters'e
+?2 (josep iii)		Zos'Ep||ters'e
+?3 (josep iii)		Zos'Ep||ters'e**
+(josep iv)		Zos'Ep||qw'art
+?2 (josep iv)		Zos'Ep||qw'art
+(josep v)		Zos'Ep||sink'E
+?2 (josep v)		Zos'Ep||sink'e
+(josep vi)		Zos'Ep||siz'E
+?2 (josep vi)		Zos'Ep||siz'e
+(josep vii)		Zos'Ep||set'E
+?2 (josep vii)		Zos'Ep||set'e
+(josep viii)		Zos'Ep||buit'E
+?2 (josep viii)		Zos'Ep||buit'e
+?3 (josep viii)		Zos'Ep||ujt'e
+(josep ix)		Zos'Ep||nov'E
+?2 (josep ix)		Zos'Ep||nov'e
+//(juli i)		Z'uli||p**im'e
+//?3 (juli i)		Z'uli||p**im'e**
+(juli ii)		Z'uli||seQ'on
+(juli iii)		Z'uli||ters'e
+?3 (juli iii)		Z'uli||ters'e**
+(juli iv)		Z'uli||qw'art
+(juli v)		Z'uli||sink'E
+?2 (juli v)		Z'uli||sink'e
+(juli vi)		Z'uli||siz'E
+?2 (juli vi)		Z'uli||siz'e
+(juli vii)		Z'uli||set'E
+?2 (juli vii)		Z'uli||set'e
+(juli viii)		Z'uli||buit'E
+?2 (juli viii)		Z'uli||buit'e
+?3 (juli viii)		Z'uli||ujt'e
+(juli ix)		Z'uli||nov'E
+?2 (juli ix)		Z'uli||nov'e
+//(landó i)		land'o||p**im'e
+// ?3 (landó i)		land'o||p**im'e**
 (landó ii)		land'o||seQ'on
 (landó iii)		land'o||ters'e
 ?3 (landó iii)		land'o||ters'e**
@@ -17182,8 +17185,8 @@ argüix		'aRguS
 ?3 (landó viii)		land'o||ujt'e
 (landó ix)		land'o||nov'E
 ?2 (landó ix)		land'o||nov'e
-(liberi i)		liB'E**i||p**im'e
-?3 (liberi i)		liB'E**i||p**im'e**
+//(liberi i)		liB'E**i||p**im'e
+// ?3 (liberi i)		liB'E**i||p**im'e**
 (liberi ii)		liB'E**i||seQ'on
 (liberi iii)		liB'E**i||ters'e
 ?3 (liberi iii)		liB'E**i||ters'e**
@@ -17199,29 +17202,27 @@ argüix		'aRguS
 ?3 (liberi viii)		liB'E**i||ujt'e
 (liberi ix)		liB'E**i||nov'E
 ?2 (liberi ix)		liB'E**i||nov'e
-(lleó i)		l^eEo||p**im'e
-?2 (lleó )		l^e'o||p**im'e
-?3 (lleó i)		l^e'o||p**im'e**
-(lleó ii)		l^eEo||seQ'on
-?2 (lleó i)		l^e'o||seQ'on
-(lleó iii)		l^eEo||ters'e
-?2 (lleó ii)		l^e'o||ters'e
+//(lleó i)		l^e'o||p**im'e
+//?2 (lleó )		l^e'o||p**im'e
+// ?3 (lleó i)		l^e'o||p**im'e**
+(lleó ii)		l^e'o||seQ'on
+?2 (lleó ii)		l^e'o||seQ'on
+(lleó iii)		l^e'o||ters'e
 ?3 (lleó iii)		l^e'o||ters'e**
-(lleó iv)		l^eEo||qw'art
-?2 (lleó i)		l^e'o||qw'art
-(lleó v)		l^eEo||sink'E
+(lleó iv)		l^e'o||qw'art
+(lleó v)		l^e'o||sink'E
 ?2 (lleó v)		l^e'o||sink'e
-(lleó vi)		l^eEo||siz'E
+(lleó vi)		l^e'o||siz'E
 ?2 (lleó vi)		l^e'o||siz'e
-(lleó vii)		l^eEo||set'E
+(lleó vii)		l^e'o||set'E
 ?2 (lleó vii)		l^e'o||set'e
-(lleó viii)		l^eEo||buit'E
+(lleó viii)		l^e'o||buit'E
 ?2 (lleó viii)		l^e'o||buit'e
 ?3 (lleó viii)		l^e'o||ujt'e
-(lleó ix)		l^eEo||nov'E
+(lleó ix)		l^e'o||nov'E
 ?2 (lleó ix)		l^e'o||nov'e
-(lli i)		l^'i||p**im'e
-?3 (lli i)		l^'i||p**im'e**
+//(lli i)		l^'i||p**im'e
+// ?3 (lli i)		l^'i||p**im'e**
 (lli ii)		l^'i||seQ'on
 (lli iii)		l^'i||ters'e
 ?3 (lli iii)		l^'i||ters'e**
@@ -17237,8 +17238,8 @@ argüix		'aRguS
 ?3 (lli viii)		l^'i||ujt'e
 (lli ix)		l^'i||nov'E
 ?2 (lli ix)		l^'i||nov'e
-(lluís i)		l^u'is||p**im'e
-?3 (lluís i)		l^u'is||p**im'e**
+//(lluís i)		l^u'is||p**im'e
+// ?3 (lluís i)		l^u'is||p**im'e**
 (lluís ii)		l^u'is||seQ'on
 (lluís iii)		l^u'is||ters'e
 ?3 (lluís iii)		l^u'is||ters'e**
@@ -17254,8 +17255,8 @@ argüix		'aRguS
 ?3 (lluís viii)		l^u'is||ujt'e
 (lluís ix)		l^u'is||nov'E
 ?2 (lluís ix)		l^u'is||nov'e
-(lotari i)		lot'a**i||p**im'e
-?3 (lotari i)		lot'a**i||p**im'e**
+//(lotari i)		lot'a**i||p**im'e
+// ?3 (lotari i)		lot'a**i||p**im'e**
 (lotari ii)		lot'a**i||seQ'on
 (lotari iii)		lot'a**i||ters'e
 ?3 (lotari iii)		lot'a**i||ters'e**
@@ -17271,8 +17272,8 @@ argüix		'aRguS
 ?3 (lotari viii)		lot'a**i||ujt'e
 (lotari ix)		lot'a**i||nov'E
 ?2 (lotari ix)		lot'a**i||nov'e
-(luci i)		l'usi||p**im'e
-?3 (luci i)		l'usi||p**im'e**
+//(luci i)		l'usi||p**im'e
+// ?3 (luci i)		l'usi||p**im'e**
 (luci ii)		l'usi||seQ'on
 (luci iii)		l'usi||ters'e
 ?3 (luci iii)		l'usi||ters'e**
@@ -17288,8 +17289,8 @@ argüix		'aRguS
 ?3 (luci viii)		l'usi||ujt'e
 (luci ix)		l'usi||nov'E
 ?2 (luci ix)		l'usi||nov'e
-(marc i)		m'aRk||p**im'e
-?3 (marc i)		m'aRk||p**im'e**
+//(marc i)		m'aRk||p**im'e
+// ?3 (marc i)		m'aRk||p**im'e**
 (marc ii)		m'aRk||seQ'on
 (marc iii)		m'aRk||ters'e
 ?3 (marc iii)		m'aRk||ters'e**
@@ -17305,16 +17306,13 @@ argüix		'aRguS
 ?3 (marc viii)		m'aRk||ujt'e
 (marc ix)		m'aRk||nov'E
 ?2 (marc ix)		m'aRk||nov'e
-(marcel i)		maRs'El||p**im'e
-?2 (marcel )		maRs'El||p**im'e
-?3 (marcel i)		maRs'El||p**im'e**
+//(marcel i)		maRs'El||p**im'e
+// ?3 (marcel i)		maRs'El||p**im'e**
 (marcel ii)		maRs'El||seQ'on
-?2 (marcel i)		maRs'El||seQ'on
+// ?2 (marcel i)		maRs'El||seQ'on
 (marcel iii)		maRs'El||ters'e
-?2 (marcel ii)		maRs'El||ters'e
 ?3 (marcel iii)		maRs'El||ters'e**
 (marcel iv)		maRs'El||qw'art
-?2 (marcel i)		maRs'El||qw'art
 (marcel v)		maRs'El||sink'E
 ?2 (marcel v)		maRs'El||sink'e
 (marcel vi)		maRs'El||siz'E
@@ -17326,8 +17324,8 @@ argüix		'aRguS
 ?3 (marcel viii)		maRs'El||ujt'e
 (marcel ix)		maRs'El||nov'E
 ?2 (marcel ix)		maRs'El||nov'e
-(marcel·lí i)		maRsel'i||p**im'e
-?3 (marcel·lí i)		maRsel'i||p**im'e**
+//(marcel·lí i)		maRsel'i||p**im'e
+// ?3 (marcel·lí i)		maRsel'i||p**im'e**
 (marcel·lí ii)		maRsel'i||seQ'on
 (marcel·lí iii)		maRsel'i||ters'e
 ?3 (marcel·lí iii)		maRsel'i||ters'e**
@@ -17343,8 +17341,8 @@ argüix		'aRguS
 ?3 (marcel·lí viii)		maRsel'i||ujt'e
 (marcel·lí ix)		maRsel'i||nov'E
 ?2 (marcel·lí ix)		maRsel'i||nov'e
-(marí i)		ma**'i||p**im'e
-?3 (marí i)		ma**'i||p**im'e**
+//(marí i)		ma**'i||p**im'e
+// ?3 (marí i)		ma**'i||p**im'e**
 (marí ii)		ma**'i||seQ'on
 (marí iii)		ma**'i||ters'e
 ?3 (marí iii)		ma**'i||ters'e**
@@ -17360,8 +17358,8 @@ argüix		'aRguS
 ?3 (marí viii)		ma**'i||ujt'e
 (marí ix)		ma**'i||nov'E
 ?2 (marí ix)		ma**'i||nov'e
-(martí i)		maRt'i||p**im'e
-?3 (martí i)		maRt'i||p**im'e**
+//(martí i)		maRt'i||p**im'e
+// ?3 (martí i)		maRt'i||p**im'e**
 (martí ii)		maRt'i||seQ'on
 (martí iii)		maRt'i||ters'e
 ?3 (martí iii)		maRt'i||ters'e**
@@ -17377,16 +17375,16 @@ argüix		'aRguS
 ?3 (martí viii)		maRt'i||ujt'e
 (martí ix)		maRt'i||nov'E
 ?2 (martí ix)		maRt'i||nov'e
-(melquíades i)		melk'iaDEs||p**im'e
+//(melquíades i)		melk'iaDEs||p**im'e
 ?2 (melquíades )		melk'iaDes||p**im'e
-?3 (melquíades i)		melk'iaDes||p**im'e**
+// ?3 (melquíades i)		melk'iaDes||p**im'e**
 (melquíades ii)		melk'iaDEs||seQ'on
-?2 (melquíades i)		melk'iaDes||seQ'on
+// ?2 (melquíades i)		melk'iaDes||seQ'on
 (melquíades iii)		melk'iaDEs||ters'e
 ?2 (melquíades ii)		melk'iaDes||ters'e
 ?3 (melquíades iii)		melk'iaDes||ters'e**
 (melquíades iv)		melk'iaDEs||qw'art
-?2 (melquíades i)		melk'iaDes||qw'art
+// ?2 (melquíades i)		melk'iaDes||qw'art
 (melquíades v)		melk'iaDEs||sink'E
 ?2 (melquíades v)		melk'iaDes||sink'e
 (melquíades vi)		melk'iaDEs||siz'E
@@ -17398,8 +17396,8 @@ argüix		'aRguS
 ?3 (melquíades viii)		melk'iaDes||ujt'e
 (melquíades ix)		melk'iaDEs||nov'E
 ?2 (melquíades ix)		melk'iaDes||nov'e
-(miró i)		mi**'o||p**im'e
-?3 (miró i)		mi**'o||p**im'e**
+//(miró i)		mi**'o||p**im'e
+// ?3 (miró i)		mi**'o||p**im'e**
 (miró ii)		mi**'o||seQ'on
 (miró iii)		mi**'o||ters'e
 ?3 (miró iii)		mi**'o||ters'e**
@@ -17415,29 +17413,25 @@ argüix		'aRguS
 ?3 (miró viii)		mi**'o||ujt'e
 (miró ix)		mi**'o||nov'E
 ?2 (miró ix)		mi**'o||nov'e
-(napoleó i)		napoleEo||p**im'e
-?2 (napoleó )		napole'o||p**im'e
-?3 (napoleó i)		napole'o||p**im'e**
-(napoleó ii)		napoleEo||seQ'on
-?2 (napoleó i)		napole'o||seQ'on
-(napoleó iii)		napoleEo||ters'e
-?2 (napoleó ii)		napole'o||ters'e
+//(napoleó i)		napole'o||p**im'e
+// ?3 (napoleó i)		napole'o||p**im'e**
+// ?2 (napoleó i)		napole'o||seQ'on
+(napoleó iii)		napole'o||ters'e
 ?3 (napoleó iii)		napole'o||ters'e**
-(napoleó iv)		napoleEo||qw'art
-?2 (napoleó i)		napole'o||qw'art
-(napoleó v)		napoleEo||sink'E
+(napoleó iv)		napole'o||qw'art
+(napoleó v)		napole'o||sink'E
 ?2 (napoleó v)		napole'o||sink'e
-(napoleó vi)		napoleEo||siz'E
+(napoleó vi)		napole'o||siz'E
 ?2 (napoleó vi)		napole'o||siz'e
-(napoleó vii)		napoleEo||set'E
+(napoleó vii)		napole'o||set'E
 ?2 (napoleó vii)		napole'o||set'e
-(napoleó viii)		napoleEo||buit'E
+(napoleó viii)		napole'o||buit'E
 ?2 (napoleó viii)		napole'o||buit'e
 ?3 (napoleó viii)		napole'o||ujt'e
-(napoleó ix)		napoleEo||nov'E
+(napoleó ix)		napole'o||nov'E
 ?2 (napoleó ix)		napole'o||nov'e
-(nicolau i)		nikol'aw||p**im'e
-?3 (nicolau i)		nikol'aw||p**im'e**
+//(nicolau i)		nikol'aw||p**im'e
+// ?3 (nicolau i)		nikol'aw||p**im'e**
 (nicolau ii)		nikol'aw||seQ'on
 (nicolau iii)		nikol'aw||ters'e
 ?3 (nicolau iii)		nikol'aw||ters'e**
@@ -17453,8 +17447,8 @@ argüix		'aRguS
 ?3 (nicolau viii)		nikol'aw||ujt'e
 (nicolau ix)		nikol'aw||nov'E
 ?2 (nicolau ix)		nikol'aw||nov'e
-(odó i)		oD'o||p**im'e
-?3 (odó i)		oD'o||p**im'e**
+//(odó i)		oD'o||p**im'e
+// ?3 (odó i)		oD'o||p**im'e**
 (odó ii)		oD'o||seQ'on
 (odó iii)		oD'o||ters'e
 ?3 (odó iii)		oD'o||ters'e**
@@ -17470,8 +17464,8 @@ argüix		'aRguS
 ?3 (odó viii)		oD'o||ujt'e
 (odó ix)		oD'o||nov'E
 ?2 (odó ix)		oD'o||nov'e
-(pasqual i)		paskw'al||p**im'e
-?3 (pasqual i)		paskw'al||p**im'e**
+//(pasqual i)		paskw'al||p**im'e
+// ?3 (pasqual i)		paskw'al||p**im'e**
 (pasqual ii)		paskw'al||seQ'on
 (pasqual iii)		paskw'al||ters'e
 ?3 (pasqual iii)		paskw'al||ters'e**
@@ -17487,8 +17481,8 @@ argüix		'aRguS
 ?3 (pasqual viii)		paskw'al||ujt'e
 (pasqual ix)		paskw'al||nov'E
 ?2 (pasqual ix)		paskw'al||nov'e
-(pau i)		p'aw||p**im'e
-?3 (pau i)		p'aw||p**im'e**
+//(pau i)		p'aw||p**im'e
+// ?3 (pau i)		p'aw||p**im'e**
 (pau ii)		p'aw||seQ'on
 (pau iii)		p'aw||ters'e
 ?3 (pau iii)		p'aw||ters'e**
@@ -17504,8 +17498,8 @@ argüix		'aRguS
 ?3 (pau viii)		p'aw||ujt'e
 (pau ix)		p'aw||nov'E
 ?2 (pau ix)		p'aw||nov'e
-(pelagi i)		pel'aZi||p**im'e
-?3 (pelagi i)		pel'aZi||p**im'e**
+//(pelagi i)		pel'aZi||p**im'e
+// ?3 (pelagi i)		pel'aZi||p**im'e**
 (pelagi ii)		pel'aZi||seQ'on
 (pelagi iii)		pel'aZi||ters'e
 ?3 (pelagi iii)		pel'aZi||ters'e**
@@ -17521,8 +17515,8 @@ argüix		'aRguS
 ?3 (pelagi viii)		pel'aZi||ujt'e
 (pelagi ix)		pel'aZi||nov'E
 ?2 (pelagi ix)		pel'aZi||nov'e
-(pere i)		p'e**e||p**im'e
-?3 (pere i)		p'e**e||p**im'e**
+//(pere i)		p'e**e||p**im'e
+// ?3 (pere i)		p'e**e||p**im'e**
 (pere ii)		p'e**e||seQ'on
 (pere iii)		p'e**e||ters'e
 ?3 (pere iii)		p'e**e||ters'e**
@@ -17538,8 +17532,8 @@ argüix		'aRguS
 ?3 (pere viii)		p'e**e||ujt'e
 (pere ix)		p'e**e||nov'E
 ?2 (pere ix)		p'e**e||nov'e
-(pius i)		p'iws||p**im'e
-?3 (pius i)		p'iws||p**im'e**
+//(pius i)		p'iws||p**im'e
+// ?3 (pius i)		p'iws||p**im'e**
 (pius ii)		p'iws||seQ'on
 (pius iii)		p'iws||ters'e
 ?3 (pius iii)		p'iws||ters'e**
@@ -17555,8 +17549,8 @@ argüix		'aRguS
 ?3 (pius viii)		p'iws||ujt'e
 (pius ix)		p'iws||nov'E
 ?2 (pius ix)		p'iws||nov'e
-(poncià i)		ponsi'a||p**im'e
-?3 (poncià i)		ponsi'a||p**im'e**
+//(poncià i)		ponsi'a||p**im'e
+// ?3 (poncià i)		ponsi'a||p**im'e**
 (poncià ii)		ponsi'a||seQ'on
 (poncià iii)		ponsi'a||ters'e
 ?3 (poncià iii)		ponsi'a||ters'e**
@@ -17596,8 +17590,8 @@ argüix		'aRguS
 (ramon berenguer ix)		Ram'om||be**eNg'e||nov'E
 ?3 (ramon berenguer ix)		Ram'om||be**eNg'e**||nov'e
 ?2 (ramon berenguer ix)		Ram'om||be**eNg'e||nov'e
-(renat i)		Ren'at||p**im'e
-?3 (renat i)		Ren'at||p**im'e**
+//(renat i)		Ren'at||p**im'e
+// ?3 (renat i)		Ren'at||p**im'e**
 (renat ii)		Ren'at||seQ'on
 (renat iii)		Ren'at||ters'e
 ?3 (renat iii)		Ren'at||ters'e**
@@ -17613,8 +17607,8 @@ argüix		'aRguS
 ?3 (renat viii)		Ren'at||ujt'e
 (renat ix)		Ren'at||nov'E
 ?2 (renat ix)		Ren'at||nov'e
-(robert i)		RoB'ER||p**im'e
-?3 (robert i)		RoB'ER||p**im'e**
+//(robert i)		RoB'ER||p**im'e
+// ?3 (robert i)		RoB'ER||p**im'e**
 (robert ii)		RoB'ER||seQ'on
 (robert iii)		RoB'ER||ters'e
 ?3 (robert iii)		RoB'ER||ters'e**
@@ -17630,8 +17624,8 @@ argüix		'aRguS
 ?3 (robert viii)		RoB'ER||ujt'e
 (robert ix)		RoB'ER||nov'E
 ?2 (robert ix)		RoB'ER||nov'e
-(rodolf i)		RoD'Olf||p**im'e
-?3 (rodolf i)		RoD'Olf||p**im'e**
+//(rodolf i)		RoD'Olf||p**im'e
+// ?3 (rodolf i)		RoD'Olf||p**im'e**
 (rodolf ii)		RoD'Olf||seQ'on
 (rodolf iii)		RoD'Olf||ters'e
 ?3 (rodolf iii)		RoD'Olf||ters'e**
@@ -17647,8 +17641,8 @@ argüix		'aRguS
 ?3 (rodolf viii)		RoD'Olf||ujt'e
 (rodolf ix)		RoD'Olf||nov'E
 ?2 (rodolf ix)		RoD'Olf||nov'e
-(romà i)		Rom'a||p**im'e
-?3 (romà i)		Rom'a||p**im'e**
+//(romà i)		Rom'a||p**im'e
+// ?3 (romà i)		Rom'a||p**im'e**
 (romà ii)		Rom'a||seQ'on
 (romà iii)		Rom'a||ters'e
 ?3 (romà iii)		Rom'a||ters'e**
@@ -17664,8 +17658,8 @@ argüix		'aRguS
 ?3 (romà viii)		Rom'a||ujt'e
 (romà ix)		Rom'a||nov'E
 ?2 (romà ix)		Rom'a||nov'e
-(sabinià i)		saBini'a||p**im'e
-?3 (sabinià i)		saBini'a||p**im'e**
+//(sabinià i)		saBini'a||p**im'e
+// ?3 (sabinià i)		saBini'a||p**im'e**
 (sabinià ii)		saBini'a||seQ'on
 (sabinià iii)		saBini'a||ters'e
 ?3 (sabinià iii)		saBini'a||ters'e**
@@ -17681,8 +17675,8 @@ argüix		'aRguS
 ?3 (sabinià viii)		saBini'a||ujt'e
 (sabinià ix)		saBini'a||nov'E
 ?2 (sabinià ix)		saBini'a||nov'e
-(sant i)		s'an||p**im'e
-?3 (sant i)		s'an||p**im'e**
+//(sant i)		s'an||p**im'e
+// ?3 (sant i)		s'an||p**im'e**
 (sant ii)		s'an||seQ'on
 (sant iii)		s'an||ters'e
 ?3 (sant iii)		s'an||ters'e**
@@ -17698,8 +17692,8 @@ argüix		'aRguS
 ?3 (sant viii)		s'an||ujt'e
 (sant ix)		s'an||nov'E
 ?2 (sant ix)		s'an||nov'e
-(sergi i)		s'ERdZi||p**im'e
-?3 (sergi i)		s'ERdZi||p**im'e**
+//(sergi i)		s'ERdZi||p**im'e
+// ?3 (sergi i)		s'ERdZi||p**im'e**
 (sergi ii)		s'ERdZi||seQ'on
 (sergi iii)		s'ERdZi||ters'e
 ?3 (sergi iii)		s'ERdZi||ters'e**
@@ -17715,8 +17709,8 @@ argüix		'aRguS
 ?3 (sergi viii)		s'ERdZi||ujt'e
 (sergi ix)		s'ERdZi||nov'E
 ?2 (sergi ix)		s'ERdZi||nov'e
-(severí i)		seBe**'i||p**im'e
-?3 (severí i)		seBe**'i||p**im'e**
+//(severí i)		seBe**'i||p**im'e
+// ?3 (severí i)		seBe**'i||p**im'e**
 (severí ii)		seBe**'i||seQ'on
 (severí iii)		seBe**'i||ters'e
 ?3 (severí iii)		seBe**'i||ters'e**
@@ -17732,8 +17726,8 @@ argüix		'aRguS
 ?3 (severí viii)		seBe**'i||ujt'e
 (severí ix)		seBe**'i||nov'E
 ?2 (severí ix)		seBe**'i||nov'e
-(silvestre i)		silB'est**e||p**im'e
-?3 (silvestre i)		silB'est**e||p**im'e**
+//(silvestre i)		silB'est**e||p**im'e
+// ?3 (silvestre i)		silB'est**e||p**im'e**
 (silvestre ii)		silB'est**e||seQ'on
 (silvestre iii)		silB'est**e||ters'e
 ?3 (silvestre iii)		silB'est**e||ters'e**
@@ -17749,8 +17743,8 @@ argüix		'aRguS
 ?3 (silvestre viii)		silB'est**e||ujt'e
 (silvestre ix)		silB'est**e||nov'E
 ?2 (silvestre ix)		silB'est**e||nov'e
-(símmac i)		s'immak||p**im'e
-?3 (símmac i)		s'immak||p**im'e**
+//(símmac i)		s'immak||p**im'e
+// ?3 (símmac i)		s'immak||p**im'e**
 (símmac ii)		s'immak||seQ'on
 (símmac iii)		s'immak||ters'e
 ?3 (símmac iii)		s'immak||ters'e**
@@ -17766,8 +17760,8 @@ argüix		'aRguS
 ?3 (símmac viii)		s'immak||ujt'e
 (símmac ix)		s'immak||nov'E
 ?2 (símmac ix)		s'immak||nov'e
-(simplici i)		simpl'isi||p**im'e
-?3 (simplici i)		simpl'isi||p**im'e**
+//(simplici i)		simpl'isi||p**im'e
+// ?3 (simplici i)		simpl'isi||p**im'e**
 (simplici ii)		simpl'isi||seQ'on
 (simplici iii)		simpl'isi||ters'e
 ?3 (simplici iii)		simpl'isi||ters'e**
@@ -17783,8 +17777,8 @@ argüix		'aRguS
 ?3 (simplici viii)		simpl'isi||ujt'e
 (simplici ix)		simpl'isi||nov'E
 ?2 (simplici ix)		simpl'isi||nov'e
-(sirici i)		si**'isi||p**im'e
-?3 (sirici i)		si**'isi||p**im'e**
+//(sirici i)		si**'isi||p**im'e
+// ?3 (sirici i)		si**'isi||p**im'e**
 (sirici ii)		si**'isi||seQ'on
 (sirici iii)		si**'isi||ters'e
 ?3 (sirici iii)		si**'isi||ters'e**
@@ -17800,8 +17794,8 @@ argüix		'aRguS
 ?3 (sirici viii)		si**'isi||ujt'e
 (sirici ix)		si**'isi||nov'E
 ?2 (sirici ix)		si**'isi||nov'e
-(sisini i)		siz'ini||p**im'e
-?3 (sisini i)		siz'ini||p**im'e**
+//(sisini i)		siz'ini||p**im'e
+// ?3 (sisini i)		siz'ini||p**im'e**
 (sisini ii)		siz'ini||seQ'on
 (sisini iii)		siz'ini||ters'e
 ?3 (sisini iii)		siz'ini||ters'e**
@@ -17817,8 +17811,8 @@ argüix		'aRguS
 ?3 (sisini viii)		siz'ini||ujt'e
 (sisini ix)		siz'ini||nov'E
 ?2 (sisini ix)		siz'ini||nov'e
-(siveri i)		siB'E**i||p**im'e
-?3 (siveri i)		siB'E**i||p**im'e**
+//(siveri i)		siB'E**i||p**im'e
+// ?3 (siveri i)		siB'E**i||p**im'e**
 (siveri ii)		siB'E**i||seQ'on
 (siveri iii)		siB'E**i||ters'e
 ?3 (siveri iii)		siB'E**i||ters'e**
@@ -17834,8 +17828,8 @@ argüix		'aRguS
 ?3 (siveri viii)		siB'E**i||ujt'e
 (siveri ix)		siB'E**i||nov'E
 ?2 (siveri ix)		siB'E**i||nov'e
-(sixt i)		s'iSt||p**im'e
-?3 (sixt i)		s'iSt||p**im'e**
+//(sixt i)		s'iSt||p**im'e
+// ?3 (sixt i)		s'iSt||p**im'e**
 (sixt ii)		s'iSt||seQ'on
 (sixt iii)		s'iSt||ters'e
 ?3 (sixt iii)		s'iSt||ters'e**
@@ -17851,8 +17845,8 @@ argüix		'aRguS
 ?3 (sixt viii)		s'iSt||ujt'e
 (sixt ix)		s'iSt||nov'E
 ?2 (sixt ix)		s'iSt||nov'e
-(soter i)		sot'e||p**im'e
-?3 (soter i)		sot'e||p**im'e**
+//(soter i)		sot'e||p**im'e
+// ?3 (soter i)		sot'e||p**im'e**
 (soter ii)		sot'e||seQ'on
 ?3 (soter ii)		sot'e**||seQ'on
 (soter iii)		sot'e||ters'e
@@ -17875,8 +17869,8 @@ argüix		'aRguS
 (soter ix)		sot'e||nov'E
 ?3 (soter ix)		sot'e**||nov'e
 ?2 (soter ix)		sot'e||nov'e
-(sunyer i)		sun^'e||p**im'e
-?3 (sunyer i)		sun^'e||p**im'e**
+//(sunyer i)		sun^'e||p**im'e
+// ?3 (sunyer i)		sun^'e||p**im'e**
 (sunyer ii)		sun^'e||seQ'on
 ?3 (sunyer ii)		sun^'e**||seQ'on
 (sunyer iii)		sun^'e||ters'e
@@ -17899,8 +17893,8 @@ argüix		'aRguS
 (sunyer ix)		sun^'e||nov'E
 ?3 (sunyer ix)		sun^'e**||nov'e
 ?2 (sunyer ix)		sun^'e||nov'e
-(telèsfor i)		tel'Esf,oR||p**im'e
-?3 (telèsfor i)		tel'Esf,oR||p**im'e**
+//(telèsfor i)		tel'Esf,oR||p**im'e
+// ?3 (telèsfor i)		tel'Esf,oR||p**im'e**
 (telèsfor ii)		tel'Esf,oR||seQ'on
 ?3 (telèsfor ii)		tel'Esf,oR**||seQ'on
 (telèsfor iii)		tel'Esf,oR||ters'e
@@ -17923,8 +17917,8 @@ argüix		'aRguS
 (telèsfor ix)		tel'Esf,oR||nov'E
 ?3 (telèsfor ix)		tel'Esf,oR**||nov'e
 ?2 (telèsfor ix)		tel'Esf,oR||nov'e
-(teodor i)		teoD'o||p**im'e
-?3 (teodor i)		teoD'o||p**im'e**
+//(teodor i)		teoD'o||p**im'e
+// ?3 (teodor i)		teoD'o||p**im'e**
 (teodor ii)		teoD'o||seQ'on
 ?3 (teodor ii)		teoD'o**||seQ'on
 (teodor iii)		teoD'o||ters'e
@@ -17947,8 +17941,8 @@ argüix		'aRguS
 (teodor ix)		teoD'o||nov'E
 ?3 (teodor ix)		teoD'o**||nov'e
 ?2 (teodor ix)		teoD'o||nov'e
-(urbà i)		uRB'a||p**im'e
-?3 (urbà i)		uRB'a||p**im'e**
+//(urbà i)		uRB'a||p**im'e
+// ?3 (urbà i)		uRB'a||p**im'e**
 (urbà ii)		uRB'a||seQ'on
 (urbà iii)		uRB'a||ters'e
 ?3 (urbà iii)		uRB'a||ters'e**
@@ -17964,8 +17958,8 @@ argüix		'aRguS
 ?3 (urbà viii)		uRB'a||ujt'e
 (urbà ix)		uRB'a||nov'E
 ?2 (urbà ix)		uRB'a||nov'e
-(valentí i)		balent'i||p**im'e
-?3 (valentí i)		balent'i||p**im'e**
+//(valentí i)		balent'i||p**im'e
+// ?3 (valentí i)		balent'i||p**im'e**
 (valentí ii)		balent'i||seQ'on
 (valentí iii)		balent'i||ters'e
 ?3 (valentí iii)		balent'i||ters'e**
@@ -17981,8 +17975,8 @@ argüix		'aRguS
 ?3 (valentí viii)		balent'i||ujt'e
 (valentí ix)		balent'i||nov'E
 ?2 (valentí ix)		balent'i||nov'e
-(víctor i)		b'iktoR||p**im'e
-?3 (víctor i)		b'iktoR||p**im'e**
+//(víctor i)		b'iktoR||p**im'e
+// ?3 (víctor i)		b'iktoR||p**im'e**
 (víctor ii)		b'iktoR||seQ'on
 ?3 (víctor ii)		b'iktoR**||seQ'on
 (víctor iii)		b'iktoR||ters'e
@@ -18005,8 +17999,8 @@ argüix		'aRguS
 (víctor ix)		b'iktoR||nov'E
 ?3 (víctor ix)		b'iktoR**||nov'e
 ?2 (víctor ix)		b'iktoR||nov'e
-(vigili i)		biZ'ili||p**im'e
-?3 (vigili i)		biZ'ili||p**im'e**
+//(vigili i)		biZ'ili||p**im'e
+// ?3 (vigili i)		biZ'ili||p**im'e**
 (vigili ii)		biZ'ili||seQ'on
 (vigili iii)		biZ'ili||ters'e
 ?3 (vigili iii)		biZ'ili||ters'e**
@@ -18022,8 +18016,8 @@ argüix		'aRguS
 ?3 (vigili viii)		biZ'ili||ujt'e
 (vigili ix)		biZ'ili||nov'E
 ?2 (vigili ix)		biZ'ili||nov'e
-(vitalià i)		bitali'a||p**im'e
-?3 (vitalià i)		bitali'a||p**im'e**
+//(vitalià i)		bitali'a||p**im'e
+// ?3 (vitalià i)		bitali'a||p**im'e**
 (vitalià ii)		bitali'a||seQ'on
 (vitalià iii)		bitali'a||ters'e
 ?3 (vitalià iii)		bitali'a||ters'e**
@@ -18039,16 +18033,12 @@ argüix		'aRguS
 ?3 (vitalià viii)		bitali'a||ujt'e
 (vitalià ix)		bitali'a||nov'E
 ?2 (vitalià ix)		bitali'a||nov'e
-(zacaries i)		zaka**'iEs||p**im'e
-?2 (zacaries )		zaka**'ies||p**im'e
-?3 (zacaries i)		zaka**'ies||p**im'e**
+//(zacaries i)		zaka**'iEs||p**im'e
+// ?3 (zacaries i)		zaka**'ies||p**im'e**
 (zacaries ii)		zaka**'iEs||seQ'on
-?2 (zacaries i)		zaka**'ies||seQ'on
 (zacaries iii)		zaka**'iEs||ters'e
-?2 (zacaries ii)		zaka**'ies||ters'e
 ?3 (zacaries iii)		zaka**'ies||ters'e**
 (zacaries iv)		zaka**'iEs||qw'art
-?2 (zacaries i)		zaka**'ies||qw'art
 (zacaries v)		zaka**'iEs||sink'E
 ?2 (zacaries v)		zaka**'ies||sink'e
 (zacaries vi)		zaka**'iEs||siz'E
@@ -18060,8 +18050,8 @@ argüix		'aRguS
 ?3 (zacaries viii)		zaka**'ies||ujt'e
 (zacaries ix)		zaka**'iEs||nov'E
 ?2 (zacaries ix)		zaka**'ies||nov'e
-(zeferí i)		zefe**'i||p**im'e
-?3 (zeferí i)		zefe**'i||p**im'e**
+//(zeferí i)		zefe**'i||p**im'e
+// ?3 (zeferí i)		zefe**'i||p**im'e**
 (zeferí ii)		zefe**'i||seQ'on
 (zeferí iii)		zefe**'i||ters'e
 ?3 (zeferí iii)		zefe**'i||ters'e**
@@ -18077,8 +18067,8 @@ argüix		'aRguS
 ?3 (zeferí viii)		zefe**'i||ujt'e
 (zeferí ix)		zefe**'i||nov'E
 ?2 (zeferí ix)		zefe**'i||nov'e
-(zòsim i)		z'Ozim||p**im'e
-?3 (zòsim i)		z'Ozim||p**im'e**
+//(zòsim i)		z'Ozim||p**im'e
+// ?3 (zòsim i)		z'Ozim||p**im'e**
 (zòsim ii)		z'Ozim||seQ'on
 (zòsim iii)		z'Ozim||ters'e
 ?3 (zòsim iii)		z'Ozim||ters'e**
