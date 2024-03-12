@@ -704,9 +704,7 @@ li  $u  $verbf
 ens $u  $verbf
 ?2 ens e2ns $u $verbf
 nos $u  $verbf
-?3 mos $u  $verbf
-?4 mos $u  $verbf
-//?3 nos mos  $u  $verbf
+mos $u  $verbf
 us  $u  $verbf
 vos $u  $verbf
 los $u  $verbf
@@ -724,7 +722,7 @@ del	$u  $nounf
 dels	$u $nounf
 en      $u 
 ?2  en  e2n $u
-per	$u  $alt4
+per	$u  pe**
 pel	$u $nounf
 pels	$u $nounf
 ans $u
@@ -1542,6 +1540,7 @@ xiribecs	$alt1
 ?1 aquelles	$alt2
 ?1 aquells	$alt2
 ?1 aquest	$alt2
+?4 aquest	$alt1
 ?1 aquesta	$alt2
 ?1 aquestes	$alt2
 ?1 aquests	$alt2
@@ -2633,6 +2632,7 @@ zooglees	$alt2
 
 
 /// words with stressed @ (balearic)
+?4 aquell	$alt5
 ?4 abstinència	$alt5
 ?4 abstreure	$alt5
 ?4 abstreure's	$alt5
@@ -3121,7 +3121,10 @@ zooglees	$alt2
 ?4 escèptic	$alt5
 ?4 escèptica	$alt5
 ?4 escèptics	$alt5
+?4 esfèric	$alt5
+?4 esfèrics	$alt5
 ?4 esfèrica	$alt5
+?4 esfèriques	$alt5
 ?4 eslovena	$alt5
 ?4 eslovens	$alt5
 ?4 eslovè	$alt5
@@ -5041,7 +5044,8 @@ morro	$alt1
 morros	$alt1
 morsa	$alt1
 morses	$alt1
-mos	$alt1
+?1 mos	$alt1
+?4 mos	$u   $verbf
 mosca	$alt1
 mosces	$alt1
 mosques	$alt1
