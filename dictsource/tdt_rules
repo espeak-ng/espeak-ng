@@ -1,4 +1,4 @@
-﻿// This file is UTF8 encoded
+// This file is UTF8 encoded
 // Spelling-to-phoneme rules for Tetun Dili. This assumes inconsistent spelling, ignores glottals, accepts Portuguese, Indonesian and English spelling where it doesn’t conflict with Tetun (e.g. for “q”, “ff”. Double vowels convert to stressed vowels.
 // Letter groups (for Portuguese rules)
 // A  a vowel
