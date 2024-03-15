@@ -919,7 +919,9 @@ static int UpperCaseInWord(Translator *tr, char *word, int c)
 	return 0;
 }
 
-void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
+// Same as TranslateClause except we also get the clause terminator used (full stop, comma, etc.).
+// Used by espeak_TextToPhonemesWithTerminator.
+void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_change, int *terminator_out)
 {
 	int ix;
 	int c;
@@ -982,6 +984,10 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		charix[ix] = 0;
 	MAKE_MEM_UNDEFINED(&source, sizeof(source));
 	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone, voice_change_name);
+
+	if (terminator_out != NULL) {
+		*terminator_out = terminator;
+	}
 
 	if (tone_out != NULL) {
 		if (tone == 0)
@@ -1666,6 +1672,11 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		else
 			*voice_change = NULL;
 	}
+}
+
+void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
+{
+	TranslateClauseWithTerminator(tr, tone_out, voice_change, NULL);
 }
 
 static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count) {

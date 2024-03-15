@@ -20,7 +20,7 @@
 #define ENDIAN_H_COMPAT_SHIM
 #pragma once
 
-#if __has_include_next(<endian.h>)
+#if __has_include_next(<endian.h>) && !defined(__APPLE__)
 #	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 #	include_next <endian.h>
 #elif __has_include(<sys/endian.h>)

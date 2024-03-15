@@ -1,3 +1,8 @@
+## Changes in Fork
+
+1. Add `espeak_TextToPhonemesWithTerminator` function that allows getting phonemes with punctuation type back (see `python_test.py`)
+
+
 # eSpeak NG Text-to-Speech
 
 - [Features](#features)
