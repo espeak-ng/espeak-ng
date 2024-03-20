@@ -1,0 +1,85 @@
+//vla pe sal
+_0	n%u
+_1	n%E
+_2	dw%o
+_3	tj%E
+_4	kw%a
+_5	p%eI
+_6	lj%o
+_7	Z%aI
+_8	bw%i
+_9	gj%u
+
+10	n%ES%i
+20	dw%oS%i
+30	tj%ES%i
+40	kw%aS%i
+50	p%eIS%i
+60	lj%oS%i
+70	Z%aIS%i
+80	bw%iS%i
+90	gj%uS%i
+
+100	n%ES%idw%o
+200	dw%oS%idw%o
+300	tj%ES%idw%o
+400	kw%aS%idw%o
+500	p%eIS%idw%o
+600	lj%oS%idw%o
+700	Z%aIS%idw%o
+800	bw%iS%idw%o
+900	gj%uS%idw%o
+
+1000	n%ES%itj%E
+2000	dw%oS%itj%E
+3000	tj%ES%itj%E
+4000	kw%aS%itj%E
+5000	p%eIS%itj%E
+6000	lj%oS%itj%E
+7000	Z%aIS%itj%E
+8000	bw%iS%itj%E
+9000	gj%uS%itj%E
+
+//vla pe patxozi
+
+$textmode
+
+_a	áfa
+b	bábon
+d	dódin
+_e	éte
+f	féfel
+g	gúguk
+h	háflu
+_i	íki
+j	flu'íki
+k	kúkan
+l	lélon
+m	máspa
+n	nínep
+_o	óno
+p	pópel
+q	qáqip
+r	réxti
+s	sásek
+t	tótot
+_u	úbu
+v	vévet
+w	flu'úbu
+x	xúxut
+z	zózot
+
+_y	ýbu
+
+c	xúxut-loqban
+
+$phonememode
+
+//vla fun
+
+lau	l%aU_:
+lou	l%ow_:
+
+gu	g%u:_
+ku	k%u:_:
+vu	_:v%u:_:
