@@ -824,6 +824,7 @@ honvé) d (si d	For example honvédsiker word
 honvé) d (sí d	For example honvédség, honvédsír word
 honvé) d (so d	For example honvédsors word
 föl) d (sülly d	For example földsüllyedés word
+mope) d (sul d	For example mopedsuli word
 
 .group dz
   fogó) dz (kod    ts
@@ -2210,6 +2211,7 @@ ha) s (szű S	For example hasszűkítés word
 ver) s (zaj S	For example verszajlásait word
 árnyékolá) s (sz S	For example árnyékolásszerű word
 látá) s (sz S	For example látásszűrés word
+szállítá) s (sz S	For example szállításszervezés word
 
 .group ss
         ssz        ss2
@@ -3511,6 +3513,8 @@ csapa) t (so t	For example csapatsorba word
 csapa) t (sö t	For example csapatsörét word
 csapa) t (szé t	For example csapatszélesség word
 csapa) t (szo t	For example csapatszoba word
+nemze) t (seg t	For example nemzetsegítő word
+nemze) t (sira t	For example nemzetsiratásból word
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
