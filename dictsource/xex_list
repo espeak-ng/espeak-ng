@@ -10,6 +10,17 @@ _7	Z%aI
 _8	bw%i
 _9	gj%u
 
+_0X	n%u
+_1X	n%E
+_2X	dw%o
+_3X	tj%E
+_4X	kw%a
+_5X	p%eI
+_6X	lj%o
+_7X	Z%aI
+_8X	bw%i
+_9X	gj%u
+
 10	n%ES%i
 20	dw%oS%i
 30	tj%ES%i
@@ -39,6 +50,10 @@ _9	gj%u
 7000	Z%aIS%itj%E
 8000	bw%iS%itj%E
 9000	gj%uS%itj%E
+
+_0X	
+_0C	
+_0M	
 
 //vla pe patxozi
 
