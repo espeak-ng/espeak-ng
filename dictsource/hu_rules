@@ -2212,6 +2212,12 @@ ver) s (zaj S	For example verszajlásait word
 árnyékolá) s (sz S	For example árnyékolásszerű word
 látá) s (sz S	For example látásszűrés word
 szállítá) s (sz S	For example szállításszervezés word
+inzultu) s (sz S	For example inzultusszámba word
+ministrán) s (z S	For example ministránszarándoklat word
+fűté) s (sz S	For example fűtésszerelő word
+gyújtá) s (sz S	For example gyújtásszár word
+üstökö) s (z S	For example üstököszónára word
+_ver) s (sz S	For example versszobor word
 
 .group ss
         ssz        ss2
@@ -3515,6 +3521,8 @@ csapa) t (szé t	For example csapatszélesség word
 csapa) t (szo t	For example csapatszoba word
 nemze) t (seg t	For example nemzetsegítő word
 nemze) t (sira t	For example nemzetsiratásból word
+kísérte) t (s t	For example kísértetszálloda word
+szé) t (jár t	For example szétjárják word
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -4146,7 +4154,8 @@ szára) z (sa z	For example szárazsampon word
 szára) z (sü z	For example szárazsütemény word
 jelme) z (st z
 bagá) zs Z	For example bagázstól word
- 
+ő) z (sonk z	For example őzsonka word
+
 .group
         $          dolla:R2
         ä          E
