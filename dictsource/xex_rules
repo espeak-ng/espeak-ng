@@ -3,6 +3,7 @@
 
 .L01 b d g v z q //xuázin tolson
 .L02 ' -
+.L03 f v s z x q 
 .L09 á é í ó ú ý //"fiklé", "gexló"
 
 .replace
@@ -175,6 +176,7 @@
 
 .group f
 	f	f
+?2	f(L03	f
 
 .group g
 	g	g
@@ -369,6 +371,7 @@
 
 .group q
 	q	Z
+?2	q(L03	Z_!
 
 .group r
 	r	R
@@ -377,6 +380,7 @@
 
 .group s
 	s	s
+?2	s(L03	s_!
 
 .group t
 	t	t
@@ -456,6 +460,7 @@
 
 .group v
 	v	v
+?2	v(L03	v_!
 
 .group w
 	w	w
@@ -468,6 +473,7 @@
 
 .group x
 	x	S
+?2	x(L03	S_!
 
 .group y
 	_)y	_!%@
@@ -481,6 +487,7 @@
 
 .group z
 	z	z
+?2	z(L03	z_!
 
 .group
 	.	_;_
