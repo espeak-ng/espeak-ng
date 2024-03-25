@@ -90,10 +90,12 @@
 	d	d
 	dd	d:
 ?2	dd	_!d
+?5	dq	d|Z
 	dq	dZ
 	d(qC	d
 	ddq	dZ:
 ?2	ddz	_!dz
+?5	ddq	_!d|Z
 ?2	ddq	_!dZ
 
 .group e
@@ -382,11 +384,15 @@
 	td	d:
 ?2	td	_!d
 	t(L01	d
+?5	tx	t|S	
 	tx	tS
+?5	tq	d|Z	
 	tq	dZ
 	t(xC	t
 	t(qC	d
+?5	ttx	t:S	
 	ttx	tS:
+?5	tqd	d:Z
 	tdq	dZ:
 ?2	tdz	_!dz
 ?2	tdq	_!dZ
