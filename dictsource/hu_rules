@@ -244,6 +244,7 @@ kuka) c (zab ts
 matra) c (s ts	For example matracstúdió word
 bohó) c (cs ts	For example bohóccsapat word
 _lé) c (sor ts	For example lécsora word
+kreden) c (s ts	For example kredencsarok word
 
 .group C
 C ts
@@ -375,6 +376,7 @@ kuka) cz (á ts|z	For example kukaczápor word
     va) d (sző     d
      C) ds         tS
         ds (C      tS
+     vé) d (so d	For example hádvédsornak word
      A) ds (A      tS:
         dsz        ts
         dsz (C     ts
@@ -825,6 +827,14 @@ honvé) d (sí d	For example honvédség, honvédsír word
 honvé) d (so d	For example honvédsors word
 föl) d (sülly d	For example földsüllyedés word
 mope) d (sul d	For example mopedsuli word
+étren) d (jav d	For example étrendjavító word
+grun) d (s d	For example grundsuli word
+vé) d (sa d	For example honvédsapka, ügyvédsarj words
+vé) d (seb d	For example honvédseborvosi word
+vé) d (seg d	For example ügyvédsegédként word
+vé) d (ser d	For example ügyvédsegédként word
+kó) d (jav d	For example kódjavító word
+pa) d (jog d	For example padjog word
 
 .group dz
   fogó) dz (kod    ts
@@ -1216,6 +1226,7 @@ ma) g (gyú g	For example maggyújtó, vasmaggyújtó words
 orvossá) g (gy g	For example orvossággyűjtő word
 szmo) g (gy g	For example szmoggyűrű word
 me) ggy (alj J:	For example meggyalja word
+proló) g (gy g	For example prológgyőzelmével word
 
 .group gy
         gy         J
@@ -1720,6 +1731,7 @@ szezo) n (járat n	For example szezonjárat word
 építmé) ny (jo n^
 dizáj) n (jegy n	For example dizájnjegyek word
 ö) n (jut n	For example önjutalom word
+magá) n (jegyz n	For example magánjegyzetei word
 
 .group o
         o          o
@@ -2218,6 +2230,13 @@ fűté) s (sz S	For example fűtésszerelő word
 gyújtá) s (sz S	For example gyújtásszár word
 üstökö) s (z S	For example üstököszónára word
 _ver) s (sz S	For example versszobor word
+anaboliku) s (sz S	For example anabolikusszteroid word
+beveté) s (sz S	For example bevetésszám word
+dialízi) s (sz S	For example dialízisszűrő word
+durraná) s (sz S	For example durranásszerű word
+fotózá) s (sz S	For example fotózásszépség word
+praxi) s (sz S	For example praxisszerződés word
+prospektu) s (sz S	For example prospektusszín word
 
 .group ss
         ssz        ss2
@@ -3180,6 +3199,7 @@ te) sztsz s|t|s
 te) szts s|t|S
 po) sztsz st|s	For example posztszerűen word
 para) sztsz st|s	For example parasztszerű word
+po) szts (o st|S	For example posztsorozatán word
 
 .group t
         t          t
@@ -3523,6 +3543,9 @@ nemze) t (seg t	For example nemzetsegítő word
 nemze) t (sira t	For example nemzetsiratásból word
 kísérte) t (s t	For example kísértetszálloda word
 szé) t (jár t	For example szétjárják word
+kommen) t (s t	For example kommentsorozat word
+harma) t (járvá t	For example lisztharmatjárvány word
+műté) t (szép t	For example műtétszépészeti word
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -4155,6 +4178,8 @@ szára) z (sü z	For example szárazsütemény word
 jelme) z (st z
 bagá) zs Z	For example bagázstól word
 ő) z (sonk z	For example őzsonka word
+gá) z (spó z	For example gázspórolásból word
+gá) z (spré z	For example gázspré word
 
 .group
         $          dolla:R2
