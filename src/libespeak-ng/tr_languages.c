@@ -1586,8 +1586,10 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L3('x', 'e', 'x'): // Xextan
 	{
+		static const wchar_t xex_punct_within_word[] = { '\'' };
 		tr->langopts.numbers = 0; 
 		tr->langopts.lowercase_sentence = true;
+		tr->punct_within_word = xex_punct_within_word;
 }	
 		break;
 	case L3('s', 'h', 'n'):

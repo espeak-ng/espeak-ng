@@ -10,7 +10,7 @@ _6	lj%o
 _7	Z%aI
 _8	bw%i
 _9	gj%u
-_dpt	z%ew
+_dpt	Z%ew
 
 //vla pe patxozi
 
@@ -50,7 +50,7 @@ $phonememode
 //stress and pause naturalization
 
 //illocutions
-
+i	$pause
 ja	$pause
 je	$pause
 ji	$pause
@@ -58,12 +58,22 @@ jo	$pause
 ju	$pause
 
 $textmode
-(qe ja)	qeja
-(qe je)	qeje
-(qe ji)	qeji
-(qe jo)	qejo
-(qe ju)	qeju
+( qe i )	qe'i
+( qe ja )	qeja
+( qe je )	qeje
+( qe ji )	qeji
+( qe jo )	qejo
+( qe ju )	qeju
 $phonememode
+
+//connectives
+qa	$brk $verbf
+qe	$brk $verbf
+qo	$brk $verbf
+qu	$brk $verbf
+ze	$brk $verbf
+zo	$brk $verbf
+kai	$brk $verbf
 
 //quoters
 lau	l%aU_:
@@ -75,15 +85,15 @@ ku	k%u:_:
 vu	_:v%u:_:
 
 //utility predicates
-ka	ka_
-bo	bo_
+ka	k'a_
+bo	b'o_
 
 //adverbs
-wa	$u+	//unstressed, unless at end of clause
-we	$u+
-wi	$u+
-wo	$u+
-wu	$u+
+wa	$u+ $brk	//unstressed, unless at end of clause
+we	$u+ $brk
+wi	$u+ $brk
+wo	$u+ $brk
+wu	$u+ $brk
 quo	$u+
 qeu	$u+
 nai	$u+
@@ -138,33 +148,22 @@ ke	$u+ $verbf
 pi	$u+ $verbf
 pe	$u+ $verbf
 
-//binders
-da	$u+ $verbf
-de	$u+ $verbf
-do	$u+ $verbf
-dai	$u+ $verbf
-dei	$u+ $verbf
-doi	$u+ $verbf
-dau	$u+ $verbf
-deu	$u+ $verbf
-dou	$u+ $verbf
-
 //pronouns
-ba	$1 $verb  //stressed only when preceded by a preposition.
-bi	$1 $verb  //"verb" is a vestige of the English data.
-ti	$1 $verb
-di	$1 $verb
-du	$1 $verb
-gi	$1 $verb
-go	$1 $verb
-vi	$1 $verb
-vo	$1 $verb
-xe	$1 $verb
-le	$1 $verb
-li	$1 $verb
-ni	$1 $verb
-nie	$1 $verb
-nio	$1 $verb
+ba	b'a_	$verb  //stressed only when preceded by a preposition.
+bi	b'i_	$verb  //"verb" is a vestige of the English data.
+ti	t'i_ 	$verb
+di	d'i_	$verb
+du	d'u_	$verb
+gi	g'i_ 	$verb
+go	g'o_	$verb
+vi	v'i_	$verb
+vo	v'o_	$verb
+xe	S'E_	$verb
+le	l'E_	$verb
+li	l'i_	$verb
+ni	n'i_	$verb
+nie	nj'E_	$verb
+nio	nj'o_	$verb
 
 //selected determiners
 su	$u+
