@@ -10,7 +10,6 @@ _6	lj%o
 _7	Z%aI
 _8	bw%i
 _9	gj%u
-
 _dpt	z%ew
 
 //vla pe patxozi
@@ -48,14 +47,150 @@ c	xúxut loqban
 
 $phonememode
 
-//vla fun
+//stress and pause naturalization
 
+//illocutions
+
+ja	$pause
+je	$pause
+ji	$pause
+jo	$pause
+ju	$pause
+
+$textmode
+(qe ja)	qeja
+(qe je)	qeje
+(qe ji)	qeji
+(qe jo)	qejo
+(qe ju)	qeju
+$phonememode
+
+//quoters
 lau	l%aU_:
 lou	l%ow_:
 
+//terminators
 gu	g%u:_
 ku	k%u:_:
 vu	_:v%u:_:
 
+//utility predicates
 ka	ka_
 bo	bo_
+
+//adverbs
+wa	$u+	//unstressed, unless at end of clause
+we	$u+
+wi	$u+
+wo	$u+
+wu	$u+
+quo	$u+
+qeu	$u+
+nai	$u+
+pa	$u+
+fa	$u+
+na	$u+
+zei	$u+
+noi	$u+
+
+//prepositions
+kie	$u+ $verbf  //marks following pronoun as stressed.
+pai	$u+ $verbf  //"verb" is a vestige of the English data
+fai	$u+ $verbf
+vei	$u+ $verbf
+voi	$u+ $verbf
+xoi	$u+ $verbf
+nau	$u+ $verbf
+pau	$u+ $verbf
+fau	$u+ $verbf
+xau	$u+ $verbf
+peu	$u+ $verbf
+kou	$u+ $verbf
+neu	$u+ $verbf
+u	$u+ $verbf
+a	$u+ $verbf
+e	$u+ $verbf
+o	$u+ $verbf
+ai	$u+ $verbf
+ei	$u+ $verbf
+oi	$u+ $verbf
+au	$u+ $verbf
+eu	$u+ $verbf
+ou	$u+ $verbf
+ta	$u+ $verbf
+te	$u+ $verbf
+to	$u+ $verbf
+tai	$u+ $verbf
+tei	$u+ $verbf
+toi	$u+ $verbf
+tau	$u+ $verbf
+teu	$u+ $verbf
+tou	$u+ $verbf
+fo	$u+ $verbf
+fi	$u+ $verbf
+fe	$u+ $verbf
+za	$u+ $verbf
+pio	$u+ $verbf
+
+//tags
+ki	$u+ $verbf
+ke	$u+ $verbf
+pi	$u+ $verbf
+pe	$u+ $verbf
+
+//binders
+da	$u+ $verbf
+de	$u+ $verbf
+do	$u+ $verbf
+dai	$u+ $verbf
+dei	$u+ $verbf
+doi	$u+ $verbf
+dau	$u+ $verbf
+deu	$u+ $verbf
+dou	$u+ $verbf
+
+//pronouns
+ba	$1 $verb  //stressed only when preceded by a preposition.
+bi	$1 $verb  //"verb" is a vestige of the English data.
+ti	$1 $verb
+di	$1 $verb
+du	$1 $verb
+gi	$1 $verb
+go	$1 $verb
+vi	$1 $verb
+vo	$1 $verb
+xe	$1 $verb
+le	$1 $verb
+li	$1 $verb
+ni	$1 $verb
+nie	$1 $verb
+nio	$1 $verb
+
+//selected determiners
+su	$u+
+sua	$u+
+sue	$u+
+sui	$u+
+suo	$u+
+nu	$u+
+ne	$u+
+duo	$u+
+tie	$u+
+kua	$u+
+pei	$u+
+lio	$u+
+xai	$u+
+bui	$u+
+giu	$u+
+lia	$u+
+nia	$u+
+dua	$u+
+gua	$u+
+vua	$u+
+xua	$u+
+bau	$u+
+kau	$u+
+sau	$u+
+zou	$u+
+xeu	$u+
+qau	$u+

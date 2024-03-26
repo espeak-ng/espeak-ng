@@ -1587,6 +1587,7 @@ Translator *SelectTranslator(const char *name)
 	case L3('x', 'e', 'x'): // Xextan
 	{
 		tr->langopts.numbers = 0; 
+		tr->langopts.lowercase_sentence = true;
 }	
 		break;
 	case L3('s', 'h', 'n'):

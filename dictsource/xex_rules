@@ -96,7 +96,7 @@
 	ddq	dZ:
 ?2	ddz	_!dz
 ?5	ddq	_!d|Z
-?2	ddq	_!dZ
+?2 ?!5	ddq	_!dZ
 
 .group e
 	_)e(_	_!%E:
@@ -250,19 +250,7 @@
 
 .group j
 	j	j
-?2	C_)jL02	_|j
-	_)ja	_;_j%a
-	_)je	_;_j%E
-	_)ji	_;_j%i
-	_)jo	_;_j%o
-	_)ju	_;_j%u
-
-	_qe_)ja	j%a
-	_qe_)je	j%E
-	_qe_)ji	j%i
-	_qe_)jo	j%o
-	_qe_)ju	j%u
-
+?2	C_)j	_|j
 
 .group k
 	k	k
@@ -392,10 +380,10 @@
 	t(qC	d
 ?5	ttx	t:S	
 	ttx	tS:
-?5	tqd	d:Z
 	tdq	dZ:
 ?2	tdz	_!dz
-?2	tdq	_!dZ
+?2 ?!5	tdq	_!dZ
+?5	tdq	_!d|Z
 
 .group u
 	_)u(_	_!%u:
@@ -465,11 +453,6 @@
 .group w
 	w	w
 ?2	_)w	_|w
-	_)wa(_	_|w%a:_|
-	_)we(_	_|w%E:_|
-	_)wi(_	_|w%i:_|
-	_)wo(_	_|w%o:_|
-	_)wu(_	_|w%u:_|
 
 .group x
 	x	S
