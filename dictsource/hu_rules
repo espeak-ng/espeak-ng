@@ -245,6 +245,7 @@ matra) c (s ts	For example matracstúdió word
 bohó) c (cs ts	For example bohóccsapat word
 _lé) c (sor ts	For example lécsora word
 kreden) c (s ts	For example kredencsarok word
+tengeli) c (cs ts	For example tengeliccsapatból word
 
 .group C
 C ts
@@ -835,6 +836,7 @@ vé) d (seg d	For example ügyvédsegédként word
 vé) d (ser d	For example ügyvédsegédként word
 kó) d (jav d	For example kódjavító word
 pa) d (jog d	For example padjog word
+menetren) dsz (erv ds	For example menetrendszervezés word
 
 .group dz
   fogó) dz (kod    ts
@@ -2237,6 +2239,8 @@ durraná) s (sz S	For example durranásszerű word
 fotózá) s (sz S	For example fotózásszépség word
 praxi) s (sz S	For example praxisszerződés word
 prospektu) s (sz S	For example prospektusszín word
+szeku) s (zs S	For example szekuszsiráf word
+váltá) s (z S	For example szóváltászuhatag word
 
 .group ss
         ssz        ss2
@@ -4180,6 +4184,7 @@ bagá) zs Z	For example bagázstól word
 ő) z (sonk z	For example őzsonka word
 gá) z (spó z	For example gázspórolásból word
 gá) z (spré z	For example gázspré word
+ré) z (zs z	For example rézzsinór word
 
 .group
         $          dolla:R2
