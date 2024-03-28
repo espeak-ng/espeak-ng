@@ -2745,6 +2745,7 @@ bizonyíték	$unstressend
 gyötörte	$unstressend
 ismerve	$unstressend
 fognia	$unstressend
+(mint azt látni)	$unstressend
 (azt látni)	$unstressend
 fontosak	$unstressend
 futni	$unstressend
@@ -4361,7 +4362,7 @@ havonta	$unstressend
 (elmarad attól) ElmAR2Ad_||At:o:l	$unstressend
 (szív el) si:v_||El	$unstressend
 cigit	$unstressend
-(a dohányzásról) A'||doha:n^za:Sro:l	$unstressend
+(a dohányzásról) A'||doha:n^za:SR2o:l	$unstressend
 átlag	$unstressend
 (forintba kerülnek) foR2intbA_||kER2ylnEk	$unstressend
 hozzátette	$unstressend
@@ -5346,6 +5347,8 @@ _.	pont
 §	s'AkAs
 ~	tildE
 °	fokjEl
+˄	konjunktsio:
+˅	disjunktsio:
 Ft	foR2int	$unstressend
 (Ft-tal)	foR2int:Al	$unstressend
 (ft-ot) foR2intot	$unstressend
@@ -5435,8 +5438,8 @@ _braille bR2Ail:E
 nato	na:to:
 (end-of line) u:jS,oR2
 
-
 $textmode
+bacch bahh
 MSZP emeszpé
 MSZMP emeszempé
 SZDSZ eszdéesz
