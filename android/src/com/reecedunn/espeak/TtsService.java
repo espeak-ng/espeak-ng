@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2024 Bill Dengler
  * Copyright (C) 2022 Beka Gozalishvili
  * Copyright (C) 2012-2015 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
@@ -69,6 +70,7 @@ public class TtsService extends TextToSpeechService {
     private SynthesisCallback mCallback;
 
     private final Map<String, Voice> mAvailableVoices = new HashMap<String, Voice>();
+    private final Map<String, Voice> mVariantCache = new HashMap<String, Voice>();
     protected Voice mMatchingVoice = null;
 
     private BroadcastReceiver mOnLanguagesDownloaded = null;
@@ -143,6 +145,20 @@ public class TtsService extends TextToSpeechService {
             return new Pair<>(null, TextToSpeech.LANG_MISSING_DATA);
         }
 
+        // #970: Sometimes, findVoice is called with a language, but without
+        // a country or variant (probably due to partial SSML from the system).
+        // If this is the case, and we've seen this language before, return the
+        // last known full variant.
+        if (
+            (country == null || country.length() == 0)
+            && (variant == null || variant.length() == 0)
+            && mVariantCache.containsKey(language)
+        )
+            return new Pair<>(
+                mVariantCache.get(language),
+                TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE
+            );
+
         final Locale query = new Locale(language, country, variant);
 
         Voice languageVoice = null;
@@ -152,6 +168,11 @@ public class TtsService extends TextToSpeechService {
             for (Voice voice : mAvailableVoices.values()) {
                 switch (voice.match(query)) {
                     case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE:
+                        // #970: Sometimes, findVoice is called with a
+                        // language, but without a country or variant
+                        // (probably due to partial SSML from the system).
+                        // Cache this variant for future lookup.
+                        mVariantCache.put(language, voice);
                         return new Pair<>(voice, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE);
                     case TextToSpeech.LANG_COUNTRY_AVAILABLE:
                         countryVoice = voice;
