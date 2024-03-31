@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2024 Bill Dengler
  * Copyright (C) 2022 Beka Gozalishvili
  * Copyright (C) 2012-2015 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
@@ -175,6 +176,11 @@ public class TtsService extends TextToSpeechService {
         final Pair<Voice, Integer> match = findVoice(language, country, variant);
         switch (match.second) {
             case TextToSpeech.LANG_AVAILABLE:
+                // Some language codes don't map exactly to eSpeak voices.
+                // Set a sensible default country.
+                if (language.equals("en") || language.equals("eng")) {
+                    return new Pair<>(findVoice(language, "GBR", "").first, match.second);
+                }
                 if (language.equals("fr") || language.equals("fra")) {
                     return new Pair<>(findVoice(language, "FRA", "").first, match.second);
                 }
@@ -188,6 +194,7 @@ public class TtsService extends TextToSpeechService {
                 }
                 return new Pair<>(findVoice(language, country, "").first, match.second);
             default:
+//cactus
                 return match;
         }
     }
