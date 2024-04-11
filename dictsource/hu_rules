@@ -872,6 +872,8 @@ száza) d (szá d	For example századszázalék word
 vakon) d (jár d	For example vakondjárat word
 vakon) d (jel d	For example vakondjelmezben word
 föl) d (jel d	For example földjelek word
+szteroi) d (s d	For example szteroidszemcsepp word
+va) d (járat d	For example vadjáratok word
 
 .group dz
   fogó) dz (kod    ts
@@ -1264,6 +1266,7 @@ orvossá) g (gy g	For example orvossággyűjtő word
 szmo) g (gy g	For example szmoggyűrű word
 me) ggy (alj J:	For example meggyalja word
 proló) g (gy g	For example prológgyőzelmével word
+nézettsé) g (gy g	For example nézettséggyilkosnak word
 
 .group gy
         gy         J
@@ -2531,6 +2534,7 @@ zúgá) s (sz S	For example zúgásszerű word
 zúzódá) s (sz S	For example zúzódásszerű word
 oxidán) s (sz S	For example oxidánsszint word
 vulva) sz (ár s	For example vulvaszárasság word
+becsü) s (sz S	For example becsüsszakvizsgát word
 
 .group ss
         ssz        ss2
@@ -3856,6 +3860,10 @@ pályáza) t (s t	For example pályázatsorozat word
 szemé) t (c t	For example szemétcunami word
 billentyűze) t (s t	For example billentyűzetsorozat word
 cse) t (sz t	For example csetszoba, csetszolgálat word
+forin) t (s t	For example forintsorozat word
+magza) t (s t	For example magzatsebészeti word
+plaká) t (jel t	For example plakátjelszavai word
+vona) t (s t	For example vonatsebesség, vonatszolgáltatás words
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -4501,6 +4509,7 @@ gá) z (spó z	For example gázspórolásból word
 gá) z (spré z	For example gázspré word
 ré) z (zs z	For example rézzsinór word
 pó) z (so z	For example pózsor word
+mé) z (s z	For example mézsöre, mézspecifikus, mézsűrűség words
 
 .group
         $          dolla:R2
