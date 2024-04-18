@@ -956,8 +956,8 @@ _ultra) r (A       R    // (ultraric)
      A) r (-hA          **   // final r is not silent if followed by a pronoun
         r (_$w_alt4+    R   // final r is not silent (motor)
 //?4      r (_$w_alt4+    **   // final r is not silent (motor)
-?4   A) r (_$w_alt4+       // final r is always silent (motor)       
-?4      r (s_$w_alt4+       // final r is always silent (motor)       
+?4   A) r (_$w_alt4+    =   // final r is always silent (motor)       
+?4      r (s_$w_alt4+   =    // final r is always silent (motor)       
 ?4   A) r (-l+          l   // final r is assimilated if followed by a pronoun
 ?4   A) r (-t+          t   // final r is assimilated if followed by a pronoun
 ?4   A) r (-m+          m   // final r is assimilated if followed by a pronoun
