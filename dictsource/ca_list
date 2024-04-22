@@ -166,6 +166,7 @@ _dpt	_k'oma
 vi	bi	// not a Roman 
 ?3 vi	vi	// not a Roman number
 ?4 vi	vi
+ix	'iS	// not a Roman number
 
 /// ordinal numbers
 _#r     'e
