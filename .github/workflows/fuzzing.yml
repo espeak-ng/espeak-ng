@@ -9,6 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build synth_espeak on ${{ matrix.arch }}
+    # Do not run this job on any forked repos
+    if: github.repository == 'espeak-ng/espeak-ng'
     strategy:
       fail-fast: false
       matrix:

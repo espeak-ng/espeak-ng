@@ -11,12 +11,14 @@ test_ssml_audio() {
 	OPTS=$4
 
 	echo "testing ${TEST_NAME}"
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" ${OPTS} \
-		> actual.txt || exit 1
-	< actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
-	echo "${EXPECTED}" > expected.txt
-	diff expected.txt sum.txt || exit 1
+	RESULT=$(
+		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" ${OPTS} | $sha1sum | awk '{ print $1 }' || exit 1
+	)
+	if [ "x$RESULT" != "x$EXPECTED" ] ; then
+		echo "$RESULT != $EXPECTED"
+		exit 1
+	fi
 }
 
 test_ssml() {
@@ -30,11 +32,15 @@ test_ssml() {
 	fi
 
 	echo "testing ${INPUT}"
-	cp $(dirname $INPUT)/$(basename ${INPUT%.*}).expected expected.txt
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		$VALGRIND src/espeak-ng -m -q $PARAMETERS -f ${INPUT} \
-		> actual.txt || exit 1
-	diff expected.txt actual.txt || exit 1
+	EXPECTED=$(cat $(dirname $INPUT)/$(basename ${INPUT%.*}).expected)
+	RESULT=$(
+		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng -m -q $PARAMETERS -f ${INPUT} || exit 1
+	)
+	if [ "x$RESULT" != "x$EXPECTED" ] ; then
+		echo "$RESULT != $EXPECTED"
+		exit 1
+	fi
 }
 
 for i in `dirname $0`/ssml/*.ssml ; do test_ssml $i; done

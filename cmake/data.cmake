@@ -18,7 +18,7 @@ list(APPEND _dict_compile_list
   qdb quc qu qya
   ro ru
   sd shn si sjn sk sl smj sq sr sv sw
-  ta te th tk tn tr tt
+  ta te ti th tk tn tr tt
   ug uk ur uz
   vi
   yue
@@ -99,6 +99,7 @@ add_custom_command(
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile phonemes"
   DEPENDS
+    "${DATA_DIST_DIR}/intonations"
     "$<TARGET_FILE:espeak-ng-bin>"
     ${_phon_deps}
 )
