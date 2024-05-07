@@ -38,12 +38,12 @@ enableV1Signing = true
 
     compileSdk = 34
     buildToolsVersion = "34.0.0"
-    ndkVersion = "26.1.10909125"
+    ndkVersion = "26.3.11579264"
     namespace = "com.reecedunn.espeak"
 
     defaultConfig {
         applicationId = "com.reecedunn.espeak"
-        minSdk = 19
+        minSdk = 21
         targetSdk = 33
         versionCode = 22
         versionName = "1.52-dev"
@@ -112,6 +112,7 @@ dependencies {
 }
 
 tasks.register("checkData") {
+    dependsOn("externalNativeBuildDebug")
     doFirst {
         val dataFiles = listOf(
             "en_dict",
@@ -130,6 +131,7 @@ tasks.register("checkData") {
 }
 
 val dataArchive by tasks.register<Zip>("createDataArchive") {
+    dependsOn("checkData")
     isPreserveFileTimestamps = false
     isReproducibleFileOrder = true
     archiveFileName.set("espeakdata.zip")
@@ -140,34 +142,25 @@ val dataArchive by tasks.register<Zip>("createDataArchive") {
 }
 
 val dataHash by tasks.register<Checksum>("createDataHash") {
+    dependsOn(dataArchive)
     checksumAlgorithm.set(Checksum.Algorithm.SHA256)
     inputFiles.setFrom(dataArchive)
     outputDirectory.set(layout.buildDirectory.dir("intermediates/datahash"))
 }
 
 tasks.register<Copy>("createDataVersion") {
+    dependsOn(dataHash)
     from(dataHash)
     rename("espeakdata.zip.sha256", "espeakdata_version")
     into(file("./src/main/res/raw"))
 }
 
 project.afterEvaluate {
-    tasks.named("checkData") {
-        dependsOn("externalNativeBuildDebug")
-    }
-
-    tasks.named("createDataArchive") {
-        dependsOn("checkData")
-    }
-
     val tasksDependingOnCreateDataVersion = listOf(
+        "generateDebugResources",
+        "generateReleaseResources",
         "mapDebugSourceSetPaths",
-        "mapReleaseSourceSetPaths",
-        "mergeDebugResources",
-        "mergeReleaseResources",
-        "packageDebugResources",
-        "packageReleaseResources",
-        "lintVitalAnalyzeRelease"
+        "mapReleaseSourceSetPaths"
     )
 
     tasksDependingOnCreateDataVersion.forEach { taskName ->
