@@ -12,6 +12,9 @@ The espeak-ng project is a fork of the espeak project.
 android:
 *  Added directBoot support -- beqabeqa473
 
+build:
+*  Migrate to CMake build system - djphoenix
+
 updated languages:
 *  ba (Bashkir) -- Andiv06
 *  be (Belarusian) -- Andiv06, bespsm, Alaksiej Stankievič

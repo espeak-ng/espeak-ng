@@ -1,6 +1,9 @@
 find_program(RONN ronn)
 
-option(ESPEAK_BUILD_MANPAGES "Build manpages" ${RONN})
+if (RONN)
+    set(RONN_FOUND ON)
+endif()
+option(ESPEAK_BUILD_MANPAGES "Build manpages" ${RONN_FOUND})
 
 if (RONN AND ESPEAK_BUILD_MANPAGES)
     add_custom_command(

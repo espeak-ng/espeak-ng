@@ -6,6 +6,7 @@
   - [Accent (optional)](#accent-optional)
 - [Configuration Files](#configuration-files)
   - [Makefile.am file](#makefileam-file)
+  - [data.cmake file](#datacmake-file)
   - [Phonemes file](#phonemes-file)
   - [Language File](#language-file)
   - [Phoneme Definition File](#phoneme-definition-file)
@@ -144,6 +145,14 @@ Optionally, if you have [phoneme definition file](#phoneme-definition-file), fol
 	...
 	phsource/ph_french \
 	...
+
+### data.cmake File
+
+`cmake/data.cmake` is build configuration file. It should be edited if you add
+new language text-to-phoneme translation rules.
+
+Add new language name to `_dict_compile_list` section. All new dictionary resources
+for this language (list/rules/extra/emoji) will be tracked by CMake system with next build.
 
 ### Language File
 
