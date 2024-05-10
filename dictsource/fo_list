@@ -1,0 +1,356 @@
+
+// Exceptions dictionary for: Faroese
+// Faroese prepared by Andras Eliassen, iSolveIT ApS (VoisIT)
+// This file in UTF8 encoded
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+// numeric
+//********
+_0   n'ul#
+_1   'aIt
+_2   tv'eI
+_3   Tr#'ui
+_4   f'u:*iRa
+_1f  'eIhd
+_2f  tv'W:
+_3f  Tr#j'u:
+_4f  fj'W:Qyrr#
+_5   f'Im
+_6   s'E:gs
+_7   sj'Ei:
+_8   'aUhda
+_9   nu@-dju
+_10  tu@-dju
+_11  'EdlEv,y
+_12  t'@oUlv
+_13  t'rEhtan
+_14  fj'yr#tan
+_15  f'Imtan
+_16  s'ExsdaUn
+_17  s'Yy:djaUn
+_18  'ua:tjaUn
+_19  n'ui:tjaUn
+_21  aI:nut'jeu,vu
+_2X  t'jeu,vu
+_3X  Tred'i,vu
+_31  aI:nuTred'i,vu
+_4X  fj'W:*Ryt,i;y
+_41  aI:nufj'W:*Ryt,i;y
+_5X  h'aultruisj
+_51  aI:nuh'aultruisj
+_6X  t'ruisj
+_61  aI:nut'ruisj
+_7X  h@-lfjers
+_71  aI:nuh@-lfjers
+_8X  f'uirs
+_81  aI:nuf'uirs
+_9X  h'aulfems
+_91  aI:nuh'aulfems
+_0C  h'undra
+_1C  h'undra
+_2C  tv'@i:||h'undra
+_3C  Trui:||h'undra
+_4C  fuirr#||h'undra
+_8C  'aUt||h'undra
+_0M1  T'eu:sin
+_0M2  m'IljoUn
+_1M2  eI:n||m'IljoUn
+_2M2  tv'ae:rr#||m'IdljoUnir
+_3M2  Tr#j'a:rr#||m'IdljoUnir
+_4M2  f'ui:ra||m'IdljoUnir
+_dpt	_k,Omma_
+_0and  u-o
+
+_cap	sd'oUrr#d
+_??	t'aUghn#
+
+// Characters
+
+
+// abbreviations
+
+
+// Function words
+hin	$u+
+hitt	$u+   // this
+hina	$u+
+hinir	$u+
+hinar	$u+
+hinum	$u+
+hini	$u+
+hinu	$u+
+hins	$u+
+hinnar	$u+
+hinna	$u+
+
+// articles
+
+
+// pronouns
+eg       $u     // nominative
+tú       $u
+hann     $u
+hon      $u
+tað      $u
+vit      $u
+tit      $u
+teir     $u
+tær      $u
+tey      $u
+
+meg      $u+
+teg      $u+
+hana     $u+
+okkara   $u+
+tykkara  $u+
+
+
+hetta	$u+
+hesir	$u+
+hesar	$u+
+hesi	$u+
+
+
+tann	$u+
+tá	$u+
+teim	$u+
+teirri	$u+
+hví	$u+
+tess	$u+
+teirra	$u+
+teir	$u+
+tær	$u+
+
+hvør     $u+ $pause  // who
+
+
+
+// possessive adjectives
+mín	$u+
+mítt	$u+
+mína	$u+
+mínum	$u+
+mínar	$u+
+míni	$u+
+mínu	$u+
+míns	$u+
+mínir	$u+
+
+tín	$u+
+títt	$u+
+tína	$u+
+tínum	$u+
+tíni	$u+
+// etc
+
+sín	$u+
+sítt	$u+
+sín	$u+
+sínum	$u+
+sína	$u+
+síni	$u+
+
+vár	$u+
+várt	$u+
+vára	$u+
+várar	$u+
+okkara  $u+
+tykkara $u+
+// etc...
+
+
+// prepositions
+á          $u+ $brk
+at         $u+ $brk    // towards
+av         $u+ $brk    // from,off of
+eftir      $u+ $pause  // after,by
+frá        $u+ $brk    // off
+fyri       $u+ $pause  // for,by
+í          $u+ $brk
+við        $u+ $brk    // with
+til        $u+ $brk    // to
+um         $u+ $brk    // about
+við        $u+ $brk    // with,at,against
+
+úr         $u+ $brk    // out of
+uttan      $u+ $pause  // without
+hjá        $u+ $brk    // by, with
+millum     $pause      // between
+mót        $u+ $brk    // against
+móti       $u+ $brk    // against
+afturat    $brk        // in addition to, besides
+gjøgnum    $brk        // through
+undir      $u $brk     // under
+yvir       $brk        // over
+framvið    $brk        // by, past
+handan     $brk        // behind
+áðrenn     $pause      // before
+vegna      $pause      // because of
+síðan      $pause      // since
+
+
+
+// conjunctions
+men        $u+ $pause   // but
+ella       $u+ $pause   // or
+hvørki     $pause       // nor
+og         $u+ $pause   // and
+tá         $pause       // when, as soon as
+um         $u+ $pause   // if
+men       $pause       // but, however
+tó         $pause       // although
+vegna      $pause       // because of
+hvørt      $pause       // whether
+hóast      $pause       // thus, so
+meðan      $pause       // while, as long as
+annars     $pause       // else, otherwise
+so         $pause       // so (that)
+sum        $u+ $brk     // as
+hví        $u+ $pause   // the..the..
+
+
+// negative
+ikki       $u+
+nei        $u+
+
+
+// questions
+
+
+// auxillary verbs  (be, have, can, etc)
+//****************
+
+var        $u     // was
+verða      $u     // to be
+er         $u     // is, present
+eru        $u
+kunnu      $u
+kann       $u
+hava       $u
+hevur      $u
+havi       $u
+
+
+var        $u     // was, past
+varst      $u
+vóru       $u
+verið      $u
+
+eiga       $u+    // to have (own)
+eigi       $u+
+
+átti       $u+    // to have (own) past
+áttu       $u+
+átt        $u+
+
+hava       $u     // to have
+havi       $u
+hevur      $u
+
+høvdu      $u
+hevði      $u
+
+verð       $u     // to become
+verður     $u
+verði      $u
+verða      $u
+gjørdist   $u
+gjørdust   $u
+bleiv      $u
+
+
+varð       $u     // became, past
+varðst     $u
+vóru       $u
+blivu      $u
+
+kann       $u+    // can
+kannst     $u+
+kunnu      $u+
+
+kundi      $u+    // could, past
+kundu      $u+
+
+vil        $u+    // will
+vilt       $u+
+vilja      $u+
+vildi      $u+
+vildu      $u+
+
+
+fá         $u+    // get
+fáa        $u+
+fær        $u+
+færst      $u+
+fái        $u+
+
+fekk       $u+    // got, past
+fekkst     $u+
+fingu      $u+
+
+
+// some common adjectives and adverbs
+nøkur      $u+     // any, some, a few
+nakar      $u+
+nøkrum     $u+
+nakað      $u+
+nakars     $u+
+nakrir     $u+
+nakrar     $u+
+
+summir     $u+     // some
+summum     $u+
+summi      $u+
+
+
+// common adverbs etc.
+fram       $u+      // forward
+aftur      $u+      // backwards
+
+
+// character names
+//****************
+_á   ua:
+á    ua:  $atend
+b    bE:
+c    sE:
+d    dE:
+ð    E:D
+f    Ef
+g    gE:
+h    ho'a:
+i    i:
+_í   ui:
+í    ui:   $atend
+j    j'O:D
+k    k'@a:
+l    El
+m    Em
+n    En
+p    p'E:
+q    ku:
+r    Er:
+s    Es:
+t    tE:
+ú    e'u
+v    vE:
+w    tv'uivE:
+x    E:xs
+_y    'yfsilOn||,I:
+_ý    'yfsilOn||,i:
+y    'yfsilOn||,I:  $atend
+ý    'yfsilOn||,i:  $atend
+z    sE:ta
+þ    T'Ordn#
+
+
+// MAIN WORD DICTIONARY
+//*********************
+
+bolla    bOlla
+halló    halloU
+mylla    mIlla

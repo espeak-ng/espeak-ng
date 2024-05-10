@@ -471,6 +471,7 @@ dictionaries: \
 	espeak-ng-data/eu_dict \
 	espeak-ng-data/fa_dict \
 	espeak-ng-data/fi_dict \
+	espeak-ng-data/fo_dict \
 	espeak-ng-data/fr_dict \
 	espeak-ng-data/ga_dict \
 	espeak-ng-data/gd_dict \
@@ -654,6 +655,9 @@ espeak-ng-data/fa_dict: dictsource/fa_list dictsource/fa_rules dictsource/fa_ext
 
 fi: espeak-ng-data/fi_dict
 espeak-ng-data/fi_dict: dictsource/fi_list dictsource/fi_rules dictsource/fi_extra dictsource/fi_emoji
+
+fo: espeak-ng-data/fo_dict
+espeak-ng-data/fo_dict: dictsource/fo_list dictsource/fo_rules dictsource/fo_extra dictsource/fo_emoji
 
 fr: espeak-ng-data/fr_dict
 espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
