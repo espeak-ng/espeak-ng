@@ -1,6 +1,10 @@
 
 2  w  i:     0  v   // i:w  not allowed
 
+34 I  h     10  i: I  // fix stressed I sound by using 10% i:
+64 @  NULL   0  @     //default @
+2  @  b     40  e: @   //fix b@ sound.
+
 0  l/2 NULL 40  l
 0  l/ NULL   0  l
 0  r/ NULL   0  6
