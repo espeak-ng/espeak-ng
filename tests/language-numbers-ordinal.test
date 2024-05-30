@@ -12,7 +12,7 @@ test_phon en "t'EnT Il'Ev@nT tw'ElfT T'3:ti:nT f'o@ti:nT f'Ifti:nT s'Iksti:nT s'
 test_phon en "t'EnT tw'Enti@T T'3:ti@T f'o@ti@T f'Ifti@T s'Iksti@T s'Ev@nt,i@T 'eIti@T n'aInti@T" "10th 20th 30th 40th 50th 60th 70th 80th 90th" "tens"
 test_phon en-GB "Tr'i:h'VndrI2d@n s'Iksti f'IfT" "365th" "hundreds"
 test_phon en-US "Tr'i:h'VndrI2d s'Iksti f'IfT" "365th" "hundreds"
-test_phon en "w'0nh'VndrI2d T w'0n T'aUz@nd T w'0n m'Ili@n T w'0n b'Ili@n T w'0n tr'Ili@n T w'0n kw0dr'Ili@n T w'0n kwInt'Ili@n T w'0n sExt'Ili@n T w'0n sEpt'Ili@n T w'0n 0kt'Ili@n T w'0n n0n'Ili@n T" "100th 1000th 1000000th 1000000000th 1000000000000th 1000000000000000th 1000000000000000000th 1000000000000000000000th 1000000000000000000000000th 1000000000000000000000000000th 1000000000000000000000000000000th" "large" # 10^2 10^3 10^6 10^9 10^12 10^15 10^18 10^21 10^24 10^27 10^30
+test_phon en "w'0nh'VndrI2d T w'0n T'aUz@nd T w'0n m'Ili@n T w'0n b'Ili@n T w'0n tr'Ili@n T w'0n kw0dr'Ili@n T w'0n kwInt'Ili@n T w'0n sEkst'Ili@n T w'0n sEpt'Ili@n T w'0n 0kt'Ili@n T w'0n n0n'Ili@n T" "100th 1000th 1000000th 1000000000th 1000000000000th 1000000000000000th 1000000000000000000th 1000000000000000000000th 1000000000000000000000000th 1000000000000000000000000000th 1000000000000000000000000000000th" "large" # 10^2 10^3 10^6 10^9 10^12 10^15 10^18 10^21 10^24 10^27 10^30
 test_phon en "f'IfT s'Iksti f'o@T w'0nh'VndrI2d@n tw'Enti T'3:d f'o@ T'aUz@nd Tr'i:h'VndrI2d@n f'Ifti s'Ev@nT f'o@ti:n T'aUz@nd_! s'Iksh'VndrI2d@n 'eIti T'3:d s'Ev@nh'VndrI2d@n f'o@ti t'u: T'aUz@nd_! Tr'i:h'VndrI2d@n f'Ifti n'aInT s'Iks m'Ili@n_! f'o@h'VndrI2d@n s'Ev@nti f'aIv T'aUz@nd_! Tr'i:h'VndrI2d@n tw'Enti; 'eItT" "5th 64th 123rd 4357th 14683rd 742359th 6475328th" "mixed"
 test_phon lv "p'iRmais g'ads
 'uotRais g'ads
