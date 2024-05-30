@@ -35,7 +35,9 @@
 .group á
 	_)á	_!'a:
 	á	'a:
-	&)á	'a
+	á(CL09	'a
+	á(CCL09	'a
+	á(CCCL09	'a
 
 	_)ái	_!'aI:
 	ái	'aI:
@@ -120,7 +122,9 @@
 .group é
 	_)é	_!'E:
 	é	'E:
-	&)é	'E
+	é(CL09	'E
+	é(CCL09	'E
+	é(CCCL09	'E
 
 	_)éi	_!'eI:
 	éi	'eI:
@@ -234,7 +238,9 @@
 .group í
 	_)í	_!'i:
 	í	'i:
-	&)í	'i
+	í(CL09	'i
+	í(CCL09	'i
+	í(CCCL09	'i
 
 .group ì
 	_)ì	_!%i:
@@ -297,7 +303,9 @@
 .group ó
 	_)ó	_!'o:
 	ó	'o:
-	&)ó	'o
+	ó(CL09	'o
+	ó(CCL09	'o
+	ó(CCCL09	'o
 
 	_)ói	_!'oI:
 	ói	'oI:
@@ -430,7 +438,9 @@
 .group ú
 	_)ú	_!'u:
 	ú	'u:
-	&)ú	'u
+	ú(CL09	'u
+	ú(CCL09	'u
+	ú(CCCL09	'u
 
 .group ù
 	_)ù	_!%u:
