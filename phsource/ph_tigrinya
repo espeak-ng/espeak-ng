@@ -1,0 +1,140 @@
+
+//====================================================
+//  Tigrinya (Eritrea and Ethiopia)
+//====================================================
+
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 200
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 220
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme y
+  vwl starttype #@ endtype #@
+  ipa ɨ
+  length 180
+
+  FMT(vowel/ii#_2)
+endphoneme
+
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 220
+  IF nextPhW(isPalatal) THEN
+    FMT(vdiph/ai_5)
+  ENDIF
+  FMT(vowel/a_6)
+endphoneme
+
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 220
+  IF nextPhW(isPalatal) THEN
+    FMT(vdiph/@i_2)
+  ENDIF
+  FMT(vowel/@_3)
+endphoneme
+
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 220
+  FMT(vowel/o-_4)
+endphoneme
+
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 220
+  FMT(vowel/u_2)
+endphoneme
+
+
+phoneme r
+  import_phoneme base1/R2
+endphoneme
+
+
+phoneme p`
+  vls blb stp
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 gpaus
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  WAV(ustop/p_unasp)
+endphoneme
+
+
+phoneme b
+  vcd blb stp
+  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(B)
+  ENDIF
+  CALL base1/b
+endphoneme
+
+
+phoneme t`
+  vls alv stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ENDIF
+  WAV(ustop/t_hi, 70)
+endphoneme
+
+
+phoneme tS`
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_unasp, 80)
+  ENDIF
+  WAV(ustop/tsh_unasp, 80)
+endphoneme
+
+
+phoneme k`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k_ejc, 60)
+endphoneme
+
+
+phoneme x
+  vls vel frc
+  lengthmod 3
+  IF prevPhW(#i) THEN
+    ChangePhoneme(C)
+  ELSE
+    CALL base1/x
+  ENDIF
+endphoneme
+
+phoneme A       // Tigrinya Aamet (year)
+  vcd frc
+  ipa ʕ
+  voicingswitch a
+  length 160
+  Vowelin  f1=2  f2=2300 -400 500  f3=300 80
+  Vowelout f1=2  f2=2300 -300 450  f3=-100 10
+  FMT(r/xr,25) addWav(h/h_,30)
+endphoneme
