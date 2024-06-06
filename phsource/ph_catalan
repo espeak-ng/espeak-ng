@@ -127,10 +127,8 @@ phoneme u
         ENDIF
     ELIF thisPh(isWordStart) THEN
         IF prevPh(isVowel) THEN
-            IF prevPh(i) THEN
-            ELSE
-                ChangePhoneme(w)
-            ENDIF
+            ChangePhoneme(w)
+            
         ENDIF
     ENDIF
   ENDIF
@@ -143,7 +141,10 @@ phoneme i
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordEnd) THEN
         IF nextPh(isVowel) THEN
-            ChangePhoneme(j)
+            IF nextPh(u) THEN
+            ELSE 
+                ChangePhoneme(j)
+            ENDIF
         ENDIF
     ELIF thisPh(isWordStart) THEN
         IF prevPh(isVowel) THEN
@@ -340,8 +341,14 @@ phoneme f
   lengthmod 3
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   
-  IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
-    ipa v
+  //IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
+  IF thisPh(isWordStart) THEN
+  ELSE
+    IF nextPh(isVoiced) THEN
+        IF nextPh(isNotVowel) OR thisPh(isWordEnd) THEN
+            ipa v
+        ENDIF
+    ENDIF
   ENDIF
 
   IF nextPh(isPause) THEN

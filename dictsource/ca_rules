@@ -24,6 +24,7 @@
 .L11 b d g m v l n r z j // voiced
 .L12 b d g m v n z j // voiced, not r or l
 .L13 p t k b d g q // plosives
+.L14 s z x j ge gi ce ci// fricatives
 
 
 .L15 c ç               // ces
@@ -97,6 +98,8 @@
 ?4 Aix_) c (L01    ts    // dissimilation (peix celíac)
 ?4   s_) c (L01    ts    // (dos celíacs)
 ?4   ç_) c (L01    ts    // (dos celíacs)
+?4 Aig_) c (L01    ts
+?4 Atx_) c (L01    ts
 
 .group ç
         ç (_       =s    // (llaç)
@@ -422,6 +425,8 @@
 ?4 Aix_) g (L01    dZ    // dissimilation (peix gelat)
 ?4   s_) g (L01    dZ    // (dos gelats)
 ?4   ç_) g (L01    dZ    // (llaç gelat)
+?4 Aig_) g (L01    dZ
+?4 Atx_) g (L01    dZ
 
 .group h
         h              // silent
@@ -472,7 +477,7 @@
    _l)  i (_ho_    i    // no glide (li ho porta)
    _l)  i (_A     j     // glide (li amaga)
     _)  i (_A     j     // glide (i altres)
-    _)  i (_u+     i     // no glide (i altres)
+    K)  i (_u+     i     // no glide 
    A_)  i (_     j      // glide (faré i desfaré)
         
     
@@ -583,7 +588,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
    _pu) ig (A      dZ   // (puigàlber)
    _pu) ig (L11      dZ   // (puigmal)
    _pu) ig (L10      dZ   // (puigtort)
-     
+?4   A) ig (_L13    i // (vaig portar) 
+?4   A) ig (_L14    t // (vaig portar) 
      
 .group j
         j          Z    // (jota)
@@ -1132,6 +1138,9 @@ _contra) s (A      s    // (contrasentit)
 ?4   A) s (_ll    l^    // dissimilation (dos llits)
 ?4   A) s (_r         // dissimilation (dos rius)
 
+?4 Aig_) s         ts
+?4 Atx_) s         ts
+
 // balearic elision
 ?4  AL04) s (_C       // semivowel + s + _ + consonnant (feis cas, caus molt)
 ?4  AL04) s (_hA    s   // avoid elision
@@ -1165,6 +1174,9 @@ _contra) s (A      s    // (contrasentit)
      i) tz (a      tz   // (normalitzar) 
         tt         t
 
+?4   A) tx (_L13    i // (vaig portar) 
+?4   A) tx (_L14    t // (vaig portar) 
+
 .group u
         u          u
      A) u (K       w    // glide
@@ -1175,7 +1187,7 @@ _contra) s (A      s    // (contrasentit)
         u (i       u    // not a glide
         u (ï       u    // not a glide
         uïx        uiS   // (traduïx)
-
+  
         
 ?3      ui         wi   // (hui, huit)
 ?3      uix        ujS   // (bruixa)
@@ -1233,6 +1245,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 ?4 Aix_) x         tS    // dissimilation (mateix xarop)
 ?4   s_) x         tS    // (compres xarop)
 ?4   ç_) x         tS    // (llaç xamós)
+?4 Aig_) x         tS
+?4 Atx_) x         tS
      
   _L05) x (A         ks   // ()
      K) x          S    // (linx)
@@ -1249,6 +1263,8 @@ L05Ji)  u (s_      u    // not a glide (Màrius)
 ?4 Aix_) z         dz    // dissimilation (sis zones)
 ?4   s_) z         dz    // (mateix zero)
 ?4   ç_) z         dz    // (llaç zenital)
+?4 Aig_) z         dZ
+?4 Atx_) z         dZ
 
 .group
         à          ''a   // force stress onto this vowel

@@ -672,12 +672,19 @@ seues       s'ewes      $nounf
 nostres     n'Ost**es   $nounf
 vostres     v'Ost**es   $nounf
 
-mon         mon  $u       $nounf
-ton         ton  $u         $nounf
-son         son  $u         $nounf
-ma          ma  $u         $nounf
-ta          ta  $u         $nounf
-sa          sa  $u         $nounf
+mon         mon  $u     $nounf
+?4 mon      mun  $u     $nounf
+ton         ton  $u     $nounf
+son         son  $u     $nounf
+ma          ma  $u      $nounf
+ta          ta  $u      $nounf
+sa          sa  $u      $nounf
+
+mos         mos  $u     $nounf
+?4 mos      mus  $u     $nounf
+tos         tos  $u     $nounf
+// I don't put the rest of unestressed possesives bc of homography
+
 /// articles
 el	$u   $nounf
 la	$u   $nounf
@@ -7555,6 +7562,7 @@ conversation		kanvas'eiSan
 corbyn		k'Obin
 court		k'Ot
 cracking		k**ak'iN
+croissant   k**oz'an
 derrich		de2R'ik
 down		d'awn
 drone		d**'On
@@ -7564,6 +7572,7 @@ ego         'e2Qo2
 (e street band)   i||st**'it||b'and
 european		j,wa**ap'ian
 europe		j'wa**ap
+facebook		fe2jsb'uk
 financial		fain'anSal
 folk		f'o2lk
 foundation		fawnd'eiSan
@@ -8857,6 +8866,7 @@ zachary		z'aka**i
 ?3 marbre   m'ab**e
 ?3 sacrosant   sak**os'ant
 ?3 socors   s'okos
+?4 joan     Zu'an
 
 app         ap
 aamer		'ame**
@@ -8900,6 +8910,7 @@ ceratiomixal	se**atiomiks'al
 chakir		tSak'i**
 chris		k**'is
 claude		kl'OD
+coronavirus ko2**,onav'i**us
 corsica		ko2**s'ika
 cosinus     kos'inus
 damm		d'am
