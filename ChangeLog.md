@@ -41,6 +41,7 @@ updated languages:
 new languages:
 *  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
+*  fo (Faroese) -- Andras Eliassen, iSolveIT ApS and Setur.fo/Ravnur
 
 ### 1.51
 

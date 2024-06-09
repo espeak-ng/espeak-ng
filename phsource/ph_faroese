@@ -2,7 +2,6 @@
 
 //=========================================================
 // Faroese
-// Faroese prepared by Andras Eliassen, iSolveIT ApS (VoisIT)
 //=========================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -60,10 +59,14 @@ phoneme E:
   FMT(vowel/e_e)
 endphoneme
 
-
+phoneme A
+  vwl starttype #@ endtype #@
+  length 130
+  FMT(vowel/a#_2)
+endphoneme
 
 phoneme a
-  vwl starttype #@ endtype #@
+  vwl starttype #a endtype #a
   length 130
   FMT(vowel/a#_2)
 endphoneme
@@ -91,6 +94,85 @@ phoneme O:
 endphoneme
 
 
+phoneme 2
+  vwl starttype #o endtype #e
+  length 130
+  FMT(vowel/oe)
+endphoneme
+
+phoneme 2:
+  vwl starttype #o endtype #e
+  length 230
+  ChangeIfNotStressed(2)
+  FMT(vowel/oe_4)
+endphoneme
+
+phoneme 3
+  vwl starttype #e endtype #u
+  length 130
+  FMT(vowel/e_6)
+endphoneme
+
+phoneme 3:
+  vwl starttype #e endtype #u
+  length 230
+  ChangeIfNotStressed(2)
+  FMT(vowel/e_6)
+endphoneme
+
+phoneme 4
+  vwl starttype d endtype d
+  length 130
+  WAV(x/d)
+endphoneme
+
+phoneme 4:
+  vwl starttype d endtype d
+  length 230
+  ChangeIfNotStressed(4)
+  WAV(x/d_)
+endphoneme
+
+phoneme 5
+  vwl starttype t endtype h
+  length 130
+  WAV(ustop/th_rfx)
+endphoneme
+
+phoneme 5:
+  vwl starttype t endtype h
+  length 230
+  ChangeIfNotStressed(5)
+  WAV(ustop/th_rfx2)
+endphoneme
+
+phoneme 8
+  vwl starttype #@ endtype #@
+  length 130
+  FMT(vowel/@)
+endphoneme
+
+phoneme 8:
+  vwl starttype #@ endtype #@
+  length 230
+  ChangeIfNotStressed(2)
+  FMT(vowel/@)
+endphoneme
+
+phoneme 9
+  vwl starttype #e endtype #a
+  length 130
+  FMT(vowel/@_2)
+endphoneme
+
+phoneme 9:
+  vwl starttype #e endtype #a
+  length 230
+  ChangeIfNotStressed(9)
+  FMT(vowel/@_4)
+endphoneme
+
+
 phoneme u
   vwl starttype #u endtype #u
   length 130
@@ -102,6 +184,12 @@ phoneme u:
   length 230
   ChangeIfNotStressed(u)
   FMT(vowel/u_bck)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  length 110
+  FMT(vowel/u_2)
 endphoneme
 
 
@@ -162,6 +250,7 @@ phoneme eI:
 endphoneme
 
 
+
 phoneme aU
   vwl starttype #a endtype #u
   length 170
@@ -191,6 +280,12 @@ endphoneme
 
 
 phoneme Yy
+  vwl starttype #@ endtype #i
+  length 150
+  FMT(vdiph/y#i_2)
+endphoneme
+
+phoneme Y
   vwl starttype #@ endtype #i
   length 150
   FMT(vdiph/y#i_2)
@@ -229,6 +324,13 @@ phoneme m#
   FMT(m/m#_)
 endphoneme
 
+phoneme M
+  vcd blb nas
+  lengthmod 6
+  ipa m#
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  FMT(m/m#_)
+endphoneme
 
 phoneme n#
   vcd alv nas
@@ -276,7 +378,6 @@ phoneme N#
 
   FMT(nn/nn#_)
 endphoneme
-
 
 phoneme l#
   vls alv frc
@@ -335,6 +436,13 @@ phoneme g
     WAV(x/g_)
   ENDIF
   WAV(x/g2, 150)
+endphoneme
+
+
+phoneme H
+  vls glt frc
+  ipa h
+  WAV(h/h_phr)
 endphoneme
 
 
