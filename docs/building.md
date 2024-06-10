@@ -306,7 +306,7 @@ this by:
           android/build/outputs/apk/release/espeak-release-zipalign.apk
 3. Sign the package using your certificate:
 
-        $ apksigner --ks [YOUR_CERTIFICATE] --ks-key-alias [ALIAS] \
+        $ apksigner sign --ks [YOUR_CERTIFICATE] --ks-key-alias [ALIAS] \
           --out android/build/outputs/apk/release/espeak-release-signed.apk \
           android/build/outputs/apk/release/espeak-release-zipalign.apk
 
