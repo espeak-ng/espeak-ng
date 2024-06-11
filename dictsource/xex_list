@@ -47,15 +47,8 @@ c	xúxut loqban
 
 $phonememode
 
-//stress and pause naturalization
-
-//illocutions
-i	$pause
-ja	$pause
-je	$pause
-ji	$pause
-jo	$pause
-ju	$pause
+//pause naturalization
+//stress naturalization has been removed in favor of explicit marking
 
 $textmode
 ( qe i )	qe'i
@@ -66,15 +59,6 @@ $textmode
 ( qe ju )	qeju
 $phonememode
 
-//connectives
-qa	$brk $verbf
-qe	$brk $verbf
-qo	$brk $verbf
-qu	$brk $verbf
-ze	$brk $verbf
-zo	$brk $verbf
-kai	$brk $verbf
-
 //quoters
 lau	l%aU_:
 lou	l%ow_:
@@ -84,112 +68,5 @@ gu	g%u:_
 ku	k%u:_:
 vu	_:v%u:_:
 
-//utility predicates
-ka	k'a_
-bo	b'o_
-
 //adverbs
-wa	$u+ $brk	//unstressed, unless at end of clause
-we	$u+ $brk
-wi	$u+ $brk
-wo	$u+ $brk
-wu	$u+ $brk
-quo	$u+
-qeu	$u+
-nai	$u+
-pa	$u+
-fa	$u+
-na	$u+
-zei	$u+
-noi	$u+
-
-//prepositions
-kie	$u+ $verbf  //marks following pronoun as stressed.
-pai	$u+ $verbf  //"verb" is a vestige of the English data
-fai	$u+ $verbf
-vei	$u+ $verbf
-voi	$u+ $verbf
-xoi	$u+ $verbf
-nau	$u+ $verbf
-pau	$u+ $verbf
-fau	$u+ $verbf
-xau	$u+ $verbf
-peu	$u+ $verbf
-kou	$u+ $verbf
-neu	$u+ $verbf
-u	$u+ $verbf
-a	$u+ $verbf
-e	$u+ $verbf
-o	$u+ $verbf
-ai	$u+ $verbf
-ei	$u+ $verbf
-oi	$u+ $verbf
-au	$u+ $verbf
-eu	$u+ $verbf
-ou	$u+ $verbf
-ta	$u+ $verbf
-te	$u+ $verbf
-to	$u+ $verbf
-tai	$u+ $verbf
-tei	$u+ $verbf
-toi	$u+ $verbf
-tau	$u+ $verbf
-teu	$u+ $verbf
-tou	$u+ $verbf
-fo	$u+ $verbf
-fi	$u+ $verbf
-fe	$u+ $verbf
-za	$u+ $verbf
-pio	$u+ $verbf
-
-//tags
-ki	$u+ $verbf
-ke	$u+ $verbf
-pi	$u+ $verbf
-pe	$u+ $verbf
-
-//pronouns
-ba	b'a_	$verb  //stressed only when preceded by a preposition.
-bi	b'i_	$verb  //"verb" is a vestige of the English data.
-ti	t'i_ 	$verb
-di	d'i_	$verb
-du	d'u_	$verb
-gi	g'i_ 	$verb
-go	g'o_	$verb
-vi	v'i_	$verb
-vo	v'o_	$verb
-xe	S'E_	$verb
-le	l'E_	$verb
-li	l'i_	$verb
-ni	n'i_	$verb
-nie	nj'E_	$verb
-nio	nj'o_	$verb
-
-//selected determiners
-su	$u+
-sua	$u+
-sue	$u+
-sui	$u+
-suo	$u+
-nu	$u+
-ne	$u+
-duo	$u+
-tie	$u+
-kua	$u+
-pei	$u+
-lio	$u+
-xai	$u+
-bui	$u+
-giu	$u+
-lia	$u+
-nia	$u+
-dua	$u+
-gua	$u+
-vua	$u+
-xua	$u+
-bau	$u+
-kau	$u+
-sau	$u+
-zou	$u+
-xeu	$u+
-qau	$u+
+y	$brk

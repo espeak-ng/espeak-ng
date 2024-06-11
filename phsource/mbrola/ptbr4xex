@@ -1,6 +1,6 @@
 0   l/2 w      0   l
 0   l/2 j      0   l
-0   l/ j       0   l
+0   l/  NULL   0   l
 0   r/  NULL   0   r2
 0   r-  NULL   0   r
 0   w/  NULL   0   w
@@ -42,6 +42,7 @@
 0   d   i      95  d @
 0   d   I      95  d @
 0   d   i~     95  d @
+0   d   j      95  d @
 0   d   b      95  d @
 0   d   d      95  d @
 0   d   dZ     95  d @

@@ -7,7 +7,7 @@ volume 15
 0   l/  NULL   0   l
 0   r/  NULL   0   r2
 0   r-  NULL   0   r
-2   w   _      01   u w
+0   w   NULL   01   u w
 0   w/  NULL   0   w
 0   j/  NULL   0   y
 8   *   j      0   r

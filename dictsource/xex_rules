@@ -14,7 +14,7 @@
 	ü	ũ
 
 .group a
-	_)a(_	_!%a:
+	_)a	_!%a:
 	@)a	%a
 	_C)a(_	%a
 	_C)a(CA	%a
@@ -34,18 +34,31 @@
 
 .group á
 	_)á	_!'a:
+	_)á(CL09	_!'a
+	_)á(CCL09	_!'a
+	_)á(CCCL09	_!'a
 	á	'a:
 	á(CL09	'a
 	á(CCL09	'a
 	á(CCCL09	'a
 
 	_)ái	_!'aI:
+	_)ái(CL09	'aI
+	_)ái(CCL09	'aI
+	_)ái(CCCL09	'aI	
 	ái	'aI:
-	&)ái	'aI
+	ái(CL09	'aI
+	ái(CCL09	'aI
+	ái(CCCL09	'aI
 
 	_)áu	_!'aU:
+	_)áu(CL09	'aU
+	_)áu(CCL09	'aU
+	_)áu(CCCL09	'aU	
 	áu	'aU:
-	&)áu	'aU
+	áu(CL09	'aU
+	áu(CCL09	'aU
+	áu(CCCL09	'aU
 
 .group à
 	_)à	_!%a:
@@ -83,6 +96,12 @@
 ?2	_)âi	_!'@:%%i~
 ?2	âi	'@:%%i~
 
+.group ā
+
+	ā	'a:_
+	āI	'aI:_	
+	āu	'aU:_
+	
 .group b
 	b	b
 	bb	b:
@@ -101,7 +120,7 @@
 ?2 ?!5	ddq	_!dZ
 
 .group e
-	_)e(_	_!%E:
+	_)e	_!%E:
 	@)e	%E
 	_C)e(_	%E
 	_C)e(CA	%E
@@ -121,18 +140,31 @@
 
 .group é
 	_)é	_!'E:
+	_)é(CL09	_!'E
+	_)é(CCL09	_!'E
+	_)é(CCCL09	_!'E
 	é	'E:
 	é(CL09	'E
 	é(CCL09	'E
 	é(CCCL09	'E
 
 	_)éi	_!'eI:
+	_)éi(CL09	_!'eI
+	_)éi(CCL09	_!'eI
+	_)éi(CCCL09	_!'eI
 	éi	'eI:
-	&)éi	'eI
+	éi(CL09	'eI
+	éi(CCL09	'eI
+	éi(CCCL09	'eI
 
 	_)éu	_!'eU:
+	_)éu(CL09	_!'eU
+	_)éu(CCL09	_!'eU
+	_)éu(CCCL09	_!'eU	
 	éu	'eU:
-	&)éu	'eU
+	éu(CL09	'eU
+	éu(CCL09	'eU
+	éu(CCCL09	'eU
 
 .group è
 	_)è	_!%E:
@@ -180,6 +212,12 @@
 ?2	êu	'e~%%u~
 ?2	k)êu	_|'e~%%u~
 
+.group ē
+
+	ē	'E:_
+	ēi	'eI:_
+	ēu	'eU:_		
+
 .group f
 	f	f
 ?2	f(L03	f
@@ -193,7 +231,7 @@
 	h	h
 
 .group i
-	_)i(_	_;_%i:
+	_)i	_;_%i:
 	_po_)i(_	_!%i:
 	_lu_)i(_	_!%i:
 	@)i	%i
@@ -209,34 +247,49 @@
 
 	ia	j%a
 	iá	j'a:
-	&)iá	j'a
+	iá(CL09	j'a
+	iá(CCL09	j'a
+	iá(CCCL09	j'a
 	ià	j%a
 	iã	j%&~:
 	iâ	j'&~:
+	iā	j'a:_
 
 	ie	j%E
 	ié	j'E:
-	&)ié	j'E
+	ié(CL09	j'E
+	ié(CCL09	j'E
+	ié(CCCL09	j'E
 	iè	j%E
 	iẽ	j%e~:
 	iê	j'e~:
+	iē	j'E:_	
 
 	io	j%o
 	ió	j'o:
-	&)ió	j'o
+	ió(CL09	j'o
+	ió(CCL09	j'o
+	ió(CCCL09	j'o
 	iò	j%o
 	iõ	j%o~:
 	iô	j'o~:
+	iō	j'o:_
 
 	iu	j%u
 	iú	j'u:
-	&)iú	j'u
+	iú(CL09	j'u
+	iú(CCL09	j'u
+	iú(CCCL09	j'u
 	iù	j%u
 	iũ	j%u~:
 	iû	j'u~:
+	iū	j'u:_
 
 .group í
 	_)í	_!'i:
+	_)í(CL09	_!'i
+	_)í(CCL09	_!'i
+	_)í(CCCL09	_!'i	
 	í	'i:
 	í(CL09	'i
 	í(CCL09	'i
@@ -244,7 +297,7 @@
 
 .group ì
 	_)ì	_!%i:
-	ì	%i
+	ì	%i:
 
 .group ĩ
 	_)ĩ	_!%i~:
@@ -253,10 +306,19 @@
 .group î
 	_)î	_!'i~:
 	î	'i~:
+	
+.group ī
+
+	ī	'i:_
 
 .group j
 	j	j
 ?2	C_)j	_|j
+	_)ja	_;_j%a:
+	_)je	_;_j%E:
+	_)ji	_;_j%i:
+	_)jo	_;_j%o:
+	_)ju	_;_j%u:
 
 .group k
 	k	k
@@ -282,7 +344,7 @@
 	n(p	m
 
 .group o
-	_)o(_	_!%o:
+	_)o	_!%o:
 	@)o	%o
 	_C)o(_	%o
 	_C)o(CA	%o
@@ -302,18 +364,31 @@
 
 .group ó
 	_)ó	_!'o:
+	_)ó(CL09	_!'o
+	_)ó(CCL09	_!'o
+	_)ó(CCCL09	_!'o
 	ó	'o:
 	ó(CL09	'o
 	ó(CCL09	'o
 	ó(CCCL09	'o
 
-	_)ói	_!'oI:
+	_)ói	_!'oI:	
+	_)ói(CL09	_!'oI
+	_)ói(CCL09	_!'oI
+	_)ói(CCCL09	_!'oI
 	ói	'oI:
-	&)ói	'oI
+	ói(CL09	'oI
+	ói(CCL09	'oI
+	ói(CCCL09	'oI
 
 	_)óu	_!'o:w
+	_)óu(CL09	_!'ow
+	_)óu(CCL09	_!'ow
+	_)óu(CCCL09	_!'ow	
 	óu	'o:w
-	&)óu	'ow
+	óu(CL09	'ow
+	óu(CCL09	'ow
+	óu(CCCL09	'ow
 
 .group ò
 	_)ò	_!%o:
@@ -355,6 +430,12 @@
 ?2	_)ôu	_!'o~%%u~
 ?2	ôu	'o~%%u~
 
+.group ō
+
+	ō	'o:_
+	ōi	'oI:_
+	ōu	'o:w_		
+
 .group p
 	p	p
 	pp	p:
@@ -394,7 +475,7 @@
 ?5	tdq	_!d|Z
 
 .group u
-	_)u(_	_!%u:
+	_)u	_!%u:
 	@)u	%u
 	_C)u(_	%u
 	_C)u(CA	%u
@@ -412,13 +493,21 @@
 	uo	w%o
 
 	uá	w'a:
-	&)uá	w'a
+	uá(CL09	w'a
+	uá(CCL09	w'a
+	uá(CCCL09	w'a
 	ué	w'E:
-	&)ué	w'E
+	ué(CL09	w'E
+	ué(CCL09	w'E
+	ué(CCCL09	w'E
 	uí	w'i:
-	&)uí	w'i
+	uí(CL09	w'i
+	uí(CCL09	w'i
+	uí(CCCL09	w'i
 	uó	w'o:
-	&)uó	w'o
+	uó(CL09	w'o
+	uó(CCL09	w'o
+	uó(CCCL09	w'o
 
 	uà	w%a
 	uè	w%E
@@ -434,6 +523,11 @@
 	uê	w'e~:
 	uî	w'i~:
 	uô	w'o~:
+	
+	uā	w'a:_
+	uē	w'E:_
+	uī	w'i:_
+	uō	w'o:_
 
 .group ú
 	_)ú	_!'u:
@@ -455,6 +549,10 @@
 
 	_)û	_!'u~:
 	û	'u~:
+
+.group ū
+
+	ū	'u:_
 
 .group v
 	v	v
