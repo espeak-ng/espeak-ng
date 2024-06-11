@@ -8,15 +8,11 @@ phoneme r
   ipa ɾ
   lengthmod 3
 
-  IF nextPhW(isVowel) THEN
-    ChangePhoneme(**)
-  ENDIF
-
   CALL base1/*
 endphoneme
 
 
-phoneme H       // arabic Hah
+phoneme H       // Amazigh Hah
   vls phr frc
   ipa ħ
   lengthmod 5
@@ -91,20 +87,6 @@ phoneme x
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
   WAV(ufric/xx, 70)
 endphoneme
-
-phoneme v#   // a shorter [v], a little towards [b], for bh
-  vcd lbd frc
-  ipa ʋ
-  lengthmod 6
-  voicingswitch f
-  Vowelin  f1=1  f2=1000 -300 -200  f3=-300 100
-  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=10 
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/v_) addWav(vocw/v, 80)
-  ENDIF
-  FMT(voc/v2) addWav(vocw/v, 80)
-endphoneme 
 
 phoneme z // for the light z
   vls uvl stp
@@ -194,6 +176,41 @@ phoneme 3
   ipa ə
   unstressed
   length 140
+  FMT(vowel/@)
+endphoneme
+
+T(vowel/@)
+endphoneme
+
+
+
+phoneme u.
+  vwl starttype #u endtype #u
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/u_7)
+endphoneme
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 180
+endphoneme
+
+phoneme 3
+  vwl   starttype #@  endtype #@
+  ipa ə
+  unstressed
+  length 140
+  FMT(vowel/@)
+endphoneme
+
+T(vowel/@)
+endphoneme
+
+th 140
   FMT(vowel/@)
 endphoneme
 
