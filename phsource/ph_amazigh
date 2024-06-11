@@ -1,0 +1,202 @@
+phoneme #r  virtual
+// Used for "r" sounds
+endphoneme
+
+phoneme r
+  vcd alv flp rhotic
+  brkafter
+  ipa ɾ
+  lengthmod 3
+
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(**)
+  ENDIF
+
+  CALL base1/*
+endphoneme
+
+
+phoneme H       // arabic Hah
+  vls phr frc
+  ipa ħ
+  lengthmod 5
+  WAV(vwl_ar/hah,80)
+endphoneme
+
+phoneme D[      // Amazigh emphatic (thick) jad
+  vcd dnt frc
+  ipa ð
+  // following definition is taken from English D
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1290 -300 300 f3=0 0
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh)
+  ENDIF
+  FMT(voc/dh) addWav(vocw/dh)
+endphoneme
+
+phoneme A       // arabic Ain
+  vcd frc
+  ipa ʕ
+  voicingswitch a
+  length 160
+  Vowelin  f1=2  f2=2300 -400 500  f3=300 80
+  Vowelout f1=2  f2=2300 -300 450  f3=-100 10
+  FMT(r/xr,25) addWav(h/h_,30)
+endphoneme
+
+phoneme g[      // arabic Ghain, the phoneme is derived from Q
+  vcd vel frc
+  voicingswitch R2
+  ipa ɣ
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(g/g) addWav(vwl_ar/dhad)
+endphoneme
+
+phoneme D      //arabic Dhad TODO this probably should be simple d from standard phonemes
+  vcd alv stp
+  ipa dˤ
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ENDIF
+  FMT(d/d) addWav(x/d)
+endphoneme
+
+phoneme s[
+  vls dnt stp
+  voicingswitch s
+  IF nextPh(s[) THEN
+    length 50
+  ELSE
+    length 140
+  ENDIF
+  lengthmod 7
+  WAV(vwl_ar/shin)
+endphoneme
+
+phoneme x
+  vls uvl frc
+  voicingswitch Q
+  lengthmod 7
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  WAV(ufric/xx, 70)
+endphoneme
+
+phoneme v#   // a shorter [v], a little towards [b], for bh
+  vcd lbd frc
+  ipa ʋ
+  lengthmod 6
+  voicingswitch f
+  Vowelin  f1=1  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=10 
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v, 80)
+  ENDIF
+  FMT(voc/v2) addWav(vocw/v, 80)
+endphoneme 
+
+phoneme z // for the light z
+  vls uvl stp
+  lengthmod 2
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
+  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
+  WAV(myanmar/z, 150)
+endphoneme 
+
+phoneme z[ // for zh the thick Zh
+  vls uvl stp
+  lengthmod 2
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
+  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
+  WAV(vwl_ar/zah, 150)
+endphoneme
+
+// vowels
+phoneme a
+  vwl starttype #a endtype #a
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/a_2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/i)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/u)
+endphoneme
+
+// "dark" vowels after "thick" consonants
+phoneme a.
+  vwl starttype #a endtype #a
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/aa_7)
+endphoneme
+
+phoneme i.
+  vwl starttype #i endtype #i
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme u.
+  vwl starttype #u endtype #u
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/u_7)
+endphoneme
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 180
+endphoneme
+
+phoneme 3
+  vwl   starttype #@  endtype #@
+  ipa ə
+  unstressed
+  length 140
+  FMT(vowel/@)
+endphoneme
+
+T(vowel/@)
+endphoneme
+
