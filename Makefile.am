@@ -924,6 +924,9 @@ espeak-ng-data/uz_dict: dictsource/uz_list dictsource/uz_rules dictsource/uz_ext
 vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
 
+zgh: espeak-ng-data/zgh_dict
+espeak-ng-data/zgh_dict: dictsource/zgh_list dictsource/zgh_listx dictsource/zgh_rules dictsource/zgh_extra dictsource/zgh_emoji
+
 cmn: espeak-ng-data/cmn_dict
 dictsource/cmn_listx:
 	ln -svf extra/cmn_listx dictsource/
