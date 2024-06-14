@@ -6986,9 +6986,61 @@ contin) u          ju:
         'd (_S2    d
         'll (_S3   @L
 
+// Shavian characters, phonemic alphabet for English
+.group 0xF0
+// 0xF0 is the first byte of the utf-8 code for these characters
+
+    𐑐     p
+    𐑚     b
+    𐑑     t
+    𐑛     d
+    𐑒     k
+    𐑜     g
+    𐑓     f
+    𐑝     v
+    𐑔     T
+    𐑞     D
+    𐑕     s
+    𐑟     z
+    𐑖     S
+    𐑠     Z
+    𐑗     tS
+    𐑡     dZ
+    𐑘     j
+    𐑢     w
+    𐑙     N
+    𐑣     h
+    𐑤     l
+    𐑮     r
+    𐑥     m
+    𐑯     n
+    𐑦     I
+    𐑦 (_  %i
+    𐑰     i:
+    𐑧     E
+    𐑱     eI
+    𐑨     a
+    𐑲     aI
+    𐑩     @
+    𐑳     V
+    𐑪     0
+    𐑴     oU
+    𐑫     U
+    𐑵     u:
+    𐑬     aU
+    𐑶     OI
+    𐑭     A:
+    𐑷     O:
+    𐑸     'A@
+    𐑹     'O@
+    𐑺     'e@
+    𐑻     '3:
+    𐑼     3
+    𐑽     'i@3
+    𐑾     i:@
+    𐑿     ju:
 
 .group 0xce   // Greek letters
-// 0xce is the first byte of the utf-8 code for these characters
 
         α          'alf@_
         β          b'i:t@_
