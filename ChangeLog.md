@@ -39,6 +39,7 @@ updated languages:
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  en-Shaw (English, Shavian script) -- Luna Rose
 *  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
 
