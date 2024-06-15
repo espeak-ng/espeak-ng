@@ -233,6 +233,9 @@
   <Target Name="ka" Inputs="$(ProjectDir)..\..\dictsource\ka_rules;$(ProjectDir)..\..\dictsource\ka_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ka_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ka" />
   </Target>
+  <Target Name="kaa" Inputs="$(ProjectDir)..\..\dictsource\kaa_rules;$(ProjectDir)..\..\dictsource\kaa_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\kaa_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=kaa" />
+  </Target>
   <Target Name="kk" Inputs="$(ProjectDir)..\..\dictsource\kk_rules;$(ProjectDir)..\..\dictsource\kk_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\kk_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=kk" />
   </Target>
