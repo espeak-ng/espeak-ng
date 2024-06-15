@@ -78,6 +78,7 @@ test_phwav it e2a438778434f699d9be469c4f9ea1576ec4fd03 "ma na n^a pa ba ta da ka
 test_phwav ja 6d1483048991b0205b9bc82cec24340a2184c42f "ma na n^a Na N\\a pa ba ta da ka ga t_sa d_za t_s\\a d_z\\a p\\a sa za s\\a z\\a Ca ha r\`a ja wa _:_ mi mu me mo ma mi~ mu~"
 test_phwav jbo 1bf9cf5c4898a24d2f71eae6f8a3e260895da884 "ma na Na pa ba ta da ka ga ?a fa va xa ha tSa dZa sa za Sa Za wa ja la Ra n-a r-a l-a _:_ ma me mi mo mu m@ maI maU meI moI"
 test_phwav ka 74a6f31909bdc9470e203a658614b6d2c961d7c3 "ma na p#a pa ba t#a ta da k#a ka ga qa ?a ts#a tsa tSa dza dZa va sa za Sa Za ca xa qa Qa ha ra la _:_ ma me mi mo mu m@ mo:"
+test_phwav kaa 2fffd426cd03d47f55829ebdd539a9a2f7b3dbd0 "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
 test_phwav kk bb05c59779660929d7f0a7213189d89fcfc71675 "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
 test_phwav kl 9b97b1ba5f35bb41a4be67e0a329cff9f494b2b1 "ma na Na pa ta ka qa tsa va sa Sa Qa ra la l#a ja tl#a _:_ ma me mi my mo mu m& mE mV mO mW m3 m@ maI"
 test_phwav kn 7a4943a8f06a29a5e59892edb6a39be91b20c2c2 "ma na n.a n^a Na pa p#a ba b#a ta t#a da d#a t.a t.#a d.a d.#a ka k#a ga g#a fa va sa S;a s.a ca c#a Ja J#a ha ja ra la l.a r-a _:_ ma ma: mi mi: mu mu: me me: mo mo: maI"

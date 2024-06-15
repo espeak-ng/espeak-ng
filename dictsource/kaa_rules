@@ -1,0 +1,150 @@
+// This file is UTF8 encoded
+// Spelling to phoneme rules for Karakalpak language
+
+.replace
+// Replace Cyrillic script to Latin script
+    а    a
+    ә    á
+    б    b
+    в    v
+    г    g
+    ғ    ǵ
+    д    d
+    е    e
+    ё    yo
+    ж    j
+    з    z
+    и    i
+    й    y
+    к    k
+    қ    q
+    л    l
+    м    m
+    н    n
+    ң    ń
+    о    o
+    ө    ó
+    п    p
+    р    r
+    с    s
+    т    t
+    у    u
+    ү    ú
+    ў    w
+    ф    f
+    х    x
+    ҳ    h
+    ц    c
+    ч    ch
+    ш    sh
+    щ    sch
+    ы    ı
+    ь    ʼ
+    ъ    ʼ
+    э    e
+    ю    yu
+    я    ya
+
+.group a
+    a    A
+
+.group á
+    á    &
+
+.group b
+    b    b
+
+.group v
+    v    v
+
+.group g
+    g    g
+
+.group ǵ
+    ǵ    G
+
+.group d
+    d    d
+
+.group e
+    e    e
+
+.group j
+    j    Z
+
+.group z
+    z    z
+
+.group i
+    i    I
+
+.group y
+    y    j
+
+.group k
+    k    k
+
+.group q
+    q    q
+
+.group l
+    l    l
+
+.group m
+    m    m
+
+.group n
+    n    n
+
+.group ń
+    ń    N
+
+.group o
+    o    o
+
+.group ó
+    ó    8
+
+.group p
+    p    p
+
+.group r
+    r    *
+
+.group s
+    s    s
+    sch  SS
+    sh   S
+
+.group t
+    t    t
+
+.group u
+    u    U
+
+.group ú
+    ú    u#
+
+.group w
+    w    w
+
+.group f
+    f    f
+
+.group x
+    x    x
+
+.group h
+    h    h
+
+.group c
+    c    ts
+    ch   tS
+
+.group ı
+    ı    @
+
+.group
+    ʻ     ?
+    ş     S
+    ç     tS
