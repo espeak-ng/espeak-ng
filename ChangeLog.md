@@ -41,6 +41,7 @@ updated languages:
 new languages:
 *  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
+*  kaa (Karakalpak) -- atabekm
 *  xex (Xextan) -- Filomena Rocca
 
 ### 1.51
