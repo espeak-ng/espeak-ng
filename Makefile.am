@@ -458,6 +458,7 @@ dictionaries: \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/chr_dict \
 	espeak-ng-data/cmn_dict \
+        espeak-ng-data/crh_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
@@ -615,6 +616,9 @@ espeak-ng-data/ca_dict: dictsource/ca_list dictsource/ca_rules dictsource/ca_ext
 
 chr: espeak-ng-data/chr_dict
 espeak-ng-data/chr_dict: dictsource/chr_list dictsource/chr_rules
+
+crh: espeak-ng-data/crh_dict
+espeak-ng-data/crh_dict: dictsource/crh_list dictsource/crh_rules
 
 cs: espeak-ng-data/cs_dict
 espeak-ng-data/cs_dict: dictsource/cs_list dictsource/cs_rules dictsource/cs_extra dictsource/cs_emoji

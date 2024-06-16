@@ -1,4 +1,5 @@
 name Belarusian
 language be
-dict_min  2000
+replace 03 a a#
+dict_min  20000
 speed 95
