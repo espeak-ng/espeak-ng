@@ -2055,3 +2055,6 @@ phonemetable qdb en
 include ph_langbelta
 
 phonemetable ms id
+
+phonemetable kaa kk
+include ph_karakalpak
