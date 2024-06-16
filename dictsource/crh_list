@@ -1,0 +1,294 @@
+// ***************************************************************************/ 
+// *   Crimean Tatar Language crh crh_list                                   *
+// *   Original Author Andy Vladescu 05-05-2024                              *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+
+// LETTERS
+//*********
+
+a      A
+b      b;e
+c      dZ;e
+ç      tS;e
+d      d;e
+e      ;e
+f      f;e
+g      J;e
+ğ      Q@
+h      x;e
+ı      @
+i      i
+j      Z|;e
+k      c;e
+l      l;e
+m      m;e
+n      n;e
+ñ      N;e
+_o     o $atend
+ö      W
+p      p;e
+q      q@
+r      r;e
+s      s|;e
+ş      S|;e
+t      t;;e
+u      u
+ü      y
+v      v;e
+w      dub;elv;'e
+x      iks
+y      j;e
+z      ;ez
+
+// CYRILLIC LETTERS
+//******************
+
+а	   a
+б	   bE
+в	   wE
+г	   gE
+гъ     Q@
+д	   d;E
+е	   jE
+ё	   jo
+ж	   ZE
+з	   zE
+и	   i
+й	   j@
+к	   ka
+къ     qa
+л	   El
+м	   Em
+н	   En
+нъ     EN
+о	   o
+п	   pE
+р	   Er
+с	   Es
+т	   t;E
+у	   u
+ф	   Ef
+х	   xa
+ц	   tsE
+ч	   tS;E
+дж     dZ;E
+ш	   Sa
+щ	   StSa
+ъ      _^_RU
+ы	   @
+ь      _^_RU
+э	   E
+ю	   ju
+я	   ja
+
+// NUMBERS
+//*********
+
+_0       s@f'@r
+_1       b'Ir
+_2       Ek'I
+_3       'utS;
+_4       d;'ort
+_5       b;'eS
+_6       ALt'@
+_7       j;ed'I
+_8       s|;ek'Iz
+_9       doq'uz
+
+_10      'on
+_11      onb'Ir
+_12      onEk'I
+_13      on'utS;
+_14      ond;'ort
+_15      onb'eS
+_16      onALt'@
+_17      onjed'I
+_18      ons|;ek'Iz
+_19      ondoq'uz
+
+_2X      jIgIrm'I
+_3X      ot'uz
+_4X      q'@rq
+_5X      Ell'I
+_6X      Altm'@S
+_7X      jetm'IS
+_8X      s|;eks'en
+_9X      doqs'An
+
+_0C      j'uz
+_1C      j'uz
+_2C      EkIj'uz
+_3C      utS;j'uz
+_4C      d;ortj'uz
+_5C      b;eSj'uz
+_6C      ALt@j'uz
+_7C      jedIj'uz
+_8C      s|;ekIzj'uz
+_9C      doquzj'uz
+
+_0M1     b'IN
+_1M1     b'IN
+_2M1     EkIb'IN
+_3M1     utS;b'IN
+_4M1     d;ortb'IN
+_5M1     beSb'IN
+_6M1     ALt@b'IN
+_7M1     jedIb'IN
+_8M1     s|;ekIzb'IN
+_9M1     doquzb'IN
+_10M1    onb'IN
+
+_0M2      millj'on
+_0M3      millj'ard
+
+_dpt     _virJ,yl_|
+
+// CHARACTERS
+//************
+
+_. noqt'A
+_, virJ'yl
+_; noqt'A||v;e||virJ'yl
+_: Ek'I||noqt'A
+_! q@tS@rt'uv||iSAr;etl;er'I
+_? sual'I||iSAr;etler'I
+_| d'Iq||tSub'uq
+_( AtS'@q||pArAnt;;es'I
+_) jab'@q||pArAnt;;es'I
+_[ AtS'@q||kvAdr'At||pArAnt;;es'I
+_] jab'@q||kvAdr'At||pArAnt;;es'I
+_{ AtS'@q||kIr'IS
+_} jab'@q||kIr'IS
+_< tSoqL'uq||iSAr;etl;er'I
+_> AzL'@q||iSAr;etl;er'I
+_" duQm;'e
+_~ t;ild;;'e
+_& v'e||iSAretler'I
+_` q@Sq@r@dZ'@||'Apost@-row
+_' qApAt@dZ'@||'Apost@-row
+_« solQ,A||iSAr;,et||;etk;,en||Ek,I||koS|;el,I||Al@nt,@||iSar;etl;er'I
+_» sAQ:,A||iSAr;,et||;etk;,en||Ek,I||koS|;el,I||Al@nt,@||iSar;etl;er'I
+
+.  noqt'A
++  qoqus'@ $max3
+-  s@z'@q
+=  t;;'eN
+/  q@sqArtm'A
+\  q@j@St@rAdZ'Aq
+#  x'AS
+@  maIjmuntS'@q
+$  doLL'Ar
+€  Awr'o
+%  f'aIjz
+×  bujut;'uv
+÷  bWlyn'yv
+_  Ast@n'@
+&  v;'e
+*  j@Ld'@z
+º  dArAdZ'A
+№  n'om;erA
+^  qaIQ@r'uw
+…  'utS;noqt'A
+
+
+// ABBREVIATIONS
+//***************
+
+cm  sAnt;im;'etr-
+kg  ciLog@-r'Amm
+km  ciLom;'etr-
+mg  milig@-r'Amm
+mm  milim;'etr-
+ml  milil'itr-
+
+// PRONOUNS
+//**********
+
+men	     $u+                // I
+sen	     $u+                // you
+o	     $u $atend          // he/she
+biz	     $u+                // we
+siz	     $u+                // you
+olar     $u+                // they
+menim	 $u+                // my            
+seniñ	 $u+                // your
+onıñ	 $u+                // its
+bizim	 $u+                // our
+siziñ	 $u+                // your
+olarnıñ  $u+                // their
+
+// CONJUNCTIONS
+//**************
+
+ancaq    $u
+ile      $u
+rubin    $u
+sanki    $u
+ve       $u $pause
+yahut    $u
+
+
+// POSTPOSITIONS
+//***************
+
+qadar      $u             // until
+taba       $u             // towards
+zarfında   $u             // during
+ile        $u             // with
+içün       itS;,un $u     // for
+soñ        $u             // after
+sebep      $u             // due to
+
+
+// POSSESIVE PRONOUNS
+//********************
+
+menimki    m;enImk,I   $u+            // mine
+seniñki    s|;enINk,I   $u+            // your
+onıñki     onINk,I    $u+            // his
+bizimki	   bIzImk,I   $u+            // our
+siziñki	   sIzINk,I   $u+            // your
+olarnıñki  oLArniNk,I $u+            // theirs
+
+
+// MAIN WORD DICTIONARY
+========================
+
+abbreviatura _^_IT
+avropa $2
+bizge  bIzJ;'e
+biri   bIr'I
+birilerine bIrIl;erIn;'e
+birilerinen bIrIl;erIn;'en
+birligi bIrlIg'I
+bügün   bug'un
+bütün   but'un
+dört    d;'ort
+eki     Ek'I
+er      'Er
+etken   ;etc;'en
+etnen   ;etn;'en
+ev      ;'ew
+fortepyano $3
+ki      c'i
+saibidirler saIjbIdIrl;'er
+tili    tIl'I
+tilidir tIl'IdIr
+üç      'utS;
