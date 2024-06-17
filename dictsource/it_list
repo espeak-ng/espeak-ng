@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2024 may 4 by Christian Leo Mameli, <llajta2012ATgmail.com>
+// Updated 2023 december  11 by Christian Leo Mameli, <llajta2012ATgmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -483,7 +483,6 @@ omg	o||em:e||dZ'i
 prof	$hasdot $dot
 rai	@-*'aj
 rna	$abbrev
-dell'rna	del:,ER*e||,En:e||'a
 sos	$abbrev	$allcaps
 spa	$abbrev
 srl	$abbrev
@@ -802,7 +801,6 @@ blind	bl'aInd $onlys
 blister	$1 $onlys
 blogger	bl'Oge@-*
 blues	bl'u:z
-bluetooth	bl,ut'u:t
 bluff	bl'ef:	$only
 boiler	$1
 bomber	$1	$onlys
@@ -1340,8 +1338,6 @@ rock'n'roll	@-*,Oken@-*'O:l
 (nôtre dame)	noUt@-*'da:m
 (question time)	kw'estiont'aIm
 (fair play)	f,E@-*||pl'Ei
-(au revoir)	oR@vw'a@-*
-(auf wiedersehn)	auf|videz'e:n
 
 // Main  nouns Dictionary (see also it_listx)
 
@@ -2248,7 +2244,6 @@ tiscali	$1
 tizzano	tits2:'a:no
 tolosano	$3
 toscano	$2
-tottenham	$1 $alt
 trevano	$2
 trezzano	$2
 tripoli $1
@@ -2280,7 +2275,6 @@ visciano	$2
 vissano	$2
 vitorchiano	$4
 washington	_^_EN
-werder	v'E@-*de@-*
 wimbledon	$1
 woodstock	_^_EN
 yellowstone	_^_EN
@@ -2376,7 +2370,6 @@ behringer	b'e:RiNg,E@-*
 bertold  $alt
 bettega	$1 $alt
 biagini	$2
-biden	b'aIden $only
 björk	b,i'O@-*k
 boeing	b'O:ing
 bougot	_^_FR
@@ -2386,7 +2379,6 @@ brigitte	b@-*iZ'it[
 brown	b@-*'a:w2n	$onlys
 bruce	b@-*'Us $only
 buffon	$2 $only
-cabernet	kabe@-*n'E
 cacciol	katS:'ol
 cadillac	$1
 caino	ka'i:no/
@@ -2404,13 +2396,11 @@ catia	k'a:tia
 causio	k'awzio
 celentano	$3
 cesare $1
-chardonnay	SaRd,On:'E
 chaplin	tS'apliN
 charles	tS'a/@-*ls
 charlie	tS'a@-*li
 charlotte	Sa@-*l'Ot
 charriere	SaR*j'e*
-chéri	S,eR'i $onlys
 chesterfield	tS'Este@-*fild
 chevalier	_^_FR
 cheyenne	tSej'En
@@ -2456,7 +2446,6 @@ elena	'E:lena
 elgar	$1	$only
 elia	el'ia
 elizabeth	el'izabet[
-elon	'ilon $only
 emanuel	em,a:nU'El
 emmanuel	$2 $only
 ennia	'e:nnia
@@ -2569,7 +2558,6 @@ kate	k'eIt[
 katia	k'a:tia
 kennedy	$1 $alt
 kinder	$1 $onlys
-krstović	kRst'ovitS
 landolf  $alt
 lauper	_^_EN
 lawrence	l'oRens
@@ -2602,7 +2590,6 @@ marciano	$2 $capital
 marcon $2
 margaret	$1 $only
 margareth	$1 $only
-margery	m'E:@-*dZe*i
 maria	m,a/R'i:a
 mariah	$2
 mariangel	$3
@@ -2611,7 +2598,6 @@ mariapia	$4
 mary	m'E:*i	$only
 marilyn	m'E:r*ilIN
 marylin	m'ERilin
-merlot	me@-*l'O $only
 marsili	$2
 marzott	ma@-*dz'Ot:
 masala	$1
@@ -2642,7 +2628,6 @@ mourinho	muR'in^o
 mozilla	m,o|dz'il:a
 muresan	$3
 murgia	$1
-musk	m'ask $onlys
 nadir $2
 nancy	n'E:nsI
 natalie	natal'i
@@ -2699,7 +2684,6 @@ roger	$1 $alt
 ron	@-*'On $only
 rosalia $3
 Rosemarie	@-*'ozm,a*i
-rosangela	$2
 rossetti	@-*os:'ett:i
 rottweiler	@-*otv'ajle@-*
 roosevelt	@-*'u:z|v,Elt
@@ -2900,7 +2884,6 @@ addestrano	$2
 addestrino	$2
 addic	$2
 addicano	$2
-addolorano	$3
 addossino	$2
 addrizzare	ad:@-*Its2:'aRe
 adeguano	$2
@@ -2919,8 +2902,6 @@ affascin	$2
 affascinano	$2
 affascino	$2
 affaticano	$3
-affatic	$3
-affatichi	$3
 affermano	$2
 affermino	$2
 afferrano	$2
@@ -2991,7 +2972,6 @@ ammirino	$2
 ammontino	$2
 ammucchino	$2
 amoreggino	$3
-ampliano	$1
 amputano	$2
 amputino	$1
 analizzino	$3
@@ -3847,7 +3827,6 @@ insapono	$3
 insediano	$2
 insegnano	$2
 inseguano	$2
-insinuano	$2
 installano	$2
 installino	$2
 instaurano	$2
@@ -4986,7 +4965,6 @@ vendano	$1
 vendemmiano	$2
 vendicano	$1
 vendichino	$1
-venerino	$1
 venne	$alt2
 vergogniano	$2
 vergognino	$2
@@ -4997,7 +4975,6 @@ vibrano	$1
 videro	$1
 vidimano	$1
 vietano	$1
-vigilano	$1
 vincolano	$1
 vincolino	$1
 violano	v'iolano
@@ -5110,16 +5087,15 @@ cliccaci	$1
 cliccal	$1
 compiersi	$1
 compil	$2
-conclusasi	$2
 conclusosi	$2
 conosciutisi	$3
+conclusasi	$2
 confrontal	$2
 connettiti	$2
 contattaci	$2
 contattami	$2
 contorcerci	$2
 contorcersi	$2
-convertitosi	$3
 copial	$1 $alt
 coprimi	$1
 copriti	$1
@@ -5271,8 +5247,6 @@ sbrigati	$1
 scarical	$1
 scaricami	$1
 scegline	$1
-scioltosi	$1
-scioltasi	$1
 scommetterci	$2 $alt2
 scordal	$1
 scuotersi	$2 $alt
@@ -5281,7 +5255,6 @@ selezionale	$4
 selezionali	$4
 sforzati	$1 $atstart
 siediti	$1 $alt2
-smarritosi	$2
 smontal	$1
 spezzal	$1
 spiegaci	$2
@@ -5332,7 +5305,6 @@ chieder	$1 $alt
 commetter	$2
 comprender	$2
 dipender	$2
-dipendano	$2
 esser	'EsseR
 gioir	dZo'i@-*
 legger	l'EdZ:e/@-* $only
