@@ -4,6 +4,7 @@
 .L01 b d g v z q //xuázin tolson
 .L02 ' -
 .L03 f v s z x q 
+.L04 po lu qe qa qo ze zo
 .L09 á é í ó ú ý //"fiklé", "gexló"
 
 .replace
@@ -43,18 +44,18 @@
 	á(CCCL09	'a
 
 	_)ái	_!'aI:
-	_)ái(CL09	'aI
-	_)ái(CCL09	'aI
-	_)ái(CCCL09	'aI	
+	_)ái(CL09	_!'aI
+	_)ái(CCL09	_!'aI
+	_)ái(CCCL09	_!'aI	
 	ái	'aI:
 	ái(CL09	'aI
 	ái(CCL09	'aI
 	ái(CCCL09	'aI
 
 	_)áu	_!'aU:
-	_)áu(CL09	'aU
-	_)áu(CCL09	'aU
-	_)áu(CCCL09	'aU	
+	_)áu(CL09	_!'aU
+	_)áu(CCL09	_!'aU
+	_)áu(CCCL09	_!'aU	
 	áu	'aU:
 	áu(CL09	'aU
 	áu(CCL09	'aU
@@ -225,7 +226,8 @@
 
 .group f
 	f	f
-?2	f(L03	f
+?2	f(L03	f_!
+
 
 .group g
 	g	g
@@ -237,8 +239,7 @@
 
 .group i
 	_)i	_;_%i:
-	_po_)i(_	_!%i:
-	_lu_)i(_	_!%i:
+	_L04_)i(_	_!%i:
 	@)i	%i
 	_C)i(_	%i
 	_C)i(CA	%i
@@ -325,6 +326,12 @@
 	_)ji	_;_j%i:
 	_)jo	_;_j%o:
 	_)ju	_;_j%u:
+	
+	_L04_)ja	j%a:
+	_L04_)je	j%E:
+	_L04_)ji	j%i:
+	_L04_)jo	j%o:
+	_L04_)ju	j%u:
 
 .group k
 	k	k

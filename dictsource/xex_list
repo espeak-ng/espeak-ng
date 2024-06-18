@@ -50,15 +50,6 @@ $phonememode
 //pause naturalization
 //stress naturalization has been removed in favor of explicit marking
 
-$textmode
-( qe i )	qe'i
-( qe ja )	qeja
-( qe je )	qeje
-( qe ji )	qeji
-( qe jo )	qejo
-( qe ju )	qeju
-$phonememode
-
 //quoters
 lau	l%aU_:
 lou	l%ow_:
