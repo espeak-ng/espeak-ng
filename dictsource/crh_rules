@@ -1,0 +1,355 @@
+// ***************************************************************************/ 
+// *   Crimean Tatar Language crh crh_rules                                  *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+
+// Vowels
+.L01 a ı o u     // back vowels
+.L02 â e i ö ü   // front vowels
+
+// Consonants
+.L03 b c ç d f g ğ h j k l m n ñ p q r s ş t v y z
+
+.replace
+    // Replace Cyrillic script to Latin script
+	    а       a
+		б       b
+		в       v
+		г       g
+		гъ      ğ
+		д       d
+		е       e
+		ё       ö
+		ж       j
+		з       z
+		и       i
+		й       y
+		к       k
+		къ      q
+		л       l
+		м       m
+		н       n
+		нъ      ñ
+		о       o
+		п       p
+		р       r
+		с       s
+		т       t
+		у       u
+		ф       f
+		х       h
+		ц       ts
+		ч       ç
+		дж      c
+		ш       ş
+		щ       şç
+		ъ       -
+		ы       ı
+		ь       -
+		э       e
+		ю       ü
+		я       â
+		
+.group a
+        a       A
+		a (_   'A
+		a (L03_ 'A
+		a (L03L03_ 'A
+		aa      A:
+		aa (_  'A:
+		aa (L03_ 'A:
+		aa (L03L03_ 'A:
+		ai      aIj
+		ai (_  'aIj
+		ai (L03_ 'aIj
+		ai (L03L03_ 'aIj
+		av (_   'Aw
+		ay      aIj
+		ay (_  'aIj
+		ay (L03_ 'aIj
+		ay (L03L03_ 'aIj
+		
+.group â
+        â       ;A:
+		â  (_   ;'A:
+		â  (L03_ ;'A:
+		â  (L03L03_ ;'A:
+		
+.group b
+        b        b
+		bb       b:
+		
+.group c
+        c        dZ
+		cc       dZ:
+		
+   L01) c        dZ
+   L02) c        dZ;
+   L01) c (_     dZ;
+   L02) c (_     dZ;
+   L01) cc       dZ:
+   L02) cc       dZ;:
+   L01) cc (_    dZ:
+   L02) cc (_    dZ;:
+  
+
+.group ç
+        ç        tS
+		çç       tS:
+		
+   L01) ç        tS
+   L02) ç        tS;
+   L01) ç (_     tS;
+   L02) ç (_     tS;
+   L01) çç       tS:
+   L02) çç       tS;:
+   L01) çç (_    tS;:
+   L02) çç (_    tS;:
+   
+.group d
+        d          d
+		dd         d:
+		
+		d  (â      d;
+		d  (e      d;
+		d  (i      d;
+		d  (ö      d;
+		d  (ü      d;
+
+		da (_    d'A
+		dâ (_    d;'A:
+		de (_    d;;'e
+		di (_    d'I
+		do (_    d'o
+		du (_    d'u
+		dö (_    d;'o
+		dü (_    d;'u
+        dır (_   =d@r
+		dir (_   =dIr
+	
+		
+.group e
+        e         ;e
+		e  (_    ;'e
+		e  (L03_ ;'e
+		e  (L03L03_ ;'e
+		ee        ;e:
+		ee (_    ;'e:
+		ee (L03_ ;'e:
+		ee (L03L03_ ;'e:
+		
+.group f
+        f         f
+		
+.group g
+        g         g
+		gg        g:
+
+		g (â      J
+		g (e      J
+		g (i      J
+		g (ö      g
+		g (ü      g
+   
+
+.group ğ
+        ğ         Q
+		ğğ        Q:
+	  
+		
+.group h
+        h         x
+		
+.group ı
+        ı         @
+		ı  (_    '@
+		ı  (L03_ '@
+		ı  (L03L03_ '@
+		
+.group i
+        i         i
+		i  (_    'I
+		i  (L03_ 'I
+		i  (L03L03_ 'I
+		ia (_     j'a
+		ia (L03_  j'a
+		ia (L03L03_ j'a
+		io (_     j'o
+		io (L03_  j'o
+		io (L03L03_ j'o
+		iy (_    'ij
+		iy (L03_ 'ij
+		iy (L03L03_ 'ij
+		iya (_   'ija
+		iye (_   'ije
+		
+.group j
+        j         Z
+		
+.group k
+        k         k
+		kk        k:
+
+		k (â      c
+		k (e      c
+		k (i      c
+		k (ö      k
+		k (ü      k
+
+        ka (_     k'A
+		kâ (_     c'A:
+		ke (_     c;'e
+		ki (_     k'I
+		ko (_     k'o
+		ku (_     k'u
+   
+.group l
+        l         l
+	    l (L01    L
+   L01) l (K      L
+   
+		la  (_    L'A
+		le  (_    l;'e
+		lı  (_    l'@
+		li  (_    l'I
+		lar (_    L'Ar
+		ler (_    l;'er
+		lıq (_    L'@q
+		lır (_    L'@r
+		lik (_    l'Ik
+		
+.group m
+        m         m
+		
+.group n
+        n         n
+		n (g      N
+		n (h      N
+		n (k      N
+		
+		na  (_    n'A
+		ne  (_    n;'e
+		nı  (_    n'@
+		ni  (_    n'I
+		nce (_    =ndZ;;e
+		
+.group ñ
+        ñ         N
+		
+.group o
+        o         o
+		o  (_    'o
+		o  (L03_ 'o
+		o  (L03L03_ 'o
+		oy        oIj
+		oy (_    'oIj
+		oy (L03_ 'oIj
+		oy (L03L03_ 'oIj
+		
+.group ö
+        ö         o
+		ö  (CC   'W
+		ö  (_    'W
+		ö  (L03_ 'W
+		ö  (L03L03_ 'W
+
+.group p
+        p         p
+		pp        p:
+		
+.group q
+        q         q
+		qq        q:
+		
+.group r
+        r         r
+     A) r (A      *
+     ğ) r (A      *
+     C) r (_      @-r
+		
+.group s
+        s         s
+		sın (_   =s@n
+		sıñ (_   =s@N
+		sız (_   =s@z
+		
+.group ş
+        ş         S
+		
+.group t
+        t         t
+		ts        ts
+		tt        t:
+		
+		t (â      t;
+		t (e      t;
+		t (i      t;
+		t (ö      t;
+		t (ü      t;
+
+		ta (_     t'A
+		tâ (_     t;'A:
+		te (_     t;;'e
+		ti (_     t'I
+		to (_     t'o
+		tu (_     t'u
+		tö (_     t;'o
+		tü (_     t;'u
+		tik (_    t'Ik
+   
+		
+.group u
+        u         u
+		u  (_    'u
+		u  (L03_ 'u
+		u  (L03L03_ 'u
+		um (_    =um
+		
+.group ü
+        ü         u
+		ü  (_    'y
+		ü  (L03_ 'y
+		ü  (L03L03_ 'y
+		üm (_     =ym
+		
+.group v
+        v         v
+   L01) v         w
+   L02) v         v
+   L01) v (_      w
+   L02) v (_      v
+        ve (_     v;'e
+		vi (_     v'I
+		vo (_     v'o
+		vu (_     v'u
+        viy  (_   v'ij
+		
+.group w
+        w         w
+		
+.group x
+        x         ks
+		
+.group y
+        y         j
+
+.group z
+        z         z
+		

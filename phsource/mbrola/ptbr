@@ -1,6 +1,6 @@
 volume 15
 
-0   l/  NULL   0   l
+0   l/  NULL   0   w
 0   l/2 w      0   l
 0   l/2 j      0   l
 0   l/2 NULL   0   w
@@ -8,76 +8,59 @@ volume 15
 0   r-  NULL   0   r
 0   w/  NULL   0   w
 0   j/  NULL   0   y
+0   ;   NULL   0   NULL
+0   g-  NULL   0   NULL
+0   @-  NULL   0   NULL
 0   *   @-     0   r2
-0 @- NULL 0 NULL
-0   *   j      0   r
+8   *   j      0   r
 0   *   VWL    0   r
 0   *   NULL   0   r2
-0 ; NULL 0 NULL
-0 : NULL 0
+0   :   NULL   0   NULL
 
 
-
-0 S s 60 x i
-0   S   NULL   0   x
+0   S   NULL   0   x 
 0   Z   NULL   0   j
-0   dZ  NULL   0   d
+0   tS  NULL   0   t
+0   dZ  NULL   0   j
 0   l^  NULL   0   h
 0   n^  NULL   0   nh
 0   N   NULL   0   n
-0   N  VWL    0   n
 0   x   NULL   0   rr
+0   z   _      0   s2
 0   s   VWL    0   s
 0   s   w      0   s
 0   s   j      0   s
 0   s   NULL   0   s2
 8   s#  VWL    0   s
 0   s#  NULL   0   s2
-0   r   VWL    0   r
+8   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
 0   j   NULL   0   y
 
 // consonant combinations which are OK for br4 voice, but need epenthetic [i] for  br1 br3
-0 f s 90 f i
-0 k b 90 k i
-0 k d 90 k i
-0 k dZ 90 k i
-0 k f 90 k i
-0 k k 90 k i
-0 k p 90 k i
-0 k s 90 k i
-0 k S 90 k i
-0 k t 90 k i
-0 k tS 90 k i
-0 t s 80 t i
-1 tS i 40 t i
-0 tS y 90 t y
-0   tS  NULL   0   t
-0 z b 35 s2
-0 z Z 35 s2
-0 z v 35 s2
-0 z dZ 35 s2
-0 z l 35 s2
-0 z m 35 s2
-0 z n 35 s2
-0 k VWL 20 k
-0 k w 10 k
+0   k   s      90  k  i
+0   k   t      90  k  i
+0   p   s      90  p  i
+0   p   t      90  p  i
+0   b   s      90  b  i
 
-
-1   &~  N      0   am
+0   a/  NULL   0   a
+0   A   NULL   0   a
+0   &   NULL   0   a
+0   &/  NULL   0   a
+9   &~  N      0   am
 0   &~  NULL   0   am
 0   E   NULL   0   ee
-8   eI  m      10   em
-1   eI  N      8   em
-0   &  NULL   70   a
+9   eI  m      0   em
+9   eI  N      0   em
+
 0   i/  NULL   0   i
-9   i   N      20   im
+9   i   N      0   im
 9   i~  N      0   im
 0   i~  NULL   0   im
-9   o   N      40   om
-8   o~  j     70  om i
-9   o~  j/     90  om i
+9   o   N      0   om
+9   o~  j/     60  om i
 9   o~  N      0   om
 0   o~  NULL   0   om
 0   O   NULL   0   oo
@@ -94,11 +77,10 @@ volume 15
 0   OI  NULL  60   oo y
 0   uI  NULL  60   u  y
 0   aU  NULL  55   a  w
-10   &U~ NULL  60   @  w
+0   &U~ NULL  60   @  w
 0   eU  NULL  55   e  w
 0   EU  NULL  55   ee w
 0   iU  NULL  55   i  w
-
 
 
 // English phonemes
@@ -131,4 +113,5 @@ volume 15
 0   aI@ NULL  60   a e
 0   aU@ NULL   0   a
 0   t2  NULL   0   t
-0   h   NULL   0   rr
+0   h   NULL   0   NULL
+

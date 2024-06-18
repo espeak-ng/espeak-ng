@@ -39,9 +39,9 @@ updated languages:
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  crh (Crimean Tatar) -- Andy Vladescu
 *  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
-*  kaa (Karakalpak) -- atabekm
 
 ### 1.51
 

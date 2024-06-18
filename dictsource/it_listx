@@ -198,7 +198,6 @@ anatemi	$3
 anatr	'anat@-*
 anatroccol  $alt
 andine	$2
-andit	$1
 androgin $2
 aneddot $2  $alt
 anelito	an'Elito/
@@ -1561,7 +1560,7 @@ extracorporeo	$4
 ezechia $3
 faccett  $alt2
 facet  $alt
-facocer	$2 $alt
+faedis  $alt
 faicchio  fa'ik:io
 faina  fa'i:na
 faine	fa'ine
@@ -2398,7 +2397,6 @@ microclim	$3
 microcosm  $alt
 microfilm $3
 micronesia $3  $alt
-micropolveri	$3
 microspie	mik@-*osp'i:e
 microsporum $2  $alt
 microtelecamer	$5
@@ -2957,7 +2955,6 @@ pietraperzia $4
 pietraroj  $alt
 pieve  $alt
 pievepelag $3
-pigiamone	$3
 pigiapigia	$3
 pigolio	$3
 pilade $1
@@ -3842,7 +3839,6 @@ sugher	$1
 sulfurei	$2
 suocer	sU'O:tSeR
 superman	s'upe@-*m,En $onlys
-superpotere	$4
 superstite	$2
 suppost	$alt2
 supremazia	$4
@@ -4117,7 +4113,6 @@ ubold  $alt
 ubriac $3
 ucronia $3
 ulcer $1
-ultimogenit	$4
 ultralegger	$4
 ultrasottil	ult@-*a||sot:'il
 ultrasuon	ult@-*,a||su'On
