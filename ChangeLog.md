@@ -41,7 +41,9 @@ updated languages:
 new languages:
 *  crh (Crimean Tatar) -- Andy Vladescu
 *  ti (Tigrinya) -- Biniam Gebremichael
-*  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
+*  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendi
+*  fo (Faroese) -- Andras Eliassen, iSolveIT ApS and Setur.fo/Ravnur
+*  kaa (Karakalpak) -- atabekm
 
 ### 1.51
 
