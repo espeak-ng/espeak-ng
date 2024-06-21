@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <!--Source: Activity title.
+          Description: Title for the Settings activity.-->
+    <string name="tts_settings_label">تنظیمات eSpeak TTS</string>
+    <!--Source: Preference title.
+          Description: Title for the preference that controls default voice pitch.-->
+    <string name="setting_default_pitch">زیر و بمی پیش‌فرض</string>
+    <!--Source: Preference title.
+          Description: Title for the preference that controls default speech rate.-->
+    <string name="setting_default_rate">تقویت‌کننده سرعت گفتگو</string>
+    <!--Source: Dialog text.
+          Description: Status message shown when installing voice data.-->
+    <string name="installing_voice_data">در حال نصب داده‌های صوتی...</string>
+    <!--Source: Dialog message.
+          Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+    <string name="set_default_message">eSpeak اکنون بعنوان موتور پیش‌فرض نوشتار به گفتار شما تنظیم شده است. می‌خواهید اکنون آن را تنظیم کنید؟</string>
+    <!--Source: Dialog message.
+          Description: Alert dialog telling the user that voice data installation failed.-->
+    <string name="voice_data_failed_message">eSpeak نتوانست داده‌های صوتی را نصب کند. لطفاً کارت SD خود را بررسی کنید.</string>
+    <!--Source: Dialog message.
+          Description: Alert dialog telling the user that an unknown error has occurred.-->
+    <string name="error_message">متأسفیم، eSpeak شروع به کار نکرد. می‌خواهید یک گزارش خطا ارسال کنید؟</string>
+    <!--Source: Label text.
+          Description: Label informing the user of the current text-to-speech language.-->
+    <string name="current_tts_locale">صدای پیش‌فرض</string>
+    <!--Source: Label text.
+          Description: Label informing the user of how many voices are installed.-->
+    <string name="available_voices">صداهای نصب شده</string>
+    <!--Source: Button label.
+          Description: Button for launching general text-to-speech settings.-->
+    <string name="tts_settings">تنظیمات کلی TTS</string>
+    <!--Source: Button label.
+          Description: Button for launching eSpeak-specific settings.-->
+    <string name="engine_settings">تنظیمات eSpeak TTS</string>
+    <!--Source: Label text.
+          Description: Label informing the user that eSpeak is loading resources.-->
+    <string name="loading">در حال بارگیری، لطفاً صبر کنید...</string>
+    <!--Source: Spoken aloud.
+          Description: Sample text spoken aloud when the user is trying out a language.-->
+    <string name="sample_text">این یک نمونه از نوشتار گفته شده در %s است</string>
+    <string name="status">وضعیت</string>
+    <string name="tts_version">نسخه eSpeak</string>
+    <string name="speak">خواندن متن</string>
+    <string name="ssml">بارگذاری قالب SSML</string>
+    <string name="synthesis_demo">یک متن جهت خواندن با موتور صوتی eSpeak بنویسید:</string>
+    <string name="espeak_volume">حجم صدا</string>
+    <string name="formatter_wpm">%s کلمه بر دقیقه</string>
+    <string name="formatter_percentage">%s%%</string>
+    <string name="resetToDefault">تغییر به حالت پیشفرض</string>
+    <string name="espeak_pitch_range">انعطاف صدا</string>
+    <string name="espeak_variant">نوع صدا</string>
+    <string name="espeak_speak_punctuation">خواندن علائم نگارشی</string>
+    <string name="punctuation_all">همه</string>
+    <string name="punctuation_custom">سفارشی</string>
+    <string name="punctuation_custom_fmt">سفارشی: %s</string>
+    <string name="punctuation_none">هیچکدام</string>
+    <string name="punctuation_characters">علائم</string>
+    <string name="category">دسته بندی</string>
+    <string name="variant">نوع صدا</string>
+    <string name="variant_male">آقا</string>
+    <string name="variant_female">خانم</string>
+    <string name="variant_default">پیشفرض</string>
+    <string name="variant_n">نوع صدا %d</string>
+    <string name="variant_young">جوان</string>
+    <string name="variant_old">سالمند</string>
+    <string name="variant_croak">لرزان</string>
+    <string name="variant_whisper">پچ پچ</string>
+    <string name="import_voice_title">افزودن دیکشنری eSpeak</string>
+    <string name="import_voice_description">افزودن یک فایل دیکشنری صوتی eSpeak از کارت حافظه</string>
+</resources>
