@@ -1938,6 +1938,7 @@ finance		$verb
 finess		fI2nEs		// for finessed
 finesse		fI2nEs
 finite		faInaIt 
+finna		fI2n@		$verbf
 fishnet		$alt1
 fiord		fi:O@d
 fix		fIks		// for fixer
@@ -2053,7 +2054,7 @@ goddam		g0dam
 ?3 goddess	$alt2
 goin		,goUI2n $only // for goin'
 golliwog	$1
-gonna		g,@n@
+gonna		g,@n@		$verbf
 goodbye		$2
 goodday		$2
 goodnight	$2
