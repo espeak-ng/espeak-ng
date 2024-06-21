@@ -1,0 +1,223 @@
+0   l/2 w      0   l
+0   l/2 j      0   l
+0   l/  NULL   0   l
+0   r/  NULL   0   r2
+0   r-  NULL   0   r
+0   w/  NULL   0   w
+0   j/  NULL   0   y
+0   ;   NULL   0   NULL
+0   g-  NULL   0   NULL
+0   @-  NULL   0   NULL
+8   *   j      0   r
+0   *   _      95  r @
+2   *   VWL    0   r
+2   *   _      0   r
+0   *   NULL   5   @ r
+0   :   NULL   0   NULL
+0   ?   NULL   0   _
+
+0   Z   b      95  j i
+0   Z   d      95  j i
+0   Z   g      95  j i
+0   Z   v      95  j i
+0   Z   z      95  j i
+0   Z   Z      95  j i
+0   Z   n      95  j i
+0   Z   l      95  j i
+0   Z   _      95  j i
+0   Z   NULL   0   j
+0   S   l      95  x i
+0   S   n      95  x i
+0   S   p      95  x i
+0   S   t      95  x i
+0   S   tS     95  x i
+0   S   k      95  x i
+0   S   NULL   0   x 
+0   t   s      95  t @
+0   tS  i      0   t
+0   tS  NULL   95  t y
+0   dZ  i      0   d
+0   dZ  NULL   95  d y
+0   d   _      95  d @
+0   d   i      95  d @
+0   d   I      95  d @
+0   d   i~     95  d @
+0   d   j      95  d @
+0   d   b      95  d @
+0   d   d      95  d @
+0   d   dZ     95  d @
+0   d   v      95  d @
+0   d   z      95  d @
+0   d   Z      95  d @
+0   d   n      95  d @
+0   d   g      95  d @
+0   t   _      75  t @
+0   t   i      95  t @
+0   t   I      95  t @
+0   t   i~     95  t @
+0   t   j      95  t @
+0   l^  NULL   0   lh
+0   n^  NULL   0   nh
+0   x   NULL   0   rr
+0   z   _      0   s2
+8   r   VWL    0   r
+0   r   NULL   0   r2
+0   R   NULL   0   r
+0   j   NULL   0   y
+0   z   b      95  z i
+0   z   d      95  z i
+0   z   g      95  z i
+0   z   l      95  z i
+0   z   n      95  z i
+0   s   VWL    0   s
+0   s   k      95  s i
+0   s   t      95  s i
+0   s   tS     95  s i
+0   s   p      95  s i
+0   s   n      95  s i
+0   s   l      95  s i
+8   r   VWL    0   r
+0   r   NULL   0   r2
+0   R   NULL   0   r
+0   j   NULL   0   y
+0   b   b      95  b @
+0   b   d      95  b @
+0   b   g      95  b @
+0   b   v      95  b @
+0   b   z      95  b @
+0   b   Z      95  b @
+0   b   n      95  b @
+0   g   b      95  g @
+0   g   d      95  g @
+0   g   g      95  g @
+0   g   v      95  g @
+0   g   z      95  g @
+0   g   q      95  g @
+0   g   n      95  g @
+0   p   p      95  p @
+0   p   t      95  p @
+0   p   tS     95  p @
+0   p   k      95  p @
+0   p   f      95  p @
+0   p   s      95  p @
+0   p   S      95  p @
+0   p   n      95  p @
+0   p   b      95  p @
+0   p   d      95  p @
+0   p   g      95  p @
+0   p   v      95  p @
+0   p   z      95  p @
+0   p   Z      95  p @
+0   t   p      95  t @
+0   t   t      95  t @
+0   t   tS     95  t @
+0   t   k      95  t @
+0   t   f      95  t @
+0   t   s      95  t @
+0   t   S      95  t @
+0   t   n      95  t @
+0   t   b      95  t @
+0   t   d      95  t @
+0   t   g      95  t @
+0   t   v      95  t @
+0   t   z      95  t @
+0   t   Z      95  t @
+0   k   p      95  k @
+0   k   t      95  k @
+0   k   tS     95  k @
+0   k   k      95  k @
+0   k   f      95  k @
+0   k   s      95  k @
+0   k   S      95  k @
+0   k   b      95  k @
+0   k   d      95  k @
+0   k   g      95  k @
+0   k   v      95  k @
+0   k   z      95  k @
+0   k   Z      95  k @
+0   k   n      95  k @
+0   l/2 p      95  l @
+0   l/2 t      95  l @
+0   l/2 tS     95  l @
+0   l/2 k      95  l @
+0   l/2 b      95  l @
+0   l/2 d      95  l @
+0   l/2 g      95  l @
+0   l/2 f      95  l @
+0   l/2 s      95  l @
+0   l/2 S      95  l @
+0   l/2 v      95  l @
+0   l/2 z      95  l @
+0   l/2 Z      95  l @
+0   l/2 l/     95  l @
+0   l/2 l      95  l @
+0   l/2 n      95  l @
+0   l/2 _      95  l @
+0   l/2 NULL   0   l
+0   m   p      95  m @
+0   n   p      95  n @
+0   n   t      95  n @
+0   n   tS     95  n @
+0   N   k      95  n @
+0   n   k      95  n @
+0   m   b      95  m @
+0   n   b      95  n @
+0   n   d      95  n @
+0   N   g      95  n @
+0   n   g      95  n @
+0   n   f      95  n @
+0   n   s      95  n @
+0   n   S      95  n @
+0   n   v      95  n @
+0   n   z      95  n @
+0   n   Z      95  n @
+0   n   l      95  n @
+0   n   n      95  n @
+0   n   VWL    0   n
+0   n   NULL   95  n @
+0   N   NULL   0   n
+
+
+0   a/  NULL   0   a
+0   A   NULL   0   a
+0   &   NULL   0   a
+0   &/  NULL   0   a
+9   &~  N      0   an
+0   &~  NULL   0   an
+0   E   NULL   0   ee
+0   E   N      0   en
+9   eI  m      0   en
+9   eI  N      0   en
+0   e~  NULL   0   en
+
+0   i/  NULL   0   i
+9   i   N      0   in
+9   i~  N      0   in
+0   i~  NULL   0   in
+9   o   N      0   on
+9   o~  j/     60  on i
+9   o~  N      0   on
+0   o~  NULL   0   on
+0   O   NULL   0   oo
+9   u~  j/     60  un i
+9   u~  N      0   un
+0   u~  NULL   0   un
+0   U   NULL   0   w
+0   y   NULL   0   y
+0   I   NULL   0   y
+
+0   aI  NULL  60   a  y
+0   eI  NULL  60   e  y
+0   EI  NULL  60   ee y
+0   oI  NULL  60   o  y
+0   OI  NULL  60   oo y
+0   uI  NULL  60   u  y
+0   aU  NULL  55   a  w
+0   &U~ NULL  55   @  w
+0   eU  NULL  55   e  w
+0   EU  NULL  55   ee w
+0   iU  NULL  55   i  w
+
+0   i:  NULL   0   i
+0   o:  NULL   0   o
+0   u:  NULL   0   u

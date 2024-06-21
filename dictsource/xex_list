@@ -1,0 +1,63 @@
+//vla pe sal
+
+_0	n%u
+_1	n%E
+_2	dw%o
+_3	tj%E
+_4	kw%a
+_5	p%eI
+_6	lj%o
+_7	Z%aI
+_8	bw%i
+_9	gj%u
+_dpt	Z%ew
+
+//vla pe patxozi
+
+$textmode
+
+_a	áfa
+b	bábon
+d	dódin
+_e	éte
+f	féfel
+g	gúguk
+h	háflu
+_i	íki
+j	íki flu
+k	kúkan
+l	lélon
+m	máspa
+n	nínep
+_o	óno
+p	pópel
+q	qáqip
+r	réxti
+s	sásek
+t	tótot
+_u	úbu
+v	vévet
+w	úbu flu
+x	xúxut
+z	zózot
+
+_y	ýbu
+
+c	xúxut loqban
+
+$phonememode
+
+//pause naturalization
+//stress naturalization has been removed in favor of explicit marking
+
+//quoters
+lau	l%aU_:
+lou	l%ow_:
+
+//terminators
+gu	g%u:_
+ku	k%u:_:
+vu	_:v%u:_:
+
+//adverbs
+y	$brk

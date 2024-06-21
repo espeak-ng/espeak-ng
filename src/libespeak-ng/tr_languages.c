@@ -1593,6 +1593,15 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND_DIGIT | NUM_DFRACTION_4 | NUM_ZERO_HUNDRED;
 
 	}
+		
+		break;
+	case L3('x', 'e', 'x'): // Xextan
+	{
+		static const wchar_t xex_punct_within_word[] = { '\'' };
+		tr->langopts.numbers = 0; 
+		tr->langopts.lowercase_sentence = true;
+		tr->punct_within_word = xex_punct_within_word;
+}	
 		break;
 	case L3('s', 'h', 'n'):
 		tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
@@ -1669,4 +1678,4 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDS_VAR1; // variant numbers before thousands
 	tr->langopts.max_digits = 32;
 	tr->langopts.max_initial_consonants = 5;
-}
+}		

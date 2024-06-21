@@ -44,6 +44,7 @@ new languages:
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendi
 *  fo (Faroese) -- Andras Eliassen, iSolveIT ApS and Setur.fo/Ravnur
 *  kaa (Karakalpak) -- atabekm
+*  xex (Xextan) -- Filomena Rocca
 
 ### 1.51
 

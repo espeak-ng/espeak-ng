@@ -422,9 +422,12 @@
   <Target Name="vi" Inputs="$(ProjectDir)..\..\dictsource\vi_rules;$(ProjectDir)..\..\dictsource\vi_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\vi_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=vi" />
   </Target>
+   <Target Name="xex" Inputs="$(ProjectDir)..\..\dictsource\xex_rules;$(ProjectDir)..\..\dictsource\xex_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\xex_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=xex" />
+  </Target>
   <Target Name="yue" Inputs="$(ProjectDir)..\..\dictsource\yue_rules;$(ProjectDir)..\..\dictsource\yue_list;$(ProjectDir)..\..\dictsource\yue_listx" Outputs="$(ProjectDir)..\..\espeak-ng-data\yue_dict" DependsOnTargets="Phonemes;Extdict">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=yue" />
   </Target>
-  <Target Name="Dictionaries" DependsOnTargets="af;am;an;ar;as;az;ba;be;bg;bn;bpy;bs;ca;chr;cmn;cs;cv;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hak;haw;he;hi;hr;ht;hu;hy;ia;id;io;is;it;ja;jbo;ka;kk;kl;kn;ko;kok;ku;ky;la;lb;lfn;lt;lv;mi;mk;ml;mr;ms;mt;my;nci;ne;nl;no;nog;om;or;pa;pap;piqd;pl;pt;py;qdb;quc;qu;qya;ro;ru;sd;shn;si;sjn;sk;sl;smj;sq;sr;sv;sw;ta;te;th;tk;tn;tr;tt;ug;uk;ur;uz;vi;yue" />
+  <Target Name="Dictionaries" DependsOnTargets="af;am;an;ar;as;az;ba;be;bg;bn;bpy;bs;ca;chr;cmn;cs;cv;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hak;haw;he;hi;hr;ht;hu;hy;ia;id;io;is;it;ja;jbo;ka;kk;kl;kn;ko;kok;ku;ky;la;lb;lfn;lt;lv;mi;mk;ml;mr;ms;mt;my;nci;ne;nl;no;nog;om;or;pa;pap;piqd;pl;pt;py;qdb;quc;qu;qya;ro;ru;sd;shn;si;sjn;sk;sl;smj;sq;sr;sv;sw;ta;te;th;tk;tn;tr;tt;ug;uk;ur;uz;vi;xex;yue" />
 
 </Project>
