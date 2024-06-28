@@ -1,0 +1,268 @@
+// ***************************************************************************/ 
+// *   Crimean Tatar Language crh crh_rules                                  *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+
+// Vowels
+.L01 a ı o u     // back vowels
+.L02 e i ö ü   // front vowels
+.L03 â         // this is not considered a separate letter such as vowel
+
+// Consonants
+.L04 b c ç d f g ğ h j k l m n ñ p q r s ş t v y z
+
+.replace
+    // Replace Cyrillic script to Latin script
+	    а       a
+		б       b
+		в       v
+		г       g
+		гъ      ğ
+		д       d
+		е       e
+		ё       ö
+		ж       j
+		з       z
+		и       i
+		й       y
+		к       k
+		къ      q
+		л       l
+		м       m
+		н       n
+		нъ      ñ
+		о       o
+		п       p
+		р       r
+		с       s
+		т       t
+		у       u
+		ф       f
+		х       h
+		ц       ts
+		ч       ç
+		дж      c
+		ш       ş
+		щ       şç
+		ъ       ”
+		ы       ı
+		ь       ʼ
+		э       e
+		ю       ü
+		я       â
+        '       ʼ     // Replacing apostrophe to modifier letter turned comma
+		"       ”     // Replacing quotation mark to modifier letter turned double comma
+		
+.group a
+        a       A
+		a (_   'A
+		a (L04_ 'A
+		a (L04L04_ 'A
+		ai      AI
+		ai (_   A'I
+		ai (L04_ A'I
+		ai (L04L04_ A'I
+		av (_   'Aw
+		ay      aIj
+		ay (_  'aIj
+		ay (L04_ 'aIj
+		ay (L04L04_ 'aIj
+		
+.group â
+        â       ;A:
+		â  (_   ;'A:
+		â  (L04_ ;'A:
+		â  (L04L04_ ;'A:
+		
+.group b
+        b        b
+		bb       b:
+		
+.group c
+        c        dZ
+		cc       dZ:
+		ce (_    =dZe
+
+.group ç
+        ç        tS
+		çç       tS:
+		çe (_    =tSe
+		 
+.group d
+        d          d
+		dd         d:
+		d   (L02   d;
+		d   (L03   d;
+		di  (_     d'I
+        dir (_    =d;Ir
+        dır (_    =d@r
+		
+.group e
+        e          e
+		e  (_     'e
+		e  (L04_  'e
+		e  (L04L04_ 'e
+		
+.group f
+        f         f
+		
+.group g
+        g         g
+		gg        g:
+		g  (L02   J
+		g  (L03   J
+		g  (iy    J
+		gi (_     g'I
+
+.group ğ
+        ğ         G
+		ğğ        G:
+		
+.group h
+        h         x
+		
+.group ı
+        ı         @
+		ı  (_    '@
+		ı  (L04_ '@
+		ı  (L04L04_ '@
+		
+.group i
+        i         i
+		i  (_    'I
+		i  (L04_ 'I
+		i  (L04L04_ 'I
+		iv (_    'Iv
+		iy (_    'ij
+		iy (L04_ 'ij
+		iy (L04L04_ 'ij
+		iya (_   'ijA
+		iye (_   'ije
+
+.group j
+        j         Z
+		
+.group k
+        k         k
+		kk        k:
+        k  (L02   c
+		k  (L03   c
+
+.group l
+        l         l
+	    l (L01    L
+   L01) l (K      L
+   
+		la  (_    L'A
+		le  (_    l'e
+		lı  (_    l'@
+		li  (_    l'I
+		lar (_    L'Ar
+		ler (_    l'er
+		lıq (_    L'@q
+		lır (_    L'@r
+		lik (_    l'Ik
+		
+.group m
+        m         m
+		mce (_    mdZ'e
+		
+.group n
+        n         n
+		n (g      N
+		n (h      N
+		n (k      N
+		nce (_    =ndZe
+		
+.group ñ
+        ñ         N
+		
+.group o
+        o         o
+		o  (_    'o
+		o  (L04_ 'o
+		o  (L04L04_ 'o
+		oy        oIj
+		oy (_    'oIj
+		oy (L04_ 'oIj
+		oy (L04L04_ 'oIj
+		
+.group ö
+        ö         W
+		ö  (_    'W
+		ö  (L04_ 'W
+		ö  (L04L04_ 'W
+		
+.group p
+        p         p
+		pp        p:
+		
+.group q
+        q         q
+		qq        q:
+		
+.group r
+        r         r
+		
+.group s
+        s         s
+		sın (_   =s@n
+		sıñ (_   =s@N
+		
+.group ş
+        ş         S
+		
+.group t
+        t         t
+		ts        ts
+        tt        t:
+		t  (L02   t;
+		t  (L03   t;		
+		
+.group u
+        u         u
+		u  (_    'u
+		u  (L04_ 'u
+		u  (L04L04_ 'u
+		um (_    =um
+		
+.group ü
+        ü         y
+		ü  (_    'y
+		ü  (L04_ 'y
+		ü  (L04L04_ 'y
+		üm (_     =ym
+		üv (_     'yv
+		
+.group v
+        v         v
+		v (_      w
+		
+.group y
+        y         j
+
+.group z
+        z         z
+
+.group
+    ʻ     ?
+	”     ?
+    g”    G
+    n”    N
