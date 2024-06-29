@@ -30,7 +30,7 @@
 
 .replace
     // Replace Cyrillic script to Latin script
-	    а       a
+	        а       a
 		б       b
 		в       v
 		г       g
@@ -67,193 +67,190 @@
 		э       e
 		ю       ü
 		я       â
-        '       ʼ     // Replacing apostrophe to modifier letter turned comma
+                '       ʼ     // Replacing apostrophe to modifier letter turned comma
 		"       ”     // Replacing quotation mark to modifier letter turned double comma
 		
 .group a
         a       A
-		a (_   'A
-		a (L04_ 'A
-		a (L04L04_ 'A
-		ai      AI
-		ai (_   A'I
-		ai (L04_ A'I
-		ai (L04L04_ A'I
-		av (_   'Aw
-		ay      aIj
-		ay (_  'aIj
-		ay (L04_ 'aIj
-		ay (L04L04_ 'aIj
+	a (_   'A
+	a (L04_ 'A
+	a (L04L04_ 'A
+	ai      AI
+	ai (_   A'I
+	ai (L04_ A'I
+	ai (L04L04_ A'I
+	av (_   'Aw
+	ay      aIj
+	ay (_  'aIj
+	ay (L04_ 'aIj
+	ay (L04L04_ 'aIj
 		
 .group â
         â       ;A:
-		â  (_   ;'A:
-		â  (L04_ ;'A:
-		â  (L04L04_ ;'A:
+	â  (_   ;'A:
+	â  (L04_ ;'A:
+	â  (L04L04_ ;'A:
 		
 .group b
         b        b
-		bb       b:
+	bb       b:
 		
 .group c
         c        dZ
-		cc       dZ:
-		ce (_    =dZe
+	cc       dZ:
+	ce (_    =dZe
 
 .group ç
         ç        tS
-		çç       tS:
-		çe (_    =tSe
+	çç       tS:
+	çe (_    =tSe
 		 
 .group d
         d          d
-		dd         d:
-		d   (L02   d;
-		d   (L03   d;
-		di  (_     d'I
+	dd         d:
+	d   (L02   d;
+	d   (L03   d;
         dir (_    =d;Ir
         dır (_    =d@r
 		
 .group e
         e          e
-		e  (_     'e
-		e  (L04_  'e
-		e  (L04L04_ 'e
+	e  (_     'e
+	e  (L04_  'e
+	e  (L04L04_ 'e
 		
 .group f
         f         f
 		
 .group g
         g         g
-		gg        g:
-		g  (L02   J
-		g  (L03   J
-		g  (iy    J
-		gi (_     g'I
+	gg        g:
+	g  (L02   J
+	g  (L03   J
 
 .group ğ
         ğ         G
-		ğğ        G:
+	ğğ        G:
 		
 .group h
         h         x
 		
 .group ı
         ı         @
-		ı  (_    '@
-		ı  (L04_ '@
-		ı  (L04L04_ '@
+	ı  (_    '@
+	ı  (L04_ '@
+	ı  (L04L04_ '@
 		
 .group i
         i         i
-		i  (_    'I
-		i  (L04_ 'I
-		i  (L04L04_ 'I
-		iv (_    'Iv
-		iy (_    'ij
-		iy (L04_ 'ij
-		iy (L04L04_ 'ij
-		iya (_   'ijA
-		iye (_   'ije
+	i  (_    'I
+	i  (L04_ 'I
+	i  (L04L04_ 'I
+	iv (_    'Iv
+	iy (_    'ij
+	iy (L04_ 'ij
+	iy (L04L04_ 'ij
+	iya (_   'ijA
+	iye (_   'ije
 
 .group j
         j         Z
 		
 .group k
         k         k
-		kk        k:
+	kk        k:
         k  (L02   c
-		k  (L03   c
+	k  (L03   c
 
 .group l
         l         l
-	    l (L01    L
+	l (L01    L
    L01) l (K      L
    
-		la  (_    L'A
-		le  (_    l'e
-		lı  (_    l'@
-		li  (_    l'I
-		lar (_    L'Ar
-		ler (_    l'er
-		lıq (_    L'@q
-		lır (_    L'@r
-		lik (_    l'Ik
+	la  (_    L'A
+	le  (_    l'e
+	lı  (_    l'@
+	li  (_    l'I
+	lar (_    L'Ar
+	ler (_    l'er
+	lıq (_    L'@q
+	lır (_    L'@r
+	lik (_    l'Ik
 		
 .group m
         m         m
-		mce (_    mdZ'e
+	mce (_    mdZ'e
 		
 .group n
         n         n
-		n (g      N
-		n (h      N
-		n (k      N
-		nce (_    =ndZe
+	n (g      N
+	n (h      N
+	n (k      N
+	nce (_    =ndZe
 		
 .group ñ
         ñ         N
 		
 .group o
         o         o
-		o  (_    'o
-		o  (L04_ 'o
-		o  (L04L04_ 'o
-		oy        oIj
-		oy (_    'oIj
-		oy (L04_ 'oIj
-		oy (L04L04_ 'oIj
+	o  (_    'o
+	o  (L04_ 'o
+	o  (L04L04_ 'o
+	oy        oIj
+	oy (_    'oIj
+	oy (L04_ 'oIj
+	oy (L04L04_ 'oIj
 		
 .group ö
         ö         W
-		ö  (_    'W
-		ö  (L04_ 'W
-		ö  (L04L04_ 'W
+	ö  (_    'W
+	ö  (L04_ 'W
+	ö  (L04L04_ 'W
 		
 .group p
         p         p
-		pp        p:
+	pp        p:
 		
 .group q
         q         q
-		qq        q:
+	qq        q:
 		
 .group r
         r         r
 		
 .group s
         s         s
-		sın (_   =s@n
-		sıñ (_   =s@N
+	sın (_   =s@n
+	sıñ (_   =s@N
 		
 .group ş
         ş         S
 		
 .group t
         t         t
-		ts        ts
+	ts        ts
         tt        t:
-		t  (L02   t;
-		t  (L03   t;		
+	t  (L02   t;
+	t  (L03   t;		
 		
 .group u
         u         u
-		u  (_    'u
-		u  (L04_ 'u
-		u  (L04L04_ 'u
-		um (_    =um
+	u  (_    'u
+	u  (L04_ 'u
+	u  (L04L04_ 'u
+	um (_    =um
 		
 .group ü
         ü         y
-		ü  (_    'y
-		ü  (L04_ 'y
-		ü  (L04L04_ 'y
-		üm (_     =ym
-		üv (_     'yv
+	ü  (_    'y
+	ü  (L04_ 'y
+	ü  (L04L04_ 'y
+	üm (_     =ym
+	üv (_     'yv
 		
 .group v
         v         v
-		v (_      w
+	v (_      w
 		
 .group y
         y         j
@@ -262,7 +259,7 @@
         z         z
 
 .group
-    ʻ     ?
-	”     ?
-    g”    G
-    n”    N
+     ʻ     ?
+     ”     ?
+     g”    G
+     n”    N
