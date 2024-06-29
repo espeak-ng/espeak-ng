@@ -12,19 +12,25 @@
 .group а
         а           a
         а   (_     'a
-		а   (L04_  'a
-		а   (L04L04_ 'a
-		аү  (_     'aw
+	а   (L04_  'a
+	а   (L04L04_ 'a
+	аү  (_     'aw
 		
 .group ә
         ә           &
-		ә   (_     '&
-		ә   (L04_  '&
-		ә   (L04L04_ '&
+	ә   (_     '&
+	ә   (L04_  '&
+	ә   (L04L04_ '&
 		
 .group б
         б           b
-		
+   L01) б           B
+   L02) б           b
+   L03) б           B
+   L01) б   (_      B
+   L02) б   (_      b
+   L03) б   (_      B
+
 .group в
         в           v
    L01) в           w
@@ -54,17 +60,17 @@
 		
 .group е
      _) е           je
-		е           e
-		е   (_     'e
-		е   (L04_  'e
-		е   (L04L04_ 'e
-		еү  (_      'ew
+	е           e
+	е   (_     'e
+	е   (L04_  'e
+	е   (L04L04_ 'e
+	еү  (_      'ew
 		
 .group ё
         ё           jo
-		ё   (_      j'o
-		ё   (L04_   j'o
-		ё   (L04L04_ j'o
+	ё   (_      j'o
+	ё   (L04_   j'o
+	ё   (L04L04_ j'o
 		
 .group ж
         ж           Z
@@ -84,13 +90,13 @@
 		
 .group й
         й           j
-		йе          je
-		йо          jo
-		йө          jo
-		йу          ju
-		йү          ju
-		йа          ja
-		йә          ja
+	йе          je
+	йо          jo
+	йө          jo
+	йу          ju
+	йү          ju
+	йа          ja
+	йә          ja
 		
 .group к
         к           k
@@ -121,15 +127,15 @@
 		
 .group о
         о           o
-		о   (_     'o
-		о   (L04_  'o
-		о   (L04L04_ 'o
+	о   (_     'o
+	о   (L04_  'o
+	о   (L04L04_ 'o
 		
 .group ө
         ө           W
-		ө   (_     'W
-		ө   (L04_  'W
-		ө   (L04L04_ 'W
+	ө   (_     'W
+	ө   (L04_  'W
+	ө   (L04L04_ 'W
 		
 .group п
         п           p
@@ -173,33 +179,43 @@
    L02) ч   (_      tS;
    L03) ч           tS;
    L03) ч   (_      tS;
-   
+
+.group ш
+        ш           S
+   L01) ш           S
+   L01) ш   (_      S
+   L01) ш   (L02    S
+   L02) ш           S;
+   L02) ш   (_      S;
+   L03) ш           S;
+   L03) ш   (_      S;
+
 .group ъ
         ъ           ?
 		
 .group ы
         ы           V
-		ы   (_     'V
-		ы   (L04_  'V
-		ы   (L04L04_ 'V
+	ы   (_     'V
+	ы   (L04_  'V
+	ы   (L04L04_ 'V
 		
 .group ь
         ь           ?
 		
 .group э
         э           e
-		э   (_     'e
-		э   (L04_  'e
-		э   (L04L04_ 'e
+	э   (_     'e
+	э   (L04_  'e
+	э   (L04L04_ 'e
 		
 .group ю
         ю           ju
-		ю   (_      j'u
-		ю   (L04_   j'u
-		ю   (L04L04_  j'u
+	ю   (_      j'u
+	ю   (L04_   j'u
+	ю   (L04L04_  j'u
 		
 .group я
         я           ja
-		я   (_      j'a
-		я   (L04_   j'a
-		я   (L04L04_  j'a
+	я   (_      j'a
+	я   (L04_   j'a
+	я   (L04L04_  j'a
