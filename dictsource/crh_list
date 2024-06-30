@@ -64,7 +64,7 @@ _0       s@f'@r
 _1       b'Ir
 _2       Ec'I
 _3       'ytS
-_4       d'Wrt
+_4       d;'Wrt
 _5       b'eS
 _6       ALt'@
 _7       jed;'I
@@ -75,7 +75,7 @@ _10      'on
 _11      onb'Ir
 _12      onEc'I
 _13      on'ytS
-_14      ond'Wrt
+_14      ond;'Wrt
 _15      onb'eS
 _16      onALt'@
 _17      onjed;'I
@@ -95,10 +95,10 @@ _0C      j'yz
 _1C      j'yz
 _2C      EcIj'yz
 _3C      ytSj'yz
-_4C      dWrtj'yz
+_4C      d;Wrtj'yz
 _5C      beSj'yz
 _6C      ALt@j'yz
-_7C      jedIj'yz
+_7C      jed;Ij'yz
 _8C      sekIzj'yz
 _9C      doquzj'yz
 
@@ -106,7 +106,7 @@ _0M1     b'IN
 _1M1     b'IN
 _2M1     EcIb'IN
 _3M1     ytSb'IN
-_4M1     dWrtb'IN
+_4M1     d;Wrtb'IN
 _5M1     beSb'IN
 _6M1     ALt@b'IN
 _7M1     jed;Ib'IN
