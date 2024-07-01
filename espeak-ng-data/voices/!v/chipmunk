@@ -1,0 +1,12 @@
+language variant
+name Chipmunk
+klatt 6
+pitch 275 400
+echo 10 100
+
+formant 1 120 100 160
+formant 2 150 100 160
+formant 3 160 125 160
+formant 4 160 100 160
+formant 5 160 100 160
+consonants 75 90

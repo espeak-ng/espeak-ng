@@ -1,0 +1,10 @@
+language variant
+name Sandy
+klatt 6
+ 
+pitch 150 294
+formant 1 120 100 100
+formant 2 120 100 300
+formant 3 90  100 100
+formant 4 114  100 0
+formant 5 20 100 100

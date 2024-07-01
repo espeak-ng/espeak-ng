@@ -1,0 +1,12 @@
+language variant
+name David2
+klatt 6
+voicing 100
+pitch 60 100
+
+formant 1 75 100 100 0
+formant 2 85 100 100 0
+formant 3 85 100 100 0
+formant 4 100 100 25
+formant 5 100 100 100
+formant 6 100 100 100
