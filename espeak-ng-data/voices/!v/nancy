@@ -1,0 +1,12 @@
+language variant
+name Nancy
+klatt 6
+voicing 130
+consonants 70 80
+breath 140
+pitch 70 120
+formant 1 80 100 100 80
+formant 2 125 100 110
+formant 3 98 100 100 600
+formant 4 114 100 20
+formant 5 88 100 100 120

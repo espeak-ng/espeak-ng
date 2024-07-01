@@ -1,0 +1,12 @@
+language variant
+name Simon
+ consonants 80 70
+voicing 130
+klatt 6
+breath 44
+pitch 80 115
+formant 1 64 100 124 144
+formant 2 94 100 114 84
+formant 3 95 100 110 90
+formant 4 114 100 55
+formant 5 1000 100 100 100

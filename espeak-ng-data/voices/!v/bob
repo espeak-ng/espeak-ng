@@ -1,0 +1,10 @@
+language variant
+name Bob
+klatt 6
+voicing 100
+consonants 120 100
+formant 1 75 100 75 0
+formant 2 75 100 75 0
+formant 3 75 100 75 0
+formant 4 75 100 20
+formant 5 75 100 75 0

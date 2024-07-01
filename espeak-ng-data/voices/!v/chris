@@ -1,0 +1,12 @@
+language variant
+name Chris
+klatt 6
+consonants 60 70
+voicing 100
+pitch  100 190
+breath 84
+formant 1 74 100 100 60
+formant 2 82 100 100 250
+formant 3 86 100 100 404
+formant 4 114 60 15
+formant 5 90 40 60

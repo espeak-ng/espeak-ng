@@ -1,0 +1,13 @@
+language variant
+name Diego
+breath 45
+pitch  70 120
+klatt 6
+voicing 130
+consonants 60 60
+
+formant 1 65 100 80 84
+formant 2 84 100 60 234
+formant 3 100 100 100 100
+formant 4 104 100 104
+formant 5 100 100 100

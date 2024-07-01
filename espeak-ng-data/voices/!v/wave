@@ -1,0 +1,13 @@
+language variant
+name Wave
+klatt 6
+gender male 35
+pitch  85 123
+
+formant 1 85 85 85 -30
+formant 2 100 60 80
+formant 3 100 60 70
+formant 4 110 15 15
+formant 5 80 40 
+consonants 100 60
+
