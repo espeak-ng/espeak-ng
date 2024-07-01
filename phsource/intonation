@@ -267,6 +267,44 @@ nucleus0 fall  92 8
 nucleus fall  90 77 76 8
 endtune
 
+//Xextan
+
+tune s7
+prehead   40 55
+headenv   fall 16
+head       1 80 40 -40 -30
+headextend 70 80 75 65
+nucleus0 fall 100 8
+nucleus  fall 100 18 24 12
+endtune
+
+tune c7
+prehead   40 55
+headenv   fall 16
+head       1 80 40 -40 -30
+headextend 70 80 75 65 
+nucleus0 fall-rise2 100 20
+nucleus  fall-rise2 100 27 34 40
+endtune
+
+tune q7
+prehead   40 55
+headenv   fall 16
+head       1 80 35 -50 -40
+headextend 80 75 70 65 
+nucleus0 fall-rise  100 21
+nucleus  fall-rise2 100 21 34 68
+endtune
+
+tune e7
+prehead   40 55
+headenv   fall 16
+head       1 90 35 -50 -40
+headextend 100 90 
+nucleus0 fall  120 8
+nucleus  fall  120 45 36 8
+endtune
+
 tune chrs
 prehead		0	0
 headenv		fall	0

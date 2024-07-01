@@ -471,6 +471,7 @@ dictionaries: \
 	espeak-ng-data/eu_dict \
 	espeak-ng-data/fa_dict \
 	espeak-ng-data/fi_dict \
+	espeak-ng-data/fo_dict \
 	espeak-ng-data/fr_dict \
 	espeak-ng-data/ga_dict \
 	espeak-ng-data/gd_dict \
@@ -493,6 +494,7 @@ dictionaries: \
 	espeak-ng-data/ja_dict \
 	espeak-ng-data/jbo_dict \
 	espeak-ng-data/ka_dict \
+	espeak-ng-data/kaa_dict \
 	espeak-ng-data/kk_dict \
 	espeak-ng-data/kl_dict \
 	espeak-ng-data/kn_dict \
@@ -556,6 +558,7 @@ dictionaries: \
 	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
+	espeak-ng-data/xex_dict \
 	espeak-ng-data/yue_dict
 
 DICTSOURCE = \
@@ -655,6 +658,9 @@ espeak-ng-data/fa_dict: dictsource/fa_list dictsource/fa_rules dictsource/fa_ext
 fi: espeak-ng-data/fi_dict
 espeak-ng-data/fi_dict: dictsource/fi_list dictsource/fi_rules dictsource/fi_extra dictsource/fi_emoji
 
+fo: espeak-ng-data/fo_dict
+espeak-ng-data/fo_dict: dictsource/fo_list dictsource/fo_rules dictsource/fo_extra dictsource/fo_emoji
+
 fr: espeak-ng-data/fr_dict
 espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
 
@@ -720,6 +726,9 @@ espeak-ng-data/jbo_dict: dictsource/jbo_list dictsource/jbo_rules dictsource/jbo
 
 ka: espeak-ng-data/ka_dict
 espeak-ng-data/ka_dict: dictsource/ka_list dictsource/ka_rules dictsource/ka_extra dictsource/ka_emoji
+
+kaa: espeak-ng-data/kaa_dict
+espeak-ng-data/kaa_dict: dictsource/kaa_list dictsource/kaa_rules dictsource/kaa_extra dictsource/kaa_emoji
 
 kk: espeak-ng-data/kk_dict
 espeak-ng-data/kk_dict: dictsource/kk_list dictsource/kk_rules dictsource/kk_extra dictsource/kk_emoji
@@ -923,6 +932,9 @@ espeak-ng-data/uz_dict: dictsource/uz_list dictsource/uz_rules dictsource/uz_ext
 
 vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
+
+xex: espeak-ng-data/xex_dict
+espeak-ng-data/xex_dict: dictsource/xex_list dictsource/xex_rules
 
 zgh: espeak-ng-data/zgh_dict
 espeak-ng-data/zgh_dict: dictsource/zgh_list dictsource/zgh_listx dictsource/zgh_rules dictsource/zgh_extra dictsource/zgh_emoji
