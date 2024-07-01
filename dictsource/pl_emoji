@@ -14,32 +14,32 @@ $textmode
 
 // 0000..007F : C0 Controls and Basic Latin
 
-//+	plus								// [002B] other (no translation)
++	plus								// [002B] other
 
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
-//¢	cents								// [00A2] other (no translation)
-//£	pound								// [00A3] other (no translation)
-//¤	currency sign							// [00A4] other (no translation)
-//¥	yen								// [00A5] other (no translation)
-//§	section								// [00A7] other (no translation)
-//¨	double dot							// [00A8] other (no translation)
-©	Znak praw autorskich						// [00A9] text|emoji
-//¬	not sign							// [00AC] other (no translation)
-®	Zarejestrowany znak towarowy					// [00AE] text|emoji
-//°	degrees								// [00B0] other (no translation)
-//±	plus or minus							// [00B1] other (no translation)
-//µ	micro								// [00B5] other (no translation)
-//¶	paragraph							// [00B6] other (no translation)
-//¼	a quarter							// [00BC] other (no translation)
-//½	a half								// [00BD] other (no translation)
-//¾	three quarters							// [00BE] other (no translation)
-//×	times								// [00D7] other (no translation)
-//÷	divided by							// [00F7] other (no translation)
+¢	centy								// [00A2] other
+£	funt								// [00A3] other
+¤	symbol waluty							// [00A4] other
+¥	jen								// [00A5] other
+§	rozdział							// [00A7] other
+¨	podwójna kropka							// [00A8] other
+©	znak praw autorskich						// [00A9] text|emoji
+¬	negacja 							// [00AC] other
+®	zarejestrowany znak towarowy					// [00AE] text|emoji
+°	stopnie								// [00B0] other
+±	plus-minus							// [00B1] other
+µ	mikro								// [00B5] other
+¶	paragraf							// [00B6] other
+¼	ćwierć								// [00BC] other
+½	połowa								// [00BD] other
+¾	trzy czwarte							// [00BE] other
+×	razy								// [00D7] other
+÷	podzielone przez						// [00F7] other
 
 // 02B0..02FF : Spacing Modifier Letters
 
-//˙	dot								// [02D9] other (no translation)
+˙	kropka								// [02D9] other
 
 // 0900..097F : Devanagari
 
@@ -52,28 +52,28 @@ $textmode
 
 // 20A0..20CF : Currency Symbols
 
-//₨	rupee								// [20A8] other (no translation)
-//€	euros								// [20AC] other (no translation)
-//₹	rupee								// [20B9] other (no translation)
+₨	rupia								// [20A8] other
+€	euros								// [20AC] other
+₹	rupia								// [20B9] other
 
 // 2100..214F : Letterlike Symbols
 
-//№	numero								// [2116] other (no translation)
-//℞	prescription							// [211E] other (no translation)
+№	numer								// [2116] other
+℞	recepta								// [211E] other
 ™	zastrzeżony znak towarowy					// [2122] text|emoji
 ℹ	informacja							// [2139] text|emoji
 
 // 2150..218F : Number Forms
 
-//⅓	one third							// [2153] other (no translation)
-//⅔	two thirds							// [2154] other (no translation)
+⅓	jedna trzecia							// [2153] other
+⅔	dwie trzecie							// [2154] other
 
 // 2190..21FF : Arrows
 
-//←	left arrow							// [2190] other (no translation)
-//↑	up arrow							// [2191] other (no translation)
-//→	right arrow							// [2192] other (no translation)
-//↓	down arrow							// [2193] other (no translation)
+←	strzałka w lewo							// [2190] other
+↑	strzałka w górę							// [2191] other
+→	strzałka w prawo						// [2192] other
+↓	strzałka w dół							// [2193] other
 ↔	strzałka w lewo i w prawo					// [2194] text|emoji
 ↕	strzałka w górę i w dół						// [2195] text|emoji
 ↖	strzałka w górę w lewo						// [2196] text|emoji
@@ -85,23 +85,23 @@ $textmode
 
 // 2200..22FF : Mathematical Operators
 
-//∂	delta								// [2202] other (no translation)
-//∑	sum sign							// [2211] other (no translation)
-//−	minus								// [2212] other (no translation)
-//∗	asterisk							// [2217] other (no translation)
-//√	square root							// [221A] other (no translation)
-//∛	cube root							// [221B] other (no translation)
-//∝	proportional to							// [221D] other (no translation)
-//∞	infinity							// [221E] other (no translation)
-//∫	integral							// [222B] other (no translation)
-//∬	double integral							// [222C] other (no translation)
-//∴	therefore							// [2234] other (no translation)
-//∵	because								// [2235] other (no translation)
-//≈	approximately							// [2248] other (no translation)
-//≠	not equal to							// [2260] other (no translation)
-//≡	identical to							// [2261] other (no translation)
-//≤	less or equal to						// [2264] other (no translation)
-//≥	greater or equal to						// [2265] other (no translation)
+∂	delta								// [2202] other
+∑	znak sumy							// [2211] other
+−	minus								// [2212] other
+∗	gwiazdka							// [2217] other
+√	pierwiastek kwadratowy						// [221A] other
+∛	pierwiastek sześcienny						// [221B] other
+∝	proporcjonalnie do						// [221D] other
+∞	nieskończoność							// [221E] other
+∫	całka								// [222B] other
+∬	podwójna całka							// [222C] other
+∴	stąd								// [2234] other
+∵	ponieważ							// [2235] other
+≈	w przybliżeniu							// [2248] other
+≠	nie równa się							// [2260] other
+≡	identyczny jak							// [2261] other
+≤	mniejszy lub równy						// [2264] other
+≥	większy lub równy						// [2265] other
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -130,12 +130,12 @@ $textmode
 
 // 25A0..25FF : Geometric Shapes
 
-//■	black square							// [25A0] other (no translation)
+■	czarny kwadrat							// [25A0] other
 ▪	mały czarny kwadrat						// [25AA] text|emoji
 ▫	mały biały kwadrat						// [25AB] text|emoji
 ▶	odtwórz								// [25B6] text|emoji
 ◀	wstecz								// [25C0] text|emoji
-//●	black circle							// [25CF] other (no translation)
+●	czarne koło							// [25CF] other
 ◻	średni biały kwadrat						// [25FB] text|emoji
 ◼	średni czarny kwadrat						// [25FC] text|emoji
 ◽	mały/średni biały kwadrat					// [25FD]
@@ -184,8 +184,8 @@ $textmode
 ♥	kier								// [2665] text|emoji
 ♦	karo								// [2666] text|emoji
 ♨	gorące źródła							// [2668] text|emoji
-//♭	flat								// [266D] other (no translation)
-//♯	sharp								// [266F] other (no translation)
+♭	moll								// [266D] other
+♯	cis								// [266F] other
 ♻	recykling							// [267B] text|emoji
 ♾	nieskończoność							// [267E] text|emoji
 ♿	symbol wózka inwalidzkiego					// [267F]
