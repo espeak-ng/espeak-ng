@@ -9,7 +9,7 @@
        б     b
 
 .group в
-       в     B
+       в     v
 
 .group г
        г     h  // вимовляється як середнє між г та х
@@ -37,10 +37,10 @@
        и     I
 
 .group і
-       і     i:
+       і     i
 
 .group ї
-       ї     ji:
+       ї     ji
 
 .group й
        й     j
@@ -50,22 +50,22 @@
 
 .group л
        л     l
-       л (і  l^
-       лє    l^E
-       лю    l^u
-       ля    l^a
-       ль    l^
+       л (і  l;
+       лє    l;E
+       лю    l;u
+       ля    l;a
+       ль    l;
 
 .group м
        м     m
 
 .group н
        н     n
-       н (і  n^
-       нє    n^E
-       ню    n^u
-       ня    n^a
-       нь    n^
+       н (і  n;
+       нє    n;E
+       ню    n;u
+       ня    n;a
+       нь    n;
 
 .group о
        о     o
@@ -78,9 +78,10 @@
 
 .group с
        с     s
+	   с (і  s;
 
 .group т
-       т     t[
+       т     t
        ть    t;
 
 .group у
@@ -100,6 +101,7 @@
 
 .group ш
        ш     S
+       ш (і  S;	   
        ш (в  l#  // швеція
 
 .group щ
