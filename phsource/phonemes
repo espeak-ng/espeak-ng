@@ -1708,6 +1708,9 @@ include ph_farsi
 phonemetable fi base1
 include ph_finnish
 
+phonemetable fo base1
+include ph_faroese
+
 phonemetable smj base1
 include ph_lule_saami
 
@@ -1804,6 +1807,9 @@ include ph_swedish
 
 phonemetable sw base1
 include ph_swahili
+
+phonemetable ti base1
+include ph_tigrinya
 
 phonemetable tn base1
 include ph_setswana
@@ -2055,3 +2061,6 @@ phonemetable ms id
 
 phonemetable ie eo
 include ph_interlingue
+
+phonemetable kaa kk
+include ph_karakalpak

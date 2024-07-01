@@ -340,7 +340,7 @@ Sras	señoras		$text $capital $dot
 Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
 SSS	serB'iTjo||soTj'al||sustitut'orjo		$abbrev
-tel	teléfono	$text $dot
+tel	teléfono	$text $hasdot
 tqm	te||kj'ero||m'utSo
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
@@ -348,7 +348,8 @@ Uds	ustedes		$text $capital $dot
 
 // pronunciation exceptions
 ser	s'e@-* $only // it's not a abbrev
-vilmente $1
+vilmente b'ilm'ente
+cruelmente kr'welm'ente
 depri $u $stem
 // Proper Names and countries
 amsterdam	$3

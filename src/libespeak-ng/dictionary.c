@@ -787,7 +787,7 @@ int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_s
 			// stress marker, use this for the following vowel
 
 			if (phcode == phonSTRESS_PREV) {
-				// primary stress on preceeding vowel
+				// primary stress on preceding vowel
 				j = count - 1;
 				while ((j > 0) && (*stressed_syllable == 0) && (vowel_stress[j] < STRESS_IS_PRIMARY)) {
 					if ((vowel_stress[j] != STRESS_IS_DIMINISHED) && (vowel_stress[j] != STRESS_IS_UNSTRESSED)) {
@@ -926,6 +926,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	unsigned char phonetic[N_WORD_PHONEMES];
 
 	static const char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
+
+	memset(syllable_weight, 0, sizeof(syllable_weight));
+	memset(vowel_length, 0, sizeof(vowel_length));
 
 	stressflags = tr->langopts.stress_flags;
 
@@ -2897,6 +2900,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			*word_end = 'e';
 	}
 	i = word_end - word;
+	if (i >= N_WORD_BYTES) i = N_WORD_BYTES-1;
 
 	if (word_copy != NULL) {
 		memcpy(word_copy, word, i);

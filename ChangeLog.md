@@ -39,7 +39,11 @@ updated languages:
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
+*  fo (Faroese) -- Andras Eliassen, iSolveIT ApS and Setur.fo/Ravnur
+*  kaa (Karakalpak) -- atabekm
+*  xex (Xextan) -- Filomena Rocca
 
 ### 1.51
 

@@ -1,0 +1,40 @@
+// Spelling-to-phoneme rules for Amharic
+// This file is UTF-8 encoded
+// all words lower case
+
+//numbers
+
+_0	z'ero  // b'ado ??
+_1	X'ade
+_2	kyl'yt@
+_3	s@l@syt@
+_4	?aRba'Ate
+_5	xamu'Syte
+_6	Su'du'Syte
+_7	S@wyAate
+_8	So'momyte
+_9	ty'SyAate
+_10	Aa'seryte
+_12     Aa'seryte'kylyt@
+_1X	?a'seryte
+_2X	Ay'sera
+_3X	sal'asa
+_4X	?arbAa
+_5X	Xamsa
+_6X	susa
+_7X	sebAa
+_8X	s@m'anja
+_9X	t@sAa
+_0C	mi'ti
+_0M1	S'ix
+_0M2    m'ilyon
+_0M3    b'ilyon
+
+_dpt	_n'@t`yb
+
+%	p@rs'@nt
+።	?aRba'Aten@T'ybi
+፣	ne'@t`@las@r@z
+፤	d'yryBys@r@z
+፧	xto'mylykyt
+

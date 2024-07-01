@@ -54,7 +54,7 @@ If espeak-ng is built from source code, ensure that `libpulse-dev` package is in
 
     PulseAudio support:            yes
 
-Then recmpile and install espeak-ng aganin.
+Then recompile and install espeak-ng again.
 
 
 ## Problems with pulseaudio
