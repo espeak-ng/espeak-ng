@@ -1,0 +1,607 @@
+///base rules specify transcription for eSpeak interpretation
+///dictrules 2 is for mbrola br4 compatibility 
+
+.L01 b d g v z q //xuázin tolson
+.L02 ' -
+.L03 f v s z x q 
+.L04 po lu qe qa qo ze zo
+.L09 á é í ó ú ý //"fiklé", "gexló"
+
+.replace
+	ä	ã
+	ẽ	ë
+	ï	ĩ
+	ö	õ
+	ü	ũ
+
+.group a
+	_)a	_!%a:
+	@)a	%a
+	_C)a(_	%a
+	_C)a(CA	%a
+	_C)a(CCL09	%a
+	C)a(L02A	%a_!
+	_C)a(C_	'a:
+	_C)a(C	'a:
+	_CC)a	'a:
+	a)a	:
+	_C)a(a	'!a:
+
+	_)ai	_!%aI:
+	ai	%aI:
+
+	_)au	_!%aU:
+	au	%aU:
+
+.group á
+	_)á	_!'a:
+	_)á(CL09	_!'a
+	_)á(CCL09	_!'a
+	_)á(CCCL09	_!'a
+	á	'a:
+	á(CL09	'a
+	á(CCL09	'a
+	á(CCCL09	'a
+
+	_)ái	_!'aI:
+	_)ái(CL09	_!'aI
+	_)ái(CCL09	_!'aI
+	_)ái(CCCL09	_!'aI	
+	ái	'aI:
+	ái(CL09	'aI
+	ái(CCL09	'aI
+	ái(CCCL09	'aI
+
+	_)áu	_!'aU:
+	_)áu(CL09	_!'aU
+	_)áu(CCL09	_!'aU
+	_)áu(CCCL09	_!'aU	
+	áu	'aU:
+	áu(CL09	'aU
+	áu(CCL09	'aU
+	áu(CCCL09	'aU
+
+.group à
+	_)à	_!%a:
+	à	%a:
+
+	_)ài	_!%aI:
+	ài	%aI:
+
+	_)àu	_!%aU:
+	àu	%aU:
+
+.group ã
+
+	_)ã	_!%&~:
+	ã	%&~:
+
+	_)ãu	_!%&U~:
+	ãu	%&U~:
+
+	_)ãi	_!%&~:j
+	ãi	%&~:j
+?2	_)ãi	_!%@:%%i~
+?2	ãi	%@:%%i~
+
+.group â
+
+	_)â	_!'&~:
+	â	'&~:
+
+	_)âu	_!'&U~:
+	âu	'&U~:
+
+	_)âi	_!'&~:j
+	âi	'&~:j
+?2	_)âi	_!'@:%%i~
+?2	âi	'@:%%i~
+
+.group ā
+	_)ā	_!'a:_
+	_)āI	_!'aI:_	
+	_)āu	_!'aU:_
+	ā	'a:_
+	āI	'aI:_	
+	āu	'aU:_
+	
+.group b
+	b	b
+	bb	b:
+?2	bb	_!b
+
+.group d
+	d	d
+	dd	d:
+?2	dd	_!d
+?5	dq	d|Z
+	dq	dZ
+	d(qC	d
+	ddq	dZ:
+?2	ddz	_!dz
+?5	ddq	_!d|Z
+?2 ?!5	ddq	_!dZ
+
+.group e
+	_)e	_!%E:
+	@)e	%E
+	_C)e(_	%E
+	_C)e(CA	%E
+	_C)e(CCL09	%E
+	C)e(L02A	%E_!
+	_C)e(C_	'E:
+	_C)e(C	'E:	
+	_CC)e	'E:
+	e)e	:
+	_C)e(e	'!E:
+
+	_)ei	_!%eI:
+	ei	%eI:
+
+	_)eu	_!%eU:
+	eu	%eU:
+
+.group é
+	_)é	_!'E:
+	_)é(CL09	_!'E
+	_)é(CCL09	_!'E
+	_)é(CCCL09	_!'E
+	é	'E:
+	é(CL09	'E
+	é(CCL09	'E
+	é(CCCL09	'E
+
+	_)éi	_!'eI:
+	_)éi(CL09	_!'eI
+	_)éi(CCL09	_!'eI
+	_)éi(CCCL09	_!'eI
+	éi	'eI:
+	éi(CL09	'eI
+	éi(CCL09	'eI
+	éi(CCCL09	'eI
+
+	_)éu	_!'eU:
+	_)éu(CL09	_!'eU
+	_)éu(CCL09	_!'eU
+	_)éu(CCCL09	_!'eU	
+	éu	'eU:
+	éu(CL09	'eU
+	éu(CCL09	'eU
+	éu(CCCL09	'eU
+
+.group è
+	_)è	_!%E:
+	è	%E:
+
+	_)èi	_!%eI:
+	èi	%eI:
+
+	_)èu	_!%eU:
+	èu	%eU:
+
+.group ë
+
+	_)ë	_!%e~:
+	ë	%e~:
+?3	k)ë	_|%e~:
+
+	_)ëi	_!%e~:j
+	ëi	%e~:j
+?2	_)ëi	_!%e~%%i~
+?2	ëi	%e~%%i~
+?3	k)ëi	_|%e~%%i~
+
+	_)ëu	_!%e~:w
+	ëu	%e~:w
+?2	_)ëu	_!%e~%%u~
+?2	ëu	%e~%%u~
+?3	k)ëu	_|%e~%%u~
+
+.group ê
+
+	_)ê	_'e~:
+	ê	'e~:
+?2	k)ê	_|'e~:
+
+	_)êi	_'e~:j
+	êi	'e~:j
+?2	_)êi	_'e~%%i~
+?2	êi	'e~%%i~
+?2	k)êi	_|'e~%%i~
+
+	_)êu	_'e~:w
+	êu	'e~:w
+?2	_)êu	_|'e~%%u~
+?2	êu	'e~%%u~
+?2	k)êu	_|'e~%%u~
+
+.group ē
+
+	_)ē	_!'E:_
+	_)ēi	_!'eI:_
+	_)ēu	_!'eU:_	
+	ē	'E:_
+	ēi	'eI:_
+	ēu	'eU:_		
+
+.group f
+	f	f
+?2	f(L03	f_!
+
+
+.group g
+	g	g
+	gg	g:
+?2	gg	_!g
+
+.group h
+	h	h
+
+.group i
+	_)i	_;_%i:
+	_L04_)i(_	_!%i:
+	@)i	%i
+	_C)i(_	%i
+	_C)i(CA	%i
+	_C)i(CCL09	%i
+	C)i(L02A	%i_!
+	_C)i(C_	'i:
+	_C)i(C	'i:
+	_CC)i	'i:
+	i)i	:
+	_C)i(i	'!i:
+
+	ia	j%a
+	iá	j'a:
+	iá(CL09	j'a
+	iá(CCL09	j'a
+	iá(CCCL09	j'a
+	ià	j%a
+	iã	j%&~:
+	iâ	j'&~:
+	iā	j'a:_
+
+	ie	j%E
+	ié	j'E:
+	ié(CL09	j'E
+	ié(CCL09	j'E
+	ié(CCCL09	j'E
+	iè	j%E
+	iẽ	j%e~:
+	iê	j'e~:
+	iē	j'E:_	
+
+	io	j%o
+	ió	j'o:
+	ió(CL09	j'o
+	ió(CCL09	j'o
+	ió(CCCL09	j'o
+	iò	j%o
+	iõ	j%o~:
+	iô	j'o~:
+	iō	j'o:_
+
+	iu	j%u
+	iú	j'u:
+	iú(CL09	j'u
+	iú(CCL09	j'u
+	iú(CCCL09	j'u
+	iù	j%u
+	iũ	j%u~:
+	iû	j'u~:
+	iū	j'u:_
+
+.group í
+	_)í	_!'i:
+	_)í(CL09	_!'i
+	_)í(CCL09	_!'i
+	_)í(CCCL09	_!'i	
+	í	'i:
+	í(CL09	'i
+	í(CCL09	'i
+	í(CCCL09	'i
+
+.group ì
+	_)ì	_!%i:
+	ì	%i:
+
+.group ĩ
+	_)ĩ	_!%i~:
+	ĩ	%i~:
+
+.group î
+	_)î	_!'i~:
+	î	'i~:
+	
+.group ī
+
+	_)ī	_!'i:_
+	ī	'i:_
+
+.group j
+	j	j
+?2	C_)j	_|j
+	_)ja	_;_j%a:
+	_)je	_;_j%E:
+	_)ji	_;_j%i:
+	_)jo	_;_j%o:
+	_)ju	_;_j%u:
+	
+	_L04_)ja	j%a:
+	_L04_)je	j%E:
+	_L04_)ji	j%i:
+	_L04_)jo	j%o:
+	_L04_)ju	j%u:
+
+.group k
+	k	k
+	kk	k:
+	kg	g:
+	k(L01	g
+
+.group l
+	l	l
+	ll	l:
+?3	ll	l^
+
+.group m
+	m	m
+?2	_)m	_!m
+
+.group n
+	n	n
+	nn	n:
+	n(g	N
+	n(k	N
+	n(b	m
+	n(p	m
+
+.group o
+	_)o	_!%o:
+	@)o	%o
+	_C)o(_	%o
+	_C)o(CA	%o
+	_C)o(CCL09	%o
+	C)o(L02A	%o_!
+	_C)o(C_	'o:
+	_C)o(C	'o:
+	_CC)o	'o:
+	o)o	:
+	_C)o(o	'!o:
+
+	_)oi	_!%oI:
+	oi	%oI:
+
+	_)ou	_!%o:w
+	ou	%o:w
+
+.group ó
+	_)ó	_!'o:
+	_)ó(CL09	_!'o
+	_)ó(CCL09	_!'o
+	_)ó(CCCL09	_!'o
+	ó	'o:
+	ó(CL09	'o
+	ó(CCL09	'o
+	ó(CCCL09	'o
+
+	_)ói	_!'oI:	
+	_)ói(CL09	_!'oI
+	_)ói(CCL09	_!'oI
+	_)ói(CCCL09	_!'oI
+	ói	'oI:
+	ói(CL09	'oI
+	ói(CCL09	'oI
+	ói(CCCL09	'oI
+
+	_)óu	_!'o:w
+	_)óu(CL09	_!'ow
+	_)óu(CCL09	_!'ow
+	_)óu(CCCL09	_!'ow	
+	óu	'o:w
+	óu(CL09	'ow
+	óu(CCL09	'ow
+	óu(CCCL09	'ow
+
+.group ò
+	_)ò	_!%o:
+	ò	%o:
+
+	_)òi	_!%oI:
+	òi	%oI:
+
+	_)òu	_!%o:w
+	òu	%o:w
+
+.group õ
+
+	_)õ	_!%o~:
+	õ	%o~:
+
+	_)õi	_!%o~:j
+	õi	%o~:j
+?2	_)õi	_!%o~:%%i~
+?2	õi	%o~:%%i~
+
+	_)õu	_!%o~:w
+	õu	%o~:w
+?2	_)õu	_!%o~%%u~
+?2	õu	%o~%%u~
+
+.group ô
+
+	_)ô	_!'o~:
+	ô	'o~:
+
+	_)ôi	_!'o~:j
+	ôi	'o~:j
+?2	_)ôi	_!'o~:%%i~
+?2	ôi	'o~:%%i~
+
+	_)ôu	_!'o~:w
+	ôu	'o~:w
+?2	_)ôu	_!'o~%%u~
+?2	ôu	'o~%%u~
+
+.group ō
+
+	_)ō	_!'o:_
+	_)ōi	_!'oI:_
+	_)ōu	_!'o:w_	
+	ō	'o:_
+	ōi	'oI:_
+	ōu	'o:w_		
+
+.group p
+	p	p
+	pp	p:
+	pb	b:
+	p(L01	b
+
+.group q
+	q	Z
+?2	q(L03	Z_!
+
+.group r
+	r	R
+?2	r	*
+?2	r(C	r/
+
+.group s
+	s	s
+?2	s(L03	s_!
+
+.group t
+	t	t
+	tt	t:
+	td	d:
+?2	td	_!d
+	t(L01	d
+?5	tx	t|S	
+	tx	tS
+?5	tq	d|Z	
+	tq	dZ
+	t(xC	t
+	t(qC	d
+?5	ttx	t:S	
+	ttx	tS:
+	tdq	dZ:
+?2	tdz	_!dz
+?2 ?!5	tdq	_!dZ
+?5	tdq	_!d|Z
+
+.group u
+	_)u	_!%u:
+	@)u	%u
+	_C)u(_	%u
+	_C)u(CA	%u
+	_C)u(CCL09	%u
+	C)u(L02A	%u_!
+	_C)u(C_	'u:
+	_C)u(C	'u:
+	_CC)u	'u:
+	u)u	:
+	_C)u(u	'!u:
+
+	ua	w%a
+	ue	w%E
+	ui	w%i
+	uo	w%o
+
+	uá	w'a:
+	uá(CL09	w'a
+	uá(CCL09	w'a
+	uá(CCCL09	w'a
+	ué	w'E:
+	ué(CL09	w'E
+	ué(CCL09	w'E
+	ué(CCCL09	w'E
+	uí	w'i:
+	uí(CL09	w'i
+	uí(CCL09	w'i
+	uí(CCCL09	w'i
+	uó	w'o:
+	uó(CL09	w'o
+	uó(CCL09	w'o
+	uó(CCCL09	w'o
+
+	uà	w%a
+	uè	w%E
+	uì	w%i
+	uò	w%o
+
+	uã	w%&~:
+	uẽ	w%e~:
+	uĩ	w%i~:
+	uõ	w%o~:
+
+	uâ	w'&~:
+	uê	w'e~:
+	uî	w'i~:
+	uô	w'o~:
+	
+	uā	w'a:_
+	uē	w'E:_
+	uī	w'i:_
+	uō	w'o:_
+
+.group ú
+	_)ú	_!'u:
+	ú	'u:
+	ú(CL09	'u
+	ú(CCL09	'u
+	ú(CCCL09	'u
+
+.group ù
+	_)ù	_!%u:
+	ù	%u
+
+.group ũ
+
+	_)ũ	_!%u~:
+	ũ	%u~:
+
+.group û
+
+	_)û	_!'u~:
+	û	'u~:
+
+.group ū
+
+	_)ū	_!'u:_
+	ū	'u:_
+
+.group v
+	v	v
+?2	v(L03	v_!
+
+.group w
+	w	w
+?2	_)w	_|w
+
+.group x
+	x	S
+?2	x(L03	S_!
+
+.group y
+	_)y	_!%@
+	y	%@
+	_)y(_	_!%@:_:
+
+.group ý
+	_)ý	_!'@:
+	ý	'@:
+	&)ý	'@
+
+.group z
+	z	z
+?2	z(L03	z_!
+
+.group
+	.	_;_
+	...	_;_
+	~	_:#X1_:
+	"	_:#X1_:
+	A)'	_!
+	C)'	_!
+	'	
