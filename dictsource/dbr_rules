@@ -1,0 +1,161 @@
+// This file is UTF-8 encoded
+// translation rules for Dobrudjan Tatar
+
+// Vowels
+.L01 a ı o u  // back vowels
+.L02 e i ö ü  // front vowels
+.L03 ĭ
+
+// Consonants
+.L04 b c ç d f g h j k l m n ñ p q r s ş t v w y z
+
+.group a
+        a        a
+		a  (_   'a
+		a  (L04_ 'a
+		a  (L04L04_ 'a
+		
+.group b
+        b        b
+		bb       b:
+		
+.group c
+        c        dZ
+		cc       dZ:
+		
+.group ç
+        ç        tS
+		çç       tS:
+		
+.group d
+        d        d
+		dd       d:
+		
+.group e
+        e        e
+		e  (_   'e
+		e  (L04_ 'e
+		e  (L04L04_ 'e
+		ee       e:
+		ee (_   'e:
+		ee (L04_ 'e:
+		ee (L04L04_ 'e:
+		
+.group f
+        f        f
+		
+.group g
+        g        g
+		gg       g:
+        g  (L02  J
+   L02) g  (K    g
+        g  (L03  g
+   L03) g  (K    g
+
+.group h
+        h        h
+
+.group i
+        i        i
+        i  (_   'i
+        i  (L04_ 'i
+        i  (L04L04_ 'i
+
+.group ĭ
+        ĭ        I
+        ĭ  (_   'I
+        ĭ  (L04_ 'I
+        ĭ  (L04L04_ 'I
+
+.group ı
+        ı        @
+        ı  (_   '@
+        ı  (L04_ '@
+        ı  (L04L04_ '@
+		
+.group j
+        j        Z
+
+.group k
+        k        k
+        kk		 k:
+		k  (L02  c
+   L02) k  (K    k
+        k  (L03  k
+   L03) k  (K    k
+   
+.group l
+        l        l
+		l (L01   L
+   L01) l (K     L
+        l (L03   l
+   L03) l (K     l
+   
+.group m
+        m        m
+		
+.group n
+        n        n
+		nĭz (_   =nIz
+		
+.group ñ
+        ñ        N
+		ñız (_   =N@z
+		
+.group o
+        o        o
+		o  (_   'o
+		o  (L04_ 'o
+		o  (L04L04_ 'o
+		
+.group ö
+        ö        W
+		ö  (_   'W
+		ö  (L04_ 'W
+		ö  (L04L04_ 'W
+		
+.group p
+        p        p
+		pp       p:
+		
+.group q
+        q        q
+		qq       q:
+		
+.group r
+        r        r
+		
+.group s
+        s        s
+	    sıñ (_   =s@N
+		
+.group ş
+        ş        S
+		
+.group t
+        t        t
+		tt       t:
+		
+.group u
+        u        u
+		u  (_   'u
+		u  (L04_ 'u
+		u  (L04L04_ 'u
+		
+.group ü
+        ü        y
+		ü  (_   'y
+		ü  (L04_ 'y
+		ü  (L04L04_ 'y
+		
+.group v
+        v        v
+		
+.group w
+        w        w
+		
+.group y
+        y        j
+		
+.group z
+        z        z
