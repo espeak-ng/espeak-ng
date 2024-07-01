@@ -11,6 +11,9 @@
 .project
 .settings
 
+# VSCode project files:
+.vscode
+
 # intermediate build output:
 
 *.o
