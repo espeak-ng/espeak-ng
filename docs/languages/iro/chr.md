@@ -1,5 +1,4 @@
-
-=== Western Cherokee
+# Western Cherokee
 
 Cherokee is a tonal language which does not use stress.
 
@@ -24,5 +23,5 @@ TODO:
 * Devoice short vowels when followed by an 'h'.
 * Fix where the 'm' and 'n' consonants are hard to perceive.
 * Add rules to handle the C.E.D. like phonetics as used by the Raven Rock Dictionary.
-* Add a basic Eastern Cherokee dialect to account for differences of pronuncations of 's vs sh' and 'j/ch vs ts'.
+* Add a basic Eastern Cherokee dialect to account for differences of pronunciations of 's vs sh' and 'j/ch vs ts'.
 * Figure out why ',' is treated as part of a word and not a short pause and fix it.

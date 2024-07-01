@@ -91,10 +91,12 @@
         t        t
 
 .group u
-        u        U
+        u        y
 
 .group û
         û        u
+
+        û (_     u
 
 .group v
         v        v
