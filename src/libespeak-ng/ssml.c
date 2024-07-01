@@ -87,6 +87,8 @@ static const MNEM_TAB ssmltags[] = {
 	{ NULL, 0 }
 };
 
+static int (*uri_callback)(int, const char *, const char *) = NULL;
+
 static int attrcmp(const wchar_t *string1, const char *string2)
 {
 	int ix;
@@ -135,10 +137,15 @@ static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 	int ix = 0;
 
 	if (pw != NULL) {
+		wchar_t quote = pw[-1];
+		if ((quote != '"') && (quote != '\'')) quote = 0;
+
 		unsigned int c;
 		int prev_c = 0;
 		while ((ix < (len-4)) && ((c = *pw++) != 0)) {
-			if ((c == '"') && (prev_c != '\\'))
+			if ((quote == 0) && (isspace(c) || (c == '/')))
+				break;
+			if ((quote != 0) && (c == quote) && (prev_c != '\\'))
 				break; // " indicates end of attribute, unless preceded by backstroke
 
 			int n = utf8_out(c, &buf[ix]);
@@ -299,8 +306,10 @@ static const wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 				while (iswspace(*pw)) pw++;
 				if ((*pw == '"') || (*pw == '\'')) // allow single-quotes ?
 					return pw+1;
-				else
+				else if (iswspace(*pw) || (*pw == '/')) // end of attribute
 					return empty;
+				else
+					return pw;
 			}
 		}
 		pw++;
@@ -797,7 +806,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			// add name to circular buffer of marker names
 			attrcopy_utf8(buf, attr1, sizeof(buf));
 
-			if (strcmp(skip_marker, buf) == 0) {
+			if ((buf[0] != 0) && (strcmp(skip_marker, buf) == 0)) {
 				// This is the marker we are waiting for before starting to speak
 				*clear_skipping_text = true;
 				skip_marker[0] = 0;
@@ -861,6 +870,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		if ((attr1 = GetSsmlAttribute(px, "strength")) != NULL) {
 			static const int break_value[6] = { 0, 7, 14, 21, 40, 80 }; // *10mS
 			value = attrlookup(attr1, mnem_break);
+			if (value < 0) value = 2;
 			if (value < 3) {
 				// adjust prepause on the following word
 				sprintf(&outbuf[*outix], "%c%dB", CTRL_EMBEDDED, value);
@@ -871,6 +881,19 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 		}
 		if ((attr2 = GetSsmlAttribute(px, "time")) != NULL) {
 			value2 = attrnumber(attr2, 0, 1);   // pause in mS
+
+			value2 = value2 * speech_parameters[espeakSSML_BREAK_MUL] / 100;
+
+			int wpm = speech_parameters[espeakRATE];
+			espeak_SetParameter(espeakRATE, wpm, 0);
+
+			#if USE_LIBSONIC
+			if (wpm >= espeakRATE_MAXIMUM) {
+				// Compensate speedup with libsonic, see function SetSpeed()
+				double sonic = ((double)wpm)/espeakRATE_NORMAL;
+				value2 = value2 * sonic;
+			}
+			#endif
 
 			// compensate for speaking speed to keep constant pause length, see function PauseLength()
 			// 'value' here is x 10mS
@@ -954,6 +977,13 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	}
 	return 0;
 }
+
+#pragma GCC visibility push(default)
+ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
+{
+	uri_callback = UriCallback;
+}
+#pragma GCC visibility pop
 
 static const MNEM_TAB xml_entity_mnemonics[] = {
 	{ "gt",   '>' },

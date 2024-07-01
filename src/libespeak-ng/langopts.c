@@ -42,8 +42,6 @@
 static int CheckTranslator(Translator *tr, const MNEM_TAB *keyword_tab, int key);
 static int LookupTune(const char *name);
 
-extern const MNEM_TAB langopts_tab[];
-
 void LoadLanguageOptions(Translator *translator, int key, char *keyValue ) {
 if (CheckTranslator(translator, langopts_tab, key) != 0) {
 				return;
@@ -149,7 +147,7 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 			break;
 		}
             case V_TUNES: {
-				char names[6][40] = { 0, 0, 0, 0, 0, 0 };
+				char names[6][40] = { {0}, {0}, {0}, {0}, {0}, {0} };
                 n = sscanf(keyValue, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
                 translator->langopts.intonation_group = 0;
 

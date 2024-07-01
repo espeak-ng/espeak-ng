@@ -63,7 +63,7 @@ public class TtsService extends TextToSpeechService {
 
     private static final String TAG = TtsService.class.getSimpleName();
     private static Context storageContext;
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = BuildConfig.DEBUG;
 
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
@@ -76,7 +76,8 @@ public class TtsService extends TextToSpeechService {
     @Override
     public void onCreate() {
         storageContext = EspeakApp.getStorageContext();
-        storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
         initializeTtsEngine();
         super.onCreate();
     }

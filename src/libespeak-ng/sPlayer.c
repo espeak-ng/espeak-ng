@@ -42,7 +42,7 @@ static void mixWaveFile(WGEN_DATA *wdata, unsigned int maxNumSamples, sample* sa
 	}
 }
 
-static bool isKlattFrameFollowing() {
+static bool isKlattFrameFollowing(void) {
 	// eSpeak implements its command queue with a circular buffer.
 	// Thus to walk it, we start from the head, walking to the tail, which may wrap around to the beginning of the buffer as it is circular.
 	for(int i=(wcmdq_head+1)%N_WCMDQ;i!=wcmdq_tail;i=(i+1)%N_WCMDQ) {
@@ -93,15 +93,17 @@ static void fillSpeechPlayerFrame(WGEN_DATA *wdata, voice_t *wvoice, frame_t * e
 	spFrame->endVoicePitch=spFrame->voicePitch;
 }
 
-void KlattInitSP() {
+void KlattInitSP(void) {
 	speechPlayerHandle=speechPlayer_initialize(22050);
 }
 
-void KlattFiniSP() {
-	speechPlayer_terminate(speechPlayerHandle);
+void KlattFiniSP(void) {
+	if (speechPlayerHandle)
+		speechPlayer_terminate(speechPlayerHandle);
+	speechPlayerHandle = NULL;
 }
 
-void KlattResetSP() {
+void KlattResetSP(void) {
 	KlattFiniSP();
 	KlattInitSP();
 }

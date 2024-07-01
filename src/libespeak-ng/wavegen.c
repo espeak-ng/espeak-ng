@@ -33,14 +33,15 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "wavegen.h"
+#include "common.h"                   // for espeak_rand
 #include "synthesize.h"               // for WGEN_DATA, RESONATOR, frame_t
 #include "mbrola.h"                  // for MbrolaFill, MbrolaReset, mbrola...
 
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 #include "klatt.h"
 #endif
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 #include "sonic.h"
 #endif
 
@@ -49,7 +50,7 @@
 
 static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 
-voice_t *wvoice = NULL;
+static voice_t *wvoice = NULL;
 
 static int option_harmonic1 = 10;
 static int flutter_amp = 64;
@@ -61,7 +62,6 @@ int embedded_value[N_EMBEDDED_VALUES];
 
 static int PHASE_INC_FACTOR;
 int samplerate = 0; // this is set by Wavegeninit()
-int samplerate_native = 0;
 
 static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];
@@ -88,7 +88,7 @@ static int modulation_type = 0;
 static int glottal_flag = 0;
 static int glottal_reduce = 0;
 
-WGEN_DATA wdata;
+static WGEN_DATA wdata;
 
 static int amp_ix;
 static int amp_inc;
@@ -110,7 +110,7 @@ unsigned char *out_ptr;
 unsigned char *out_end;
 
 espeak_ng_OUTPUT_HOOKS* output_hooks = NULL;
-int const_f0 = 0;
+static int const_f0 = 0;
 
 // the queue of operations passed to wavegen from sythesize
 intptr_t wcmdq[N_WCMDQ][4];
@@ -118,21 +118,19 @@ int wcmdq_head = 0;
 int wcmdq_tail = 0;
 
 // pitch,speed,
-int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
-static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
+const int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, espeakRATE_NORMAL, 100, 50,  0,  0, 0, espeakRATE_NORMAL, 0, 0, 0, 0, 0, 0 };
+static const int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 2000, 300, 99, 99, 99, 0, 2000, 0, 0, 0, 0, 4, 0 };
 
-int current_source_index = 0;
-
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 static sonicStream sonicSpeedupStream = NULL;
-double sonicSpeed = 1.0;
+static double sonicSpeed = 1.0;
 #endif
 
 // 1st index=roughness
 // 2nd index=modulation_type
 // value: bits 0-3  amplitude (16ths), bits 4-7 every n cycles
 #define N_ROUGHNESS 8
-static unsigned char modulation_tab[N_ROUGHNESS][8] = {
+static const unsigned char modulation_tab[N_ROUGHNESS][8] = {
 	{ 0, 0x00, 0x00, 0x00, 0, 0x46, 0xf2, 0x29 },
 	{ 0, 0x2f, 0x00, 0x2f, 0, 0x45, 0xf2, 0x29 },
 	{ 0, 0x2f, 0x00, 0x2e, 0, 0x45, 0xf2, 0x28 },
@@ -219,7 +217,8 @@ static unsigned char wavemult[N_WAVEMULT] = {
 };
 
 // set from y = pow(2,x) * 128,  x=-1 to 1
-unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
+#define MAX_PITCH_VALUE  101
+static const unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	 64,  65,  66,  67,  68,  69,  70,  71,
 	 72,  73,  74,  75,  76,  77,  78,  79,
 	 80,  81,  82,  83,  84,  86,  87,  88,
@@ -235,23 +234,25 @@ unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	242, 246, 249, 252, 254, 255
 };
 
-void WcmdqStop()
+void WcmdqStop(void)
 {
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 	if (sonicSpeedupStream != NULL) {
 		sonicDestroyStream(sonicSpeedupStream);
 		sonicSpeedupStream = NULL;
 	}
 #endif
 
+#if USE_MBROLA
 	if (mbrola_name[0] != 0)
 		MbrolaReset();
+#endif
 }
 
-int WcmdqFree()
+int WcmdqFree(void)
 {
 	int i;
 	i = wcmdq_head - wcmdq_tail;
@@ -259,18 +260,18 @@ int WcmdqFree()
 	return i;
 }
 
-int WcmdqUsed()
+int WcmdqUsed(void)
 {
 	return N_WCMDQ - WcmdqFree();
 }
 
-void WcmdqInc()
+void WcmdqInc(void)
 {
 	wcmdq_tail++;
 	if (wcmdq_tail >= N_WCMDQ) wcmdq_tail = 0;
 }
 
-static void WcmdqIncHead()
+static void WcmdqIncHead(void)
 {
 	MAKE_MEM_UNDEFINED(&wcmdq[wcmdq_head], sizeof(wcmdq[wcmdq_head]));
 	wcmdq_head++;
@@ -279,7 +280,7 @@ static void WcmdqIncHead()
 
 #define PEAKSHAPEW 256
 
-unsigned char pk_shape1[PEAKSHAPEW+1] = {
+static const unsigned char pk_shape1[PEAKSHAPEW+1] = {
 	255, 254, 254, 254, 254, 254, 253, 253, 252, 251, 251, 250, 249, 248, 247, 246,
 	245, 244, 242, 241, 239, 238, 236, 234, 233, 231, 229, 227, 225, 223, 220, 218,
 	216, 213, 211, 209, 207, 205, 203, 201, 199, 197, 195, 193, 191, 189, 187, 185,
@@ -299,7 +300,7 @@ unsigned char pk_shape1[PEAKSHAPEW+1] = {
 	  0
 };
 
-static unsigned char pk_shape2[PEAKSHAPEW+1] = {
+static const unsigned char pk_shape2[PEAKSHAPEW+1] = {
 	255, 254, 254, 254, 254, 254, 254, 254, 254, 254, 253, 253, 253, 253, 252, 252,
 	252, 251, 251, 251, 250, 250, 249, 249, 248, 248, 247, 247, 246, 245, 245, 244,
 	243, 243, 242, 241, 239, 237, 235, 233, 231, 229, 227, 225, 223, 221, 218, 216,
@@ -319,7 +320,7 @@ static unsigned char pk_shape2[PEAKSHAPEW+1] = {
 	  0
 };
 
-static unsigned char *pk_shape;
+static const unsigned char *pk_shape;
 
 void WavegenInit(int rate, int wavemult_fact)
 {
@@ -330,7 +331,7 @@ void WavegenInit(int rate, int wavemult_fact)
 		wavemult_fact = 60; // default
 
 	wvoice = NULL;
-	samplerate = samplerate_native = rate;
+	samplerate = rate;
 	PHASE_INC_FACTOR = 0x8000000 / samplerate; // assumes pitch is Hz*32
 	Flutter_inc = (64 * samplerate)/rate;
 	samplecount = 0;
@@ -361,14 +362,14 @@ void WavegenInit(int rate, int wavemult_fact)
 
 	pk_shape = pk_shape2;
 
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 	KlattInit();
 #endif
 }
 
 void WavegenFini(void)
 {
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 	KlattFini();
 #endif
 }
@@ -449,7 +450,6 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	int hmax;
 	int hmax_samplerate; // highest harmonic allowed for the samplerate
 	int x;
-	int ix;
 	int h1;
 
 	// initialise as much of *out as we will need
@@ -516,6 +516,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		x = htab[h] >> 15;
 		htab[h] = (x * x) >> 8;
 
+		int ix;
 		if ((ix = (f >> 19)) < N_TONE_ADJUST)
 			htab[h] = (htab[h] * wvoice->tone_adjust[ix]) >> 13; // index tone_adjust with Hz/8
 	}
@@ -533,20 +534,20 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	return hmax; // highest harmonic number
 }
 
-static void AdvanceParameters()
+static void AdvanceParameters(void)
 {
 	// Called every 64 samples to increment the formant freq, height, and widths
 	if (wvoice == NULL)
 		return;
 
-	int x;
+	int x = 0;
 	int ix;
 	static int Flutter_ix = 0;
 
 	// advance the pitch
 	wdata.pitch_ix += wdata.pitch_inc;
 	if ((ix = wdata.pitch_ix>>8) > 127) ix = 127;
-	x = wdata.pitch_env[ix] * wdata.pitch_range;
+	if (wdata.pitch_env) x = wdata.pitch_env[ix] * wdata.pitch_range;
 	wdata.pitch = (x>>8) + wdata.pitch_base;
 	
 	
@@ -562,7 +563,7 @@ static void AdvanceParameters()
 	
 	if(const_f0)
 		wdata.pitch = (const_f0<<12);
-	
+
 	if (wdata.pitch < 102400)
 		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
@@ -642,7 +643,7 @@ void InitBreath(void)
 		setresonator(&rbreath[ix], 2000, 200, 1);
 }
 
-static void SetBreath()
+static void SetBreath(void)
 {
 	int pk;
 
@@ -666,12 +667,12 @@ static int ApplyBreath(void)
 	int value = 0;
 	int noise;
 	int ix;
-	int amp;
 
 	// use two random numbers, for alternate formants
-	noise = (rand() & 0x3fff) - 0x2000;
+	noise = espeak_rand(-0x2000, 0x1fff);
 
 	for (ix = 1; ix < N_PEAKS; ix++) {
+		int amp;
 		if ((amp = wvoice->breath[ix]) != 0) {
 			amp *= (peaks[ix].height >> 14);
 			value += (int)resonator(&rbreath[ix], noise) * amp;
@@ -833,10 +834,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 		}
 
 		// apply main peaks, formants 0 to 5
-#ifdef USE_ASSEMBLER_1
-		// use an optimised routine for this loop, if available
-		total += AddSineWaves(waveph, h_switch_sign, maxh, harmspect);  // call an assembler code routine
-#else
 		theta = waveph;
 
 		for (h = 1; h <= h_switch_sign; h++) {
@@ -848,7 +845,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 			theta += waveph;
 			h++;
 		}
-#endif
 
 		if (voicing != 64)
 			total = (total >> 6) * voicing;
@@ -910,7 +906,6 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 static int PlaySilence(int length, bool resume)
 {
 	static int n_samples;
-	int value = 0;
 
 	nsamples = 0;
 	samplecount = 0;
@@ -922,6 +917,7 @@ static int PlaySilence(int length, bool resume)
 	if (resume == false)
 		n_samples = length;
 
+	int value = 0;
 	while (n_samples-- > 0) {
 		value = (echo_buf[echo_tail++] * echo_amp) >> 8;
 
@@ -1005,7 +1001,7 @@ static int SetWithRange0(int value, int max)
 	return value;
 }
 
-static void SetPitchFormants()
+static void SetPitchFormants(void)
 {
 	if (wvoice == NULL)
 		return;
@@ -1111,12 +1107,12 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 
 void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range)
 {
-	int x;
 	int base;
 	int range;
 	int pitch_value;
 
 	if (pitch1 > pitch2) {
+		int x;
 		x = pitch1; // swap values
 		pitch1 = pitch2;
 		pitch2 = x;
@@ -1171,7 +1167,6 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	int length2;
 	int length4;
 	int qix;
-	int cmd;
 	static const int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
 	static const int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
 
@@ -1194,7 +1189,7 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 		if (qix >= N_WCMDQ) qix = 0;
 		if (qix == wcmdq_tail) break;
 
-		cmd = wcmdq[qix][0];
+		int cmd = wcmdq[qix][0];
 		if (cmd == WCMD_SPECT) {
 			end_wave = 0; // next wave generation is from another spectrum
 			break;
@@ -1258,7 +1253,7 @@ void Write4Bytes(FILE *f, int value)
 	}
 }
 
-static int WavegenFill2()
+static int WavegenFill2(void)
 {
 	// Pick up next wavegen commands from the queue
 	// return: 0  output buffer has been filled
@@ -1269,6 +1264,9 @@ static int WavegenFill2()
 	int marker_type;
 	static bool resume = false;
 	static int echo_complete = 0;
+
+	if (wdata.pitch < 102400)
+		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
 	while (out_ptr < out_end) {
 		if (WcmdqUsed() <= 0) {
@@ -1302,7 +1300,7 @@ static int WavegenFill2()
 				echo_complete -= length;
 			wdata.n_mix_wavefile = 0;
 			wdata.amplitude_fmt = 100;
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 			KlattReset(1);
 #endif
 			result = PlaySilence(length, resume);
@@ -1310,7 +1308,7 @@ static int WavegenFill2()
 		case WCMD_WAVE:
 			echo_complete = echo_length;
 			wdata.n_mix_wavefile = 0;
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 			KlattReset(1);
 #endif
 			result = PlayWave(length, resume, (unsigned char *)q[2], q[3] & 0xff, q[3] >> 8);
@@ -1335,7 +1333,7 @@ static int WavegenFill2()
 			echo_complete = echo_length;
 			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
 			break;
-#ifdef INCLUDE_KLATT
+#if USE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_KLATT:
@@ -1346,8 +1344,6 @@ static int WavegenFill2()
 		case WCMD_MARKER:
 			marker_type = q[0] >> 8;
 			MarkerEvent(marker_type, q[1], q[2], q[3], out_ptr);
-			if (marker_type == 1) // word marker
-				current_source_index = q[1] & 0xffffff;
 			break;
 		case WCMD_AMPLITUDE:
 			SetAmplitude(length, (unsigned char *)q[2], q[3]);
@@ -1359,17 +1355,25 @@ static int WavegenFill2()
 		case WCMD_EMBEDDED:
 			SetEmbedded(q[1], q[2]);
 			break;
+#if USE_MBROLA
 		case WCMD_MBROLA_DATA:
 			if (wvoice != NULL)
 				result = MbrolaFill(length, resume, (general_amplitude * wvoice->voicing)/64);
 			break;
+#endif
 		case WCMD_FMT_AMPLITUDE:
 			if ((wdata.amplitude_fmt = q[1]) == 0)
 				wdata.amplitude_fmt = 100; // percentage, but value=0 means 100%
 			break;
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 		case WCMD_SONIC_SPEED:
 			sonicSpeed = (double)q[1] / 1024;
+			if (sonicSpeedupStream && (sonicSpeed <= 1.0)) {
+				sonicFlushStream(sonicSpeedupStream);
+				int length = (out_end - out_ptr);
+				length = sonicReadShortFromStream(sonicSpeedupStream, (short*)out_ptr, length/2);
+				out_ptr += length * 2;
+			}
 			break;
 #endif
 		}
@@ -1384,7 +1388,7 @@ static int WavegenFill2()
 	return 0;
 }
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 // Speed up the audio samples with libsonic.
 static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text)
 {
@@ -1410,7 +1414,7 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 int WavegenFill(void)
 {
 	int finished;
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 	unsigned char *p_start;
 
 	p_start = out_ptr;
@@ -1418,7 +1422,7 @@ int WavegenFill(void)
 
 	finished = WavegenFill2();
 
-#if HAVE_SONIC_H
+#if USE_LIBSONIC
 	if (sonicSpeed > 1.0) {
 		int length;
 		int max_length;

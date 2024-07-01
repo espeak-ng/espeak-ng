@@ -3,16 +3,16 @@
 
 // Letter names
 а       a $u
-б       bE $u
+б       b $u
 в       vE $u
 г       QE $u
 д       dE $u
 е       jE $u
 ё       jO $u
-ж       z.E $u
+ж       z. $u
 з       z $u
 і       i $u
-й       i||n;Esklad'OvajE
+й       i $u
 к       ka $u
 л       El  $u
 м       Em $u
@@ -23,7 +23,7 @@
 с       Es  $u
 т       tE  $u
 у       u $u
-ў       u||n;Esklad'OvajE
+ў       w $u
 ф       Ef $u
 х       xa $u
 ц       tsE $u
@@ -75,6 +75,10 @@ _6C    s.Es;ts;s'Ot
 _7C    s;Ems'Ot
 _8C    v,Os;Ems'Ot
 _9C    dz;Ev;ats;s'Ot
-_0MB1  t'i"s;ats.a
+_1MA1  t'i"s;ats.a
 _0MA1  t'i"s;ats.i"
 _0M1   t'i"s;ats.      // NOTE: in 10k > appends `_!`
+
+# exceptions
+дождж d'Os.ts.
+відзскі v;'itsk;i

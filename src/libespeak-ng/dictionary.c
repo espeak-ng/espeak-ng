@@ -43,7 +43,8 @@
 #include "synthesize.h"                    // for STRESS_IS_PRIMARY, phoneme...
 #include "translate.h"                     // for Translator, utf8_in, LANGU...
 
-static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out);
+static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[2]);
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points);
 
 typedef struct {
 	int points;
@@ -62,7 +63,7 @@ static const unsigned short diereses_list[7] = { 0xe4, 0xeb, 0xef, 0xf6, 0xfc, 0
 // convert characters to an approximate 7 bit ascii equivalent
 // used for checking for vowels (up to 0x259=schwa)
 #define N_REMOVE_ACCENT  0x25e
-static unsigned char remove_accent[N_REMOVE_ACCENT] = {
+static const unsigned char remove_accent[N_REMOVE_ACCENT] = {
 	'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i',  // 0c0
 	'd', 'n', 'o', 'o', 'o', 'o', 'o',   0, 'o', 'u', 'u', 'u', 'u', 'y', 't', 's',  // 0d0
 	'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i',  // 0e0
@@ -395,7 +396,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 	unsigned char c;
 	unsigned int mnem;
 	PHONEME_TAB *ph;
-	static const char *stress_chars = "==,,'*  ";
+	static const char stress_chars[] = "==,,'*  ";
 
 	sprintf(outptr, "* ");
 	while ((phcode = *inptr++) > 0) {
@@ -424,7 +425,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 }
 
 // using Kirschenbaum to IPA translation, ascii 0x20 to 0x7f
-unsigned short ipa1[96] = {
+static const unsigned short ipa1[96] = {
 	0x20,  0x21,  0x22,  0x2b0, 0x24,  0x25,  0x0e6, 0x2c8, 0x28,  0x29,  0x27e, 0x2b,  0x2cc, 0x2d,  0x2e,  0x2f,
 	0x252, 0x31,  0x32,  0x25c, 0x34,  0x35,  0x36,  0x37,  0x275, 0x39,  0x2d0, 0x2b2, 0x3c,  0x3d,  0x3e,  0x294,
 	0x259, 0x251, 0x3b2, 0xe7,  0xf0,  0x25b, 0x46,  0x262, 0x127, 0x26a, 0x25f, 0x4b,  0x26b, 0x271, 0x14b, 0x254,
@@ -550,7 +551,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	char phon_buf2[30];
 	PHONEME_LIST *plist;
 
-	static const char *stress_chars = "==,,''";
+	static const char stress_chars[] = "==,,''";
 
 	if (phon_out_buf == NULL) {
 		phon_out_size = N_PHON_OUT;
@@ -695,6 +696,10 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		return -1;
 
 	while (*p != RULE_GROUP_END) {
+		// If '~' (no character) is allowed in group, return 0.
+		if (*p == '~')
+			return 0;
+
 		if (pre) {
 			len = strlen(p);
 			w = word;
@@ -702,15 +707,11 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 			{
 				w--;
 				if (*w == 0)
-					// Not found
-					return -1;
+					// Not found, skip the rest of this group.
+					goto skip;
 			}
 		} else
 			w = word;
-
-		// If '~' (no character) is allowed in group, return 0.
-		if (*p == '~')
-			return 0;
 
 		//  Check current group
 		while ((*p == *w) && (*w != 0)) {
@@ -724,6 +725,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		}
 
 		// No match, so skip the rest of this group.
+skip:
 		while (*p++ != 0)
 			;
 	}
@@ -785,7 +787,7 @@ int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_s
 			// stress marker, use this for the following vowel
 
 			if (phcode == phonSTRESS_PREV) {
-				// primary stress on preceeding vowel
+				// primary stress on preceding vowel
 				j = count - 1;
 				while ((j > 0) && (*stressed_syllable == 0) && (vowel_stress[j] < STRESS_IS_PRIMARY)) {
 					if ((vowel_stress[j] != STRESS_IS_DIMINISHED) && (vowel_stress[j] != STRESS_IS_UNSTRESSED)) {
@@ -924,6 +926,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	unsigned char phonetic[N_WORD_PHONEMES];
 
 	static const char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
+
+	memset(syllable_weight, 0, sizeof(syllable_weight));
+	memset(vowel_length, 0, sizeof(vowel_length));
 
 	stressflags = tr->langopts.stress_flags;
 
@@ -1470,26 +1475,17 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 	char *rule_start;     // start of current match template
 	char *p;
-	int ix;
-
 	int match_type;       // left, right, or consume
-	int failed;
-	int unpron_ignore;
-	int consumed;         // number of letters consumed from input
 	int syllable_count;
 	int vowel;
 	int letter_group;
-	int distance_right;
-	int distance_left;
 	int lg_pts;
 	int n_bytes;
 	int add_points;
 	int command;
-	bool check_atstart;
-	unsigned int *flags;
 
 	MatchRecord match;
-	static MatchRecord best;
+	MatchRecord best;
 
 	int total_consumed; // letters consumed for best match
 
@@ -1516,13 +1512,15 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 	// search through dictionary rules
 	while (rule[0] != RULE_GROUP_END) {
-		unpron_ignore = word_flags & FLAG_UNPRON_TEST;
+		bool check_atstart = false;
+		int consumed = 0;         // number of letters consumed from input
+		int distance_left = -2;
+        int distance_right = -6; // used to reduce points for matches further away the current letter
+		int failed = 0;
+		int unpron_ignore = word_flags & FLAG_UNPRON_TEST;
+
 		match_type = 0;
-		consumed = 0;
 		letter_w = 0;
-		distance_right = -6; // used to reduce points for matches further away the current letter
-		distance_left = -2;
-		check_atstart = false;
 
 		match.points = 1;
 		match.end_type = 0;
@@ -1534,9 +1532,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 		// work through next rule until end, or until no-match proved
 		rule_start = rule;
 
-		failed = 0;
 		while (!failed) {
 			rb = *rule++;
+			add_points = 0;
 
 			if (rb <= RULE_LINENUM) {
 				switch (rb)
@@ -1603,8 +1601,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				continue;
 			}
 
-			add_points = 0;
-
 			switch (match_type)
 			{
 			case 0:
@@ -1650,8 +1646,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					letter_group = LetterGroupNo(rule++);
 					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) >= 0) {
 						add_points = (20-distance_right);
-						if (n_bytes >= 0) // move pointer, if group was found
-							post_ptr += (n_bytes-1);
+						// move pointer, if group was found
+						post_ptr += (n_bytes-1);
 					} else
 						failed = 1;
 					break;
@@ -1705,21 +1701,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						else
 							failed = 1;
 					} else if (((command & 0xf0) == 0x20) || (command == DOLLAR_LIST)) {
-						// $list or $p_alt
-						// make a copy of the word up to the post-match characters
-						ix = *word - word_start + consumed + group_length + 1;
-						memcpy(word_buf, word_start-1, ix);
-						word_buf[ix] = ' ';
-						word_buf[ix+1] = 0;
-						LookupFlags(tr, &word_buf[1], &flags);
-
-						if ((command == DOLLAR_LIST) && (flags[0] & FLAG_FOUND) && !(flags[1] & FLAG_ONLY))
-							add_points = 23;
-						else if (flags[0] & (1 << (BITNUM_FLAG_ALT + (command & 0xf))))
-							add_points = 23;
-						else
-							failed = 1;
+						DollarRule(word, word_start, consumed, group_length, word_buf, tr, command, &failed, &add_points);
 					}
+
 					break;
 				case '-':
 					if ((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN_AFTER)))
@@ -1869,8 +1853,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					letter_group = LetterGroupNo(rule++);
 					if ((n_bytes = IsLetterGroup(tr, pre_ptr, letter_group, 1)) >= 0) {
 						add_points = (20-distance_right);
-						if (n_bytes >= 0)  // move pointer, if group was found
-							pre_ptr -= (n_bytes-1);
+						// move pointer, if group was found
+						pre_ptr -= (n_bytes-1);
 					} else
 						failed = 1;
 					break;
@@ -1906,20 +1890,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					pre_ptr++;
 					command = *rule++;
 					if ((command == DOLLAR_LIST) || ((command & 0xf0) == 0x20)) {
-						// $list or $p_alt
-						// make a copy of the word up to the current character
-						ix = *word - word_start + 1;
-						memcpy(word_buf, word_start-1, ix);
-						word_buf[ix] = ' ';
-						word_buf[ix+1] = 0;
-						LookupFlags(tr, &word_buf[1], &flags);
-
-						if ((command == DOLLAR_LIST) && (flags[0] & FLAG_FOUND) && !(flags[1] & FLAG_ONLY))
-							add_points = 23;
-						else if (flags[0] & (1 << (BITNUM_FLAG_ALT + (command & 0xf))))
-							add_points = 23;
-						else
-							failed = 1;
+						DollarRule(word, word_start, consumed, group_length, word_buf, tr, command, &failed, &add_points);
 					}
 					break;
 				case RULE_SYLLABLE:
@@ -2045,12 +2016,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					// show each rule that matches, and it's points score
 					int pts;
 					char decoded_phonemes[80];
+					char output[80];
 
 					pts = match.points;
 					if (group_length > 1)
 						pts += 35; // to account for an extra letter matching
 					DecodePhonemes(match.phonemes, decoded_phonemes);
-					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags), decoded_phonemes);
+					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags, output), decoded_phonemes);
 				}
 			}
 		}
@@ -2079,18 +2051,17 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	unsigned char c, c2;
 	unsigned int c12;
 	int wc = 0;
-	int wc_bytes;
 	char *p2;           // copy of p for use in double letter chain match
 	int found;
 	int g;              // group chain number
 	int g1;             // first group for this letter
-	int n;
 	int letter;
 	int any_alpha = 0;
 	int ix;
 	unsigned int digit_count = 0;
 	char *p;
-	ALPHABET *alphabet;
+	char word_buf[5];
+	const ALPHABET *alphabet;
 	int dict_flags0 = 0;
 	MatchRecord match1 = { 0 };
 	MatchRecord match2 = { 0 };
@@ -2133,11 +2104,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		end_phonemes[0] = 0;
 
 	while (((c = *p) != ' ') && (c != 0)) {
-		wc_bytes = utf8_in(&wc, p);
+		int wc_bytes = utf8_in(&wc, p);
 		if (IsAlpha(wc))
 			any_alpha++;
 
-		n = tr->groups2_count[c];
+		int n = tr->groups2_count[c];
 		if (IsDigit(wc) && ((tr->langopts.tone_numbers == 0) || !any_alpha)) {
 			// lookup the number in *_list not *_rules
 			char string[8];
@@ -2246,12 +2217,12 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 
 						if (((alphabet = AlphabetFromChar(letter)) != NULL)  && (alphabet->offset != tr->letter_bits_offset)) {
 							if (tr->langopts.alt_alphabet == alphabet->offset) {
-								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(tr->langopts.alt_alphabet_lang));
+								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(word_buf, tr->langopts.alt_alphabet_lang));
 								return 0;
 							}
 							if (alphabet->flags & AL_WORDS) {
 								// switch to the nominated language for this alphabet
-								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(alphabet->language));
+								sprintf(phonemes, "%c%s", phonSWITCH, WordToString2(word_buf, alphabet->language));
 								return 0;
 							}
 						}
@@ -2331,8 +2302,6 @@ int TransposeAlphabet(Translator *tr, char *text)
 	// return: number of bytes, bit 6: 1=used compression
 
 	int c;
-	int c2;
-	int ix;
 	int offset;
 	int min;
 	int max;
@@ -2340,10 +2309,7 @@ int TransposeAlphabet(Translator *tr, char *text)
 	char *p = text;
 	char *p2;
 	bool all_alpha = true;
-	int bits;
-	int acc;
 	int pairs_start;
-	const short *pairs_list;
 	int bufix;
 	char buf[N_WORD_BYTES+1];
 
@@ -2380,14 +2346,16 @@ int TransposeAlphabet(Translator *tr, char *text)
 
 	if (all_alpha) {
 		// compress to 6 bits per character
-		acc = 0;
-		bits = 0;
+		int ix;
+		int acc = 0;
+		int bits = 0;
 
 		p = buf;
 		p2 = buf;
 		while ((c = *p++) != 0) {
+			const short *pairs_list;
 			if ((pairs_list = tr->frequent_pairs) != NULL) {
-				c2 = c + (*p << 8);
+				int c2 = c + (*p << 8);
 				for (ix = 0; c2 >= pairs_list[ix]; ix++) {
 					if (c2 == pairs_list[ix]) {
 						// found an encoding for a 2-character pair
@@ -2436,7 +2404,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	unsigned char flag;
 	unsigned int dictionary_flags;
 	unsigned int dictionary_flags2;
-	int condition_failed = 0;
+	bool condition_failed = false;
 	int n_chars;
 	int no_phonemes;
 	int skipwords;
@@ -2510,11 +2478,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				if (flag >= 132) {
 					// fail if this condition is set
 					if ((tr->dict_condition & (1 << (flag-132))) != 0)
-						condition_failed = 1;
+						condition_failed = true;
 				} else {
 					// allow only if this condition is set
 					if ((tr->dict_condition & (1 << (flag-100))) == 0)
-						condition_failed = 1;
+						condition_failed = true;
 				}
 			} else if (flag > 80) {
 				// flags 81 to 90  match more than one word
@@ -2527,12 +2495,13 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				if (wtab != NULL) {
 					for (ix = 0; ix <= skipwords && wtab[ix].length; ix++) {
 						if (wtab[ix].flags & FLAG_EMPHASIZED2)
-							condition_failed = 1;
+							condition_failed = true;
+
 					}
 				}
 
 				if (strncmp(word2, p, n_chars) != 0)
-					condition_failed = 1;
+					condition_failed = true;
 
 				if (condition_failed) {
 					p = next;
@@ -2555,7 +2524,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		}
 
 		if (condition_failed) {
-			condition_failed = 0;
+			condition_failed = false;
 			continue;
 		}
 
@@ -2734,6 +2703,11 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	while ((word2[nbytes = utf8_nbytes(word2)] == ' ') && (word2[nbytes+1] == '.')) {
 		// look for an abbreviation of the form a.b.c
 		// try removing the spaces between the dots and looking for a match
+		if (length + 1 > sizeof(word)) {
+			/* Too long abbreviation, leave as it is */
+			length = 0;
+			break;
+		}
 		memcpy(&word[length], word2, nbytes);
 		length += nbytes;
 		word[length++] = '.';
@@ -2744,14 +2718,16 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		nbytes = 0;
 		while (((c = word2[nbytes]) != 0) && (c != ' '))
 			nbytes++;
-		memcpy(&word[length], word2, nbytes);
-		word[length+nbytes] = 0;
-		found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
-		if (found) {
-			// set the skip words flag
-			flags[0] |= FLAG_SKIPWORDS;
-			dictionary_skipwords = length;
-			return 1;
+		if (length + nbytes + 1 <= sizeof(word)) {
+			memcpy(&word[length], word2, nbytes);
+			word[length+nbytes] = 0;
+			found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
+			if (found) {
+				// set the skip words flag
+				flags[0] |= FLAG_SKIPWORDS;
+				dictionary_skipwords = length;
+				return 1;
+			}
 		}
 	}
 
@@ -2849,9 +2825,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 
 	int flags0;
 	unsigned int flags[2];
-	int say_as;
 	char *word1 = (char *)word;
-	char text[80];
 
 	flags[0] = 0;
 	flags[1] = FLAG_LOOKUP_SYMBOL;
@@ -2859,11 +2833,13 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		flags0 = flags[0];
 
 	if (flags[0] & FLAG_TEXTMODE) {
-		say_as = option_sayas;
+		int say_as = option_sayas;
 		option_sayas = 0; // don't speak replacement word as letter names
 		// NOTE: TranslateRoman checks text[-2] and IsLetterGroup looks
 		// for a heading \0, so pad the start of text to prevent
 		// it reading data on the stack.
+		char text[80];
+
 		text[0] = 0;
 		text[1] = ' ';
 		text[2] = ' ';
@@ -2875,7 +2851,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 	return flags0;
 }
 
-static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out)
+static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[2])
 {
 	char buf[100];
 	static unsigned int flags[2];
@@ -2883,7 +2859,8 @@ static int LookupFlags(Translator *tr, const char *word, unsigned int **flags_ou
 
 	flags[0] = flags[1] = 0;
 	LookupDictList(tr, &word1, buf, flags, 0, NULL);
-	*flags_out = flags;
+	flags_out[0] = flags[0];
+	flags_out[1] = flags[1];
 	return flags[0];
 }
 
@@ -2902,8 +2879,6 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	char *word_end;
 	int len_ending;
 	int end_flags;
-	const char *p;
-	int len;
 	char ending[50] = {0};
 
 	// these lists are language specific, but are only relevant if the 'e' suffix flag is used
@@ -2925,6 +2900,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			*word_end = 'e';
 	}
 	i = word_end - word;
+	if (i >= N_WORD_BYTES) i = N_WORD_BYTES-1;
 
 	if (word_copy != NULL) {
 		memcpy(word_copy, word, i);
@@ -2972,16 +2948,18 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			if (IsLetter(tr, word_end[-1], LETTERGP_VOWEL2) && IsLetter(tr, word_end[0], 1)) {
 				// vowel(incl.'y') + hard.consonant
 
+				const char *p;
 				for (i = 0; (p = add_e_exceptions[i]) != NULL; i++) {
-					len = strlen(p);
+					int len = strlen(p);
 					if (memcmp(p, &word_end[1-len], len) == 0)
 						break;
 				}
 				if (p == NULL)
 					end_flags |= FLAG_SUFX_E_ADDED; // no exception found
 			} else {
+				const char *p;
 				for (i = 0; (p = add_e_additions[i]) != NULL; i++) {
-					len = strlen(p);
+					int len = strlen(p);
 					if (memcmp(p, &word_end[1-len], len) == 0) {
 						end_flags |= FLAG_SUFX_E_ADDED;
 						break;
@@ -3010,4 +2988,22 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 		end_flags &= ~FLAG_SUFX; // don't consider 's as an added suffix
 
 	return end_flags;
+}
+
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points) {
+	// $list or $p_alt
+	// make a copy of the word up to the post-match characters
+	int ix = *word - word_start + consumed + group_length + 1;
+	memcpy(word_buf, word_start-1, ix);
+	word_buf[ix] = ' ';
+	word_buf[ix+1] = 0;
+	unsigned int flags[2];
+	LookupFlags(tr, &word_buf[1], flags);
+
+	if ((command == DOLLAR_LIST) && (flags[0] & FLAG_FOUND) && !(flags[1] & FLAG_ONLY))
+		*add_points = 23;
+	else if (flags[0] & (1 << (BITNUM_FLAG_ALT + (command & 0xf))))
+		*add_points = 23;
+	else
+		*failed = 1;
 }

@@ -77,17 +77,17 @@ char skip_marker[N_MARKER_LENGTH];
 bool skipping_text; // waiting until word count, sentence count, or named marker is reached
 int end_character_position;
 int count_sentences;
-int count_words;
+static int count_words;
 int clause_start_char;
 int clause_start_word;
-bool new_sentence;
+static bool new_sentence;
 static int word_emphasis = 0; // set if emphasis level 3 or 4
 static int embedded_flag = 0; // there are embedded commands to be applied to the next phoneme, used in TranslateWord2()
 
 static int max_clause_pause = 0;
 static bool any_stressed_words;
 int pre_pause;
-ALPHABET *current_alphabet;
+static ALPHABET *current_alphabet;
 
 char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 int n_ph_list2;
@@ -231,7 +231,7 @@ static int CountSyllables(unsigned char *phonemes)
 	return count;
 }
 
-static void Word_EmbeddedCmd()
+static void Word_EmbeddedCmd(void)
 {
 	// Process embedded commands for emphasis, sayas, and break
 	int embedded_cmd;
@@ -763,7 +763,7 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 					nmatched++;
 			}
 
-			if (*from == 0 && matched) {
+			if (matched) {
 				*ignore_next_n = nmatched;
 				return from + 1;
 			}
@@ -896,7 +896,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	return SubstituteChar(tr, c, next_in, ptr, insert, wordflags);
 }
 
-static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
+static const char *const UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
 
 static int UpperCaseInWord(Translator *tr, char *word, int c)
 {
@@ -919,7 +919,9 @@ static int UpperCaseInWord(Translator *tr, char *word, int c)
 	return 0;
 }
 
-void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
+// Same as TranslateClause except we also get the clause terminator used (full stop, comma, etc.).
+// Used by espeak_TextToPhonemesWithTerminator.
+void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_change, int *terminator_out)
 {
 	int ix;
 	int c;
@@ -982,6 +984,10 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		charix[ix] = 0;
 	MAKE_MEM_UNDEFINED(&source, sizeof(source));
 	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone, voice_change_name);
+
+	if (terminator_out != NULL) {
+		*terminator_out = terminator;
+	}
 
 	if (tone_out != NULL) {
 		if (tone == 0)
@@ -1601,6 +1607,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			if (dict_flags & FLAG_SPELLWORD) {
 				// redo the word, speaking single letters
 				for (pw = word; *pw != ' ';) {
+					memset(number_buf, 0, sizeof(number_buf));
 					memset(number_buf, ' ', 9);
 					nx = utf8_in(&c_temp, pw);
 					memcpy(&number_buf[2], pw, nx);
@@ -1642,8 +1649,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 	n_ph_list2 += 2;
 
-	if (count_words == 0)
-		clause_pause = 0;
 	if (Eof() && ((word_count == 0) || (option_endpause == 0)))
 		clause_pause = 10;
 
@@ -1668,6 +1673,11 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		else
 			*voice_change = NULL;
 	}
+}
+
+void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
+{
+	TranslateClauseWithTerminator(tr, tone_out, voice_change, NULL);
 }
 
 static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count) {

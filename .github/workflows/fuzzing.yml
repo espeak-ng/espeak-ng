@@ -9,6 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build synth_espeak on ${{ matrix.arch }}
+    # Do not run this job on any forked repos
+    if: github.repository == 'espeak-ng/espeak-ng'
     strategy:
       fail-fast: false
       matrix:
@@ -16,13 +18,14 @@ jobs:
         include:
           - arch: x86-32
             archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archconfig: "--host=i686-linux-gnu"
             archconfigflags: "-m32"
 
           - arch: x86-64
             archdeps: ""
             archconfigflags: ''
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
@@ -31,14 +34,14 @@ jobs:
     - name: autoconf
       run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
     - name: configure
-      run: CC=clang CXX=clang++
-           CFLAGS="${{ matrix.archconfigflags }} -fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
+      run: CC="clang ${{ matrix.archconfigflags }}" CXX="clang++ ${{ matrix.archconfigflags }}"
+           CFLAGS="-fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
            CXXFLAGS="${{ matrix.archconfigflags }} -fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
            LDFLAGS="-fsanitize=address,undefined -lubsan"
-           ./configure --with-libfuzzer
+           ./configure ${{ matrix.archconfig }} --with-libfuzzer
     - name: Store the fuzzer config
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: config-${{ matrix.arch }}-${{ matrix.lang }}.log
         path: config.log
@@ -78,7 +81,7 @@ jobs:
       run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: crash-${{ matrix.arch }}-${{ matrix.lang }}.1
         path: crash-* timeout-*
@@ -86,7 +89,7 @@ jobs:
       run:   cp dictsource/${{ matrix.lang }}_* tests/fuzzing/CORPUS_DIR/ || true ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: crash-${{ matrix.arch }}-${{ matrix.lang }}.2
         path: crash-* timeout-*

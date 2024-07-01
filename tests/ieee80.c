@@ -20,7 +20,7 @@
  */
 
 #include "config.h"
-#include <assert.h>
+#include "test_assert.h"
 #include <math.h>
 #include <stdlib.h>
 #include "ieee80.h"
@@ -45,19 +45,19 @@ main(int argc, char **argv)
 		{ 0x7f,0xff,0xc0,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }  /* nan */
 	};
 
-	assert(ieee_extended_to_double(in[0]) == 0.);
-	assert(ieee_extended_to_double(in[1]) == 1.);
-	assert(ieee_extended_to_double(in[2]) == -1.);
-	assert(ieee_extended_to_double(in[3]) == 2.);
-	assert(ieee_extended_to_double(in[4]) == 0.5);
-	assert(ieee_extended_to_double(in[5]) == 0.005859375);
-	assert(ieee_extended_to_double(in[6]) == 40926266145.);
+	TEST_ASSERT(ieee_extended_to_double(in[0]) == 0.);
+	TEST_ASSERT(ieee_extended_to_double(in[1]) == 1.);
+	TEST_ASSERT(ieee_extended_to_double(in[2]) == -1.);
+	TEST_ASSERT(ieee_extended_to_double(in[3]) == 2.);
+	TEST_ASSERT(ieee_extended_to_double(in[4]) == 0.5);
+	TEST_ASSERT(ieee_extended_to_double(in[5]) == 0.005859375);
+	TEST_ASSERT(ieee_extended_to_double(in[6]) == 40926266145.);
 #ifdef INFINITY
-	assert(ieee_extended_to_double(in[7]) == INFINITY);
-	assert(ieee_extended_to_double(in[8]) == -INFINITY);
+	TEST_ASSERT(ieee_extended_to_double(in[7]) == INFINITY);
+	TEST_ASSERT(ieee_extended_to_double(in[8]) == -INFINITY);
 #endif
 #ifdef NAN
-	assert(isnan(ieee_extended_to_double(in[9])));
+	TEST_ASSERT(isnan(ieee_extended_to_double(in[9])));
 #endif
 
 	return EXIT_SUCCESS;

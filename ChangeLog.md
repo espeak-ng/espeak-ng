@@ -17,7 +17,7 @@ updated languages:
 *  be (Belarusian) -- Andiv06, bespsm, Alaksiej Stankievič
 *  cmn (Mandarin) -- Cameron Wong
 *  en (English) -- Bill Dengler
-*  es (Spanish) -- Sukil Etxenike
+*  es (Spanish) -- Sukil Etxenike, Rmcpantoja, gregodejesus
 *  fa (Persian) -- MH
 *  gn (Guarani) -- Andiv06
 *  he (Hebrew) -- Omer I.S, Andiv06
@@ -35,10 +35,15 @@ updated languages:
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tk (Turkmen) -- Andiv06
 *  tr (Turkish) -- Gurbuzguven, Qchristensen
+*  uk (Ukrainian) -- Andrij Mizyk
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
+*  fo (Faroese) -- Andras Eliassen, iSolveIT ApS and Setur.fo/Ravnur
+*  kaa (Karakalpak) -- atabekm
+*  xex (Xextan) -- Filomena Rocca
 
 ### 1.51
 

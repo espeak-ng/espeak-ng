@@ -50,8 +50,8 @@ static void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flag
 static void ChangeWordStress(Translator *tr, char *word, int new_stress);
 static int CheckDottedAbbrev(char *word1);
 static int NonAsciiNumber(int letter);
-static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, ALPHABET *current_alphabet, char word_phonemes[]);
-static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALPHABET *current_alphabet);
+static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, const ALPHABET *current_alphabet, char word_phonemes[]);
+static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, const ALPHABET *current_alphabet);
 static int Unpronouncable(Translator *tr, char *word, int posn);
 static int Unpronouncable2(Translator *tr, char *word);
 
@@ -746,7 +746,7 @@ static void ChangeWordStress(Translator *tr, char *word, int new_stress)
 	*word = 0;
 }
 
-static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, ALPHABET *current_alphabet, char word_phonemes[])
+static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, const ALPHABET *current_alphabet, char word_phonemes[])
 {
 	int posn = 0;
 	int capitals = 0;
@@ -772,8 +772,8 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 }
 
 
-static const char *hex_letters[] = {"'e:j",	"b'i:",	"s'i:",	"d'i:",	"'i:",	"'ef"};
-static const char *modifiers[] = { NULL, "_sub", "_sup", NULL };
+static const char *const hex_letters[] = {"'e:j",	"b'i:",	"s'i:",	"d'i:",	"'i:",	"'ef"};
+static const char *const modifiers[] = { NULL, "_sub", "_sup", NULL };
 // unicode ranges for non-ascii digits 0-9 (these must be in ascending order)
 static const int number_ranges[] = {
 	0x660, 0x6f0, // arabic
@@ -783,7 +783,7 @@ static const int number_ranges[] = {
 };
 
 
-static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALPHABET *current_alphabet)
+static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, const ALPHABET *current_alphabet)
 {
 	// get pronunciation for an isolated letter
 	// return number of bytes used by the letter
@@ -794,7 +794,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 	int n_bytes;
 	int letter;
 	int len;
-	ALPHABET *alphabet;
+	const ALPHABET *alphabet;
 	int al_offset;
 	int al_flags;
 	int number;
@@ -918,7 +918,8 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 			char hangul_buf[12];
 
 			// speak in the language for this alphabet (or English)
-			ph_buf[2] = SetTranslator3(WordToString2(language));
+			char word_buf[5];
+			ph_buf[2] = SetTranslator3(WordToString2(word_buf, language));
 
 			if (translator3 != NULL) {
 				int code;
@@ -1065,7 +1066,7 @@ static int CheckDottedAbbrev(char *word1)
 					nbytes += 2; // delete the final dot (eg. u.s.a.'s)
 					ok = 2;
 				}
-			} else if ((count > 0) && (word[nbytes] == ' '))
+			} else if ((count > 0))
 				ok = 2;
 		}
 
@@ -1123,7 +1124,7 @@ static int Unpronouncable(Translator *tr, char *word, int posn)
 	int vowel_posn = 9;
 	int index;
 	int count;
-	ALPHABET *alphabet;
+	const ALPHABET *alphabet;
 
 	utf8_in(&c, word);
 	if ((tr->letter_bits_offset > 0) && (c < 0x241)) {

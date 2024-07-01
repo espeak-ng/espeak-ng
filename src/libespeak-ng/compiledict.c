@@ -42,27 +42,6 @@
 #include "speech.h"		// for path_home
 #include "synthesize.h"           // for Write4Bytes
 
-static FILE *f_log = NULL;
-
-extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
-
-static int linenum;
-static int error_count;
-static bool text_mode = false;
-static int debug_flag = 0;
-static int error_need_dictionary = 0;
-
-// A hash chain is a linked-list of hash chain entry objects:
-//     struct hash_chain_entry {
-//         hash_chain_entry *next_entry;
-//         // dict_line output from compile_line:
-//         uint8_t length;
-//         char contents[length];
-//     };
-static char *hash_chains[N_HASH_DICT];
-
-static char letterGroupsDefined[N_LETTER_GROUPS];
-
 static const MNEM_TAB mnem_rules[] = {
 	{ "unpr",     DOLLAR_UNPR },
 	{ "noprefix", DOLLAR_NOPREFIX },  // rule fails if a prefix has been removed
@@ -166,10 +145,63 @@ static const MNEM_TAB mnem_flags[] = {
 
 typedef struct {
 	char name[LEN_GROUP_NAME+1];
-	unsigned int start;
-	unsigned int length;
+	void *start;
+	size_t length;
 	int group3_ix;
 } RGROUP;
+
+typedef enum
+{
+	LINE_PARSER_WORD = 0,
+	LINE_PARSER_END_OF_WORD = 1,
+	LINE_PARSER_MULTIPLE_WORDS = 2,
+	LINE_PARSER_END_OF_WORDS = 3,
+	LINE_PARSER_PRONUNCIATION = 4,
+	LINE_PARSER_END_OF_PRONUNCIATION = 5,
+} LINE_PARSER_STATES;
+
+typedef struct {
+	FILE *f_log;
+
+	char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
+
+	int linenum;
+	int error_count;
+	bool text_mode;
+	int debug_flag;
+	int error_need_dictionary;
+
+	// A hash chain is a linked-list of hash chain entry objects:
+	//     struct hash_chain_entry {
+	//         hash_chain_entry *next_entry;
+	//         // dict_line output from compile_line:
+	//         uint8_t length;
+	//         char contents[length];
+	//     };
+	char *hash_chains[N_HASH_DICT];
+
+	char letterGroupsDefined[N_LETTER_GROUPS];
+
+	char rule_cond[80];
+	char rule_pre[80];
+	char rule_post[80];
+	char rule_match[80];
+	char rule_phonemes[80];
+	char group_name[LEN_GROUP_NAME+1];
+	int group3_ix;
+} CompileContext;
+
+static void clean_context(CompileContext *ctx) {
+	for (int i = 0; i < N_HASH_DICT; i++) {
+		char *p;
+		while ((p = ctx->hash_chains[i])) {
+			memcpy(&p, ctx->hash_chains[i], sizeof(char*));
+			free(ctx->hash_chains[i]);
+			ctx->hash_chains[i] = p;
+		}
+	}
+	free(ctx);
+}
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
 {
@@ -199,7 +231,7 @@ void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
 	}
 }
 
-char *DecodeRule(const char *group_chars, int group_length, char *rule, int control)
+char *DecodeRule(const char *group_chars, int group_length, char *rule, int control, char *output)
 {
 	// Convert compiled match template to ascii
 
@@ -220,9 +252,6 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	char buf[200];
 	char buf_pre[200];
 	char suffix[20];
-	static char output[80];
-
-	MAKE_MEM_UNDEFINED(&output, sizeof(output));
 
 	static const char symbols[] = {
 		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
@@ -291,7 +320,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 			}
 			c = ' ';
 		} else if (rb == RULE_ENDING) {
-			static const char *flag_chars = "eipvdfq tba ";
+			static const char flag_chars[] = "eipvdfq tba ";
 			flags = ((rule[0] & 0x7f)<< 8) + (rule[1] & 0x7f);
 			suffix_char = 'S';
 			if (flags & (SUFX_P >> 8))
@@ -361,17 +390,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	return output;
 }
 
-typedef enum
-{
-	LINE_PARSER_WORD = 0,
-	LINE_PARSER_END_OF_WORD = 1,
-	LINE_PARSER_MULTIPLE_WORDS = 2,
-	LINE_PARSER_END_OF_WORDS = 3,
-	LINE_PARSER_PRONUNCIATION = 4,
-	LINE_PARSER_END_OF_PRONUNCIATION = 5,
-} LINE_PARSER_STATES;
-
-static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *hash)
+static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int n_dict_line, int *hash)
 {
 	// Compile a line in the language_list file
 	unsigned char c;
@@ -401,9 +420,9 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 	char encoded_ph[200];
 	char bad_phoneme_str[4];
 	int bad_phoneme;
-	static char nullstring[] = { 0 };
+	static const char nullstring[] = { 0 };
 
-	phonetic = word = nullstring;
+	phonetic = word = (char*)nullstring;
 
 	p = linebuf;
 
@@ -446,16 +465,16 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 			flagnum = LookupMnem(mnem_flags, mnemptr);
 			if (flagnum > 0) {
 				if (flagnum == 200)
-					text_mode = true;
+					ctx->text_mode = true;
 				else if (flagnum == 201)
-					text_mode = false;
+					ctx->text_mode = false;
 				else if (flagnum == BITNUM_FLAG_TEXTMODE)
 					text_not_phonemes = true;
 				else
 					flag_codes[n_flag_codes++] = flagnum;
 			} else {
-				fprintf(f_log, "%5d: Unknown keyword: %s\n", linenum, mnemptr);
-				error_count++;
+				fprintf(ctx->f_log, "%5d: Unknown keyword: %s\n", ctx->linenum, mnemptr);
+				ctx->error_count++;
 			}
 		}
 
@@ -495,8 +514,8 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 					multiple_words = 0;
 					step = LINE_PARSER_END_OF_WORDS;
 				} else if (word[0] != '_') {
-					fprintf(f_log, "%5d: Missing '('\n", linenum);
-					error_count++;
+					fprintf(ctx->f_log, "%5d: Missing '('\n", ctx->linenum);
+					ctx->error_count++;
 					step = LINE_PARSER_END_OF_WORDS;
 				}
 			}
@@ -536,7 +555,7 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 	if (word[0] == 0)
 		return 0; // blank line
 
-	if (text_mode)
+	if (ctx->text_mode)
 		text_not_phonemes = true;
 
 	if (text_not_phonemes) {
@@ -548,12 +567,12 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 			// condition rules are not applied
 			TranslateWord(translator, phonetic, NULL, NULL);
 			text_not_phonemes = false;
-			strncpy0(encoded_ph, word_phonemes, N_WORD_BYTES-4);
+			strncpy0(encoded_ph, ctx->word_phonemes, N_WORD_BYTES-4);
 
-			if ((word_phonemes[0] == 0) && (error_need_dictionary < 3)) {
+			if ((ctx->word_phonemes[0] == 0) && (ctx->error_need_dictionary < 3)) {
 				// the dictionary was not loaded, we need a second attempt
-				error_need_dictionary++;
-				fprintf(f_log, "%5d: Need to compile dictionary again\n", linenum);
+				ctx->error_need_dictionary++;
+				fprintf(ctx->f_log, "%5d: Need to compile dictionary again\n", ctx->linenum);
 			}
 		} else
 			// this is replacement text, so don't encode as phonemes. Restrict the length of the replacement word
@@ -567,8 +586,8 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 		if (bad_phoneme != 0) {
 			// unrecognised phoneme, report error
 			bad_phoneme_str[utf8_out(bad_phoneme, bad_phoneme_str)] = 0;
-			fprintf(f_log, "%5d: Bad phoneme [%s] (U+%x) in: %s  %s\n", linenum, bad_phoneme_str, bad_phoneme, word, phonetic);
-			error_count++;
+			fprintf(ctx->f_log, "%5d: Bad phoneme [%s] (U+%x) in: %s  %s\n", ctx->linenum, bad_phoneme_str, bad_phoneme, word, phonetic);
+			ctx->error_count++;
 		}
 	}
 
@@ -622,8 +641,8 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 		if (length < n_dict_line) {
 			strcpy(&dict_line[(len_word)+2], encoded_ph);
 		} else {
-			fprintf(f_log, "%5d: Dictionary line length would overflow the data buffer: %d\n", linenum, length);
-			error_count++;
+			fprintf(ctx->f_log, "%5d: Dictionary line length would overflow the data buffer: %d\n", ctx->linenum, length);
+			ctx->error_count++;
 			// no phonemes specified. set bit 7
 			dict_line[1] |= 0x80;
 			length = len_word + 2;
@@ -636,8 +655,8 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 
 	if ((multiple_string != NULL) && (multiple_words > 0)) {
 		if (multiple_words > 10) {
-			fprintf(f_log, "%5d: Two many parts in a multi-word entry: %d\n", linenum, multiple_words);
-			error_count++;
+			fprintf(ctx->f_log, "%5d: Two many parts in a multi-word entry: %d\n", ctx->linenum, multiple_words);
+			ctx->error_count++;
 		} else {
 			dict_line[length++] = 80 + multiple_words;
 			ix = multiple_string_end - multiple_string;
@@ -652,7 +671,7 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 	return length;
 }
 
-static void compile_dictlist_start(void)
+static void compile_dictlist_start(CompileContext *ctx)
 {
 	// initialise dictionary list
 	int ix;
@@ -660,17 +679,17 @@ static void compile_dictlist_start(void)
 	char *p2;
 
 	for (ix = 0; ix < N_HASH_DICT; ix++) {
-		p = hash_chains[ix];
+		p = ctx->hash_chains[ix];
 		while (p != NULL) {
 			memcpy(&p2, p, sizeof(char *));
 			free(p);
 			p = p2;
 		}
-		hash_chains[ix] = NULL;
+		ctx->hash_chains[ix] = NULL;
 	}
 }
 
-static void compile_dictlist_end(FILE *f_out)
+static void compile_dictlist_end(CompileContext *ctx, FILE *f_out)
 {
 	// Write out the compiled dictionary list
 	int hash;
@@ -678,7 +697,7 @@ static void compile_dictlist_end(FILE *f_out)
 	char *p;
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
-		p = hash_chains[hash];
+		p = ctx->hash_chains[hash];
 
 		while (p != NULL) {
 			length = *(uint8_t *)(p+sizeof(char *));
@@ -689,7 +708,7 @@ static void compile_dictlist_end(FILE *f_out)
 	}
 }
 
-static int compile_dictlist_file(const char *path, const char *filename)
+static int compile_dictlist_file(CompileContext *ctx, const char *path, const char *filename)
 {
 	int length;
 	int hash;
@@ -700,7 +719,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 	char fname[sizeof(path_home)+45];
 	char dict_line[256]; // length is uint8_t, so an entry can't take up more than 256 bytes
 
-	text_mode = false;
+	ctx->text_mode = false;
 
 	// try with and without '.txt' extension
 	sprintf(fname, "%s%s.txt", path, filename);
@@ -710,46 +729,38 @@ static int compile_dictlist_file(const char *path, const char *filename)
 			return -1;
 	}
 
-	if (f_log != NULL)
-		fprintf(f_log, "Compiling: '%s'\n", fname);
+	if (ctx->f_log != NULL)
+		fprintf(ctx->f_log, "Compiling: '%s'\n", fname);
 
-	linenum = 0;
+	ctx->linenum = 0;
 
 	while (fgets(buf, sizeof(buf), f_in) != NULL) {
-		linenum++;
+		ctx->linenum++;
 
-		length = compile_line(buf, dict_line, sizeof(dict_line), &hash);
+		length = compile_line(ctx, buf, dict_line, sizeof(dict_line), &hash);
 		if (length == 0)  continue; // blank line
 
 		p = (char *)malloc(length+sizeof(char *));
 		if (p == NULL) {
-			if (f_log != NULL) {
-				fprintf(f_log, "Can't allocate memory\n");
-				error_count++;
+			if (ctx->f_log != NULL) {
+				fprintf(ctx->f_log, "Can't allocate memory\n");
+				ctx->error_count++;
 			}
 			break;
 		}
 
-		memcpy(p, &hash_chains[hash], sizeof(char *));
-		hash_chains[hash] = p;
+		memcpy(p, &ctx->hash_chains[hash], sizeof(char *));
+		ctx->hash_chains[hash] = p;
 		// NOTE: dict_line[0] is the entry length (0-255)
 		memcpy(p+sizeof(char *), dict_line, length);
 		count++;
 	}
 
-	if (f_log != NULL)
-		fprintf(f_log, "\t%d entries\n", count);
+	if (ctx->f_log != NULL)
+		fprintf(ctx->f_log, "\t%d entries\n", count);
 	fclose(f_in);
 	return 0;
 }
-
-static char rule_cond[80];
-static char rule_pre[80];
-static char rule_post[80];
-static char rule_match[80];
-static char rule_phonemes[80];
-static char group_name[LEN_GROUP_NAME+1];
-static int group3_ix;
 
 #define N_RULES 3000 // max rules for each group
 
@@ -764,10 +775,10 @@ static int isHexDigit(int c)
 	return -1;
 }
 
-static void copy_rule_string(char *string, int *state_out)
+static void copy_rule_string(CompileContext *ctx, char *string, int *state_out)
 {
 	// state 0: conditional, 1=pre, 2=match, 3=post, 4=phonemes
-	static char * const outbuf[5] = { rule_cond, rule_pre, rule_match, rule_post, rule_phonemes };
+	char * const outbuf[5] = { ctx->rule_cond, ctx->rule_pre, ctx->rule_match, ctx->rule_post, ctx->rule_phonemes };
 	static const int next_state[5] = { 2, 2, 4, 4, 4 };
 	char *output;
 	char *p;
@@ -787,10 +798,10 @@ static void copy_rule_string(char *string, int *state_out)
 	output = outbuf[state];
 	if (state == 4) {
 		// append to any previous phoneme string, i.e. allow spaces in the phoneme string
-		len = strlen(rule_phonemes);
+		len = strlen(ctx->rule_phonemes);
 		if (len > 0)
-			rule_phonemes[len++] = ' ';
-		output = &rule_phonemes[len];
+			ctx->rule_phonemes[len++] = ' ';
+		output = &ctx->rule_phonemes[len];
 	}
 	sxflags = 0x808000; // to ensure non-zero bytes
 
@@ -903,11 +914,11 @@ static void copy_rule_string(char *string, int *state_out)
 					c = c * 10 + value;
 					if ((value < 0) || (value > 9)) {
 						c = 0;
-						fprintf(f_log, "%5d: Expected 2 digits after 'L'\n", linenum);
-						error_count++;
-					} else if ((c <= 0) || (c >= N_LETTER_GROUPS) || (letterGroupsDefined[(int)c] == 0)) {
-						fprintf(f_log, "%5d: Letter group L%.2d not defined\n", linenum, c);
-						error_count++;
+						fprintf(ctx->f_log, "%5d: Expected 2 digits after 'L'\n", ctx->linenum);
+						ctx->error_count++;
+					} else if ((c <= 0) || (c >= N_LETTER_GROUPS) || (ctx->letterGroupsDefined[(int)c] == 0)) {
+						fprintf(ctx->f_log, "%5d: Letter group L%.2d not defined\n", ctx->linenum, c);
+						ctx->error_count++;
 					}
 					c += 'A';
 					if (state == 1) {
@@ -940,8 +951,8 @@ static void copy_rule_string(char *string, int *state_out)
 					}
 
 					if (value == 0) {
-						fprintf(f_log, "%5d: $ command not recognized\n", linenum);
-						error_count++;
+						fprintf(ctx->f_log, "%5d: $ command not recognized\n", ctx->linenum);
+						ctx->error_count++;
 					}
 					break;
 				case 'P': // Prefix
@@ -1007,7 +1018,7 @@ static void copy_rule_string(char *string, int *state_out)
 	*state_out = next_state[state];
 }
 
-static char *compile_rule(char *input)
+static char *compile_rule(CompileContext *ctx, char *input)
 {
 	int ix;
 	unsigned char c;
@@ -1025,11 +1036,11 @@ static char *compile_rule(char *input)
 	char bad_phoneme_str[4];
 
 	buf[0] = 0;
-	rule_cond[0] = 0;
-	rule_pre[0] = 0;
-	rule_post[0] = 0;
-	rule_match[0] = 0;
-	rule_phonemes[0] = 0;
+	ctx->rule_cond[0] = 0;
+	ctx->rule_pre[0] = 0;
+	ctx->rule_post[0] = 0;
+	ctx->rule_match[0] = 0;
+	ctx->rule_phonemes[0] = 0;
 
 	p = buf;
 
@@ -1039,31 +1050,31 @@ static char *compile_rule(char *input)
 		case ')': // end of prefix section
 			*p = 0;
 			state = 1;
-			copy_rule_string(buf, &state);
+			copy_rule_string(ctx, buf, &state);
 			p = buf;
 			break;
 		case '(': // start of suffix section
 			*p = 0;
 			state = 2;
-			copy_rule_string(buf, &state);
+			copy_rule_string(ctx, buf, &state);
 			state = 3;
 			p = buf;
 			if (input[ix+1] == ' ') {
-				fprintf(f_log, "%5d: Syntax error. Space after (, or negative score for previous rule\n", linenum);
-				error_count++;
+				fprintf(ctx->f_log, "%5d: Syntax error. Space after (, or negative score for previous rule\n", ctx->linenum);
+				ctx->error_count++;
 			}
 			break;
 		case '\n': // end of line
 		case '\r':
 		case 0:    // end of line
 			*p = 0;
-			copy_rule_string(buf, &state);
+			copy_rule_string(ctx, buf, &state);
 			finish = true;
 			break;
 		case '\t': // end of section section
 		case ' ':
 			*p = 0;
-			copy_rule_string(buf, &state);
+			copy_rule_string(ctx, buf, &state);
 			p = buf;
 			break;
 		case '?':
@@ -1078,66 +1089,66 @@ static char *compile_rule(char *input)
 		}
 	}
 
-	if (strcmp(rule_match, "$group") == 0)
-		strcpy(rule_match, group_name);
+	if (strcmp(ctx->rule_match, "$group") == 0)
+		strcpy(ctx->rule_match, ctx->group_name);
 
-	if (rule_match[0] == 0) {
-		if (rule_post[0] != 0) {
-			fprintf(f_log, "%5d: Syntax error\n", linenum);
-			error_count++;
+	if (ctx->rule_match[0] == 0) {
+		if (ctx->rule_post[0] != 0) {
+			fprintf(ctx->f_log, "%5d: Syntax error\n", ctx->linenum);
+			ctx->error_count++;
 		}
 		return NULL;
 	}
 
-	EncodePhonemes(rule_phonemes, buf, &bad_phoneme);
+	EncodePhonemes(ctx->rule_phonemes, buf, &bad_phoneme);
 	if (bad_phoneme != 0) {
 		bad_phoneme_str[utf8_out(bad_phoneme, bad_phoneme_str)] = 0;
-		fprintf(f_log, "%5d: Bad phoneme [%s] (U+%x) in: %s\n", linenum, bad_phoneme_str, bad_phoneme, input);
-		error_count++;
+		fprintf(ctx->f_log, "%5d: Bad phoneme [%s] (U+%x) in: %s\n", ctx->linenum, bad_phoneme_str, bad_phoneme, input);
+		ctx->error_count++;
 	}
 	strcpy(output, buf);
 	len = strlen(buf)+1;
 
-	len_name = strlen(group_name);
-	if ((len_name > 0) && (memcmp(rule_match, group_name, len_name) != 0)) {
-		utf8_in(&wc, rule_match);
-		if ((group_name[0] == '9') && IsDigit(wc)) {
+	len_name = strlen(ctx->group_name);
+	if ((len_name > 0) && (memcmp(ctx->rule_match, ctx->group_name, len_name) != 0)) {
+		utf8_in(&wc, ctx->rule_match);
+		if ((ctx->group_name[0] == '9') && IsDigit(wc)) {
 			// numeric group, rule_match starts with a digit, so OK
 		} else {
-			fprintf(f_log, "%5d: Wrong initial letters '%s' for group '%s'\n", linenum, rule_match, group_name);
-			error_count++;
+			fprintf(ctx->f_log, "%5d: Wrong initial letters '%s' for group '%s'\n", ctx->linenum, ctx->rule_match, ctx->group_name);
+			ctx->error_count++;
 		}
 	}
-	strcpy(&output[len], rule_match);
-	len += strlen(rule_match);
+	strcpy(&output[len], ctx->rule_match);
+	len += strlen(ctx->rule_match);
 
-	if (debug_flag) {
+	if (ctx->debug_flag) {
 		output[len] = RULE_LINENUM;
-		output[len+1] = (linenum % 255) + 1;
-		output[len+2] = (linenum / 255) + 1;
+		output[len+1] = (ctx->linenum % 255) + 1;
+		output[len+2] = (ctx->linenum / 255) + 1;
 		len += 3;
 	}
 
-	if (rule_cond[0] != 0) {
-		if (rule_cond[0] == '!') {
+	if (ctx->rule_cond[0] != 0) {
+		if (ctx->rule_cond[0] == '!') {
 			// allow the rule only if the condition number is NOT set for the voice
-			ix = atoi(&rule_cond[1]) + 32;
+			ix = atoi(&ctx->rule_cond[1]) + 32;
 		} else {
 			// allow the rule only if the condition number is set for the voice
-			ix = atoi(rule_cond);
+			ix = atoi(ctx->rule_cond);
 		}
 
 		if ((ix > 0) && (ix < 255)) {
 			output[len++] = RULE_CONDITION;
 			output[len++] = ix;
 		} else {
-			fprintf(f_log, "%5d: bad condition number ?%d\n", linenum, ix);
-			error_count++;
+			fprintf(ctx->f_log, "%5d: bad condition number ?%d\n", ctx->linenum, ix);
+			ctx->error_count++;
 		}
 	}
-	if (rule_pre[0] != 0) {
+	if (ctx->rule_pre[0] != 0) {
 		start = 0;
-		if (rule_pre[0] == RULE_SPACE) {
+		if (ctx->rule_pre[0] == RULE_SPACE) {
 			// omit '_' at the beginning of the pre-string and imply it by using RULE_PRE_ATSTART
 			c = RULE_PRE_ATSTART;
 			start = 1;
@@ -1146,13 +1157,13 @@ static char *compile_rule(char *input)
 		output[len++] = c;
 
 		// output PRE string in reverse order
-		for (ix = strlen(rule_pre)-1; ix >= start; ix--)
-			output[len++] = rule_pre[ix];
+		for (ix = strlen(ctx->rule_pre)-1; ix >= start; ix--)
+			output[len++] = ctx->rule_pre[ix];
 	}
 
-	if (rule_post[0] != 0) {
-		sprintf(&output[len], "%c%s", RULE_POST, rule_post);
-		len += (strlen(rule_post)+1);
+	if (ctx->rule_post[0] != 0) {
+		sprintf(&output[len], "%c%s", RULE_POST, ctx->rule_post);
+		len += (strlen(ctx->rule_post)+1);
 	}
 	output[len++] = 0;
 	if ((prule = (char *)malloc(len)) != NULL)
@@ -1180,10 +1191,10 @@ static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 	if (ix != 0) return ix;
 	ix = strcmp(a->name, b->name);
 	if (ix != 0) return ix;
-	return a->start-b->start;
+	return (uintptr_t)a->start - (uintptr_t)b->start;
 }
 
-static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
+static void* output_rule_group(int n_rules, char **rules, char *name, size_t *outsize)
 {
 	int ix;
 	int len1;
@@ -1192,6 +1203,8 @@ static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name
 	char *p;
 	char *p2, *p3;
 	const char *common;
+	char *outptr = NULL;
+	size_t outpos, outlen = 0;
 
 	short nextchar_count[256];
 	memset(nextchar_count, 0, sizeof(nextchar_count));
@@ -1214,23 +1227,33 @@ static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name
 
 		nextchar_count[(unsigned char)(p2[0])]++; // the next byte after the group name
 
+		outpos = outlen;
 		if ((common[0] != 0) && (strcmp(p, common) == 0)) {
-			fwrite(p2, len2, 1, f_out);
-			fputc(0, f_out); // no phoneme string, it's the same as previous rule
+			outlen += len2 + 1;
+			outptr = realloc(outptr, outlen);
+			memmove(outptr + outpos, p2, len2);
+			outptr[outlen-1] = 0;
 		} else {
 			if ((ix < n_rules-1) && (strcmp(p, rules[ix+1]) == 0)) {
+				outlen ++;
+				outptr = realloc(outptr, outlen);
 				common = rules[ix]; // phoneme string is same as next, set as common
-				fputc(RULE_PH_COMMON, f_out);
+				outptr[outpos++] = RULE_PH_COMMON;
 			}
 
-			fwrite(p2, len2, 1, f_out);
-			fputc(RULE_PHONEMES, f_out);
-			fwrite(p, len1, 1, f_out);
+			outlen += len2 + 1 + len1;
+			outptr = realloc(outptr, outlen);
+			memmove(outptr + outpos, p2, len2);
+			outpos += len2;
+			outptr[outpos++] = RULE_PHONEMES;
+			memmove(outptr + outpos, p, len1);
 		}
 	}
+	if (outsize) *outsize = outlen;
+	return outptr;
 }
 
-static int compile_lettergroup(char *input, FILE *f_out)
+static int compile_lettergroup(CompileContext *ctx, char *input, FILE *f_out)
 {
 	char *p;
 	char *p_start;
@@ -1246,15 +1269,15 @@ static int compile_lettergroup(char *input, FILE *f_out)
 
 	p = input;
 	if (!IsDigit09(p[0]) || !IsDigit09(p[1])) {
-		fprintf(f_log, "%5d: Expected 2 digits after '.L'\n", linenum);
-		error_count++;
+		fprintf(ctx->f_log, "%5d: Expected 2 digits after '.L'\n", ctx->linenum);
+		ctx->error_count++;
 		return 1;
 	}
 
 	group = atoi(&p[0]);
 	if (group >= N_LETTER_GROUPS) {
-		fprintf(f_log, "%5d: lettergroup out of range (01-%.2d)\n", linenum, N_LETTER_GROUPS-1);
-		error_count++;
+		fprintf(ctx->f_log, "%5d: lettergroup out of range (01-%.2d)\n", ctx->linenum, N_LETTER_GROUPS-1);
+		ctx->error_count++;
 		return 1;
 	}
 
@@ -1263,11 +1286,11 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	fputc(RULE_GROUP_START, f_out);
 	fputc(RULE_LETTERGP2, f_out);
 	fputc(group + 'A', f_out);
-	if (letterGroupsDefined[group] != 0) {
-		fprintf(f_log, "%5d: lettergroup L%.2d is already defined\n", linenum, group);
-		error_count++;
+	if (ctx->letterGroupsDefined[group] != 0) {
+		fprintf(ctx->f_log, "%5d: lettergroup L%.2d is already defined\n", ctx->linenum, group);
+		ctx->error_count++;
 	}
-	letterGroupsDefined[group] = 1;
+	ctx->letterGroupsDefined[group] = 1;
 
 	n_items = 0;
 	while (n_items < N_LETTERGP_ITEMS) {
@@ -1309,14 +1332,13 @@ static void free_rules(char **rules, int n_rules)
 	}
 }
 
-static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp, espeak_ng_ERROR_CONTEXT *context)
+static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE *f_out)
 {
 	char *prule;
 	unsigned char *p;
 	int ix;
 	int c;
 	int gp;
-	FILE *f_temp;
 	int n_rules = 0;
 	int count = 0;
 	int different;
@@ -1333,14 +1355,11 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 	int n_groups3 = 0;
 	RGROUP rgroup[N_RULE_GROUP2];
 
-	linenum = 0;
-	group_name[0] = 0;
-
-	if ((f_temp = fopen(fname_temp, "wb")) == NULL)
-		return create_file_error_context(context, errno, fname_temp);
+	ctx->linenum = 0;
+	ctx->group_name[0] = 0;
 
 	for (;;) {
-		linenum++;
+		ctx->linenum++;
 		buf = fgets(buf1, sizeof(buf1), f_in);
 		if (buf != NULL) {
 			if ((p = (unsigned char *)strstr(buf, "//")) != NULL)
@@ -1353,11 +1372,9 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 			// next .group or end of file, write out the previous group
 
 			if (n_rules > 0) {
-				strcpy(rgroup[n_rgroups].name, group_name);
-				rgroup[n_rgroups].group3_ix = group3_ix;
-				rgroup[n_rgroups].start = ftell(f_temp);
-				output_rule_group(f_temp, n_rules, rules, group_name);
-				rgroup[n_rgroups].length = ftell(f_temp) - rgroup[n_rgroups].start;
+				strcpy(rgroup[n_rgroups].name, ctx->group_name);
+				rgroup[n_rgroups].group3_ix = ctx->group3_ix;
+				rgroup[n_rgroups].start = output_rule_group(n_rules, rules, ctx->group_name, &rgroup[n_rgroups].length);
 				n_rgroups++;
 
 				count += n_rules;
@@ -1376,7 +1393,7 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 			if (buf == NULL) break; // end of file
 
 			if (memcmp(buf, ".L", 2) == 0) {
-				compile_lettergroup(&buf[2], f_out);
+				compile_lettergroup(ctx, &buf[2], f_out);
 				continue;
 			}
 
@@ -1397,13 +1414,13 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 				while ((p[0] == ' ') || (p[0] == '\t')) p++; // Note: Windows isspace(0xe1) gives TRUE !
 				ix = 0;
 				while ((*p > ' ') && (ix < LEN_GROUP_NAME))
-					group_name[ix++] = *p++;
-				group_name[ix] = 0;
-				group3_ix = 0;
+					ctx->group_name[ix++] = *p++;
+				ctx->group_name[ix] = 0;
+				ctx->group3_ix = 0;
 
-				if (sscanf(group_name, "0x%x", &char_code) == 1) {
+				if (sscanf(ctx->group_name, "0x%x", &char_code) == 1) {
 					// group character is given as a character code (max 16 bits)
-					p = (unsigned char *)group_name;
+					p = (unsigned char *)ctx->group_name;
 
 					if (char_code > 0x100)
 						*p++ = (char_code >> 8);
@@ -1411,19 +1428,19 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 					*p = 0;
 				} else {
 					if (translator->letter_bits_offset > 0) {
-						utf8_in(&wc, group_name);
+						utf8_in(&wc, ctx->group_name);
 						if (((ix = (wc - translator->letter_bits_offset)) >= 0) && (ix < 128))
-							group3_ix = ix+1; // not zero
+							ctx->group3_ix = ix+1; // not zero
 					}
 				}
 
-				if ((group3_ix == 0) && (strlen(group_name) > 2)) {
-					if (utf8_in(&c, group_name) < 2) {
-						fprintf(f_log, "%5d: Group name longer than 2 bytes (UTF8)", linenum);
-						error_count++;
+				if ((ctx->group3_ix == 0) && (strlen(ctx->group_name) > 2)) {
+					if (utf8_in(&c, ctx->group_name) < 2) {
+						fprintf(ctx->f_log, "%5d: Group name longer than 2 bytes (UTF8)", ctx->linenum);
+						ctx->error_count++;
 					}
 
-					group_name[2] = 0;
+					ctx->group_name[2] = 0;
 				}
 			}
 
@@ -1433,14 +1450,14 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 		switch (compile_mode)
 		{
 		case 1: //  .group
-			prule = compile_rule(buf);
+			prule = compile_rule(ctx, buf);
 			if (prule != NULL) {
 				if (n_rules < N_RULES)
 					rules[n_rules++] = prule;
 				else {
 					if (err_n_rules == 0) {
-						fprintf(stderr, "\nExceeded limit of rules (%d) in group '%s'\n", N_RULES, group_name);
-						error_count++;
+						fprintf(stderr, "\nExceeded limit of rules (%d) in group '%s'\n", N_RULES, ctx->group_name);
+						ctx->error_count++;
 						err_n_rules = 1;
 					}
 				}
@@ -1468,20 +1485,12 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 			break;
 		}
 	}
-	fclose(f_temp);
 
 	qsort((void *)rgroup, n_rgroups, sizeof(rgroup[0]), (int(__cdecl *)(const void *, const void *))rgroup_sorter);
-
-	if ((f_temp = fopen(fname_temp, "rb")) == NULL) {
-		free_rules(rules, n_rules);
-		return create_file_error_context(context, errno, fname_temp);
-	}
 
 	prev_rgroup_name = "\n";
 
 	for (gp = 0; gp < n_rgroups; gp++) {
-		fseek(f_temp, rgroup[gp].start, SEEK_SET);
-
 		if ((different = strcmp(rgroup[gp].name, prev_rgroup_name)) != 0) {
 			// not the same as the previous group
 			if (gp > 0)
@@ -1497,19 +1506,16 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 			fputc(0, f_out);
 		}
 
-		for (ix = rgroup[gp].length; ix > 0; ix--) {
-			c = fgetc(f_temp);
-			fputc(c, f_out);
-		}
+		fwrite(rgroup[gp].start, rgroup[gp].length, 1, f_out);
 	}
 	fputc(RULE_GROUP_END, f_out);
 	fputc(0, f_out);
 
-	fclose(f_temp);
-	remove(fname_temp);
-
-	fprintf(f_log, "\t%d rules, %d groups (%d)\n\n", count, n_rgroups, n_groups3);
+	fprintf(ctx->f_log, "\t%d rules, %d groups (%d)\n\n", count, n_rgroups, n_groups3);
 	free_rules(rules, n_rules);
+	for (gp = 0; gp < n_rgroups; gp++) {
+		free(rgroup[gp].start);
+	}
 	return ENS_OK;
 }
 
@@ -1528,77 +1534,82 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	int value;
 	char fname_in[sizeof(path_home)+45];
 	char fname_out[sizeof(path_home)+15];
-	char fname_temp[sizeof(path_home)+15];
 	char path[sizeof(path_home)+40];       // path_dsource+20
 
-	error_count = 0;
-	error_need_dictionary = 0;
-	memset(letterGroupsDefined, 0, sizeof(letterGroupsDefined));
+	CompileContext *ctx = calloc(1, sizeof(CompileContext));
 
-	debug_flag = flags & 1;
+	ctx->error_count = 0;
+	ctx->error_need_dictionary = 0;
+	memset(ctx->letterGroupsDefined, 0, sizeof(ctx->letterGroupsDefined));
+
+	ctx->debug_flag = flags & 1;
 
 	if (dsource == NULL)
 		dsource = "";
 
-	f_log = log;
-	if (f_log == NULL)
-		f_log = stderr;
+	ctx->f_log = log;
+	if (ctx->f_log == NULL)
+		ctx->f_log = stderr;
 
 	// try with and without '.txt' extension
 	sprintf(path, "%s%s_", dsource, dict_name);
 	sprintf(fname_in, "%srules.txt", path);
 	if ((f_in = fopen(fname_in, "r")) == NULL) {
 		sprintf(fname_in, "%srules", path);
-		if ((f_in = fopen(fname_in, "r")) == NULL)
+		if ((f_in = fopen(fname_in, "r")) == NULL) {
+			clean_context(ctx);
 			return create_file_error_context(context, errno, fname_in);
+		}
 	}
 
 	sprintf(fname_out, "%s%c%s_dict", path_home, PATHSEP, dict_name);
 	if ((f_out = fopen(fname_out, "wb+")) == NULL) {
 		int error = errno;
 		fclose(f_in);
+		clean_context(ctx);
 		return create_file_error_context(context, error, fname_out);
 	}
-	/* Use dictionary-specific temp names to allow parallel compilation
-	 * of multiple ductionaries. */
-	sprintf(fname_temp, "%s%c%stemp", path_home, PATHSEP, dict_name);
 
 	value = N_HASH_DICT;
 	Write4Bytes(f_out, value);
 	Write4Bytes(f_out, offset_rules);
 
-	compile_dictlist_start();
+	compile_dictlist_start(ctx);
 
-	fprintf(f_log, "Using phonemetable: '%s'\n", phoneme_tab_list[phoneme_tab_number].name);
-	compile_dictlist_file(path, "roots");
+	fprintf(ctx->f_log, "Using phonemetable: '%s'\n", phoneme_tab_list[phoneme_tab_number].name);
+	compile_dictlist_file(ctx, path, "roots");
 	if (translator->langopts.listx) {
-		compile_dictlist_file(path, "list");
-		compile_dictlist_file(path, "listx");
+		compile_dictlist_file(ctx, path, "list");
+		compile_dictlist_file(ctx, path, "listx");
 	} else {
-		compile_dictlist_file(path, "listx");
-		compile_dictlist_file(path, "list");
+		compile_dictlist_file(ctx, path, "listx");
+		compile_dictlist_file(ctx, path, "list");
 	}
-	compile_dictlist_file(path, "emoji");
-	compile_dictlist_file(path, "extra");
+	compile_dictlist_file(ctx, path, "emoji");
+	compile_dictlist_file(ctx, path, "extra");
 
-	compile_dictlist_end(f_out);
+	compile_dictlist_end(ctx, f_out);
 	offset_rules = ftell(f_out);
 
-	fprintf(f_log, "Compiling: '%s'\n", fname_in);
+	fprintf(ctx->f_log, "Compiling: '%s'\n", fname_in);
 
-	espeak_ng_STATUS status = compile_dictrules(f_in, f_out, fname_temp, context);
+	espeak_ng_STATUS status = compile_dictrules(ctx, f_in, f_out);
 	fclose(f_in);
 
 	fseek(f_out, 4, SEEK_SET);
 	Write4Bytes(f_out, offset_rules);
 	fclose(f_out);
-	fflush(f_log);
+	fflush(ctx->f_log);
 
-	if (status != ENS_OK)
+	if (status != ENS_OK) {
+		clean_context(ctx);
 		return status;
+	}
 
 	LoadDictionary(translator, dict_name, 0);
 
-	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	status = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	clean_context(ctx);
+	return status;
 }
 #pragma GCC visibility pop

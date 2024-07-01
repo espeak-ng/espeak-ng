@@ -35,7 +35,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "common.h"                    // for GetFileLength, strncpy0, ...
+#include "common.h"                    // for GetFileLength, strncpy0, ...c
 #include "error.h"                    // for create_file_error_context
 #include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
@@ -47,16 +47,14 @@
 #include "voice.h"                    // for LoadVoice, voice
 #include "wavegen.h"                  // for WavegenInit, WavegenSetVoice
 
+static int CalculateSample(unsigned char c3, int c1);
+
 #define N_ITEM_STRING 256
 
 typedef struct {
 	unsigned int value;
 	char *name;
 } NAMETAB;
-
-NAMETAB *manifest = NULL;
-int n_manifest;
-char phsrc[sizeof(path_home)+40]; // Source: path to the 'phonemes' source file.
 
 typedef struct {
 	const char *mnem;
@@ -82,7 +80,7 @@ enum {
 	tTEST,
 };
 
-static keywtab_t k_conditions[] = {
+static const keywtab_t k_conditions[] = {
 	{ "AND",  0, k_AND },
 	{ "OR",   0, k_OR },
 	{ "THEN", 0, k_THEN },
@@ -107,7 +105,7 @@ static keywtab_t k_conditions[] = {
 	{ NULL, 0, 0 }
 };
 
-static keywtab_t k_properties[] = {
+static const keywtab_t k_properties[] = {
 	{ "isPause",      0, CONDITION_IS_PHONEME_TYPE | phPAUSE },
 	{ "isVowel",      0, CONDITION_IS_PHONEME_TYPE | phVOWEL },
 	{ "isNasal",      0, CONDITION_IS_PHONEME_TYPE | phNASAL },
@@ -198,9 +196,9 @@ enum {
 	kTUNE_SPLIT,
 };
 
-static unsigned const char utf8_bom[] = { 0xef, 0xbb, 0xbf, 0 };
+static const unsigned char utf8_bom[] = { 0xef, 0xbb, 0xbf, 0 };
 
-static keywtab_t k_intonation[] = {
+static const keywtab_t k_intonation[] = {
 	{ "tune",       0, kTUNE },
 	{ "endtune",    0, kENDTUNE },
 	{ "prehead",    0, kTUNE_PREHEAD },
@@ -216,7 +214,7 @@ static keywtab_t k_intonation[] = {
 	{ NULL, 0, -1 }
 };
 
-static keywtab_t keywords[] = {
+static const keywtab_t keywords[] = {
 	{ "liquid",  tPHONEME_TYPE, phLIQUID },
 	{ "pause",   tPHONEME_TYPE, phPAUSE },
 	{ "stress",  tPHONEME_TYPE, phSTRESS },
@@ -310,111 +308,9 @@ static keywtab_t keywords[] = {
 	{ NULL, 0, -1 }
 };
 
-static keywtab_t *keyword_tabs[] = {
+static const keywtab_t *keyword_tabs[] = {
 	keywords, k_conditions, k_properties, k_intonation
 };
-
-static PHONEME_TAB *phoneme_out;
-
-static int n_phcodes_list[N_PHONEME_TABS];
-static PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
-static PHONEME_TAB *phoneme_tab2;
-static int phoneme_flags;
-
-#define N_PROCS 50
-int n_procs;
-int proc_addr[N_PROCS];
-char proc_names[N_ITEM_STRING+1][N_PROCS];
-
-#define MAX_PROG_BUF 2000
-unsigned short *prog_out;
-unsigned short *prog_out_max;
-unsigned short prog_buf[MAX_PROG_BUF+20];
-
-static espeak_ng_STATUS ReadPhondataManifest(espeak_ng_ERROR_CONTEXT *context)
-{
-	// Read the phondata-manifest file
-	FILE *f;
-	int n_lines = 0;
-	int ix;
-	char *p;
-	unsigned int value;
-	char buf[sizeof(path_home)+40];
-	char name[120];
-
-	sprintf(buf, "%s%c%s", path_home, PATHSEP, "phondata-manifest");
-	if ((f = fopen(buf, "r")) == NULL)
-		return create_file_error_context(context, errno, buf);
-
-	while (fgets(buf, sizeof(buf), f) != NULL)
-		n_lines++;
-
-	rewind(f);
-
-	if (manifest != NULL) {
-		for (ix = 0; ix < n_manifest; ix++)
-			free(manifest[ix].name);
-	}
-
-	if (n_lines == 0) {
-		fclose(f);
-		return ENS_EMPTY_PHONEME_MANIFEST;
-	}
-
-	NAMETAB *new_manifest = (NAMETAB *)realloc(manifest, n_lines * sizeof(NAMETAB));
-	if (new_manifest == NULL) {
-		fclose(f);
-		free(manifest);
-		return ENOMEM;
-	} else
-		manifest = new_manifest;
-
-	n_manifest = 0;
-	while (fgets(buf, sizeof(buf), f) != NULL) {
-		if (!isalpha(buf[0]))
-			continue;
-
-		if (sscanf(&buf[2], "%x %s", &value, name) == 2) {
-			if ((p = (char *)malloc(strlen(name)+1)) != NULL) {
-				strcpy(p, name);
-				manifest[n_manifest].value = value;
-				manifest[n_manifest].name = p;
-				n_manifest++;
-			}
-		}
-	}
-	fclose(f);
-
-	return ENS_OK;
-}
-
-static int n_phoneme_tabs;
-static int n_phcodes;
-
-// outout files
-static FILE *f_phdata;
-static FILE *f_phindex;
-static FILE *f_phtab;
-static FILE *f_phcontents;
-static FILE *f_errors = NULL;
-static FILE *f_prog_log = NULL;
-static FILE *f_report;
-
-static FILE *f_in;
-static int f_in_linenum;
-static int f_in_displ;
-
-static int linenum;
-static int count_references = 0;
-static int duplicate_references = 0;
-static int count_frames = 0;
-static int error_count = 0;
-static int resample_count = 0;
-static int resample_fails = 0;
-static int then_count = 0;
-static bool after_if = false;
-
-static char current_fname[80];
 
 typedef struct {
 	void *link;
@@ -424,26 +320,17 @@ typedef struct {
 	char string[1];
 } REF_HASH_TAB;
 
-static REF_HASH_TAB *ref_hash_tab[256];
-
 typedef struct {
 	FILE *file;
 	int linenum;
 	char fname[80];
 } STACK;
 
-#define N_STACK  12
-int stack_ix;
-STACK stack[N_STACK];
-
-#define N_IF_STACK 12
-int if_level;
 typedef struct {
 	unsigned short *p_then;
 	unsigned short *p_else;
 	bool returned;
 } IF_STACK;
-IF_STACK if_stack[N_IF_STACK];
 
 enum {
 	tENDFILE = 1,
@@ -458,143 +345,160 @@ enum {
 	tINTONATION,
 };
 
-int item_type;
-int item_terminator;
-char item_string[N_ITEM_STRING];
+typedef struct CompileContext {
+	PHONEME_TAB *phoneme_out;
 
-static int ref_sorter(char **a, char **b)
-{
-	int ix;
+	int n_phcodes_list[N_PHONEME_TABS];
+	PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
+	PHONEME_TAB *phoneme_tab2;
+	int phoneme_flags;
 
-	REF_HASH_TAB *p1 = (REF_HASH_TAB *)(*a);
-	REF_HASH_TAB *p2 = (REF_HASH_TAB *)(*b);
+	#define N_PROCS 50
+	int n_procs;
+	int proc_addr[N_PROCS];
+	char proc_names[N_ITEM_STRING+1][N_PROCS];
 
-	ix = strcoll(p1->string, p2->string);
-	if (ix != 0)
-		return ix;
+	#define MAX_PROG_BUF 2000
+	unsigned short *prog_out;
+	unsigned short *prog_out_max;
+	unsigned short prog_buf[MAX_PROG_BUF+20];
 
-	ix = p1->ph_table - p2->ph_table;
-	if (ix != 0)
-		return ix;
+	int n_phoneme_tabs;
+	int n_phcodes;
 
-	return p1->ph_mnemonic - p2->ph_mnemonic;
-}
+	// outout files
+	FILE *f_phdata;
+	FILE *f_phindex;
+	FILE *f_phtab;
+	FILE *f_phcontents;
+	FILE *f_errors;
+	FILE *f_prog_log;
 
-static void CompileReport(void)
-{
-	int ix;
-	int hash;
-	int n;
-	REF_HASH_TAB *p;
-	REF_HASH_TAB **list;
-	const char *data_path;
-	int prev_table;
-	int procedure_num;
-	int prev_mnemonic;
+	FILE *f_in;
+	int f_in_linenum;
+	int f_in_displ;
 
-	if (f_report == NULL || count_references == 0)
-		return;
+	int linenum;
+	int count_references;
+	int duplicate_references;
+	int count_frames;
+	int error_count;
+	int then_count;
+	bool after_if;
 
-	// make a list of all the references and sort it
-	list = (REF_HASH_TAB **)malloc((count_references)* sizeof(REF_HASH_TAB *));
-	if (list == NULL)
-		return;
+	char current_fname[80];
 
-	fprintf(f_report, "\n%d phoneme tables\n", n_phoneme_tabs);
-	fprintf(f_report, "          new total\n");
-	for (ix = 0; ix < n_phoneme_tabs; ix++)
-		fprintf(f_report, "%8s %3d %4d\n", phoneme_tab_list2[ix].name, phoneme_tab_list2[ix].n_phonemes, n_phcodes_list[ix]+1);
-	fputc('\n', f_report);
+	REF_HASH_TAB *ref_hash_tab[256];
 
-	fprintf(f_report, "Data file      Used by\n");
-	ix = 0;
-	for (hash = 0; (hash < 256) && (ix < count_references); hash++) {
-		p = ref_hash_tab[hash];
-		while (p != NULL) {
-			list[ix++] = p;
-			p = (REF_HASH_TAB *)(p->link);
+	#define N_STACK  12
+	int stack_ix;
+	STACK stack[N_STACK];
+
+	#define N_IF_STACK 12
+	int if_level;
+	IF_STACK if_stack[N_IF_STACK];
+
+	int item_type;
+	int item_terminator;
+	char item_string[N_ITEM_STRING];
+
+	NAMETAB *manifest;
+	int n_manifest;
+	char phsrc[sizeof(path_home)+40]; // Source: path to the 'phonemes' source file.
+} CompileContext;
+
+static void clean_context(CompileContext *ctx) {
+	for (int i = 0; i < 256; i++) {
+		REF_HASH_TAB *p;
+		while ((p = ctx->ref_hash_tab[i])) {
+			ctx->ref_hash_tab[i] = (REF_HASH_TAB*)p->link;
+			free(p);
 		}
 	}
-	n = ix;
-	qsort((void *)list, n, sizeof(REF_HASH_TAB *), (int (*)(const void *, const void *))ref_sorter);
-
-	data_path = "";
-	prev_mnemonic = 0;
-	prev_table = 0;
-	for (ix = 0; ix < n; ix++) {
-		int j = 0;
-
-		if (strcmp(list[ix]->string, data_path) != 0) {
-			data_path = list[ix]->string;
-			j = strlen(data_path);
-			fprintf(f_report, "%s", data_path);
-		} else if ((list[ix]->ph_table == prev_table) && (list[ix]->ph_mnemonic == prev_mnemonic))
-			continue; // same phoneme, don't list twice
-
-		while (j < 14) {
-			fputc(' ', f_report); // pad filename with spaces
-			j++;
-		}
-
-		prev_mnemonic = list[ix]->ph_mnemonic;
-		if ((prev_mnemonic >> 24) == 'P') {
-			// a procedure, not a phoneme
-			procedure_num = atoi(WordToString(prev_mnemonic));
-			fprintf(f_report, "  %s  %s", phoneme_tab_list2[prev_table = list[ix]->ph_table].name, proc_names[procedure_num]);
-		} else
-			fprintf(f_report, "  [%s] %s", WordToString(prev_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
-		fputc('\n', f_report);
+	for (int i = 0; i < ctx->n_manifest; i++) {
+		free(ctx->manifest[i].name);
 	}
-
-	for (ix = 0; ix < n; ix++) {
-		free(list[ix]);
-		list[ix] = NULL;
-	}
-
-	free(list);
-	list = NULL;
+	free(ctx->manifest);
+	free(ctx);
 }
 
-static void error(const char *format, ...)
+static void error(CompileContext *ctx, const char *format, ...)
 {
 	va_list args;
 	va_start(args, format);
 
-	fprintf(f_errors, "%s(%d): ", current_fname, linenum-1);
-	vfprintf(f_errors, format, args);
-	fprintf(f_errors, "\n");
-	error_count++;
+	fprintf(ctx->f_errors, "%s(%d): ", ctx->current_fname, ctx->linenum-1);
+	vfprintf(ctx->f_errors, format, args);
+	fprintf(ctx->f_errors, "\n");
+	ctx->error_count++;
 
 	va_end(args);
 }
 
-static void error_from_status(espeak_ng_STATUS status, const char *context)
+static void error_from_status(CompileContext *ctx, espeak_ng_STATUS status, const char *context)
 {
 	char message[512];
 	espeak_ng_GetStatusCodeMessage(status, message, sizeof(message));
 	if (context)
-		error("%s: '%s'.", message, context);
+		error(ctx, "%s: '%s'.", message, context);
 	else
-		error("%s.", message);
+		error(ctx, "%s.", message);
 }
 
-static unsigned int StringToWord(const char *string)
+static espeak_ng_STATUS ReadPhondataManifest(CompileContext *ctx, espeak_ng_ERROR_CONTEXT *context)
 {
-	// Pack 4 characters into a word
-	int ix;
-	unsigned char c;
-	unsigned int word;
+	// Read the phondata-manifest file
+	FILE *f;
+	int n_lines = 0;
+	char *p;
+	unsigned int value;
+	char buf[sizeof(path_home)+40];
+	char name[120];
 
-	if (string == NULL)
-		return 0;
+	sprintf(buf, "%s%c%s", path_home, PATHSEP, "phondata-manifest");
+	if ((f = fopen(buf, "r")) == NULL)
+		return create_file_error_context(context, errno, buf);
 
-	word = 0;
-	for (ix = 0; ix < 4; ix++) {
-		if (string[ix] == 0) break;
-		c = string[ix];
-		word |= (c << (ix*8));
+	while (fgets(buf, sizeof(buf), f) != NULL)
+		n_lines++;
+
+	rewind(f);
+
+	if (ctx->manifest != NULL) {
+		for (int ix = 0; ix < ctx->n_manifest; ix++)
+			free(ctx->manifest[ix].name);
 	}
-	return word;
+
+	if (n_lines == 0) {
+		fclose(f);
+		return ENS_EMPTY_PHONEME_MANIFEST;
+	}
+
+	NAMETAB *new_manifest = (NAMETAB *)realloc(ctx->manifest, n_lines * sizeof(NAMETAB));
+	if (new_manifest == NULL) {
+		fclose(f);
+		free(ctx->manifest);
+		return ENOMEM;
+	} else
+		ctx->manifest = new_manifest;
+
+	ctx->n_manifest = 0;
+	while (fgets(buf, sizeof(buf), f) != NULL) {
+		if (!isalpha(buf[0]))
+			continue;
+
+		if (sscanf(&buf[2], "%x %s", &value, name) == 2) {
+			if ((p = (char *)malloc(strlen(name)+1)) != NULL) {
+				strcpy(p, name);
+				ctx->manifest[ctx->n_manifest].value = value;
+				ctx->manifest[ctx->n_manifest].name = p;
+				ctx->n_manifest++;
+			}
+		}
+	}
+	fclose(f);
+
+	return ENS_OK;
 }
 
 static const MNEM_TAB reserved_phonemes[] = {
@@ -635,25 +539,23 @@ static const MNEM_TAB reserved_phonemes[] = {
 	{ NULL, 0 }
 };
 
-static void ReservePhCodes()
+static void ReservePhCodes(CompileContext *ctx)
 {
 	// Reserve phoneme codes which have fixed numbers so that they can be
 	// referred to from the program code.
-	unsigned int word;
 	const MNEM_TAB *p;
 
 	p = reserved_phonemes;
 	while (p->mnem != NULL) {
-		word = StringToWord(p->mnem);
-		phoneme_tab2[p->value].mnemonic = word;
-		phoneme_tab2[p->value].code = p->value;
-		if (n_phcodes <= p->value)
-			n_phcodes = p->value+1;
+		ctx->phoneme_tab2[p->value].mnemonic = StringToWord(p->mnem);
+		ctx->phoneme_tab2[p->value].code = p->value;
+		if (ctx->n_phcodes <= p->value)
+			ctx->n_phcodes = p->value+1;
 		p++;
 	}
 }
 
-static int LookupPhoneme(const char *string, int control)
+static int LookupPhoneme(CompileContext *ctx, const char *string, int control)
 {
 	// control = 0   explicit declaration
 	// control = 1   declare phoneme if not found
@@ -669,7 +571,7 @@ static int LookupPhoneme(const char *string, int control)
 
 	ix = strlen(string);
 	if ((ix == 0) || (ix > 4))
-		error("Bad phoneme name '%s'", string);
+		error(ctx, "Bad phoneme name '%s'", string);
 	word = StringToWord(string);
 
 	// don't use phoneme number 0, reserved for string terminator
@@ -682,83 +584,80 @@ static int LookupPhoneme(const char *string, int control)
 	}
 
 	use = 0;
-	for (ix = start; ix < n_phcodes; ix++) {
-		if (phoneme_tab2[ix].mnemonic == word)
+	for (ix = start; ix < ctx->n_phcodes; ix++) {
+		if (ctx->phoneme_tab2[ix].mnemonic == word)
 			return ix;
 
-		if ((use == 0) && (phoneme_tab2[ix].mnemonic == 0))
+		if ((use == 0) && (ctx->phoneme_tab2[ix].mnemonic == 0))
 			use = ix;
 	}
 
 	if (use == 0) {
 		if (control == 0)
 			return -1;
-		if (n_phcodes >= N_PHONEME_TAB-1)
+		if (ctx->n_phcodes >= N_PHONEME_TAB-1)
 			return -1; // phoneme table is full
-		use = n_phcodes++;
+		use = ctx->n_phcodes++;
 	}
 
 	// add this phoneme to the phoneme table
-	phoneme_tab2[use].mnemonic = word;
-	phoneme_tab2[use].type = phINVALID;
-	phoneme_tab2[use].program = linenum; // for error report if the phoneme remains undeclared
+	ctx->phoneme_tab2[use].mnemonic = word;
+	ctx->phoneme_tab2[use].type = phINVALID;
+	ctx->phoneme_tab2[use].program = ctx->linenum; // for error report if the phoneme remains undeclared
 	return use;
 }
 
-static unsigned int get_char()
+static unsigned int get_char(CompileContext *ctx)
 {
 	unsigned int c;
-	c = fgetc(f_in);
+	c = fgetc(ctx->f_in);
 	if (c == '\n')
-		linenum++;
+		ctx->linenum++;
 	return c;
 }
 
-static void unget_char(unsigned int c)
+static void unget_char(CompileContext *ctx, unsigned int c)
 {
-	ungetc(c, f_in);
+	ungetc(c, ctx->f_in);
 	if (c == '\n')
-		linenum--;
+		ctx->linenum--;
 }
 
-static int CheckNextChar()
+static int CheckNextChar(CompileContext *ctx)
 {
 	int c;
-	while (((c = get_char()) == ' ') || (c == '\t'))
+	while (((c = get_char(ctx)) == ' ') || (c == '\t'))
 		;
-	unget_char(c);
+	unget_char(ctx, c);
 	return c;
 }
 
-static int NextItem(int type)
+static int NextItem(CompileContext *ctx, int type)
 {
-	int acc;
 	unsigned char c = 0;
 	unsigned char c2;
 	int ix;
-	int sign;
-	char *p;
-	keywtab_t *pk;
+	const keywtab_t *pk;
 
-	item_type = -1;
+	ctx->item_type = -1;
 
-	f_in_displ = ftell(f_in);
-	f_in_linenum = linenum;
+	ctx->f_in_displ = ftell(ctx->f_in);
+	ctx->f_in_linenum = ctx->linenum;
 
-	while (!feof(f_in)) {
-		c = get_char();
+	while (!feof(ctx->f_in)) {
+		c = get_char(ctx);
 		if (c == '/') {
-			if ((c2 = get_char()) == '/') {
+			if ((c2 = get_char(ctx)) == '/') {
 				// comment, ignore to end of line
-				while (!feof(f_in) && ((c = get_char()) != '\n'))
+				while (!feof(ctx->f_in) && ((c = get_char(ctx)) != '\n'))
 					;
 			} else
-				unget_char(c2);
+				unget_char(ctx, c2);
 		}
 		if (!isspace(c))
 			break;
 	}
-	if (feof(f_in))
+	if (feof(ctx->f_in))
 		return -2;
 
 	if (c == '(') {
@@ -768,37 +667,36 @@ static int NextItem(int type)
 	}
 
 	ix = 0;
-	while (!feof(f_in) && !isspace(c) && (c != '(') && (c != ')') && (c != ',')) {
+	while (!feof(ctx->f_in) && !isspace(c) && (c != '(') && (c != ')') && (c != ',')) {
 		if (c == '\\')
-			c = get_char();
-		item_string[ix++] = c;
-		c = get_char();
-		if (feof(f_in))
+			c = get_char(ctx);
+		ctx->item_string[ix++] = c;
+		c = get_char(ctx);
+		if (feof(ctx->f_in))
 			break;
-		if (item_string[ix-1] == '=')
+		if (ctx->item_string[ix-1] == '=')
 			break;
 	}
-	item_string[ix] = 0;
+	ctx->item_string[ix] = 0;
 
 	while (isspace(c))
-		c = get_char();
+		c = get_char(ctx);
 
-	item_terminator = ' ';
+	ctx->item_terminator = ' ';
 	if ((c == ')') || (c == '(') || (c == ','))
-		item_terminator = c;
+		ctx->item_terminator = c;
 
-	if ((c == ')') || (c == ','))
-		c = ' ';
-	else if (!feof(f_in))
-		unget_char(c);
+	if (!feof(ctx->f_in) && !(c == ')' || c == ','))
+		unget_char(ctx, c);
 
 	if (type == tSTRING)
 		return 0;
 
 	if ((type == tNUMBER) || (type == tSIGNEDNUMBER)) {
-		acc = 0;
-		sign = 1;
-		p = item_string;
+		int acc = 0;
+		int sign = 1;
+		char *p;
+		 p = ctx->item_string;
 
 		if ((*p == '-') && (type == tSIGNEDNUMBER)) {
 			sign = -1;
@@ -806,9 +704,9 @@ static int NextItem(int type)
 		}
 		if (!isdigit(*p)) {
 			if ((type == tNUMBER) && (*p == '-'))
-				error("Expected an unsigned number");
+				error(ctx, "Expected an unsigned number");
 			else
-				error("Expected a number");
+				error(ctx, "Expected a number");
 		}
 		while (isdigit(*p)) {
 			acc *= 10;
@@ -821,34 +719,34 @@ static int NextItem(int type)
 	if ((type >= tKEYWORD) && (type <= tINTONATION)) {
 		pk = keyword_tabs[type-tKEYWORD];
 		while (pk->mnem != NULL) {
-			if (strcmp(item_string, pk->mnem) == 0) {
-				item_type = pk->type;
+			if (strcmp(ctx->item_string, pk->mnem) == 0) {
+				ctx->item_type = pk->type;
 				return pk->data;
 			}
 			pk++;
 		}
-		item_type = -1;
+		ctx->item_type = -1;
 		return -1; // keyword not found
 	}
 	if (type == tPHONEMEMNEM)
-		return LookupPhoneme(item_string, 2);
+		return LookupPhoneme(ctx, ctx->item_string, 2);
 	return -1;
 }
 
-static int NextItemMax(int max)
+static int NextItemMax(CompileContext *ctx, int max)
 {
 	// Get a number, but restrict value to max
 	int value;
 
-	value = NextItem(tNUMBER);
+	value = NextItem(ctx, tNUMBER);
 	if (value > max) {
-		error("Value %d is greater than maximum %d", value, max);
+		error(ctx, "Value %d is greater than maximum %d", value, max);
 		value = max;
 	}
 	return value;
 }
 
-static int NextItemBrackets(int type, int control)
+static int NextItemBrackets(CompileContext *ctx, int type, int control)
 {
 	// Expect a parameter inside parentheses
 	// control: bit 0  0= need (
@@ -857,23 +755,23 @@ static int NextItemBrackets(int type, int control)
 	int value;
 
 	if ((control & 1) == 0) {
-		if (!NextItem(tOPENBRACKET))
-			error("Expected '('");
+		if (!NextItem(ctx, tOPENBRACKET))
+			error(ctx, "Expected '('");
 	}
 
-	value = NextItem(type);
-	if ((control & 2) && (item_terminator == ','))
+	value = NextItem(ctx, type);
+	if ((control & 2) && (ctx->item_terminator == ','))
 		return value;
 
-	if (item_terminator != ')')
-		error("Expected ')'");
+	if (ctx->item_terminator != ')')
+		error(ctx, "Expected ')'");
 	return value;
 }
 
-static void UngetItem()
+static void UngetItem(CompileContext *ctx)
 {
-	fseek(f_in, f_in_displ, SEEK_SET);
-	linenum = f_in_linenum;
+	fseek(ctx->f_in, ctx->f_in_displ, SEEK_SET);
+	ctx->linenum = ctx->f_in_linenum;
 }
 
 static int Range(int value, int divide, int min, int max)
@@ -891,10 +789,9 @@ static int Range(int value, int divide, int min, int max)
 	return value - min;
 }
 
-static int CompileVowelTransition(int which)
+static int CompileVowelTransition(CompileContext *ctx, int which)
 {
 	// Compile a vowel transition
-	int key;
 	int len = 0;
 	int rms = 0;
 	int f1 = 0;
@@ -914,7 +811,7 @@ static int CompileVowelTransition(int which)
 		len = 50 / 2; // defaults for transition into vowel
 		rms = 25 / 2;
 
-		if (phoneme_out->type == phSTOP) {
+		if (ctx->phoneme_out->type == phSTOP) {
 			len = 42 / 2; // defaults for transition into vowel
 			rms = 30 / 2;
 		}
@@ -925,29 +822,29 @@ static int CompileVowelTransition(int which)
 	}
 
 	for (;;) {
-		key = NextItem(tKEYWORD);
-		if (item_type != tTRANSITION) {
-			UngetItem();
+		int key = NextItem(ctx, tKEYWORD);
+		if (ctx->item_type != tTRANSITION) {
+			UngetItem(ctx);
 			break;
 		}
 
 		switch (key & 0xf)
 		{
 		case 1:
-			len = Range(NextItem(tNUMBER), 2, 0, 63) & 0x3f;
+			len = Range(NextItem(ctx, tNUMBER), 2, 0, 63) & 0x3f;
 			flags |= 1;
 			break;
 		case 2:
-			rms = Range(NextItem(tNUMBER), 2, 0, 31) & 0x1f;
+			rms = Range(NextItem(ctx, tNUMBER), 2, 0, 31) & 0x1f;
 			flags |= 1;
 			break;
 		case 3:
-			f1 = NextItem(tNUMBER);
+			f1 = NextItem(ctx, tNUMBER);
 			break;
 		case 4:
-			f2 = Range(NextItem(tNUMBER), 50, 0, 63) & 0x3f;
-			f2_min = Range(NextItem(tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
-			f2_max = Range(NextItem(tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
+			f2 = Range(NextItem(ctx, tNUMBER), 50, 0, 63) & 0x3f;
+			f2_min = Range(NextItem(ctx, tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
+			f2_max = Range(NextItem(ctx, tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
 			if (f2_min > f2_max) {
 				x = f2_min;
 				f2_min = f2_max;
@@ -955,8 +852,8 @@ static int CompileVowelTransition(int which)
 			}
 			break;
 		case 5:
-			f3_adj = Range(NextItem(tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
-			f3_amp = Range(NextItem(tNUMBER), 8, 0, 15) & 0x1f;
+			f3_adj = Range(NextItem(ctx, tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
+			f3_amp = Range(NextItem(ctx, tNUMBER), 8, 0, 15) & 0x1f;
 			break;
 		case 6:
 			flags |= 2; // break
@@ -977,27 +874,27 @@ static int CompileVowelTransition(int which)
 			flags |= 64;  // pause
 			break;
 		case 12:
-			vcolour = NextItem(tNUMBER);
+			vcolour = NextItem(ctx, tNUMBER);
 			break;
 		case 13:
 			// set rms of 1st frame as fraction of rms of 2nd frame  (1/30ths)
-			rms = (Range(NextItem(tNUMBER), 1, 0, 31) & 0x1f) | 0x20;
+			rms = (Range(NextItem(ctx, tNUMBER), 1, 0, 31) & 0x1f) | 0x20;
 			flags |= 1;
 			break;
 		}
 	}
 	word1 = len + (rms << 6) + (flags << 12);
 	word2 =  f2 + (f2_min << 6) + (f2_max << 11) + (f3_adj << 16) + (f3_amp << 21) + (f1 << 26) + (vcolour << 29);
-	prog_out[0] = instn + ((word1 >> 16) & 0xff);
-	prog_out[1] = word1;
-	prog_out[2] = word2 >> 16;
-	prog_out[3] = word2;
-	prog_out += 4;
+	ctx->prog_out[0] = instn + ((word1 >> 16) & 0xff);
+	ctx->prog_out[1] = word1;
+	ctx->prog_out[2] = word2 >> 16;
+	ctx->prog_out[3] = word2;
+	ctx->prog_out += 4;
 
 	return 0;
 }
 
-static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
+static espeak_ng_STATUS LoadSpect(CompileContext *ctx, const char *path, int control, int *addr)
 {
 	SpectSeq *spectseq;
 	int peak;
@@ -1023,10 +920,10 @@ static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 	if (spectseq == NULL)
 		return ENOMEM;
 
-	snprintf(filename, sizeof(filename), "%s/%s", phsrc, path);
+	snprintf(filename, sizeof(filename), "%s/%s", ctx->phsrc, path);
 	espeak_ng_STATUS status = LoadSpectSeq(spectseq, filename);
 	if (status != ENS_OK) {
-		error("Bad vowel file: '%s'", path);
+		error(ctx, "Bad vowel file: '%s'", path);
 		SpectSeqDestroy(spectseq);
 		return status;
 	}
@@ -1039,7 +936,7 @@ static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 		}
 	}
 
-	*addr = ftell(f_phdata);
+	*addr = ftell(ctx->f_phdata);
 
 	seq_out.n_frames = 0;
 	seq_out.sqflags = 0;
@@ -1092,7 +989,7 @@ static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 				fr_out->length = 0; // give last frame zero length
 
 			// write: peak data
-			count_frames++;
+			ctx->count_frames++;
 			for (peak = 0; peak < 8; peak++) {
 				if (peak < 7)
 					fr_out->ffreq[peak] = fr->peaks[peak].pkfreq;
@@ -1159,20 +1056,20 @@ static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 		seqk_out.length_total = seq_out.length_total;
 
 		ix = (char *)(&seqk_out.frame[seqk_out.n_frames]) - (char *)(&seqk_out);
-		fwrite(&seqk_out, ix, 1, f_phdata);
+		fwrite(&seqk_out, ix, 1, ctx->f_phdata);
 		while (ix & 3)
 		{
 			// round up to multiple of 4 bytes
-			fputc(0, f_phdata);
+			fputc(0, ctx->f_phdata);
 			ix++;
 		}
 	} else {
 		ix = (char *)(&seq_out.frame[seq_out.n_frames]) - (char *)(&seq_out);
-		fwrite(&seq_out, ix, 1, f_phdata);
+		fwrite(&seq_out, ix, 1, ctx->f_phdata);
 		while (ix & 3)
 		{
 			// round up to multiple of 4 bytes
-			fputc(0, f_phdata);
+			fputc(0, ctx->f_phdata);
 			ix++;
 		}
 	}
@@ -1181,24 +1078,16 @@ static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 	return ENS_OK;
 }
 
-static int LoadWavefile(FILE *f, const char *fname)
+static int LoadWavefile(CompileContext *ctx, FILE *f, const char *fname)
 {
 	int displ;
 	unsigned char c1;
-	unsigned char c3;
-	int c2;
 	int sample;
 	int sample2;
 	float x;
 	int max = 0;
 	int length;
 	int sr1, sr2;
-	bool failed;
-	int len;
-	bool resample_wav = false;
-	const char *fname2;
-	char fname_temp[100];
-	char msg[120];
 	int scale_factor = 0;
 
 	fseek(f, 24, SEEK_SET);
@@ -1206,58 +1095,15 @@ static int LoadWavefile(FILE *f, const char *fname)
 	sr2 = Read4Bytes(f);
 	fseek(f, 40, SEEK_SET);
 
-	if ((sr1 != samplerate_native) || (sr2 != sr1*2)) {
-		char command[sizeof(path_home)+250];
-
-		failed = false;
-
-#ifdef HAVE_MKSTEMP
-		strcpy(fname_temp, "/tmp/espeakXXXXXX");
-		int fd_temp;
-		if ((fd_temp = mkstemp(fname_temp)) >= 0)
-			close(fd_temp);
-#else
-		strcpy(fname_temp, tmpnam(NULL));
-#endif
-
-		fname2 = fname;
-		len = strlen(fname);
-		if (strcmp(&fname[len-4], ".wav") == 0) {
-			strcpy(msg, fname);
-			msg[len-4] = 0;
-			fname2 = msg;
-		}
-
-		sprintf(command, "sox \"%s/%s.wav\" -r %d -c1 -t wav %s\n", phsrc, fname2, samplerate_native, fname_temp);
-		if (system(command) != 0)
-			failed = true;
-
-		if (failed || (GetFileLength(fname_temp) <= 0)) {
-			if (resample_fails < 2)
-				error("Resample command failed: %s", command);
-			resample_fails++;
-
-			if (sr1 != samplerate_native)
-				error("Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
-			else
-				error("WAV file is not mono: %s", fname);
-			remove(fname_temp);
-			return 0;
-		}
-
-		f = fopen(fname_temp, "rb");
-		if (f == NULL) {
-			error("Can't read temp file: %s", fname_temp);
-			return 0;
-		}
-		if (f_report != NULL)
-			fprintf(f_report, "resampled  %s\n", fname);
-		resample_count++;
-		resample_wav = true;
-		fseek(f, 40, SEEK_SET); // skip past the WAV header, up to before "data length"
+	if ((sr1 != samplerate) || (sr2 != sr1*2)) {
+		if (sr1 != samplerate)
+			error(ctx, "Can't resample (%d to %d): %s", sr1, samplerate, fname);
+		else
+			error(ctx, "WAV file is not mono: %s", fname);
+		return 0;
 	}
 
-	displ = ftell(f_phdata);
+	displ = ftell(ctx->f_phdata);
 
 	// data contains:  4 bytes of length (n_samples * 2), followed by 2-byte samples (lsb byte first)
 	length = Read4Bytes(f);
@@ -1271,12 +1117,8 @@ static int LoadWavefile(FILE *f, const char *fname)
 
 		if ((c = fgetc(f)) == EOF)
 			break;
-		c3 = (unsigned char)c;
 
-		c2 = c3 << 24;
-		c2 = c2 >> 16; // sign extend
-
-		sample = (c1 & 0xff) + c2;
+		sample = CalculateSample((unsigned char) c, c1);
 
 		if (sample > max)
 			max = sample;
@@ -1291,22 +1133,20 @@ static int LoadWavefile(FILE *f, const char *fname)
 		length = length/2 + (scale_factor << 16);
 	}
 
-	Write4Bytes(f_phdata, length);
+	Write4Bytes(ctx->f_phdata, length);
 	fseek(f, 44, SEEK_SET);
 
 	while (!feof(f)) {
 		c1 = fgetc(f);
-		c3 = fgetc(f);
-		c2 = c3 << 24;
-		c2 = c2 >> 16; // sign extend
+		unsigned char c3 = fgetc(f);
 
-		sample = (c1 & 0xff) + c2;
+		sample = CalculateSample(c3, c1);
 
 		if (feof(f)) break;
 
 		if (scale_factor <= MIN_FACTOR) {
-			fputc(sample & 0xff, f_phdata);
-			fputc(sample >> 8, f_phdata);
+			fputc(sample & 0xff, ctx->f_phdata);
+			fputc(sample >> 8, ctx->f_phdata);
 		} else {
 			x = ((float)sample / scale_factor) + 0.5;
 			sample2 = (int)x;
@@ -1314,37 +1154,33 @@ static int LoadWavefile(FILE *f, const char *fname)
 				sample2 = 127;
 			if (sample2 < -128)
 				sample2 = -128;
-			fputc(sample2, f_phdata);
+			fputc(sample2, ctx->f_phdata);
 		}
 	}
 
-	length = ftell(f_phdata);
+	length = ftell(ctx->f_phdata);
 	while ((length & 3) != 0) {
 		// pad to a multiple of 4 bytes
-		fputc(0, f_phdata);
+		fputc(0, ctx->f_phdata);
 		length++;
 	}
 
-	if (resample_wav == true) {
-		fclose(f);
-		remove(fname_temp);
-	}
 	return displ | 0x800000; // set bit 23 to indicate a wave file rather than a spectrum
 }
 
-static espeak_ng_STATUS LoadEnvelope(FILE *f, int *displ)
+static espeak_ng_STATUS LoadEnvelope(CompileContext *ctx, FILE *f, int *displ)
 {
 	char buf[128];
 
 	if (displ)
-		*displ = ftell(f_phdata);
+		*displ = ftell(ctx->f_phdata);
 
 	if (fseek(f, 12, SEEK_SET) == -1)
 		return errno;
 
 	if (fread(buf, 128, 1, f) != 128)
 		return errno;
-	fwrite(buf, 128, 1, f_phdata);
+	fwrite(buf, 128, 1, ctx->f_phdata);
 
 	return ENS_OK;
 }
@@ -1366,11 +1202,8 @@ static int Hash8(const char *string)
 	return (hash+chars) & 0xff;
 }
 
-static int LoadEnvelope2(FILE *f)
+static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 {
-	int ix, ix2;
-	int n;
-	int x, y;
 	int displ;
 	int n_points;
 	char line_buf[128];
@@ -1386,26 +1219,27 @@ static int LoadEnvelope2(FILE *f)
 				break;
 
 			env_lin[n_points] = 0;
-			n = sscanf(line_buf, "%f %f %d", &env_x[n_points], &env_y[n_points], &env_lin[n_points]);
+			int n = sscanf(line_buf, "%f %f %d", &env_x[n_points], &env_y[n_points], &env_lin[n_points]);
 			if (n >= 2) {
 				env_x[n_points] *= (float)1.28; // convert range 0-100 to 0-128
 				n_points++;
 			}
 		}
 	}
+
 	if (n_points > 0) {
 		env_x[n_points] = env_x[n_points-1];
-		env_y[n_points] = env_y[n_points-1];
-	}
+    	env_y[n_points] = env_y[n_points-1];
 
-	ix = 0;
-	ix2 = 0;
-	if (n_points > 0) for (x = 0; x < ENV_LEN; x++) {
+		int ix = 0;
+    	int ix2 = 0;
+		for (int x = 0; x < ENV_LEN; x++) {
 		if (n_points > 3 && x > env_x[ix+3])
 			ix++;
 		if (n_points > 2 && x >= env_x[ix2+1])
 			ix2++;
 
+		int y;
 		if (env_lin[ix2] > 0) {
 			y = (env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2])) * 2.55;
 		} else if (n_points > 3)
@@ -1416,24 +1250,21 @@ static int LoadEnvelope2(FILE *f)
 		if (y > 255) y = 255;
 		env[x] = y;
 	}
+	}
 
-	displ = ftell(f_phdata);
-	fwrite(env, 1, ENV_LEN, f_phdata);
+	displ = ftell(ctx->f_phdata);
+	fwrite(env, 1, ENV_LEN, ctx->f_phdata);
 
 	return displ;
 }
 
-static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
+static espeak_ng_STATUS LoadDataFile(CompileContext *ctx, const char *path, int control, int *addr)
 {
 	// load spectrum sequence or sample data from a file.
 	// return index into spect or sample data area. bit 23=1 if a sample
 
-	FILE *f;
-	int id;
 	int hash;
-	int type_code = ' ';
 	REF_HASH_TAB *p, *p2;
-	char buf[sizeof(path_home)+150];
 
 	if (strcmp(path, "NULL") == 0)
 		return ENS_OK;
@@ -1442,13 +1273,13 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 		return ENS_OK;
 	}
 
-	count_references++;
+	ctx->count_references++;
 
 	hash = Hash8(path);
-	p = ref_hash_tab[hash];
+	p = ctx->ref_hash_tab[hash];
 	while (p != NULL) {
 		if (strcmp(path, p->string) == 0) {
-			duplicate_references++;
+			ctx->duplicate_references++;
 			*addr = p->value; // already loaded this data
 			break;
 		}
@@ -1456,34 +1287,37 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 	}
 
 	if (*addr == 0) {
-		sprintf(buf, "%s/%s", phsrc, path);
+		char buf[sizeof(path_home)+150];
+		sprintf(buf, "%s/%s", ctx->phsrc, path);
 
+		FILE *f;
 		if ((f = fopen(buf, "rb")) == NULL) {
-			sprintf(buf, "%s/%s.wav", phsrc, path);
+			sprintf(buf, "%s/%s.wav", ctx->phsrc, path);
 			if ((f = fopen(buf, "rb")) == NULL) {
-				error("Can't read file: %s", path);
+				error(ctx, "Can't read file: %s", path);
 				return errno;
 			}
 		}
 
-		id = Read4Bytes(f);
+		int id = Read4Bytes(f);
 		rewind(f);
 
 		espeak_ng_STATUS status = ENS_OK;
+		int type_code = ' ';
 		if (id == 0x43455053) {
-			status = LoadSpect(path, control, addr);
+			status = LoadSpect(ctx, path, control, addr);
 			type_code = 'S';
 		} else if (id == 0x46464952) {
-			*addr = LoadWavefile(f, path);
+			*addr = LoadWavefile(ctx, f, path);
 			type_code = 'W';
 		} else if (id == 0x43544950) {
-			status = LoadEnvelope(f, addr);
+			status = LoadEnvelope(ctx, f, addr);
 			type_code = 'E';
 		} else if (id == 0x45564E45) {
-			*addr = LoadEnvelope2(f);
+			*addr = LoadEnvelope2(ctx, f);
 			type_code = 'E';
 		} else {
-			error("File not SPEC or RIFF: %s", path);
+			error(ctx, "File not SPEC or RIFF: %s", path);
 			*addr = -1;
 			status = ENS_UNSUPPORTED_PHON_FORMAT;
 		}
@@ -1493,99 +1327,99 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 			return status;
 
 		if (*addr > 0)
-			fprintf(f_phcontents, "%c  0x%.5x  %s\n", type_code, *addr & 0x7fffff, path);
+			fprintf(ctx->f_phcontents, "%c  0x%.5x  %s\n", type_code, *addr & 0x7fffff, path);
 	}
 
 	// add this item to the hash table
 	if (*addr > 0) {
-		p = ref_hash_tab[hash];
+		p = ctx->ref_hash_tab[hash];
 		p2 = (REF_HASH_TAB *)malloc(sizeof(REF_HASH_TAB)+strlen(path)+1);
 		if (p2 == NULL)
 			return ENOMEM;
 		p2->value = *addr;
-		p2->ph_mnemonic = phoneme_out->mnemonic; // phoneme which uses this file
-		p2->ph_table = n_phoneme_tabs-1;
+		p2->ph_mnemonic = ctx->phoneme_out->mnemonic; // phoneme which uses this file
+		p2->ph_table = ctx->n_phoneme_tabs-1;
 		strcpy(p2->string, path);
 		p2->link = (char *)p;
-		ref_hash_tab[hash] = p2;
+		ctx->ref_hash_tab[hash] = p2;
 	}
 
 	return ENS_OK;
 }
 
-static void CompileToneSpec(void)
+static void CompileToneSpec(CompileContext *ctx)
 {
 	int pitch1 = 0;
 	int pitch2 = 0;
 	int pitch_env = 0;
 	int amp_env = 0;
 
-	pitch1 = NextItemBrackets(tNUMBER, 2);
-	pitch2 = NextItemBrackets(tNUMBER, 3);
+	pitch1 = NextItemBrackets(ctx, tNUMBER, 2);
+	pitch2 = NextItemBrackets(ctx, tNUMBER, 3);
 
-	if (item_terminator == ',') {
-		NextItemBrackets(tSTRING, 3);
-		LoadDataFile(item_string, 0, &pitch_env);
+	if (ctx->item_terminator == ',') {
+		NextItemBrackets(ctx, tSTRING, 3);
+		LoadDataFile(ctx, ctx->item_string, 0, &pitch_env);
 	}
 
-	if (item_terminator == ',') {
-		NextItemBrackets(tSTRING, 1);
-		LoadDataFile(item_string, 0, &amp_env);
+	if (ctx->item_terminator == ',') {
+		NextItemBrackets(ctx, tSTRING, 1);
+		LoadDataFile(ctx, ctx->item_string, 0, &amp_env);
 	}
 
 	if (pitch1 < pitch2) {
-		phoneme_out->start_type = pitch1;
-		phoneme_out->end_type = pitch2;
+		ctx->phoneme_out->start_type = pitch1;
+		ctx->phoneme_out->end_type = pitch2;
 	} else {
-		phoneme_out->start_type = pitch2;
-		phoneme_out->end_type = pitch1;
+		ctx->phoneme_out->start_type = pitch2;
+		ctx->phoneme_out->end_type = pitch1;
 	}
 
 	if (pitch_env != 0) {
-		*prog_out++ = i_PITCHENV + ((pitch_env >> 16) & 0xf);
-		*prog_out++ = pitch_env;
+		*ctx->prog_out++ = i_PITCHENV + ((pitch_env >> 16) & 0xf);
+		*ctx->prog_out++ = pitch_env;
 	}
 	if (amp_env != 0) {
-		*prog_out++ = i_AMPENV + ((amp_env >> 16) & 0xf);
-		*prog_out++ = amp_env;
+		*ctx->prog_out++ = i_AMPENV + ((amp_env >> 16) & 0xf);
+		*ctx->prog_out++ = amp_env;
 	}
 }
 
 
 
-static void CompileSound(int keyword, int isvowel)
+static void CompileSound(CompileContext *ctx, int keyword, int isvowel)
 {
 	int addr = 0;
 	int value = 0;
 	char path[N_ITEM_STRING];
 	static const int sound_instns[] = { i_FMT, i_WAV, i_VWLSTART, i_VWLENDING, i_WAVADD };
 
-	NextItemBrackets(tSTRING, 2);
-	strcpy(path, item_string);
-	if (item_terminator == ',') {
+	NextItemBrackets(ctx, tSTRING, 2);
+	strcpy(path, ctx->item_string);
+	if (ctx->item_terminator == ',') {
 		if ((keyword == kVOWELSTART) || (keyword == kVOWELENDING)) {
-			value = NextItemBrackets(tSIGNEDNUMBER, 1);
+			value = NextItemBrackets(ctx, tSIGNEDNUMBER, 1);
 			if (value > 127) {
 				value = 127;
-				error("Parameter > 127");
+				error(ctx, "Parameter > 127");
 			}
 			if (value < -128) {
 				value = -128;
-				error("Parameter < -128");
+				error(ctx, "Parameter < -128");
 			}
 		} else {
-			value = NextItemBrackets(tNUMBER, 1);
+			value = NextItemBrackets(ctx, tNUMBER, 1);
 			if (value > 255) {
 				value = 255;
-				error("Parameter > 255");
+				error(ctx, "Parameter > 255");
 			}
 		}
 	}
-	LoadDataFile(path, isvowel, &addr);
+	LoadDataFile(ctx, path, isvowel, &addr);
 	addr = addr / 4; // addr is words not bytes
 
-	*prog_out++ = sound_instns[keyword-kFMT] + ((value & 0xff) << 4) + ((addr >> 16) & 0xf);
-	*prog_out++ = addr & 0xffff;
+	*ctx->prog_out++ = sound_instns[keyword-kFMT] + ((value & 0xff) << 4) + ((addr >> 16) & 0xf);
+	*ctx->prog_out++ = addr & 0xffff;
 }
 
 /*
@@ -1599,39 +1433,37 @@ static void CompileSound(int keyword, int isvowel)
    =8         data = stress bitmap
    =9         special tests
  */
-static int CompileIf(int elif)
+static int CompileIf(CompileContext *ctx, int elif)
 {
-	int key;
 	bool finish = false;
 	int word = 0;
-	int word2;
 	int data;
 	int bitmap;
 	int brackets;
-	bool not_flag;
 	unsigned short *prog_last_if = NULL;
 
-	then_count = 2;
-	after_if = true;
+	ctx->then_count = 2;
+	ctx->after_if = true;
 
 	while (!finish) {
-		not_flag = false;
-		word2 = 0;
-		if (prog_out >= prog_out_max) {
-			error("Phoneme program too large");
+		bool not_flag = false;
+		int word2 = 0;
+		if (ctx->prog_out >= ctx->prog_out_max) {
+			error(ctx, "Phoneme program too large");
 			return 0;
 		}
 
-		if ((key = NextItem(tCONDITION)) < 0)
-			error("Expected a condition, not '%s'", item_string);
+		int key;
+		if ((key = NextItem(ctx, tCONDITION)) < 0)
+			error(ctx, "Expected a condition, not '%s'", ctx->item_string);
 
-		if ((item_type == 0) && (key == k_NOT)) {
+		if ((ctx->item_type == 0) && (key == k_NOT)) {
 			not_flag = true;
-			if ((key = NextItem(tCONDITION)) < 0)
-				error("Expected a condition, not '%s'", item_string);
+			if ((key = NextItem(ctx, tCONDITION)) < 0)
+				error(ctx, "Expected a condition, not '%s'", ctx->item_string);
 		}
 
-		if (item_type == tWHICH_PHONEME) {
+		if (ctx->item_type == tWHICH_PHONEME) {
 			// prevPh(), thisPh(), nextPh(), next2Ph() etc
 			if (key >= 6) {
 				// put the 'which' code in the next instruction
@@ -1640,46 +1472,46 @@ static int CompileIf(int elif)
 			}
 			key = key << 8;
 
-			data = NextItemBrackets(tPROPERTIES, 0);
+			data = NextItemBrackets(ctx, tPROPERTIES, 0);
 			if (data >= 0)
 				word = key + data + 0x700;
 			else {
-				data = LookupPhoneme(item_string, 2);
+				data = LookupPhoneme(ctx, ctx->item_string, 2);
 				word = key + data;
 			}
-		} else if (item_type == tTEST) {
+		} else if (ctx->item_type == tTEST) {
 			if (key == kTHISSTRESS) {
 				bitmap = 0;
 				brackets = 2;
 				do {
-					data = NextItemBrackets(tNUMBER, brackets);
+					data = NextItemBrackets(ctx, tNUMBER, brackets);
 					if (data > 7)
-						error("Expected list of stress levels");
+						error(ctx, "Expected list of stress levels");
 					bitmap |= (1 << data);
 
 					brackets = 3;
-				} while (item_terminator == ',');
+				} while (ctx->item_terminator == ',');
 				word = i_StressLevel | bitmap;
 			} else
 				word = key;
 		} else {
-			error("Unexpected keyword '%s'", item_string);
+			error(ctx, "Unexpected keyword '%s'", ctx->item_string);
 
-			if ((strcmp(item_string, "phoneme") == 0) || (strcmp(item_string, "endphoneme") == 0))
+			if ((strcmp(ctx->item_string, "phoneme") == 0) || (strcmp(ctx->item_string, "endphoneme") == 0))
 				return -1;
 		}
 
 		// output the word
-		prog_last_if = prog_out;
-		*prog_out++ = word | i_CONDITION;
+		prog_last_if = ctx->prog_out;
+		*ctx->prog_out++ = word | i_CONDITION;
 
 		if (word2 != 0)
-			*prog_out++ = word2;
+			*ctx->prog_out++ = word2;
 		if (not_flag)
-			*prog_out++ = i_NOT;
+			*ctx->prog_out++ = i_NOT;
 
 		// expect AND, OR, THEN
-		switch (NextItem(tCONDITION))
+		switch (NextItem(ctx, tCONDITION))
 		{
 		case k_AND:
 			break;
@@ -1691,121 +1523,119 @@ static int CompileIf(int elif)
 			finish = true;
 			break;
 		default:
-			error("Expected AND, OR, THEN");
+			error(ctx, "Expected AND, OR, THEN");
 			break;
 		}
 	}
 
 	if (elif == 0) {
-		if_level++;
-		if_stack[if_level].p_else = NULL;
+		ctx->if_level++;
+		ctx->if_stack[ctx->if_level].p_else = NULL;
 	}
 
-	if_stack[if_level].returned = false;
-	if_stack[if_level].p_then = prog_out;
-	*prog_out++ = i_JUMP_FALSE;
+	ctx->if_stack[ctx->if_level].returned = false;
+	ctx->if_stack[ctx->if_level].p_then = ctx->prog_out;
+	*ctx->prog_out++ = i_JUMP_FALSE;
 
 	return 0;
 }
 
-static void FillThen(int add)
+static void FillThen(CompileContext *ctx, int add)
 {
 	unsigned short *p;
-	int offset;
 
-	p = if_stack[if_level].p_then;
+	p = ctx->if_stack[ctx->if_level].p_then;
 	if (p != NULL) {
-		offset = prog_out - p + add;
+		int offset = ctx->prog_out - p + add;
 
-		if ((then_count == 1) && (if_level == 1)) {
+		if ((ctx->then_count == 1) && (ctx->if_level == 1)) {
 			// The THEN part only contains one statement, we can remove the THEN jump
 			// and the interpreter will implicitly skip the statement.
-			while (p < prog_out) {
+			while (p < ctx->prog_out) {
 				p[0] = p[1];
 				p++;
 			}
-			prog_out--;
+			ctx->prog_out--;
 		} else {
 			if (offset > MAX_JUMP)
-				error("IF block is too long");
+				error(ctx, "IF block is too long");
 			*p = i_JUMP_FALSE + offset;
 		}
-		if_stack[if_level].p_then = NULL;
+		ctx->if_stack[ctx->if_level].p_then = NULL;
 	}
 
-	then_count = 0;
+	ctx->then_count = 0;
 }
 
-static int CompileElse(void)
+static int CompileElse(CompileContext *ctx)
 {
 	unsigned short *ref;
-	unsigned short *p;
 
-	if (if_level < 1) {
-		error("ELSE not expected");
+	if (ctx->if_level < 1) {
+		error(ctx, "ELSE not expected");
 		return 0;
 	}
 
-	if (if_stack[if_level].returned == false)
-		FillThen(1);
+	if (ctx->if_stack[ctx->if_level].returned == false)
+		FillThen(ctx, 1);
 	else
-		FillThen(0);
+		FillThen(ctx, 0);
 
-	if (if_stack[if_level].returned == false) {
-		ref = prog_out;
-		*prog_out++ = 0;
+	if (ctx->if_stack[ctx->if_level].returned == false) {
+		ref = ctx->prog_out;
+		*ctx->prog_out++ = 0;
 
-		if ((p = if_stack[if_level].p_else) != NULL)
+		unsigned short *p;
+		if ((p = ctx->if_stack[ctx->if_level].p_else) != NULL)
 			*ref = ref - p; // backwards offset to the previous else
-		if_stack[if_level].p_else = ref;
+		ctx->if_stack[ctx->if_level].p_else = ref;
 	}
 
 	return 0;
 }
 
-static int CompileElif(void)
+static int CompileElif(CompileContext *ctx)
 {
-	if (if_level < 1) {
-		error("ELIF not expected");
+	if (ctx->if_level < 1) {
+		error(ctx, "ELIF not expected");
 		return 0;
 	}
 
-	CompileElse();
-	CompileIf(1);
+	CompileElse(ctx);
+	CompileIf(ctx, 1);
 	return 0;
 }
 
-static int CompileEndif(void)
+static int CompileEndif(CompileContext *ctx)
 {
 	unsigned short *p;
-	int chain;
-	int offset;
 
-	if (if_level < 1) {
-		error("ENDIF not expected");
+	if (ctx->if_level < 1) {
+		error(ctx, "ENDIF not expected");
 		return 0;
 	}
 
-	FillThen(0);
+	FillThen(ctx, 0);
 
-	if ((p = if_stack[if_level].p_else) != NULL) {
+	if ((p = ctx->if_stack[ctx->if_level].p_else) != NULL) {
+		int chain;
 		do {
 			chain = *p; // a chain of previous else links
 
-			offset = prog_out - p;
+			int offset = ctx->prog_out - p;
 			if (offset > MAX_JUMP)
-				error("IF block is too long");
+				error(ctx, "IF block is too long");
 			*p = i_JUMP + offset;
 
 			p -= chain;
 		} while (chain > 0);
 	}
 
-	if_level--;
+	ctx->if_level--;
 	return 0;
 }
 
-static int CompileSwitch(int type)
+static int CompileSwitch(CompileContext *ctx, int type)
 {
 	// Type 0:  EndSwitch
 	//      1:  SwitchPrevVowelType
@@ -1817,25 +1647,25 @@ static int CompileSwitch(int type)
 	}
 
 	if (type == 1)
-		*prog_out++ = i_SWITCH_PREVVOWEL+6;
+		*ctx->prog_out++ = i_SWITCH_PREVVOWEL+6;
 	if (type == 2)
-		*prog_out++ = i_SWITCH_NEXTVOWEL+6;
+		*ctx->prog_out++ = i_SWITCH_NEXTVOWEL+6;
 	return 0;
 }
 
-static PHONEME_TAB_LIST *FindPhonemeTable(const char *string)
+static PHONEME_TAB_LIST *FindPhonemeTable(CompileContext *ctx, const char *string)
 {
 	int ix;
 
-	for (ix = 0; ix < n_phoneme_tabs; ix++) {
-		if (strcmp(phoneme_tab_list2[ix].name, string) == 0)
-			return &phoneme_tab_list2[ix];
+	for (ix = 0; ix < ctx->n_phoneme_tabs; ix++) {
+		if (strcmp(ctx->phoneme_tab_list2[ix].name, string) == 0)
+			return &ctx->phoneme_tab_list2[ix];
 	}
-	error("compile: unknown phoneme table: '%s'", string);
+	error(ctx, "compile: unknown phoneme table: '%s'", string);
 	return NULL;
 }
 
-static PHONEME_TAB *FindPhoneme(const char *string)
+static PHONEME_TAB *FindPhoneme(CompileContext *ctx, const char *string)
 {
 	PHONEME_TAB_LIST *phtab = NULL;
 	int ix;
@@ -1844,15 +1674,15 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 	char buf[200];
 
 	// is this the name of a phoneme which is in scope
-	if ((strlen(string) <= 4) && ((ix = LookupPhoneme(string, 0)) != -1))
-		return &phoneme_tab2[ix];
+	if ((strlen(string) <= 4) && ((ix = LookupPhoneme(ctx, string, 0)) != -1))
+		return &ctx->phoneme_tab2[ix];
 
 	// no, treat the name as phonemetable/phoneme
 	strcpy(buf, string);
 	if ((phname = strchr(buf, '/')) != 0)
 		*phname++ = 0;
 
-	phtab = FindPhonemeTable(buf);
+	phtab = FindPhonemeTable(ctx, buf);
 	if (phtab == NULL)
 		return NULL; // phoneme table not found
 
@@ -1862,88 +1692,87 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 			return &phtab->phoneme_tab_ptr[ix];
 	}
 
-	error("Phoneme reference not found: '%s'", string);
+	error(ctx, "Phoneme reference not found: '%s'", string);
 	return NULL;
 }
 
-static void ImportPhoneme(void)
+static void ImportPhoneme(CompileContext *ctx)
 {
 	unsigned int ph_mnem;
 	unsigned int ph_code;
 	PHONEME_TAB *ph;
 
-	NextItem(tSTRING);
+	NextItem(ctx, tSTRING);
 
-	if ((ph = FindPhoneme(item_string)) == NULL) {
-		error("Cannot find phoneme '%s' to import.", item_string);
+	if ((ph = FindPhoneme(ctx, ctx->item_string)) == NULL) {
+		error(ctx, "Cannot find phoneme '%s' to import.", ctx->item_string);
 		return;
 	}
 
-	if (phoneme_out->phflags != 0 ||
-	    phoneme_out->type != phINVALID ||
-	    phoneme_out->start_type != 0 ||
-	    phoneme_out->end_type != 0 ||
-	    phoneme_out->std_length != 0 ||
-	    phoneme_out->length_mod != 0) {
-		error("Phoneme import will override set properties.");
+	if (ctx->phoneme_out->phflags != 0 ||
+	    ctx->phoneme_out->type != phINVALID ||
+	    ctx->phoneme_out->start_type != 0 ||
+	    ctx->phoneme_out->end_type != 0 ||
+	    ctx->phoneme_out->std_length != 0 ||
+	    ctx->phoneme_out->length_mod != 0) {
+		error(ctx, "Phoneme import will override set properties.");
 	}
 
-	ph_mnem = phoneme_out->mnemonic;
-	ph_code = phoneme_out->code;
-	memcpy(phoneme_out, ph, sizeof(PHONEME_TAB));
-	phoneme_out->mnemonic = ph_mnem;
-	phoneme_out->code = ph_code;
-	if (phoneme_out->type != phVOWEL)
-		phoneme_out->end_type = 0;  // voicingswitch, this must be set later to refer to a local phoneme
+	ph_mnem = ctx->phoneme_out->mnemonic;
+	ph_code = ctx->phoneme_out->code;
+	memcpy(ctx->phoneme_out, ph, sizeof(PHONEME_TAB));
+	ctx->phoneme_out->mnemonic = ph_mnem;
+	ctx->phoneme_out->code = ph_code;
+	if (ctx->phoneme_out->type != phVOWEL)
+		ctx->phoneme_out->end_type = 0;  // voicingswitch, this must be set later to refer to a local phoneme
 }
 
-static void CallPhoneme(void)
+static void CallPhoneme(CompileContext *ctx)
 {
 	PHONEME_TAB *ph;
 	int ix;
 	int addr = 0;
 
-	NextItem(tSTRING);
+	NextItem(ctx, tSTRING);
 
 	// first look for a procedure name
-	for (ix = 0; ix < n_procs; ix++) {
-		if (strcmp(proc_names[ix], item_string) == 0) {
-			addr = proc_addr[ix];
+	for (ix = 0; ix < ctx->n_procs; ix++) {
+		if (strcmp(ctx->proc_names[ix], ctx->item_string) == 0) {
+			addr = ctx->proc_addr[ix];
 			break;
 		}
 	}
-	if (ix == n_procs) {
+	if (ix == ctx->n_procs) {
 		// procedure not found, try a phoneme name
-		if ((ph = FindPhoneme(item_string)) == NULL)
+		if ((ph = FindPhoneme(ctx, ctx->item_string)) == NULL)
 			return;
 		addr = ph->program;
 
-		if (phoneme_out->type == phINVALID) {
+		if (ctx->phoneme_out->type == phINVALID) {
 			// Phoneme type has not been set. Copy it from the called phoneme
-			phoneme_out->type = ph->type;
-			phoneme_out->start_type = ph->start_type;
-			phoneme_out->end_type = ph->end_type;
-			phoneme_out->std_length = ph->std_length;
-			phoneme_out->length_mod = ph->length_mod;
+			ctx->phoneme_out->type = ph->type;
+			ctx->phoneme_out->start_type = ph->start_type;
+			ctx->phoneme_out->end_type = ph->end_type;
+			ctx->phoneme_out->std_length = ph->std_length;
+			ctx->phoneme_out->length_mod = ph->length_mod;
 
-			phoneme_flags = ph->phflags & ~phARTICULATION;
+			ctx->phoneme_flags = ph->phflags & ~phARTICULATION;
 		}
 	}
 
-	*prog_out++ = i_CALLPH + (addr >> 16);
-	*prog_out++ = addr;
+	*ctx->prog_out++ = i_CALLPH + (addr >> 16);
+	*ctx->prog_out++ = addr;
 }
 
-static void DecThenCount()
+static void DecThenCount(CompileContext *ctx)
 {
-	if (then_count > 0)
-		then_count--;
+	if (ctx->then_count > 0)
+		ctx->then_count--;
 }
 
-static int CompilePhoneme(int compile_phoneme)
+static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 {
 	int endphoneme = 0;
-	int keyword;
 	int value;
 	int phcode = 0;
 	int flags;
@@ -1958,67 +1787,68 @@ static int CompilePhoneme(int compile_phoneme)
 	PHONEME_TAB phoneme_out2;
 	PHONEME_PROG_LOG phoneme_prog_log;
 
-	prog_out = prog_buf;
-	prog_out_max = &prog_buf[MAX_PROG_BUF-1];
-	if_level = 0;
-	if_stack[0].returned = false;
-	after_if = false;
-	phoneme_flags = 0;
+	ctx->prog_out = ctx->prog_buf;
+	ctx->prog_out_max = &ctx->prog_buf[MAX_PROG_BUF-1];
+	ctx->if_level = 0;
+	ctx->if_stack[0].returned = false;
+	ctx->after_if = false;
+	ctx->phoneme_flags = 0;
 
-	NextItem(tSTRING);
+	NextItem(ctx, tSTRING);
 	if (compile_phoneme) {
-		phcode = LookupPhoneme(item_string, 1); // declare phoneme if not already there
+		phcode = LookupPhoneme(ctx, ctx->item_string, 1); // declare phoneme if not already there
 		if (phcode == -1) return 0;
-		phoneme_out = &phoneme_tab2[phcode];
+		ctx->phoneme_out = &ctx->phoneme_tab2[phcode];
 	} else {
 		// declare a procedure
-		if (n_procs >= N_PROCS) {
-			error("Too many procedures");
+		if (ctx->n_procs >= N_PROCS) {
+			error(ctx, "Too many procedures");
 			return 0;
 		}
-		strcpy(proc_names[n_procs], item_string);
-		phoneme_out = &phoneme_out2;
-		sprintf(number_buf, "%.3dP", n_procs);
-		phoneme_out->mnemonic = StringToWord(number_buf);
+		strcpy(ctx->proc_names[ctx->n_procs], ctx->item_string);
+		ctx->phoneme_out = &phoneme_out2;
+		sprintf(number_buf, "%.3dP", ctx->n_procs);
+		ctx->phoneme_out->mnemonic = StringToWord(number_buf);
 	}
 
-	phoneme_out->code = phcode;
-	phoneme_out->program = 0;
-	phoneme_out->type = phINVALID;
-	phoneme_out->std_length = 0;
-	phoneme_out->start_type = 0;
-	phoneme_out->end_type = 0;
-	phoneme_out->length_mod = 0;
-	phoneme_out->phflags = 0;
+	ctx->phoneme_out->code = phcode;
+	ctx->phoneme_out->program = 0;
+	ctx->phoneme_out->type = phINVALID;
+	ctx->phoneme_out->std_length = 0;
+	ctx->phoneme_out->start_type = 0;
+	ctx->phoneme_out->end_type = 0;
+	ctx->phoneme_out->length_mod = 0;
+	ctx->phoneme_out->phflags = 0;
 
-	while (!endphoneme && !feof(f_in)) {
-		if ((keyword = NextItem(tKEYWORD)) < 0) {
+	while (!endphoneme && !feof(ctx->f_in)) {
+		int keyword;
+		if ((keyword = NextItem(ctx, tKEYWORD)) < 0) {
 			if (keyword == -2) {
-				error("Missing 'endphoneme' before end-of-file"); // end of file
+				error(ctx, "Missing 'endphoneme' before end-of-file"); // end of file
 				break;
 			}
 
-			phoneme_feature_t feature = phoneme_feature_from_string(item_string);
-			espeak_ng_STATUS status = phoneme_add_feature(phoneme_out, feature);
+			phoneme_feature_t feature = phoneme_feature_from_string(ctx->item_string);
+			espeak_ng_STATUS status = phoneme_add_feature(ctx->phoneme_out, feature);
 			if (status == ENS_OK)
 				continue;
-			error_from_status(status, item_string);
+			error_from_status(ctx, status, ctx->item_string);
 			continue;
 		}
 
-		switch (item_type)
+		switch (ctx->item_type)
 		{
 		case tPHONEME_TYPE:
-			if (phoneme_out->type != phINVALID) {
-				if (phoneme_out->type == phFRICATIVE && keyword == phLIQUID)
+			if (ctx->phoneme_out->type != phINVALID) {
+				if (ctx->phoneme_out->type == phFRICATIVE && keyword == phLIQUID)
 					; // apr liquid => ok
 				else
-					error("More than one phoneme type: %s", item_string);
+					error(ctx, "More than one phoneme type: %s", ctx->item_string);
 			}
-			phoneme_out->type = keyword;
+			ctx->phoneme_out->type = keyword;
 			break;
 		case tPHONEME_FLAG:
-			phoneme_flags |= keyword;
+			ctx->phoneme_flags |= keyword;
 			break;
 		case tINSTRN1:
 			// instruction group 0, with 8 bit operands which set data in PHONEME_DATA
@@ -2035,53 +1865,53 @@ static int CompilePhoneme(int compile_phoneme)
 			case i_CHANGE_IF | STRESS_IS_NOT_STRESSED:
 			case i_CHANGE_IF | STRESS_IS_SECONDARY:
 			case i_CHANGE_IF | STRESS_IS_PRIMARY:
-				value = NextItemBrackets(tPHONEMEMNEM, 0);
-				*prog_out++ = (keyword << 8) + value;
-				DecThenCount();
+				value = NextItemBrackets(ctx, tPHONEMEMNEM, 0);
+				*ctx->prog_out++ = (keyword << 8) + value;
+				DecThenCount(ctx);
 				break;
 			case i_PAUSE_BEFORE:
-				value = NextItemMax(255);
-				*prog_out++ = (i_PAUSE_BEFORE << 8) + value;
-				DecThenCount();
+				value = NextItemMax(ctx, 255);
+				*ctx->prog_out++ = (i_PAUSE_BEFORE << 8) + value;
+				DecThenCount(ctx);
 				break;
 			case i_PAUSE_AFTER:
-				value = NextItemMax(255);
-				*prog_out++ = (i_PAUSE_AFTER << 8) + value;
-				DecThenCount();
+				value = NextItemMax(ctx, 255);
+				*ctx->prog_out++ = (i_PAUSE_AFTER << 8) + value;
+				DecThenCount(ctx);
 				break;
 			case i_SET_LENGTH:
-				value = NextItemMax(511);
-				if (phoneme_out->type == phVOWEL)
+				value = NextItemMax(ctx, 511);
+				if (ctx->phoneme_out->type == phVOWEL)
 					value = (value * vowel_length_factor)/100;
 
-				if (after_if == false)
-					phoneme_out->std_length = value/2;
+				if (ctx->after_if == false)
+					ctx->phoneme_out->std_length = value/2;
 				else {
-					*prog_out++ = (i_SET_LENGTH << 8) + value/2;
-					DecThenCount();
+					*ctx->prog_out++ = (i_SET_LENGTH << 8) + value/2;
+					DecThenCount(ctx);
 				}
 				break;
 			case i_ADD_LENGTH:
-				value = NextItem(tSIGNEDNUMBER) / 2;
-				*prog_out++ = (i_ADD_LENGTH << 8) + (value & 0xff);
-				DecThenCount();
+				value = NextItem(ctx, tSIGNEDNUMBER) / 2;
+				*ctx->prog_out++ = (i_ADD_LENGTH << 8) + (value & 0xff);
+				DecThenCount(ctx);
 				break;
 			case i_LENGTH_MOD:
-				value = NextItem(tNUMBER);
-				phoneme_out->length_mod = value;
+				value = NextItem(ctx, tNUMBER);
+				ctx->phoneme_out->length_mod = value;
 				break;
 			case i_IPA_NAME:
-				NextItem(tSTRING);
+				NextItem(ctx, tSTRING);
 
-				if (strcmp(item_string, "NULL") == 0)
-					strcpy(item_string, " ");
+				if (strcmp(ctx->item_string, "NULL") == 0)
+					strcpy(ctx->item_string, " ");
 
 				// copy the string, recognize characters in the form U+9999
 				flags = 0;
 				count = 0;
 				ix = 1;
 
-				for (p = item_string; *p != 0;) {
+				for (p = ctx->item_string; *p != 0;) {
 					p += utf8_in(&c, p);
 
 					if ((c == '|') && (count > 0)) {
@@ -2117,10 +1947,10 @@ static int CompilePhoneme(int compile_phoneme)
 					start = 0; // only include the flags byte if bits are set
 				value = strlen(&ipa_buf[start]); // number of UTF-8 bytes
 
-				*prog_out++ = (i_IPA_NAME << 8) + value;
+				*ctx->prog_out++ = (i_IPA_NAME << 8) + value;
 				for (ix = 0; ix < value; ix += 2)
-					*prog_out++ = (ipa_buf[ix+start] << 8) + (ipa_buf[ix+start+1] & 0xff);
-				DecThenCount();
+					*ctx->prog_out++ = (ipa_buf[ix+start] << 8) + (ipa_buf[ix+start+1] & 0xff);
+				DecThenCount(ctx);
 				break;
 			}
 			break;
@@ -2128,117 +1958,117 @@ static int CompilePhoneme(int compile_phoneme)
 			switch (keyword)
 			{
 			case kIMPORT_PH:
-				ImportPhoneme();
-				phoneme_flags = phoneme_out->phflags;
+				ImportPhoneme(ctx);
+				ctx->phoneme_flags = ctx->phoneme_out->phflags;
 				break;
 			case kSTARTTYPE:
-				phcode = NextItem(tPHONEMEMNEM);
+				phcode = NextItem(ctx, tPHONEMEMNEM);
 				if (phcode == -1)
-					phcode = LookupPhoneme(item_string, 1);
-				phoneme_out->start_type = phcode;
-				if (phoneme_out->type == phINVALID)
-					error("a phoneme type or manner of articulation must be specified before starttype");
+					phcode = LookupPhoneme(ctx, ctx->item_string, 1);
+				ctx->phoneme_out->start_type = phcode;
+				if (ctx->phoneme_out->type == phINVALID)
+					error(ctx, "a phoneme type or manner of articulation must be specified before starttype");
 				break;
 			case kENDTYPE:
-				phcode = NextItem(tPHONEMEMNEM);
+				phcode = NextItem(ctx, tPHONEMEMNEM);
 				if (phcode == -1)
-					phcode = LookupPhoneme(item_string, 1);
-				if (phoneme_out->type == phINVALID)
-					error("a phoneme type or manner of articulation must be specified before endtype");
-				else if (phoneme_out->type == phVOWEL)
-					phoneme_out->end_type = phcode;
-				else if (phcode != phoneme_out->start_type)
-					error("endtype must equal starttype for consonants");
+					phcode = LookupPhoneme(ctx, ctx->item_string, 1);
+				if (ctx->phoneme_out->type == phINVALID)
+					error(ctx, "a phoneme type or manner of articulation must be specified before endtype");
+				else if (ctx->phoneme_out->type == phVOWEL)
+					ctx->phoneme_out->end_type = phcode;
+				else if (phcode != ctx->phoneme_out->start_type)
+					error(ctx, "endtype must equal starttype for consonants");
 				break;
 			case kVOICINGSWITCH:
-				phcode = NextItem(tPHONEMEMNEM);
+				phcode = NextItem(ctx, tPHONEMEMNEM);
 				if (phcode == -1)
-					phcode = LookupPhoneme(item_string, 1);
-				if (phoneme_out->type == phVOWEL)
-					error("voicingswitch cannot be used on vowels");
+					phcode = LookupPhoneme(ctx, ctx->item_string, 1);
+				if (ctx->phoneme_out->type == phVOWEL)
+					error(ctx, "voicingswitch cannot be used on vowels");
 				else
-					phoneme_out->end_type = phcode; // use end_type field for consonants as voicing_switch
+					ctx->phoneme_out->end_type = phcode; // use end_type field for consonants as voicing_switch
 				break;
 			case kSTRESSTYPE:
-				value = NextItem(tNUMBER);
-				phoneme_out->std_length = value;
-				if (prog_out > prog_buf) {
-					error("stress phonemes can't contain program instructions");
-					prog_out = prog_buf;
+				value = NextItem(ctx, tNUMBER);
+				ctx->phoneme_out->std_length = value;
+				if (ctx->prog_out > ctx->prog_buf) {
+					error(ctx, "stress phonemes can't contain program instructions");
+					ctx->prog_out = ctx->prog_buf;
 				}
 				break;
 			case kIF:
-				endphoneme = CompileIf(0);
+				endphoneme = CompileIf(ctx, 0);
 				break;
 			case kELSE:
-				endphoneme = CompileElse();
+				endphoneme = CompileElse(ctx);
 				break;
 			case kELIF:
-				endphoneme = CompileElif();
+				endphoneme = CompileElif(ctx);
 				break;
 			case kENDIF:
-				endphoneme = CompileEndif();
+				endphoneme = CompileEndif(ctx);
 				break;
 			case kENDSWITCH:
 				break;
 			case kSWITCH_PREVVOWEL:
-				endphoneme = CompileSwitch(1);
+				endphoneme = CompileSwitch(ctx, 1);
 				break;
 			case kSWITCH_NEXTVOWEL:
-				endphoneme = CompileSwitch(2);
+				endphoneme = CompileSwitch(ctx, 2);
 				break;
 			case kCALLPH:
-				CallPhoneme();
-				DecThenCount();
+				CallPhoneme(ctx);
+				DecThenCount(ctx);
 				break;
 			case kFMT:
-				if_stack[if_level].returned = true;
-				DecThenCount();
-				if (phoneme_out->type == phVOWEL)
-					CompileSound(keyword, 1);
+				ctx->if_stack[ctx->if_level].returned = true;
+				DecThenCount(ctx);
+				if (ctx->phoneme_out->type == phVOWEL)
+					CompileSound(ctx, keyword, 1);
 				else
-					CompileSound(keyword, 0);
+					CompileSound(ctx, keyword, 0);
 				break;
 			case kWAV:
-				if_stack[if_level].returned = true;
+				ctx->if_stack[ctx->if_level].returned = true;
 				// fallthrough:
 			case kVOWELSTART:
 			case kVOWELENDING:
 			case kANDWAV:
-				DecThenCount();
-				CompileSound(keyword, 0);
+				DecThenCount(ctx);
+				CompileSound(ctx, keyword, 0);
 				break;
 			case kVOWELIN:
-				DecThenCount();
-				endphoneme = CompileVowelTransition(1);
+				DecThenCount(ctx);
+				endphoneme = CompileVowelTransition(ctx, 1);
 				break;
 			case kVOWELOUT:
-				DecThenCount();
-				endphoneme = CompileVowelTransition(2);
+				DecThenCount(ctx);
+				endphoneme = CompileVowelTransition(ctx, 2);
 				break;
 			case kTONESPEC:
-				DecThenCount();
-				CompileToneSpec();
+				DecThenCount(ctx);
+				CompileToneSpec(ctx);
 				break;
 			case kCONTINUE:
-				*prog_out++ = INSTN_CONTINUE;
-				DecThenCount();
+				*ctx->prog_out++ = INSTN_CONTINUE;
+				DecThenCount(ctx);
 				break;
 			case kRETURN:
-				*prog_out++ = INSTN_RETURN;
-				DecThenCount();
+				*ctx->prog_out++ = INSTN_RETURN;
+				DecThenCount(ctx);
 				break;
 			case kINCLUDE:
 			case kPHONEMETABLE:
-				error("Missing 'endphoneme' before '%s'", item_string);  // drop through to endphoneme
+				error(ctx, "Missing 'endphoneme' before '%s'", ctx->item_string);  // drop through to endphoneme
 				// fallthrough:
 			case kENDPHONEME:
 			case kENDPROCEDURE:
 				endphoneme = 1;
-				if (if_level > 0)
-					error("Missing ENDIF");
-				if ((prog_out > prog_buf) && (if_stack[0].returned == false))
-					*prog_out++ = INSTN_RETURN;
+				if (ctx->if_level > 0)
+					error(ctx, "Missing ENDIF");
+				if ((ctx->prog_out > ctx->prog_buf) && (ctx->if_stack[0].returned == false))
+					*ctx->prog_out++ = INSTN_RETURN;
 				break;
 			}
 			break;
@@ -2246,75 +2076,73 @@ static int CompilePhoneme(int compile_phoneme)
 	}
 
 	if (endphoneme != 1)
-		error("'endphoneme' not expected here");
+		error(ctx, "'endphoneme' not expected here");
 
 	if (compile_phoneme) {
-		if (phoneme_out->type == phINVALID) {
-			error("Phoneme type is missing");
-			phoneme_out->type = 0;
+		if (ctx->phoneme_out->type == phINVALID) {
+			error(ctx, "Phoneme type is missing");
+			ctx->phoneme_out->type = 0;
 		}
-		phoneme_out->phflags |= phoneme_flags;
+		ctx->phoneme_out->phflags |= ctx->phoneme_flags;
 
-		if (phoneme_out->phflags & phVOICED) {
-			if (phoneme_out->type == phSTOP)
-				phoneme_out->type = phVSTOP;
-			else if (phoneme_out->type == phFRICATIVE)
-				phoneme_out->type = phVFRICATIVE;
-		}
-
-		if (phoneme_out->std_length == 0) {
-			if (phoneme_out->type == phVOWEL)
-				phoneme_out->std_length = 180/2; // default length for vowel
+		if (ctx->phoneme_out->phflags & phVOICED) {
+			if (ctx->phoneme_out->type == phSTOP)
+				ctx->phoneme_out->type = phVSTOP;
+			else if (ctx->phoneme_out->type == phFRICATIVE)
+				ctx->phoneme_out->type = phVFRICATIVE;
 		}
 
-		phoneme_out->phflags |= phLOCAL; // declared in this phoneme table
+		if (ctx->phoneme_out->std_length == 0) {
+			if (ctx->phoneme_out->type == phVOWEL)
+				ctx->phoneme_out->std_length = 180/2; // default length for vowel
+		}
 
-		if (phoneme_out->type == phDELETED)
-			phoneme_out->mnemonic = 0x01; // will not be recognised
+		ctx->phoneme_out->phflags |= phLOCAL; // declared in this phoneme table
+
+		if (ctx->phoneme_out->type == phDELETED)
+			ctx->phoneme_out->mnemonic = 0x01; // will not be recognised
 	}
 
-	if (prog_out > prog_buf) {
+	if (ctx->prog_out > ctx->prog_buf) {
 		// write out the program for this phoneme
-		fflush(f_phindex);
-		phoneme_out->program = ftell(f_phindex) / sizeof(unsigned short);
+		fflush(ctx->f_phindex);
+		ctx->phoneme_out->program = ftell(ctx->f_phindex) / sizeof(unsigned short);
 
-		if (f_prog_log != NULL) {
-			phoneme_prog_log.addr = phoneme_out->program;
-			phoneme_prog_log.length = prog_out - prog_buf;
-			fwrite(&phoneme_prog_log, 1, sizeof(phoneme_prog_log), f_prog_log);
+		if (ctx->f_prog_log != NULL) {
+			phoneme_prog_log.addr = ctx->phoneme_out->program;
+			phoneme_prog_log.length = ctx->prog_out - ctx->prog_buf;
+			fwrite(&phoneme_prog_log, 1, sizeof(phoneme_prog_log), ctx->f_prog_log);
 		}
 
 		if (compile_phoneme == 0)
-			proc_addr[n_procs++] =  ftell(f_phindex) / sizeof(unsigned short);
-		fwrite(prog_buf, sizeof(unsigned short), prog_out - prog_buf, f_phindex);
+			ctx->proc_addr[ctx->n_procs++] =  ftell(ctx->f_phindex) / sizeof(unsigned short);
+		fwrite(ctx->prog_buf, sizeof(unsigned short), ctx->prog_out - ctx->prog_buf, ctx->f_phindex);
 	}
 
 	return 0;
 }
 
-static void WritePhonemeTables()
+static void WritePhonemeTables(CompileContext *ctx)
 {
 	int ix;
 	int j;
-	int n;
 	int value;
-	int count;
 	PHONEME_TAB *p;
 
-	value = n_phoneme_tabs;
-	fputc(value, f_phtab);
-	fputc(0, f_phtab);
-	fputc(0, f_phtab);
-	fputc(0, f_phtab);
+	value = ctx->n_phoneme_tabs;
+	fputc(value, ctx->f_phtab);
+	fputc(0, ctx->f_phtab);
+	fputc(0, ctx->f_phtab);
+	fputc(0, ctx->f_phtab);
 
-	for (ix = 0; ix < n_phoneme_tabs; ix++) {
-		p = phoneme_tab_list2[ix].phoneme_tab_ptr;
-		n = n_phcodes_list[ix];
+	for (ix = 0; ix < ctx->n_phoneme_tabs; ix++) {
+		p = ctx->phoneme_tab_list2[ix].phoneme_tab_ptr;
+		int n = ctx->n_phcodes_list[ix];
 		memset(&p[n], 0, sizeof(p[n]));
 		p[n].mnemonic = 0; // terminate the phoneme table
 
 		// count number of locally declared phonemes
-		count = 0;
+		int count = 0;
 		for (j = 0; j < n; j++) {
 			if (ix == 0)
 				p[j].phflags |= phLOCAL; // write all phonemes in the base phoneme table
@@ -2322,165 +2150,165 @@ static void WritePhonemeTables()
 			if (p[j].phflags & phLOCAL)
 				count++;
 		}
-		phoneme_tab_list2[ix].n_phonemes = count+1;
+		ctx->phoneme_tab_list2[ix].n_phonemes = count+1;
 
-		fputc(count+1, f_phtab);
-		fputc(phoneme_tab_list2[ix].includes, f_phtab);
-		fputc(0, f_phtab);
-		fputc(0, f_phtab);
+		fputc(count+1, ctx->f_phtab);
+		fputc(ctx->phoneme_tab_list2[ix].includes, ctx->f_phtab);
+		fputc(0, ctx->f_phtab);
+		fputc(0, ctx->f_phtab);
 
-		fwrite(phoneme_tab_list2[ix].name, 1, N_PHONEME_TAB_NAME, f_phtab);
+		fwrite(ctx->phoneme_tab_list2[ix].name, 1, N_PHONEME_TAB_NAME, ctx->f_phtab);
 
 		for (j = 0; j < n; j++) {
 			if (p[j].phflags & phLOCAL) {
 				// this bit is set temporarily to incidate a local phoneme, declared in
 				// in the current phoneme file
 				p[j].phflags &= ~phLOCAL;
-				fwrite(&p[j], sizeof(PHONEME_TAB), 1, f_phtab);
+				fwrite(&p[j], sizeof(PHONEME_TAB), 1, ctx->f_phtab);
 			}
 		}
-		fwrite(&p[n], sizeof(PHONEME_TAB), 1, f_phtab); // include the extra list-terminator phoneme entry
+		fwrite(&p[n], sizeof(PHONEME_TAB), 1, ctx->f_phtab); // include the extra list-terminator phoneme entry
 		free(p);
 	}
 }
 
-static void EndPhonemeTable()
+static void EndPhonemeTable(CompileContext *ctx)
 {
 	int ix;
+	char buf[5];
 
-	if (n_phoneme_tabs == 0)
+	if (ctx->n_phoneme_tabs == 0)
 		return;
 
 	// check that all referenced phonemes have been declared
-	for (ix = 0; ix < n_phcodes; ix++) {
-		if (phoneme_tab2[ix].type == phINVALID) {
-			error("Phoneme [%s] not declared, referenced at line %d",
-			      WordToString(phoneme_tab2[ix].mnemonic), (int)(phoneme_tab2[ix].program));
-			error_count++;
-			phoneme_tab2[ix].type = 0; // prevent the error message repeating
+	for (ix = 0; ix < ctx->n_phcodes; ix++) {
+		if (ctx->phoneme_tab2[ix].type == phINVALID) {
+			error(ctx, "Phoneme [%s] not declared, referenced at line %d",
+			      WordToString(buf, ctx->phoneme_tab2[ix].mnemonic), (int)(ctx->phoneme_tab2[ix].program));
+			ctx->error_count++;
+			ctx->phoneme_tab2[ix].type = 0; // prevent the error message repeating
 		}
 	}
 
-	n_phcodes_list[n_phoneme_tabs-1] = n_phcodes;
+	ctx->n_phcodes_list[ctx->n_phoneme_tabs-1] = ctx->n_phcodes;
 }
 
-static void StartPhonemeTable(const char *name)
+static void StartPhonemeTable(CompileContext *ctx, const char *name)
 {
-	int ix;
-	int j;
 	PHONEME_TAB *p;
 
-	if (n_phoneme_tabs >= N_PHONEME_TABS-1) {
-		error("Too many phonemetables");
+	if (ctx->n_phoneme_tabs >= N_PHONEME_TABS-1) {
+		error(ctx, "Too many phonemetables");
 		return;
 	}
 	p = (PHONEME_TAB *)calloc(sizeof(PHONEME_TAB), N_PHONEME_TAB);
 
 	if (p == NULL) {
-		error("Out of memory");
+		error(ctx, "Out of memory");
 		return;
 	}
 
-	memset(&phoneme_tab_list2[n_phoneme_tabs], 0, sizeof(PHONEME_TAB_LIST));
-	phoneme_tab_list2[n_phoneme_tabs].phoneme_tab_ptr = phoneme_tab2 = p;
-	memset(phoneme_tab_list2[n_phoneme_tabs].name, 0, sizeof(phoneme_tab_list2[n_phoneme_tabs].name));
-	strncpy0(phoneme_tab_list2[n_phoneme_tabs].name, name, N_PHONEME_TAB_NAME);
-	n_phcodes = 1;
-	phoneme_tab_list2[n_phoneme_tabs].includes = 0;
+	memset(&ctx->phoneme_tab_list2[ctx->n_phoneme_tabs], 0, sizeof(PHONEME_TAB_LIST));
+	ctx->phoneme_tab_list2[ctx->n_phoneme_tabs].phoneme_tab_ptr = ctx->phoneme_tab2 = p;
+	memset(ctx->phoneme_tab_list2[ctx->n_phoneme_tabs].name, 0, sizeof(ctx->phoneme_tab_list2[ctx->n_phoneme_tabs].name));
+	strncpy0(ctx->phoneme_tab_list2[ctx->n_phoneme_tabs].name, name, N_PHONEME_TAB_NAME);
+	ctx->n_phcodes = 1;
+	ctx->phoneme_tab_list2[ctx->n_phoneme_tabs].includes = 0;
 
-	if (n_phoneme_tabs > 0) {
-		NextItem(tSTRING); // name of base phoneme table
-		for (ix = 0; ix < n_phoneme_tabs; ix++) {
-			if (strcmp(item_string, phoneme_tab_list2[ix].name) == 0) {
-				phoneme_tab_list2[n_phoneme_tabs].includes = ix+1;
+	if (ctx->n_phoneme_tabs > 0) {
+		NextItem(ctx, tSTRING); // name of base phoneme table
+		int ix;
+		for (ix = 0; ix < ctx->n_phoneme_tabs; ix++) {
+			if (strcmp(ctx->item_string, ctx->phoneme_tab_list2[ix].name) == 0) {
+				ctx->phoneme_tab_list2[ctx->n_phoneme_tabs].includes = ix+1;
 
 				// initialise the new phoneme table with the contents of this one
-				memcpy(phoneme_tab2, phoneme_tab_list2[ix].phoneme_tab_ptr, sizeof(PHONEME_TAB)*N_PHONEME_TAB);
-				n_phcodes = n_phcodes_list[ix];
+				memcpy(ctx->phoneme_tab2, ctx->phoneme_tab_list2[ix].phoneme_tab_ptr, sizeof(PHONEME_TAB)*N_PHONEME_TAB);
+				ctx->n_phcodes = ctx->n_phcodes_list[ix];
 
 				// clear "local phoneme" bit"
-				for (j = 0; j < n_phcodes; j++)
-					phoneme_tab2[j].phflags &= ~phLOCAL;
+				int j;
+				for (j = 0; j < ctx->n_phcodes; j++)
+					ctx->phoneme_tab2[j].phflags &= ~phLOCAL;
 				break;
 			}
 		}
-		if (ix == n_phoneme_tabs && strcmp(item_string, "_") != 0)
-			error("Can't find base phonemetable '%s'", item_string);
+		if (ix == ctx->n_phoneme_tabs && strcmp(ctx->item_string, "_") != 0)
+			error(ctx, "Can't find base phonemetable '%s'", ctx->item_string);
 	} else
-		ReservePhCodes();
+		ReservePhCodes(ctx);
 
-	n_phoneme_tabs++;
+	ctx->n_phoneme_tabs++;
 }
 
-static void CompilePhonemeFiles()
+static void CompilePhonemeFiles(CompileContext *ctx)
 {
-	int item;
 	FILE *f;
 	char buf[sizeof(path_home)+120];
 
-	linenum = 1;
+	ctx->linenum = 1;
 
-	count_references = 0;
-	duplicate_references = 0;
-	count_frames = 0;
-	n_procs = 0;
+	ctx->count_references = 0;
+	ctx->duplicate_references = 0;
+	ctx->count_frames = 0;
+	ctx->n_procs = 0;
 
 	for (;;) {
-		if (feof(f_in)) {
+		if (feof(ctx->f_in)) {
 			// end of file, go back to previous from, from which this was included
 
-			if (stack_ix == 0)
+			if (ctx->stack_ix == 0)
 				break; // end of top level, finished
-			fclose(f_in);
-			f_in = stack[--stack_ix].file;
-			strcpy(current_fname, stack[stack_ix].fname);
-			linenum = stack[stack_ix].linenum;
+			fclose(ctx->f_in);
+			ctx->f_in = ctx->stack[--ctx->stack_ix].file;
+			strcpy(ctx->current_fname, ctx->stack[ctx->stack_ix].fname);
+			ctx->linenum = ctx->stack[ctx->stack_ix].linenum;
 		}
 
-		item = NextItem(tKEYWORD);
+		int item = NextItem(ctx, tKEYWORD);
 
 		switch (item)
 		{
 		case kUTF8_BOM:
 			break; // ignore bytes 0xef 0xbb 0xbf
 		case kINCLUDE:
-			NextItem(tSTRING);
-			sprintf(buf, "%s/%s", phsrc, item_string);
+			NextItem(ctx, tSTRING);
+			sprintf(buf, "%s/%s", ctx->phsrc, ctx->item_string);
 
-			if ((stack_ix < N_STACK) && (f = fopen(buf, "rb")) != NULL) {
-				stack[stack_ix].linenum = linenum;
-				strcpy(stack[stack_ix].fname, current_fname);
-				stack[stack_ix++].file = f_in;
+			if ((ctx->stack_ix < N_STACK) && (f = fopen(buf, "rb")) != NULL) {
+				ctx->stack[ctx->stack_ix].linenum = ctx->linenum;
+				strcpy(ctx->stack[ctx->stack_ix].fname, ctx->current_fname);
+				ctx->stack[ctx->stack_ix++].file = ctx->f_in;
 
-				f_in = f;
-				strncpy0(current_fname, item_string, sizeof(current_fname));
-				linenum = 1;
+				ctx->f_in = f;
+				strncpy0(ctx->current_fname, ctx->item_string, sizeof(ctx->current_fname));
+				ctx->linenum = 1;
 			} else
-				error("Missing file: %s", item_string);
+				error(ctx, "Missing file: %s", ctx->item_string);
 			break;
 		case kPHONEMETABLE:
-			EndPhonemeTable();
-			NextItem(tSTRING); // name of the new phoneme table
-			StartPhonemeTable(item_string);
+			EndPhonemeTable(ctx);
+			NextItem(ctx, tSTRING); // name of the new phoneme table
+			StartPhonemeTable(ctx, ctx->item_string);
 			break;
 		case kPHONEMESTART:
-			if (n_phoneme_tabs == 0) {
-				error("phonemetable is missing");
+			if (ctx->n_phoneme_tabs == 0) {
+				error(ctx, "phonemetable is missing");
 				return;
 			}
-			CompilePhoneme(1);
+			CompilePhoneme(ctx, 1);
 			break;
 		case kPROCEDURE:
-			CompilePhoneme(0);
+			CompilePhoneme(ctx, 0);
 			break;
 		default:
-			if (!feof(f_in))
-				error("Keyword 'phoneme' expected");
+			if (!feof(ctx->f_in))
+				error(ctx, "Keyword 'phoneme' expected");
 			break;
 		}
 	}
-	memset(&phoneme_tab2[n_phcodes+1], 0, sizeof(phoneme_tab2[n_phcodes+1]));
-	phoneme_tab2[n_phcodes+1].mnemonic = 0; // terminator
+	memset(&ctx->phoneme_tab2[ctx->n_phcodes+1], 0, sizeof(ctx->phoneme_tab2[ctx->n_phcodes+1]));
+	ctx->phoneme_tab2[ctx->n_phcodes+1].mnemonic = 0; // terminator
 }
 
 #pragma GCC visibility push(default)
@@ -2505,10 +2333,13 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	char fname[sizeof(path_home)+40];
 	char phdst[sizeof(path_home)+40]; // Destination: path to the phondata/phontab/phonindex output files.
 
+	CompileContext *ctx = calloc(1, sizeof(CompileContext));
+	if (!ctx) return ENOMEM;
+
 	if (source_path) {
-		sprintf(phsrc, "%s", source_path);
+		sprintf(ctx->phsrc, "%s", source_path);
 	} else {
-		sprintf(phsrc, "%s/../phsource", path_home);
+		sprintf(ctx->phsrc, "%s/../phsource", path_home);
 	}
 
 	if (destination_path) {
@@ -2517,39 +2348,34 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 		sprintf(phdst, "%s", path_home);
 	}
 
-	samplerate_native = samplerate = rate;
+	samplerate = rate;
 	LoadPhData(NULL, NULL);
-	if (LoadVoice("", 8/*compiling phonemes*/) == NULL)
+	if (LoadVoice("", 8/*compiling phonemes*/) == NULL) {
+		clean_context(ctx);
 		return ENS_VOICE_NOT_FOUND;
+	}
 
 	WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
 
-	error_count = 0;
-	resample_count = 0;
-	f_errors = log;
+	ctx->error_count = 0;
+	ctx->f_errors = log;
 
-	strncpy0(current_fname, "phonemes", sizeof(current_fname));
+	strncpy0(ctx->current_fname, "phonemes", sizeof(ctx->current_fname));
 
-	sprintf(fname, "%s/phonemes", phsrc);
+	sprintf(fname, "%s/phonemes", ctx->phsrc);
 	fprintf(log, "Compiling phoneme data: %s\n", fname);
-	f_in = fopen(fname, "rb");
-	if (f_in == NULL)
+	ctx->f_in = fopen(fname, "rb");
+	if (ctx->f_in == NULL) {
+		clean_context(ctx);
 		return create_file_error_context(context, errno, fname);
-
-	sprintf(fname, "%s/%s", phsrc, "compile_report");
-	f_report = fopen(fname, "w");
-	if (f_report == NULL) {
-		int error = errno;
-		fclose(f_in);
-		return create_file_error_context(context, error, fname);
 	}
 
 	sprintf(fname, "%s/%s", phdst, "phondata-manifest");
-	if ((f_phcontents = fopen(fname, "w")) == NULL)
-		f_phcontents = stderr;
+	if ((ctx->f_phcontents = fopen(fname, "w")) == NULL)
+		ctx->f_phcontents = stderr;
 
-	fprintf(f_phcontents,
+	fprintf(ctx->f_phcontents,
 	        "# This file lists the type of data that has been compiled into the\n"
 	        "# phondata file\n"
 	        "#\n"
@@ -2564,93 +2390,84 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	        "#  -------  ---------\n");
 
 	sprintf(fname, "%s/%s", phdst, "phondata");
-	f_phdata = fopen(fname, "wb");
-	if (f_phdata == NULL) {
+	ctx->f_phdata = fopen(fname, "wb");
+	if (ctx->f_phdata == NULL) {
 		int error = errno;
-		fclose(f_in);
-		fclose(f_report);
-		fclose(f_phcontents);
+		fclose(ctx->f_in);
+		fclose(ctx->f_phcontents);
+		clean_context(ctx);
 		return create_file_error_context(context, error, fname);
 	}
 
 	sprintf(fname, "%s/%s", phdst, "phonindex");
-	f_phindex = fopen(fname, "wb");
-	if (f_phindex == NULL) {
+	ctx->f_phindex = fopen(fname, "wb");
+	if (ctx->f_phindex == NULL) {
 		int error = errno;
-		fclose(f_in);
-		fclose(f_report);
-		fclose(f_phcontents);
-		fclose(f_phdata);
+		fclose(ctx->f_in);
+		fclose(ctx->f_phcontents);
+		fclose(ctx->f_phdata);
+		clean_context(ctx);
 		return create_file_error_context(context, error, fname);
 	}
 
 	sprintf(fname, "%s/%s", phdst, "phontab");
-	f_phtab = fopen(fname, "wb");
-	if (f_phtab == NULL) {
+	ctx->f_phtab = fopen(fname, "wb");
+	if (ctx->f_phtab == NULL) {
 		int error = errno;
-		fclose(f_in);
-		fclose(f_report);
-		fclose(f_phcontents);
-		fclose(f_phdata);
-		fclose(f_phindex);
+		fclose(ctx->f_in);
+		fclose(ctx->f_phcontents);
+		fclose(ctx->f_phdata);
+		fclose(ctx->f_phindex);
+		clean_context(ctx);
 		return create_file_error_context(context, error, fname);
 	}
 
-	sprintf(fname, "%s/compile_prog_log", phsrc);
-	f_prog_log = fopen(fname, "wb");
+	sprintf(fname, "%s/compile_prog_log", ctx->phsrc);
+	ctx->f_prog_log = fopen(fname, "wb");
 
 	// write a word so that further data doesn't start at displ=0
-	Write4Bytes(f_phdata, version_phdata);
-	Write4Bytes(f_phdata, samplerate_native);
-	Write4Bytes(f_phindex, version_phdata);
+	Write4Bytes(ctx->f_phdata, version_phdata);
+	Write4Bytes(ctx->f_phdata, samplerate);
+	Write4Bytes(ctx->f_phindex, version_phdata);
 
-	memset(ref_hash_tab, 0, sizeof(ref_hash_tab));
+	memset(ctx->ref_hash_tab, 0, sizeof(ctx->ref_hash_tab));
 
-	n_phoneme_tabs = 0;
-	MAKE_MEM_UNDEFINED(&n_phcodes_list, sizeof(n_phcodes_list));
-	MAKE_MEM_UNDEFINED(&phoneme_tab_list2, sizeof(phoneme_tab_list2));
+	ctx->n_phoneme_tabs = 0;
+	MAKE_MEM_UNDEFINED(ctx->n_phcodes_list, sizeof(ctx->n_phcodes_list));
+	MAKE_MEM_UNDEFINED(ctx->phoneme_tab_list2, sizeof(ctx->phoneme_tab_list2));
 
-	stack_ix = 0;
-	MAKE_MEM_UNDEFINED(&stack, sizeof(stack));
+	ctx->stack_ix = 0;
+	MAKE_MEM_UNDEFINED(ctx->stack, sizeof(ctx->stack));
 
-	StartPhonemeTable("base");
-	CompilePhonemeFiles();
+	StartPhonemeTable(ctx, "base");
+	CompilePhonemeFiles(ctx);
 
-	EndPhonemeTable();
-	WritePhonemeTables();
+	EndPhonemeTable(ctx);
+	WritePhonemeTables(ctx);
 
-	fprintf(f_errors, "\nRefs %d,  Reused %d\n", count_references, duplicate_references);
+	fprintf(ctx->f_errors, "\nRefs %d,  Reused %d\n", ctx->count_references, ctx->duplicate_references);
 
-	fclose(f_in);
-	fclose(f_phcontents);
-	fclose(f_phdata);
-	fclose(f_phindex);
-	fclose(f_phtab);
-	if (f_prog_log != NULL)
-		fclose(f_prog_log);
+	fclose(ctx->f_in);
+	fclose(ctx->f_phcontents);
+	fclose(ctx->f_phdata);
+	fclose(ctx->f_phindex);
+	fclose(ctx->f_phtab);
+	if (ctx->f_prog_log != NULL)
+		fclose(ctx->f_prog_log);
 
 	LoadPhData(NULL, NULL);
 
-	CompileReport();
-
-	fclose(f_report);
-
 	WavegenFini();
 
-	if (resample_count > 0) {
-		fprintf(f_errors, "\n%d WAV files resampled to %d Hz\n", resample_count, samplerate_native);
-		fprintf(log, "Compiled phonemes: %d errors, %d files resampled to %d Hz.\n", error_count, resample_count, samplerate_native);
-	} else
-		fprintf(log, "Compiled phonemes: %d errors.\n", error_count);
+	fprintf(log, "Compiled phonemes: %d errors.\n", ctx->error_count);
 
-	if (f_errors != stderr && f_errors != stdout)
-		fclose(f_errors);
+	if (ctx->f_errors != stderr && ctx->f_errors != stdout)
+		fclose(ctx->f_errors);
 
-	espeak_ng_STATUS status = ReadPhondataManifest(context);
-	if (status != ENS_OK)
-		return status;
-
-	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	espeak_ng_STATUS status = ReadPhondataManifest(ctx, context);
+	int res = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	clean_context(ctx);
+	return (status != ENS_OK) ? status : res;
 }
 
 #pragma GCC visibility pop
@@ -2698,12 +2515,23 @@ static int LookupEnvelopeName(const char *name)
 
 espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
+	return espeak_ng_CompileIntonationPath(NULL, NULL, log, context);
+}
+
+espeak_ng_STATUS
+espeak_ng_CompileIntonationPath(const char *source_path,
+                                const char *destination_path,
+                                FILE *log,
+                                espeak_ng_ERROR_CONTEXT *context
+                                )
+{
 	if (!log) log = stderr;
+	if (!source_path) source_path = path_home;
+	if (!destination_path) destination_path = path_home;
 
 	int ix;
 	char *p;
 	char c;
-	int keyword;
 	int n_tune_names = 0;
 	bool done_split = false;
 	bool done_onset = false;
@@ -2719,15 +2547,19 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	char tune_names[N_TUNE_NAMES][12];
 	char buf[sizeof(path_home)+150];
 
-	error_count = 0;
-	f_errors = log;
+	CompileContext *ctx = calloc(1, sizeof(CompileContext));
+	if (!ctx) return ENOMEM;
 
-	sprintf(buf, "%s/../phsource/intonation.txt", path_home);
-	if ((f_in = fopen(buf, "r")) == NULL) {
-		sprintf(buf, "%s/../phsource/intonation", path_home);
-		if ((f_in = fopen(buf, "r")) == NULL) {
+	ctx->error_count = 0;
+	ctx->f_errors = log;
+
+	sprintf(buf, "%s/../phsource/intonation.txt", source_path);
+	if ((ctx->f_in = fopen(buf, "r")) == NULL) {
+		sprintf(buf, "%s/../phsource/intonation", source_path);
+		if ((ctx->f_in = fopen(buf, "r")) == NULL) {
 			int error = errno;
-			fclose(f_errors);
+			fclose(ctx->f_errors);
+			clean_context(ctx);
 			return create_file_error_context(context, error, buf);
 		}
 	}
@@ -2738,8 +2570,8 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	n_preset_tunes = ix;
 
 	// make a list of the tune names
-	while (!feof(f_in)) {
-		if (fgets(buf, sizeof(buf), f_in) == NULL)
+	while (!feof(ctx->f_in)) {
+		if (fgets(buf, sizeof(buf), ctx->f_in) == NULL)
 			break;
 
 		if ((memcmp(buf, "tune", 4) == 0) && isspace(buf[4])) {
@@ -2767,28 +2599,30 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 			}
 		}
 	}
-	rewind(f_in);
-	linenum = 1;
+	rewind(ctx->f_in);
+	ctx->linenum = 1;
 
 	tune_data = (n_tune_names == 0) ? NULL : (TUNE *)calloc(n_tune_names, sizeof(TUNE));
 	if (tune_data == NULL) {
-		fclose(f_in);
-		fclose(f_errors);
+		fclose(ctx->f_in);
+		fclose(ctx->f_errors);
+		clean_context(ctx);
 		return ENOMEM;
 	}
 
-	sprintf(buf, "%s/intonations", path_home);
+	sprintf(buf, "%s/intonations", destination_path);
 	f_out = fopen(buf, "wb");
 	if (f_out == NULL) {
 		int error = errno;
-		fclose(f_in);
-		fclose(f_errors);
+		fclose(ctx->f_in);
+		fclose(ctx->f_errors);
 		free(tune_data);
+		clean_context(ctx);
 		return create_file_error_context(context, error, buf);
 	}
 
-	while (!feof(f_in)) {
-		keyword = NextItem(tINTONATION);
+	while (!feof(ctx->f_in)) {
+		int keyword = NextItem(ctx, tINTONATION);
 
 		switch (keyword)
 		{
@@ -2796,8 +2630,8 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 			done_split = false;
 
 			memcpy(&new_tune, &default_tune, sizeof(TUNE));
-			NextItem(tSTRING);
-			strncpy0(new_tune.name, item_string, sizeof(new_tune.name));
+			NextItem(ctx, tSTRING);
+			strncpy0(new_tune.name, ctx->item_string, sizeof(new_tune.name));
 
 			found = 0;
 			tune_number = 0;
@@ -2812,9 +2646,9 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 				}
 			}
 			if (found == 2)
-				error("Duplicate tune name: '%s'", new_tune.name);
+				error(ctx, "Duplicate tune name: '%s'", new_tune.name);
 			if (found == 0)
-				error("Bad tune name: '%s;", new_tune.name);
+				error(ctx, "Bad tune name: '%s;", new_tune.name);
 			break;
 		case kENDTUNE:
 			if (!found) continue;
@@ -2829,67 +2663,67 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 			memcpy(&tune_data[tune_number], &new_tune, sizeof(TUNE));
 			break;
 		case kTUNE_PREHEAD:
-			new_tune.prehead_start = NextItem(tNUMBER);
-			new_tune.prehead_end = NextItem(tNUMBER);
+			new_tune.prehead_start = NextItem(ctx, tNUMBER);
+			new_tune.prehead_end = NextItem(ctx, tNUMBER);
 			break;
 		case kTUNE_ONSET:
-			new_tune.onset = NextItem(tNUMBER);
-			new_tune.unstr_start[0] = NextItem(tSIGNEDNUMBER);
-			new_tune.unstr_end[0] = NextItem(tSIGNEDNUMBER);
+			new_tune.onset = NextItem(ctx, tNUMBER);
+			new_tune.unstr_start[0] = NextItem(ctx, tSIGNEDNUMBER);
+			new_tune.unstr_end[0] = NextItem(ctx, tSIGNEDNUMBER);
 			done_onset = true;
 			break;
 		case kTUNE_HEADLAST:
-			new_tune.head_last = NextItem(tNUMBER);
-			new_tune.unstr_start[2] = NextItem(tSIGNEDNUMBER);
-			new_tune.unstr_end[2] = NextItem(tSIGNEDNUMBER);
+			new_tune.head_last = NextItem(ctx, tNUMBER);
+			new_tune.unstr_start[2] = NextItem(ctx, tSIGNEDNUMBER);
+			new_tune.unstr_end[2] = NextItem(ctx, tSIGNEDNUMBER);
 			done_last = true;
 			break;
 		case kTUNE_HEADENV:
-			NextItem(tSTRING);
-			if ((ix = LookupEnvelopeName(item_string)) < 0)
-				error("Bad envelope name: '%s'", item_string);
+			NextItem(ctx, tSTRING);
+			if ((ix = LookupEnvelopeName(ctx->item_string)) < 0)
+				error(ctx, "Bad envelope name: '%s'", ctx->item_string);
 			else
 				new_tune.stressed_env = ix;
-			new_tune.stressed_drop = NextItem(tNUMBER);
+			new_tune.stressed_drop = NextItem(ctx, tNUMBER);
 			break;
 		case kTUNE_HEAD:
-			new_tune.head_max_steps = NextItem(tNUMBER);
-			new_tune.head_start = NextItem(tNUMBER);
-			new_tune.head_end = NextItem(tNUMBER);
-			new_tune.unstr_start[1] = NextItem(tSIGNEDNUMBER);
-			new_tune.unstr_end[1] = NextItem(tSIGNEDNUMBER);
+			new_tune.head_max_steps = NextItem(ctx, tNUMBER);
+			new_tune.head_start = NextItem(ctx, tNUMBER);
+			new_tune.head_end = NextItem(ctx, tNUMBER);
+			new_tune.unstr_start[1] = NextItem(ctx, tSIGNEDNUMBER);
+			new_tune.unstr_end[1] = NextItem(ctx, tSIGNEDNUMBER);
 			break;
 		case kTUNE_HEADEXTEND:
 			// up to 8 numbers
 			for (ix = 0; ix < (int)(sizeof(new_tune.head_extend)); ix++) {
-				if (!isdigit(c = CheckNextChar()) && (c != '-'))
+				if (!isdigit(c = CheckNextChar(ctx)) && (c != '-'))
 					break;
 
-				new_tune.head_extend[ix] = (NextItem(tSIGNEDNUMBER) * 64) / 100; // convert from percentage to 64ths
+				new_tune.head_extend[ix] = (NextItem(ctx, tSIGNEDNUMBER) * 64) / 100; // convert from percentage to 64ths
 			}
 			new_tune.n_head_extend = ix; // number of values
 			break;
 		case kTUNE_NUCLEUS0:
-			NextItem(tSTRING);
-			if ((ix = LookupEnvelopeName(item_string)) < 0) {
-				error("Bad envelope name: '%s'", item_string);
+			NextItem(ctx, tSTRING);
+			if ((ix = LookupEnvelopeName(ctx->item_string)) < 0) {
+				error(ctx, "Bad envelope name: '%s'", ctx->item_string);
 				break;
 			}
 			new_tune.nucleus0_env = ix;
-			new_tune.nucleus0_max = NextItem(tNUMBER);
-			new_tune.nucleus0_min = NextItem(tNUMBER);
+			new_tune.nucleus0_max = NextItem(ctx, tNUMBER);
+			new_tune.nucleus0_min = NextItem(ctx, tNUMBER);
 			break;
 		case kTUNE_NUCLEUS1:
-			NextItem(tSTRING);
-			if ((ix = LookupEnvelopeName(item_string)) < 0) {
-				error("Bad envelope name: '%s'", item_string);
+			NextItem(ctx, tSTRING);
+			if ((ix = LookupEnvelopeName(ctx->item_string)) < 0) {
+				error(ctx, "Bad envelope name: '%s'", ctx->item_string);
 				break;
 			}
 			new_tune.nucleus1_env = ix;
-			new_tune.nucleus1_max = NextItem(tNUMBER);
-			new_tune.nucleus1_min = NextItem(tNUMBER);
-			new_tune.tail_start = NextItem(tNUMBER);
-			new_tune.tail_end = NextItem(tNUMBER);
+			new_tune.nucleus1_max = NextItem(ctx, tNUMBER);
+			new_tune.nucleus1_min = NextItem(ctx, tNUMBER);
+			new_tune.tail_start = NextItem(ctx, tNUMBER);
+			new_tune.tail_end = NextItem(ctx, tNUMBER);
 
 			if (!done_split) {
 				// also this as the default setting for 'split'
@@ -2901,49 +2735,58 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 			}
 			break;
 		case kTUNE_SPLIT:
-			NextItem(tSTRING);
-			if ((ix = LookupEnvelopeName(item_string)) < 0) {
-				error("Bad envelope name: '%s'", item_string);
+			NextItem(ctx, tSTRING);
+			if ((ix = LookupEnvelopeName(ctx->item_string)) < 0) {
+				error(ctx, "Bad envelope name: '%s'", ctx->item_string);
 				break;
 			}
 			done_split = true;
 			new_tune.split_nucleus_env = ix;
-			new_tune.split_nucleus_max = NextItem(tNUMBER);
-			new_tune.split_nucleus_min = NextItem(tNUMBER);
-			new_tune.split_tail_start = NextItem(tNUMBER);
-			new_tune.split_tail_end = NextItem(tNUMBER);
-			NextItem(tSTRING);
-			item_string[12] = 0;
+			new_tune.split_nucleus_max = NextItem(ctx, tNUMBER);
+			new_tune.split_nucleus_min = NextItem(ctx, tNUMBER);
+			new_tune.split_tail_start = NextItem(ctx, tNUMBER);
+			new_tune.split_tail_end = NextItem(ctx, tNUMBER);
+			NextItem(ctx, tSTRING);
+			ctx->item_string[12] = 0;
 			for (ix = 0; ix < n_tune_names; ix++) {
-				if (strcmp(item_string, tune_names[ix]) == 0)
+				if (strcmp(ctx->item_string, tune_names[ix]) == 0)
 					break;
 			}
 
 			if (ix == n_tune_names)
-				error("Tune '%s' not found", item_string);
+				error(ctx, "Tune '%s' not found", ctx->item_string);
 			else
 				new_tune.split_tune = ix;
 			break;
 		default:
-			error("Unexpected: '%s'", item_string);
+			error(ctx, "Unexpected: '%s'", ctx->item_string);
 			break;
 		}
 	}
 
 	for (ix = 0; ix < n_preset_tunes; ix++) {
 		if (tune_data[ix].name[0] == 0)
-			error("Tune '%s' not defined", preset_tune_names[ix]);
+			error(ctx, "Tune '%s' not defined", preset_tune_names[ix]);
 	}
 	fwrite(tune_data, n_tune_names, sizeof(TUNE), f_out);
 	free(tune_data);
-	fclose(f_in);
+	fclose(ctx->f_in);
 	fclose(f_out);
 
-	fprintf(log, "Compiled %d intonation tunes: %d errors.\n", n_tune_names, error_count);
+	fprintf(log, "Compiled %d intonation tunes: %d errors.\n", n_tune_names, ctx->error_count);
 
 	LoadPhData(NULL, NULL);
 
-	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	int res = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	clean_context(ctx);
+	return res;
 }
 
 #pragma GCC visibility pop
+
+static int CalculateSample(unsigned char c3, int c1) {
+	int c2 = c3 << 24;
+	c2 = c2 >> 16; // sign extend
+
+	return (c1 & 0xff) + c2;
+}

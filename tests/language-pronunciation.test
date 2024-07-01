@@ -19,13 +19,36 @@ X'ihO~t,Or b'ibek 'a*u b'udd#i 'atS#e 'a*u X'ihO~t,e p'OrOXp,Or b#atr'itbO*,e 'a
 test_phon az "byts'yn insanL'aR l&jag'&t v& hygugLa*@n'a J'W*& az'ad b&*ab'&R do:uLuRL'aR
 ona*'@n Syu*aLR'@ v& vidZdanLa*'@ v'aR v& b'iRbiRl&*'in& mynasib'&td& gaRdaSL'@x Runhund'a davRanmaL@d@RL'aR" "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar. Onarın şüuralrı və vicdanları var və bir-birlərinə münasibətdə qardaşlıq runhunda davranmalıdırlar." "Latn"
 test_phon ba "m'in h'in 'uL b'eD h'eD 'uLAr b'VL t'eQe" "мин һин ул беҙ һеҙ улар был теге." "Cyrl"
-test_phon be "s.:'i\"tak 'ab;as.ts.ul;its; zr'Ob;iss;a z.z.'arE pr'i\"jaz.z.aw
-j'El;i zj'Em r'El;jEfnasts; m'ajE 'um;EjEts;E s;'OjE 'arx;ijErEj tak'OjE m;'az.ujE pr'i\"jEmna d'urEjE xv'al;ujE v'i\"prawl;ajE
-j'On zv;arj'O m;il;j'On maj'Oj ij'Os;i salaw;'Ow maj'Oj idi\"j'OtskaQa zm;aj'Oju
-b;'izn;Es Q'adz;ina s'utk;i; adn'Os;in sm;'Erts;i; 'af;is.a z'ax;inaw
-d'Oz.dz. dz;'ik m'Ora p'asv;its:a 'abl;its.:a wzv'i\"s.s.a
-j'uras; 'adjutant s'al;juts:a v;'Edaju zd'Ol;Eju j'Oju p;'Ens;iju mn'Oju b;'Eluju p'ami\"ju 'idEju ap'Os.n;uju zm;'aju
-j'akuju zj'av;iws;a Q'Etaja n;'Ejak j'ak;ija p'Ojas x'alujam d'i\"plamati\"ja 'idEja z'asm;ajaws;a" "сшытак абясчуліць зробішся зжарэ прыязджаў, елі з'ем рэльефнасць мае умееце сёе архіерэй такое мяжуе прыемна дурэе хвалюе выпраўляе, ён звяр'ё мільён маёй іёсі салаўёў маёй ідыёцкага змяёю, бізнес гадзіна суткі адносін смерці афіша захінаў, дождж дзік мора пасвіцца аблічча ўзвышша, Юрась ад'ютант сальюцца ведаю здолею ёю пенсію мною белую памыю ідэю апошнюю змяю, якую з'явіўся гэтая неяк якія пояс халуям дыпламатыя ідэя засмяяўся" "Cyrl"
+test_phon be "s.:'i\"tak 'ab;as.ts.ul;its; zr'Ob;is;s;a z.z.'arE pr'i\"jaz.dz.aw
+j'El;i zj'Em r'El;jEfnas;ts; m'ajE 'um;EjEts;E s;'OjE 'arx;ijErEj tak'OjE m;'az.ujE pr'i\"jEmna d'urEjE xv'al;ujE v'i\"prawl;ajE
+j'On z;v;arj'O m;il;j'On maj'Oj ij'Os;i salaw;'Ow maj'Oj idi\"j'OtskaQa z;m;aj'Oju
+b;'iz;n;Es Q'adz;ina s'utk;i; adn'Os;in s;m;'Erts;i; 'af;is.a z'ax;inaw
+dz.'ala dz;'ik m'Ora p'as;v;its:a 'abl;its.:a wzv'i\"s.s.a
+j'uras; 'adjutant s'al;juts:a v;'Edaju zd'Ol;Eju j'Oju p;'Ens;iju mn'Oju b;'Eluju p'ami\"ju 'idEju ap'Os.n;uju z;m;'aju
+j'akuju zj'av;iws;a Q'Etaja n;'Ejak j'ak;ija p'Ojas x'alujam d'i\"plamati\"ja 'idEja z'as;m;ajaws;a
+azn'Op bl'Ox s'at ks;'Onts Qr'ants. 'az.i\"jatas. 'ukas
+b'apka p;'inxpanQ;ist 'atxadz;its; dz.'Orts.tawn m;'is.ts.as v;'Es;ts;i
+'abdEjt 'abQrEjt tr'OQbak'Ovi\" b'uQQaltar tEQd'OQl;at tr'OQz.i\"l;ni\" tEQz'Ona
+bl'Ogbastar b'EgQrawnt an;Egd'Ot 'EgzEma s.madbak'Ovi\" 'ardQrupa b'Ordz.urnal s;p;irdzav'Ot
+zv'i\"z.bujni\" 'az.Qabat zvi\"z.d'OwQ;i zvi\"z.z.'Orstk;i zvi\"z.z'Orka 'ajz;b;Erx 'EkzQ;ib;itsi\"jan;istka p'atzdam Q'awz;z;istar k'az;ba
+l;'idz.ba z'al;dzbax s;p;'EdzQrupa n'adzdEm t'andzzala
+k;'En;ixz;b;Erx r'az;b;iwka 'az;v;arEla s;v;'Ez.a r'az;dz;El;Ena 'ab;Ez;z;am;El;Eni\" z;l;'iw
+s'upras;l;sk;i s;m;'Es.na z;m;'ilavats:a s;n;'Edats; z;n;'uxani\" 'as;p;Ekt r'as;s;El;ina v'us;ts;E z;m;'Ors;ts;is;a" \
+"сшытак абясчуліць зробішся зжарэ прыязджаў,
+елі з'ем рэльефнасць мае умееце сёе архіерэй такое мяжуе прыемна дурэе хвалюе выпраўляе,
+ён звяр'ё мільён маёй іёсі салаўёў маёй ідыёцкага змяёю,
+бізнес гадзіна суткі адносін смерці афіша захінаў,
+джала дзік мора пасвіцца аблічча ўзвышша,
+Юрась ад'ютант сальюцца ведаю здолею ёю пенсію мною белую памыю ідэю апошнюю змяю,
+якую з'явіўся гэтая неяк якія пояс халуям дыпламатыя ідэя засмяяўся,
+азноб блог сад ксёндз грандж ажыятаж указ,
+бабка пінгпангіст адхадзіць джорджтаўн міжчас везці,
+апдэйт апгрэйд трохбаковы бухгалтар тэхдогляд трохжыльны тэхзона,
+блокбастар бэкграўнд анекдот экзэма шматбаковы артгрупа бортжурнал спіртзавод,
+звышбуйны Ашгабат звышдоўгі звышжорсткі звышзорка айсберг эксгібіцыяністка Патсдам гаўсзістар касьба,
+лічба Зальцбах спецгрупа нацдэм танцзала,
+Кенігсберг разбіўка азвярэла свежа раздзелена абеззямелены зліў,
+супрасльскі смешна змілавацца снедаць знюханы аспект расселіна вусце змёрзціся" "Cyrl"
 test_phon bg "'ax tS'udna b@Lg'arska z'em;o
 pol'uSvaj ts@ft;'aSti: Z'ita" "Ах чудна българска земьо, полюшвай цъфтящи жита." "Cyrl"
 test_phon bn "m'alOS,ij 'Obojd#,O Sr'omik,Oder b'i*udd#,e tS'OlOm,an_:_: m'egat#r'i_:_: 'ob#idZ,ane Se d'eSe S'Oto S'Oto 'ob#ib,aSik,e 'at.Ok k'O*etS#,e Se d'eSer 'imigr,eSOn p'uliS

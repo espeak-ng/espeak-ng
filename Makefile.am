@@ -16,7 +16,7 @@ SHARED_VERSION=2:51:1 # = *.so.1.1.51
 MKDIR=mkdir -p
 
 AM_CFLAGS = \
-	-Isrc/include -Isrc/include/compat -I$(srcdir)/src/speechPlayer/include -I$(srcdir)/src/ucd-tools/src/include \
+	-I$(srcdir)/src/include -Isrc/include/compat -I$(srcdir)/src/speechPlayer/include -I$(srcdir)/src/ucd-tools/src/include \
 	-D_BSD_SOURCE -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=200112L
 AM_CXXFLAGS =
 
@@ -50,8 +50,7 @@ EXTRA_DIST += ChangeLog
 
 all-local: \
 	espeak-ng-data/phontab \
-	dictionaries \
-	mbrola
+	dictionaries
 
 uninstall-hook:
 	rm -rf $(DESTDIR)$(DATADIR)
@@ -146,7 +145,7 @@ src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
 src_libespeak_ng_la_CFLAGS = \
 	-fPIC -fvisibility=hidden \
 	-pedantic -fno-exceptions -DPATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
-	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
+	${PCAUDIOLIB_CFLAGS} ${SONIC_CFLAGS} ${AM_CFLAGS}
 
 src_libespeak_ng_la_SOURCES = \
 	src/ucd-tools/src/case.c \
@@ -158,7 +157,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/common.c \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
-	src/libespeak-ng/compilembrola.c \
 	src/libespeak-ng/dictionary.c \
 	src/libespeak-ng/encoding.c \
 	src/libespeak-ng/error.c \
@@ -178,7 +176,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/ssml.c \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
-	src/libespeak-ng/synth_mbrola.c \
 	src/libespeak-ng/translate.c \
 	src/libespeak-ng/translateword.c \
 	src/libespeak-ng/tr_languages.c \
@@ -227,12 +224,12 @@ noinst_HEADERS = \
 	src/ucd-tools/src/include/ucd/ucd.h
 
 if OPT_KLATT
-src_libespeak_ng_la_CFLAGS  += -DINCLUDE_KLATT
+AM_CFLAGS  += -DUSE_KLATT=1
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/klatt.c
 endif
 
 if OPT_SPEECHPLAYER
-src_libespeak_ng_la_CFLAGS  += -DINCLUDE_SPEECHPLAYER
+AM_CFLAGS  += -DUSE_SPEECHPLAYER=1
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/sPlayer.c
 src_libespeak_ng_la_SOURCES += src/speechPlayer/src/frame.cpp
 src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechPlayer.cpp
@@ -243,12 +240,15 @@ src_speak_ng_SOURCES = src/speak-ng.c
 endif
 
 if OPT_MBROLA
-src_libespeak_ng_la_CFLAGS  += -DINCLUDE_MBROLA
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/mbrowrap.c
+AM_CFLAGS  += -DUSE_MBROLA=1
+src_libespeak_ng_la_SOURCES += \
+	src/libespeak-ng/mbrowrap.c \
+	src/libespeak-ng/synth_mbrola.c \
+	src/libespeak-ng/compilembrola.c
 endif
 
 if OPT_ASYNC
-src_libespeak_ng_la_CFLAGS  += -DUSE_ASYNC
+AM_CFLAGS  += -DUSE_ASYNC=1
 src_libespeak_ng_la_SOURCES += \
 	src/libespeak-ng/espeak_command.c \
 	src/libespeak-ng/event.c \
@@ -262,7 +262,7 @@ man1_MANS += src/speak-ng.1
 endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
-src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS}
+src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
 src_speak_ng_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 
 bin_PROGRAMS += src/espeak-ng
@@ -271,7 +271,7 @@ if HAVE_RONN
 man1_MANS += src/espeak-ng.1
 endif
 
-src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS}
+src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
 src_espeak_ng_SOURCES = src/espeak-ng.c
 if HAVE_LIBFUZZER
 nodist_EXTRA_src_espeak_ng_SOURCES = force-cxx-linking.cxx
@@ -354,14 +354,11 @@ endif
 
 
 if HAVE_LIBFUZZER
-tests_ssml_fuzzer_test_CFLAGS += -fsanitize=fuzzer
-tests_ssml_fuzzer_test_LDFLAGS = -fsanitize=fuzzer
-
 noinst_PROGRAMS =  tests/fuzzing/synth_fuzzer.test
 tests_fuzzing_synth_fuzzer_test_SOURCES = tests/fuzzing/synth_fuzzer.c
 tests_fuzzing_synth_fuzzer_test_LDADD =  src/libespeak-ng.la
-tests_fuzzing_synth_fuzzer_test_CFLAGS=  ${AM_CFLAGS} -fsanitize=fuzzer -DPATH_ESPEAK_DATA=\"$(abs_top_srcdir)/espeak-ng-data\" -Isrc/libespeak-ng
-tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -fsanitize=fuzzer -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS}
+tests_fuzzing_synth_fuzzer_test_CFLAGS=  ${AM_CFLAGS} -DPATH_ESPEAK_DATA=\"$(abs_top_srcdir)/espeak-ng-data\" -Isrc/libespeak-ng
+tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
 else
 tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
 endif
@@ -474,6 +471,7 @@ dictionaries: \
 	espeak-ng-data/eu_dict \
 	espeak-ng-data/fa_dict \
 	espeak-ng-data/fi_dict \
+	espeak-ng-data/fo_dict \
 	espeak-ng-data/fr_dict \
 	espeak-ng-data/ga_dict \
 	espeak-ng-data/gd_dict \
@@ -496,6 +494,7 @@ dictionaries: \
 	espeak-ng-data/ja_dict \
 	espeak-ng-data/jbo_dict \
 	espeak-ng-data/ka_dict \
+	espeak-ng-data/kaa_dict \
 	espeak-ng-data/kk_dict \
 	espeak-ng-data/kl_dict \
 	espeak-ng-data/kn_dict \
@@ -548,6 +547,7 @@ dictionaries: \
 	espeak-ng-data/sw_dict \
 	espeak-ng-data/ta_dict \
 	espeak-ng-data/te_dict \
+	espeak-ng-data/ti_dict \
 	espeak-ng-data/th_dict \
 	espeak-ng-data/tk_dict \
 	espeak-ng-data/tn_dict \
@@ -558,6 +558,7 @@ dictionaries: \
 	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
+	espeak-ng-data/xex_dict \
 	espeak-ng-data/yue_dict
 
 DICTSOURCE = \
@@ -657,6 +658,9 @@ espeak-ng-data/fa_dict: dictsource/fa_list dictsource/fa_rules dictsource/fa_ext
 fi: espeak-ng-data/fi_dict
 espeak-ng-data/fi_dict: dictsource/fi_list dictsource/fi_rules dictsource/fi_extra dictsource/fi_emoji
 
+fo: espeak-ng-data/fo_dict
+espeak-ng-data/fo_dict: dictsource/fo_list dictsource/fo_rules dictsource/fo_extra dictsource/fo_emoji
+
 fr: espeak-ng-data/fr_dict
 espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
 
@@ -722,6 +726,9 @@ espeak-ng-data/jbo_dict: dictsource/jbo_list dictsource/jbo_rules dictsource/jbo
 
 ka: espeak-ng-data/ka_dict
 espeak-ng-data/ka_dict: dictsource/ka_list dictsource/ka_rules dictsource/ka_extra dictsource/ka_emoji
+
+kaa: espeak-ng-data/kaa_dict
+espeak-ng-data/kaa_dict: dictsource/kaa_list dictsource/kaa_rules dictsource/kaa_extra dictsource/kaa_emoji
 
 kk: espeak-ng-data/kk_dict
 espeak-ng-data/kk_dict: dictsource/kk_list dictsource/kk_rules dictsource/kk_extra dictsource/kk_emoji
@@ -893,6 +900,9 @@ espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_ext
 te: espeak-ng-data/te_dict
 espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra dictsource/te_emoji
 
+ti: espeak-ng-data/ti_dict
+espeak-ng-data/ti_dict: dictsource/ti_list dictsource/ti_rules dictsource/ti_extra dictsource/ti_emoji
+
 th: espeak-ng-data/th
 espeak-ng-data/th: dictsource/th dictsource/th dictsource/te_extra
 
@@ -922,6 +932,9 @@ espeak-ng-data/uz_dict: dictsource/uz_list dictsource/uz_rules dictsource/uz_ext
 
 vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
+
+xex: espeak-ng-data/xex_dict
+espeak-ng-data/xex_dict: dictsource/xex_list dictsource/xex_rules
 
 cmn: espeak-ng-data/cmn_dict
 dictsource/cmn_listx:
@@ -956,6 +969,8 @@ dictsource/yue_emoji:
 
 ##### mbrola:
 
+if OPT_MBROLA
+
 PHSOURCE_MBROLA = \
 	$(wildcard phsource/mbrola/*)
 
@@ -967,3 +982,7 @@ espeak-ng-data/mbrola_ph/%_phtrans: phsource/mbrola/% src/espeak-ng
 	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-mbrola=phsource/mbrola/$*
 
 EXTRA_DIST += $(PHSOURCE_MBROLA)
+
+all-local: mbrola
+
+endif

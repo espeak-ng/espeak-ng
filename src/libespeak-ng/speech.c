@@ -33,7 +33,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 #include <pcaudiolib/audio.h>
 #endif
 
@@ -63,16 +63,16 @@
 #include "voice.h"                // for FreeVoiceList, VoiceReset, current_...
 #include "wavegen.h"              // for WavegenFill, WavegenInit, WcmdqUsed
 
-unsigned char *outbuf = NULL;
-int outbuf_size = 0;
-unsigned char *out_start;
+static unsigned char *outbuf = NULL;
+static int outbuf_size = 0;
+static unsigned char *out_start;
 
 espeak_EVENT *event_list = NULL;
-int event_list_ix = 0;
-int n_event_list;
-long count_samples;
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
-struct audio_object *my_audio = NULL;
+static int event_list_ix = 0;
+static int n_event_list;
+static long count_samples;
+#if USE_LIBPCAUDIO
+static struct audio_object *my_audio = NULL;
 #endif
 
 static unsigned int my_unique_identifier = 0;
@@ -80,19 +80,17 @@ static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
-static int min_buffer_length = 60; // minimum buffer length in ms
+static const int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
-t_espeak_callback *synth_callback = NULL;
-int (*uri_callback)(int, const char *, const char *) = NULL;
-int (*phoneme_callback)(const char *) = NULL;
+static t_espeak_callback *synth_callback = NULL;
 
 char path_home[N_PATH_HOME]; // this is the espeak-ng-data directory
 extern int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
 
 void cancel_audio(void)
 {
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 		audio_object_flush(my_audio);
 	}
@@ -102,7 +100,7 @@ void cancel_audio(void)
 static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 {
 	int a_wave_can_be_played = 1;
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0)
 		a_wave_can_be_played = fifo_is_command_enabled();
 #endif
@@ -120,17 +118,14 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 			voice_samplerate = event->id.number;
 
 			if (out_samplerate != voice_samplerate) {
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 				if (out_samplerate != 0) {
 					// sound was previously open with a different sample rate
 					audio_object_close(my_audio);
 					out_samplerate = 0;
-#ifdef HAVE_SLEEP
-					sleep(1);
-#endif
 				}
 #endif
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 				int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 				if (error != 0) {
 					fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
@@ -139,14 +134,14 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 				}
 #endif
 				out_samplerate = voice_samplerate;
-#ifdef USE_ASYNC
+#if USE_ASYNC
 				if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0)
 					event_init();
 #endif
 			}
 		}
 
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 		if (out_samplerate == 0) {
 			int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 			if (error != 0) {
@@ -158,7 +153,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		}
 #endif
 
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 		if (outbuf && length && a_wave_can_be_played) {
 			int error = audio_object_write(my_audio, (char *)outbuf, 2*length);
 			if (error != 0)
@@ -166,7 +161,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		}
 #endif
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 		while (event && a_wave_can_be_played) {
 			// TBD: some event are filtered here but some insight might be given
 			// TBD: in synthesise.cpp for avoiding to create WORDs with size=0.
@@ -220,7 +215,7 @@ static int create_events(short *outbuf, int length, espeak_EVENT *event_list)
 	return finished;
 }
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 
 int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 {
@@ -268,16 +263,19 @@ static int check_data_path(const char *path, int allow_directory)
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length, const char *device)
 {
-	(void)device; // unused if HAVE_PCAUDIOLIB_AUDIO_H is not defined
+	(void)device; // unused if  USE_LIBPCAUDIO is not defined
 
 	my_mode = output_mode;
 	out_samplerate = 0;
 
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 	if (((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) && (my_audio == NULL))
 		my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
+#if USE_ASYNC
+	if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0) fifo_init();
+#endif
 
 	// Don't allow buffer be smaller than safe minimum
 	if (buffer_length < min_buffer_length)
@@ -310,7 +308,7 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	if (check_data_path(path, 1))
 		return;
 
-#ifdef PLATFORM_WINDOWS
+#if PLATFORM_WINDOWS
 	HKEY RegKey;
 	unsigned long size;
 	unsigned long var_type;
@@ -351,7 +349,7 @@ const int param_defaults[N_SPEECH_PARAM] = {
 	0,   // wordgap
 	0,   // options
 	0,   // intonation
-	0,
+	100, // ssml break mul
 	0,
 	0,   // emphasis
 	0,   // line length
@@ -381,7 +379,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	WavegenInit(srate, 0);
 	LoadConfig();
 
-	memset(&current_voice_selected, 0, sizeof(current_voice_selected));
+	espeak_VOICE *current_voice_selected = espeak_GetCurrentVoice();
+	memset(current_voice_selected, 0, sizeof(espeak_VOICE));
 	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 	InitNamedata();
@@ -397,12 +396,11 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	SetParameter(espeakPUNCTUATION, option_punctuation, 0);
 	SetParameter(espeakWORDGAP, 0, 0);
 
-#ifdef USE_ASYNC
-	fifo_init();
-#endif
-
 	option_phonemes = 0;
 	option_phoneme_events = 0;
+
+	// Seed random generator
+	espeak_srand(time(NULL));
 
 	return ENS_OK;
 }
@@ -430,7 +428,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	// Fill the buffer with output sound
 	int length;
 	int finished = 0;
-	int count_buffers = 0;
 
 	if ((outbuf == NULL) || (event_list == NULL))
 		return ENS_NOT_INITIALIZED;
@@ -469,7 +466,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 		event_list[event_list_ix].unique_identifier = unique_identifier;
 		event_list[event_list_ix].user_data = my_user_data;
 
-		count_buffers++;
 		if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 			finished = create_events((short *)outbuf, length, event_list);
 			if (finished < 0)
@@ -524,6 +520,10 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	ep->text_position = char_position & 0xffffff;
 	ep->length = char_position >> 24;
 
+#if !USE_MBROLA
+	static const int mbrola_delay = 0;
+#endif
+
 	time = ((double)(count_samples + mbrola_delay + (out_ptr - out_start)/2)*1000.0)/samplerate;
 	ep->audio_position = (int)time;
 	ep->sample = (count_samples + mbrola_delay + (out_ptr - out_start)/2);
@@ -569,7 +569,7 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 	end_character_position = end_position;
 
 	espeak_ng_STATUS aStatus = Synthesize(unique_identifier, text, flags);
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 		int error = (aStatus == ENS_SPEECH_STOPPED)
 		          ? audio_object_flush(my_audio)
@@ -645,19 +645,9 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
 ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback *SynthCallback)
 {
 	synth_callback = SynthCallback;
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	event_set_callback(synth_callback);
 #endif
-}
-
-ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
-{
-	uri_callback = UriCallback;
-}
-
-ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
-{
-	phoneme_callback = PhonemeCallback;
 }
 
 ESPEAK_NG_API espeak_ng_STATUS
@@ -669,7 +659,7 @@ espeak_ng_Synthesize(const void *text, size_t size,
 {
 	(void)size; // unused in non-async modes
 
-	static unsigned int temp_identifier;
+	unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
 		unique_identifier = &temp_identifier;
@@ -678,7 +668,7 @@ espeak_ng_Synthesize(const void *text, size_t size,
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
 		return sync_espeak_Synth(0, text, position, position_type, end_position, flags, user_data);
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	// Create the text command
 	t_espeak_command *c1 = create_espeak_text(text, size, position, position_type, end_position, flags, user_data);
 	if (c1) {
@@ -718,7 +708,7 @@ espeak_ng_SynthesizeMark(const void *text,
 {
 	(void)size; // unused in non-async modes
 
-	static unsigned int temp_identifier;
+	unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
 		unique_identifier = &temp_identifier;
@@ -727,7 +717,7 @@ espeak_ng_SynthesizeMark(const void *text,
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
 		return sync_espeak_Synth_Mark(0, text, index_mark, end_position, flags, user_data);
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	// Create the mark command
 	t_espeak_command *c1 = create_espeak_mark(text, size, index_mark, end_position,
 	                                          flags, user_data);
@@ -764,7 +754,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakKeyName(const char *key_name)
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
 		return sync_espeak_Key(key_name);
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	t_espeak_command *c = create_espeak_key(key_name, NULL);
 	espeak_ng_STATUS status = fifo_add_command(c);
 	if (status != ENS_OK)
@@ -779,7 +769,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakCharacter(wchar_t character)
 {
 	// is there a system resource of character names per language?
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
 		return sync_espeak_Char(character);
 
@@ -803,7 +793,7 @@ ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetParameter(espeak_PARAMETER parameter, int value, int relative)
 {
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
 		return SetParameter(parameter, value, relative);
 
@@ -822,7 +812,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetPunctuationList(const wchar_t *punct
 {
 	// Set the list of punctuation which are spoken for "some".
 
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
 		sync_espeak_SetPunctuationList(punctlist);
 		return ENS_OK;
@@ -882,12 +872,12 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 {
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	fifo_stop();
 	event_clear_all();
 #endif
 
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
 		audio_object_flush(my_audio);
 #endif
@@ -901,7 +891,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 
 ESPEAK_API int espeak_IsPlaying(void)
 {
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	return fifo_is_busy();
 #else
 	return 0;
@@ -911,7 +901,7 @@ ESPEAK_API int espeak_IsPlaying(void)
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 {
 	espeak_ng_STATUS berr = err;
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	while (espeak_IsPlaying())
 		usleep(20000);
 #endif
@@ -921,14 +911,14 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 {
-#ifdef USE_ASYNC
+#if USE_ASYNC
 	fifo_stop();
 	fifo_terminate();
 	event_terminate();
 #endif
 
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#if USE_LIBPCAUDIO
 		audio_object_close(my_audio);
 		audio_object_destroy(my_audio);
 		my_audio = NULL;
@@ -953,10 +943,12 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 		p_decoder = NULL;
 	}
 
+	WavegenFini();
+
 	return ENS_OK;
 }
 
-const char *version_string = PACKAGE_VERSION;
+static const char version_string[] = PACKAGE_VERSION;
 ESPEAK_API const char *espeak_Info(const char **ptr)
 {
 	if (ptr != NULL)

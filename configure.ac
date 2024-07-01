@@ -136,17 +136,28 @@ else
 fi
 
 
-AC_LANG_PUSH(C)
-TEMP_CFLAGS="$CFLAGS"
-CFLAGS="$CFLAGS -fsanitize=fuzzer"
-AC_MSG_CHECKING([if $CC supports fuzzer with the -fsanitize=fuzzer flag])
-AC_COMPILE_IFELSE(
-	[AC_LANG_PROGRAM( [[]], [[]])],
-	[have_fuzzer_fuzzer=yes],
-	[have_fuzzer_fuzzer=no])
-AC_MSG_RESULT($have_fuzzer_fuzzer)
-CFLAGS="$TEMP_CFLAGS"
-AC_LANG_POP(C)
+if test "$with_libfuzzer" = yes ; then
+	AC_LANG_PUSH(C)
+	TEMP_CFLAGS="$CFLAGS"
+	TEMP_LIBS="$LIBS"
+	HOST_CPU="`$CC -print-multiarch | sed -e 's/-.*//'`"
+	LIBFUZZER_NO_MAIN="`$CC -print-runtime-dir`/libclang_rt.fuzzer_no_main-$HOST_CPU.a -lstdc++ -lm"
+	CFLAGS="$CFLAGS -fsanitize=fuzzer-no-link"
+	LIBS="$LIBS $LIBFUZZER_NO_MAIN"
+	AC_MSG_CHECKING([if $CC supports fuzzer with the -fsanitize=fuzzer flag])
+	AC_COMPILE_IFELSE(
+		[AC_LANG_PROGRAM( [[]], [[]])],
+		[have_fuzzer_fuzzer=yes],
+		[have_fuzzer_fuzzer=no])
+	AC_MSG_RESULT($have_fuzzer_fuzzer)
+	if test "$have_fuzzer_fuzzer" != yes ; then
+		CFLAGS="$TEMP_CFLAGS"
+		LIBFUZZER_NO_MAIN=""
+	fi
+	AC_SUBST(LIBFUZZER_NO_MAIN)
+	LIBS="$TEMP_LIBS"
+	AC_LANG_POP(C)
+fi
 
 dnl ================================================================
 dnl FreeBSD check.
@@ -221,7 +232,7 @@ else
     AC_CHECK_HEADERS([pcaudiolib/audio.h],
         [
             have_pcaudiolib=yes
-            PCAUDIOLIB_CFLAGS=
+            PCAUDIOLIB_CFLAGS=-DUSE_LIBPCAUDIO=1
             PCAUDIOLIB_LIBS=-lpcaudio
         ],[
             have_pcaudiolib=no
@@ -258,12 +269,14 @@ if test "$with_sonic" = "no" ; then
 else
     AC_CHECK_HEADERS([sonic.h],
         [
+            SONIC_CFLAGS=-DUSE_LIBSONIC=1
             AC_CHECK_LIB([sonic], [sonicCreateStream])
             have_sonic=yes
         ],[
             have_sonic=no
         ])
 fi
+AC_SUBST(SONIC_CFLAGS)
 
 AC_CHECK_HEADERS([valgrind/memcheck.h])
 

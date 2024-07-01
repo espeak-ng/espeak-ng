@@ -1708,6 +1708,9 @@ include ph_farsi
 phonemetable fi base1
 include ph_finnish
 
+phonemetable fo base1
+include ph_faroese
+
 phonemetable smj base1
 include ph_lule_saami
 
@@ -1805,11 +1808,17 @@ include ph_swedish
 phonemetable sw base1
 include ph_swahili
 
+phonemetable ti base1
+include ph_tigrinya
+
 phonemetable tn base1
 include ph_setswana
 
 phonemetable tt base1
 include ph_tatar
+
+phonemetable uk base1
+include ph_ukrainian
 
 phonemetable vi base1
 include ph_vietnam
@@ -2019,8 +2028,6 @@ include ph_serbian
 phonemetable ru-lv ru
 include ph_russian_lv
 
-phonemetable uk ru
-
 phonemetable az tr
 include ph_azerbaijani
 
@@ -2051,3 +2058,6 @@ phonemetable qdb en
 include ph_langbelta
 
 phonemetable ms id
+
+phonemetable kaa kk
+include ph_karakalpak

@@ -38,7 +38,6 @@
 
 #include "readclause.h"
 #include "common.h"               // for GetFileLength, strncpy0
-#include "config.h"               // for HAVE_MKSTEMP
 #include "dictionary.h"           // for LookupDictList, DecodePhonemes, Set...
 #include "error.h"                // for create_file_error_context
 #include "phoneme.h"              // for phonSWITCH
@@ -47,9 +46,12 @@
 #include "ssml.h"                 // for SSML_STACK, ProcessSsmlTag, N_PARAM...
 #include "synthdata.h"            // for SelectPhonemeTable
 #include "translate.h"            // for Translator, utf8_out, CLAUSE_OPTION...
-#include "voice.h"                // for voice, voice_t, current_voice_selected
+#include "voice.h"                // for voice, voice_t, espeak_GetCurrentVoice
 
 #define N_XML_BUF   500
+
+static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
+static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc);
 
 static const char *xmlbase = ""; // base URL from <speak>
 
@@ -164,14 +166,11 @@ static void UngetC(int c)
 	ungot_char = c;
 }
 
-const char *WordToString2(unsigned int word)
+const char *WordToString2(char buf[5], unsigned int word)
 {
 	// Convert a language mnemonic word into a string
 	int ix;
-	static char buf[5];
 	char *p;
-
-	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	p = buf;
 	for (ix = 3; ix >= 0; ix--) {
@@ -190,16 +189,13 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 
 	flags[0] = flags[1] = 0;
 	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL)) {
-		char phonemes2[55];
-		SetWordStress(tr, phonemes, flags, -1, 0);
-		DecodePhonemes(phonemes, phonemes2);
-		sprintf(text_out, "[\002%s]]", phonemes2);
+		DecodeWithPhonemeMode(text_out, phonemes, tr, NULL, flags);
 		return text_out;
 	}
 	return NULL;
 }
 
-static const char *LookupCharName(Translator *tr, int c, int only)
+static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only)
 {
 	// Find the phoneme string (in ascii) to speak the name of character c
 	// Used for punctuation characters and symbols
@@ -210,9 +206,6 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 	char phonemes[60];
 	const char *lang_name = NULL;
 	char *string;
-	static char buf[60];
-
-	MAKE_MEM_UNDEFINED(&buf, sizeof(buf));
 
 	buf[0] = 0;
 	flags[0] = 0;
@@ -222,10 +215,12 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 	ix = utf8_out(c, &single_letter[2]);
 	single_letter[2+ix] = 0;
 
-	if (only) {
+	if (only == true) {
 		string = &single_letter[2];
 		LookupDictList(tr, &string, phonemes, flags, 0, NULL);
-	} else {
+	}
+
+	if (only == false) {
 		string = &single_letter[1];
 		if (LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0) {
 			// try _* then *
@@ -236,36 +231,31 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 				TranslateRules(tr, &single_letter[2], phonemes, sizeof(phonemes), NULL, 0, NULL);
 			}
 		}
-	}
-
-	if ((only == 0) && ((phonemes[0] == 0) || (phonemes[0] == phonSWITCH)) && (tr->translator_name != L('e', 'n'))) {
-		// not found, try English
-		SetTranslator2(ESPEAKNG_DEFAULT_VOICE);
-		string = &single_letter[1];
-		single_letter[1] = '_';
-		if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL) == 0) {
-			string = &single_letter[2];
-			LookupDictList(translator2, &string, phonemes, flags, 0, NULL);
-		}
-		if (phonemes[0])
-			lang_name = ESPEAKNG_DEFAULT_VOICE;
-		else
-			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
+		
+		if (((phonemes[0] == 0) || (phonemes[0] == phonSWITCH)) && (tr->translator_name != L('e', 'n'))) {
+    		// not found, try English
+    		SetTranslator2(ESPEAKNG_DEFAULT_VOICE);
+    		string = &single_letter[1];
+    		single_letter[1] = '_';
+    		if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL) == 0) {
+    			string = &single_letter[2];
+    			LookupDictList(translator2, &string, phonemes, flags, 0, NULL);
+    		}
+    		if (phonemes[0])
+    			lang_name = ESPEAKNG_DEFAULT_VOICE;
+    		else
+    			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
+    	}
 	}
 
 	if (phonemes[0]) {
-		char phonemes2[60];
 		if (lang_name) {
-			SetWordStress(translator2, phonemes, flags, -1, 0);
-			DecodePhonemes(phonemes, phonemes2);
-			sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(tr->translator_name));
+			DecodeWithPhonemeMode(buf, phonemes, tr, translator2, flags);
 			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 		} else {
-			SetWordStress(tr, phonemes, flags, -1, 0);
-			DecodePhonemes(phonemes, phonemes2);
-			sprintf(buf, "[\002%s]] ", phonemes2);
+			DecodeWithPhonemeMode(buf, phonemes, tr, NULL, flags);
 		}
-	} else if (only == 0)
+	} else if (only == false)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
 
 	return buf;
@@ -287,6 +277,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int bufix1;
 	char buf[200];
 	char ph_buf[30];
+	char cn_buf[60];
 
 	c2 = *c2_ptr;
 	buf[0] = 0;
@@ -301,7 +292,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				punctname = ph_buf; // use word for 'period' instead of 'dot'
 		}
 		if (punctname == NULL)
-			punctname = LookupCharName(tr, c1, 0);
+			punctname = LookupCharName(cn_buf, tr, c1, false);
 
 		if (punctname == NULL)
 			return -1;
@@ -339,10 +330,8 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				        punctname, punct_count, punctname);
 		} else {
 			// end the clause now and pick up the punctuation next time
-			UngetC(c2);
 			ungot_char2 = c1;
-			buf[0] = ' ';
-			buf[1] = 0;
+			TerminateBufWithSpaceAndZero(buf, 0, &c2);
 		}
 	}
 
@@ -424,7 +413,7 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 	if (variant_name[0] == '!' && variant_name[1] == 'v' && variant_name[2] == PATHSEP)
 		variant_name += 3; // strip variant directory name, !v plus PATHSEP
 	strncpy0(base_voice_variant_name, variant_name, sizeof(base_voice_variant_name));
-	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
+	memcpy(&base_voice, espeak_GetCurrentVoice(), sizeof(base_voice));
 }
 
 static void RemoveChar(char *p)
@@ -491,7 +480,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int c1 = ' '; // current character
 	int c2; // next character
 	int cprev = ' '; // previous character
-	int c_next;
+	int c_next = 0;
 	int parag;
 	int ix = 0;
 	int j;
@@ -605,10 +594,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if (ix > (n_buf - 20)) {
 						// Perhaps not enough room, end the clause before the SSML tag
-						UngetC(c2);
 						ungot_char2 = c1;
-						buf[ix] = ' ';
-						buf[ix+1] = 0;
+						TerminateBufWithSpaceAndZero(buf, ix, &c2);
 						return CLAUSE_NONE;
 					}
 
@@ -625,8 +612,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
 
 					if (terminator != 0) {
-						buf[ix] = ' ';
-						buf[ix++] = 0;
+						TerminateBufWithSpaceAndZero(buf, ix, NULL);
 
 						if (terminator & CLAUSE_TYPE_VOICE_CHANGE)
 							strcpy(voice_change, current_voice_id);
@@ -652,8 +638,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				ix += utf8_out(c1, &buf[ix]);
 				terminator = CLAUSE_PERIOD; // line doesn't end in punctuation, assume period
 			}
-			buf[ix] = ' ';
-			buf[ix+1] = 0;
+			TerminateBufWithSpaceAndZero(buf, ix, NULL);
 			return terminator;
 		}
 
@@ -679,7 +664,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					if (c2 != '1') {
 						// a list of punctuation characters to be spoken, terminated by space
 						j = 0;
-						while (!Eof() && !iswspace(c2)) {
+						while (!Eof() && !iswspace(c2) && (j < N_PUNCTLIST-1)) {
 							option_punctlist[j++] = c2;
 							c2 = GetC();
 							buf[ix++] = ' ';
@@ -749,12 +734,9 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			}
 			if (parag > 0) {
 				// 2nd newline, assume paragraph
-				UngetC(c2);
-
 				if (end_clause_after_tag)
 					RemoveChar(&buf[end_clause_index]); // delete clause-end punctiation
-				buf[ix] = ' ';
-				buf[ix+1] = 0;
+				TerminateBufWithSpaceAndZero(buf, ix, &c2);
 				if (parag > 3)
 					parag = 3;
 				if (option_ssml) parag = 1;
@@ -763,9 +745,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 			if (linelength <= option_linelength) {
 				// treat lines shorter than a specified length as end-of-clause
-				UngetC(c2);
-				buf[ix] = ' ';
-				buf[ix+1] = 0;
+				TerminateBufWithSpaceAndZero(buf, ix, &c2);
 				return CLAUSE_COLON;
 			}
 
@@ -784,10 +764,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 				if (!iswspace(c1)) {
 					if (!IsAlpha(c1) || !iswlower(c1)) {
-						UngetC(c2);
 						ungot_char2 = c1;
-						buf[end_clause_index] = ' '; // delete the end-clause punctuation
-						buf[end_clause_index+1] = 0;
+						TerminateBufWithSpaceAndZero(buf, end_clause_index, &c2);
 						return end_clause_after_tag;
 					}
 					end_clause_after_tag = 0;
@@ -849,7 +827,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				char *p2;
 
 				p2 = &buf[ix];
-				sprintf(p2, "%s", LookupCharName(tr, c1, 1));
+				char cn_buf[60];
+				sprintf(p2, "%s", LookupCharName(cn_buf, tr, c1, true));
 				if (p2[0] != 0) {
 					ix += strlen(p2);
 					announced_punctuation = c1;
@@ -920,9 +899,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				}
 
 				if (is_end_clause) {
-					UngetC(c_next);
-					buf[ix] = ' ';
-					buf[ix+1] = 0;
+					TerminateBufWithSpaceAndZero(buf, ix, &c_next);
 
 					if (iswdigit(cprev) && !IsAlpha(c_next)) // ????
 						punct_data &= ~CLAUSE_DOT_AFTER_LAST_WORD;
@@ -967,9 +944,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			// clause too long, getting near end of buffer, so break here
 			// try to break at a word boundary (unless we actually reach the end of buffer).
 			// (n_buf-4) is to allow for 3 bytes of multibyte character plus terminator.
-			buf[ix] = ' ';
-			buf[ix+1] = 0;
-			UngetC(c2);
+			TerminateBufWithSpaceAndZero(buf, ix, &c2);
 			return CLAUSE_NONE;
 		}
 	}
@@ -978,8 +953,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		ix += utf8_out(CHAR_EMPHASIS, &buf[ix]);
 	if (end_clause_after_tag)
 		RemoveChar(&buf[end_clause_index]); // delete clause-end punctiation
-	buf[ix] = ' ';
-	buf[ix+1] = 0;
+	TerminateBufWithSpaceAndZero(buf, ix, NULL);
 	return CLAUSE_EOF; // end of file
 }
 
@@ -1021,4 +995,27 @@ void InitText2(void)
 	sayas_mode = 0;
 
 	xmlbase = NULL;
+}
+
+static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
+	buf[index] = ' ';
+	buf[index+1] = 0;
+
+	if (ungetc != NULL) {
+		UngetC(*ungetc);
+	}
+}
+
+static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
+	char phonemes2[55];
+	if (tr2 == NULL) {
+		SetWordStress(tr, phonemes, flags, -1, 0);
+		DecodePhonemes(phonemes, phonemes2);
+		sprintf(buf, "[\002%s]]", phonemes2);
+	} else {
+		SetWordStress(tr2, phonemes, flags, -1, 0);
+	    DecodePhonemes(phonemes, phonemes2);
+			char wbuf[5];
+	    sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
+    }
 }

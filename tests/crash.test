@@ -1,0 +1,17 @@
+#!/bin/sh
+# include common script
+. "`dirname $0`/common"
+
+test_crash() {
+	TEST_NAME=$1
+
+	echo "testing CVE-${TEST_NAME}"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng -f "$(dirname $0)/crash_vectors/${TEST_NAME}.txt" -w /dev/null || exit 1
+}
+
+test_crash cve-2023-49990
+test_crash cve-2023-49991
+test_crash cve-2023-49992
+test_crash cve-2023-49993
+test_crash cve-2023-49994

@@ -36,13 +36,11 @@
 #include "synthesize.h"                // for KLATT_AV, KLATT_Kopen, N_KLATTP2
 #include "voice.h"                     // for N_PEAKS
 
-static int frame_width;
-
-static int default_freq[N_PEAKS] =
+static const int default_freq[N_PEAKS] =
 { 200, 500, 1200, 3000, 3500, 4000, 6900, 7800, 9000 };
-static int default_width[N_PEAKS] =
+static const int default_width[N_PEAKS] =
 { 750, 500, 550, 550, 600, 700, 700, 700, 700 };
-static int default_klt_bw[N_PEAKS] =
+static const int default_klt_bw[N_PEAKS] =
 { 89, 90, 140, 260, 260, 260, 500, 500, 500 };
 
 static double read_double(FILE *stream)
@@ -87,7 +85,7 @@ float polint(float xa[], float ya[], int n, float x)
 	return y;
 }
 
-static SpectFrame *SpectFrameCreate()
+static SpectFrame *SpectFrameCreate(void)
 {
 	int ix;
 	SpectFrame *frame;
@@ -230,7 +228,7 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 }
 
 #pragma GCC visibility push(default)
-SpectSeq *SpectSeqCreate()
+SpectSeq *SpectSeqCreate(void)
 {
 	SpectSeq *spect = malloc(sizeof(SpectSeq));
 	if (!spect)
@@ -376,9 +374,6 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 		if (frame->nx * frame->dx > spect->max_x) spect->max_x = (int)(frame->nx * frame->dx);
 	}
 	spect->max_x = 9000; // disable auto-xscaling
-
-	frame_width = (int)((FRAME_WIDTH*spect->max_x)/MAX_DISPLAY_FREQ);
-	if (frame_width > FRAME_WIDTH) frame_width = FRAME_WIDTH;
 
 	// start times from zero
 	time_offset = spect->frames[0]->time;

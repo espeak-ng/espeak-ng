@@ -1,34 +1,23 @@
 #!/bin/sh
 # Test a command for presence and ability to output the sha1 hash of a file
 is_hash() {
-   echo -n "checking for SHA1 hashing command ... "
-   if check_hash sha1sum; then
-       sha1sum=sha1sum
-   elif check_hash sha1; then
-       sha1sum=sha1
-   elif check_hash shasum; then
-       sha1sum=shasum
-   else
-       echo "no"
-       exit 1
-   fi
-}
-check_hash() {
-   which $1 &&
-   $1 </dev/null 2>/dev/null |
-   awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
-   # Test some common commands to find the correct one for the system being tested on.
-}
-
-# test if Klatt synthesizer is installed
-is_klatt() {
-    echo -n "checking if klatt is installed ... "
-    if [ "`which klatt`" != "" ]; then
-        echo "yes"
+    echo -n "checking for SHA1 hashing command ... "
+    if check_hash sha1sum; then
+        sha1sum=sha1sum
+    elif check_hash sha1; then
+        sha1sum=sha1
+    elif check_hash shasum; then
+        sha1sum=shasum
     else
         echo "no"
-        exit
+        exit 1
     fi
+}
+check_hash() {
+    which $1 &&
+    $1 </dev/null 2>/dev/null |
+    awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
+    # Test some common commands to find the correct one for the system being tested on.
 }
 
 # test if MBROLA synthesizer is installed
@@ -55,53 +44,59 @@ test_phon() {
     fi
 
     echo "testing ${TEST_LANG} $MESSAGE"
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" \
-        > actual.txt || exit 1
-    echo "${EXPECTED}" > expected.txt
-    if [ "$MESSAGE" = "Ignore" ] ; then
-        diff expected.txt actual.txt || (echo "... ignoring error" && true)
-    else
-        diff expected.txt actual.txt || exit 1
+    RESULT=$(
+        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        $VALGRIND src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
+    )
+    if [ "x$RESULT" != "x$EXPECTED" ] ; then
+        echo "$RESULT != $EXPECTED"
+        if [ "$MESSAGE" = "Ignore" ] ; then
+            echo "... ignoring error"
+        else
+            exit 1
+        fi
     fi
 }
 
 # Check generated wav file from processed text
 test_wav () {
-        VOICE=$1
-        EXPECTED=$2
-        TEST_TEXT=$3
-        MESSAGE=$4
+    VOICE=$1
+    EXPECTED=$2
+    TEST_TEXT=$3
+    MESSAGE=$4
 
-        echo "testing ${VOICE}${MESSAGE}"
+    echo "testing ${VOICE} ${MESSAGE}"
+    RESULT=$(
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-                $VALGRIND src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
-                > actual.txt || exit 1
-        < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
-        echo "${EXPECTED}" > expected.txt
+        $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" | $sha1sum | awk '{ print $1 }' || exit 1
+    )
+    if [ "x$RESULT" != "x$EXPECTED" ] ; then
+        echo "$RESULT != $EXPECTED"
         if [ "$MESSAGE" = "Ignore" ] ; then
-            diff expected.txt sum.txt || (echo "... ignoring error" && true)
+            echo "... ignoring error"
         else
-            diff expected.txt sum.txt || exit 1
+            exit 1
         fi
+    fi
 }
 
 # Check generated wav file from processed text, where $EXPECTED is grep string
 test_wav_grep () {
-        VOICE=$1
-        EXPECTED=$2
-        TEST_TEXT=$3
-        MESSAGE=$4
-        echo "testing ${VOICE}${MESSAGE}"
-        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-                $VALGRIND src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" \
-                > actual.txt || exit 1
-        < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
-        if [ "$MESSAGE" = "Ignore" ] ; then
-            cat sum.txt | grep -E "$EXPECTED" || (echo "... ignoring error" && true)
-        else
-            cat sum.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat actual.txt; exit 1; }
-        fi
+    VOICE=$1
+    EXPECTED=$2
+    TEST_TEXT=$3
+    MESSAGE=$4
+    echo "testing ${VOICE} ${MESSAGE}"
+    $()
+    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+            $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
+            > actual.txt || exit 1
+    < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
+    if [ "$MESSAGE" = "Ignore" ] ; then
+        cat sum.txt | grep -E "$EXPECTED" || (echo "... ignoring error" && true)
+    else
+        cat sum.txt | grep -E "$EXPECTED" || { printf "wrong hash: "; cat sum.txt; exit 1; }
+    fi
 }
 
 # Check generated wav file from list of phonemes
@@ -109,27 +104,31 @@ test_phwav() {
 	TEST_LANG=$1
 	EXPECTED=$2
 	TEST_TEXT=$3
-        test_wav $TEST_LANG $EXPECTED "[[$TEST_TEXT]]"
+    test_wav $TEST_LANG $EXPECTED "[[$TEST_TEXT]]"
 }
 
 test_replace() {
     TEST_LANG=$1
     TEST_TEXT=$2
-    MESSAGE=$3
+	EXPECTED=$3
+    MESSAGE=$4
 
     if [ "$MESSAGE" = "" ] ; then
         MESSAGE=$TEST_TEXT
     fi
 
     echo "testing ${TEST_LANG}"
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" \
-        > actual.txt || exit 1
-    < actual.txt grep -a -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > filtered.txt
-    if [ "$MESSAGE" = "Ignore" ] ; then
-        diff expected.txt filtered.txt || (echo "... ignoring error" && true)
-    else
-        diff expected.txt filtered.txt || exit 1
+    RESULT=$(
+        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | \
+        grep -a -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' || exit 1
+    )
+    if [ "x$RESULT" != "x$EXPECTED" ] ; then
+        echo "$RESULT != $EXPECTED"
+        if [ "$MESSAGE" = "Ignore" ] ; then
+            echo "... ignoring error"
+        else
+            exit 1
+        fi
     fi
 }
-

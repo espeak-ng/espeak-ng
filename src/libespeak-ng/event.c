@@ -46,7 +46,7 @@ static bool my_stop_is_acknowledged = false;
 static bool my_terminate_is_required = 0;
 // my_thread: polls the audio duration and compares it to the duration of the first event.
 static pthread_t my_thread;
-static bool thread_inited;
+static bool thread_inited = false;
 
 static t_espeak_callback *my_callback = NULL;
 static bool my_event_is_running = false;
@@ -83,9 +83,15 @@ void event_init(void)
 	pthread_mutex_init(&my_mutex, (const pthread_mutexattr_t *)NULL);
 	init();
 
-	assert(-1 != pthread_cond_init(&my_cond_start_is_required, NULL));
-	assert(-1 != pthread_cond_init(&my_cond_stop_is_required, NULL));
-	assert(-1 != pthread_cond_init(&my_cond_stop_is_acknowledged, NULL));
+	int a_status;
+
+	a_status = pthread_cond_init(&my_cond_start_is_required, NULL);
+	assert(-1 != a_status);
+	a_status = pthread_cond_init(&my_cond_stop_is_required, NULL);
+	assert(-1 != a_status);
+	a_status = pthread_cond_init(&my_cond_stop_is_acknowledged, NULL);
+	assert(-1 != a_status);
+	(void)a_status;
 
 	pthread_attr_t a_attrib;
 
@@ -222,7 +228,7 @@ espeak_ng_STATUS event_declare(espeak_EVENT *event)
 	return status;
 }
 
-espeak_ng_STATUS event_clear_all()
+espeak_ng_STATUS event_clear_all(void)
 {
 	espeak_ng_STATUS status;
 	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
@@ -352,7 +358,7 @@ static espeak_ng_STATUS push(void *the_data)
 	return ENS_OK;
 }
 
-static void *pop()
+static void *pop(void)
 {
 	void *the_data = NULL;
 
@@ -373,7 +379,7 @@ static void *pop()
 }
 
 
-static void init()
+static void init(void)
 {
 	while (event_delete((espeak_EVENT *)pop()))
 		;
@@ -381,7 +387,7 @@ static void init()
 	node_counter = 0;
 }
 
-void event_terminate()
+void event_terminate(void)
 {
 	if (thread_inited) {
 		my_terminate_is_required = true;
@@ -408,7 +414,9 @@ void clock_gettime2(struct timespec *ts)
 	if (!ts)
 		return;
 
-	assert(gettimeofday(&tv, NULL) != -1);
+	int a_status = gettimeofday(&tv, NULL);
+	assert(a_status != -1);
+	(void)a_status;
 	ts->tv_sec = tv.tv_sec;
 	ts->tv_nsec = tv.tv_usec*1000;
 }
