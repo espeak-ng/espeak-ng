@@ -1682,7 +1682,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		if (prev_thousands == 0) {
 			if ((decimal_point == 0) && (ordinal == 0)) {
 				// Look for special pronunciation for this number in isolation (LANG=kl)
-				sprintf(string, "_%dn", value);
+				sprintf(string, "_%ldn", value);
 				if (Lookup(tr, string, ph_out))
 					return 1;
 			}
