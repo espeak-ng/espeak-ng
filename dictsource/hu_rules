@@ -52,7 +52,6 @@
         cs         tS
         ccs        tS:
      !) cz         ts        // in names which start with a capital letter
-
 kalapá) csz (en    tSz
         csz        ts|s
   papu) cs         tS
@@ -276,6 +275,9 @@ har) cs (ik ts|S	For example párharcsikerét word
 _aká) c (so ts	For example akácsor word
 án) c (za ts	For example lánczavarok word
 án) c (zá ts	For example lánczár word
+per) c (cs ts
+aká) c (sarj ts
+c (zsák ts
 
 .group C
 C ts
@@ -947,6 +949,19 @@ bőrön) d (jav d	For example bőröndjavító word
 mó) d (spo d	For example életmódsportjaim word
 hó) d (sper d	For example hódsperma word
 gerez) d (sz d	For example gerezdszerű word
+hibri) d (jár d
+milliár) d (szí d
+jó) d (sze d
+jó) d (szi d
+jó) d (szü d
+elő) d (ját d
+najá) d (sz d
+leopár) d (sü d
+föl) d (jegy d
+mope) d (sz d
+manzár) d (sz d
+ren) d (st d
+ebé) d (ja d
 
 .group dz
   fogó) dz (kod    ts
@@ -1350,6 +1365,12 @@ me) ggyire J:iR2E	For example meggyire word
 héza) g (gy g	For example hézaggyökér word
 miri) gy (s J	For example mirigysejt word
 társasá) g (gy g	For example társasággyakoriság word
+höl) gy (ser J
+mestersé) g (gy g
+függősé) g (gy g
+rin) g (gy g
+le) gy (eztették J
+le) gy (eztetnünk J
 
 .group gy
         gy         J
@@ -1524,6 +1545,8 @@ gyó) gy (s J	For example gyógysampon word
 ü) gys (a J|S	For example ügysaláta word
 ü) gys (i J|S	For example ügysivatagi word
 ü) gy (sp J	For example ügyspecifikus word
+e) gy (eztet J:
+le) gy (eztete J
 
 .group h
         h          h
@@ -1584,7 +1607,8 @@ v) í (zener i:
 sz) í (vember i:
 árv) í (zi i:
 v) í (zigé i:
-csapatkv) í i:  For example csapatkvízi word
+csapatkv) í i:
+sz) í (veg i:
 
 .group j
         j          j
@@ -1888,6 +1912,8 @@ fé) ny (ját n^	For example fényjáték word
 adomá) ny (játé n^	For example adományjáték word
 adomá) ny (je n^	For example adományjelző word
 adomá) ny (jó n^	For example adományjószág word
+magá) n (jó n
+gú) ny (játé n^
 
 .group o
         o          o
@@ -2765,6 +2791,40 @@ menekvé) s (sz S	For example menekvésszorzónak word
 szociológu) s (sz S	For example szociológusszerelem word
 felújítá) s (sz S	For example felújításszerűség word
 gyűlölködé) s (sz S	For example gyűlölködésszünetet word
+borulá) s (sz S
+hasmené) s (sz S
+hömpölygé) s (sz S
+egre) s (sz S
+lovaglá) s (sz S
+elektromo) s (z S
+szopá) s (sz S
+összegezé) s (sz S
+összegzé) s (sz S
+honfoglalá) s (z S
+matematiku) s (sz S
+sajto) s (zs S
+érzé) s (zá S
+érzé) s (za S
+érzé) s (zsi S
+hízá) s (sz S
+ha) s (zu S
+csatló) s (sz S
+lapo) s (sz S
+hallá) s (sz S
+ő) s (zsu S
+ministrán) s (sz S
+intellektu) s (sz S
+oráli) s (sz S
+ovi) s (zs S
+ő) s (zebr S
+integritá) s (sz S
+váro) s (sz S
+zokogá) s (sz S
+digitáli) ssz (a s:
+digitáli) s (sz S
+evé) s (sz S
+gyülevé) ssz (el s:
+hú) s (szemek S
 
 .group ss
         ssz        ss2
@@ -3734,6 +3794,7 @@ holokau) sztsz st|s	For example holokausztszemlélet word
 holokau) szts st|S	For example holokausztsérültekké word
 kere) szts (ü st|S	For example keresztsüllyedés word
 para) szts(áf st|S	For example parasztsáfrány word
+gyalogo) sz (l s
 
 .group t
         t          t
@@ -4155,6 +4216,19 @@ címle) t (jegy t	For example címletjegyzék word
 transzpor) t (s t	For example transzportsebesség word
 helyze) t (ját t	For example helyzetjáték word
 részle) t (sz t	For example részletszépség word
+bohóza) t (játsz t
+horizon) t (sz t
+me) tsz (ü ts:
+mére) t (já t
+mére) t (jel t
+füze) t (jegy t
+bazal) t (sz t
+szir) t (jár t
+bo) tsz  t|s
+részvé) t (saj t
+A) ts (ör t|S
+C) ts (ör t|S
+szöve) t (jav t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -4822,6 +4896,16 @@ tör) zszs Z:
 vá) z (si z	For example vázsisak word
 há) z (sát z	For example színházsátorban word
 tempó) zs (o Z	For example tempózsonglőr word
+dobo) z (sa z
+dobo) z (sé z
+dobo) z (so z
+dobo) z (sp z
+vará) zs (z Z
+perver) z (s z
+ádá) z (sá z
+raj) z (sh z
+raj) z (si z
+raj) z (su z
 
 .group
         $          dolla:R2
