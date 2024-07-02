@@ -60,7 +60,7 @@ test_phon ca "d'ona# a#m'o* k'E s@**,as f'Elis
 a#jS;'O
 ill'us k'ompa#n^ Q@nj'ut
 Z;'a es Un l^w'it *R'EtUl Bla#B'is D'onz@_:_: k'e v#,e D,oBl@'ak" "Dóna amor que seràs feliç. Això, il·lús company geniüt, ja és un lluït rètol blavís d’onze kWh." "Latn"
-test_phon crh q,@*@mt,AtArdZ'A
+test_phon crh "q,@*@mt,AtArdZ'A
 q,@*@mtAt'Ar t;Il'I" "Къырымтатарджа, Къырымтатар тили." "Cyrl"
 test_phon crh "q,@*@mtAtArdZ'A
 q,@*@mt'AtAr t;Il'I" "Qırımtatarca, Qırımtatar tili." "Latn"
