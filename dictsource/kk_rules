@@ -1,12 +1,19 @@
 // This file is UTF8 encoded 
 // Spelling to phoneme rules for Kazakh
 
+.L04  б в г ғ д ж з к қ л м н ң п р с т ф х ц ч ш щ  // consonants
 
 .group а
         а        A
+        а  (_   'A
+        а  (L04_ 'A
+        а  (L04L04 'A
 
 .group ә
         ә        &
+        ә  (_   '&
+        ә  (L04_ '&
+        ә  (L04L04 '&
 
 .group б
         б        b
@@ -24,19 +31,29 @@
         д        d
 
 .group е
+    _)  е        je
         е        e
+        е  (_    'e
+        е  (L04_ 'e
+        е  (L04L04 'e
 
 .group ё
         ё        jo
+        ё  (_    j'o
+        ё  (L04_ j'o
+        ё  (L04L04 j'o
 
 .group ж
-        ж        Z
+        ж        Z;
 
 .group з
         з        z
 
 .group и
         и        @j
+        и  (_   '@j
+        и  (L04_ '@j
+        и  (L04L04_ '@j
 
 .group й
         й        j
@@ -61,9 +78,16 @@
 
 .group о
         о        o
+        о  (_    'o
+        о  (L04_ 'o
+        о  (L04L04 'o
+
 
 .group ө
         ө        8
+        ө  (_   '8
+        ө  (L04_ '8
+        ө  (L04L04_ '8
 
 .group п
         п        p
@@ -78,19 +102,28 @@
         т        t
 
 .group у
-        у        w
+        у        Uw
+        у  (_   'Uw
+        у  (L04_ 'Uw
+        у  (L04L04_ 'Uw
 
 .group ұ
         ұ        U
+        ұ  (_   'U
+        ұ  (L04_ 'U
+        ұ  (L04L04 'U
 
 .group ү
         ү        u#
+        ү  (_   'u#
+        ү  (L04_ 'u#
+        ү  (L04L04_ 'u#
 
 .group ф
         ф        f
 
 .group х
-        х        x
+        х        X
 
 .group һ
         һ        h
@@ -99,31 +132,47 @@
         ц        ts
 
 .group ч
-        ч        tS
+        ч        tS;
 
 .group ш
-        ш        S
+        ш        S;
 
 .group щ
-        щ        SS
+        щ        S;tS;
 
 .group ъ
         ъ        ?
 
 .group ы
         ы        @
+        ы  (_   '@
+        ы  (L04_ '@
+        ы  (L04L04_ '@
 
 .group і
         і        I
+        і  (_   'I
+        і  (L04_ 'I
+        і  (L04L04_ 'I
 
 .group ь
         ь        ?
 
 .group э
-        э        e
+        э        E
+        э  (_   'E
+        э  (L04_ 'E
+        э  (L04L04_ 'E
 
 .group ю
-        ю        ju
+        ю        jUw
+        ю  (_    j'Uw
+        ю  (L04_ j'Uw
+        ю  (L04L04_ j'Uw
 
 .group я
-        я        ja
+        я        jA
+        я  (_    j'A
+        я  (L04_ j'A
+        я  (L04L04_ j'A
+        
