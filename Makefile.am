@@ -547,8 +547,8 @@ dictionaries: \
 	espeak-ng-data/sw_dict \
 	espeak-ng-data/ta_dict \
 	espeak-ng-data/te_dict \
-	espeak-ng-data/ti_dict \
 	espeak-ng-data/th_dict \
+	espeak-ng-data/ti_dict \
 	espeak-ng-data/tk_dict \
 	espeak-ng-data/tn_dict \
 	espeak-ng-data/tr_dict \
