@@ -471,6 +471,7 @@ dictionaries: \
 	espeak-ng-data/eu_dict \
 	espeak-ng-data/fa_dict \
 	espeak-ng-data/fi_dict \
+	espeak-ng-data/fo_dict \
 	espeak-ng-data/fr_dict \
 	espeak-ng-data/ga_dict \
 	espeak-ng-data/gd_dict \
@@ -546,8 +547,8 @@ dictionaries: \
 	espeak-ng-data/sw_dict \
 	espeak-ng-data/ta_dict \
 	espeak-ng-data/te_dict \
-	espeak-ng-data/ti_dict \
 	espeak-ng-data/th_dict \
+	espeak-ng-data/ti_dict \
 	espeak-ng-data/tk_dict \
 	espeak-ng-data/tn_dict \
 	espeak-ng-data/tr_dict \
@@ -557,6 +558,7 @@ dictionaries: \
 	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
+	espeak-ng-data/xex_dict \
 	espeak-ng-data/yue_dict
 
 DICTSOURCE = \
@@ -655,6 +657,9 @@ espeak-ng-data/fa_dict: dictsource/fa_list dictsource/fa_rules dictsource/fa_ext
 
 fi: espeak-ng-data/fi_dict
 espeak-ng-data/fi_dict: dictsource/fi_list dictsource/fi_rules dictsource/fi_extra dictsource/fi_emoji
+
+fo: espeak-ng-data/fo_dict
+espeak-ng-data/fo_dict: dictsource/fo_list dictsource/fo_rules dictsource/fo_extra dictsource/fo_emoji
 
 fr: espeak-ng-data/fr_dict
 espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
@@ -927,6 +932,9 @@ espeak-ng-data/uz_dict: dictsource/uz_list dictsource/uz_rules dictsource/uz_ext
 
 vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
+
+xex: espeak-ng-data/xex_dict
+espeak-ng-data/xex_dict: dictsource/xex_list dictsource/xex_rules
 
 cmn: espeak-ng-data/cmn_dict
 dictsource/cmn_listx:
