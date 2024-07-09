@@ -462,6 +462,7 @@ dictionaries: \
 	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
 	espeak-ng-data/da_dict \
+        espeak-ng-data/dbr_dict \
 	espeak-ng-data/de_dict \
 	espeak-ng-data/el_dict \
 	espeak-ng-data/en_dict \
@@ -630,6 +631,9 @@ espeak-ng-data/cy_dict: dictsource/cy_list dictsource/cy_rules dictsource/cy_ext
 
 da: espeak-ng-data/da_dict
 espeak-ng-data/da_dict: dictsource/da_list dictsource/da_rules dictsource/da_extra dictsource/da_emoji
+
+dbr: espeak-ng-data/dbr_dict
+espeak-ng-data/dbr_dict: dictsource/dbr_list dictsource/dbr_rules dictsource/dbr_extra
 
 de: espeak-ng-data/de_dict
 espeak-ng-data/de_dict: dictsource/de_list dictsource/de_rules dictsource/de_extra dictsource/de_emoji
