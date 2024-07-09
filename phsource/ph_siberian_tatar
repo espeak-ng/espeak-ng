@@ -1,0 +1,98 @@
+//====================================
+// Siberian Tatar
+//====================================
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 180
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 110
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 180
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 110
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 180
+  FMT(vowel/u_2)
+endphoneme
+
+phoneme &
+  vwl starttype #a endtype #a
+  ipa æ
+  length 110
+  FMT(vowel/&)
+endphoneme
+
+phoneme V
+  vwl starttype #@ endtype #@
+  ipa ɤ
+  length 110
+  FMT(vowel/@_2)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  ipa ø
+  length 110
+  FMT(vowel/oe)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  ipa y
+  length 180
+  FMT(vowel/y)
+endphoneme
+
+
+// Consonants
+
+phoneme t
+  vls dnt stp
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 70)
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme G
+  import_phoneme base1/Q"
+endphoneme
