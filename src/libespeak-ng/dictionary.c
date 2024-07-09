@@ -523,6 +523,40 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 	return phon_out;
 }
 
+//// Extension: write phone mnemonic with stress
+char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags) {
+	if (plist->synthflags & SFLAG_SYLLABLE) {
+		unsigned char stress = plist->stresslevel;
+
+		if (stress > 1) {
+			int c = 0;
+
+			if (stress > STRESS_IS_PRIORITY) {
+				stress = STRESS_IS_PRIORITY;
+			}
+
+			if (use_ipa) {
+				c = 0x2cc; // ipa, secondary stress
+
+				if (stress > STRESS_IS_SECONDARY) {
+					c = 0x02c8; // ipa, primary stress
+				}
+			} else {
+				const char stress_chars[] = "==,,''";
+
+				c = stress_chars[stress];
+			}
+
+			if (c != 0) {
+				phon_out += utf8_out(c, phon_out);
+			}
+		}
+	}
+
+	return WritePhMnemonic(phon_out, ph, plist, use_ipa, flags);
+}
+////
+
 const char *GetTranslatedPhonemeString(int phoneme_mode)
 {
 	/* Called after a clause has been translated into phonemes, in order
@@ -1195,7 +1229,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		}
 		break;
 
-	case STRESSPOSN_EU: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last. 
+	case STRESSPOSN_EU: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last.
 		if ((stressed_syllable == 0) && (vowel_count > 2)) {
 			for (ix = 1; ix < vowel_count; ix++) {
 				vowel_stress[ix] = STRESS_IS_DIMINISHED;
