@@ -1,0 +1,7 @@
+language variant
+name fast_test2
+klatt 6
+// Try decreasing these values to make eSpeak's fastest speed faster.
+// This is currently unstable.
+
+fast_test2 115

@@ -1,0 +1,14 @@
+language variant
+name Baby
+klatt 6
+breath 5
+voicing 55
+speed 60
+pitch 340 450
+consonants 40 50
+formant 1 120 50 100
+formant 2 130  100 100 100
+formant 3 80  100 300
+formant 4 114  100 40
+formant 5 25  100 100
+stressAdd 10 20 10 10 0 0 10 20

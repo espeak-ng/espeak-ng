@@ -1,0 +1,13 @@
+language variant
+name Recep2
+klatt 6
+pitch  97 140
+voicing 125
+consonants 75 65
+breath 50
+formant 1 88 120 100
+formant 2 95  120 80
+formant 3 100  50 80
+formant 4 100 30 30
+formant 5 90 90 90
+formant 6 110 60 65
