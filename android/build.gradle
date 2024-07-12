@@ -39,7 +39,7 @@ android {
         minSdk 21
         targetSdk 33
         versionCode 22
-        versionName "1.52-dev"
+        versionName "1.52.0"
 
         externalNativeBuild {
             cmake {
