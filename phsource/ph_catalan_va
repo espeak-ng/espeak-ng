@@ -9,19 +9,6 @@
 phoneme a
   vwl starttype #a endtype #a
   length 180
-  IF thisPh(isWordEnd) THEN
-    IF thisPh(isUnstressed) AND nextPh(isVowel) AND nextPh(isStressed) THEN
-        ipa NULL
-    ELIF nextPh(a) THEN
-        IF thisPh(isUnstressed) OR nextPh(isStressed) THEN
-            ipa NULL
-        ENDIF
-    ENDIF
-  ELIF thisPh(isWordStart) THEN
-    IF thisPh(isUnstressed) AND prevPh(a) AND prevPh(isStressed) THEN
-        ipa NULL
-    ENDIF
-  ENDIF
   FMT(vowel/a_6)
 endphoneme
 
@@ -37,17 +24,11 @@ phoneme e
   
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordStart) THEN
-        IF prevPh(isVowel) THEN
-            ipa NULL
-        ELIF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
             ChangePhoneme(a)
         ELIF nextPh(j) AND next2Ph(S) THEN
             ChangePhoneme(a)
         ENDIF
- //   ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
- //       ChangePhoneme(a)
-    ELIF thisPh(isWordEnd) AND nextPh(isVowel) AND nextPh(isStressed) THEN
-        ipa NULL
     ENDIF
   ENDIF
   FMT(vowel/e)
@@ -69,19 +50,13 @@ phoneme E
   
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordStart) THEN
-        IF prevPh(isVowel) THEN
-            ipa NULL
-        ELIF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
             ChangePhoneme(a)
         ELIF nextPh(j) AND next2Ph(S) THEN
             ChangePhoneme(a)
         ELSE 
             ChangePhoneme(e)
         ENDIF
-//    ELIF prevPh(isWordStart) AND prevPh(isNotVowel) AND nextVowel(isStressed) THEN // àtona inicial precedida de consonant en síl·laba pretònica ("llençol sencer")
-//        ChangePhoneme(a)
-    ELIF thisPh(isWordEnd) AND nextPh(isVowel) AND nextPh(isStressed) THEN
-        ipa NULL
     ELSE
         ChangePhoneme(e)
     ENDIF
@@ -104,15 +79,7 @@ phoneme O
  //     ChangePhoneme(u)    PREGUNTAR (coixí, collir, cobert)
  //   ELSE
  
-  IF thisPh(isWordEnd) THEN
-    IF nextPh(o) OR nextPh(O) THEN
-       ipa NULL
-    ELSE
-        ChangeIfUnstressed(o)
-    ENDIF
-  ELIF thisPh(isUnstressed) THEN
-    ChangePhoneme(o)
-  ENDIF
+  ChangeIfUnstressed(o)
   FMT(vowel/oo)
 endphoneme
 
@@ -126,11 +93,7 @@ endphoneme
 phoneme o
   vwl starttype #o endtype #o
   length 170
-  IF thisPh(isWordEnd) THEN
-    IF nextPh(o) OR nextPh(O) THEN
-       ipa NULL
-    ENDIF
-  ENDIF
+  
   FMT(vowel/o)
 endphoneme
 
@@ -141,7 +104,6 @@ phoneme u
     IF thisPh(isWordEnd) THEN
         IF nextPh(isVowel) THEN
             IF nextPh(u) OR nextPh(w) THEN
-                ipa NULL
             ELSE
                 ChangePhoneme(w)
             ENDIF
@@ -160,11 +122,7 @@ phoneme i
   vwl starttype #i endtype #i
   length 170
   IF thisPh(isUnstressed) AND nextPh(isVowel) THEN
-    IF nextPh(i) THEN
-        ipa NULL
-    ELSE
       ChangePhoneme(j)
-    ENDIF
   ENDIF
   FMT(vowel/i)
 endphoneme

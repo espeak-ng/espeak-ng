@@ -345,8 +345,13 @@ phoneme f
   IF thisPh(isWordStart) THEN
   ELSE
     IF nextPh(isVoiced) THEN
-        IF nextPh(isNotVowel) OR thisPh(isWordEnd) THEN
+        IF thisPh(isWordEnd) THEN
             ipa v
+        ELSE
+            IF nextPh(isVowel) OR nextPh(l) OR nextPh(**) OR nextPh(R) THEN
+            ELSE
+                ipa v
+            ENDIF
         ENDIF
     ENDIF
   ENDIF

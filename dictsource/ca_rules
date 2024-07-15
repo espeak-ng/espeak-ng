@@ -36,6 +36,8 @@
 .L25 ce sa vi           // not silent +nt
 
 .group a
+
+
         a          a
         ae         aE2  // do not reduce
         ahe        aE2  // do not reduce
@@ -595,6 +597,8 @@ _macro) i (@        i   // prefix: not glide (macroilla)
         j          Z    // (jota)
      
 ?4 Aix_) j         dZ    // dissimilation (mateix joc)
+?4 Aig_) j         dZ
+?4 Atx_) j         dZ
 ?4   s_) j         dZ    // (dos jocs)
 ?4   ç_) j         dZ    // (dos celíacs)
         
@@ -1176,7 +1180,6 @@ _contra) s (A      s    // (contrasentit)
 
 ?4   A) tx (_L13    i // (vaig portar) 
 ?4   A) tx (_L14    t // (vaig portar) 
-
 .group u
         u          u
      A) u (K       w    // glide
