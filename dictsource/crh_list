@@ -1,0 +1,489 @@
+// ***************************************************************************/ 
+// *   Crimean Tatar Language crh crh_list                                   *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+
+
+// LETTERS
+//*********
+
+a      A
+b      be
+c      dZe
+ç      tSe
+d      d;e
+e      e
+f      fe
+g      Je
+ğ      GI
+h      x@
+ı      @
+i      i
+j      Ze
+k      ce
+l      le
+m      me
+n      ne
+ñ      Ne
+_o     o $atend
+ö      W
+p      pe
+q      q@
+r      re
+s      se
+ş      Se
+t      t;e
+u      u
+ü      y
+v      ve
+y      je
+z      ez
+
+
+// NUMBERS
+//*********
+
+_0       s@f'@r
+_1       b'Ir
+_2       Ec'I
+_3       'ytS
+_4       d;'Wrt
+_5       b'eS
+_6       ALt'@
+_7       jed;'I
+_8       sec'Iz
+_9       doq'uz
+
+_10      'on
+_11      onb'Ir
+_12      onEc'I
+_13      on'ytS
+_14      ond;'Wrt
+_15      onb'eS
+_16      onALt'@
+_17      onjed;'I
+_18      onsec'Iz
+_19      ondoq'uz
+
+_2X      jiJIrm'I
+_3X      ot'uz
+_4X      q'@rq
+_5X      Ell'I
+_6X      ALtm'@S
+_7X      jetm'IS
+_8X      seks'en
+_9X      doqs'An
+
+_0C      j'yz
+_1C      j'yz
+_2C      EcIj'yz
+_3C      ytSj'yz
+_4C      d;Wrtj'yz
+_5C      beSj'yz
+_6C      ALt@j'yz
+_7C      jed;Ij'yz
+_8C      sekIzj'yz
+_9C      doquzj'yz
+
+_0M1     b'IN
+_1M1     b'IN
+_2M1     EcIb'IN
+_3M1     ytSb'IN
+_4M1     d;Wrtb'IN
+_5M1     beSb'IN
+_6M1     ALt@b'IN
+_7M1     jed;Ib'IN
+_8M1     secIzb'IN
+_9M1     doquzb'IN
+_10M1    onb'IN
+
+_0M2      milli'on
+_0M3      milli'Ard
+
+_dpt     _virJ,yl_|
+
+
+// CHARACTERS
+//************
+
+_. noqt'A
+_, virJ'yl
+_; noqt'A||ve||virJ'yl
+_: Ec'I||noqt'A
+_! q@tS@rt'uw||iSAretler'I
+_? suAl'I||iSAretler'I
+_| d'Iq||tSub'uq
+_( AtS'@q||pArAnt;es'I
+_) jab'@q||pArAnt;es'I
+_[ AtS'@q||kvAdr'At||pArAntes'I
+_] jab'@q||kvAdr'At||pArAntes'I
+_{ AtS'@q||kIr'IS
+_} jab'@q||kIr'IS
+_< tSoqL'uq||iSAretler'I
+_> AzL'@q||iSAretler'I
+_" duGm'e
+_… 'ytSnoqt'A
+_~ t;ild;'e
+_& v'e||iSAretler'I
+_` q@Sq@r@dZ'@||ApOstr'ow
+_' qApAt@dZ'@||ApOstr'ow
+_« solG,A||iSAr,et||etc,en||Ec,I||cWSel,I||AL@nt,@||iSaretler'I
+_» sAG:,A||iSAr,et||etc,en||Ec,I||cWSel,I||AL@nt,@||iSaretler'I
+
+.  noqt'A
++  qoqus'@ $max3
+-  s@z'@q
+=  t;'eN
+/  q@sqArtm'A
+\  q@j@St@rAdZ'Aq
+#  x'AS
+@  maIjmuntS'@q
+$  doLL'Ar
+€  Avr'o
+%  fA'Iz
+×  byjyt;'yv
+÷  bWlyn'yv
+_  Ast@n'@
+&  v,e
+*  j@Ld'@z
+º  dArAdZ'A
+№  n'omerA
+^  qaIjG@r'uw
+
+
+// ABBREVIATIONS
+//***************
+
+cm  sAnt;im'etr
+kg  ciLOgr'Amm
+km  ciLOm'etr
+mg  miligr'Amm
+mm  milim'etr
+ml  milil'itr
+
+
+// PRONOUNS
+//**********
+
+men	     $u                 // I
+sen	     $u                 // you
+o	     $u $atend          // he/she
+biz	     $u                 // we
+siz	     $u                 // you
+olar     $u2                // they
+menim	 $u2                // my            
+seniñ	 $u2                // your
+onıñ	 $u2                // its
+bizim	 $u2                // our
+siziñ	 $u2                // your
+olarnıñ  $u3                // their
+
+
+// CONJUNCTIONS
+//**************
+
+amma     $u2               // but
+ancaq    $u2               // only
+eger     $u2               // if
+ile      $u2               // with
+sanki    $u2               // as
+ve       $u                // and
+ya       $u                // or
+yahut    $u2               // or
+yoqsa    $u2               // if not
+
+
+// POSTPOSITIONS
+//***************
+
+içün       $u2             // for
+ile        $u2             // with
+qadar      $u2             // until
+soñ        $u              // after
+sebep      $u2             // due to
+taba       $u2             // towards
+zarfında   $u3             // during
+
+
+// POSSESIVE PRONOUNS
+//********************
+
+menimki  $u3            // mine
+seniñki  $u3            // your
+onıñki   $u3            // his
+bizimki	 $u3            // our
+siziñki	 $u3            // your
+olarnıñki  $u3          // theirs
+
+
+// MAIN WORD DICTIONARY
+//**********************
+
+abbreviatura $5
+abrakadabra $4
+abonent   AbOn'ent
+abonement AbOnem'ent
+abordaj AbOrd'AZ
+aborigen  AbOriJ'en
+abortiv AbOrt;'iv
+advokat  AdvOk'At
+agitator  AJit'AtOr
+agressor  Agr'essOr
+agronom  AgrOn'om
+akkumulâtor  Ak:umul;'A:tOr
+alabota  ALAbOt'A
+aleksandr  $3
+andorra  $2
+angola   $2
+astrolog  Astr'OLog
+astrologiya AstrOLoJ'ijA
+astronom  AstrOn'Om
+astronomik AstrOnOm'Ik
+astronomiya  AstrOnOm'ijA
+avropa $2
+avtobus    AvtOb'us
+avtograf   AvtOgr'Af
+avtomatik  AvtOmAt;'Ik
+avtomobil  AvtOmOb'Il
+avtoqalem  AvtOqAl'em
+barrikada  $3
+belorus beLOr'us
+biologiya   biOLoJ'ijA
+bizge  bIzJ'e
+bitire  bit;Ir'e
+bloknot  bLOkn'ot
+bosna   $1
+botanik  bOtAn'Ik
+botsvana  $2
+böylece $1
+brigada  $2
+bronhit  brOnx'It
+coğrafiya  $2
+dekorativ  dekOrat;'Iv
+demokratik  d;emOkrAt;'Ik
+demokratsiya  d;emOkrats'ijA
+diagonal d;iAgOn'AL
+direktor  d;ir'ektOr
+dotsent   dOts'ent
+egoizm   egO'Izm
+ekologiya  ekOLoJ'ijA
+ekskavator  ekskAv'AtOr
+eksponat  ekspOn'At
+ekvator   ekv'AtOr
+elevator elev'AtOr
+elektrostantsiya   elektrOstAnts'ijA
+embrional  embriOn'AL
+endokrin  endOkr'In
+entsiklopedik  entsikLOped;'Ik
+epopeya    epOp'ejA
+eskalator eskAL'AtOr
+faktor       f'AktOr
+fenomen      fenOm'en
+fenomenal    fenOmen'AL
+feodal       feOd'AL
+feodalizm    feOdAl'Izm
+filologiya   fiLOLoJ'ijA
+fizika     $1
+fiziologik   fiziOLoJ'Ik
+fiziologiya  fiziOLoJ'ijA
+flora      $1
+formal     fOrm'AL
+formula    $2
+fortepyano fort;epj'AnO
+fotoapparat   fotOAp:Ar'At
+frazeologik   frAzeOL'oJIk
+frazeologiya  frAzeOLoJ'ijA
+furtuna  $2
+gazeta   $2
+geologiya   geOLoJ'ijA
+gorizontal gOrizOnt'AL
+hronologik  xrOnOLoJ'Ik
+hronologiya  xrOnOLoJ'ijA
+hronometr  xrOnOm'etr
+ince       $2
+jonglör   ZONgl'Wr
+kaloriya    kALOr'ijA
+kandidatura  $4
+kategoriya  kat;egOr'ijA
+kilometr   ciLOm'etr
+kilogramm  ciLOgr'Amm
+kollegiya    kOLleJ'ijA
+kollektiv    kOLlekt;'Iv
+kollektivizatsiya  kOLlekt;ivizAts'ijA
+kollektsioner   kOLlektsion'er
+kollektsiya   kOLlekts'ijA
+kolonna      kOL'onA
+komanda   $2
+kombinat  kOmbin'At
+kombinatsiya  kOmbinAts'ijA
+komediya   kOmed;'ijA
+komendant  kOmend'Ant
+komendatura  kOmendAt'urA
+komfort   kOmf'ort
+komissar  kOmiss'Ar
+komissariat  kOmissAri'At
+komissarlıq  kOmissArL'@q
+komissiya  kOmiss'ijA
+komitet    kOmit;'et
+kommentariyler  kOmmentArijl'er
+kommentirlemek
+kommuna   kOmm'unA
+kommunal  kOmmun'AL
+kommunist  kOmmun'Ist
+kommunistik  kOmunnist;'Ik
+kommunizm  kOmmun'Izm
+kommutator  kOmmut'AtOr
+kompaniya  kOmpan'ijA
+kompensatsiya  kOmpensAts'ijA
+kompleks  kOmpl'eks
+komplekt  kOmpl'ekt
+kommutator  kOmmut'AtOr
+kompozitor  kOmpOz'itOr
+kompyuter   kOmpj'ut;er
+kondensator  kOnd;ens'AtOr
+konditer    kOnd;it;'er
+konduktor   kOnd'uktOr
+konferansye   kOnferAnsj'e
+konferentsiya  kOnferents'ijA
+kongress       kOngr'ess
+konkret     kOnkr'et
+konserv     kOns'erv
+konservalar  kOnservAL'Ar
+konservator   kOnserv'AtOr
+konservatoriya  kOnservAtOr'ijA
+konservirlemek  kOnservirlem'ek
+konspekt      kOnsp'ekt
+konspirativ   kOnspirat;'Iv
+konspiratsiya  kOnspirAts'ijA
+konstatatsiya  kOnstAtAts'ijA
+konstatirlemek  kOnstAt;irlem'ek
+konstitutsiya  kOnstituts'ijA
+konstruirlemek  kOnstruirlem'ek
+konstruktor    kOnstr'uktOr
+konstruktsiya  kOnstrukts'ijA
+konsul         kOns'uL
+konsultatsiya  kOnsuLtAts'ijA
+konsultirlemek  kOnsuLt;irlem'ek
+kontakt        kOnt'Akt
+kontinent      kOnt;in'ent
+kontinental    kOnt;inent'AL
+kontora        kOnt'orA
+kontributsiya  kOntributs'ijA
+kontrol        kOntr'OL
+kontrolör      kOntrOl'Wr
+kontsentratsion  kOntsentrAtsi'on
+kontsentratsiya  kOntsentrAts'ijA
+kontsert       kOnts'ert
+konveyer       kOnvej'er
+konvoy         kOnv'oIj
+kooperativ     kOOperat;'iv
+kooperatsiya   kOOperats'ijA
+koordinata     kOOrd;in'AtA
+kopirlemek     kOpirlem'ek
+koridor        kOr'idOr
+korpus         kOrp'us
+korrespondent  kOrrespOnd;'ent
+korrespondentsiya  kOrrespOnd;ents'ijA
+kotlet    kOtl'et
+kreditor   kred;'itOr
+laborant   LAbOr'Ant
+lektor     l'ektOr
+leopard    leOp'Ard
+magistr    $2
+manövr     man;'ovr
+mehanizator  mexAniz'AtOr
+memorial   memOri'AL
+meteorologik  met;eorOL'oJik
+mikrofon     mikrOf'on
+mikroskop    mikrOsk'op
+mobilizatsiya  mObilizAts'ijA
+molekula    mOl'ekuLA
+monarhiya   mOnArx'ijA
+monolog     mOn'OLog
+monopoliya   mOnOpol'ijA
+monako      $2
+montaj       mOnt'AZ
+morfologiya  mOrfOLoJ'ijA
+nomera      $1
+noyabr      nOj'Abr
+oktâbr      Okt;'A:br
+onkolog     ONk'OLog
+onkologik   ONkOL'oJIk
+pamidor     pAm'idOr
+pedagogika  pedAgOJ'ikA
+platforma   plAtf'OrmA
+poema       pOem'A
+poliklinika  pOliklin'ikA
+poloniy     pOLon'ij
+pozitiv     pOzit;'Iv
+pozitivizm  pOzit;iv'Izm
+problem     prObl'em
+psiholog    psix'oLOg
+radiator    rad;i'AtOr
+radio       $1
+radiola     $3
+radiologiya  rAd;iOLoJ'ijA
+raketa      $2
+ratsional   rAtsiOn'AL
+ratsionalizatsiya  rAtsiOnAlizAts'ijA
+ratsionalizm   rAtsiOnAl'Izm
+reaktsioner   reAktsiOn'er
+reabitolog  reAbit'oLOg
+refleksologiya  refleksOLoJ'ijA
+reflektor   refl'ektOr
+reforma     ref'OrmA
+reformator  refOrm'AtOr
+reformatsiya  refOrmAts'ijA
+reformizm  refOrm'Izm
+regional   regiOn'AL
+registr    $2
+rekonstruktsiya  rekOnstrukts'ijA
+rentgenografiya  rentJenOgrAf'ijA
+rentgenoskopiya  rentJenOskop'ijA
+reostat   reOst'At
+repetitor  repet;'itOr
+repetitorlıq  repet;itOrL'@q
+reportaj    repOrt'AZ
+reportör    repOrt'Wr
+reproduktor   reprOd'uktOr
+respondent   respOnd;'ent
+restoran   restOr'An
+revizionizm  reviziOn'izm
+revolver   revOLv'er
+saibidirler saIjbId;Irl'er
+savanna  $2
+sosyalizm  sOsjAl'Izm
+sotsialistik  sOtsiAlist;'Ik
+sovet      sOv'et
+şoför      SOf'Wr
+televizor  t;elev'izOr
+tili    t;Il'I
+tilidir t;Il'Id;Ir
+topograf  tOpogr'Af
+topografik  tOpogrAf'Ik
+topografiya  tOpogrAf'ijA
+tsentner $1
+tsilindr $2
+tsitata  $2
+ventilâtor  vent;il'AtOr
+vodoprovod  vOdOprOv'od
+yigirmi jiJIrm'I
+zebra $1
+zoolog  zo'oLOg
