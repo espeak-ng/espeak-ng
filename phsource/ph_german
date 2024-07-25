@@ -208,6 +208,7 @@ endphoneme
 
 phoneme y
   vwl starttype #u endtype #u
+  ipa ʏ
   length 100
   IF nextPh(*) THEN
     length 110
@@ -363,7 +364,7 @@ endphoneme
 
 phoneme iR  // TEST "vier" = [f'iR] not successful
   vwl starttype #i endtype #@
-  ipa i?
+  ipa iɐ
   flag1
   length 240
   FMT(vdiph2/i@_3)
@@ -372,7 +373,7 @@ endphoneme
 
 phoneme UR
   vwl starttype #u endtype #@
-  ipa ??
+  ipa ʊɐ
   flag1
   length 180
   FMT(vwl_de/uu_@)

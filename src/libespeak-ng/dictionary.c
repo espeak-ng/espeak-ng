@@ -787,7 +787,7 @@ int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_s
 			// stress marker, use this for the following vowel
 
 			if (phcode == phonSTRESS_PREV) {
-				// primary stress on preceeding vowel
+				// primary stress on preceding vowel
 				j = count - 1;
 				while ((j > 0) && (*stressed_syllable == 0) && (vowel_stress[j] < STRESS_IS_PRIMARY)) {
 					if ((vowel_stress[j] != STRESS_IS_DIMINISHED) && (vowel_stress[j] != STRESS_IS_UNSTRESSED)) {
