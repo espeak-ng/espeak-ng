@@ -1,8 +1,8 @@
-// "Si la vocal tònica és alta, també es pot formar diftong creixent: ningú espera [ù]/[wə], matí ennuvolat [ì]/[jə]." -> on queda l'accent?
 
 //====================================================
 //  Catalan  - based on Spanish and Base2
 //====================================================
+// in our project we decided not to use elisions, but they could be managed here by using "ipa NULL"
 
 // vowels 
 //=============
@@ -16,7 +16,7 @@ phoneme a
   FMT(vowel/a_6)
 endphoneme
 
-phoneme a2 // a que no es neutralitza
+phoneme a2 // don't reduce
   vwl starttype #a endtype #a
   length 180
   FMT(vowel/a_6)
@@ -35,7 +35,6 @@ endphoneme
 phoneme e2 // don't reduce 
   vwl starttype #e endtype #e
   length 170
-//  ChangeIfStressed(E)
   FMT(vowel/e)
 endphoneme
 
@@ -62,7 +61,6 @@ phoneme O
     IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
         IF nextPh(i) THEN
             ChangePhoneme(u)
-    
         ELSE
            ChangePhoneme(w)
         ENDIF
@@ -82,7 +80,6 @@ phoneme o
     IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
         IF nextPh(i) THEN
             ChangePhoneme(u)
-    
         ELSE
            ChangePhoneme(w)
         ENDIF
@@ -230,11 +227,7 @@ phoneme n
       ChangePhoneme(m)
   ELIF nextPh(l^) OR nextPh(n^) THEN
       ChangePhoneme(n^)
- // ELIF nextPh(S) OR nextPh(Z) THEN ***no surt a https://giec.iec.cat/textgramatica/codi/4.4.2.1
-  //    ChangePhoneme(n^)
-    
   ENDIF
-
   IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
     FMT(n/nj)
   ELIF prevPh(isPause) OR prevPh(n) THEN
@@ -248,7 +241,7 @@ phoneme l
   import_phoneme en/l   // use 'dark' [l] after a vowel
 endphoneme
 
-// s
+// fricatives
 //================
 phoneme s
   vls alv frc sib
@@ -283,14 +276,12 @@ phoneme z
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
-
   IF prevPh(isPalatal) OR nextPh(Z) THEN
     IF prevPh(j) THEN
     ELSE
       ChangePhoneme(Z)
     ENDIF
   ENDIF
-  
   IF KlattSynth THEN
     Vowelin f1=0 f2=1390 -300 300 f3=0 0
     Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
@@ -302,46 +293,11 @@ phoneme z
   FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 
-phoneme v // = b
-    vcd blb stp
-
-  IF thisPh(isWordEnd) THEN
-    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
-    ELIF prevPh(m) THEN
-    ELSE
-      ChangePhoneme(p)
-    ENDIF
-  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
-    ChangePhoneme(b)
-  ELIF nextPh(isVoiced) THEN
-    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
-      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-  //      IF prevPh(**) OR prevPh(R) THEN ***"embarbussa"***
-  //      ELSE
-            ChangePhoneme(B)
-  //      ENDIF
-      ELSE
-        ChangePhoneme(b)
-      ENDIF
-    ELSE
-        ChangePhoneme(b) 
-    ENDIF  
-  ELSE
-    ChangePhoneme(p)
-  ENDIF
-
-  CALL base1/b
-endphoneme
-
-// f
-//====================
 phoneme f
   vls lbd frc
   voicingswitch v
   lengthmod 3
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
-  
-  //IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
   IF thisPh(isWordStart) THEN
   ELSE
     IF nextPh(isVoiced) THEN
@@ -355,11 +311,36 @@ phoneme f
         ENDIF
     ENDIF
   ENDIF
-
   IF nextPh(isPause) THEN
     WAV(ufric/f_)
   ENDIF
   WAV(ufric/f)
+endphoneme
+
+phoneme v // = b
+    vcd blb stp
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
+    ELIF prevPh(m) THEN
+    ELSE
+      ChangePhoneme(p)
+    ENDIF
+  ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority 
+    ChangePhoneme(b)
+  ELIF nextPh(isVoiced) THEN
+    IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
+      IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
+            ChangePhoneme(B)
+      ELSE
+        ChangePhoneme(b)
+      ENDIF
+    ELSE
+        ChangePhoneme(b) 
+    ENDIF  
+  ELSE
+    ChangePhoneme(p)
+  ENDIF
+  CALL base1/b
 endphoneme
 
 
@@ -369,9 +350,6 @@ phoneme R
   liquid trl
   lengthmod 6
   ipa r
-//  IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
-//    ChangePhoneme(**)
-//  ENDIF
   IF thisPh(isWordEnd) AND nextPh(R) THEN
     ipa NULL
   ENDIF
@@ -396,10 +374,7 @@ phoneme b
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-  //      IF prevPh(**) OR prevPh(R) THEN ***"embarbussa"***
-  //      ELSE
-            ChangePhoneme(B)
-  //      ENDIF
+        ChangePhoneme(B)
       ENDIF
     ENDIF  
   ELSE
@@ -424,14 +399,8 @@ phoneme g
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-  //      IF prevPh(**) OR prevPh(R) THEN
-  //      ELSE
-           ChangePhoneme(Q)
- //       ENDIF
+        ChangePhoneme(Q)
       ENDIF
- //   ELIF
- //     nextPh(n) THEN
- //       ChangePhoneme(N)
     ENDIF  
   ELSE
     ChangePhoneme(k)
@@ -442,7 +411,7 @@ phoneme g
   IF nextPh(isPause2) THEN
     FMT(g/g_) addWav(x/g_)
   ENDIF
-  FMT(g/g) addWav(x/g2)        // weaker [g]
+  FMT(g/g) addWav(x/g2)        
 endphoneme
 
 phoneme d
@@ -523,26 +492,21 @@ phoneme k
   
   ELIF nextPh(isRhotic) THEN
     WAV(ustop/kr)
-//  ELIF nextPh(#i) OR nextPh(;) THEN
-//    WAV(ustop/ki)
-//  ELIF nextPh(l) THEN
-//    WAV(ustop/kl)
   ELIF thisPh(isWordStart) THEN // don't change it if it's word start
   ELIF nextPh(isVoiced) AND nextPh(isNotVowel) THEN
     IF nextPh(w) OR nextPh(j) THEN
-    ELIF nextPh(n) OR nextPh(d) OR nextPh(z) THEN // arreglar
+    ELIF nextPh(n) OR nextPh(d) OR nextPh(z) THEN
         ChangePhoneme(g)
     ELIF thisPh(isWordEnd) THEN
       ChangePhoneme(g)
     ENDIF
-  
   ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // sonority propagation
     ChangePhoneme(g)
   ENDIF
   WAV(ustop/k_unasp, 70)
 endphoneme
 
-phoneme tS     // **ch**urch
+phoneme tS     
   vls pla afr sib
   voicingswitch dZ
   lengthmod 2
@@ -555,218 +519,3 @@ phoneme tS     // **ch**urch
   ENDIF
   WAV(ustop/tsh)
 endphoneme
-
-
-
-//================== phonemes with elisions ===========================
-
-
-////phoneme a
-////  vwl starttype #a endtype #a
-////  length 180
-////  IF thisPh(isUnstressed) THEN
-////    IF thisPh(isWordEnd) THEN        
-////        IF nextPh(isVowel) AND nextPh(isStressed) THEN
-////            ipa NULL
-////        ELIF nextPh(isUnstressed) THEN
-////            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
-////                ChangePhoneme(@)
-////            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
-////                ipa NULL
-////            ELSE
-////                ChangePhoneme(@)
-////            ENDIF           
-////        ELSE
-////            ChangePhoneme(@)
-////        ENDIF
-////    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
-////        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
-////            ipa NULL
-////        ELSE
-////            ChangePhoneme(@)
-////        ENDIF
-////    ELSE
-////        ChangePhoneme(@)
-////    ENDIF
-////  ENDIF
-////  FMT(vowel/a_6)
-////endphoneme
-
-////
-////phoneme e
-////  vwl starttype #e endtype #e
-////  length 170
-////  IF thisPh(isUnstressed) THEN
-////    IF thisPh(isWordEnd) THEN   
-////        IF nextPh(isVowel) AND nextPh(isStressed) THEN
-////            ipa NULL
-////        ELIF nextPh(isUnstressed) THEN
-////            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
-////                ChangePhoneme(@)
-////            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
-////                ipa NULL
-////            ELSE
-////                ChangePhoneme(@)
-////            ENDIF           
-////        ELSE
-////            ChangePhoneme(@)
-////        ENDIF
-////    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
-////        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
-////            ipa NULL
-////        ELSE
-////            ChangePhoneme(@)
-////        ENDIF
-////    ELSE
-////        ChangePhoneme(@)
-////    ENDIF
-////  ENDIF
-////  
-////  FMT(vowel/e)
-////endphoneme
-////
-////
-////phoneme E
-////  vwl starttype #e endtype #e
-////  length 180
-////  IF thisPh(isUnstressed) THEN
-////    IF thisPh(isWordEnd) THEN   
-////        IF nextPh(isVowel) AND nextPh(isStressed) THEN
-////            ipa NULL
-////        ELIF nextPh(isUnstressed) THEN
-////            IF nextPh(i) OR nextPh(u) OR nextPh(j) OR nextPh(w) THEN 
-////                ChangePhoneme(@)
-////            ELIF nextPh(@) OR nextPh(a) OR nextPh(e) OR nextPh(E) THEN
-////                ipa NULL
-////            ELSE
-////                ChangePhoneme(@)
-////            ENDIF           
-////        ELSE
-////            ChangePhoneme(@)
-////        ENDIF
-////    ELIF thisPh(isWordStart) AND prevPh(isStressed) THEN
-////        IF prevPh(a) OR prevPh(e) OR prevPh(E) OR prevPh(O) OR prevPh(i) THEN // elision
-////            ipa NULL
-////        ELSE
-////            ChangePhoneme(@)
-////        ENDIF
-////    ELSE
-////        ChangePhoneme(@)
-////    ENDIF
-////  ENDIF
-////  FMT(vowel/e_mid)
-////endphoneme
-////
-////phoneme o
-////  vwl starttype #o endtype #o
-////  length 170
-////  IF thisPh(isUnstressed) THEN
-////    IF thisPh(isWordEnd) THEN
-////        IF nextPh(u) OR nextPh(w) THEN
-////            ipa NULL
-////        ELIF nextPh(isVowel) THEN
-////            ChangePhoneme(w)
-////        ELSE
-////            ChangePhoneme(u)
-////        ENDIF
-////    ELSE
-////        ChangePhoneme(u)
-////    ENDIF
-////  ENDIF
-////  FMT(vowel/o)
-////endphoneme
-////
-////
-////phoneme u
-////  vwl starttype #u endtype #u
-////  length 160
-//////  ChangeIfUnstressed(U)
-////  IF thisPh(isUnstressed) THEN
-////    IF thisPh(isWordEnd) THEN
-////        IF nextPh(isUnstressed) THEN
-////            IF nextPh(a) OR nextPh(@) OR nextPh(e) OR nextPh(E) THEN
-////                ChangePhoneme(w)
-////            ELIF nextPh(u) OR nextPh(w) THEN
-////                ipa NULL
-////            ENDIF
-////        ENDIF
-////    ELIF thisPh(isWordStart) THEN
-////        IF prevPh(isStressed) AND prevPh(isVowel) THEN
-////            IF prevPh(u) THEN
-////                ipa NULL
-////            ELSE
-////                ChangePhoneme(w)
-////            ENDIF
-////        ELSE
-////          IF prevPh(isUnstressed) THEN
-////            IF prevPh(a) OR prevPh(@) OR prevPh(e) OR prevPh(E) THEN
-////                ChangePhoneme(w)
-////            ENDIF
-////          ENDIF
-////        ENDIF
-////    ENDIF
-////  ENDIF
-////  FMT(vowel/u_bck)
-////endphoneme
-////
-////
-////phoneme i
-////  vwl starttype #i endtype #i
-////  length 170
-////  IF thisPh(isUnstressed) THEN
-////    IF thisPh(isWordEnd) THEN
-////        IF nextPh(isUnstressed) THEN
-////            IF nextPh(a) OR nextPh(@) OR nextPh(e) OR nextPh(E) THEN
-////                ChangePhoneme(j)
-////            ELIF nextPh(i) THEN
-////                ipa NULL
-////            ENDIF
-////        ENDIF
-////    ELIF thisPh(isWordStart) THEN
-////        IF prevPh(isStressed) AND prevPh(isVowel) THEN
-////            IF prevPh(i) THEN
-////                ipa NULL
-////            ELSE
-////                ChangePhoneme(j)
-////            ENDIF
-////        ELSE
-////          IF prevPh(isUnstressed) THEN
-////            IF prevPh(a) OR prevPh(@) OR prevPh(e) OR prevPh(E) THEN
-////                ChangePhoneme(j)
-////            ENDIF
-////          ENDIF
-////        ENDIF
-////    ENDIF
-////  ENDIF
-////  FMT(vowel/i)
-////endphoneme
-
-////phoneme s
-////  vls alv frc sib
-////  voicingswitch z
-////  lengthmod 3
-////  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-////  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-////  
-////  IF prevPh(isPalatal) OR nextPh(S) THEN
-////    IF prevPh(j) THEN
-////    ELIF nextPh(isVoiced) THEN
-////      ChangePhoneme(Z)
-////    ELSE
-////      ChangePhoneme(S)
-////    ENDIF
-////  ENDIF
-////  IF thisPh(isWordEnd) THEN
-////    IF nextPh(s) OR nextPh(z) OR nextPh(**) OR nextPh(R) OR nextPh(Z) THEN
-////        ipa NULL
-////    ELIF nextPh(isVoiced) THEN
-////      ChangePhoneme(z)
-////    ENDIF
-////  ENDIF
-////  IF nextPh(isPause) THEN
-////    WAV(ufric/s_)
-////  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
-////    WAV(ufric/s!)
-////  ENDIF
-////  WAV(ufric/s)
-////endphoneme

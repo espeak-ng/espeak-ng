@@ -6,6 +6,7 @@
 
 // plosives (oclusives)
 // ====================
+// following https://giec.iec.cat/textgramatica/codi/4.2.1
 
 phoneme p
   vls blb stp
@@ -69,7 +70,6 @@ phoneme t        // dental variant of /t/
         ChangePhoneme(f)
     ELIF nextPh(p) THEN
         ChangePhoneme(p)
-    
     ELIF nextPh(isVoiced) THEN
         ChangePhoneme(d)        
     ENDIF
@@ -99,10 +99,8 @@ phoneme k
   voicingswitch g
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-
   IF nextPh(isPause2) THEN
     WAV(ustop/k_)
-  
   ELIF nextPh(isRhotic) THEN
     WAV(ustop/kr)
   ELIF thisPh(isWordEnd) AND nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
@@ -150,16 +148,12 @@ phoneme b
   ELIF nextPh(isVoiced) THEN
     IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-  //      IF prevPh(**) OR prevPh(R) THEN ***"embarbussa"***
-  //      ELSE
-            ChangePhoneme(B)
-  //      ENDIF
+        ChangePhoneme(B)
       ENDIF
     ENDIF  
   ELSE
     ChangePhoneme(p)
   ENDIF
-
   CALL base1/b
 endphoneme
 
@@ -173,7 +167,6 @@ phoneme g
     IF nextPh(isNotVowel) AND NOT nextPh(isPause) THEN
         IF prevPh(isNasal) OR prevPh(isLiquid) OR prevPh(R) OR prevPh(**) OR prevPh(j) THEN
             ipa NULL
-        
         ELIF nextPh(s) AND nextPh(isWordEnd) AND next2Ph(isVoiced) THEN // keep sonority
         ELIF NOT nextPh(isVoiced) THEN
             ChangePhoneme(k)        
@@ -188,14 +181,8 @@ phoneme g
         ChangePhoneme(g)
     ELIF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(isLiquid) OR prevPh(isVFricative) THEN
-  //      IF prevPh(**) OR prevPh(R) THEN
-  //      ELSE
            ChangePhoneme(Q)
- //       ENDIF
       ENDIF
- //   ELIF
- //     nextPh(n) THEN
- //       ChangePhoneme(N)
     ENDIF  
   ELSE
     ChangePhoneme(k)
@@ -225,18 +212,13 @@ phoneme d
     ELIF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(l) OR nextPh(j) OR nextPh(w) THEN
       IF prevPh(isVowel) OR prevPh(**) OR prevPh(R) OR prevPh(j) OR prevPh(w) OR prevPh(s) OR prevPh(z) THEN
         ChangePhoneme(D)
-     
       ENDIF
     ENDIF  
   ELSE
     ChangePhoneme(t)
   ENDIF
-
   CALL base2/d
 endphoneme
-
-
-// mirar https://giec.iec.cat/textgramatica/codi/4.2.1
 
 // vowels
 //=====================================================
@@ -244,18 +226,8 @@ endphoneme
 phoneme e
   vwl starttype #e endtype #e
   length 170
-  
   IF thisPh(isUnstressed) THEN
- //   IF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
-     //   IF prevVowel(O) OR prevVowel(o) THEN
-     //       ChangePhoneme(o)
-     //   IF
-//            ChangePhoneme(@)
-    //    ENDIF
-//    ELSE
-        ChangePhoneme(@)
-    
-//    ENDIF
+    ChangePhoneme(@)
   ENDIF
   FMT(vowel/e)
 endphoneme
@@ -278,20 +250,8 @@ endphoneme
 phoneme o
   vwl starttype #o endtype #o
   length 170
- // IF thisPh(isUnstressed) THEN
- //   ChangePhoneme(u)
- // ENDIF
-  
-  IF thisPh(isWordEnd) THEN
-    IF nextPh(o) OR nextPh(O) THEN
-       ipa NULL
-    ENDIF
-  ENDIF
   FMT(vowel/o)
 endphoneme
-
-// En alguns parlars mallorquins i occidentals, és habitual el tancament de la o àtona en u quan es troba en síl·laba àtona seguida d’una síl·laba tònica o pretònica amb [i] i, més esporàdicament, seguida d’una síl·laba tònica amb [u] o, només en parlars mallorquins, d’una síl·laba pretònica amb [u]: conill, cosí, coixí, tossir, cossiol, comú, consumirà [u]. També és habitual el tancament de la o àtona en u quan la o va precedida d’una consonant palatoalveolar, com en Josep, Joan o joventut [u].
-
 
 phoneme @    //  Schwa, e.g. alph**a**
   vwl   starttype #@  endtype #@
@@ -299,6 +259,8 @@ phoneme @    //  Schwa, e.g. alph**a**
   FMT(vowel/@)
 endphoneme
 
+// fricatives
+// ====================================
 
 phoneme v
   vcd lbd frc
@@ -310,7 +272,6 @@ phoneme v
   IF thisPh(isWordEnd) AND prevPh(**) AND nextPh(isNotVowel) THEN
     ipa NULL
   ENDIF
-  
   IF KlattSynth THEN
     Vowelout f1=1  f2=1000 -500 -300  f3=-300 60  len=50 brk
     IF nextPh(isPause2) THEN
@@ -354,7 +315,10 @@ phoneme f
   WAV(ufric/f)
 endphoneme
 
-phoneme **    //  
+// liquid
+// =====================================
+
+phoneme **    // "cara" 
   liquid alv rhotic
   ipa ɾ
   lengthmod 3
@@ -370,7 +334,7 @@ phoneme **    //
   FMT(r3/@tap)
 endphoneme
 
-phoneme l^    // palatal l, e.g. Italian **g**li
+phoneme l^    // "calla"
   liquid
   ipa ʎ
   lengthmod 7
@@ -415,15 +379,10 @@ phoneme l^    // palatal l, e.g. Italian **g**li
   FMT(l^/l^)
 endphoneme
 
+// fricatives
+//================================0
 
-phoneme dz //
-  vcd alv afr sib
-  voicingswitch ts
-  lengthmod 5
-  Vowelin f1=2  f2=2300 200 400  f3=100 80
-  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
 
-endphoneme
 
 phoneme s // dissimilation
   vls alv frc sib
@@ -432,23 +391,12 @@ phoneme s // dissimilation
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
-    
         ChangePhoneme(z)
-  
-    
   ELIF thisPh(isWordStart) THEN
     IF prevPh(t) THEN
         ChangePhoneme(ts)
     ENDIF
- // ELIF prevPh(isPalatal) OR nextPh(S) OR nextPh(Z) THEN
- //   IF prevPh(j) THEN
- //   ELIF nextPh(isVoiced) THEN
- //     ChangePhoneme(Z)
- //   ELSE
- //     ChangePhoneme(S)
- //   ENDIF
   ENDIF
-  
   IF nextPh(isPause) THEN
     WAV(ufric/s_)
   ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
@@ -457,11 +405,13 @@ phoneme s // dissimilation
   WAV(ufric/s)
 endphoneme
 
+// nasals
+// ===========================
+
 phoneme m
   vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
-
   IF KlattSynth THEN
     Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
     IF nextPh(isPause2) THEN
@@ -469,7 +419,6 @@ phoneme m
     ENDIF
     FMT(klatt/m)
   ENDIF
-
   NextVowelStarts
     VowelStart(m/m@)
     VowelStart(m/ma)
@@ -478,7 +427,6 @@ phoneme m
     VowelStart(m/mo)
     VowelStart(m/mu)
   EndSwitch
-  
   IF nextPh(f) OR nextPh(v) THEN
     ChangePhoneme(M)
   ELIF nextPh(t) OR nextPh(d) OR nextPh(s) OR nextPh(z) OR nextPh(R) OR nextPh(S) OR nextPh(Z) THEN
@@ -493,9 +441,7 @@ phoneme m
     ELIF nextPh(l) THEN
         ChangePhoneme(l)
     ENDIF
-  
   ENDIF
-
   IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
     FMT(m/mj)
   ELIF prevPh(isPause) THEN
@@ -509,12 +455,10 @@ phoneme n
   vcd alv nas
   Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
-
   IF KlattSynth THEN
     Vowelin f1=0 f2=1500 -200 200 f3=0 80
     FMT(klatt/n)
   ENDIF
-
   NextVowelStarts
     VowelStart(n/n@)
     VowelStart(n/na)
@@ -523,7 +467,6 @@ phoneme n
     VowelStart(n/no)
     VowelStart(n/nu)
   EndSwitch
-  
   IF nextPh(f) OR nextPh(v) THEN
     ChangePhoneme(M)
   ELIF nextPh(k) OR nextPh(g) THEN
@@ -535,13 +478,8 @@ phoneme n
         ChangePhoneme(n^)
     ELIF nextPh(j) THEN
         ChangePhoneme(j)
-//    ELIF nextPh(l) THEN
- //       ChangePhoneme(l)
- // ELIF nextPh(S) OR nextPh(Z) THEN ***no surt a https://giec.iec.cat/textgramatica/codi/4.4.2.1
-  //    ChangePhoneme(n^)
     ENDIF
   ENDIF
-
   IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
     FMT(n/nj)
   ELIF prevPh(isPause) OR prevPh(n) THEN
