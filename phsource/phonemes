@@ -1943,6 +1943,15 @@ include ph_spanish_la
 phonemetable ca es
 include ph_catalan
 
+phonemetable ca-nw ca
+include ph_catalan_nw
+
+phonemetable ca-va ca
+include ph_catalan_va
+
+phonemetable ca-ba ca
+include ph_catalan_ba
+
 phonemetable an es
 include ph_aragon
 
