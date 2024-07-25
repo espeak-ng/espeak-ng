@@ -243,12 +243,12 @@ endphoneme
 phoneme o@
   vwl  starttype #o  endtype #@
   length 250
-  ipa oː|ɹ
+  ipa ɔː|ɹ
   IF nextPhW(r) THEN
-    ipa oː
+    ipa ɔː
   ENDIF
   IfNextVowelAppend(r)
-  FMT(vwl_en_us/or)
+  FMT(vwl_en_us/oor)
 endphoneme
 
 

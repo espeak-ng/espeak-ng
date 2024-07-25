@@ -1707,6 +1707,9 @@ include ph_farsi
 phonemetable fi base1
 include ph_finnish
 
+phonemetable fo base1
+include ph_faroese
+
 phonemetable smj base1
 include ph_lule_saami
 
@@ -2054,3 +2057,6 @@ phonemetable qdb en
 include ph_langbelta
 
 phonemetable ms id
+
+phonemetable kaa kk
+include ph_karakalpak
