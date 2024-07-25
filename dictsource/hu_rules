@@ -268,6 +268,14 @@ matra) c (cs ts	//For example matraccsalád, matraccsere words
 rán) c (cs ts	For example ránccsökkentő word
 ar) c (csí ts	For example arccsípés word
 pia) c (csi ts	For example piaccsinálás word
+lé) c (st ts	For example lécstruktúra word
+román) c (so ts	For example románcsorozata word
+cellaza) cs (k tS	For example cellazacskó word
+per) cs (t ts|S	For example percstílus word
+har) cs (ik ts|S	For example párharcsikerét word
+_aká) c (so ts	For example akácsor word
+án) c (za ts	For example lánczavarok word
+án) c (zá ts	For example lánczár word
 
 .group C
 C ts
@@ -385,7 +393,6 @@ kuka) cz (á ts|z	For example kukaczápor word
  beszé) d (szin    d
  beszé) d (sebesség d
  cselé) d (so      d
-
         dobermann  dob:ER2mAn
    föl) d (sánc    d
     ha) dd (_S2    d
@@ -917,6 +924,29 @@ ha) d (szo d	For example hadszolgálat word
 tren) d (szi d	For example trendszimatolás word
 tren) d (ját d	For example trendjáték word
 negye) d (si d	For example negyedsikerű word
+csön) d (zsá d	For example csöndzsákban word
+elektró) d (sz d	For example elektródszerkezet word
+harma) d (je d	For example harmadjelentés word
+ren) d (sér d	For example határrendsértés word
+hol) d (jav d	For example műholdjavító word
+pünkös) d (já d	For example pünkösdjárás word
+rövi) d (sző d	For example rövidszőrű word
+honvé) d (játé d	For example honvédjátékosok word
+csalá) d (járók d	For example családjárók word
+kar) d (sz d	For example kardszín word
+föl) d (sal d	For example földsalakot word
+androi) d (játé d	For example androidjáték word
+gye) d (szi d	For example gyedszerű, gyedszigorítás words
+körön) d (sz d	For example köröndszerű word
+jó) d (só d	For example jódsó word
+pesztici) d (s d	For example peszticidszint word
+cselé) d (saj d	For example cselédsajtó word
+lipi) d (s d	For example lipidsav word
+máso) d (su d	For example másodsugárzás word
+bőrön) d (jav d	For example bőröndjavító word
+mó) d (spo d	For example életmódsportjaim word
+hó) d (sper d	For example hódsperma word
+gerez) d (sz d	For example gerezdszerű word
 
 .group dz
   fogó) dz (kod    ts
@@ -1313,6 +1343,13 @@ nézettsé) g (gy g	For example nézettséggyilkosnak word
 jé) g (gy g	For example jéggyűjtő word
 bajnoksá) g (gy g	For example bajnoksággyőztes word
 me) ggy (ala J:	For example meggyalap word
+a) gys (eb J|S	For example agysebész word
+a) gys (er J|S	For example agyserkentő word
+né) gys (án J|S	For example négysáncos word
+me) ggyire J:iR2E	For example meggyire word
+héza) g (gy g	For example hézaggyökér word
+miri) gy (s J	For example mirigysejt word
+társasá) g (gy g	For example társasággyakoriság word
 
 .group gy
         gy         J
@@ -1844,6 +1881,13 @@ szí) n (jel n	For example helyszínjelölés, színjelölés words
 előzmé) ny (je n^	For example előzményjelentés word
 részvé) ny (j n^	For example részvényjuttatás, részvényjövedelem words
 rejtvé) ny (j n^	For example rejtvényjavító word
+kampá) ny (jav n^	For example kampányjavaslat word
+haszo) n (jo n	For example haszonjog word
+ösztö) n (já n	For example ösztönjátékos word
+fé) ny (ját n^	For example fényjáték word
+adomá) ny (játé n^	For example adományjáték word
+adomá) ny (je n^	For example adományjelző word
+adomá) ny (jó n^	For example adományjószág word
 
 .group o
         o          o
@@ -2646,6 +2690,81 @@ lova) s (szt S	For example lovassztár word
 néva) ssz (i s:	For example névasszimiláció word
 tava) ssz (á s:	For example tavasszá word
 táva) ssz (i s:	For example távasszisztencia word
+keményedé) s (sz S	For example bőrkeményedésszerű word
+mumu) s (sz S	For example mumusszerű, mumusszóval word
+fiziku) s (sz S	For example fizikusszerű, fizikusszemmel word
+edzé) s (z S	For example edzészárás word
+felbontá) s (sz S	For example felbontásszerű, felbontásszabályzás word
+földrengé) s (z S	For example földrengészóna word
+füttyenté) s (sz S	For example füttyentésszónyi word
+ha) s (sze S	For example hasszett word
+hívá) s (z S	For example hívászaj, hívászóna word
+irányítá) s (sz S	For example irányításszerző word
+_ké) s (szám S	For example késszám word
+_ő) s (szö S	For example ősszövegek word
+pedellu) s (sz S	For example pedellusszerű word
+ütközé) s (z S	For example ütközészóna word
+brió) s (zs S	For example briószsemle word
+hú) s (zse S	For example húszsemle word
+tökö) s (zs S	For example tököszsemle word
+mago) s (zs S	For example magoszsemle word
+elektroniku) s (z S	For example elektronikuszenei word
+fo) s (szag S
+hő) s (szü S	For example szuperhősszünet word
+hő) s (sza S	For example hősszatíra word
+hő) s (szé S	For example szuperhősszériája word
+hő) s (szi S	For example hősszint word
+hő) s (szo S	For example hősszobra word
+idő) s (sz S	For example idősszemély word
+kettő) s (sz S	For example kettősszál, kettősszigetelt word
+műtő) s (sz S	For example műtősszakaszisztens word
+_ő) s (szav S	For example ősszavával word
+redő) s (sz S	For example redősszárnyú word
+_ő) s (szél S	For example ősszél word
+ő) s (szele S	For example ősszele word
+ő) s (szén S	For example ősszén word
+ő) s (szex S	For example ősszexualitás word
+ő) s (szín S	For example ősszínházban word
+ő) ssz (kí S|s	For example ősszkíta word
+ő) s (szo S	For example ősszoci word
+ő) s (szől S	For example ősszőlő word
+ő) s (szub S	For example ősszubsztancia word
+bünteté) s (sz S	For example büntetésszámláló word
+lova) s (z S	For example lovaszarándoklat word
+védekezé) s (sz S	For example védekezésszervezés word
+főzé) s (z S	For example főzészenéhez word
+ké) s (szél S	For example késszélesség word
+mindene) s (sz S	For example mindenesszerű word
+hú) s (zsí S	For example húszsír word
+lövé) s (szö S	For example lövésszög word
+metaboliku) s (sz S	For example metabolikusszindróma word
+denzitá) s (sz S	For example denzitásszűrő word
+klassziku) s (z S	For example klasszikuszene, klasszikuszongora words
+klassziku) s (sz S	For example klasszikusszezon word
+bőgé) s (sz S	For example bőgésszezon word
+_ő) s (szab S	For example ősszabály word
+éneke) s (z S	For example énekeszongoristának, énekeszseninek words
+fájá) s (sz S	For example fájásszünetekben word
+védé) s (sz S	For example védésszám word
+alkalmazá) s (zá S	For example alkalmazászár word
+ké) s (szál S	For example késszállító word
+süté) s (sz S	For example sütésszag, sütésszenvedély words
+paritá) s (sz S	For example paritásszót word
+szuverenitá) s (sz S	For example szuverenitásszövegből word
+hú) s (szív S	For example hússzív word
+luxu) s (z S	For example luxuszug word
+tudó) s (z S	For example tudószenész word
+preceden) s (sz S	For example precedensszerű word
+fűrészelé) s (sz S	For example fűrészelésszerű word
+abúzu) s (sz S	For example abúzusszöveg word
+karmolá) ssz (a s:	For example karmolássza word
+karmolá) ssz (á s:	For example karmolásszák word
+nyikorgá) s (sz S	For example nyikorgásszerű word
+precízió) s (sz S	For example precíziósszerszám word
+menekvé) s (sz S	For example menekvésszorzónak word
+szociológu) s (sz S	For example szociológusszerelem word
+felújítá) s (sz S	For example felújításszerűség word
+gyűlölködé) s (sz S	For example gyűlölködésszünetet word
 
 .group ss
         ssz        ss2
@@ -4015,6 +4134,27 @@ pár) ts t|S	For example pártsajtó word
 pár) tsz t|s	For example pártszédelgő word
 becsüle) t (s t	For example becsületsüjjesztő word
 éle) t (s t	For example életsors word
+antan) t (je t	For example antantjegyzék word
+ötle) t (s t	For example ötletsorozatból word
+szima) t (játé t	For example szimatjátékok word
+ú) ts (ü t|S	For example útsüllyedés word
+szerete) t (s t	For example szeretetsérülés word
+impor) t (sz t	For example importszén, importszokás word
+szögle) t (s t	For example szögletsorozattal word
+kú) t (s t	For example kútsorral word
+kú) tsz  t|s	For example kútszobor word
+diva) t (jo t	For example divatjogszabály word
+székle) t (s t	For example székletszobor word
+eli) t (so t	For example elitsorozat word
+eli) t (su t	For example elitsuli word
+eli) t (sz t	For example elitszéria word
+posz) t (jo t	For example posztjogállam word
+recep) t (s t	For example receptsorozat word
+szöve) t (sz t	For example szövetszoknyája word
+címle) t (jegy t	For example címletjegyzék word
+transzpor) t (s t	For example transzportsebesség word
+helyze) t (ját t	For example helyzetjáték word
+részle) t (sz t	For example részletszépség word
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -4680,6 +4820,8 @@ frí) z (so z	For example frízsora, frízsorán word
 há) z (st z	For example házstílus word
 tör) zszs Z:
 vá) z (si z	For example vázsisak word
+há) z (sát z	For example színházsátorban word
+tempó) zs (o Z	For example tempózsonglőr word
 
 .group
         $          dolla:R2

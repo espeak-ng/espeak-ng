@@ -1,0 +1,179 @@
+// Faroese prepared by Andras Eliassen, iSolveIT ApS (VoisIT)
+// This file is UTF8 encoded.
+
+// letter group B  voiceless consonants c,f,h,k,p,t,x,þ
+// letter group F  p,t,k,s
+// letter group H  j,r,v,
+
+.L01  e i í y ý æ j    // front vowels
+.L02  c f h k p t x s    // voiceless consonants
+.L03  p t k
+
+.replace
+ x       xz    // so that it behaves as 2 letters
+
+
+.group a
+        a        a
+
+
+.group á
+        á        %oa
+
+
+.group b
+        b        b
+        bb       b
+
+.group c
+        c        k
+        c (e     s
+        c (i     s
+
+
+.group d
+        d        d
+        dd       d
+
+
+.group ð
+        ð        v
+
+
+.group e
+        e        E:
+
+
+.group é
+        é        jE:
+
+
+.group f
+        f        f
+        ff       f
+
+
+.group g
+        g        g
+        gg       g
+     e) g
+        g (i     dj
+
+
+.group h
+        h        h
+
+
+.group i
+        i        I:
+
+
+.group í
+        í        ui:
+
+
+.group j
+        j        j
+
+
+.group k
+     _) k        k
+        k        k
+        k (i     tj
+     
+
+.group l
+        l        l
+        
+
+.group m
+        m        m
+
+
+.group n
+        n        n
+        nn       n:
+
+
+.group o
+        o        O:
+        o (CC    o
+
+
+.group ó
+        ó        oU:
+
+
+.group p
+        p        p
+
+
+.group q
+        q        k
+
+
+.group r
+        r        r
+     o) rn       dn
+     e) rn       dn
+
+.group s
+        s        s
+        ss       ss2
+
+
+.group t
+     _) t        t
+        t        t
+        tt       t
+        
+
+.group u
+        u        u
+
+
+.group ú
+        ú        u:
+
+
+.group v
+        v        v
+
+
+.group w
+        w        v
+
+
+.group x
+        x        ks
+        xz       ks
+
+.group y
+        y        y
+
+
+.group ý
+        ý        ui:
+
+
+.group z
+        z        z
+        zz       ts     // pizza
+
+
+.group æ
+        æ        @:
+
+
+.group ö
+        ö        W:
+
+
+.group ø
+        ø        W:
+
+
+.group
+        $        dOllari
+
+
