@@ -743,17 +743,6 @@ Translator *SelectTranslator(const char *name)
 	case L('e', 's'): // Spanish
 	case L('a', 'n'): // Aragonese
 	case L('c', 'a'): // Catalan
-	{
-        static const wchar_t ca_punct_within_word[] = { '\'', 0xb7, 0}; // ca: allow middle-dot within word
-
-        tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER | NUM_DFRACTION_4;
-		tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND;
-        
-        tr->punct_within_word = ca_punct_within_word;
-		tr->langopts.stress_rule = STRESSPOSN_2R; // stress on final syllable
-		tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_NO_2 | S_NO_AUTO_2 | S_FIRST_PRIMARY;
-	}
-		break;
 	case L('i', 'a'): // Interlingua
 	case L3('p', 'a', 'p'): // Papiamento
 	{
@@ -779,7 +768,7 @@ Translator *SelectTranslator(const char *name)
 		if (name2 == L('c', 'a')) {
 			// stress last syllable unless word ends with a vowel
 			tr->punct_within_word = ca_punct_within_word;
-			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
+			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2 | S_FIRST_PRIMARY;
 		} else if (name2 == L('i', 'a')) {
 			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
