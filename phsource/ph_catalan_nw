@@ -1,0 +1,160 @@
+
+//====================================================
+//  Catalan valencian - based on Catalan (and Spanish and Base2)
+//====================================================
+
+// vowels 
+//=============
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 180
+  IF thisPh(isWordEnd) AND thisPh(isUnstressed) THEN
+    ChangePhoneme(E)
+  ENDIF
+  FMT(vowel/a_6)
+endphoneme
+
+phoneme a2 // does not change in central accent
+  vwl starttype #a endtype #a
+  length 180
+  FMT(vowel/a_6)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 170
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+            ChangePhoneme(a)
+        ELIF nextPh(j) AND next2Ph(S) THEN
+            ChangePhoneme(a)
+        ENDIF
+    ENDIF
+  ENDIF
+ 
+  FMT(vowel/e)
+endphoneme
+
+phoneme e2 // don't reduce: "aeri", "aeròdrom".
+  vwl starttype #e endtype #e
+  length 170
+  FMT(vowel/e)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 180
+  IF thisPh(isUnstressed) THEN
+    IF thisPh(isWordStart) THEN
+        IF nextPh(s) OR nextPh(n) OR nextPh(m) OR nextPh(**) OR nextPh(R) THEN
+            ChangePhoneme(a)
+        ELIF nextPh(j) AND next2Ph(S) THEN
+            ChangePhoneme(a)
+        ELSE 
+            ChangePhoneme(e)
+        ENDIF
+    ELSE
+        ChangePhoneme(e)
+    ENDIF
+  ENDIF
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme E2    // don't reduce
+  vwl starttype #e endtype #e
+  length 180
+  ChangeIfUnstressed(e2)
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 170
+  IF thisPh(isUnstressed) THEN
+        ChangePhoneme(o)
+  ENDIF
+  FMT(vowel/oo)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 170
+  FMT(vowel/o)
+endphoneme
+
+phoneme o2
+  vwl starttype #o endtype #o
+  length 170
+  ChangeIfStressed(o)
+  FMT(vowel/o)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 170
+  IF thisPh(isUnstressed) AND nextPh(isVowel) THEN
+      ChangePhoneme(j)
+  ENDIF
+  FMT(vowel/i)
+endphoneme
+
+// affricates
+//================ 
+
+phoneme Z 
+  vcd pla frc sib
+  voicingswitch S
+  lengthmod 6
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  IF thisPh(isWordStart) OR prevPh(isNotVowel) THEN
+    IF prevPh(d) THEN
+    ELSE
+        ChangePhoneme(dZ)
+    ENDIF
+  ENDIF
+endphoneme
+
+phoneme S 
+  vls pla frc sib
+  voicingswitch Z
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+  IF thisPh(isWordStart) THEN // initial or post-consonant position
+    ChangePhoneme(tS)
+  ELIF prevPh(isNotVowel) THEN 
+    IF  prevPh(j) THEN
+        IF thisPh(isWordEnd) AND nextPh(isVoiced) THEN
+            ChangePhoneme(Z)
+        ENDIF
+    ELSE
+        ChangePhoneme(tS)
+    ENDIF
+  ENDIF
+  WAV(ufric/sh)
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  voicingswitch f
+  lengthmod 6
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  IF KlattSynth THEN
+    Vowelout f1=1  f2=1000 -500 -300  f3=-300 60  len=50 brk
+    IF nextPh(isPause2) THEN
+      FMT(klatt/v_) addWav(vocw/v)
+    ENDIF
+    FMT(klatt/v) addWav(vocw/v, 150)
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  IF thisPh(isWordStart) AND nextPhW(isLiquid) THEN
+    length 70
+  ENDIF
+  FMT(voc/v) addWav(vocw/v)
+endphoneme

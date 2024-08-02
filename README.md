@@ -135,3 +135,9 @@ taken from the NetBSD `getopt_long` implementation, which is licensed under a
 [2-clause BSD](COPYING.BSD2) license.
 
 Android is a trademark of Google LLC.
+
+## Acknowledgements
+
+The catalan extension was funded by [Departament de la Vicepresidència i de Polítiques Digitals i Territori de la Generalitat de Catalunya](https://politiquesdigitals.gencat.cat/ca/inici/index.html#googtrans(ca|en) 
+within the framework of 
+[Projecte AINA](https://politiquesdigitals.gencat.cat/ca/economia/catalonia-ai/aina).
