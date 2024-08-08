@@ -1,0 +1,217 @@
+// This file is UTF-8 encoded
+// translation rules for Aromanian
+
+// Letters
+
+a        a
+ã        @
+b        b@
+c        k@
+d        d@
+dh       D@
+e        e
+f        f@
+g        g@
+h        h@
+i        i
+j        Z@
+k        k@
+l        l@
+lj       l^@
+m        m@
+n        n@
+nj       n^@
+p        p@
+o        o
+q        kju
+r        r@
+s        s@
+sh       S@
+t        t@
+th       T@
+ts       ts@
+u        u
+v        v@
+w        d,ubl@v'@
+x        ks@
+y        igreak@
+z        z@
+
+
+// Numbers
+
+_0       zero        // TEST
+_1       'unw
+_2       do'aU@
+_3       t@-*'eI
+_4       p'at@-*w
+_5       ts'intsi
+_6       S'asi
+_7       S'apti
+_8       'optw
+_9       no'aU@
+
+_10      dz'atsi
+_11      un@sp@-*@dz'atsi
+_12      dosp@-*@dz'atsi
+_13      treisp@-*@dz'atsi
+_14      patrusp@-*@dz'atsi
+_15      tsisp@-*@dz'atsi
+_16      Sasisp@-*@dz'atsi
+_17      Saptisp@-*@dz'atsi
+_18      optusp@-*@dz'atsi
+_19      noaU@sp@-*@dz'atsi
+
+_20      j'inJits
+_21      jinJits'un@
+_22      jinJitsd'oI
+_23      jinJitst@-*'eI
+_24      jinJitsp'at@-*w
+_25      tsintsp@-*@j'inJits
+_26      Sasp@-*@j'inJits
+_27      Saptisp@-*@j'inJits
+_28      jinJits'optw
+_29      noaU@sp@-*@j'inJits
+
+_3X      t@-*'eIdz@ts
+_31      t@-*eIdz@ts'un@
+_32      t@-*eIdz@tsd'oI
+_4X      p'at@-*udz@ts
+_41      pat@-*udz@ts'un@
+_42      pat@-*udz@tsd'oI
+_5X      ts'indz@ts
+_51      tsindz@ts'un@
+_52      tsindz@tsd'oI
+_6X      S'aIdz@ts
+_61      Saidz@ts'un@
+_62      Saidz@tsd'oI
+_7X      Sapt'idz@ts
+_71      Saptidz@ts'un@
+_72      Saptidz@tsd'oI
+_8X      'opdz@ts
+_81      opdz@ts'un@
+_82      opdz@tsd'oI
+_9X      noaU@dz'@ts
+_91      noaU@dz@ts'un@
+_92      noaU@dz@tsd'oI
+
+_0C      ts'entw
+_1C      unys'ut@
+
+_0M1      n^il^e
+_1M1      unyn^il^i
+
+_dpt      _koma
+
+
+// Pronouns and Personal Pronouns
+
+aclo     $u2+
+aco      $u2+
+amindoilji  $u+
+andoilji  $u+
+aoatsi   $u+
+aotsi    $u+
+auatsi   $u+
+ãl       $u+
+ãlj      $u+
+dãs      $u+
+dãsã     $u+
+ea     ja    $u+
+eali   jali  $u+
+el     jel   $u+
+elj    jel^  $u+
+elu    jelu  $u+
+eu     jeU  $u+
+ia       $u+
+ilj      $u+
+io       $u+
+iou      $u+
+mea      $u+
+meu      $u+
+mi       $u+
+mine     $u+
+mini     $u+
+nes      $u+
+nesh     $u+
+ni       $u+
+nja      $u+
+njeu     $u+
+noastrã  $u+
+noauã    $u+
+noi      $u+
+nostru   $u+
+nostu    $u+
+nã       $u+
+nãs      $u+
+nãse     $u+
+nãsh     $u+
+nãsi     $u+
+nãsã     $u+
+ta       $u+
+tauã     $u+
+ti       $u+
+tine     $u+
+tini     $u+
+tsenushcari  $u+
+tsi      $u+
+tsine    $u+
+tsini    $u+
+tu       $u+ $pause
+tãu      $u+
+
+
+// Conjunctions
+
+che         $u+
+chend       $u+
+cum         $u+
+cã          $u+
+cãnd        $u+
+cãndu       $u+
+disi        $u+
+e           je $u $atend
+e           e
+ghioa       $u+
+icã         $u+ $brk
+ma          $u+
+macã        $u+
+nichi       $u+
+nitsi       $u+
+pãn         $u+
+pãnã        $u+
+shi         $u+
+
+
+// Prepositions
+
+ãn        $u $brk
+cu        $u $brk
+di        $u $brk
+dipã      $u $brk
+disuprã   $u $brk
+dit       $u $brk
+ditru     $u $brk
+dupu      $u $brk
+dupã      $u $brk
+fere      $u $brk
+fãrã      $u $pause
+la        $u $brk
+ninte     $u $brk
+ninti     $u $brk
+nãinti    $u $brk
+nãnte     $u $brk
+nãnti     $u $brk
+pi        $u $brk
+pisti     $u $brk
+pri       $u $brk
+pristi    $u $brk
+prisuprã  $u $brk
+prit      $u $brk
+su        $u $brk
+sum       $u $brk
+trã       $u $brk
+tru       $u brk
+
+
+// Character Names
