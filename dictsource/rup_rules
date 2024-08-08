@@ -1,0 +1,139 @@
+// This file is UTF-8 encoded
+// translation rules for Aromanian
+
+// Vowels
+.L01 e i  // front vowels
+
+// Consonants
+.L02 b c d dh f g h j k l lj m n nj p r s sh t th v w x y z
+
+.group a
+        a      a
+	a (L02_ 'a
+	a (L02L02_ 'a
+	ai     aI
+	ai (_  'aI
+	au     aU
+	au (_  'aU
+	
+.group ã
+        ã      @
+	ã (L02_ '@
+	ã (L02L02_ '@
+	
+.group â
+        â      y
+
+.group b
+        b      b
+	
+.group c
+        c      k
+    c  (L01 tS
+	ch (L01 c
+
+.group d
+        d      d
+	dh     D
+	dz     dz
+
+.group e
+        e      e
+	e (L02_ 'e
+	e (L02L02_ 'e
+	ea     ea
+	ea (_  'ea
+	ei     eI
+	ei (_  'eI
+    eu     eU
+	eu (_  'eU
+	
+.group f
+        f      f
+		
+.group g
+        g      g
+    g  (L01   dZ
+	gh (L01  J
+	
+.group h
+        h      h
+		
+.group i
+        i      i
+	i (A     j
+     @) i (e_    j
+    i (L02_   'i
+	i (L02L02_ 'i
+	
+.group j
+        j      Z
+		
+.group k
+        k      k
+		
+.group l
+        l      l
+	lj      l^
+		
+.group m
+        m      m
+		
+.group n
+        n      n
+	nj      n^
+
+.group o
+        o      o
+    o (_    'o
+	o (L02_ 'o
+	o (L02L02_ 'o
+	oa       Oa
+	oa  (L02_ 'Oa
+	oa  (L02L02_ 'Oa
+	oi       oI
+	
+.group p
+        p      p
+		
+.group q
+        q      k
+		
+.group r
+        r      r
+	rr      r
+	 A) r (A   *
+     C) r (A   @-*
+	 
+.group s
+        s      s
+    sh      S
+	
+.group t
+        t      t
+	th      T
+	ts      ts
+	
+.group u
+        u     u
+	u (A    w
+	u (L02_ 'u
+	u (L02L02_ 'u
+	
+.group v
+        v      v
+		
+.group w
+        w       w
+	
+.group x
+        x       ks
+
+.group y
+        y       Q
+	y (L02      j
+	
+.group z
+        z       z
+
+	
