@@ -1,6 +1,9 @@
 // This file is UTF-8 encoded
 // translation rules for Alorese
 
+.replace
+       ʼ       '     // replace modified apostrophe to simple apostrophe
+
 .group a
         a         a
 
@@ -68,4 +71,6 @@
 .group y
         y         j
 
+.group '
+        '         ?
 		
