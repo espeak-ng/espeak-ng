@@ -62,16 +62,6 @@ static MBROLA_TAB *mbrola_tab = NULL;
 static int mbrola_control = 0;
 static int mbr_name_prefix = 0;
 
-static const char *system_data_dirs(void)
-{
-	// XDG Base Directory Specification
-	// https://specifications.freedesktop.org/basedir-spec/basedir-spec-0.6.html#variables
-	const char *dirs = getenv("XDG_DATA_DIRS");
-	if (dirs)
-		return dirs;
-	return "/usr/local/share:/usr/share";
-}
-
 espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
 	// Load a phoneme name translation table from espeak-ng-data/mbrola
@@ -98,48 +88,29 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	sprintf(path, "%s/mbrola/%s", path_home, mbrola_voice);
 #if PLATFORM_POSIX
 	// if not found, then also look in
-	//   $data_dir/mbrola/xx, $data_dir/mbrola/xx/xx, $data_dir/mbrola/voices/xx
-	char *data_dirs = strdup(system_data_dirs());
-	char *data_dir = strtok(data_dirs, ":");
-	bool found = false;
+	//   usr/share/mbrola/xx, /usr/share/mbrola/xx/xx, /usr/share/mbrola/voices/xx
 	if (GetFileLength(path) <= 0) {
-		while(data_dir) {
-			sprintf(path, "%s/mbrola/%s", data_dir, mbrola_voice);
-			if (GetFileLength(path) > 0) {
-				found = true;
-				break;
-			}
+		sprintf(path, "/usr/share/mbrola/%s", mbrola_voice);
 
-			sprintf(path, "%s/mbrola/%s/%s", data_dir, mbrola_voice, mbrola_voice);
-			if (GetFileLength(path) > 0) {
-				found = true;
-				break;
-			}
+		if (GetFileLength(path) <= 0) {
+			sprintf(path, "/usr/share/mbrola/%s/%s", mbrola_voice, mbrola_voice);
 
-			sprintf(path, "%s/mbrola/voices/%s", data_dir, mbrola_voice);
-			if (GetFileLength(path) > 0) {
-				found = true;
-				break;
-			}
+			if (GetFileLength(path) <= 0)
+				sprintf(path, "/usr/share/mbrola/voices/%s", mbrola_voice);
 
-			data_dir = strtok(NULL, ":");
+			// Show error message
+			if (GetFileLength(path) <= 0) {
+				fprintf(stderr, "Cannot find MBROLA voice file '%s' in neither of paths:\n"
+						" - /usr/share/mbrola/%s\n"
+						" - /usr/share/mbrola/%s/%s\n"
+						" - /usr/share/mbrola/voices/%s\n"
+						"Please install necessary MBROLA voice!\n",
+						mbrola_voice, mbrola_voice, mbrola_voice, mbrola_voice, mbrola_voice);
+				// Set path back to simple name, otherwise it shows misleading error only for
+				// last unsuccessfully searched path
+				sprintf(path, "%s", mbrola_voice);
+			}
 		}
-	} else {
-		found = true;
-	}
-	// Show error message
-	if (!found) {
-		fprintf(stderr, "Cannot find MBROLA voice file '%s' in neither of paths:\n"
-				" - $data_dir/mbrola/%s\n"
-				" - $data_dir/mbrola/%s/%s\n"
-				" - $data_dir/mbrola/voices/%s\n"
-				"for any data_dir in XDG_DATA_DIRS=%s\n"
-				"Please install necessary MBROLA voice!\n",
-				mbrola_voice, mbrola_voice, mbrola_voice, mbrola_voice, mbrola_voice,
-				system_data_dirs());
-		// Set path back to simple name, otherwise it shows misleading error only for
-		// last unsuccessfully searched path
-		sprintf(path, "%s", mbrola_voice);
 	}
 	close_MBR();
 #endif
