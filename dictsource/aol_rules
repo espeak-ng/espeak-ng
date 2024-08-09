@@ -1,0 +1,71 @@
+// This file is UTF-8 encoded
+// translation rules for Alorese
+
+.group a
+        a         a
+
+.group e
+        e         E
+		
+.group i
+        i         i
+		
+.group o
+        o         O
+		
+.group u
+        u         u
+		
+.group b
+        b         b
+		
+.group d
+        d         d
+		
+.group f
+        f         f
+		
+.group g
+        g         g
+		
+.group h
+        h         h
+		
+.group j
+        j         dZ
+		
+.group k
+        k         k
+		
+.group l
+        l         l
+		
+.group m
+        m         m
+		
+.group n
+        n         n
+	ng       N
+	
+.group o
+        o         o
+		
+.group p
+        p         p
+		
+.group r
+        r         r
+		
+.group s
+        s         s
+		
+.group t
+        t         t
+		
+.group w
+        w         w
+		
+.group y
+        y         j
+
+		

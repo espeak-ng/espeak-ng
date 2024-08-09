@@ -1,5 +1,5 @@
 list(APPEND _dict_compile_list
-  af am an ar as az
+  af am an aol ar as az
   ba be bg bn bpy bs
   ca chr cmn cs cv cy
   da de

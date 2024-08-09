@@ -1,0 +1,47 @@
+//==========================================================
+// Alorese
+//==========================================================
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 140
+  FMT(vowel/a)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  ipa ɛ
+  length 140
+  FMT(vowel/ee)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 140
+  FMT(vowel/i)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  ipa ɔ
+  length 140
+  FMT(vowel/0_2)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 140
+  FMT(vowel/u)
+endphoneme
+
+
+// Consonants
+
+phoneme r
+  import_phoneme base1/R
+endphoneme

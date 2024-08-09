@@ -446,6 +446,7 @@ dictionaries: \
 	espeak-ng-data/af_dict \
 	espeak-ng-data/am_dict \
 	espeak-ng-data/an_dict \
+        espeak-ng-data/aol_dict \
 	espeak-ng-data/ar_dict \
 	espeak-ng-data/as_dict \
 	espeak-ng-data/az_dict \
@@ -585,6 +586,9 @@ espeak-ng-data/am_dict: dictsource/am_list dictsource/am_rules dictsource/am_ext
 
 an: espeak-ng-data/an_dict
 espeak-ng-data/an_dict: dictsource/an_list dictsource/an_rules dictsource/an_extra
+
+aol: espeak-ng-data/aol_dict
+espeak-ng-data/aol_dict: dictsoruce/aol_list dictsource/aol_rules dictsource/aol_extra
 
 ar: espeak-ng-data/ar_dict
 espeak-ng-data/ar_dict: dictsource/ar_list dictsource/ar_listx dictsource/ar_rules dictsource/ar_extra dictsource/ar_emoji
