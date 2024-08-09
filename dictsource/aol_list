@@ -1,0 +1,31 @@
+// This file is UTF-8 encoded
+// translation rules for Alorese
+
+// Numbers
+
+_0      nOaN
+_1      nu
+_2      OlO
+_3      tOwO
+_4      ut
+_5      iwEsEN
+_6      talaN
+_7      wutitO
+_8      turlO
+_9      ti?inu
+_1X     karnu
+_2X     karhO?OlO
+_3X     kartOwO
+_4X     karut
+_5X     kariwEsEN
+_6X     kartalaN
+_7X     karwutitO
+_8X     karturlO
+_9X     karti?inu
+_0C     rat
+_1C     ratnu
+_2C     ratOlO
+_0M1    rib
+_1M1    ribnu
+
+_dpt    _koma_|
