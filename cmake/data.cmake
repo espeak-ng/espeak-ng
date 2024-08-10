@@ -13,7 +13,7 @@ list(APPEND _dict_compile_list
   la lb lfn lt lv
   mi mk ml mr ms mto mt my
   nci ne nl nog no
-  om or
+  om or os
   pap pa piqd pl pt py
   qdb quc qu qya
   ro ru

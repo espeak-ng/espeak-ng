@@ -1,0 +1,150 @@
+// This file is UTF-8 encoded
+// translation rules for Ossetian
+
+// Consonants
+.L01  б в г гъ д дж дз ж з й к къ л м н п пъ р с т тъ ф х хъ ц цъ ч чъ ш щ
+
+.group а
+        а        a
+		а  (_   'a
+		а  (L01_ 'a
+		а  (L01L01_ 'a
+		
+.group ӕ
+        ӕ        @
+		ӕ  (_   '@
+		ӕ  (L01_ '@
+		ӕ  (L01L01_ '@
+		
+.group б
+        б        b
+		
+.group в
+        в        v
+		
+.group г
+        г        g
+		гъ       Q"
+		
+.group д
+        д        d
+		дж       dZ
+		дз       dz
+		
+.group е
+        е        e
+		е  (_   'e
+		е  (L01_ 'e
+		е  (L01L01_ 'e
+		
+.group ё
+        ё        jo
+		ё  (_    j'o
+		ё  (L01_ j'o
+		ё  (L01L01_ j'o
+		
+.group ж
+        ж        Z
+		
+.group з
+        з        Z
+
+
+.group и
+        и        i
+		и  (_   'i
+		и  (L01_ 'i
+		и  (L01L01_ 'i
+		
+.group й
+        й        j
+		
+.group к
+        к        k
+		къ       k?
+		
+.group л
+        л        l
+		
+.group м
+        м        m
+		
+.group н
+        н        n
+		
+.group о
+        о        o
+		о  (_   'o
+		о  (L01_ 'o
+		о  (L01L01_ 'o
+		
+.group п
+        п        p
+		пъ       p?
+		
+.group р
+        р        r
+		
+.group с
+        с        S
+		
+.group т
+        т        t
+		тъ       t?
+		
+.group у
+        у        w
+		у  (_   'u
+		у  (L01_ 'u
+		у  (L01L01_ 'u
+		
+.group ф
+        ф        f
+		
+.group х
+        х        x
+		хъ       x?
+		
+.group ц
+        ц        ts
+		цъ       ts?
+		
+.group ч
+        ч        tS
+		чъ       tS?
+		
+.group ш
+        ш        S
+		
+.group щ
+        щ        StS
+		
+.group ъ
+        ъ        ?
+		
+.group ы
+        ы        I
+		ы  (_   'I
+		ы  (L01_ 'I
+		ы  (L01L01_ 'I
+		
+.group ь
+        ь        ?
+		
+.group э
+        э        e
+		э  (_   'e
+		э  (L01_ 'e
+		э  (L01L01_ 'e
+		
+.group ю
+        ю        ju
+		ю  (_    j'u
+		ю  (L01_ j'u
+		ю  (L01L01_ j'u
+		
+.group я
+        я        ja
+	    я  (_    j'a
+	    я  (L01_ j'a
+	    я  (L01L01_ j'a

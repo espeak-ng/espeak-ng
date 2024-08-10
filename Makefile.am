@@ -522,6 +522,7 @@ dictionaries: \
 	espeak-ng-data/nog_dict \
 	espeak-ng-data/om_dict \
 	espeak-ng-data/or_dict \
+        espeak-ng-data/os_dict \
 	espeak-ng-data/pa_dict \
 	espeak-ng-data/pap_dict \
 	espeak-ng-data/piqd_dict \
@@ -810,6 +811,9 @@ espeak-ng-data/om_dict: dictsource/om_list dictsource/om_rules dictsource/om_ext
 
 or: espeak-ng-data/or_dict
 espeak-ng-data/or_dict: dictsource/or_list dictsource/or_rules dictsource/or_extra dictsource/or_emoji
+
+os: espeak-ng-data/os_dict
+espeak-ng-data/os_dict: dictsource/os_list dictsource/os_rules dictsource/os_extra
 
 pa: espeak-ng-data/pa_dict
 espeak-ng-data/pa_dict: dictsource/pa_list dictsource/pa_rules dictsource/pa_extra dictsource/pa_emoji
