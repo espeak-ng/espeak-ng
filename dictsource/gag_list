@@ -1,0 +1,46 @@
+// This file is UTF-8 encoded
+// translation rules for Gagauz
+
+
+// Numbers
+
+_0       n'oL?
+_1       b'ir?
+_2       ic'i
+_3       'ytS?
+_4       d'Wrt?
+_5       b'eS?
+_6       ALt'I
+_7       ed'i
+_8       sek'iz?
+_9       dok'uz
+_10      on
+
+_1X      on
+_2X      irm'i
+_3X      ot'uz
+_4X      k'Irk
+_5X      ell'i
+_6X      ALtm'@S
+_7X      etm'iS?
+_8X      seks'&n
+_9X      doks'An
+
+_0C      'yz
+_1C      'yz
+
+_0M1     b'in
+_1M1     b'in
+
+_0M2     milli'on
+_1M2     milli'on
+
+_0M3     milli'Ard
+_1M3     milli'Ard
+
+_dpt     _virJ,yl_|
+
+
+// pronouns
+
+bän       $u

@@ -1,0 +1,146 @@
+// This file is UTF-8 encoded
+// translation rules for Gagauz
+
+// Vowels
+.L01  a ı o u      // back vowels
+.L02  ä e i ö ü    // front vowels
+
+// Consonants
+.L03 b c ç d f g h j k l m n p r s ş t ţ v y z
+
+.group a
+        a        A
+    a (_    'A
+    a (L03_ 'A
+    a (L03L03_ 'A
+		
+.group ä
+        ä        &
+    ä (_    '&
+    ä (L03_ '&
+    ä (L03L03_ '&
+		
+.group b
+        b        b
+	bb       b:
+		
+.group c
+        c        dZ
+	cc       dZ:
+		
+.group ç
+        ç        tS
+	çç       tS:
+		
+.group d
+        d        d
+	dd       d:
+		
+.group e
+        e        e
+    e (_    'e
+    e (L03_ 'e
+    e (L03L03_ 'e
+		
+.group ê
+        ê        @
+    ê (_    '@
+    ê (L03_ '@
+    ê (L03L03_ '@
+		
+.group f
+        f        f
+		
+.group g
+        g        g
+	gg       g:
+	g  (L02_ J
+		
+.group h
+        h        h
+		
+.group ı
+        ı        I
+    ı (_    'I
+    ı (L03_ 'I
+    ı (L03L03_ 'I
+	
+.group i
+        i        i
+    i (_    'i
+    i (L03_ 'i
+    i (L03L03_ 'i
+		
+.group j
+        j        Z
+		
+.group k
+        k        k
+	kk       k:
+	k  (L02  c
+		
+.group l
+        l        l
+	l  (L01  L
+	l  (L02  l^
+		
+.group m
+        m        m
+		
+.group n
+        n        n
+		
+.group o
+        o        o
+    o (_    'o
+    o (L03_ 'o
+    o (L03L03_ 'o
+		
+.group ö
+        ö        W
+    ö (_    'W
+    ö (L03_ 'W
+    ö (L03L03_ 'W
+		
+.group p
+        p        p
+	pp       p:
+		
+.group r
+        r        r
+		
+.group s
+        s        s
+		
+.group ş
+        ş        S
+		
+.group t
+        t        t
+	tt       t:
+		
+.group ţ
+        ţ        ts
+		
+.group u
+        u        u
+    u (_    'u
+    u (L03_ 'u
+    u (L03L03_ 'u
+		
+.group ü
+        ü        y
+    ü (_    'y
+    ü (L03_ 'y
+    ü (L03L03_ 'y
+		
+.group v
+        v        v
+	v (L01   w
+		
+.group y
+        y        j
+		
+.group z
+        z        z
+		
