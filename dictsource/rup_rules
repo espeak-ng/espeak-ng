@@ -5,7 +5,7 @@
 .L01 e i  // front vowels
 
 // Consonants
-.L02 b c d dh f g h j k l lj m n nj p r s sh t th v w x y z
+.L02 b c d dh dz f g h j k l lj m n nj p r s sh t th ts v w x y z
 
 .group a
         a      a
