@@ -533,6 +533,7 @@ dictionaries: \
 	espeak-ng-data/quc_dict \
 	espeak-ng-data/qya_dict \
 	espeak-ng-data/ro_dict \
+        espeak-ng-data/rom_dict \
 	espeak-ng-data/ru_dict \
 	espeak-ng-data/sd_dict \
 	espeak-ng-data/shn_dict \
@@ -843,6 +844,9 @@ espeak-ng-data/qya_dict: dictsource/qya_list dictsource/qya_rules
 
 ro: espeak-ng-data/ro_dict
 espeak-ng-data/ro_dict: dictsource/ro_list dictsource/ro_rules dictsource/ro_extra dictsource/ro_emoji
+
+rom: espeak-ng-data/rom_dict
+espeak-ng-data/rom_dict: espeak-ng-data/rom_list dictsource/rom_rules dictsource/rom_extra
 
 ru: espeak-ng-data/ru_dict
 dictsource/ru_listx:

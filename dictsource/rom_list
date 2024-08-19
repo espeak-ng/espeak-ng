@@ -1,0 +1,105 @@
+// This file is UTF-8 encoded
+// translation rules for Romani
+
+// Numbers
+
+_0       s'efr
+_1       j'ek
+_2       d'uj
+_3       tr'in
+_4       St'ar
+_5       p'anZ
+_6       S'ov#
+_7       eft'a
+_8       oxt'o
+_9       ini'a
+_10      d'eS
+_11      deSuj'ek
+_12      deSud'uj
+_13      deSutr'in
+_14      deSuSt'ar
+_15      deSup'anZ
+_16      deSuS'ov#
+_17      deSjeft'a
+_18      deSoxt'o
+_19      deSuini'a
+_2X      b'iS
+_3X      triand'a
+_4X      sarand'a
+_5X      pind'a
+_6X      Sov#ard'eS
+_7X      jeftav#ard'eS
+_8X      oxtov#ard'eS
+_9X      injav#ard'eS
+_0C      S'el
+_1C      S'el
+_0M1     mij'a
+_1M1     mij'a
+
+_dpt     _kom'a_|
+
+
+// Pronouns
+
+
+amaro     $u
+ame       $u
+amen      $u
+kado      $u
+kodo      $u
+kon       $u
+me        $u
+oj        $u
+on        $u
+ov        $u
+pen       $u
+pes       $u
+sa        $u
+so        $u
+tu        $u
+tume      $u
+tumen     $u
+
+
+// Conjunctions
+
+thaj      $u
+haj       $u
+vaj       $u
+de        $u
+aba       $u
+ham       $u
+inke      $u
+mig       $u
+pe        $u
+pre       $u
+chi       $u
+dehat     $u
+te        $u
+pala      $u
+sar       $u
+vi        $u
+pune      $u
+andar     $u
+kaj       $u
+kehat     $u
+angla     $u
+makar     $u
+(hat te)  $u
+kana      $u
+(chak te) $u
+jekhvar   $u
+varekana  $u
+dekana    $u
+hoj       $u
+ke        $u
+kam       $u
+hačhak    $u
+dži       $u
+kanagodi  $u
+ba        $u
+kajgodi   $u
+sarso     $u
+džikaj    $u
+čhak      $u
+ni        $u

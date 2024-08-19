@@ -1792,6 +1792,9 @@ include ph_quechua
 
 phonemetable quc base1
 
+phonemetable rom base1
+include ph_romani
+
 phonemetable ru base1
 include ph_russian
 

@@ -1,0 +1,112 @@
+// This file is UTF-8 encoded
+// translation rules for Romani
+
+.L01 b c č čh d dž f g h j k kh l m n p ph r s š t th v x z ž   // Consonants
+
+.group a
+        a          a
+    a      (_  'a
+	a      (L01_ 'a
+	 
+.group b
+        b          b
+		
+.group c
+        c          ts
+		
+.group č
+        č          tS
+	čh         tS#
+	
+.group d
+        d          d
+	dž         dZ
+	
+.group e
+        e          e
+    e      (_  'e
+	e      (L01_ 'e
+	 
+.group f
+        f          f
+		
+.group g
+        g          g
+		
+.group h
+        h          h
+		
+.group i
+        i          i
+    i      (_  'i
+	i      (L01_ 'i
+	 
+.group j
+        j          j
+		
+.group k
+        k          k
+    kh        k#
+
+.group l
+        l          l
+		
+.group m
+        m          m
+		
+.group n
+        n          n
+		
+.group o
+        o          o
+    o      (_  'o
+	o      (L01_ 'o
+	 
+.group p
+        p          p
+	ph         ph
+	
+.group r
+        r          r
+	rr         r
+		
+.group s
+        s          s
+		
+.group š
+        š          S
+		
+.group t
+        t          t
+    th         t#
+	
+.group u
+        u          u
+    u      (_  'u
+	u      (L01_ 'u
+	 
+.group v
+        v          v
+		
+.group x
+        x          x
+		
+.group z
+        z          z
+		
+.group ž
+        ž          Z
+		
+
+.group
+    ć       tS
+	ćh      tS#
+	dź      dZ
+	ë       @
+	q       k
+	ś       S
+	θ       t
+	w       w
+	ź       Z
+	ʒ       dz
+	
