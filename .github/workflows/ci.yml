@@ -15,10 +15,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu]
-        arch: [amd64]
-        config: [asan]
-        compiler: [clang]
+        os: [ubuntu, macos]
+        arch: [amd64, i386, aarch64, arm, riscv64]
+        config: [debug, release, release-dyn, asan, lsan, msan, tsan, ubsan, valgrind]
+        compiler: [gcc, clang]
 
         include:
           - os: ubuntu
