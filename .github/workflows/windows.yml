@@ -30,4 +30,5 @@ jobs:
       - name: make
         run: cmake --build build --config ${{ matrix.config }}
       - name: make check
+      # since -Ttest was an invalid argument we changed it into -T test, believed to be a typo
         run: ctest --test-dir build -T test -C ${{ matrix.config }} -j8 --output-on-failure
