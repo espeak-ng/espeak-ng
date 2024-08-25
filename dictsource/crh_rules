@@ -31,160 +31,157 @@
 		
 .group a
         a         A
-	    a (_     'A
-	    a (L04_  'A
-	    a (L04L04_ 'A
-		av (_    'Aw
+	a (_     'A
+	a (L04_  'A
+	a (L04L04_ 'A
+	av (_    'Aw
 		
 .group â
         â        ;A
-	    â (_    ;'A
-	    â (L04_ ;'A
-	    â (L04L04_ ;'A
+	â (_    ;'A
+	â (L04_ ;'A
+	â (L04L04_ ;'A
 		
 .group b
         b         b
-	    bb        b:
+	bb        b:
 		
 .group c
         c         dZ
-	    cc        dZ:
-	    ce (_     =dZe
+	cc        dZ:
+	ce (_     =dZe
 
 .group ç
         ç         tS
-	    çç        tS:
-	    çe (_     =tSe
+	çç        tS:
+	çe (_     =tSe
 		 
 .group d
         d         d
-	    dd        d:
-	    d   (L02  d;
-	    d   (L03  d;
+	dd        d:
+	d   (L02  d;
+	d   (L03  d;
         dir (_    =d;ir
         dır (_    =d@r
 		
 .group e
         e         e
-	    e  (_    'e
-	    e  (L04_ 'e
-	    e  (L04L04_ 'e
-	    e  (ki    E            // it was pronounced like "eki"
+	e  (_    'e
+	e  (L04_ 'e
+        e  (L04L04_ 'e
+	e  (ki    E            // it was pronounced like "eki"
 		
 .group f
         f         f
 		
 .group g
         g         g
-	    gg        g:
-	    g  (L02   J
-	    g  (L03   J
+	gg        g:
+	g  (L02   J
+	g  (L03   J
 
 .group ğ
         ğ         G
-	    ğğ        G:
+	ğğ        G:
 		
 .group h
         h         x
 		
 .group ı
         ı         @
-	    ı  (_    '@
-	    ı  (L04_ '@
-	    ı  (L04L04_ '@
+	ı  (_    '@
+	ı  (L04_ '@
+        ı  (L04L04_ '@
 		
 .group i
         i         i
-	    i  (_    'i
-	    i  (L04_ 'i
-	    i  (L04L04_ 'i
-        iy        i:
-	    iy (_    'i:
-	    iy (L04_ 'i:
-	    iy (L04L04_ 'i:
-	    iya (_   'ijA
-	    iye (_   'ije
+	i  (_    'i
+	i  (L04_ 'i
+	i  (L04L04_ 'i
+	iy (_    'i:
+	iya (_   'ijA
+	iye (_   'ije
 
 .group j
         j         Z
 		
 .group k
         k         k
-	    kk        k:
+	kk        k:
         k  (L02   c
-	    k  (L03   c
+	k  (L03   c
 
 .group l
         l         l
-	    l (L01    L
+	l (L01    L
    L01) l (K      L
 		
 .group m
         m         m
-	    mce (_    mdZ'e
+	mce (_    mdZ'e
 		
 .group n
         n         n
-	    n (g      N
-	    n (k      N
-	    nce (_    =ndZe
+	n (g      N
+	n (k      N
+	nce (_    =ndZe
 		
 .group ñ
         ñ         N
 		
 .group o
         o         o
-	    o  (_    'o
-	    o  (L04_ 'o
-	    o  (L04L04_ 'o
-		ov (_    'ow
+	o  (_    'o
+	o  (L04_ 'o
+	o  (L04L04_ 'o
+	ov (_    'ow
 		
 .group ö
         ö         W
-	    ö  (_    'W
-	    ö  (L04_ 'W
-	    ö  (L04L04_ 'W
+	ö  (_    'W
+	ö  (L04_ 'W
+	ö  (L04L04_ 'W
 		
 .group p
         p         p
-	    pp        p:
+	pp        p:
 		
 .group q
         q         q
-	    qq        q:
+	qq        q:
 		
 .group r
         r         r
 		
 .group s
         s         s
-	    sın (_   =s@n
-	    sıñ (_   =s@N
+	sın (_   =s@n
+	sıñ (_   =s@N
 		
 .group ş
         ş         S
 		
 .group t
         t         t
-	    ts        ts
+	ts        ts
         tt        t:
-	    t  (L02   t;
-	    t  (L03   t;		
+	t  (L02   t;
+	t  (L03   t;		
 		
 .group u
         u         u
-	    u  (_    'u
-	    u  (L04_ 'u
-	    u  (L04L04_ 'u
-	    um (_    =um
-		uv (_    'uw
+	u  (_    'u
+	u  (L04_ 'u
+	u  (L04L04_ 'u
+	um (_    =um
+	uv (_    'uw
 		
 .group ü
         ü         y
-	    ü  (_    'y
-	    ü  (L04_ 'y
-	    ü  (L04L04_ 'y
-	    üm (_     =ym
+	ü  (_    'y
+	ü  (L04_ 'y
+	ü  (L04L04_ 'y
+	üm (_     =ym
 		
 .group v
         v         v
@@ -196,5 +193,5 @@
         z         z
 
 .group
-	  w     w
-	  x     x     // used in southern dialect
+   w     w
+   x     x     // used in southern dialect
