@@ -353,6 +353,9 @@
   <Target Name="ru" Inputs="$(ProjectDir)..\..\dictsource\ru_rules;$(ProjectDir)..\..\dictsource\ru_list;$(ProjectDir)..\..\dictsource\ru_listx" Outputs="$(ProjectDir)..\..\espeak-ng-data\ru_dict" DependsOnTargets="Phonemes;Extdict">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ru" />
   </Target>
+  <Target Name="rup" Inputs="$(ProjectDir)..\..\dictsource\rup_rules;$(ProjectDir)..\..\dictsource\rup_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\rup_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=rup" />
+  </Target>
   <Target Name="sd" Inputs="$(ProjectDir)..\..\dictsource\sd_rules;$(ProjectDir)..\..\dictsource\sd_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\sd_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sd" />
   </Target>
