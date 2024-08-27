@@ -317,6 +317,9 @@
   <Target Name="or" Inputs="$(ProjectDir)..\..\dictsource\or_rules;$(ProjectDir)..\..\dictsource\or_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\or_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=or" />
   </Target>
+  <Target Name="os" Inputs="$(ProjectDir)..\..\dictsource\os_rules;$(ProjectDir)..\..\dictsource\os_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\os_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=os" />
+  </Target>
   <Target Name="pa" Inputs="$(ProjectDir)..\..\dictsource\pa_rules;$(ProjectDir)..\..\dictsource\pa_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\pa_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=pa" />
   </Target>
