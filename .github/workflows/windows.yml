@@ -29,5 +29,5 @@ jobs:
         run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=${{ matrix.shlib }} -A ${{ matrix.arch }}
       - name: make
         run: cmake --build build --config ${{ matrix.config }}
-      - name: make check      
+      - name: make check
         run: ctest --test-dir build -T test -C ${{ matrix.config }} -j8 --output-on-failure
