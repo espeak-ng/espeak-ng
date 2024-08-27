@@ -173,6 +173,9 @@
   <Target Name="ga" Inputs="$(ProjectDir)..\..\dictsource\ga_rules;$(ProjectDir)..\..\dictsource\ga_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ga_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ga" />
   </Target>
+  <Target Name="gag" Inputs="$(ProjectDir)..\..\dictsource\gag_rules;$(ProjectDir)..\..\dictsource\gag_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\gag_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gag" />
+  </Target>
   <Target Name="gd" Inputs="$(ProjectDir)..\..\dictsource\gd_rules;$(ProjectDir)..\..\dictsource\gd_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\gd_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gd" />
   </Target>
