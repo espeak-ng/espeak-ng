@@ -30,4 +30,4 @@ jobs:
       - name: make
         run: cmake --build build --config ${{ matrix.config }}
       - name: make check
-        run: ctest --test-dir build -Ttest -C ${{ matrix.config }} -j8 --output-on-failure
+        run: ctest --test-dir build -T test -C ${{ matrix.config }} -j8 --output-on-failure

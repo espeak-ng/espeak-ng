@@ -769,7 +769,7 @@ Translator *SelectTranslator(const char *name)
 		if (name2 == L('c', 'a')) {
 			// stress last syllable unless word ends with a vowel
 			tr->punct_within_word = ca_punct_within_word;
-			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
+			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2 | S_FIRST_PRIMARY;
 		} else if (name2 == L('i', 'a')) {
 			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
