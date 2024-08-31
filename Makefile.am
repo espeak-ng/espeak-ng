@@ -540,6 +540,7 @@ dictionaries: \
 	espeak-ng-data/sjn_dict \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
+        espeak-ng-data/sm_dict \
 	espeak-ng-data/smj_dict \
 	espeak-ng-data/sq_dict \
 	espeak-ng-data/sr_dict \
@@ -870,6 +871,9 @@ espeak-ng-data/sk_dict: dictsource/sk_list dictsource/sk_rules dictsource/sk_ext
 
 sl: espeak-ng-data/sl_dict
 espeak-ng-data/sl_dict: dictsource/sl_list dictsource/sl_rules dictsource/sl_extra dictsource/sl_emoji
+
+sm: espeak-ng-data/sm_dict
+espeak-ng-data/sm_dict: dictsource/sm_list dictsource/sm_rules dictsource/sm_extra
 
 smj: espeak-ng-data/smj_dict
 espeak-ng-data/smj_dict: dictsource/smj_list dictsource/smj_rules

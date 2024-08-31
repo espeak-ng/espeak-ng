@@ -1798,6 +1798,9 @@ include ph_russian
 phonemetable shn base1
 include ph_shan
 
+phonemetable sm base1
+include ph_samoan
+
 phonemetable sq base1
 include ph_albanian
 

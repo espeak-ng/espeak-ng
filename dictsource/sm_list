@@ -1,0 +1,106 @@
+// This file is UTF-8 encoded
+// translation rules for Samoan
+
+// Letters
+
+a        a
+e        E
+i        I
+o        o
+u        U
+ā        a:
+ē        e:
+ī        i:
+ō        O:
+ū        u:
+f        fa
+g        Na
+l        *a
+m        mo
+n        nu
+p        pI
+s        sa
+t        tI
+v        vI
+h        hE
+k        ka
+r        *o
+‘        ?okIna
+
+
+// Numbers
+
+_0       noa
+_1       tasI
+_2       *wa
+_3       to*U
+_4       fa
+_5       *Ima
+_6       ono
+_7       fItU
+_8       va*U
+_9       Iva
+_1X      sEfU*U
+_2X      *wasEfU*U
+_3X      to*UsEfU*U
+_4X      fasEfU*U
+_5X      *ImasEfU*U
+_6X      onosEfU*U
+_7X      fItUsEfU*U
+_8X      va*UsEfU*U
+_9X      IvasEfU*U
+_0C      sE*aU
+_1C      *aU
+_0M1     afE
+_1M1     afE
+_0M2     mI*Iona
+
+_dpt     koma
+
+
+// Pronouns
+
+'e       $u
+'oe      $u
+'ou      $u
+'oulua   $u
+'outou   $u
+a'u      $u
+ia       $u
+lenei    $u
+lātou    $u
+lā'ua    $u
+lē       $u
+mā       $u
+mātou    $u
+mā'ua    $u
+na       $u
+tou      $u
+tā       $u
+tātou    $u
+tā'ua    $u
+ā        $u $atend
+ā        a:
+ē        $u $atend
+ē        e:
+
+
+// Conjunctions
+
+ma           $u
+
+
+// Prepositions
+
+'i           $u
+e            $u $atend
+e            E
+fa'a         $u
+i            $u $atend
+i            I
+(i lagi)     Il,aNI $u
+ma           $u
+mo           $u
+o            $u $atend
+o            o
+

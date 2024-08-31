@@ -1,0 +1,137 @@
+//==============================================================
+// Samoan
+//==============================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 140
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme a:
+  vwl starttype #a endtype #a
+  ipa a:
+  length 280
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  ipa ɛ
+  length 140
+  FMT(vowel/ee)
+endphoneme
+
+phoneme e:
+  vwl starttype #e endtype #e
+  ipa e:
+  length 280
+  FMT(vowel/e)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  ipa ɪ
+  length 140
+  FMT(vowel/ii)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  ipa i:
+  length 280
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 140
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme O:
+  vwl starttype #o endtype #o
+  ipa ɔː
+  length 240
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  ipa ʊ
+  length 180
+  FMT(vowel/uu_2)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  ipa u:
+  length 280
+  FMT(vowel/u)
+endphoneme
+
+
+// Diphthongs
+
+phoneme aE
+  vwl starttype #a endtype #e
+  length 250
+  FMT(vdiph/ae)
+endphoneme
+
+phoneme aI
+  vwl starttype #a endtype #i
+  length 250
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme aO
+  vwl starttype #a endtype #o
+  length 260
+  FMT(vdiph/aoo)
+endphoneme
+
+phoneme aU
+  vwl starttype #a endtype #u
+  length 270
+  FMT(vdiph/au)
+endphoneme
+
+phoneme EI
+  vwl starttype #e endtype #i
+  length 230
+  FMT(vdiph/eei)
+endphoneme
+
+phoneme oI
+  vwl starttype #o endtype #i
+  length 240
+  FMT(vdiph/oi)
+endphoneme
+
+phoneme oU
+  vwl starttype #o endtype #u
+  length 240
+  FMT(vdiph/ou)
+endphoneme
+
+
+// Consonants
+
+phoneme N // si**ng** (modified from Kyrgyz)
+  vcd vel nas
+
+  NextVowelStarts
+    VowelStart(nn/nn@)
+    VowelStart(nn/nna)
+    VowelStart(nn/nne)
+    VowelStart(nn/nni)
+    VowelStart(nn/nno)
+    VowelStart(nn/nnu)
+  EndSwitch
+endphoneme

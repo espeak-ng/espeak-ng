@@ -1,0 +1,84 @@
+// This file is UTF-8 encoded
+// translation rules for Samoan
+
+.replace
+       ʼ        '     // replace modified apostrophe to simple apostrophe
+
+.group a
+    a       a
+	ae      aE
+	ai      aI
+	ao      aO
+	au      aU
+
+.group e
+    e       E
+	ei      EI
+	
+.group i
+    i       I
+	ia      ja
+	
+.group o
+    o       o
+	oe      wE
+	oi      oI
+	ou      oU
+	
+.group u
+    u       U
+	u  (A   w
+
+.group ā
+    ā       a:
+	
+.group ē
+    ē       e:
+	
+.group ī
+    ī       i:
+	
+.group ō
+    ō       O:
+	
+.group ū
+    ū       u:
+	
+.group f
+    f       f
+	
+.group g
+    g       N
+	
+.group l
+    l       *
+	
+.group m
+    m       m
+	
+.group n
+    n       n
+	
+.group p
+    p       p
+	
+.group s
+    s       s
+	
+.group t
+    t       t
+	
+.group v
+    v       v
+	
+.group h
+    h       h
+	
+.group k
+    k       k
+	
+.group r
+    r       *
+	
+.group '
+    '       ?
