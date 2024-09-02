@@ -1,0 +1,72 @@
+//===============================================================
+// Q'eqchi'
+//===============================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 190
+  FMT(vowel/a_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 190
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 190
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 195
+  FMT(vowel/o)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 200
+  FMT(vowel/u_bck2)
+endphoneme
+
+
+// Consonants
+
+phoneme d;
+  vcd alv stp pzd
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
+  Vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100 colr=1
+
+  IF PreVoicing THEN
+    FMT(d/xd_pzd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_pzd, 40)
+  ELIF nextPh(isRhotic) THEN
+    FMT(d/dr) addWav(x/d_pzd, 80)
+  ENDIF
+
+  FMT(d/d) addWav(x/d_pzd, 80)
+endphoneme
+
+phoneme k^
+  vls pal stp
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=400 80
+  Vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
+  WAV(ustop/ki)
+endphoneme

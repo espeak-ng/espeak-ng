@@ -1,0 +1,120 @@
+// This file is UTF-8 encoded
+// translation rules for Q'eqchi'
+
+.L01 b ch ch' h j k k' l m n p q q' r s t t' tz tz' w y z  // Consonants
+
+.replace
+       ʼ       '     // replace modified apostrophe to simple apostrophe
+
+.group a
+    a       a
+	a (_   'a
+	a (L01_ 'a
+	aa      a:
+	aa (_   'a:
+	aa (L01_ 'a:
+	ay       aI
+	ay (_    'aI
+
+.group b
+    b       b
+
+.group c
+    c       ts
+    ch      tS
+    ch'     tS?
+
+
+.group e
+    e       e
+	e (_   'e
+	e (L01_ 'e
+	ee      e:
+	ee (_   'e:
+	ee (L01_ 'e:
+	ey       eI
+	ey (_    'eI
+
+.group h
+    h       h
+
+.group i
+    i       i
+	i (_   'i
+	i (L01_ 'i
+	ii      i:
+	ii (_   'i:
+	ii (L01_ 'i:
+
+.group j
+    j       x
+
+.group k
+    k       k
+    k'      k?
+	kw      gw
+	ky      d;
+
+.group l
+    l       l
+
+.group m
+    m       m
+
+.group n
+    n       n
+
+.group o
+    o       o
+	o (_   'o
+	o (L01_ 'o
+	oo      o:
+	oo (_   'o:
+	oo (L01_ 'o:
+	oy      oI
+	oy (_   'oI
+
+.group p
+    p       p
+
+.group q
+    q       q
+    q'      q?
+
+.group r
+    r       *
+
+.group s
+    s       s
+
+.group t
+    t       t
+    t'      t?
+	tz      ts
+	tz'     ts?
+
+.group u
+    u       u
+	u (_   'u
+	u (L01_ 'u
+	uu      u:
+	uu (_   'u:
+	uu (L01_ 'i:
+	uy       uI
+	uy (_    'uI
+
+.group w
+    w       gw
+
+.group x
+    x       S
+	
+.group y
+    y       k^
+
+.group '
+   '        ?
+   
+.group
+    d       d
+	

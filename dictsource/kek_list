@@ -1,0 +1,120 @@
+// This file is UTF-8 encoded
+// translation rules for Q'eqchi'
+
+
+// Numbers
+
+_0       ma:k?'a?
+_1       x'un
+_2       w'i:b?
+_3       oS'ib?
+_4       kah'ib?
+_5       'o:b?
+_6       gwaq'ib?
+_7       gwuq'ub?
+_8       gwaxSaq'ib?
+_9       b?el'e:b?
+
+_10      lax'e:b?
+_11      xunlax'u
+_12      kab?lax'u
+_13      oSlax'u
+_14      ka:lax'u
+_15      o?lax'u
+_16      gwaq?lax'u
+_17      gwuqlax'u
+_18      gwaSaqlax'u
+_19      b?ele:lax'u
+
+_20      xunm'aI
+_21      xunSka?k?'a:l
+_22      wi:b?Ska?k?'a:l
+_23      oSib?Ska?k?'a:l
+_24      kahib?Ska?k?'a:l
+_25      o:b?Ska?k?'a:l
+_26      gwaqib?Ska?k?'a:l
+_27      gwuqub?Ska?k?'a:l
+_28      gwaxSaqib?Ska?k?'a:l
+_29      b?ele:b?Ska?k?'a:l
+
+_30      laxe:b?Ska?k?'a:l
+_31      xunlaxuSka?k?'a:l
+_32      kab?laxuSka?k?'a:l
+_33      oSlaxuSka?k?'a:l
+_34      ka:laxuSka?k?'a:l
+_35      o?laxuSka?k?'a:l
+_36      gwaq?laxuSka?k?'a:l
+_37      gwuqlaxuSka?k?'a:l
+_38      gwaxSaqlaxubSka?k?'a:l
+_39      b?ele:laxuSka?k?'a:l
+
+_40      kak?'a:l
+_41      xunkak?'a:l
+_42      wi:b?kak?'a:l
+_43      oSib?kak?'a:l
+_44      kahib?kak?'a:l
+_45      o:b?kak?'a:l
+_46      gwaqib?kak?'a:l
+_47      gwuqub?kak?'a:l
+_48      gwaxSaqib?kak?'a:l
+_49      b?ele:bkak?'a:l
+
+_50      laxe:b?*oSk?'a:l
+_51      xunlaxu*oSk?'a:l
+_52      kab?laxu*oSk?'a:l
+_53      oSlaxu*oSk?'a:l
+_54      ka:laxu*oSk?'a:l
+_55      o?laxu*oSk?'a:l
+_56      gwaq?laxu*oSk?'a:l
+_57      gwuqlaxu*oSk?'a:l
+_58      gwaxSaqlaxu*oSk?'a:l
+_59      b?ele:laxu*oSk?'a:l
+
+_60      oSk?'a:l
+_61      xunoSk?'a:l
+_62      w:ib?oSk?'a:l
+_63      oSib?oSk?'a:l
+_64      kahib?oSk?'a:l
+_65      o:b?oSk?'a:l
+_66      gwaqib?oSk?'a:l
+_67      gwuqub?oSk?'a:l
+_68      gwaxSaqib?oSk?'a:l
+_69      b?ele:boSk?'a:l
+
+_70      laxe:b?Ska:k?'a:l
+_71      xunlaxuSka:k?'a:l
+_72      kab?laxuSka:k?'a:l
+_73      oSlaxuSka:k?'a:l
+_74      ka:laxuSka:k?'a:l
+_75      o?laxuSka:k?'a:l
+_76      gwaq?laxuSka:k?'a:l
+_77      gwuqlaxuSka:k?'a:l
+_78      gwaxSaqlaxuSka:k?'a:l
+_79      b?ele:laxuSka:k?'a:l
+
+_80      ka:k?'a:l
+_81      xunka:k?'a:l
+_82      wi:b?ka:k?'a:l
+_83      oSib?ka:k?'a:l
+_84      kahib?ka:k?'a:l
+_85      o:b?ka:k?'a:l
+_86      gwaqib?ka:k?'a:l
+_87      gwuqub?ka:k?'a:l
+_88      gwaxSaqib?ka:k?'a:l
+_89      b?ele:bka:k?'a:l
+
+_90      laxe:b?*o?k?'a:l
+_91      xunlaxu*o?k?'a:l
+_92      kab?laxu*o?k?'a:l
+_93      oSlaxu*o?k?'a:l
+_94      ka:laxu*o?k?'a:l
+_95      o?laxu*o?k?'a:l
+_96      gwaq?laxu*o?k?'a:l
+_97      gwuqlaxu*o?k?'a:l
+_98      gwaxSaqlaxu*o?k?'a:l
+_99      b?ele:laxu*o?k?'a:l
+
+_0C      o?k?'a:l
+_1C      o?k?'a:l
+
+_dpt     koma
