@@ -826,7 +826,6 @@ phoneme n^ // Spanish **ñ**
   ENDIF
 endphoneme
 
-
 phoneme N // si**ng** 
   vcd vel nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
@@ -1708,6 +1707,9 @@ include ph_farsi
 phonemetable fi base1
 include ph_finnish
 
+phonemetable fo base1
+include ph_faroese
+
 phonemetable smj base1
 include ph_lule_saami
 
@@ -1804,6 +1806,9 @@ include ph_swedish
 
 phonemetable sw base1
 include ph_swahili
+
+phonemetable ti base1
+include ph_tigrinya
 
 phonemetable tn base1
 include ph_setswana
@@ -1938,6 +1943,15 @@ include ph_spanish_la
 phonemetable ca es
 include ph_catalan
 
+phonemetable ca-nw ca
+include ph_catalan_nw
+
+phonemetable ca-va ca
+include ph_catalan_va
+
+phonemetable ca-ba ca
+include ph_catalan_ba
+
 phonemetable an es
 include ph_aragon
 
@@ -2052,3 +2066,6 @@ phonemetable qdb en
 include ph_langbelta
 
 phonemetable ms id
+
+phonemetable kaa kk
+include ph_karakalpak

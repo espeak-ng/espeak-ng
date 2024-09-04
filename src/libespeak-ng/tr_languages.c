@@ -768,7 +768,7 @@ Translator *SelectTranslator(const char *name)
 		if (name2 == L('c', 'a')) {
 			// stress last syllable unless word ends with a vowel
 			tr->punct_within_word = ca_punct_within_word;
-			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
+			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2 | S_FIRST_PRIMARY;
 		} else if (name2 == L('i', 'a')) {
 			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
@@ -832,6 +832,17 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_ORDINAL_DOT;
 		SetLetterVowel(tr, 'y');
+	}
+		break;
+	case L('f', 'o'): // Faroese
+	{
+		//static const short stress_lengths_da[8] = { 160, 140, 200, 200, 0, 0, 220, 230 };
+		//SetupTranslator(tr, stress_lengths_da, NULL);
+
+		//tr->langopts.stress_rule = STRESSPOSN_1L;
+		//tr->langopts.param[LOPT_PREFIXES] = 1;
+		//SetLetterVowel(tr, 'y');
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_ORDINAL_DOT | NUM_1900 | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;
 	}
 		break;
 	case L('f', 'r'): // french
@@ -1582,6 +1593,15 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND_DIGIT | NUM_DFRACTION_4 | NUM_ZERO_HUNDRED;
 
 	}
+		
+		break;
+	case L3('x', 'e', 'x'): // Xextan
+	{
+		static const wchar_t xex_punct_within_word[] = { '\'' };
+		tr->langopts.numbers = 0; 
+		tr->langopts.lowercase_sentence = true;
+		tr->punct_within_word = xex_punct_within_word;
+}	
 		break;
 	case L3('s', 'h', 'n'):
 		tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
@@ -1658,4 +1678,4 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDS_VAR1; // variant numbers before thousands
 	tr->langopts.max_digits = 32;
 	tr->langopts.max_initial_consonants = 5;
-}
+}		

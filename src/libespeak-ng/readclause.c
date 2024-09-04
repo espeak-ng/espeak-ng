@@ -480,7 +480,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int c1 = ' '; // current character
 	int c2; // next character
 	int cprev = ' '; // previous character
-	int c_next;
+	int c_next = 0;
 	int parag;
 	int ix = 0;
 	int j;
@@ -664,7 +664,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					if (c2 != '1') {
 						// a list of punctuation characters to be spoken, terminated by space
 						j = 0;
-						while (!Eof() && !iswspace(c2)) {
+						while (!Eof() && !iswspace(c2) && (j < N_PUNCTLIST-1)) {
 							option_punctlist[j++] = c2;
 							c2 = GetC();
 							buf[ix++] = ' ';

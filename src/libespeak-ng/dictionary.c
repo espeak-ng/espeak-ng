@@ -787,7 +787,7 @@ int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_s
 			// stress marker, use this for the following vowel
 
 			if (phcode == phonSTRESS_PREV) {
-				// primary stress on preceeding vowel
+				// primary stress on preceding vowel
 				j = count - 1;
 				while ((j > 0) && (*stressed_syllable == 0) && (vowel_stress[j] < STRESS_IS_PRIMARY)) {
 					if ((vowel_stress[j] != STRESS_IS_DIMINISHED) && (vowel_stress[j] != STRESS_IS_UNSTRESSED)) {
@@ -927,6 +927,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 	static const char consonant_types[16] = { 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
 
+	memset(syllable_weight, 0, sizeof(syllable_weight));
+	memset(vowel_length, 0, sizeof(vowel_length));
+
 	stressflags = tr->langopts.stress_flags;
 
 	if (dictionary_flags != NULL)
@@ -1020,7 +1023,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 					if (phoneme_tab[final_ph]->type != phVOWEL) {
 						mnem = phoneme_tab[final_ph]->mnemonic;
 
-						if (tr->translator_name == L('a', 'n')) {
+						if ((tr->translator_name == L('a', 'n')) || (tr->translator_name == L('c', 'a'))) {
 							if (((mnem != 's') && (mnem != 'n')) || phoneme_tab[final_ph2]->type != phVOWEL)
 								stressed_syllable = vowel_count - 1; // stress on last syllable
 						} else if (tr->translator_name == L('i', 'a')) {
@@ -2700,6 +2703,11 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	while ((word2[nbytes = utf8_nbytes(word2)] == ' ') && (word2[nbytes+1] == '.')) {
 		// look for an abbreviation of the form a.b.c
 		// try removing the spaces between the dots and looking for a match
+		if (length + 1 > sizeof(word)) {
+			/* Too long abbreviation, leave as it is */
+			length = 0;
+			break;
+		}
 		memcpy(&word[length], word2, nbytes);
 		length += nbytes;
 		word[length++] = '.';
@@ -2710,14 +2718,16 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		nbytes = 0;
 		while (((c = word2[nbytes]) != 0) && (c != ' '))
 			nbytes++;
-		memcpy(&word[length], word2, nbytes);
-		word[length+nbytes] = 0;
-		found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
-		if (found) {
-			// set the skip words flag
-			flags[0] |= FLAG_SKIPWORDS;
-			dictionary_skipwords = length;
-			return 1;
+		if (length + nbytes + 1 <= sizeof(word)) {
+			memcpy(&word[length], word2, nbytes);
+			word[length+nbytes] = 0;
+			found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
+			if (found) {
+				// set the skip words flag
+				flags[0] |= FLAG_SKIPWORDS;
+				dictionary_skipwords = length;
+				return 1;
+			}
 		}
 	}
 
@@ -2890,6 +2900,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			*word_end = 'e';
 	}
 	i = word_end - word;
+	if (i >= N_WORD_BYTES) i = N_WORD_BYTES-1;
 
 	if (word_copy != NULL) {
 		memcpy(word_copy, word, i);

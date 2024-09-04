@@ -23,7 +23,7 @@ jobs:
 
         include:
           - arch: x86-32
-            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386 libgcc-s1:i386"
             archconfigflags: "-m32"
 
           - arch: x86-64
@@ -38,7 +38,7 @@ jobs:
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }} reprotest ${{ matrix.archdeps }}
       - name: run
-        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" rm -rf build && cmake -Bbuild -DUSE_ASYNC:BOOL=OFF && cmake --build build && ctest --test-dir build -Ttest -j1 --output-on-failure && touch success' success
+        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" rm -rf build && cmake -Bbuild -DUSE_ASYNC:BOOL=OFF && cmake --build build && ctest --test-dir build -T test -j1 --output-on-failure && touch success' success
 
   distcheck:
 
@@ -53,7 +53,7 @@ jobs:
       - name: make
         run: cmake --build build
       - name: make check
-        run: ctest --test-dir build -Ttest -j1 --output-on-failure
+        run: ctest --test-dir build -T test -j8 --output-on-failure
 
       - name: make package_source
         run: cmake --build build --target package_source
@@ -65,4 +65,4 @@ jobs:
       - name: re-make
         run: cd unpack/espeak-ng-* && cmake --build build
       - name: re-make check
-        run: cd unpack/espeak-ng-* && ctest --test-dir build -Ttest -j1 --output-on-failure
+        run: cd unpack/espeak-ng-* && ctest --test-dir build -T test -j8 --output-on-failure
