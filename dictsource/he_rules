@@ -3,20 +3,29 @@
 
 .group א
        א        ?
+       אֲ        ?a
+       אֳ        ?a
        אַ        ?a
        אַי        ?ai
+       אַיָּ       aja
+       אַיָּיְ      aja
        אֵ        ?e
        אֶ        ?e
        אְ        ?
        אִ        ?i
+       אֻ        ?u
+       אִיְ       ?i
+       אַיְּ       ?a
+       אֱ        ?e
+       אֹ        ?o
        אוֹ        ?o
        אוֹי        ?oi
        אוי        ?oi
        אות        '?ot
+       אַהַמְ        hamm
        אי        ?i
        אוּ        ?u
        אוּי        ?ui
-       אָ        ?o
        אָ        ?a
 
 .group ב
@@ -25,22 +34,29 @@
        בֵ        ve
        בֶ        ve
        בְ        v
+       בְּ        b@
+       בַּ        ba
        בִ        vi
        בוֹ        vo
        בוּ        vu
        בות        'vot
-       בׇ        vo
+       בׇ        ba
        בָ        va
        בּ        b
        בַּ        ba
+       בָּ        ba
        בֵּ        be
-       בֶּ        be
-       בְּ        b
+       בֵּ        be
+       בֶּ        be@
+       בֶּ        be
+       בְּ        b@
+       בִּ        bi
        בִּ        bi
+       בְּבֶ       beve
        בּוֹ        bo
        בּי        bi
        בּוּ        bu
-       בׇּ        bo
+       בׇּ        ba
        בָּ        ba
 
 .group ג
@@ -61,12 +77,14 @@
        גות        'got
        גי        gi
        גִּי        gi
+       גִּיּ        gi
+       גִּיָּ        gija
        גוּ        gu
        גּוּ        gu
        גֻ        gu
        גֻּ        gu
-       גׇ        go
-       גׇּ        go
+       גׇ        ga
+       גׇּ        ga
        גָ        ga
        גָּ        ga
        גה        ga
@@ -85,10 +103,15 @@
 .group ד
        ד        d
        דַ        da
+       דָּ        da
+       דַּ        da
        דֵ        de
        דֶ        de
+       דֵּ        de
        דְ        d
+       דְּ        d@
        דִ        di
+       דִּ        di
        די        di
        דוֹ        do
        די        di
@@ -103,6 +126,7 @@
        דַ'        Da
        דֵ'        De
        דֶ'        De
+       דֶּ         De
        דְ'        D
        דִ'        Di
        ד'וֹ        Do
@@ -114,6 +138,9 @@
 .group ה
        ה        h
        הַ        ha
+       הֲ        ha
+       הַּ        ha
+       הֳ        ha
        הֵ        he
        הֶ        he
        הֱ        he
@@ -131,27 +158,60 @@
 
 .group ו
        ו        v
+       וְ        v
+       וְלָ      vela
+       וְא      ve
+       וְעַ      vea
+       וְהָ      vea
+       וְאַ      vea
+       וַ        va
+       וַּ        va
+       וָ        va
+       וָּ        va
+       וֵּ        ve
+       וֶּ        ve
+       וֵ        ve
+       וֶ        ve
+       וִ        vi
+       וִּ        vi
+       
        וּ        u
+       וּּ        u
+       וְּ        vu
+       וִו       vi
        _)וּ        u
+       _)וְ      ve
        וֹ        o
        _) וֹ        o
        וות        'vot
+       וָוא       wa
+       וּואטְ      wat
        ום        'um
 
 .group ז
        ז        z
+       זְּ        z@
+       זּ        zu
        זַ        za
+       זָּ        za
+       זַּ        za
        זֵ        ze
+       זֵּ        ze
        זֶ        ze
        זְ        z
        זִ        zi
+       זִּ        zi
        זוֹ        zo
+       זּוֹ       zu
        זי        zi
        זוּ        zu
        זׇ        zo
+       זֹ        zo
+       זֹּ        zo
        זָ        za
        ז'        Z
        זַ'        Za
+       זֶּ         ze
        זֵ'        Ze
        זֶ'        Ze
        זְ'        Z
@@ -161,12 +221,14 @@
        ז'וּ        Zu
        זׇ'        Zo
        זָ'        Za
+       זְי        zj
 
 .group ח
        ח        X
-       חַ        aX
+       חַ        Xa
        חֵ        Xe
        חֶ        Xe
+       חֱ        xe
        חְ        X
        חִ        Xi
        חוֹ        Xo
@@ -174,16 +236,26 @@
        חוּ        Xu
        חׇ        Xo
        חָ        Xa
+       חֳ        xo
        חה        Xa
+       חֲ         xa
        חות        'Xot
+       חִיתּ      'Xit
 
 .group ט
        ט        t
+       טּ        t
+       טְּ        t@
        טַ        ta
+       טַּ        ta
+       טָּ        ta
        טֵ        te
        טֶ        te
+       טֶּ        te
+       טֵּ        te
        טְ        t
        טִ        ti
+       טִּ        ti
        טוֹ        to
        טי        ti
        טוּ        tu
@@ -193,11 +265,40 @@
 
 .group י
        י        j
+       יְּ        j
+       יַ        ja
+       יַּ        ja
+       יָּ        ja
+       יָּ        ja
+       יָ        ja
+       יְ        j@
        יִ        i
        יוּ        ju
+       יּוּ        ju
+       יְוֹ        jo
+       יּוֹ        jo
+       יְוְ        v@
+       יּ         je
+       יֶּ         je
+       יֵּ         je
+       יֵ         je
+       יֶ         je
+       יִּ         ji
+       יֹ         jo
+       יְיַּ        jja
+       יָּי        ja
+       יָּיְ        ja
+       יָּהְ        ja
+       יְיֵּ        je
+       יְי        j
+       יְיְּ        j
        יות        'jot
        ית        it
-       ים        'im
+       יתּוֹ        itu
+       יתָּ        ta
+       יתִּ        iti
+       יתּ        t
+       ים        m
 
 .group כ
        כ        X
@@ -209,6 +310,7 @@
        כוֹ        Xo
        כי        Xi
        כוּ        Xu
+       כְוּ       Xu
        כׇ        Xo
        כָ        Xa
        כּ        k
@@ -218,10 +320,12 @@
        כְּ        k
        כִּ        ki
        כּוֹ        ko
+       כֹּ        ko
        כּי        ki
        כּוּ        ku
-       כׇּ        ko
+       כׇּ        ka
        כָּ        ka
+       כָל       kol
 
 .group ך
        ך        X
@@ -232,30 +336,50 @@
 
 .group ל
        ל        l
+       לּ        l@
+       לְּ        l@
        לַ        la
+       לַּ        la
+       לָּ        la
        לֵ        le
        לֶ        le
+       לֶּ        le
+       לֵּ        le
        לְ        l
        לִ        li
+       לִּ        li
        לוֹ        lo
+       לֹּ         lo
+       לֹ         lo
        לי        li
        לוּ        lu
        לׇ        lo
        לָ        la
        לה        la
        לות        'lot
+       לְטוֹ      leto
 
 .group מ
        מ        m
+       מְּ        m@
+       מּ        m@
+       מַּ        ma
        מַ        ma
+       מָּ        ma
        מֵ        me
        מֶ        me
+       מֵּ        me
+       מֶּ        me
        מְ        m
        מִ        mi
+       מִּ        mi
+       מִיְ       mi
        מוֹ        mo
+       מֹ        mo
        מי        mi
        מוּ        mu
        מות        'mot
+       מְא       me
        מׇ        mo
        מָ        ma
 
@@ -265,12 +389,20 @@
 
 .group נ
        נ        n
+       נּ        n
+       נְּ        n@
        נַ        na
+       נָּ        na
+       נַּ        na
        נֵ        ne
        נֶ        ne
+       נֶּ        ne
+       נֵּ        ne
        נְ        n
        נִ        ni
+       נִּ        ni
        נוֹ        no
+       נֹ         no
        ני        ni
        נוּ        nu
        נׇ        no
@@ -285,34 +417,51 @@
 
 .group ס
        ס        s
+       סּ        s
+       סְּ        s@
        סַ        sa
+       סַּ        sa
+       סָּ        sa
        סֵ        se
        סֶ        se
+       סֶּ        se
+       סֵּ        se
        סְ        s
        סִ        si
+       סִּ        si
        סוֹ        so
        סי        si
        סוּ        su
+       סֻ         su
        סׇ        so
+       סֹ        so
        סָ        sa
        סה        sa
        סות        'sot
 
 .group ע
        ע        ?
+       עֲ        ?a
        עַ        ?a
        עַי        ?ai
+       עִיִּ        iji
+       עִיּ        i
+       עִי        i
        עיי        ?ai
+       עַיֵּ         ?ai
        עֵ        ?e
+       עֱ        ?e
        עֶ        ?e
        עְ        ?
        עִ        ?i
        עוֹ        ?o
        עוֹי        ?oi
+       עִיּוּ       ?iju
        עי        ?i
        עוּ        ?u
+       עֻ         ?u
        עוּי        ?ui
-       עָ        ?o
+       עָ        ?a
        עָ        ?a
        עה        ?a
        עות        '?ot
@@ -328,6 +477,7 @@
        פי        fi
        פוּ        fu
        פׇ        fo
+       פֹ        fo
        פָ        fa
        פּ        p
        פַּ        pa
@@ -336,7 +486,9 @@
        פְּ        p
        פִּ        pi
        פּוֹ        po
+       פֹּ         po
        פּי        pi
+       פֻ         pu
        פּוּ        pu
        פׇּ        po
        פָּ        pa
@@ -348,10 +500,17 @@
 .group צ
        צ        ts
        צַ        tsa
+       צּ        ts
+       צַּ        tsa@
+       צָּ        tsa@
        צֵ        tse
        צֶ        tse
+       צֶּ        tse@
+       צֵּ        tse
        צְ        ts
+       צְּ        ts@
        צִ        tsi
+       צִּ        tsi
        צוֹ        tso
        צי        tsi
        צוּ        tsu
@@ -363,6 +522,7 @@
        צַ'        tSa
        צֵ'        tSe
        צֶ'        tSe
+       צֵּ'        tS'e
        צְ'        tS
        צִ'        tSi
        צ'וֹ        tSo
@@ -378,16 +538,25 @@
 
 .group ק
        ק        k
+       קְּ        k@
+       קּ        k
        קַ        ka
+       קָּ        ka@
+       קַּ        ka@
        קֵ        ke
        קֶ        ke
+       קֶּ        ke@
+       קֵּ        ke@
        קְ        k
        קִ        ki
+       קִּ        ki@
+       קו       ko
        קוֹ        ko
        קי        ki
        קוּ        ku
        קות        'kot
        קׇ        ko
+       קֹ        ko
        קָ        ka
        קה        ka
 
@@ -395,10 +564,12 @@
        ר        R
        רַ        Ra
        רֵ        Re
+       רְכְ       ReX
        רֶ        Re
        רְ        R
        רִ        Ri
        רוֹ        Ro
+       רֹ        Ro
        רי        Ri
        רוּ        Ru
        רׇ        Ro
@@ -409,41 +580,72 @@
 .group ש
        ש        S
        שׁ        S
+       שְּׁ        S@
+       שַּׁ        Sa@
        שַׁ        Sa
+       שָּׁ        Sa@
        שֵׁ        Se
+       שֶּׁ        Se@
+       שֵּׁ        Se@
+       שְׁנְ       Shen@
        שֶׁ        Se
        שְׁ        S
        שִׁ        Si
+       שִּׁ        Si@
+       שִׁי       Si
+       שִׁיְּ       Seje
+       שִׁיִּ       Si
+       שּׁוֹ        So
+       
        שׁוֹ        So
        שׁי        Si
+       שִׁיּ        Si
        שׁוּ        Su
+       שּׁוּ        S@u
        שות        'Sot
        שׇׁ        So
        שָׁ        Sa
        שׂ        s
+       שְּׂ        s@
        שַׂ        sa
+       שַּׂ        sa@
+       שָּׂ        sa@
        שֵׂ        se
        שֶׂ        se
+       שֵּׂ        se@
        שְׂ        s
        שִׂ        si
+       שִּׂ        si@
        שׂוֹ        so
        שׂי        si
+       
        שׂוּ        su
        שׇׂ        so
        שָׂ        sa
 
 .group ת
        ת        t
+       תְּ        t@
        תַ        ta
+       תָּ        ta@
+       תַּ        ta@
        תֵ        te
        תֶ        te
+       תֵּ        te@
+       תֶּ        te@
        תְ        t
        תִ        ti
+       תִּ        ti@
        תוֹ        to
        תי        ti
+       תִּי        ti
+       תִּיּ        ti
        תוּ        tu
        תׇ        to
+       תֹּ        to@
+       תֹ        to@
        תָ        ta
+       תּ        t
        תּ        t
        ת'        T
        תַ'        Ta
@@ -456,6 +658,7 @@
        ת'וּ        Tu
        תׇ'        To
        תָ'        Ta
+       תִּיְ        Ti
        תה        ta
        תות        'tot
 
