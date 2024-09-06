@@ -1,0 +1,13 @@
+name English (India)
+language en-in
+
+maintainer Andy Vladescu <andyvladescu770@gmail.com>
+status testing
+
+phonemes en-in
+dictrules 6
+
+replace 00 D d
+replace 00 U@ o@
+replace 03 I  i
+replace 03 I2 i
