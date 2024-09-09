@@ -2069,3 +2069,6 @@ phonemetable ms id
 
 phonemetable kaa kk
 include ph_karakalpak
+
+phonemetable ro-md ro
+include ph_romanian_md
