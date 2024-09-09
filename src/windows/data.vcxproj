@@ -371,6 +371,9 @@
   <Target Name="sl" Inputs="$(ProjectDir)..\..\dictsource\sl_rules;$(ProjectDir)..\..\dictsource\sl_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\sl_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sl" />
   </Target>
+  <Target Name="sm" Inputs="$(ProjectDir)..\..\dictsource\sm_rules;$(ProjectDir)..\..\dictsource\sm_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\sm_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sm" />
+  </Target>
   <Target Name="smj" Inputs="$(ProjectDir)..\..\dictsource\smj_rules;$(ProjectDir)..\..\dictsource\smj_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\smj_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=smj" />
   </Target>
