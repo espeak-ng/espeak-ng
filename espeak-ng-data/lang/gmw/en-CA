@@ -11,6 +11,5 @@ stressLength 140 120 190 170 0 0 255 300
 stressAmp  17 16  19 19  19 19  21 19
 
 replace 00 D d
-replace 03 aU3 aU@
 replace 03 I  i
 replace 03 I2 i
