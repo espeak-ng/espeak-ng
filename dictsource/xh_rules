@@ -1,0 +1,164 @@
+// ***************************************************************************/ 
+// *   Xhosa Language xh xh_rules                                            *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+.group a
+   a       a
+   
+.group b
+   b       b
+   bh      b#H
+   
+.group c
+   c       c[
+   ch      c[H
+   
+.group d
+   d       d
+   dl      l#
+   dy      d_j
+   dz      dzH
+   
+.group e
+   e       e
+   
+.group f
+   f       f
+   
+.group g
+   g       gH
+   gc      g[H
+   gq      g!H
+   gr      Q
+   gx      g#H
+
+.group h
+   h       h
+   hh      H
+   hl      l#
+
+.group i
+   i       i
+   
+.group j
+   j       dZH
+
+.group k
+   k       k`?
+   kr      kx2?
+
+.group l
+   l       l
+   lh      l:
+
+.group m
+   m       m
+   mh      m:
+     _) m        m-
+   m (A     m
+     K) m (@@    _|m
+     K) m (C     m-
+     K) m (b@@   _|m
+     K) m (v@   _|m
+     K) m (w@@   _|m
+
+.group n
+   n       n
+   nc      Nc[
+   ng      n_j
+   ngc     Nc[H
+   ngh     N:
+   ngq     Nq!
+   ngx     Nx#H
+   nh      n:
+   nkc     Nc[?
+   nkq     Nq!?
+   nkx     Nx#?
+   nq      Nq!
+   nx      Nx#
+   ny      n;
+     _) n        n-
+        n (A     n
+        n (@@    n
+        n (k     N
+     _) n (k     N-
+     _) n (k@@   N-
+        n (g     N
+     _) n (g     N-
+     _) n (g@@   N-
+
+.group o
+   o       o
+   
+.group p
+   p       p`?
+   ph      ph
+
+.group q
+   q       q!
+
+.group r
+   r       r
+
+.group s
+   s       s
+   sh      S
+
+.group t
+   t       t`?
+   th      t#
+   ths     tsh
+   thsh    tS`?
+   ts      ts?
+   tsh     tSh
+   ty      t_j?
+   tyh     t_j?h
+
+.group u
+   u       u
+
+.group v
+   v       v
+
+.group w
+   w       w
+   wh      w:
+
+.group x
+   x       x#
+   xh      x#h
+
+.group y
+   y       j
+   yh      j:
+
+.group z
+   z       z
+   zh      Z
+   
+.group
+        $        idola
+        %        N,eep`?es'ent`?i
+
+        *        ink`?wenk`?wezi
+    *)  * (*
+        **
+   **)  * (_     _::
+

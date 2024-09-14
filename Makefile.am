@@ -559,6 +559,7 @@ dictionaries: \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
 	espeak-ng-data/xex_dict \
+        espeak-ng-data/xh_dict \ 
 	espeak-ng-data/yue_dict
 
 DICTSOURCE = \
@@ -935,6 +936,9 @@ espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_ext
 
 xex: espeak-ng-data/xex_dict
 espeak-ng-data/xex_dict: dictsource/xex_list dictsource/xex_rules
+
+xh: espeak-ng-data/xh_dict
+espeak-ng-data/xh_dict: dictsource/xh_list dictsource/xh_rules dictsource/xh_extra
 
 cmn: espeak-ng-data/cmn_dict
 dictsource/cmn_listx:

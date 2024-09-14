@@ -20,7 +20,7 @@ list(APPEND _dict_compile_list
   sd shn si sjn sk sl smj sq sr sv sw
   ta te ti th tk tn tr tt
   ug uk ur uz
-  vi
+  vi xh
   yue
 )
 

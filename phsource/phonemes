@@ -1822,6 +1822,9 @@ include ph_ukrainian
 phonemetable vi base1
 include ph_vietnam
 
+phonemetable xh base1
+include ph_xhosa
+
 phonemetable yue base1
 include ph_yue
 

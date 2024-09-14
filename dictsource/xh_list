@@ -1,0 +1,154 @@
+// ***************************************************************************/ 
+// *   Xhosa Language xh xh_list                                             *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+// This file is UTF-8 encoded
+
+
+// Letters (just guesses)
+
+b	bi
+c	si
+d	di
+f	ef
+g	gHi
+h	etSi
+j	Je
+k	ke
+l	el
+m	em
+n	en
+p	pi
+q	kju
+r	ar
+s	es
+t	ti
+v	vi
+w	dabalju
+x	eks
+y	jai
+z	zedi
+
+
+// Numbers
+
+_0       unot#i
+_1       in;e
+_2       zimbini
+_3       zint`?at`?u
+_4       zine
+_5       zint`?lanu
+_6       zint#andat#u
+_7       isix#henx#he
+_8       sisib#Hozo
+_9       lit#oba
+_10      liSumi
+_11      liSumielinan;e
+_12      lishumielinesbini
+_13      liSumielinesit#at#u
+_14      liSumielinesine
+_15      liSumielinesil#anu
+_16      liSumielinesit#andat#u
+_17      liSumielinesix#henx#he
+_18      liSumielinesib#Hozo
+_19      liSumielinesit#oba
+_20      amaSumiamabini
+_21      amaSumiamabineanan;e
+_22      amaSumiamabineanesibini
+_23      amaSumiamabineanesit#at#u
+_24      amaSumiamabineanesine
+_25      amaSumiamabineanesil#anu
+_26      amaSumiamabineanesit#andat#u
+_27      amaSumiamabineanesix#henx#he
+_28      amaSumiamabineanesib#Hozo
+_29      amaSumiamabineanet#oba
+_3X      amaSumiamat#at#u
+_4X      amaSumiamane
+_5X      amaSumiamal#anu
+_6X      amaSumiamat#andat#u
+_7X      amaSumiasix#hendx#h
+_8X      amaSumiasib#Hozo
+_9X      amaSumialit#oba
+_0C      lik#ulu
+_1C      lik#ulu
+_0M1     iwak`?a
+_1M1     iwak`?a
+_0M2     k`wezighidHi
+
+_dpt     k`?oma
+
+
+// Pronouns
+aba      $u       // these
+abaya    $u       // those
+abo      $u       // those
+bona     $u       // they / them
+eli      $u       // this
+eliya    $u       // that
+elo      $u       // that
+esi      $u       // this
+esiya    $u       // that
+eso      $u       // that
+ezi      $u       // those
+eziya    $u       // those
+ezo      $u       // those
+kona     $u       // it
+la       $u       // these
+lawa     $u       // those
+lawo     $u       // these
+le       $u       // this
+leya     $u       // that
+leyo     $u       // those
+lo       $u       // this
+lona     $u       // he, she, him, her, it
+loo      $u       // that
+lowa     $u       // that
+lowo     $u       // that
+mna      $u       // I, me
+nina     $u       // you
+obo      $u       // that
+obu      $u       // this
+obuya    $u       // that
+oko      $u       // that
+oku      $u       // that
+okuya    $u       // this
+olo      $u       // that
+olu      $u       // this
+oluya    $u       // that
+sona     $u       // he, she, him, her, it
+thina    $u       // we, us
+wena     $u       // you
+wona     $u       // he, she, him, her, it, they, them
+yena     $u       // he, she, him, her, it
+yona     $u       // he, she, him, her, it, they, them
+zona     $u       // they, them
+
+
+// Prepositions
+(na-)       $u $brk
+(nga-)      $u $brk
+
+
+// Conjunctions
+hleze      $u $pause  // in case
+kaloku     $u $pause  // because
+xa         $u $pause  // when, if
+
+// Character names
