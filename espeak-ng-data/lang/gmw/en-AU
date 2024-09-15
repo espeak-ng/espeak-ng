@@ -1,0 +1,11 @@
+name English (Australia)
+language en-au
+
+maintainer Andy Vladescu <andyvladescu770@gmail.com>
+status testing
+
+phonemes en-au
+
+replace 00 D d
+replace 03 I i
+replace 03 I2 i
