@@ -1886,6 +1886,9 @@ include ph_english_n
 phonemetable en-rp en
 include ph_english_rp
 
+phonemetable en-sg en
+include ph_english_sg
+
 phonemetable en-sc en
 include ph_english_sc
 

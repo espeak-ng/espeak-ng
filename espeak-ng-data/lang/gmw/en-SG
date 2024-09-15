@@ -1,0 +1,11 @@
+name English (Singapore)
+language en-sg
+
+maintainer Andy Vladescu <andyvladescu770@gmail.com>
+status testing
+
+phonemes en-sg
+
+replace 00 D d
+replace 03 I i
+replace 03 I2 i
