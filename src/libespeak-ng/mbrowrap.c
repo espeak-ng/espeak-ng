@@ -19,6 +19,9 @@
 
 #include "config.h"
 
+/* FIXME: we should be able to run several mbrola processes,
+ * in case we switch between languages within a synthesis. */
+
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #endif
