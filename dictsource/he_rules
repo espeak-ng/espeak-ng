@@ -202,7 +202,7 @@
        זְ        z
        זִ        zi
        זִּ        zi
-       זוֹ        zo
+       זוֹ       z'o
        זּוֹ       zu
        זי        zi
        זוּ        zu
@@ -371,6 +371,7 @@
        מֶ        me
        מֵּ        me
        מֶּ        me
+       מְאַ       mea
        מְ        m
        מִ        mi
        מִּ        mi
@@ -665,38 +666,208 @@
        תה        ta
        תות        'tot
 
-.group ׇ
-	ׇ	o
 
 
-.group ָ
-	ָ	a
 
 
-.group ַ
-	ַ	a
+// rules for Hebrew written by English characters
+// Sometimes, Hebrew involve English characters
 
 
-.group ֵ
-	ֵ	e
+.group a
+	a	_^_en
+	?1 a	a
+	// ?1 a ('	A
 
 
-.group ֶ
-	ֶ	e
+.group aa
+	aa	_^_en
+	//?1 aa	A
 
 
-.group ְ
-	ְ	
+.group b
+	b	_^_en
+    ?1 b	b
 
 
-.group ִ
-	ִ	i
+.group c
+	c	_^_en
+	?1 c (e	s
+	?1 c (y	s
+	?1 c (i	s
+	?1 c	k
 
-.group ֳ
-	ֳ	o
 
-.group ֲ
-	ֲ	a
+.group ch
+	ch	_^_en
+	?1 ch	tS
 
-.group ֻ
-	ֻ	u
+
+.group d
+	d	_^_en
+	?1 d	d
+
+
+.group e
+	e	_^_en
+	?1 e	e
+
+
+.group ee
+	ee	_^_en
+	?1 ee	i
+
+
+.group f
+	f	_^_en
+	?1 f	f
+
+
+.group g
+	g	_^_en
+	?1 g	g
+
+
+.group gh
+	gh	_^_en
+	?1 gh	q1
+
+
+.group h
+	h	_^_en
+	?1 h	h
+
+
+.group i
+	i	_^_en
+	?1 i	i
+
+
+.group j
+	j	_^_en
+	?1 j	dZ
+
+
+.group jh
+	jh	_^_en
+	?1 jh	Z
+
+
+.group k
+	k	_^_en
+	?1 k	k
+
+
+.group kh
+	kh	_^_en
+	?1 kh	x
+
+
+.group l
+	l	_^_en
+	?1 l	l
+
+
+.group m
+	m	_^_en
+	?1 m	m
+
+
+.group n
+	n	_^_en
+	?1 n	n
+
+
+.group o
+	o	_^_en
+	?1 o	o
+
+
+.group ou
+	ou	_^_en
+	?1 ou	u
+
+
+.group oo
+	oo	_^_en
+	?1 oo	u@
+	?1 oo (o	
+
+
+.group p
+	p	_^_en
+	?1 p	p
+
+
+.group ph
+	ph	_^_en
+	
+
+
+.group q
+	q	_^_en
+	?1 q	q1
+
+
+.group r
+	r	_^_en
+	?1 r	R
+
+
+.group s
+	s	_^_en
+	?1 s	s
+
+
+.group sh
+	sh	_^_en
+	?1 sh	S
+
+
+.group t
+	t	_^_en
+	?1 t	t
+
+
+.group th
+	th	_^_en
+	
+
+
+.group u
+	u	_^_en
+	?1 u	u
+
+
+.group v
+	v	_^_en
+	?1 v	v
+
+
+.group w
+	w	_^_en
+	?1 w	w
+
+
+.group x
+	x	_^_en
+	?1 x	ks
+
+
+.group y
+	y	_^_en
+	?1 y	j
+
+
+.group z
+	z	_^_en
+	?1 z	z
+
+
+// Others mathematics characters
+.group
+	 . (D     	noq1te:
+	±	plus||minus
+	>=	gad@ol||o@||Save
+	<=	kat@an||o@||Save
+	
