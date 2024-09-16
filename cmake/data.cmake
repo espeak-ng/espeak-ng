@@ -7,7 +7,7 @@ list(APPEND _dict_compile_list
   fa fi fr
   ga gd gn grc gu
   hak haw he hi hr ht hu hy
-  ia id io is it
+  ia id ie io is it
   ja jbo
   ka kk kl kn kok ko ku ky
   la lb lfn lt lv
