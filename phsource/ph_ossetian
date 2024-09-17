@@ -1,0 +1,70 @@
+//==========================================================================
+// Ossetian
+//==========================================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 210
+  FMT(vowel/aa#)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 220
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 190
+  FMT(vowel/i_fnt)
+endphoneme
+
+phoneme I
+  vwl starttype #@ endtype #@
+  length 120
+  FMT(vowel/ii#)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 220
+  FMT(vowel/o_7)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 120
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 190
+  FMT(vowel/@_fnt)
+endphoneme
+
+// Consonants
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme x
+  vls vel frc
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 100
+  Vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  WAV(ufric/x2, 60)      // stronger version of [x]
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme dz
+  import_phoneme consonants/dz
+endphoneme
