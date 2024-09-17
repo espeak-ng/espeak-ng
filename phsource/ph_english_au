@@ -225,7 +225,7 @@ endphoneme
 
 
 phoneme eI
-  vwl  starttype #i  endtype #i
+  vwl  starttype #e  endtype #i
   length 220
   FMT(vdiph/eei)
 endphoneme
