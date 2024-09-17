@@ -89,8 +89,11 @@
   <Target Name="am" Inputs="$(ProjectDir)..\..\dictsource\am_rules;$(ProjectDir)..\..\dictsource\am_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\am_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=am" />
   </Target>
-  <Target Name="an" Inputs="$(ProjectDir)..\..\dictsource\an_rules;$(ProjectDir)..\..\dictsource\an_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\an_dict" DependsOnTargets="Phonemes">
-    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=an" />
+  <Target Name="an" Inputs="$(ProjectDir)..\..\dictsource\an_rules;$(ProjectDir)..\..\dictsource\an_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\aol_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=aol" />
+  </Target>
+  <Target Name="aol" Inputs="$(ProjectDir)..\..\dictsource\aol_rules;$(ProjectDir)..\..\dictsource\aol_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\crh_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=crh" />
   </Target>
   <Target Name="ar" Inputs="$(ProjectDir)..\..\dictsource\ar_rules;$(ProjectDir)..\..\dictsource\ar_list;$(ProjectDir)..\..\dictsource\ar_listx" Outputs="$(ProjectDir)..\..\espeak-ng-data\ar_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ar" />
