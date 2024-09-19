@@ -1,0 +1,152 @@
+// ***************************************************************************/ 
+// *   Mongolian Language mn mn_rules                                        *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+// This file is UTF-8 encoded
+
+.group а
+   а       a
+   а (_             // silent at the end of the word
+   аа     'a:
+   ай     '&E
+
+.group б
+   б       p
+
+.group в
+   в       w
+
+.group г
+   г       g
+
+.group д
+   д       t
+
+.group е
+   е       j8
+   е (р    je
+   е (с    j8
+
+.group ё
+   ё       jO
+
+.group ж
+   ж       tS
+
+.group ц
+   ц       ts
+
+.group и
+   и       i
+   иа      ;'&
+   ий     'i:
+
+.group й
+   й       i
+
+.group к
+   к       k#
+
+.group л
+   л       l#
+
+.group м
+   м       m
+
+.group н
+   н       n
+   н (_    N
+
+.group о
+   о       O
+   ой     'OI
+   оо     'O:
+
+.group ө
+   ө       8
+   өө     'o:
+
+.group п
+   п       ph
+
+.group р
+   р       r
+
+.group с
+   с       s
+
+.group т
+   т       t#
+
+.group у
+   у       U
+   уа      w'a
+   уй     'UI
+   уу     'U:
+
+.group ү
+   ү       u
+   үй     'uI
+   үү     'u:
+
+.group ф
+   ф       ph
+   ф (_    f
+
+.group х
+   х       x
+   х (э    C
+
+.group ц
+   ц       tsh
+
+.group ч
+   ч       tSh
+
+.group ш
+   ш       S
+
+.group щ
+   щ       StS
+
+.group ъ
+   ъ       i
+
+.group ы
+   ы       i
+
+.group ь
+   ь       I^
+
+.group э
+   э       e
+   э (_           // silent
+   эй     'e
+
+.group ю
+   ю       jU
+
+.group я
+   я       ja
+   я (_    j
+
+.group
+   $       tol#l#@-r
+

@@ -1,0 +1,178 @@
+// ***************************************************************************/ 
+// *   Mongolian Language mn mn_list                                         *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+// This file is UTF-8 encoded
+
+
+// LETTERS
+//*********
+
+б         pe
+в         we
+г         ge
+д         te
+ж         tSe
+з         tse
+й         x'ag@-s'i
+к         k#a
+л         el
+м         em
+н         en
+п         phe
+р         er
+с         es
+т         t#e
+ф         fa
+х         Xa
+ц         tshe
+_ч        tShe
+ш         Se
+щ         StSe
+ъ         xat#'u:gen||t#'emtek
+ь         z'o:lnii||t#'emtek
+
+
+// NUMBERS
+//*********
+
+_0     t#'eg
+_1     n'eg
+_2     x'oj8r
+_3     g'Ur@-w
+_4     t'8r@-w
+_5     t#'aw
+_6     tsurg'a:
+_7     tOl'O:
+_8     n'&Em
+_9     j'8s
+_10    'ar@-w
+_1X    arw@-n
+_20    x'orI^
+_2X    x,orin
+_30    g'UtSh
+_3X    g,UtShin
+_40    d'8tSh
+_4X    d,8tShin
+_50    t#'awI^
+_5X    t#,awin
+_60    tS'ar
+_6X    tS,arin
+_70    t'al
+_7X    t,al@-n
+_80    n'aj
+_8X    n'aj@-n
+_90    j'er
+_9X    j,8r@-n
+_0C    ts'U:
+_1C    n,eg||ts'U:
+_0M1   mj'ang
+_1M1   mj'ang
+_10M1  arw@-n||mj'ang
+_100M1 tsh,U:n||mj'ang
+_0M2   s'aj
+_1M2   s'aj
+
+_dpt   t#'asl@-l
+
+
+// CHARACTERS
+//************
+
+_.    tsh'ek
+_,    t#'asl@-l
+_:    t,avx@-r||tsh'ek
+_;    tsh,ekteI||t#'asl@-l
+_!    ,aNxa:rlin||t#'emtek
+_?    ,asU:ltin||t#'emtek
+_(    n,e:lt#eI||x'a:lt#
+_)    xalt#'&E||x'a:lt#
+_[    n,e:lt#eI||t8rv,8ltShin||x'a:lt#
+_]    xalt#'&E||t8rv,8ltShin||x'a:lt#
+_{    n,e:sen||b,UrtSg@-r||x'a:lt#
+_}    xalt#'&E||b,UrtSg@-r||x'a:lt#
+_<    ,a:s||b'ag
+_>    ,a:s|'ix
+_'    aph'Ost#rOf
+_"    x'aSilt#
+_^    x'alamtS
+_§    tshuIl#,i:n||t#emt'ek
+_…    tshUv,a:||tsh'eg
+_~    t#'ilt
+_&    ampj'ersand
+_`    b,UtshatS||phr'ajmjer
+__    tO:gU:r||tshUr'a:s
+_«    ts,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
+_»    bar,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
+
++  nemex $max3
+-  xas@-x $max3
+*  Ot    $max3
+/  nal#,U:||tsur'a:s $max3
+\  Urw,U:||tsur'a:s $max3
+=  tents,u:||b'&En $max3
+@  tug'UI
+#  x'eS
+
+
+// PRONOUNS
+//**********
+
+би    $u+             // I
+та    $u+             // you
+тэр   $u+             // he or she
+чи    $u+             // you
+энэ   $u+             // we
+(та нар) t,an,ar $u   // they
+
+
+
+// CONJUNCTIONS
+//**************
+
+ба         $u $brk
+болон      $u $brk
+бөгөөд     $u $brk
+буюу       $u $brk
+(-гүй)  g,uI $u
+гэж        $u $brk
+мэт        $u
+харин      $u
+хүртэл     $u
+ч          $brk
+(яагаад гэвэл) jag,a:dg,ewel $u $brk
+
+
+// MAIN WORD DICTIONARY
+//**********************
+
+// Many of these words are used in Russian
+// Some words can contains some terms which is unstressed for Mongolian language
+
+автобус    $3
+амархан    $1
+вагон      $2
+вино       $2
+кино       $2
+машин      $2
+такси      t#&ks'i
+үндэстэн   $1
+хадгалагдах   $1
+цэцэрлэг   $1

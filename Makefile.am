@@ -510,6 +510,7 @@ dictionaries: \
 	espeak-ng-data/mi_dict \
 	espeak-ng-data/mk_dict \
 	espeak-ng-data/ml_dict \
+        espeak-ng-data/mn_dict \
 	espeak-ng-data/mr_dict \
 	espeak-ng-data/ms_dict \
 	espeak-ng-data/mt_dict \
@@ -774,6 +775,9 @@ espeak-ng-data/mk_dict: dictsource/mk_list dictsource/mk_rules dictsource/mk_ext
 
 ml: espeak-ng-data/ml_dict
 espeak-ng-data/ml_dict: dictsource/ml_list dictsource/ml_rules dictsource/ml_extra dictsource/ml_emoji
+
+mn: espeak-ng-data/mn_dict
+espeak-ng-data/mn_dict: dictsource/mn_list dictsource/mn_rules dictsource/mn_extra
 
 mr: espeak-ng-data/mr_dict
 espeak-ng-data/mr_dict: dictsource/mr_list dictsource/mr_rules dictsource/mr_extra dictsource/mr_emoji

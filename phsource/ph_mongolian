@@ -1,0 +1,262 @@
+// ***************************************************************************/ 
+// *   Mongolian Language mn ph_mongolian                                    *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+//========
+// VOWELS
+//========
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  ChangeIfNotStressed(@-)
+  length 120
+  FMT(vowel/a)
+endphoneme
+
+phoneme a:
+  vwl starttype #a endtype #a
+  ipa aː
+  length 280
+  FMT(vowel/a)
+endphoneme
+
+phoneme &                             // for diphthongs of 'йа'
+  vwl starttype #e endtype #e
+  length 120
+  FMT(vowel/&)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e~i
+  ChangeIfNotStressed(@-)
+  length 120
+  FMT(vowel/e_3)
+endphoneme
+
+phoneme e:
+  vwl starttype #e endtype #e
+  ipa eː
+  length 280
+  FMT(vowel/e)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 120
+  FMT(vowel/i)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  ipa iː
+  length 280
+  FMT(vowel/i)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  unstressed nsy
+  length 120
+  FMT(vowel/ii_8)
+endphoneme
+
+phoneme o:
+  vwl starttype #o endtype #o
+  ipa oː
+  length 280
+  FMT(vowel/o)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  ipa ɔ
+  ChangeIfNotStressed(@-)
+  length 120
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme O:
+  vwl starttype #o endtype #o
+  ipa ɔː
+  length 280
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme 8
+  vwl starttype #@ endtype #@
+  ipa ɵ
+  ChangeIfNotStressed(@-)
+  length 120
+  FMT(vowel/8)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 120
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  ipa uː
+  length 280
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  ipa ʊ
+  length 120
+  FMT(vowel/uu_2)
+endphoneme
+
+phoneme U:
+  vwl starttype #u endtype #u
+  ipa ʊː
+  length 280
+  FMT(vowel/uu_2)
+endphoneme
+
+//============
+// DIPHTHONGS
+//============
+
+phoneme &E
+  vwl starttype #e endtype #e
+  length 180
+  FMT(vdiph/ee-e)
+endphoneme
+
+phoneme eI
+  vwl starttype #e endtype #i
+  length 180
+  FMT(vdiph/ei)
+endphoneme
+
+phoneme OI
+  vwl starttype #o endtype #i
+  length 180
+  FMT(vdiph/ooi_4)
+endphoneme
+
+phoneme UI
+  vwl starttype #u endtype #i
+  length 180
+  FMT(vdiph/ui)
+endphoneme
+
+phoneme uI
+  vwl starttype #u endtype #i
+  length 180
+  FMT(vdiph/ui_2)
+endphoneme
+
+
+//============
+// CONSONANTS
+//============
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme k#
+  import_phoneme consonants/k#
+endphoneme
+
+phoneme p
+  import_phoneme base2/p
+endphoneme
+
+phoneme ph
+  import_phoneme consonants/ph
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme t#        // dental variant of /t/
+  vls dnt stp
+  ipa tʰ
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme g
+  vcd vel stp prevoice
+  ipa ɢ
+  voicingswitch k
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g3, 90)
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  IF prevVowel(isVowel) OR nextVowel(isVowel) THEN
+    ChangePhoneme(w)
+  ENDIF 
+endphoneme
+
+phoneme l
+  liquid
+  IF prevVowel(isVowel) OR nextVowel(isVowel) THEN
+    ChangePhoneme(l#)
+  ENDIF
+endphoneme
+
+phoneme x2
+  vls vel frc
+  Vowelin f1=0  f2=2300 200 400  f3=-100 100
+  Vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  lengthmod 3
+  WAV(ufric/x2, 60)      // stronger version of [x]
+endphoneme
+
+phoneme I^                        // "silent 'i'" for the letter of 'ь' and modified from russian
+  vwl starttype #i endtype #i
+  unstressed nsy
+  length 80
+  FMT(vwl_ru/ii-)
+endphoneme
