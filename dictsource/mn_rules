@@ -65,7 +65,7 @@
    к       k#
 
 .group л
-   л       l#
+   л       l
 
 .group м
    м       m
@@ -148,5 +148,5 @@
    я (_    j
 
 .group
-   $       tol#l#@-r
+   $       toll@-r
 
