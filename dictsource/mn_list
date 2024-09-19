@@ -69,8 +69,8 @@ _20    x'orI^
 _2X    x,orin
 _30    g'UtSh
 _3X    g,UtShin
-_40    d'8tSh
-_4X    d,8tShin
+_40    t'8tSh
+_4X    t,8tShin
 _50    t#'awI^
 _5X    t#,awin
 _60    tS'ar
@@ -105,7 +105,7 @@ _?    ,asU:ltin||t#'emtek
 _(    n,e:lt#eI||x'a:lt#
 _)    xalt#'&E||x'a:lt#
 _[    n,e:lt#eI||t8rv,8ltShin||x'a:lt#
-_]    xalt#'&E||t8rv,8ltShin||x'a:lt#
+_]    xalt#,&E||t8rv,8ltShin||x'a:lt#
 _{    n,e:sen||b,UrtSg@-r||x'a:lt#
 _}    xalt#'&E||b,UrtSg@-r||x'a:lt#
 _<    ,a:s||b'ag
@@ -116,9 +116,9 @@ _^    x'alamtS
 _§    tshuIl#,i:n||t#emt'ek
 _…    tshUv,a:||tsh'eg
 _~    t#'ilt
-_&    ampj'ersand
+_&    ampj'ersant
 _`    b,UtshatS||phr'ajmjer
-__    tO:gU:r||tshUr'a:s
+__    t,O:g,U:r||tshUr'a:s
 _«    ts,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
 _»    bar,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
 
@@ -140,7 +140,7 @@ _»    bar,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
 тэр   $u+             // he or she
 чи    $u+             // you
 энэ   $u+             // we
-(та нар) t,an,ar $u   // they
+(та нар) t#,an,ar $u   // they
 
 
 
@@ -157,7 +157,7 @@ _»    bar,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
 харин      $u
 хүртэл     $u
 ч          $brk
-(яагаад гэвэл) jag,a:dg,ewel $u $brk
+(яагаад гэвэл) jag,a:tg,ewel $u $brk
 
 
 // MAIN WORD DICTIONARY
