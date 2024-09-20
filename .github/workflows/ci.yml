@@ -235,4 +235,4 @@ jobs:
     - name: test
       run: |
         ${{ matrix.config_env }} ${{ matrix.runenv }} cmake --build build --target tests
-        ${{ matrix.config_env }} ${{ matrix.runenv }} ctest --test-dir build -Ttest -j8 --output-on-failure
+        ${{ matrix.config_env }} ${{ matrix.runenv }} ctest --test-dir build -T test -j8 --output-on-failure
