@@ -435,6 +435,7 @@ association	_^_EN
 baseball	_^_EN
 bbc	_^_EN
 beat	_^_EN
+bottom	_^_EN	// e.g. psychology terminology (bottom-up)
 britain	_^_EN
 british	_^_EN
 browser	_^_EN
@@ -442,6 +443,7 @@ byte	_^_EN
 bytes	_^_EN
 camcorder	_^_EN
 cancel	_^_EN
+central	_^_EN	// e.g. IT terminology (central processing unit)
 certificate	_^_EN
 change	_^_EN
 chart	_^_EN
@@ -457,10 +459,12 @@ copy	_^_EN
 couch	_^_EN
 cover	_^_EN
 cursor	_^_EN
+daily	_^_EN	// e.g. psychology terminology (daily hassles Ansatz)
 daisy	_^_EN
 date	_^_EN
 debugger	_^_EN
 dj	d'i:dZEI
+down	_^_EN	// e.g. psychology terminology (top-down)
 email	_^_EN
 empire	_^_EN
 enterprise	_^_EN
@@ -481,6 +485,7 @@ gin	_^_EN
 google	_^_EN
 great	_^_EN
 groupie	_^_EN
+hassles	_^_EN	// e.g. psychology terminology (daily hassles Ansatz)
 hip	_^_EN
 homepage	_^_EN
 hooligan	_^_EN
@@ -498,6 +503,7 @@ kingdom	_^_EN
 laptop	_^_EN
 laser	_^_EN
 level	_^_EN
+life	_^_EN	// e.g. psychology terminology (life event Ansatz)
 like	_^_EN
 login	_^_EN
 look	_^_EN
@@ -527,6 +533,7 @@ pidgin	_^_EN
 player	_^_EN
 plot	_^_EN
 poster	_^_EN
+processing	_^_EN	// e.g. IT terminology (central processing unit)
 quiz	_^_EN
 reader	_^_EN
 receiver	_^_EN
@@ -586,11 +593,14 @@ time	_^_EN
 timer	_^_EN
 to	_^_EN	$only
 tool	_^_EN
+top	_^_EN	// e.g. psychology terminology (top-down)
 trip	_^_EN
 tuner	_^_EN
 turn	_^_EN
+unit	_^_EN	// e.g. IT terminology (central processing unit)
 united	_^_EN
 unix	_^_EN
+up	_^_EN	// e.g. psychology terminology (bottom-up)
 update	_^_EN
 updates	_^_EN
 venture	_^_EN
