@@ -31,7 +31,7 @@
    б       p
 
 .group в
-   в       w
+   в       v
 
 .group г
    г       g
@@ -72,7 +72,6 @@
 
 .group н
    н       n
-   н (_    N
    н (г    N
    н (ш    N
    н (х    N
