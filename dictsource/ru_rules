@@ -494,6 +494,14 @@
         ы       y
 
 .group ь
+     б) ь (_    j
+     в) ь (_    j
+     г) ь (_    j
+     к) ь (_    j
+     л) ь (_    j
+     н) ь (_    j
+     п) ь (_    j
+     ф) ь (_    j
         ь (Y    j
 ?2      ь (Y    _|
 
@@ -503,11 +511,13 @@
         э (_    E#
 
 .group ю
-        ю       u"
+        ю       u
      A) ю       ju
      ъ) ю       ju
      ь) ю       ju
      _) ю       ju
+	 л) ю       u
+	 с) ю       u
 
 .group я
         я       V       // TODO: in unstressed position it sometimes sounds more like [i] than like [V]
