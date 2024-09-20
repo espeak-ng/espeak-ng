@@ -56,14 +56,14 @@ _ч        tShe
 _0     t#'eg
 _1     n'eg
 _2     x'oj@-r
-_3     g'Ur@-w
-_4     t'8r@-w
+_3     g'Ur@-v
+_4     t'8r@-v
 _5     t#'aw
 _6     tsurg'a:
 _7     tOl'O:
 _8     n'&Em
 _9     j'8s
-_10    'ar@-w
+_10    'ar@-v
 _1X    arw@-n
 _20    x'orI^
 _2X    x,orin
@@ -119,8 +119,8 @@ _~    t#'ilt
 _&    ampj'ersant
 _`    b,UtshatS||phr'ajmjer
 __    t,O:g,U:r||tshUr'a:s
-_«    ts,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
-_»    bar,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
+_«    ts,U:n||tsav,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
+_»    bar,U:n||tsav,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
 
 +  nemex $max3
 -  xas@-x $max3
@@ -157,7 +157,7 @@ _»    bar,U:n||tsaw,a:l||t,avx@-r||,o:ntshnii||x'aS@-l
 харин      $u
 хүртэл     $u
 ч          $brk
-(яагаад гэвэл) jag,a:tg,ewel $u $brk
+(яагаад гэвэл) jag,a:tg,evel $u $brk
 
 
 // MAIN WORD DICTIONARY
