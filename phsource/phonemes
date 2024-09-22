@@ -1827,6 +1827,9 @@ include ph_yue
 
 // *** Tables extending base2 ***
 
+phonemetable ay base2
+include ph_aymara
+
 phonemetable be base2
 include ph_belarusian
 
