@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <!--Source: Activity title.
+          Description: Title for the Settings activity.-->
+    <string name="tts_settings_label">Настройки TTS eSpeak</string>
+    <!--Source: Preference title.
+          Description: Title for the preference that controls default voice pitch.-->
+    <string name="setting_default_pitch">Тон голоса</string>
+    <!--Source: Preference title.
+          Description: Title for the preference that controls default speech rate.-->
+    <string name="setting_default_rate">Скорость речи</string>
+    <!--Source: Dialog text.
+          Description: Status message shown when installing voice data.-->
+    <string name="installing_voice_data">Установка голосовых данных...</string>
+    <!--Source: Dialog message.
+          Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+    <string name="set_default_message">eSpeak не является основным синтезатором речи.</string>
+    <!--Source: Dialog message.
+          Description: Alert dialog telling the user that voice data installation failed.-->
+    <string name="voice_data_failed_message">Не удалось загрузить голосовые данные. Проверьте SD-карту.</string>
+    <!--Source: Dialog message.
+          Description: Alert dialog telling the user that an unknown error has occurred.-->
+    <string name="error_message">Не удалось запустить eSpeak.</string>
+    <!--Source: Label text.
+          Description: Label informing the user of the current text-to-speech language.-->
+    <string name="current_tts_locale">Язык по умолчанию</string>
+    <!--Source: Label text.
+          Description: Label informing the user of how many voices are installed.-->
+    <string name="available_voices">Разновидностей голоса</string>
+    <!--Source: Button label.
+          Description: Button for launching general text-to-speech settings.-->
+    <string name="tts_settings">Общие настройки</string>
+    <!--Source: Button label.
+          Description: Button for launching eSpeak-specific settings.-->
+    <string name="engine_settings">Настройки eSpeak</string>
+    <!--Source: Label text.
+          Description: Label informing the user that eSpeak is loading resources.-->
+    <string name="loading">Загрузка, пожалуйста ожидайте...</string>
+    <!--Source: Spoken aloud.
+          Description: Sample text spoken aloud when the user is trying out a language.-->
+    <string name="sample_text">Так синтезатор речи озвучивает %s текст</string>
+    <string name="status">Статус</string>
+    <string name="tts_version">Версия eSpeak</string>
+    <string name="speak">Озвучить</string>
+    <string name="ssml">Загрузить SSML-шаблон </string>
+    <string name="synthesis_demo">Введите текст для чтения:</string>
+    <string name="espeak_volume">Громкость</string>
+    <string name="formatter_wpm">%s СВМ</string>
+    <string name="formatter_percentage">%s%%</string>
+    <string name="resetToDefault">Сброс</string>
+    <string name="espeak_pitch_range">Подстройка тона</string>
+    <string name="espeak_variant">Вариант голоса</string>
+    <string name="espeak_speak_punctuation">Читать пунктуацию</string>
+    <string name="punctuation_all">Всю</string>
+    <string name="punctuation_custom">Пользовательскую</string>
+    <string name="punctuation_custom_fmt">Пользовательскую: %s</string>
+    <string name="punctuation_none">Никакую</string>
+    <string name="punctuation_characters">Символы пунктуации</string>
+    <string name="category">Категория</string>
+    <string name="variant">Вариант</string>
+    <string name="variant_male">Мужской</string>
+    <string name="variant_female">Женский</string>
+    <string name="variant_default">По умолчанию</string>
+    <string name="variant_n">Вариант %d</string>
+    <string name="variant_young">Юный</string>
+    <string name="variant_old">Пожилой</string>
+    <string name="variant_croak">Хриплый</string>
+    <string name="variant_whisper">Шёпот</string>
+    <string name="import_voice_title">Импорт словаря eSpeak </string>
+    <string name="import_voice_description">Импорт файла словаря eSpeak с sd-карты </string>
+</resources>
