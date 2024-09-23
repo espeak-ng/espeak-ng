@@ -1778,6 +1778,9 @@ include ph_maltese
 phonemetable no base1
 include ph_norwegian
 
+phonemetable ny base1
+include ph_chichewa
+
 phonemetable om base1
 include ph_oromo
 

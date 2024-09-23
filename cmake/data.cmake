@@ -12,7 +12,7 @@ list(APPEND _dict_compile_list
   ka kk kl kn kok ko ku ky
   la lb lfn lt lv
   mi mk ml mr ms mto mt my
-  nci ne nl nog no
+  nci ne nl nog no ny
   om or
   pap pa piqd pl pt py
   qdb quc qu qya
