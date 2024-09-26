@@ -39,6 +39,7 @@ updated languages:
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  ro-MD (Romanian (Republic of Moldova)) -- Andy Vladescu
 *  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
 *  fo (Faroese) -- Andras Eliassen, iSolveIT ApS and Setur.fo/Ravnur
