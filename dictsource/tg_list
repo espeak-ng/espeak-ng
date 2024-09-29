@@ -113,11 +113,11 @@ _:    du||nuqta
 _;    nuqta||vergul
 _?    alOmati||savOl
 _!    alOmati||xitOb
-_(    qavs||quSoda
+_(    qavs||quSOda
 _)    qavs||p8Sida
-_[    qavsi||murabba||quSoda
+_[    qavsi||murabba||quSOda
 _]    qavsi||murabba||p8Sida
-_{    quttii||quSoda
+_{    quttii||quSOda
 _}    quttii||p8Sida
 _|    bari||amud'i
 _'    apOstrOf
@@ -126,15 +126,15 @@ _~    tilda
 _^    karet
 _<    k'amtar||az
 _>    buz'urgtar||az
-_«    nOxijai||dugonai||tS'ap
-_»    nOxijai||dugonai||r'Ost
+_«    nOxijai||dugOnai||tS'ap
+_»    nOxijai||dugOnai||r'Ost
 
 +     pljus $max3
 -     minus $max3
 *     sitOratSa $max3
 /     buridan $max3
 \     raxi||bar?aks $max3
-=     bar'obar||'ast $max3
+=     bar'Obar||'ast $max3
 _     ta?kid||kuned $max3
 %     fOiz $max3
 @     dar||alOmati
@@ -199,7 +199,7 @@ _     ta?kid||kuned $max3
 дирӯз       $u
 дишаб       $u
 дур         $u
-(зор-зор)   z,orz,or $u
+(зор-зор)   z,Orz,Or $u
 имрӯз       $u
 имшаб       $u
 инҷо        $u
