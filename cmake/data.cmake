@@ -21,6 +21,7 @@ list(APPEND _dict_compile_list
   ta te ti th tk tn tr tt
   ug uk ur uz
   vi
+  xh
   yue
 )
 

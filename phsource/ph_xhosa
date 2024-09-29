@@ -1,0 +1,277 @@
+// ***************************************************************************/ 
+// *   Xhosa Language xh ph_xhosa                                            *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+//========
+// VOWELS
+//========
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 180
+  FMT(vowel/a_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa ɛ~e
+  length 180
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  IfNextVowelAppend(;)
+  length 170
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa ɔ~o
+  length 180
+  FMT(vowel/o_mid2)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 170
+  FMT(vowel/u_bck2)
+endphoneme
+
+//============
+// CONSONANTS
+//============
+
+phoneme b                     // voiced bilabial implosive 'b'
+  vcd blb stp
+  ipa ɓ
+  FMT(b/b@) addWav(x/b)
+endphoneme
+
+phoneme b#                    // voiceless 'b'
+  vls blb stp
+  ipa b̥
+  WAV(x/b, 100)
+endphoneme
+
+phoneme c[
+  vls alv stp pzd
+  ipa ᵏǀ
+  WAV(vwl_xh/k_click)
+endphoneme
+
+phoneme d                      // voiceless 'd'
+  vls alv stp
+  ipa d̥
+  WAV(x/d_dnt, 100)
+endphoneme
+
+phoneme dz
+  vls alv afr sib
+  ipa d̥z
+  FMT(d/xdz) addWav(ustop/ts, 100)
+endphoneme
+
+phoneme d_j
+  vls alv stp pzd
+  ipa d̠̥ʲ
+  WAV(x/d_pzd, 100)
+endphoneme
+
+phoneme g                     // voiceless 'g'
+  vls vel frc
+  ipa g
+  WAV(x/g2, 100)
+endphoneme
+
+phoneme g[
+  vcd alv frc
+  ipa ᶢ̥ǀ
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(g/g) addWav(vwl_xh/k_click, 100)
+endphoneme
+
+phoneme g!
+  vcd alv frc
+  ipa ᶢ̥ǃ
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(g/g) addWav(vwl_xh/q_click, 100)
+endphoneme
+
+phoneme g#
+  vcd alv frc
+  ipa ᶢ̥ǁ
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(g/g) addWav(vwl_xh/x_click, 100)
+endphoneme
+
+phoneme H                             // voiced 'h'
+  vls phr frc
+  ipa ɦ
+  lengthmod 5
+  WAV(vwl_xh/h_voiced, 100)
+endphoneme
+
+phoneme dZ#
+  vls pla afr sib
+  ipa d̥ʒ
+  WAV(x/dzh, 100)
+endphoneme
+
+phoneme k`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k_ejc, 60)
+endphoneme
+
+phoneme k#
+  import_phoneme consonants/k#
+endphoneme
+
+phoneme n_j 
+  vcd vel nas
+  ipa n̠ʲ
+  Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  lengthmod 8            // longer than 'n'
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=2100 50 300 f3=0 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/nn_)
+    ENDIF
+    FMT(klatt/nn)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(nn/nn@)
+    VowelStart(nn/nna)
+    VowelStart(nn/nne)
+    VowelStart(nn/nni)
+    VowelStart(nn/nno)
+    VowelStart(nn/nnu)
+  EndSwitch
+
+  IF prevPh(#i) THEN
+    VowelEnding(nn/inn, -40)
+  ENDIF
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(nn/nnj)
+  ELIF prevPh(isPause) THEN
+    FMT(nn/_nn)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(nn/nn_)
+  ENDIF
+endphoneme
+
+phoneme n;
+  vcd pal nas pzd
+  ipa nʲ
+  FMT(n^/n^_)
+endphoneme 
+
+phoneme N
+  vcd pal nas
+  ipa ŋ
+  FMT(klatt/nn)
+endphoneme
+
+phoneme p`
+  vls blb stp
+  voicingswitch b
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p_ejc, 100)
+endphoneme
+
+phoneme ph
+  import_phoneme consonants/ph
+endphoneme
+
+phoneme q!
+  vls alv stp
+  ipa k!
+  WAV(vwl_xh/q_click, 100)
+endphoneme
+
+phoneme r
+  import_phoneme base1/R3
+endphoneme
+
+phoneme t`
+  vls alv stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/t_ejc, 100)
+endphoneme
+
+phoneme t_j
+  vls alv stp
+  ipa t̠ʲ
+  WAV(ustop/t_pzd, 100)
+endphoneme
+
+phoneme tS`
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+  WAV(ustop/tsh_asp, 100)
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme t#
+  vls alv stp
+  ipa tʰ
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/t_dnt, 100)
+endphoneme
+
+phoneme x#
+  vls alv stp
+  ipa ᵏǁ
+  WAV(vwl_xh/x_click)
+endphoneme
+
+phoneme x2
+  vls vel frc
+  Vowelin f1=0  f2=2300 200 400  f3=-100 100
+  Vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  lengthmod 3
+  WAV(ufric/x2, 60)      // stronger version of [x]
+endphoneme
