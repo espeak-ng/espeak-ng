@@ -1,0 +1,77 @@
+// This file is UTF-8 encoded
+// translation rules for Aymara
+
+.replace
+        ʼ       '     // replace modified apostrophe to simple apostrophe
+
+.group a
+        a       a
+
+.group ch
+        ch      tS
+        ch'     tS`?
+        chh     tSh
+
+.group i
+        i       i
+
+.group ï
+        ï       i:
+
+.group j
+        j        x
+
+.group k
+        k       k
+        k'      k`?
+        kh      k#
+
+.group l
+        l       l
+        ll      l^
+
+.group m
+        m       m
+
+.group n
+        n       n
+
+.group ñ
+        ñ       n^
+
+.group p
+        p       p
+        p'      p`?
+        ph      p#
+
+.group q
+        q       q
+        q'      q`?
+        qh      qh
+
+.group r
+        r       *
+
+.group s
+        s       s
+
+.group t
+       t       t
+       t'      t`?
+       th      t#
+
+.group u
+        u       u
+
+.group ü
+        ü       u:
+
+.group w
+        w       w
+
+.group x
+        x       X
+
+.group y
+        y       j
+

@@ -98,6 +98,9 @@
   <Target Name="as" Inputs="$(ProjectDir)..\..\dictsource\as_rules;$(ProjectDir)..\..\dictsource\as_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\as_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=as" />
   </Target>
+  <Target Name="ay" Inputs="$(ProjectDir)..\..\dictsource\ay_rules;$(ProjectDir)..\..\dictsource\ay_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ay_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ay" />
+  </Target>
   <Target Name="az" Inputs="$(ProjectDir)..\..\dictsource\az_rules;$(ProjectDir)..\..\dictsource\az_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\az_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=az" />
   </Target>

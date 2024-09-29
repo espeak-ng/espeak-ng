@@ -1,0 +1,187 @@
+// This file is UTF-8 encoded
+// translation rules for Aymara
+
+// Letters
+
+a        a
+ä        a:
+ch       tSa
+ch'      tS`?a
+chh      tSha
+i        i
+ï        i:
+j        xa
+k        ka
+k'       k`?a
+kh       k#a
+l        la
+ll       l^a
+m        ma
+n        na
+ñ        n^a
+p        pa
+p'       p`?a
+ph       p#a
+q        qa
+q'       q`?a
+qh       qha
+r        *a
+s        sa
+t        ta
+t'       t`?a
+th       t#a
+u        u
+ü        u:
+w        wa
+x        Xa
+y        ja
+
+
+// Numbers
+
+_0       tSusaq
+_1       maja
+_2       paja
+_3       kimsa
+_4       pusi
+_5       p#isqa
+_6       suxta
+_7       paqal^qu
+_8       kimsaqal^qu
+_9       l^a:tunka
+
+_10      tunka
+_11      tunkamajani
+_12      tunkapajani
+_13      tunkakimsani
+_14      tunkapusini
+_15      tunkap#isqani
+_16      tunkasuxtani
+_17      tunkapaqal^quni
+_18      tunkakimsaqal^quni
+_19      tunkal^a:tunkani
+
+_20      pa:tunka
+_21      pa:tunkamajani
+_22      pa:tunkapajani
+_23      pa:tunkakimsani
+_24      pa:tunkapusini
+_25      pa:tunkap#isqani
+_26      pa:tunkasuxtani
+_27      pa:tunkapaqal^quni
+_28      pa:tunkakimsaqal^quni
+_29      pa:tunkal^a:tunkani
+
+_30      kimsatunka
+_31      kimsatunkamajani
+_32      kimsatunkapajani
+_33      kimsatunkakismani
+_34      kimsatunkapusini
+_35      kimsatunkap#isqani
+_36      kimsatunkasuxtani
+_37      kimsatunkanipaqal^quni
+_38      kimsatunkakimsaqal^quni
+_39      kimsatunkal^a:tunkani
+
+_40      pusitunka
+_41      pusitunkamajani
+_42      pusitunkapajani
+_43      pusitunkakimsani
+_44      pusitunkapusini
+_45      pusitunkap#isqani
+_46      pusitunkasuxtani
+_47      pusitunkapaqal^quni
+_48      pusitunkakimsaqal^quni
+_49      pusitunkal^a:tunkani
+
+_50      p#isqatunka
+_51      p#isqatunkamajani
+_52      p#isqatunkapajani
+_53      p#isqatunkakimsani
+_54      p#isqatunkapusini
+_55      p#isqatunkap#isqani
+_56      p#isqatunkasuxtani
+_57      p#isqatunkapaqal^quni
+_58      p#isqatunkakimsaqal^quni
+_59      p#isqatunkal^a:tunkani
+
+_60      suxtatunka
+_61      suxtatunkamajani
+_62      suxtatunkapajani
+_63      suxtatunkakimsani
+_64      suxtatunkspusini
+_65      suxtatunkap#isqani
+_66      suxtatunkasuxtani
+_67      suxtatunkapaqal^quni
+_68      suxtatunkakimsaqal^quni
+_69      suxtatunkal^a:tunkani
+
+_70      paqal^qutunka
+_71      paqal^qutunkamajani
+_72      paqal^qutunkapajani
+_73      paqal^qutunkakimsani
+_74      paqal^qutunkapusini
+_75      paqal^qutunkap#isqani
+_76      paqal^qutunkasuxtani
+_77      paqal^qutunkapaqal^quni
+_78      paqal^qutunkakimsaqal^quni
+_79      paqal^qutunkal^a:tunkani
+
+_80      kimsaqal^qutunka
+_81      kimsaqal^qutunkamajani
+_82      kimsaqal^qutunkapajani
+_83      kimsaqal^qutunkakimsani
+_84      kimsaqal^qutunkapusini
+_85      kimsaqal^qutunkap#isqani
+_86      kimsaqal^qutunkasuxtani
+_87      kimsaqal^qutunkapaqal^quni
+_88      kimsaqal^qutunkakimsaqal^quni
+_89      kimsaqal^qutunkal^a:tunkani
+
+_90      l^a:tunkatunka
+_91      l^a:tunkatunkamajani
+_92      l^a:tunkatunkapajani
+_93      l^a:tunkatunkakimsani
+_94      l^a:tunkatunkapusini
+_95      l^a:tunkatunkap#isqani
+_96      l^a:tunkatunkasuxtani
+_97      l^a:tunkapaqal^quni
+_98      l^a:tunkatunkakimsaqal^quni
+_99      l^a:tunkatunkal^a:tunkani
+
+_0C      pataka
+_1C      pataka
+_2C      pa:pataka
+
+_0M1     waranka
+_1M1     waranka
+_2M1     pa:waranka
+
+_0M2     mil^ona
+_1M2     mil^ona
+_2M2     pa:mil^ona
+
+_dpt     koma
+
+
+// Pronouns
+
+
+jiwasa         $u
+jiwasana       $u
+jiwasanaka     $u
+jiwasanakana   $u
+juma           $u
+jumana         $u
+jumanaka       $u
+jumanakana     $u
+jupa           $u
+jupana         $u
+jupanaka       $u
+jupanakana     $u
+khiti          $u
+nanaka         $u
+nanakana       $u
+naya           $u
+nayana         $u
+qhawqha        $u
