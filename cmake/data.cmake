@@ -18,7 +18,7 @@ list(APPEND _dict_compile_list
   qdb quc qu qya
   ro ru
   sd shn si sjn sk sl smj sq sr sv sw
-  ta te ti th tk tn tr tt
+  ta te tg ti th tk tn tr tt
   ug uk ur uz
   vi
   yue
