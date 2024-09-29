@@ -311,6 +311,9 @@
   <Target Name="nog" Inputs="$(ProjectDir)..\..\dictsource\nog_rules;$(ProjectDir)..\..\dictsource\nog_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\nog_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=nog" />
   </Target>
+  <Target Name="ny" Inputs="$(ProjectDir)..\..\dictsource\ny_rules;$(ProjectDir)..\..\dictsource\ny_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ny_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ny" />
+  </Target>
   <Target Name="om" Inputs="$(ProjectDir)..\..\dictsource\om_rules;$(ProjectDir)..\..\dictsource\om_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\om_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=om" />
   </Target>

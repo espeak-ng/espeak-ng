@@ -1,0 +1,122 @@
+// ***************************************************************************/ 
+// *   Chichewa Language ny ny_list                                          *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+// This file is UTF-8 encoded
+
+
+// Letters
+
+a        a:
+b        bi:
+c        si:
+d        di:
+e        e:
+f        e:fi
+g        gi:
+h        he:tSi
+i        i:
+j        dZi:
+k        ki:
+l        l.i:
+m        mi:
+n        ni:
+o        O:
+p        pi:
+r        e:r.i
+s        e:si
+t        ti:
+u        u:
+v        vi:
+w        we:
+ŵ        Bi:
+y        je:
+z        zi:
+
+
+// Numbers
+
+_0    zir.O
+_1    tSimodzi
+_2    ziwir.i
+_3    zitatu
+_4    zinaji
+_5    zisanu
+_6    zisanu||n-di||tSimOdzi
+_7    zisanu||n-di||ziwir.i
+_8    zisanu||n-di||zitatu
+_9    zisanu||n-di||zinaji
+
+_10   k#umi
+_1X   k#umi||n-di
+_20   makumiawiri
+_2X   makumiawiri||n-di
+_30   makumiatatu
+_3X   makumiatatu||n-di
+_40   makumianaji
+_4X   makumianaji||n-di
+_50   makumiasanu
+_5X   makumiasanu||n-di
+_60   makumiasanu||n-di||limodzi
+_6X   makumiasanu||n-di||limodzi||n-di
+_70   makumiasanu||n-di||awir.i
+_7X   makumiatatu||n-di||awir.i||n-di
+_80   makumiasanu||n-di||atatu
+_8X   makumiasanu||n-di||atatu||n-di
+_90   makumiasanu||n-di||anaji
+_9X   makumiasanu||n-di||anaji||n-di
+
+_0C   zana
+_1C   zana
+_0M1  tSikwi
+_1M1  tSikwi
+
+_dpt  koma
+
+
+// Pronouns
+
+chani      $u+     // what
+chiyani    $u+     // what
+ife        $u+     // we
+ine        $u+     // I
+inu        $u+     // you
+iwe        $u+     // you
+iwo        $u+     // they
+iye        $u+     // he, she
+kuti       $u+     // where
+ndani      $u+     // who
+
+
+// Conjunctions
+
+chifukwa     $u $brk  // because
+koma         $u $brk  // but
+kuti         $u $brk  // that
+ndipo        $u $brk  // and
+ngakhale     $u $brk  // although
+
+
+// Prepositions
+
+(m'malo mwa) m?m,alomw,a $u $pause  // in place of
+
+
+// Character Names

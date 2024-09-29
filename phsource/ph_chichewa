@@ -1,0 +1,153 @@
+// ***************************************************************************/ 
+// *   Chichewa Language ny ph_chichewa                                      *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+//========
+// VOWELS
+//========
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 210
+  FMT(vowel/a_4, 80)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 210
+  FMT(vowel/e_mid2, 80)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  IfNextVowelAppend(;)
+  length 200
+  FMT(vowel/i, 70)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  ipa ɔ
+  length 210
+  FMT(vowel/0_2, 80)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 200
+  FMT(vowel/u_bck, 70)
+endphoneme
+
+
+//============
+// CONSONANTS
+//============
+
+phoneme k
+  import_phoneme base2/k
+endphoneme
+
+phoneme p
+  import_phoneme base2/p
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme k#
+  import_phoneme consonants/k#
+endphoneme
+
+phoneme p#
+  import_phoneme consonants/ph
+endphoneme
+
+phoneme t#        // dental variant of /t/
+  vls dnt stp
+  ipa tʰ
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme tS#
+  vls pla afr sib
+  ipa tʃʰ
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_asp, 80)
+  ENDIF
+  WAV(ustop/tsh_asp, 80)
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme t;
+  vls pal stp pzd
+  ipa tʲ
+  lengthmod 2
+  voicingswitch d;
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_pzd, 30)
+  ENDIF
+  WAV(ustop/t_pzd, 60)
+endphoneme
+
+phoneme dz
+  import_phoneme consonants/dz
+endphoneme
+
+phoneme d;
+  vcd alv stp pzd
+  ipa dʲ
+  lengthmod 5
+  voicingswitch t;
+  Vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
+  Vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100 colr=1
+
+  IF PreVoicing THEN
+    FMT(d/xd_pzd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_pzd, 40)
+  ELIF nextPh(isRhotic) THEN
+    FMT(d/dr) addWav(x/d_pzd, 80)
+  ENDIF
+
+  FMT(d/d) addWav(x/d_pzd, 80)
+endphoneme
