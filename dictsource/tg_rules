@@ -1,0 +1,108 @@
+// This file is UTF-8 encoded
+// translation rules for Tajik
+
+.group а
+        а         a
+
+.group б
+        б         b
+
+.group в
+        в         v
+
+.group г
+        г         g
+
+.group ғ
+        ғ         Q"
+
+.group д
+        д         d
+
+.group е
+     _) е         je
+        е         e
+
+.group ё
+        ё         jO
+
+.group ж
+        ж         Z
+
+.group з
+        з         z
+
+.group и
+        и         i
+
+.group ӣ
+        ӣ         'i
+
+.group й
+        й         j
+
+.group к
+        к         k
+
+.group л
+        л         l
+
+.group м
+        м         m
+
+.group н
+        н         n
+
+.group о
+        о         o
+
+.group п
+        п         p
+
+.group р
+        р         r
+
+.group с
+        с         s
+
+.group т
+        т         t
+
+.group у
+        у         u
+
+.group ӯ
+        ӯ         8
+
+.group ф
+        ф         f
+
+.group х
+        х         x
+
+.group ҳ
+        ҳ         h
+
+.group ч
+        ч         tS
+
+.group ҷ
+        ҷ         J
+		
+.group ш
+        ш         S
+
+.group ъ
+        ъ         ?
+
+.group э
+        э         e
+
+.group ю
+        ю         ju
+        
+.group я
+        я         ja 
+
+.group
+   $      dOllar

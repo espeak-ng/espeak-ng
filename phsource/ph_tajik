@@ -1,0 +1,66 @@
+//============================================================
+// Tajik
+//============================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 190
+  FMT(vowel/a)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 180
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 170
+  FMT(vowel/i)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  ipa ɔ
+  length 180
+  FMT(vowel/0_3)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 170
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme 8
+  vwl starttype #@ endtype #@
+  ipa ɵ
+  length 180
+  FMT(vowel/8_7)
+endphoneme
+
+
+// Consonants
+
+phoneme d
+  import_phoneme base2/d
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme r
+  liquid trl
+  IF prevPh(isVowel) OR nextPh(isVowel) THEN
+    ChangePhoneme(*)
+  ENDIF
+endphoneme
