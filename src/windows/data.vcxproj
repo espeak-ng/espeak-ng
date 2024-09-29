@@ -425,6 +425,9 @@
    <Target Name="xex" Inputs="$(ProjectDir)..\..\dictsource\xex_rules;$(ProjectDir)..\..\dictsource\xex_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\xex_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=xex" />
   </Target>
+  <Target Name="xh" Inputs="$(ProjectDir)..\..\dictsource\xh_rules;$(ProjectDir)..\..\dictsource\xh_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\xh_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=xh" />
+  </Target>
   <Target Name="yue" Inputs="$(ProjectDir)..\..\dictsource\yue_rules;$(ProjectDir)..\..\dictsource\yue_list;$(ProjectDir)..\..\dictsource\yue_listx" Outputs="$(ProjectDir)..\..\espeak-ng-data\yue_dict" DependsOnTargets="Phonemes;Extdict">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=yue" />
   </Target>
