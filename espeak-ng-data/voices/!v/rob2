@@ -1,0 +1,11 @@
+language variant
+name Rob2
+klatt 6
+pitch  50 130
+voicing 90
+consonants 110 120
+breath 38
+formant 1 95 100 60
+formant 2 97 90 50
+formant 3 101 70 50
+formant 4 110 65 28

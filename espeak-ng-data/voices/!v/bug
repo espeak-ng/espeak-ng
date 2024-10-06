@@ -1,0 +1,16 @@
+language variant
+maintainer Enes Deniz
+name Bug
+klatt 6
+pitch 450 550
+speed 300
+formant 1 120 100 160
+formant 2 150 100 160
+formant 3 160 125 160
+formant 4 160 100 160
+formant 5 160 100 160
+voicing 50
+consonants 30 40
+breath 50
+stressAdd 50 100 50 50 50 50 50 50
+stressAmp 12 10 18 13 0 0 25 15
