@@ -7,18 +7,18 @@
 .L02 e i
 
 // Consonants
-.L04 b ç d f g ğ h j k l m n ñ p r s ş t v w y z
+.L03 b ç d f g ğ h j k l m n ñ p r s ş t v w y z
 
 
 .group a
    a       A
    a (_   'A
-   a (L04_ 'A
+   a (L03_ 'A
 
 .group á
    á       &
    á (_   '&
-   á (L04_ '&
+   á (L03_ '&
 
 .group b
    b       b
@@ -35,7 +35,7 @@
 .group e
    e       e
    e (_   'e
-   e (L04_ 'e
+   e (L03_ 'e
 
 .group f
    f       f
@@ -54,18 +54,18 @@
 .group i
    i       i
    i (_   'i
-   i (L04_ 'i
+   i (L03_ 'i
    iy (_  'i:
 
 .group í
    í       I
    í (_   'I
-   í (L04_ 'I
+   í (L03_ 'I
 
 .group î
    î       @
    î (_   '@
-   î (L04_ '@
+   î (L03_ '@
 
 .group j
    j       Z
@@ -102,7 +102,7 @@
 .group ó
    ó       8
    ó (_   '8
-   ó (L04_ '8
+   ó (L03_ '8
 
 .group p
    p       p
@@ -113,6 +113,8 @@
 
 .group s
    s       s
+   sîn (_  =s@n
+   sîñ (_  =s@N
 
 .group ş
    ş       S
@@ -124,12 +126,12 @@
 .group u
    u       u
    u (_   'u
-   u (L04_ 'u
+   u (L03_ 'u
 
 .group ú
    ú       y
    ú (_   'y
-   ú (L04_ 'y
+   ú (L03_ 'y
 
 .group v
    v       v
