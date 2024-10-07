@@ -1,0 +1,216 @@
+// This file is UTF-8 encoded
+// translation rules for Somali
+
+
+// Letters
+
+'        ?alef
+b        ba
+t        ta
+j        Je:m
+x        Ha
+kh       Xa
+d        de:l
+r        ra
+s        si:n
+sh       Si:n
+dh       d.a
+c        Ain
+g        gain
+f        fa
+q        Gaf:
+k        ka:f
+l        la:n
+m        mi:m
+n        nu:n
+w        waw
+h        ha
+y        ja
+a        a
+e        e
+i        i
+o        o
+u        u
+aa       a:
+ee       E:
+ii       i:
+oo       o:
+uu       u:
+
+
+// Numbers
+
+_0      eb'er
+_1      k'o2w
+_2      l'a2bo
+_3      sa2d:'eH
+_4      'a2far
+_5      S'a2n
+_6      l'i2H
+_7      tod:'oba2
+_8      sid:'e:2d
+_9      sag'a:2l
+
+_10     tob'an
+_11     ko2w||ijo||tob'an
+_12     la2bo||ijo||tob'an
+_13     sa2d:eH||ijo||tob'an
+_14     a2far||ijo||tob'an
+_15     Sa2n||ijo||tob'an
+_16     li2H||ijo||tob'an
+_17     tod:oba2||ijo||tob'an
+_18     sid:e:2d||ijo||tob'an
+_19     saga:2l||ijo||tob'an
+
+_20     lab'o:2tan
+_21     ko2w||ijo||lab'a:2tan
+_22     la2bo||ijo||lab'a:2tan
+_23     sa2d:eH||ijo||lab'a:2tan
+_24     a2far||ijo||lab'a:2tan
+_25     Sa2n||ijo||lab'a:2tan
+_26     li2H||ijo||lab'a:2tan
+_27     tod:oba2||ijo||lab'a:2tan
+_28     sid:e:2d||ijo||lab'a:2tan
+_29     saga:2l||ijo||lab'a:2tan
+
+_30     s'o2d:on
+_3X     so2d:on||ijo
+_40     af'a2rtan
+_4X     afa2rtan||ijo
+_50     X'o2nton
+_5X     Xo2nton||ijo
+_60     l'i2Hdan
+_6X     li2Hdan||ijo
+_70     tod:ob'a:2tan
+_7X     tod:oba:2tan||ijo
+_80     sid:'e:2tan
+_8X     sid:e:2tan||ijo
+_90     sag'a:2San
+_9X     saga:2San||ijo
+
+_0C     boG'o2l
+_1C0    boG'o2l
+_1C     boGo2l||ijo
+_2C0    la2bo||boG'o2l
+_2C     la2bo||boGo2l||ijo
+_3C0    sa2d:eH||boG'o2l
+_3C     sa2d:eH||boGo2l||ijo
+_4C0    a2far||boG'o2l
+_4C     a2far||boGo2l||ijo
+_5C0    Sa2n||boG'o2l
+_5C     Sa2n||boGo2l||ijo
+_6C0    liH||boG'o2l
+_6C     liH||boGo2l||ijo
+_7C0    tod:oba2||boG'o2l
+_7C     tod:oba2||boGo2l||ijo
+_8C0    sid:e:2d||boG'o2l
+_8C     sid:e:2d||boGo2l||ijo
+_9C0    saga:2l||boG'o2l
+_9C     saga:2l||boGo2l||ijo
+
+_0M1    k'u2n
+_1M1    k'u2n
+_0M2    malj'u:2n
+_1M2    malj'u:2n
+_0M3    bilj'an
+_1M3    bilj'an
+
+_dpt    _hak,adka_|
+
+
+// Symbols
+
+_.    dhibic   $text
+_,    hakadka  $text
+_:    laba dhibcood  $text
+_;    semikolon  $text
+_?    Aalam'ada||su-?'a:Sa
+_!    Aalam'ada||Gajl'ada
+
+%     boqolkiiba $text $max3
++     ku darso $text $max3
+-     laga jaray $text $max3
+*     calamaad $text $max3
+/     dharbaaxo $text
+\     dib u dhac $text
+=     siman $max3
+$     dollar $text
+€     euro $text
+#     xaashi $text
+<     ka yar $text
+>     ka weyn $text
+
+
+
+
+// Pronouns
+
+adhiga   $u            // you, also commonly abbreviated as 'adhi'
+adiga    $u            // you (singular)
+anaga    $u            // we, us
+aniga    $u            // I, me, commonly abbreviated as 'ani'
+annaga   $u            // we, us
+asaga    $u            // he, him
+ayaga    $u            // they, them
+idinka   $u            // you (plural)
+innaga   $u            // we, us
+intee    $u            // where, how much
+iska     $u            // (for) yourself
+maxa     $u            // what
+waan     $u            // I, me (first person pronoun)
+waxey    $u            // they
+
+
+// Conjunctions
+
+ama         $u $pause    // or
+haddii      $u $pause    // if
+iyo         $u $pause   // and
+oo          o: $atend
+oo          $u $pause    // that, and (in verb and adjective constructions)
+
+
+// Prepositions
+
+bilaa  $u $brk     // without
+dib    $u $brk     // after
+hor    $u $brk     // before
+la'aan $u $brk     // without
+(llaa iyo) l:,a:||,ijo $u brk  // since
+llaa   $u $brk     // until
+ee     e: $atend
+ee     $u $brk     // of
+ku     $u $brk     // to
+bakalkeedii $u $brk  // instead of
+dhex    $u $brk     // in
+(ka soo horjeeda) k,a||s,o:||horJ,e:da   $u $brk   // against
+(la mid ah)  l,a||m,id||,ah    $u $brk    // as
+(ku saabsan)  k,u||sa:bsan   $u $brk   // about
+(u ah)   ,u||ah  $u $brk  // for
+ama    $u $brk     // or
+laakiin  $u $brk   // but
+marka    $u $brk   // so
+dusha  $u $brk     // above
+hoos   $u $brk     // under, below, beneath
+ka     $u $brk     // from, away from, out of, about, concerning
+u    u: $atend
+u    $u $brk       // to, for
+
+
+// Negatives
+
+maya   $u+     // no
+maaha  $u      // not
+
+
+// Postpositions
+
+(wax kor saaran) w'ax||k'or||s'a:ran $brk // on top of
+hoos $brk               // under
+gudaha $brk            // inside
+dibadda $brk            // outside
+(ka gadaal)   ka||g'ada:l $brk  // behind
+(ka hor)    ka||h'or  $brk    // in front of
+dhow  $brk                    // near
+(u dhexeeya)   ,u||d.ex'e:ja  $brk // between
+

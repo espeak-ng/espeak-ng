@@ -1,0 +1,207 @@
+//================================================================================
+// Somali
+//================================================================================
+
+
+// Tones
+
+phoneme 1   //  tone: low level
+  stress
+  Tone(50, 50, envelope/p_level, NULL)
+endphoneme
+
+phoneme 2   //  tone: high level
+  stress
+  Tone(50, 50, envelope/p_level, NULL)
+endphoneme
+
+phoneme 3   //  tone: fall level
+  stress
+  Tone(20, 20, envelope/p_fall, NULL)
+endphoneme
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 160
+  FMT(vowel/a_4)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 150
+  ChangeIfUnstressed(E)
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  ipa ɛ
+  length 150
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 140
+  ChangeIfUnstressed(I)
+  FMT(vowel/i_4)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  ipa ɪ
+  length 140
+  FMT(vowel/ii)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa ɔ
+  length 155
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme u
+  vwl starttype #o endtype #o
+  ipa u
+  length 160
+  ChangeIfUnstressed(u-)
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme u-
+  vwl starttype #o endtype #o
+  ipa ʉ
+  length 160
+  FMT(vowel/uu#_2)
+endphoneme
+
+
+// Long vowels
+
+phoneme a:
+  vwl starttype #a endtype #a
+  ipa ɑː
+  length 300
+  FMT(vowel/aa_7)
+endphoneme
+
+phoneme E:
+  vwl starttype #e endtype #e
+  ipa ɛː
+  length 300
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  ipa iː
+  length 300
+  FMT(vowel/i_4)
+endphoneme
+
+phoneme o:
+  vwl starttype #o endtype #o
+  ipa ɔː
+  length 300
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme u:
+  vwl starttype #o endtype #o
+  ipa uː
+  length 300
+  FMT(vowel/u_bck)
+endphoneme
+
+
+// Consonants
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme t        // dental variant of /t/
+  vls dnt stp
+  ipa t̪
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme H       // arabic Hah
+  vls phr frc
+  ipa ħ
+  lengthmod 5
+  WAV(vwl_ar/hah,80)
+endphoneme
+
+phoneme A       // arabic Ain
+  vcd frc
+  ipa ʕ
+  voicingswitch a
+  length 160
+  Vowelin  f1=2  f2=2300 -400 500  f3=300 80
+  Vowelout f1=2  f2=2300 -300 450  f3=-100 10
+  FMT(r/xr,25) addWav(h/h_,30)
+endphoneme
+
+phoneme G
+  vcd vel stp prevoice
+  ipa ɢ
+  voicingswitch k
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g3, 90)
+endphoneme
+
+phoneme d.
+  vcd rfx stp
+  lengthmod 5
+  ipa ɖ
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+
+  IF PreVoicing THEN
+    FMT(d/xdr)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ENDIF
+
+  FMT(d/dr) addWav(x/d)
+endphoneme
+
+phoneme X
+  vls vel frc
+  ipa χ
+  Vowelin f1=0  f2=2300 200 400  f3=-100 100
+  Vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  lengthmod 3
+  WAV(ufric/x2, 60)      // stronger version of [x]
+endphoneme
