@@ -1,0 +1,122 @@
+//================================
+// Gagauz
+//================================
+
+// Vowels
+
+phoneme A
+  vwl starttype #a endtype #a
+  length 200
+  FMT(vowel/aa_6)
+endphoneme
+
+phoneme &
+  vwl starttype #a endtype #a
+  length 200
+  FMT(vowel/ee_6)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 200
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 180
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 200
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 180
+  FMT(vowel/u)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  length 200
+  FMT(vowel/oe)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  length 180
+  FMT(vowel/y)
+endphoneme
+
+phoneme I
+  vwl starttype #@ endtype #@
+  length 180
+  FMT(vowel/u#_7)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 200
+  FMT(vowel/@)
+endphoneme
+
+// Consonants
+
+phoneme t
+  vls dnt stp
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 70)
+endphoneme
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme c
+  vls pal stp
+  lengthmod 2
+  Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
+  Vowelout f1=0  f2=2700 300 500  f3=300 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ki, 80)
+  ENDIF
+  WAV(ustop/ki)
+endphoneme
+
+phoneme J
+  vcd pla stp
+  lengthmod 5
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF KlattSynth THEN
+    FMT(klatt/dz_pzd) addWav(ustop/ki, 60)
+  ENDIF
+
+
+  FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
