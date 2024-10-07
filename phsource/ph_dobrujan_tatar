@@ -1,0 +1,122 @@
+//====================================================================================
+// Dobrudjan Tatar
+//====================================================================================
+
+
+// Vowels
+
+phoneme A
+  vwl starttype #a endtype #a
+  ipa ɑ
+  length 140
+  FMT(vowel/aa_8)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 140
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 140
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 140
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 140
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme I
+  vwl starttype #@ endtype #@
+  ipa ə
+  length 140
+  FMT(vowel/@_4)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  ipa ɯ
+  length 140
+  FMT(vowel/u#_7)
+endphoneme
+
+phoneme 8
+  vwl starttype #@ endtype #@
+  ipa ɵ
+  length 140
+  FMT(vowel/oe)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  ipa y
+  length 140
+  FMT(vowel/y)
+endphoneme
+
+phoneme &
+  vwl starttype #e endtype #e
+  ipa æ
+  length 140
+  FMT(vowel/ee)
+endphoneme
+
+
+// Consonants
+
+phoneme c
+  vls pal stp
+  lengthmod 2
+  Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
+  Vowelout f1=0  f2=2700 300 500  f3=300 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ki, 80)
+  ENDIF
+  WAV(ustop/ki)
+endphoneme
+
+phoneme J
+  vcd pla stp
+  lengthmod 5
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF KlattSynth THEN
+    FMT(klatt/dz_pzd) addWav(ustop/ki, 60)
+  ENDIF
+
+
+  FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
+endphoneme
+
+phoneme r
+  liquid trl
+  lengthmod 6
+  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(*)
+  ENDIF
+  CALL base1/R
+endphoneme
+
+phoneme G
+  import_phoneme base1/Q"
+endphoneme
