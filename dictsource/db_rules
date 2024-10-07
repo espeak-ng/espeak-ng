@@ -1,0 +1,145 @@
+// This file is UTF-8 encoded
+// translation rules for Dobrujan Tatar
+
+
+// Vowels
+.L01 a î o u
+.L02 e i
+
+// Consonants
+.L04 b ç d f g ğ h j k l m n ñ p r s ş t v w y z
+
+
+.group a
+   a       A
+   a (_   'A
+   a (L04_ 'A
+
+.group á
+   á       &
+   á (_   '&
+   á (L04_ '&
+
+.group b
+   b       b
+   bb      b:
+
+.group ç
+   ç       tS
+   çç      tS:
+
+.group d
+   d       d
+   dd      d:
+
+.group e
+   e       e
+   e (_   'e
+   e (L04_ 'e
+
+.group f
+   f       f
+
+.group g
+   g       g
+   g (L01  G
+   g (L02  J
+
+.group ğ
+   ğ       dZ
+
+.group h
+   h       h
+
+.group i
+   i       i
+   i (_   'i
+   i (L04_ 'i
+   iy (_  'i:
+
+.group í
+   í       I
+   í (_   'I
+   í (L04_ 'I
+
+.group î
+   î       @
+   î (_   '@
+   î (L04_ '@
+
+.group j
+   j       Z
+
+.group k
+   k       k
+   kk      k:
+   k (L01 q
+   L01) k (K q
+   k (L02 c
+   kk (L01
+
+.group l
+   l       l
+   l (L01 L
+   L01) l (K L
+
+.group m
+   m       m
+   mîz (_  =m@z
+
+.group n
+   n       n
+
+.group ñ
+   ñ       N
+   ñîz (_  =N@z
+
+.group o
+   o       o
+   o (_   'o
+   o (L04_ 'o
+
+.group ó
+   ó       8
+   ó (_   '8
+   ó (L04_ '8
+
+.group p
+   p       p
+   pp      p:
+
+.group r
+   r       r
+
+.group s
+   s       s
+
+.group ş
+   ş       S
+
+.group t
+   t       t
+   tt      t:
+
+.group u
+   u       u
+   u (_   'u
+   u (L04_ 'u
+
+.group ú
+   ú       y
+   ú (_   'y
+   ú (L04_ 'y
+
+.group v
+   v       v
+
+.group w
+   w       w
+
+.group y
+   y       j
+
+.group z
+   z       z
+

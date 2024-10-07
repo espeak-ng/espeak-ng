@@ -2,7 +2,7 @@ list(APPEND _dict_compile_list
   af am an ar as az
   ba be bg bn bpy bs
   ca chr cmn cs cv cy
-  da de
+  da db de
   el en eo es et eu
   fa fi fr
   ga gd gn grc gu

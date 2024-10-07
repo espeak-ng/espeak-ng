@@ -1,0 +1,80 @@
+// This file is UTF-8 encoded
+// translation rules for Dobrujan Tatar
+
+
+// Letters
+
+a     A:
+á     hemzel,I'A
+b     be
+ç     tSe
+d     de
+e     e:
+f     fe
+g     Je
+ğ     dZe
+h     he
+i     i:
+í     hemzel,I'i
+î     qALpAqL,@'i
+j     Ze
+k     ce
+l     le
+m     me
+n     ne
+ñ     eN
+o     o:
+ó     noqtAL,@'o
+p     pe
+r     re
+s     se
+ş     Se
+t     te
+u     u:
+ú     noqtAL,@'u
+v     ve
+w     we
+y     je
+z     ze
+
+
+// Numbers
+
+_0      n'ol
+_1      b'Ir
+_2      ek'I
+_3      'yS
+_4      d'8rt
+_5      b'eS
+_6      ALt'@
+_7      jed'I
+_8      sek'Iz
+_9      doq'@z
+
+_10     'on
+_11     onb'Ir
+_12     onek'@
+_13     on'yS
+_14     ond'8rt
+_15     onb'eS
+_16     onALt'@
+_17     onjed'I
+_18     onsek'Iz
+_19     ondoq'@z
+
+_2X     jIrm'I
+_3X     ot'@z
+_4X     q'@rq
+_5X     ell'I
+_6X     ALtm'@S
+_7X     jetm'IS
+_8X     seks'en
+_9X     doqs'An
+
+_0C     j'yz
+_1C     j'yz
+
+_0M1    b'iN
+_1M1    b'iN
+
+_dpt    virJ,yl
