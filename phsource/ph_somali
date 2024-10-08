@@ -7,7 +7,7 @@
 
 phoneme 1   //  tone: low level
   stress
-  Tone(50, 50, envelope/p_level, NULL)
+  Tone(30, 30, envelope/p_level, NULL)
 endphoneme
 
 phoneme 2   //  tone: high level
