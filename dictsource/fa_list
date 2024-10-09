@@ -1,5 +1,5 @@
 // *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.138
-// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 07-06-2021
+// *   This file writen by Shadyar Khodayari and Ehsan Esmaeili who has managed  collecting exceptional words. 07-06-2021
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -2721,7 +2721,7 @@ U+20	fAsele_
 برنت	beRent
 برنج	beRendZ
 برنجد	beRandZad
-برند	baRand
+
 برنده	baRande:
 برندگان	baRandegAn
 برنز	boRonz
@@ -6832,7 +6832,7 @@ U+20	fAsele_
 شتل	Setel
 شتک	Satak
 شجاع	SodZA?
-شجاعت	SodZAAat
+شجاعت	SodZA:؟at
 شجر	SadZaR
 شجریان	SadZaRijAn
 شحنه	Sahne:
@@ -7287,7 +7287,7 @@ U+20	fAsele_
 طراده	taRRAde:
 طرار	taRRAR
 طرب	taRab
-طرد	toRd
+ترد	toRd
 طرشت	taRaSt
 طرف	taRaf
 طرفةالعین	toRfatol?ejn
@@ -9722,8 +9722,8 @@ U+20	fAsele_
 ملی	me'lli
 ملیت	mellijat
 ملینا	melinA
-ملیون	milju:n
-ملیونم	milju:nom
+ملیون	melju:n
+ملیونم	melju:nom
 ملیکا	melikA
 ممارست	momAResat
 ممانعت	momAne?at
@@ -10410,7 +10410,7 @@ U+20	fAsele_
 نشتر	neStaR
 نشخوار	noSxAR
 نشد	naSod
-نشریات	naSRijjAt
+نشریات	naSRijAt
 نشست	ne'Sast
 نشستم	neSastam
 نشستن	neSastan
@@ -10678,7 +10678,6 @@ U+20	fAsele_
 نکا	nekA
 نکات	nokAt
 نکاح	nekAh
-نکاه	nekAh
 نکبت	nekbat
 نکبتبار	nekbatbAR
 نکته	nok'te:
@@ -13287,3 +13286,52 @@ U+20	fAsele_
 یگانه	jegAne:
 یگانۀ	jegAneje
 ییلاق	jejlAq1
+مناظرۀ	monAzeReje
+گستاخانه	gostA:xA:ne:
+گستاخانۀ	gostA:xA:neje
+سلبریتی	selebRiti
+هاستل	hAstel
+متاورس	metAveRs
+حاکمند	hA:kemand
+مربیم	moRabbijam
+مربّیم	moRabbijam
+مربیت	moRabbijat
+مربّیت	moRabbijat
+استخون	ostoxun
+بتری	botRi
+استایل	estAjl
+معوض	mo?av:az
+مستعان	mosta?An
+فرگشت	faRgaSt
+اسپرت	espoRt
+تسلم	tasal:om
+مماشات	momA:SA:t
+منقا	monaq1:A
+منقّا	monaq1:A
+منویات	manvijA:t
+کانسپت	kAnsept
+دوزیست	dozist
+کاخن	kAxon
+خاستگاه	xAstgAh
+استراسبورگ	_esteRAsbuRg
+تخدیش	taxdi:S
+مگان	megAn
+مکبر	mokab:eR
+مکبّر	mokab:eR
+کشیشان	keSi_SA_n
+نئاندرتال	ne?AndeRtAl
+هوموساپینس	homosApijens
+راحن	RA_hen
+مرتحن	moRtahen
+گلس	gelas
+مدرنیسم	modeRnism
+رامسین	RAmsin
+فرداد	faRdA_d
+راسک	RAsk
+چستر	tSesteR
+ارتوپدیک	'oRtopedik
+مدلل	modal:al
+کارمن	kARmen
+استند	_estand
+شوفر	SufeR
+استارتاپ	_estARtAp
