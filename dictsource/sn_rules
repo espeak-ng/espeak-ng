@@ -1,0 +1,115 @@
+// This file is UTF-8 encoded
+// translation rules for Shona
+
+.group a
+   a       a
+
+.group b
+   b       b
+   bh      b#
+   bv      bv#
+
+.group ch
+   ch      tS
+
+.group d
+   d       d
+   dh      d#
+   dy      d;#
+   dz      dz#
+
+.group e
+   e       e
+
+.group f
+   f       f
+
+.group g
+   g       g
+
+.group h
+   h       H
+
+.group i
+   i       i
+
+.group j
+   j       dZ
+
+.group k
+   k       k
+
+.group l
+   l       l
+
+.group m
+   m       m
+   _) mb   m-b
+   mb      mb
+   mh      m#
+   mv      mV
+
+.group n
+   n       n
+   _) nd   n-d
+   nd      nd
+   ng      N
+   nh      n#
+   _) nj   n-dZ#
+   nj      ndZ#
+   ny      n^
+   _) nz   n-z#
+   nz      nz#
+   _) nzv     nzB
+   nzv     nzB
+
+.group o
+   o       o
+
+.group p
+   p       p
+   pf      pf
+
+.group r
+   r       r
+
+.group s
+   s       s
+   sh      S
+   sv      sf
+   sw      skw
+
+.group t
+   t       t
+   ts      ts
+   tsv     tsf
+   ty      t;k
+
+.group u
+   u       u
+
+.group v
+   v       V
+   vh      v#
+
+.group w
+   w       w
+
+.group y
+   y       j
+
+.group z
+   z       z#
+   zh      Z#
+
+
+.group
+        $        d#ora
+        %        muz#ana
+
+        *        n^ota
+    *)  * (*
+        **
+   **)  * (_     _::
+
+

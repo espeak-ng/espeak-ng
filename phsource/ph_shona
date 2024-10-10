@@ -1,0 +1,165 @@
+//===============================================================
+// Shona
+//===============================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 180
+  FMT(vowel/a_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 180
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  IfNextVowelAppend(;)
+  length 170
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 180
+  FMT(vowel/o_mid2)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 170
+  FMT(vowel/u_bck2)
+endphoneme
+
+
+// Consonants
+
+phoneme b                     // voiced bilabial implosive 'b'
+  vcd blb stp
+  ipa ɓ
+  FMT(b/b@) addWav(x/b)
+endphoneme
+
+phoneme b#                   // voiced bilabial breathy 'b'
+  vcd blb stp
+  ipa b̤
+  FMT(b/b) addWav(x/b_)
+endphoneme
+
+phoneme d                    // voiced alveolar implosive 'd'
+  vcd alv stp
+  ipa ɗ
+  FMT(d/d) addWav(x/d_dnt, 100)
+endphoneme
+
+phoneme d#                    // voiced alveolar breathy 'd'
+  vcd dnt stp
+  ipa d̤
+  lengthmod 5
+  voicingswitch t#
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  FMT(d/xd3) addWav(ustop/t_dnt, 40)
+endphoneme
+
+phoneme g#                    // voiced velar breathy 'g'
+  vcd vel stp
+  ipa ɡ̤
+  FMT(g/xg) addWav(x/g2, 150)
+endphoneme
+
+phoneme H                    // voiced 'h'(from Xhosa)
+  vls phr frc
+  ipa ɦ
+  lengthmod 5
+  WAV(vwl_xh/h_voiced, 100)
+endphoneme
+
+phoneme m#                    // voiced bilabial nasal breathy 'm'
+  vcd blb nas
+  ipa m̤
+  FMT(m/m#_)
+endphoneme
+
+phoneme n#                    // voiced alveolar nasal breathy 'n'
+  vcd alv nas
+  ipa n̤
+  FMT(n/n#_)
+endphoneme
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme V
+  vcd lbd frc
+  ipa ʋ̤
+  FMT(voc/v#_)
+endphoneme
+
+phoneme v#                    // voiced labio-dental breathy 'v'
+  vcd lbd frc
+  ipa v̤
+  FMT(voc/v#_) addWav(vocw/v)
+endphoneme
+
+phoneme Z#                    // voiced palatal breathy 'zh'
+  vcd pla frc sib
+  ipa ʒ̤
+  FMT(voc/zh_2) addWav(vocw/zh, 80)
+endphoneme
+
+phoneme z#                    // voiced alveolar breathy 'z'
+  vcd alv frc sib
+  ipa z̤
+  FMT(voc/z_) addWav(ufric/s_, 80)
+endphoneme
+
+phoneme dz#
+  vcd alv afr sib
+  ipa d͡z̤
+  FMT(dzh/dz_pzd) addWav(ustop/ts_, 60)
+endphoneme
+
+phoneme d;#
+  vcd alv stp pzd
+  ipa d̤ʲ
+  FMT(d/d_) addWav(x/d_pzd, 40)
+endphoneme
+
+phoneme dZ#
+  vcd pla afr sib
+  ipa d͡ʒ̤
+  FMT(dzh/xdz_pzd) addWav(x/dzh)
+endphoneme
+
+phoneme t;
+  vls pal stp pzd
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
+  WAV(ustop/t_pzd, 60)
+endphoneme

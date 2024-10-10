@@ -1,0 +1,221 @@
+// This file is UTF-8 encoded
+// translation rules for Shona
+
+
+// Letters
+
+a       a:
+b       ba:
+bha     b#a:
+ch      tSa:
+d       da:
+dh      d#a:
+e       e:
+f       fa:
+g       g#a:
+h       Ha:
+i       i:
+j       dZ#a:
+k       ka:
+l       la:
+m       ma:
+n       na:
+nh      n#a:
+o       o:
+p       pa:
+r       ra:
+s       sa:
+sh      Sa:
+t       ta:
+u       u:
+v       Va:
+vh      v#a:
+w       wa:
+y       ja:
+z       z#a:
+zh      Z#a:
+
+
+// Numbers
+
+_0     z#iro
+_1     motsi
+_2     piri
+_3     tatu
+_4     tSina
+_5     Sanu
+_6     tan#atu
+_7     nomwe
+_8     sere
+_9     pfumbamwe
+
+_10    g#umi
+_11    g#umineimwe
+_12    g#uminembiri
+_13    g#uminen#atu
+_14    g#umineina
+_15    g#umineSanu
+_16    g#uminen#an#atu
+_17    g#uminenomwe
+_18    g#uminesere
+_19    g#uminepfumbamwe
+
+_20    makumimaViri
+_21    makumimaVirineimwe
+_22    makumimaVirinembiri
+_23    makumimaVirinen#atu
+_24    makumimaVirineina
+_25    makumimaVirineSanu
+_26    makumimaVirinen#an#atu
+_27    makumimaVirinenomwe
+_28    makumimaVirinesere
+_29    makumimaVirinepfumbamwe
+
+_30    makumimatatu
+_31    makumimatatuneimwe
+_32    makumimatatunembiri
+_33    makumimatatunen#atu
+_34    makumimatatuneina
+_35    makumimatatuneSanu
+_36    makumimatatunen#an#atu
+_37    makumimatatunenomwe
+_38    makumimatatunesere
+_39    makumimatatunepfumbamwe
+
+_40    makumimana
+_41    makumimananeimwe
+_42    makumimananembiri
+_43    makumimananen#atu
+_44    makumimananeina
+_45    makumimananeSanu
+_46    makumimananen#an#atu
+_47    makumimananenomwe
+_48    makumimananesere
+_49    makumimananepfumabwe
+
+_50    makumimaSanu
+_51    makumimaSanuneimwe
+_52    makumimaSanunembiri
+_53    makumimaSanunen#atu
+_54    makumimaSanuneina
+_55    makumimaSanuneSanu
+_56    makumimaSanunen#an#atu
+_57    makumimaSanunenomwe
+_58    makumimaSanunesere
+_59    makumimaSanunepfumbamwe
+
+_60    makumimatan#atu
+_61    makumimatan#atuneimwe
+_62    makumimatan#atunembiri
+_63    makumimatan#atunen#atu
+_64    makumimatan#atuneina
+_65    makumimatan#atuneSanu
+_66    makumimatan#atunen#an#atu
+_67    makumimatan#atunenomwe
+_68    makumimatan#atunesere
+_69    makumimatan#atunepfumbamwe
+
+_70    makumimanomwe
+_71    makumimanomweneimwe
+_72    makumimanomwenembiri
+_73    makumimanomwenen#atu
+_74    makumimanomweneina
+_75    makumimanomweneSanu
+_76    makumimanomwenen#an#atu
+_77    makumimanomwenenomwe
+_78    makumimanomwenesere
+_79    makumimanomwenepfumbamwe
+
+_80    makumimasere
+_81    makumimasereneimwe
+_82    makumimaserenembiri
+_83    makumimaserenen#atu
+_84    makumimasereneina
+_85    makumimasereneSanu
+_86    makumimaseren#an#atu
+_87    makumimaserenenomwe
+_88    makumimaserenesere
+_89    makumimaserenepfumbamwe
+
+_90    makumimapfumbamwe
+_91    makumimapfumbamweneimwe
+_92    makumimapfumbamwenembiri
+_93    makumimapfumbamwenen#atu
+_94    makumimapfumbamweneina
+_95    makumimapfumbamweneSanu
+_96    makumimapfumbamwen#an#atu
+_97    makumimapfumbamwenenomwe
+_98    makumimapfumbamwenesere
+_99    makumimapfumbamwenepfumbamwe
+
+_0C    z#ana
+_1C    z#ana
+_2C    maz#anamaViri
+_3C    maz#anamatatu
+_4C    maz#anamana
+_5C    maz#anamaSanu
+_6C    maz#anamatan#atu
+_7C    maz#anamanomwe
+_8C    maz#anamasere
+_9C    maz#anamapfumbamwe
+
+_0M1   tSuru
+_1M1   tSuru
+_2M1   z#Buruz#Biri
+_3M1   z#Buruz#Bitatu
+_4M1   z#Buruz#Biz#Bina
+_5M1   z#Buruz#BiSanu
+_6M1   z#Buruz#Bitan#atu
+_7M1   z#Bruz#Binomwe
+_8M1   z#Buruz#Bisere
+_9M1   z#Buruz#Bipfumbamwe
+_10M1  gumirez#Buru
+
+_dpt   _komma_|
+
+
+// Pronouns
+
+ini   $u      // I
+iwe	  $u      // You
+iye   $u      // he, she, it
+isu   $u      // we
+imi   $u      // you
+ivo   $u      // they
+
+
+// Possesive Pronouns
+
+changu  $u         // my, mine
+chako   $u         // your, yours
+chake   $u         // his, her, its
+chedu   $u         // our, ours
+chenyu  $u         // your, yours
+chavo   $u         // their, theirs
+
+
+// Conjunctions
+
+uye  $u $pause   // and
+kana  $u $pause  // if, or
+asi  $u $pause   // but
+nokuti $u $pause  // because
+kuti $u $pause   // that
+nepo $u $pause   // while
+sezvo $u $pause  // since, because
+
+
+// Prepositions
+
+pa   $u $brk   // on, at, in
+mu   $u $brk   // in, inside
+ne   $u $brk   // with, by
+kuna $u $brk   // to, toward
+ku   $u $brk   // to, at
+(pamusoro pa) pamus,orop,a $u $brk   // on top of
+(pasi pa) p,asip,a $u $brk  // under, beneath
+(mberi kwa)  m-b,erikw,a $u $brk  // in front of
+(shure kwa)  S,urekw,a $u $brk  // behind
+(pasi pe) p,asip,e $u $brk  // below
+
+
