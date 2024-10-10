@@ -1,0 +1,119 @@
+// This file is UTF-8 encoded
+// translation rules for Swazi
+
+
+.group a
+   a       a
+
+.group b
+   b       b
+
+.group c
+   c       c[
+   ch      c[H
+
+.group d
+   d       dH
+   dl      K
+   dv      dv
+   dvw     dvw
+   dz      dz
+
+.group e
+   e       e
+
+.group f
+   f       f
+
+.group g
+   g       gH
+   gc      g[
+
+.group h
+   h       h
+   hh      H
+   hl      l#
+
+.group i
+   i       i
+
+.group j
+   j       dZH
+
+.group k
+   k       k`?
+   kh      k#
+   khw     k#w
+   kl      kl#
+
+.group l
+   l       l
+   lw      lw
+
+.group m
+   m       m
+   mb      mb
+
+.group n
+   n       n
+   nc      N-c[
+   nch     N-c[h
+   ndl     N-K
+   _) ng   N-g
+   ng      Ng
+   ngc     N-gc[H
+   ngw     N-gw
+   _) nhl  N-l#
+   nhl     Nl#
+   _) nkhw  N-k#w
+   nkhw    Nk#w
+
+.group o
+   o       o
+
+.group p
+   p       p`?
+   ph      ph
+
+.group q
+   q       k`?
+
+.group s
+   s       s
+   sh      S
+   sw      sw
+
+.group t
+   t       t`?
+   tf      tf
+   th      t#
+   tj      tS`?
+   ts      ts?
+
+.group u
+   u       u
+
+.group v
+   v       v
+   vw      vw
+
+.group w
+   w       w
+
+.group y
+   y       j
+
+.group z
+   z       z
+   zh      Z
+
+.group
+        $        idHola
+        %        emap`?eSent`?i
+
+        *        luphawulwenk#hanjet`?i
+    *)  * (*
+        **
+   **)  * (_     _::
+
+   
