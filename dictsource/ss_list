@@ -1,0 +1,151 @@
+// This file is UTF-8 encoded
+// translation rules for Swazi
+
+
+// Numbers
+
+_0     lit`?e
+_1     k`?unje
+_2     k`?ubili
+_3     k`?utsatfu
+_4     k`?une
+_5     k`?unsil#anu
+_6     k`?usitfupha
+_7     k`?usik#ombisa
+_8     k`?usiphol#oNgo
+_9     k`?ujimfic[a
+
+_10    k`?uliSumi
+_1X    liSumina
+_20    emaSumilamabili
+_2X    emaSumilamabilina
+_30    emaSumilamatsatfu
+_3X    emaSumilamatsatfuna
+_40    emaSumilamane
+_4X    emaSumilamanena
+_50    emaSumilamal#anu
+_5X    emaSumilamal#anu
+_60    emaSumilasitfupha
+_6X    emaSumilasitfuphana
+_70    emaSumilasik#ombisa
+_7X    emaSumilasik#ombisana
+_80    emaSumilasiphol#oNgo
+_8X    emaSumilasiphol#oNgona
+_90    emaSumilajimfic[a
+_9X    emaSumilajimfic[ana
+
+_13    liSuminatsatfu
+_23    emaSumilamabilinatsatfu
+_33    emaSumilamabilinatsatfunatsatfu
+_43    emaSumilamanenatsatsfu
+_53    emaSumilamal#anunatsatfu
+_63    emaSumilasituphatsatfu
+_73    emaSumilasik#ombisanatsatfu
+_83    emaSumilasiphol#oNgonatsatfu
+_93    emaSumilajimfic[anatsatfu
+
+_19    liSuminemfic[a
+_29    emaSumilamabilinemfic[a
+_39    emaSumilamatsatfunemfic[a
+_49    emaSumilamanenemfic[a
+_59    emaSumilamal#anunemfic[a
+_69    emaSumilasitfuphanemfic[a
+_79    emaSumilasik#ombisanemfic[a
+_89    emaSumilasiphol#oNgonemfic[a
+_99    emaSumilajimfic[anemfic[a
+
+_0C    lik#ulu
+_1C    lik#ulu
+_2C    emak#ululamabili
+_3C    emak#ululamatsatfu
+_4C    emak#ululamane
+_5C    emak#ululasil#anu
+_6C    emak#ululasitfupha
+_7C    emak#ululasik#ombisa
+_8C    emak#ululasiphol#oNgo
+_9C    emak#ululajimfic[a
+
+_0M1   ink#uluNgwane
+_1M1   ink#uluNgwane
+_2M1   t`?ink#uluNgwanelet`?imabili
+_3M1   t`?ink#uluNgwanelet`?intsatfu
+_4M1   t`?ink#uluNgwanelet`?ine
+_5M1   t`?ink#uluNgwanelet`?isil#anu
+_6M1   t`?ink#uluNgwanelet`?isitfupha
+_7M1   t`?ink#uluNgwanelet`?isik#ombisa
+_8M1   t`?ink#uluNgwanelet`?isiphol#oNgo
+_9M1   t`?ink#uluNgwanelet`?ijimfic[a
+_10M1  t`?ink#uluNgwanelet`?iliSumi
+
+_0M2   sigHidzi
+_1M2   sigHidzi
+
+_dpt   _k`?efana_|
+
+
+// Pronouns
+
+bona    $u   // they, them, it
+kona    $u   // it
+laba    $u   // these
+labo    $u   // these
+lawa    $u   // those
+lawo    $u   // these
+lela    $u   // that
+leli    $u   // this
+lelo    $u   // that
+lesa    $u   // that
+lesi    $u   // this
+leso    $u   // that
+leta    $u   // those
+leti    $u   // these
+leto    $u   // those
+leya    $u   // that, those
+leyo    $u   // that, those
+loba    $u   // that
+lobo    $u   // that
+lobu    $u   // this
+loko    $u   // that
+loku    $u   // this
+lokwa   $u   // that
+lolo    $u   // that
+lolu    $u   // this
+lolwa   $u   // that
+lona    $u   // he, she, him, her, it
+lowo    $u   // that
+mine    $u   // I, me
+nine    $u   // you
+sona    $u   // he, she, him, her, it
+tona    $u   // they, them 
+tsine   $u   // we
+wena    $u   // you
+wona    $u   // he, she, him, her, it, they, them
+yena    $u   // he, she, him, her, it
+yona    $u   // he, she, him, her, it, they, them
+
+
+// Conjunctions
+ 
+futsi      $u $pause   // and
+mhlawumbe  $u          // maybe, perhaps
+nangabe    $u $pause   // if
+nase       $u $pause   // when
+njengoba   $u $pause   // because, since
+noma       $u $pause   // or, whether, even if
+uma        $u $pause   // when, if
+
+
+// Prepositions
+
+eceleni  $u $brk   // beside, next to
+ema      $u $brk   // at, in
+ku       $u $brk   // to, at, on
+na       $u $brk   // with
+nge      $u $brk   // by, using, with
+ngaphansi  $u $brk  // under, beneath
+ngaphandle  $u $brk  // outside, without
+ngaphezulu  $u $brk  // above, on top of
+ngaphakathi  $u $brk  // inside
+pha      $u $brk   // near, close to
+
+
