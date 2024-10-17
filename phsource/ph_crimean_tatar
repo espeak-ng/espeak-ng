@@ -46,18 +46,15 @@ endphoneme
 
 phoneme i
   vwl starttype #i endtype #i
+  ipa i
   length 140
-  IF thisPh(isWordEnd) AND thisPh(isStressed) THEN
-    ChangePhoneme(I)
-  ENDIF
   FMT(vwl_ru/i)
 endphoneme
 
 phoneme I
-  vwl starttype #i endtype #i
-  ipa ɪ
+  vwl starttype #@ endtype #@
   length 140
-  FMT(vwl_ru/ii)
+  FMT(vowel/ii#)
 endphoneme
 
 phoneme i:                              // perhaps pronouncing loan words like 'iy'
