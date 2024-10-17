@@ -22,54 +22,56 @@
 
 // Vowels
 .L01 a ı o u     // back vowels
-.L02 e i ö ü   // front vowels
-.L03 â         // this is not considered a separate letter such as vowel
 
 // Consonants
-.L04 b c ç d f g ğ h j k l m n ñ p q r s ş t v y z
+.L02 b c ç d f g ğ h j k l m n ñ p q r s ş t v y z
 
 		
 .group a
         a         A
 	a (_     'A
-	a (L04_  'A
-	a (L04L04_ 'A
+	a (L02_  'A
+	a (L02L02_ 'A
 	av (_    'Aw
+	aya (_   =AjA   // used in other names and/or used in other words with "aya"
 		
 .group â
         â        ;A
 	â (_    ;'A
-	â (L04_ ;'A
-	â (L04L04_ ;'A
+	â (L02_ ;'A
+	â (L02L02_ ;'A
 		
 .group b
         b         b
 	bb        b:
+	bi (_     b'I
 		
 .group c
-        c         dZ
-	cc        dZ:
-	ce (_     =dZe
+        c         dZ;
+	cc        dZ;:
+	ce (_     =dZ;e
 
 .group ç
-        ç         tS
-	çç        tS:
-	çe (_     =tSe
+        ç         tS;
+	çç        tS:;
+	çe (_     =tS;e
+	çt        St
 		 
 .group d
         d         d
 	dd        d:
-	d   (L02  d;
-	d   (L03  d;
-        dir (_    =d;ir
+	d   (â    d;
+	d   (i    d;
+	di  (_    d'I
+        dir (_    =dIr
         dır (_    =d@r
 		
 .group e
         e         e
 	e  (_    'e
-	e  (L04_ 'e
-        e  (L04L04_ 'e
-        e  (ki    E            // it was pronounced like "eki"
+	e  (L02_ 'e
+	e  (L02L02_ 'e
+	enko (_  'enko            // used in some names
 		
 .group f
         f         f
@@ -77,8 +79,10 @@
 .group g
         g         g
 	gg        g:
-	g  (L02   J
-	g  (L03   J
+	g  (â     J
+	g  (i     J
+	g  (ö     J
+	g  (ü     J
 
 .group ğ
         ğ         G
@@ -90,41 +94,59 @@
 .group ı
         ı         @
 	ı  (_    '@
-        ı  (L04_ '@
-        ı  (L04L04_ '@
+	ı  (L02_ '@
+	ı  (L02L02_ '@
 		
 .group i
         i         i
-	i  (_    'i
-	i  (L04_ 'i
-	i  (L04L04_ 'i
+	i  (_    'I        // word final syllable gets stressed 
+	i  (L02_ 'I
+	i  (L02L02_ 'I
+	b)  i     I
+	k)  i     i
+	l)  i     I
+	m)  i     i
+        s)  i     i
+	ş)  i     I
+	ir (_    'Ir
 	iy (_    'i:
+	ist (_   'ist     // used in other words with "ist"
 	iya (_   'ijA
 	iye (_   'ije
+	izm (_   'izm      // used is some names historical states and/or in other words with "izm"
+	iñiz (_  =INIs
 
 .group j
         j         Z
+		j (_      S
 		
 .group k
         k         k
 	kk        k:
-        k  (L02   c
-	k  (L03   c
+        k  (â     c
+	k  (e     c
+	k  (i     c
+	k  (ö     c
+	k  (ü     c
+	ki (_     c'i
 
 .group l
         l         l
-	l (L01    L
+	    l (L01    L
    L01) l (K      L
-		
+        li  (_    l'I
+
 .group m
         m         m
-	mce (_    mdZ'e
+	mi  (_    m'I
+	mce (_    mdZ;'e
 		
 .group n
         n         n
 	n (g      N
 	n (k      N
-	nce (_    =ndZe
+	ni (_     n'I
+	nce (_    =ndZ;e
 		
 .group ñ
         ñ         N
@@ -132,15 +154,17 @@
 .group o
         o         o
 	o  (_    'o
-	o  (L04_ 'o
-	o  (L04L04_ 'o
+	o  (L02_ 'o
+	o  (L02L02_ 'o
 	ov (_    'ow
+	ova (_   'ovA            // used in some names and/or used other words with "ova", like in word of "ayova"
+	ovna (_  'ovnA           // used in some names
 		
 .group ö
         ö         W
 	ö  (_    'W
-	ö  (L04_ 'W
-	ö  (L04L04_ 'W
+	ö  (L02_ 'W
+	ö  (L02L02_ 'W
 		
 .group p
         p         p
@@ -155,8 +179,10 @@
 		
 .group s
         s         s
+	si  (_    s'i
 	sın (_   =s@n
 	sıñ (_   =s@N
+	skiy (_  =sci:            // used in some names
 		
 .group ş
         ş         S
@@ -165,33 +191,40 @@
         t         t
 	ts        ts
         tt        t:
-	t  (L02   t;
-	t  (L03   t;		
+	t  (â     t;
+	t  (i     t;
+        ti (_     t'I
+	tin (_    t'In
+	tip (_    t'Ip
+	tir (_    t'Ir
 		
 .group u
         u         u
-	u  (_    'u
-	u  (L04_ 'u
-	u  (L04L04_ 'u
-	um (_    =um
-	uv (_    'uw
+	    u  (_    'u
+	    u  (L02_ 'u
+	    u  (L02L02_ 'u
+	    um (_    =um
+		uv (_    'uw
 		
 .group ü
         ü         y
 	ü  (_    'y
-	ü  (L04_ 'y
-	ü  (L04L04_ 'y
+	ü  (L02_ 'y
+	ü  (L02L02_ 'y
 	üm (_     =ym
 		
 .group v
         v         v
+	viç (_    =vitS;
 		
 .group y
         y         j
 
 .group z
         z         z
+	z (_      s
 
 .group
-   w     w
-   x     x     // used in southern dialect
+	  w     w
+	  x     x     // used in southern dialect
+
