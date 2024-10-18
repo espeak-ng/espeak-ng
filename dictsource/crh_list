@@ -184,13 +184,13 @@ sen	     $u+                 // you
 o	     $u                  // he/she
 o        o:    $atend
 biz	     $u+                 // we
-siz	     $u+                 // you
+siz	     s,is $u+            // you
 olar     $u+                // they
 menim	 $u+                // my            
 seniñ	 $u+                // your
 onıñ	 $u+                // its
 bizim	 $u+                // our
-siziñ	 $u+                // your
+siziñ	 sIz,IN $u+                // your
 olarnıñ  $u+                // their
 
 
