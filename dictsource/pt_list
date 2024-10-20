@@ -1528,90 +1528,188 @@ twitter  tw'iter
    ubuntu      ub'untu
 ?1 unix        ,u:n'iks
 ?2 unix        j'uniks
-     wagner     v'agner
-?3 wagner        v'agIner
 ?1 windows     w'iNd'ou:z
 ?2 windows     w'iNdows
 ?1 window     w'iNd'ou
 ?2 window      w'iNdow
 
 
-// historical/famous person  s
-?2 Alzheimer	aUz'aImEr
-babbage       b'abidZ
-bernhard      bern'ard
-darwin        d'Arwin
-dijkstra      d'ijkstrA:
-einstein      _!'aInSt,aIn
-?2   einstein      _!'aInst,aIn
+// historical and famous people
+alzheimer	aUz'aImEr
+babbage		b'abidZ
+bernhard	bern'ard
+biden		_^_EN
+darwin		d'Arwin
 ?2 diderot	didex'o
-feuerbach   _^_DE
-feynman       f'ainm@n
-freud         fR'OId
-friedrich     fR'i:dRiS
-gauss         g'aUs
-geisel        g'aIzEU
-gottfried     g'OtfRi:t
-hegel   x'egel
-heidegger   h'aIdege
-hawking       h'o:king
-heisenberg    h'aIzEnberg
-hitler        h'itler
+dijkstra	d'ijkstrA:
+?1 einstein	_!'aInSt,aIn
+?2 einstein	_!'aInst,aIn
+feuerbach	_^_DE
+feynman		f'ainm@n
+françois	fR&~Nsw'a
+freud		fR'OId
+friedrich	fR'i:dRiS
+garibaldi	$3
+gauss		g'aUs
+geisel		g'aIzEU
+gottfried	g'OtfRi:t
+hamlet		x'&mlet
+hawking		h'o:king
+hegel		x'egel
+heidegger	h'aIdege
+heisenberg	h'aIzEnberg
+hitler		h'itler
 ?2 hobbes	x'Obys
-husserl   x'usEl
+husserl		x'usEl
 ?1 isaac	iz'&k
 ?2 isaac	iz'ac
-lavoisier     lavwazj'e
-leibniz       l'aIbni:ts
-locke	lOk
-montesquieu   m,oNteskj'e
-neumann       n'OIman
-newton	n'I;utoN
-oppenheimer   _!'Op@nh,aImar
-richard       x'iS&rd
-riemann       r'i:man
-rijndael      x'ain;d'al 
-rousseau      xus'o
-schrödinger   Sr'edinger
-stephen       st'i:v@n
-steve         st'i:v
-turing        t'u*iNg
-voltaire      vOlt'Er
-von           f%On
+kennedy		$1
+kubitschek	k,ubyS'Ek
+lavoisier	lavwazj'e
+leibniz		l'aIbni:ts
+locke		lOk
+montesquieu	m,oNteskj'e
+mozart		$1
+neumann		n'OIman
+newton		n'I;utoN
+oppenheimer	_!'Op@nh,aImar
+richard		x'iS&rd
+riemann		r'i:man
+rijndael	x'ain;d'al
+rousseau	xus'o
+schrödinger	Sr'edinger
+stephen		st'i:v@n
+steve		st'i:v
+trump		_^_EN
+turing		t'u*iNg
+voltaire	vOlt'Er
+von		f%On
 
 
-// foreign common names/surnames
-alan  $1
-?1   alison       &l'is&N
-anderson  '&ndersoN
-antonio	&~Nt'onIU
-?1   cleverson    kl'Evyrs&N
-?2   cleverson    kl'EversoN
-?1   elton        'Elt&N
-emerson 'emE*@-soN
-?1   halison      &l'is&N
-klein       kl'aIn      // Very common on southern Brazil.
-?1   kleverson       kl'Evers&N
-krueger     kR'iZer
-krüger      kR'iZer
-kühl        k'il
-?2 john	dZIoN
-?2 juan  xu&~N
-louis lw'i
-mike	maIk
-mueler      m'iler
-mueller     m'iler
-müler       m'iler
-müller      m'iler
-?1   nelson       n'Els&N
-?2 robert	x'obe*@-t
-ronchi      r'OnCi:
- Scarlet	sk'a*@-let
-valter	v'aUter
-vogel       f'o:g@l
-volkmann    f'Olkman
+// foreign names and surnames
+adrian		$1
+alan		$1
+albert		$1
+alexander	$3
+amy		'eImi
+andrew		$1
+anthony		$1
+arnold		$1
+ashley		$1
+austin		$1
+bethany		$1 $alt1
+bob		$alt1
+bobby		$1 $alt1
+bradley		$1
+brandon		$1
+brian		bR'aI;&~N
+brittany	$1
+bryan		bR'aI;&~N
+caleb		$alt1
+carolyn		$1
+cheryl		$1 $alt1
+chloe		_^_EN
+christian	$1
+christopher	$1
+cleverson	$1 $alt1
+cynthia		$1
+deborah		$1 $alt1
+dennis		$1
+donald		$1
+dorothy		$1 $alt1
+dylan		$1
+edward		$1 $alt1
+elton		$1 $alt1
+emerson		$1 $alt1
+emily		$1
+eric		$1 $alt1
+erick		$1 $alt1
+evelyn		$1 $alt1
+francis		$1
+franklin	$1
+gerald		$1 $alt1
+gregory		$1 $alt1
+hannah		x'&~n&
+helen		$1 $alt1
+herbert		$1 $alt1
+james		Z'eimys
+jason		Z'eIson
+jeffrey		$1 $alt1
+jeremy		$1
+jerry		$1 $alt1
+joe		ZI'oU
+john		ZI'oN
+jonathan	$1
+jordan		$1 $alt1
+joseph		$1
+joshua		$1 $alt1
+josie		$1
+juan		xu&~N
+justin		$1
+kathleen	$1
+kathryn		$1
+kenneth		$1
+kevin		$1 $alt1
+kimberly	$1
+klein		kl'aIn
+kleverson	$1 $alt1
+krueger		kR'i:ger
+krüger		kR'i:ger
+kühl		k'il
+kyle		k'aIl
+lawrence	$1
+logan		$1
+louis		lw'i
+luigi		lU'iZI
+madison		m'adZisoN
+marilyn		$1
+marjorie	$1
+marlon		$1
+mason		m'eIson
+medici		$1 $alt1
+megan		$1 $alt1
+michael		_^_EN
+mike		maIk
+morgan		$1 $alt1
+mueler		m'iler
+mueller		m'iler
+muler		m'iler
+müler		m'iler
+muller		m'iler
+müller		m'iler
+nelson		$1 $alt1
+nicholas	nícolas	$text
+norton		$1 $alt1
+oliver		$1 $alt1
+patrick		$1
+paul		p'O:l
+raymond		$1
+robert		$1 $alt1
+robinson	$1
+roger		$1
+ronald		$1
+ronchi		r'Onki:
+russell		$1
+ryan		x'aI&n
+sarah		$1
+scarlet		$1
+sean		S'O:n
+sharon		$1
+shawn		S'O:n
+shirley		$1
+stephanie	$1 $alt1
+susan		$1
+susie		$1
+tiffany		$1
+timothy		$1
+tyler		t'aIler
+vincent		$1
+vogel		f'o:g@l
+volkmann	f'Olkman
 washington	w'OSinton
-wellington	w'Elynton
+wayne		w'eIn
+william		$1
+willie		$1
 
 
 // names and surnames
