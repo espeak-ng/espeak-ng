@@ -140,6 +140,9 @@
   <Target Name="da" Inputs="$(ProjectDir)..\..\dictsource\da_rules;$(ProjectDir)..\..\dictsource\da_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\da_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=da" />
   </Target>
+  <Target Name="db" Inputs="$(ProjectDir)..\..\dictsource\db_rules;$(ProjectDir)..\..\dictsource\db_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\db_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=db" />
+  </Target>
   <Target Name="de" Inputs="$(ProjectDir)..\..\dictsource\de_rules;$(ProjectDir)..\..\dictsource\de_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\de_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=de" />
   </Target>
