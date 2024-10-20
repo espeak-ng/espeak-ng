@@ -74,39 +74,64 @@
 .group m
    m       m
    m'      m?      // used in Chinyanja
-   mb      m-b
-   mbw     m-bw
-   mbz     m-bz;
-   mf      m-f
-   mph     m-p#
-   mphw    m-p#wh
-   mps     m-pS;
-   mv      m-v
+   _)  mb      m-b
+   mb      mb
+   _)  mbw     m-bw
+   mbw     mbw
+   _)  mbz     m-bz;
+   mbz     mbz;
+   _)  mf      m-f
+   mf      mf
+   _) mph     m-p#
+   mph     mp#
+   _) mphw    m-p#wh
+   mphw    mp#wh
+   _) mps     m-pS;
+   mps     mpS;
+   _) mv      m-v
+   mv      mv
    mw      mw
    my      mj
 
 .group n
    n       n
-   nd      n-d
-   ndw     n-dw
-   ndy     n-d;
-   ndz     n-dz
-   ng      N-g
+   _) nd      n-d
+   nd      nd
+   _) ndw     n-dw
+   nd      ndw
+   _) ndy     n-d;
+   ndy        nd;
+   _) ndz     n-dz
+   ndz        ndz
+   _) ng      N-g
+   ng         Ng
    ng'     N
    ng'w    Nw
-   ngw     N-gw
-   nj      n-J
-   nkh     N-k#
-   nkhw    N-k#w
-   ns      n-s
-   nsw     n-sw
-   ntch    n-tS
-   nth     n-th
-   nthw    n-twh
-   nthy    n-t;h
+   _) ngw     N-gw
+   ngw        Ngw
+   _) nj      n-J
+   nj         nJ
+   _) nkh     N-k#
+   nkh     Nk#
+   _) nkhw    N-k#w
+   nkhw       Nk#w
+   _) ns      n-s
+   ns      ns
+   _) nsw     n-sw
+   nsw     nsw
+   _) ntch    n-tS
+   ntch    ntS
+   _) nth     n-t#
+   nth     nt#
+   _) nthw    n-twh
+   nthw    ntwh
+   _) nthy    n-t;h
+   nthy    nt;h
    ny      n^
-   nz      n-z
-   nzw     n-zw
+   _) nz      n-z
+   nz      nz
+   _) nzw     n-zw
+   nzw     nzw
 
 .group o
    o       O
