@@ -72,6 +72,11 @@ phoneme Oa
   FMT(vdiph2/oa)
 endphoneme
 
+phoneme EU
+  vwl starttype #e endtype #u
+  length 230
+  FMT(vdiph/eeu)
+endphoneme
 
 // Consonants
 
