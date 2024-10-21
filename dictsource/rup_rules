@@ -38,22 +38,22 @@
 	dz     dz
 
 .group e
-        e      e
-	e (L02_ 'e
-	e (L02L02_ 'e
+        e      E
+	e (L02_ 'E
+	e (L02L02_ 'E
 	ea     ea
 	ea (_  'ea
-	ei     eI
-	ei (_  'eI
-    eu     eU
-	eu (_  'eU
+	ei     EI
+	ei (_  'EI
+        eu     EU
+	eu (_  'EU
 	
 .group f
         f      f
 		
 .group g
         g      g
-    g  (L01   dZ
+        g  (L01   dZ
 	gh (L01  J
 	
 .group h
@@ -63,7 +63,7 @@
         i      i
 	i (A     j
      @) i (e_    j
-    i (L02_   'i
+        i (L02_   'i
 	i (L02L02_ 'i
 	
 .group j
@@ -85,7 +85,7 @@
 
 .group o
         o      o
-    o (_    'o
+        o (_    'o
 	o (L02_ 'o
 	o (L02L02_ 'o
 	oa       Oa
@@ -101,13 +101,17 @@
 		
 .group r
         r      r
-	rr      r
-	 A) r (A   *
+	rr     r
+     A) r (A   *
      C) r (A   @-*
 	 
 .group s
-        s      s
-    sh      S
+     _) s (_       s@
+     _) s (-       s
+        s          s
+     _) sh (_      S@
+     _) sh (-      S
+        sh         S
 	
 .group t
         t      t
