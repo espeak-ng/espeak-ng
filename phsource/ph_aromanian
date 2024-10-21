@@ -12,7 +12,7 @@ phoneme a
   FMT(vowel/a_2)
 endphoneme
 
-phoneme e
+phoneme E
   vwl starttype #e endtype #e
   ipa ɛ
   length 160
