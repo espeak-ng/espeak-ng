@@ -10,7 +10,7 @@ c        k@
 d        d@
 dh       D@
 dz       dz@
-e        e
+e        E
 f        f@
 g        g@
 h        h@
@@ -41,10 +41,10 @@ z        z@
 
 // Numbers
 
-_0       zero        // TEST
+_0       zEro        // TEST
 _1       'unw
 _2       do'aU@
-_3       t@-*'eI
+_3       t@-*'EI
 _4       p'at@-*w
 _5       ts'intsi
 _6       S'asi
@@ -55,7 +55,7 @@ _9       no'aU@
 _10      dz'atsi
 _11      un@sp@-*@dz'atsi
 _12      dosp@-*@dz'atsi
-_13      t@-*eIsp@-*@dz'atsi
+_13      t@-*EIsp@-*@dz'atsi
 _14      patrusp@-*@dz'atsi
 _15      tsisp@-*@dz'atsi
 _16      Sasisp@-*@dz'atsi
@@ -66,7 +66,7 @@ _19      noaU@sp@-*@dz'atsi
 _20      j'inJits
 _21      jinJits'un@
 _22      jinJitsd'oI
-_23      jinJitst@-*'eI
+_23      jinJitst@-*'EI
 _24      jinJitsp'at@-*w
 _25      tsintsp@-*@j'inJits
 _26      Sasp@-*@j'inJits
@@ -74,9 +74,9 @@ _27      Saptisp@-*@j'inJits
 _28      jinJits'optw
 _29      noaU@sp@-*@j'inJits
 
-_3X      t@-*'eIdz@ts
-_31      t@-*eIdz@ts'un@
-_32      t@-*eIdz@tsd'oI
+_3X      t@-*'EIdz@ts
+_31      t@-*EIdz@ts'un@
+_32      t@-*EIdz@tsd'oI
 _4X      p'at@-*udz@ts
 _41      pat@-*udz@ts'un@
 _42      pat@-*udz@tsd'oI
@@ -96,10 +96,10 @@ _9X      no'aU@dz@ts
 _91      noaU@dz@ts'un@
 _92      noaU@dz@tsd'oI
 
-_0C      ts'entw
+_0C      ts'Entw
 _1C      unys'ut@
 
-_0M1      n^'il^e
+_0M1      n^'il^E
 _1M1      unyn^'il^i
 
 _dpt      _koma
@@ -171,8 +171,8 @@ cã          $u+
 cãnd        $u+
 cãndu       $u+
 disi        $u+
-e           je $u $atend
-e           e
+e           jE $u $atend
+e           E
 ghioa       $u+
 icã         $u+ $brk
 ma          $u+
