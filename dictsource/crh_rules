@@ -120,7 +120,7 @@
 
 .group j
         j         Z
-		j (_      S
+	j (_      S
 		
 .group k
         k         k
@@ -134,7 +134,7 @@
 
 .group l
         l         l
-	    l (L01    L
+	l (L01    L
    L01) l (K      L
         li  (_    l'I
 
@@ -202,11 +202,11 @@
 		
 .group u
         u         u
-	    u  (_    'u
-	    u  (L02_ 'u
-	    u  (L02L02_ 'u
-	    um (_    =um
-		uv (_    'uw
+	u  (_    'u
+	u  (L02_ 'u
+	u  (L02L02_ 'u
+	um (_    =um
+	uv (_    'uw
 		
 .group ü
         ü         y
@@ -227,6 +227,6 @@
 	z (_      s
 
 .group
-	  w     w
-	  x     x     // used in southern dialect
+   w     w
+   x     x     // used in southern dialect
 
