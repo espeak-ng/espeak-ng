@@ -91,7 +91,6 @@ _7X      jetm'iS
 _8X      seks'en
 _9X      doqs'An
 
-_0C      j'ys
 _1C      j'ys
 _2C      Ecij'ys
 _3C      ytS;j'ys
@@ -102,7 +101,6 @@ _7C      jedIj'ys
 _8C      secizj'ys
 _9C      doquzj'ys
 
-_0M1     b'iN
 _1M1     b'iN
 _2M1     Ecib'iN
 _3M1     ytS;b'iN
@@ -114,8 +112,18 @@ _8M1     secizb'iN
 _9M1     doquzb'iN
 _10M1    onb'iN
 
+// large numbers, short scale
+_0C       j'yz
+_0M1      b'iN
 _0M2      milli'on
 _0M3      milli'Ard
+_0M4      trilli'on
+_0M5      kvAdrilli'on
+_0M6      kvint;illi'on
+_0M7      sekst;illi'on
+_0M8      sept;illi'on
+_0M9      okt;illi'on
+_0M10     nonilli'on
 
 _dpt     _virJ,yl_|
 
