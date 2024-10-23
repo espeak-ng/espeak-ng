@@ -31,7 +31,7 @@ phoneme A
 endphoneme
 
 phoneme e
-  vwl starttype #e endtype #e
+  vwl starttype #i endtype #i
   ipa e
   length 140
   FMT(vwl_ru/ee)
