@@ -59,7 +59,7 @@ endphoneme
 
 phoneme i:                              // perhaps pronouncing loan words like 'iy'
   vwl starttype #i endtype #i
-  ipa i:
+  ipa iː
   length 300
   FMT(vwl_ru/i)
 endphoneme
