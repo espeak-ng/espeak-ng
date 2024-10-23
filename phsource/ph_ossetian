@@ -23,10 +23,10 @@ phoneme i
   FMT(vowel/i_fnt)
 endphoneme
 
-phoneme I
+phoneme @
   vwl starttype #@ endtype #@
   length 120
-  FMT(vowel/ii#)
+  FMT(vowel/@_fnt)
 endphoneme
 
 phoneme o
@@ -41,10 +41,10 @@ phoneme u
   FMT(vowel/u_bck)
 endphoneme
 
-phoneme @
+phoneme a#
   vwl starttype #@ endtype #@
   length 190
-  FMT(vowel/@_fnt)
+  FMT(vowel/a#_2)
 endphoneme
 
 // Consonants
