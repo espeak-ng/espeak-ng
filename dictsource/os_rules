@@ -6,15 +6,15 @@
 
 .group а
         а        a
-		а  (_   'a
-		а  (L01_ 'a
-		а  (L01L01_ 'a
+	а  (_   'a
+	а  (L01_ 'a
+	а  (L01L01_ 'a
 		
 .group ӕ
-        ӕ        @
-		ӕ  (_   '@
-		ӕ  (L01_ '@
-		ӕ  (L01L01_ '@
+        ӕ        a#
+	ӕ  (_   'a#
+	ӕ  (L01_ 'a#
+	ӕ  (L01L01_ 'a#
 		
 .group б
         б        b
@@ -24,24 +24,24 @@
 		
 .group г
         г        g
-		гъ       Q"
+	гъ       Q"
 		
 .group д
         д        d
-		дж       dZ
-		дз       dz
+	дж       dZ
+	дз       dz
 		
 .group е
         е        e
-		е  (_   'e
-		е  (L01_ 'e
-		е  (L01L01_ 'e
+	е  (_   'e
+	е  (L01_ 'e
+	е  (L01L01_ 'e
 		
 .group ё
         ё        jo
-		ё  (_    j'o
-		ё  (L01_ j'o
-		ё  (L01L01_ j'o
+	ё  (_    j'o
+	ё  (L01_ j'o
+	ё  (L01L01_ j'o
 		
 .group ж
         ж        Z
@@ -52,16 +52,16 @@
 
 .group и
         и        i
-		и  (_   'i
-		и  (L01_ 'i
-		и  (L01L01_ 'i
+	и  (_   'i
+	и  (L01_ 'i
+	и  (L01L01_ 'i
 		
 .group й
         й        j
 		
 .group к
         к        k
-		къ       k?
+	къ       k?
 		
 .group л
         л        l
@@ -74,13 +74,13 @@
 		
 .group о
         о        o
-		о  (_   'o
-		о  (L01_ 'o
-		о  (L01L01_ 'o
+	о  (_   'o
+	о  (L01_ 'o
+	о  (L01L01_ 'o
 		
 .group п
         п        p
-		пъ       p?
+	пъ       p?
 		
 .group р
         р        r
@@ -90,28 +90,28 @@
 		
 .group т
         т        t
-		тъ       t?
+	тъ       t?
 		
 .group у
         у        w
-		у  (_   'u
-		у  (L01_ 'u
-		у  (L01L01_ 'u
+	у  (_   'u
+	у  (L01_ 'u
+	у  (L01L01_ 'u
 		
 .group ф
         ф        f
 		
 .group х
         х        x
-		хъ       x?
+	хъ       x?
 		
 .group ц
         ц        ts
-		цъ       ts?
+	цъ       ts?
 		
 .group ч
         ч        tS
-		чъ       tS?
+	чъ       tS?
 		
 .group ш
         ш        S
@@ -123,28 +123,28 @@
         ъ        ?
 		
 .group ы
-        ы        I
-		ы  (_   'I
-		ы  (L01_ 'I
-		ы  (L01L01_ 'I
+        ы        @
+	ы  (_   '@
+	ы  (L01_ '@
+	ы  (L01L01_ '@
 		
 .group ь
         ь        ?
 		
 .group э
         э        e
-		э  (_   'e
-		э  (L01_ 'e
-		э  (L01L01_ 'e
+	э  (_   'e
+	э  (L01_ 'e
+	э  (L01L01_ 'e
 		
 .group ю
         ю        ju
-		ю  (_    j'u
-		ю  (L01_ j'u
-		ю  (L01L01_ j'u
+	ю  (_    j'u
+	ю  (L01_ j'u
+	ю  (L01L01_ j'u
 		
 .group я
         я        ja
-	    я  (_    j'a
-	    я  (L01_ j'a
-	    я  (L01L01_ j'a
+	я  (_    j'a
+	я  (L01_ j'a
+	я  (L01L01_ j'a
