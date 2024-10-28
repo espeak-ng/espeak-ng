@@ -54,7 +54,7 @@ endphoneme
 phoneme I
   vwl starttype #@ endtype #@
   length 140
-  FMT(vowel/ii#)
+  FMT(vowel/@_5)
 endphoneme
 
 phoneme i:                              // perhaps pronouncing loan words like 'iy'
