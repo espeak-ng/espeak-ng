@@ -54,7 +54,7 @@ endphoneme
 phoneme I
   vwl starttype #@ endtype #@
   length 140
-  FMT(vowel/@_3)
+  FMT(vowel/@_2)
 endphoneme
 
 phoneme i:                              // perhaps pronouncing loan words like 'iy'
@@ -68,21 +68,21 @@ phoneme o
   vwl starttype #o endtype #o
   ipa o
   length 140
-  FMT(vwl_ru/o)
+  FMT(vowel/oo)
 endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
   ipa u
   length 140
-  FMT(vwl_ru/u)
+  FMT(vowel/u_bck2)
 endphoneme
 
 phoneme W
   vwl starttype #@ endtype #@
   ipa ø
   length 140
-  FMT(vwl_ru/8)
+  FMT(vowel/oe)
 endphoneme
 
 phoneme y
