@@ -39,16 +39,15 @@ endphoneme
 
 phoneme E
   vwl starttype #e endtype #e
-  ipa ɛ
   length 140
-  FMT(vwl_ru/e)
+  FMT(vowel/e_mid2)
 endphoneme
 
 phoneme i
   vwl starttype #i endtype #i
   ipa i
   length 140
-  FMT(vwl_ru/i)
+  FMT(vowel/ii_8)
 endphoneme
 
 phoneme I
@@ -61,7 +60,7 @@ phoneme i:                              // perhaps pronouncing loan words like '
   vwl starttype #i endtype #i
   ipa iː
   length 300
-  FMT(vwl_ru/i)
+  FMT(vowel/ii_8)
 endphoneme
 
 phoneme o
