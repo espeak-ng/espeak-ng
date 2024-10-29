@@ -1,0 +1,102 @@
+// This file is UTF-8 encoded
+// translation rules for Somali
+
+
+.group '
+   '       ?
+
+.group b
+   b       b
+   bb      b:
+
+.group t
+   t       t
+
+.group j
+   j       J
+
+.group x
+   x       H
+
+.group d
+   d       d
+   dd      d:
+   dh      d.
+
+.group r
+   r       r
+
+.group s
+   s       s
+   sh      S
+
+.group c
+   c       A
+
+.group g
+   g       g
+
+.group f
+   f       f
+
+.group q
+   q       G
+
+.group k
+   k       k
+   kh      X
+
+.group l
+   l       l
+
+.group m
+   m       m
+
+.group n
+   n       n
+
+.group w
+   w       w
+   
+.group h
+   h       h
+
+.group y
+   y       j
+
+.group a
+   a       a
+   aa      a:
+
+.group e
+   e       e
+   ee      E:
+
+.group i
+   i       i
+   ii      i:
+
+.group o
+   o       o
+   oo      o:
+
+.group u
+   u       u
+   uu      u:
+
+.group                   // this some vowel letters can be considered a tones
+   á       a2
+   é       e2
+   í       i2
+   ó       o2
+   ú       u2
+   à       a1
+   è       e1
+   ì       i1
+   ò       o1
+   ù       u1
+   â       a3
+   ê       e3
+   î       i3
+   ô       o3
+   û       u3
