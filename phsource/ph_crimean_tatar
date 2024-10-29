@@ -68,7 +68,7 @@ phoneme o
   vwl starttype #o endtype #o
   ipa o
   length 140
-  FMT(vowel/oo)
+  FMT(vowel/o_mid)
 endphoneme
 
 phoneme u
