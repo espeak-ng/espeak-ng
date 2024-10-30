@@ -49,12 +49,12 @@
 .group c
         c         dZ;
 	cc        dZ;:
-	ce (_     =dZ;e
+	ce (_     =dZ;;e
 
 .group ç
         ç         tS;
 	çç        tS:;
-	çe (_     =tS;e
+	çe (_     =tS;;e
 	çt        St
 		 
 .group d
@@ -67,12 +67,16 @@
         dır (_    =d@r
 		
 .group e
-        e         e
-	e  (_    'e
-	e  (L02_ 'e
-	e  (L02L02_ 'e
-	enko (_  'enko            // used in some names
-        ev  (_   'ef
+        e         ;e
+	e  (_    ;'e
+	e  (L02_ ;'e
+	e  (L02L02_ ;'e
+    y)  e          e
+    y)  e  (_     'e
+    y)  e  (L02_  'e
+    y)  e) (L02L02_ 'e
+	enko (_  ;'enko            // used in some names
+	ev (_    ;'ef
 		
 .group f
         f         f
@@ -81,11 +85,11 @@
         g         g
 	gg        g:
 	g  (â     J
+	g  (e     J
 	g  (i     J
-        g  (e     J
 	g  (ö     J
 	g  (ü     J
-        gi (_     g'I
+	gi (_     g'I
 
 .group ğ
         ğ         G
@@ -105,20 +109,17 @@
 	i  (_    'I        // word final syllable gets stressed 
 	i  (L02_ 'I
 	i  (L02L02_ 'I
-	b)  i     I
-	k)  i     i
-	l)  i     I
-	m)  i     i
-        s)  i     i
-	ş)  i     I
-        ik (_    'ik      // used in other words with "ik" on the end of the word
+    b)  i         I
+    k)  i         i
+    ş)  i         I
+	ik (_    'ik
 	ir (_    'Ir
-        iv (_    'if
+	iv (_    'if      
 	iy (_    'i:
-	ist (_   'ist     // used in other words with "ist" on the end of the word
+	ist (_   'ist     // used in other words with "ist"
 	iya (_   'ijA
-	iye (_   'ije
-	izm (_   'izm      // used is some names historical states and/or in other words with "izm" on the end of the word
+	iye (_   'ij;e
+	izm (_   'izm      // used is some names historical states and/or in other words with "izm"
 	iñiz (_  =INIs
 
 .group j
@@ -139,19 +140,16 @@
         l         l
 	l (L01    L
    L01) l (K      L
-        li  (_    l'I
 
 .group m
         m         m
-	mi  (_    m'I
-	mce (_    mdZ;'e
+	mce (_    mdZ;;'e
 		
 .group n
         n         n
 	n (g      N
 	n (k      N
-	ni (_     n'I
-	nce (_    =ndZ;e
+	nce (_    =ndZ;;e
 		
 .group ñ
         ñ         N
@@ -161,7 +159,7 @@
 	o  (_    'o
 	o  (L02_ 'o
 	o  (L02L02_ 'o
-        ov (_    'of            
+	ov (_    'of
 	ova (_   'ovA            // used in some names and/or used other words with "ova", like in word of "ayova"
 	ovna (_  'ovnA           // used in some names
 		
@@ -230,6 +228,6 @@
 	z (_      s
 
 .group
-   w     w
-   x     x     // used in southern dialect
+	 w     w
+	 x     x     // used in southern dialect
 
