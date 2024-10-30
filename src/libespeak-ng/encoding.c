@@ -562,6 +562,8 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		ret = (ret << 6) + (c & 0x3F);
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
+		// fix the "I umlaut a half" bug
+		if (ret == 0xFFFD) return 0x001A;
 		return ret;
 	// 4-byte UTF-8 sequence
 	case 0xF0:
