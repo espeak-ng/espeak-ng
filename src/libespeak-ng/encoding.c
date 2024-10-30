@@ -562,8 +562,8 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		ret = (ret << 6) + (c & 0x3F);
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
-		// avoid the "I umlaut a half" bug
-		if (ret == 0xFFFD) goto substitute;
+		// fix the "I umlaut a half" bug
+		if (ret == 0xFFFD) return 0x001A;
 		return ret;
 	// 4-byte UTF-8 sequence
 	case 0xF0:
@@ -577,9 +577,6 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		ret = (ret << 6) + (c & 0x3F);
 		return (ret <= 0x10FFFF) ? ret : 0xFFFD;
 	}
-
-substitute:
-	return 0x001A;
 error:
 	--decoder->current;
 	return 0xFFFD;
@@ -618,10 +615,7 @@ string_decoder_getc_auto(espeak_ng_TEXT_DECODER *decoder)
 		decoder->get = string_decoder_getc_codepage;
 		decoder->current = ptr;
 		c = decoder->get(decoder);
-	} else if (c == 0x001A) {
-		return 0xFFFD;
 	}
-
 	return c;
 }
 
