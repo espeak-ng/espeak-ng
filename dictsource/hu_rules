@@ -297,6 +297,17 @@ rán) c (sim ts
 orángután) cs tS
 orangután) cs tS
 laza) cc (a ts:
+fil) c (sor ts
+ar) ch (eg ts|h
+zomán) c (s ts
+kvar) c (cs ts
+mala) c (hát ts
+pere) c (só ts
+dú) c (süv ts
+ér) cs (ípő tS
+jampe) c (s ts
+_tanon) c (ság ts
+pere) czs (em ts|Z
 
 .group C
 C ts
@@ -387,6 +398,7 @@ ar) ch (itekt h
 exar) ch h
 matriar) ch h
 tetrar) ch h
+e) ch (te h
 
 .group cz
 bar) cz ts
@@ -1040,6 +1052,30 @@ utó) d (játé d
 androi) d (sz d
 sorren) d (ja d
 kató) d (s d
+kalan) d (játsz d
+rekor) d (jav d
+egye) d (szerű d
+hó) d (sz d
+ha) d (sik d
+celluloi) d (sz d
+kolloi) d (s d
+ha) d (jog d
+tér) d (ja d
+le) d (zs d
+kö) d (járv d
+címren) d (szó d
+csókoló) dz (na z
+csü) d (szőr d
+kergető) dz (ik z
+dörgölő) dz (ik z
+szaba) d (járat d
+rú) d (sín d
+zsol) d (jegyz d
+föl) d (szik d
+menetren) d (sűr d
+menetren) dsz (erkes d|s
+hátvé) d (jel d
+kisde) d (játé d
 
 .group dz
   fogó) dz (kod    ts
@@ -1454,6 +1490,12 @@ termelékenysé) g (gy g
 szüzessé) g (gy g
 sikeressé) g (gy g
 igazgatósá) g (gy g
+me) ggy (uga J:
+különlegessé) g (gy g
+kirendeltsé) g (gy g
+á) g (gyűrű g
+csapá) ggy (űrű J:
+_a) gys (pec J|S
 
 .group gy
         gy         J
@@ -1708,6 +1750,7 @@ sz) í (veg i:
 depressz) í (v i:
 degressz) í (v i:
 regressz) í (v i:
+növénykv) í (z i:
 
 .group j
         j          j
@@ -2034,6 +2077,31 @@ edé) ny (jeg n^
 hangverse) ny (jegy n^
 eré) ny (jel n^
 ö) n (jav n
+verse) ny (jár n^
+szé) n (jegy n
+szaxofo) n (játé n
+verse) ny (jel n^
+verse) ny (jach n^
+verse) ny (jegy n^
+verse) ny (jav n^
+verse) ny (jut n^
+agyo) n (jár n
+agyo) n (jav n
+agyo) n (jelö n
+boszorká) ny (j n^
+botrá) ny (jel n^
+látvá) ny (jav n^
+látvá) ny (jo n^
+látvá) ny (járg n^
+látvá) ny (játé n^
+látvá) ny (jel n^
+patká) ny (je n^
+patká) ny (jár n^
+patká) ny (jo n^
+kémé) ny (jav n^
+szegé) ny (jog n^
+rakomá) ny (jegy n^
+indiá) n (játé n
 
 .group o
         o          o
@@ -2092,7 +2160,7 @@ pp (roce p:
 .group s
         s          S
         s (-sz     s:        //if have the - character the next word part beginning with sz, always need spokening s: phoneme
-    s-) sz                   //but not need spokening second sz phoneme
+    //s-) sz                   //but not need spokening second sz phoneme
   dns-) sz         s
   föld) s (ánc     S
 ?1 hel) s (inki    z
@@ -3094,6 +3162,49 @@ gumi) s (sz S
 háza) s (sze S
 szálká) s (sz S
 regre) ssz (iv s:
+_enyve) s (sz S
+fenyve) s (sz S
+foko) s (sz S
+tévedé) s (sz S
+regre) ssz (o s:
+alsó) s (sz S
+hú) s (szobo S
+híre) s (sz S
+ké) s (szett S
+fegyvere) s (sz S
+tárré) ssz (e s:
+mészáro) s (zeb S
+mészáro) s (sz S
+káromkodá) s (sz S
+törleszté) s (sz S
+akcentu) s (sz S
+mar) s (sz S
+narkózi) s (sz S
+viselé) s (sz S
+oko) s (zuh S
+befolyásolá) s (sz S
+heve) s (sz S
+köntö) s (zs S
+dönté) s (sz S
+optiku) s (sz S
+horga) ssz (a s:
+horga) ssz (u s:
+különlege) ssz S|s
+pelu) s (sz S
+stílu) s (zs S
+ovi) s (szer S
+szepszi) s (sz S
+bozonto) s (sz S
+csenevé) ssz (é s:
+hamva) ssz (ár S|s
+ki) s (szemű S
+_kva) ssz (ia s:
+prognózi) s (sz S
+hűlé) s (sz S
+hullá) s (sz S
+karni) s (sz S
+kedvtelé) s (sz S
+kitünteté) s (z S
 
 .group ss
         ssz        ss2
@@ -3977,6 +4088,8 @@ azbe) sztsz s|t|s
 kompo) sztsz st|s	For example komposztszakértő word
 kompo) szts st|S	For example komposztsiló word
 trö) sztsz s|t|s
+li) sztsz st|s
+li) szts st|S
         szts       stS:
   para) szts (onk  st|S      //parasztsonkword need spokening st and single S phoneme
         sztsz      st|s
@@ -4071,6 +4184,8 @@ para) sztst st|St
 para) szts (a st|S
 para) szts (u ts|S
 dudva) sz (ár s
+kere) sztsz (ab s|t|s
+kere) szts (raf s|t|S
 
 .group t
         t          t
@@ -4089,8 +4204,11 @@ dudva) sz (ár s
     t-) t                    // silent after 'tt-'
      -) t (_       t
      _) t (_       te:
+pörköl) tsz (er t|s
 köte) t (s t	For example kötetsorozat word
 köte) tsz t|s	For example kötetszerkesztő, kötetszinten words
+ce) tsz t|s
+fokoza) tsz (étv t|s
 ligni) tsz t|s
         tc         ts:
     ne) t (c       t
@@ -4565,6 +4683,47 @@ menekül) t (jo t
 rendele) t (j t
 ne) t (jel t
 terüle) t (s t
+halla) tsz ts:
+látsza) t (s t
+pamu) t (s t
+pályáza) t (jav t
+gyűlöle) t (jel t
+szé) t (jegy t
+szemé) t (sar t
+szulfá) t (s t
+vona) t (járat t
+vona) t (jel t
+halla) tssz ts:
+álla) t (járv t
+álla) t (jo t
+álla) t (jó t
+bo) t (jel t
+légú) t (s t
+alagú) t (s t
+ú) t (sarc t
+ú) t (sorf t
+ú) tsz (ol t|s
+szöve) t (sér t
+ros) t (s t
+kiraka) t (sz t
+ö) t (sor t
+ira) t (je t
+bozó) t (s t
+karza) t (jegy t
+defek) t (jegy t
+képzele) t (sző t
+köve) t (jár t
+audi) t (szol t
+aljza) t (jav t
+egyesüle) t (jub t
+szemé) t (sepr t
+ügyfélszolgála) t (jog t
+hé) t (szől t
+balese) t (seb t
+keresle) t (javu t
+te) tssz ts:
+kö) tsz (er ts:
+jegyze) t (sor t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -4685,6 +4844,7 @@ becsüle) ts (é     t|S       // "becsületsértés"  need spokening  [t] and [
   bizo) ts (ág     tS:
   cson) ts (ér     t|S       // eg. "csontsérülés" word need [t] and [S], not [tS]
  gyapo) tsz        t|s       // eg. "gyapotszőttes", "gyapotszövet"
+sajá) tsz t|s
     já) tsz (A     ts:
     já) tssz       ts:
     já) tsz (m     ts
@@ -4707,6 +4867,7 @@ kegyele) ts (ér    t|S       //eg "kegyeletsértés" need  single [t] and [S], 
  szorí) ts (a      tS:
    sie) ts         tS:
    ürí) ts (e      tS:
+mula) tsz ts:
   mula) ts         tS:
  nemze) ts         tS:
   néme) ts (ég     tS:
@@ -4890,6 +5051,7 @@ merényle) ts (or   t|S
 szavaza) ts (o     t|S
  szige) ts (ej     t|S
  szige) ts (o      t|S
+á) ts (ü t|S
 
 .group tt
         tt         t:
@@ -5255,6 +5417,8 @@ há) z (s z
 gá) z (zsák z
 raj) z (s z
 kví) z (zs z
+gá) z (svin z
+tagkö) zs (ég S:
 
 .group
         $          dolla:R2
@@ -5265,7 +5429,6 @@ kví) z (zs z
         ñ          n^
         ø          Y
 //Fixing minus simbols related problems, for example IOS not says minus and plus simbols with hungarian weather reports
-    __) - (_D      minus
     D_) - (_D      minus
      _) - (_D      _
     _) + (_D      plus
