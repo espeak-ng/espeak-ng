@@ -1,0 +1,107 @@
+// This file is UTF-8 encoded
+// translation rules for Chippewa
+
+
+.group a
+   a       V
+   aa      a:
+
+.group b
+   b       b
+   b (_    p
+
+.group ch
+   ch      tS#
+
+.group d
+   d       d
+   d (_    t
+
+.group e
+   e       e:
+
+.group f
+   f       f
+
+.group g
+   g       g
+   g (_    k
+
+.group h
+   h       h
+
+.group '
+   '       ?
+
+.group i
+   i       I
+   ii      i:
+
+.group j
+   j       dZ
+   j (_    tS
+
+.group k
+   k       k#
+   k (_    k
+
+.group l
+   l       l
+
+.group m
+   m       m
+   mb      mb
+   mb (_   mp
+
+.group n
+   n       n
+   nd      nd
+   nd (_   nt
+   ng      Ng
+   ng (_   Nk
+   nh      ~
+   ns      ~s
+   ny      ~y
+   nz      nz
+   nz (_   ns
+   nzh     nZ
+   nzh (_  nS
+
+.group o
+   o       o
+   oo      o:
+
+.group p
+   p       ph
+   p (_    p
+
+.group r
+   r       r
+
+.group s
+   s       sh
+   s (_    s
+   sh      Sh
+   sh (_   S
+   sk      sk
+   sp      sp
+   st      st
+   shk     Sk
+   shp     Sp
+   sht     St
+
+.group t
+   t       t#
+   t (_    t
+
+.group w
+   w       w
+
+.group y
+   y       j
+
+.group z
+   z       z
+   z (_    s
+   zh      Z
+   zh (_   S

@@ -1683,6 +1683,9 @@ include ph_arabic
 phonemetable ba base1
 include ph_bashkir
 
+phonemetable ciw base1
+include ph_chippewa
+
 phonemetable cmn base1
 include ph_cmn
 

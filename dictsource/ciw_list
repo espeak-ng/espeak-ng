@@ -1,0 +1,86 @@
+// This file is UTF-8 encoded
+// translation rules for Chippewa
+
+
+// Letters
+
+a     V
+aa    a:
+b     bi:
+c     tS#i:
+d     di:
+e     e:
+f     Vf
+g     gi:
+h     e:tS#
+'     gIbItS#Ita:||gobi:?igVn
+i     I
+ii    i:
+j     dZe:
+k     k#a:
+l     Vl
+m     Vm
+n     Vn
+o     U
+oo    o:
+p     phi:
+r     Vr
+s     Vs
+sh    Si:
+t     t#i:
+w     we:
+y     ja:
+z     ze:
+zh    Zi:
+
+
+// Numbers
+
+_0   ga:wi:ngegu:
+_1   be:ZIk
+_2   ni:S
+_3   nIswI
+_4   ni:wIn
+_5   na:nVn
+_6   Ingodwa:swI
+_7   ni:Zwa:swI
+_8   nISwa:swI
+_9   Za:NgVswI
+_10  mIda:swI
+
+_1X  VSI
+_20  ni:StVnV
+_2X  ni:StVnVSI
+_30  nIsImIdVnV
+_3X  nIsImIdVnVSI
+_40  ni:mIdVnV
+_4X  ni:mIdVnVSI
+_50  na:nImIdVnV
+_5X  na:nImIdVnVSI
+_60  nINgodwa:sImIdVnV
+_6X  nINgodwa:sImIdVnVSI
+_70  ni:Zwa:sImIdVnV
+_7X  ni:Zwa:sImIdVnVSI
+_80  nISwa:sImIdVnV
+_8X  nISwa:sImIdVnVSI
+_90  Za:NgVsImIdVnV
+_9X  Za:NgVsImIdVnVSI
+
+_0C  INgodwa:k
+_1C  INgodwa:k
+_2C  ni:nZwa:k
+
+_0M1  INgodosVgo:~s
+_1M1  INgodosVgo:~s
+_2M1  ni:ZoNgsVgo:~s
+_3M1  nIsosVgo:~s
+_4M1  ni:wosVgo:~s
+_5M1  na:nosVgo:~s
+_6M1  INgodwa:sosVgo:~s
+_7M1  ni:Zwa:sosVgo:~s
+_8M1  nISwa:sosVgo:~s
+_9M1  Za:NgVsosVgo:~s
+_10M1 mida:sosVgo:~s
+_100M1 nINgodwa:kdVsomIda:swa:k
+
+_dpt  koma:

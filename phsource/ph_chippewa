@@ -1,0 +1,130 @@
+//==========================================================================
+// Chippewa
+//==========================================================================
+
+
+// Vowels
+
+phoneme V
+  vwl starttype #a endtype #a
+  length 160
+  IF thisPh(isWordEnd) THEN
+    ChangePhoneme(@)
+  ENDIF
+  FMT(vowel/V_2)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  length 140
+  FMT(vowel/ii)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 150
+  IF thisPh(isWordEnd) THEN
+    ChangePhoneme(U)
+  ENDIF
+  FMT(vowel/o)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  length 150
+  FMT(vowel/uu_2)
+endphoneme
+
+
+// Long vowels
+
+phoneme a:
+  vwl starttype #a endtype #a
+  length 300
+  FMT(vowel/a)
+endphoneme
+
+phoneme e:
+  vwl starttype #e endtype #e
+  length 300
+  IF thisPh(isWordEnd) THEN
+    ChangePhoneme(E:)
+  ENDIF
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme E:
+  vwl starttype #e endtype #e
+  length 300
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  length 300
+  FMT(vowel/i)
+endphoneme
+
+phoneme o:
+  vwl starttype #o endtype #o
+  length 300
+  IF thisPh(isWordEnd) THEN
+    ChangePhoneme(u:)
+  ENDIF
+  FMT(vowel/o)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  length 300
+  FMT(vowel/u)
+endphoneme
+
+phoneme y
+  import_phoneme base2/y
+endphoneme
+
+
+// Consonants
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme tS#
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_asp, 80)
+  ENDIF
+  WAV(ustop/tsh_asp, 80)
+endphoneme
+
+phoneme t#        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme ~
+  vcd alv nas
+  ipa ~
+  FMT(n/nm)
+endphoneme
+
+phoneme k#
+  import_phoneme consonants/k#
+endphoneme
+
+phoneme ph
+  import_phoneme consonants/ph
+endphoneme
