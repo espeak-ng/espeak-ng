@@ -125,6 +125,9 @@
   <Target Name="chr" Inputs="$(ProjectDir)..\..\dictsource\chr_rules;$(ProjectDir)..\..\dictsource\chr_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\chr_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=chr" />
   </Target>
+  <Target Name="ciw" Inputs="$(ProjectDir)..\..\dictsource\ciw_rules;$(ProjectDir)..\..\dictsource\ciw_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ciw_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ciw" />
+  </Target>
   <Target Name="cmn" Inputs="$(ProjectDir)..\..\dictsource\cmn_rules;$(ProjectDir)..\..\dictsource\cmn_list;$(ProjectDir)..\..\dictsource\cmn_listx" Outputs="$(ProjectDir)..\..\espeak-ng-data\cmn_dict" DependsOnTargets="Phonemes;Extdict">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=cmn" />
   </Target>
