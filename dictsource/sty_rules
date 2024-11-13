@@ -1,0 +1,202 @@
+// This file is UTF-8 encoded
+// translation rules for Siberian Tatar
+	
+
+// Vowels
+.L01 а ы о у   // back vowels
+.L02 ә е и ө ү э  // front vowels
+.L03 ё ю я
+
+// Consonants
+.L04 б в г ғ д ж з й к ҡ л м н ң п р с т ф х ц ч ш щ
+
+
+.group а
+        а        a
+        а (_    'a
+        а (L04_  'a
+   
+.group ә
+        ә        &
+        ә (L04_  '&
+
+.group б
+        б        b
+   L01) б        B
+   L02) б        b
+   L03) б        B
+   L01) б (_     B
+   L02) б (_     b
+   L03) б (_     B
+
+.group в
+        в        v
+   L01) в        w
+   L02) в        v
+   L03) в        w
+   L01) в (_     w
+   L02) в (_     v
+   L03) в (_     w
+   
+.group г
+        г        g
+   L01) г        Q
+   L02) г        g
+   L03) г        Q
+   L01) г (_     Q
+   L02) г (_     g
+   L03) г (_     Q
+
+.group ғ
+        ғ        Q
+   L01) ғ        Q
+   L02) ғ        Q"
+   L03) ғ        Q
+   L01) ғ (_     Q
+   L02) ғ (_     Q"
+   L03) ғ (_     Q
+
+.group д
+        д        d
+
+.group е
+     _) е        je
+        е        e
+        е (_    'e
+        е (L04_  'e
+		еү (_   'ew
+
+.group ё
+        ё        j'o
+
+.group ж
+        ж        Z
+   L01) ж        Z
+   L02) ж        Z;
+   L03) ж        Z
+   L01) ж (_     Z
+   L02) ж (_     Z;
+   L03) ж (_     Z
+
+.group з
+        з        z
+
+.group и
+        и        i
+        и (_    'i
+        и (L04_	 'i
+
+.group й
+        й        j
+
+.group к
+        к        k
+		кк       k:
+
+.group қ
+        қ        q
+
+.group л
+        л        l
+   L01) л        L
+   L02) л        l
+   L03) л        L
+   L01) л (_     L
+   L02) л (_     l
+   L03) л (_     L
+
+.group м
+        м        m
+
+.group н
+        н        n
+   L01) н        n
+   L02) н        N
+   L03) н        n
+   L01) н (_     n
+   L02) н (_     N
+   L03) н (_     n
+
+.group ң
+        ң        N
+
+.group о
+        о        o
+        о (_    'o
+        о (L04_	'o
+
+.group ө
+        ө        W
+        ө (_    'W
+        ө (L04_	 'W
+
+.group п
+        п        p
+
+.group р
+        р        r
+
+.group с
+        с        s
+
+.group т
+        т        t
+		тт       t:
+
+.group у
+        у        u
+        у (A     w
+		у (L04_  'u
+
+.group ү
+        ү        y
+        ү (_     w
+		ү (L04_  'y
+
+.group ф
+        ф        f
+
+.group х
+        х        x
+
+.group ц
+        ц        ts
+
+.group ч
+        ч        tS
+   L01) ч        tS
+   L02) ч        tS;
+   L03) ч        tS
+   L01) ч (_     tS
+   L02) ч (_     tS;
+   L03) ч (_     tS
+
+.group ш
+        ш        S
+
+.group щ
+        щ        S;
+
+.group ъ
+        ъ        ?
+
+.group ы
+        ы        @
+        ы (_    '@
+        ы (L04_  '@
+
+.group ь
+        ь        ?
+
+.group э
+        э        e
+        э (L04_  'e
+
+.group ю
+        ю        ju
+        ю (L04_   j'u
+
+.group я
+        я        ja
+        я (L04_   j'a
+

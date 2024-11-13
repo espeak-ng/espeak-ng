@@ -1,0 +1,158 @@
+//========================================================================
+// Siberian Tatar
+//========================================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 150
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 150
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 150
+  FMT(vwl_ru/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 150
+  IF thisPh(isTranslationGiven) THEN
+    // don't reduce the vowel if phonemes are explicitly given
+  ELSE
+    IF thisPh(isFinalVowel) THEN
+      ChangePhoneme(O)
+    ENDIF
+    IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(O)
+    ENDIF
+  ENDIF
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 150
+  FMT(vowel/oo)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 150
+  FMT(vwl_ru/u)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  ipa ø
+  length 150
+  FMT(vwl_ru/8)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  ipa y
+  length 150
+  FMT(vwl_ru/u#)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 150
+  IF thisPh(isTranslationGiven) THEN
+    // don't reduce the vowel if phonemes are explicitly given
+  ELSE
+    IF thisPh(isFinalVowel) THEN
+      ChangePhoneme(V)
+    ENDIF
+    IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(V)
+    ENDIF
+  ENDIF
+  FMT(vowel/u#_7)
+endphoneme
+
+phoneme V
+  vwl starttype #@ endtype #@
+  ipa ɤ
+  length 150
+  FMT(vowel/@_2)
+endphoneme
+
+phoneme &
+  vwl starttype #e endtype #e
+  ipa æ
+  length 150
+  FMT(vowel/ee)
+endphoneme
+
+
+// Consonants
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme d
+  import_phoneme base2/d
+endphoneme
+
+phoneme r
+  liquid trl
+  lengthmod 6
+  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(*)
+  ENDIF
+  CALL base1/R
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme tS
+  vls alp sib afr
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  WAV(ustop/ts_sr)
+endphoneme
+
+phoneme S
+  ipa ʃ
+  vls pla frc sib
+  voicingswitch Z
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/sh_pzd2, 60)
+  ENDIF
+  WAV(ufric/sh_pzd2, 70)
+endphoneme
+
+phoneme Z
+  ipa ʒ
+  vcd pla frc sib
+  lengthmod 6
+  voicingswitch S
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh) addWav(ufric/sh_pzd2, 50)
+  ENDIF
+  FMT(voc/zh) addWav(ufric/sh_pzd2, 60)
+endphoneme

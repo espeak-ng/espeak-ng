@@ -543,6 +543,7 @@ dictionaries: \
 	espeak-ng-data/smj_dict \
 	espeak-ng-data/sq_dict \
 	espeak-ng-data/sr_dict \
+        espeak-ng-data/sty_dict \
 	espeak-ng-data/sv_dict \
 	espeak-ng-data/sw_dict \
 	espeak-ng-data/ta_dict \
@@ -887,6 +888,9 @@ dictsource/sr_emoji:
 
 sr: espeak-ng-data/sr_dict
 espeak-ng-data/sr_dict: dictsource/sr_list dictsource/sr_rules dictsource/sr_extra dictsource/sr_emoji
+
+sty: espeak-ng-data/sty_dict
+espeak-ng-data/sty_dict: dictsource/sty_list dictsource/sty_rules
 
 sv: espeak-ng-data/sv_dict
 espeak-ng-data/sv_dict: dictsource/sv_list dictsource/sv_rules dictsource/sv_extra dictsource/sv_emoji
