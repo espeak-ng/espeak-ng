@@ -1,0 +1,111 @@
+// This file is UTF-8 encoded
+// translation rules for Chechen
+
+
+// Letters
+
+б      be
+в      ve
+г      ge
+гӏ     Qe
+д      de
+ж      Ze
+з      ze
+й      dw,ots@'I
+к      ka
+кх     qa
+къ     q`a
+кӏ     k`a
+л      le
+м      me
+н      ne
+п      pe
+пӏ     p`a
+р      re
+с      se
+т      te
+тӏ     t`a
+ф      fe
+х      xe
+хь     Ha
+хӏ     ha
+ц      tsa
+цӏ     ts`a
+ч      tSe
+чӏ     tS`a
+ш      Se
+ъ      tS`woQ@||h'&rk
+щ      StSe
+ь      k`iEd@||h'&rk
+ӏ      Aa
+
+
+// Numbers
+
+_0     nol
+_1     tsH&
+_2     SI
+_3     qW
+_4     dI
+_5     pxI
+_6     jalx
+_7     vworh
+_8     barh
+_9     Is:
+
+_10    It:
+_11    tsH@It:@-
+_12    Si:t@
+_13    qwojt:@-
+_14    diEjt:@-
+_15    pxi:t:@-
+_16    jalxIt:@-
+_17    vyrhIt:@-
+_18    biErhIt:@-
+_19    tq`@IWs:In@-
+
+_20    tq`a
+_2X    tq`iE
+_3X    tq`iEIt:
+_4X    SOUztq`@-
+_5X    SOUztq`iEIt:
+_6X    quztq`@-
+_7X    quztq`iEIt:
+_8X    diEztq`@-
+_9X    diEztq`iEIt:
+
+_0C    bAiE
+_0M1   Ez@r
+_0M2   million
+_0M3   milli@-rd
+
+_dpt   zapjatwoj
+
+
+// Pronouns
+
+вай      $u     // we
+иза      $u     // he, she, it
+маса     $u     // how many
+маца     $u     // when
+мел      $u     // how much
+мила     $u     // who
+мичара   $u     // where
+со       $u     // I
+тхо      $u     // we
+уьш      $u     // they
+хьо      $u     // you
+хӏара    $u     // this
+хӏун     $u     // what
+ша       $u     // self, oneself
+шу       $u     // you (plural)
+
+
+// Conjunction
+
+
+а     $u
+а     $atend
+и     $u
+и     $atend
+ткъа  $u
