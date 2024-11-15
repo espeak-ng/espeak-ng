@@ -1,0 +1,224 @@
+//==================================================================================
+// Chechen
+//==================================================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa ɑ
+  length 160
+  ChangeIfNotStressed(@-)
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme &
+  vwl starttype #e endtype #e
+  ipa æ
+  length 160
+  FMT(vowel/ee)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 160
+  FMT(vowel/e)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  ipa ɛ
+  length 160
+  FMT(vwl_ru/e)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  ipa ɪ
+  length 160
+  FMT(vowel/ii)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  ipa iː
+  length 300
+  FMT(vwl_ru/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 160
+  FMT(vowel/o_mid2)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 160
+  FMT(vwl_ru/u)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  ipa uː
+  length 300
+  FMT(vwl_ru/u)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  length 160
+  InsertPhoneme(#)
+  FMT(vowel/oe)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  length 160
+  FMT(vwl_ru/u#)
+endphoneme
+
+phoneme y:
+  vwl starttype #u endtype #u
+  length 300
+  FMT(vwl_ru/u#)
+endphoneme
+
+
+// Diphthongs
+
+phoneme @I
+  vwl starttype #a endtype #i
+  length 250
+  FMT(vdiph/@i_3)
+endphoneme
+
+phoneme iE
+  vwl starttype #i endtype #e
+  length 250
+  FMT(vdiph2/ie_2)
+endphoneme
+
+phoneme OU
+  vwl starttype #o endtype #u
+  length 250
+  FMT(vdiph/oou)
+endphoneme
+
+phoneme uO
+  vwl starttype #u endtype #o
+  length 250
+  FMT(vdiph2/ua)
+endphoneme
+
+
+// Consonants
+
+phoneme t        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme k`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k_ejc, 60)
+endphoneme
+
+phoneme p`
+  vls blb stp
+  voicingswitch b
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p_asp)
+endphoneme
+
+phoneme q`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(vocw/Q2, 100)
+endphoneme
+
+phoneme t`
+  vls alv stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/t_ejc, 70)
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme ts`
+  vls alv afr sib
+  lengthmod 9
+  Vowelin f1=2  f2=1700 -300 300  f3=-200 120 len=10
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 170  rms=20 brk
+  WAV(ustop/ts2)
+endphoneme
+
+phoneme tS`
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_asp, 80)
+  ENDIF
+  WAV(ustop/tsh_asp, 80)
+endphoneme
+
+phoneme H       // Chechen Phoneme "H"
+  vls phr frc trl
+  ipa ʜ
+  lengthmod 5
+  WAV(vwl_ce/h_trill, 80)
+endphoneme
+
+phoneme r#
+  liquid trl
+  lengthmod 6
+  ipa r̥
+  Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  WAV(r3/r_trill3.wav)
+endphoneme
+
+phoneme A       // arabic Ain
+  vcd frc
+  ipa ʕ
+  voicingswitch a
+  length 160
+  Vowelin  f1=2  f2=2300 -400 500  f3=300 80
+  Vowelout f1=2  f2=2300 -300 450  f3=-100 10
+  FMT(r/xr,25) addWav(h/h_,30)
+endphoneme
+
+phoneme #
+  vcd alv nas
+  FMT(n/nm)
+endphoneme

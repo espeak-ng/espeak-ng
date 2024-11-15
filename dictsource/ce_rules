@@ -1,0 +1,141 @@
+// This file is UTF-8 encoded
+// translation rules for Chechen
+
+
+.group а
+   а       a
+   а (C_   @-
+   а (CC_  @-
+   ай      @I
+   аь      &
+
+.group б
+   б       b
+
+.group в
+   в       v
+
+.group г
+   г       g
+   гӏ      Q
+
+.group д
+   д       d
+
+.group е
+   _) е    je
+   е       iE
+  пӏ) е    E
+   ш) е    E
+
+.group ё
+   ё       jo
+
+.group ж
+   ж       Z
+
+.group з
+   з       z
+
+.group и
+   и       I
+   ий      i:
+
+.group й
+   й       j
+
+.group к
+   к       k
+   кк      k:
+   кх      q
+   къ      q`
+   кӏ      k`
+   ккх     q:
+
+.group л
+   л       l
+
+.group м
+   м       m
+
+.group н
+   н       n
+
+.group о
+   о       o
+   C) о    wo
+   й) о    o
+   м) о    uO
+   н) о    o
+   ов      OU
+   оь      W
+
+.group п
+   п       p
+   пп      p:
+   пӏ      p`
+
+.group р
+   р       r
+   рхӏ     r#
+
+.group с
+   с       s
+   сс      s:
+
+.group т
+   т       t
+   тт      t:
+   тӏ      t`
+
+.group у
+   у       u
+   ув      u:
+   уь      y
+   уьй     y:
+
+.group ф
+   ф       f
+
+.group х
+   х       x
+   хь      H
+   хӏ      h
+
+.group ц
+   ц       ts
+   цӏ      ts`
+
+.group ч
+   ч       tS
+   чӏ      tS`
+
+.group ш
+   ш       S
+
+.group щ
+   щ       StS
+
+.group ъ
+   ъ       ?
+
+.group ы
+   ы       @
+
+.group ь
+   ь
+
+.group э
+   э       e
+
+.group ю
+   ю       ju
+   юь      jy
+
+.group я
+   я       ja
+   яь      j&
+
+.group ӏ
+   ӏ       A
+
