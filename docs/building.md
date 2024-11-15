@@ -93,7 +93,7 @@ be installed using the following commands:
 | Dependency    | Install                                                          |
 |---------------|------------------------------------------------------------------|
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
-| c99 compiler  | `sudo apt-get install gcc`                                       |
+| c99 compiler  | `sudo apt-get install gcc g++`                                   |
 | sonic         | `sudo apt-get install libsonic-dev`                              |
 | ronn          | `sudo apt-get install ronn`                                      |
 | kramdown      | `sudo apt-get install kramdown`                                  |
