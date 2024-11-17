@@ -78,12 +78,14 @@ endphoneme
 
 phoneme y
   vwl starttype #u endtype #u
+  ipa y
   length 160
   FMT(vwl_ru/u#)
 endphoneme
 
 phoneme y:
   vwl starttype #u endtype #u
+  ipa yː
   length 300
   FMT(vwl_ru/u#)
 endphoneme
