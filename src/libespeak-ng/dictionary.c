@@ -1461,11 +1461,19 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph) {
     // any stressable vowel?
     bool unstress_mark = false;
     p = ph;
-    while ((c = *p++) != 0) {
+    while ((c = *p++) != 0) {        
+        // Check if index is within bounds
         if (c >= n_phoneme_tab) continue;
         
+        // Check if phoneme_tab itself is valid
+        if (!phoneme_tab) continue;
+        
+        // Check if phoneme_tab[c] is valid
         PHONEME_TAB *phTab = phoneme_tab[c];
-        if (!phTab) continue;  // Add this check
+        if (!phTab) continue;
+        
+        // Additional bounds check for type field
+        if ((size_t)&phTab->type >= (size_t)phTab + sizeof(PHONEME_TAB)) continue;        
 
         if (phTab->type == phSTRESS) {
             if (phTab->std_length < 4)
