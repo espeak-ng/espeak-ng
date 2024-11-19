@@ -1,0 +1,41 @@
+//=============================================================================
+// Solresol
+//=============================================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 170
+  FMT(vowel/a)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 170
+  FMT(vowel/e)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 170
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 170
+  FMT(vowel/o)
+endphoneme
+
+
+// Consonants
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme r
+  import_phoneme base1/R
+endphoneme

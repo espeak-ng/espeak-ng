@@ -1787,6 +1787,9 @@ include ph_polish
 phonemetable prs base1
 include ph_dari
 
+phonemetable qso base1
+include ph_solresol
+
 phonemetable qu base1
 include ph_quechua
 

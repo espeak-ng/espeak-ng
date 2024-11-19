@@ -15,7 +15,7 @@ list(APPEND _dict_compile_list
   nci ne nl nog no
   om or
   pap pa piqd pl pt py
-  qdb quc qu qya
+  qdb qso quc qu qya
   ro ru
   sd shn si sjn sk sl smj sq sr sv sw
   ta te ti th tk tn tr tt

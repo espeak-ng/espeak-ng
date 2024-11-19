@@ -1,0 +1,33 @@
+// This file is UTF-8 encoded
+// translation rules for Solresol
+
+.group do
+         do       do
+
+.group re
+         re       re
+
+.group mi
+         mi       mi
+
+.group fa
+         fa       fa
+
+.group sol
+          sol     sol
+
+.group la
+         la       la
+
+.group si
+         si       si
+
+.group
+   dō      d''o:
+   rē      r''e:
+   mī      m''i:
+   fā      f''a:
+   sōl     s''o:l
+   lā      l''a:
+   sī      s''i:
+

@@ -1,0 +1,47 @@
+// This file is UTF-8 encoded
+// translation rules for Solresol
+
+
+// Numbers
+
+_0     soldo
+_1     redodo
+_2     remimi
+_3     refafa
+_4     resolsol
+_5     relala
+_6     resisi
+_7     mimido
+_8     mimire
+_9     mimifa
+
+_10    mimisol
+_11    mimila
+_12    mimisi
+_13    midodo
+_14    mirere
+_15    mifafa
+_16    misolsol
+_17    milala
+_18    misisi
+_19    fafado
+
+_2X    fafare
+_3X    fafami
+_4X    fafasol
+_5X    fafala
+_6X    fafasi
+_7X    fafasi||mimisol
+_8X    fadodo
+_9X    fadodo||mimisol
+
+_0C    farere
+_1C    farere
+_0M1   famimi
+_1M1   famimi
+_0M2   fasolsol
+_1M2   fasolsol
+_0M3   falala
+_1M3   falala
+_0M4   fasisi
+_1M4   fasisi
