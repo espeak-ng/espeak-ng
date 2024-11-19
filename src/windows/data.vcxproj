@@ -338,6 +338,9 @@
   <Target Name="qdb" Inputs="$(ProjectDir)..\..\dictsource\qdb_rules;$(ProjectDir)..\..\dictsource\qdb_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\qdb_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=qdb" />
   </Target>
+  <Target Name="qso" Inputs="$(ProjectDir)..\..\dictsource\qso_rules;$(ProjectDir)..\..\dictsource\qso_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\qso_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=qso" />
+  </Target>
   <Target Name="quc" Inputs="$(ProjectDir)..\..\dictsource\quc_rules;$(ProjectDir)..\..\dictsource\quc_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\quc_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=quc" />
   </Target>
