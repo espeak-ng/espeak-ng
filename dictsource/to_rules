@@ -1,0 +1,59 @@
+// This file is UTF-8 encoded
+// translation rules for Tongan
+
+.group a
+   a       a
+
+.group e
+   e       e
+
+.group f
+   f       f
+
+.group h
+   h       h
+
+.group i
+   i       i
+
+.group k
+   k       k
+
+.group l
+   l       l
+
+.group m
+   m       m
+
+.group n
+   n       n
+   ng      N
+
+.group o
+   o       o
+
+.group p
+   p       p
+
+.group s
+   s       s
+
+.group t
+   t       t
+
+.group u
+   u       u
+
+.group v
+   v       v
+
+.group '
+   '       ?
+
+
+.group
+   ā     a:
+   ē     e:
+   ī     i:
+   ō     o:
+   ū     u:

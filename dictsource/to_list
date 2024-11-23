@@ -1,0 +1,64 @@
+// This file is UTF-8 encoded
+// translation rules for Tongan
+
+
+// Letters
+
+a     a:
+e     e:
+f     fa:
+h     ha:
+i     i:
+k     ka:
+l     la:
+m     ma:
+n     na:
+ng    Na:
+o     o:
+p     pa:
+s     sa:
+t     ta:
+u     u:
+v     va:
+'     fakau?a
+
+
+// Numbers
+
+_0   noa
+_1   taha
+_2   ua
+_3   tolu
+_4   fa:
+_5   nima
+_6   ono
+_7   fitu
+_8   valu
+_9   hiva
+_10  hoNofulu
+_1X  hoNofulu_! ma_!
+_20  uNofulu
+_2X  uNofulu_! ma_!
+_30  toluNofulu
+_3X  toluNofulu_! ma_!
+_40  fa:gofulu
+_4X  fa:gofulu_! ma_!
+_50  limagofulu
+_5X  limagofulu_! ma_!
+_60  onoNofulu
+_6X  onoNofulu_! ma_!
+_70  fituNofulu
+_7X  fituNofulu_! ma_!
+_80  valuNofulu
+_8X  valuNofulu_! ma_!
+_90  hivaNofulu
+_9X  hivaNofulu_! ma_!
+_0C  teau
+_1C  teau
+_0M1 afe
+_10M1 mano
+_100M1 kilu
+_0M2  miliona
+_1M2  miliona
+
+_dpt  _koma_!

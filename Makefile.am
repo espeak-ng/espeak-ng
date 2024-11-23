@@ -551,6 +551,7 @@ dictionaries: \
 	espeak-ng-data/ti_dict \
 	espeak-ng-data/tk_dict \
 	espeak-ng-data/tn_dict \
+        espeak-ng-data/to_dict \
 	espeak-ng-data/tr_dict \
 	espeak-ng-data/tt_dict \
 	espeak-ng-data/uk_dict \
@@ -911,6 +912,9 @@ espeak-ng-data/tk_dict: dictsource/tk_list dictsource/tk_listx dictsource/tk_rul
 
 tn: espeak-ng-data/tn_dict
 espeak-ng-data/tn_dict: dictsource/tn_list dictsource/tn_rules dictsource/tn_extra
+
+to: espeak-ng-data/to_dict
+espeak-ng-data/to_dict: dictsource/to_list dictsource/to_rules dictsource/to_extra
 
 tr: espeak-ng-data/tr_dict
 espeak-ng-data/tr_dict: dictsource/tr_list dictsource/tr_rules dictsource/tr_extra dictsource/tr_emoji

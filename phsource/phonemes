@@ -1875,6 +1875,9 @@ include ph_romanian
 phonemetable tk base2
 include ph_turkmen
 
+phonemetable to base2
+include ph_tongan
+
 phonemetable tr base2
 include ph_turkish
 
