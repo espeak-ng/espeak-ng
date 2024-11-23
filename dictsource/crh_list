@@ -128,6 +128,39 @@ _0M10     nonilli'on
 _dpt     _virJ,yl_|
 
 
+// ORDINAL NUMBERS
+//*****************
+
+_#-nci  ndZ;'I       // ordinal suffix
+
+_1o	bIrI
+_2o	Eci
+_3o	ytS;y
+_4o	dWrty
+_5o	b;eSI
+_6o	ALt@
+_7o	jedI
+_8o	secizi
+_9o	doquzI
+
+_10o	onI
+_20o	jiJirmi
+_30o	otuzI
+_50o	Elli
+_60o	ALtm@SI
+_70o	jetmiSi
+_80o    seksenI
+_90o	doqsany
+_0Co	jyzy
+_1Co    jyzy
+_0M1o	biNi
+_1M1o	biNi
+_0M2o   millionI
+_0M3o   milliArdI
+
+_ord    ndZ;'I     // default ordinal suffix
+
+
 // CHARACTERS
 //************
 
@@ -234,6 +267,7 @@ zarfında   $u+             // during
 // replacing to [O] in some words used in Crimean Tatar language (e.g. "advokat", "agitator", "agressor", "elevator", etc.)
 // replacing [I] to [i] in some words used in Crimean Tatar language (e.g. "abrduraim", "amir", "dair", "ismail", etc.)
 
+(40-ıncı)    q@rq@ndZ;'@ 
 abbreviatura $5
 abduraim  AbdurA'im
 abrakadabra $4
