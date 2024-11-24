@@ -1,6 +1,10 @@
 // This file is UTF-8 encoded
 // translation rules for Tongan
 
+.replace
+       ʼ       '     // replace modified apostrophe to simple apostrophe
+
+
 .group a
    a       a
 
