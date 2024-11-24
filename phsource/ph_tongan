@@ -9,35 +9,35 @@ phoneme a
   vwl starttype #a endtype #a
   ipa a
   length 140
-  FMT(vwl_lv/a)
+  FMT(vwl_lv/a, 100)
 endphoneme
 
 phoneme e
   vwl starttype #e endtype #e
   ipa e
   length 140
-  FMT(vwl_lv/e)
+  FMT(vwl_lv/e, 100)
 endphoneme
 
 phoneme i
   vwl starttype #i endtype #i
   ipa i
   length 140
-  FMT(vwl_lv/i)
+  FMT(vwl_lv/i, 110)
 endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
   ipa o
   length 140
-  FMT(vwl_lv/o)
+  FMT(vwl_lv/o, 90)
 endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
   ipa u
   length 140
-  FMT(vwl_lv/u)
+  FMT(vwl_lv/u, 100)
 endphoneme
 
 
@@ -47,33 +47,33 @@ phoneme a
   vwl starttype #a endtype #a
   ipa aː
   length 280
-  FMT(vwl_lv/a)
+  FMT(vwl_lv/a, 90)
 endphoneme
 
 phoneme e
   vwl starttype #e endtype #e
   ipa eː
   length 280
-  FMT(vwl_lv/e)
+  FMT(vwl_lv/e, 100)
 endphoneme
 
 phoneme i
   vwl starttype #i endtype #i
   ipa iː
   length 280
-  FMT(vwl_lv/i)
+  FMT(vwl_lv/i, 90)
 endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
   ipa oː
   length 280
-  FMT(vwl_lv/o)
+  FMT(vwl_lv/o, 75)
 endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
   ipa uː
   length 280
-  FMT(vwl_lv/u)
+  FMT(vwl_lv/u, 90)
 endphoneme
