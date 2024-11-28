@@ -83,6 +83,9 @@
   <Target Name="Extdict" Inputs="$(ProjectDir)..\..\dictsource\extra\cmn_listx;$(ProjectDir)..\..\dictsource\extra\ru_listx;$(ProjectDir)..\..\dictsource\extra\yue_listx" Outputs="$(ProjectDir)..\..\dictsource\cmn_listx;$(ProjectDir)..\..\dictsource\ru_listx;$(ProjectDir)..\..\dictsource\yue_listx">
     <Copy SourceFiles="$(ProjectDir)..\..\dictsource\extra\cmn_listx;$(ProjectDir)..\..\dictsource\extra\ru_listx;$(ProjectDir)..\..\dictsource\extra\yue_listx" DestinationFolder="$(ProjectDir)..\..\dictsource\" SkipUnchangedFiles="true" UseSymboliclinksIfPossible="true" ></Copy>
 	 </Target>
+  <Target Name="ab" Inputs="$(ProjectDir)..\..\dictsource\ab_rules;$(ProjectDir)..\..\dictsource\ab_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ab_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ab" />
+  </Target>
   <Target Name="af" Inputs="$(ProjectDir)..\..\dictsource\af_rules;$(ProjectDir)..\..\dictsource\af_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\af_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=af" />
   </Target>
