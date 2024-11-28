@@ -40,7 +40,7 @@ phoneme u
   FMT(vowel/u_bck)
 endphoneme
 
-phoneme i"
+phoneme i#
   vwl starttype #@ endtype #@
   ipa ɨ
   length 150
