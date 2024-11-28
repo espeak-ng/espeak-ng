@@ -1,0 +1,234 @@
+//==================================================================================================
+// Abkhaz
+//==================================================================================================
+
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 150
+  FMT(vowel/a)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e̞
+  length 150
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 150
+  FMT(vowel/ii_8)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o̞
+  length 150
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 150
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme i"
+  vwl starttype #@ endtype #@
+  ipa ɨ
+  length 150
+  FMT(vowel/ii#_2)
+endphoneme
+
+
+// Consonants
+
+phoneme k`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k_ejc, 60)
+endphoneme
+
+phoneme p`
+  vls blb stp
+  voicingswitch b
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p_asp)
+endphoneme
+
+phoneme q`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(vocw/Q2, 100)
+endphoneme
+
+phoneme t`
+  vls alv stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ENDIF
+  WAV(ustop/t_ejc, 70)
+endphoneme
+
+phoneme tS`
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_asp, 80)
+  ENDIF
+  WAV(ustop/tsh_asp, 80)
+endphoneme
+
+phoneme dz
+  import_phoneme consonants/dz
+endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+phoneme ts`
+  vls alv afr sib
+  voicingswitch dz
+  lengthmod 9
+  Vowelin f1=2  f2=1700 -300 300  f3=-200 120 len=10
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 170  rms=20 brk
+  IF nextPh(isStressed) THEN
+Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
+    Vowelout f1=0 f2=1700 -300 250  f3=-100 70  rms=14
+    WAV(ustop/ts_, 80)
+  ENDIF
+  WAV(ustop/ts_, 70)
+endphoneme
+
+phoneme ts.
+  vls pla frc sib
+  lengthmod 3
+  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  Vowelout f1=0  f2=1800 -100 300  f3=-300 80
+  WAV(ustop/ts_rfx)
+endphoneme
+
+phoneme ts.`
+  vls pla frc sib
+  lengthmod 3
+  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  Vowelout f1=0  f2=1800 -100 300  f3=-300 80
+  WAV(ustop/ts_rfx_unasp)
+endphoneme
+
+phoneme dz.
+  vcd pla afr sib
+  lengthmod 5
+  voicingswitch tS
+  Vowelin f1=2  f2=1900 100 300  f3=100 80
+  Vowelout f1=2  f2=1900 100 300  f3=100 80 brk
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(ustop/tsh2, 50)
+  ENDIF
+  FMT(dzh/dzh2) addWav(ustop/tsh2, 80)
+endphoneme
+
+phoneme #
+  vcd alv nas
+  FMT(n/nm)
+endphoneme
+
+phoneme t#        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme k#
+  import_phoneme consonants/k#
+endphoneme
+
+phoneme k;
+  vls pal stp
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=400 80
+  Vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
+  WAV(ustop/ki)
+endphoneme
+
+phoneme g;
+  vcd pla stp
+  lengthmod 5
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF KlattSynth THEN
+    FMT(klatt/dz_pzd) addWav(ustop/ki, 60)
+  ENDIF
+
+
+  FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
+endphoneme
+
+phoneme ph
+  import_phoneme consonants/ph
+endphoneme
+
+phoneme r
+  import_phoneme base1/R
+endphoneme
+
+phoneme H       // arabic Hah
+  vls phr frc
+  ipa ħ
+  lengthmod 5
+  WAV(vwl_ar/hah,80)
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme k
+  import_phoneme base2/k
+endphoneme
+
+phoneme X
+  vls vel frc
+  Vowelin f1=0  f2=2300 200 400  f3=-100 100
+  Vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  lengthmod 3
+  WAV(ufric/x2, 60)      // stronger version of [x]
+endphoneme

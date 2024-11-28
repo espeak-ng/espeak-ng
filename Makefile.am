@@ -443,6 +443,7 @@ espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) ../src/espeak-ng --compile="$(*F)"
 
 dictionaries: \
+        espeak-ng-data/ab_dict \
 	espeak-ng-data/af_dict \
 	espeak-ng-data/am_dict \
 	espeak-ng-data/an_dict \
@@ -576,6 +577,9 @@ DICTSOURCE = \
 	dictsource/tr_listx
 
 EXTRA_DIST += $(DICTSOURCE)
+
+ab: espeak-ng-data/ab_dict
+espeak-ng-data/ab_dict: dictsource/ab_list dictsource/ab_rules dictsource/ab_extra
 
 af: espeak-ng-data/af_dict
 espeak-ng-data/af_dict: dictsource/af_list dictsource/af_rules dictsource/af_extra dictsource/af_emoji

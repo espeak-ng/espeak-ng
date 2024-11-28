@@ -1,0 +1,77 @@
+// This file is UTF-8 encoded
+// translation rules for Abkhaz
+
+
+// Numbers
+
+_0    an'i#wl;
+_1    ak'i#
+_2    #b'a
+_3    Xph'a
+_4    phSb'a
+_5    Xwb'a
+_6    fb'a
+_7    bi#Zb'a
+_8    a:b'a
+_9    Zwb'a
+_10   Zwab'a
+_11   Zw'eiza
+_12   Zw'a#a
+_13   Zw'aXa
+_14   Zw'i#jpS
+_15   Zw'oXw
+_16   Zw'af
+_17   Zw'i#jbZ
+_18   Zw'a:
+_19   Z'eizw
+_2X   #'aZwa
+_3X   #aZwi#jZw'aba
+_4X   #i#n#'aZwa
+_5X   #i#n#aZwi#jZw'aba
+_6X   Xi#n#'aZwi#j
+_7X   Xi#n#aZwi#jZw'aba
+_8X   phSi#n#'aZwa
+_9X   phSi#n#aZwiZw'aba
+_0C   Swk'i#
+_1C   Swk'i#
+_2C   #'i#s.a
+_3C   X'i#Sw
+_4C   phS'i#Sw
+_5C   Xw'i#Sw
+_6C   f'i#Sw
+_7C   bi#ZSwi#
+_8C   'a:Swi#
+_9C   ZwSw'i#
+_0M1  zk`'i#
+_1M1  zk`'i#
+
+_dpt  akomm'i#wl
+
+
+// Pronouns
+
+агьаурым    $u         // nothing
+бара        $u         // you  
+дара        $u         // they
+дасу        $u         // everybody, everyone
+иара        $u         // he, it
+лара        $u         // she
+сара        $u         // I
+уара        $u         // you
+ҳара        $u         // we
+шәара       $u         // you
+
+
+// Conjunction
+
+аха     $u $pause   // but
+
+
+// Prepositions
+
+азы         $u $brk   // for, to, because of
+азышьҭара   $u $brk   // ever since, since, since then
+ахьҭаҟа     $u $brk   // before
+аҟынӡа      $u $brk   // in, on, at
+аҿы         $u $brk   // in, on, at
+аԥхьа       $u $brk   // in front of, before, ahead of

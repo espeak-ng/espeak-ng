@@ -1,0 +1,167 @@
+// This file is UTF-8 encoded
+// translation rules for Abkhaz
+
+
+.group а
+   а       a
+   аа      a:
+
+.group б
+   б       b
+
+.group в
+   в       v
+
+.group г
+   г       g
+   гь      g;
+   гә      gw
+
+.group ӷ
+   ӷ       Q"
+   ӷь      Q^
+   ӷә      Q"w
+
+.group д
+   д       d
+   дә      dw
+
+.group е
+    _)  е  ja
+   е       e
+   е (_    aj
+
+.group ж
+   ж       z.
+   жь      Z
+   жә      Zw
+
+.group з
+   з       z
+
+.group ӡ
+   ӡ       dz
+   ӡә      dZ;w
+
+.group и
+    _)  и  ji#
+   и       i
+   и (_    i#j
+
+.group к
+   к       k`
+   кь      k`j
+   кә      k`w
+
+.group қ
+   қ       k
+   қь      k;
+   қә      kw
+
+.group ҟ
+   ҟ       q`
+   ҟь      q`j
+   ҟә      q`w
+
+.group л
+   л       l
+
+.group м
+   м       m
+
+.group н
+   н       n
+
+.group о
+    _)  о  wa
+   о       o
+   о (_    aw
+
+.group п
+   п       p`
+
+.group ԥ
+   ԥ       ph
+
+.group р
+   р       r
+
+.group с
+   с       s
+
+.group т
+   т       t`
+   тә      t`w
+
+.group ҭ
+   ҭ       t#
+   ҭә      t#w
+
+.group у
+    _)  у  wi#
+   у       u
+   у (_    i#w
+
+.group ф
+   ф       f
+
+.group х
+   х       X
+   хь      Xj
+   хә      Xw
+
+.group ҳ
+   ҳ       H
+   ҳә      Hw
+
+.group ц
+   ц       tsh
+   цә      tS;hw
+
+.group ҵ
+   ҵ       ts`
+   ҵә      ts`w
+
+.group ч
+   ч       tS;h
+
+.group ҷ
+   ҷ       tS`
+
+.group ҽ
+   ҽ       ts.h
+
+.group ҿ
+   ҿ       ts.`
+
+.group ш
+   ш       s.
+   шь      S
+   шә      Sw
+
+.group ы
+   ы       i#
+
+.group ҩ
+   ҩ       #
+
+.group џ
+   џ       dz.
+   џь      J
+
+.group ь
+   ь       ;
+
+.group ә
+   ә       w
+
+.group
+   гу      gw     // pre-1996
+   ҕ       Q"     // pre-1996
+   ҕь      Q^     // pre-1996
+   ҕу      Q"w     // pre-1996
+   ку      k`w     // pre-1996
+   ӄу      kw     // pre-1996
+   ҟу      q`w     // pre-1996
+   ҧ       ph     // pre-1996
+   ху      Xw     // pre-1996
