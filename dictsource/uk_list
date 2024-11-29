@@ -16,55 +16,55 @@
 //***********
 
 !  zn'ak||'okleku
-"  podv'i:jna||l'apka
-#  RES'i:tka
+"  podv'ijna||l'apka
+#  RES'itka
 $  d'olaR
-%  vi:ds'otok
+%  vids'otok
 &  ampeRs'and
 //'  odIn'aRna||l'apka
-//(  Bi:dkR'eta||d'uZka
+//(  vidkR'eta||d'uZka
 //)  zakR'eta||d'uZka
-*  z'i:RotSka
-+  pl^'us
+*  z'iRotSka
++  pl;'us
 ,  k'oma
--  m'i:nus
+-  m'inus
 .  kR'apka
 /  kos'a||R'Iska
-:  dB'i:||kR'apkI
+:  dv'i||kR'apkI
 ;  kR'apka||z||k'omoju
 <  m'EnSE
-=  R'i:vnE
->  b'i:l^SE
+=  R'ivnE
+>  b'il;SE
 //?  zn'ak||pIt'an:ja  // не читає
 @  sob'atSka
-[  Bi:dkR'eta||kBadR'atna||d'uZka
+[  vidkR'eta||kvadR'atna||d'uZka
 \  ob'ERnEna||kos'a||R'Iska
-]  zakR'eta||kBadR'atna||d'uZka
+]  zakR'eta||kvadR'atna||d'uZka
 ^  daS'ok
-\\_  n'IZn^e||pi:dkR'EslEn:ja
-`  hRaf'i:s
-{  B'i:dkReta||fi:h'uRna||d'uZka
-|  BERtIk'al^na||R'Iska
-}  zakR'eta||fi:h'uRna||d'uZka
-~  t'Il^da
+\\_  n'IZn;e||pidkR'EslEn:ja
+`  hRaf'is
+{  v'idkReta||fih'uRna||d'uZka
+|  vERtIk'al;na||R'Iska
+}  zakR'eta||fih'uRna||d'uZka
+~  t'Il;da
 ʼ  ap'ostRof
-«  B'i:dkRIti:||lapk'I
-»  z'akRIti:||lapk'I
+«  v'idkRIti||lapk'I
+»  z'akRIti||lapk'I
 …  tR'e||kR'apkI
 
 
 // NUMBERS
 //********
 
-_0	n'ul^
+_0	n'ul;
 _1	od'en
-_2	dB'a
+_2	dv'a
 _3	tR'I
 _4	tSot'eRe
 _5	pj'at;
-_6	S'i:st;
-_7	s'i:m
-_8	v'i:si:m
+_6	S'ist;
+_7	s'im
+_8	v'isim
 _9	d'Evjat;
 
 _10	d'Esjat;
@@ -73,36 +73,36 @@ _12	dvan'adsjat;
 _13	tRen'adsjat;
 _14	tSoteRn'adsjat;
 _15	pjatn'adsjat;
-_16	Si:stn'adsjat;
-_17	si:mn'adsjat;
-_18	vi:si:mn'adsjat;
+_16	Sistn'adsjat;
+_17	simn'adsjat;
+_18	visimn'adsjat;
 _19	devjatn'adsjat;
 _2X	dv'adsjat;
 _3X	tR'edsjat;
 _4X	s'oRok
 _5X	pjatdesj'at;
-_6X	Si:stdesj'at;
-_7X	si:mdesj'at;
-_8X	vi:si:mdesj'at;
+_6X	Sistdesj'at;
+_7X	simdesj'at;
+_8X	visimdesj'at;
 _9X	devjan'osto
 _1C	st'o
-_2C	dv'i:sti:
+_2C	dv'isti
 _3C	tR'esta
 _4C	tSot'eResta
 _5C	pjats'ot
-_6C	Si:sts'ot
-_7C	si:ms'ot
-_8C	vi:si:ms'ot
+_6C	Sists'ot
+_7C	sims'ot
+_8C	visims'ot
 _9C	devjats'ot
 
 // large numbers, short scale
 _0C	st'o
 _0M1	t'esjatSa
-_0M2	mi:l;j'on
-_0M3	bi:l;j'on
+_0M2	mil;j'on
+_0M3	bil;j'on
 _0M4	tRel;j'on
 _0M5    kvadRal;j'on
-_0M6    kvi:ntel;j'on
+_0M6    kvintel;j'on
 _0M7    sEkstel;j'on
 _0M8    sEptel;j'on
 _0M9    oktel;j'on
@@ -113,7 +113,7 @@ _0M10   nonel;j'on
 //********
 
 _б  bE
-_в  BE
+_в  vE
 г  hE
 ґ  gE
 д  dE
@@ -121,7 +121,7 @@ _ж  ZE
 _з  zE
 _й  jot
 к  ka
-л  El^
+л  El;
 м  Em
 н  En
 п  pE
@@ -192,14 +192,14 @@ _й  jot
 але $2
 були $2
 було $2
-вʼїзд v|j'i:zd
+вʼїзд v|j'izd
 вона $2
 вони $2
 воно $2
 дякую $1
-їй ji:j
-їм ji:m
-їх ji:x
+їй jij
+їм jim
+їх jix
 його $2
 коли $2
 лише $2
