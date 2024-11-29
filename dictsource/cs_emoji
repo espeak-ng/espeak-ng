@@ -14,32 +14,32 @@ $textmode
 
 // 0000..007F : C0 Controls and Basic Latin
 
-//+	plus								// [002B] other (no translation)
++	plus								// [002B] text|emoji
 
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
-//¢	cents								// [00A2] other (no translation)
-//£	pound								// [00A3] other (no translation)
-//¤	currency sign							// [00A4] other (no translation)
-//¥	yen								// [00A5] other (no translation)
-//§	section								// [00A7] other (no translation)
-//¨	double dot							// [00A8] other (no translation)
+¢	cent								// [00A2] text|emoji
+£	libra								// [00A3] text|emoji
+¤	znak měny							// [00A4] text|emoji
+¥	yen								// [00A5] text|emoji
+§	paragraf							// [00A7] text|emoji
+¨	přehláska							// [00A8] text|emoji
 ©	znak ochrany autorského práva					// [00A9] text|emoji
-//¬	not sign							// [00AC] other (no translation)
+¬	negace						  		// [00AC] text|emoji
 ®	znak registrované ochranné známky				// [00AE] text|emoji
-//°	degrees								// [00B0] other (no translation)
-//±	plus or minus							// [00B1] other (no translation)
-//µ	micro								// [00B5] other (no translation)
-//¶	paragraph							// [00B6] other (no translation)
-//¼	a quarter							// [00BC] other (no translation)
-//½	a half								// [00BD] other (no translation)
-//¾	three quarters							// [00BE] other (no translation)
-//×	times								// [00D7] other (no translation)
-//÷	divided by							// [00F7] other (no translation)
+°	stupně								// [00B0] text|emoji
+±	plus nebo mínus							// [00B1] text|emoji
+µ	mikro								// [00B5] text|emoji
+¶	odstavec							// [00B6] text|emoji
+¼	jedna čtvrtina							// [00BC] text|emoji
+½	jedna polovina							// [00BD] text|emoji
+¾	tři čtvrtiny							// [00BE] text|emoji
+×	krát								// [00D7] text|emoji
+÷	děleno								// [00F7] text|emoji
 
 // 02B0..02FF : Spacing Modifier Letters
 
-//˙	dot								// [02D9] other (no translation)
+˙	tečka								// [02D9] text|emoji
 
 // 0900..097F : Devanagari
 
@@ -52,28 +52,28 @@ $textmode
 
 // 20A0..20CF : Currency Symbols
 
-//₨	rupee								// [20A8] other (no translation)
-//€	euros								// [20AC] other (no translation)
-//₹	rupee								// [20B9] other (no translation)
+₨	rupie								// [20A8] text|emoji
+€	euro								// [20AC] text|emoji
+₹	rupie								// [20B9] text|emoji
 
 // 2100..214F : Letterlike Symbols
 
-//№	numero								// [2116] other (no translation)
-//℞	prescription							// [211E] other (no translation)
+№	číslo								// [2116] text|emoji
+℞	recept								// [211E] text|emoji
 ™	znak ochranné známky						// [2122] text|emoji
 ℹ	informace							// [2139] text|emoji
 
 // 2150..218F : Number Forms
 
-//⅓	one third							// [2153] other (no translation)
-//⅔	two thirds							// [2154] other (no translation)
+⅓	jedna třetina							// [2153] text|emoji
+⅔	dvě třetiny							// [2154] text|emoji
 
 // 2190..21FF : Arrows
 
-//←	left arrow							// [2190] other (no translation)
-//↑	up arrow							// [2191] other (no translation)
-//→	right arrow							// [2192] other (no translation)
-//↓	down arrow							// [2193] other (no translation)
+←	šipka doleva							// [2190] text|emoji
+↑	šipka nahoru							// [2191] text|emoji
+→	šipka doprava							// [2192] text|emoji
+↓	šipka dolů							// [2193] text|emoji
 ↔	šipka doleva a doprava						// [2194] text|emoji
 ↕	šipka nahoru a dolů						// [2195] text|emoji
 ↖	šipka doleva nahoru						// [2196] text|emoji
@@ -85,23 +85,23 @@ $textmode
 
 // 2200..22FF : Mathematical Operators
 
-//∂	delta								// [2202] other (no translation)
-//∑	sum sign							// [2211] other (no translation)
-//−	minus								// [2212] other (no translation)
-//∗	asterisk							// [2217] other (no translation)
-//√	square root							// [221A] other (no translation)
-//∛	cube root							// [221B] other (no translation)
-//∝	proportional to							// [221D] other (no translation)
-//∞	infinity							// [221E] other (no translation)
-//∫	integral							// [222B] other (no translation)
-//∬	double integral							// [222C] other (no translation)
-//∴	therefore							// [2234] other (no translation)
-//∵	because								// [2235] other (no translation)
-//≈	approximately							// [2248] other (no translation)
-//≠	not equal to							// [2260] other (no translation)
-//≡	identical to							// [2261] other (no translation)
-//≤	less or equal to						// [2264] other (no translation)
-//≥	greater or equal to						// [2265] other (no translation)
+∂	delta								// [2202] text|emoji
+∑	znak sumy							// [2211] text|emoji
+−	mínus								// [2212] text|emoji
+∗	hvězdička							// [2217] text|emoji
+√	odmocnina							// [221A] text|emoji
+∛	třetí odmocnina							// [221B] text|emoji
+∝	úměrné								// [221D] text|emoji
+∞	nekonečno							// [221E] text|emoji
+∫	integrál							// [222B] text|emoji
+∬	dvojitý integrál						// [222C] text|emoji
+∴	proto								// [2234] text|emoji
+∵	protože								// [2235] text|emoji
+≈	přibližně							// [2248] text|emoji
+≠	nerovná se							// [2260] text|emoji
+≡	identické							// [2261] text|emoji
+≤	menší nebo rovno						// [2264] text|emoji
+≥	větši nebo rovno						// [2265] text|emoji
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -130,12 +130,12 @@ $textmode
 
 // 25A0..25FF : Geometric Shapes
 
-//■	black square							// [25A0] other (no translation)
+■	černý čtverec							// [25A0] text|emoji
 ▪	černý čtvereček							// [25AA] text|emoji
 ▫	bílý čtvereček							// [25AB] text|emoji
 ▶	tlačítko přehrávání						// [25B6] text|emoji
 ◀	tlačítko přehrávání pozpátku					// [25C0] text|emoji
-//●	black circle							// [25CF] other (no translation)
+●	černý kruh							// [25CF] text|emoji
 ◻	střední bílý čtverec						// [25FB] text|emoji
 ◼	střední černý čtverec						// [25FC] text|emoji
 ◽	větší bílý čtvereček						// [25FD]
@@ -184,8 +184,8 @@ $textmode
 ♥	srdce								// [2665] text|emoji
 ♦	káry								// [2666] text|emoji
 ♨	horké prameny							// [2668] text|emoji
-//♭	flat								// [266D] other (no translation)
-//♯	sharp								// [266F] other (no translation)
+♭	bé								// [266D] text|emoji
+♯	křížek								// [266F] text|emoji
 ♻	symbol recyklace						// [267B] text|emoji
 ♾	nekonečno							// [267E] text|emoji
 ♿	symbol invalidního vozíku					// [267F]
