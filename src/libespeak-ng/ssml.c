@@ -218,6 +218,7 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 	int voice_found;
 	espeak_VOICE voice_select;
 	static char voice_name[40];
+	static char identifier[40];
 	char language[40];
 
 	MAKE_MEM_UNDEFINED(&voice_name, sizeof(voice_name));
@@ -230,12 +231,14 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 	voice_select.identifier = NULL;
 
 	for (ix = 0; ix < n_ssml_stack; ix++) {
+		espeak_VOICE *v;
 		sp = &ssml_stack[ix];
 		int voice_name_specified = 0;
 
-		if ((sp->voice_name[0] != 0) && (SelectVoiceByName(NULL, sp->voice_name) != NULL)) {
+		if ((sp->voice_name[0] != 0) && ((v = SelectVoiceByName(NULL, sp->voice_name)) != NULL)) {
 			voice_name_specified = 1;
 			strcpy(voice_name, sp->voice_name);
+			strcpy(identifier, v->identifier);
 			language[0] = 0;
 			voice_select.gender = ENGENDER_UNKNOWN;
 			voice_select.age = 0;
@@ -256,7 +259,10 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 			}
 
 			if (voice_name_specified == 0)
+			{
 				voice_name[0] = 0; // forget a previous voice name if a language is specified
+				identifier[0] = 0;
+			}
 		}
 		if (sp->voice_gender != ENGENDER_UNKNOWN)
 			voice_select.gender = sp->voice_gender;
@@ -268,7 +274,9 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 	}
 
 	voice_select.name = voice_name;
+	voice_select.identifier = identifier;
 	voice_select.languages = language;
+
 	v_id = SelectVoice(&voice_select, &voice_found);
 	if (v_id == NULL)
 		return "default";

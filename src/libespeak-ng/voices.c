@@ -1110,7 +1110,8 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	}
 
 	// select and sort voices for the required language
-	nv = SetVoiceScores(&voice_select2, voices, 0);
+	nv = SetVoiceScores(&voice_select2, voices,
+			voice_select2.identifier && strncmp(voice_select2.identifier, "mb/", 3) == 0 ? 1 : 0);
 
 	if (nv == 0) {
 		// no matching voice, choose the default
