@@ -1,0 +1,109 @@
+
+
+// letter names
+b	be
+c	tse
+d	de
+f	ef
+g	ge
+h	ha
+j	Zot
+k	ka
+l	el
+m	em
+n	en
+p	pe
+q	ku
+r	er
+s	es
+t	te
+v	ve
+w	d'uplik||ve
+x	iks
+y	ipsilon
+z	zet
+
+
+// numbers
+_0	n'ul
+_1	un
+_2	du
+_3	tRi
+_4	kw'aR
+_5	kw'in
+_6	siks
+_7	s'et
+_8	'ot
+_9	n'in
+_1X	d'etsi
+_20	d'uant
+_2X	duant
+_30	tR'iant
+_3X	tRiant
+_40	kwaR'ant
+_4X	kwaRant
+_50	kwin'ant
+_5X	kwinant
+_60	siks'ant
+_6X	siksant
+_70	set'ant
+_7X	setant
+_80	ot'ant
+_8X	otant
+_90	ninant
+_9X	n'inant
+_0C	ts'ent
+_2C	d'utsent
+_3C	tR'itsent
+_4C	kw'aRtsent
+_5C	kw'in|ts'ent
+_6C	siks|ts'ent
+_7C	s'et|ts'ent
+_8C	'ot|tsent
+_9C	n'ints'ent
+_0M1	m'il
+_1M	mil_:
+_2M	d'u_:mil
+_3M	tR'i_:mil
+_4M	kw'aR_:mil
+_5M	kw'in_:mil
+_6M	s'iks_:mil
+_7M	s'et_:mil
+_8M	'ot_:mil
+_9M	n'in_:mil
+
+_dpt	k'oma
+
+1-im	prim
+
+// unstressed words
+li	$nounf $u+
+un	$nounf $u+
+e	$u+ $brk  // and
+
+// pronouns
+li	$u+
+ili	$u+
+ella	$u+
+
+mi	$u+	// possessive
+nor	$u+
+vor	$u+
+su	$u+
+lor	$u+
+
+
+// prepositions
+a	$u+ $brk
+al	$u+ $brk
+de	$u+
+del	$u+
+por	$u+
+
+
+// verbs
+es	$u+
+esset	$u+
+ha	$u+
+va	$u+
+vell	$u+
