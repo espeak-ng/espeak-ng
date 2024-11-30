@@ -44,7 +44,7 @@ phoneme 3                              // open-mid central unrounded vowel
   vwl starttype #@ endtype #@
   ipa ɜ
   unr cnt mid
-  length 140
+  length 150
   FMT(vowel/3_3)
 endphoneme
 
