@@ -15,6 +15,7 @@ then
 fi
 done
 
+test_phwav ady ef498ca8b30d64698cd391daf144793e06e587f5 "ma na Na pa ta ka ba da ga fa Ta sa Sa xa ha va Da za Za tSa dZa la ra ja wa t2a t#a d#a z#a r-a z/2a w#a m- n- N- _:_ mI mE ma m0 mV mU mi: mA: mO: mu: m3: mA@ mO@ mo@ mU@ mi@3 mIR mVR mi@ me@ mi m@ m3 me# mI# mI2 meI maI mOI moU maU maa mO2 maI@ maI3 maU@"
 test_phwav af c71ab424d045d9fa82d2a23b9be4542aee3ed15e "ma na Na pa ta ka tSa ba da ga dZa fa sa x2a Sa va za Za ca la ja ra r/a _:_ m@ ma mE mI mO mW mu m& m&: m@L mA: me@ mi mo@ my miu m@U maI mAI meI mOI moI muI mYy mY@ maU me: mO: m3: mA~ me~ mo~"
 test_phwav am 4fcdb9bb68b72c06e4cadf91b2c1e244ea14ac21 "ma na Na pa ta ka ?a ba da ga p\`a t\`a k\`a tSa dZa tS\`a Ba sa za Sa Za xa ha la ja wa ra _:_ mi me my ma m@ mo mu"
 test_phwav an 33304ad847d920652c74e1c51d12bbe6de9a182d "ma na Na pa ta tSa ka ba da ga fa Ta sa Sa ja wa la l^a ra Ra _:_ ma ma/ me me/ mi mo mo/ mu"

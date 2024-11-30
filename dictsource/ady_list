@@ -1,0 +1,261 @@
+// This file is UTF-8 encoded
+// translation rules for Adyghe
+
+
+// Letters
+
+а     a:
+б     b@
+в     v@
+г     g@
+гу    gw@
+гъ    Q"@
+гъу   Q"w@
+д     d@
+дж    dZ@
+дз    dz@
+дзу   dzw@
+е     ja
+ё     jo
+ж     Z@
+жъ    z.@
+жъу   z.w@
+жь    Z;@
+з     z@
+и     j@
+й     j@k`akw'@
+к     k@
+ку    kw@
+къ    q@
+къу   qw@
+кI    k`@
+кIу   k`w@
+л     l@
+лъ    l#@
+лI    l#?@
+м     m@
+н     n@
+о     wa
+п     p@
+пI    p`@
+пIу   p`w@
+р     r@
+с     s@
+т     t@
+тI    t`@
+тIу   t`w@
+у     w3
+ф     f@
+х     x@
+хъ    X@
+хъу   Xw@
+хь    H@
+ц     ts@
+цу    tsw@
+цI    ts`?w@
+ч     tS;@
+чI    tS`?@
+чъ    ts.@
+ш     S@
+шъ    s.@
+шъу   s.w@
+шI    S?@
+шIу   S?w@
+щ     S;@
+ъ     p@t,a||tam'@Q"
+ы     @
+ь     s.ab,a||tam'@Q"
+э     a
+ю     ju
+я     ja
+Ӏ     ?@
+Ӏу    ?w@
+
+
+// Numbers
+
+_0       nw'3l
+_1       z'@
+_2       t`w'@
+_3       S;'@
+_4       pl#?'@
+_5       tf'@
+_6       x'@
+_7       bl'@
+_8       'i
+_9       bQ"w'3
+
+_10      pS?'@
+_1X      pS?@k`w@||
+
+_20      t`wak`'@
+_21      t`wak`@ra||z@r'a
+_22      t`wak`@ra||t`w@r'a
+_23      t`wak`@ra||S;@r'a
+_24      t`wak`@ra||pl#?@r'a
+_25      t`wak`@ra||tf@r'a
+_26      t`wak`@ra||x@r'a
+_27      t`wak`@ra||bl@r'a
+_28      t`wak`@ra||ir'a
+_29      t`wak`@ra||bQ"w3r'a
+
+_30      S;ajk`'@
+_31      S;ajk`@ra||z@r'a
+_32      S;ajk`@ra||t`w@r'a
+_33      S;ajk`@ra||S;@r'a
+_34      S;ajk`@ra||pl#?@r'a
+_35      S;ajk`@ra||tf@r'a
+_36      S;ajk`@ra||x@r'a
+_37      S;ajk`@ra||bl@r'a
+_38      S;ajk`@ra||ir'a
+_39      S;ajk`@ra||bQ"w3r'a
+
+_40      t`wak`it`w'3
+_41      t`wak`it`w3ra||z@r'a
+_42      t`wak`it`w3ra||t`w@r'a
+_43      t`wak`it`w3ra||S;@r'a
+_44      t`wak`it`w3ra||pl#?@r'a
+_45      t`wak`it`w3ra||tf@r'a
+_46      t`wak`it`w3ra||x@r'a
+_47      t`wak`it`w3ra||bl@r'a
+_48      t`wak`it`w3ra||ir'a
+_49      t`wak`it`w3ra||bQ"w3r'a
+
+_50      s.an;@k`w'a
+_51      s.an;@k`wara||z@r'a
+_52      s.an;@k`wara||t`w@r'a
+_53      s.an;@k`wara||S;@r'a
+_54      s.an;@k`wara||pl#?@r'a
+_55      s.an;@k`wara||tf@r'a
+_56      s.an;@k`wara||x@r'a
+_57      s.an;@k`wara||bl@r'a
+_58      s.an;@k`wara||ir'a
+_59      s.an;@k`wara||bQ"w3r'a
+
+_60      t`wak`'iS;
+_61      t`wak`'iS;@ra||z@r'a
+_62      t`wak`'iS;@ra||t`w@r'a
+_63      t`wak`'iS;@ra||S;@r'a
+_64      t`wak`'iS;@ra||pl#?@r'a
+_65      t`wak`'iS;@ra||tf@r'a
+_66      t`wak`'iS;@ra||x@r'a
+_67      t`wak`'iS;@ra||bl@r'a
+_68      t`wak`'iS;@ra||ir'a
+_69      t`wak`'iS;@ra||bQ"w3r'a
+
+_70      t`wak`'iS;@ra||pS?@r'a
+_71      t`wak`'iS;@ra||pS?@k`w3||z@r'a
+_72      t`wak`'iS;@ra||pS?@k`w3||t`w@r'a
+_73      t`wak`'iS;@ra||pS?@k`w3||S;@r'a
+_74      t`wak`'iS;@ra||pS?@k`w3||pl#?@r'a
+_75      t`wak`'iS;@ra||pS?@k`w3||tf@r'a
+_76      t`wak`'iS;@ra||pS?@k`w3||x@r'a
+_77      t`wak`'iS;@ra||pS?@k`w3||bl@r'a
+_78      t`wak`'iS;@ra||pS?@k`w3||ir'a
+_79      t`wak`'iS;@ra||pS?@k`w3||bQ"w3r'a
+
+_80      t`wak`ipl#?@
+_81      t`wak`ipl#?@ra||z@r'a
+_82      t`wak`ipl#?@ra||t`w@r'a
+_83      t`wak`ipl#?@ra||S;@r'a
+_84      t`wak`ipl#?@ra||pl#?@r'a
+_85      t`wak`ipl#?@ra||tf@r'a
+_86      t`wak`ipl#?@ra||x@r'a
+_87      t`wak`ipl#?@ra||bl@r'a
+_88      t`wak`ipl#?@ra||ir'a
+_89      t`wak`ipl#?@ra||bQ"w3r'a
+
+_90      t`wak`ipl#?@ra||pS?@r'a
+_91      t`wak`ipl#?@ra||pS?@k`w3||z@r'a
+_92      t`wak`ipl#?@ra||pS?@k`w3||t`w@r'a
+_93      t`wak`ipl#?@ra||S;@r'a
+_94      t`wak`ipl#?@ra||pl#?@r'a
+_95      t`wak`ipl#?@ra||tf@r'a
+_96      t`wak`ipl#?@ra||x@r'a
+_97      t`wak`ipl#?@ra||bl@r'a
+_98      t`wak`ipl#?@ra||ir'a
+_99      t`wak`ipl#?@ra||bQ"w3r'a
+
+_0C      s.'a
+_1C0     s.'a
+_1C      s.ar,a||
+_2C0     s.it`'u
+_2C      s.it`ur,a||
+_3C0     s.'iS;
+_3C      s.iS@r,a||
+_4C0     s.'ipl#?
+_4C      s.ipl#?@r,a||
+_5C0     s.'itf
+_5C      s.itf@r,a||
+_6C0     s.'ix
+_6C      s.ix@r,a||
+_7C0     s.'ibl
+_7C      s.ibl@r,a||
+_8C0     s.'ij
+_8C      s.ij@r,a||
+_9C0     s.ibQ"w'3
+_9C      s.ibQ"w3r,a||
+
+_0M1     m'in
+_1M1     m'in
+_2M1     minit`w'3
+_3M1     min'iS;
+
+_0M2     milliw'an
+_1M2     milliw'an
+_2M2     milliwanit`'u
+
+_0M3     milli'a:rd
+_1M3     milli'a:rd
+_2M3     millia:rdint`w'3
+_3M3     millia:rd'iS;
+
+_dpt     qam@q'a
+
+
+// Pronouns
+
+адрэр   $u      // that
+ар      $u      // it, that, he, she
+ахэр    $u      // those, those, things, they 
+ащ      $u      // he, that
+дыухэр  $u      // those
+дыуэр   $u      // that
+ежь     $u      // himself
+ежьхэ   $u      // they, themselves
+къаум   $u      // few, several, some
+лъэужь  $u      // what
+лъэужьэу   $u   // whatever
+лӏэу    $u      // what
+мэдрэр  $u      // this
+мэр     $u      // this
+мэхэр   $u      // these
+о       $u $atend  // you
+о       wa
+сыд     $u      // what
+сыдэу   $u      // whatever
+сыдэущтэу $u    // how
+сэ      $u      // I
+тары    $u      // which
+тэ      $u      // we
+тэщтэу  $u      // how
+уыдрэр  $u      // that
+уэр     $u      // that
+шъо     $u      // you
+шъхьадж $u      // every
+
+
+// Conjunctions
+
+пае      $u $pause   // for, in order to
+папкӏэ   $u $pause   // for
+фэшӏкӏэ  $u $pause   // because of, for
+шъхьае   $u $pause   // for
+
+
+// Prepositions
+
+
+// Postpositions
+
+ипашъхьэ  $u $brk  // in front of
