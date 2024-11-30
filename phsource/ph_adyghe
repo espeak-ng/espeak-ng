@@ -40,13 +40,6 @@ phoneme u
   FMT(vowel/u_bck)
 endphoneme
 
-phoneme i#
-  vwl starttype #@ endtype #@
-  ipa ɨ
-  length 150
-  FMT(vowel/ii#_2)
-endphoneme
-
 phoneme 3                              // open-mid central unrounded vowel
   vwl starttype #@ endtype #@
   ipa ɜ
