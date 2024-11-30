@@ -137,14 +137,6 @@ phoneme ts.
   WAV(ustop/ts_rfx)
 endphoneme
 
-phoneme ts.`
-  vls pla frc sib
-  lengthmod 3
-  Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
-  Vowelout f1=0  f2=1800 -100 300  f3=-300 80
-  WAV(ustop/ts_rfx_unasp)
-endphoneme
-
 phoneme dz.
   vcd pla afr sib
   lengthmod 5
@@ -162,11 +154,6 @@ phoneme dz.
   FMT(dzh/dzh2) addWav(ustop/tsh2, 80)
 endphoneme
 
-phoneme #
-  vcd alv nas
-  FMT(n/nm)
-endphoneme
-
 phoneme t#        // dental variant of /t/
   vls dnt stp
   lengthmod 2
@@ -177,41 +164,6 @@ phoneme t#        // dental variant of /t/
     WAV(ustop/t_dnt, 35)
   ENDIF
   WAV(ustop/t_dnt, 50)
-endphoneme
-
-phoneme k#
-  import_phoneme consonants/k#
-endphoneme
-
-phoneme k;
-  vls pal stp
-  lengthmod 2
-  Vowelin f1=0  f2=2700 400 600  f3=400 80
-  Vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
-  WAV(ustop/ki)
-endphoneme
-
-phoneme g;
-  vcd pla stp
-  lengthmod 5
-
-  IF PreVoicing THEN
-    FMT(dzh/xdz_pzd)
-  ENDIF
-
-  Vowelin f1=2  f2=2700 400 600  f3=300 80
-  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
-
-  IF KlattSynth THEN
-    FMT(klatt/dz_pzd) addWav(ustop/ki, 60)
-  ENDIF
-
-
-  FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
-endphoneme
-
-phoneme ph
-  import_phoneme consonants/ph
 endphoneme
 
 phoneme r
