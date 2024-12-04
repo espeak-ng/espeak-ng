@@ -272,6 +272,9 @@
   <Target Name="lv" Inputs="$(ProjectDir)..\..\dictsource\lv_rules;$(ProjectDir)..\..\dictsource\lv_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\lv_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=lv" />
   </Target>
+  <Target Name="mfe" Inputs="$(ProjectDir)..\..\dictsource\mfe_rules;$(ProjectDir)..\..\dictsource\mfe_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\mfe_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mfe" />
+  </Target>
   <Target Name="mi" Inputs="$(ProjectDir)..\..\dictsource\mi_rules;$(ProjectDir)..\..\dictsource\mi_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\mi_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mi" />
   </Target>
