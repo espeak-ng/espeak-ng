@@ -1,0 +1,120 @@
+// This file is UTF-8 encoded
+// translation rules for Mauritian Creole
+
+
+// Letters
+
+$textmode
+b    be
+ch   che
+d    de
+f    ef
+g    ge
+h    hach
+j    ji
+k    ka
+l    el
+m    em
+n    enn
+p    pe
+r    er
+s    es
+t    te
+v    ve
+w    doubve
+x    ix
+y    igrek
+z    zed
+$phonememode
+
+
+// Numbers
+
+_0   zer'o
+_1   'En
+_2   d['e
+_3   t[rw'a
+_4   k'at[
+_5   s'enk
+_6   s'is
+_7   s'et[
+_8   w'it[
+_9   n'ef
+
+_10  d['is
+_11  'O~z
+_12  d['uz
+_13  t[r'ez
+_14  kat['orz
+_15  k'enz
+_16  s'ez
+_17  d[is'et[
+_18  d[izw'it[
+_19  d[izn'ef
+
+_20  v'En
+_21  v,Ent[e'En
+_2X  v,En
+_30  t[r'A~t[
+_31  t[rA~t[e'En
+_3X  t[r,A~t[
+_40  kar'ant[
+_41  kar,ant[e'En
+_4X  kar,ant
+_50  sE~k'ant[
+_51  sE~kA~t[e'En
+_5X  sE~k,A~t[
+_60  swas'A~t[
+_61  swasA~t[e'En
+_6X  swas,A~t[
+_70  swas,and['is
+_71  swas,an'O~z
+_72  swas,and['uz
+_73  swas,ant[r'ez
+_74  swas,ant[kat['orz
+_75  swas,ant[k'enz
+_76  swas,ant[s'ez
+_77  swas,ant[d[is'et[
+_78  swas,ant[d[izw'it[
+_79  swas,ant[d[izn'ef
+_80  kat[rov'E~
+_81  kat[rovE~e'Enn
+_8X  kat[rov,E~
+_90  kat[rov,E~d['is
+_91  kat[rov,E~'O~z
+_92  kat[rov,E~d['uz
+_93  kat[rov,E~t[r'ez
+_94  kat[rov,E~kat['orz
+_95  kat[rov,E~k'enz
+_96  kat[rov,E~s'ez
+_97  kat[rov,E~d[is'et[
+_98  kat[rov,E~d[izw'it[
+_99  kat[rov,E~d[izn'ef
+
+_0C  s'A~
+_1C  s'A~
+
+_0M1 m'il
+_1M1 m'il
+
+_0M2  milj'O~
+
+_dpt  virg,Vl
+_roman  rom'E~
+
+
+// Pronouns
+
+mo  $u     // I
+mwa $u     // me
+to  $u     // you, your
+twa $u     // you
+ou  $u     // you, your
+li  $u     // he, she, it
+nou $u     // we, our
+zot $u     // you
+bannla $u  // they, them
+zot $u     // they, them, their
+so  $u     // his, her
+
+

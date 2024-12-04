@@ -1,0 +1,118 @@
+// This file is UTF-8 encoded
+// translation rules for Mauritian Creole
+
+// Consonants
+.L01 b ch d f g h j k l m n p r s t v w x y z
+
+
+.group a
+   a       a
+   a (_   'a
+   a (L01_ 'a
+   a (L01L01_ 'a
+   an (_  'A~
+   ann     an
+   ann (_ 'an
+
+.group b
+   b       b
+
+.group ch
+   ch      tS
+
+.group d
+   d       d[
+
+.group e
+   e       e
+   e (_   'e
+   e (L01_ 'e
+   e (L01L01_ 'e
+   en (_  'E~
+   er      Wr
+   er (_   'Wr
+   enn     En
+   enn (_ 'En
+
+.group f
+   f       f
+
+.group g
+   g       g
+   gn      n^
+
+.group h
+   h       h
+
+.group i
+   i       i
+   i (_   'i
+   i (L01_ 'i
+   i (L01L01_ 'i
+   in (_  'E~
+   inn     in
+   inn (_ 'in
+
+.group j
+   j       Z
+
+.group k
+   k       k
+
+.group l
+   l       l
+
+.group m
+   m       m
+
+.group n
+   n       n
+   ng      N
+
+.group o
+   o       o
+   o (_   'o
+   o (L01_ 'o
+   o (L01L01_ 'o
+   on (_   'O~
+   ou      u
+   ou (_  'u
+   onn     On
+   onn (_ 'On
+   ounn    un
+   ounn (_ 'un
+
+.group p
+   p       p
+
+.group r
+   r       r
+
+.group s
+   s       s
+   sh      S
+
+.group t
+   t       t[
+
+.group u
+   u       V
+   u (_   'V
+   u (L01_ 'V
+   u (L01L01 'V
+
+.group v
+   v       v
+
+.group w
+   w       w
+
+.group x
+   x       ks
+
+.group y
+   y       j
+
+.group z
+   z       z
+   
