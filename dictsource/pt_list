@@ -10,6 +10,8 @@
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
 //  Any [E] or [O] phonemes in unstressed words must be listed explicitly
 
+// $1..$7  change the stressed syllable from the 1st to the 7th
+// $text   specify another "sounds like" word, rather than specifying the phoneme string of a word
 
 // Note for "pt-pt" [R] is the same sound as [r]
 //      for "pt" [y] is the same sound as [i]
@@ -1457,11 +1459,6 @@ xerox	S'E*Oks
 yes        j'Es
 
 
-// common person names
-alan       'al@N
-louis       _^_FR
-
-
 // foreign product names
 ?1 access      'aks,Es
 ?1 adobe       &d'Oby
@@ -1531,86 +1528,638 @@ twitter  tw'iter
    ubuntu      ub'untu
 ?1 unix        ,u:n'iks
 ?2 unix        j'uniks
-     wagner     v'agner
-?3 wagner        v'agIner
 ?1 windows     w'iNd'ou:z
 ?2 windows     w'iNdows
 ?1 window     w'iNd'ou
 ?2 window      w'iNdow
 
 
-// historical/famous person  s
-?2 Alzheimer	aUz'aImEr
-babbage       b'abidZ
-bernhard      bern'ard
-darwin        d'Arwin
-dijkstra      d'ijkstrA:
-einstein      _!'aInSt,aIn
-?2   einstein      _!'aInst,aIn
+// historical and famous people
+alzheimer	aUz'aImEr
+babbage		b'abidZ
+bernhard	bern'ard
+biden		_^_EN
+?1 darwin		d'Arwin
+?2 darwin		d'Arvin
 ?2 diderot	didex'o
-feuerbach   _^_DE
-feynman       f'ainm@n
-freud         fR'OId
-friedrich     fR'i:dRiS
-gauss         g'aUs
-geisel        g'aIzEU
-gottfried     g'OtfRi:t
-hegel   x'egel
-heidegger   h'aIdege
-hawking       h'o:king
-heisenberg    h'aIzEnberg
-hitler        h'itler
+dijkstra	d'ijkstrA:
+?1 einstein	_!'aInSt,aIn
+?2 einstein	_!'aInst,aIn
+feuerbach	_^_DE
+feynman		f'ainm@n
+françois	fR&~Nsw'a
+freud		fR'OId
+friedrich	fR'i:dRiS
+garibaldi	$3
+gauss		g'aUs
+geisel		g'aIzEU
+gottfried	g'OtfRi:t
+hamlet		x'&mlet
+hawking		h'o:king
+hegel		x'egel
+heidegger	h'aIdege
+heisenberg	h'aIzEnberg
+hitler		h'itler
 ?2 hobbes	x'Obys
-husserl   x'usEl
+husserl		x'usEl
 ?1 isaac	iz'&k
 ?2 isaac	iz'ac
-lavoisier     lavwazj'e
-leibniz       l'aIbni:ts
-locke	lOk
-montesquieu   m,oNteskj'e
-neumann       n'OIman
-newton	n'I;utoN
-oppenheimer   _!'Op@nh,aImar
-richard       x'iS&rd
-riemann       r'i:man
-rijndael      x'ain;d'al 
-rousseau      xus'o
-schrödinger   Sr'edinger
-stephen       st'i:v@n
-steve         st'i:v
-turing        t'u*iNg
-voltaire      vOlt'Er
-von           f%On
+kennedy		$1
+kubitschek	k,ubyS'Ek
+lavoisier	lavwazj'e
+leibniz		l'aIbni:ts
+locke		lOk
+montesquieu	m,oNteskj'e
+mozart		$1
+neumann		n'OIman
+newton		n'I;utoN
+oppenheimer	_!'Op@nh,aImar
+richard		x'iS&rd
+riemann		r'i:man
+rijndael	x'ain;d'al
+rousseau	xus'o
+russell		x'usEl
+schrödinger	Sr'edinger
+stephen		st'i:v@n
+steve		st'i:v
+trump		_^_EN
+turing		t'u*iNg
+voltaire	vOlt'Er
+von		f%On
 
 
-// foreign common names/surnames
-?1   alison       &l'is&N
-anderson  '&ndersoN
-antonio	&~Nt'onIU
-?1   cleverson    kl'Evyrs&N
-?2   cleverson    kl'EversoN
-?1   elton        'Elt&N
-emerson 'emE*@-soN
-?1   halison      &l'is&N
-klein       kl'aIn      // Very common on southern Brazil.
-?1   kleverson       kl'Evers&N
-krueger     kR'iZer
-krüger      kR'iZer
-kühl        k'il
-?2 john	dZIoN
-?2 juan  xu&~N
-mike	maIk
-mueler      m'iler
-mueller     m'iler
-müler       m'iler
-müller      m'iler
-?1   nelson       n'Els&N
-?2 robert	x'obe*@-t
-ronchi      r'OnCi:
- Scarlet	sk'a*@-let
-valter	v'aUter
-vogel       f'o:g@l
-volkmann    f'Olkman
+// foreign names and surnames
+adrian		$1
+alan		$1
+albert		$1
+alexander	$3
+andrew		$1
+anthony		$1
+arnold		$1
+ashley		$1
+brandon		$1
+brian		bR'aI;&~N
+bryan		bR'aI;&~N
+caleb		$alt1
+christian	$1
+christopher	$1
+cleverson	$1 $alt1
+cynthia		$1
+deborah		$1 $alt1
+dennis		$1
+donald		$1
+edward		$1 $alt1
+elton		$1 $alt1
+emerson		$1 $alt1
+emily		$1
+eric		$1 $alt1
+erick		$1 $alt1
+evelyn		$1 $alt1
+francis		$1
+franklin	$1
+gregory		$1 $alt1
+hannah		x'&~n&
+helen		$1 $alt1
+herbert		$1 $alt1
+james		Z'eimys
+jason		Z'eIson
+jerry		$1 $alt1
+joe		ZI'oU
+john		ZI'oN
+jonathan	$1
+jordan		$1 $alt1
+joseph		$1
+joshua		$1 $alt1
+josie		$1
+juan		xu&~N
+kathleen	$1
+kevin		$1 $alt1
+kimberly	$1
+klein		kl'aIn
+kleverson	$1 $alt1
+krueger		kR'i:ger
+krüger		kR'i:ger
+kühl		k'il
+louis		lw'i
+luigi		lU'iZI
+marjorie	$1
+marlon		$1
+michael		_^_EN
+mike		maIk
+mueler		m'iler
+mueller		m'iler
+müler		m'iler
+müller		m'iler
+nelson		$1 $alt1
+nicholas	nícolas	$text
+norton		$1 $alt1
+oliver		$1 $alt1
+patrick		$1
+paul		p'O:l
+robert		$1 $alt1
+robinson	$1
+roger		$1
+ronald		$1
+ronchi		r'Onki:
+ryan		x'aI&n
+sarah		$1
+scarlet		$1
+sharon		$1
+shirley		$1
+stephanie	$1 $alt1
+susan		$1
+tiffany		$1
+vogel		f'o:g@l
+volkmann	f'Olkman
 washington	w'OSinton
-wellington	w'Elynton
+william		$1
+
+
+// names and surnames
+abilio		abílio $text
+abner		ábner $text
+abraao		abraão $text
+abrao		abrão $text
+acacia		acácia $text
+acacio		acácio $text
+adao		adão $text
+adelia		adélia $text
+adelio		adélio $text
+ademario	ademário $text
+adonis		adônis $text
+adria		ádria $text
+aecio		aécio $text
+afranio		afrânio $text
+agata		ágata $text
+agatha		ágata $text
+ailton		aílton $text
+alexia		aléxia $text
+alison		álisson $text
+alisson		álisson $text
+aloisio		aloísio $text
+aluisio		aluísio $text
+alvaro		álvaro $text
+amalia		amália $text
+ambrosio	ambrósio $text
+amelia		amélia $text
+amelio		amélio $text
+america		américa $text
+americo		américo $text
+amilcar		amílcar $text
+amilton		amílton $text
+analia		anália $text
+anderson	ânderson $text
+andrea		andréa $text
+andre		andré $text
+andreia		andréia $text
+andressa	$alt2
+angela		ângela $text
+angelica	angélica $text
+angelo		ângelo $text
+anibal		aníbal $text
+?1 antonia	antónia $text
+?2 antonia	antônia $text
+antonieta	$alt2
+?1 antonio	antónio $text
+?2 antonio	antônio $text
+apolinario	apolinário $text
+?1 apolonia	apolónia $text
+?2 apolonia	apolônia $text
+?1 apolonio	apolónio $text
+?2 apolonio	apolônio $text
+arao		arão $text
+araujo		araújo $text
+aristoteles	aristóteles $text
+arnobio		arnóbio $text
+arnoldo		$alt2
+?1 arsenio	arsénio $text
+?2 arsenio	arsênio $text
+assuncao	assunção $text
+atila		átila $text
+atilio		atílio $text
+aurea		áurea $text
+aurelia		aurélia $text
+aurelio		aurélio $text
+avila		ávila $text
+ayrton		airton $text
+barbara		bárbara $text
+barnabe		barnabé $text
+basilia		basília $text
+basilio		basílio $text
+benicio		benício $text
+brasilia	brasília $text
+braulio		bráulio $text
+brigida		brígida $text
+caique		caíque $text
+candida		cândida $text
+candido		cândido $text
+cassia		cássia $text
+catia		cátia $text
+caua		cauã $text
+caue		cauê $text
+cecilia		cecília $text
+cecilio		cecílio $text
+celia		célia $text
+celio		célio $text
+cesar		césar $text
+cesaria		cesária $text
+cesario		cesário $text
+cicera		cícera $text
+cicero		cícero $text
+cintia		cíntia $text
+clauber		cláuber $text
+claudia		cláudia $text
+claudio		cláudio $text
+cleber		cléber $text
+clecia		clécia $text
+clecio		clécio $text
+clemencia	clemência $text
+clovis		clóvis $text
+conceicao	conceição $text
+constancia	constância $text
+constancio	constâncio $text
+cornelia	cornélia $text
+cornelio	cornélio $text
+cristovao	cristóvão $text
+damiao		damião $text
+danubia		danúbia $text
+dario		dário $text
+debora		débora $text
+decio		décio $text
+demetrio	demétrio $text
+demetrius	demétrius $text
+denis		dênis $text
+deoclecio	deoclécio $text
+diego		$alt2
+diogenes	diógenes $text
+dionisia	dionísia $text
+dionisio	dionísio $text
+?1 domenica	doménica $text
+?2 domenica	domênica $text
+?1 domenico	doménico $text
+?2 domenico	domênico $text
+doris		dóris $text
+eder		éder $text
+ederson		éderson $text
+edesio		edésio $text
+edipo		édipo $text
+efigenia	efigênia $text
+efigenio	efigênio $text
+egidia		egídia $text
+egidio		egídio $text
+elcio		élcio $text
+elder		hélder $text
+elida		élida $text
+elio		hélio $text
+elisangela	elisângela $text
+elisia		elísia $text
+elisio		elísio $text
+eloa		eloá $text
+emilia		emília $text
+emilio		emílio $text
+encarnacao	encarnação $text
+enio		ênio $text
+epitacio	epitácio $text
+erica		érica $text
+erico		érico $text
+esau		esaú $text
+estacio		estácio $text
+estefania	estefânia $text
+estefano	estéfano $text
+estevao		estêvão $text
+estevao		estêvão $text
+eufrasia	eufrásia $text
+eufrasio	eufrásio $text
+?1 eugenio	eugénio $text
+?2 eugenio	eugênio $text
+eulalia		eulália $text
+eulalio		eulálio $text
+euler		êuler $text
+euridice	eurídice $text
+euripedes	eurípedes $text
+eusebio		eusébio $text
+eustaquio	eustáquio $text
+everton		éverton $text
+ewerton		éverton $text
+fabia		fábia $text
+fabio		fábio $text
+fabiola		fabíola $text
+fabricia	fabrícia $text
+fabricio	fabrício $text
+fagner		fágner $text
+fatima		fátima $text
+felicia		felícia $text
+felicio		felício $text
+felix		félix $text
+fidelis		fidélis $text
+flavia		flávia $text
+flavio		flávio $text
+florencia	florência $text
+florencio	florêncio $text
+francilio	francílio $text
+?1 gardenia	gardénia $text
+?2 gardenia	gardênia $text
+gastao		gastão $text
+genesia		genésia $text
+genesio		genésio $text
+getulio		getúlio $text
+glauber		gláuber $text
+glaucia		gláucia $text
+glaucio		gláucio $text
+gloria		glória $text
+goncalo		gonçalo $text
+goncalves	golçalves $text
+gregoria	gregória $text
+gregorio	gregório $text
+hamilton	hamílton $text
+helder		hélder $text
+helia		hélia $text
+helio		hélio $text
+heloisa		heloísa $text
+heloise		heloíse $text
+henriqueta	$alt2
+herminia	hermínia $text
+herminio	hermínio $text
+higor		ígor $text
+hilaria		hilária $text
+hilario		hilário $text
+hilton		ílton $text
+hipolito	hipólito $text
+honorio		honório $text
+horacio		horácio $text
+hortencia	hortência $text
+hortencio	hortêncio $text
+icaro		ícaro $text
+igor		ígor $text
+inacia		inácia $text
+inacio		inácio $text
+ines		inês $text
+inocencia	inocência $text
+inocencio	inocêncio $text
+iris		íris $text
+isaias		isaías $text
+isis		ísis $text
+itala		ítala $text
+italo		ítalo $text
+iuri		iúri $text
+ivanete		$alt1
+jader		jáder $text
+janaina		janaína $text
+janio		jânio $text
+januaria	januária $text
+januario	januário $text
+jeferson	jéferson $text
+jefferson	jéferson $text
+jenifer		jênifer $text
+jennifer	jênifer $text
+jeova		jeová $text
+?1 jeronimo	jerónimo $text
+?2 jeronimo	jerônimo $text
+jessica		jéssica $text
+jesuina		jesuína $text
+jesuino		jesuíno $text
+joao		joão $text
+?1 jonatas	jónata $text
+?2 jonatas	jônata $text
+?1 jonatas	jónatas $text
+?2 jonatas	jônatas $text
+josafa		josafá $text
+jose		josé $text
+joselia		josélia $text
+joselio		josélio $text
+josue		josué $text
+julia		júlia $text
+julieta		$alt2
+juliete		$alt1
+julio		júlio $text
+junia		júnia $text
+junio		júnio $text
+junior		júnior $text
+juvencio	juvêncio $text
+kaique		kaíque $text
+kassia		kássia $text
+katia		kátia $text
+kaua		kauã $text
+kaue		kauê $text
+kecia		kécia $text
+kenia		kênia $text
+kesia		késia $text
+kessia		késsia $text
+kelvia		kélvia $text
+kilvia		kílvia $text
+laisa		laísa $text
+lais		laís $text
+laurencio	laurêncio $text
+lavinia		lavínia $text
+lazaro		lázaro $text
+lelia		lélia $text
+lelio		lélio $text
+leo		léo $text
+leoncio		leôncio $text
+leonidas	leônidas $text
+leopoldo	$alt2
+leticia		letícia $text
+lidia		lídia $text
+liduina		liduína $text
+ligia		lígia $text
+lilia		lília $text
+liliam		líliam $text
+lilian		lílian $text
+liria		líria $text
+lirio		lírio $text
+livia		lívia $text
+livio		lívio $text
+lourenca	lourença $text
+lourenco	lourenço $text
+lucelia		lucélia $text
+lucelio		lucélio $text
+lucia		lúcia $text
+lucilia		lucília $text
+lucilio		lucílio $text
+luciola		lucíola $text
+lucio		lúcio $text
+lucrecia	lucrécia $text
+luisa		luísa $text
+luis		luís $text
+luiza		luísa $text
+lupercio	lupércio $text
+magnolia	magnólia $text
+maicon		máicon $text
+maira		maíra $text
+maisa		maísa $text
+maite		maitê $text
+marcia		márcia $text
+marcilia	marcília $text
+marcilio	marcílio $text
+marcio		márcio $text
+marcus		marcos $text
+mariangela	mariângela $text
+marilia		marília $text
+mario		mário $text
+matusalem	matusalém $text
+mauricia	maurícia $text
+mauricio	maurício $text
+melania		melânia $text
+militao		militão $text
+milton		mílton $text
+miria		miriã $text
+miriam		míriam $text
+mirian		mírian $text
+moises		moisés $text
+?1 monica	mónica $text
+?2 monica	mônica $text
+mucio		múcio $text
+nadia		nádia $text
+narcisio	narcísio $text
+natalia		natália $text
+natalicia	natalícia $text
+natalicio	natalício $text
+nazare		nazaré $text
+nelia		nélia $text
+nelio		nélio $text
+nicolas		nícolas $text
+nidia		nídia $text
+nilton		nílton $text
+nivea		nívea $text
+nivia		nívia $text
+noelia		noélia $text
+?1 noemia	noémia $text
+?2 noemia	noêmia $text
+nubia		núbia $text
+octavio		octávio $text
+ofelia		ofélia $text
+olimpia		olímpia $text
+olimpio		olímpio $text
+olivia		olívia $text
+olivio		olívio $text
+otacilia	otacília $text
+otacilio	otacílio $text
+otavia		otávia $text
+otavio		otávio $text
+pamela		pâmela $text
+paola		$alt2
+paolo		$alt2
+patricia	patrícia $text
+patricio	patrício $text
+penelope	penélope $text
+pericles	péricles $text
+perola		pérola $text
+persio		pérsio $text
+petronio	petrônio $text
+petrucio	petrúcio $text
+placido		plácido $text
+plinio		plínio $text
+porfirio	porfírio $text
+quesia		késia $text
+quezia		késia $text
+quiteria	quitéria $text
+quiterio	quitério $text
+rachel		raquel $text
+raisa		raísa $text
+raissa		raíssa $text
+raiza		raísa $text
+ramao		ramão $text
+raul		raú $text
+regis		régis $text
+rogeria		rogéria $text
+rogerio		rogério $text
+romao		romão $text
+romario		romário $text
+?1 romulo	rómulo $text
+?2 romulo	rômulo $text
+rosalia		rosália $text
+rosangela	rosângela $text
+rosaria		rosária $text
+rosario		rosário $text
+rubia		rúbia $text
+salomao		salomão $text
+salvio		sálvio $text
+sansao		sansão $text
+satiro		sátiro $text
+saul		saú $text
+savia		sávia $text
+savio		sávio $text
+sebastiao	sebastião $text
+sergia		sérgia $text
+sergio		sérgio $text
+silveria	silvéria $text
+silverio	silvério $text
+silvia		sílvia $text
+silvio		sílvio $text
+simao		simão $text
+simeao		simeão $text
+simplicio	simplício $text
+sinesio		sinésio $text
+socrates	sócrates $text
+sonia		sônia $text
+sostenes	sóstenes $text
+suelen		suélen $text
+tacia		tácia $text
+tacio		tácio $text
+taina		tainá $text
+taise		taíse $text
+talia		tália $text
+tania		tânia $text
+tarcisio	tarcísio $text
+teofila		teófila $text
+teofilo		teófilo $text
+teo		téo $text
+teotonio	teotônio $text
+tercia		tércia $text
+tercio		tércio $text
+thais		taís $text
+theo		téo $text
+tiberio		tibério $text
+tiburcio	tibúrcio $text
+timoteo		timóteo $text
+tomasia		tomásia $text
+tulio		túlio $text
+ubirata		ubiratã $text
+uelinton	uélinton $text
+ueslei		uéslei $text
+urania		urânia $text
+ursula		úrsula $text
+vagner		vágner $text
+valdineia	valdinéia $text
+valeria		valéria $text
+valerio		valério $text
+valquiria	valquíria $text
+valter		válter $text
+vanessa		$alt2
+vania		vânia $text
+vanio		vânio $text
+venancia	venância $text
+venancio	venâncio $text
+verissimo	veríssimo $text
+?1 veronica	verónica $text
+?2 veronica	verônica $text
+vicencia	vicência $text
+victoria	victória $text
+victorio	victório $text
+victor		víctor $text
+vinicio		vinício $text
+vinicius	vinícius $text
+virgilia	virgília $text
+virgilio	virgílio $text
+virginia	virgínia $text
+virginio	virgínio $text
+vitoria		vitória $text
+vitorio		vitório $text
+vitor		vítor $text
+vivian		vívian $text
+vladia		vládia $text
+wagner		vágner $text
+waldo		valdo $text
+walter		válter $text
+wanda		vanda $text
+wando		vando $text
+welinton	uélinton $text
+wellington	uélinton $text
+wellinton	uélinton $text
+weslei		uéslei $text
+wesley		uéslei $text
+yuri		iúri $text
+zaira		zaíra $text
+zelia		zélia $text
+zelio		zélio $text
 
