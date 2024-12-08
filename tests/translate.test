@@ -113,3 +113,9 @@ p'a
 k'e:r@l.@m
 t'a:m@ra
 p'o:le" "ക: ത: പ: കേരളം: താമര: പോലെ:"
+
+
+# https://github.com/espeak-ng/espeak-ng/pull/1743
+test_phon ru "k'oS(en)k'A:(ru)" "кошKa"
+test_phon ru "'ju(en)m'Vni(ru)" "юMoney"
+test_phon ru "'ju(en)m'Vni(ru)" "ЮMoney"
