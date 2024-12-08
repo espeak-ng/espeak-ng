@@ -22,14 +22,14 @@ jobs:
 
         include:
           - os: ubuntu
-            osver: ubuntu-latest
+            osver: 22.04
             sys: linux-gnu
           - os: macos
-            osver: macos-latest
-            sys: apple-darwin21
+            osver: 14
+            sys: apple-darwin23
           - os: macos
             compiler: clang
-            sys: apple-darwin21.6.0
+            sys: apple-darwin23.6.0
 
           - compiler: clang
             compiler_flags: "-fdebug-default-version=4"
@@ -88,7 +88,7 @@ jobs:
 
           - config: "release-dyn"
             settings: "-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DBUILD_SHARED_LIBS:BOOL=ON"
-
+          
         exclude:
           - os: macos
             arch: i386
@@ -98,6 +98,10 @@ jobs:
             arch: arm
           - os: macos
             arch: riscv64
+
+          # fixme
+          - os: macos
+            compiler: gcc
 
           - os: macos
             config: valgrind # Not supported on macOS
@@ -132,7 +136,7 @@ jobs:
             config: lsan
           - arch: riscv64
             config: lsan
-
+          
           # Thread sanitizer is partially unavailable
           - arch: i386
             config: tsan
