@@ -25,17 +25,17 @@ jobs:
           - arch: i386
             archcflags: "-m32 -msse2 -mfpmath=sse"
           - os: macos
-            osver: macos-13  # runner.arch is X64
+            osver: 13  # runner.arch is X64
             compiler: gcc
           - os: macos
-            osver: macos-13
+            osver: 13
             compiler: clang
           - os: macos
-            osver: macos-latest  # runner.arch is ARM64
+            osver: latest  # runner.arch is ARM64
             compiler: gcc
           - os: macos
+            osver: latest
             compiler: clang
-            osver: macos-latest
 
     steps:
 
