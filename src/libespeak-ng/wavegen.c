@@ -1343,7 +1343,7 @@ static int WavegenFill2(void)
 #endif
 		case WCMD_MARKER:
 			marker_type = q[0] >> 8;
-			MarkerEvent(marker_type, q[1], q[2], q[3], out_ptr);
+			MarkerEvent(marker_type, q[1], * (int *) & q[2], * ((int *) & q[2] + 1), out_ptr);
 			break;
 		case WCMD_AMPLITUDE:
 			SetAmplitude(length, (unsigned char *)q[2], q[3]);
