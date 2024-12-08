@@ -244,7 +244,6 @@ _с      Es
 э       E
 ю       ju
 я       ja
-ѣ       jat;
 
 // exceptions
 электрификация    $5 // for the unit test pangram
