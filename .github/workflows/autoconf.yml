@@ -15,27 +15,32 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu, macos]
+        os: [ubuntu]
         arch: [amd64, i386]
         compiler: [gcc, clang]
 
         include:
           - os: ubuntu
             osver: ubuntu-latest
-          - os: macos
-            osver: macos-latest
-
           - arch: i386
             archcflags: "-m32 -msse2 -mfpmath=sse"
-
-        exclude:
           - os: macos
-            arch: i386
+            osver: macos-13  # runner.arch is X64
+            compiler: gcc
+          - os: macos
+            osver: macos-13
+            compiler: clang
+          - os: macos
+            osver: macos-latest  # runner.arch is ARM64
+            compiler: gcc
+          - os: macos
+            compiler: clang
+            osver: macos-latest
 
     steps:
 
     # Linux - dependencies
-    - name: apt-build-deps
+    - name: "apt-build-deps ${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
       if: matrix.os == 'ubuntu'
       run: |
         sudo dpkg --add-architecture ${{ matrix.arch }}
@@ -49,7 +54,7 @@ jobs:
       run: sudo apt-get install clang
 
     # MacOS - dependencies
-    - name: brew-deps
+    - name: "brew-deps ${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
       if: matrix.os == 'macos'
       run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown
     - name: brew-compile-deps
@@ -57,7 +62,7 @@ jobs:
       run: brew install gcc@12
 
     # Checkout code
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     # Configure
     - name: configure
