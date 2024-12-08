@@ -94,7 +94,7 @@ typedef enum {
   espeakEVENT_END = 5,             // End of sentence or clause
   espeakEVENT_MSG_TERMINATED = 6,  // End of message
   espeakEVENT_PHONEME = 7,         // Phoneme, if enabled in espeak_Initialize()
-  espeakEVENT_SAMPLERATE = 8       // internal use, set sample rate
+  espeakEVENT_SAMPLERATE = 8       // Set sample rate
 } espeak_EVENT_TYPE;
 
 
