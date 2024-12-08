@@ -99,6 +99,10 @@ jobs:
           - os: macos
             arch: riscv64
 
+          # fixme
+          - os: macos
+            compiler: gcc
+
           - os: macos
             config: valgrind # Not supported on macOS
 
