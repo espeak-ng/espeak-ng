@@ -31,7 +31,7 @@ jobs:
             archconfigflags: ''
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: enable 32bit architecture
         run: sudo dpkg --add-architecture i386
         if: matrix.arch == 'x86-32'
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Run distcheck
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }}
       - name: configure
