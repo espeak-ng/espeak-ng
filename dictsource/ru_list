@@ -140,6 +140,7 @@ _,      zVpit'aja
 или             $atend       // stressed at the end
 ибо       $u $pause  // for
 но        $u $pause  // but
+но        $atend  // but. Stressed at the end
 хотя      $2 $pause  // although
 чтобы        $pause  // in order that
 
@@ -243,6 +244,7 @@ _с      Es
 э       E
 ю       ju
 я       ja
+ѣ       jat;
 
 // exceptions
 электрификация    $5 // for the unit test pangram
