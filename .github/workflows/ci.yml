@@ -25,12 +25,12 @@ jobs:
             osver: 22.04
             sys: linux-gnu
           - os: macos
-            osver: 12
-            sys: apple-darwin21
+            osver: 14
+            sys: apple-darwin23
           - os: macos
             compiler: clang
-            sys: apple-darwin21.6.0
-          
+            sys: apple-darwin23.6.0
+
           - compiler: clang
             compiler_flags: "-fdebug-default-version=4"
 

@@ -23,8 +23,8 @@ jobs:
           - os: ubuntu
             osver: 22.04
           - os: macos
-            osver: 12
-          
+            osver: 14
+
           - arch: i386
             archcflags: "-m32 -msse2 -mfpmath=sse"
 
