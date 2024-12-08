@@ -21,10 +21,10 @@ jobs:
 
         include:
           - os: ubuntu
-            osver: 22.04
+            osver: ubuntu-latest
           - os: macos
-            osver: 12
-          
+            osver: macos-latest
+
           - arch: i386
             archcflags: "-m32 -msse2 -mfpmath=sse"
 
