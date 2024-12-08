@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}-${{ matrix.osver }}
 
-    name: "${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
+    name: "${{ matrix.os }} ${{ matrix.arch }}: ${{ matrix.compiler }}"
     strategy:
       fail-fast: false
       matrix:
@@ -38,7 +38,8 @@ jobs:
             compiler: clang
 
     steps:
-
+    - name: "${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
+      run: echo "${{ runner.os }} ${{ runner.arch }} ${{ matrix.compiler }}"
     # Linux - dependencies
     - name: apt-build-deps
       if: runner.os == 'Linux'
@@ -81,7 +82,7 @@ jobs:
       if: ${{ failure() }}
       uses: actions/upload-artifact@v3
       with:
-        name: config-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}.log
+        name: config-${{ runner.os }}-${{ runner.arch }}-${{ matrix.compiler }}.log
         path: config.log
 
     # Build and test
