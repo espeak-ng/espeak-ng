@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}-${{ matrix.osver }}
 
-    name: "${{ matrix.os }} ${{ matrix.arch }}: ${{ matrix.compiler }}"
+    name: "${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
     strategy:
       fail-fast: false
       matrix:
@@ -40,25 +40,25 @@ jobs:
     steps:
 
     # Linux - dependencies
-    - name: "apt-build-deps ${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
-      if: matrix.os == 'ubuntu'
+    - name: apt-build-deps
+      if: runner.os == 'Linux'
       run: |
         sudo dpkg --add-architecture ${{ matrix.arch }}
         sudo apt-get update
         sudo apt-get install ronn kramdown python3
     - name: apt-arch-deps
-      if: matrix.os == 'ubuntu'
+      if: runner.os == 'Linux'
       run: "sudo apt-get install libtool-bin valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libgcc-s1:${{ matrix.arch }}"
     - name: apt-compile-clang
-      if: matrix.os == 'ubuntu' && matrix.compiler == 'clang'
+      if: runner.os == 'Linux' && matrix.compiler == 'clang'
       run: sudo apt-get install clang
 
     # MacOS - dependencies
-    - name: "brew-deps ${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
-      if: matrix.os == 'macos'
+    - name: brew-deps
+      if: runner.os == 'macOS'
       run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown
     - name: brew-compile-deps
-      if: matrix.os == 'macos' && matrix.compiler == 'gcc'
+      if: runner.os == 'macOS' && matrix.compiler == 'gcc'
       run: brew install gcc@12
 
     # Checkout code
