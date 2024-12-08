@@ -15,49 +15,55 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu, macos]
+        os: [ubuntu]
         arch: [amd64, i386]
         compiler: [gcc, clang]
 
         include:
           - os: ubuntu
             osver: ubuntu-latest
-          - os: macos
-            osver: macos-latest
-
           - arch: i386
             archcflags: "-m32 -msse2 -mfpmath=sse"
-
-        exclude:
           - os: macos
-            arch: i386
+            osver: 13  # runner.arch is X64
+            compiler: gcc
+          - os: macos
+            osver: 13
+            compiler: clang
+          - os: macos
+            osver: latest  # runner.arch is ARM64
+            compiler: gcc
+          - os: macos
+            osver: latest
+            compiler: clang
 
     steps:
-
+    - name: "${{ runner.os }} ${{ runner.arch }}: ${{ matrix.compiler }}"
+      run: echo "${{ runner.os }} ${{ runner.arch }} ${{ matrix.compiler }}"
     # Linux - dependencies
     - name: apt-build-deps
-      if: matrix.os == 'ubuntu'
+      if: runner.os == 'Linux'
       run: |
         sudo dpkg --add-architecture ${{ matrix.arch }}
         sudo apt-get update
         sudo apt-get install ronn kramdown python3
     - name: apt-arch-deps
-      if: matrix.os == 'ubuntu'
+      if: runner.os == 'Linux'
       run: "sudo apt-get install libtool-bin valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libgcc-s1:${{ matrix.arch }}"
     - name: apt-compile-clang
-      if: matrix.os == 'ubuntu' && matrix.compiler == 'clang'
+      if: runner.os == 'Linux' && matrix.compiler == 'clang'
       run: sudo apt-get install clang
 
     # MacOS - dependencies
     - name: brew-deps
-      if: matrix.os == 'macos'
+      if: runner.os == 'macOS'
       run: brew install libtool automake ronn OJFord/homebrew-formulae/kramdown
     - name: brew-compile-deps
-      if: matrix.os == 'macos' && matrix.compiler == 'gcc'
+      if: runner.os == 'macOS' && matrix.compiler == 'gcc'
       run: brew install gcc@12
 
     # Checkout code
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     # Configure
     - name: configure
@@ -76,7 +82,7 @@ jobs:
       if: ${{ failure() }}
       uses: actions/upload-artifact@v3
       with:
-        name: config-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}.log
+        name: config-${{ runner.os }}-${{ runner.arch }}-${{ matrix.compiler }}.log
         path: config.log
 
     # Build and test
