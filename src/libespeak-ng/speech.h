@@ -75,7 +75,7 @@ extern "C"
 
 // will look for espeak_data directory here, and also in user's home directory
 #ifndef PATH_ESPEAK_DATA
-   #define PATH_ESPEAK_DATA  "/usr/share/espeak-ng-data"
+   #define PATH_ESPEAK_DATA ("%cespeak-ng-data", PATHSEP)
 #endif
 
 void cancel_audio(void);

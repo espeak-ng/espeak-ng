@@ -271,7 +271,7 @@ typedef struct {
 typedef struct {
 	const char *name;
 	int offset;
-	unsigned short range_min, range_max;
+	unsigned int range_min, range_max;
 	int language;
 	int flags;
 } ALPHABET;

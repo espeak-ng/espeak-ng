@@ -59,6 +59,7 @@
 #define OFFSET_GEORGIAN 0x10a0
 #define OFFSET_KOREAN   0x1100
 #define OFFSET_ETHIOPIC 0x1200
+#define OFFSET_SHAVIAN  0x10450
 
 // character ranges must be listed in ascending unicode order
 static const ALPHABET alphabets[] = {
@@ -89,6 +90,7 @@ static const ALPHABET alphabets[] = {
 	{ "_ja",    0x3040,          0x3040, 0x30ff, 0, AL_NOT_CODE },
 	{ "_zh",    0x3100,          0x3100, 0x9fff, 0, AL_NOT_CODE },
 	{ "_ko",    0xa700,          0xa700, 0xd7ff, L('k', 'o'), AL_NOT_CODE | AL_WORDS },
+	{ "_shaw",  OFFSET_SHAVIAN,  0x10450, 0x1047F, L('e', 'n'), 0 },
 	{ NULL, 0, 0, 0, 0, 0 }
 };
 
@@ -768,7 +770,7 @@ Translator *SelectTranslator(const char *name)
 		if (name2 == L('c', 'a')) {
 			// stress last syllable unless word ends with a vowel
 			tr->punct_within_word = ca_punct_within_word;
-			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
+			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2 | S_FIRST_PRIMARY;
 		} else if (name2 == L('i', 'a')) {
 			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
