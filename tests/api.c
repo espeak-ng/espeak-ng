@@ -610,9 +610,9 @@ test_espeak_ng_phoneme_events(int enabled, int ipa) {
 	TEST_ASSERT(espeak_ng_Synchronize() == ENS_OK);
 	if (enabled) {
 		if (ipa) {
-			TEST_ASSERT(strncmp(phoneme_events, "t ɛ s t  ", sizeof(phoneme_events)) == 0);
+			TEST_ASSERT(strncmp(phoneme_events, "t ˈɛ s t  ", sizeof(phoneme_events)) == 0);
 		} else {
-			TEST_ASSERT(strncmp(phoneme_events, "t E s t _: _", sizeof(phoneme_events)) == 0);
+			TEST_ASSERT(strncmp(phoneme_events, "t 'E s t _: _", sizeof(phoneme_events)) == 0);
 		}
 	} else {
 		TEST_ASSERT(phoneme_events[0] == 0);
