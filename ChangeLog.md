@@ -9,6 +9,8 @@ The espeak-ng project is a fork of the espeak project.
 
 ### 1.52 (In Development)
 
+*  Add stress marks to phoneme events (Rotem Dan)
+
 android:
 *  Added directBoot support -- beqabeqa473
 
