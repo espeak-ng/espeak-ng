@@ -19,11 +19,6 @@ AC_ARG_ENABLE([rpath],
     [],
     [enable_rpath=yes])
 
-AC_ARG_WITH([gradle],
-    [AS_HELP_STRING([--with-gradle], [specify the gradle program to use @<:@default=gradle@:>@])],
-    [GRADLE=$with_gradle],
-    [GRADLE=gradle])
-
 AC_ARG_WITH([pcaudiolib],
     [AS_HELP_STRING([--with-pcaudiolib], [use the pcaudiolib library for audio output @<:@default=yes@:>@])],
     [])
@@ -77,21 +72,6 @@ AC_PROG_CXX
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 AC_PROG_LN_S
-
-dnl ================================================================
-dnl gradle checks.
-dnl ================================================================
-
-AC_MSG_CHECKING([for gradle])
-if command -v "$GRADLE" >/dev/null; then
-    AC_MSG_RESULT([$GRADLE])
-else
-    GRADLE=
-    AC_MSG_RESULT([no])
-fi
-AM_CONDITIONAL(HAVE_GRADLE, [test x"$GRADLE" != x])
-
-AC_SUBST(GRADLE)
 
 dnl ================================================================
 dnl C99 compiler checks.
@@ -400,8 +380,6 @@ AC_MSG_NOTICE([
 
         Sonic:                         ${have_sonic}
         PCAudioLib:                    ${have_pcaudiolib}
-
-        gradle (Android):              ${GRADLE}
 
         Klatt:                         ${have_klatt}
         speechPlayer:                  ${have_speechplayer}

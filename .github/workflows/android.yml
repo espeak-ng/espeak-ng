@@ -36,5 +36,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: android-${{ matrix.config }}.apk
-          path: android/build/outputs/apk/${{ matrix.config }}/${{ matrix.apkname }}
+          path: android/app/build/outputs/apk/${{ matrix.config }}/${{ matrix.apkname }}
           retention-days: 5

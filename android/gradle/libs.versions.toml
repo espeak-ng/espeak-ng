@@ -1,0 +1,17 @@
+[versions]
+agp = "8.4.0"
+android-test = "4.1.1.4"
+androidx-appcompat = "1.6.1"
+crypto-checksum = "1.4.0"
+hamcrest = "1.3"
+
+[libraries]
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+
+# Android test
+android-test = { group = "com.google.android", name = "android-test", version.ref = "android-test" }
+hamcrest = { group = "org.hamcrest", name = "hamcrest-library", version.ref = "hamcrest" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+crypto-checksum = { id = "org.gradle.crypto.checksum", version.ref = "crypto-checksum" }
