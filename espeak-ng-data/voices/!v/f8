@@ -1,0 +1,13 @@
+language variant 
+name female8
+klatt 6
+voicing 75 
+consonants 150 150
+pitch 160 228
+formant 0 105  80 150 
+formant 1 110  80 160 
+formant 2 110  70 150 
+formant 3 110  70 150 
+formant 4 115  80 20
+formant 5 115  80 100 
+formant 6 110  70 150 
