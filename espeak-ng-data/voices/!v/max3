@@ -1,0 +1,7 @@
+language variant
+name Max3
+klatt 6
+formant 1 100 100 75 -80
+formant 2 100 100 75
+formant 3 100 80 75
+formant 4 100 80 30

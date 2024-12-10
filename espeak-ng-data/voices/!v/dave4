@@ -1,0 +1,21 @@
+language variant
+words 1
+name Dave4
+voicing 62
+klatt 6
+consonants 35 35
+pitch  67 97
+formant 1 86 50 90
+formant 2 93 60 100
+formant 3 90 50 110
+formant 4 95 50 60
+formant 5 100 10 20
+formant 6  25 75 50
+breath 50
+
+stressAmp 17 18 20 18 20 22 22 21
+stressAdd 5 10 10 10 0 0 20 20
+tone 250 125 600 250 1200 200 2000 75
+breathw 100 100 50 50 75 75
+words 1
+speed  80

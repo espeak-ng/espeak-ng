@@ -1,0 +1,10 @@
+language variant
+name Miguel2
+klatt 6
+pitch  80 130
+voicing 94
+consonants 60 40
+formant 1 95 150 120
+formant 2 100 120 140
+formant 3 95 95 800
+formant 4 398 30 20
