@@ -7,12 +7,20 @@
 
 The espeak-ng project is a fork of the espeak project.
 
-### 1.52 (In Development)
+### 1.52.0
 
-*  Add stress marks to phoneme events (Rotem Dan)
+attention! this is the last release witch support the autoconf build system. use cmake to compile espeak-ng.
+
+
+*  added cmake build system  -- djphoenix
+*  Added stress marks to phoneme events -- Rotem Dan
+
+bug fixes:
+*  a meny fixes to core C code -- djphoenix
 
 android:
 *  Added directBoot support -- beqabeqa473
+*  Integrated ndk-build step into main gradle pipeline
 
 updated languages:
 *  ba (Bashkir) -- Andiv06
