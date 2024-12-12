@@ -130,6 +130,7 @@
   </Target>
    <Target Name="crh" Inputs="$(ProjectDir)..\..\dictsource\crh_rules;$(ProjectDir)..\..\dictsource\crh_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\crh_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=crh" />
+  </Target>
   <Target Name="cs" Inputs="$(ProjectDir)..\..\dictsource\cs_rules;$(ProjectDir)..\..\dictsource\cs_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\cs_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=cs" />
   </Target>
