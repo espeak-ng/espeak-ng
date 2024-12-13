@@ -1,0 +1,871 @@
+// *   Amazigh Language zgh zgh_rules
+// *   This file was written for Amazigh Language by Abdelhaque id Ali 2024
+// ***************************************************************************
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+//
+// This file is UTF-8 encoded
+// all words must be LOWER CASE  (although the initial letter will be automatically
+// converted if it's a 7bit ascii character)
+// Text to phoneme rules for Amazigh
+
+//Amazigh Letter Groups
+//Vowels
+L01 ⴰ ⵓ ⵉ ⴻ
+//All letters
+L03 ⴰ ⴱ ⴲ ⴳ ⴴ ⴵ ⴶ ⴷ ⴸ ⴹ ⴺ ⴻ ⴼ ⴽ ⴾ ⴿ ⵀ ⵁ ⵂ ⵃ ⵄ ⵅ ⵆ ⵇ ⵈ ⵉ ⵊ ⵋ ⵌ ⵍ ⵎ ⵏ ⵐ ⵑ ⵒ ⵓ ⵔ ⵕ ⵖ ⵗ ⵘ ⵙ ⵚ ⵛ ⵜ ⵝ ⵞ ⵟ ⵠ  ⵡ ⵢ ⵣ ⵤ ⵥ ⵦ ⵧ ⵯ ⵰
+//Thick letters
+L04 ⵥ ⵕ ⵟ ⵚ ⴹ ⴺ
+//Half-thick characters
+L05 ⵇ ⵖ ⵅ
+//non-thick characters
+L06 ⴰ ⴱ ⴲ ⴳ ⴴ ⴵ ⴶ ⴷ ⴸ ⴻ ⴼ ⴽ ⴾ ⴿ ⵀ ⵁ ⵂ ⵃ ⵄ ⵅ ⵆ ⵇ ⵈ ⵉ ⵊ ⵋ ⵌ ⵍ ⵎ ⵏ ⵐ ⵑ ⵒ ⵓ ⵔ ⵖ ⵗ ⵘ ⵙ ⵛ ⵜ ⵝ ⵞ ⵟ ⵠ  ⵡ ⵢ ⵣ ⵤ ⵦ ⵧ ⵯ ⵰
+// group of digits
+.L07 0 1 2 3 4 5 6 7 8 9
+
+//ⵜⵉⴼⵉⵏⴰⵖ for testing
+//Vowels
+.group ⴰ
+          ⴰ           a   // a normal
+      L04) ⴰ           a.  // a after thick consonant
+      L05) ⴰ           a  // a after half-thick consonant
+
+.group ⵓ
+          ⵓ           u   // u
+      L04) ⵓ           u.  // u after thick consonant
+      L05) ⵓ           u.  // u after half-thick consonant
+
+.group ⵉ
+          ⵉ           i   // i
+      L04) ⵉ           i.  // i after thick consonant
+      L05) ⵉ           i  // u after half-thick consonant
+
+.group ⴻ
+          ⴻ           3   // e shwa
+      L04) ⴻ           3  // e after thick consonant
+      L05) ⴻ           3  // e after half-thick consonant
+
+.group ⵦ
+          ⵦ           3   // e shwa
+      L04) ⵦ           3  // e after thick consonant
+      L05) ⵦ           3  // e after half-thick consonant
+
+
+.group ⵧ
+          ⵧ           u   // u
+      L04) ⵧ           u.  // u after thick consonant
+      L05) ⵧ           u.  // u after half-thick consonant
+
+//Consonants // All supported letters in the unicode table are used as the basic letters. ex ⴿ would be treated as ⴽ.
+.group ⴱ
+         ⴱ           b
+         ⴱ (_        b
+         ⴱⴱ           b:
+
+.group ⴲ
+         ⴲ           b
+         ⴲ (_        b
+         ⴲⴲ           b:
+
+
+.group ⴳ
+         ⴳ           g
+         ⴳ (_        g
+         ⴳⴳ           g:
+
+
+.group ⴳ
+         ⴴ           g
+         ⴴ (_        g
+         ⴴⴴ           g:
+
+.group ⴵ
+         ⴵ           ddZ
+         ⴵ (_        ddZ
+         ⴵⴵ           ddZ:
+
+.group ⴷ
+         ⴷ           d
+         ⴷ (_        d
+         ⴷⴷ           d:
+
+.group ⴸ
+         ⴸ           d
+         ⴸ (_        d
+         ⴸⴸ           d:
+
+.group ⴹ
+         ⴹ           D
+         ⴹ (_        D
+         ⴹⴹ           D:
+
+.group ⴺ
+         ⴺ           D
+         ⴺ (_        D
+         ⴺⴺ           D:
+
+.group ⴼ
+         ⴼ           f
+         ⴼ (_        f
+         ⴼⴼ           f:
+
+.group ⴽ
+         ⴽ           k
+         ⴽ (_        k
+         ⴽⴽ           k:
+
+.group ⴿ
+         ⴿ           k
+         ⴿ (_        k
+         ⴿⴿ           k:
+
+.group ⴾ
+         ⴾ           k
+         ⴾ (_        k
+         ⴾⴾ           k:
+
+.group ⵀ
+         ⵀ           h
+         ⵀ (_        h
+         ⵀⵀ           h:
+
+.group ⵁ
+         ⵁ           h
+         ⵁ (_        h
+         ⵁⵁ           h:
+
+.group ⵂ
+         ⵂ           h
+         ⵂ (_        h
+         ⵂⵂ           h:
+.group ⵃ
+         ⵃ           H
+         ⵃ (_        H
+         ⵃⵃ           H:
+
+.group ⵄ
+         ⵄ           A
+         ⵄ (_        A
+         ⵄⵄ           A:
+
+.group ⵅ
+         ⵅ           x
+         ⵅ (_        x
+         ⵅⵅ           x:
+
+.group ⵆ
+         ⵆ           x
+         ⵆ (_        x
+         ⵆⵆ           x:
+
+.group ⵇ
+         ⵇ           q
+         ⵇ (_        q
+         ⵇⵇ           q:
+
+
+.group ⵈ
+         ⵈ           q
+         ⵈ (_        q
+         ⵈⵈ           q:
+
+.group ⵊ
+         ⵊ           dZ
+         ⵊ (_        dZ
+         ⵊ           dZ:
+
+.group ⵋ
+         ⵋ           dZ
+         ⵋ (_        dZ
+         ⵋ           dZ:
+
+.group ⵌ
+         ⵌ           z[
+         ⵌ (_        z[
+         ⵌⵌ           z[:
+
+.group ⵍ
+         ⵍ           l
+         ⵍ (_        l
+         ⵍⵍ           l:
+
+
+.group ⵎ
+         ⵎ           m
+         ⵎ (_        m
+         ⵎⵎ           m:
+
+.group ⵏ
+         ⵏ           n
+         ⵏ (_        n
+         ⵏⵏ           n:
+
+.group ⵐ
+         ⵐ           gn
+         ⵐ (_        gn
+         ⵐⵐ           gn:
+
+.group ⵑ
+         ⵑ           ng
+         ⵑ (_        ng
+         ⵑⵑ           ng:
+
+
+.group ⵒ
+         ⵒ           p
+         ⵒ (_        p
+         ⵒⵒ           p:
+
+.group ⵔ
+         ⵔ           r
+         ⵔ (_        r
+         ⵔⵔ           r:
+
+.group ⵕ
+         ⵕ           R
+         ⵕ (_        R
+         ⵕⵕ           R:
+
+.group ⵖ
+         ⵖ           g[
+         ⵖ (_        g[
+         ⵖⵖ           g[:
+
+.group ⵗ
+         ⵗ           g[
+         ⵗ (_        g[
+         ⵗⵗ           g[:
+
+.group ⵘ
+         ⵘ           g[
+         ⵘ (_        g[
+         ⵘⵘ           g[:
+
+.group ⵙ
+         ⵙ           s
+         ⵙ (_        s
+         ⵙⵙ           s:
+
+.group ⵚ
+         ⵚ           s[
+         ⵚ (_        s[
+         ⵚⵚ           s[:
+
+.group ⵛ
+         ⵛ           S
+         ⵛ (_        S
+         ⵛⵛ           S:
+
+.group ⵜ
+         ⵜ           t
+         ⵜ (_        t
+         ⵜⵜ           t:
+
+.group ⵝ
+         ⵝ           t
+         ⵝ (_        t
+         ⵝⵝ           t:
+
+.group ⵞ
+         ⵞ           tS
+         ⵞ (_        tS
+         ⵞⵞ           t:S
+
+.group ⵟ
+         ⵟ           t[
+         ⵟ (_        t[
+         ⵟⵟ           t[:
+
+.group ⵠ
+         ⵠ           v
+         ⵠ (_        v
+         ⵠⵠ           v:
+
+.group ⵡ
+         ⵡ           w
+         ⵡ (_        w
+         ⵡⵡ           w:
+
+.group ⵢ
+         ⵢ           j
+         ⵢ (_        j
+         ⵢⵢ           j:
+
+.group ⵣ
+         ⵣ           z
+         ⵣ (_        z
+         ⵣⵣ           z:
+
+.group ⵤ
+         ⵤ           z
+         ⵤ (_        z
+         ⵤⵤ           z:
+
+.group ⵥ
+         ⵥ           z[
+         ⵥ (_        z[
+         ⵥⵥ           z[:
+
+.group ⵯ
+         ⵯ           3w
+         ⵯ (_        3w
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+ted characters in en_list with the $accent attribute
+
+ accented characters in en_list with the $accent attribute
+ith the $accent attribute
+
+
+  FG) ا           a.:
+    L30) ا (C        a:
+      F) ا (C        a.:
+     FG) ا (C        a.:
+         ا (َ         ?
+         ا (ُ         ?
+         ا (ِ         ?
+      _) ال (P2      %al
+      _) ا           a       // make the previous fatha long
+         اء          ?       // Carried Hamza
+      _) ال (L10P2   ?a      //الشمس
+      _) ال (L11P2   ?al     //القمر
+      _) ال (تP2     ?at
+      _) ال (ثP2     ?aT
+      _) ال (دP2     ?ad
+      _) ال (ذP2     ?aD
+      _) ال (رP2     ?ar
+      _) ال (زP2     ?az
+      _) ال (سP2     ?as
+      _) ال (شّP2     ?a
+      _) ال (شP2     ?aS
+      _) ال (صP2     ?as[
+      _) ال (ضP2     ?adH
+      _) ال (ظP2     ?aZ
+      _) ال (لP2     ?al
+      _) ال (نP2     ?an
+     _ب) ا (ل        i
+
+.group أ
+         أ           ?        // Carried Hamza
+
+.group إ
+         إ           ?        // Carried Hamza
+
+.group ب
+         ب           b
+         ب (_        b
+         بّ           b:
+         بّْ           b:
+         بْ           b
+      _) ب           b%
+      _) بال (L10P3  bi        //بالشمس
+      _) بال (L11P3  bil       //بالقمر
+      _) بال (تP3    bit
+      _) بال (ثP3    biT
+      _) بال (دP3    bid
+      _) بال (ذP3    biD
+      _) بال (رP3    bir
+      _) بال (زP3    biz
+      _) بال (سP3    bis
+      _) بال (شP3    biS
+      _) بال (صP3    bis[
+      _) بال (ضP3    bidH
+      _) بال (طP3    bit[
+      _) بال (ظP3    biZ
+      _) بال (لP3    bil
+      _) بال (نP3    bin
+
+.group پ
+         پ           p
+         پ (_        p
+         پّْ           p:
+         پْ           p
+
+.group ت
+         ت           t
+      _) ت (َP1       t
+         ت (_        t
+         تّ           t:
+         تّْ           t:
+         تْ           t
+
+.group ث
+         ث           T
+         ث (_        T
+         ثّ           T:
+         ثّْ           T:
+         ثْ           T
+
+.group ج
+         ج           dZ
+         ج (_        dZ
+         جّ           dZ:
+         جّْ           dZ:
+         جْ           dZ
+
+.group ح
+         ح           H
+         ح (_        H
+         حّ           H:
+         حّْ           H:
+         حْ           H
+
+.group خ
+         خ           X
+         خ (_        X
+         خّ           X:
+         خّْ           X:
+         خْ           X
+
+.group د
+         د           d
+         د (_        d
+         دّ           d:
+         دّْ           d:
+         دْ           d
+
+.group ذ
+         ذ           D
+         ذ (_        D
+         ذّ           D:
+         ذّْ           D:
+         ذْ           D
+
+.group ر
+         ر           R
+         ر (_        R
+         رّ           R:
+         رّْ           R:
+         رْ           R
+
+.group ز
+         ز           z
+         ز (_        z
+         زّ           z:
+         زّْ           z:
+         زْ           z
+
+.group س
+         س           s
+      _) س           s%
+         س (_        s
+         سّ           s:
+         سّْ           s:
+         سْ           s
+
+.group ش
+         ش           S
+         ش (_        S
+         شّ           S:
+         شّْ           S:
+         شْ           S
+
+.group ص
+         ص           s[
+         ص (_        s[
+         صّ           s[:
+         صّْ           s[:
+         صْ           s[
+
+.group ض
+         ض           dH
+         ض (_        dH
+         ضّ           dH:
+         ضّْ           dH:
+         ضْ           dH
+
+.group ط
+         ط           t[
+         ط (_        t[
+         طّ           t[:
+         طّْ           t[:
+         طْ           t[
+
+.group ظ
+         ظ           Z
+         ظ (_        Z
+         ظّ           Z:
+         ظّْ           Z:
+         ظْ           Z
+
+.group ع
+         ع           A
+         ع (_        A
+         عّ           A:
+         عّْ           A:
+         عْ           A
+
+.group غ
+         غ           Q
+         غ (_        Q
+         غّ           Q:
+         غّْ           Q:
+         غْ           Q
+
+.group ف
+         ف           f
+         ف (_        f
+         فّ           f:
+         فّْ           f:
+         فْ           f
+      _) ف           f%
+      _) فال (L10P3  fa        //فالشمس
+      _) فَال (L10P4  fa
+      _) فَالْ (L10P4  fa
+      _) فال (L11P3  fal       //فالقمر
+      _) فَال (L11P4  fa
+      _) فَالْ (L11P4  fal
+      _) فال (تP3    fat
+      _) فال (ثP3    faT
+      _) فال (دP3    fad
+      _) فال (ذP3    faD
+      _) فال (رP3    far
+      _) فال (زP3    faz
+      _) فال (سP3    fas
+      _) فال (شP3    faS
+      _) فال (صP3    fas[
+      _) فال (ضP3    fadH
+      _) فال (طP3    fat[
+      _) فال (ظP3    faZ
+      _) فال (لP3    fal
+      _) فال (نP3    fan
+
+.group ق
+         ق           q
+         ق (_        q
+         قّ           q:
+         قّْ           q:
+         قْ           q
+
+.group ك
+         ك           k
+         ك   (_      k
+         كّ           k:
+         كّْ           k:
+         كْ           k
+         ك   (_S1    ka        // الضمير المتصل
+      _) ك           k%
+      _) كال (L10P3  ka        //كالشمس
+      _) كَال (L10P4  ka
+      _) كَالْ (L10P4  ka
+      _) كال (L11P3  kal       //كالقمر
+      _) كَالْ (L11P4  kal
+      _) كال (تP3    kat
+      _) كال (ثP3    kaT
+      _) كال (دP3    kad
+      _) كال (ذP3    kaD
+      _) كال (رP3    kar
+      _) كال (زP3    kaz
+      _) كال (سP3    kas
+      _) كال (شP3    kaS
+      _) كال (صP3    kas[
+      _) كال (ضP3    kadH
+      _) كال (طP3    kat[
+      _) كال (ظP3    kaZ
+      _) كال (لP3    kal
+      _) كال (نP3    kan
+         كما (_S3    k'uma:     //الضمير المتصل
+         كن  (_S2    k'un:a     //الضمير المتصل
+
+.group گ
+         گ           g
+         گ (_        g
+         گّ           g:
+         گّْ           g:
+         گْ           g
+
+.group ل
+         ل           l
+      _) ل           l%
+     _ا) ل (L10      '         // Sun letters
+    _بِا) ل (L10      '         // Sun letters
+    _فَا) ل (L10      '         // Sun letters
+    _كَا) ل (L10      '         // Sun letters
+         ل (_        l
+         لّ           l:
+         لّْ           l:
+         لْ           l
+     _لِ) ل (L10      '         // Sun letters
+    _وَا) ل (L10      '         // Sun letters
+
+.group م
+         م           m
+         م (_        m
+         مّ           m:
+         مّْ           m:
+         مْ           m
+
+.group ن
+         ن           n
+         ن (_        n
+         نّ           n:
+         نّْ           n:
+         نْ           n
+         ن (ب        m
+         نْ (ب        m
+
+.group ه
+         ه           h
+         ه (_        h
+         هّ           h:
+         هّْ           h:
+         هْ           h
+         ه (_S1      h         // الضمير المتصل
+         ها (_S2     ha:       //الضمير المتصل
+         هم (_S2     hum       //الضمير المتصل
+         هما (_S3    h'uma:     //الضمير المتصل
+         هن (_S2     h'un:a     //الضمير المتصل
+
+.group و
+         و           w
+    L30) و           u:
+      F) و           u.:
+     FG) و           u.:
+      ا) و           w         //واو بعد الألف
+         و (A        w         //واو بعدها حرف علة
+         و (_        w
+         وّ           w:
+         وّْ           w
+         وْ           w
+       ْ) و           w         // واو بعد سكون
+       َ) و           w         //واو بعد فتحة
+      _) و           w%
+      _) و           w         //واو في أول الكلمة
+         وء          ?         // Carried Hamza
+         وا (_S2     u
+         وا (_S2     u:        // فعل مع ضمائر الجمع المذكرة درسوا
+      _) وال (L10P3  wa        //والشمس
+      _) وَال (L10P4  wa
+      _) وَالْ (L10P4  wa
+      _) وال (L11P3  wal       //والقمر
+      _) وَال (L11P4  wal
+      _) وَالْ (L11P4  wal
+      _) وال (تP3    wat
+      _) وال (ثP3    waT
+      _) وال (دP3    wad
+      _) وال (ذP3    waD
+      _) وال (رP3    war
+      _) وال (زP3    waz
+      _) وال (سP3    was
+      _) وال (شP3    waS
+      _) وال (صP3    was[
+      _) وال (ضP3    wadH
+      _) وال (طP3    wat[
+      _) وال (ظP3    waZ
+      _) وال (لP3    wal
+      _) وال (نP3    wan
+         ون (_S2     'u:na     //جمع مذكر سالم فلاحون
+
+.group ي
+         ي           i
+    L30) ي           i:
+      F) ي           i.:
+     FG) ي           i.:
+      ا) ي           j         // ياء بعد ألف
+         يّ           i:
+         يْ           j
+         يِ           ji:
+       ْ) ي           j         //ياء بعد سكون
+       َ) ي           j         // ياء بعد فتحة
+      _) ي           j         // ياء في أول الكلمة
+         ي (L01      j         //يا بعدها حروف علة
+         ي (_S1      i
+         يء          ?         // Carried Hamza
+         يات (_S3    'ij:a:t   //يّة النسبة في جمع المؤنث جزائريات
+         ية (_S2     'ij:ah    //يّة النسبة
+         ين (_S2     'i:na     //جمع مذكر سالم منصوب أو مجرور
+         يون (_S3    'ij:u:n   //kجمع مذكر سالم منسوب جزائريون
+         يين (_S3    'ij:i:n   //kجمع مذكر سالم منسوب جزائريين
+
+.group ى                      //ألف مقصورة
+         ى           a
+    L30) ى (_        a:
+      F) ى (_        a.:
+     FG) ى (_        a.:
+         ىّ           a:
+         ىْ           a
+
+.group ء
+         ء           ?
+         ء (ً         ?an
+
+.group ئ
+         ئ           ?         // Carried Hamza
+
+.group ؤ
+         ؤ           ?         // Carried Hamza
+
+.group ة
+         ة           t
+         ة (_        t
+         ةّ           t:
+         ةْ           t
+         ةً           tan
+
+// Other diacritics
+.group
+          َ           a   // fatha
+      F)  َ           a.  // fatha after thick consonant
+     FG)  َ           a.  // fatha after thick consonant and shadda
+          َ (C_       =a  // fatha in closed syllable
+      F)  َ (C_       =a.
+     FG)  َ (C_       =a.
+          َ (CC_      =a
+      F)  َ (CC_      =a.
+     FG)  َ (CC_      =a.
+      C)  ٓ           ?   // madda after consonant
+          ِ           i   // kasra
+      F)  ِ           i.  // kasra after thick consonant
+     FG)  ِ           i.  // kasra after thick consonant and shadda
+          ِ (C_       =i  // kasra in closed syllable
+      F)  ِ (C_       =i.
+     FG)  ِ (C_       =i.
+          ِ (CC_      =i
+      F)  ِ (CC_      =i.
+     FG)  ِ (CC_      =i.
+          ٍ (_S1      in  // kasratan at the end of word
+          ٌ (_S1      un  // dammatan at the end of word
+          ُ           u   // damma
+      F)  ُ           u.  // damma after thick consonant
+     FG)  ُ           u.  // damma after thick consonant and shadda
+          ُ (C_       =u  // damma in closed syllable
+      F)  ُ (C_       =u.
+     FG)  ُ (C_       =u.
+          ُ (CC_      =u
+      F)  ُ (CC_      =u.
+     FG)  ُ (CC_      =u.
+          ٰ           a:  // superscript alef
+      F)  ٰ           a.: // superscript alef after thick consonant
+     FG)  ٰ           a.: // superscript alef after thick consonant and shadda
+          َا          a:  // fatha+alef
+      F)  َا          a.: // fatha+alef after thick consonant
+     FG)  َا          a.: // fatha+alef after thick consonant and shadda
+          ًا (_S2     an  // fathatan+alef at the end of word
+      F)  ًا (_S2     a.n // fathatan+alef at the end of word after thick consonant
+          َو          au  // fatha+waw
+      F)  َو          a.u. // fatha+waw after thick consonant
+     FG)  َو          a.u. // fatha+waw after thick consonant and shadda
+          ِو          iw  // kasra+waw
+      F)  ِو          i.w // kasra+waw after thick consonant
+     FG)  ِو          i.w // kasra+waw after thick consonant and shadda
+          ُو          u:  // damma+waw
+      F)  ُو          u.: // damma+waw after thick consonant
+     FG)  ُو          u.: // damma+waw after thick consonant and shadda
+          َى          a:  // fatha+alef maksura
+      F)  َى          a.: // fatha+alef maksura after thick consonant
+     FG)  َى          a.: // fatha+alef maksura after thick consonant and shadda
+          َي          ai  // fatha+yeh
+      F)  َي          a.i. // fatha+yeh after thick consonant
+     FG)  َي          a.i. // fatha+yeh after thick consonant and shadda
+          ِي          i:  // kasra+yeh
+      F)  ِي          i.: // kasra+yeh after thick consonant
+     FG)  ِي          i.: // kasra+yeh after thick consonant and shadda
+          ُي          ui  // damma+yeh
+      F)  ُي          u.i. // damma+yeh after thick consonant
+     FG)  ُي          u.i. // damma+yeh after thick consonant and shadda
+          ّ           :   // shadda
+
+// Following are default rules for other diacritics and they are just silence.
+// Diacritics should be consumed together with leading letters in rules above.
+
+         ٱ  // alef wasla
+          ٌ  // dammatan
+          ً  // fathatan
+          ٍ  // kasratan
+         ـ  // tatweel
+          ۡ  // small high dotless head of khan
+          ْ  // sukun
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+n
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+ـ  // tatweel
+          ۡ  // small high dotless head of khan
+          ْ  // sukun
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+
+
+t attribute
+
+ribute
+
+e
+
+te
+
+rules for other diacritics and they are just silence.
+// Diacritics should be consumed together with leading letters in rules above.
+
+         ٱ  // alef wasla
+          ٌ  // dammatan
+          ً  // fathatan
+          ٍ  // kasratan
+         ـ  // tatweel
+          ۡ  // small high dotless head of khan
+          ْ  // sukun
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+n
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+ـ  // tatweel
+          ۡ  // small high dotless head of khan
+          ْ  // sukun
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+ted characters in en_list with the $accent attribute
+
+
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+t with the $accent attribute
+
+cent attribute
+
+e
+
+haracters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
+
+t with the $accent attribute
+
