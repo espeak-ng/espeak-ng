@@ -35,8 +35,9 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events) {
 	return 0;
 }
 
-
 /* See http://llvm.org/docs/LibFuzzer.html */
+extern int LLVMFuzzerRunDriver(int *argc, char ***argv,
+                  int (*UserCb)(const uint8_t *Data, size_t Size));
 extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
 extern int LLVMFuzzerInitialize(const int* argc, char*** argv);
 
@@ -69,4 +70,8 @@ extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
        free(str);
 
 	return 0;
+}
+
+int main(int argc, char *argv[]) {
+	LLVMFuzzerRunDriver(&argc, &argv, LLVMFuzzerTestOneInput);
 }
