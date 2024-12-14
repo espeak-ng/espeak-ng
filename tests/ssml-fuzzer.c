@@ -42,14 +42,13 @@ extern int LLVMFuzzerInitialize(const int* argc, char*** argv);
 
 char *filepath = NULL;
 
-extern int LLVMFuzzerInitialize(const int* argc, char*** argv)
-{
+int LLVMFuzzerInitialize(const int* argc, char*** argv) {
 	(void)argc; // unused
 	filepath = dirname(strdup((*argv)[0]));
 	return 0;
 }
 
-extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
+int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 	if (!initialized) {
 		const char *hasDataPath = getenv("ESPEAK_DATA_PATH");
 		if (!hasDataPath) {
