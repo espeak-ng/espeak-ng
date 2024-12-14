@@ -358,7 +358,8 @@ noinst_PROGRAMS =  tests/fuzzing/synth_fuzzer.test
 tests_fuzzing_synth_fuzzer_test_SOURCES = tests/fuzzing/synth_fuzzer.c
 tests_fuzzing_synth_fuzzer_test_LDADD =  src/libespeak-ng.la
 tests_fuzzing_synth_fuzzer_test_CFLAGS=  ${AM_CFLAGS} -DPATH_ESPEAK_DATA=\"$(abs_top_srcdir)/espeak-ng-data\" -Isrc/libespeak-ng
-tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
+tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS} ${LIBFUZZER}
+tests_ssml_fuzzer_test_LDFLAGS = ${AM_LDFLAGS} ${LIBFUZZER}
 else
 tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
 endif

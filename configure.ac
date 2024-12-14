@@ -142,6 +142,7 @@ if test "$with_libfuzzer" = yes ; then
 	TEMP_LIBS="$LIBS"
 	HOST_CPU="`$CC -print-target-triple | sed -e 's/-.*//'`"
 	LIBFUZZER_NO_MAIN="`$CC -print-file-name=libclang_rt.fuzzer_no_main-$HOST_CPU.a` -lstdc++ -lm"
+	LIBFUZZER="`$CC -print-file-name=libclang_rt.fuzzer-$HOST_CPU.a` -lstdc++ -lm"
 	CFLAGS="$CFLAGS -fsanitize=fuzzer-no-link"
 	LIBS="$LIBS $LIBFUZZER_NO_MAIN"
 	AC_MSG_CHECKING([if $CC supports fuzzer with the -fsanitize=fuzzer flag])
@@ -153,8 +154,10 @@ if test "$with_libfuzzer" = yes ; then
 	if test "$have_fuzzer_fuzzer" != yes ; then
 		CFLAGS="$TEMP_CFLAGS"
 		LIBFUZZER_NO_MAIN=""
+		LIBFUZZER=""
 	fi
 	AC_SUBST(LIBFUZZER_NO_MAIN)
+	AC_SUBST(LIBFUZZER)
 	LIBS="$TEMP_LIBS"
 	AC_LANG_POP(C)
 fi
