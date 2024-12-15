@@ -29,17 +29,17 @@
 		
 .group a
         a         A
-	    a (_     'A
-	    a (L02_  'A
-	    a (L02L02_ 'A
-		av (_    'Aw
-		aya (_   =AjA   // used in other names and/or used in other words with "aya"
+        a (_     'A
+	a (L02_  'A
+        a (L02L02_ 'A
+        av (_    'Aw
+        aya (_   =AjA   // used in other names and/or used in other words with "aya"
 		
 .group â
         â        ;A
-	    â (_    ;'A
-	    â (L02_ ;'A
-	    â (L02L02_ ;'A
+	â (_    ;'A
+	â (L02_ ;'A
+	â (L02L02_ ;'A
      d) â         A
      g) â         A
      k) â         A
@@ -59,217 +59,217 @@
 
 .group b
         b         b
-	    bb        b:
-	_)  bi        b;i
+	bb        b:
+    _)  bi        b;i
         bi (_     b'I
         biy (_    b;'i:
 		
 .group c
         c         dZ;
-	    cc        dZ;:
-	    ce (_     =dZ;;e
+	cc        dZ;:
+	ce (_     =dZ;;e
 
 .group ç
         ç         tS;
-	    çç        tS:;
-	    çe (_     =tS;;e
-		ç  (t     S
+	çç        tS:;
+	çe (_     =tS;;e
+	ç  (t     S
 		 
 .group d
         d         d
-	    dd        d:
-	 _) di        d;i
-		d   (â    d;
-	 _) d   (i    d;
+	dd        d:
+     _) di        d;i
+	d   (â    d;
+     _) d   (i    d;
         dir (_    =dIr
         dır (_    =d@r
         diy (_    d;;'i:
-		diya (_   d;'ijA
+	diya (_   d;'ijA
 		
 .group e
         e         ;e
-	    e  (_    ;'e
-	    e  (L02_ ;'e
-	    e  (L02L02_ ;'e
-	y)  e          e
-	y)  e  (_     'e
-	y)  e  (L02_  'e
-	y)  e  (L02L02_  'e
-		enko (_  ;'eNko            // used in some names
-		ev (_    ;'ef
+	e  (_    ;'e
+	e  (L02_ ;'e
+	e  (L02L02_ ;'e
+    y)  e          e
+    y)  e  (_     'e
+    y)  e  (L02_  'e
+    y)  e  (L02L02_  'e
+	enko (_  ;'eNko            // used in some names
+	ev (_    ;'ef
 		
 .group f
         f         f
 		
 .group g
         g         g
-	    gg        g:
-	    g  (â     J
-		g  (e     J
-	    g  (i     J
-		g  (ö     J
-		g  (ü     J
-	    gi (_     g'I
+	gg        g:
+	g  (â     J
+	g  (e     J
+	g  (i     J
+	g  (ö     J
+	g  (ü     J
+	gi (_     g'I
 
 .group ğ
         ğ         Q
-	    ğğ        Q:
+	ğğ        Q:
 		
 .group h
         h         x
 		
 .group ı
         ı         @
-	    ı  (_    '@
-	    ı  (L02_ '@
-	    ı  (L02L02_ '@
-		ıñız (_  =INIs
+	ı  (_    '@
+	ı  (L02_ '@
+	ı  (L02L02_ '@
+	ıñız (_  =INIs
 		
 .group i
-	_)  i         i
+    _)  i         i
         i         ;i
-	    i  (_    'I        // word final syllable gets stressed 
-	    i  (L02_ 'I
-	    i  (L02L02_ 'I
-	b)  i         I
-	b)  i (y     ;i
-	d)  i         I
-	d)  i  (_    'I
-	k)  i        ;i
-	k)  i  (_    ;'i
-	l)  i         I
-	l)  i  (_    'I
-	r)  i         I
-	r)  i (y     ;i
-	r)  i  (_    'I
-	s)  i         I
-	s)  i  (_    'I
-	ş)  i         I
-	t)  i         I
-	t)  i  (_    'I
-	v)  i         I
-	v)  i  (_    'I
-	y)  i         i
-	z)  i         I
-	    ik (_    ;'ik
-		ir (_    'Ir
-		iv (_    ;'if      
-	    iy (_    ;'i:
-		ist (_   ;'ist     // used in other words with "ist"
-	    iya (_   ;'ijA
-	    iye (_   ;'ije
-		izm (_   ;'izm      // used is some names historical states and/or in other words with "izm"
-		iñiz (_  =INIs
+	i  (_    'I        // word final syllable gets stressed 
+	i  (L02_ 'I
+	i  (L02L02_ 'I
+    b)  i         I
+    b)  i (y     ;i
+    d)  i         I
+    d)  i  (_    'I
+    k)  i        ;i
+    k)  i  (_    ;'i
+    l)  i         I
+    l)  i  (_    'I
+    r)  i         I
+    r)  i (y     ;i
+    r)  i  (_    'I
+    s)  i         I
+    s)  i  (_    'I
+    ş)  i         I
+    t)  i         I
+    t)  i  (_    'I
+    v)  i         I
+    v)  i  (_    'I
+    y)  i         i
+    z)  i         I
+	ik (_    ;'ik
+	ir (_    'Ir
+	iv (_    ;'if      
+	iy (_    ;'i:
+	ist (_   ;'ist     // used in other words with "ist"
+	iya (_   ;'ijA
+	iye (_   ;'ije
+	izm (_   ;'izm      // used is some names historical states and/or in other words with "izm"
+	iñiz (_  =INIs
 
 .group j
         j         Z
-		j (_      S
+	j (_      S
 		
 .group k
         k         k
-	    kk        k:
+	kk        k:
         k  (â     c
-		k  (e     c
-	    k  (i     c
-		k  (ö     c
-		k  (ü     c
+	k  (e     c
+	k  (i     c
+	k  (ö     c
+	k  (ü     c
 
 .group l
         l         l
-	    l (L01    L
+	l (L01    L
    L01) l (K      L
-	_)  li        l;i
+    _)  li        l;i
         lik (_    l'Ik
 
 .group m
         m         m
-	    mce (_    mdZ;;'e
+	mce (_    mdZ;;'e
 		
 .group n
         n         n
-	    n (g      N
-	    n (k      N
-	    nce (_    =ndZ;;e
+	n (g      N
+	n (k      N
+	nce (_    =ndZ;;e
 		
 .group ñ
         ñ         N
 		
 .group o
         o         o
-	    o  (_    'o
-	    o  (L02_ 'o
-	    o  (L02L02_ 'o
-		ov (_    'of
-		ova (_   'ovA            // used in some names and/or used other words with "ova", like in word of "ayova"
-		ovna (_  'ovnA           // used in some names
+	o  (_    'o
+	o  (L02_ 'o
+	o  (L02L02_ 'o
+	ov (_    'of
+	ova (_   'ovA            // used in some names and/or used other words with "ova", like in word of "ayova"
+	ovna (_  'ovnA           // used in some names
 		
 .group ö
         ö         W
-	    ö  (_    'W
-	    ö  (L02_ 'W
-	    ö  (L02L02_ 'W
+	ö  (_    'W
+	ö  (L02_ 'W
+	ö  (L02L02_ 'W
 		
 .group p
         p         p
-	    pp        p:
+	pp        p:
 		
 .group q
         q         q
-	    qq        q:
+	qq        q:
 		
 .group r
         r         r
-	_)  ri        r;i
-		riy (_    r;'i:
+    _)  ri        r;i
+	riy (_    r;'i:
 		
 .group s
         s         s
-	_)  si        s|;i
-	    sın (_   =s@n
-	    sıñ (_   =s@N
-		skiy (_  =sc;i:            // used in some names
+    _)  si        s|;i
+	sın (_   =s@n
+	sıñ (_   =s@N
+	skiy (_  =sc;i:            // used in some names
 		
 .group ş
         ş         S
 		
 .group t
         t         t
-	    ts        ts
+	ts        ts
         tt        t:
-		t  (â     t;
-	_)  ti        t;i
-	    tik (_    t;;'ik
+	t  (â     t;
+    _)  ti        t;i
+	tik (_    t;;'ik
 
 .group u
         u         u
-	    u  (_    'u
-	    u  (L02_ 'u
-	    u  (L02L02_ 'u
-	    um (_    =um
-		uv (_    'uw
+	u  (_    'u
+	u  (L02_ 'u
+	u  (L02L02_ 'u
+	um (_    =um
+	uv (_    'uw
 		
 .group ü
         ü         y
-	    ü  (_    'y
-	    ü  (L02_ 'y
-	    ü  (L02L02_ 'y
-	    üm (_     =ym
+	ü  (_    'y
+	ü  (L02_ 'y
+	ü  (L02L02_ 'y
+	üm (_     =ym
 		
 .group v
         v         v
-		v (_      f
-	_)  vi        v;i
-		viç (_    =v;itS;        // used in some names
+	v (_      f
+    _)  vi        v;i
+	viç (_    =v;itS;        // used in some names
 		
 .group y
         y         j
-		yim (_    j'im
+	yim (_    j'im
 
 .group z
         z         z
-		z (_      s
-	_)  zi        z|;i
+	z (_      s
+    _)  zi        z|;i
 
 .group
-	  w     w
-	  x     x     // used in southern dialect
+   w     w
+   x     x     // used in southern dialect
