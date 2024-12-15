@@ -380,16 +380,19 @@ static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 		if (wdata->mix_wavefile_ix < wdata->n_mix_wavefile) {
 			if (wdata->mix_wave_scale == 0) {
 				// a 16 bit sample
-				c = wdata->mix_wavefile[wdata->mix_wavefile_ix+1];
-				sample = wdata->mix_wavefile[wdata->mix_wavefile_ix] + (c * 256);
+				c = wdata->mix_wavefile[wdata->mix_wavefile_ix+wdata->mix_wavefile_offset+1];
+				sample = wdata->mix_wavefile[wdata->mix_wavefile_ix+wdata->mix_wavefile_offset] + (c * 256);
 				wdata->mix_wavefile_ix += 2;
 			} else {
 				// a 8 bit sample, scaled
-				sample = (signed char)wdata->mix_wavefile[wdata->mix_wavefile_ix++] * wdata->mix_wave_scale;
+				sample = (signed char)wdata->mix_wavefile[wdata->mix_wavefile_offset+wdata->mix_wavefile_ix++] * wdata->mix_wave_scale;
 			}
 			int z2 = sample * wdata->amplitude_v / 1024;
 			z2 = (z2 * wdata->mix_wave_amp)/40;
 			temp += z2;
+
+			if ((wdata->mix_wavefile_ix + wdata->mix_wavefile_offset) >= wdata->mix_wavefile_max)  // reached the end of available WAV data
+				wdata->mix_wavefile_offset -= (wdata->mix_wavefile_max*3)/4;
 		}
 
 		if (kt_globals.fadein < 64) {
