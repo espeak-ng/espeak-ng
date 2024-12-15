@@ -148,6 +148,7 @@ typedef struct {
 	void *start;
 	size_t length;
 	int group3_ix;
+	int index;
 } RGROUP;
 
 typedef enum
@@ -1191,7 +1192,7 @@ static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 	if (ix != 0) return ix;
 	ix = strcmp(a->name, b->name);
 	if (ix != 0) return ix;
-	return (uintptr_t)a->start - (uintptr_t)b->start;
+	return a->index - b->index;
 }
 
 static void* output_rule_group(int n_rules, char **rules, char *name, size_t *outsize)
@@ -1375,6 +1376,7 @@ static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE 
 				strcpy(rgroup[n_rgroups].name, ctx->group_name);
 				rgroup[n_rgroups].group3_ix = ctx->group3_ix;
 				rgroup[n_rgroups].start = output_rule_group(n_rules, rules, ctx->group_name, &rgroup[n_rgroups].length);
+				rgroup[n_rgroups].index = n_rgroups;
 				n_rgroups++;
 
 				count += n_rules;
