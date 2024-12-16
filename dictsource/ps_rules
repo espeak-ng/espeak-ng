@@ -1,60 +1,196 @@
-# Pashto phonemes for eSpeak
-ا -> a;
-ب -> b;
-پ -> p;
-ت -> t;
-ټ -> t;
-ث -> s;
-ج -> dʒ;
-چ -> tʃ;
-ح -> h;
-خ -> x;
-څ -> s;
-ځ -> z;
-د -> d;
-ډ -> ɖ;
-ذ -> z;
-ر -> r;
-ړ -> ɻ;
-ز -> z;
-ژ -> ʒ;
-ږ -> ʐ;
-س -> s;
-ش -> ʃ;
-ښ -> ʂ;
-ص -> s;
-ض -> z;
-ط -> t;
-ظ -> z;
-ع -> ʔ;
-غ -> ɣ;
-ف -> f;
-ق -> q;
-ک -> k;
-ګ -> g;
-ل -> l;
-م -> m;
-ن -> n;
-ڼ -> ɳ;
-و -> w;
-ه -> h;
-ۀ -> ə;
-ي -> j;
-ې -> e;
-ی -> ai;
-ۍ -> əi;
-ئ -> əi;
+// ***************************************************************************
+// *   Copyright (C) 2024 to cc by Masoud Azizi                              *
+// *   email: mablue92@gmail.com   github: @mablue                           *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
 
-# Long vowels (modify if ':' represents a different marker)
-u: -> u:;
-a: -> a:;
-e: -> e:;
-i: -> i:;
-o: -> o:;
-
-# Diphthongs
-oi -> oi;
-au -> au;
-ei -> ei;
-ai -> ai;
-ou -> ou;
+// replacing unknown characters and Arabic   numbers with Farsi characters and Latin  numbers
+.replace
+		٠	0
+		۰	0
+		۱	1
+		١	1
+		٢	2
+		۲	2
+		٣	3
+		۳	3
+		٤	4
+		۴	4
+		٥	5
+		۵	5
+		٦	6
+		۶	6
+		٧	7
+		۷	7
+		٨	8
+		۸	8
+		٩	9
+		۹	9
+		٬	،
+		٫	،
+		٪	%
+		ٴ	ٔ
+		ـ	
+		ي	ی	// this is "ي" Shift + x on the Persian Keyboard ("ye Arabi") that has been replaced with "ی" Standard for some programing reasones.
+		ﺁ	آ
+		ﺍ	ا
+		ﺎ	ا
+		ﺄ	أ
+		ﺏ	ب
+		ﺐ	ب
+		ﺑ ب
+		ﺒ	ب
+		ﭖ	پ
+		ﭗ	پ
+		ﭘ	پ
+		ﭙ	پ
+		ﺕ	ت
+		ﺖ	ت
+		ﺗ	ت
+		ﺘ	ت
+		ﺚ	ث
+		ﺛ	ث
+		ﺜ	ث
+		ﺝ	ج
+		ﺞ	ج
+		ﺠ	ج
+		ﺟ	ج
+		ﭻ	چ
+		ﭼ چ
+		ﭽ	چ
+		ﺢ	ح
+		ﺣ	ح
+		ﺤ	ح
+		ﺥ	خ
+		ﺦ	خ
+		ﺧ	خ
+		ﺨ	خ
+		ﺩ	د
+		ﺪ	د
+		ﺫ	ذ
+		ﺬ	ذ
+		ﺭ	ر
+		ﺮ ر
+		ﺯ	ز
+		ﺰ	ز
+		ﮊ	ژ
+		ﮋ	ژ
+		ﺱ	س
+		ﺲ	س
+		ﺳ	س
+		ﺴ	س
+		ﺵ	ش
+		ﺶ	ش
+		ﺷ	ش
+		ﺸ	ش
+		ﺹ	ص
+		ﺺ	ص
+		ﺻ	ص
+		ﺼ	ص
+		ﺽ	ض
+		ﺿ	ض
+		ﻀ	ض
+		ﺾ	ض
+		ﻁ	ط
+		ﻂ	ط
+		ﻃ	ط
+		ﻄ	ط
+		ﻇ	ظ
+		ﻈ	ظ
+		ﻆ	ظ
+		ﻉ	ع
+		ﻊ	ع
+		ﻋ	ع
+		ﻌ ع
+		ﻍ	غ
+		ﻎ	غ
+		ﻏ	غ
+		ﻐ	غ
+		ﻑ	ف
+		ﻒ	ف
+		ﻓ	ف
+		ﻔ	ف			
+		ﻕ	ق
+		ﻖ	ق
+		ﻗ	ق
+		ﻘ	ق
+		ك	ک
+		ﮎ	ک
+		ﮏ	ک
+		ﮐ	ک
+		ﮑ	ک
+		ﻛ	ک
+		ﻚ	ک
+		ڪ	ک
+		ﻜ	ک
+		ﻙ	ک
+		ﮒ	گ
+		ﮓ	گ
+		ﮔ	گ
+		ﮕ	گ
+		ﻝ	ل
+		ﻞ	ل
+		ﻟ	ل
+		ﻠ	ل
+		ﻡ م
+		ﻢ م
+		ﻣ	م
+		ﻤ	م
+		ﻥ	ن
+		ﻦ	ن
+		ﻧ	ن
+		ﻨ ن
+		ﻭ	و
+		ﻮ	و
+		ھ	ه
+		ە	ه
+		ﻩ	ه
+		ﻪ	ه
+		ﻫ	ه
+		ﻬ	ه
+		ى	ی
+		ۍ	ی
+		ﯼ	ی
+		ﯽ ی
+		ﯾ ی
+		ﯿ	ی
+		ﻰ	ی
+		ﻱ	ی
+		ﻲ	ی
+		ﻳ	ی
+		ﻴ	ی
+		ﻯ	ی
+		ﻻ	لا
+		ﻼ	لا
+		ﺔ	ة
+		ﺋ	ئ
+		ﺌ	ئ
+		ﺆ	ؤ
+		ۆ	ؤ
+		ﺀ	ء
+		ﹺ	ِ
+		// Urdu for Pashtoo users added
+			ٹ	ت
+			ڈ	د
+			ڑ	ر
+			ہ	ه
+			ﮩ	ه
+			ﮨ	ه
+			ے	ی
+			ں	ن
+			ۃ	ت
+			ۂ	ه
+      ۓ	ی
