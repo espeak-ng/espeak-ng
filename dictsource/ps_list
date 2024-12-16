@@ -129,3 +129,29 @@ _0M3x	malyard
 _0and	a
 _dpt	taki
 _roman	roman
+
+
+_#st	i
+_#nd	hmm
+_#rd	im
+_#th	am
+÷	weshal
+×	zala
+$	dalar
+%	salana
+_[	khlas'briket
+_]	taral'shawi'briket
+_{	khlas'bandona
+_}	taral'shawi'lasuna
+_(	khlas'qous
+_)	taral'shawi'qous
+_«	khlas'narkhuna
+_»	taral'shawi'narkh'nakha
+*	stori
+//this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
+U+200C	nem_watan
+//this code is recognized as Space
+U+20	watan_
+<	kochni'nakha
+=	musavi'nakha
+>	loya'nakha
