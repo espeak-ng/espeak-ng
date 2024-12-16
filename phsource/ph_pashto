@@ -1,0 +1,61 @@
+// Long Vowels
+
+phoneme A
+  vwl starttype #i endtype #i
+  length 200
+  FMT(vowel/0_3)
+endphoneme
+
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 200
+  FMT(vowel/i)
+endphoneme
+
+
+phoneme u
+  vwl starttype #i endtype #i
+  length 200
+  FMT(vowel/u_bck2)
+endphoneme
+
+
+// Short Vowels
+
+phoneme a
+  vwl starttype #i endtype #i
+  length 160
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme e
+  vwl starttype #i endtype #i
+  length 160
+  FMT(vowel/e_mid2)
+endphoneme
+
+
+phoneme o
+  vwl starttype #i endtype #i
+  length 160
+  FMT(vowel/o_mid)
+endphoneme
+
+
+// Diphthongs
+
+
+phoneme eI
+  vwl starttype #i endtype #i
+  length 220
+  FMT(vdiph/eei_2)
+endphoneme
+
+
+phoneme oU
+  vwl starttype #i endtype #i
+  length 220
+  FMT(vdiph/ou_2)
+endphoneme
