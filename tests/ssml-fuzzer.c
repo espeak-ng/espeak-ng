@@ -55,6 +55,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 			setenv("ESPEAK_DATA_PATH",filepath,0);
 		}
 		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0);
+		espeak_ng_SetRandSeed(1);
 		espeak_SetSynthCallback(SynthCallback);
 		initialized = 1;
 	}
