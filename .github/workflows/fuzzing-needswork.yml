@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [am, ar, as, az, bn, ca, da, gu, hi, id, kl, ku, lt, mk, ml, my, nog, pt, ro, shn, si, smj, ta, th, tk, tn, tt, ur, vi]
+        lang: [am, ar, as, az, bn, ca, da, gu, hi, id, kl, kok, ku, lt, mk, ml, mr, ms, my, nog, pt, ro, shn, si, smj, ta, th, tk, tn, tt, ur, vi]
     uses: ./.github/workflows/workflow-for-fuzzing.yml
     with:
       lang: ${{ matrix.lang }}
