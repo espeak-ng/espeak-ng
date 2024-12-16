@@ -12,7 +12,7 @@ jobs:
   fuzzing:
     needs: build
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         lang: [am, an, as, az, ba, bg, bn, bpy, bs, chr, cmn, cs, cv, cy, de, el, en, eo, et, eu, fa, fi, fr, ga, gd, gu, hak, haw, he, hr, ht, hu, hy, hyw, ia, id, io, is, it, ja, jbo, ka, kk, kn, ko, kok, ku, ky, la, lb, lfn, lt, ltg, lv, mi, mk, ml, ms, mt, mto, my, nb, nci, ne, nog, pap, piqd, pl, pt-BR, py, qdb, qu, quc, qya, ru, ru-LV, sd, sjn, sk, sl, smj, sq, sr, sw, th, tr, tt, ug, uk, ur, uz, yue]
     uses: ./.github/workflows/workflow-for-fuzzing.yml
