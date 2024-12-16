@@ -1,0 +1,131 @@
+// *   Pashto Language ps (or Pukhto) ps_list Version 1.0
+// *   This file is a basic dictionary for Pashto language.
+// *   Contributions and improvements are welcome.
+// *   Creation Date: 2024-12-16
+//*********
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+//*********
+// You can use the en_extra file, rather than this one
+// to add your own pronunciation definitions.
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+// all words must be LOWER CASE  (although the initial letter will be automatically
+//    converted if it's a 7bit ascii character)
+
+//stress symbols  ' primary  , secondary  % unstressed
+
+// letter names, as they are spoken as a single character in text
+// precede by _  to distinguish from pronunciation as a language word 
+// Special Persian Symbls.
+؋  Afgani
+
+// Pashto Alphabet
+ا    'a
+ب    'be
+پ    'pe
+ت    'te
+ث    'se
+ج    'jim
+چ    'che
+ح    'he
+خ    'xe
+د    'dal
+ذ    'zal
+ر    're
+ز    'ze
+ژ    'zhe
+س    'sin
+ش    'shin
+ص    'sad
+ض    'zad
+ط    'ta
+ظ    'za
+ع    'ain
+غ    'ghain
+ف    'fe
+ق    'qaf
+ک    'kaf
+ګ    'gaf
+ل    'lam
+م    'mim
+ن    'nun
+و    'waw
+ه    'he
+ی    'ye
+ئ    'ye
+ې    'ye
+ښ    'khe
+ؤ    'wo
+ګ    'ga
+ږ    'ghe
+ۀ    'he
+ۍ    'yi
+
+// Diacritics
+َ    a
+ُ    o
+ِ    e:
+ً	'an
+ٌ	'on
+ٍ	'en
+ّ    'shadda
+
+// Special Characters
+ء    'hamza
+ٰ    'madd
+
+// Numbers
+_0  safar
+_1	yo
+_2	dawa
+_3	dri
+_4	salor 
+_5	panza
+_6	shpug 
+_7	awa 
+_8	ata 
+_9	naa
+_10	las
+_11	yulas
+_12	dolas
+_13	diarlas
+_14	sorlas
+_15	panzalas
+_16	shparas
+_17	olas
+_18	atlas
+_19	noolas
+_2X	shal
+_3X	ge
+_4X	salwekht
+_5X	panzos
+_6X	shpeta
+_7X	oya
+_8X	atia
+_9X	navi
+_0C	sal
+_1C	sal
+
+_0M1	zura
+_0M1x	zur
+_0M2	maliona
+_0M2x	malion
+_0M3	malyarda
+_0M3x	malyard
+_0and	a
+_dpt	taki
+_roman	roman
