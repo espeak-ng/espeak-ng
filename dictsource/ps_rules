@@ -1,0 +1,60 @@
+# Pashto phonemes for eSpeak
+ا -> a;
+ب -> b;
+پ -> p;
+ت -> t;
+ټ -> t;
+ث -> s;
+ج -> dʒ;
+چ -> tʃ;
+ح -> h;
+خ -> x;
+څ -> s;
+ځ -> z;
+د -> d;
+ډ -> ɖ;
+ذ -> z;
+ر -> r;
+ړ -> ɻ;
+ز -> z;
+ژ -> ʒ;
+ږ -> ʐ;
+س -> s;
+ش -> ʃ;
+ښ -> ʂ;
+ص -> s;
+ض -> z;
+ط -> t;
+ظ -> z;
+ع -> ʔ;
+غ -> ɣ;
+ف -> f;
+ق -> q;
+ک -> k;
+ګ -> g;
+ل -> l;
+م -> m;
+ن -> n;
+ڼ -> ɳ;
+و -> w;
+ه -> h;
+ۀ -> ə;
+ي -> j;
+ې -> e;
+ی -> ai;
+ۍ -> əi;
+ئ -> əi;
+
+# Long vowels (modify if ':' represents a different marker)
+u: -> u:;
+a: -> a:;
+e: -> e:;
+i: -> i:;
+o: -> o:;
+
+# Diphthongs
+oi -> oi;
+au -> au;
+ei -> ei;
+ai -> ai;
+ou -> ou;
