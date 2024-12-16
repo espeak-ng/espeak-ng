@@ -34,6 +34,7 @@ extern "C"
 void InterpretPhoneme(Translator *tr,
 		int control,
 		PHONEME_LIST *plist,
+		PHONEME_LIST *plist_start,
 		PHONEME_DATA *phdata,
 		WORD_PH_DATA *worddata);
 
