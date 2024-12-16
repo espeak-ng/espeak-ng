@@ -37,46 +37,52 @@
 ؋  Afgani
 
 // Pashto Alphabet
-ا    'a
-ب    'be
-پ    'pe
-ت    'te
-ث    'se
-ج    'jim
-چ    'che
-ح    'he
-خ    'xe
-د    'dal
-ذ    'zal
-ر    're
-ز    'ze
-ژ    'zhe
-س    'sin
-ش    'shin
-ص    'sad
-ض    'zad
-ط    'ta
-ظ    'za
-ع    'ain
-غ    'ghain
-ف    'fe
-ق    'qaf
-ک    'kaf
-ګ    'gaf
-ل    'lam
-م    'mim
-ن    'nun
-و    'waw
-ه    'he
-ی    'ye
-ئ    'ye
-ې    'ye
-ښ    'khe
-ؤ    'wo
-ګ    'ga
-ږ    'ghe
-ۀ    'he
-ۍ    'yi
+ا 	alif 
+ب 	be 
+پ 	pe 
+ت 	te 
+ټ 	ṭe 
+ث 	se2 
+ج 	jim 
+چ 	če 
+ح 	he2 
+خ 	xe 
+څ 	tse śe 
+ځ 	dzim źim 
+د 	dāl 
+ډ 	ḍāl 
+ذ 	zāl2 
+ر 	re 
+ړ 	ṛe4 
+ز 	ze 
+ژ 	že 
+ږ 	ẓ̌ey
+س 	sin 
+ش 	šin 
+ښ 	ṣ̌in
+ص 	swād2 
+ض 	zwād2 
+ط 	twe2 
+ظ 	zwe2 
+ع 	ayn2 
+غ 	ğayn 
+ف 	fe2 
+ق 	qāp 
+ک  	kāp 
+ګ  	gāp 
+ل 	lām 
+م 	mim 
+ن 	nun 
+ڼ 	ṇun 
+ں 	nun
+و 	wāw 
+ه 	ğwə́nḍa he
+ۀ 	kajíra he
+ي 	tsərgánda ye
+ې  	úǵda ye
+ے  	nāriná ye
+ۍ  	x̌əźiná ye
+
 
 // Diacritics
 َ    a
