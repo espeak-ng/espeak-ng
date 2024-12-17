@@ -451,21 +451,21 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 
 }
 
-static int CountVowelPosition(PHONEME_LIST *plist)
+static int CountVowelPosition(PHONEME_LIST *plist, PHONEME_LIST *plist_start)
 {
 	int count = 0;
 
 	for (;;) {
 		if (plist->ph->type == phVOWEL)
 			count++;
-		if (plist->sourceix != 0)
+		if (plist->sourceix != 0 || plist == plist_start)
 			break;
 		plist--;
 	}
 	return count;
 }
 
-static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, unsigned short *p_prog, WORD_PH_DATA *worddata)
+static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_LIST *plist_start, unsigned short *p_prog, WORD_PH_DATA *worddata)
 {
 	unsigned int data;
 	int instn;
@@ -515,6 +515,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		{
 		case 0: // prevPh
 		case 5: // prevPhW
+			if (plist < plist_start+1)
+				return false;
 			plist--;
 			check_endtype = true;
 			break;
@@ -553,6 +555,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			plist = &plist[3];
 			break;
 		case 10: // prev2PhW
+			if (plist < plist_start + 2)
+				return false;
 			if ((plist[0].sourceix) || (plist[-1].sourceix))
 				return false;
 			plist -= 2;
@@ -562,6 +566,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 
 		if ((which == 0) || (which == 5)) {
 			if (plist->phcode == 1) {
+				if (plist <= plist_start)
+					return false;
 				// This is a NULL phoneme, a phoneme has been deleted so look at the previous phoneme
 				plist--;
 			}
@@ -614,6 +620,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 				if (plist->sourceix != 0)
 					return false;
 				do {
+					if (plist <= plist_start)
+						return false;
 					plist--;
 					if ((plist->stresslevel & 0xf) >= 4)
 						return true;
@@ -633,9 +641,9 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			case isVoiced:
 				return (ph->type == phVOWEL) || (ph->type == phLIQUID) || (ph->phflags & phVOICED);
 			case isFirstVowel:
-				return CountVowelPosition(plist) == 1;
+				return CountVowelPosition(plist, plist_start) == 1;
 			case isSecondVowel:
-				return CountVowelPosition(plist) == 2;
+				return CountVowelPosition(plist, plist_start) == 2;
 			case isTranslationGiven:
 				return (plist->synthflags & SFLAG_DICTIONARY) != 0;
 			}
@@ -733,7 +741,7 @@ static int NumInstnWords(unsigned short *prog)
 	}
 }
 
-void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata)
+void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_LIST *plist_start, PHONEME_DATA *phdata, WORD_PH_DATA *worddata)
 {
 	// control:
 	// bit 0:  PreVoicing
@@ -839,7 +847,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			truth = true;
 			while ((instn & 0xe000) == 0x2000) {
 				// process a sequence of conditions, using  boolean accumulator
-				truth2 = InterpretCondition(tr, control, plist, prog, worddata);
+				truth2 = InterpretCondition(tr, control, plist, plist_start, prog, worddata);
 				prog += NumInstnWords(prog);
 				if (*prog == i_NOT) {
 					truth2 = truth2 ^ 1;
@@ -986,5 +994,5 @@ void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata)
 	plist[1].ph = phoneme_tab[phcode];
 	plist[2].sourceix = 1;
 
-	InterpretPhoneme(NULL, 0, &plist[1], phdata, NULL);
+	InterpretPhoneme(NULL, 0, &plist[1], plist, phdata, NULL);
 }
