@@ -737,6 +737,8 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		if (pre) {
 			len = strlen(p);
 			w = word;
+			if (*w == 0)
+				goto skip;
 			for (i = 0; i < len-1; i++)
 			{
 				w--;
