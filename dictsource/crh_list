@@ -229,8 +229,8 @@ olar     $u+               // they
 menim	 $u+                 // my            
 seniñ	 $u+                 // your
 onıñ	 $u+                 // its
-bizim	 bIz'Im $u+          // our
-siziñ	 sIz'IN $u+          // your
+bizim	 bIz,Im $u2+          // our
+siziñ	 sIz,IN $u2+          // your
 olarnıñ  $u+               // their
 
 
