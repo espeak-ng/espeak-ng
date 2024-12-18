@@ -1464,6 +1464,8 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
 	while ((c = *p++) != 0) {
 		if (c >= n_phoneme_tab) continue;
 
+		if (!phoneme_tab[c]) continue;
+
 		if (phoneme_tab[c]->type == phSTRESS) {
 			if (phoneme_tab[c]->std_length < 4)
 				unstress_mark = true;
