@@ -219,19 +219,19 @@ sm  sAnt;;im;'etr
 // PRONOUNS
 //**********
 
-men	     $u+                 // I
-sen	     $u+                 // you
+men	     $u+               // I
+sen	     $u+               // you
 o	     $u                  // he/she
 o        o:    $atend
-biz	     $u+                 // we
-siz	     s|;,is $u+            // you
-olar     $u+                // they
-menim	 $u+                // my            
-seniñ	 $u+                // your
-onıñ	 $u+                // its
-bizim	 $u+                // our
-siziñ	 sIz,IN $u+                // your
-olarnıñ  $u+                // their
+biz	     b,Is  $u+         // we
+siz	     s|;,is $u+        // you
+olar     $u+               // they
+menim	 $u+                 // my            
+seniñ	 $u+                 // your
+onıñ	 $u+                 // its
+bizim	 bIz,Im $u+          // our
+siziñ	 sIz,IN $u+          // your
+olarnıñ  $u+               // their
 
 
 // CONJUNCTIONS
