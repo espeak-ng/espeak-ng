@@ -921,8 +921,8 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 	int found_value = 0;
 	char string[14];
 	char ph_of[12];
-	char ph_thousands[40];
-	char ph_buf[40];
+	char ph_thousands[N_PHONEME_BYTES];
+	char ph_buf[N_PHONEME_BYTES];
 
 	ph_of[0] = 0;
 
@@ -1268,8 +1268,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 	char string[12]; // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
-	char ph_100[20];
-	char ph_10T[20];
+	char ph_100[N_PHONEME_BYTES];
+	char ph_10T[N_PHONEME_BYTES];
 	char ph_digits[50];
 	char ph_thousands[50];
 	char ph_hundred_and[12];
