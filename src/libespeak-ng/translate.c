@@ -1609,10 +1609,10 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				// redo the word, speaking single letters
 				for (pw = word; *pw != ' ';) {
 					memset(number_buf, 0, sizeof(number_buf));
-					memset(number_buf, ' ', 9);
+					memset(number_buf+1, ' ', 9);
 					nx = utf8_in(&c_temp, pw);
-					memcpy(&number_buf[2], pw, nx);
-					TranslateWord2(tr, &number_buf[2], &words[ix], 0);
+					memcpy(&number_buf[3], pw, nx);
+					TranslateWord2(tr, &number_buf[3], &words[ix], 0);
 					pw += nx;
 				}
 			}
