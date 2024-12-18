@@ -468,7 +468,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 		if (plist == NULL)
 			InterpretPhoneme2(ph->code, &phdata);
 		else
-			InterpretPhoneme(NULL, 0, plist, &phdata, NULL);
+			InterpretPhoneme(NULL, 0, plist, plist, &phdata, NULL);
 
 		p = phdata.ipa_string;
 		if (*p == 0x20) {
