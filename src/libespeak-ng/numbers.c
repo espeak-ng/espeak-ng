@@ -484,7 +484,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 	int len;
 	char single_letter[10] = { 0, 0 };
 	unsigned int dict_flags[2];
-	char ph_buf3[40];
+	char ph_buf3[N_PHONEME_BYTES];
 
 	ph_buf1[0] = 0;
 	len = utf8_out(letter, &single_letter[2]);
