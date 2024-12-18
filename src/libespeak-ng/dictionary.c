@@ -468,7 +468,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 		if (plist == NULL)
 			InterpretPhoneme2(ph->code, &phdata);
 		else
-			InterpretPhoneme(NULL, 0, plist, &phdata, NULL);
+			InterpretPhoneme(NULL, 0, plist, plist, &phdata, NULL);
 
 		p = phdata.ipa_string;
 		if (*p == 0x20) {
@@ -1757,7 +1757,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						syllable_count += 1; // number of syllables to match
 					}
 					vowel = 0;
-					while (letter_w != RULE_SPACE) {
+					while (letter_w != RULE_SPACE && letter_w != 0) {
 						if ((vowel == 0) && IsLetter(tr, letter_w, LETTERGP_VOWEL2)) {
 							// this is counting vowels which are separated by non-vowel letters
 							vowel_count++;
@@ -1774,7 +1774,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				case RULE_NOVOWELS:
 				{
 					char *p = post_ptr + letter_xbytes;
-					while (letter_w != RULE_SPACE) {
+					while (letter_w != RULE_SPACE && letter_w != 0) {
 						if (IsLetter(tr, letter_w, LETTERGP_VOWEL2)) {
 							failed = 1;
 							break;

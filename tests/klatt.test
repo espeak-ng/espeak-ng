@@ -4,8 +4,8 @@
 # and run needed checks before
 is_hash
 # call actual test functions
-test_wav en+klatt  "8155a2249db8f6fe5f3b1d4fd00c35d09ceb6c82" "The quick brown fox jumps over the lazy dog"
-test_wav en+klatt2 "90559a2ff9973c3ccf1eb7e71579fedfedbd3c67" "The quick brown fox jumps over the lazy dog"
-test_wav en+klatt3 "a636bc97d68fbec753c7cecc718b539c87627095" "The quick brown fox jumps over the lazy dog"
-test_wav en+klatt4 "653e243019c9462c7a9a90f4b03326d45b45f41c" "The quick brown fox jumps over the lazy dog"
-test_wav en+klatt5 "6665329b413244b9846533ce207f0ee3d6e55094" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt  "696213dbbceecf20c3f80d771aab5757e05181c0" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt2 "e55bf0a5cd96d648177f743557c67a791da03f7b" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt3 "9ed890d032b1bed4a4ef1e3380b68133d0342429" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt4 "77243123d96113ab747200c5312e4945af4e16f3" "The quick brown fox jumps over the lazy dog"
+test_wav en+klatt5 "6426725d6c5a9053862a5251ff9c1e0a58c29e9b" "The quick brown fox jumps over the lazy dog"

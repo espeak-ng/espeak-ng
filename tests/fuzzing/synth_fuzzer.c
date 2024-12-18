@@ -49,6 +49,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 	{
 		int options = espeakINITIALIZE_DONT_EXIT;
 		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, buflength, PATH_ESPEAK_DATA, options);
+		espeak_ng_SetRandSeed(1);
 		espeak_SetSynthCallback(espeak_callback);
 		const char *lang = getenv("FUZZ_VOICE");
 		if (lang == NULL)
