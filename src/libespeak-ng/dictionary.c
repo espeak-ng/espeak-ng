@@ -1978,13 +1978,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case '.':
 					// dot in pre- section, match on any dot before this point in the word
-					for (p = pre_ptr; *p != ' '; p--) {
+					for (p = pre_ptr; *p && *p != ' '; p--) {
 						if (*p == '.') {
 							add_points = 50;
 							break;
 						}
 					}
-					if (*p == ' ')
+					if (!*p || *p == ' ')
 						failed = 1;
 					break;
 				case '-':
