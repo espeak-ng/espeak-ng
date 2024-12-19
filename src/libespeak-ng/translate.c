@@ -1497,7 +1497,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 		char *pn;
 		char *pw;
 		char number_buf[150];
-		WORD_TAB num_wtab[50]; // copy of 'words', when splitting numbers into parts
+		WORD_TAB num_wtab[N_CLAUSE_WORDS]; // copy of 'words', when splitting numbers into parts
 
 		// start speaking at a specified word position in the text?
 		count_words++;
@@ -1551,7 +1551,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			if ((n_digits > tr->langopts.max_digits) || (word[0] == '0'))
 				words[ix].flags |= FLAG_INDIVIDUAL_DIGITS;
 
-			while (pn < &number_buf[sizeof(number_buf)-20]) {
+			while (pn < &number_buf[sizeof(number_buf)-20] && nw < N_CLAUSE_WORDS-1) {
 				if (!IsDigit09(c = *pw++) && (c != tr->langopts.decimal_sep))
 					break;
 
@@ -1588,10 +1588,10 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			pn[16] = 0;
 			nw = 0;
 
-			for (pw = &number_buf[3]; pw < pn;) {
+			for (pw = &number_buf[3]; pw < pn && nw < N_CLAUSE_WORDS;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
-				while (*pw++ != ' ')
+				while (*pw && *pw++ != ' ')
 					;
 				words[ix].pre_pause = 0;
 			}
@@ -1609,10 +1609,10 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				// redo the word, speaking single letters
 				for (pw = word; *pw != ' ';) {
 					memset(number_buf, 0, sizeof(number_buf));
-					memset(number_buf, ' ', 9);
+					memset(number_buf+1, ' ', 9);
 					nx = utf8_in(&c_temp, pw);
-					memcpy(&number_buf[2], pw, nx);
-					TranslateWord2(tr, &number_buf[2], &words[ix], 0);
+					memcpy(&number_buf[3], pw, nx);
+					TranslateWord2(tr, &number_buf[3], &words[ix], 0);
 					pw += nx;
 				}
 			}
