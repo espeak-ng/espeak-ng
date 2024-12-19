@@ -349,7 +349,7 @@ static int mbrola_has_errors(void)
 
 		buf_ptr[result] = 0;
 
-		for (; (lf = strchr(buf_ptr, '\n')); buf_ptr = lf + 1) {
+		for (; (lf = strchr(buf_ptr, '\n')); result -= (lf+1) - buf_ptr, buf_ptr = lf + 1) {
 			// inhibit the reset signal messages
 			if (strncmp(buf_ptr, "Got a reset signal", 18) == 0 ||
 			    strncmp(buf_ptr, "Input Flush Signal", 18) == 0)
