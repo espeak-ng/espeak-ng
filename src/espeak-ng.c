@@ -762,8 +762,8 @@ int main(int argc, char **argv)
 				}
 			}
 			if (ix > 0) {
-				p_text[ix-1] = 0;
-				espeak_Synth(p_text, ix+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
+				p_text[ix] = 0;
+				espeak_Synth(p_text, ix, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 			}
 		}
 
