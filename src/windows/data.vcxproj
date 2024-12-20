@@ -332,6 +332,9 @@
   <Target Name="pl" Inputs="$(ProjectDir)..\..\dictsource\pl_rules;$(ProjectDir)..\..\dictsource\pl_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\pl_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=pl" />
   </Target>
+  <Target Name="ps" Inputs="$(ProjectDir)..\..\dictsource\ps_rules;$(ProjectDir)..\..\dictsource\ps_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ps_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ps" />
+  </Target>
   <Target Name="pt" Inputs="$(ProjectDir)..\..\dictsource\pt_rules;$(ProjectDir)..\..\dictsource\pt_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\pt_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=pt" />
   </Target>
