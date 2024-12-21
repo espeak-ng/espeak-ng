@@ -221,7 +221,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 				return 0;
 			}
 
-			found = TranslateNumber(tr, word1, phonemes, dictionary_flags, wtab, 0);
+			found = TranslateNumber(tr, word1, phonemes, phonemes + sizeof(phonemes), dictionary_flags, wtab, 0);
 		}
 
 		if (!found && ((wflags & FLAG_UPPERS) != FLAG_FIRST_UPPER)) {
@@ -230,7 +230,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 			if ((tr->langopts.numbers & NUM_ROMAN) || ((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && (wflags & FLAG_ALL_UPPER))) {
 				if ((wflags & FLAG_LAST_WORD) || !(wtab[1].flags & FLAG_NOSPACE)) {
 					// don't use Roman number if this word is not separated from the next word (eg. "XLTest")
-					if ((found = TranslateRoman(tr, word1, phonemes, wtab)) != 0)
+					if ((found = TranslateRoman(tr, word1, phonemes, phonemes + sizeof(phonemes), wtab)) != 0)
 						dictionary_flags[0] |= FLAG_ABBREV; // prevent emphasis if capitals
 				}
 			}
