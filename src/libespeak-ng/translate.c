@@ -1551,7 +1551,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			if ((n_digits > tr->langopts.max_digits) || (word[0] == '0'))
 				words[ix].flags |= FLAG_INDIVIDUAL_DIGITS;
 
-			while (pn < &number_buf[sizeof(number_buf)-20] && nw < N_CLAUSE_WORDS-1) {
+			while (pn < &number_buf[sizeof(number_buf)-20] && nw < N_CLAUSE_WORDS-2) {
 				if (!IsDigit09(c = *pw++) && (c != tr->langopts.decimal_sep))
 					break;
 
