@@ -1,0 +1,262 @@
+// *   amazigh Language zgh zgh_list
+// *   This file was writen by Abdelhaque Id Ali 2024
+// ***************************************************************************
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************
+//
+// You can use the en_extra file, rather than this one
+// to add your own pronunciation definitions.
+//
+// This file is UTF-8 encoded
+// all words must be LOWER CASE  (although the initial letter will be automatically
+// converted if it's a 7bit ascii character)
+//
+//stress symbols  ' primary  , secondary  % unstressed
+// letter names, as they are spoken as a single character in text
+// precede by _  to distinguish from pronunciation as a language word
+_ⴰ ja
+_ⴱ jab
+_ⴲ jab
+_ⴳ jag
+_ⴴ jag
+_ⴵ jaddZ
+_ⴶ jadZ
+_ⴷ jad
+_ⴸ jad[
+_ⴹ jaD
+_ⴺ jaD[
+_ⴻ j3j
+_ⴼ jaf
+_ⴽ jak
+_ⴾ jak
+_ⴿ jak
+_ⵀ jah
+_ⵁ jah
+_ⵂ jah
+_ⵃ jaH
+_ⵄ jaA
+_ⵅ jax
+_ⵆ jax
+_ⵇ jaq
+_ⵈ jaq
+_ⵉ ji
+_ⵊ jadZ
+_ⵋ jadZ
+_ⵌ jaz[
+_ⵍ jal
+_ⵎ jam
+_ⵏ jan
+_ⵐ jagn
+_ⵑ jang
+_ⵒ jap
+_ⵓ ju
+_ⵔ jar
+_ⵕ jaR
+_ⵖ jag[
+_ⵗ jag[
+_ⵘ jag[
+_ⵙ jas
+_ⵚ jas[
+_ⵛ jaS
+_ⵜ jat
+_ⵝ jaT
+_ⵞ jatS
+_ⵟ jat[
+_ⵠ jav
+_ⵡ jaw
+_ⵢ jaj
+_ⵣ jaz
+_ⵤ jaz
+_ⵥ jaz[
+ⵦ j3j
+ⵧ ju
+_ⵯ tamatart
+
+
+// When letters entered one by one
+_ⴰ ja              $atend
+_ⴱ jab              $atend
+_ⴲ jav#              $atend
+_ⴳ jag              $atend
+_ⴴ jag              $atend
+_ⴵ jaddZ              $atend
+_ⴶ jadZ              $atend
+_ⴷ jad              $atend
+_ⴸ jad[              $atend
+_ⴹ jaD             $atend
+_ⴺ jaD[              $atend
+_ⴻ j3j              $atend
+_ⴼ jaf              $atend
+_ⴽ jak              $atend
+_ⴾ jak              $atend
+_ⴿ jak              $atend
+_ⵀ jah              $atend
+_ⵁ jah              $atend
+_ⵂ jah              $atend
+_ⵃ jaH              $atend
+_ⵄ jaA              $atend
+_ⵅ jax              $atend
+_ⵆ jax              $atend
+_ⵇ jaq              $atend
+_ⵈ jaq              $atend
+_ⵉ ji              $atend
+_ⵊ jadZ              $atend
+_ⵋ jadZ              $atend
+_ⵌ jaz[              $atend
+_ⵍ jal              $atend
+_ⵎ jam              $atend
+_ⵏ jan              $atend
+_ⵐ jagn              $atend
+_ⵑ jang              $atend
+_ⵒ jap              $atend
+_ⵓ ju              $atend
+_ⵔ jar              $atend
+_ⵕ jaR              $atend
+_ⵖ jag[              $atend
+_ⵗ jag[              $atend
+_ⵘ jag[              $atend
+_ⵙ jas              $atend
+_ⵚ jas[              $atend
+_ⵛ jaS              $atend
+_ⵜ jat              $atend
+_ⵝ jaT              $atend
+_ⵞ jatS              $atend
+_ⵟ jat[              $atend
+_ⵠ jav              $atend
+_ⵡ jaw              $atend
+_ⵢ jaj              $atend
+_ⵣ jaz              $atend
+_ⵤ jaz              $atend
+_ⵥ jaz[              $atend
+ⵦ jaj              $atend
+ⵧ juj              $atend
+_ⵯ tamatart              $atend
+
+// numeric
+_1      jan
+_2      sin
+_3      kRa.D
+_4      kːuz[
+_5      smːus
+_6      s[Di.s[
+_7      sa
+_8      tam
+_9      tz[a.
+_10      mraw
+_11      jan||d||mraw
+_12      sin||d||mraw
+_13      kRa.D||d||mraw
+_14      kːuz[||d||mraw
+_15      smːus||d||mraw
+_16      s[Di.s[||d||mraw
+_17      sa||d||mraw
+_18      tam||d||mraw
+_2X      simraw
+_3X      kRa.mraw
+_4X      kːuz[mraw
+_5X      smːumraw
+_6X      s[Di.mraw
+_7X      samraw
+_8X      tamːraw
+_9X      tz[a.mraw
+
+_0C     tmiDi.
+_1C     tmiDi.
+_2C     snat||tmaD
+_3C     kRa.D||tmaD
+_4C     kːuz[t||tmaD
+_5C     smːust||tmaD
+_6C     s[Di.s[t||tmaD
+_7C     sat||tmaD
+_8C     tamt||tmaD
+_9C     tz[a.t||tmaD
+
+_0M1    jan||ifD
+_1M1    jan||ifD
+_2M1      sin||wafDa.nː
+_3M1      kRa.D||wafDa.nː
+_4M1      kːuz[||wafDa.nː
+_5M1      smːus||wafDa.nː
+_6M1      s[Di.s[||wafDa.nː
+_7M1      sa||wafDa.nː
+_8M1      tam||wafDa.nː
+_9M1      tz[a.||wafDa.nː
+_10M1      mraw||wafDa.nː
+
+_0M2    amljun
+_1M2    amljun
+_2M2      sin||id||mljun
+_3M2      kRa.D||id||mljun
+_4M2      kːuz[||id||mljun
+_5M2      smːus||id||mljun
+_6M2      s[Di.s[||id||mljun
+_7M2      sa||id||mljun
+_8M2      tam||id||mljun
+_9M2      tz[a.||id||mljun
+_10M2      mraw||id||mljun
+
+_0M3    amljaR
+_1M3    amljaR
+_2M3      sin||id||mljaR
+_3M3      kRa.D||id||mljaR
+_4M3      kːuz[||id||mljaR
+_5M3      smːus||id||mljaR
+_6M3      s[Di.s[||id||mljaR
+_7M3      sa||id||mljaR
+_8M3      tam||id||mljaR
+_9M3      tz[a.||id||mljaR
+_10M3      mraw||id||mljaR
+
+
+_0and   d
+_dpt    tanq:iDt
+_roman  aru.ma.ni
+
+_#st    amzwaru
+_#nd    wisː||sin
+_#rd    wisː||kra.D
+_#th    wisː
+
+
+// character names
+_÷       taqsi:m
+_×       fi:
+_؟       A:la:amat||?istifha:m
+_!       A:la:amat||ta:adZdZub
+_$       du:la:r
+_%       bilmi?ah
+_[       A:ridHah||maftu:Hah
+_]       A:ridHah||mugHlaqah
+_(       qaws||maftu:H
+_)       qaws||mugHlaq
+_*       nedZmah
+_-       na:qis[
+_/.      nuqt[ah
+_/:      nuqt[ata:n
+_<       ?as[gHar||min
+_=       tusa:wi:
+_>       ?akbar||min
+_{       Ha:dHinah||maftu:Hah
+_}       Ha:dHinah||mugHlaqah
+_...     Tala:T||niqa:t[
+
+
+//characters and numbers and words with English alphabet is translated by English phonemes
+th      _^_en
+
+// MAIN WORD DICTIONARY
+//*********************
+ⵍⵍⴰⵀ          l:a.h
+ⴰⵍⵍⴰⵀ          al:a.h
