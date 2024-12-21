@@ -231,21 +231,21 @@ seniñ	 $u+                 // your
 onıñ	 $u+                 // its
 bizim	 bIz,Im $u2+          // our
 siziñ	 sIz,IN $u2+          // your
-olarnıñ  $u+               // their
+olarnıñ  $u3+               // their
 
 
 // CONJUNCTIONS
 //**************
 
-amma     $u               // but
-ancaq    $u               // only
-eger     $u               // if
-ile      $u               // with
-sanki    $u               // as
-ve       $u                // and
-ya       $u                // or
-yahut    $u               // or
-yoqsa    $u               // if not
+amma     $u $brk              // but
+ancaq    $u $brk             // only
+eger     $u $brk           // if
+ile      $u $brk             // with
+sanki    $u $brk              // as
+ve       $u $brk               // and
+ya       $u $brk               // or
+yahut    $u $brk              // or
+yoqsa    $u $brk              // if not
 
 
 // POSTPOSITIONS
@@ -256,7 +256,7 @@ qadar      $u+             // until
 soñ        $u+              // after
 sebep      $u+             // due to
 taba       $u+             // towards
-zarfında   $u+             // during
+zarfında   $u3+             // during
 
 
 // MAIN WORD DICTIONARY
