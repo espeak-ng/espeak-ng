@@ -1551,7 +1551,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			if ((n_digits > tr->langopts.max_digits) || (word[0] == '0'))
 				words[ix].flags |= FLAG_INDIVIDUAL_DIGITS;
 
-			while (pn < &number_buf[sizeof(number_buf)-20] && nw < N_CLAUSE_WORDS-1) {
+			while (pn < &number_buf[sizeof(number_buf)-20] && nw < N_CLAUSE_WORDS-2) {
 				if (!IsDigit09(c = *pw++) && (c != tr->langopts.decimal_sep))
 					break;
 
@@ -1584,7 +1584,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				num_wtab[j].flags &= ~(FLAG_MULTIPLE_SPACES | FLAG_EMBEDDED); // don't use these flags for subsequent parts when splitting a number
 
 			// include the next few characters, in case there are an ordinal indicator or other suffix
-			memcpy(pn, pw, 16);
+			strncpy(pn, pw, 16);
 			pn[16] = 0;
 			nw = 0;
 

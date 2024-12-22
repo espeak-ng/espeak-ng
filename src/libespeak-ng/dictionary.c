@@ -44,7 +44,7 @@
 #include "translate.h"                     // for Translator, utf8_in, LANGU...
 
 static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[2]);
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points);
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char word_buf[N_WORD_BYTES], Translator *tr, int command, int *failed, int *add_points);
 
 typedef struct {
 	int points;
@@ -3028,10 +3028,16 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	return end_flags;
 }
 
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points) {
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char word_buf[N_WORD_BYTES], Translator *tr, int command, int *failed, int *add_points) {
 	// $list or $p_alt
 	// make a copy of the word up to the post-match characters
 	int ix = *word - word_start + consumed + group_length + 1;
+
+	if (ix+2 > N_WORD_BYTES) {
+		*failed = 1;
+		return;
+	}
+
 	memcpy(word_buf, word_start-1, ix);
 	word_buf[ix] = ' ';
 	word_buf[ix+1] = 0;

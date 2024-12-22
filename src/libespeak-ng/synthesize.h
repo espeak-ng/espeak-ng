@@ -327,6 +327,8 @@ typedef struct {
 
 #define i_StressLevel  0x800
 
+#define LENGTH_MOD_LIMIT 10
+
 typedef struct {
 	int pause_factor;
 	int clause_pause_factor;
