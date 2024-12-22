@@ -135,23 +135,30 @@
     b)  i (y     ;i
     d)  i         I
     d)  i  (_    'I
+    d)  i (y     ;i
     k)  i        ;i
     k)  i  (_    ;'i
     l)  i         I
     l)  i  (_    'I
+    l)  i (y     ;i
     r)  i         I
     r)  i (y     ;i
     r)  i  (_    'I
     s)  i         I
+    s)  i (y     ;i
     s)  i  (_    'I
     ş)  i         I
+    ş)  i (y     ;i
     t)  i         I
     t)  i  (_    'I
+    t)  i (y     ;i
     v)  i         I
     v)  i  (_    'I
+    v)  i (y     ;i
     y)  i         i
     z)  i         I
     z)  i  (_    'I
+    z)  i (y     ;i
 	ik (_    ;'ik
 	ir (_    'Ir
 	iv (_    ;'if      
@@ -181,6 +188,7 @@
    L01) l (K      L
     _)  li        l;i
         lik (_    l'Ik
+        liy (_    l;'i:
 
 .group m
         m         m
@@ -226,12 +234,14 @@
 .group s
         s         s
     _)  si        s|;i
+        siy (_    s|;'i:
 	sın (_   =s@n
 	sıñ (_   =s@N
 	skiy (_  =sc;i:            // used in some names
 		
 .group ş
         ş         S
+        şiy (_    S|;'i:
 		
 .group t
         t         t
@@ -240,6 +250,7 @@
 	t  (â     t;
     _)  ti        t;i
 	tik (_    t;;'ik
+        tiy (_    t;;'i:
 
 .group u
         u         u
@@ -261,6 +272,7 @@
 	v (_      f
     _)  vi        v;i
 	viç (_    =v;itS;        // used in some names
+        viy (_    v;'i:
 		
 .group y
         y         j
@@ -270,6 +282,7 @@
         z         z
 	z (_      s
     _)  zi        z|;i
+        ziy (_    z|;'i:
 
 .group
    w     w
