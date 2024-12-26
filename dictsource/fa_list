@@ -537,6 +537,7 @@ U+20	fAsele_
 آلدسترون	AldosteRon
 آلدیید	Aldeid
 آلرژی	AleRZi
+آلرژیک	AleRZik
 آلزایمر	AlzAjmeR
 آلفابت	AlfAbet
 آلفرد	AlfeRed
@@ -1257,6 +1258,7 @@ U+20	fAsele_
 استفانو	estefAno
 استفسار	estefsAR
 استفهام	estefhAm
+استقامت	esteq1Amat
 استقرا	esteq1RA
 استقصا	esteq1sA
 استلا	estellA
@@ -1567,7 +1569,7 @@ U+20	fAsele_
 اغماض	eq1mAz
 اغوا	eq1vA
 افاده	efAdeh
-افاضه	efAze
+افاض	efAz
 افاقه	efAq1e:
 افت	oft
 افتاد	oftAd
@@ -2210,6 +2212,7 @@ U+20	fAsele_
 ایرج	iRadZ
 ایرلاین	ejRlAjn
 ایروبیک	ejRobik
+ایرپاد	ejRpAd
 ایرکاندیشن	ejRkAndiSen
 ایریدیم	iRidijom
 ایزابل	izAbel
@@ -2467,6 +2470,7 @@ U+20	fAsele_
 باوفا	bAvafA
 باوقار	bAvaq1AR
 باکتری	bAkteRi
+باکتریا	bAkteRijA
 باکتریولوژی	bAkteRijoloZ
 باکس	bAks
 باکله	bAkalle
@@ -2582,6 +2586,7 @@ U+20	fAsele_
 بدبیاری	badbijA:Ri
 بدبینانه	badbinAne
 بدت	badat
+بدتر	badtaR
 بدترکیب	badtaRkib
 بدتری	badtaRi
 بدجنس	baddZens
@@ -3228,6 +3233,7 @@ U+20	fAsele_
 بهترون	behtaRun
 بهترین	behtaRin
 بهداشت	behdASt
+بهدید	behdid
 بهدین	behdin
 بهرام	bahRAm
 بهران	bohRAn
@@ -4249,6 +4255,7 @@ U+20	fAsele_
 تیرافکن	tiRafkan
 تیردان	tiRdAn
 تیررس	tiR'Ras
+تیروئید	tiRoi:d
 تیروتخته	tiRotaxte:
 تیروکمان	tiRokamAn
 تیرویید	tiRoi:d
@@ -4768,6 +4775,7 @@ U+20	fAsele_
 حوصلتون	ho:selatun
 حوصلشون	ho:selaSun
 حوصلمون	ho:selamun
+حوض	ho:z
 حوقل	hoq1al
 حول	ho:l
 حکام	hokkAm
@@ -5362,6 +5370,7 @@ U+20	fAsele_
 دستشو	dasteSo
 دستمبو	dastambu
 دستور	dastuR
+دستورات	dastuRAt
 دستورالعمل	dastuRol_amal
 دستپاچه	dastpAtSe
 دستپخت	dastpoxt
@@ -5542,6 +5551,7 @@ U+20	fAsele_
 دوراندوران	doRAn
 دوربرد	duRboRd
 دوربین	duRbin
+دوردست	duRdast
 دورنگی	doRangi
 دوره	doRe:
 دورپرواز	duRpaRvAz
@@ -5741,6 +5751,7 @@ U+20	fAsele_
 رئال	ReA:l
 رئالیسم	ReAlism
 رئاکتور	ReAktoR
+رئیست	Ra?isat
 رئیسجمهور	Ra_isdZomhuR
 رابرت	RAbeRt
 رابعا	RA:be?an
@@ -6230,6 +6241,7 @@ U+20	fAsele_
 ریچارد	RitSARd
 ریکاور	RikAveR
 رییس	Ra?is
+رییست	Ra?isat
 رییسجمهور	Ra_isdZomhuR
 زئوس	ze?us
 زابل	zAbol
@@ -6260,6 +6272,7 @@ U+20	fAsele_
 زجاج	zodZAdZ
 زجردیده	zadZRdide
 زحل	zohal
+زحمات	zahamAt
 زخارف	zaxARef
 زخرف	zoxRof
 زدا	zodA
@@ -7023,6 +7036,7 @@ U+20	fAsele_
 شابر	SAboR
 شابلن	SAblon
 شابلون	SAblon
+شاتگان	SAtgAn
 شاد	S'Ad
 شادمهر	S'AdmehR
 شاربن	SARbon
@@ -7061,7 +7075,6 @@ U+20	fAsele_
 شاپرک	SApaRak
 شاگرد	SAgeRd
 شاگردان	SAgeRdAn
-شاگردانه	SAgeRdAne
 شاید	'SAjad
 شایست	SAjest
 شایورد	SAjvaRd
@@ -7346,7 +7359,6 @@ U+20	fAsele_
 شیبان	SejbAn
 شیخ	Sejx
 شیدا	SejdA
-شیربرنج	SiRbeRendZ
 شیربها	SiRbahA
 شیرجه	SiRdZe:
 شیرجۀ	SiRdZeje
@@ -7356,11 +7368,8 @@ U+20	fAsele_
 شیرده	SiRdeh
 شیرزن	SiRzan
 شیرفهم	SiRfahm
-شیرمراد	SiRmoRAd
 شیرمست	SiRmast
-شیرموز	SiRmo:z
 شیروان	SiRvAn
-شیرکلاهی	SiRkolAhi
 شیزوفرنی	SizofeRni
 شیست	Sist
 شیطان	SejtAn
@@ -7946,6 +7955,7 @@ U+20	fAsele_
 فارماکولژی	fARmAkoloZi
 فارماکولژیک	fARmAkoloZik
 فازمتر	fAzmetR
+فاستون	fAston
 فاشیسم	fASism
 فاضلآب	fAzelAb
 فاضلاب	fAzelAb
@@ -8238,6 +8248,7 @@ U+20	fAsele_
 فلمینگ	feleming
 فلنگ	feleng
 فلنگو	felengo
+فلور	feloR
 فلورا	feloRA
 فلورانس	feloRAns
 فلوراید	feloRAjd
@@ -8898,6 +8909,8 @@ U+20	fAsele_
 مأیوس	ma?jus
 مؤثر	mo?asseR
 مؤخر	mo?axxaR
+مؤدب	mo?addab
+مؤدبان	mo?addabAn
 مؤدی	mo?addi
 مؤذن	mo?azzen
 مؤسس	mo?asses
@@ -10122,6 +10135,7 @@ U+20	fAsele_
 ملامت	malAmat
 ملاک	melAk
 ملایم	molAjem
+ملایمت	molAjemat
 ملبس	molabbas
 ملبورن	melboRn
 ملت	mellat
@@ -10529,6 +10543,8 @@ U+20	fAsele_
 میثم	mejsam
 میجر	mejdZeR
 میخان	mejxAn
+میخانه	mejxAne:
+میخانۀ	mejxAneje
 میخرد	mixaRad
 میخوار	mejxAR
 میخوش	mejxoS
@@ -10651,6 +10667,8 @@ U+20	fAsele_
 میگون	mejgun
 میگویم	migujam
 نئون	ne?on
+ناامن	nA_amn
+ناامید	nA_omid
 نابخرد	nAbexRad
 نابرادری	nAbaRAdaRi
 نابسامان	nAbesAmAn
@@ -11057,6 +11075,7 @@ U+20	fAsele_
 نهاندانگان	nahAndAnegAn
 نهایت	nahAjat
 نهایتا	nahAjatan
+نهایتی	nahAjati
 نهد	nahad
 نهروان	nahRavAn
 نهرکن	nahRkan
@@ -11341,6 +11360,7 @@ U+20	fAsele_
 هبه	hebe
 هبۀ	hebeje
 هتل	hotel
+هتلینگ	hoteling
 هجا	hedZA
 هجده	hedZdah
 هجدهم	'hedZdahom
@@ -12981,13 +13001,17 @@ U+20	fAsele_
 کدامند	kodAmand
 کدامیک	kodAmjek
 کداک	kodAk
+کدت	kodat
 کدخدا	kadxodA
 کدر	kedeR
+کدش	kodaS
+کدم	kodam
 کده	kade:
 کدوتنبل	kadutanbal
 کدوم	kodum
 کدکن	kadkan
 کدۀ	kadeje
+کدینگ	koding
 کدیور	kadivaR
 کذب	kezb
 کراتین	keRAtin
