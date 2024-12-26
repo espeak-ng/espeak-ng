@@ -1584,7 +1584,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				num_wtab[j].flags &= ~(FLAG_MULTIPLE_SPACES | FLAG_EMBEDDED); // don't use these flags for subsequent parts when splitting a number
 
 			// include the next few characters, in case there are an ordinal indicator or other suffix
-			memcpy(pn, pw, 16);
+			strncpy(pn, pw, 16);
 			pn[16] = 0;
 			nw = 0;
 

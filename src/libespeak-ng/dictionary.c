@@ -2989,7 +2989,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 				const char *p;
 				for (i = 0; (p = add_e_exceptions[i]) != NULL; i++) {
 					int len = strlen(p);
-					if (memcmp(p, &word_end[1-len], len) == 0)
+					if (word_end + 1-len >= word && memcmp(p, &word_end[1-len], len) == 0)
 						break;
 				}
 				if (p == NULL)
@@ -2998,7 +2998,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 				const char *p;
 				for (i = 0; (p = add_e_additions[i]) != NULL; i++) {
 					int len = strlen(p);
-					if (memcmp(p, &word_end[1-len], len) == 0) {
+					if (word_end + 1-len >= word && memcmp(p, &word_end[1-len], len) == 0) {
 						end_flags |= FLAG_SUFX_E_ADDED;
 						break;
 					}
