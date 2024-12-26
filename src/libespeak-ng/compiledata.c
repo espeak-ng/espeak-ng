@@ -30,6 +30,7 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <assert.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -1898,6 +1899,7 @@ static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 				break;
 			case i_LENGTH_MOD:
 				value = NextItem(ctx, tNUMBER);
+				assert(value < LENGTH_MOD_LIMIT);
 				ctx->phoneme_out->length_mod = value;
 				break;
 			case i_IPA_NAME:
