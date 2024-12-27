@@ -1,0 +1,11 @@
+language variant 
+name Andrea2
+klatt 6
+pitch 200 265
+voicing 70
+breath 45
+formant 1 98 100 80
+formant 2 110  80 80
+formant 3 115  110 80
+formant 4 115  80 28
+formant 5 95  50 100

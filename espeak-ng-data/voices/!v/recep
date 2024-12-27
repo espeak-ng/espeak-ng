@@ -1,0 +1,19 @@
+language variant
+name Recep
+gender male
+maintainer Enes Deniz
+pitch  97 140
+stressAmp 18 18 20 20 20 22 22 21
+formant 1 88 120 90
+formant 2 95  120 80
+formant 3 100  50 80
+formant 4 30 30 30
+formant 5 90 90 90
+formant 6 110 60 65
+formant 7 100 0 100
+formant 8 100 0 100
+voicing 125
+consonants 75 65
+tone 60 100 150 125 600 150 1000 125 1500 100 3000 25
+breath 5 4 3 2 1 1
+breathw 150 150 200 200 400 400

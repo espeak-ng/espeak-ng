@@ -1,0 +1,13 @@
+language variant
+name Tom3
+klatt 6
+pitch  80 125
+voicing 68
+consonants 48 35
+klatt 6
+formant 1 90 170 130
+formant 2 98 120 120
+formant 3 95 70 200
+formant 4 200 30 30 -100
+formant 5 90 120 150
+formant 6 200 150 65

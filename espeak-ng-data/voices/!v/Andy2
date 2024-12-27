@@ -1,0 +1,11 @@
+language variant
+name Andy2
+klatt 6
+pitch 85 110
+voicing 60
+breath 45
+formant 1 100 100 100 120
+formant 2 100 88 100
+formant 3 160 100 140
+formant 4 80 80 35
+formant 5 80 80 80
