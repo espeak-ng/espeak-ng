@@ -2066,6 +2066,7 @@ U+20	fAsele_
 اومد	umad
 اونس	ons
 اونطور	unto:R
+اونو	uno
 اونور	'unvaR
 اونوقت	unvaq1t
 اونوقتا	unvaq1tA
@@ -2266,6 +2267,7 @@ U+20	fAsele_
 اینطور	into:R
 اینفلوئنسر	infeluenseR
 اینقدر	inq1adR
+اینو	ino
 اینور	'invaR
 اینچنین	intSenin
 اینکه	inke:
@@ -3481,6 +3483,8 @@ U+20	fAsele_
 بیو	bi:v
 بیوتروریسم	bijoteRoRism
 بیوفا	bi:vafA:
+بیولوژی	bijoloZi
+بیولوژیک	bijoloZik
 بیوکنن	bijukanen
 بیوگرافی	bijogeRAfi
 بیپاسخ	bi:pA:sox
@@ -4982,6 +4986,7 @@ U+20	fAsele_
 خشت	xeSt
 خشتزن	xeStzan
 خشتمال	xeStmAl
+خشخش	xeSxeS
 خشن	xaSen
 خشنود	xoSnud
 خشونت	xoSunat
@@ -5333,6 +5338,7 @@ U+20	fAsele_
 درّۀ	daRReje
 درپی	daRpeje
 درک	daRk
+درکش	daRkaS
 درکل	daRkoll
 درکه	daRake:
 درگ	deRag
@@ -6806,6 +6812,7 @@ U+20	fAsele_
 سنفنی	sanfoni
 سنفنیک	sanfonik
 سنفونی	samfoni
+سنقر	sonq1oR
 سنم	sennam
 سنن	sonan
 سنوات	sanavAt
@@ -7396,6 +7403,7 @@ U+20	fAsele_
 صامت	sAmet
 صبح	sobh
 صبحدم	sobhdam
+صبحون	sobhun
 صبغه	sebq1e:
 صبه	sobbe:
 صبوح	sabuh
@@ -7932,6 +7940,8 @@ U+20	fAsele_
 غوره	q1uRe:
 غوص	q1o:s
 غوغا	q1o:q1A
+غژ	q1eZ
+غژغژ	q1eZq1eZ
 غیابا	q1ijAban
 غیب	q1ejb
 غیبت	q1ejbat
@@ -10141,6 +10151,7 @@ U+20	fAsele_
 ملت	mellat
 ملتزم	moltazem
 ملتفت	moltafet
+ملتمسان	moltamesAn
 ملتهب	moltaheb
 ملحد	molhed
 ملحق	molhaq1
@@ -12007,11 +12018,7 @@ U+20	fAsele_
 پدرشوهر	pedaRSohaR
 پدرمرده	pedaRmoRde
 پدرکش	pedaRkoS
-پدرکشت	pedaRkoSt
-پدریتان	pedaRijetAn
 پدریش	pedaRijaS
-پدریشان	pedaRijeSAn
-پدریمان	pedaRijemAn
 پدیا	pedijA
 پدیکور	pedikuR
 پذیرش	paziReS
@@ -12028,7 +12035,7 @@ U+20	fAsele_
 پراگ	peRAg
 پراگماتیک	peRAgmAtik
 پراید	peRAjd
-پربارش	poRbAReS
+پربارش	poRbARaS
 پربدهی	poRbedehi
 پربسته	paRbaste
 پربلا	poRbalA
@@ -12192,6 +12199,7 @@ U+20	fAsele_
 پروه	paZuh
 پروپاگاندا	poRopAgAndA:
 پروپوزال	poRopozAl
+پروپیلن	poRopilen
 پروژسترون	peRoZesteRon
 پروژه	poRoZe:
 پروژکتور	poRoZektoR
@@ -12823,10 +12831,13 @@ U+20	fAsele_
 ژل	Zel
 ژلاتین	ZelAtin
 ژن	Zen
+ژنت	Zenat
 ژنتیک	Zenetik
 ژنده	Zende:
 ژنراتور	ZeneRAtoR
 ژنرال	ZeneRAl
+ژنش	ZenaS
+ژنم	Zenam
 ژنو	Zenev
 ژنوتیپ	Zenotip
 ژنوس	Zenus
@@ -13043,7 +13054,7 @@ U+20	fAsele_
 کردزبان	koRdzabAn
 کردستان	koRdestAn
 کردعلی	koRdali
-کردما	kaRdama
+کردما	kaRdamA
 کردنشین	koRdneSin
 کردکو	koRdku
 کردکوی	koRdkuj
