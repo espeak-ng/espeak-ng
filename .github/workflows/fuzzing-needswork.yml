@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [my, pt, si]
+        lang: [ja, my, pt, si]
     uses: ./.github/workflows/workflow-for-fuzzing.yml
     with:
       lang: ${{ matrix.lang }}
