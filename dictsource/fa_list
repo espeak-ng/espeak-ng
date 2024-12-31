@@ -305,6 +305,7 @@ U+20	fAsele_
 جمل	dZoml	$stem
 چون	'tSon	$only
 روبه	Rubah	$stem
+جنب	dZonb	$stem
 
 // The list of unstressed words
 من	man	$u+
@@ -2943,12 +2944,7 @@ U+20	fAsele_
 بستری	bastaRi
 بستنی	bastani
 بستو	bastu
-بستگانت	bastegA:nat
-بستگانتان	bastegA:netAn
-بستگانش	bastegA:naS
-بستگانشان	bastegA:neSAn
-بستگانم	bastegA:nam
-بستگانمان	bastegA:nemAn
+بستگان	bastegA:n
 بسد	bossad
 بسر	besaR
 بسطام	bastAm
@@ -4511,6 +4507,8 @@ U+20	fAsele_
 جنبانید	dZonbAnid
 جنبش	dZonbeS
 جنبند	dZonband
+جنبه	dZanbe:
+جنبۀ	dZanbeje
 جنبید	dZonbid
 جنت	dZannat
 جنتلمن	dZentelman
@@ -5766,6 +5764,7 @@ U+20	fAsele_
 راحت	RA:hat
 راحتی	RA:hati
 رادرفورد	RAdeRfoRd
+رادمان	RAdmAn
 رادمهر	RAdmehR
 رادون	RAdon
 رادیاتور	RAdijAtoR
@@ -6491,6 +6490,7 @@ U+20	fAsele_
 سانتیگراد	sAntigeRAd
 سانتیگرم	sAntigeRam
 ساندویچ	sAndevitS
+ساندویچی	sAndevitSi
 سانس	sAns
 سانسالوادور	sAnsAlvAdoR
 سانسکریت	sAnskeRit
@@ -11051,6 +11051,7 @@ U+20	fAsele_
 نمونۀ	nemuneje
 نمک	namak
 نمکدان	namakdAn
+نمیاد	nemijAd
 نمیای	nemijAj
 نمیبرم	nemibaRam
 نمیخرد	nemixaRad
@@ -11435,6 +11436,7 @@ U+20	fAsele_
 هریسه	heRise
 هریک	haRjek
 هزار	'hezAR
+هزارتو	hezARtu
 هزارم	'hezARom
 هزارپا	hezARpA
 هزال	hazzAl
@@ -11462,14 +11464,19 @@ U+20	fAsele_
 هفتیرکش	haftiRkeS
 هفده	'hefdah
 هفهفو	hofhofu
+هق	heq1
+هقهق	heq1heq1
 هل	hol
 هلال	helAl
 هلاهل	halAhel
 هلاکو	holAku
+هلت	holat
 هلدینگ	holding
 هلسینکی	helsinki
+هلش	holaS
 هلفدانی	holofdAni
 هلفدونی	holofduni
+هلم	holam
 هلما	helmA
 هلمز	holmz
 هلمند	helmand
@@ -11954,6 +11961,7 @@ U+20	fAsele_
 پارک	pARk
 پارکت	pARket
 پارکینسون	pARkinson
+پارکینگی	pARkingi
 پاستل	pAstel
 پاسخ	pAsox
 پاسپورت	pAspoRt
