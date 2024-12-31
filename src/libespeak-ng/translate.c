@@ -1591,7 +1591,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			for (pw = &number_buf[3]; pw < pn && nw < N_CLAUSE_WORDS;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
-				while (*pw++ != ' ')
+				while (pw < pn && *pw++ != ' ')
 					;
 				words[ix].pre_pause = 0;
 			}
