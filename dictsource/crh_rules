@@ -1,0 +1,289 @@
+// ***************************************************************************/ 
+// *   Crimean Tatar Language crh crh_rules                                  *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+
+// Vowels
+.L01 a ı o u     // back vowels
+
+// Consonants
+.L02 b c ç d f g ğ h j k l m n ñ p q r s ş t v y z
+
+		
+.group a
+        a         A
+        a (_     'A
+	a (L02_  'A
+        a (L02L02_ 'A
+        av (_    'Aw
+        aya (_   =AjA   // used in other names and/or used in other words with "aya"
+		
+.group â
+        â        ;A
+	â (_    ;'A
+	â (L02_ ;'A
+	â (L02L02_ ;'A
+     d) â         A
+     g) â         A
+     k) â         A
+     t) â         A
+     d) â (_     'A
+     g) â (_     'A
+     k) â (_     'A
+     t) â (_     'A
+     d) â (L02_  'A
+     g) â (L02_  'A
+     k) â (L02_  'A
+     t) â (L02_  'A
+     d) â (L02L02_ 'A
+     g) â (L02L02_ 'A
+     k) â (L02L02_ 'A
+     t) â (L02L02_ 'A
+
+.group b
+        b         b
+	bb        b:
+    _)  bi        b;i
+        bi (_     b'I
+        biy (_    b;'i:
+		
+.group c
+        c         dZ;
+	cc        dZ;:
+	ce (_     =dZ;;e
+
+.group ç
+        ç         tS;
+	çç        tS:;
+	çe (_     =tS;;e
+	ç  (t     S
+		 
+.group d
+        d         d
+	dd        d:
+     _) di        d;i
+	d   (â    d;
+     _) d   (i    d;
+        dir (_    =dIr
+        dır (_    =d@r
+        diy (_    d;;'i:
+	diya (_   d;'ijA
+		
+.group e
+        e         ;e
+	e  (_    ;'e
+	e  (L02_ ;'e
+	e  (L02L02_ ;'e
+    y)  e          e
+    y)  e  (_     'e
+    y)  e  (L02_  'e
+    y)  e  (L02L02_  'e
+	enko (_  ;'eNko            // used in some names
+		
+.group f
+        f         f
+		
+.group g
+        g         g
+	gg        g:
+	g  (â     J
+	g  (e     J
+	g  (i     J
+	g  (ö     J
+	g  (ü     J
+	gi (_     g'I
+
+.group ğ
+        ğ         Q
+	ğğ        Q:
+		
+.group h
+        h         x
+		
+.group ı
+        ı         @
+	ı  (_    '@
+	ı  (L02_ '@
+	ı  (L02L02_ '@
+	ıñız (_  =INIs
+		
+.group i
+    _)  i         i
+        i         ;i
+	i  (_    'I        // word final syllable gets stressed 
+	i  (L02_ 'I
+	i  (L02L02_ 'I
+    b)  i         I
+    b)  i (y     ;i
+    d)  i         I
+    d)  i  (_    'I
+    d)  i (y     ;i
+    k)  i        ;i
+    k)  i  (_    ;'i
+    l)  i         I
+    l)  i  (_    'I
+    l)  i (y     ;i
+    r)  i         I
+    r)  i (y     ;i
+    r)  i  (_    'I
+    s)  i         I
+    s)  i (y     ;i
+    s)  i  (_    'I
+    ş)  i         I
+    ş)  i (y     ;i
+    t)  i         I
+    t)  i  (_    'I
+    t)  i (y     ;i
+    v)  i         I
+    v)  i  (_    'I
+    v)  i (y     ;i
+    y)  i         i
+    z)  i         I
+    z)  i  (_    'I
+    z)  i (y     ;i
+	ik (_    ;'ik
+        im (_    ;'im
+        in (_    ;'in
+	ir (_    'Ir
+	iv (_    ;'if      
+	iy (_    ;'i:
+	ist (_   ;'ist     // used in other words with "ist"
+	iya (_   ;'ijA
+	iye (_   ;'ije
+	izm (_   ;'izm      // used is some names historical states and/or in other words with "izm"
+	iñiz (_  =INIs
+
+.group j
+        j         Z
+	j (_      S
+		
+.group k
+        k         k
+	kk        k:
+        k  (â     c
+	k  (e     c
+	k  (i     c
+	k  (ö     c
+	k  (ü     c
+
+.group l
+        l         l
+	l (L01    L
+   L01) l (K      L
+    _)  li        l;i
+        lik (_    l'Ik
+        liy (_    l;'i:
+
+.group m
+        m         m
+
+.group n
+        n         n
+	n (g      N
+	n (k      N
+	nce (_    =ndZ;;e
+		
+.group ñ
+        ñ         N
+		
+.group o
+        o         o
+	o  (_    'o
+	o  (L02_ 'o
+	o  (L02L02_ 'o
+	ova (_   'ovA            // used in some names and/or used other words with "ova", like in word of "ayova"
+	ovna (_  'ovnA           // used in some names
+		
+.group ö
+        ö         W
+	ö  (_    'W
+	ö  (L02_ 'W
+	ö  (L02L02_ 'W
+		
+.group p
+        p         p
+	pp        p:
+		
+.group q
+        q         q
+	qq        q:
+		
+.group r
+        r         r
+    _)  ri        r;i
+	riy (_    r;'i:
+		
+.group s
+        s         s
+    _)  si        s|;i
+        siy (_    s|;'i:
+	sın (_   =s@n
+	sıñ (_   =s@N
+	skiy (_  =sc;i:            // used in some names
+		
+.group ş
+        ş         S
+        şiy (_    S|;'i:
+		
+.group t
+        t         t
+	ts        ts
+        tt        t:
+	t  (â     t;
+        t  (iy    t;
+    _)  ti        t;i
+	tik (_    t;;'ik
+        tiy (_    t;;'i:
+
+.group u
+        u         u
+	u  (_    'u
+	u  (L02_ 'u
+	u  (L02L02_ 'u
+	um (_    =um
+	uv (_    'uw
+		
+.group ü
+        ü         y
+	ü  (_    'y
+	ü  (L02_ 'y
+	ü  (L02L02_ 'y
+	üm (_     =ym
+		
+.group v
+        v         v
+	v (_      f
+    _)  vi        v;i
+	viç (_    =v;itS;        // used in some names
+        viy (_    v;'i:
+		
+.group y
+        y         j
+	yim (_    j'im
+
+.group z
+        z         z
+	z (_      s
+    _)  zi        z|;i
+        ziy (_    z|;'i:
+
+.group
+   w     w
+   x     x     // used in southern dialect
