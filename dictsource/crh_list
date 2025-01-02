@@ -226,7 +226,7 @@ o        o:    $atend
 biz	     b,Is  $u+         // we
 siz	     s|;,is $u+        // you
 olar     $u+               // they
-menim	 $u+                 // my            
+menim	 m;en,Im $u2+                 // my            
 seniñ	 $u+                 // your
 onıñ	 $u+                 // its
 bizim	 bIz,Im $u2+          // our
@@ -295,8 +295,6 @@ aylend     $1
 aziz       Az|;'is
 barrikada  $3
 belli    bEll'I
-beşinci   b;eSIndZ;'I
-biñ      b;'iN
 biñinci  b;iN;indZ;'I
 bir      b'Ir
 biri     bIr'I
@@ -314,6 +312,7 @@ cengiz   dZ;;enJ;'is
 dair     dA'ir
 dakota   $2
 damir    dAm;'ir
+degil    d|;eJ;'il
 dekorativ  d|;ekOrAt;;'if
 demokratik  d|;emOkrAt;;'ik
 demokratsiya  d|;emOkrAts;'ijA
@@ -465,7 +464,7 @@ pensilvaniya $3
 planeta     $2
 platforma   $2
 problem     prObl;'em
-putin       p'ut;in
+putin       p'ut;;in
 radio       $1
 radiola     $3
 raketa      $2
