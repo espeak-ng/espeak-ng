@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?define ProductName = "eSpeak NG Text-to-Speech" ?>
 <?define ProductVendor = "espeak-ng contributors" ?>
-<?define ProductVersion = "1.51.0" ?>
+<?define ProductVersion = "1.52.0" ?>
 <?define CLSID_TtsEngine = "{61D23633-CE59-4101-8158-569FC6B51B49}" ?>
 <?if $(var.Platform) = x64 ?>
 <?define ProductDisplayName = "$(var.ProductName) 64-bit" ?>
