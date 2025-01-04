@@ -143,7 +143,7 @@ foreach(_dict_name ${_dict_compile_list})
   )
 endforeach()
 
-if (HAVE_MBROLA AND USE_MBROLA)
+if (USE_MBROLA)
   file(COPY "${DATA_SRC_DIR}/voices/mb" DESTINATION "${DATA_DIST_DIR}/voices")
   file(MAKE_DIRECTORY "${DATA_DIST_DIR}/mbrola_ph")
   foreach(_mbl ${_mbrola_lang_list})
