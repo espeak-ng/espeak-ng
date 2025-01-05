@@ -613,6 +613,7 @@ U+20	fAsele_
 آنتریک	AnteRik
 آنتن	Anten
 آنتوسیانین	AntosijAnin
+آنتونیو	Antonijo
 آنتی	Anti
 آنتیموان	AntimuAn
 آنجانب	'AndZA:neb
@@ -1459,6 +1460,7 @@ U+20	fAsele_
 اشتباها	eStebAhan
 اشتداد	eStedAd
 اشتران	oStoRAn
+اشتراوس	eSteRA:s
 اشتعالزا	eSteAlzA
 اشتغالزا	eSteq1AlzA
 اشتها	eStehA
@@ -1686,6 +1688,7 @@ U+20	fAsele_
 الریه	oRRije
 الزام	elzAm
 الزاما	elzAman
+السا	elsA
 السادات	ossAdAt
 الساعه	assA?e:
 الساق	elsAq1
@@ -1802,6 +1805,7 @@ U+20	fAsele_
 الکلیز	alkoliz
 الکلیسم	alkolism
 الکلیک	alkolik
+الگار	elgAR
 الگو	olgu
 الگوریتم	algoRitm
 الی	elA
@@ -1809,9 +1813,11 @@ U+20	fAsele_
 الیزا	elizA
 الیزابت	elizAbet
 الیزه	elize:
+الیسا	elisA
 الینا	elinA
 الیناسیون	elinAsjun
 الیه	_elajhe
+الیوت	elijot
 الیور	oliveR
 الیکا	elikA
 الیگودرز	aligudaRz
@@ -3100,6 +3106,7 @@ U+20	fAsele_
 بلندپروازانه	bolandpaRvAzAne
 بلهوس	bolhavas
 بلهوسانه	bolhavasAne
+بلو	bolu
 بلوا	balvA
 بلوار	bolvAR
 بلوتوث	bulutus
@@ -3415,6 +3422,7 @@ U+20	fAsele_
 بیسیک	bejsik
 بیسیکلت	bisiklet
 بیشتری	biStaRi
+بیشرف	biSaRaf
 بیشعور	biSo?uR
 بیشکک	biSkek
 بیصبر	bisabR
@@ -3788,6 +3796,7 @@ U+20	fAsele_
 تروریست	teRoRist
 تروریسم	teRoRism
 تروفرز	taRofeRz
+ترول	teRol
 تروما	teRomA
 ترومبوز	toRomboz
 ترومبوسیت	toRombosit
@@ -4063,11 +4072,14 @@ U+20	fAsele_
 تنیک	tonik
 ته	tah
 تهاجم	tahAdZom
+تهت	tahat
 تهجی	tahadZdZi
 تهران	tehRAn
 تهرانسر	tehRAnsaR
 تهرانپارس	tehRAnpARs
 تهرون	tehRun
+تهش	tahaS
+تهم	taham
 تهمت	tohmat
 تهمتن	tahmtan
 تهمورث	tahmuRes
@@ -4324,6 +4336,7 @@ U+20	fAsele_
 ثور	so:R
 جاافتاد	dZA_oftAd
 جابجا	dZAbedZA
+جابز	dZAbz
 جادرجا	dZAdaRdZA
 جادو	dZAdu
 جادّۀ	dZAddeje
@@ -4457,6 +4470,7 @@ U+20	fAsele_
 جغرافیا	dZoq1RAfijA
 جغرافیدان	dZoq1RAfidAn
 جغوربغور	dZaq1uRbaq1uR
+جف	dZef
 جفت	dZoft
 جفتمی	dZoftam
 جفر	dZafaR
@@ -4515,6 +4529,8 @@ U+20	fAsele_
 جنحه	dZonhe:
 جند	dZond
 جندر	dZendeR
+جندش	dZendaS
+جندم	dZendam
 جنده	dZende:
 جندگی	dZendegi
 جنرال	dZeneRAl
@@ -4699,6 +4715,7 @@ U+20	fAsele_
 حشرونشر	haSRonaSR
 حشرۀ	haSaReje
 حشری	haSaRi
+حشریت	haSaRijat
 حشریم	haSaRijam
 حشفه	haSafe
 حشم	haSam
@@ -5506,6 +5523,8 @@ U+20	fAsele_
 دنیا	donjA
 دنیادیده	donjAdide:
 دنیاپسند	donjApasand
+دنیز	deniz
+دنیل	danijel
 دنیوی	donjavi
 ده	'dah
 دهات	dehAt
@@ -6514,6 +6533,7 @@ U+20	fAsele_
 سایلنت	sAjlent
 سایمن	sAjmon
 ساین	sAjn
+سباستین	sebAstijan
 سبحان	sobhAn
 سبحه	sobhe
 سبد	sabad
@@ -6588,6 +6608,7 @@ U+20	fAsele_
 سرافکنده	saRafkande:
 سرامیک	seRAmik
 سرانجام	saRandZAm
+سراندیب	saRandib
 سرانگشت	saRangoSt
 سراپرده	saRApaRde:
 سراپردۀ	saRApaRdeje
@@ -7020,6 +7041,7 @@ U+20	fAsele_
 سیمبل	'simbol
 سیمبین	simbijan
 سیمرغ	simoRq1
+سیمون	simon
 سیمکارت	simkARt
 سیمکش	simkeS
 سینتکس	sintaks
@@ -7279,6 +7301,7 @@ U+20	fAsele_
 شوآف	So:Af
 شوالیه	SovAlije:
 شوالیۀ	SovAlijeje
+شوبرت	SubeRt
 شود	Sa'vad
 شودان	So:dAn
 شورا	So:RA
@@ -7291,11 +7314,13 @@ U+20	fAsele_
 شوفر	Su:feR
 شوق	So:q1
 شوم	Savam
+شومان	SumAn
 شومی	Sumi
 شومینه	Sumine:
 شوند	Savand
 شونزده	'Sunzdah
 شوهر	SohaR
+شوپن	Sopan
 شوپنهاور	SupenhA:veR
 شوک	Sok
 شوکت	So:kat
@@ -7392,6 +7417,7 @@ U+20	fAsele_
 شیلنگ	Silang
 شیمیل	Simejl
 شیهه	Sejhe:
+شیو	Sejv
 شیوا	SivA
 شیوع	Soju?
 شیون	Sivan
@@ -8038,6 +8064,7 @@ U+20	fAsele_
 فرافکنی	faRAfekani
 فراق	feRAq1
 فراموش	fa'RAmuS
+فرانتس	feRAnts
 فرانس	feRAns
 فرانسس	feRAnses
 فرانسه	faRAnse:
@@ -8110,6 +8137,7 @@ U+20	fAsele_
 فرمول	foRmul
 فرمولاسیون	foRmulAsijon
 فرمون	faRmun
+فرنبغ	faRanbaq1
 فرنج	feRendZ
 فرنجمشک	faRandZmeSk
 فرنچ	feRentS
@@ -8363,6 +8391,7 @@ U+20	fAsele_
 فینیشر	finiSeR
 فیودال	feodAl
 فیودالیسم	feodAlism
+فیودور	fijodoR
 فیوز	fijuz
 فیکس	fiks
 فیکساتور	fiksAtoR
@@ -8649,6 +8678,7 @@ U+20	fAsele_
 قیّم	q1ajjem
 قیچک	q1ejtSak
 قیچی	q1ejtSi
+لئو	le?o
 لئوناردو	le_onARdo
 لابد	lAbod
 لابراتوار	lAbRAtuAR
@@ -8729,6 +8759,7 @@ U+20	fAsele_
 لجش	ladZaS
 لجم	ladZam
 لجن	ladZan
+لجند	ledZend
 لجه	lodZdZe:
 لجوج	ladZudZ
 لحد	lahad
@@ -8797,6 +8828,7 @@ U+20	fAsele_
 لمبرسانان	lambaRsAnAn
 لمعات	loma?At
 لمور	lemoR
+لمینت	laminet
 لمینیت	laminejt
 لنبه	lombe:
 لنت	lent
@@ -8887,6 +8919,7 @@ U+20	fAsele_
 لیبرالیزه	libeRAlize:
 لیبرالیسم	libeRAlism
 لیبریا	libeRijA
+لیبل	lejbel
 لیتر	litR
 لیتوانی	litvAni
 لیتوسفر	litosfeR
@@ -10143,6 +10176,7 @@ U+20	fAsele_
 ملاطفت	molAtefat
 ملاقات	molAq1At
 ملامت	malAmat
+ملانی	melAni
 ملاک	melAk
 ملایم	molAjem
 ملایمت	molAjemat
@@ -10181,6 +10215,7 @@ U+20	fAsele_
 ملی	me'lli
 ملیت	mellijat
 ملیسا	melisA
+ملین	molajjen
 ملینا	melinA
 ملیون	milju:n
 ملیونم	milju:nom
@@ -10358,6 +10393,7 @@ U+20	fAsele_
 موافقت	movAfeq1at
 موبایل	'mobAjl
 موبد	mubad
+موتزارت	motzARt
 موتسارت	motsARt
 موتور	motoR
 موتورسیکلت	motoR_siklet
@@ -10442,6 +10478,7 @@ U+20	fAsele_
 مونترال	montRAl
 مونترو	montRo
 مونته	monte
+مونتهوردی	monteveRdi
 مونث	moannas
 موند	mund
 مونرو	monRo
@@ -10708,6 +10745,7 @@ U+20	fAsele_
 نارو	nARo
 نارون	nARvan
 نارکوتین	nARkotin
+نارگل	nARgol
 نارگیل	nARgil
 نازبالش	nAzbAleS
 نازخاتون	nAzxAtun
@@ -10719,6 +10757,7 @@ U+20	fAsele_
 نازپرورد	nAzpaRvaRd
 نازک	'nAzok
 نازکبال	nAzokbAl
+نازگل	nAzgol
 نازیسم	nAzism
 ناسیونالیزم	nAsijonAlizm
 ناسیونالیسم	nAsijonAlism
@@ -11362,6 +11401,7 @@ U+20	fAsele_
 هایتان	hAjetAn
 هایتون	hAjetun
 هایتی	hAiti
+هایدن	hAjden
 هایشان	hAjeSAn
 هایشون	hAjeSun
 هایلایت	hAjlAjt
@@ -11794,6 +11834,7 @@ U+20	fAsele_
 ورمیشل	veRmiSel
 ورنی	veRni
 ورنیه	veRnije
+ورور	veRveR
 ورژن	veRZen
 ورک	voRk
 وریا	voRijA
@@ -11916,6 +11957,7 @@ U+20	fAsele_
 وینسنت	vinsent
 وینسنس	vinsens
 ویو	vejv
+ویوالدی	vivAldi
 ویولا	vijolA
 ویولن	vijolon
 ویژن	viZen
@@ -12218,6 +12260,7 @@ U+20	fAsele_
 پروین	paRvin
 پرپروتیین	poRpoRotein
 پرپشت	poRpoSt
+پرپل	peRpel
 پرچمدار	paRtSamdAR
 پرک	paRak
 پرکشش	poRkeSeS
@@ -12566,9 +12609,11 @@ U+20	fAsele_
 پینت	pejnt
 پینتبال	pejntbAl
 پینوکیو	pinokijo
+پینک	pink
 پینگپونگ	pingpong
 پیه	pih
 پیواژه	pejvAZe
+پیوتر	pijuteR
 پیوره	pijoRe
 پیوست	pejvast
 پیوستار	pejvastAR
@@ -12636,6 +12681,7 @@ U+20	fAsele_
 چرت	tSoRt
 چرتکه	tSoRtke
 چرخش	tSaRxeS
+چرخوند	tSaRxund
 چرغ	tSaRq1
 چرغند	tSaRq1and
 چرغول	tSaRq1ul
@@ -12859,6 +12905,7 @@ U+20	fAsele_
 ژپتو	Zepeto
 ژیروسکوپ	ZiRoskop
 ژیلت	Zilet
+ژیواگو	ZivAgo
 ژیوتاکتیسم	ZeotAktism
 ژیوتاکسی	ZeotAksi
 ژیوتروپیسم	ZeoteRopism
@@ -13244,6 +13291,8 @@ U+20	fAsele_
 کلنگر	kolnegaR
 کله	kalle:
 کلهر	kalhoR
+کلود	kelo:d
+کلودیو	kelodijo
 کلوپاترا	kelopAtRA
 کلوچه	kolutSe:
 کلّ	koll
@@ -13647,6 +13696,7 @@ U+20	fAsele_
 گریل	geRil
 گریم	geRim
 گریمور	geRimoR
+گرین	geRin
 گرینلند	geRinland
 گرینویچ	geRinvitS
 گریه	geRje:
@@ -13703,6 +13753,8 @@ U+20	fAsele_
 گشتاپو	geStApo
 گشتزن	gaStzan
 گشتمرز	gaStmaRz
+گشسب	goSasb
+گشسپ	goSasp
 گشن	goSn
 گشنیز	geSniz
 گفت	g'oft
@@ -13881,6 +13933,7 @@ U+20	fAsele_
 گیرد	giRad
 گیرودار	giRodAR
 گیفت	gift
+گیلبرت	gilbeRt
 گیم	gejm
 گیمر	gejmeR
 گیمینگ	gejming
@@ -13935,6 +13988,7 @@ U+20	fAsele_
 یقور	joq1oR
 یقینا	jaq1inan
 یلدا	jaldA
+یلو	jelo:
 یمان	jemAn
 یمن	jaman
 ین	jen
