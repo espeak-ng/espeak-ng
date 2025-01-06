@@ -26,6 +26,10 @@ E.g. for Debian-like distribution (e.g. Ubuntu, Mint, etc.) execute command:
 For RedHat-like distribution (e.g. CentOS, Fedora, etc.) execute command:
 
     sudo yum install espeak-ng
+    
+For ArchLinux-like distribution (e.g. SteamOS, EndeavourOS, etc.) execute command:
+
+    sudo pacman -S espeak-ng
 
 ### Windows
 
