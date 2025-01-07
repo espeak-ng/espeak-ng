@@ -77,6 +77,7 @@ test_phwav hy d3fc6d3778f8669abed91b397f28c0e2ecf3c1cc "ma na Na pa p#a ba ta t#
 test_phwav hyw 72f392c05e74e2fce620b9e1b0dc440481f597e3 "ma na Na pa p#a ba ta t#a da ka k#a ga tsa ts#a dza tSa tS#a dZa fa va sa za Sa Za Xa ha ja la ra r\"a Ra *a _:_ m@ mi my me ma mo mu mW maI meI mi@"
 test_phwav ia 1be09d2d915404d00aacb7895edeed5ff947345a "ma na pa ba ta da ka ga tsa tSa dZa fa va sa za Sa ha ja wa la Ra _:_ ma me mo mi mu maI maU meI meU moI"
 test_phwav id 75a57a020af2b62e3448792d3f6a945a9b2c6b75 "ma na n^a Na pa ba ta da ka ga ?a tSa dZa fa va Ta Da sa za Sa xa Qa ha ja wa la Ra R2a _:_ ma mE mO m@ me mo mi mu maI meI mOI maU m@U"
+test_phwav ie 1be09d2d915404d00aacb7895edeed5ff947345a "ma na pa ba ta da ka ga tsa tSa dZa fa va sa za Sa ha ja wa la Ra _:_ ma me mo mi mu maI maU meI meU moI"
 test_phwav io cc2f7f352c6d299c81f6f95e730883f052dbc597 "ma na pa ta ka ba da ga fa sa Sa xa ha va za Za tsa tSa dza dZa la ja wa ra _:_ ma me mo mi mu maU meU maI meI moU muI"
 test_phwav is b27c88c4b4e47d80a80e690f3dfc2026821f39dd "m#a ma n#a na n^#a n^a N#a Na pa ta ca ka fa va Ta Da sa Ca J^a xa Qa ha l#a la tl#a r#a ra _:_ mi mi: mI mI: mE mE: ma ma: mO mO: mu mu: my my: mW mW: maI maI: meI meI: maU maU: moU moU: mYy mOI myI"
 test_phwav it e2a438778434f699d9be469c4f9ea1576ec4fd03 "ma na n^a pa ba ta da ka ga tsa dza tSa dZa fa va sa za Sa ja wa la l^a Ra *a ssa k~a tS~a dZ~a g~a Q~a S~a _:_ ma ma/ me me/ mE mi mi/ mi# mI mo mo/ mO mu mU maU maI moI"
