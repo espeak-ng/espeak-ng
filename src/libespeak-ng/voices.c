@@ -699,6 +699,8 @@ voice_t *LoadVoice(const char *vname, int control)
 	if (f_voice != NULL)
 		fclose(f_voice);
 
+	LoadConfig(translator); // overwrite language files with user config file
+
 	if ((translator == NULL) && (!tone_only)) {
 		// not set by language attribute
 		translator = SelectTranslator(translator_name);
