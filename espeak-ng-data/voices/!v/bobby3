@@ -1,0 +1,12 @@
+language variant
+name Bobby3
+klatt 6
+voicing 100
+breath 25
+
+formant 1 125 100 125
+formant 2 125 100 125
+formant 3 125 100 125
+formant 4 125 100 20
+formant 5 125 100 124
+formant 6 125 100 125
