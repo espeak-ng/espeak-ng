@@ -1,6 +1,6 @@
 // ***************************************************************************
-// *   Copyright (C) 2024 to cc by Masoud Azizi                              *
-// *   email: mablue92@gmail.com   github: @mablue                           *
+// *   Copyright (C) 2024 to 2044 by Masoud Azizi                            *
+// *   email: mablue92@gmail.com   github: @mablue @mah92                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -194,3 +194,71 @@
 			ۃ	ت
 			ۂ	ه
       ۓ	ی
+
+// Pashto Phoneme Rules
+
+// Vowels
+a   a
+ɑ   a:
+e   e
+i   i
+o   o
+u   u
+ə   @
+e:  e:
+i:  i:
+o:  o:
+u:  u:
+
+// Consonants
+p   p
+b   b
+t   t
+d   d
+ʈ   t`
+ɖ   d`
+k   k
+g   g
+q   q
+ʔ   ?
+f   f
+s   s
+z   z
+ʃ   S
+ʒ   Z
+x   x
+ɣ   G
+h   h
+t͡s  ts
+d͡z  dz
+t͡ʃ  tS
+d͡ʒ  dZ
+ʂ   s`
+ʐ   z`
+ɳ   n`
+ɽ   r`
+j   j
+w   w
+l   l
+m   m
+n   n
+
+// Stress rules
+'   primary stress
+,   secondary stress
+%   unstressed
+
+// Syllable structure
+(C)(C)V(C)(C)
+
+// Phonotactics
+// Nasal assimilation
+n > m / _[+bilabial]
+n > ŋ / _[+velar]
+
+// Final devoicing
++voice > -voice / _#
+
+// Vowel harmony
+V[-back] > V[+back] / V[+back]_V
+V[+back] > V[-back] / V[-back]_V
