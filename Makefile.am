@@ -527,6 +527,7 @@ dictionaries: \
 	espeak-ng-data/pap_dict \
 	espeak-ng-data/piqd_dict \
 	espeak-ng-data/pl_dict \
+	espeak-ng-data/ps_dict \
 	espeak-ng-data/pt_dict \
 	espeak-ng-data/py_dict \
 	espeak-ng-data/qdb_dict \
