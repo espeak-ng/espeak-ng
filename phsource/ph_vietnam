@@ -772,7 +772,7 @@ phoneme N // si**ng**
   ELSE 
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   ENDIF
-  lengthmod 12            // longer than 'n'
+  lengthmod 9             // longer than 'n'
   IF thisPh(isWordEnd) THEN 
 	length 163
   ENDIF

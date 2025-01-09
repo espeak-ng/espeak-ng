@@ -29,7 +29,7 @@ jobs:
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
     - name: dependencies
-      run: sudo apt-get update && sudo apt-get install libpcaudio0 libsonic0 libubsan1 ${{ matrix.archdeps }}
+      run: sudo apt-get update && sudo apt-get install libpcaudio0 libsonic0 libubsan1 mbrola mbrola-en1 ${{ matrix.archdeps }}
     - name: Fuzz function synth_espeak()
       run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ inputs.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
@@ -37,7 +37,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: crash-${{ matrix.arch }}-${{ inputs.lang }}.1
-        path: crash-* timeout-*
+        path: |
+          crash-*
+          timeout-*
     - name: Fuzz function synth_espeak() with language-specific input
       run:   cp dictsource/${{ inputs.lang }}_* tests/fuzzing/CORPUS_DIR/ || true ; FUZZ_VOICE=${{ inputs.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
@@ -45,5 +47,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: crash-${{ matrix.arch }}-${{ inputs.lang }}.2
-        path: crash-* timeout-*
+        path: |
+          crash-*
+          timeout-*
 

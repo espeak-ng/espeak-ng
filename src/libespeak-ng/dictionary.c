@@ -44,7 +44,7 @@
 #include "translate.h"                     // for Translator, utf8_in, LANGU...
 
 static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[2]);
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points);
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char word_buf[N_WORD_BYTES], Translator *tr, int command, int *failed, int *add_points);
 
 typedef struct {
 	int points;
@@ -737,6 +737,8 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		if (pre) {
 			len = strlen(p);
 			w = word;
+			if (*w == 0)
+				goto skip;
 			for (i = 0; i < len-1; i++)
 			{
 				w--;
@@ -1462,6 +1464,8 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
 	while ((c = *p++) != 0) {
 		if (c >= n_phoneme_tab) continue;
 
+		if (!phoneme_tab[c]) continue;
+
 		if (phoneme_tab[c]->type == phSTRESS) {
 			if (phoneme_tab[c]->std_length < 4)
 				unstress_mark = true;
@@ -1976,13 +1980,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case '.':
 					// dot in pre- section, match on any dot before this point in the word
-					for (p = pre_ptr; *p != ' '; p--) {
+					for (p = pre_ptr; *p && *p != ' '; p--) {
 						if (*p == '.') {
 							add_points = 50;
 							break;
 						}
 					}
-					if (*p == ' ')
+					if (!*p || *p == ' ')
 						failed = 1;
 					break;
 				case '-':
@@ -2985,7 +2989,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 				const char *p;
 				for (i = 0; (p = add_e_exceptions[i]) != NULL; i++) {
 					int len = strlen(p);
-					if (memcmp(p, &word_end[1-len], len) == 0)
+					if (word_end + 1-len >= word && memcmp(p, &word_end[1-len], len) == 0)
 						break;
 				}
 				if (p == NULL)
@@ -2994,7 +2998,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 				const char *p;
 				for (i = 0; (p = add_e_additions[i]) != NULL; i++) {
 					int len = strlen(p);
-					if (memcmp(p, &word_end[1-len], len) == 0) {
+					if (word_end + 1-len >= word && memcmp(p, &word_end[1-len], len) == 0) {
 						end_flags |= FLAG_SUFX_E_ADDED;
 						break;
 					}
@@ -3024,10 +3028,16 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	return end_flags;
 }
 
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points) {
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char word_buf[N_WORD_BYTES], Translator *tr, int command, int *failed, int *add_points) {
 	// $list or $p_alt
 	// make a copy of the word up to the post-match characters
 	int ix = *word - word_start + consumed + group_length + 1;
+
+	if (ix+2 > N_WORD_BYTES) {
+		*failed = 1;
+		return;
+	}
+
 	memcpy(word_buf, word_start-1, ix);
 	word_buf[ix] = ' ';
 	word_buf[ix+1] = 0;
