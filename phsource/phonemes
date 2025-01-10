@@ -2069,3 +2069,6 @@ phonemetable ms id
 
 phonemetable kaa kk
 include ph_karakalpak
+
+phonemetable ps fa
+include ph_pashto
