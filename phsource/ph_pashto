@@ -1,82 +1,268 @@
-// Long Vowels
+//====================================================
+// Phonemes for Pashto
+//====================================================
 
-phoneme A
-  vwl starttype #i endtype #i
+// Vowels
+//=======
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 160
+  FMT(vowel/a)
+endphoneme
+
+phoneme a:
+  vwl lng starttype #a endtype #a
   length 200
-  FMT(vowel/0_3)
+  FMT(vowel/a_5)
 endphoneme
 
 phoneme i
   vwl starttype #i endtype #i
-  length 200
+  length 180
   FMT(vowel/i)
 endphoneme
 
-phoneme u
-  vwl starttype #i endtype #i
-  length 200
-  FMT(vowel/u_bck2)
+phoneme i:
+  vwl lng starttype #i endtype #i
+  length 230
+  FMT(vowel/i_fnt)
 endphoneme
 
-// Short Vowels
+phoneme u
+  vwl starttype #u endtype #u
+  length 180
+  FMT(vowel/u_bck)
+endphoneme
 
-phoneme a
-  vwl starttype #i endtype #i
-  length 160
-  FMT(vowel/&)
+phoneme u:
+  vwl lng starttype #u endtype #u
+  length 230
+  FMT(vowel/u_bck)
 endphoneme
 
 phoneme e
-  vwl starttype #i endtype #i
+  vwl starttype #e endtype #e
   length 160
-  FMT(vowel/e_mid2)
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme o
-  vwl starttype #i endtype #i
+  vwl starttype #o endtype #o
+  length 160
+  FMT(vowel/o)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 140
+  FMT(vowel/@)
+endphoneme
+
+phoneme ə
+  vwl starttype #@ endtype #@
+  length 140
+  FMT(vowel/@)
+endphoneme
+
+phoneme ɛ
+  vwl starttype #e endtype #e
+  length 160
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme ɔ
+  vwl starttype #o endtype #o
   length 160
   FMT(vowel/o_mid)
 endphoneme
 
-// Diphthongs
-
-phoneme eI
-  vwl starttype #i endtype #i
-  length 220
-  FMT(vdiph/eei_2)
-endphoneme
-
-phoneme oU
-  vwl starttype #i endtype #i
-  length 220
-  FMT(vdiph/ou_2)
-endphoneme
-
-// Other Phonemes
-
 phoneme ɑ
-  vwl starttype #i endtype #i
-  length 200
-  FMT(vowel/0_3)  // Use an existing formant file
-endphoneme
-
-phoneme ʤ
-  cons
-  FMT(dzh/dzh)  # Reference the dzh file directly
-endphoneme
-
-phoneme ə
-  vwl starttype #i endtype #i
+  vwl starttype #a endtype #a
   length 160
-  FMT(vowel/@)  # Reference the @ file in the vowel directory
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme ʊ
+  vwl starttype #u endtype #u
+  length 160
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  length 180
+  FMT(vowel/y)
+endphoneme
+
+// Consonants
+//===========
+
+phoneme p
+  import_phoneme consonants/p-
+endphoneme
+
+phoneme b
+  import_phoneme base1/b
+endphoneme
+
+phoneme t
+  import_phoneme base1/t[
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme k
+  import_phoneme consonants/k-
+endphoneme
+
+phoneme g
+  import_phoneme base1/g
+endphoneme
+
+phoneme t.
+  vls rfx stp
+  lengthmod 2
+  ipa ʈ
+  voicingswitch d.
+  FMT(consonants/t)
+endphoneme
+
+phoneme d.
+  vcd rfx stp
+  lengthmod 5
+  ipa ɖ
+  voicingswitch t.
+  FMT(consonants/d)
+endphoneme
+
+phoneme ʃ
+  vls alv frc sib
+  lengthmod 3
+  ipa ʃ
+  FMT(consonants/sh)
+endphoneme
+
+phoneme ʒ
+  vcd alv frc sib
+  lengthmod 3
+  ipa ʒ
+  FMT(consonants/zh)
+endphoneme
+
+phoneme x
+  vls vel frc
+  lengthmod 3
+  ipa x
+  FMT(consonants/x)
 endphoneme
 
 phoneme ɣ
-  cons
-  FMT(g/g)  # Reference the g file in the g directory
+  vcd vel frc
+  lengthmod 3
+  ipa ɣ
+  FMT(consonants/gh)
 endphoneme
 
-phoneme ʂ
-  cons
-  FMT(ustop/sh)  # Reference the sh file in the ustop directory
+phoneme ʔ
+  vls glt stp
+  lengthmod 2
+  ipa ʔ
+  FMT(consonants/glottal_stop)
 endphoneme
+
+phoneme ɾ
+  liquid rhotic
+  lengthmod 3
+  ipa ɾ
+  FMT(consonants/r)
+endphoneme
+
+phoneme ɽ
+  liquid rhotic
+  lengthmod 3
+  ipa ɽ
+  FMT(consonants/r)
+endphoneme
+
+phoneme ʦ
+  vls alv afr sib
+  lengthmod 3
+  ipa ʦ
+  FMT(consonants/ts)
+endphoneme
+
+phoneme ʧ
+  vls alv afr sib
+  lengthmod 3
+  ipa ʧ
+  FMT(consonants/ch)
+endphoneme
+
+phoneme ʤ
+  vcd alv afr sib
+  lengthmod 3
+  ipa ʤ
+  FMT(consonants/j)
+endphoneme
+
+phoneme ɳ
+  vcd rfx nas
+  lengthmod 3
+  ipa ɳ
+  FMT(consonants/n)
+endphoneme
+
+// Diphthongs
+//===========
+
+phoneme aI
+  vwl lng starttype #a endtype #i
+  length 240
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme aU
+  vwl lng starttype #a endtype #u
+  length 240
+  FMT(vdiph/au)
+endphoneme
+
+phoneme eI
+  vwl lng starttype #e endtype #i
+  length 220
+  FMT(vdiph/ei)
+endphoneme
+
+phoneme oU
+  vwl lng starttype #o endtype #u
+  length 220
+  FMT(vdiph/ou)
+endphoneme
+
+// Nasalized Vowels
+//=================
+
+phoneme a~
+  vwl lng starttype #a endtype #a
+  length 220
+  FMT(vnasal/a_n)
+endphoneme
+
+phoneme i~
+  vwl lng starttype #i endtype #i
+  length 220
+  FMT(vnasal/i_n)
+endphoneme
+
+phoneme u~
+  vwl lng starttype #u endtype #u
+  length 220
+  FMT(vnasal/u_n)
+endphoneme
+
+//====================================================
+// End of Pashto Phonemes
+//====================================================
