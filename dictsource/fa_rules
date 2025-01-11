@@ -214,7 +214,7 @@
 .L03  ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ه ة ئ
 
 // all Farsi characters without ا آ and Short vowels
-.L04  ض ص ث ق ف غ ع ه خ ح ج چ ش س ی ب ل ت ن م ک گ ۀ ظ ط ز ر ذ د ئ و ة ي ژ ؤ إ أ ء ؟ پ 
+.L04  ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی ۀ ئ ة ي ؤ إ أ ء ؟ 
 
 // Group one of consonants
 .L05  ث س ص ش ذ ز ض ظ ف ل ن
@@ -229,7 +229,7 @@
 .L08  آ ا ی ي و َ ُ ِ ْ ً ٌ ٍ ّ ؤ أ إ ء ۀ
 
 // all Farsi characters without short vowels
-.L09  ض ص ث ق ف غ ع ه خ ح ج چ ش س ی ب ل ا ت ن م ک گ ۀ آ ظ ط ز ر ذ د ئ و ة ي ژ پ ؤ إ أ ء ؟ ّ
+.L09  آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی ۀ ئ ة ي ؤ إ أ ء ؟ ّ
 
 // Special Characters 1
 .L10  ا
@@ -258,18 +258,18 @@
 	// Prefixes آ
 		
 	// Suffixes آ
-		L09L04) آور (_Sm3	AvaR
-		L09L04) آورد (_Sm4	AvaRd
-		L09L04) آموز (_Sm4	Amuz
-		L09L04) آمیز (_Sm4	Amiz
-		L09L04) آلود (_Sm4	Alud
-		L09L04) آباد (_Sm4	AbAd
-		L09L04) آفرین (_Sm5	AfaRin
-		L09L09) آموخته (_Sm6	Amuxte:
-		L09L09) آموختۀ (_Sm6	Amuxteje
-		L09L09) آگاه (_Sm4	AgAh
-		L09L09)آلات  (_Sm4	AlAt
-		L09L09)آباد  (_Sm4	A'bAd
+		L09L04) آور (_Sm3	A:vaR
+		L09L04) آورد (_Sm4	A:vaRd
+		L09L04) آموز (_Sm4	A:muz
+		L09L04) آمیز (_Sm4	A:miz
+		L09L04) آلود (_Sm4	A:lud
+		L09L04) آباد (_Sm4	A:bAd
+		L09L04) آفرین (_Sm5	A:faRin
+		L09L09) آموخته (_Sm6	A:muxte:
+		L09L09) آموختۀ (_Sm6	A:muxteje
+		L09L09) آگاه (_Sm4	A:gAh
+		L09L09)آلات  (_Sm4	A:lAt
+		L09L09)آباد  (_Sm4	A:bAd
 
 
 .group ا
@@ -5815,14 +5815,14 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L03) ئ (_Sm1	a?
 		L09L01) ئئ (_Sm2	i:
 		L09L03) ئئ (_Sm2	ii
-		L09L01) ئی (_Sm2	i:
-		L09L03) ئی (_Sm2	ii
-		L09L09) ئیه (_NSm3	i:je
+		L09L01) ئی (_Sm2	?i
+		L09L03) ئی (_Sm2	?i
+		L09L09) ئیه (_NSm3	?ije
 		L09L09) ئیۀ (_NSm3	i:jeje
-		L09L03) ئه (_+NSm2	ije
-		L09L01) ئه (_+NSm2	je
-		L09L03) ئۀ (_+NSm2	ijeje
-		L09L01) ئۀ (_+NSm2	jeje
+		L09L03) ئه (_+NSm2	?e:
+		L09L01) ئه (_+NSm2	?e
+		L09L03) ئۀ (_+NSm2	?eje
+		L09L01) ئۀ (_+NSm2	?eje
 
 
 .group ؤ

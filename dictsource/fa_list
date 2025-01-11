@@ -306,6 +306,9 @@ U+20	fAsele_
 چون	'tSon	$only
 روبه	Rubah	$stem
 جنب	dZonb	$stem
+انت	ente	$stem
+اشت	eSte	$stem
+اژد	eZde	$stem
 
 // The list of unstressed words
 من	man	$u+
@@ -621,6 +624,7 @@ U+20	fAsele_
 آنجلس	AndZeles
 آندانت	AndAnt
 آندرانیک	AndRAnik
+آندره	AndRe:
 آندوتوکسین	Andotoksin
 آندوسکپ	Andoskop
 آندومتر	AndometR
@@ -1016,6 +1020,7 @@ U+20	fAsele_
 ادیتور	editoR
 ادیسه	odise:
 ادیسون	edison
+ادیشن	ediSen
 ادینبرو	edinbeRu
 ادینبورگ	edinboRg
 ادیپ	odip
@@ -1356,6 +1361,8 @@ U+20	fAsele_
 اسموک	esmok
 اسموکینگ	esmoking
 اسمیت	esmit
+اسنو	esno:
+اسنوبورد	esno:boRd
 اسنپ	esnap
 اسنک	esnak
 اسهال	eshAl
@@ -1463,9 +1470,7 @@ U+20	fAsele_
 اشتراوس	eSteRA:s
 اشتعالزا	eSteAlzA
 اشتغالزا	eSteq1AlzA
-اشتها	eStehA
 اشتهارد	eStehARd
-اشتهاردی	eStehARdi
 اشتون	aSton
 اشتیاق	eStijAq1
 اشد	aSad
@@ -1696,6 +1701,8 @@ U+20	fAsele_
 الست	alast
 السلطان	ossoltAn
 السلطنه	ossaltane:
+السکوت	os:okut
+السیر	os:ejR
 الشرکه	oSSeRke
 الشعاع	oSSo?A?
 الشعرا	oSSo?aRA
@@ -1896,16 +1903,6 @@ U+20	fAsele_
 انترناسیونال	anteRnAsijonAl
 انترناسیونالیست	anteRnAsijonAlist
 انترناسیونالیسم	anteRnAsijonAlism
-انتها	entehA
-انتهاست	entehAst
-انتهای	entehAje
-انتهایت	entehAjat
-انتهایتان	entehAjetAn
-انتهایش	entehAjaS
-انتهایشان	entehAjeSAn
-انتهایم	entehAjam
-انتهایمان	entehAjemAn
-انتهایی	entehAi:
 انتگرال	an'tegRAl
 انجبین	andZabin
 انجم	andZom
@@ -2249,6 +2246,7 @@ U+20	fAsele_
 ایمونولوژی	imonoloZi
 ایمونوگلوبین	imonogolobin
 ایمپلنت	impelant
+ایمپورت	impoRt
 ایمیل	imejl
 اینباکس	inbAks
 اینتر	inteR
@@ -2761,6 +2759,7 @@ U+20	fAsele_
 بردبار	boRdbAR
 بردسیر	baRdsiR
 بردم	boRdamn
+بردن	boRdan
 بردگی	baRdegi
 بررس	baRRes
 بررسی	baRRasi
@@ -3284,6 +3283,7 @@ U+20	fAsele_
 بوراکس	boRAks
 بورت	buRet
 بورخس	buRxes
+بورد	boRd
 بوردو	boRdo
 بورز	bevaRz
 بورزد	bevaRzad
@@ -4094,6 +4094,7 @@ U+20	fAsele_
 تهیّه	tahi:je:
 تو	to
 توأم	to:?am
+توئیت	tuit
 توئیتر	tu_iteR
 تواب	tavvAb
 تواتر	tavAtoR
@@ -4345,6 +4346,7 @@ U+20	fAsele_
 جارختی	dZARaxti
 جاروبرقی	dZARubaRq1i
 جاروکش	dZARukeS
+جاستین	dZAstin
 جاسم	dZAsem
 جاسک	dZAsk
 جاظرفی	dZAzaRfi
@@ -4583,6 +4585,7 @@ U+20	fAsele_
 جویند	dZujand
 جوینده	dZujande:
 جویندۀ	dZujandeje
+جکسون	dZakson
 جکوزی	dZakuzi
 جگر	dZegaR
 جگربند	dZegaRband
@@ -6043,6 +6046,7 @@ U+20	fAsele_
 رنجش	RandZeS
 رند	Rend
 رندر	RendeR
+رندرینگ	RendeRing
 رندسوز	Rendsuz
 رنده	Rande:
 رندید	Randid
@@ -6275,6 +6279,7 @@ U+20	fAsele_
 زاروزندگی	zARozendegi
 زارونزار	zARonazAR
 زامبی	zAmbi
+زاکربرگ	zAkeRbeRg
 زاگرب	zAgReb
 زاگرس	zAgRos
 زایدالوصف	zAjedolvasf
@@ -6343,6 +6348,7 @@ U+20	fAsele_
 زلزله	zelzele:
 زلف	zolf
 زلفین	zolfin
+زلنسکی	zelenski
 زله	zelle:
 زلیخا	zolejxA
 زمام	zemAm
@@ -6462,6 +6468,7 @@ U+20	fAsele_
 سابعا	sAbe?an
 سابقا	sAbeq1an
 سابوند	sA:bund
+ساحت	sA:hat
 ساخت	s'Axt
 سادسا	sAdesan
 سادگی	sAdegi
@@ -6615,6 +6622,8 @@ U+20	fAsele_
 سرایت	seRAjat
 سراید	soRAjad
 سرایند	soRAjand
+سراینده	soRA:jande:
+سرایندۀ	soRA:jandeje
 سرب	soRb
 سربلند	saRboland
 سربند	saRband
@@ -6884,6 +6893,7 @@ U+20	fAsele_
 سوربن	suRbon
 سورتمه	suRtme:
 سورتمۀ	suRtmeje
+سورس	soRs
 سورمه	suRme:
 سورن	soRen
 سورنا	soRenA:
@@ -6927,6 +6937,7 @@ U+20	fAsele_
 سوپرمارکت	supeRmARket
 سوپرمن	supeRman
 سوپرنوا	supeRnovA
+سوکت	suket
 سوگل	so:gol
 سوگند	so:gand
 سویا	sojA
@@ -7561,6 +7572,7 @@ U+20	fAsele_
 ضحی	zohA
 ضخامت	zexAmat
 ضد	zedde
+ضدانحصار	zedde_enhesAR
 ضدبید	zeddebid
 ضدضرب	zeddezaRb
 ضدّ	zedde
@@ -7973,6 +7985,7 @@ U+20	fAsele_
 غیبت	q1ejbat
 غیر	q1ejR
 غیرانتفاع	q1ejRe_entefA?
+غیرانسان	q1ejRe_ensAn
 غیرت	q1ejRat
 غیرممکن	q1ejRemomken
 غیظ	q1ejz
@@ -8091,7 +8104,10 @@ U+20	fAsele_
 فرح	faRah
 فرحان	faRhAn
 فرخ	faRRox
-فرخند	faRxond
+فرخنده	faRxonde:
+فرخندگان	faRxondegAn
+فرخندگی	faRxondegi
+فرخندۀ	faRxondeje
 فرداد	faRdAd
 فردریش	feRedRiS
 فردریک	feRedRik
@@ -8133,6 +8149,7 @@ U+20	fAsele_
 فرمانروا	faRmAnRavA
 فرمانفرما	faRmAnfaRmA
 فرماید	faRmAjad
+فرمایش	faRmA:jeS
 فرمت	foRmat
 فرمول	foRmul
 فرمولاسیون	foRmulAsijon
@@ -8338,6 +8355,7 @@ U+20	fAsele_
 فوق	fo:q1
 فوقالعاده	fo:q1olAde:
 فوقالعادۀ	fo:q1olAdeje
+فولدر	fuldeR
 فولک	folk
 فولکس	fuleks
 فولکلور	folkeloR
@@ -9044,6 +9062,7 @@ U+20	fAsele_
 مانیفست	mAnifest
 ماه	mAh
 ماهرانه	mAheRAne:
+ماهرتر	mAheRtaR
 ماهرخ	mAhRox
 ماهوی	mAhovi
 ماورا	mAvaRA
@@ -9123,6 +9142,7 @@ U+20	fAsele_
 متاخر	mote?axxeR
 متادون	metA:don
 متارکه	motAReke:
+متاستاز	metAstAz
 متاسف	mota?assef
 متاسفانه	mota?assefAne
 متافیزیک	metAfizik
@@ -9278,6 +9298,7 @@ U+20	fAsele_
 مثلاً	masalan
 مثلث	mosallas
 مثله	mosleh
+مثلی	masali
 مثمر	mosmeR
 مثمن	mosamman
 مثنوی	masnavi
@@ -9301,6 +9322,7 @@ U+20	fAsele_
 مجدد	modZa'ddad
 مجددا	modZaddadan
 مجدنیا	madZdnijA
+مجدی	madZdi
 مجرب	modZaRRab
 مجرد	modZaRRad
 مجردحیف	modZaRRad
@@ -10291,6 +10313,7 @@ U+20	fAsele_
 منزوی	monzavi
 منسجم	monsadZem
 منش	maneS
+منشآت	monSa?A:t
 منشأ	manSa?
 منشا	manSa?
 منشی	mo:n'Si
@@ -10358,6 +10381,7 @@ U+20	fAsele_
 مهراوه	mehRAve:
 مهربون	mehRabun
 مهرسانا	mehRsA:nA:
+مهرناز	mehRnAz
 مهرنوش	mehRnuS
 مهره	mohRe:
 مهروش	mehRvaS
@@ -10835,6 +10859,8 @@ U+20	fAsele_
 نبوغ	nobuq1
 نبوی	nabavi
 نت	not
+نتانیا	netAnijA
+نتانیاهو	netAnijAhu
 نتردام	noteRdAm
 نتق	notoq1
 نتوان	natavAn
@@ -10940,6 +10966,7 @@ U+20	fAsele_
 نستالژی	nostAloZi
 نسترن	nastaRan
 نستعلیق	nasta?liq1
+نستل	nestl
 نستوه	nastuh
 نسخ	nosax
 نسخه	nosxe:
@@ -11899,6 +11926,7 @@ U+20	fAsele_
 ولنگوواز	velengovAz
 ولو	valo:
 ولوت	velvet
+ولودیمیر	velodimiR
 ولوله	velvele:
 ولوو	volvo
 ولکانیت	volkAnit
@@ -12474,10 +12502,12 @@ U+20	fAsele_
 پوخ	pox
 پودر	pudR
 پورت	poRt
+پورتابل	poRtAbl
 پورتال	poRtAl
 پورتامنتو	poRtAmento
 پورسانت	puRsAnt
 پورشه	poRSe:
+پورن	poRn
 پورنو	poRno
 پورنوگرافی	poRnogeRAfi
 پورنگ	puRang
@@ -12860,6 +12890,7 @@ U+20	fAsele_
 چیه	tSije:
 چیپس	tSips
 چیپست	tSipset
+چیپلت	tSiplet
 چیکن	tSiken
 ژئو	Ze?o
 ژئوتکنیک	Zeoteknik
@@ -12872,6 +12903,7 @@ U+20	fAsele_
 ژاندارک	ZAndARk
 ژانر	ZAnR
 ژانویه	ZAnvije:
+ژانگولر	ZAnguleR
 ژاپن	ZApon
 ژاکلین	ZAklin
 ژتون	Zeton
@@ -13007,6 +13039,8 @@ U+20	fAsele_
 کانسننت	kAnsonent
 کانسوننت	kAnsonent
 کانسپت	kAnsept
+کانکت	kAnekt
+کانکتور	kAnektoR
 کانکس	kAneks
 کانکشن	kAnekSen
 کانگرو	kAngoRo
@@ -13997,6 +14031,7 @@ U+20	fAsele_
 یهود	jahud
 یو	ju
 یوان	juAn
+یوتیوبر	jutijubeR
 یوحنا	juhannA
 یورتمه	juRtme:
 یورش	juReS
