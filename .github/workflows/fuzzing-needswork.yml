@@ -1,0 +1,20 @@
+name: fuzzing-needswork
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 1"
+
+jobs:
+  build:
+    uses: ./.github/workflows/workflow-for-fuzzing-build.yml
+
+  fuzzing-needswork:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [my, pt, si]
+    uses: ./.github/workflows/workflow-for-fuzzing.yml
+    with:
+      lang: ${{ matrix.lang }}

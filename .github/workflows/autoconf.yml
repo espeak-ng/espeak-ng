@@ -23,8 +23,8 @@ jobs:
           - os: ubuntu
             osver: 22.04
           - os: macos
-            osver: 12
-          
+            osver: 14
+
           - arch: i386
             archcflags: "-m32 -msse2 -mfpmath=sse"
 
@@ -57,7 +57,7 @@ jobs:
       run: brew install gcc@12
 
     # Checkout code
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     # Configure
     - name: configure
@@ -74,7 +74,7 @@ jobs:
 
     - name: config-failed-upload
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: config-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}.log
         path: config.log

@@ -7,89 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    name: Build synth_espeak on ${{ matrix.arch }}
-    # Do not run this job on any forked repos
-    if: github.repository == 'espeak-ng/espeak-ng'
-    strategy:
-      fail-fast: false
-      matrix:
-        arch: [x86-32, x86-64]
-        include:
-          - arch: x86-32
-            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
-            archconfig: "--host=i686-linux-gnu"
-            archconfigflags: "-m32"
-
-          - arch: x86-64
-            archdeps: ""
-            archconfigflags: ''
-    steps:
-    - uses: actions/checkout@v3
-    - name: enable 32bit architecture
-      run: sudo dpkg --add-architecture i386
-      if: matrix.arch == 'x86-32'
-    - name: dependencies
-      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown clang llvm ${{ matrix.archdeps }}
-    - name: autoconf
-      run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
-    - name: configure
-      run: CC="clang ${{ matrix.archconfigflags }}" CXX="clang++ ${{ matrix.archconfigflags }}"
-           CFLAGS="-fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
-           CXXFLAGS="${{ matrix.archconfigflags }} -fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
-           LDFLAGS="-fsanitize=address,undefined -lubsan"
-           ./configure ${{ matrix.archconfig }} --with-libfuzzer
-    - name: Store the fuzzer config
-      if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
-      with:
-        name: config-${{ matrix.arch }}-${{ matrix.lang }}.log
-        path: config.log
-    - name: make
-      run: make -j
-    - uses: actions/cache@v3
-      with:
-        path: /home/runner/work/espeak-ng/espeak-ng
-        key: build-${{ matrix.arch }}-${{ github.sha }}
+    uses: ./.github/workflows/workflow-for-fuzzing-build.yml
 
   fuzzing:
     needs: build
-    runs-on: ubuntu-latest
-    name: Fuzz synth_espeak on ${{ matrix.arch }} for ${{ matrix.lang }}
     strategy:
       fail-fast: false
       matrix:
-        arch: [x86-32, x86-64]
-        lang: [af, am, an, ar, as, az, ba, be, bg, bn, bpy, bs, ca, chr, cmn, cs, cv, cy, da, de, el, en, eo, es, et, eu, fa, fi, fr, ga, gd, gn, grc, gu, hak, haw, he, hi, hr, ht, hu, hy, hyw, ia, id, io, is, it, ja, jbo, ka, kk, kl, kn, ko, kok, ku, ky, la, lb, lfn, lt, ltg, lv, mi, mk, ml, mr, ms, mt, mto, my, nb, nci, ne, nl, nog, om, or, pa, pap, piqd, pl, pt, pt-BR, py, qdb, qu, quc, qya, ro, ru, ru-LV, sd, shn, si, sjn, sk, sl, smj, sq, sr, sv, sw, ta, te, th, tk, tn, tr, tt, ug, uk, ur, uz, vi, yue]
-        include:
-          - arch: x86-32
-            archdeps: "libpcaudio0:i386 libsonic0:i386 libubsan1:i386 libc6-dbg:i386"
-
-          - arch: x86-64
-            archdeps: ""
-    steps:
-    - uses: actions/cache@v3
-      with:
-        path: /home/runner/work/espeak-ng/espeak-ng
-        key: build-${{ matrix.arch }}-${{ github.sha }}
-    - name: enable 32bit architecture
-      run: sudo dpkg --add-architecture i386
-      if: matrix.arch == 'x86-32'
-    - name: dependencies
-      run: sudo apt-get update && sudo apt-get install libpcaudio0 libsonic0 libubsan1 ${{ matrix.archdeps }}
-    - name: Fuzz function synth_espeak()
-      run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
-    - name: Store the crash POC
-      if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
-      with:
-        name: crash-${{ matrix.arch }}-${{ matrix.lang }}.1
-        path: crash-* timeout-*
-    - name: Fuzz function synth_espeak() with language-specific input
-      run:   cp dictsource/${{ matrix.lang }}_* tests/fuzzing/CORPUS_DIR/ || true ; FUZZ_VOICE=${{ matrix.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
-    - name: Store the crash POC
-      if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
-      with:
-        name: crash-${{ matrix.arch }}-${{ matrix.lang }}.2
-        path: crash-* timeout-*
+        lang: [af, am, an, ar, as, az, ba, be, bg, bn, bpy, bs, ca, chr, cmn, cs, cv, cy, da, de, el, en, eo, es, et, eu, fa, fi, fo, fr, ga, gd, gn, grc, gu, hak, haw, he, hi, hr, ht, hu, hy, hyw, ia, id, io, is, it, ja, jbo, ka, kaa, kk, kl, kn, ko, kok, ku, ky, la, lb, lfn, lt, ltg, lv, mi, mk, ml, mr, ms, mt, mto, nb, nci, ne, nl, nog, om, or, pa, pap, piqd, pl, pt-BR, py, qdb, qu, quc, qya, ro, ru, ru-LV, sd, shn, sjn, sk, sl, smj, sq, sr, sv, sw, ta, te, th, ti, tk, tn, tr, tt, ug, uk, ur, uz, vi, xex, yue, en+adam, en+Alex, en+Alicia, en+Andrea, en+Andy, en+anika, en+anikaRobot, en+Annie, en+announcer, en+antonio, en+AnxiousAndy, en+aunty, en+belinda, en+benjamin, en+boris, en+caleb, en+croak, en+david, en+Demonic, en+Denis, en+Diogo, en+ed, en+edward, en+edward2, en+f1, en+f2, en+f3, en+f4, en+f5, en+fast, en+Gene, en+Gene2, en+grandma, en+grandpa, en+gustave, en+Henrique, en+Hugo, en+ian, en+iven, en+iven2, en+iven3, en+iven4, en+Jacky, en+john, en+kaukovalta, en+klatt, en+klatt2, en+klatt3, en+klatt4, en+klatt5, en+klatt6, en+Lee, en+linda, en+m1, en+m2, en+m3, en+m4, en+m5, en+m6, en+m7, en+m8, en+marcelo, en+Marco, en+Mario, en+max, en+Michael, en+michel, en+miguel, en+Mike, en+mike2, en+Nguyen, en+norbert, en+pablo, en+paul, en+pedro, en+quincy, en+Reed, en+RicishayMax, en+RicishayMax2, en+RicishayMax3, en+rob, en+robert, en+robosoft, en+robosoft2, en+robosoft3, en+robosoft4, en+robosoft5, en+robosoft6, en+robosoft7, en+robosoft8, en+sandro, en+shelby, en+steph, en+steph2, en+steph3, en+Storm, en+travis, en+Tweaky, en+UniRobot, en+victor, en+whisper, en+whisperf, en+zac, mb-en1]
+    uses: ./.github/workflows/workflow-for-fuzzing.yml
+    with:
+      lang: ${{ matrix.lang }}

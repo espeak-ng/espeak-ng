@@ -31,21 +31,21 @@ jobs:
             archconfigflags: ''
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: enable 32bit architecture
         run: sudo dpkg --add-architecture i386
         if: matrix.arch == 'x86-32'
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }} reprotest ${{ matrix.archdeps }}
       - name: run
-        run: reprotest 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" rm -rf build && cmake -Bbuild -DUSE_ASYNC:BOOL=OFF && cmake --build build && ctest --test-dir build -T test -j1 --output-on-failure && touch success' success
+        run: reprotest --vary=-user_group --vary=-domain_host 'CFLAGS="${{ matrix.archconfigflags }}" CXXFLAGS="${{ matrix.archconfigflags }}" rm -rf build && cmake -Bbuild -DUSE_ASYNC:BOOL=OFF && cmake --build build && ctest --test-dir build -T test -j1 --output-on-failure && touch success' success
 
   distcheck:
 
     runs-on: ubuntu-latest
     name: Run distcheck
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }}
       - name: configure

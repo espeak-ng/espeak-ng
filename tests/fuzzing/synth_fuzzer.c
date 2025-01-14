@@ -40,8 +40,7 @@ espeak_callback(short *data, int samples, espeak_EVENT *events)
 }
 
 /* See http://llvm.org/docs/LibFuzzer.html */
-extern int LLVMFuzzerRunDriver(int *argc, char ***argv,
-                  int (*UserCb)(const uint8_t *Data, size_t Size));
+extern int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size);
 
 int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 {
@@ -50,6 +49,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 	{
 		int options = espeakINITIALIZE_DONT_EXIT;
 		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, buflength, PATH_ESPEAK_DATA, options);
+		espeak_ng_SetRandSeed(1);
 		espeak_SetSynthCallback(espeak_callback);
 		const char *lang = getenv("FUZZ_VOICE");
 		if (lang == NULL)
@@ -77,8 +77,4 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 	free(mutable_data);
 
 	return 0;
-}
-
-int main(int argc, char *argv[]) {
-	LLVMFuzzerRunDriver(&argc, &argv, LLVMFuzzerTestOneInput);
 }

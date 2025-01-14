@@ -221,7 +221,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 				return 0;
 			}
 
-			found = TranslateNumber(tr, word1, phonemes, dictionary_flags, wtab, 0);
+			found = TranslateNumber(tr, word1, phonemes, phonemes + sizeof(phonemes), dictionary_flags, wtab, 0);
 		}
 
 		if (!found && ((wflags & FLAG_UPPERS) != FLAG_FIRST_UPPER)) {
@@ -230,7 +230,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 			if ((tr->langopts.numbers & NUM_ROMAN) || ((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && (wflags & FLAG_ALL_UPPER))) {
 				if ((wflags & FLAG_LAST_WORD) || !(wtab[1].flags & FLAG_NOSPACE)) {
 					// don't use Roman number if this word is not separated from the next word (eg. "XLTest")
-					if ((found = TranslateRoman(tr, word1, phonemes, wtab)) != 0)
+					if ((found = TranslateRoman(tr, word1, phonemes, phonemes + sizeof(phonemes), wtab)) != 0)
 						dictionary_flags[0] |= FLAG_ABBREV; // prevent emphasis if capitals
 				}
 			}
@@ -1026,19 +1026,19 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 // append plural suffixes depending on preceding letter
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
 {
-	char word_zz[4] = { ' ', 'z', 'z', 0 };
-	char word_iz[4] = { ' ', 'i', 'z', 0 };
-	char word_ss[4] = { ' ', 's', 's', 0 };
+	char word_zz[5] = { 0, ' ', 'z', 'z', 0 };
+	char word_iz[5] = { 0, ' ', 'i', 'z', 0 };
+	char word_ss[5] = { 0, ' ', 's', 's', 0 };
 	if (flags & FLAG_HAS_PLURAL) {
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if (last_char == 'f')
-			TranslateRules(tr, &word_ss[1], word_phonemes, N_WORD_PHONEMES,
+			TranslateRules(tr, &word_ss[2], word_phonemes, N_WORD_PHONEMES,
 			NULL, 0, NULL);
 		else if ((last_char == 0) || (strchr_w("hsx", last_char) == NULL))
-			TranslateRules(tr, &word_zz[1], word_phonemes, N_WORD_PHONEMES,
+			TranslateRules(tr, &word_zz[2], word_phonemes, N_WORD_PHONEMES,
 			NULL, 0, NULL);
 		else
-			TranslateRules(tr, &word_iz[1], word_phonemes, N_WORD_PHONEMES,
+			TranslateRules(tr, &word_iz[2], word_phonemes, N_WORD_PHONEMES,
 			NULL, 0, NULL);
 	}
 }

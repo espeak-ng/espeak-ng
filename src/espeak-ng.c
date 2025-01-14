@@ -222,7 +222,7 @@ static int OpenWavFile(char *path, int rate)
 	f_wavfile = NULL;
 	if (path[0] != 0) {
 		if (strcmp(path, "stdout") == 0) {
-#if PLATFORM_WINDOWS
+#ifdef _WIN32
 			// prevent Windows adding 0x0d before 0x0a bytes
 			_setmode(_fileno(stdout), _O_BINARY);
 #endif
@@ -762,8 +762,8 @@ int main(int argc, char **argv)
 				}
 			}
 			if (ix > 0) {
-				p_text[ix-1] = 0;
-				espeak_Synth(p_text, ix+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
+				p_text[ix] = 0;
+				espeak_Synth(p_text, ix, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 			}
 		}
 

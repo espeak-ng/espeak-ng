@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([eSpeak NG], [1.52-dev], [https://github.com/espeak-ng/espeak-ng/issues], [espeak-ng], [https://github.com/espeak-ng/espeak-ng])
+AC_INIT([eSpeak NG], [1.52.0], [https://github.com/espeak-ng/espeak-ng/issues], [espeak-ng], [https://github.com/espeak-ng/espeak-ng])
 AM_INIT_AUTOMAKE()
 LT_INIT
 
@@ -140,8 +140,9 @@ if test "$with_libfuzzer" = yes ; then
 	AC_LANG_PUSH(C)
 	TEMP_CFLAGS="$CFLAGS"
 	TEMP_LIBS="$LIBS"
-	HOST_CPU="`$CC -print-multiarch | sed -e 's/-.*//'`"
-	LIBFUZZER_NO_MAIN="`$CC -print-runtime-dir`/libclang_rt.fuzzer_no_main-$HOST_CPU.a -lstdc++ -lm"
+	HOST_CPU="`$CC -print-target-triple | sed -e 's/-.*//'`"
+	LIBFUZZER_NO_MAIN="`$CC -print-file-name=libclang_rt.fuzzer_no_main-$HOST_CPU.a` -lstdc++ -lm"
+	LIBFUZZER="`$CC -print-file-name=libclang_rt.fuzzer-$HOST_CPU.a` -lstdc++ -lm"
 	CFLAGS="$CFLAGS -fsanitize=fuzzer-no-link"
 	LIBS="$LIBS $LIBFUZZER_NO_MAIN"
 	AC_MSG_CHECKING([if $CC supports fuzzer with the -fsanitize=fuzzer flag])
@@ -153,8 +154,10 @@ if test "$with_libfuzzer" = yes ; then
 	if test "$have_fuzzer_fuzzer" != yes ; then
 		CFLAGS="$TEMP_CFLAGS"
 		LIBFUZZER_NO_MAIN=""
+		LIBFUZZER=""
 	fi
 	AC_SUBST(LIBFUZZER_NO_MAIN)
+	AC_SUBST(LIBFUZZER)
 	LIBS="$TEMP_LIBS"
 	AC_LANG_POP(C)
 fi

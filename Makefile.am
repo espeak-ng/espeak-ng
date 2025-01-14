@@ -358,7 +358,8 @@ noinst_PROGRAMS =  tests/fuzzing/synth_fuzzer.test
 tests_fuzzing_synth_fuzzer_test_SOURCES = tests/fuzzing/synth_fuzzer.c
 tests_fuzzing_synth_fuzzer_test_LDADD =  src/libespeak-ng.la
 tests_fuzzing_synth_fuzzer_test_CFLAGS=  ${AM_CFLAGS} -DPATH_ESPEAK_DATA=\"$(abs_top_srcdir)/espeak-ng-data\" -Isrc/libespeak-ng
-tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS} ${LIBFUZZER_NO_MAIN}
+tests_fuzzing_synth_fuzzer_test_LDFLAGS= ${AM_LDFLAGS} -static -lm -Wl,-z,relro ${PCAUDIOLIB_LIBS} ${LIBFUZZER}
+tests_ssml_fuzzer_test_LDFLAGS = ${AM_LDFLAGS} ${LIBFUZZER}
 else
 tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
 endif
@@ -903,8 +904,8 @@ espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_ext
 ti: espeak-ng-data/ti_dict
 espeak-ng-data/ti_dict: dictsource/ti_list dictsource/ti_rules dictsource/ti_extra dictsource/ti_emoji
 
-th: espeak-ng-data/th
-espeak-ng-data/th: dictsource/th dictsource/th dictsource/te_extra
+th: espeak-ng-data/th_dict
+espeak-ng-data/th_dict: dictsource/th_list dictsource/th_rules dictsource/th_extra
 
 tk: espeak-ng-data/tk_dict
 espeak-ng-data/tk_dict: dictsource/tk_list dictsource/tk_listx dictsource/tk_rules dictsource/tk_extra

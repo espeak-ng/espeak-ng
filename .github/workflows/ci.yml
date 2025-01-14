@@ -25,12 +25,12 @@ jobs:
             osver: 22.04
             sys: linux-gnu
           - os: macos
-            osver: 12
-            sys: apple-darwin21
+            osver: 14
+            sys: apple-darwin23
           - os: macos
             compiler: clang
-            sys: apple-darwin21.6.0
-          
+            sys: apple-darwin23.6.0
+
           - compiler: clang
             compiler_flags: "-fdebug-default-version=4"
 
@@ -98,6 +98,10 @@ jobs:
             arch: arm
           - os: macos
             arch: riscv64
+
+          # fixme
+          - os: macos
+            compiler: gcc
 
           - os: macos
             config: valgrind # Not supported on macOS
@@ -206,7 +210,7 @@ jobs:
       run: brew install gcc@12
 
     # Checkout code
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     # Configure
     - name: configure
@@ -222,7 +226,7 @@ jobs:
 
     - name: config-failed-upload
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: cmake-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}-${{ matrix.config }}-builddir
         path: build
