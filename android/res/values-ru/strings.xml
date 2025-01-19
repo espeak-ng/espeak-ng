@@ -5,7 +5,7 @@
   <string name="tts_settings_label">Настройки TTS eSpeak</string>
   <!--Source: Preference title.
         Description: Title for the preference that controls default voice pitch.-->
-  <string name="setting_default_pitch">Тон голоса</string>
+  <string name="setting_default_pitch">Высота голоса</string>
   <!--Source: Preference title.
         Description: Title for the preference that controls default speech rate.-->
   <string name="setting_default_rate">Скорость речи</string>
@@ -48,7 +48,7 @@
   <string name="formatter_wpm">%s СВМ</string>
   <string name="formatter_percentage">%s%%</string>
   <string name="resetToDefault">Сброс</string>
-  <string name="espeak_pitch_range">Подстройка тона</string>
+  <string name="espeak_pitch_range">Интонация</string>
   <string name="espeak_variant">Вариант голоса</string>
   <string name="espeak_speak_punctuation">Читать пунктуацию</string>
   <string name="punctuation_all">Всю</string>
