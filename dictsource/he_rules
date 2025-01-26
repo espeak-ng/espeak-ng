@@ -7,6 +7,13 @@
        אֲ        ?a
        אֳ        ?a
        אַ        ?a
+       איְ       ?i
+       איִ       ?i
+       איֵ       ?e
+       איֶ       ?e
+       איַ       ?ai
+       איָ       ?a
+       איֹ       ?o   
        אַי        ?ai
        אַיָּ       aja
        אַיָּיְ      aja
@@ -39,6 +46,11 @@
        בַ        va
        בֵ        ve
        בֶ        ve
+       בֱּ      ve
+       בֲּ      va
+       בֳּ      vo
+       בֹּ      bo
+       בֻּ      bu
        בְ        v
        בְּ        b@
        בַּ        ba
@@ -73,7 +85,6 @@
 .group ג
        ג        g
        גּ        g
-       
        ג־       g
        גַ        ga
        גַּ        ga
@@ -85,6 +96,15 @@
        גְּ        g
        גִ        gi
        גִּ        gi
+       גֱּ        ge  
+       גֳּ        go  
+       גֹּ        go  
+       גהֲ        ga  
+       גהַ        ga  
+       גהָ        ga  
+       גיֵ        ge  
+       גיַ        gi  
+       גיָ        gi
        גוֹ        go
        גֹ       go
        גּוֹ        go
@@ -125,6 +145,22 @@
        דֶ        de
        דֵּ        de
        דְ        d
+       דְ־        de  
+       דֳּ        do  
+       דֻּ        du  
+       דהֲ        da  
+       דהִ        di
+       דהֵ        de  
+       דהֶ        de  
+       דהַ        da  
+       דהָ        da  
+       דוְ        du
+       דוֵ        du  
+       דיְ        di  
+       דיִ        di  
+       דיֵ        di  
+       דיַ        da  
+       דיָ        da
        דְּ        d@
        דִ        di
        דִּ        di
@@ -162,6 +198,22 @@
        הַּ        ha
        הֳ        ha
        הֹ       ho
+       הֶ־        he  
+       הַ־        ha  
+       הָ־        ha  
+       הְּ        he  
+       הֶּ        he  
+       הָּ        ha
+       הּ־        he  
+       היְ        hi  
+       היִ        hi  
+       היֵ        hi  
+       היֶ        he  
+       היַ        ha  
+       היָ        ha  
+       היֹ        ho  
+       היּ        hi  
+       השּ        hash
        הֻ       hu
        ה־     h
        הֵ        he
@@ -205,7 +257,11 @@
        וֶ        ve
        וִ        vi
        וִּ        vi
-       
+       וְ־        ve  
+       וֹ¬        vo  
+       וֹ־        vo  
+       וֹּ        vu  
+       וּ־        vu
        וּ        u
        וּּ        u
        וְּ        vu
@@ -225,7 +281,6 @@
        זְּ        z@
        זּ        zu
        זֻ        zu
-
        זַ        za
        זָּ        za
        זַּ        za
@@ -240,6 +295,10 @@
        זי        zi
        זוּ        zu
        זׇ        zo
+       זֻּ        zu  
+       זיְ        zi  
+       זיִ        zi  
+       זיֹ        zo
        זֹ        zo
        זֹּ        zo
        זָ        za
@@ -272,6 +331,11 @@
        חי        Xi
        חוּ        Xu
        חׇ        Xo
+       חַ־        cha  
+       חהֲ        cha  
+       חהַ        cha  
+       חהָ        cha  
+       חיֵ        che
        חָ        Xa
        חֳ        xo
        חה        Xa
@@ -288,6 +352,13 @@
        טָּ        ta
        טֲ       ta
        טֳ      to
+       טֹּ        to  
+       טֻּ        tu  
+       טהֲ        ta  
+       טהֶ        te  
+       טהַ        ta  
+       טהָ        ta  
+       טיָ        ti
        טֹ     to
        טֻ    tu
        ט־   t
@@ -371,6 +442,9 @@
        כֶּ        ke
        כְּ        k
        כִּ        ki
+       כֳּ        ko  
+       כֻּ        ku
+
        כּוֹ        ko
        כֹּ        ko
        כּי        ki
@@ -399,6 +473,28 @@
        לַּ        la
        לֱ       le
        לֲ      la
+       לְ־        le  
+       לִַ        la  
+       לִָ        la  
+       לֻּ        lu  
+       להֱ        le  
+       להֲ        la  
+       להִ        li  
+       להֵ        le
+       להֶ        le  
+       להַ        la  
+       להָ        la  
+       להֹ        lo  
+       ליְ        li  
+       ליִ        li  
+       ליֵ        li  
+       ליֶ        le
+       ליַ        la  
+       ליָ        la  
+       ליֹ        lo  
+       ליֻ        lu  
+       ליּ        li  
+       לשּ        lesh
        לֳ    lo
        לֻ  lu
        ל־     l
@@ -433,6 +529,14 @@
        מֶ        me
        מֵּ        me
        מֶּ        me
+       מִ־        mi  
+       מֵ־        me  
+       מֹּ        mo  
+       מיִ        mi  
+       מיֵ        mi  
+       מיֻ        mu  
+       מיּ        mi  
+       משּ        mesh
        מְאַ       mea
        מְ        m
        מֱ       me
@@ -478,6 +582,10 @@
        נְ        n
        נִ        ni
        נִּ        ni
+       נֹּ        no  
+       נֻּ        nu  
+       ניִ        ni  
+       ניֶ        ne
        נוֹ        no
        נֹ         no
        ני        ni
@@ -508,6 +616,17 @@
        סַּ        sa
        סָּ        sa
        סֲ       sa
+       סֹּ        so  
+       סֻּ        su  
+       סהֲ        sa  
+       סהִ        si  
+       סהֶ        se  
+       סהַ        sa  
+       סהָ        sa
+       סיִ        si  
+       סיֵ        si  
+       סיַ        sa  
+       סיָ        sa
        סֳ       so
        ס־      s
        סֵ        se
@@ -533,6 +652,16 @@
        עׇ       ?o
        עֲ        ?a
        עַ        ?a
+       עַ־        a  
+       עהֲ        a  
+       עהִ        ai  
+       עהֶ        ae  
+       עהַ        a  
+       עהָ        a
+       עיִ        ai  
+       עיֵ        ai  
+       עיַ        a  
+       עיָ        a
        עַי        ?ai
        עִיִּ        iji
        עִיּ        i
@@ -586,6 +715,8 @@
        פְּעִ        pehi
        פֻ         pu
        פֻּ         pu
+       פֳּ        po  
+       פיִ        pi
        פּוּ        pu
        פׇּ        po
        פָּ        pa
@@ -604,6 +735,10 @@
        צּ        ts
        צַּ        tsa@
        צָּ        tsa@
+       צֳּ        tso  
+       צֹּ        tso  
+       צֻּ        tsu  
+       צהַ        tsa
        צֵ        tse
        צֶ        tse
        צֱ tse
@@ -651,6 +786,18 @@
        קָּ        ka@
        קַּ        ka@
        קֵ        ke
+       קֳּ        ko  
+       קֹּ        ko  
+       קֻּ        ku  
+       קהֲ        ka  
+       קהַ        ka  
+       קהָ        ka  
+       קהֻ        ku  
+       קוְ        ku  
+       קוָ        ka  
+       קיִ        ki  
+       קיַ        ka  
+       קיָ        ka
        קֱ       ke
        קֲ      ka
        קֳ      ko
@@ -686,6 +833,19 @@
        רְכְ       ReX
        רֶ        Re
        רְ        R
+       רהֲ        ra  
+       רהִ        ri  
+       רהֶ        re  
+       רהַ        ra  
+       רהָ        ra  
+       רהֹ        ro  
+       ריְ        ri  
+       ריִ        ri
+       ריֵ        ri  
+       ריֶ        re  
+       ריַ        ra  
+       ריָ        ra  
+       ריֹ        ro
        רִ        Ri
        רִי       Ri@
        רִיּ       Ri@
@@ -740,6 +900,21 @@
        שׇׁ        So
        שָׁ        Sa
        שׂ        s
+       שְּ        she  
+       שִּ        shi  
+       שֵּ        she  
+       שֶּ        she  
+       שַּ        sha  
+       שָּ        sha
+       שּׁ        sha  
+       שּׂ        sa  
+       שּה        sha  
+       שּו        shu  
+       שֱׁ        she  
+       שֹׁ        sho  
+       שׁ־        sha  
+       שֹׂ        sa  
+       שֻׂ        su
        שְּׂ        s@
        שַׂ        sa
        שַּׂ        sa@
@@ -798,6 +973,24 @@
        ת'וֹ        To
        ת'י        Ti
        ת'וּ        Tu
+       תֳּ        to  
+       תֻּ        tu  
+       תהֱ        te  
+       תהֲ        ta  
+       תהִ        ti
+       תהֵ        te  
+       תהֶ        te  
+       תהַ        ta  
+       תהָ        ta  
+       תהֻ        tu  
+       תהּ        ta  
+       תיְ        ti
+       תיִ        ti  
+       תיֵ        ti  
+       תיֶ        te  
+       תיַ        ta  
+       תיָ        ta  
+       תיֻ        tu
        תּוּ        tu@
        תׇ'        To
        תָ'        Ta
