@@ -43,6 +43,7 @@
 
 .group ב
        ב        v
+       
        בַ        va
        בֵ        ve
        בֶ        ve
@@ -54,10 +55,12 @@
        בְ        v
        בְּ        b@
        בַּ        ba
+       בֻּ        bu
        בִ        vi
        בוֹ        vo
        בֹ         vo
        בוּ        vu
+       בֻ         vu
        בות        'vot
        בׇ        ba
        בָ        va
@@ -117,6 +120,7 @@
        גּוּ        gu
        גֻ        gu
        גֻּ        gu
+       גֻּ        gu
        גׇ        ga
        גׇּ        ga
        גָ        ga
@@ -172,6 +176,7 @@
        די        di
        דוּ        du
        דֻ          Du
+       דֻּ         du
        דו        du
        דה        da
        דות        'dot
@@ -224,6 +229,7 @@
        הוֹ        ho
        הי        hi
        הוּ        hu
+       הֻ         hu
        הות        'hot
        הם        'hem
        הן        'hen
@@ -294,6 +300,7 @@
        זּוֹ       zu
        זי        zi
        זוּ        zu
+       זֻ         zu
        זׇ        zo
        זֻּ        zu  
        זיְ        zi  
@@ -330,6 +337,7 @@
        חוֹ        Xo
        חי        Xi
        חוּ        Xu
+       חֻ        Xu
        חׇ        Xo
        חַ־        cha  
        חהֲ        cha  
@@ -372,6 +380,7 @@
        טוֹ        to
        טי        ti
        טוּ        tu
+       טֻ         tu
        טׇ        to
        טָ        ta
        טה        ta
@@ -430,7 +439,9 @@
        כוֹ        Xo
        כי        Xi
        כוּ        Xu
+       
        כְוּ       Xu
+       כֻ        Xu
        כׇ        Xo
        כָ        Xa
        כּ        k
@@ -449,6 +460,7 @@
        כֹּ        ko
        כּי        ki
        כּוּ        ku
+       כֻּ         ku
        כׇּ        ka
        כָּ        ka
        כָּל       kol
@@ -511,6 +523,7 @@
        לֹ         lo
        לי        li
        לוּ        lu
+       לֻ        lu
        לׇ        lo
        לָ        la
        לה        la
@@ -552,6 +565,7 @@
        מוּ        mu
        מֻ         mu
        מות        'mot
+       מֻּ        mu
        
        מְא       me
        מֶר       mer
@@ -590,6 +604,8 @@
        נֹ         no
        ני        ni
        נוּ        nu
+       נֻּ         nu
+       נֻ         nu
        נׇ        no
        נָ        na
        נֳ       no
@@ -755,6 +771,8 @@
        צֹ         tso
        צי        tsi
        צוּ        tsu
+       צֻּ         tsu
+       צֻ         tsu
        צה        tsa
        צות        'tsot
        צׇ        tso
@@ -814,6 +832,7 @@
        קוֹ        ko
        קי        ki
        קוּ        ku
+       קֻ         ku
        קות        'kot
        קׇ        ko
        קֹ        ko
@@ -854,6 +873,7 @@
        רי        Ri
        רוּ        Ru
        רֻ        Ru
+       רֻ        Ru
        רְרוּ      ReRu
        רׇ        Ro
        רָ        Ra
@@ -863,6 +883,7 @@
 .group ש
        ש        S
        שׁ        S
+       שֻ        Su
        שְּׁ        S@
        שַּׁ        Sa@
        שַׁ        Sa
@@ -957,6 +978,7 @@
        תִּי        ti
        תִּיּ        ti
        תוּ        tu
+       תֻּ         tu
        תֻ         tu
        תׇ        to
        תֹּ        to
