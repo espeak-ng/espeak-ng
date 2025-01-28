@@ -790,7 +790,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, W
 	}
 
 	word_start = word;
-	while ((c = *word++) != ' ') {
+	while ((c = *word++) != ' ' && c) {
 		if ((p2 = strchr(roman_numbers, c)) == NULL)
 			return 0;
 
