@@ -18,6 +18,8 @@ attention! this is the last release witch support the autoconf build system. use
 bug fixes:
 *  a meny fixes to core C code -- djphoenix
 
+* Configuration espeak-ng-data/config can now be used to overwrite language options.
+
 android:
 *  Added directBoot support -- beqabeqa473
 *  Integrated ndk-build step into main gradle pipeline
