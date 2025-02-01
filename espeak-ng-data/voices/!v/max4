@@ -1,0 +1,15 @@
+language variant
+name Max4
+klatt 6
+pitch  85 123
+consonants 60 60
+voicing 135
+breath 40
+
+formant 1 95 85 85 -30
+formant 2 100 60 80
+formant 3 95 60 70
+formant 4 100 15 15
+formant 5 80 40 60
+formant 6 10 0 0
+

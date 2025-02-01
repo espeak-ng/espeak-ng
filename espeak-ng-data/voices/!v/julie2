@@ -1,0 +1,14 @@
+language variant
+name Julie2
+gender female
+klatt 6
+pitch 180 300
+voicing 70
+breath 50
+consonants 70 70
+formant 1 120  75 150 -80
+formant 2 135  70 160 -200
+formant 3 125  80 150
+formant 4 125  80 150
+formant 5 125  80 150
+formant 6 120  70 150

@@ -1,0 +1,12 @@
+language variant
+name HarryRobot
+klatt 5
+consonants 85 85
+voicing 130
+breath 45
+pitch 80 85
+formant 1 68 100 80 80
+formant 2 83 100 80 100
+formant 3 98 100 100
+formant 4 90 100 200
+formant 5 100 100 90

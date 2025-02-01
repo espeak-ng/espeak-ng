@@ -1,0 +1,19 @@
+language variant
+name Josh
+gender male
+maintainer Enes Deniz
+roughness 0
+pitch 240 390
+formant 0 145 100 145
+formant 1 145 100 145
+formant 2 125 100 200
+formant 3 145 100 120
+formant 4 145 100 150
+formant 5 150 120 145
+formant 6 145 120 145
+formant 7 145 120 145
+formant 8 145 120 145
+voicing 50
+consonants 65 65
+tone 600 200 1200 250 2000 100
+intonation 2

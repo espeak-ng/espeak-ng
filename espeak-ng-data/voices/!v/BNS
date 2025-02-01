@@ -1,0 +1,9 @@
+language variant
+name BrailleNSpeak
+klatt 6
+pitch  102 1
+formant 1 88 105 135
+formant 2 94 105 -125
+formant 3 96 105 -125
+formant 4 100 105 -135
+formant 5 96 115 145
