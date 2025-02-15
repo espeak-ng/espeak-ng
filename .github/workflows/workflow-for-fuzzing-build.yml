@@ -24,6 +24,7 @@ jobs:
             archconfigflags: ''
     steps:
     - uses: actions/checkout@v4
+    - uses: firebuild/apt-eatmydata-action@v1
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
