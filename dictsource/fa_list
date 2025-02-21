@@ -622,6 +622,7 @@ U+20	fAsele_
 آمیزش	A:mizeS
 آمیغ	A:miq1
 آمینواسید	Aminoasid
+آنابل	AnAbel
 آنابلیسم	AnAbolism
 آناتولی	AnAtoli
 آناتومی	AnAtomi
@@ -1464,6 +1465,7 @@ U+20	fAsele_
 اسکات	eskAt
 اسکاتلند	eskAtland
 اسکاج	eskAdZ
+اسکاد	eskAd
 اسکار	?oskAR
 اسکارلت	eskARlet
 اسکان	eskAn
@@ -2255,6 +2257,9 @@ U+20	fAsele_
 اکسیده	okside
 اکسیر	eksiR
 اکسیژن	oksiZen
+اکسیژنت	oksiZenat
+اکسیژنش	oksiZenaS
+اکسیژنم	oksiZenam
 اکشن	akSen
 اکلاهما	oklAhomA:
 اکلر	ekleR
@@ -2625,6 +2630,7 @@ U+20	fAsele_
 بتوان	betavAn
 بتول	batul
 بتونه	batune
+بتپ	betap
 بتکده	botkade
 بجا	bedZA
 بجد	bedZed
@@ -2724,6 +2730,7 @@ U+20	fAsele_
 بدرکاب	badRekAb
 بدرگ	badRag
 بدزبان	badzabAn
+بدزده	bedozde:
 بدسابقه	badsAbeq1e
 بدساخت	badsAxt
 بدست	bedast
@@ -2776,7 +2783,9 @@ U+20	fAsele_
 بدواً	badvan
 بدوبدو	bodobodo
 بدوبیراه	badobiRAh
+بدود	bedavad
 بدوم	bedavam
+بدوند	bedavand
 بدوی	badvi
 بدپیل	badpil
 بدک	badak
@@ -2800,6 +2809,7 @@ U+20	fAsele_
 بذور	bozuR
 برآرد	baRARad
 برابر	baRAbaR
+برابرت	baRA:baRat
 برابرنهاد	baRAbaRnahAd
 برابرنگر	baRAbaRnegaR
 برات	baRAt
@@ -2864,6 +2874,7 @@ U+20	fAsele_
 برد	boRd
 بردار	baRdAR
 بردبار	boRdbAR
+بردج	baRdedZ
 بردسیر	baRdsiR
 بردم	boRdam
 بردن	boRdan
@@ -2912,6 +2923,7 @@ U+20	fAsele_
 برقبند	baRq1band
 برقرانی	baRq1aRAni
 برقراهه	baRq1aRAhe
+برقصد	beRaq1sad
 برقع	boRq1a
 برقو	boRq1u
 برلیان	beReliAn
@@ -3026,6 +3038,7 @@ U+20	fAsele_
 بزاز	bazzAz
 بزاق	bozAq1
 بزبیاری	bozbijARi
+بزت	bozat
 بزخر	bozxaR
 بزخو	bozxu
 بزدلانه	bozdelAne
@@ -3037,6 +3050,7 @@ U+20	fAsele_
 بزرگتری	'bozoRgtaRi
 بزرگه	bozoRge:
 بزرگی	bozoRgi
+بزش	bozaS
 بزعم	beza?m
 بزغاله	bozq1Ale
 بزغنج	bozq1andZ
@@ -3406,6 +3420,7 @@ U+20	fAsele_
 بوروکراتیک	buRukRAtik
 بورژوا	buRZuvA
 بورژوازی	buRZuvAzi
+بورک	buRek
 بوریتو	buRito
 بوزد	bevazad
 بوزرجمهر	bu:zaRdZomehR
@@ -3456,6 +3471,8 @@ U+20	fAsele_
 بچّه	batStSe:
 بچّۀ	batStSeje
 بچگان	batStSegAn
+بچگانه	batStSegAne:
+بچگانۀ	batStSegAneje
 بچگون	batStSegun
 بچگی	batStSegi
 بچۀ	ba'tStSeje
@@ -3736,6 +3753,7 @@ U+20	fAsele_
 تبرک	tabaRRok
 تبرید	tabRid
 تبسم	tabassom
+تبش	tabaS
 تبصره	tabsaRe:
 تبع	taba?
 تبعا	tab?an
@@ -3745,6 +3763,7 @@ U+20	fAsele_
 تبق	'tabaq1
 تبلت	tablet
 تبلور	tabalvoR
+تبم	tabam
 تبه	tabah
 تبهکار	tabahkAR
 تبهکارانه	tabahkARAne
@@ -4591,6 +4610,7 @@ U+20	fAsele_
 جذام	dZozAm
 جر	dZeR
 جرأت	dZoR?'at
+جرئت	dZoR?at
 جرائم	dZaRA?em
 جرات	dZoR?'at
 جراح	dZaRRAh
@@ -4771,6 +4791,7 @@ U+20	fAsele_
 جوگندمی	dZovgandomi
 جوی	dZu:j
 جویان	dZujAn
+جویم	dZujom
 جوین	dZovejn
 جویند	dZujand
 جوینده	dZujande:
@@ -5144,6 +5165,7 @@ U+20	fAsele_
 خردوخمیر	xoRdoxamiR
 خردوریز	xoRdoRiz
 خردکرده	xoRdkaRde
+خردکن	xoRdkon
 خرزه	xaRze
 خرزهره	xaRzahRe
 خرس	xeRs
@@ -5229,6 +5251,7 @@ U+20	fAsele_
 خصمان	xasmAn
 خصوصا	xosusan
 خصوصی	xosusi
+خصومت	xosumat
 خصیتین	xosjatejn
 خضر	xezR
 خضرا	xazRA
@@ -5573,6 +5596,7 @@ U+20	fAsele_
 دروغکی	doRuq1aki
 دروغگوی	doRuq1guje
 دروغگویی	doRuq1gui:
+دروغین	doRuq1in
 درون	daRun
 درونراند	daRunRAnd
 درونزهر	daRunzahR
@@ -5597,12 +5621,14 @@ U+20	fAsele_
 دریافت	daRjAft
 دریاکنار	daRjA_kenAR
 دریبل	deRibl
+دریس	deRis
 دریغا	daRiq1A
 دریل	deRejl
 دز	dez
 دزد	dozd
 دزدد	dozdad
 دزدید	dozdid
+دزدیم	dozdim
 دزفول	dezful
 دزمتر	dozmetR
 دزک	dozak
@@ -5702,6 +5728,7 @@ U+20	fAsele_
 دلسخت	delsaxt
 دلش	delaS
 دلفگار	delfagAR
+دلفی	delfi
 دلفین	dolfin
 دلقو	dolq1u
 دلم	delam
@@ -5789,6 +5816,7 @@ U+20	fAsele_
 دهن	dahan
 دهناد	dehnAd
 دهند	dahand
+دهنو	dehno
 دهنوی	dehnavi
 دهک	dehak
 دهکده	dehkade:
@@ -5823,6 +5851,7 @@ U+20	fAsele_
 دورنگی	doRangi
 دوره	doRe:
 دورپرواز	duRpaRvAz
+دورچین	do:RtSin
 دورکار	duRkAR
 دورکیم	doRkim
 دورگه	doRage:
@@ -5963,6 +5992,7 @@ U+20	fAsele_
 دیفالت	difAlt
 دیفتری	difteRi
 دیفرانسیل	dif'RAnsijel
+دیلاق	dejlAq1
 دیلم	dejlam
 دیم	dejm
 دیمیتری	dimitRi
@@ -6032,6 +6062,7 @@ U+20	fAsele_
 رئال	ReA:l
 رئالیسم	ReAlism
 رئاکتور	ReAktoR
+رئوف	Ra?uf
 رئیست	Ra?isat
 رئیسجمهور	Ra_isdZomhuR
 رابرت	RAbeRt
@@ -6073,6 +6104,7 @@ U+20	fAsele_
 راقم	RAq1em
 رامبد	RAmbod
 رامتین	RAmtin
+رامجرد	RAmdZeRd
 رامسس	RAmses
 رامسین	RAmsin
 رامش	RAmeS
@@ -6816,6 +6848,7 @@ U+20	fAsele_
 ساکنان	sAkenAn
 سایبر	sAjbeR
 سایت	sAjt
+ساید	sA:jad
 سایر	sAjeR
 سایز	sAjz
 سایش	sAjeS
@@ -6968,6 +7001,7 @@ U+20	fAsele_
 سرنشین	saRneSin
 سرنگ	soRang
 سرنگون	saRnegun
+سرنگی	soRangi
 سره	seRe
 سرهم	saR_ham
 سرهنگی	saRhangi
@@ -7431,6 +7465,7 @@ U+20	fAsele_
 شانز	SAnz
 شانزده	'SAnzdah
 شانس	SAns
+شانست	SAnsat
 شانگهای	SAnghAj
 شاه	SA:h
 شاهدانی	SAhedAni
@@ -7748,6 +7783,7 @@ U+20	fAsele_
 شگفت	Segeft
 شگفتا	SegeftA
 شیء	Sej?
+شیئی	Sej?i
 شیائومی	SijA_omi
 شیاد	SajjAd
 شیاطین	SajA:tin
@@ -7772,7 +7808,6 @@ U+20	fAsele_
 شیطان	SejtAn
 شیطنت	Sejtanat
 شیطون	Sejtun
-شیع	Sej?
 شیعه	Si:?e:
 شیعۀ	Si:?eje
 شیعیان	Si:?ajAn
@@ -8091,6 +8126,8 @@ U+20	fAsele_
 عبدالبها	abdol_bahA
 عبدالعظیم	abdol?azim
 عبدالله	abdollAh
+عبدالمجید	_abdolmadZid
+عبدالکریم	_abdolkaRim
 عبرت	'ebRat
 عبری	?ebRi
 عبس	abas
@@ -8201,6 +8238,7 @@ U+20	fAsele_
 علّیت	ellijat
 علیا	_oljA:
 علیاحضرت	?olijA:hazRat
+علیالبدل	_alalbadal
 علیالسویه	?alassavije:
 علیالسویۀ	?alassavijeje
 علیالسّویه	?alassavije:
@@ -8211,6 +8249,7 @@ U+20	fAsele_
 علیرغم	alARaq1me
 علیرقم	alARaq1m
 علیه	alajhe
+علیها	_alajhA
 علیک	alejk
 علیکم	?alajkom
 علیین	?elli:n
@@ -8268,6 +8307,7 @@ U+20	fAsele_
 عودت	_o:dat
 عوض	avaz
 عوق	_oq1
+عکست	_aksat
 عیار	ajAR
 عیاران	_ajjA:RAn
 عیاش	'ajjAS
@@ -8299,6 +8339,7 @@ U+20	fAsele_
 غرام	q1eRAm
 غران	q1oRRAn
 غربت	q1oRbat
+غرد	q1oRRad
 غرر	q1oRaR
 غررالحکم	q1oRaRolhekam
 غرش	q1oRReS
@@ -8308,6 +8349,7 @@ U+20	fAsele_
 غرغرو	q1oRq1oRu
 غرفه	q1oRfe:
 غرقدره	q1aRq1daRRe:
+غرم	q1oRRam
 غرما	q1oRamA
 غرمب	q1oRomb
 غرمبید	q1oRombid
@@ -8321,6 +8363,7 @@ U+20	fAsele_
 غرچۀ	q1aRtSeje
 غریبان	q1aRibAn
 غرید	q1oRRid
+غریم	q1oRRim
 غزل	q1azal
 غزنوی	q1aznavi
 غزنویان	q1aznavijAn
@@ -8481,6 +8524,7 @@ U+20	fAsele_
 فراشبند	faRASband
 فراطبق	faRAtabaq1
 فراعنه	faRA?ene:
+فراغت	faRA:q1at
 فرافکنی	faRAfekani
 فراق	feRAq1
 فراموش	fa'RAmuS
@@ -9368,6 +9412,9 @@ U+20	fAsele_
 لوگو	logo
 لویی	luji
 لپ	lop
+لپت	loppat
+لپش	loppaS
+لپم	loppam
 لپه	lappe:
 لچر	latSaR
 لچک	latSak
@@ -9534,6 +9581,7 @@ U+20	fAsele_
 ماهرخ	mAhRox
 ماهوش	mAhvaS
 ماهوی	mAhovi
+ماهگل	mAhgol
 ماورا	mAvaRA
 ماوراءالطبیعه	mAvaRA?ottabi?e
 ماوراءالنهر	mA:vaRA:?onnahR
@@ -9553,6 +9601,7 @@ U+20	fAsele_
 ماگنتیت	mAgnetit
 مایحتاج	mAjahtAdZ
 مایل	mA'jel
+مایملک	mA:jamlak
 ماینر	mAjneR
 ماینز	mAjnez
 مایو	mAjo
@@ -10869,6 +10918,7 @@ U+20	fAsele_
 منظما	monazzaman
 منظور	manzuR
 منظّم	monazzam
+منعم	mon?em
 منفعت	manfa?at
 منفعلی	monfa?eli
 منفک	monfak
@@ -10892,6 +10942,8 @@ U+20	fAsele_
 منوال	menvAl
 منور	monavvaR
 منوط	manut
+منونایت	menonAjt
+منونیت	menonit
 منوچ	manutS
 منوچهر	manutSehR
 منوی	menoje
@@ -10928,6 +10980,7 @@ U+20	fAsele_
 مهرانا	mehRAnA
 مهراوه	mehRAve:
 مهربون	mehRabun
+مهرخ	mahRox
 مهرسام	mehRsAm
 مهرسانا	mehRsA:nA:
 مهرناز	mehRnAz
@@ -10951,6 +11004,7 @@ U+20	fAsele_
 مهمون	mehmun
 مهندس	mo'handes
 مهندسان	mohandesAn
+مهگل	mahgol
 مهیا	mohajjA
 مهیار	mahjAR
 مهیج	mohajjedZ
@@ -10995,6 +11049,7 @@ U+20	fAsele_
 مورخان	movaRRexAn
 مورد	mo:Red
 مورداستفاد	mo:Rede_estefAd
+موردتوجه	mo:RedetavadZdZoh
 موردعلاق	mo:Rede?alA:q1
 موردنظر	mo:Rede'nazaR
 موردنیاز	mo:RedenijAz
@@ -11144,6 +11199,7 @@ U+20	fAsele_
 مکید	makid
 مگا	megA
 مگابایت	megAbAjt
+مگابیت	megAbit
 مگافلاپس	megAfelAps
 مگان	megAn
 مگاوات	megAvAt
@@ -11310,6 +11366,7 @@ U+20	fAsele_
 نئی	neji
 ناامن	nA_amn
 ناامید	nA_omid
+ناایمن	nA_imen
 نابخرد	nAbexRad
 نابرادر	nAbaRAdaR
 نابسامان	nAbesAmAn
@@ -11357,6 +11414,7 @@ U+20	fAsele_
 ناسیونالیزم	nAsijonAlizm
 ناسیونالیسم	nAsijonAlism
 ناشتا	nAStA
+ناشران	nASeRAn
 ناشکر	nASokR
 ناصحانه	nAsehAne
 ناصرخسرو	nAseRxosRov
@@ -11484,6 +11542,7 @@ U+20	fAsele_
 ندبه	nodbe:
 ندرت	nodRat
 ندرتا	nodRatan
+ندزده	nadozde:
 ندم	nadam
 ندن	nadan
 ندهم	nadaham
@@ -11491,6 +11550,7 @@ U+20	fAsele_
 ندهی	nadahi
 ندهید	nadahid
 ندهیم	nadahim
+ندوند	nadavand
 ندیم	nadim
 نذور	nozuR
 نرت	naRat
@@ -12122,6 +12182,7 @@ U+20	fAsele_
 هروی	heRavi
 هروین	heRoin
 هرویین	heRoi:n
+هرچقدر	haRtSeq1adR
 هرکدام	haRkodAm
 هرکول	heRkul
 هرگز	haRgez
@@ -12793,6 +12854,7 @@ U+20	fAsele_
 پرتوزا	paRtozA
 پرتپش	poRtapeS
 پرتکل	poRotokol
+پرتگاه	paRtgAh
 پرجرم	poRdZeRm
 پرحجم	poRhadZm
 پرخاش	paRxAS
@@ -12873,6 +12935,7 @@ U+20	fAsele_
 پرلتر	poRoleteR
 پرلن	peRlon
 پرلود	peRlud
+پرم	paRam
 پرمایه	poRmAje
 پرمدعا	poRmoddaA
 پرمسیولیت	poRmas_ulijat
@@ -13000,6 +13063,8 @@ U+20	fAsele_
 پسر	pesaR
 پسرا	pesaRA
 پسراندر	pesaRandaR
+پسرانه	pesaRAne:
+پسرانۀ	pesaRAneje
 پسرانی	pesaRAni
 پسربرادر	pesaRebaRAdaR
 پسربچه	pesaRbatStSe
@@ -13455,6 +13520,7 @@ U+20	fAsele_
 چلوکباب	tSelo:kabAb
 چلچراغ	tSeltSeRAq1
 چلچل	tSeltSel
+چلۀ	tSelleje
 چلیک	tSelik
 چماز	tSamAz
 چماق	tSomAq1
@@ -13774,8 +13840,11 @@ U+20	fAsele_
 کجات	kodZAt
 کجاش	kodZAS
 کجام	kodZAm
+کجت	kadZat
 کجروی	kadZRavi
-کجکی	kadZaki
+کجش	kadZaS
+کجم	kadZam
+کجک	kadZak
 کحل	kohl
 کد	kod
 کدال	kodAl
@@ -13915,6 +13984,7 @@ U+20	fAsele_
 کشالۀ	keSAleje
 کشان	keSAn
 کشاند	keSAnd
+کشاندن	keSAndan
 کشاورز	keSAvaRz
 کشاکش	keSAkeS
 کشباف	keSbAf
@@ -14616,6 +14686,7 @@ U+20	fAsele_
 گمراه	gomRAh
 گمرک	gomRok
 گمش	gomaS
+گمشد	gomSod
 گمشو	gom_So:
 گمنام	gomnAm
 گمون	gamun
@@ -14718,6 +14789,7 @@ U+20	fAsele_
 گیورگ	geoRg
 گیومه	gijume:
 گیگابایت	gigAbAjt
+گیگابیت	gigAbit
 گیگافلاپس	gigAfelAps
 گیگاهرتز	gigAheRtz
 یابد	jAbad
