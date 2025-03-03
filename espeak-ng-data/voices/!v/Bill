@@ -1,0 +1,12 @@
+language variant
+name Bill
+klatt 6
+pitch 63  117
+voicing 100
+consonants -140  -140
+
+formant 1 85 100 100
+formant 2 90 100 100
+formant 3 92 100 100
+formant 4 93 100 100
+Formant 5 95  100  100
