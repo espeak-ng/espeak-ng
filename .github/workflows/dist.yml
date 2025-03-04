@@ -32,6 +32,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: firebuild/apt-eatmydata-action@v1
       - name: enable 32bit architecture
         run: sudo dpkg --add-architecture i386
         if: matrix.arch == 'x86-32'
@@ -46,6 +47,7 @@ jobs:
     name: Run distcheck
     steps:
       - uses: actions/checkout@v4
+      - uses: firebuild/apt-eatmydata-action@v1
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }}
       - name: configure
