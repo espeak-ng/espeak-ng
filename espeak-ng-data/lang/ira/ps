@@ -1,0 +1,7 @@
+name Pashto
+language ps
+maintainer User <user@example.com>
+status testing
+
+phonemes ur
+stressRule 6 
