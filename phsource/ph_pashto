@@ -1,0 +1,382 @@
+// ph_pashto - Phoneme table for Pashto language
+// Created: March 2024
+
+// This file defines phonemes specific to Pashto language
+// It combines elements from Urdu, Persian, and Hindi phoneme sets
+// with adjustments for Pashto-specific sounds
+
+//====================================================
+// VOWELS
+//====================================================
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 180
+  FMT(vowel/a)
+endphoneme
+
+phoneme a:
+  vwl starttype #a endtype #a
+  length 280
+  FMT(vowel/a_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 170
+  FMT(vowel/e)
+endphoneme
+
+phoneme e:
+  vwl starttype #e endtype #e
+  length 250
+  FMT(vowel/e)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 170
+  FMT(vowel/i)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  length 250
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 170
+  FMT(vowel/o)
+endphoneme
+
+phoneme o:
+  vwl starttype #o endtype #o
+  length 250
+  FMT(vowel/o)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 170
+  FMT(vowel/u)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  length 250
+  FMT(vowel/u)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 130
+  FMT(vowel/@)
+endphoneme
+
+//====================================================
+// CONSONANTS SPECIFIC TO PASHTO
+//====================================================
+
+phoneme ts
+  // څ in Pashto
+  vls alv afr
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/ts)
+endphoneme
+
+phoneme dz
+  // ځ in Pashto
+  vcd alv afr
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=1 f2=1700 -300 300  f3=-100 80
+  WAV(ustop/dz)
+endphoneme
+
+phoneme t.
+  // ټ in Pashto
+  vls pla stp
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -300 300  f3=-200 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-200 80  rms=20
+  WAV(ustop/t_pzd)
+endphoneme
+
+phoneme d.
+  // ډ in Pashto
+  vcd pla stp
+  lengthmod 5
+  Vowelin f1=2  f2=1800 -300 300  f3=-200 80
+  Vowelout f1=2 f2=1800 -300 300  f3=-200 80
+  WAV(ustop/d_pzd)
+endphoneme
+
+phoneme r.
+  // ړ in Pashto
+  vcd rfx flp
+  lengthmod 6
+  Vowelin f1=3  f2=1200 -400 -100  f3=-400 80
+  Vowelout f1=3 f2=1200 -400 -100  f3=-400 80
+  FMT(vnasal/nr) addWav(ustop/t_pzd_rfx, 60)
+endphoneme
+
+phoneme n.
+  // ڼ in Pashto
+  vcd rfx nas
+  lengthmod 6
+  Vowelin f1=3  f2=1200 -500 -300  f3=-400 80
+  Vowelout f1=3 f2=1200 -500 -300  f3=-400 80
+  FMT(vnasal/nr)
+endphoneme
+
+phoneme S;
+  // ښ in Pashto  
+  vls pla frc
+  lengthmod 3
+  Vowelin f1=0  f2=2700 -400 600  f3=-1000 80
+  Vowelout f1=0 f2=2700 -400 600  f3=-1000 80
+  WAV(ufric/sh)
+endphoneme
+
+phoneme Q
+  // غ/ږ in Pashto
+  vcd uvl frc
+  lengthmod 6
+  Vowelin f1=2  f2=1000 -500 -350  f3=-200 80
+  Vowelout f1=2 f2=1000 -500 -350  f3=-200 80
+  FMT(voc/Q) addWav(ufric/xx, 75)
+endphoneme
+
+phoneme g
+  // ګ in Pashto
+  vcd vel stp
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/g_)
+  ENDIF
+  WAV(ustop/g)
+endphoneme
+
+//====================================================
+// CONSONANTS SHARED WITH OTHER LANGUAGES
+//====================================================
+
+phoneme p
+  vls blb stp
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50  -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p)
+endphoneme
+
+phoneme b
+  vcd blb stp
+  lengthmod 5
+  Vowelin  f1=2  f2=1000 -500 -300  f3=-300 80
+  Vowelout f1=2  f2=1000 -500 -300  f3=-300 80
+  WAV(ustop/b)
+endphoneme
+
+phoneme t
+  vls alv stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/t)
+endphoneme
+
+phoneme d
+  vcd alv stp
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=1 f2=1700 -300 300  f3=-100 80
+  WAV(ustop/d)
+endphoneme
+
+phoneme k
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k)
+endphoneme
+
+phoneme c
+  vls pal afr sib
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80
+  Vowelout f1=0 f2=2700 400 600  f3=300 80
+  WAV(ustop/tS)
+endphoneme
+
+phoneme J
+  vcd pal afr sib
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80
+  WAV(ustop/dZ)
+endphoneme
+
+phoneme f
+  vls lbd frc
+  lengthmod 3
+  Vowelin  f1=0  f2=1000 -500 -350  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  WAV(ufric/f)
+endphoneme
+
+phoneme s
+  vls alv frc sib
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 80
+  WAV(ufric/s)
+endphoneme
+
+phoneme z
+  vcd alv frc sib
+  lengthmod 6
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 300  f3=-100 80
+  WAV(ufric/z)
+endphoneme
+
+phoneme S
+  vls pla frc sib
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+  WAV(ufric/S)
+endphoneme
+
+phoneme Z
+  vcd pla frc sib
+  lengthmod 6
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0 f2=2100 100 300  f3=-100 80
+  WAV(ufric/Z)
+endphoneme
+
+phoneme x
+  vls vel frc
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80
+  WAV(ufric/x_hr)
+endphoneme
+
+phoneme h
+  vls glt frc
+  lengthmod 3
+  Vowelin f1=0  f2=100 -500 -350  f3=-200 80
+  Vowelout f1=0 f2=100 -500 -350  f3=-200 80
+  WAV(ufric/h)
+endphoneme
+
+phoneme m
+  vcd blb nas
+  lengthmod 4
+  Vowelin f1=0  f2=1000 -500 -350  f3=-200 80
+  Vowelout f1=0 f2=1000 -500 -350  f3=-200 80
+  FMT(m/m)
+endphoneme
+
+phoneme n
+  vcd alv nas
+  lengthmod 4
+  Vowelin f1=0 f2=1500 -300 250  f3=-100 80
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80 rms=20
+  FMT(n/n)
+endphoneme
+
+phoneme l
+  vcd alv lat
+  lengthmod 4
+  Vowelin f1=0 f2=1500 -300 250  f3=-100 80
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80
+  FMT(l/l)
+endphoneme
+
+phoneme r
+  vcd alv trl
+  lengthmod 6
+  Vowelin f1=0 f2=1500 -300 250  f3=-100 80
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80
+  FMT(r/r)
+endphoneme
+
+phoneme j
+  vcd pal apr
+  lengthmod 4
+  Vowelin f1=0 f2=2700 400 600  f3=300 80
+  Vowelout f1=0 f2=2700 400 600  f3=300 80
+  FMT(j/j)
+endphoneme
+
+phoneme w
+  vcd vel apr
+  lengthmod 4
+  Vowelin f1=0 f2=500 -300 -200  f3=-100 80
+  Vowelout f1=0 f2=500 -300 -200  f3=-100 80
+  FMT(w/w)
+endphoneme
+
+phoneme q
+  vls uvl stp
+  lengthmod 2
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80
+  Vowelout f1=1 f2=1700 0 200  f3=-300 80
+  WAV(ustop/q)
+endphoneme
+
+phoneme H
+  vls phr frc
+  lengthmod 3
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=1 f2=1700 -300 300  f3=-100 80
+  WAV(ufric/hh)
+endphoneme
+
+// Diphthongs and special combinations
+phoneme aU
+  vwl starttype #a endtype #u
+  length 250
+  FMT(vdiph/au)
+endphoneme
+
+phoneme aI
+  vwl starttype #a endtype #i
+  length 240
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme oI
+  vwl starttype #o endtype #i
+  length 230
+  FMT(vdiph/oi)
+endphoneme
+
+// Nasal vowels
+phoneme a~
+  vwl starttype #a endtype #a
+  length 270
+  FMT(vnasal/a_n)
+endphoneme
+
+phoneme i~
+  vwl starttype #i endtype #i
+  length 270
+  FMT(vnasal/i_n)
+endphoneme
+
+phoneme u~
+  vwl starttype #u endtype #u
+  length 270
+  FMT(vnasal/u_n)
+endphoneme 

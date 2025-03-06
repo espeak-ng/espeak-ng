@@ -1,0 +1,8 @@
+name Pashto (Afghanistan)
+language ps
+phonemes ur
+dictionary ps
+stressRule 6
+// Pashto voice configuration file
+// Created: March 2024 
+// Temporarily using Urdu phonemes until Pashto phonemes are properly set up 
