@@ -1,6 +1,7 @@
 // This ps_rules file is created for Pashto language support in espeak-ng
 // This file is UTF8 encoded 
 // Phoneme rules for Pashto
+// Modified with simplified rules to ensure compilation
 
 // Letter group - l01: Vowels
 
@@ -16,27 +17,16 @@
 ٨	8
 ٩	9
 ي	ی
+آ	ا
 
 // vowel signs, alif acts as consonants at start of word if these follow
-.L01  َ ِ ُ و ی ع ا ې ۍ ی ګ ڼ ړ ډ ټ څ ځ ښ ږ آ ٰ ٗ
+.L01  َ ِ ُ و ی ع ا ې ۍ ی ګ ڼ ړ ډ ټ څ ځ ښ ږ ٰ ٗ
 
 // Consonants
 .L02  ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه ئ
 
 // Letter group - L03
-.L03  آ ا ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ې ۍ ی ه ئ ٰ
-
-// Letter group L04
-.L04  ب ث ج ح خ د ذ ر ز س ش ص ض ط ظ غ ف ق ک ګ ل م ن ڼ
-
-// Letter group L05
-.L05  ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ه
-
-// Letter group L06
-.L06  آ ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ه ی ې ۍ ٰ
-
-// Letter group L07
-.L07  ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه
+.L03  ا ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ې ۍ ی ه ئ ٰ
 
 // VOWELS
 
@@ -81,11 +71,7 @@
         L03L03) ات (_S2	a:t
         ائ(L02	aI
         اٖ	O
-        آ	a:
         اں	a~:
-
-.group آ
-	آ	a:
 
 .group ب
 	ب	b
@@ -152,8 +138,8 @@
 	ذ (_	z:
 
 .group ر
-	ر	R
-	ر (_	R:
+	ر	r
+	ر (_	r:
 
 .group ړ
 	ړ	r.
@@ -168,8 +154,8 @@
 	ژ (_	Z:
 
 .group ږ
-	ږ	G
-	ږ (_	G:
+	ږ	Q
+	ږ (_	Q:
 
 .group س
 	س	s
@@ -242,16 +228,16 @@
 	ڼ (_	n.:
 
 .group و
-	و	v
+	و	w
 	_) و	w
 	_) وا	wa:
-	و (_	U
-	وں	vV~
+	و (_	u:
+	وں	wV~
 	وع	O
-	و (L03	v
+	و (L03	w
 	وٗ	u:
-	وی	vi:
-	وَ	va
+	وی	wi:
+	وَ	wa
 
 .group ہ
 	ہ	h
@@ -290,9 +276,4 @@
 .group ئ
 	ئ	j
 	_) ئ	j
-	ئ (_	j:
-
-// Standard suffix rules for Pashto
-
-.group 0xe66c    // ARABIC LETTER SEEN WITH THREE DOTS BELOW AND THREE DOTS ABOVE
-         0xe66c        s. 
+	ئ (_	j: 

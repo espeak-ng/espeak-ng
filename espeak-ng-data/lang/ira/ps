@@ -1,7 +1,4 @@
 name Pashto
 language ps
-maintainer User <user@example.com>
+maintainer Hanif Rahman <hanifkhan@gmail.com>
 status testing
-
-phonemes ur
-stressRule 6 

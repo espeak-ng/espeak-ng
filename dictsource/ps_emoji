@@ -238,4 +238,7 @@ $textmode
 // 3200..32FF : Enclosed CJK Letters and Months
 
 ㊗	د مبارکۍ چينايي کړۍ						// [3297] text|emoji
-㊙	د راز چينايي کړۍ						// [3299] text|emoji 
+㊙	د راز چينايي کړۍ						// [3299] text|emoji
+
+// Pashto emoji dictionary entries
+// Created: March 2024 

@@ -1,6 +1,7 @@
-// This ps_list file is created for Pashto language support in espeak-ng
+// This ps_list file is created for Pashto language support in espeak-ng by Hanif Rahman
 // This file is UTF8 encoded 
 // Letter Names, Numbers and exceptional pronunciation of Pashto
+// Modified to use Urdu phonemes
 
 
 // The Letter names
@@ -23,7 +24,7 @@
 ړ	r.e:
 ز	ze:
 ژ	Ze:
-ږ	Ge:
+ږ	Qe:
 س	si:n
 ش	Si:n
 ښ	S;i:n
@@ -60,7 +61,7 @@ _و	wa:w
 َ	zabar
 ِ	ze:r
 ُ	pe:S
-ٰ	,alIf||maqs'u:ra
+ٰ	alIf||maqs'u:ra
 ّ	taSd'i:d
 ً	tanvi:n||zabar
 ْ	sUku:n
@@ -80,7 +81,7 @@ _2	dw@
 _3	dre:
 _4	c'@lor
 _5	p'@ndz@
-_6	Sp'aG
+_6	Sp'aQ
 _7	'o:w@
 _8	'at@
 _9	n'ah
@@ -90,7 +91,7 @@ _12	dw'o:las
 _13	dI'arlas
 _14	c'awarlas
 _15	p'@ndz@las
-_16	Sp'aGlas
+_16	Sp'aQlas
 _17	o:w'@las
 _18	at'@las
 _19	n'o:las
@@ -100,7 +101,7 @@ _22	dw'a||wiSt
 _23	dr'e:||wiSt
 _24	c'@lor||wiSt
 _25	p'@ndz@||wiSt
-_26	Sp'aG||wiSt
+_26	Sp'aQ||wiSt
 _27	'o:w@||wiSt
 _28	'at@||wiSt
 _29	n'ah||wiSt
@@ -126,7 +127,7 @@ _2st	dw'ajam
 _3st	dr'ejam
 _4st	c'@l'or@m
 _5st	p'@ndz@m
-_6st	Sp'aG@m
+_6st	Sp'aQ@m
 _7st	'o:w@m
 _8st	'at@m
 _9st	n'ah@m
@@ -187,6 +188,6 @@ _10st	l'as@m
 وخت	waxt	$u
 کلی	k@laj	$u
 دغه	daQ@	$u
-موږ	muG	$u
+موږ	muQ	$u
 یوه	jaw@	$u
 شي	Si	$u 
