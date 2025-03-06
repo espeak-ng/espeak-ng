@@ -1,0 +1,298 @@
+// This ps_rules file is created for Pashto language support in espeak-ng
+// This file is UTF8 encoded 
+// Phoneme rules for Pashto
+
+// Letter group - l01: Vowels
+
+.replace
+٠	0
+١	1
+٢	2
+٣	3
+٤	4
+٥	5
+٦	6
+٧	7
+٨	8
+٩	9
+ي	ی
+
+// vowel signs, alif acts as consonants at start of word if these follow
+.L01  َ ِ ُ و ی ع ا ې ۍ ی ګ ڼ ړ ډ ټ څ ځ ښ ږ آ ٰ ٗ
+
+// Consonants
+.L02  ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه ئ
+
+// Letter group - L03
+.L03  آ ا ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ې ۍ ی ه ئ ٰ
+
+// Letter group L04
+.L04  ب ث ج ح خ د ذ ر ز س ش ص ض ط ظ غ ف ق ک ګ ل م ن ڼ
+
+// Letter group L05
+.L05  ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ه
+
+// Letter group L06
+.L06  آ ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ه ی ې ۍ ٰ
+
+// Letter group L07
+.L07  ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه
+
+// VOWELS
+
+.group َ
+	َ	a
+	َی 	E
+	َې	E
+	َو 	aU
+	َع	a:
+
+.group ِ
+	ِ	I
+	ِی	i:
+	ِع(L02	I
+	L03L03) ِ (_S1	'e:
+
+.group ُ
+	ُ	U
+	ُو	u:
+	ُع	O
+
+.group ٗ
+	ٗ	u:
+
+.group ھ
+	ھ	HV 
+	ھ (_	H:
+        ھ (l01	H
+
+.group ٰ
+	ٰ	a:
+	ٰی	a:
+
+.group ا
+	ا	a:
+	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
+        _) ا	a
+        _) او	o:
+        _) ای	e:
+        ائ(L02	'a:I
+        اه(_	a:H
+        L03L03) ات (_S2	a:t
+        ائ(L02	aI
+        اٖ	O
+        آ	a:
+        اں	a~:
+
+.group آ
+	آ	a:
+
+.group ب
+	ب	b
+	ب (_	b:
+
+.group پ
+	پ	p
+	پ (_	p:
+	پھ	ph
+
+.group ت
+	ت	t
+	ت (_	t:
+	تھ	th
+
+.group ټ
+	ټ	t.
+	ټ (_	t.:
+	ټھ	t.h
+
+.group ث
+	ث	s
+	ث (_	s:
+	ث (ث	s:
+
+.group ج
+	ج	J
+	ج (_	J:
+	جھ	Jh
+
+.group ځ
+	ځ	dz
+	ځ (_	dz:
+
+.group چ
+	چ	c
+	چ (_	c:
+	چھ	ch
+
+.group څ
+	څ	ts
+	څ (_	ts:
+
+.group ح
+	ح	H
+	ح (_	H:
+
+.group خ
+	خ	x
+	خ (_	x:
+
+.group د
+	د	d
+	د (_	d:
+	دھ	dh
+
+.group ډ
+	ډ	d.
+	ډ (_	d.:
+	ډھ	d.h
+
+.group ذ
+	ذ	z
+	ذ (_	z:
+
+.group ر
+	ر	R
+	ر (_	R:
+
+.group ړ
+	ړ	r.
+	ړ (_	r.:
+
+.group ز
+	ز	z
+	ز (_	z:
+
+.group ژ
+	ژ	Z
+	ژ (_	Z:
+
+.group ږ
+	ږ	G
+	ږ (_	G:
+
+.group س
+	س	s
+	س (_	s:
+
+.group ش
+	ش	S
+	ش (_	S:
+
+.group ښ
+	ښ	S;
+	ښ (_	S;:
+
+.group ص
+	ص	s
+	ص (_	s:
+
+.group ض
+	ض	z
+	ض (_	z:
+
+.group ط
+	ط	t
+	ط (_	t:
+
+.group ظ
+	ظ	z
+	ظ (_	z:
+
+.group ع
+	ع	a:
+	ع (_	a:
+
+.group غ
+	غ	Q
+	غ (_	Q:
+
+.group ف
+	ف	f
+	ف (_	f:
+
+.group ق
+	ق	q
+	ق (_	q:
+
+.group ک
+	ک	k
+	ک (_	k:
+	کھ	kh
+
+.group ګ
+	ګ	g
+	ګ (_	g:
+	ګھ	gh
+
+.group ل
+	ل	l
+	ل (_	l:
+
+.group م
+	م	m
+	م (_	m:
+
+.group ن
+	ن	n
+	ن (_	n:
+
+.group ڼ
+	ڼ	n.
+	ڼ (_	n.:
+
+.group و
+	و	v
+	_) و	w
+	_) وا	wa:
+	و (_	U
+	وں	vV~
+	وع	O
+	و (L03	v
+	وٗ	u:
+	وی	vi:
+	وَ	va
+
+.group ہ
+	ہ	h
+	ہ (_	h:
+	_) ہ (L01	h
+	ہ (L01	h
+	ہی	hi:
+	ہے	hE:
+	ہو	ho:
+	ہُو	hu:
+
+.group ه
+	ه	h
+	ه (_	h:
+	_) ه (L01	h
+	ه (L01	h
+	هی	hi:
+	هے	hE:
+	هو	ho:
+	هُو	hu:
+
+.group ی
+	ی	j
+	_) ی	j
+	ی (_	i:
+	یں	jV~
+
+.group ې
+	ې	e:
+	ې (_	e:
+
+.group ۍ
+	ۍ	@j
+	ۍ (_	@j
+
+.group ئ
+	ئ	j
+	_) ئ	j
+	ئ (_	j:
+
+// Standard suffix rules for Pashto
+
+.group 0xe66c    // ARABIC LETTER SEEN WITH THREE DOTS BELOW AND THREE DOTS ABOVE
+         0xe66c        s. 

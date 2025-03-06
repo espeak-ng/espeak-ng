@@ -560,7 +560,8 @@ dictionaries: \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
 	espeak-ng-data/xex_dict \
-	espeak-ng-data/yue_dict
+	espeak-ng-data/yue_dict \
+	espeak-ng-data/ps_dict
 
 DICTSOURCE = \
 	$(wildcard dictsource/*_emoji) \
@@ -967,6 +968,9 @@ dictsource/yue_emoji:
 	else \
 		tools/emoji dictsource/en_emoji yue ${CLDR_PATH} > $@ ; \
 	fi
+
+ps: espeak-ng-data/ps_dict
+espeak-ng-data/ps_dict: dictsource/ps_list dictsource/ps_rules dictsource/ps_extra dictsource/ps_emoji
 
 ##### mbrola:
 

@@ -1,0 +1,241 @@
+// Emoji and Other Symbol pronunciations for Pashto
+//
+// Entries with `text|emoji` in the comments have text and emoji forms. They
+// can be followed by [FE0E] to select the text style, and [FE0F] to select
+// the emoji style.
+//
+// Entries with 'other' in the comments are not defined as emoji, but are other
+// Unicode characters.
+//
+// NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
+// in interpreting ZWJ emoji sequences.
+
+$textmode
+
+// 0000..007F : C0 Controls and Basic Latin
+
+//+	plus								// [002B] other (no translation)
+
+// 0080..00FF : C1 Controls and Latin-1 Supplement
+
+//¢	cents								// [00A2] other (no translation)
+//£	pound								// [00A3] other (no translation)
+//¤	currency sign							// [00A4] other (no translation)
+//¥	yen								// [00A5] other (no translation)
+//§	section								// [00A7] other (no translation)
+//¨	double dot							// [00A8] other (no translation)
+©	د چاپ حق							// [00A9] text|emoji
+//¬	not sign							// [00AC] other (no translation)
+®	راجستر شوی							// [00AE] text|emoji
+//°	degrees								// [00B0] other (no translation)
+//±	plus or minus							// [00B1] other (no translation)
+//µ	micro								// [00B5] other (no translation)
+//¶	paragraph							// [00B6] other (no translation)
+//¼	a quarter							// [00BC] other (no translation)
+//½	a half								// [00BD] other (no translation)
+//¾	three quarters							// [00BE] other (no translation)
+//×	times								// [00D7] other (no translation)
+//÷	divided by							// [00F7] other (no translation)
+
+// 0900..097F : Devanagari
+
+//।	danda								// [0964] other (no translation)
+
+// 2000..203C : General Punctuation
+
+‼	د تعجب دوه نښې						// [203C] text|emoji
+
+// 2100..214F : Letterlike Symbols
+
+™	سوداګريزه نښه						// [2122] text|emoji
+ℹ	معلومات							// [2139] text|emoji
+
+// 2190..21FF : Arrows
+
+↔	ښي کيڼ غشی							// [2194] text|emoji
+↕	پورته ښکته غشی							// [2195] text|emoji
+↖	پورته کيڼ غشی						// [2196] text|emoji
+↗	پورته ښي غشی							// [2197] text|emoji
+↘	ښکته ښي غشی							// [2198] text|emoji
+↙	ښکته کيڼ غشی							// [2199] text|emoji
+↩	کيڼ کږوالی غشی						// [21A9] text|emoji
+↪	ښي کږوالی غشی							// [21AA] text|emoji
+
+// 2300..23FF : Miscellaneous Technical
+
+⌚	ساعت								// [231A] emoji
+⌛	شګې ساعت							// [231B] emoji
+⌨	کیبورډ								// [2328] text|emoji
+⏏	ايستل								// [23CF] text|emoji
+⏩	مخکې وړلو تڼۍ							// [23E9] emoji
+⏪	شاته وړلو تڼۍ							// [23EA] emoji
+⏫	تيز پورته کول							// [23EB] emoji
+⏬	تيز ښکته کول							// [23EC] emoji
+⏭	راتلونکې ټراک تڼۍ						// [23ED] text|emoji
+⏮	تېرې ټراک تڼۍ							// [23EE] text|emoji
+⏯	پيلول يا وقفه تڼۍ						// [23EF] text|emoji
+⏰	الارم ساعت							// [23F0] emoji
+⏱	ټايم ساعت							// [23F1] text|emoji
+⏲	وخت نيوونکی ساعت						// [23F2] text|emoji
+⏳	روانې شګې ساعت						// [23F3] emoji
+⏸	وقفې تڼۍ							// [23F8] text|emoji
+⏹	درېدو تڼۍ							// [23F9] text|emoji
+⏺	ثبتولو تڼۍ							// [23FA] text|emoji
+
+// 2460..24FF : Enclosed Alphanumerics
+
+Ⓜ	مرکه ایم							// [24C2] text|emoji
+
+// 25A0..25FF : Geometric Shapes
+
+▪	وړوکی تور مربع						// [25AA] text|emoji
+▫	وړوکی سپين مربع						// [25AB] text|emoji
+▶	ښي تڼۍ							// [25B6] text|emoji
+◀	کيڼ تڼۍ							// [25C0] text|emoji
+◻	منځنی سپين مربع						// [25FB] text|emoji
+◼	منځنی تور مربع						// [25FC] text|emoji
+◽	منځنی-وړوکی سپين مربع					// [25FD] emoji
+◾	منځنی-وړوکی تور مربع					// [25FE] emoji
+'
+// 2600..26FF : Miscellaneous Symbols
+
+☀	لمر								// [2600] text|emoji
+☁	ورېځ								// [2601] text|emoji
+☂	چتری								// [2602] text|emoji
+☃	واوره سړی							// [2603] text|emoji
+☄	لکۍ لرونکی ستوری						// [2604] text|emoji
+☎	تليفون								// [260E] text|emoji
+☑	ټيک صندوق							// [2611] text|emoji
+☔	د باران چتری							// [2614] emoji
+☕	تودې مشروبات							// [2615] emoji
+☘	شامراک								// [2618] text|emoji
+☝	پورته اشاره ګوته						// [261D] text|emoji
+☠	د کوپړۍ او هډوکو						// [2620] text|emoji
+☢	راديواکتيف							// [2622] text|emoji
+☣	بيولوژیکي خطر							// [2623] text|emoji
+☦	ارتودوکس صليب							// [2626] text|emoji
+☪	ستوری او هلال							// [262A] text|emoji
+☮	د سولې نښه							// [262E] text|emoji
+☯	يين يانګ							// [262F] text|emoji
+☸	د دارما څرخ							// [2638] text|emoji
+☹	ناخوښه مخ							// [2639] text|emoji
+☺	خوښ مخ								// [263A] text|emoji
+♀	ښځينه نښه							// [2640] text|emoji
+♂	نارينه نښه							// [2642] text|emoji
+♈	غویی								// [2648] text|emoji
+♉	غوا								// [2649] text|emoji
+♊	غبرګولي							// [264A] text|emoji
+♋	چنګاښ								// [264B] text|emoji
+♌	زمری								// [264C] text|emoji
+♍	وږی								// [264D] text|emoji
+♎	تله								// [264E] text|emoji
+♏	لړم								// [264F] text|emoji
+♐	ليندۍ								// [2650] text|emoji
+♑	مرغومی								// [2651] text|emoji
+♒	کب								// [2652] text|emoji
+♓	کب								// [2653] text|emoji
+♟	پياده								// [265F] text|emoji
+♠	باجې								// [2660] text|emoji
+♣	ډنډې								// [2663] text|emoji
+♥	زړه								// [2665] text|emoji
+♦	بنګړي								// [2666] text|emoji
+♨	تودې اوبو چينې						// [2668] text|emoji
+♻	بيا کاروونکی							// [267B] text|emoji
+♾	بې پايه								// [267E] text|emoji
+♿	معلوليت لرونکي موټرګاډي صندلۍ				// [267F] emoji
+⚒	څټک او د کان کيندنې وسيله					// [2692] text|emoji
+⚓	لنګر								// [2693] emoji
+⚔	کراس تورې							// [2694] text|emoji
+⚕	طبي نښه							// [2695] text|emoji
+⚖	تله								// [2696] text|emoji
+⚗	اواره کوونکی							// [2697] text|emoji
+⚙	غاښ								// [2699] text|emoji
+⚛	اتوم نښه							// [269B] text|emoji
+⚜	فلور ډی ليس							// [269C] text|emoji
+⚠	خبرداری							// [26A0] text|emoji
+⚡	لوړ ولتاژ							// [26A1] emoji
+⚪	سپينه دايره							// [26AA] emoji
+⚫	توره دايره							// [26AB] emoji
+⚰	تابوت								// [26B0] text|emoji
+⚱	جنازې ترميم							// [26B1] text|emoji
+⚽	فوټبال								// [26BD] emoji
+⚾	بيسبال								// [26BE] emoji
+⛄	واوره سړی پرته واورې څخه					// [26C4] emoji
+⛅	لمر د ورېځو تر شا						// [26C5] emoji
+⛈	ورېځ د برېښنا او باران سره					// [26C8] text|emoji
+⛎	مارکښ								// [26CE] emoji
+⛏	د کان کيندنې توکی						// [26CF] text|emoji
+⛑	سپين ځلېدونکی خولۍ						// [26D1] text|emoji
+⛓	زنځيرونه							// [26D3] text|emoji
+⛔	نه داخليدل							// [26D4] emoji
+⛩	شینتو ضريح							// [26E9] text|emoji
+⛪	کليسا								// [26EA] emoji
+⛰	غر								// [26F0] text|emoji
+⛱	چتری پر زمکه							// [26F1] text|emoji
+⛲	فواره								// [26F2] emoji
+⛳	په سوري کې بيرغ						// [26F3] emoji
+⛴	کښتۍ								// [26F4] text|emoji
+⛵	د بادي کښتۍ							// [26F5] emoji
+⛷	سکی کوونکی							// [26F7] text|emoji
+⛸	د کنګل سکيټ							// [26F8] text|emoji
+⛹	توپ سره کس							// [26F9] text|emoji
+⛺	خېمه								// [26FA] emoji
+⛽	د تيلو پمپ							// [26FD] emoji
+
+// 2700..27BF : Dingbats
+
+✂	قيچي								// [2702] text|emoji
+✅	سپين ټيک نښه							// [2705] emoji
+✈	الوتکه								// [2708] text|emoji
+✉	پاکټ								// [2709] text|emoji
+✊	پورته کړی موټی						// [270A] emoji
+✋	پورته کړی لاس							// [270B] emoji
+✌	برياليتوب لاس							// [270C] text|emoji
+✍	ليکنې لاس							// [270D] text|emoji
+✏	پنسل								// [270F] text|emoji
+✒	توره قلم							// [2712] text|emoji
+✔	ټيک نښه							// [2714] text|emoji
+✖	ضرب								// [2716] text|emoji
+✝	لاتين صليب							// [271D] text|emoji
+✡	د ډيويډ ستوری							// [2721] text|emoji
+✨	ځلېدونکی							// [2728] emoji
+✳	اته زاويو ستوري						// [2733] text|emoji
+✴	اته نقطو ستوری						// [2734] text|emoji
+❄	د واورې بوټی							// [2744] text|emoji
+❇	ځلانده								// [2747] text|emoji
+❌	کراس نښه							// [274C] emoji
+❎	کراس تڼۍ							// [274E] emoji
+❓	د سوال نښه							// [2753] emoji
+❔	سپين د سوال نښه						// [2754] emoji
+❕	سپين د تعجب نښه						// [2755] emoji
+❗	د تعجب نښه							// [2757] emoji
+❣	د تعجب زړه							// [2763] text|emoji
+❤	سور زړه							// [2764] text|emoji
+➡	ښي غشی							// [27A1] text|emoji
+➰	کرل شوی حلقه							// [27B0] emoji
+➿	ډبل کرل شوی حلقه						// [27BF] emoji
+
+// 2900..297F : Supplemental Arrows-B
+
+⤴	ښي بيا پورته کږوالی غشی					// [2934] text|emoji
+⤵	ښي بيا ښکته کږوالی غشی					// [2935] text|emoji
+
+// 2B00..2BFF : Miscellaneous Symbols and Arrows
+
+⬅	کيڼ غشی							// [2B05] text|emoji
+⬆	پورته غشی							// [2B06] text|emoji
+⬇	ښکته غشی							// [2B07] text|emoji
+⬛	لوی تور مربع							// [2B1B] emoji
+⬜	لوی سپين مربع							// [2B1C] emoji
+⭐	منځنی سپين ستوری						// [2B50] emoji
+⭕	خالي کړۍ							// [2B55] emoji
+
+// 3000..303F : CJK Symbols and Punctuation
+
+〰	موجي ډشه							// [3030] text|emoji
+〽	د برخې بدلېدو نښه						// [303D] text|emoji
+
+// 3200..32FF : Enclosed CJK Letters and Months
+
+㊗	د مبارکۍ چينايي کړۍ						// [3297] text|emoji
+㊙	د راز چينايي کړۍ						// [3299] text|emoji 
