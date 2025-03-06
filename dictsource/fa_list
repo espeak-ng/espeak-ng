@@ -1466,6 +1466,7 @@ U+20	fAsele_
 اسکاتلند	eskAtland
 اسکاج	eskAdZ
 اسکاد	eskAd
+اسکادران	eskAdRAn
 اسکار	?oskAR
 اسکارلت	eskARlet
 اسکان	eskAn
@@ -1837,6 +1838,7 @@ U+20	fAsele_
 الهه	elAhe:
 الهویه	olhovijje:
 الهی	elAhi
+الهیات	elA:hijAt
 الهیه	elAhije:
 الهیون	elAhijun
 الو	alo:
@@ -2298,6 +2300,7 @@ U+20	fAsele_
 ایتام	ajtAm
 ایتریم	iteRijom
 ایجنت	ejdZent
+ایجکت	idZekt
 ایحال	ajhAl
 ایدئال	ide?Al
 ایدئولوژی	ide?oloZi
@@ -2778,6 +2781,7 @@ U+20	fAsele_
 بدنهاد	badnahAd
 بدهکار	bedehkAR
 بدهی	bedehi
+بدهیش	bedehijaS
 بدو	bodo
 بدوا	badvan
 بدواً	badvan
@@ -3353,7 +3357,7 @@ U+20	fAsele_
 بها	bahA
 بهاءالله	bahA_ollAh
 بهائیت	bahA?ijjat
-بهاالله	bahA_olAh
+بهاالله	bahA_ollAh
 بهابرگ	bahAbaRg
 بهادر	bahAdoR
 بهار	bahAR
@@ -3703,6 +3707,7 @@ U+20	fAsele_
 تاسف	ta?assof
 تاسمانی	tAsmAni
 تاسیس	'ta?s,is
+تاشوی	tA:tSoje
 تاشکند	tASkand
 تافت	tAft
 تافتون	tAftun
@@ -4268,6 +4273,7 @@ U+20	fAsele_
 تهمتن	tahmtan
 تهمورث	tahmuRes
 تهمورس	tahmuRes
+تهمین	tahmin
 تهور	tahavvoR
 تهوع	tahavvo?
 تهویه	tahvije:
@@ -4491,6 +4497,7 @@ U+20	fAsele_
 تیوزوفی	te_ozofi
 تیول	tijul
 تیولوژی	te_oloZi
+تیون	tijun
 تیونر	tijuneR
 تیوپ	tijup
 تیوکراسی	te_okeRAsi
@@ -6208,6 +6215,9 @@ U+20	fAsele_
 رزبری	RazbeRi
 رزرو	RezeRv
 رزرواسیون	RezeRvAsijon
+رزروت	RezeRvat
+رزروش	RezeRvaS
+رزروم	RezeRvam
 رزق	Rezq1
 رزم	Razm
 رزماری	RozmARi
@@ -6704,6 +6714,7 @@ U+20	fAsele_
 زندگی	'zendegi
 زندگیم	zendegiam
 زندۀ	zendeje
+زندی	zandi
 زندیه	zandije:
 زنش	zanaS
 زنعمو	zanamu
@@ -6810,6 +6821,7 @@ U+20	fAsele_
 سالمون	sAlmon
 سالن	sAlon
 سالوادور	sAlvAdoR
+سالور	sAlvaR
 سالک	sAlek
 سامرا	sAmeRRA
 سامسونت	sAmsonet
@@ -6879,6 +6891,7 @@ U+20	fAsele_
 ستار	sattAR
 ستاره	setARe
 ستارگان	se:tARe:'gAn
+ستارۀ	setA:Reje
 ستام	setAm
 ستان	set'An
 ستاند	setAnd
@@ -7029,6 +7042,7 @@ U+20	fAsele_
 سرکلید	saRkelid
 سرکه	seRke:
 سرکوفت	saRkuft
+سرگئی	seRge_i
 سرگران	saRgeRAn
 سرگرد	saRgoRd
 سرگردانی	saRgaRdAni
@@ -7815,6 +7829,7 @@ U+20	fAsele_
 شیفن	Sifon
 شیلم	Sejlam
 شیلنگ	Silang
+شیمر	SimeR
 شیمیل	Simejl
 شیهه	Sejhe:
 شیو	Sejv
@@ -8411,6 +8426,7 @@ U+20	fAsele_
 غنو	q1onu
 غنچ	q1ontS
 غنچه	q1ontSe:
+غنچۀ	q1ontSeje
 غواص	q1avvAs
 غوث	q1o:s
 غور	q1o:R
@@ -8789,6 +8805,7 @@ U+20	fAsele_
 فمینیست	feminist
 فمینیسم	feminism
 فناور	fannAvaR
+فنتانیل	fentAnil
 فنجان	fendZAn
 فنجون	fendZun
 فنداسیون	fondAsijon
@@ -9326,7 +9343,6 @@ U+20	fAsele_
 لقمان	loq1mAn
 لقوه	laq1ve
 لقید	laq1q1id
-لله	lellAh
 للّه	lellAh
 للگی	lalegi
 لما	lammA
@@ -9554,6 +9570,7 @@ U+20	fAsele_
 ماساچوست	mAsAtSoset
 ماساژور	mAsAZoR
 ماسبق	mAsabaq1
+ماست	mAst
 ماستمالی	mAstmAli
 ماسک	mAsk
 ماشینرو	mASinRo
@@ -9905,6 +9922,7 @@ U+20	fAsele_
 محاصره	mohAseRe:
 محاط	mohAt
 محافظ	mohAfez
+محافظت	mohA:fezat
 محاور	mohAveR
 محاکا	mohA:kA
 محاکمی	mahAkemi
@@ -10990,6 +11008,7 @@ U+20	fAsele_
 مهرۀ	mohReje
 مهریه	mahRije:
 مهسا	mahsA
+مهستان	mahestAn
 مهستی	mahasti
 مهشاد	mahSAd
 مهشید	mahSid
@@ -10998,6 +11017,8 @@ U+20	fAsele_
 مهلک	mohlek
 مهلکه	mahlake:
 مهمان	mehmAn
+مهمتر	mohemtaR
+مهمترین	mohemtaRin
 مهمد	mohmed
 مهمل	mohmal
 مهمند	mohemmand
@@ -11195,6 +11216,9 @@ U+20	fAsele_
 مکناد	makonAd
 مکنت	meknat
 مکند	makand
+مکنیات	maknijjAt
+مکنیه	maknijje:
+مکنیۀ	maknijjeje
 مکوش	makuS
 مکید	makid
 مگا	megA
@@ -11473,6 +11497,8 @@ U+20	fAsele_
 ناگوار	nAgovAR
 نایروبی	nAjRobi:
 نایرگ	nAjRag
+نایس	nAjs
+نایست	na_ist
 نایل	nA?el
 نایلن	nAjlon
 نایلون	nAjlon
@@ -12102,6 +12128,7 @@ U+20	fAsele_
 هانس	hAns
 هانسل	hAnsel
 هانوی	hA:noj
+هاوارد	hAvARd
 هاورکرافت	hAveRkeRAft
 هاون	hAvan
 هاچبک	hAtSbak
@@ -12147,6 +12174,7 @@ U+20	fAsele_
 هدی	hodA
 هذلول	hozlul
 هراسد	haRAsad
+هرالدیک	heRAldik
 هراکلس	heRAkles
 هراکلیت	heRAklit
 هراکلیتوس	heRAklitus
@@ -12775,6 +12803,7 @@ U+20	fAsele_
 پانصد	pAnsad
 پانصدم	pAnsadom
 پانچ	pAntS
+پانکراس	pAnkRAs
 پاوربانک	pAveRbAnk
 پاورقی	pAvaRaq1i
 پاورپوینت	pAveRpojnt
@@ -12822,6 +12851,7 @@ U+20	fAsele_
 پرادو	peRAdo
 پرازیت	pARAzit
 پرانتز	paRAntez
+پرانرژی	poR_eneRZi
 پراکسی	peRAksi
 پراکند	paRAkand
 پراکندن	paRA:kandan
@@ -13086,6 +13116,7 @@ U+20	fAsele_
 پسندید	pasandid
 پسورد	pasvoRd
 پسکامان	paskAmAn
+پسیان	pesijAn
 پسیخانی	pesixAni
 پشت	p'oSt
 پشتبام	poStebAm
@@ -13769,6 +13800,7 @@ U+20	fAsele_
 کاملیا	kAmelijA
 کامنت	kAment
 کامپوزیت	kAmpozit
+کامپکت	kAmpakt
 کامپیوتر	kAmpijuteR
 کامپیوتری	kAmpijuteRi
 کامیونت	kAmijonet
@@ -13798,6 +13830,7 @@ U+20	fAsele_
 کاپیتالیزم	kApitAlizm
 کاپیتالیسم	kApitAlism
 کاپیتان	kApitAn
+کاکایو	kAkA?u
 کاکل	kAkol
 کاکو	kAko
 کاکول	kAkol
@@ -13874,6 +13907,7 @@ U+20	fAsele_
 کرال	koRAl
 کرام	keRAm
 کرانچ	keRAntS
+کرانچی	keRAntSi
 کراهت	keRAhat
 کراوات	keRAvAt
 کراپ	keRAp
@@ -13914,6 +13948,7 @@ U+20	fAsele_
 کرفس	kaRafs
 کرم	kaRam
 کرمان	keRmAn
+کرمفیل	keRemfil
 کرمل	kaRmel
 کرملین	keRemlin
 کرمون	keRmun
@@ -14078,6 +14113,7 @@ U+20	fAsele_
 کلمب	kolomb
 کلمبیا	kolombijA
 کلمه	'kalame:
+کلمپ	kolomp
 کلن	koln
 کلنجار	kalandZAR
 کلنل	kolonel
@@ -14326,6 +14362,8 @@ U+20	fAsele_
 کژدم	kaZdom
 کژرفتار	kaZRaftAR
 کژروی	kaZRavi
+کژسلیق	kaZsaliq1
+کژفهم	kaZfahm
 ککش	kakaS
 ککم	kakam
 کی	kej
@@ -14395,6 +14433,7 @@ U+20	fAsele_
 گبه	gabbe:
 گتسبی	gatsbi
 گتو	geto
+گتک	gotak
 گتیسبورگ	getisbuRg
 گجت	gadZet
 گجرات	godZaRAt
@@ -14529,6 +14568,7 @@ U+20	fAsele_
 گریزپا	goRizpA
 گریس	giRis
 گریست	geRist
+گریفین	geRifin
 گریل	geRil
 گریم	geRim
 گریمور	geRimoR
@@ -14720,6 +14760,7 @@ U+20	fAsele_
 گنوستیک	genostik
 گنوسی	genosi
 گنگ	gong
+گنگستر	gangesteR
 گه	gah
 گهر	gohaR
 گهررود	gohaRRud
