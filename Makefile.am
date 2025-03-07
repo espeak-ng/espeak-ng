@@ -561,8 +561,7 @@ dictionaries: \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
 	espeak-ng-data/xex_dict \
-	espeak-ng-data/yue_dict \
-	espeak-ng-data/ps_dict
+	espeak-ng-data/yue_dict
 
 DICTSOURCE = \
 	$(wildcard dictsource/*_emoji) \
