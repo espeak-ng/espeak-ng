@@ -1,7 +1,7 @@
 // This ps_rules file is created for Pashto language support in espeak-ng
 // This file is UTF8 encoded 
 // Phoneme rules for Pashto
-// Modified with simplified rules to ensure compilation
+// Updated with improved mapping to the fixed phoneme definitions
 
 // Letter group - l01: Vowels
 
@@ -32,29 +32,29 @@
 
 .group َ
 	َ	a
-	َی 	E
-	َې	E
-	َو 	aU
+	َی 	e
+	َې	e
+	َو 	au
 	َع	a:
 
 .group ِ
-	ِ	I
+	ِ	i
 	ِی	i:
-	ِع(L02	I
+	ِع(L02	i
 	L03L03) ِ (_S1	'e:
 
 .group ُ
-	ُ	U
+	ُ	u
 	ُو	u:
-	ُع	O
+	ُع	o
 
 .group ٗ
 	ٗ	u:
 
 .group ھ
-	ھ	HV 
-	ھ (_	H:
-        ھ (l01	H
+	ھ	h 
+	ھ (_	h
+        ھ (l01	h
 
 .group ٰ
 	ٰ	a:
@@ -66,124 +66,124 @@
         _) ا	a
         _) او	o:
         _) ای	e:
-        ائ(L02	'a:I
-        اه(_	a:H
+        ائ(L02	'a:i
+        اه(_	a:h
         L03L03) ات (_S2	a:t
-        ائ(L02	aI
-        اٖ	O
-        اں	a~:
+        ائ(L02	ai
+        اٖ	o
+        اں	a:n
 
 .group ب
 	ب	b
-	ب (_	b:
+	ب (_	b
 
 .group پ
 	پ	p
-	پ (_	p:
-	پھ	ph
+	پ (_	p
+	پھ	p_h
 
 .group ت
 	ت	t
-	ت (_	t:
-	تھ	th
+	ت (_	t
+	تھ	t_h
 
 .group ټ
-	ټ	t.
-	ټ (_	t.:
-	ټھ	t.h
+	ټ	t_
+	ټ (_	t_
+	ټھ	t__h
 
 .group ث
 	ث	s
-	ث (_	s:
-	ث (ث	s:
+	ث (_	s
+	ث (ث	s
 
 .group ج
-	ج	J
-	ج (_	J:
-	جھ	Jh
+	ج	dZ
+	ج (_	dZ
+	جھ	dZ_h
 
 .group ځ
 	ځ	dz
-	ځ (_	dz:
+	ځ (_	dz
 
 .group چ
-	چ	c
-	چ (_	c:
-	چھ	ch
+	چ	tS
+	چ (_	tS
+	چھ	tS_h
 
 .group څ
 	څ	ts
-	څ (_	ts:
+	څ (_	ts
 
 .group ح
-	ح	H
-	ح (_	H:
+	ح	h
+	ح (_	h
 
 .group خ
-	خ	x
-	خ (_	x:
+	خ	X
+	خ (_	X
 
 .group د
 	د	d
-	د (_	d:
-	دھ	dh
+	د (_	d
+	دھ	d_h
 
 .group ډ
-	ډ	d.
-	ډ (_	d.:
-	ډھ	d.h
+	ډ	d_
+	ډ (_	d_
+	ډھ	d__h
 
 .group ذ
 	ذ	z
-	ذ (_	z:
+	ذ (_	z
 
 .group ر
 	ر	r
-	ر (_	r:
+	ر (_	r
 
 .group ړ
-	ړ	r.
-	ړ (_	r.:
+	ړ	r_
+	ړ (_	r_
 
 .group ز
 	ز	z
-	ز (_	z:
+	ز (_	z
 
 .group ژ
 	ژ	Z
-	ژ (_	Z:
+	ژ (_	Z
 
 .group ږ
 	ږ	Q
-	ږ (_	Q:
+	ږ (_	Q
 
 .group س
 	س	s
-	س (_	s:
+	س (_	s
 
 .group ش
 	ش	S
-	ش (_	S:
+	ش (_	S
 
 .group ښ
-	ښ	S;
-	ښ (_	S;:
+	ښ	S_
+	ښ (_	S_
 
 .group ص
 	ص	s
-	ص (_	s:
+	ص (_	s
 
 .group ض
 	ض	z
-	ض (_	z:
+	ض (_	z
 
 .group ط
 	ط	t
-	ط (_	t:
+	ط (_	t
 
 .group ظ
 	ظ	z
-	ظ (_	z:
+	ظ (_	z
 
 .group ع
 	ع	a:
@@ -191,79 +191,70 @@
 
 .group غ
 	غ	Q
-	غ (_	Q:
+	غ (_	Q
 
 .group ف
 	ف	f
-	ف (_	f:
+	ف (_	f
 
 .group ق
 	ق	q
-	ق (_	q:
+	ق (_	q
 
 .group ک
 	ک	k
-	ک (_	k:
-	کھ	kh
+	ک (_	k
+	کھ	k_h
 
 .group ګ
 	ګ	g
-	ګ (_	g:
-	ګھ	gh
+	ګ (_	g
+	ګھ	g_h
 
 .group ل
 	ل	l
-	ل (_	l:
+	ل (_	l
 
 .group م
 	م	m
-	م (_	m:
+	م (_	m
 
 .group ن
 	ن	n
-	ن (_	n:
+	ن (_	n
 
 .group ڼ
-	ڼ	n.
-	ڼ (_	n.:
+	ڼ	n_
+	ڼ (_	n_
 
 .group و
 	و	w
 	_) و	w
 	_) وا	wa:
 	و (_	u:
-	وں	wV~
-	وع	O
+	وں	w@n
+	وع	o
 	و (L03	w
 	وٗ	u:
 	وی	wi:
 	وَ	wa
 
-.group ہ
-	ہ	h
-	ہ (_	h:
-	_) ہ (L01	h
-	ہ (L01	h
-	ہی	hi:
-	ہے	hE:
-	ہو	ho:
-	ہُو	hu:
-
 .group ه
 	ه	h
-	ه (_	h:
+	ه (_	h
 	_) ه (L01	h
 	ه (L01	h
 	هی	hi:
-	هے	hE:
+	هے	he:
 	هو	ho:
 	هُو	hu:
 
 .group ی
 	ی	j
-	_) ی	j
+	ی (L01	j
 	ی (_	i:
-	یں	jV~
+	یں	j@n
+	یٰ	a:
 
 .group ې
 	ې	e:
@@ -272,8 +263,7 @@
 .group ۍ
 	ۍ	@j
 	ۍ (_	@j
-
+	
 .group ئ
 	ئ	j
-	_) ئ	j
-	ئ (_	j: 
+	ئ (_	j 

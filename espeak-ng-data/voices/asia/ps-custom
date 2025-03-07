@@ -1,8 +1,9 @@
-name Pashto (Afghanistan)
+name Pashto (Custom)
 language ps
 phonemes ps
 dictionary ps
+dictrules 1
 stressRule 6
-// Pashto voice configuration file
+// Custom Pashto voice configuration file
 // Created: March 2024 
 // Updated: Now using Pashto phonemes directly 

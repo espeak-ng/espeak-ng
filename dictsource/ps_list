@@ -3,37 +3,55 @@
 // Letter Names, Numbers and exceptional pronunciation of Pashto
 // Modified to use Urdu phonemes
 
+// Explicitly set phoneme table to ps
+phonemetable ps
+
+// Additional common Pashto words with phonetic transcriptions
+// These override the character-by-character pronunciation to ensure correct output
+
+پښتو	paS_to
+سلام	sa'la:m
+خوش	xuS
+ستړی	st@'r_@j
+کور	ko:r
+ښه	S_a
+لار	la:r
+ورځ	wr@dZ
+کتاب	ki'ta:b
+پښتانه	paS_'ta:na
+افغانستان	afQa:nis'ta:n
+مننه	ma'nana
 
 // The Letter names
-ا	alIf
+ا	alif
 ب	be:
 پ	pe:
 ت	te:
-ټ	t.e:
+ټ	t_e:
 ث	se:
-ج	Ji:m
+ج	dZi:m
 ځ	dzim
-چ	ce:
+چ	tSe:
 څ	tse:
-ح	He:
+ح	he:
 خ	xe:
 د	da:l
-ډ	d.a:l
+ډ	d_a:l
 ذ	za:l
-ر	Re:
-ړ	r.e:
+ر	re:
+ړ	r_e:
 ز	ze:
 ژ	Ze:
 ږ	Qe:
 س	si:n
 ش	Si:n
-ښ	S;i:n
+ښ	S_i:n
 ص	swa:d
 ض	zwa:d
-ط	tOe:
-ظ	zOe:
-ع	aIn
-غ	QaIn
+ط	toe:
+ظ	zoe:
+ع	ain
+غ	Qain
 ف	fe:
 ق	qa:f
 ک	ka:f
@@ -41,12 +59,12 @@
 ل	la:m
 م	mi:m
 ن	nu:n
-ڼ	n.u:n
+ڼ	n_u:n
 _و	wa:w
 ه	he:
-ں	nu:n||QUn:a
-ﮨ	c#o:ti:||he:
-ھ	do||caSmi:||he:
+ں	nu:n||Qun:a
+ﮨ	tSo:ti:||he:
+ھ	do||tSaSmi:||he:
 ء	hamza
 ی	je:
 ې	je:||dra:za
@@ -61,17 +79,17 @@ _و	wa:w
 َ	zabar
 ِ	ze:r
 ُ	pe:S
-ٰ	alIf||maqs'u:ra
+ٰ	alif||maqs'u:ra
 ّ	taSd'i:d
 ً	tanvi:n||zabar
-ْ	sUku:n
-ٗ	zamI||p@S
+ْ	suku:n
+ٗ	zami||p@S
 ٓ	mada
 _؛	waqfa
-_:	Ra:bta
-_،	d.rand.@j
-_۔	t.@kaj
-_؟	pUStanaj
+_:	ra:bta
+_،	d_rand_@j
+_۔	t_@kaj
+_؟	puStanaj
 
 
 // The numbers
@@ -88,7 +106,7 @@ _9	n'ah
 _10	l'as
 _11	jw'o:las
 _12	dw'o:las
-_13	dI'arlas
+_13	di'arlas
 _14	c'awarlas
 _15	p'@ndz@las
 _16	Sp'aQlas
@@ -180,7 +198,7 @@ _10st	l'as@m
 ټول	t.ol	$u
 وه	w@	$u
 کړ	kr.	$u
-ژوند	ZwVnd	$u
+ژوند	Zw@nd	$u
 لوی	loj	$u
 تاسو	ta:so	$u
 هغه	haQ@	$u
@@ -190,4 +208,20 @@ _10st	l'as@m
 دغه	daQ@	$u
 موږ	muQ	$u
 یوه	jaw@	$u
-شي	Si	$u 
+شي	Si	$u
+
+// Additional common Pashto words with phonetic transcriptions
+// These override the character-by-character pronunciation to ensure correct output
+
+پښتو	paS_to
+سلام	sa'la:m
+خوش	xuS
+ستړی	st@'r_@j
+کور	ko:r
+ښه	S_a
+لار	la:r
+ورځ	wr@dZ
+کتاب	ki'ta:b
+پښتانه	paS_'ta:na
+افغانستان	afQa:nis'ta:n
+مننه	ma'nana 

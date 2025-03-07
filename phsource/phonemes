@@ -1166,7 +1166,7 @@ phoneme D // **th**is
   vcd dnt frc
   voicingswitch T
   lengthmod 6
-  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
   IF KlattSynth THEN
     Vowelin f1=0 f2=1290 -300 300 f3=0 0
@@ -1183,7 +1183,7 @@ phoneme z
   vcd alv frc sib
   voicingswitch s
   lengthmod 6
-  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
   IF KlattSynth THEN
     Vowelin f1=0 f2=1390 -300 300 f3=0 0
@@ -1258,12 +1258,12 @@ endphoneme
 phoneme Z;
   vcd alp sib frc
   voicingswitch S;
-  ipa ʑ
+  ipa ɕ
   lengthmod 6
-  Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
-  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  Vowelin  f1=2  f2=2700 400 600  f3=200 70 rate len=70
+  Vowelout f1=2  f2=2700 400 600  f3=200 70 rate
 
-  IF nextPh(isPause2) THEN
+  IF nextPh(isPause) THEN
     FMT(voc/z_pzd_) addWav(ufric/sh_pzd_)
   ENDIF
   FMT(voc/z_pzd) addWav(ufric/sh_pzd, 80)
