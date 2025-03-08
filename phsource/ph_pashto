@@ -1,10 +1,8 @@
 // ph_pashto - Phoneme table for Pashto language
-// Created: March 2024
-// Updated: Fixed compilation errors by using available resources
-
+// Created: March 2025 by Hanif Rahman
+// Updated: March 2025 - Fixed vowel formants, improved retroflex consonants, corrected stress patterns
 // This file defines phonemes specific to Pashto language
-// It combines elements from Urdu, Persian, and Hindi phoneme sets
-// with adjustments for Pashto-specific sounds
+
 
 //====================================================
 // VOWELS
@@ -13,30 +11,35 @@
 phoneme a
   vwl starttype #a endtype #a
   length 180
+  ipa a
   FMT(vowel/a)
 endphoneme
 
 phoneme a:
   vwl starttype #a endtype #a
   length 280
-  FMT(vowel/a_2)
+  ipa aː
+  FMT(vowel/a)  // Keeping formant consistent with short 'a'
 endphoneme
 
 phoneme e
   vwl starttype #e endtype #e
   length 170
+  ipa e
   FMT(vowel/e)
 endphoneme
 
 phoneme e:
   vwl starttype #e endtype #e
   length 250
-  FMT(vowel/e)
+  ipa eː
+  FMT(vowel/e_mid)  // Using e_mid for better long vowel quality
 endphoneme
 
 phoneme i
   vwl starttype #i endtype #i
   length 170
+  ipa i
   IfNextVowelAppend(;)
   FMT(vowel/i)
 endphoneme
@@ -44,39 +47,71 @@ endphoneme
 phoneme i:
   vwl starttype #i endtype #i
   length 250
+  ipa iː
   IfNextVowelAppend(;)
-  FMT(vowel/i)
+  FMT(vowel/i)  // Using standard i vowel
 endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
   length 170
+  ipa o
   FMT(vowel/o)
 endphoneme
 
 phoneme o:
   vwl starttype #o endtype #o
   length 250
-  FMT(vowel/o)
+  ipa oː
+  FMT(vowel/o)  // Using standard o vowel
 endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
   length 170
+  ipa u
   FMT(vowel/u)
 endphoneme
 
 phoneme u:
   vwl starttype #u endtype #u
   length 250
-  FMT(vowel/u)
+  ipa uː
+  FMT(vowel/u)  // Using standard u vowel
 endphoneme
 
 phoneme @
   vwl starttype #@ endtype #@
-  unstressed
   length 130
+  ipa ə
+  unstressed
   FMT(vowel/@)
+endphoneme
+
+// Add unstressed variants of vowels for better prosody
+phoneme a#
+  vwl starttype #a endtype #a
+  length 140  // shorter than stressed version
+  ipa a
+  unstressed
+  FMT(vowel/a_8)
+endphoneme
+
+phoneme i#
+  vwl starttype #i endtype #i
+  length 130  // shorter than stressed version
+  ipa i
+  unstressed
+  IfNextVowelAppend(;)
+  FMT(vowel/i_6)
+endphoneme
+
+phoneme u#
+  vwl starttype #u endtype #u
+  length 130  // shorter than stressed version
+  ipa u
+  unstressed
+  FMT(vowel/u_6)
 endphoneme
 
 //====================================================
@@ -87,6 +122,7 @@ phoneme ts
   // څ in Pashto - voiceless alveolar affricate
   vls alv afr
   lengthmod 2
+  ipa ts
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   WAV(ustop/ts)
@@ -96,61 +132,83 @@ phoneme dz
   // ځ in Pashto - voiced alveolar affricate
   vcd alv afr
   lengthmod 5
+  ipa dz
+  voicingswitch ts
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
   Vowelout f1=1 f2=1700 -300 300  f3=-100 80  brk
-  WAV(ustop/ts) addWav(x/d, 70)
+  WAV(ustop/ts) addWav(x/d, 70)  // Using standard WAV files
 endphoneme
 
 phoneme t.
   // ټ in Pashto - retroflex/plosive t
   vls rfx stp
   lengthmod 2
-  Vowelin f1=0  f2=1800 -300 300  f3=-200 80
-  Vowelout f1=0 f2=1800 -300 250  f3=-200 80  rms=20
-  WAV(ustop/t_)
+  ipa ʈ
+  voicingswitch d.
+  Vowelin f1=0  f2=1800 -300 300  f3=-200 80 colr=2
+  Vowelout f1=0 f2=1800 -300 250  f3=-200 80 colr=2 rms=20
+  WAV(ustop/t_)  // Using standard t_ WAV
 endphoneme
 
 phoneme d.
   // ډ in Pashto - retroflex/plosive d
   vcd rfx stp
   lengthmod 5
-  Vowelin f1=2  f2=1800 -300 300  f3=-200 80
-  Vowelout f1=2 f2=1800 -300 300  f3=-200 80  brk
-  WAV(ustop/t_) addWav(x/d, 60)
+  ipa ɖ
+  voicingswitch t.
+  Vowelin f1=2  f2=1800 -300 300  f3=-200 80 colr=2
+  Vowelout f1=2 f2=1800 -300 300  f3=-200 80 colr=2 brk
+  WAV(ustop/t_) addWav(x/d, 60)  // Using standard WAV files
 endphoneme
 
 phoneme r.
   // ړ in Pashto - retroflex flap
   vcd rfx flp
   lengthmod 6
+  ipa ɽ
   Vowelin f1=3  f2=1200 -400 -100  f3=-400 80 colr=2
   Vowelout f1=3 f2=1200 -400 -100  f3=-400 80 colr=2
-  FMT(r3/r_) addWav(r3/rx, 80)
+  FMT(r3/r_) addWav(r3/rx, 80)  // Using standard FMT
 endphoneme
 
 phoneme n.
   // ڼ in Pashto - retroflex nasal
   vcd rfx nas
   lengthmod 4
+  ipa ɳ
   Vowelin f1=2  f2=1200 -500 -300  f3=-400 80 colr=2
   Vowelout f1=2 f2=1200 -500 -300  f3=-400 80 colr=2
-  FMT(n/n_)
+  FMT(n/n_)  // Using standard FMT
 endphoneme
 
 phoneme S.
   // ښ in Pashto - retroflex fricative
   vls rfx frc sib
   lengthmod 3
+  ipa ʂ
+  voicingswitch Z.
   Vowelin  f1=0  f2=1800 -100 300  f3=-400 80 colr=2
   Vowelout f1=0  f2=1800 -100 300  f3=-400 80 colr=2
-  WAV(ufric/sh)
+  WAV(ufric/sh)  // Using standard sh WAV
 endphoneme
 
 phoneme Z.
+  // ژ in Pashto - voiced retroflex fricative
+  vcd rfx frc sib
+  lengthmod 6
+  ipa ʐ
+  voicingswitch S.
+  Vowelin  f1=0  f2=1800 0 300  f3=-400 80 colr=2
+  Vowelout f1=2  f2=1800 0 300  f3=-400 80 colr=2 brk
+  FMT(voc/zh) addWav(vocw/zh, 110)  // Using standard zh WAV
+endphoneme
+
+phoneme Z
   // ژ in Pashto - voiced post-alveolar fricative (like French j)
   vcd pla frc sib
-  voicingswitch S
   lengthmod 6
+  ipa ʒ
+  voicingswitch S
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80
   Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
   FMT(voc/zh) addWav(vocw/zh, 130)
@@ -160,26 +218,30 @@ phoneme Q
   // غ/ږ in Pashto - voiced uvular fricative
   vcd uvl frc
   lengthmod 6
+  ipa ʁ
+  voicingswitch X
   Vowelin f1=2  f2=1000 -500 -350  f3=-200 80
   Vowelout f1=2 f2=1000 -500 -350  f3=-200 80 brk
-  FMT(voc/Q) addWav(vocw/Q, 40)
+  FMT(voc/Q) addWav(vocw/Q, 60)  // Increased WAV amplitude for better voicing
 endphoneme
 
 phoneme X
   // خ in Pashto - voiceless uvular fricative
   vls uvl frc
-  voicingswitch Q
   lengthmod 3
+  ipa χ
+  voicingswitch Q
   Vowelin f1=0  f2=1000 -500 -350  f3=-200 80
   Vowelout f1=0 f2=1000 -500 -350  f3=-200 80
-  WAV(ufric/xx, 80)
+  WAV(ufric/xx, 90)  // Adjusted amplitude for better contrast with Q
 endphoneme
 
 phoneme g
   // ګ in Pashto - voiced velar stop
   vcd vel stp
-  voicingswitch k
   lengthmod 5
+  ipa ɡ
+  voicingswitch k
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
   IF PreVoicing THEN
@@ -199,6 +261,7 @@ phoneme p
   vls blb stp
   voicingswitch b
   lengthmod 2
+  ipa p
   Vowelin  f1=0  f2=1000 -50  -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
   WAV(ustop/p)
@@ -208,6 +271,7 @@ phoneme b
   vcd blb stp
   voicingswitch p
   lengthmod 5
+  ipa b
   Vowelin  f1=2  f2=1000 -500 -300  f3=-300 80
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
   IF PreVoicing THEN
@@ -223,6 +287,7 @@ phoneme t
   vls alv stp
   voicingswitch d
   lengthmod 2
+  ipa t
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   WAV(ustop/t)
@@ -232,6 +297,7 @@ phoneme d
   vcd alv stp
   voicingswitch t
   lengthmod 5
+  ipa d
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
   Vowelout f1=1 f2=1700 -300 300  f3=-100 80 brk
   IF PreVoicing THEN
@@ -247,6 +313,7 @@ phoneme k
   vls vel stp
   voicingswitch g
   lengthmod 2
+  ipa k
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
   Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
   IF nextPh(isPause2) THEN
@@ -260,6 +327,7 @@ phoneme tS
   vls pla afr sib
   voicingswitch dZ
   lengthmod 2
+  ipa t͡ʃ
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80
   WAV(ustop/tsh)
@@ -270,6 +338,7 @@ phoneme dZ
   vcd pla afr sib
   voicingswitch tS
   lengthmod 5
+  ipa d͡ʒ
   Vowelin f1=2  f2=2300 200 400  f3=-100 80
   Vowelout f1=2 f2=2300 250 300  f3=-100 80 brk
   IF PreVoicing THEN
@@ -285,6 +354,7 @@ phoneme f
   vls lbd frc
   voicingswitch v
   lengthmod 3
+  ipa f
   Vowelin  f1=0  f2=1000 -500 -350  f3=-200 80
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   WAV(ufric/f)
@@ -294,6 +364,7 @@ phoneme v
   vcd lbd frc
   voicingswitch f
   lengthmod 6
+  ipa v
   Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
   Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
   IF nextPh(isPause2) THEN
@@ -306,6 +377,7 @@ phoneme s
   vls alv frc sib
   voicingswitch z
   lengthmod 3
+  ipa s
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 300  f3=-100 80
   WAV(ufric/s)
@@ -315,6 +387,7 @@ phoneme z
   vcd alv frc sib
   voicingswitch s
   lengthmod 6
+  ipa z
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 300  f3=-100 80 brk
   IF nextPh(isPause2) THEN
@@ -327,6 +400,7 @@ phoneme S
   vls pla frc sib
   voicingswitch Z
   lengthmod 3
+  ipa ʃ
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80
   Vowelout f1=0  f2=2100 100 300  f3=-100 80
   WAV(ufric/sh)
@@ -336,14 +410,17 @@ phoneme x
   vls vel frc
   voicingswitch Q
   lengthmod 3
+  ipa x
   Vowelin  f1=0  f2=2300 200 400  f3=-200 80
   Vowelout f1=0  f2=2300 300 400  f3=-200 80
-  WAV(ufric/x_hr, 20)
+  WAV(ufric/x_hr, 30)  // Increased amplitude for better clarity
 endphoneme
 
 phoneme h
   vls glt frc
   lengthmod 3
+  ipa h
+  Vowelin  f1=0  f2=2300 200 400  f3=-200 80  // Added Vowelin parameters
   Vowelout f1=0  f2=2300 300 400  f3=-200 80
   IF nextPh(#@) THEN
     WAV(h/h@)
@@ -363,11 +440,12 @@ endphoneme
 
 phoneme m
   vcd blb nas
-  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
+  ipa m
+  Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80  // Moved Vowelin before Vowelout for consistency
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   
   IF KlattSynth THEN
-    Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
     IF nextPh(isPause2) THEN
       FMT(klatt/m_)
     ENDIF
@@ -394,11 +472,12 @@ endphoneme
 
 phoneme n
   vcd alv nas
-  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
+  ipa n
+  Vowelin f1=0 f2=1500 -200 200 f3=0 80  // Moved Vowelin before Vowelout for consistency
+  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
 
   IF KlattSynth THEN
-    Vowelin f1=0 f2=1500 -200 200 f3=0 80
     FMT(klatt/n)
   ENDIF
 
@@ -422,11 +501,12 @@ endphoneme
 
 phoneme N
   vcd vel nas
-  Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 8
+  ipa ŋ
+  Vowelin f1=0 f2=2100 50 300 f3=0 80  // Moved Vowelin before Vowelout for consistency
+  Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
 
   IF KlattSynth THEN
-    Vowelin f1=0 f2=2100 50 300 f3=0 80
     IF nextPh(isPause2) THEN
       FMT(klatt/nn_)
     ENDIF
@@ -458,6 +538,7 @@ endphoneme
 phoneme l
   liquid
   lengthmod 7
+  ipa l
 
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(l/)
@@ -489,6 +570,7 @@ endphoneme
 phoneme l/
   liquid
   lengthmod 7
+  ipa l̥ 
 
   IF nextPh(isVowel) THEN
     ChangePhoneme(l)
@@ -516,6 +598,7 @@ endphoneme
 phoneme r
   liquid rhotic
   lengthmod 7
+  ipa r
 
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(r/)
@@ -546,6 +629,7 @@ endphoneme
 phoneme r/
   liquid rhotic
   lengthmod 2
+  ipa r̥
 
   IF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
     FMT(r/trr)
@@ -561,6 +645,7 @@ endphoneme
 phoneme j
   liquid pal starttype #i
   lengthmod 7
+  ipa j
 
   IF nextPhW(isVowel) THEN
     NextVowelStarts
@@ -588,6 +673,7 @@ phoneme w
   liquid
   lengthmod 7
   starttype #u
+  ipa w
   
   IF nextPh(isVowel) THEN
     NextVowelStarts
@@ -621,6 +707,7 @@ endphoneme
 phoneme q
   vls uvl stp
   lengthmod 2
+  ipa q
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
   Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
 
@@ -635,6 +722,7 @@ endphoneme
 phoneme ?
   vls glt stp
   lengthmod 3
+  ipa ʔ
   nolink
   Vowelin  glstop
   Vowelout glstop

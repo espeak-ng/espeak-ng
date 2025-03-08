@@ -969,9 +969,6 @@ dictsource/yue_emoji:
 		tools/emoji dictsource/en_emoji yue ${CLDR_PATH} > $@ ; \
 	fi
 
-ps: espeak-ng-data/ps_dict
-espeak-ng-data/ps_dict: dictsource/ps_list dictsource/ps_rules dictsource/ps_extra dictsource/ps_emoji
-
 ##### mbrola:
 
 if OPT_MBROLA

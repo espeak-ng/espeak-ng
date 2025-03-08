@@ -1,7 +1,8 @@
-// This ps_rules file is created for Pashto language support in espeak-ng
+// This ps_rules file is created by Hanif Rahman for Pashto language support in espeak-ng
 // This file is UTF8 encoded 
 // Phoneme rules for Pashto
-// Updated with improved mapping to the fixed phoneme definitions
+// Updated March 2025: Fixed to use only defined phonemes with correct notation
+// Updated: Fixed full word pronunciation issues for multi-syllable words
 
 // Letter group - l01: Vowels
 
@@ -25,8 +26,15 @@
 // Consonants
 .L02  ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه ئ
 
-// Letter group - L03
+// Letter group - L03 (all letters)
 .L03  ا ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ې ۍ ی ه ئ ٰ
+
+// Common word endings
+.L04  ان ات ون ین 
+
+// Special rules for common Pashto words that aren't being pronounced correctly
+// These override the character-by-character rules below
+
 
 // VOWELS
 
@@ -34,7 +42,7 @@
 	َ	a
 	َی 	e
 	َې	e
-	َو 	au
+	َو 	aw
 	َع	a:
 
 .group ِ
@@ -72,6 +80,8 @@
         ائ(L02	ai
         اٖ	o
         اں	a:n
+        ا (ن	a:n
+        ا (ں	a:n
 
 .group ب
 	ب	b
@@ -80,17 +90,19 @@
 .group پ
 	پ	p
 	پ (_	p
-	پھ	p_h
+	پھ	p
 
 .group ت
 	ت	t
 	ت (_	t
-	تھ	t_h
+	تھ	t
+	ت (ان	ta:n
+	ت (ا	ta:
 
 .group ټ
-	ټ	t_
-	ټ (_	t_
-	ټھ	t__h
+	ټ	t.
+	ټ (_	t.
+	ټھ	t.
 
 .group ث
 	ث	s
@@ -100,7 +112,7 @@
 .group ج
 	ج	dZ
 	ج (_	dZ
-	جھ	dZ_h
+	جھ	dZ
 
 .group ځ
 	ځ	dz
@@ -109,7 +121,7 @@
 .group چ
 	چ	tS
 	چ (_	tS
-	چھ	tS_h
+	چھ	tS
 
 .group څ
 	څ	ts
@@ -126,12 +138,12 @@
 .group د
 	د	d
 	د (_	d
-	دھ	d_h
+	دھ	d
 
 .group ډ
-	ډ	d_
-	ډ (_	d_
-	ډھ	d__h
+	ډ	d.
+	ډ (_	d.
+	ډھ	d.
 
 .group ذ
 	ذ	z
@@ -142,12 +154,14 @@
 	ر (_	r
 
 .group ړ
-	ړ	r_
-	ړ (_	r_
+	ړ	r.
+	ړ (_	r.
 
 .group ز
 	ز	z
 	ز (_	z
+	ز (د	zd
+	زده (ک	zd@ko  // Special case for student (zd@_ko:w@n'k@j)
 
 .group ژ
 	ژ	Z
@@ -160,14 +174,16 @@
 .group س
 	س	s
 	س (_	s
+	س (ت	s@'t
+	س (تان	s@'ta:n
 
 .group ش
 	ش	S
 	ش (_	S
 
 .group ښ
-	ښ	S_
-	ښ (_	S_
+	ښ	S.
+	ښ (_	S.
 
 .group ص
 	ص	s
@@ -192,10 +208,12 @@
 .group غ
 	غ	Q
 	غ (_	Q
+	غان	Qa:n
 
 .group ف
 	ف	f
 	ف (_	f
+	ف (غ	f@'Qa:
 
 .group ق
 	ق	q
@@ -204,28 +222,38 @@
 .group ک
 	ک	k
 	ک (_	k
-	کھ	k_h
+	کھ	k
+	ک (ت	k@'t
+	ک (تان	k@'ta:n
+	ک (تاب	k@'ta:b
+	کوون	ko:w@n   // Added for compound word "زده_کوونکی"
 
 .group ګ
 	ګ	g
 	ګ (_	g
-	ګھ	g_h
+	ګھ	g
+	ګ (ر	g@'r
 
 .group ل
 	ل	l
 	ل (_	l
+	ل (م	l@'m
 
 .group م
 	م	m
 	م (_	m
+	م (س	m@'s
+	م (سل	m@s@l
 
 .group ن
 	ن	n
 	ن (_	n
+	ن (س	n@s
+	ن (ستان	n@s'ta:n
 
 .group ڼ
-	ڼ	n_
-	ڼ (_	n_
+	ڼ	n.
+	ڼ (_	n.
 
 .group و
 	و	w
@@ -238,6 +266,8 @@
 	وٗ	u:
 	وی	wi:
 	وَ	wa
+	و (ن	u:n
+	و (ں	u:n
 
 .group ه
 	ه	h
@@ -248,6 +278,8 @@
 	هے	he:
 	هو	ho:
 	هُو	hu:
+	ه (ن	h@n
+	ه (تون	h@n'tu:n
 
 .group ی
 	ی	j
@@ -255,6 +287,7 @@
 	ی (_	i:
 	یں	j@n
 	یٰ	a:
+	یک	j@k    // For compound words ending with کی
 
 .group ې
 	ې	e:

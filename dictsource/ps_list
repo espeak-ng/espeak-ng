@@ -1,33 +1,17 @@
 // This ps_list file is created for Pashto language support in espeak-ng by Hanif Rahman
 // This file is UTF8 encoded 
-// Letter Names, Numbers and exceptional pronunciation of Pashto
-// Modified to use Urdu phonemes
+// Updated: March 2025 - Fixed to use only defined phonemes with correct stress
 
 // Explicitly set phoneme table to ps
 phonemetable ps
 
-// Additional common Pashto words with phonetic transcriptions
-// These override the character-by-character pronunciation to ensure correct output
-
-پښتو	paS_to
-سلام	sa'la:m
-خوش	xuS
-ستړی	st@'r_@j
-کور	ko:r
-ښه	S_a
-لار	la:r
-ورځ	wr@dZ
-کتاب	ki'ta:b
-پښتانه	paS_'ta:na
-افغانستان	afQa:nis'ta:n
-مننه	ma'nana
 
 // The Letter names
 ا	alif
 ب	be:
 پ	pe:
 ت	te:
-ټ	t_e:
+ټ	t.e:
 ث	se:
 ج	dZi:m
 ځ	dzim
@@ -36,16 +20,16 @@ phonemetable ps
 ح	he:
 خ	xe:
 د	da:l
-ډ	d_a:l
+ډ	d.a:l
 ذ	za:l
 ر	re:
-ړ	r_e:
+ړ	r.e:
 ز	ze:
 ژ	Ze:
 ږ	Qe:
 س	si:n
 ش	Si:n
-ښ	S_i:n
+ښ	S.i:n
 ص	swa:d
 ض	zwa:d
 ط	toe:
@@ -59,37 +43,37 @@ phonemetable ps
 ل	la:m
 م	mi:m
 ن	nu:n
-ڼ	n_u:n
+ڼ	n.u:n
 _و	wa:w
 ه	he:
-ں	nu:n||Qun:a
+ں	nu:n||Qun:@
 ﮨ	tSo:ti:||he:
 ھ	do||tSaSmi:||he:
-ء	hamza
+ء	hamz@
 ی	je:
-ې	je:||dra:za
+ې	je:||dra:z@
 ۍ	je:||l@ra:
-ئ	hamzaje:
-ۀ	he:||hamza
-ؤ	wa:w||hamza
-ﺅ	wa:w||hamza
-ة	ta:||marbuta
+ئ	hamz@je:
+ۀ	he:||hamz@
+ؤ	wa:w||hamz@
+ﺅ	wa:w||hamz@
+ة	ta:||marbut@
 
 // character names
 َ	zabar
 ِ	ze:r
 ُ	pe:S
-ٰ	alif||maqs'u:ra
+ٰ	alif||maqs'u:r@
 ّ	taSd'i:d
 ً	tanvi:n||zabar
 ْ	suku:n
 ٗ	zami||p@S
-ٓ	mada
-_؛	waqfa
-_:	ra:bta
-_،	d_rand_@j
-_۔	t_@kaj
-_؟	puStanaj
+ٓ	mad@
+_؛	waqf@
+_:	ra:bt@
+_،	d.rand.@j
+_۔	t.@kaj
+_؟	puSt@naj
 
 
 // The numbers
@@ -168,12 +152,12 @@ _10st	l'as@m
 ډېر	d.e:r	$u
 وي	wi	$u
 څه	ts@	$u
-یو	jau	$u
-کړي	kr.i	$u
-ښه	S;@	$u
+یو	j@w	$u
+کړي	k@r.i	$u
+ښه	S.@	$u
 یې	je:	$u
-کوي	kawi	$u
-خپل	xp@l	$u
+کوي	k@wi	$u
+خپل	x@p@l	$u
 تر	t@r	$u
 دي	di	$u
 ځان	dza:n	$u
@@ -184,12 +168,12 @@ _10st	l'as@m
 مې	me:	$u
 کار	ka:r	$u
 بل	b@l	$u
-وکړ	w@kr.	$u
+وکړ	w@k@r.	$u
 ډول	d.ol	$u
 لاره	la:r@	$u
 کولو	kolu	$u
-خلک	xalk	$u
-ورته	wart@	$u
+خلک	x@l@k	$u
+ورته	w@rt@	$u
 شوه	Sw@	$u
 لکه	l@k@	$u
 پورې	pore:	$u
@@ -197,31 +181,141 @@ _10st	l'as@m
 مو	mu	$u
 ټول	t.ol	$u
 وه	w@	$u
-کړ	kr.	$u
-ژوند	Zw@nd	$u
+کړ	k@r.	$u
+ژوند	Z@w@nd	$u
 لوی	loj	$u
 تاسو	ta:so	$u
-هغه	haQ@	$u
-کولی	kawlaj	$u
-وخت	waxt	$u
-کلی	k@laj	$u
-دغه	daQ@	$u
+هغه	h@Q@	$u
+کولی	k@wl@j	$u
+وخت	w@xt	$u
+کلی	k@l@j	$u
+دغه	d@Q@	$u
 موږ	muQ	$u
-یوه	jaw@	$u
+یوه	j@w@	$u
 شي	Si	$u
 
-// Additional common Pashto words with phonetic transcriptions
-// These override the character-by-character pronunciation to ensure correct output
-
-پښتو	paS_to
-سلام	sa'la:m
-خوش	xuS
-ستړی	st@'r_@j
+// Additional common Pashto words with corrected phonetic transcriptions
+سلام	s@'la:m
+زه	z@
+پښتو	p@'S.to
+يم	j@m
+ژبه	Z@'b@
+ستړی	st@'r.@j
+مشه	m@'S@
+څنګه	ts@'ng@
+يې	je:
+ته	t@
+څوک	tsok
+هغه	h@'Q@
+دلته	d@l't@
+هلته	h@l't@
 کور	ko:r
-ښه	S_a
+ښار	S.a:r
+هېواد	he:'wa:d
+افغانستان	afQa:n@s'ta:n
+پاکستان	pa:k@s'ta:n
+ښوونځی	S.o:w@n'dz@j
+پوهنتون	po:h@n'tu:n
+کتاب	k@'ta:b
+قلم	q@'l@m
+میز	me:z
+چوکۍ	co:'k@j
+موټر	mo:'t.@r
 لار	la:r
-ورځ	wr@dZ
-کتاب	ki'ta:b
-پښتانه	paS_'ta:na
-افغانستان	afQa:nis'ta:n
-مننه	ma'nana 
+سړک	s@'r.@k
+اوبه	o:'b@
+ډوډۍ	d.o:'d.@j
+چای	ca:j
+شپه	Sp@
+ورځ	wr@dz
+کال	ka:l
+وخت	w@xt
+ساعت	sa:'@t
+دقیقه	d@qi:'q@
+ثانیه	sa:'nj@
+ښځه	S.@'dz@
+نارینه	na:ri:'n@
+ماشوم	ma:'Sum
+زوی	zoj
+لور	lo:r
+ورور	wro:r
+خور	xo:r
+پلار	pla:r
+مور	mo:r
+کورنۍ	ko:r'n@j
+ملګری	m@l'g@re
+دوست	do:st
+دښمن	d@S.'m@n
+ښوونکی	S.o:w@n'k@j
+زده	zd@
+زده_کوونکی	zd@_ko:w@n'k@j
+ډاکټر	d.a:k't.@r
+انجینر	andzi'ne:r
+بزګر	b@z'g@r
+سوداګر	s@wda:'g@r
+پولیس	po:'lis
+عسکر	@s'k@r
+وزیر	w@'zi:r
+ولسمشر	w@l@s'm@S@r
+خدای	xu'da:j
+جومات	dZu'ma:t
+لمونځ	l@'mondz
+روژه	ro:'Z@
+حج	h@dZ
+زکات	z@'ka:t
+اسلام	is'la:m
+مسلمان	m@s@l'ma:n
+قرآن	qu'ra:n
+حدیث	h@'dis
+سنت	s@'n@t
+فرض	f@rz
+واجب	wa:'dZ@b
+حرام	h@'ra:m
+حلال	h@'la:l
+مکروه	m@k'ru:h
+مباح	m@'ba:h
+جنت	dZ@'n@t
+دوزخ	do:'z@x
+ملائکه	m@la:'ik@
+پیغمبر	p@jQ@m'b@r
+صحابه	s@'ha:b@
+تابعین	ta:bi'i:n
+علماء	ul@'ma:
+مشران	m@S'ra:n
+کشران	k@S'ra:n
+ځوانان	dzwa:'na:n
+زاړه	za:'r.@
+ناروغ	na:'roQ
+روغ	roQ
+ښکلی	S.@k'l@j
+بد	b@d
+ښه	S.@
+خراب	x@'ra:b
+لوی	loj
+کوچنی	kotS'n@j
+اوږد	o:Qd
+لنډ	l@nd.
+پلن	pl@n
+نری	n@'r@j
+دروند	d@'rwnd
+سپک	sp@k
+تود	to:d
+یخ	j@x
+وچ	w@tS
+لوند	lw@nd
+نوی	n@'w@j
+زوړ	zo:r.
+پاک	pa:k
+ناپاک	na:'pa:k
+سپین	spi:n
+تور	to:r
+سور	so:r
+شین	Si:n
+ژیړ	Ze:r.
+آبي	a:'bi
+نارنجي	na:r@n'dZi
+بنفش	b@'n@fS
+خړ	x@r.
+نسواري	n@swa:'ri
+طلایي	t@la:'ji
+نقره‌یي	n@qr@'ji 
