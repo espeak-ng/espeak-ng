@@ -2067,5 +2067,8 @@ include ph_langbelta
 
 phonemetable ms id
 
+phonemetable ie eo
+include ph_interlingue
+
 phonemetable kaa kk
 include ph_karakalpak

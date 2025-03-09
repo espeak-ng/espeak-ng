@@ -746,6 +746,7 @@ Translator *SelectTranslator(const char *name)
 	case L('a', 'n'): // Aragonese
 	case L('c', 'a'): // Catalan
 	case L('i', 'a'): // Interlingua
+	case L('i', 'e'): // Interlingue
 	case L3('p', 'a', 'p'): // Papiamento
 	{
 		static const short stress_lengths_es[8] = { 160, 145,  155, 150,  0, 0,  200, 245 };
@@ -772,6 +773,10 @@ Translator *SelectTranslator(const char *name)
 			tr->punct_within_word = ca_punct_within_word;
 			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2 | S_FIRST_PRIMARY;
 		} else if (name2 == L('i', 'a')) {
+			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
+		} else if (name2 == L('i', 'e')) {
+			// verify these!
 			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
 		} else if (name2 == L('a', 'n')) {

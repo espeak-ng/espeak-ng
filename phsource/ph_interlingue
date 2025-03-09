@@ -1,0 +1,9 @@
+ 
+// Inherits from Esperanto
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 180
+  FMT(vowel/a)
+endphoneme
+
