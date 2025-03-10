@@ -10,11 +10,11 @@
 .group a
         a        a:
         a (X$w_alt3+  'a
-
+        a (_ a: 
         a (č_    'a:
         a (j_    'a:
         a (l_    'a:
-        
+      v)a 'a:  
 
 .group b
         b        b
@@ -37,11 +37,12 @@
 .group e
         e        e:
         e (X$w_alt3+  'E
-        
-        ee       i:
+     C) e        E:  
+        ee       e:
     _n) ee       E:E
     _r) ee       E:E
    _pr) ee       E:E
+     C) e        E
 
         e (X$w_alt4 @
      @) e (n_    E#
@@ -68,8 +69,10 @@
         i        i:
         i (X$w_alt3+  'i
         i (A     j
-        
+     _) i         %i 
         i (l_    'i:
+     X) i ($w_alt1 i:
+        i (C_     'i:
 
 .group j
         j        j
@@ -114,16 +117,16 @@
 .group o
         o        o:
         o (X$w_alt3+  'O
-        
+     C) o o@  
         o (Co    O:
         o (CCo   O:
         o (L04+  o:
-
+        o (_     o
         o (č_    'o:
         o (j_    'o:
         o (l_    'o:
         o (oč    o:
-
+        o (st_   O:   
         
 .group p
         p        p
@@ -157,18 +160,19 @@
 
 .group u
         u        u:
-        u (X$w_alt3+  'u
-
-        u (A     w
-     A) u (K     w
+        u (X$w_alt1+  'u
+     A) u (C     'u:
+        u (A     u
+     A) u (K     u
      C) ue (C    u:    // German names
      j) u (čeno  'u:
 
 
 .group v
-        v        v
+        v        v:
         v (-A+   v    // preposition 'v' before a vowel
      A) v (K     w
+     C) v_ (A
      K) v (K     %u
         v (r+    v
    L01) v (A     v#
