@@ -389,6 +389,23 @@ elején	$alt $unstressend
 folyamán	$alt
 úton	$alt
 lts	$alt
+reggelén $alt3
+legyen $alt3
+hétfőtől $alt3
+keddtől $alt3
+szerdától $alt3
+csütörtöktől $alt3
+péntektől $alt3
+szombattól $alt3
+vasárnaptól $alt3
+alkalmából $alt3
+alkalmával $alt3
+reggeltől $alt3
+reggelig $alt3
+reggelétől $alt3
+reggeléig $alt3
+késő $alt3
+mérlege $alt3
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -760,7 +777,7 @@ baj	$unstressend
 csak	$unstressend
 vált	$unstressend
 jut	$unstressend
-legyen	$unstressend
+legyen	$unstressend $alt3
 azt	$unstressend
 ezt	$unstressend
 út	$alt $unstressend
@@ -5379,8 +5396,8 @@ _…	pontpontpont
 
 _•	liStAjEl
 _|	fyg:Y:lEgESvonAl
-_>	nAJob
-_<	kiSSEb
+_>	nAJob:
+_<	kiSSEb:
 _¤	pe:nznEmjEl
 ®	bEjEJzEt:
 ™	ve:djEJ
@@ -5408,7 +5425,7 @@ _′	ApostR2o:f
 _″	duplA|ApostR2o:f
 ©	tsopiR2ight-jEl
 °	fok
-−	minus
+−	m'inus
 ±	plusminus
 µ	my:
 ¼	nEJEd
