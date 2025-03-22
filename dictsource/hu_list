@@ -406,6 +406,9 @@ reggelétől $alt3
 reggeléig $alt3
 késő $alt3
 mérlege $alt3
+előestéjén $alt3
+sorozatban $alt3
+éjszakája $alt3
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -1178,7 +1181,8 @@ vizsgált	$unstressend
 javult	$unstressend
 része	$unstressend
 írni	$unstressend
-téren	$unstressend
+téren	$alt3 $unstressend
+térre $alt3 $unstressend
 terén	$unstressend
 menni	$unstressend
 fogja	$unstressend
@@ -1916,7 +1920,7 @@ felülvizsgált	$unstressend
 készülékkel	$unstressend
 országban	$unstressend
 állítását	$unstressend
-közötti	$unstressend
+közötti	$alt3 $unstressend
 keres	$unstressend
 megye	$unstressend
 alattiak	$unstressend
