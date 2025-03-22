@@ -48,6 +48,7 @@
 .group c
         c          ts
         cc         ts:
+aká) c (suh ts
         cs         tS
         ccs        tS:
      !) cz         ts        // in names which start with a capital letter
@@ -308,6 +309,10 @@ dú) c (süv ts
 jampe) c (s ts
 _tanon) c (ság ts
 pere) czs (em ts|Z
+licen) c (s ts
+feren) c (csák ts
+ar) c (sor ts
+ková) cs (ze tS
 
 .group C
 C ts
@@ -436,6 +441,8 @@ kuka) cz (á ts|z	For example kukaczápor word
         dsz (_S3   ts:
  beszé) d (szin    d
  beszé) d (sebesség d
+ná) ds (ej d|S
+
  cselé) d (so      d
         dobermann  dob:ER2mAn
    föl) d (sánc    d
@@ -444,7 +451,6 @@ kuka) cz (á ts|z	For example kukaczápor word
     ha) d (sor     d
    hor) d (szék    d
   máso) d (sor     d
-
     pa) d (sor     d
    ren) d (sza     d
 
@@ -1076,6 +1082,17 @@ menetren) d (sűr d
 menetren) dsz (erkes d|s
 hátvé) d (jel d
 kisde) d (játé d
+rekor) d (jut d
+kobol) d (sz d
+föl) d (sar d
+hí) d (jav d
+beszé) d (javas d
+bolon) d (játé d
+hó) d (jel d
+bőrön) d (sz d
+ren) d (szoft d
+pa) d (játé d
+föl) d (jöv d
 
 .group dz
   fogó) dz (kod    ts
@@ -1496,6 +1513,10 @@ kirendeltsé) g (gy g
 á) g (gyűrű g
 csapá) ggy (űrű J:
 _a) gys (pec J|S
+csapá) gy (sik J
+miri) gy (jár J
+ellenzékisé) g (gy g
+e) gys (ar J|S
 
 .group gy
         gy         J
@@ -1801,6 +1822,8 @@ növénykv) í (z i:
     k-) k                    //silent with second k phoneme
  _játé) kk (liens  k:        //exceptiof for kk (L01 rule
 községg kYS:e:g:
+gyerme) kk (L01 k:
+gyere) kk (L01 k:
 
 .group l
         l          l
@@ -2102,6 +2125,9 @@ kémé) ny (jav n^
 szegé) ny (jog n^
 rakomá) ny (jegy n^
 indiá) n (játé n
+ásvá) ny (j n^
+szinkro) n (jel n
+magá) n (jach n
 
 .group o
         o          o
@@ -3205,6 +3231,39 @@ hullá) s (sz S
 karni) s (sz S
 kedvtelé) s (sz S
 kitünteté) s (z S
+kókuszo) s (sz S
+invázió) s (sz S
+hűté) s (z S
+szavalá) s (sz S
+ragaszkodá) s (sz S
+építkezé) s (sz S
+harmoniká) s (sz S
+oázi) s (sz S
+raktározá) s (sz S
+társalgá) s (sz S
+va) s (zs S
+oázi) s (sz S
+ájulá) s (sz S
+aranyo) s (sz S
+postá) s (ze S
+va) sz (sik s
+rava) sz (sá s
+tava) sz (s s
+golyó) s (sz S
+ki) s (szaty S
+ki) s (szak S
+ki) s (sze S
+ki) s (szi S
+ki) s (szt S
+ki) s (száll S
+ki) s (szánt S
+ki) s (szö S
+ki) s (szün S
+hú) s (szobába S
+szárnya) s (sz S
+juttatá) s (sz S
+va) s (szf S
+szerződé) s (z S
 
 .group ss
         ssz        ss2
@@ -4724,6 +4783,24 @@ keresle) t (javu t
 te) tssz ts:
 kö) tsz (er ts:
 jegyze) t (sor t
+gráná) t (szé t
+jegyze) t (jav t
+szin) t (játé t
+köve) t (szob t
+részle) t (jav t
+részle) t (jel t
+lé) t (jog t
+díszle) t (jel t
+intéze) t (jó t
+mecse) t (jár t
+eli) t (jel t
+csapa) t (sé t
+dagana) t (jel t
+fedeze) t (sor t
+palás) t (jog t
+épüle) t (s t
+régésze) t (sz t
+spor) t (járg t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -5419,6 +5496,13 @@ raj) z (s z
 kví) z (zs z
 gá) z (svin z
 tagkö) zs (ég S:
+földgá) z (sp z
+fe) z (sap z
+ré) z (sp z
+ré) z (si z
+ré) z (sí z
+ré) z (sug z
+ré) z (so z
 
 .group
         $          dolla:R2
