@@ -1,0 +1,11 @@
+name Pashto 
+language ps
+phonemes ps
+dictionary ps
+dictrules 1
+stressRule 2 // Stress on second syllable
+stressLength 160 180 200 200 0 0 240 240
+stressAmp 16 18 20 20 0 0 22 22
+intonation 2
+// This voice uses the Pashto phoneme set with improved stress and intonation patterns
+// Created: March 2024 by Hanif Rahman
