@@ -59,7 +59,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `esx`       | `kl`              | Eskimo-Aleut          | Greenlandic                 |                        |
 | `sai`       | `gn`              | South American Indian | Guarani                     |                        |
 | `inc`       | `gu`              | Indic                 | Gujarati                    |                        |
-| `roa`       | `ht`              | Romance               | Hatian Creole               |                        |
+| `roa`       | `ht`              | Romance               | Haitian Creole              |                        |
 | `sem`       | `he`              | Semitic               | Hebrew                      |                        |
 | `inc`       | `hi`              | Indic                 | Hindi                       |                        |
 | `urj`       | `hu`              | Uralic                | Hungarian                   |                        |
