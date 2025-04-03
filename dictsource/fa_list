@@ -649,6 +649,7 @@ U+20	fAsele_
 آنتی	Anti
 آنتیموان	AntimuAn
 آنجانب	'AndZA:neb
+آنجل	AndZel
 آنجلا	AndZellA
 آنجلس	AndZeles
 آندانت	AndAnt
@@ -744,6 +745,9 @@ U+20	fAsele_
 آکروباتیک	AkRobAtik
 آکسفورد	AksfoRd
 آکسنت	Aksent
+آکل	Akol
+آکله	Akele:
+آکلۀ	Akeleje
 آکمپانیمان	AkompAnimAn
 آکنه	Akne
 آکواریم	AkvARijom
@@ -3551,6 +3555,7 @@ U+20	fAsele_
 بیدررو	bidaRRov
 بیدق	bejdaq1
 بیدمشک	bidmeSk
+بیدگل	bidgol
 بیران	bejRAn
 بیرجند	biRdZand
 بیرحم	biRahm
@@ -3874,6 +3879,7 @@ U+20	fAsele_
 ترانزیت	teRAnzit
 ترانزیستور	teRAnzistoR
 ترانس	teRAns
+ترانسفر	teRAnsfeR
 ترانسفور	teRAnsfoR
 ترانسفورماتور	teRAnsfoRmAtoR
 ترانسپورت	teRAnspoRt
@@ -5288,6 +5294,7 @@ U+20	fAsele_
 خفگی	xafegi
 خل	xol
 خلاصه	xolAse:
+خلاصۀ	xolA:seje
 خلاق	xallAq1
 خلاقه	xallAq1e
 خلبان	xalabAn
@@ -7628,6 +7635,7 @@ U+20	fAsele_
 شلش	SolaS
 شلم	Salam
 شلنگ	Selang
+شلنگی	Selangi
 شلوار	SalvAR
 شلّاق	SallAq1
 شلپ	Selep
@@ -8726,6 +8734,7 @@ U+20	fAsele_
 فشن	faSen
 فشنگ	feSang
 فشنگه	feSange:
+فشنگی	feSangi
 فصح	fasah
 فصحا	fosahA
 فصحت	feshat
@@ -8767,6 +8776,7 @@ U+20	fAsele_
 فلامینکو	felAminko
 فلامینگو	felAmingo
 فلان	folAn
+فلانل	felAnel
 فلانژ	felAnZ
 فلاورجان	falAvaRdZAn
 فلاپ	felAp
@@ -9179,6 +9189,7 @@ U+20	fAsele_
 قیطان	q1ejtAn
 قیطریه	q1ejtaRije
 قیطس	q1ejtos
+قیطون	q1ejtun
 قیلوله	q1ejlule:
 قیم	q1ajjem
 قیماق	q1ejmAq1
@@ -10437,6 +10448,7 @@ U+20	fAsele_
 مشمشه	meSmeSe
 مشمع	moSamma?
 مشنگ	maSang
+مشنگی	maSangi
 مشهدالرضا	maShadoRRezA
 مشهور	maS'huR
 مشوب	maSub
@@ -10821,6 +10833,7 @@ U+20	fAsele_
 ملودی	melodi
 ملوس	malus
 ملول	malul
+ملون	melon
 ملوچ	molutS
 ملوک	moluk
 ملّت	mellat
@@ -11963,7 +11976,7 @@ U+20	fAsele_
 نکاست	nakAst
 نکبت	nekbat
 نکبتبار	nekbatbAR
-نکتار	nektAr
+نکتار	nektAR
 نکته	nok'te:
 نکتهدان	noktedAn
 نکتۀ	nokteje
@@ -12504,6 +12517,7 @@ U+20	fAsele_
 واشنگتن	vASengton
 واشینگتن	vASington
 واقعا	vAq1e?an
+والتر	vAlteR
 والد	vAled
 والدین	vAledejn
 والس	vAls
@@ -12850,6 +12864,7 @@ U+20	fAsele_
 پراتیک	peRAtik
 پرادو	peRAdo
 پرازیت	pARAzit
+پرامپت	peRAmpt
 پرانتز	paRAntez
 پرانرژی	poR_eneRZi
 پراکسی	peRAksi
@@ -12923,12 +12938,9 @@ U+20	fAsele_
 پرستشگر	paRasteSgaR
 پرستم	paRastam
 پرستو	paRastu
+پرستید	paRastid
 پرستیدم	paRastidam
-پرستیدن	paRasti:'dan
-پرستیدند	paRastidand
-پرستیدی	paRastidi
-پرستیدید	paRastidid
-پرستیدیم	paRastidim
+پرستیدن	paRastidan
 پرستیژ	peRestiZ
 پرسخن	poRsoxan
 پرسد	poRsad
@@ -13125,6 +13137,7 @@ U+20	fAsele_
 پشتون	paStun
 پشتگرم	poStgaRm
 پشتیبان	poStibAn
+پشن	paSen
 پشوتن	paSutan
 پشک	peSk
 پشکل	peSkel
@@ -13653,6 +13666,7 @@ U+20	fAsele_
 چگین	tSegin
 چیذر	tSizaR
 چیزبرگر	tSizbeRgeR
+چیزکیک	tSizkejk
 چیلر	tSileR
 چیند	tSinad
 چینش	tSineS
@@ -13859,9 +13873,11 @@ U+20	fAsele_
 کتلت	kotlet
 کتم	kotam
 کتمان	ketmAn
+کته	kate:
 کتون	katun
 کتک	kotak
 کتکش	kotakaS
+کتۀ	kateje
 کثافات	kesAfAt
 کثافت	kesAfat
 کثافتا	kesA:fatA
@@ -14067,6 +14083,7 @@ U+20	fAsele_
 کفن	kafan
 کل	'kol
 کلاب	kelAb
+کلارا	kelARA
 کلارک	kelARk
 کلارینت	kelARinet
 کلاس	kelAs
@@ -14177,6 +14194,7 @@ U+20	fAsele_
 کمونیست	komonist
 کمونیسم	komonism
 کمپانی	kompAni
+کمپر	kampeR
 کمپرس	kompeRes
 کمپرسور	kompeResoR
 کمپلت	kompelet
