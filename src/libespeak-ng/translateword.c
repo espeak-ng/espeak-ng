@@ -192,7 +192,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 	fprintf(stderr, "Processing word: '%s'\n", wordbuf);
 
 	// Add debug print header and print all words before processing
-	fprintf(stderr, "\n=== Words in sentence from me ===\n");
+	fprintf(stderr, "\n=== Context Words ===\n");
 	for (ix = 0; ix < word_count; ix++) {
 		char word_copy[150];
 		int word_len = 0;
@@ -207,17 +207,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 
 	// Check if the word is a homograph
 	if (IsHomograph(wordbuf)) {
-		fprintf(stderr, "Found homograph: '%s'\n", wordbuf);
-		// For homographs, use our custom phoneme generator
-		fprintf(stderr, "Setting custom phoneme for homograph\n");
-		
-		GenerateHomographPhonemes(wordbuf, word_phonemes);
-		
-		fprintf(stderr, "Custom phoneme (hex): %02x %02x %02x\n", 
-		       (unsigned char)word_phonemes[0], 
-		       (unsigned char)word_phonemes[1], 
-		       (unsigned char)word_phonemes[2]);
-		
+		GenerateHomographPhonemes(wordbuf, word_phonemes, words, sbuf, word_count);
 		return dictionary_flags[0]; // Return early with current dictionary flags
 	}
 
