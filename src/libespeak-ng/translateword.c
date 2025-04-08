@@ -121,7 +121,7 @@ static bool IsHomograph(const char *word)
 }
 
 // Function to generate phonemes for homograph words
-static void GenerateHomographPhonemes(const char *word, char *phonemes) {
+static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB words[], char sbuf[], int word_count) {
     // For now, just return 'aaa' phonemes regardless of input
     // This will be enhanced later to generate phonemes based on the word
     phonemes[0] = PhonemeCode('a');
