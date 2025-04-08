@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
@@ -43,7 +42,93 @@
 #include "synthdata.h"            // for SelectPhonemeTable, LookupPhonemeTable
 #include "ucd/ucd.h"              // for ucd_toupper
 #include "voice.h"                // for voice, voice_t
+#include "speech.h"               // for path_home
 
+// Global variables for homographs
+static char **homographs_list = NULL;
+static int homographs_count = 0;
+
+static void LoadHomographs(void)
+{
+	FILE *f;
+	char path[256];
+	char line[256];
+	int count = 0;
+	int i = 0;
+
+	// Get the path to homographs.txt
+	snprintf(path, sizeof(path), "%s%cespeak-ng-data%chomographs.txt", path_home, PATHSEP, PATHSEP);
+
+	f = fopen("/content/espeak-ng/espeak-ng-data/homographs.txt", "r");
+  
+	if (f == NULL) {
+		fprintf(stderr, "Failed to open homographs.txt\n");
+		return;
+	}
+
+	// First count the number of lines
+	while (fgets(line, sizeof(line), f) != NULL) {
+		count++;
+	}
+
+	// Allocate memory for the list
+	homographs_list = (char **)malloc(count * sizeof(char *));
+	if (homographs_list == NULL) {
+		fclose(f);
+		return;
+	}
+
+	// Rewind and read the file
+	rewind(f);
+	while (fgets(line, sizeof(line), f) != NULL) {
+		// Remove newline
+		line[strcspn(line, "\n")] = 0;
+		homographs_list[i] = strdup(line);
+		if (homographs_list[i] == NULL) {
+			// Cleanup on error
+			for (int j = 0; j < i; j++) {
+				free(homographs_list[j]);
+			}
+			free(homographs_list);
+			homographs_list = NULL;
+			fclose(f);
+			return;
+		}
+		i++;
+	}
+
+	homographs_count = count;
+	fclose(f);
+}
+
+static bool IsHomograph(const char *word)
+{
+	if (homographs_list == NULL) {
+		LoadHomographs();
+	}
+
+	if (homographs_list == NULL) {
+		return false;
+	}
+
+	for (int i = 0; i < homographs_count; i++) {
+		if (strcmp(word, homographs_list[i]) == 0) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+// Function to generate phonemes for homograph words
+static void GenerateHomographPhonemes(const char *word, char *phonemes) {
+    // For now, just return 'aaa' phonemes regardless of input
+    // This will be enhanced later to generate phonemes based on the word
+    phonemes[0] = PhonemeCode('a');
+    phonemes[1] = PhonemeCode('a');
+    phonemes[2] = PhonemeCode('a');
+    phonemes[3] = 0;
+}
 
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes);
 static void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
@@ -97,6 +182,30 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 	int loopcount;
 	int add_suffix_phonemes = 0;
 	WORD_TAB wtab_null[8];
+
+	// Debug print the word being processed
+	char wordbuf[120];
+	unsigned int ix2;
+	for (ix2 = 0; ((c_temp = word_start[ix2]) != ' ') && (c_temp != 0) && (ix2 < (sizeof(wordbuf)-1)); ix2++)
+		wordbuf[ix2] = c_temp;
+	wordbuf[ix2] = 0;
+	fprintf(stderr, "Processing word: '%s'\n", wordbuf);
+
+	// Check if the word is a homograph
+	if (IsHomograph(wordbuf)) {
+		fprintf(stderr, "Found homograph: '%s'\n", wordbuf);
+		// For homographs, use our custom phoneme generator
+		fprintf(stderr, "Setting custom phoneme for homograph\n");
+		
+		GenerateHomographPhonemes(wordbuf, word_phonemes);
+		
+		fprintf(stderr, "Custom phoneme (hex): %02x %02x %02x\n", 
+		       (unsigned char)word_phonemes[0], 
+		       (unsigned char)word_phonemes[1], 
+		       (unsigned char)word_phonemes[2]);
+		
+		return dictionary_flags[0]; // Return early with current dictionary flags
+	}
 
 	if (wtab == NULL) {
 		memset(wtab_null, 0, sizeof(wtab_null));
@@ -201,6 +310,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 
 		if (phonemes[0] == phonSWITCH) {
 			// change to another language in order to translate this word
+			
 			strcpy(word_phonemes, phonemes);
 			return 0;
 		}
@@ -257,6 +367,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 				return FLAG_SPELLWORD; // a mixture of languages, retranslate as individual letters, separated by spaces
 			return 0;
 		}
+		
 		strcpy(word_phonemes, phonemes);
 		if (wflags & FLAG_TRANSLATOR2)
 			return 0;
@@ -314,6 +425,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 
 			if (phonemes[0] == phonSWITCH) {
 				// change to another language in order to translate this word
+				
 				strcpy(word_phonemes, phonemes);
 				return 0;
 			}
@@ -326,6 +438,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 				if ((word_length == 1) && (IsAlpha(wc) || IsSuperscript(wc))) {
 					if ((wordx = SpeakIndividualLetters(tr, wordx, phonemes, spell_word, current_alphabet, word_phonemes)) == NULL)
 						return 0;
+					
 					strcpy(word_phonemes, phonemes);
 					return 0;
 				}
@@ -430,6 +543,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 					if (phonemes[0] == phonSWITCH) {
 						// change to another language in order to translate this word
 						wordx[-1] = c_temp;
+						
 						strcpy(word_phonemes, phonemes);
 						return 0;
 					}
@@ -456,6 +570,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 						if (phonemes[0] == phonSWITCH) {
 							// change to another language in order to translate this word
 							memcpy(wordx, word_copy, strlen(word_copy));
+							
 							strcpy(word_phonemes, phonemes);
 							return 0;
 						}
@@ -474,6 +589,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 						if (phonemes[0] == phonSWITCH) {
 							// change to another language in order to translate this word
 							memcpy(wordx, word_copy, strlen(word_copy));
+							
 							strcpy(word_phonemes, phonemes);
 							return 0;
 						}
@@ -512,6 +628,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 
 							if (phonemes[0] == phonSWITCH) {
 								// change to another language in order to translate this word
+								
 								strcpy(word_phonemes, phonemes);
 								memcpy(wordx, word_copy, strlen(word_copy));
 								wordx[-1] = c_temp;
@@ -763,6 +880,7 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 		non_initial = true;
 		if (phonemes[0] == phonSWITCH) {
 			// change to another language in order to translate this word
+			
 			strcpy(word_phonemes, phonemes);
 			return NULL;
 		}
