@@ -667,7 +667,7 @@ void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
 
-int TranslateWord(Translator *tr, char *word1, WORD_TAB *wtab, char *word_out, WORD_TAB *words, int word_count);
+int TranslateWord(Translator *tr, char *word1, WORD_TAB *wtab, char *word_out, WORD_TAB *words, char sbuf [], int word_count);
 void TranslateClause(Translator *tr, int *tone, char **voice_change);
 void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_change, int *terminator_out);
 

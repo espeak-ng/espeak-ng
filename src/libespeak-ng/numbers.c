@@ -715,7 +715,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 					// lang=hu don't treat dot as ordinal indicator if the next word is a month name ($alt). It may have a suffix.
 					nextflags = 0;
 					if (IsAlpha(c2))
-						nextflags = TranslateWord(tr, &word_end[2], NULL, NULL);
+						nextflags = TranslateWord(tr, &word_end[2], NULL, NULL, NULL, NULL, 0);
 
 					if ((tr->prev_dict_flags[0] & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || iswdigit(c2)))
 						ordinal = 0; // TEST  09.02.10

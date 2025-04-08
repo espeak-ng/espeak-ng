@@ -46,7 +46,7 @@
 #include "translateword.h"
 
 static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count);
-static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes);
+static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes, WORD_TAB words[], char sbuf[], int word_count);
 static void SwitchLanguage(char *word, char *word_phonemes);
 
 Translator *translator = NULL; // the main translator
@@ -141,13 +141,13 @@ char *strchr_w(const char *s, int c)
 	return strchr((char *)s, c); // (char *) is needed for Borland compiler
 }
 
-int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
+int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out, WORD_TAB words[], char sbuf[], int word_count)
 {
 	char words_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 	char *phonemes = words_phonemes;
 
 
-	int flags = TranslateWord3(tr, word_start, wtab, word_out, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
+	int flags = TranslateWord3(tr, word_start, wtab, word_out, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes), words, sbuf, word_count);
 	if (flags & FLAG_TEXTMODE && word_out) {
 		// Ensure that start of word rules match with the replaced text,
 		// so that emoji and other characters are pronounced correctly.
@@ -173,7 +173,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 			// However, dictionary_skipwords value is still needed outside this scope.
 			// So we backup and restore it at the end of this scope.
 			int skipwords = dictionary_skipwords;
-			TranslateWord3(tr, word_out, wtab, NULL, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
+			TranslateWord3(tr, word_out, wtab, NULL, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes), words, sbuf, word_count);
 
 			int n;
 			if (first_word) {
@@ -299,7 +299,7 @@ int SetTranslator3(const char *new_language)
 	return SetAlternateTranslator(new_language, &translator3, translator3_language);
 }
 
-static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pause)
+static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pause, WORD_TAB words [], char sbuf[], int word_count)
 {
 	int flags = 0;
 	int stress;
@@ -401,7 +401,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		word_copy_len = ix;
 
 		word_replaced[2] = 0;
-		flags = TranslateWord(translator, word, wtab, &word_replaced[2]);
+		flags = TranslateWord(translator, word, wtab, &word_replaced[2], words, sbuf, word_count);
 
 		if (flags & FLAG_SPELLWORD) {
 			// re-translate the word as individual letters, separated by spaces
@@ -410,7 +410,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		}
 
 		if ((flags & FLAG_COMBINE) && !(wtab[1].flags & FLAG_PHONEMES)) {
-			CombineFlag(tr, wtab, word, &flags, p, word_phonemes);
+			CombineFlag(tr, wtab, word, &flags, p, word_phonemes, words, sbuf, word_count);
 		}
 
 		if (p[0] == phonSWITCH) {
@@ -433,9 +433,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 					if (word_replaced[2] != 0) {
 						word_replaced[0] = 0; // byte before the start of the word
 						word_replaced[1] = ' ';
-						flags = TranslateWord(translator2, &word_replaced[1], wtab, NULL);
+						flags = TranslateWord(translator2, &word_replaced[1], wtab, NULL, words, sbuf, word_count);
 					} else
-						flags = TranslateWord(translator2, word, wtab, &word_replaced[2]);
+						flags = TranslateWord(translator2, word, wtab, &word_replaced[2], words, sbuf, word_count);
 				}
 
 				if (p[0] != phonSWITCH)
@@ -1604,7 +1604,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 
 			for (pw = &number_buf[3]; pw < pn && nw < N_CLAUSE_WORDS;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
-				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
+				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause, words, sbuf, word_count);
 				while (pw < pn && *pw++ != ' ')
 					;
 				words[ix].pre_pause = 0;
@@ -1612,7 +1612,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 		} else {
 			pre_pause = 0;
 
-			dict_flags = TranslateWord2(tr, word, &words[ix], words[ix].pre_pause);
+			dict_flags = TranslateWord2(tr, word, &words[ix], words[ix].pre_pause, words, sbuf, word_count);
 
 			if (pre_pause > words[ix+1].pre_pause) {
 				words[ix+1].pre_pause = pre_pause;
@@ -1626,7 +1626,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 					memset(number_buf+1, ' ', 9);
 					nx = utf8_in(&c_temp, pw);
 					memcpy(&number_buf[3], pw, nx);
-					TranslateWord2(tr, &number_buf[3], &words[ix], 0);
+					TranslateWord2(tr, &number_buf[3], &words[ix], 0, words, sbuf, word_count);
 					pw += nx;
 				}
 			}
@@ -1710,7 +1710,7 @@ static int CalcWordLength(int source_index, int charix_top, short int *charix, W
 	return k;
 	}
 
-static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes) {
+static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, unsigned char *p, char *word_phonemes, WORD_TAB words[], char sbuf[], int word_count) {
 	// combine a preposition with the following word
 
 
@@ -1738,7 +1738,7 @@ static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, 
 		char ph_buf[N_WORD_PHONEMES];
 		strcpy(ph_buf, word_phonemes);
 
-		flags2[0] = TranslateWord(tr, p2+1, wtab+1, NULL);
+		flags2[0] = TranslateWord(tr, p2+1, wtab+1, NULL, words, sbuf, word_count);
 		if ((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
 			ok = false;
 
@@ -1759,11 +1759,11 @@ static void CombineFlag(Translator *tr, WORD_TAB *wtab, char *word, int *flags, 
 	if (ok) {
 		*p2 = '-'; // replace next space by hyphen
 		wtab[0].flags &= ~FLAG_ALL_UPPER; // prevent it being considered an abbreviation
-		*flags = TranslateWord(translator, word, wtab, NULL); // translate the combined word
+		*flags = TranslateWord(translator, word, wtab, NULL, words, sbuf, word_count); // translate the combined word
 		if ((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f))) {
 			// revert to separate words
 			*p2 = ' ';
-			*flags = TranslateWord(translator, word, wtab, NULL);
+			*flags = TranslateWord(translator, word, wtab, NULL, words, sbuf, word_count);
 		} else {
 			if (*flags == 0)
 				*flags = flags2[0]; // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
