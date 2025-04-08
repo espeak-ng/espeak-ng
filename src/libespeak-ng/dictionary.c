@@ -2882,7 +2882,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		text[1] = ' ';
 		text[2] = ' ';
 		strncpy0(text+3, word1, sizeof(text)-3);
-		flags0 = TranslateWord(tr, text+3, NULL, NULL, NULL, 0, NULL, NULL, 0);
+		flags0 = TranslateWord(tr, text+3, NULL, NULL, NULL, NULL, 0);
 		strcpy(ph_out, word_phonemes);
 		option_sayas = say_as;
 	}

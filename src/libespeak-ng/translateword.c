@@ -191,6 +191,20 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 	wordbuf[ix2] = 0;
 	fprintf(stderr, "Processing word: '%s'\n", wordbuf);
 
+	// Add debug print header and print all words before processing
+	fprintf(stderr, "\n=== Words in sentence from me ===\n");
+	for (ix = 0; ix < word_count; ix++) {
+		char word_copy[150];
+		int word_len = 0;
+		char *pw = &sbuf[words[ix].start];
+		while (pw[word_len] != ' ' && pw[word_len] != 0 && word_len < 149) {
+			word_copy[word_len] = pw[word_len];
+			word_len++;
+		}
+		word_copy[word_len] = 0;
+		fprintf(stderr, "Word %d: '%s'\n", ix + 1, word_copy);
+	}
+
 	// Check if the word is a homograph
 	if (IsHomograph(wordbuf)) {
 		fprintf(stderr, "Found homograph: '%s'\n", wordbuf);
