@@ -163,7 +163,7 @@ void SetSpeed(int control)
 
 	if (control & 2)
 		DoSonicSpeed(1 * 1024);
-	if ((wpm_value >= espeakRATE_MAXIMUM) || ((wpm_value > speed.fast_settings) && (wpm > 350))) {
+	if ((wpm_value > espeakRATE_MAXIMUM) || ((wpm_value > speed.fast_settings) && (wpm > 350))) {
 		int wpm2;
 		wpm2 = wpm;
 		wpm = espeakRATE_NORMAL;
