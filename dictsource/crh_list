@@ -1,0 +1,512 @@
+// ***************************************************************************/ 
+// *   Crimean Tatar Language crh crh_list                                   *
+// *   Original Author Andy Vladescu, 2024                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+// This file is UTF-8 encoded
+
+// LETTERS
+//*********
+
+a      A:
+b      b;e
+c      dZ;;e
+ç      tS;;e
+d      d|;e
+e      ;e:
+f      f;e
+g      J;e
+ğ      QI
+h      x@
+ı      @:
+i      i:
+j      Z|;e
+k      c;e
+l      l;e
+m      m;e
+n      n;e
+ñ      N;e
+o      o:
+ö      W:
+p      p;e
+q      q@
+r      r;e
+s      s|;e
+ş      S|;e
+t      t|;e
+u      u:
+ü      y:
+v      v;e
+y      je
+z      ;es
+
+
+// NUMBERS
+//*********
+
+_0       s@f'@r
+_1       b'Ir
+_2       Ec;'i
+_3       'ytS;
+_4       d'Wrt
+_5       b;'eS
+_6       ALt'@
+_7       jed'I
+_8       s|;ek'Is
+_9       doq'us
+
+_10      'on
+_11      onb'Ir
+_12      onEc;'i
+_13      on'ytS;
+_14      ond'Wrt
+_15      onb;'eS
+_16      onALt'@
+_17      onjed'I
+_18      ons|;ek'Is
+_19      ondoq'us
+
+_2X      jIgIrm'I
+_3X      ot'us
+_4X      q'@rq
+_5X      Ell'I
+_6X      ALtm'@S
+_7X      jetm'IS
+_8X      s|;eks|;'en
+_9X      doqs'An
+
+_1C      j'ys
+_2C      Ec;ij'ys
+_3C      ytS;j'ys
+_4C      dWrtj'ys
+_5C      b;eSj'ys
+_6C      ALt@j'ys
+_7C      jedIj'ys
+_8C      s|;ekIzj'ys
+_9C      doquzj'ys
+
+_1M1     b;'iN
+_2M1     Ec;ib;'iN
+_3M1     ytS;b;'iN
+_4M1     dWrtb;'iN
+_5M1     b;eSb;'iN
+_6M1     ALt@b;'iN
+_7M1     jedIb;'iN
+_8M1     s|;ekIzb;'iN
+_9M1     doquzb;'iN
+_10M1    onb;'iN
+
+// large numbers, short scale
+_0C       j'ys
+_0M1      b;'iN
+_0M2      m;ill;i'on
+_0M3      m;ill;i'Ard
+_0M4      tr;ill;i'on
+_0M5      kvAdrIll;i'on
+_0M6      kv;intIll;i'on
+_0M7      s|;ekstIll;i'on
+_0M8      s|;eptIll;i'on
+_0M9      oktIll;i'on
+_0M10     non;ill;i'on
+
+_dpt     _v;irJ,yl_|
+
+
+// ORDINAL NUMBERS
+//*****************
+
+_#-nci  ndZ;'I       // ordinal suffix
+
+_1o	bIrI
+_2o	Ec;i
+_3o	ytS;y
+_4o	dWrty
+_5o	b;eSI
+_7o	jedI
+_8o	s|;ekIzI
+_9o	doquzI
+
+_10o	onI
+_20o	jIgIrmI
+_30o	otuzI
+_50o	EllI
+_60o	ALtm@SI
+_70o	jetmISI
+_80o    s|;eks|;enI
+_90o	doqsany
+_0Co	jyzy
+_1Co    jyzy
+_0M1o	b;iN;i
+_1M1o	b;iN;i
+_0M2o   m;ill;ionI
+_0M3o   m;ill;iArdI
+
+_ord    ndZ;'I     // default ordinal suffix
+
+
+// CHARACTERS
+//************
+
+_. noqt'A
+_, v;irJ'yl
+_; noqt'A||v;,e||v;irJ'yl
+_: Ec;,i||noqt'A
+_! n;id,A||iSAr;et'I
+_? su,AL||iSAr;et'I
+_| Ast@n,@||s@zm'Aq
+_( AtS;,@q||qAvuLAr'@
+_) qApAt,uw||qAvuLAr'@
+_[ AtS;,@q||kvAdr,At||qAvuLAr'@
+_] qApAt,uw||kvAdr,At||qAvuLAr'@
+_{ AtS;@LQ,An||q@r@m@z,@||qAv'us
+_} qApAt,uw||q@r@m@z,@||qAv'us
+_< d|;,en||;eks|;'ik
+_> d|;,en||byj'yk
+_" t@rn,Aq||iSAr;et'I
+_… ,ytS;||noqt'A
+_~ t;;ild|;'e
+_& Amp;ers'And
+_` Arq,A||cWtS;yrIlm;,e||L'Af
+_' Apostr'of
+__ Ast@n,@||s'@z@N@s
+_« soLQ,A||cWst|;erIlJ;,en||Ec;,i||cWs|;el,I||t@rn,Aq||iSAr;et'I
+_» sAQ:,A||cWst|;erIlJ;,en||Ec;,i||cWs|;el,I||t@rn,Aq||iSAr;et'I
+
+.  noqt'A
++  plys $max3
+-  m;inus $max3
+=  musAv;'i: $max3
+/  c;es|;'ik   $max3
+\  Artq,A||s@zQ'@tS; $max3
+#  d;;ij'es $max3
+@  tWJ;er;'ek
+$  doLL'Ar
+€  ;evr'o
+%  fAj'@s  $max3
+&  v;,e
+*  j@Ld@ztS;'@q  $max3
+º  d|;er;edZ;;'e
+^  kAr;'et
+
+
+// ABBREVIATIONS
+//***************
+
+kg  c;iLogr'Amm
+km  c;iLom;'etr
+mg  m;ill;igr'Amm
+mm  m;ill;im;'etr
+ml  mi;ll;il;'itr
+sm  sAnt;;im;'etr
+
+
+// PRONOUNS
+//**********
+
+men	     $u+               // I
+sen	     $u+               // you
+o	     $u                  // he/she
+o        o:    $atend
+biz	     b,Is  $u+         // we
+siz	     s|;,is $u+        // you
+olar     $u+               // they
+menim	 m;en,Im $u2+                 // my            
+seniñ	 $u+                 // your
+onıñ	 $u+                 // its
+bizim	 bIz,Im $u2+          // our
+siziñ	 sIz,IN $u2+          // your
+olarnıñ  $u3+               // their
+
+
+// CONJUNCTIONS
+//**************
+
+amma     $u $brk              // but
+ancaq    $u $brk             // only
+eger     $u $brk           // if
+ile      $u $brk             // with
+sanki    $u $brk              // as
+ve       $u $brk               // and
+ya       $u $brk               // or
+yahut    $u $brk              // or
+yoqsa    $u $brk              // if not
+
+
+// POSTPOSITIONS
+//***************
+
+içün       $u+             // for
+qadar      $u+             // until
+soñ        $u+              // after
+sebep      $u+             // due to
+taba       $u+             // towards
+zarfında   $u3+             // during
+
+
+// MAIN WORD DICTIONARY
+//**********************
+
+// use for other penultimate syllable words (e.g. "andorra", "angola", "avropa", "barrikada", etc.)
+// replacing to [O] in some words used in Crimean Tatar language (e.g. "konstruktsiya)
+// replacing [I] to [i] in some words used in Crimean Tatar language (e.g. "abrduraim", "amir", "dair", "ismail", etc.)
+
+(6-ncı)     ALt@ndZ;'@
+(16-ncı)    onALt@ndZ;'@
+(26-ncı)    jIgIrm'IALt@ndZ;'@
+(36-ncı)    ot'usALt@ndZ;'@
+(46-ncı)    q'@rqALt@ndZ;'@
+(56-ncı)    Ell'IALt@ndZ;'@
+(66-ncı)    ALtm'@SALt@ndZ;'@
+(76-ncı)    jetm'ISALt@ndZ;'@
+(86-ncı)    s|;eks|;'enALt@ndZ;'@
+(96-ncı)    doqs'AnALt@ndZ;'@
+(40-ıncı)    q@rq@ndZ;'@
+(60-ıncı)   ALtm@S@ndZ;'@
+abbreviatura $5
+abduraim  AbdurA'im
+abrakadabra $4
+alabama  $3
+alâska     $2
+aleksandr  $3
+amir      Am;'ir
+andorra  $2
+angola   $2
+ariflerini  Ar;ifl;erIn'I
+audio   $2
+avropa $2
+aydaho     Ajd'AxO
+aylend     $1
+aziz       Az|;'is
+barrikada  $3
+belli    bEll'I
+bir      b'Ir
+biri     bIr'I
+birinci     bIrIndZ;'I
+biriniñ     bIrIn'IN
+birilerinen  bIrIlerIn;'en
+birisiniñ  bIrIsIn'In
+bizde    bIzd|;'e
+bizge    bIzJ;'e
+bloknot  bLOkn'ot
+böylece  $1
+brigada  $2
+bronhit  bronx;'it
+cengiz   dZ;;enJ;'is
+dair     dA'ir
+dakota   $2
+damir    dAm;'ir
+degil    d|;eJ;'il
+dekorativ  d|;ekOrAt;;'if
+demokratik  d|;emOkrAt;;'ik
+demokratsiya  d|;emOkrAts;'ijA
+diagonal d;;iAgOn'AL
+doquzinci  doquzIndZ;'I
+egoizm   ;egO'izm
+eki       Ec;'i
+ekinci    Ec;indZ;'I
+ekologiya  ;ekOLoJ;'ijA
+eksponat  ;ekspOn'At
+elli      Ell'I
+ellinci   EllIndZ;'I
+emce      $2
+emil      ;em;'il
+epopeya    ;epOp;'ejA
+fenomen      f;enOm;'en
+fenomenal    f;enOm;en'AL
+franko     $1
+flora      $1
+florida    fLor;'idA
+formula    $2
+fransisko  $2
+furtuna  $2
+gazeta   $2
+gemil    J;em;'il
+gitler     $1
+grigoriy   $2
+halil     xAl;'il
+hronometr  xronOm;'etr
+iblis      ibl;'is
+ibrahim    ibrAx;'im
+iç         'itS;
+ifrit      ifr;'it
+igor       $1
+illinoys   ill;'inojs
+ince       $2
+indiana    ind;;i'AnA
+inglizce   ingl;'izdZ;;e
+ismail     ismA'il
+iş        'iS
+iz        'is
+kaloriya    kALOr;'ijA
+kalina     kAl;'inA
+kamil      kAm;'il
+kandidatura  $4
+karim      kAr;'im
+kentukki   c;ent'uc:;i
+kiril        kIr'Il
+kiriş        kIr'IS
+klaviatura   $4
+kollegiya    kOLl;eJ;'ijA
+kollektiv    kOLl;ekt;;'if
+kollektivizatsiya  kOLl;ekt;;iv;izAts;'ijA
+kollektsioner   kOLl;ektsIon;'er
+kollektsiya   kOLl;ekts;'ijA
+kolonna      kOL'onnA
+kolorado   koLor'AdO
+komanda   $2
+kombinat  kOmb;in'At
+kombinatsiya  kOmb;inAts;'ijA
+komediya   kOm;ed;;'ijA
+komendant  kOm;end'Ant
+kometa    kOmet'A
+komfort   kOmf'ort
+komissar  kOm;iss'Ar
+komissariat  kOm;issAr;i'At
+komissarlıq  kOm;issArL'@q
+komissiya  kOm;iss|;'ijA
+komitet    kOm;it|;'et
+kommentariyler  kOmm;entAr;i:l;'er
+kommentirlemek  kOmmentIrl;em;'ek
+kommuna   kOmmun'A
+kommunal  kOmmun'AL
+kommunist  kOmmun;'ist
+kommunistik  kOmunn;ist;;'ik
+kommunizm  kOmmun;'izm
+kompaniya  kOmpan;'ijA
+kompensatsiya  kOmp;ensAts;'ijA
+kompleks  kOmpl;'eks
+komplekt  kOmpl;'ekt
+konditer    kOnd;;it|;'er
+konferansye   kOnf;erAnsj'e
+konferentsiya  kOnf;er;ents;'ijA
+kongress       kOngr;'ess
+konkret     kOnkr;'et
+konserv     kOns|;'erf
+konservalar  kOns|;ervAL'Ar
+konservatoriya  kOns|;ervAtor;'ijA
+konservirlemek  kOns|;erv;irl;em;'ek
+konspekt      kOnsp;'ekt
+konspirativ   kOnspIrat;;'if
+konspiratsiya  kOnspIrAts;'ijA
+konstatatsiya  kOnstAtAts;'ijA
+konstatirlemek  kOnstAtIrl;em;'ek
+konstitutsiya  kOnst;ituts;'ijA
+konstruirlemek  kOnstruirl;em;'ek
+konstruktsiya  kOnstrukts;'ijA
+konsul         kOns'uL
+konsultatsiya  kOnsuLtAts;'ijA
+konsultirlemek  kOnsuLtIrl;em;'ek
+kontakt        kOnt'Akt
+kontinent      kOntIn;'ent
+kontinental    kOntIn;ent'AL
+kontora        kOntor'A
+kontributsiya  kOntrIbuts;'ijA
+kontrol        kOntr'oL
+kontrolör      kOntrol'Wr
+kontsentratsion  kOnts;entrAtsI'on
+kontsentratsiya  kOnts;entrAts;'ijA
+kontsert       kOnts;'ert
+konveyer       kOnv;ej'er
+konvoy         kOnv'oj
+koordinata     koord;;in'AtA
+kopirlemek     kOpIrl;em;'ek
+koridor        kOr;id'or
+korpus         kOrp'us
+korrespondent  kOrr;espond|;'ent
+korrespondentsiya  kOrr;espond|;ents;'ijA
+kotlet    kOtl;'et
+latif      LAt;;'if
+latin      LAt;;'in
+lâkin      l;Ac;'in
+magistr    $2
+mair       mA'ir
+matematika  $4
+milliardinci  m;ill;iArdIndZ;'I
+milligramm  m;ill;igr'Amm
+millilitr   m;ill;il;'itr
+millimetr   m;ill;im;'etr
+millioninci  m;ill;ionIndZ;'I
+minnesota    $3
+minus        $1
+missisipi    m;iss|;is|;'ip;i
+molekula    $3
+monako      $2
+müim       my'im
+natalya    $2
+nomera      nOm;er'A
+nuri        nur;'i
+ohayo       $2
+oklahoma    $3
+oninci      onIndZ;'I
+onkolog     oNkOL'og
+onkologik   oNkOLoJ;'ik
+osetinskiy    os|;et'Insc;i:
+parfümidir  pArfym'IdIr
+pasta       $1
+pensilvaniya $3
+planeta     $2
+platforma   $2
+problem     prObl;'em
+putin       p'ut;;in
+radio       $1
+radiola     $3
+raketa      $2
+registr    $2
+rekonstruktsiya  r;ekOnstrukts;'ijA
+salata   $2
+samir    sAm;'ir
+santimetr  sAnt;;im;'etr
+savanna  $2
+saibidirler  sAibIdIrl;'er
+saip       sA'ip
+sekiz      s|;ek'Is
+sekizinci   s|;ekIzIndZ;'I
+sekseninci  s|;eks|;enIndZ;'I
+sevil       s|;ev;'il
+skovoroda   $3
+sovet      sOv;'et
+srostki    $1
+stalin     st'Al;in
+şirket     S|;irc;'et
+şivesi     S|;iv;es'I
+şoför      SOf'Wr
+şukşin     S'ukS|;in
+şukşina    SukS|;'inA
+tabiiy     tAbi;'i:
+tehas      $1
+tennessi   t|;'enn;ess|;i
+tildir     t'IldIr
+tili       tIl'I
+tilidir    tIl'IdIr
+tiliniñ    tIlIn'IN
+tsentner $1
+tsilindr ts;il;'indr
+tsitata  $2
+ukrain  ukrA'in
+uzeir   uze'ir
+üsein   yse'in
+vanin       v'An;in
+vayoming    vAj'om;iNg
+virginiya   vIrJ;in;'ijA
+viskonsin   v;isk'ons|;in
+vladimir    vLAd;;im;'ir
+yetmişinci  jetmISIndZ;'I
+yigirmi  jIgIrm'I
+zebra $1
+zelenskıy  $2
