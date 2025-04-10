@@ -1,0 +1,15 @@
+language variant
+name Reed2
+maintainer Enes Deniz
+klatt 6
+consonants 85 85
+voicing 100
+breath 10
+pitch 80 125
+
+formant 1 92 100 105
+formant 2 102 100 80
+formant 3 102 100 70
+formant 4 98 100 90
+formant 5 100 100 90
+
