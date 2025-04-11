@@ -241,11 +241,15 @@ jobs:
         ${{ matrix.config_env }} ${{ matrix.runenv }} cmake --build build --target tests
         ${{ matrix.config_env }} ${{ matrix.runenv }} ctest --test-dir build -T test -j8 --output-on-failure
 
+    # Debugging step: List contents of the build directory
+    - name: List build directory contents
+      run: ls -R build
+
     # Upload build artifacts
     - name: upload-artifacts
       uses: actions/upload-artifact@v4
       with:
         name: espeak-ng-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}-${{ matrix.config }}
         path: |
-          build/espeak-ng  
+          build/espeak-ng
           build/data      
