@@ -52,6 +52,10 @@ static char **homographs_list = NULL;
 static int homographs_count = 0;
 static json_object *homograph_data = NULL;
 
+// Add these near the other global variables at the top
+static char **stopwords_list = NULL;
+static int stopwords_count = 0;
+
 static void LoadHomographData(void)
 {
 	char path[256];
@@ -159,6 +163,77 @@ static bool IsHomograph(const char *word)
 	return false;
 }
 
+static void LoadStopwords(void)
+{
+	FILE *f;
+	char path[256];
+	char line[256];
+	int count = 0;
+	int i = 0;
+
+	// Get the path to stopwords.dat
+	snprintf(path, sizeof(path), "%s%cespeak-ng-data%cstopwords.dat", path_home, PATHSEP, PATHSEP);
+
+	f = fopen("/content/espeak-ng/espeak-ng-data/stopwords.dat", "r");
+	if (f == NULL) {
+		fprintf(stderr, "Failed to open stopwords.dat\n");
+		return;
+	}
+
+	// First count the number of lines
+	while (fgets(line, sizeof(line), f) != NULL) {
+		count++;
+	}
+
+	// Allocate memory for the list
+	stopwords_list = (char **)malloc(count * sizeof(char *));
+	if (stopwords_list == NULL) {
+		fclose(f);
+		return;
+	}
+
+	// Rewind and read the file
+	rewind(f);
+	while (fgets(line, sizeof(line), f) != NULL) {
+		// Remove newline
+		line[strcspn(line, "\n")] = 0;
+		stopwords_list[i] = strdup(line);
+		if (stopwords_list[i] == NULL) {
+			// Cleanup on error
+			for (int j = 0; j < i; j++) {
+				free(stopwords_list[j]);
+			}
+			free(stopwords_list);
+			stopwords_list = NULL;
+			fclose(f);
+			return;
+		}
+		i++;
+	}
+
+	stopwords_count = count;
+	fclose(f);
+}
+
+static bool IsStopword(const char *word)
+{
+	if (stopwords_list == NULL) {
+		LoadStopwords();
+	}
+
+	if (stopwords_list == NULL) {
+		return false;
+	}
+
+	for (int i = 0; i < stopwords_count; i++) {
+		if (strcmp(word, stopwords_list[i]) == 0) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
 // Function to generate phonemes for homograph words
 static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB words[], char sbuf[], int word_count) {
 	if (homograph_data == NULL) {
@@ -219,8 +294,8 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 		}
 		word_copy[word_len] = 0;
 		
-		// Skip if it's the target word or too short
-		if (word_len <= 1 || strcmp(word_copy, word) == 0) {
+		// Skip if it's the target word, too short, or a stopword
+		if (word_len <= 1 || strcmp(word_copy, word) == 0 || IsStopword(word_copy)) {
 			continue;
 		}
 
