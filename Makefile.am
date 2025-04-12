@@ -140,12 +140,12 @@ espeak_ng_include_HEADERS = \
 lib_LTLIBRARIES += src/libespeak-ng.la
 
 src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
-	${PCAUDIOLIB_LIBS}
+	${PCAUDIOLIB_LIBS} ${JSONC_LIBS}
 
 src_libespeak_ng_la_CFLAGS = \
 	-fPIC -fvisibility=hidden \
 	-pedantic -fno-exceptions -DPATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
-	${PCAUDIOLIB_CFLAGS} ${SONIC_CFLAGS} ${AM_CFLAGS}
+	${PCAUDIOLIB_CFLAGS} ${SONIC_CFLAGS} ${JSONC_CFLAGS} ${AM_CFLAGS}
 
 src_libespeak_ng_la_SOURCES = \
 	src/ucd-tools/src/case.c \

@@ -44,9 +44,48 @@
 #include "voice.h"                // for voice, voice_t
 #include "speech.h"               // for path_home
 
+// Add JSON parsing headers
+#include <json-c/json.h>
+
 // Global variables for homographs
 static char **homographs_list = NULL;
 static int homographs_count = 0;
+static json_object *homograph_data = NULL;
+
+static void LoadHomographData(void)
+{
+	char path[256];
+	json_object *root = NULL;
+	
+	// Get the path to dataset.json
+	snprintf(path, sizeof(path), "%s%cespeak-ng-data%cdataset.json", path_home, PATHSEP, PATHSEP);
+	
+	root = json_object_from_file(path);
+	if (root == NULL) {
+		fprintf(stderr, "Failed to load homograph data from %s\n", path);
+		return;
+	}
+	
+	homograph_data = root;
+	
+	// Print a sample entry for debugging
+	json_object *sample_word = json_object_object_get(root, "read");
+	if (sample_word != NULL) {
+		fprintf(stderr, "Sample homograph data for 'read':\n");
+		json_object_object_foreach(sample_word, key, val) {
+			fprintf(stderr, "  Pronunciation: %s\n", key);
+			fprintf(stderr, "  Context words: ");
+			if (json_object_get_type(val) == json_type_array) {
+				int array_len = json_object_array_length(val);
+				for (int i = 0; i < array_len; i++) {
+					json_object *item = json_object_array_get_idx(val, i);
+					fprintf(stderr, "%s ", json_object_get_string(item));
+				}
+			}
+			fprintf(stderr, "\n");
+		}
+	}
+}
 
 static void LoadHomographs(void)
 {
@@ -122,12 +161,124 @@ static bool IsHomograph(const char *word)
 
 // Function to generate phonemes for homograph words
 static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB words[], char sbuf[], int word_count) {
-    // For now, just return 'aaa' phonemes regardless of input
-    // This will be enhanced later to generate phonemes based on the word
-    phonemes[0] = PhonemeCode('a');
-    phonemes[1] = PhonemeCode('a');
-    phonemes[2] = PhonemeCode('a');
-    phonemes[3] = 0;
+	if (homograph_data == NULL) {
+		LoadHomographData();
+	}
+	
+	// Get the word data from homograph dictionary
+	json_object *word_data = json_object_object_get(homograph_data, word);
+	if (word_data == NULL) {
+		// Word not found in homograph dictionary, use default pronunciation
+		// For now just return 'aaa' phonemes, this should be replaced with actual default pronunciation
+		phonemes[0] = PhonemeCode('a');
+		phonemes[1] = PhonemeCode('a');
+		phonemes[2] = PhonemeCode('a');
+		phonemes[3] = 0;
+		return;
+	}
+
+	// Count context word frequencies
+	int context_counts[256] = {0}; // Assuming max 256 unique context words
+	char *context_words[256] = {0};
+	int num_context_words = 0;
+
+	// Process context words
+	for (int i = 0; i < word_count; i++) {
+		char *context_word = &sbuf[words[i].start];
+		int word_len = 0;
+		
+		// Extract the word
+		while (context_word[word_len] != ' ' && context_word[word_len] != 0 && word_len < 149) {
+			word_len++;
+		}
+		
+		// Skip if it's the target word or too short
+		if (word_len <= 1 || strncmp(context_word, word, word_len) == 0) {
+			continue;
+		}
+
+		// Check if we've seen this word before
+		int found = 0;
+		for (int j = 0; j < num_context_words; j++) {
+			if (strncmp(context_words[j], context_word, word_len) == 0) {
+				context_counts[j]++;
+				found = 1;
+				break;
+			}
+		}
+
+		// Add new word if not found
+		if (!found && num_context_words < 255) {
+			context_words[num_context_words] = context_word;
+			context_counts[num_context_words] = 1;
+			num_context_words++;
+		}
+	}
+
+	// Find best pronunciation
+	const char *best_phoneme = NULL;
+	double max_normalized_score = -1;
+	int max_raw_overlap = 0;
+
+	// Iterate through each pronunciation option
+	json_object_object_foreach(word_data, pron_key, pron_val) {
+		if (json_object_get_type(pron_val) != json_type_array) {
+			continue;
+		}
+
+		// Count word frequencies in this pronunciation's associated words
+		int phoneme_word_counts[256] = {0};
+		int total_phoneme_words = 0;
+		
+		int array_len = json_object_array_length(pron_val);
+		for (int i = 0; i < array_len; i++) {
+			json_object *item = json_object_array_get_idx(pron_val, i);
+			const char *assoc_word = json_object_get_string(item);
+			
+			// Count occurrences of this associated word
+			for (int j = 0; j < num_context_words; j++) {
+				if (strcmp(context_words[j], assoc_word) == 0) {
+					phoneme_word_counts[j]++;
+				}
+			}
+			total_phoneme_words++;
+		}
+
+		// Calculate weighted overlap
+		int weighted_overlap = 0;
+		for (int i = 0; i < num_context_words; i++) {
+			weighted_overlap += context_counts[i] * phoneme_word_counts[i];
+		}
+
+		// Calculate normalized score
+		double normalized_score = (total_phoneme_words > 0) ? 
+			(double)weighted_overlap / total_phoneme_words : 0.0;
+
+		// Select best phoneme
+		if (normalized_score > max_normalized_score) {
+			max_normalized_score = normalized_score;
+			max_raw_overlap = weighted_overlap;
+			best_phoneme = pron_key;
+		} else if (normalized_score == max_normalized_score) {
+			// Tiebreaker: prefer the phoneme with higher raw overlap
+			if (weighted_overlap > max_raw_overlap) {
+				max_raw_overlap = weighted_overlap;
+				best_phoneme = pron_key;
+			}
+		}
+	}
+
+	// Copy the best phoneme to output
+	if (best_phoneme != NULL) {
+		strncpy(phonemes, best_phoneme, N_WORD_PHONEMES - 1);
+		phonemes[N_WORD_PHONEMES - 1] = 0;
+	} else {
+		// No suitable pronunciation found, use default
+		phonemes[0] = PhonemeCode('a');
+		phonemes[1] = PhonemeCode('a');
+		phonemes[2] = PhonemeCode('a');
+		phonemes[3] = 0;
+	}
 }
 
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes);

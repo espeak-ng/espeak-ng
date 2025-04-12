@@ -225,6 +225,33 @@ AC_CHECK_FUNCS([strrchr])
 AC_CHECK_FUNCS([strstr])
 
 dnl ================================================================
+dnl JSON-C library checks.
+dnl ================================================================
+
+AC_CHECK_HEADERS([json-c/json.h],
+    [
+        have_jsonc=yes
+        JSONC_CFLAGS=-DUSE_JSONC=1
+        AC_CHECK_LIB([json-c], [json_object_from_file],
+            [
+                JSONC_LIBS=-ljson-c
+            ],
+            [
+                have_jsonc=no
+                AC_MSG_ERROR([json-c library is required for homograph support])
+            ]
+        )
+    ],
+    [
+        have_jsonc=no
+        AC_MSG_ERROR([json-c library is required for homograph support])
+    ]
+)
+
+AC_SUBST(JSONC_CFLAGS)
+AC_SUBST(JSONC_LIBS)
+
+dnl ================================================================
 dnl PCAudioLib checks.
 dnl ================================================================
 
