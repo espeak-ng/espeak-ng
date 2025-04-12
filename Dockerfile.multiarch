@@ -4,7 +4,7 @@ ARG ARCH
 ARG COMPILER
 ARG CONFIG
 
-# 安装构建依赖
+# Install build dependencies
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   build-essential \
   clang \
@@ -18,20 +18,20 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   python3 \
   && rm -rf /var/lib/apt/lists/*
 
-# 设置工作目录
+# Set working directory
 WORKDIR /app
 
-# 拷贝源码
+# Copy project source files into container
 COPY . .
 
-# 构建 espeak-ng
+# Configure and build espeak-ng
 RUN mkdir -p build && cd build && \
     cmake .. -DCMAKE_BUILD_TYPE=${CONFIG} && \
     make -j$(nproc)
 
-# 安装可执行文件和数据文件
+# Install the compiled binary and data directory
 RUN cp build/src/espeak-ng /usr/local/bin/espeak-ng && \
     cp -r build/espeak-ng-data /usr/local/share/espeak-ng-data
 
-# 默认启动命令
+# Default container command
 CMD ["espeak-ng", "--help"]
