@@ -23,146 +23,146 @@
 // prefixed by a _ character.
 
 // accent names
-_lig	ligad'u*&
-_acu	ag'udU
-_ac2	ag'udUd'uplU	
-_brv	bR'Evi
-_ced	sedZ'ilj&
+   _lig	ligad'u*&
+   _acu	ag'udU
+   _ac2	ag'udUd'uplU
+   _brv	bR'Evi
+   _ced	sedZ'ilj&
 ?1 _ced	syd'il^&
-_cir	sirku~Nfl'EksU
-_dia	tR'em&
-_dot	p'oNtU
-_grv	gR'avi
-_hac	ka*'oN
-_mcn	makR'oN
-_ogo	ogon'ek
-_rng	&~n'EU
+   _cir	sirku~Nfl'EksU
+   _dia	tR'em&
+   _dot	p'oNtU
+   _grv	gR'avi
+   _hac	ka*'oN
+   _mcn	makR'oN
+   _ogo	ogon'ek
+   _rng	&~n'EU
 ?1 _rng	&~n'El
-_stk	b'ax&
-_tld	tS'iU
+   _stk	b'ax&
+   _tld	tS'iU
 ?1 _tld	til
 
 // alphabets
-_ar	'a*aby
-_cyr	si*'ilikU
-_he	eb*'aIkU
-_zh	Sin'es
+   _ar	'a*aby
+   _cyr	si*'ilikU
+   _he	eb*'aIkU
+   _zh	Sin'es
 
 
 // character names
 
-_á	$accent
-_à	$accent   // à can be a word
-â	$accent
-ã	$accent
-ç	$accent
-_é	$accent   // é can be a word
-ê	$accent
-í	$accent
-_ó	$accent
-ô	$accent
-õ	$accent
-ú	$accent
-ü	$accent
-ß	_^_DE
+   _á	$accent
+   _à	$accent		// à can be a word
+   â	$accent
+   ã	$accent
+   ç	$accent
+   _é	$accent		// é can be a word
+   ê	$accent
+   í	$accent
+   _ó	$accent
+   ô	$accent
+   õ	$accent
+   ú	$accent
+   ü	$accent
+   ß	_^_DE
 
-v	ve       // not Roman numbers
-x	Sis#
+   v	ve		// not Roman numbers
+   x	Sis#
 
-_cap	maI'uskulU
-_sub	||subskR'itU
-_sup	||sob*eskR'itU
-_?A	l'etR&_
-_??	s'imbolU_
-_#32	esp'asU
+   _cap	maI'uskulU
+   _sub	||subskR'itU
+   _sup	||sob*eskR'itU
+   _?A	l'etR&_
+   _??	s'imbolU_
+   _#32	esp'asU
 ?1 _#32	Sp'asU
-_#9	tab
+   _#9	tab
 
-*	&ste*'iskU	$max3
-=	__igw'&l_	$max3
-.	p'oNtU		$max3
-+	maIs#		$max3
-%	pors'eINtU	$max3
-&	_'e_
-@	ax'ob&
-$	d'olaR
-€	'eU*U
-£	l'ibR&
-¥	j'eNy
-¢	seNt'avUs#
-§	ses'&U~
+   *	&ste*'iskU $max3
+   =	__igw'&l_ $max3
+   .	p'oNtU $max3
+   +	maIs# $max3
+   %	pors'eINtU $max3
+   &	_'e_
+   @	ax'ob&
+   $	d'olaR
+   €	'eU*U
+   £	l'ibR&
+   ¥	j'eNy
+   ¢	seNt'avUs#
+   §	ses'&U~
 
-_!	Skl&mas'&U~
-_"	'asp&s#
+   _!	Skl&mas'&U~
+   _"	'asp&s#
 
-?1   _#	k,ardin'al
-?2   _#	k,ardZin'aU
-_$	s,ifR'&U~
-_&	'e
-?1   _'	ap'OStr,ofy
-?2   _'	ap'OstRofU
-_(	,abRipa*'eINtezy
-?1   ¶	pa*'agr&fU
-?2   ¶	pa*'agR&fU
-●	s'i*@-kulU
-■	b'ax&ve*@-tSik'aUko*@-tad&
-?1  ÷	divid'idUp'or
-?2  ÷	dZividZ'idUp'or
- ×	v'ezys#
+?1 _#	k,ardin'al
+?2 _#	k,ardZin'aU
+   _$	s,ifR'&U~
+   _&	'e
+?1 _'	ap'OStr,ofy
+?2 _'	ap'OstRofU
+   _(	,abRipa*'eINtezy
+?1 ¶	pa*'agr&fU
+?2 ¶	pa*'agR&fU
+   ●	s'i*@-kulU
+   ■	b'ax&ve*@-tSik'aUko*@-tad&
+?1 ÷	divid'idUp'or
+?2 ÷	dZividZ'idUp'or
+   ×	v'ezys#
 ?1 µ	m'ikrU
 ?2 µ	m'ikRU
-_)	f,ES&pa*'eINtezy
-_*	&ste*'iskU
-_−	m'enUs
-№	n'u~me*U
-∞	iNfin'itU
-∫	iNtegR'aU
-⅓	u~Nt'e*@-sU
-⅔	doIs#t'e*@-sUs#
-¼	u~Nku'a*@-tU
-½	m'eIU
-¾	tRes#kw'a*@-tUs#
-®	xeZistR'adU
-↑	s'Et&as'im&
-↓	s'Et&ab'aISU
-←	s'Et&aes#k'e*@-d&
+   _)	f,ES&pa*'eINtezy
+   _*	&ste*'iskU
+   _−	m'enUs
+   №	n'u~me*U
+   ∞	iNfin'itU
+   ∫	iNtegR'aU
+   ⅓	u~Nt'e*@-sU
+   ⅔	doIs#t'e*@-sUs#
+   ¼	u~Nku'a*@-tU
+   ½	m'eIU
+   ¾	tRes#kw'a*@-tUs#
+   ®	xeZistR'adU
+   ↑	s'Et&as'im&
+   ↓	s'Et&ab'aISU
+   ←	s'Et&aes#k'e*@-d&
 ?2 →	s'Et&adZi*eIt&
 
-?1  ™	m'a*@-k&xeZiSt'ad&
-?2  ™	m'a*@-k&xeZistR'ad&
-_,	v'irgul&
-_-	'ifeIN
-_/	b'aQ&
-_:	d,oIsp'oNtus
-_;	p,oNtu_iv'irgul&
-_<      men'Or
-?1   _=	igw'al
-?2   _=	igw'aU
-_>	maI'Or
-_?	,iNtex,ogas'&U~
-_[	,abRikowS'etSi
-_\	b,ax&,iNvertS'id&
-_]	f,ES&kowS'etSi
-_^	s,irku~Nfl'Eksu
-_´	as'eINtu,ag'udU
-·	p'oNtUseINtR'adU
-__	s,ublin^'adu
-  _`	gR'avi
-_{	,abRiS'avi
-?1   _|	b,ax&v,ertSik'al
-?2   _|	b,ax&v,ertSik'aU
-_}	f,ES&S'avi
-?1   _~	t'il
-?2   _~	tS'iU
-_¡	,eskl&mas,&U~,iNvertS'id&
-_¿	,iNtex,ogas,&U~,iNvertS'id&
+?1 ™	m'a*@-k&xeZiSt'ad&
+?2 ™	m'a*@-k&xeZistR'ad&
+   _,	v'irgul&
+   _-	'ifeIN
+   _/	b'aQ&
+   _:	d,oIsp'oNtus
+   _;	p,oNtu_iv'irgul&
+   _<	men'Or
+?1 _=	igw'al
+?2 _=	igw'aU
+   _>	maI'Or
+   _?	,iNtex,ogas'&U~
+   _[	,abRikowS'etSi
+   _\	b,ax&,iNvertS'id&
+   _]	f,ES&kowS'etSi
+   _^	s,irku~Nfl'Eksu
+   _´	as'eINtu,ag'udU
+   ·	p'oNtUseINtR'adU
+   __	s,ublin^'adu
+   _`	gR'avi
+   _{	,abRiS'avi
+?1 _|	b,ax&v,ertSik'al
+?2 _|	b,ax&v,ertSik'aU
+   _}	f,ES&S'avi
+?1 _~	t'il
+?2 _~	tS'iU
+   _¡	,eskl&mas,&U~,iNvertS'id&
+   _¿	,iNtex,ogas,&U~,iNvertS'id&
 
-_"	'abRi;'asp&||d'upl&s#
-?1   º	O*@-din'almaskul'i~nU
-?2   º	o*@-dZin'aUmaskul'i~nU
-?1   ª	O*@-din'alfemin'i~nU
-?2   ª	o*@-dZin'aUfemin'i~nU
-°	gR'aU
+   _"	'abRi;'asp&||d'upl&s#
+?1 º	O*@-din'almaskul'i~nU
+?2 º	o*@-dZin'aUmaskul'i~nU
+?1 ª	O*@-din'alfemin'i~nU
+?2 ª	o*@-dZin'aUfemin'i~nU
+   °	gR'aU
 
 
 // numeric
@@ -181,55 +181,55 @@ _"	'abRi;'asp&||d'upl&s#
    _6	s'eIs#
 ?1 _7	s'Ety
 ?2 _7	s'EtSy
-?1   _8	'oItu
-?2      _8	'oItU
+?1 _8	'oItu
+?2 _8	'oItU
    _9	n'Ovy
    _10	d'Es#
 
-_11	'oNzy
-_12	d'ozy
-?1_13	tr'ezy
-?2_13	tR'ezy
-?1_14	k&t'orzy
-?2_14	kat'o*@-zy
-_15	k'iNzy
-?1_16	dyz&s'eis#
-?2_16	d,ezes'eIs#
-?1_17	dyz&s'Ety
-?2_17	d,ezes'EtSy
-?1_18	dyz'Oitu
-?2_18	dez'oItU
-?1_19	dyz&n'Ovy
-?2_19	dezen'Ovy
-?1_2X	v'iNty
-?2_2X	v'iNtSy
-_3X	tR'iNt&
-?1_4X	kw&*'eNt&
-?2_4X	kwa*'eINt&
-_5X	siNkw'eINt&
-?1_6X	sys'eINt&
-?2_6X	ses'eINt&
-?1_7X	syt'eINt&
-?2_7X	set'eINt&
-_8X	oIt'eINt&
-?1   _9X	nuv'eINt&
-?2   _9X	nov'eINt&
-_1C0	s'eIN
-?1_0C	s'eINtus#
-?2_0C	s'eINtUz
-_1C	s'eINtu
-?1_2C	duz'eINtus#
-?2_2C	duz'eINtUz
-?1_3C	tryz'eINtus#
-?2_3C	tRez'eINtUz
-?1_5C	kin^'eINtus#
-?2_5C	kin^'eINtUz
-?1_6C	seIs'eINtus#
-?2_6C	seIs'eINtUz
-?1_0M1	m'il_
-?2_0M1	m'iU_
-?1_1M1	m'il_
-?2_1M1	m'iU_
+   _11	'oNzy
+   _12	d'ozy
+?1 _13	tr'ezy
+?2 _13	tR'ezy
+?1 _14	k&t'orzy
+?2 _14	kat'o*@-zy
+   _15	k'iNzy
+?1 _16	dyz&s'eis#
+?2 _16	d,ezes'eIs#
+?1 _17	dyz&s'Ety
+?2 _17	d,ezes'EtSy
+?1 _18	dyz'Oitu
+?2 _18	dez'oItU
+?1 _19	dyz&n'Ovy
+?2 _19	dezen'Ovy
+?1 _2X	v'iNty
+?2 _2X	v'iNtSy
+   _3X	tR'iNt&
+?1 _4X	kw&*'eNt&
+?2 _4X	kwa*'eINt&
+   _5X	siNkw'eINt&
+?1 _6X	sys'eINt&
+?2 _6X	ses'eINt&
+?1 _7X	syt'eINt&
+?2 _7X	set'eINt&
+   _8X	oIt'eINt&
+?1 _9X	nuv'eINt&
+?2 _9X	nov'eINt&
+   _1C0	s'eIN
+?1 _0C	s'eINtus#
+?2 _0C	s'eINtUz
+   _1C	s'eINtu
+?1 _2C	duz'eINtus#
+?2 _2C	duz'eINtUz
+?1 _3C	tryz'eINtus#
+?2 _3C	tRez'eINtUz
+?1 _5C	kin^'eINtus#
+?2 _5C	kin^'eINtUz
+?1 _6C	seIs'eINtus#
+?2 _6C	seIs'eINtUz
+?1 _0M1	m'il_
+?2 _0M1	m'iU_
+?1 _1M1	m'il_
+?2 _1M1	m'iU_
 
 _0M2	milj'o~js#
 _1M2	'u~milj'&U~
@@ -238,9 +238,9 @@ _1M3	'u~mbilj'&U~
 _0M4	trilj'o~js#
 _1M4	'u~ntRilj'&U~
 _0and	i
-_dpt    _v'irgul&
-// _0Z2	seNt'Ezim&     // 100ths
-// _0Z3	mil'Ezim&      // 1000ths
+_dpt	_v'irgul&
+// _0Z2 seNt'Ezim&	// 100ths
+// _0Z3 mil'Ezim&	// 1000ths
 
 // ordinal numbers
 _#º	U
@@ -258,7 +258,7 @@ _8o	oIt'av
 _9o	n'on
 _1Xo	d'Esim
 _2Xo	viZ'Ezim
-_3Xo	tRiZ'Ezim	
+_3Xo	tRiZ'Ezim
 _4Xo	kwad*aZ'Ezim
 _5Xo	kiNkwaZ'Ezim
 _6Xo	seksaZ'Ezim
@@ -287,229 +287,229 @@ vi	vi
 
 // ABBREVIATIONS
 //**************
-aapp	$abbrev 
+aapp	$abbrev
 abadv	$abbrev
-abc	$abbrev 
+abc	$abbrev
 a.c	'as'e
 adsl	$abbrev
-ae	$abbrev 
-aids	$abbrev 
+ae	$abbrev
+aids	$abbrev
 apedv	$abbrev
-avc	$abbrev 
+avc	$abbrev
 bios	b'i,OS
 d.c	d,es'e
-cne	$abbrev 
+cne	$abbrev
 cpu	$abbrev
 cpuc	$abbrev
-dpoc	$abbrev 
-ecg	$abbrev 
+dpoc	$abbrev
+ecg	$abbrev
 edp	$abbrev
-?1   etc	,ets'Et:*&
-?2   etc	,ets'Ete*&
+?1 etc	,ets'Et:*&
+?2 etc	,ets'Ete*&
 e.u.a	Eua
 eua	$abbrev
 fbi	$abbrev
-hiv	$abbrev 
+hiv	$abbrev
 (http ://)	ag,atete'pe_
-icc	$abbrev 
-ieee	$abbrev // Institute of Electrical and Electronics Engineers 
-iss	$abbrev 
+icc	$abbrev
+ieee	$abbrev	// Institute of Electrical and Electronics Engineers
+iss	$abbrev
 jpeg	Z,Ot&p'Eg
 mpeg	,Emp'Eg
-nba	$abbrev 
+nba	$abbrev
 nvda	$abbrev
-oms	$abbrev 
-omt	$abbrev 
+oms	$abbrev
+omt	$abbrev
 osi	$abbrev
-?1   sa       ,Esj'a
-?1   sos       ,Esj,O'Es
-ue	$abbrev 
+?1 sa	,Esj'a
+?1 sos	,Esj,O'Es
+ue	$abbrev
 unts	$abbrev
 usb	$abbrev
 
 
-dr	dowtor	$dot
-dra	dowt'o*&	$dot
-mr	m'ister	$dot
-mrs	m'irsys	$dot
-prof	pR'Of	$dot
-profº	pR,ofes'or
-profª	pR,ofes'o*&
-engº	eInZen^'eI*U
-engª	eInZen^'eI*&
-nº	n'u~me*U
-sr	$dot
-?1 sra	,Es;'Errj'a	$dot
-?2 sra	$dot
+dr		dowtor		$dot
+dra		dowt'o*&	$dot
+mr		m'ister		$dot
+mrs		m'irsys		$dot
+prof		pR'Of		$dot
+profº		pR,ofes'or
+profª		pR,ofes'o*&
+engº		eInZen^'eI*U
+engª		eInZen^'eI*&
+nº		n'u~me*U
+sr				$dot
+?1 sra		,Es;'Errj'a	$dot
+?2 sra				$dot
 
 // articles
-o	$u+	$nounf
-a	$u+	$nounf
-os	$u+	$nounf
-as	$u+	$nounf
-?1 a    & $u+   $nounf
+o		$u+	$nounf
+a		$u+	$nounf
+os		$u+	$nounf
+as		$u+	$nounf
+?1 a		&	$u+ $nounf
 
-um	$u	$nounf
-uma	$u	$nounf
-uns	$u	$nounf
-umas	$u	$nounf
+um		$u	$nounf
+uma		$u	$nounf
+uns		$u	$nounf
+umas		$u	$nounf
 
 
 // pronouns
-eu	$u+	$verbf
-tu	$u+	$verbf
-você	vose	$u2+	$verbf
-ele	'ely	$u+	$verbf
-ela	$u+	$verbf
-nós	$u+	$verbf
-vós	$u+	$verbf
-vocês	$u2+	$verbf
-eles	$u+	$verbf
-elas	$u+	$verbf
+eu		$u+	$verbf
+tu		$u+	$verbf
+você		vose	$u2+ $verbf
+ele		'ely	$u+ $verbf
+ela		$u+	$verbf
+nós		$u+	$verbf
+vós		$u+	$verbf
+vocês		$u2+	$verbf
+eles		$u+	$verbf
+elas		$u+	$verbf
 
-me	$u	$verbf	// reflexive
-te	$u	$verbf
-nos	$u	$nounf
-vos	$u
-la	$u
-lo	lU	$u
-las	$u
-los	$u
-se	$u
+me		$u	$verbf		// reflexive
+te		$u	$verbf
+nos		$u	$nounf
+vos		$u
+la		$u
+lo		lU	$u
+las		$u
+los		$u
+se		$u
 
-?2	este	$u+	$nounf	'estSy       // this
-?2	estes	$u+	$nounf       // these
-?2	esta	'Est& $u+	$nounf
-?2	nesta	$u+	$nounf
-?2	neste	$u+	$nounf	n'estSi      //in this
-?2	esse	$u+	$nounf	'esi       // that
-essa	'Es&  $u+	$noun
-desse	$u+	$nounf
-desta	$nounf
-nesse	n'esy	$u+ $nounf
-aquela	$u+ $nounf
-aquele	$alt2 $nounf
-àquela	$u+ $nounf
-àquele	$alt2 $nounf
-daquela $u+ $nounf
-daquele	$alt2 $nounf
-praquela $u+ $nounf
-praquele	$alt2 $nounf
-	que	$u      // pronunciation is in pt_rules
+?2 este		$u+	$nounf	'estSy	// this
+?2 estes	$u+	$nounf		// these
+?2 esta		'Est&	$u+ $nounf
+?2 nesta	$u+	$nounf
+?2 neste	$u+	$nounf n'estSi	// in this
+?2 esse		$u+	$nounf 'esi	// that
+essa		'Es&	$u+ $noun
+desse		$u+	$nounf
+desta			$nounf
+nesse		n'esy	$u+ $nounf
+aquela		$u+	$nounf
+aquele		$alt2	$nounf
+àquela		$u+	$nounf
+àquele		$alt2	$nounf
+daquela		$u+	$nounf
+daquele		$alt2	$nounf
+praquela	$u+	$nounf
+praquele	$alt2	$nounf
+que		$u		// pronunciation is in pt_rules
 
 // possessive adjectives
-meu	$u+	$nounf  // meus
-minha	$u+	$nounf  // minhas
-teu	$u+	$nounf
-tua	$u+	$nounf
-seu	$u+	$nounf
-sua	$u+	$nounf
-?2	nosso	$u+ $nounf //	n'OsU
-?2	nossa	$u+ $nounf	n'Os&
-?2	nossos	$u+ $nounf
-?2	nossas	$u+ $nounf
-dele	dely	$u1+
-dela	$u+
-deles	$u1+
-delas	$u+
-nele	nely	$u1+
-nela	$u+
-neles	$u1+
-nelas	$u+
+meu		$u+	$nounf	// meus
+minha		$u+	$nounf	// minhas
+teu		$u+	$nounf
+tua		$u+	$nounf
+seu		$u+	$nounf
+sua		$u+	$nounf
+?2 nosso	$u+	$nounf // n'OsU
+?2 nossa	$u+	$nounf n'Os&
+?2 nossos	$u+	$nounf
+?2 nossas	$u+	$nounf
+dele		dely	$u1+
+dela		$u+
+deles		$u1+
+delas		$u+
+nele		nely	$u1+
+nela		$u+
+neles		$u1+
+nelas		$u+
 
 // prepositions
-de	$u	$nounf // of,from
-do	dU	$u	$nounf
-da	$u	$nounf
-dos	$u	$nounf
-das	$u	$nounf
-dum	$u	$nounf
-duma	$u	$nounf
-duns	$u	$nounf
-dumas	$u	$nounf
+de		$u	$nounf	// of,from
+do		dU	$u $nounf
+da		$u	$nounf
+dos		$u	$nounf
+das		$u	$nounf
+dum		$u	$nounf
+duma		$u	$nounf
+duns		$u	$nounf
+dumas		$u	$nounf
 
-em	$u	$noun  // in,on,at
-no	nU	$u	$nounf
-na	$u	$nounf
-num	$u	$nounf
-numa	$u	$nounf
-nuns	$u	$nounf
-numas	$u	$nounf
+em		$u	$noun	// in,on,at
+no		nU	$u $nounf
+na		$u	$nounf
+num		$u	$nounf
+numa		$u	$nounf
+nuns		$u	$nounf
+numas		$u	$nounf
 
-por	$u $nounf	// by,for,through
-pelo	$u $nounf
-?2	pela	$u $nounf
+por		$u	$nounf	// by,for,through
+pelo		$u	$nounf
+?2 pela		$u	$nounf
 
-ao	$u	$nounf
-à	,a:
-à	$atend $atstart $accent
-aos	$u	$nounf
-às	$u	$nounf
-para	$u		// for,to
-pro	pRU	$u	$nounf
-pra	$u	$nounf
-pros	$u	$nounf
-pras	$u	$nounf
-prò	$u	$nounf
-prà	$u	$nounf
-pròs	$u	$nounf
-pràs	$u	$nounf
+ao		$u	$nounf
+à		,a:
+à		$atend $atstart $accent
+aos		$u	$nounf
+às		$u	$nounf
+para		$u		// for,to
+pro		pRU	$u $nounf
+pra		$u	$nounf
+pros		$u	$nounf
+pras		$u	$nounf
+prò		$u	$nounf
+prà		$u	$nounf
+pròs		$u	$nounf
+pràs		$u	$nounf
 
-com	$u		// with
-?2	sem		// without
-?2	até	$u	// until
-?2	desde	$u	// from,since
-?2	entre		// between,among
-	sobre	$alt2	// on,above,about
-?2	sob		// under,below
-?2	debaixo		// under,below
+com		$u		// with
+?2 sem				// without
+?2 até		$u		// until
+?2 desde	$u		// from,since
+?2 entre			// between,among
+   sobre	$alt2		// on,above,about
+?2 sob				// under,below
+?2 debaixo			// under,below
 
-?2	durante
+?2 durante
 
 
 // conjunctions
-?1	e	i $u	// and
-?2	e	i $u   // and
-se	$u+	$verbf		// if
+?1 e		i	$u	// and
+?2 e		i	$u	// and
+se		$u+	$verbf	// if
 
 
-?2	mas	$u	// but
-?2	porém		// however
-?2	todavia		// yet
-?2	contudo		// nevertheless
+?2 mas		$u		// but
+?2 porém			// however
+?2 todavia			// yet
+?2 contudo			// nevertheless
 
-?2	ou	$u	// or
-?2	quer		// whether
+?2 ou		$u		// or
+?2 quer				// whether
 
-?2	assim		// thus
-?2	portanto	// therefore
+?2 assim			// thus
+?2 portanto			// therefore
 
-?2	porque		// because
-?2	pois		// because
-?2	como	$u	// as
+?2 porque			// because
+?2 pois				// because
+?2 como		$u		// as
 
-?2	embora		// although
-?2	apesar		// despite
-
-
-?2	caso			// if
-?2	(desde que)	d'esdZiki/ 	// provided that
-?2	(exceto se)	es'Etusi/  	// unless
-?2	(salvo se)	s'alvusi/  	// unless
-
-?2	(para que)	p,a*&ki/          // so that
+?2 embora			// although
+?2 apesar			// despite
 
 
+?2 caso				// if
+?2 (desde que)	d'esdZiki/	// provided that
+?2 (exceto se)	es'Etusi/	// unless
+?2 (salvo se)	s'alvusi/	// unless
 
-?2	quando			// when
-?2	onde	$u	// where
-?2	apenas			// as soon as
-?2	mal			// as soon as, hardly
-?2	(logo que)	l'Oguki/		// as soon as
-?2	(antes que)     '&~NtSiski/ 	// before
-?2	(depois que)    dep'oIski/ 	// after
-?2	(sempre que)    s'eNpriki/ 	// whenever
-?2	enquanto 			// while
+?2 (para que)	p,a*&ki/	// so that
+
+
+
+?2 quando			// when
+?2 onde		$u		// where
+?2 apenas			// as soon as
+?2 mal				// as soon as, hardly
+?2 (logo que)	l'Oguki/	// as soon as
+?2 (antes que)	'&~NtSiski/	// before
+?2 (depois que)	dep'oIski/	// after
+?2 (sempre que)	s'eNpriki/	// whenever
+?2 enquanto			// while
 
 
 // negative
@@ -517,182 +517,182 @@ se	$u+	$verbf		// if
 // questions
 
 
-// auxillary verbs  (be, have, can, etc)
-	// ser, to be
-ser	$u
-sou	$u
-é	E  $u
-é	$atend $atstart $accent
-és	Es $u
-somos	$u
-sois	$u
-são	$u
+// auxillary verbs (be, have, can, etc)
+// ser, to be
+ser		$u
+sou		$u
+é		E	$u
+é		$atend	$atstart $accent
+és		Es	$u
+somos		$u
+sois		$u
+são		$u
 
-era	E*& $u1	// .. imperfect
-éramos	$u
-éreis	$u
-eram	E*&U~  $u1
+era		E*&	$u1	// .. imperfect
+éramos		$u
+éreis		$u
+eram		E*&U~	$u1
 
-fui	$u      // .. preterite
-foste	fostSy $u1   // & fostes
-foi	$u
-fomos	$u
+fui		$u		// .. preterite
+foste		fostSy	$u1	// & fostes
+foi		$u
+fomos		$u
 
 
-fora	$u      // .. pluperfect
-fômamos	$u
-fôreis	$u
-foram	fo*&U~  $u1
+fora		$u		// .. pluperfect
+fômamos		$u
+fôreis		$u
+foram		fo*&U~	$u1
 
-serei	$u	// .. future
-?2 será	se*a	$u2
-seremos	$u
-sereis	$u
-serão	$u
+serei		$u		// .. future
+?2 será		se*a	$u2
+seremos		$u
+sereis		$u
+serão		$u
 
-seria	$u      // .. conditional
-seríamos $u
-seríeis	$u
-seriam	$u
+seria		$u		// .. conditional
+seríamos	$u
+seríeis		$u
+seriam		$u
 
-	// estar - to be
-estar	$u
-estou	$u
-está	$u	est'a
-estamos	$u
-estais	$u
-estão	$u
+// estar - to be
+estar		$u
+estou		$u
+está		$u	est'a
+estamos		$u
+estais		$u
+estão		$u
 
-estava	$u
+estava		$u
 estávamos	$u
-estavam	$u
+estavam		$u
 
-estive	$u
+estive		$u
 ?2 esteve	estevy	$u2
 estivemos	$u
 estiveram	$u
-estiver	$u
+estiver		$u
 
-estarei	$u
-estará	$u
+estarei		$u
+estará		$u
 estaremos	$u
-estarão	$u
+estarão		$u
 
 
-      // ter - to have
-ter	$u
-tenho	$u
-tens	$u
-tem	$u
-temos	$u
-tendes	$u
-têm	$u
+// ter - to have
+ter		$u
+tenho		$u
+tens		$u
+tem		$u
+temos		$u
+tendes		$u
+têm		$u
 
-tinha	$u
+tinha		$u
 tínhamos	$u
-tínheis	$u
-tinham	$u
+tínheis		$u
+tinham		$u
 
-tive	$u
-tiveste	$u
-teve	tevy	$u1
-tivemos	$u
+tive		$u
+tiveste		$u
+teve		tevy	$u1
+tivemos		$u
 tivestes	$u
-tiveram	$u
+tiveram		$u
 
-tivera	$u
+tivera		$u
 tivéramos	$u
 tivéreis	$u
-tiveram	$u
+tiveram		$u
 
-terei	$u
-terás	$u
-terá	$u
-teremos	$u
-tereis	$u
-terão	$u
+terei		$u
+terás		$u
+terá		$u
+teremos		$u
+tereis		$u
+terão		$u
 
-      // fazer - to do
-fazer	$u+
-faço	$u+
-faz	$u+
-fazemos	$u+
-fazem	$u+
+// fazer - to do
+fazer		$u+
+faço		$u+
+faz		$u+
+fazemos		$u+
+fazem		$u+
 
 
-	// poder - can
-poder	$u+
-posso	$u+
-pode	$u+
-podemos	$u+
-podem	$u+
+// poder - can
+poder		$u+
+posso		$u+
+pode		$u+
+podemos		$u+
+podem		$u+
 
-podia	$u+
+podia		$u+
 podíamos	$u+
-podiam	$u+
+podiam		$u+
 
-pude	$u+
-pôde	$u+
-pudemos	$u+
-puderam	$u+
+pude		$u+
+pôde		$u+
+pudemos		$u+
+puderam		$u+
 
-poderei	p%ode*eI $u+
-poderá	p%ode*a $u+
-poderemos	p%ode*'emUs $u+
-podeão	p%ode*&U~ $u+
+poderei		p%ode*eI	$u+
+poderá		p%ode*a		$u+
+poderemos	p%ode*'emUs	$u+
+podeão		p%ode*&U~	$u+
 
 
-	// ir - to go  (used to make future tense)
-vou	$u+
-vai	$u+
-vamos	$u+
-vão	$u+
+// ir - to go (used to make future tense)
+vou		$u+
+vai		$u+
+vamos		$u+
+vão		$u+
 
-	// haver
-há	$u+
+// haver
+há		$u+
 
 
 // Letter names
-_a      a
-_e      E
-_o	O
-a       a $atend
-e       E $atend        // assume letter-e at end of sentence
-o       O $atend
+_a		a
+_e		E
+_o		O
+a		a $atend
+e		E $atend	// assume letter-e at end of sentence
+o		O $atend
 
 
 // some common adjectives and adverbs
-alguns		$u	$noun	// some
-algumas		$u	$noun	// some
+alguns		$u	$noun		// some
+algumas		$u	$noun		// some
 não		n,&U~	$verbf $strend	// not
-nunca	$u+	$verbf
-sempre	$u+	$verbf
+nunca		$u+	$verbf
+sempre		$u+	$verbf
 qualquer	$u	$nounf
 quaisquer	$u	$nounf
-jamais	$u+	$verbf
+jamais		$u+	$verbf
 
 
 // MAIN WORD DICTIONARY
 //*********************
-// $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
+// $alt    changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
-aborto		$alt  $verb
-abortos	$alt2
+aborto		$alt	$verb
+abortos		$alt2
 absorta		$alt2
-acerto		$alt2 $noun
+acerto		$alt2	$noun
 acertos		$alt2
-acocho		$alt2 $noun
-acordo		$alt $verb
+acocho		$alt2	$noun
+acordo		$alt	$verb
 acervo		$alt2
-adorno		$alt  $verb
+adorno		$alt	$verb
 aeroporto	$alt2
 aflore		$alt
 alcateia	$alt
 alcova		$alt2
 alegrete	$alt2
-alegro		$alt2 $noun
-almoço		$alt $verb
+alegro		$alt2	$noun
+almoço		$alt	$verb
 ameba		$alt
 amores		$alt2
 amorno		$alt
@@ -702,68 +702,68 @@ ampulheta	$alt2
 anchieta	$alt2
 anchova		$alt2
 andorra		$alt2
-andrea	$alt
-andreia	$alt
+andrea		$alt
+andreia		$alt
 antonieta	$alt2
-apego		$alt2 $noun
-apelo		$alt2  $noun
-apelos	$alt2
-aposto		$alt  $verb
-aperto		$alt2 $noun
-apertos	$alt2
+apego		$alt2	$noun
+apelo		$alt2	$noun
+apelos		$alt2
+aposto		$alt	$verb
+aperto		$alt2	$noun
+apertos		$alt2
 apneia		$alt
-apoio		$alt $verb
-aqueia	$alt
+apoio		$alt	$verb
+aqueia		$alt
 arredores	$alt
-arremesso	$alt2 $noun
-arrocho		$alt2 $noun
+arremesso	$alt2	$noun
+arrocho		$alt2	$noun
 arrochos	$alt2
-arroto		$alt2 $noun
-arrotos	$alt2
+arroto		$alt2	$noun
+arrotos		$alt2
 arroz		$alt2
 assembleia	$alt
-assopro		$alt2 $noun
+assopro		$alt2	$noun
 ateia		$alt
 aterro		$alt2
-aterro		$alt $verb
+aterro		$alt	$verb
 avesso		$alt2
 axé		aSE
-azeda		$alt $verb
-azedo		$alt $verb
-açores	$alt2
+azeda		$alt	$verb
+azedo		$alt	$verb
+açores		$alt2
 bairro		b'aIxU
-baitola	$alt2
+baitola		$alt2
 balancete	$alt2
 bangladesh	$alt
 banquete	$alt2
 barreto		$alt2
 basileia	$alt
 bastonete	$alt2
-baviera	$alt
+baviera		$alt
 beco		$alt2
 besta		$alt2
-beça	$alt
+beça		$alt
 bilhete		$alt2
 bissulfeto	$alt2
 blazer		bl'eIzer
 blazers		bl'eIzers
 boca		$alt2
 boceta		$alt2
-boda	$alt2
+boda		$alt2
 bofe		$alt
 boleia		$alt
 bolero		$alt
 bolo		$alt2
-bolo		$alt  $verb
+bolo		$alt	$verb
 borboleta	$alt2
-borra		$alt2 $noun
-boto		$alt2 $noun
+borra		$alt2	$noun
+boto		$alt2	$noun
 boxe		$alt
-bracelete		$alt2
+bracelete	$alt2
 brejo		$alt
 bromelha	$alt
-broto		$alt2 $noun
-buceta	$alt2
+broto		$alt2	$noun
+buceta		$alt2
 cabresto	$alt2
 cacete		$alt2
 cacoete		$alt2
@@ -772,7 +772,7 @@ cadete		$alt2
 caibro		k'aIbRU
 cãibra		k'&~IbR&
 caixeta		$alt2
-caldeia	$alt
+caldeia		$alt
 camelha		$alt
 camiseta	$alt2
 canaleta	$alt2
@@ -794,16 +794,16 @@ cebola		$alt2
 cefaleia	$alt
 centopeia	$alt
 cerebelo	$alt2
-cerca		$alt $verb
-cerco		$alt $verb
-chamego	$alt2
-chamego	$alt $verb
-chapeleta		$alt2
+cerca		$alt	$verb
+cerco		$alt	$verb
+chamego		$alt2
+chamego		$alt	$verb
+chapeleta	$alt2
 chaveta		$alt2
-choco		$alt2 $noun
+choco		$alt2	$noun
 choça		$alt
 chofer		$alt
-choro		$alt2 $noun
+choro		$alt2	$noun
 chovesse	$alt2
 chuleta		$alt2
 chupeta		$alt2
@@ -816,78 +816,78 @@ coco		$alt2
 cofre		$alt
 colete		$alt2
 colchete	$alt2
-colher		$alt $noun
-colheres	$alt $noun
+colher		$alt	$noun
+colheres	$alt	$noun
 colmeia		$alt
 colore		$alt
 colosso		$alt2
 colossos	$alt2
 colostro	$alt2
-começo		$alt $verb
-concerto	$alt2 $noun
+começo		$alt	$verb
+concerto	$alt2	$noun
 concertos	$alt2
 concordo	$alt
-conforto	$alt  $verb
-console		$alt2 $noun
-consolo		$alt2 $noun
+conforto	$alt	$verb
+console		$alt2	$noun
+consolo		$alt2	$noun
 constroem	$alt
-controle	$alt2 $noun
+controle	$alt2	$noun
 controles	$alt2
-controles	$alt $verb
-controlo	$alt2 $noun
+controles	$alt	$verb
+controlo	$alt2	$noun
 conveses	$alt
 coreia		$alt
-cores	$alt2
-cores	$alt $verb
+cores		$alt2
+cores		$alt	$verb
 coreto		$alt2
 corneta		$alt2
 cornos		$alt
 coro		$alt2
-coro		$alt $verb
-corpete	$alt2
+coro		$alt	$verb
+corpete		$alt2
 corpos		$alt
 corto		$alt
-corveia	$alt
+corveia		$alt
 corveta		$alt2
 corvos		$alt
 costeleta	$alt2
 coto		$alt2
 cotovelo	$alt2
-cozem	$alt
+cozem		$alt
 cratera		$alt
 crede		$alt2
 credo		$alt
-crimeia	$alt
+crimeia		$alt
 decoreba	$alt
-decoro		$alt2 $noun
+decoro		$alt2	$noun
 degelo		$alt2
 desacerto	$alt2
 desaforo	$alt2
 desamores	$alt2
 desapego	$alt2
-desapego	$alt $verb
-desassossego		$alt2 $noun
+desapego	$alt	$verb
+desassossego	$alt2	$noun
 desconfortos	$alt2
-desconsolo		$alt2 $noun
-descontrole		$alt2 $noun
+desconsolo	$alt2	$noun
+descontrole	$alt2	$noun
 descordo	$alt
 descorno	$alt
-	desemprego	$alt2
-desemprego	$alt $verb
+desemprego	$alt2
+desemprego	$alt	$verb
 desenvolto	$alt2
 desespero	$alt2
-desespero	$alt $verb
+desespero	$alt	$verb
 desfecho	$alt2
-desmantelo	$alt2 $noun
-despojo		$alt2 $noun
+desmantelo	$alt2	$noun
+despojo		$alt2	$noun
 despojos	$alt
 desporto	$alt2
-desprezo	$alt2 $noun
+desprezo	$alt2	$noun
 desse		$alt2
-desse		$alt $verb
+desse		$alt	$verb
 deste		$alt2
-deste		$alt $verb
-destempero	$alt2 $noun
+deste		$alt	$verb
+destempero	$alt2	$noun
 destemperos	$alt2
 desterro	$alt2
 destroem	$alt
@@ -899,57 +899,57 @@ diego		$alt2
 diogo		$alt2
 discordo	$alt
 dissabores	$alt2
-?1  dispneia	dISpyn'EI&
-?2  dispneia	dZIspyn'EI&
+?1 dispneia	dISpyn'EI&
+?2 dispneia	dZIspyn'EI&
 dobro		$alt2
-dobro		$alt $verb
+dobro		$alt	$verb
 doce		$alt2
 dogma		$alt
-dores	$alt2
+dores		$alt2
 dorminhoco	$alt2
 dorminhocos	$alt
-doso	$alt
+doso		$alt
 doze		$alt2
 dueto		$alt2
 edson		$alt
-egeia	$alt
-eleia	$alt
-emborco	$alt
+egeia		$alt
+eleia		$alt
+emborco		$alt
 emprego		$alt2
-emprego		$alt2 $noun
+emprego		$alt2	$noun
 encasqueta	$alt
-encosto		$alt  $verb
-endereço	$alt  $verb
-endoide	$alt2
-eneias	$alt
+encosto		$alt	$verb
+endereço	$alt	$verb
+endoide		$alt2
+eneias		$alt
 enforco		$alt
-engodo	$alt2
+engodo		$alt2
 engordo		$alt
-enredo		$alt  $verb
-enrosco		$alt2 $noun
+enredo		$alt	$verb
+enrosco		$alt2	$noun
 ensosso		$alt2
-enterro		$alt2 $noun
+enterro		$alt2	$noun
 entorto		$alt
 entroso		$alt
 envelope	$alt
 enxaqueca	$alt2
-enxerto		$alt2 $noun
+enxerto		$alt2	$noun
 epopeia		$alt
 eritreia	$alt
 erro		$alt2
-erro		$alt $verb
-esboço		$alt  $verb
+erro		$alt	$verb
+esboço		$alt	$verb
 escopeta	$alt2
 escova		$alt2
-escova		$alt $verb
+escova		$alt	$verb
 escovo		$alt
-esforço		$alt  $verb
+esforço		$alt	$verb
 esforços	$alt
 esgoto		$alt2
-esgoto		$alt $verb
+esgoto		$alt	$verb
 espectro	$alt
-espeto		$alt2 $noun
-espetos	$alt2
+espeto		$alt2	$noun
+espetos		$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
@@ -957,8 +957,8 @@ ester		$alt
 estilete	$alt2
 estocolmo	$alt
 estojo		$alt2
-estorno		$alt  $verb
-estorvo		$alt  $verb
+estorno		$alt	$verb
+estorvo		$alt	$verb
 estrela		$alt2
 estrofe		$alt
 estrogonofe	$alt
@@ -966,8 +966,8 @@ eta		$alt2
 europa		$alt
 europeia	$alt
 evangelho	$alt
-?2  ex es
-exagero		$alt $verb
+?2 ex		es
+exagero		$alt	$verb
 exegeses	$alt
 exorto		$alt
 ?2 expert	Eksp'E*@-t
@@ -976,13 +976,13 @@ explore		$alt
 falangeta	$alt2
 farofa		$alt
 farolete	$alt2
-fatora	$alt
-felisteia		$alt
+fatora		$alt
+felisteia	$alt
 fezes		$alt
 filete		$alt2
-flerte		$alt2 $noun
-florete	$alt2
-foda		$alt2 $verb
+flerte		$alt2	$noun
+florete		$alt2
+foda		$alt2	$verb
 fodo		$alt2
 fogo		$alt2
 fogos		$alt
@@ -991,18 +991,18 @@ folclore	$alt
 folheto		$alt2
 fonseca		$alt2
 fora		$alt
-fora		$alt2 $verb
+fora		$alt2	$verb
 forca		$alt2
 força		$alt2
-força		$alt $verb
+força		$alt	$verb
 forço		$alt
 formos		$alt2
-forro		$alt $verb
-fosso	$alt2
+forro		$alt	$verb
+fosso		$alt2
 frescores	$alt2
 frevo		$alt2
 fulgores	$alt2
-gafanhoto		$alt2
+gafanhoto	$alt2
 galera		$alt
 galeto		$alt2
 galhofa		$alt
@@ -1010,7 +1010,7 @@ galileia	$alt
 gangorra	$alt2
 geleia		$alt
 gelo		$alt2
-gelo		$alt $verb
+gelo		$alt	$verb
 genebra		$alt
 gesso		$alt2
 gloso		$alt
@@ -1019,51 +1019,51 @@ gol		gow
 gorda		$alt2
 gorjeta		$alt2
 gororoba	$alt
-gosto		$alt $verb
+gosto		$alt	$verb
 gota		$alt2
 governo		$alt2
-governo		$alt $verb
-gozo		$alt2 $noun
-gozos	$alt2
+governo		$alt	$verb
+gozo		$alt2	$noun
+gozos		$alt2
 graveto		$alt2
 groselha	$alt
 grosso		$alt2
 groso		$alt
 gueto		$alt2
 hemorroida	$alt
-hidreto	$alt2
+hidreto		$alt2
 hoje		$alt2
-homero	$alt
+homero		$alt
 horrores	$alt2
 ideia		$alt
 inovo		$alt
 interesse	$alt2
-interesse	$alt $verb
+interesse	$alt	$verb
 interregno	$alt
 iodo		$alt2
 ioga		$alt
-isolda	$alt2
+isolda		$alt2
 jereba		$alt
 jogo		$alt2
-jogo		$alt $verb
+jogo		$alt	$verb
 jogos		$alt
 joguete		$alt2
-judeia	$alt
+judeia		$alt
 jurubeba	$alt
-lacerda	$alt
+lacerda		$alt
 lagosta		$alt2
 lambreta	$alt2
 lembrete	$alt2
 lepra		$alt
-leses	$alt
-leste		$alt2 $verb
-letra	$alt2
-?2   lhe	l^y
-licores	$alt2
+leses		$alt
+leste		$alt2	$verb
+letra		$alt2
+?2 lhe		l^y
+licores		$alt2
 lisboeta	$alt2
 lodo		$alt2
 lopes		$alt
-lutero	$alt
+lutero		$alt
 macete		$alt2
 maioneses	$alt
 maniçoba	$alt
@@ -1072,103 +1072,103 @@ mariposa	$alt2
 martelete	$alt2
 megera		$alt
 melhor		$alt
-meta		$alt $noun
+meta		$alt	$noun
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
-mister	$alt
+mister		$alt
 mocreia		$alt
 modelo		$alt2
-modelo		$alt $verb
+modelo		$alt	$verb
 moeda		$alt
 moem		$alt
-mofo		$alt $verb
-mogno	$alt
-molho		$alt2 $noun
+mofo		$alt	$verb
+mogno		$alt
+molho		$alt2	$noun
 montenegro	$alt2
-mor	$alt
+mor		$alt
 morcego		$alt2
 morda		$alt2
 moreia		$alt
 mui		m'UI
 muleta		$alt2
 mutreta		$alt2
-namoro		$alt2 $noun
+namoro		$alt2	$noun
 naquela		$nounf
-naquele		$alt2 $nounf
+naquele		$alt2	$nounf
 nervo		$alt2
-niceia	$alt
-ninfeta	$alt2
-nitreto	$alt2
+niceia		$alt
+ninfeta		$alt2
+nitreto		$alt2
 novelo		$alt2
 odisseia	$alt
-oeste	$alt
+oeste		$alt
 off		$alt
 onu		$1
-olho		$alt2 $noun
+olho		$alt2	$noun
 olhos		$alt
 onomatopeia	$alt
 opereta		$alt2
-orno	$alt
+orno		$alt
 osso		$alt2
 ostra		$alt2
-outorgo	$alt
+outorgo		$alt
 pacheco		$alt2
 paexa		paeSa
 paella		pa'el^&
 palacete	$alt2
-palermo	$alt
+palermo		$alt
 palimpsesto	$alt2
 palheta		$alt2
 palhoça		$alt
 panaceia	$alt
 pangeia		$alt
 pantera		$alt
-papoco		$alt2 $noun
-paradoxo		$alt
+papoco		$alt2	$noun
+paradoxo	$alt
 parede		$alt2
 pateta		$alt
 peba		$alt
-pedro	$alt2
-peixoto	$alt2
+pedro		$alt2
+peixoto		$alt2
 pela		$alt2
 pelo		$alt2
-penhores	$alt2 $noun
+penhores	$alt2	$noun
 perda		$alt2
 pereba		$alt
 peres		$alt
-perneta	$alt2
+perneta		$alt2
 peroba		$alt
-pesadelo		$alt2
+pesadelo	$alt2
 peses		$alt
 peseta		$alt2
-peso		$alt $verb
-pigmeia	$alt
-piloto		$alt2 $noun
-pilotos	$alt2
+peso		$alt	$verb
+pigmeia		$alt
+piloto		$alt2	$noun
+pilotos		$alt2
 pior		$alt
-pipoco		$alt2 $noun
-piquete	$alt2
+pipoco		$alt2	$noun
+piquete		$alt2
 plateia		$alt
 plebeia		$alt
-poderem	$alt2
+poderem		$alt2
 polca		$alt
 pompeia		$alt
-popa	$alt2
+popa		$alt2
 porcos		$alt
 porque		$alt2
 porra		$alt2
-porto		$alt $verb
+porto		$alt	$verb
 pose		$alt2
 poxa		p'oS&
-poços	$alt
+poços		$alt
 primavera	$alt
 primores	$alt2
-program	$alt
+program		$alt
 proso		$alt
 prosopopeia	$alt
 proveta		$alt2
-punheta	$alt2
+punheta		$alt2
 quarteto	$alt2
 quatorze	$alt2
 queda		$alt
@@ -1178,38 +1178,38 @@ quitinete	$alt
 quinteto	$alt2
 ramalhete	$alt2
 rancores	$alt2
-ranheta	$alt2
+ranheta		$alt2
 raposa		$alt2
-recomeço	$alt $verb
+recomeço	$alt	$verb
 reconstroem	$alt
 recordo		$alt
 recorto		$alt
 rede		$alt2
 reembolso	$alt2
-reembolso	$alt $verb
-reforço		$alt  $verb
+reembolso	$alt	$verb
+reforço		$alt	$verb
 reforços	$alt
-refresco	$alt  $verb
-rego		$alt2 $noun
+refresco	$alt	$verb
+rego		$alt2	$noun
 relevo		$alt2
-relevo		$alt $verb
+relevo		$alt	$verb
 remoem		$alt
 remorso		$alt
-renovo		$alt $verb
+renovo		$alt	$verb
 represa		$alt2
-represes		$alt
-retorno		$alt $verb
-reveses	$alt
+represes	$alt
+retorno		$alt	$verb
+reveses		$alt
 rigores		$alt2
 risoto		$alt2
-robson	$alt
+robson		$alt
 rock		$alt
 roem		$alt
-rola		$alt2 $noun
+rola		$alt2	$noun
 roleta		$alt2
 rolete		$alt2
-rolo		$alt2 $noun
-rose	$alt2
+rolo		$alt2	$noun
+rose		$alt2
 roseta		$alt2
 rubores		$alt2
 sabonete	$alt2
@@ -1217,38 +1217,38 @@ sabores		$alt2
 saibro		s'aIbRU
 sarjeta		$alt2
 seborreia	$alt
-seca		$alt2 $noun
+seca		$alt2	$noun
 secas		$alt2
 seco		$alt2
-seco		$alt $verb
-sede	$alt2
-sedes	$alt
+seco		$alt	$verb
+sede		$alt2
+sedes		$alt
 selo		$alt2
-selo		$alt $verb
+selo		$alt	$verb
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
-serdes	$alt2
+serdes		$alt2
 sinagoga	$alt
 sinopse		$alt
 soco		$alt2
-soco		$alt $verb
+soco		$alt	$verb
 sogra		$alt
-soldo	s'owdU
-soldo	$alt $verb
-soldo	$alt $verb
-solta	s'owt&
-solta	$alt $verb
-solto	s'owtU
-solto	$alt $verb
+soldo		s'owdU
+soldo		$alt	$verb
+soldo		$alt	$verb
+solta		s'owt&
+solta		$alt	$verb
+solto		s'owtU
+solto		$alt	$verb
 sopa		$alt2
-sopeses	$alt
-sopro		$alt2 $noun
+sopeses		$alt
+sopro		$alt2	$noun
 sorvete		$alt2
-sossego     	$alt2 $noun
-suborno		$alt  $verb
+sossego		$alt2	$noun
+suborno		$alt	$verb
 sudoreses	$alt
-sufoco		$alt2 $noun
+sufoco		$alt2	$noun
 sufocos		$alt2
 sulfeto		$alt2
 sulfureto	$alt2
@@ -1258,41 +1258,41 @@ suor		suOr
 tambores	$alt2
 tapera		$alt
 tapete		$alt2
-tebas	$alt
+tebas		$alt
 temores		$alt2
-tempero		$alt2 $noun
+tempero		$alt2	$noun
 tenores		$alt2
-terdes	$alt2
-terma	$alt
+terdes		$alt2
+terma		$alt
 test		$alt
 terrores	$alt2
 teses		$alt
 teta		$alt2
-tijolo	$alt2
-tijolos	$alt
+tijolo		$alt2
+tijolos		$alt
 togo		$alt2
-topo		$alt2 $noun
-torno		$alt  $verb
+topo		$alt2	$noun
+torno		$alt	$verb
 tornozelo	$alt2
-torre		$alt2 $noun
+torre		$alt2	$noun
 torres		$alt2
 torreta		$alt2
 torro		$alt
 toso		$alt
-totens	$alt
-transtorno	$alt $verb
+totens		$alt
+transtorno	$alt	$verb
 traqueia	$alt
 travesso	$alt2
 tremores	$alt2
 treta		$alt2
 trevo		$alt2
-trocha	$alt2
-troco		$alt2 $noun
+trocha		$alt2
+troco		$alt2	$noun
 tropa		$alt
-tropeço		$alt2 $noun
-tropeços		$alt2
+tropeço		$alt2	$noun
+tropeços	$alt2
 trombeta	$alt2
-ureia	$alt
+ureia		$alt
 vanessa		$alt2
 vareta		$alt2
 vera		$alt
@@ -1300,238 +1300,238 @@ verbete		$alt2
 verborreia	$alt
 verde		$alt2
 vileta		$alt2
-vinheta	$alt2
-vodca	v'OdZik&
+vinheta		$alt2
+vodca		v'OdZik&
 voga		$alt
-voice	$alt
+voice		$alt
 xarope		$alt
 xereta		$alt2
-xeroxes	$alt
-zelo		$alt2 $noun
+xeroxes		$alt
+zelo		$alt2	$noun
 zorra		$alt2
 
 // foreign words
 ?2 álcool	'aUkow
-?1 alt        'alt
-?1 back       b'Ek
-?2   bahamas	bax'&~m&s
-?2  backup        bEk'&p
-?2  backups     bEk'&ps
-bad  bEd
-bank	beINk
-bacon	b'eIkoN
+?1 alt		'alt
+?1 back		b'Ek
+?2 bahamas	bax'&~m&s
+?2 backup	bEk'&p
+?2 backups	bEk'&ps
+bad		bEd
+bank		beINk
+bacon		b'eIkoN
 ?2 basebol	beIzyb'Ow
-beatle  b'itow
-beatles  b'itows
-black  blEk
-blind      bl'aind
-?2 blue	blu
-?1 braille    b:r'aily
-?2        Braille        bR'aili
-?1 cancel     k'&ns'El
-?1 caps       k'aps
+beatle		b'itow
+beatles		b'itows
+black		blEk
+blind		bl'aind
+?2 blue		blu
+?1 braille	b:r'aily
+?2 Braille	bR'aili
+?1 cancel	k'&ns'El
+?1 caps		k'aps
 ?2 cappuccino	kaputS'inU
 ?2 center	s'eNter
-?1 com        kom
-?1 ctrl       k'oNt:r,Ol
+?1 com		kom
+?1 ctrl		k'oNt:r,Ol
 ?2 control	k'oNtRow
-doc        d'Ok
-?1 delete     d'il'it
-?1 design     d,iz'ain
-?2 design     dez'aIn
-?2   designer	dez'aIner
-?2   designers	dez'aIners
+doc		d'Ok
+?1 delete	d'il'it
+?1 design	d,iz'ain
+?2 design	dez'aIn
+?2 designer	dez'aIner
+?2 designers	dez'aIners
 ?2 desktops	deskt'Ops
-?1  dj         d,i:dZ'eI
-?2   diesel	dZ'izEU
-?2   doha	d'ox&
-?1 down       d'a,wn
-?2   down   d'aUN
-?1 download   d'a,wnl'oud
-?2 download		daUNl'owd
-?2 downloads		daUNl'owds
-?3 download        dau~Nl'owd
-drive	dR'aIv
-?1 end        'end
+?1 dj		d,i:dZ'eI
+?2 diesel	dZ'izEU
+?2 doha		d'ox&
+?1 down		d'a,wn
+?2 down		d'aUN
+?1 download	d'a,wnl'oud
+?2 download	daUNl'owd
+?2 downloads	daUNl'owds
+?3 download	dau~Nl'owd
+drive		dR'aIv
+?1 end		'end
 ?2 enter	'eNter
-?2 esc     'Esk
-?3 esc     'EskI
-?1 explorer   ,ekspl'O:*&r-
-?2        Explorer        ekspl'O*er
-?1 eyes       'aiz
-?2 eyes       'aIs
+?2 esc		'Esk
+?3 esc		'EskI
+?1 explorer	,ekspl'O:*&r-
+?2 Explorer	ekspl'O*er
+?1 eyes		'aiz
+?2 eyes		'aIs
 ?1 fixe		fiSy
-flash	flES
-?1 frame      fr'eImy
-?2 frame      fR'eImi
-funk	f&~Nk
-game	g'eImy
-gay	geI
-get   gEt
-?1 gmail      g,em'eIl
-?2 Gmail      Zem'eIl
-?1 google     g'u:g&l 
-?2 google     g'ugol
+flash		flES
+?1 frame	fr'eImy
+?2 frame	fR'eImi
+funk		f&~Nk
+game		g'eImy
+gay		geI
+get		gEt
+?1 gmail	g,em'eIl
+?2 Gmail	Zem'eIl
+?1 google	g'u:g&l
+?2 google	g'ugol
 ?2 habeas	'abe&s
 ?2 handebol	hendZyb'Ow
-?1 hardware   'ard,w'Er-
-?2 hardware   h'ardwe@-
-happy  x'Epy
+?1 hardware	'ard,w'Er-
+?2 hardware	h'ardwe@-
+happy		x'Epy
 ?2 haxixe	xaS'iSy
-?1 home       'omy
-?2 home       h'owmi
-hot	xOt
-?1 hotmail    h'Ot'eIl
-?2 hotmail    hOtm'eIl
-?1 install    ,inst'al
-?2 Intranet   iNtRan'Et
-?1 kernel     k'Ern,El
-?2 kernel     k'Ern@l
-?2 jazz	dZIEs
+?1 home		'omy
+?2 home		h'owmi
+hot		xOt
+?1 hotmail	h'Ot'eIl
+?2 hotmail	hOtm'eIl
+?1 install	,inst'al
+?2 Intranet	iNtRan'Et
+?1 kernel	k'Ern,El
+?2 kernel	k'Ern@l
+?2 jazz		dZIEs
 laser		l'eIzer
 lasers		l'eIzers
-left	$alt
-laptop	lEpt'Op
+left		$alt
+laptop		lEpt'Op
 ?2 laptops	lEpt'Ops
-?1 line       l'ain
-   layout     l'eI,aUt
-   ?2   login  logiN
-?1 lock       l'Ok
-   mail       m'eIl
-        mails        m'eIls
+?1 line		l'ain
+layout		l'eI,aUt
+?2 login	logiN
+?1 lock		l'Ok
+mail		m'eIl
+mails		m'eIls
 ?1 marketing	m'arktiN
 ?2 marketing	m'arketSiN
-?2  master	m'aste*@-
-?2        mouse        m'aUzi
-?1 menu       menu
-mickey	m'ikeI
-next       n'Ekst
-   ok         Ok'eI
-?2 offline    Ofl'aIN
-?2 online     oNlaIN
-   org        Org
-?1 ovo        'ovu
+?2 master	m'aste*@-
+?2 mouse	m'aUzi
+?1 menu		menu
+mickey		m'ikeI
+next		n'Ekst
+ok		Ok'eI
+?2 offline	Ofl'aIN
+?2 online	oNlaIN
+org		Org
+?1 ovo		'ovu
 ?2 palmtop	paUmyt'Op
-?1 pause      p'au:z
-   page       p'eIdZ
-   ?1   podcast	pOdkEst
-?2  podcast	pOdZyk'Est
-python     p'aIT&~N
+?1 pause	p'au:z
+page		p'eIdZ
+?1 podcast	pOdkEst
+?2 podcast	pOdZyk'Est
+python		p'aIT&~N
 ?2 quantum	kw'&~Ntu~N
 ?2 ranking	x'&NkIN
-?1 readme     r'i:dmi:
-right   r'aIt
-?1 sapi       s,ap'i
-?1 scanner    sk'En&r
-sky   sk'aI
-shake	S'eIk
-?1 shift      S'ift
-?1 scroll     sk:r'ol
-?1 site       s'aIt
-?2 site       s'aItSy
-?2   shampoo  S&mpu
+?1 readme	r'i:dmi:
+right		r'aIt
+?1 sapi		s,ap'i
+?1 scanner	sk'En&r
+sky		sk'aI
+shake		S'eIk
+?1 shift	S'ift
+?1 scroll	sk:r'ol
+?1 site		s'aIt
+?2 site		s'aItSy
+?2 shampoo	S&mpu
 ?2 shopping	S'OpiN
-?2 slide		zl'aIdZy
+?2 slide	zl'aIdZy
 ?4 símbolo	s'iNbolU
-?1   software   s'Oft,w'Er-
-?2   software   s'Oftwe@-
-?1 space      sp'eIsy
-?2 space      sp'eIs
-?1 sporting   sp'Ort,ing
-statu	st'atU
+?1 software	s'Oft,w'Er-
+?2 software	s'Oftwe@-
+?1 space	sp'eIsy
+?2 space	sp'eIs
+?1 sporting	sp'Ort,ing
+statu		st'atU
 sutiã		sutSi'&~N
- tab        t'aby
- tablet  t'ablet
-  tablets  t'ablets
-  ?2 tantum	t'&~Ntu~N
- taser	t'eIzer
-?1 telemóvel  t,El,Em'OvEl
-?1 telemóveis t,El,Em'OveIs#
-?1 up         &p
+tab		t'aby
+tablet		t'ablet
+tablets		t'ablets
+?2 tantum	t'&~Ntu~N
+taser		t'eIzer
+?1 telemóvel	t,El,Em'OvEl
+?1 telemóveis	t,El,Em'OveIs#
+?1 up		&p
 update		&pd'eIt
 upgrade		&pgR'eId
 upload		&pl'oud
-?2        web        w'Eb
-writer r'aIter
-xerox	S'E*Oks
-?1 yahoo      'i,ah'u
-?2 yahoo      iah'u
-yes        j'Es
+?2 web		w'Eb
+writer		r'aIter
+xerox		S'E*Oks
+?1 yahoo	'i,ah'u
+?2 yahoo	iah'u
+yes		j'Es
 
 
 // foreign product names
-?1 access      'aks,Es
-?1 adobe       &d'Oby
-   android &NdR'Oid
-apple  'Epow
-outdoor	aUtd'Or
-?2  outdoors	aUtd'Ors
-baby	b'eIby
+?1 access	'aks,Es
+?1 adobe	&d'Oby
+android		&NdR'Oid
+apple		'Epow
+outdoor		aUtd'Or
+?2 outdoors	aUtd'Ors
+baby		b'eIby
 ?2 campari	k&mp'a*y
 ?1 chrome	kr'owm
-?2 chrome  kR'owmi
-corpus	k'O*@-pUs#
-   debian      d'Ebj&~N
-?1 excel       ,Eks'El
-?1 express     ,Ekspr'Es
-   espeak      isp'i:k
-?1 espeakedit   isp'i:kEd,it
-facebook  feIsybuk
-?1 fedora      _^_EN
-    firefox     f'ai@fOks
-?1 front       fr'ont
-high   haI
-?1 jaws        dZ'au:z
-lady	l'eIdy
-?1 linux       l,in'uks
-?2 linux       l'inUks
- live        l'aiv
- ?2 lobby	$alt
-?1 maker       m'eIk&r-
-mac  mEk
-?1 media       m'Ed,i&
-?1 messenger   m'Es&ndZ&r-
-?1 microsoft   m,ik:r'os,Oft
-?2 microsoft   m'aIkRows'Oft
-?1 movie       m'uvi
-?1 nero        n'Eru
-?2  netbooks   nEtbUks
-?2  notebook   nowtbUk
-?2  notebooks   nowtbUks
-?1 office      'Of,is
-?2 office  'Ofsy
-   openoffice  'opeIN|'Ofis
-?1 outlook     'autl'uk
-?2        Outlook        ,aUtl'uk
-?1 paint       p'aint
-?1 player      pl'eI&r-
-?1   playstation	_^_EN
-?2   playstation	pleIst'eIS&~N
- point       p'oint
-?1 power       p'aU&r-
+?2 chrome	kR'owmi
+corpus		k'O*@-pUs#
+debian		d'Ebj&~N
+?1 excel	,Eks'El
+?1 express	,Ekspr'Es
+espeak		isp'i:k
+?1 espeakedit	isp'i:kEd,it
+facebook	feIsybuk
+?1 fedora	_^_EN
+firefox		f'ai@fOks
+?1 front	fr'ont
+high		haI
+?1 jaws		dZ'au:z
+lady		l'eIdy
+?1 linux	l,in'uks
+?2 linux	l'inUks
+live		l'aiv
+?2 lobby	$alt
+?1 maker	m'eIk&r-
+mac		mEk
+?1 media	m'Ed,i&
+?1 messenger	m'Es&ndZ&r-
+?1 microsoft	m,ik:r'os,Oft
+?2 microsoft	m'aIkRows'Oft
+?1 movie	m'uvi
+?1 nero		n'Eru
+?2 netbooks	nEtbUks
+?2 notebook	nowtbUk
+?2 notebooks	nowtbUks
+?1 office	'Of,is
+?2 office	'Ofsy
+openoffice	'opeIN|'Ofis
+?1 outlook	'autl'uk
+?2 Outlook	,aUtl'uk
+?1 paint	p'aint
+?1 player	pl'eI&r-
+?1 playstation	_^_EN
+?2 playstation	pleIst'eIS&~N
+point		p'oint
+?1 power	p'aU&r-
 ?2 power	p'aUEr
-?1 product     p:r'&d&kt
-?1 Publisher   p'&bl,iS&r-
-?1 reader      r'id,&r-
-?1 setup       s'Et'&p
-?1 scout       sk'aut // Nero scout       
-?1 skype       sk'aip
-?2        Skype        sk'aIp
-        Slackware   sl'akwe@-
-?1 smart       sm'art // nero StartSmart
-?2   society   sos'aIty
-   speak       spi:k
-   suse        z'u:ts@
-?1 start       st'art // nero StartSmart
-?1 time        t'aImy // nero show time
-twitter  tw'iter
-   ubuntu      ub'untu
-?1 unix        ,u:n'iks
-?2 unix        j'uniks
-?1 windows     w'iNd'ou:z
-?2 windows     w'iNdows
-?1 window     w'iNd'ou
-?2 window      w'iNdow
+?1 product	p:r'&d&kt
+?1 Publisher	p'&bl,iS&r-
+?1 reader	r'id,&r-
+?1 setup	s'Et'&p
+?1 scout	sk'aut		// Nero scout
+?1 skype	sk'aip
+?2 Skype	sk'aIp
+Slackware	sl'akwe@-
+?1 smart	sm'art		// nero StartSmart
+?2 society	sos'aIty
+speak		spi:k
+suse		z'u:ts@
+?1 start	st'art		// nero StartSmart
+?1 time		t'aImy		// nero show time
+twitter		tw'iter
+ubuntu		ub'untu
+?1 unix		,u:n'iks
+?2 unix		j'uniks
+?1 windows	w'iNd'ou:z
+?2 windows	w'iNdows
+?1 window	w'iNd'ou
+?2 window	w'iNdow
 
 
 // historical and famous people
@@ -1539,8 +1539,8 @@ alzheimer	aUz'aImEr
 babbage		b'abidZ
 bernhard	bern'ard
 biden		_^_EN
-?1 darwin		d'Arwin
-?2 darwin		d'Arvin
+?1 darwin	d'Arwin
+?2 darwin	d'Arvin
 ?2 diderot	didex'o
 dijkstra	d'ijkstrA:
 ?1 einstein	_!'aInSt,aIn
@@ -1600,43 +1600,43 @@ ashley		$1
 brandon		$1
 brian		bR'aI;&~N
 bryan		bR'aI;&~N
-caleb		$alt1
+caleb				$alt1
 christian	$1
 christopher	$1
-cleverson	$1 $alt1
+cleverson	$1		$alt1
 cynthia		$1
-deborah		$1 $alt1
+deborah		$1		$alt1
 dennis		$1
 donald		$1
-edward		$1 $alt1
-elton		$1 $alt1
-emerson		$1 $alt1
+edward		$1		$alt1
+elton		$1		$alt1
+emerson		$1		$alt1
 emily		$1
-eric		$1 $alt1
-erick		$1 $alt1
-evelyn		$1 $alt1
+eric		$1		$alt1
+erick		$1		$alt1
+evelyn		$1		$alt1
 francis		$1
 franklin	$1
-gregory		$1 $alt1
+gregory		$1		$alt1
 hannah		x'&~n&
-helen		$1 $alt1
-herbert		$1 $alt1
+helen		$1		$alt1
+herbert		$1		$alt1
 james		Z'eimys
 jason		Z'eIson
-jerry		$1 $alt1
+jerry		$1		$alt1
 joe		ZI'oU
 john		ZI'oN
 jonathan	$1
-jordan		$1 $alt1
+jordan		$1		$alt1
 joseph		$1
-joshua		$1 $alt1
+joshua		$1		$alt1
 josie		$1
 juan		xu&~N
 kathleen	$1
-kevin		$1 $alt1
+kevin		$1		$alt1
 kimberly	$1
 klein		kl'aIn
-kleverson	$1 $alt1
+kleverson	$1		$alt1
 krueger		kR'i:ger
 krüger		kR'i:ger
 kühl		k'il
@@ -1650,13 +1650,13 @@ mueler		m'iler
 mueller		m'iler
 müler		m'iler
 müller		m'iler
-nelson		$1 $alt1
-nicholas	nícolas	$text
-norton		$1 $alt1
-oliver		$1 $alt1
+nelson		$1		$alt1
+nicholas	nícolas		$text
+norton		$1		$alt1
+oliver		$1		$alt1
 patrick		$1
 paul		p'O:l
-robert		$1 $alt1
+robert		$1		$alt1
 robinson	$1
 roger		$1
 ronald		$1
@@ -1666,7 +1666,7 @@ sarah		$1
 scarlet		$1
 sharon		$1
 shirley		$1
-stephanie	$1 $alt1
+stephanie	$1		$alt1
 susan		$1
 tiffany		$1
 vogel		f'o:g@l
@@ -1676,490 +1676,490 @@ william		$1
 
 
 // names and surnames
-abilio		abílio $text
-abner		ábner $text
-abraao		abraão $text
-abrao		abrão $text
-acacia		acácia $text
-acacio		acácio $text
-adao		adão $text
-adelia		adélia $text
-adelio		adélio $text
-ademario	ademário $text
-adonis		adônis $text
-adria		ádria $text
-aecio		aécio $text
-afranio		afrânio $text
-agata		ágata $text
-agatha		ágata $text
-ailton		aílton $text
-alexia		aléxia $text
-alison		álisson $text
-alisson		álisson $text
-aloisio		aloísio $text
-aluisio		aluísio $text
-alvaro		álvaro $text
-amalia		amália $text
-ambrosio	ambrósio $text
-amelia		amélia $text
-amelio		amélio $text
-america		américa $text
-americo		américo $text
-amilcar		amílcar $text
-amilton		amílton $text
-analia		anália $text
-anderson	ânderson $text
-andrea		andréa $text
-andre		andré $text
-andreia		andréia $text
-andressa	$alt2
-angela		ângela $text
-angelica	angélica $text
-angelo		ângelo $text
-anibal		aníbal $text
-?1 antonia	antónia $text
-?2 antonia	antônia $text
-antonieta	$alt2
-?1 antonio	antónio $text
-?2 antonio	antônio $text
-apolinario	apolinário $text
-?1 apolonia	apolónia $text
-?2 apolonia	apolônia $text
-?1 apolonio	apolónio $text
-?2 apolonio	apolônio $text
-arao		arão $text
-araujo		araújo $text
-aristoteles	aristóteles $text
-arnobio		arnóbio $text
-arnoldo		$alt2
-?1 arsenio	arsénio $text
-?2 arsenio	arsênio $text
-assuncao	assunção $text
-atila		átila $text
-atilio		atílio $text
-aurea		áurea $text
-aurelia		aurélia $text
-aurelio		aurélio $text
-avila		ávila $text
-ayrton		airton $text
-barbara		bárbara $text
-barnabe		barnabé $text
-basilia		basília $text
-basilio		basílio $text
-benicio		benício $text
-brasilia	brasília $text
-braulio		bráulio $text
-brigida		brígida $text
-caique		caíque $text
-candida		cândida $text
-candido		cândido $text
-cassia		cássia $text
-catia		cátia $text
-caua		cauã $text
-caue		cauê $text
-cecilia		cecília $text
-cecilio		cecílio $text
-celia		célia $text
-celio		célio $text
-cesar		césar $text
-cesaria		cesária $text
-cesario		cesário $text
-cicera		cícera $text
-cicero		cícero $text
-cintia		cíntia $text
-clauber		cláuber $text
-claudia		cláudia $text
-claudio		cláudio $text
-cleber		cléber $text
-clecia		clécia $text
-clecio		clécio $text
-clemencia	clemência $text
-clovis		clóvis $text
-conceicao	conceição $text
-constancia	constância $text
-constancio	constâncio $text
-cornelia	cornélia $text
-cornelio	cornélio $text
-cristovao	cristóvão $text
-damiao		damião $text
-danubia		danúbia $text
-dario		dário $text
-debora		débora $text
-decio		décio $text
-demetrio	demétrio $text
-demetrius	demétrius $text
-denis		dênis $text
-deoclecio	deoclécio $text
-diego		$alt2
-diogenes	diógenes $text
-dionisia	dionísia $text
-dionisio	dionísio $text
-?1 domenica	doménica $text
-?2 domenica	domênica $text
-?1 domenico	doménico $text
-?2 domenico	domênico $text
-doris		dóris $text
-eder		éder $text
-ederson		éderson $text
-edesio		edésio $text
-edipo		édipo $text
-efigenia	efigênia $text
-efigenio	efigênio $text
-egidia		egídia $text
-egidio		egídio $text
-elcio		élcio $text
-elder		hélder $text
-elida		élida $text
-elio		hélio $text
-elisangela	elisângela $text
-elisia		elísia $text
-elisio		elísio $text
-eloa		eloá $text
-emilia		emília $text
-emilio		emílio $text
-encarnacao	encarnação $text
-enio		ênio $text
-epitacio	epitácio $text
-erica		érica $text
-erico		érico $text
-esau		esaú $text
-estacio		estácio $text
-estefania	estefânia $text
-estefano	estéfano $text
-estevao		estêvão $text
-estevao		estêvão $text
-eufrasia	eufrásia $text
-eufrasio	eufrásio $text
-?1 eugenio	eugénio $text
-?2 eugenio	eugênio $text
-eulalia		eulália $text
-eulalio		eulálio $text
-euler		êuler $text
-euridice	eurídice $text
-euripedes	eurípedes $text
-eusebio		eusébio $text
-eustaquio	eustáquio $text
-everton		éverton $text
-ewerton		éverton $text
-fabia		fábia $text
-fabio		fábio $text
-fabiola		fabíola $text
-fabricia	fabrícia $text
-fabricio	fabrício $text
-fagner		fágner $text
-fatima		fátima $text
-felicia		felícia $text
-felicio		felício $text
-felix		félix $text
-fidelis		fidélis $text
-flavia		flávia $text
-flavio		flávio $text
-florencia	florência $text
-florencio	florêncio $text
-francilio	francílio $text
-?1 gardenia	gardénia $text
-?2 gardenia	gardênia $text
-gastao		gastão $text
-genesia		genésia $text
-genesio		genésio $text
-getulio		getúlio $text
-glauber		gláuber $text
-glaucia		gláucia $text
-glaucio		gláucio $text
-gloria		glória $text
-goncalo		gonçalo $text
-goncalves	golçalves $text
-gregoria	gregória $text
-gregorio	gregório $text
-hamilton	hamílton $text
-helder		hélder $text
-helia		hélia $text
-helio		hélio $text
-heloisa		heloísa $text
-heloise		heloíse $text
-henriqueta	$alt2
-herminia	hermínia $text
-herminio	hermínio $text
-higor		ígor $text
-hilaria		hilária $text
-hilario		hilário $text
-hilton		ílton $text
-hipolito	hipólito $text
-honorio		honório $text
-horacio		horácio $text
-hortencia	hortência $text
-hortencio	hortêncio $text
-icaro		ícaro $text
-igor		ígor $text
-inacia		inácia $text
-inacio		inácio $text
-ines		inês $text
-inocencia	inocência $text
-inocencio	inocêncio $text
-iris		íris $text
-isaias		isaías $text
-isis		ísis $text
-itala		ítala $text
-italo		ítalo $text
-iuri		iúri $text
-ivanete		$alt1
-jader		jáder $text
-janaina		janaína $text
-janio		jânio $text
-januaria	januária $text
-januario	januário $text
-jeferson	jéferson $text
-jefferson	jéferson $text
-jenifer		jênifer $text
-jennifer	jênifer $text
-jeova		jeová $text
-?1 jeronimo	jerónimo $text
-?2 jeronimo	jerônimo $text
-jessica		jéssica $text
-jesuina		jesuína $text
-jesuino		jesuíno $text
-joao		joão $text
-?1 jonatas	jónata $text
-?2 jonatas	jônata $text
-?1 jonatas	jónatas $text
-?2 jonatas	jônatas $text
-josafa		josafá $text
-jose		josé $text
-joselia		josélia $text
-joselio		josélio $text
-josue		josué $text
-julia		júlia $text
-julieta		$alt2
-juliete		$alt1
-julio		júlio $text
-junia		júnia $text
-junio		júnio $text
-junior		júnior $text
-juvencio	juvêncio $text
-kaique		kaíque $text
-kassia		kássia $text
-katia		kátia $text
-kaua		kauã $text
-kaue		kauê $text
-kecia		kécia $text
-kenia		kênia $text
-kesia		késia $text
-kessia		késsia $text
-kelvia		kélvia $text
-kilvia		kílvia $text
-laisa		laísa $text
-lais		laís $text
-laurencio	laurêncio $text
-lavinia		lavínia $text
-lazaro		lázaro $text
-lelia		lélia $text
-lelio		lélio $text
-leo		léo $text
-leoncio		leôncio $text
-leonidas	leônidas $text
-leopoldo	$alt2
-leticia		letícia $text
-lidia		lídia $text
-liduina		liduína $text
-ligia		lígia $text
-lilia		lília $text
-liliam		líliam $text
-lilian		lílian $text
-liria		líria $text
-lirio		lírio $text
-livia		lívia $text
-livio		lívio $text
-lourenca	lourença $text
-lourenco	lourenço $text
-lucelia		lucélia $text
-lucelio		lucélio $text
-lucia		lúcia $text
-lucilia		lucília $text
-lucilio		lucílio $text
-luciola		lucíola $text
-lucio		lúcio $text
-lucrecia	lucrécia $text
-luisa		luísa $text
-luis		luís $text
-luiza		luísa $text
-lupercio	lupércio $text
-magnolia	magnólia $text
-maicon		máicon $text
-maira		maíra $text
-maisa		maísa $text
-maite		maitê $text
-marcia		márcia $text
-marcilia	marcília $text
-marcilio	marcílio $text
-marcio		márcio $text
-marcus		marcos $text
-mariangela	mariângela $text
-marilia		marília $text
-mario		mário $text
-matusalem	matusalém $text
-mauricia	maurícia $text
-mauricio	maurício $text
-melania		melânia $text
-militao		militão $text
-milton		mílton $text
-miria		miriã $text
-miriam		míriam $text
-mirian		mírian $text
-moises		moisés $text
-?1 monica	mónica $text
-?2 monica	mônica $text
-mucio		múcio $text
-nadia		nádia $text
-narcisio	narcísio $text
-natalia		natália $text
-natalicia	natalícia $text
-natalicio	natalício $text
-nazare		nazaré $text
-nelia		nélia $text
-nelio		nélio $text
-nicolas		nícolas $text
-nidia		nídia $text
-nilton		nílton $text
-nivea		nívea $text
-nivia		nívia $text
-noelia		noélia $text
-?1 noemia	noémia $text
-?2 noemia	noêmia $text
-nubia		núbia $text
-octavio		octávio $text
-ofelia		ofélia $text
-olimpia		olímpia $text
-olimpio		olímpio $text
-olivia		olívia $text
-olivio		olívio $text
-otacilia	otacília $text
-otacilio	otacílio $text
-otavia		otávia $text
-otavio		otávio $text
-pamela		pâmela $text
-paola		$alt2
-paolo		$alt2
-patricia	patrícia $text
-patricio	patrício $text
-penelope	penélope $text
-pericles	péricles $text
-perola		pérola $text
-persio		pérsio $text
-petronio	petrônio $text
-petrucio	petrúcio $text
-placido		plácido $text
-plinio		plínio $text
-porfirio	porfírio $text
-quesia		késia $text
-quezia		késia $text
-quiteria	quitéria $text
-quiterio	quitério $text
-rachel		raquel $text
-raisa		raísa $text
-raissa		raíssa $text
-raiza		raísa $text
-ramao		ramão $text
-raul		raú $text
-regis		régis $text
-rogeria		rogéria $text
-rogerio		rogério $text
-romao		romão $text
-romario		romário $text
-?1 romulo	rómulo $text
-?2 romulo	rômulo $text
-rosalia		rosália $text
-rosangela	rosângela $text
-rosaria		rosária $text
-rosario		rosário $text
-rubia		rúbia $text
-salomao		salomão $text
-salvio		sálvio $text
-sansao		sansão $text
-satiro		sátiro $text
-saul		saú $text
-savia		sávia $text
-savio		sávio $text
-sebastiao	sebastião $text
-sergia		sérgia $text
-sergio		sérgio $text
-silveria	silvéria $text
-silverio	silvério $text
-silvia		sílvia $text
-silvio		sílvio $text
-simao		simão $text
-simeao		simeão $text
-simplicio	simplício $text
-sinesio		sinésio $text
-socrates	sócrates $text
-sonia		sônia $text
-sostenes	sóstenes $text
-suelen		suélen $text
-tacia		tácia $text
-tacio		tácio $text
-taina		tainá $text
-taise		taíse $text
-talia		tália $text
-tania		tânia $text
-tarcisio	tarcísio $text
-teofila		teófila $text
-teofilo		teófilo $text
-teo		téo $text
-teotonio	teotônio $text
-tercia		tércia $text
-tercio		tércio $text
-thais		taís $text
-theo		téo $text
-tiberio		tibério $text
-tiburcio	tibúrcio $text
-timoteo		timóteo $text
-tomasia		tomásia $text
-tulio		túlio $text
-ubirata		ubiratã $text
-uelinton	uélinton $text
-ueslei		uéslei $text
-urania		urânia $text
-ursula		úrsula $text
-vagner		vágner $text
-valdineia	valdinéia $text
-valeria		valéria $text
-valerio		valério $text
-valquiria	valquíria $text
-valter		válter $text
-vanessa		$alt2
-vania		vânia $text
-vanio		vânio $text
-venancia	venância $text
-venancio	venâncio $text
-verissimo	veríssimo $text
-?1 veronica	verónica $text
-?2 veronica	verônica $text
-vicencia	vicência $text
-victoria	victória $text
-victorio	victório $text
-victor		víctor $text
-vinicio		vinício $text
-vinicius	vinícius $text
-virgilia	virgília $text
-virgilio	virgílio $text
-virginia	virgínia $text
-virginio	virgínio $text
-vitoria		vitória $text
-vitorio		vitório $text
-vitor		vítor $text
-vivian		vívian $text
-vladia		vládia $text
-wagner		vágner $text
-waldo		valdo $text
-walter		válter $text
-wanda		vanda $text
-wando		vando $text
-welinton	uélinton $text
-wellington	uélinton $text
-wellinton	uélinton $text
-weslei		uéslei $text
-wesley		uéslei $text
-yuri		iúri $text
-zaira		zaíra $text
-zelia		zélia $text
-zelio		zélio $text
+abilio		abílio		$text
+abner		ábner		$text
+abraao		abraão		$text
+abrao		abrão		$text
+acacia		acácia		$text
+acacio		acácio		$text
+adao		adão		$text
+adelia		adélia		$text
+adelio		adélio		$text
+ademario	ademário	$text
+adonis		adônis		$text
+adria		ádria		$text
+aecio		aécio		$text
+afranio		afrânio		$text
+agata		ágata		$text
+agatha		ágata		$text
+ailton		aílton		$text
+alexia		aléxia		$text
+alison		álisson		$text
+alisson		álisson		$text
+aloisio		aloísio		$text
+aluisio		aluísio		$text
+alvaro		álvaro		$text
+amalia		amália		$text
+ambrosio	ambrósio	$text
+amelia		amélia		$text
+amelio		amélio		$text
+america		américa		$text
+americo		américo		$text
+amilcar		amílcar		$text
+amilton		amílton		$text
+analia		anália		$text
+anderson	ânderson	$text
+andrea		andréa		$text
+andre		andré		$text
+andreia		andréia		$text
+andressa			$alt2
+angela		ângela		$text
+angelica	angélica	$text
+angelo		ângelo		$text
+anibal		aníbal		$text
+?1 antonia	antónia		$text
+?2 antonia	antônia		$text
+antonieta			$alt2
+?1 antonio	antónio		$text
+?2 antonio	antônio		$text
+apolinario	apolinário	$text
+?1 apolonia	apolónia	$text
+?2 apolonia	apolônia	$text
+?1 apolonio	apolónio	$text
+?2 apolonio	apolônio	$text
+arao		arão		$text
+araujo		araújo		$text
+aristoteles	aristóteles	$text
+arnobio		arnóbio		$text
+arnoldo				$alt2
+?1 arsenio	arsénio		$text
+?2 arsenio	arsênio		$text
+assuncao	assunção	$text
+atila		átila		$text
+atilio		atílio		$text
+aurea		áurea		$text
+aurelia		aurélia		$text
+aurelio		aurélio		$text
+avila		ávila		$text
+ayrton		airton		$text
+barbara		bárbara		$text
+barnabe		barnabé		$text
+basilia		basília		$text
+basilio		basílio		$text
+benicio		benício		$text
+brasilia	brasília	$text
+braulio		bráulio		$text
+brigida		brígida		$text
+caique		caíque		$text
+candida		cândida		$text
+candido		cândido		$text
+cassia		cássia		$text
+catia		cátia		$text
+caua		cauã		$text
+caue		cauê		$text
+cecilia		cecília		$text
+cecilio		cecílio		$text
+celia		célia		$text
+celio		célio		$text
+cesar		césar		$text
+cesaria		cesária		$text
+cesario		cesário		$text
+cicera		cícera		$text
+cicero		cícero		$text
+cintia		cíntia		$text
+clauber		cláuber		$text
+claudia		cláudia		$text
+claudio		cláudio		$text
+cleber		cléber		$text
+clecia		clécia		$text
+clecio		clécio		$text
+clemencia	clemência	$text
+clovis		clóvis		$text
+conceicao	conceição	$text
+constancia	constância	$text
+constancio	constâncio	$text
+cornelia	cornélia	$text
+cornelio	cornélio	$text
+cristovao	cristóvão	$text
+damiao		damião		$text
+danubia		danúbia		$text
+dario		dário		$text
+debora		débora		$text
+decio		décio		$text
+demetrio	demétrio	$text
+demetrius	demétrius	$text
+denis		dênis		$text
+deoclecio	deoclécio	$text
+diego				$alt2
+diogenes	diógenes	$text
+dionisia	dionísia	$text
+dionisio	dionísio	$text
+?1 domenica	doménica	$text
+?2 domenica	domênica	$text
+?1 domenico	doménico	$text
+?2 domenico	domênico	$text
+doris		dóris		$text
+eder		éder		$text
+ederson		éderson		$text
+edesio		edésio		$text
+edipo		édipo		$text
+efigenia	efigênia	$text
+efigenio	efigênio	$text
+egidia		egídia		$text
+egidio		egídio		$text
+elcio		élcio		$text
+elder		hélder		$text
+elida		élida		$text
+elio		hélio		$text
+elisangela	elisângela	$text
+elisia		elísia		$text
+elisio		elísio		$text
+eloa		eloá		$text
+emilia		emília		$text
+emilio		emílio		$text
+encarnacao	encarnação	$text
+enio		ênio		$text
+epitacio	epitácio	$text
+erica		érica		$text
+erico		érico		$text
+esau		esaú		$text
+estacio		estácio		$text
+estefania	estefânia	$text
+estefano	estéfano	$text
+estevao		estêvão		$text
+estevao		estêvão		$text
+eufrasia	eufrásia	$text
+eufrasio	eufrásio	$text
+?1 eugenio	eugénio		$text
+?2 eugenio	eugênio		$text
+eulalia		eulália		$text
+eulalio		eulálio		$text
+euler		êuler		$text
+euridice	eurídice	$text
+euripedes	eurípedes	$text
+eusebio		eusébio		$text
+eustaquio	eustáquio	$text
+everton		éverton		$text
+ewerton		éverton		$text
+fabia		fábia		$text
+fabio		fábio		$text
+fabiola		fabíola		$text
+fabricia	fabrícia	$text
+fabricio	fabrício	$text
+fagner		fágner		$text
+fatima		fátima		$text
+felicia		felícia		$text
+felicio		felício		$text
+felix		félix		$text
+fidelis		fidélis		$text
+flavia		flávia		$text
+flavio		flávio		$text
+florencia	florência	$text
+florencio	florêncio	$text
+francilio	francílio	$text
+?1 gardenia	gardénia	$text
+?2 gardenia	gardênia	$text
+gastao		gastão		$text
+genesia		genésia		$text
+genesio		genésio		$text
+getulio		getúlio		$text
+glauber		gláuber		$text
+glaucia		gláucia		$text
+glaucio		gláucio		$text
+gloria		glória		$text
+goncalo		gonçalo		$text
+goncalves	golçalves	$text
+gregoria	gregória	$text
+gregorio	gregório	$text
+hamilton	hamílton	$text
+helder		hélder		$text
+helia		hélia		$text
+helio		hélio		$text
+heloisa		heloísa		$text
+heloise		heloíse		$text
+henriqueta			$alt2
+herminia	hermínia	$text
+herminio	hermínio	$text
+higor		ígor		$text
+hilaria		hilária		$text
+hilario		hilário		$text
+hilton		ílton		$text
+hipolito	hipólito	$text
+honorio		honório		$text
+horacio		horácio		$text
+hortencia	hortência	$text
+hortencio	hortêncio	$text
+icaro		ícaro		$text
+igor		ígor		$text
+inacia		inácia		$text
+inacio		inácio		$text
+ines		inês		$text
+inocencia	inocência	$text
+inocencio	inocêncio	$text
+iris		íris		$text
+isaias		isaías		$text
+isis		ísis		$text
+itala		ítala		$text
+italo		ítalo		$text
+iuri		iúri		$text
+ivanete				$alt1
+jader		jáder		$text
+janaina		janaína		$text
+janio		jânio		$text
+januaria	januária	$text
+januario	januário	$text
+jeferson	jéferson	$text
+jefferson	jéferson	$text
+jenifer		jênifer		$text
+jennifer	jênifer		$text
+jeova		jeová		$text
+?1 jeronimo	jerónimo	$text
+?2 jeronimo	jerônimo	$text
+jessica		jéssica		$text
+jesuina		jesuína		$text
+jesuino		jesuíno		$text
+joao		joão		$text
+?1 jonatas	jónata		$text
+?2 jonatas	jônata		$text
+?1 jonatas	jónatas		$text
+?2 jonatas	jônatas		$text
+josafa		josafá		$text
+jose		josé		$text
+joselia		josélia		$text
+joselio		josélio		$text
+josue		josué		$text
+julia		júlia		$text
+julieta				$alt2
+juliete				$alt1
+julio		júlio		$text
+junia		júnia		$text
+junio		júnio		$text
+junior		júnior		$text
+juvencio	juvêncio	$text
+kaique		kaíque		$text
+kassia		kássia		$text
+katia		kátia		$text
+kaua		kauã		$text
+kaue		kauê		$text
+kecia		kécia		$text
+kenia		kênia		$text
+kesia		késia		$text
+kessia		késsia		$text
+kelvia		kélvia		$text
+kilvia		kílvia		$text
+laisa		laísa		$text
+lais		laís		$text
+laurencio	laurêncio	$text
+lavinia		lavínia		$text
+lazaro		lázaro		$text
+lelia		lélia		$text
+lelio		lélio		$text
+leo		léo		$text
+leoncio		leôncio		$text
+leonidas	leônidas	$text
+leopoldo			$alt2
+leticia		letícia		$text
+lidia		lídia		$text
+liduina		liduína		$text
+ligia		lígia		$text
+lilia		lília		$text
+liliam		líliam		$text
+lilian		lílian		$text
+liria		líria		$text
+lirio		lírio		$text
+livia		lívia		$text
+livio		lívio		$text
+lourenca	lourença	$text
+lourenco	lourenço	$text
+lucelia		lucélia		$text
+lucelio		lucélio		$text
+lucia		lúcia		$text
+lucilia		lucília		$text
+lucilio		lucílio		$text
+luciola		lucíola		$text
+lucio		lúcio		$text
+lucrecia	lucrécia	$text
+luisa		luísa		$text
+luis		luís		$text
+luiza		luísa		$text
+lupercio	lupércio	$text
+magnolia	magnólia	$text
+maicon		máicon		$text
+maira		maíra		$text
+maisa		maísa		$text
+maite		maitê		$text
+marcia		márcia		$text
+marcilia	marcília	$text
+marcilio	marcílio	$text
+marcio		márcio		$text
+marcus		marcos		$text
+mariangela	mariângela	$text
+marilia		marília		$text
+mario		mário		$text
+matusalem	matusalém	$text
+mauricia	maurícia	$text
+mauricio	maurício	$text
+melania		melânia		$text
+militao		militão		$text
+milton		mílton		$text
+miria		miriã		$text
+miriam		míriam		$text
+mirian		mírian		$text
+moises		moisés		$text
+?1 monica	mónica		$text
+?2 monica	mônica		$text
+mucio		múcio		$text
+nadia		nádia		$text
+narcisio	narcísio	$text
+natalia		natália		$text
+natalicia	natalícia	$text
+natalicio	natalício	$text
+nazare		nazaré		$text
+nelia		nélia		$text
+nelio		nélio		$text
+nicolas		nícolas		$text
+nidia		nídia		$text
+nilton		nílton		$text
+nivea		nívea		$text
+nivia		nívia		$text
+noelia		noélia		$text
+?1 noemia	noémia		$text
+?2 noemia	noêmia		$text
+nubia		núbia		$text
+octavio		octávio		$text
+ofelia		ofélia		$text
+olimpia		olímpia		$text
+olimpio		olímpio		$text
+olivia		olívia		$text
+olivio		olívio		$text
+otacilia	otacília	$text
+otacilio	otacílio	$text
+otavia		otávia		$text
+otavio		otávio		$text
+pamela		pâmela		$text
+paola				$alt2
+paolo				$alt2
+patricia	patrícia	$text
+patricio	patrício	$text
+penelope	penélope	$text
+pericles	péricles	$text
+perola		pérola		$text
+persio		pérsio		$text
+petronio	petrônio	$text
+petrucio	petrúcio	$text
+placido		plácido		$text
+plinio		plínio		$text
+porfirio	porfírio	$text
+quesia		késia		$text
+quezia		késia		$text
+quiteria	quitéria	$text
+quiterio	quitério	$text
+rachel		raquel		$text
+raisa		raísa		$text
+raissa		raíssa		$text
+raiza		raísa		$text
+ramao		ramão		$text
+raul		raú		$text
+regis		régis		$text
+rogeria		rogéria		$text
+rogerio		rogério		$text
+romao		romão		$text
+romario		romário		$text
+?1 romulo	rómulo		$text
+?2 romulo	rômulo		$text
+rosalia		rosália		$text
+rosangela	rosângela	$text
+rosaria		rosária		$text
+rosario		rosário		$text
+rubia		rúbia		$text
+salomao		salomão		$text
+salvio		sálvio		$text
+sansao		sansão		$text
+satiro		sátiro		$text
+saul		saú		$text
+savia		sávia		$text
+savio		sávio		$text
+sebastiao	sebastião	$text
+sergia		sérgia		$text
+sergio		sérgio		$text
+silveria	silvéria	$text
+silverio	silvério	$text
+silvia		sílvia		$text
+silvio		sílvio		$text
+simao		simão		$text
+simeao		simeão		$text
+simplicio	simplício	$text
+sinesio		sinésio		$text
+socrates	sócrates	$text
+sonia		sônia		$text
+sostenes	sóstenes	$text
+suelen		suélen		$text
+tacia		tácia		$text
+tacio		tácio		$text
+taina		tainá		$text
+taise		taíse		$text
+talia		tália		$text
+tania		tânia		$text
+tarcisio	tarcísio	$text
+teofila		teófila		$text
+teofilo		teófilo		$text
+teo		téo		$text
+teotonio	teotônio	$text
+tercia		tércia		$text
+tercio		tércio		$text
+thais		taís		$text
+theo		téo		$text
+tiberio		tibério		$text
+tiburcio	tibúrcio	$text
+timoteo		timóteo		$text
+tomasia		tomásia		$text
+tulio		túlio		$text
+ubirata		ubiratã		$text
+uelinton	uélinton	$text
+ueslei		uéslei		$text
+urania		urânia		$text
+ursula		úrsula		$text
+vagner		vágner		$text
+valdineia	valdinéia	$text
+valeria		valéria		$text
+valerio		valério		$text
+valquiria	valquíria	$text
+valter		válter		$text
+vanessa				$alt2
+vania		vânia		$text
+vanio		vânio		$text
+venancia	venância	$text
+venancio	venâncio	$text
+verissimo	veríssimo	$text
+?1 veronica	verónica	$text
+?2 veronica	verônica	$text
+vicencia	vicência	$text
+victoria	victória	$text
+victorio	victório	$text
+victor		víctor		$text
+vinicio		vinício		$text
+vinicius	vinícius	$text
+virgilia	virgília	$text
+virgilio	virgílio	$text
+virginia	virgínia	$text
+virginio	virgínio	$text
+vitoria		vitória		$text
+vitorio		vitório		$text
+vitor		vítor		$text
+vivian		vívian		$text
+vladia		vládia		$text
+wagner		vágner		$text
+waldo		valdo		$text
+walter		válter		$text
+wanda		vanda		$text
+wando		vando		$text
+welinton	uélinton	$text
+wellington	uélinton	$text
+wellinton	uélinton	$text
+weslei		uéslei		$text
+wesley		uéslei		$text
+yuri		iúri		$text
+zaira		zaíra		$text
+zelia		zélia		$text
+zelio		zélio		$text
 
