@@ -73,22 +73,22 @@ static void LoadHomographData(void)
 	homograph_data = root;
 	
 	// Print a sample entry for debugging
-	json_object *sample_word = json_object_object_get(root, "read");
-	if (sample_word != NULL) {
-		fprintf(stderr, "Sample homograph data for 'read':\n");
-		json_object_object_foreach(sample_word, key, val) {
-			fprintf(stderr, "  Pronunciation: %s\n", key);
-			fprintf(stderr, "  Context words: ");
-			if (json_object_get_type(val) == json_type_array) {
-				int array_len = json_object_array_length(val);
-				for (int i = 0; i < array_len; i++) {
-					json_object *item = json_object_array_get_idx(val, i);
-					fprintf(stderr, "%s ", json_object_get_string(item));
-				}
-			}
-			fprintf(stderr, "\n");
-		}
-	}
+	// json_object *sample_word = json_object_object_get(root, "read");
+	// if (sample_word != NULL) {
+	// 	fprintf(stderr, "Sample homograph data for 'read':\n");
+	// 	json_object_object_foreach(sample_word, key, val) {
+	// 		fprintf(stderr, "  Pronunciation: %s\n", key);
+	// 		fprintf(stderr, "  Context words: ");
+	// 		if (json_object_get_type(val) == json_type_array) {
+	// 			int array_len = json_object_array_length(val);
+	// 			for (int i = 0; i < array_len; i++) {
+	// 				json_object *item = json_object_array_get_idx(val, i);
+	// 				fprintf(stderr, "%s ", json_object_get_string(item));
+	// 			}
+	// 		}
+	// 		fprintf(stderr, "\n");
+	// 	}
+	// }
 }
 
 static void LoadHomographs(void)
@@ -240,29 +240,31 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 		LoadHomographData();
 	}
 	
-	fprintf(stderr, "\n=== Homograph Processing ===\n");
-	fprintf(stderr, "Looking up word: '%s'\n", word);
+	// fprintf(stderr, "\n=== Homograph Processing ===\n");
+	// fprintf(stderr, "Looking up word: '%s'\n", word);
 	
 	// Get the word data from homograph dictionary
 	json_object *word_data = json_object_object_get(homograph_data, word);
 	if (word_data == NULL) {
 		fprintf(stderr, "Word not found in homograph dictionary\n");
-		// Word not found in homograph dictionary, use default pronunciation
-		phonemes[0] = PhonemeCode('a');
-		phonemes[1] = PhonemeCode('a');
-		phonemes[2] = PhonemeCode('a');
-		phonemes[3] = 0;
+		// Word not found in homograph dictionary, use word's characters as phonemes
+		int i = 0;
+		while (word[i] != 0 && i < N_WORD_PHONEMES - 1) {
+			phonemes[i] = PhonemeCode(word[i]);
+			i++;
+		}
+		phonemes[i] = 0;
 		return;
 	}
 
-	fprintf(stderr, "\nFound homograph '%s' with pronunciations:\n", word);
+	// fprintf(stderr, "\nFound homograph '%s' with pronunciations:\n", word);
 	struct json_object_iterator it = json_object_iter_begin(word_data);
 	struct json_object_iterator itEnd = json_object_iter_end(word_data);
 	while (!json_object_iter_equal(&it, &itEnd)) {
 		const char *debug_pron_key = json_object_iter_peek_name(&it);
 		json_object *debug_pron_val = json_object_iter_peek_value(&it);
-		fprintf(stderr, "  Pronunciation: %s\n", debug_pron_key);
-		fprintf(stderr, "  Context words: ");
+		// fprintf(stderr, "  Pronunciation: %s\n", debug_pron_key);
+		// fprintf(stderr, "  Context words: ");
 		if (json_object_get_type(debug_pron_val) == json_type_array) {
 			int array_len = json_object_array_length(debug_pron_val);
 			for (int i = 0; i < array_len; i++) {
@@ -280,7 +282,7 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 	char *context_words[256] = {0};
 	int num_context_words = 0;
 
-	fprintf(stderr, "\n=== Context Words ===\n");
+	// fprintf(stderr, "\n=== Context Words ===\n");
 	// Process context words
 	for (int i = 0; i < word_count; i++) {
 		char word_copy[150];
@@ -299,7 +301,7 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 			continue;
 		}
 
-		fprintf(stderr, "Word %d: '%s'\n", i + 1, word_copy);
+		// fprintf(stderr, "Word %d: '%s'\n", i + 1, word_copy);
 
 		// Check if we've seen this word before
 		int found = 0;
@@ -328,21 +330,20 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 	double max_normalized_score = -1;
 	int max_raw_overlap = 0;
 
-	fprintf(stderr, "\nEvaluating pronunciations:\n");
+	// fprintf(stderr, "\nEvaluating pronunciations:\n");
 	// Iterate through each pronunciation option
 	json_object_object_foreach(word_data, pron_key, pron_val) {
 		if (json_object_get_type(pron_val) != json_type_array) {
 			continue;
 		}
 
-		fprintf(stderr, "\nEvaluating pronunciation: %s\n", pron_key);
+		// fprintf(stderr, "\nEvaluating pronunciation: %s\n", pron_key);
 
 		// Count word frequencies in this pronunciation's associated words
 		int phoneme_word_counts[256] = {0};
 		int total_phoneme_words = 0;
 		
 		int array_len = json_object_array_length(pron_val);
-		fprintf(stderr, "  Array length: %d\n", array_len);
 		
 		for (int i = 0; i < array_len; i++) {
 			json_object *item = json_object_array_get_idx(pron_val, i);
@@ -357,8 +358,8 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 				continue;
 			}
 			
-			fprintf(stderr, "  Processing associated word[%d]: '%s' (length: %zu)\n", 
-				i, assoc_word, strlen(assoc_word));
+			// fprintf(stderr, "  Processing associated word[%d]: '%s' (length: %zu)\n", 
+			// 	i, assoc_word, strlen(assoc_word));
 			
 			// Count occurrences of this associated word
 			for (int j = 0; j < num_context_words; j++) {
@@ -367,13 +368,13 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 					continue;
 				}
 				
-				fprintf(stderr, "    Comparing with context word[%d]: '%s' (length: %zu)\n", 
-					j, context_words[j], strlen(context_words[j]));
+				// fprintf(stderr, "    Comparing with context word[%d]: '%s' (length: %zu)\n", 
+				// 	j, context_words[j], strlen(context_words[j]));
 				
 				if (strcmp(context_words[j], assoc_word) == 0) {
 					phoneme_word_counts[j]++;
-					fprintf(stderr, "    Match found! New count for word '%s': %d\n", 
-						context_words[j], phoneme_word_counts[j]);
+					// fprintf(stderr, "    Match found! New count for word '%s': %d\n", 
+					// 	context_words[j], phoneme_word_counts[j]);
 				}
 			}
 			total_phoneme_words++;
@@ -381,43 +382,43 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 
 		// Calculate weighted overlap
 		int weighted_overlap = 0;
-		fprintf(stderr, "  Calculating weighted overlap:\n");
+		// fprintf(stderr, "  Calculating weighted overlap:\n");
 		for (int i = 0; i < num_context_words; i++) {
 			if (context_words[i] == NULL) continue;
 			weighted_overlap += context_counts[i] * phoneme_word_counts[i];
-			fprintf(stderr, "    Word '%s': count=%d, matches=%d, contribution=%d\n",
-				context_words[i], context_counts[i], phoneme_word_counts[i],
-				context_counts[i] * phoneme_word_counts[i]);
+			// fprintf(stderr, "    Word '%s': count=%d, matches=%d, contribution=%d\n",
+			// 	context_words[i], context_counts[i], phoneme_word_counts[i],
+			// 	context_counts[i] * phoneme_word_counts[i]);
 		}
-		fprintf(stderr, "  Total weighted overlap: %d\n", weighted_overlap);
+		// fprintf(stderr, "  Total weighted overlap: %d\n", weighted_overlap);
 
 		// Calculate normalized score
 		double normalized_score = (total_phoneme_words > 0) ? 
 			(double)weighted_overlap / total_phoneme_words : 0.0;
 
-		fprintf(stderr, "  Raw overlap: %d\n", weighted_overlap);
-		fprintf(stderr, "  Normalized score: %.2f\n", normalized_score);
+		// fprintf(stderr, "  Raw overlap: %d\n", weighted_overlap);
+		// fprintf(stderr, "  Normalized score: %.2f\n", normalized_score);
 
 		// Select best phoneme
 		if (normalized_score > max_normalized_score) {
 			max_normalized_score = normalized_score;
 			max_raw_overlap = weighted_overlap;
 			best_phoneme = pron_key;
-			fprintf(stderr, "  New best pronunciation selected!\n");
+			// fprintf(stderr, "  New best pronunciation selected!\n");
 		} else if (normalized_score == max_normalized_score) {
 			// Tiebreaker: prefer the phoneme with higher raw overlap
 			if (weighted_overlap > max_raw_overlap) {
 				max_raw_overlap = weighted_overlap;
 				best_phoneme = pron_key;
-				fprintf(stderr, "  New best pronunciation selected (tiebreaker)!\n");
+				// fprintf(stderr, "  New best pronunciation selected (tiebreaker)!\n");
 			}
 		}
 	}
 
-	fprintf(stderr, "\nFinal selection:\n");
-	fprintf(stderr, "Selected pronunciation: %s\n", best_phoneme ? best_phoneme : "none");
-	fprintf(stderr, "Final score: %.2f\n", max_normalized_score);
-	fprintf(stderr, "Final raw overlap: %d\n", max_raw_overlap);
+	// fprintf(stderr, "\nFinal selection:\n");
+	// fprintf(stderr, "Selected pronunciation: %s\n", best_phoneme ? best_phoneme : "none");
+	// fprintf(stderr, "Final score: %.2f\n", max_normalized_score);
+	// fprintf(stderr, "Final raw overlap: %d\n", max_raw_overlap);
 
 	// Copy the best phoneme to output
 	if (best_phoneme != NULL) {
@@ -428,11 +429,13 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 		}
 		phonemes[i] = 0;
 	} else {
-		// No suitable pronunciation found, use default
-		phonemes[0] = PhonemeCode('a');
-		phonemes[1] = PhonemeCode('a');
-		phonemes[2] = PhonemeCode('a');
-		phonemes[3] = 0;
+		// No suitable pronunciation found, use word's characters as phonemes
+		int i = 0;
+		while (word[i] != 0 && i < N_WORD_PHONEMES - 1) {
+			phonemes[i] = PhonemeCode(word[i]);
+			i++;
+		}
+		phonemes[i] = 0;
 	}
 }
 
@@ -495,21 +498,21 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_
 	for (ix2 = 0; ((c_temp = word_start[ix2]) != ' ') && (c_temp != 0) && (ix2 < (sizeof(wordbuf)-1)); ix2++)
 		wordbuf[ix2] = c_temp;
 	wordbuf[ix2] = 0;
-	fprintf(stderr, "Processing word: '%s'\n", wordbuf);
+	// fprintf(stderr, "Processing word: '%s'\n", wordbuf);
 
 	// Add debug print header and print all words before processing
-	fprintf(stderr, "\n=== Context Words ===\n");
-	for (ix = 0; ix < word_count; ix++) {
-		char word_copy[150];
-		int word_len = 0;
-		char *pw = &sbuf[words[ix].start];
-		while (pw[word_len] != ' ' && pw[word_len] != 0 && word_len < 149) {
-			word_copy[word_len] = pw[word_len];
-			word_len++;
-		}
-		word_copy[word_len] = 0;
-		fprintf(stderr, "Word %d: '%s'\n", ix + 1, word_copy);
-	}
+	// fprintf(stderr, "\n=== Context Words ===\n");
+	// for (ix = 0; ix < word_count; ix++) {
+	// 	char word_copy[150];
+	// 	int word_len = 0;
+	// 	char *pw = &sbuf[words[ix].start];
+	// 	while (pw[word_len] != ' ' && pw[word_len] != 0 && word_len < 149) {
+	// 		word_copy[word_len] = pw[word_len];
+	// 		word_len++;
+	// 	}
+	// 	word_copy[word_len] = 0;
+	// 	fprintf(stderr, "Word %d: '%s'\n", ix + 1, word_copy);
+	// }
 
 	// Check if the word is a homograph
 	if (IsHomograph(wordbuf)) {
