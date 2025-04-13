@@ -1,4 +1,4 @@
- 	// translation rules Brazilian
+// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -155,10 +155,10 @@
         ch         S
         chr        kR
         ck         k
-?1      c (c                 //drop “c” in European Portuguese (eg: seleccionar)
-?1   A) ct         t         //drop “c” in European Portuguese (eg: exacto)
-?1   A) cç         s         //drop “c” in European Portuguese (eg: selecção)
-?1 conta) ct (A      kt        // eg: contacto, contactar, contactável, incontactável, etc...
+?1      c (c                 // drop “c” in European Portuguese (eg: seleccionar)
+?1   A) ct         t         // drop “c” in European Portuguese (eg: exacto)
+?1   A) cç         s         // drop “c” in European Portuguese (eg: selecção)
+?1 conta) ct (A    kt        // eg: contacto, contactar, contactável, incontactável, etc...
 
 
 .group d
@@ -183,12 +183,12 @@
 ?2  &r) e (_AN     =i
 ?1      e (_iN     =i/       // drop final [i] is next word starts with another i
 
-?1      e (e       i         //eg: candeeiro
+?1      e (e       i         // eg: candeeiro
 
 ?2      el (K      EU
         e (lh+     e
         e (ll+     E
-et (_  EtS
+        et (_      EtS
 
         e (bL02_   E
         e (cL04_   E
@@ -196,7 +196,7 @@ et (_  EtS
         e (cCL04_  E
      r) e (cho_    e
 
-   e (dL02_   E
+        e (dL02_   E
 
         e (fL04_   E
 
@@ -245,7 +245,7 @@ et (_  EtS
         e (rrL04_  E
         e (rvL04_  E
         e (tL04_   E
-e (trL04_   E
+        e (trL04_  E
      m) e (tL03_   e
     An) e (tA_     e
     on) e (te_     E
@@ -324,7 +324,7 @@ e (trL04_   E
 ?1 hip) e (r       ,E        // eg: hiper
 ?1 sup) e (r       ,E        // super
 ?1  _m) e (ga      ,E        // mega
-?1 _int) e (rn      ,E        // Interno
+?1 _int) e (rn     ,E        // Interno
 ?1   n) e (t       'E        // eg: net
 ?1      e (l_      'E        // eg: possível, manuel, etc...
 ?1   v) e (l_      ,E        // eg: possível, amovível, disponível, etc...
@@ -411,13 +411,13 @@ _troux) e (L07_    E
   _ens) e (bL03_   E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
-    sev) e (rL04_   E
-     cel) e (brL04_  E
+   sev) e (rL04_   E
+   cel) e (brL04_  E
   _sop) e (sL04_   E
     _C) e (bre_    E
  _barb) e (tA_     e
  _boch) e (chL04_  e
-     impr) e (gnL04_  E
+  impr) e (gnL04_  E
   _enr) e (dL01_   E
     _v) e (dL03_   E
   _sob) e (rbL03_  e
@@ -465,7 +465,7 @@ _tetran) e (tL08_  E
   _tol) e (rL04_   E
   acel) e (rL04_   E         // des-
  _apod) e (rL04_   E
- enum) e (rL04_   E
+  enum) e (rL04_   E
  _exub) e (rL04_   E
 _adult) e (rL04_   E
 _aglom) e (rL04_   E
@@ -494,9 +494,9 @@ s_colh) e (res_    E
  _repr) e (sL03_   E
   _ent) e (sL04_   E
  _refr) e (scL01_  E
- _ef) e (tuL02_   e
+  _ef) e (tuL02_   e
     _p) e (scL03_  E
-    _m) e (sclL04_  E
+    _m) e (sclL04_ E
   dioc) e (ses_    E
  _aust) e (rL08_   E
     _d) e (spL02_  E
@@ -519,7 +519,7 @@ _obsol) e (tL08_   e
   viol) e (ta_     e
  _Carr) e (ta_     e
   _Gur) e (ta_     e
-        _n) eu (trL08_ 'eU
+    _n) eu (trL08_ 'eU
     _d) e (vL03_   e
    scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
@@ -671,7 +671,7 @@ _redar) gu (A      gw
     úC) i (A_      j
    úCC) i (A_      j
 
-?1   _) i (ntern   'i        //inter
+?1   _) i (ntern   'i        // inter
 ?1   @) ing (_     _^_EN
 ?1   @) ings (_    _^_EN
 ?2      il (ton_   'iU
@@ -743,7 +743,7 @@ _redar) gu (A      gw
 ?3      n (B       nI
 ?3      n (_C      n_
         nh         n^
-?1   A) nn         n         //drop “n” (eg: connosco).
+?1   A) nn         n         // drop “n” (eg: connosco).
 
 
 .group ñ
@@ -869,7 +869,7 @@ _redar) gu (A      gw
 ?1  _p) o (rtuC    u         // Portugal, Portucalense, etc...
 ?1  pr) o (f       u
 ?1  _s) o (lu      u         // solução, soluções.
-?1 interr) o (g       u         // eg: interrogação
+?1 interr) o (g    u         // eg: interrogação
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
         o (luem_   o
         o (ssuem_  o
@@ -929,7 +929,7 @@ _redar) gu (A      gw
   _esC) o (pA_     o
      g) ol (pe_    Ow
   antr) o (pL08_   o
-  flex) o (rA_ 
+  flex) o (rA_     o
      p) o (rL02_   o
   _dev) o (rL02_   O
  _apav) o (rL02_   O
@@ -968,10 +968,10 @@ _redar) gu (A      gw
         ortos (_A  'O*@-tUz
 ?1      ortos (_G  'O*@-tUZ
 ?2      ortos (_G  'O*@-tUz
-        ovos (_    Ov=Us#    novos, povos, etc.
-        ovos (_A   Ov=Uz     novos, povos, etc.
-?1      ovos (_G   Ov=UZ     novos, povos, etc.
-?2      ovos (_G   Ov=Uz     novos, povos, etc.
+        ovos (_    Ov=Us#    // novos, povos, etc.
+        ovos (_A   Ov=Uz     // novos, povos, etc.
+?1      ovos (_G   Ov=UZ     // novos, povos, etc.
+?2      ovos (_G   Ov=Uz     // novos, povos, etc.
         ortos (_   O*@-t=Us# // tortos, mortos, etc.
   _Gar) o (tL08_   o
  _escr) o (tL08_   o
@@ -981,9 +981,9 @@ _redar) gu (A      gw
   _Com) o (do_     o
 _ortod) o (xL08_   O
   _arr) ox (A      OS
-  _B) o (jo_   o
-  b) o (rdo_  O
-  C) o (smA_  O
+    _B) o (jo_     o
+     b) o (rdo_    O
+     C) o (smA_    O
     _g) o (zL04_   O
   _alm) o (çL01_   O
   _esb) o (çL01_   O
@@ -1040,8 +1040,8 @@ _ortod) o (xL08_   O
         qu (Y      k
         qu (K      ku
      _) que (_     ky
-?2 por_) que (_     ke
-?2 por_) que (_é    ky
+?2 por_) que (_    ke
+?2 por_) que (_é   ky
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
      @) quên       kw'eIN    // frequência, etc.
@@ -1137,7 +1137,7 @@ _ortod) o (xL08_   O
 ?2      t (i       tS
 ?2      t (í       tS
 ?2      t (e_      tS
-?2      t (_      tS
+?2      t (_       tS
 ?1      th         _^_EN
 ?1      tion (_    _^_EN
 ?2   A) te (o_     tSj
@@ -1173,7 +1173,7 @@ _ortod) o (xL08_   O
         unh        u~n^
 
      g) u (Y 
-    _m) ui (tL08_    'wiN
+    _m) ui (tL08_  'wiN
 
 
 .group ú
@@ -1215,7 +1215,7 @@ _ortod) o (xL08_   O
         x (iqu     S
         x (C       s
         xc (Y      s
-        x (s 
+        x (s                 // drop “x” (ex: exsudar)
         x (_       ks
         x (AxA     S
         x (ó_      z
