@@ -269,7 +269,7 @@ static void GenerateHomographPhonemes(const char *word, char *phonemes, WORD_TAB
 			int array_len = json_object_array_length(debug_pron_val);
 			for (int i = 0; i < array_len; i++) {
 				json_object *item = json_object_array_get_idx(debug_pron_val, i);
-				fprintf(stderr, "%s ", json_object_get_string(item));
+				// fprintf(stderr, "%s ", json_object_get_string(item));
 			}
 		}
 		fprintf(stderr, "\n");

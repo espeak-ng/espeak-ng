@@ -314,6 +314,8 @@ int main(int argc, char **argv)
 	static const struct option long_options[] = {
 		{ "help",    no_argument,       0, 'h' },
 		{ "stdin",   no_argument,       0, 0x100 },
+		{ "input",   required_argument, 0, 0x113 },
+		{ "output",  required_argument, 0, 0x114 },
 		{ "compile-debug", optional_argument, 0, 0x101 },
 		{ "compile", optional_argument, 0, 0x102 },
 		{ "punct",   optional_argument, 0, 0x103 },
@@ -339,8 +341,10 @@ int main(int argc, char **argv)
 
 	FILE *f_text = NULL;
 	char *p_text = NULL;
-	FILE *f_phonemes_out = stdout;
+	FILE *f_phonemes_out = NULL;
 	char *data_path = NULL; // use default path for espeak-ng-data
+	char input_file[256] = {0};
+	char output_file[256] = {0};  // Add output file name variable
 
 	int option_index = 0;
 	int c;
@@ -593,6 +597,12 @@ int main(int argc, char **argv)
 		case 0x112: // --ssml-break
 			ssml_break = atoi(optarg2);
 			break;
+		case 0x113: // --input
+			strncpy0(input_file, optarg2, sizeof(input_file));
+			break;
+		case 0x114: // --output
+			strncpy0(output_file, optarg2, sizeof(output_file));
+			break;
 		default:
 			exit(0);
 		}
@@ -689,9 +699,54 @@ int main(int argc, char **argv)
 	if (option_punctuation == 2)
 		espeak_SetPunctuationList(option_punctlist);
 
+	// Open output file for phoneme output, first overwrite to clear previous content
+	if (output_file[0] == 0) {
+		strcpy(output_file, "output.txt");  // Default output file if none specified
+	}
+	if ((f_phonemes_out = fopen(output_file, "w")) == NULL) {
+		fprintf(stderr, "Can't write to output file: %s\n", output_file);
+		exit(EXIT_FAILURE);
+	}
+	fclose(f_phonemes_out);  // Close after clearing
+	f_phonemes_out = NULL;  // Set to NULL after closing
+
 	espeak_SetPhonemeTrace(phoneme_options | (phonemes_separator << 8), f_phonemes_out);
 
-	if (filename[0] == 0) {
+	// Process input file if specified
+	if (input_file[0] != 0) {
+		f_text = fopen(input_file, "r");
+		if (f_text == NULL) {
+			fprintf(stderr, "Can't open input file: %s\n", input_file);
+			exit(EXIT_FAILURE);
+		}
+
+		char line[1000];
+		while (fgets(line, sizeof(line), f_text) != NULL) {
+			// Remove trailing newline
+			line[strcspn(line, "\n")] = 0;
+			
+			// Process each line independently
+			if (line[0] != 0) {  // Skip empty lines
+				// Reopen output file in append mode for each line
+				if (f_phonemes_out != NULL) {
+					fclose(f_phonemes_out);
+					f_phonemes_out = NULL;
+				}
+				if ((f_phonemes_out = fopen(output_file, "a")) == NULL) {
+					fprintf(stderr, "Can't append to output file: %s\n", output_file);
+					exit(EXIT_FAILURE);
+				}
+				espeak_SetPhonemeTrace(phoneme_options | (phonemes_separator << 8), f_phonemes_out);
+				
+				espeak_Synth(line, strlen(line)+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
+				espeak_ng_Synchronize();
+				
+				fclose(f_phonemes_out);
+				f_phonemes_out = NULL;
+			}
+		}
+		fclose(f_text);
+	} else if (filename[0] == 0) {
 		if ((optind < argc) && (flag_stdin == 0)) {
 			// there's a non-option parameter, and no -f or --stdin
 			// use it as text
@@ -787,9 +842,6 @@ int main(int argc, char **argv)
 		espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
 		exit(EXIT_FAILURE);
 	}
-
-	if (f_phonemes_out != stdout)
-		fclose(f_phonemes_out);
 
 	CloseWavFile();
 	espeak_ng_Terminate();
