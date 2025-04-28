@@ -1350,6 +1350,7 @@ U+20	fAsele_
 استکان	estekAn
 استکبار	estekbAR
 استکهلم	'estokholm
+استیبل	estejbel
 استیج	estejdZ
 استیجار	estidZAR
 استیحاش	estihAS
@@ -1820,9 +1821,11 @@ U+20	fAsele_
 المعانی	olma?Ani
 المقدس	olmoq1addas
 الملل	ol'melal
+الممالک	olmamA:lek
 المنت	element
 الموت	alamut
 المپ	olamp
+المپیا	olampijA
 المپیاد	olampijAd
 المپیک	olampik
 المیرا	elmiRA
@@ -2248,6 +2251,7 @@ U+20	fAsele_
 اکساینده	oksAjande
 اکسایید	oksAid
 اکستازی	ekstA:zi
+اکسترنال	eksteRnAl
 اکسس	akses
 اکسسوری	aksesoRi
 اکسل	eksel
@@ -2357,6 +2361,7 @@ U+20	fAsele_
 اینترفکس	inteRfaks
 اینترفیس	inteRfejs
 اینترمیلان	inteRmilAn
+اینترنال	inteRnAl
 اینترنت	'inteR,net
 اینترنشنال	inteRnaSnAl
 اینترنیوز	inteRnijuz
@@ -2804,6 +2809,7 @@ U+20	fAsele_
 بدگمان	badgomAn
 بدگوشت	badguSt
 بدگوهر	badgo:haR
+بدگویی	badguji:
 بدیع	badi?
 بدیل	badil
 بدیم	bedim
@@ -3169,6 +3175,7 @@ U+20	fAsele_
 بغض	boq1z
 بغضا	baq1zA
 بغل	baq1al
+بغور	baq1uR
 بغچه	boq1tSe:
 بغچۀ	boq1tSeje
 بفتا	baftA
@@ -3712,7 +3719,7 @@ U+20	fAsele_
 تاسف	ta?assof
 تاسمانی	tAsmAni
 تاسیس	'ta?s,is
-تاشوی	tA:tSoje
+تاشوی	tA:Soje
 تاشکند	tASkand
 تافت	tAft
 تافتون	tAftun
@@ -4688,6 +4695,7 @@ U+20	fAsele_
 جغراف	dZoq1RAf
 جغرافیا	dZoq1RAfijA
 جغرافیدان	dZoq1RAfidAn
+جغور	dZaq1uR
 جغوربغور	dZaq1uRbaq1uR
 جف	dZef
 جفت	dZoft
@@ -4763,6 +4771,7 @@ U+20	fAsele_
 جنست	dZensat
 جنسیس	dZenesis
 جنم	dZanam
+جنوا	dZenevA
 جنگدیده	dZangdide
 جنگل	dZangal
 جنگه	dZange:
@@ -5485,6 +5494,7 @@ U+20	fAsele_
 دانلود	dAnlo:d
 دانم	dA:nam
 دانمارک	dAnmARk
+دانژ	dAnZ
 دانگ	dAng
 دانگل	dAngel
 دانیل	dAnijel
@@ -6527,6 +6537,7 @@ U+20	fAsele_
 رکاکت	RekAkat
 رکب	Rakab
 رکتوم	Rektom
+رکس	Reks
 رکسانا	RoksAnA
 رکسانه	RoksAne
 رکعات	Raka?At
@@ -6547,6 +6558,7 @@ U+20	fAsele_
 ریب	Rejb
 ریبوزوم	Ribozom
 ریتاردانتو	RitARdAnto
+ریتارداندو	RitARdAndo
 ریتم	Ritm
 ریحان	RejhAn
 ریحانه	RejhAne:
@@ -6581,6 +6593,7 @@ U+20	fAsele_
 ریو	Rijo
 ریوالدو	RivAldo
 ریودوژانیرو	RijodoZAniRo
+ریورب	RiveRb
 ریوس	Rous
 ریون	Rijon
 ریوی	Rijavi
@@ -8762,6 +8775,7 @@ U+20	fAsele_
 فقط	faq1at
 فقه	'feq1h
 فقها	foq1ahA
+فقهاست	foq1ahAst
 فقهای	foq1ahAje
 فقهایی	foq1ahAi:
 فقیه	faq1ih
@@ -8841,6 +8855,7 @@ U+20	fAsele_
 فوراً	fo:Ran
 فورته	foRte:
 فورد	foRd
+فورس	foRs
 فورمالیته	foRmAlite:
 فورمیکا	foRmikA
 فوروارد	foRvARd
@@ -12299,6 +12314,7 @@ U+20	fAsele_
 هماهنگی	hamAhangi
 هماور	hamAvaR
 همایش	hamAjeS
+همبر	hambeR
 همبرگر	hambeRgeR
 همبستگی	hambastegi
 همت	hemmat
@@ -13476,6 +13492,7 @@ U+20	fAsele_
 چتکه	tSotke
 چجور	tSedZuR
 چخوف	tSexof
+چدار	tSedAR
 چدن	tSodan
 چرا	tSeRA
 چراخور	tSeRAxoR
@@ -14417,7 +14434,7 @@ U+20	fAsele_
 گارانتی	gARAnti
 گارد	gARd
 گاردریل	gARdRejl
-گاردن	gozA:Rdan
+گاردن	gARden
 گاردین	gARdijan
 گارسن	gARson
 گارسون	gARson
@@ -14462,6 +14479,7 @@ U+20	fAsele_
 گدازد	godAzad
 گذار	gozAR
 گذارد	gozARad
+گذاردن	gozARdan
 گذاردند	gozA:Rdand
 گذارده	gozARde:
 گذاردیم	gozARdim
