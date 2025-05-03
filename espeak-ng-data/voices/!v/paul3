@@ -1,0 +1,13 @@
+language variant
+name Paul3
+klatt 6
+consonants 60 65
+voicing 100
+pitch  120 175
+formant 1 73 25 100 60
+formant 2 88 100 100 150
+formant 3 92 100 100 303
+formant 4 114 60 60
+formant 5 110 40 60
+breath 5
+stressAdd 0 30 30 0 0 0 30 10
