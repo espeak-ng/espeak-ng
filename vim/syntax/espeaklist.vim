@@ -20,8 +20,8 @@ syn region	espeaklistComment contained		start="//" end="$" keepend contains=@Spe
 syn region	espeaklistFlag contained		start="\$" end="[ \t\r\n]" skipwhite nextgroup=espeaklistFlag,espeaklistComment
 
 syn region	espeaklistEntryConditional contained	start="^[?!]" end="[ \t]" skipwhite nextgroup=espeaklistEntryPhrase,espeaklistEntryWord
-syn region	espeaklistEntryPhrase contained		start="^(" end=")" skipwhite nextgroup=espeaklistEntryPronunciation
-syn match	espeaklistEntryWord contained		"[^ \t\r\n]\+" skipwhite nextgroup=espeaklistEntryPronunciation,espeaklistFlag
+syn region	espeaklistEntryPhrase contained		start="(" end=")" skipwhite nextgroup=espeaklistEntryPronunciation,espeaklistFlag
+syn match	espeaklistEntryWord contained		"[^ \t\r\n()]\+" skipwhite nextgroup=espeaklistEntryPronunciation,espeaklistFlag
 syn match	espeaklistEntryPronunciation contained	"[^$/]*" skipwhite nextgroup=espeaklistFlag,espeaklistComment
 
 " Define the default highlighting.

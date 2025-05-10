@@ -527,6 +527,7 @@ dictionaries: \
 	espeak-ng-data/pap_dict \
 	espeak-ng-data/piqd_dict \
 	espeak-ng-data/pl_dict \
+	espeak-ng-data/ps_dict \
 	espeak-ng-data/pt_dict \
 	espeak-ng-data/py_dict \
 	espeak-ng-data/qdb_dict \
@@ -823,6 +824,9 @@ espeak-ng-data/piqd_dict: dictsource/piqd_list dictsource/piqd_rules
 
 pl: espeak-ng-data/pl_dict
 espeak-ng-data/pl_dict: dictsource/pl_list dictsource/pl_rules dictsource/pl_extra dictsource/pl_emoji
+
+ps: espeak-ng-data/ps_dict
+espeak-ng-data/ps_dict: dictsource/ps_list dictsource/ps_rules dictsource/ps_extra dictsource/ps_emoji
 
 pt: espeak-ng-data/pt_dict
 espeak-ng-data/pt_dict: dictsource/pt_list dictsource/pt_rules dictsource/pt_extra dictsource/pt_emoji

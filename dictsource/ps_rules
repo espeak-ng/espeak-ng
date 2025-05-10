@@ -1,0 +1,1514 @@
+// This ps_rules file is created by Hanif Rahman for Pashto language support in espeak-ng
+// This file is UTF8 encoded 
+// Phoneme rules for Pashto
+// Updated May 2025: Comprehensive revision to ensure full alignment with ph_pashto phoneme definitions
+// Improved context-sensitive rules and expanded coverage of phoneme combinations
+// Previous updates:
+// - April 2025: Comprehensive overhaul with improved context-sensitive rules, stress patterns, 
+// - March 2025: Fixed to use only defined phonemes with correct notation
+
+// Letter group - l01: Vowels
+
+.replace
+٠	0
+١	1
+٢	2
+٣	3
+٤	4
+٥	5
+٦	6
+٧	7
+٨	8
+٩	9
+ي	ی
+آ	ا
+
+// vowel signs, alif acts as consonants at start of word if these follow
+.L01  َ ِ ُ و ی ع ا ې ۍ ی ګ ڼ ړ ډ ټ څ ځ ښ ږ ٰ ٗ
+
+// Consonants
+.L02  ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه ئ
+
+// Letter group - L03 (all letters)
+.L03  ا ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ې ۍ ی ه ئ ٰ
+
+// Common word endings
+.L04  ان ات ون ین 
+
+// Consonant clusters
+.L05  بل پل تر ټر در ډر سر شت ښت کر ګر مر نر ڼر
+
+// Short vowel contexts
+.L06  َت َد َر َس َش َک َل َم َن
+
+// Long vowel contexts
+.L07  اب ات اد ار ال ام ان او ای ېر ېز ېږ ېښ
+
+// VOWELS
+
+.group َ
+	َ	a
+	َی 	e
+	َې	e
+	َو 	wa
+	َع	a:
+	_) َ	'a      // Stress on initial short vowel
+	L02) َ (L02L02_	a#     // Using unstressed vowel variant in final closed syllables
+	L02) َ (L02_	a      // Maintained in final open syllables
+	L02) َ (L05	'a      // Stress before consonant clusters
+
+.group ِ
+	ِ	i
+	ِی	i:
+	ِع(L02	i
+	L03L03) ِ (_S1	'e:
+	_) ِ	'i      // Stress on initial short vowel
+	L02) ِ (L02L02_	i#     // Using unstressed vowel variant in final closed syllables
+	L02) ِ (L02_	i      // Maintained in final open syllables
+	L02) ِ (L05	'i      // Stress before consonant clusters
+
+.group ُ
+	ُ	u
+	ُو	u:
+	ُع	o
+	_) ُ	'u      // Stress on initial short vowel
+	L02) ُ (L02L02_	u#     // Using unstressed vowel variant in final closed syllables
+	L02) ُ (L02_	u      // Maintained in final open syllables
+	L02) ُ (L05	'u      // Stress before consonant clusters
+
+.group ٗ
+	ٗ	u:
+	_) ٗ	'u:     // Stress on initial long vowel
+	L02) ٗ	u:      // Long vowel in medial position
+
+.group ھ
+	ھ	h 
+	ھ (_	h
+        ھ (l01	h
+        ھ (L02	h@      // Add schwa when followed by consonant
+
+.group ٰ
+	ٰ	a:
+	ٰی	a:
+	_) ٰ	'a:     // Stress on initial long vowel
+	L02) ٰ	a:      // Long vowel in medial position
+
+.group ا
+	ا	a:
+	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
+        _) ا	'a      // Initial alif with stress
+        _) الله	'a:l.la:h // Allah
+        _) اور	'o:r     // Fire (initial a with stress)
+        _) اوس	'o:ws     // Now (initial a with stress)
+        _) اوږد	'awZ.d   // Long (initial a with stress)
+        _) او	'aw     // Initial aw diphthong
+        _) اوبه	'awb@    // Water (aw diphthong)
+        _) اوښ	'o:S.    // Camel (aw diphthong)
+        _) اوړی	'o:r.@j  // Summer (aw diphthong)
+        _) ای	'e     // Initial ay diphthong with stress
+        _) ایښودل	'i:S.od@l // To put/place (ay diphthong)
+        _) ایمان	'i:ma:n  // Faith (ay diphthong)
+        _) ایره	'i:r@    // Ash (ay diphthong)
+        _) ایله	'i:l@    // Hardly/just (ay diphthong)
+        ائ(L02	'aj     // ay diphthong with stress
+        اه(_	a:h     // Final alif+he
+        _) اهل	a:h@l    // People/inhabitants
+        _) اهم	a:h@m    // Important
+        L03L03) ات (_S2	a:t    // Common ending
+        _) اتل	a:t@l    // Hero
+        _) اتڼ	a:t@n.   // Folk dance
+        ائ(L02	a@i      
+        اٖ	i       // Alif with inverted kasra
+        _) ابتدا	ibti'da: // Beginning (alif with kasra)
+        _) اخلاص	ix'la:s  // Sincerity (alif with kasra)
+        _) اسلام	is'la:m  // Islam (alif with kasra)
+        اں	a:n     // Alif with noon ghunna
+        ا (ن	a:n     // Alif before noon
+        _) انسان	in'sa:n  // Human (alif with kasra before noon)
+        _) انځور	@n'dzwr  // Picture (alif with schwa before noon)
+        _) امتحان	imti'ha:n // Exam (alif with kasra)
+        _) انار	a'na:r   // Pomegranate (alif with fatha)
+        ا (ں	a:n     // Alif before noon ghunna
+        L02) ا (L02	a:      // Medial alif between consonants
+        L02) ا (_	a      // Final alif after consonant (shorter)
+        L02L02) ا (_	'a     // Final alif after consonant cluster (stressed)
+        // Additional common words starting with alif
+        _) اچار	a'tSa:r  // Pickle
+        _) ادب	a'dab    // Literature
+        _) افغان	af'Qa:n  // Afghan
+        _) ارزښت	ar'z@S.t // Value
+        _) اړتیا	ar.'tja: // Need/necessity
+        _) استاد	us'ta:d  // Teacher (alif with damma/u)
+        _) اونۍ	'u:n@i   // Week
+
+.group ب
+	ب	b
+	ب (_	b
+	_) ب (َ	b@      // Initial with fatha
+	_) ب (ِ	b@      // Initial with kasra
+	_) ب (ُ	b@      // Initial with damma
+	ب (L02L02	b@      // Before consonant cluster
+	ب (ب	b:      // Geminated
+	_) بادام	ba:'da:m  // Almond
+	_) باران	ba:'ra:n  // Rain
+	_) باغ	ba:Q      // Garden
+	_) بازار	ba:'za:r  // Market
+	_) باز	ba:z      // Falcon
+	_) بام	ba:m      // Roof
+	_) باور	ba:'w@r   // Belief
+	_) بچه	ba'tS@    // Child
+	_) بدل	ba'd@l    // Change
+	_) بس	bas       // Enough/bus
+	_) بل	b@l       // Another
+	_) بلبل	b@l'b@l   // Nightingale
+	_) بند	band      // Closed
+
+.group پ
+	پ	p
+	پ (_	p
+	پھ	p
+	_) پ (َ	p@      // Initial with fatha
+	_) پ (ِ	p@      // Initial with kasra
+	_) پ (ُ	p@      // Initial with damma
+	پ (L02L02	p@      // Before consonant cluster
+	پ (پ	p:      // Geminated
+	_) پلار	p@'la:r  // Father
+	_) پښتو	p@S'to   // Pashto language
+	_) پاڼه	pa:'n.@  // Page/leaf
+	_) پوهه	po:'h@   // Knowledge
+	_) پیاز	pja:z    // Onion
+	_) پټ	p@t.     // Hidden
+	_) پوښتنه	poS't@n@ // Question
+	_) پیسه	paj's@   // Money
+	_) پل	p@l      // Bridge
+	_) پاک	pa:k     // Clean/pure
+
+.group ت
+	ت	t
+	ت (_	t
+	تھ	t
+	ت (ان	ta:n    // Common suffix
+	ت (ا	ta:     // Common sequence
+	_) ت (َ	t@      // Initial with fatha
+	_) ت (ِ	t@      // Initial with kasra
+	_) ت (ُ	t@      // Initial with damma
+	ت (L02L02	t@      // Before consonant cluster
+	ت (ت	t:      // Geminated
+	ت (و	tw      // Before waw
+	_) تاج	ta:dZ    // Crown
+	_) تاریخ	ta:'ri:x  // History/date
+	_) تازه	'ta:z@   // Fresh
+	_) تبه	'tab@    // Fever
+	_) تخت	taxt     // Throne/bed
+	_) تړون	ta'r.@n  // Agreement/contract
+	_) تل	t@l      // Always
+	_) توره	'to:r@   // Sword
+	_) تور	tor      // Black
+	_) تیز	tez      // Sharp/fast
+
+.group ټ
+	ټ	t.
+	ټ (_	t.
+	ټھ	t.
+	_) ټ (َ	t.@     // Initial with fatha
+	_) ټ (ِ	t.@     // Initial with kasra
+	_) ټ (ُ	t.@     // Initial with damma
+	ټ (L02L02	t.@     // Before consonant cluster
+	ټ (ټ	t.:     // Geminated
+	_) ټوپ	t.op     // Jump
+	_) ټال	t.a:l    // Postpone
+	_) ټیټ	t.it.    // Low/short
+	_) ټوکه	t.o:'k@  // Joke
+	_) ټولنه	t.ol'n@  // Society
+	_) ټک	t.@k     // Knock/tap
+	_) ټانک	t.a:nk   // Tank
+	_) ټاپو	t.a:'pu  // Island
+	_) ټینګ	t.iN     // Firm/tight
+	_) ټکی	t.@'ki   // Dot/point
+
+.group ث
+	ث	s
+	ث (_	s
+	ث (ث	s:      // Geminated
+	_) ث (َ	s@      // Initial with fatha
+	_) ث (ِ	s@      // Initial with kasra
+	_) ث (ُ	s@      // Initial with damma
+	_) ثابت	sa:'bit   // Stable/fixed
+	_) ثواب	sa'wa:b   // Reward/virtue
+	_) ثروت	sar'wat   // Wealth
+	_) ثقیل	sa'qi:l   // Heavy
+	_) ثمر	sa'mar    // Fruit/result
+	_) ثانیه	sa:'nij@  // Second (time)
+	_) ثلث	suls      // One-third
+	_) ثقافت	saqa:'fat // Culture
+
+.group ج
+	ج	dZ      // Updated to match ph_pashto
+	ج (_	dZ      // Updated to match ph_pashto
+	جھ	dZ      // Updated to match ph_pashto
+	_) ج (َ	dZ@     // Initial with fatha
+	_) ج (ِ	dZ@     // Initial with kasra
+	_) ج (ُ	dZ@     // Initial with damma
+	ج (L02L02	dZ@     // Before consonant cluster
+	ج (ج	dZ:     // Geminated
+	_) جنګ	dZ@nQ    // War
+	_) جوړ	dZor.    // Made/built
+	_) جومات	dZo:'ma:t // Mosque
+	_) جهان	dZa'ha:n // World
+	_) جلا	dZa'la:  // Separate
+	_) جنوب	dZa'nu:b // South
+	_) جرګه	dZir'g@ // Assembly/council
+	_) جادو	dZa:'du  // Magic
+	_) جواب	dZa'wa:b // Answer
+	_) جیب	dZeb     // Pocket
+
+.group ځ
+	ځ	dz
+	ځ (_	dz
+	_) ځ (َ	dz@     // Initial with fatha
+	_) ځ (ِ	dz@     // Initial with kasra
+	_) ځ (ُ	dz@     // Initial with damma
+	ځ (L02L02	dz@     // Before consonant cluster
+	ځ (ځ	dz:     // Geminated
+	_) ځان	dza:n    // Self
+	_) ځای	dza:j    // Place
+	_) ځنګل	dz@ng@l  // Forest
+	_) ځمکه	dz@m'k@  // Earth/land
+	_) ځواک	dzwa:k   // Power/strength
+	_) ځوان	dzwa:n   // Young
+	_) ځنځیر	dz@n'dzi:r // Chain
+	_) ځلا	dza'la:  // Shine/glitter
+	_) ځنډ	dz@nd.   // Delay
+	_) ځغلول	dz@Q'l@l // To run
+	_) ځواب	dzwa:b   // Answer
+	_) ځیر	dzi:r    // Attentive/careful
+	_) ځیږ	dzi:Z.   // Rough/coarse
+	_) ځپل	dz@p@l   // To suppress
+	_) ځړول	dz@r.'w@l // To hang
+	_) ځلیدل	dz@'li:d@l // To shine
+	_) ځګ	dz@g     // Sand
+	_) ځوړند	dzor.'@nd // Hanging
+	_) ځیرک	dzi:'r@k  // Intelligent
+	_) ځینې	dzi:'ne   // Some
+
+.group چ
+	چ	tS      // Updated to match ph_pashto
+	چ (_	tS      // Updated to match ph_pashto
+	چھ	tS      // Updated to match ph_pashto
+	_) چ (َ	tS@     // Initial with fatha
+	_) چ (ِ	tS@     // Initial with kasra
+	_) چ (ُ	tS@     // Initial with damma
+	چ (L02L02	tS@     // Before consonant cluster
+	چ (چ	tS:     // Geminated
+	_) چا	tSa:     // Who
+	_) چت	tS@t     // Ceiling
+	_) چمن	tS@'m@n  // Lawn/garden
+	_) چټک	tS@'t.@k  // Fast/quick
+	_) چاړه	tSa:'r.@  // Knife
+	_) چوکۍ	tSo:'ki:  // Chair
+	_) چل	tS@l     // Trick
+	_) چپ	tS@p     // Quiet/silent
+	_) چغه	tS@'Q@   // Shout/scream
+	_) چکر	tS@'k@r  // Walk/stroll
+	_) چینه	tSi:'n@  // Spring/fountain
+	_) چیرې	tSi:'re  // Where
+	_) چیغه	tSi:'Q@  // Scream
+	_) چورلکه	tSor'l@k@ // Helicopter
+	_) چوپړ	tSo'p@r.  // Service
+	_) چاپ	tSa:p    // Print
+
+.group څ
+	څ	ts
+	څ (_	ts
+	_) څ (َ	ts@     // Initial with fatha
+	_) څ (ِ	ts@     // Initial with kasra
+	_) څ (ُ	ts@     // Initial with damma
+	څ (L02L02	ts@     // Before consonant cluster
+	څ (څ	ts:     // Geminated
+	_) څوک	tsok    // Who
+	_) څنګه	ts@'ng@  // How
+	_) څلور	ts@'lor  // Four
+	_) څپه	ts@'p@   // Wave
+	_) څارنه	tsa:'r@n@ // Supervision
+	_) څیړنه	tsi:'r.@n@ // Research
+	_) څانګه	tsa:'ng@  // Branch
+	_) څټ	ts@t.    // Back (of head)
+	_) څرګند	ts@r'g@nd // Clear/evident
+	_) څمڅه	ts@m'ts@  // Ladle
+	_) څیره	tsi:'r@   // Face
+	_) څرمن	ts@r'm@n  // Leather/skin
+	_) څکول	ts@'kw@l  // To drink
+	_) څنډه	ts@n'd.@  // Edge/border
+	_) څوکه	tso:'k@   // Peak/summit
+	_) څاڅکی	tsa:'ts@ki // Drop
+
+.group ح
+	ح	h
+	ح (_	h
+	_) ح (َ	h@      // Initial with fatha
+	_) ح (ِ	h@      // Initial with kasra
+	_) ح (ُ	h@      // Initial with damma
+	ح (L02L02	h@      // Before consonant cluster
+	ح (ح	h:      // Geminated
+	_) حق	h@q     // Right/truth
+	_) حال	ha:l    // Condition/state
+	_) حکم	h@'k@m  // Order/command
+	_) حمله	h@m'l@  // Attack
+	_) حساب	hi'sa:b // Calculation/account
+	_) حکومت	h@ku:'m@t // Government
+	_) حرکت	h@r@'k@t // Movement
+	_) حیران	haj'ra:n // Surprised
+	_) حوصله	ho:'s@l@ // Patience
+	_) حافظ	ha:'fiz // Guardian/protector
+	_) حلال	h@'la:l // Permissible
+	_) حرام	h@'ra:m // Forbidden
+	_) حج	h@dZ    // Pilgrimage
+	_) حاضر	ha:'zir // Present/ready
+	_) حقیقت	h@qi:'q@t // Truth/reality
+
+.group خ
+	خ	X       // Updated to match ph_pashto
+	خ (_	X       // Updated to match ph_pashto
+	_) خ (َ	X@      // Initial with fatha
+	_) خ (ِ	X@      // Initial with kasra
+	_) خ (ُ	X@      // Initial with damma
+	خ (L02L02	X@      // Before consonant cluster
+	خ (خ	X:      // Geminated
+	_) خبر	X@'b@r   // News
+	_) خوب	Xob     // Sleep/dream
+	_) خوږ	XwaZ    // Sweet
+	_) خاص	Xa:s    // Special
+	_) خلک	X@l@k   // People
+	_) خوله	Xo:'l@  // Mouth
+	_) خپل	X@'p@l  // Own/self
+	_) خدای	X@'daj  // God
+	_) خاورې	Xa:'wre // Earth/soil
+	_) خوشحال	XoS'ha:l // Happy
+	_) خیال	Xi'ja:l // Thought
+	_) خطر	Xa'tar  // Danger
+	_) خوراک	Xo'ra:k // Food
+	_) خوشې	Xo'Se   // Free/released
+	_) خړ	X@r.    // Gray
+
+.group د
+	د	d
+	د (_	d
+	دھ	d
+	_) د (َ	d@      // Initial with fatha
+	_) د (ِ	d@      // Initial with kasra
+	_) د (ُ	d@      // Initial with damma
+	د (L02L02	d@      // Before consonant cluster
+	د (د	d:      // Geminated
+	د (ر	dr      // Common cluster
+	_) دوست	do:st   // Friend
+	_) دل	d@l     // Heart
+	_) دود	dod     // Tradition/custom
+	_) دنیا	d@n'ja: // World
+	_) درد	d@rd    // Pain
+	_) دانه	da:'n@  // Grain/seed
+	_) دیوال	di'wa:l // Wall
+	_) دروازه	d@rwa:'z@ // Door
+	_) دښمن	d@S'm@n // Enemy
+	_) دوه	dw@     // Two
+	_) دندان	d@n'da:n // Tooth
+	_) دریاب	d@r'ja:b // River
+	_) دوکان	d@'ka:n  // Shop
+	_) دانش	da:'n@S  // Knowledge
+	_) دعا	d@'a:    // Prayer
+
+.group ډ
+	ډ	d.
+	ډ (_	d.
+	ډھ	d.
+	_) ډ (َ	d.@     // Initial with fatha
+	_) ډ (ِ	d.@     // Initial with kasra
+	_) ډ (ُ	d.@     // Initial with damma
+	ډ (L02L02	d.@     // Before consonant cluster
+	ډ (ډ	d.:     // Geminated
+	ډ (ر	d.r     // Common cluster
+	_) ډوډۍ	d.o:'d.@j // Bread
+	_) ډک	d.@k     // Full
+	_) ډار	d.a:r    // Fear
+	_) ډول	d.ol     // Type/kind
+	_) ډیر	d.er     // Many/much
+	_) ډنډ	d.@n'd.  // Pond
+	_) ډبره	d.@'br@  // Stone/rock
+	_) ډله	d.@'l@   // Group
+	_) ډوب	d.ob     // Drowned/sunk
+	_) ډاکټر	d.a:k't.@r // Doctor
+	_) ډرامه	d.ra:'m@ // Drama
+	_) ډیزل	d.i'z@l  // Diesel
+	_) ډنډوره	d.@n'd.o:r@ // Rumor
+	_) ډنډ	d.@nd.   // Pond
+	_) ډیوه	d.i:'w@  // Lamp
+
+.group ذ
+	ذ	z
+	ذ (_	z
+	_) ذ (َ	z@      // Initial with fatha
+	_) ذ (ِ	z@      // Initial with kasra
+	_) ذ (ُ	z@      // Initial with damma
+	ذ (L02L02	z@      // Before consonant cluster
+	ذ (ذ	z:      // Geminated
+	_) ذکر	z@kr    // Mention/remembrance
+	_) ذات	za:t    // Self/being
+	_) ذهن	z@h@n   // Mind
+	_) ذخیره	z@xi:'r@ // Reserve/storage
+	_) ذره	z@'r@   // Particle
+	_) ذمه	z@'m@   // Responsibility
+	_) ذلت	z@'l@t  // Humiliation
+	_) ذوق	zoq     // Taste/interest
+	_) ذریعه	z@ri:'@ // Means/source
+	_) ذکاوت	z@ka:'w@t // Intelligence
+	_) ذبح	z@b@h   // Slaughter
+	_) ذیل	z@'j@l  // Following/below
+
+.group ر
+	ر	r
+	ر (_	r
+	_) ر (َ	r@      // Initial with fatha
+	_) ر (ِ	r@      // Initial with kasra
+	_) ر (ُ	r@      // Initial with damma
+	ر (L02L02	r@      // Before consonant cluster
+	ر (ر	r:      // Geminated
+	L02) ر (L02	@r      // Epenthetic schwa between consonants
+	_) روڼ	ru'n.    // Bright/clear
+	_) راز	ra:z     // Secret
+	_) روح	ruh      // Soul/spirit
+	_) رنګ	r@ng     // Color
+	_) رڼا	r@'n.a:  // Light
+	_) راتلل	ra:'t@l@l // To come
+	_) روغ	roQ      // Healthy
+	_) رسول	r@'su:l  // To deliver
+	_) رخصت	r@x'sat  // Leave/holiday
+	_) رسۍ	r@'s@j   // Rope
+	_) روان	r@'wa:n  // Flowing/current
+	_) رښتیا	r@S.'ti:a: // Truth
+	_) رپوټ	r@'po:t.  // Report
+	_) رمه	r@'m@    // Herd/flock
+
+.group ړ
+	ړ	r.
+	ړ (_	r.
+	_) ړ (َ	r.@     // Initial with fatha
+	_) ړ (ِ	r.@     // Initial with kasra
+	_) ړ (ُ	r.@     // Initial with damma
+	ړ (L02L02	r.@     // Before consonant cluster
+	ړ (ړ	r.:     // Geminated
+	L02) ړ (L02	@r.     // Epenthetic schwa between consonants
+	_) ړنګ	r.@ng    // Demolition/destruction
+	_) ړوند	r.u:nd   // Blind
+	_) ړومبی	r.u:m'b@j // First/primary
+	_) ړنګول	r.@n'gu:l // To demolish
+	_) ړنګېدل	r.@nge:'d@l // To collapse
+	_) ړاندې	r.a:n'de // Forward/ahead
+	_) ړبوږن	r.@'bu:Z.@n // Rough/uneven
+	_) ړبېښل	r.@'be:S.@l // To shine/glitter
+	_) ړوکی	r.u:'k@j  // Small/little
+	_) ړوپ	r.u:p    // Gulp/sip
+
+.group ز
+	ز	z
+	ز (_	z
+	_) ز (َ	z@      // Initial with fatha
+	_) ز (ِ	z@      // Initial with kasra
+	_) ز (ُ	z@      // Initial with damma
+	ز (L02L02	z@      // Before consonant cluster
+	ز (ز	z:      // Geminated
+	ز (د	zd      // Common cluster
+	زده (ک	zd@'ko  // Special case for student (zd@_ko:w@n'k@j)
+	زده (کوون	zd@_ko:w@n  // Extended special case for student
+	_) زر	z@r     // Gold
+	_) زړه	z@'r.@  // Heart
+	_) زوی	zu:j    // Son
+	_) زما	z@'ma:  // My/mine
+	_) زمری	z@m'r@j // Lion
+	_) زمکه	z@m'k@  // Earth/land
+	_) زیات	zi:'a:t // More/additional
+	_) زخم	z@'x@m  // Wound/injury
+	_) زور	zo:r    // Force/strength
+	_) زېږېدل	ze:Ze:'d@l // To be born
+	_) زرغون	z@r'Qu:n // Green
+	_) زاړه	za:'r.@ // Old (plural)
+	_) زنګون	z@n'gu:n // Knee
+
+.group ژ
+	ژ	Z       // Updated to match ph_pashto
+	ژ (_	Z       // Updated to match ph_pashto
+	_) ژ (َ	Z@      // Initial with fatha
+	_) ژ (ِ	Z@      // Initial with kasra
+	_) ژ (ُ	Z@      // Initial with damma
+	ژ (L02L02	Z@      // Before consonant cluster
+	ژ (ژ	Z:      // Geminated
+	L02) ژ (L02	@Z      // Epenthetic schwa between consonants
+	_) ژوند	Zu:nd    // Life
+	_) ژر	Z@r      // Quick/fast
+	_) ژړا	Z@'r.a:  // Crying/weeping
+	_) ژمی	Z@'m@j   // Winter
+	_) ژباړه	Z@'ba:r.@ // Translation
+	_) ژمنه	Z@'m@n@  // Promise
+	_) ژوبل	Zu:'b@l  // Wounded/injured
+	_) ژېړ	Ze:r.    // Yellow
+	_) ژغورل	Z@'Qu:r@l // To save/rescue
+	_) ژاړل	Za:'r.@l  // To cry/weep
+	_) ژورنال	Zu:r'na:l // Journal
+
+.group ږ
+	ږ	Z.      // Updated to match ph_pashto (Z. for retroflex version)
+	ږ (_	Z.      // Updated to match ph_pashto
+	_) ږ (َ	Z.@     // Updated to match ph_pashto
+	_) ږ (ِ	Z.@     // Updated to match ph_pashto
+	_) ږ (ُ	Z.@     // Updated to match ph_pashto
+	ږ (L02L02	Z.@     // Updated to match ph_pashto
+	ږ (ږ	Z.:     // Updated to match ph_pashto
+	ږ (م	Z.m     // Updated to match ph_pashto
+	ږ (د	Z.d     // Updated to match ph_pashto
+	_) ږغ	Z.@Q         // Call/voice
+	_) ږيره	Z.'i:r.a     // ‌‌Beard
+	_) ږلۍ	Z.@'l@i      // Hail/sleet
+	_) ږمنځ	Z.@'m@n.Z    // Armpit
+	_) ږوب	Z.o:b        // Wet/soaked
+	_) ږوند	Z.u:nd       // Deaf
+	_) ږېږدېدل	Z.e:Z.'de:d@l // To tremble/shake
+	_) ږېرۍ	Z.e:'r@i     // Slope/incline
+	_) ږلېدل	Z.@'le:d@l   // To shine/glitter
+	_) ږوږ	Z.u:Z.       // Noise/sound
+	_) ږمونږ	Z.@'mu:n.Z.  // We/us (variant)
+
+.group س
+	س	s
+	س (_	s
+	_) س (َ	s@      // Initial with fatha
+	_) س (ِ	s@      // Initial with kasra
+	_) س (ُ	s@      // Initial with damma
+	س (L02L02	s@      // Before consonant cluster
+	س (س	s:      // Geminated
+	س (ت	s@'t    // Common sequence
+	س (تان	s@'ta:n // Common ending
+	س (ر	sr      // Common cluster
+	س (پ	sp      // Common cluster
+	س (ټ	st.     // Common cluster
+	س (ا	sa:     // Common combinations
+	س (و	su:
+	س (ی	si:
+	س (ې	se:
+	س (ۍ	s@i
+	س (ل	sl      // Consonant clusters
+	س (ن	sn
+	س (د	sd
+	س (ش	sS
+	س (ک	sk
+	س (م	sm
+	س (ړ	sr.     // Specific to Pashto
+	س (ښ	sS.     // Updated to match ph_pashto
+	_) سر	s@r     // Head
+	_) سور	su:r    // Red
+	_) سپین	s@'pi:n // White
+	_) سړی	s@'r.@j // Man
+	_) سترګه	s@'t@rg@ // Eye
+	_) سیند	si:nd   // River
+	_) سوله	su:'l@  // Peace
+	_) سږکال	s@Z.'ka:l // This year
+	_) سمندر	s@'m@nd@r // Ocean
+	_) سیمه	si:'m@  // Area/region
+	_) سپوږمۍ	s@'pu:Z.m@i // Moon
+	_) سهار	s@'ha:r // Morning
+
+.group ش
+	ش	S
+	ش (_	S
+	_) ش (َ	S@      // Initial with fatha
+	_) ش (ِ	S@      // Initial with kasra
+	_) ش (ُ	S@      // Initial with damma
+	ش (L02L02	S@      // Before consonant cluster
+	ش (ش	S:      // Geminated
+	ش (ت	St      // Common cluster
+	ش (ک	Sk      // Common cluster
+	ش (ا	Sa:     // Common combinations
+	ش (و	Su:
+	ش (ی	Si:
+	ش (ې	Se:
+	ش (ۍ	S@i
+	ش (ر	Sr      // Consonant clusters
+	ش (ل	Sl
+	ش (ن	Sn
+	ش (د	Sd
+	ش (س	Ss
+	ش (م	Sm
+	ش (ړ	Sr.     // Specific to Pashto
+	ش (ښ	SS.     // Updated to match ph_pashto
+	_) شپه	S@'p@   // Night
+	_) شین	Si:n    // Green
+	_) شمال	S@'ma:l // North
+	_) شکر	Su'k@r  // Sugar
+	_) شاه	Sa:h    // King
+	_) شوق	So:q    // Desire/passion
+	_) شېر	Se:r    // Lion
+	_) شړل	S@'r.@l // To expel/drive away
+	_) شمېر	S@'me:r // Number/count
+	_) شونډه	Su:'n.d.@ // Lip
+	_) شاتو	Sa:'tu: // Honey
+	_) شاوخوا	Sa:w'xu:a: // Around/surrounding
+
+.group ښ
+	ښ	S.      // Updated to match ph_pashto
+	ښ (_	S.      // Updated to match ph_pashto
+	_) ښ (َ	S.@     // Updated to match ph_pashto
+	_) ښ (ِ	S.@     // Updated to match ph_pashto
+	_) ښ (ُ	S.@     // Updated to match ph_pashto
+	ښ (L02L02	S.@     // Updated to match ph_pashto
+	ښ (ښ	S.:     // Updated to match ph_pashto
+	ښ (ت	S.t     // Updated to match ph_pashto
+	ښ (ک	S.k     // Updated to match ph_pashto
+	ښ (ا	S.a:    // Updated to match ph_pashto
+	ښ (و	S.u:
+	ښ (ی	S.i:
+	ښ (ې	S.e:
+	ښ (ۍ	S.@i
+	ښ (ر	S.r     // Consonant clusters
+	ښ (ل	S.l
+	ښ (ن	S.n
+	ښ (د	S.d
+	ښ (س	S.s
+	ښ (ش	S.S
+	ښ (م	S.m
+	ښ (ړ	S.r.    // Specific to Pashto
+	_) ښه	S.@      // Good
+	_) ښکار	S.@'ka:r  // Hunting
+	_) ښکلی	S.@'k@l@j // Beautiful
+	_) ښوونه	S.u:'w@n@ // Teaching/education
+	_) ښاخ	S.a:x     // Branch
+	_) ښامار	S.a:'ma:r // Dragon/serpent
+	_) ښځه	S.@'dz@   // Woman
+	_) ښوول	S.u:'w@l  // To show/teach
+	_) ښکته	S.@'k@t@  // Down/below
+	_) ښار	S.a:r     // City
+	_) ښاروال	S.a:r'wa:l // Mayor
+	_) ښوونکی	S.u:w@n'k@j // Teacher
+
+.group ص
+	ص	s
+	ص (_	s
+	_) ص (َ	s@      // Initial with fatha
+	_) ص (ِ	s@      // Initial with kasra
+	_) ص (ُ	s@      // Initial with damma
+	ص (L02L02	s@      // Before consonant cluster
+	ص (ص	s:      // Geminated
+	ص (ا	sa:     // Common combinations
+	ص (و	su:
+	ص (ی	si:
+	ص (ې	se:
+	ص (ۍ	s@i
+	ص (ر	sr      // Consonant clusters
+	ص (ل	sl
+	ص (ن	sn
+	ص (د	sd
+	ص (ت	st
+	ص (س	ss
+	ص (ش	sS
+	ص (ک	sk
+	ص (م	sm
+	_) صبر	s@'b@r   // Patience
+	_) صلح	su'l@h   // Peace
+	_) صدا	s@'da:   // Sound/voice
+	_) صنف	si'n@f   // Class/grade
+	_) صورت	su:'r@t  // Face/form
+	_) صاف	sa:f     // Clean
+	_) صحت	si'h@t   // Health
+	_) صنعت	s@'n@t   // Industry
+	_) صدق	si'd@q   // Truth
+	_) صفر	si'f@r   // Zero
+	_) صندوق	s@n'du:q // Box
+	_) صحرا	s@h'ra:  // Desert
+	_) صابون	sa:'bu:n // Soap
+
+.group ض
+	ض	z
+	ض (_	z
+	_) ض (َ	z@      // Initial with fatha
+	_) ض (ِ	z@      // Initial with kasra
+	_) ض (ُ	z@      // Initial with damma
+	ض (L02L02	z@      // Before consonant cluster
+	ض (ض	z:      // Geminated
+	ض (ا	za:     // Common combinations
+	ض (و	zu:
+	ض (ی	zi:
+	ض (ې	ze:
+	ض (ۍ	z@i
+	ض (ر	zr      // Consonant clusters
+	ض (ل	zl
+	ض (ن	zn
+	ض (د	zd
+	ض (ت	zt
+	ض (س	zs
+	ض (ش	zS
+	ض (ک	zk
+	ض (م	zm
+	_) ضرر	z@'r@r   // Harm/damage
+	_) ضرب	z@'r@b   // Multiplication/strike
+	_) ضرورت	z@ru:'r@t // Necessity/need
+	_) ضعیف	z@'i:f   // Weak
+	_) ضمیر	z@'mi:r  // Pronoun/conscience
+	_) ضد	zi'd     // Against/opposite
+	_) ضبط	z@'b@t   // Record/capture
+	_) ضمانت	z@ma:'n@t // Guarantee
+	_) ضلع	zi'l@?   // Side/district
+	_) ضیاء	zi'ja:   // Light/brightness
+
+.group ط
+	ط	t
+	ط (_	t
+	_) ط (َ	t@      // Initial with fatha
+	_) ط (ِ	t@      // Initial with kasra
+	_) ط (ُ	t@      // Initial with damma
+	ط (L02L02	t@      // Before consonant cluster
+	ط (ط	t:      // Geminated
+	ط (ا	ta:     // Common combinations
+	ط (و	tu:
+	ط (ی	ti:
+	ط (ې	te:
+	ط (ۍ	t@i
+	ط (ر	tr      // Consonant clusters
+	ط (ل	tl
+	ط (ن	tn
+	ط (د	td
+	ط (س	ts
+	ط (ش	tS
+	ط (ک	tk
+	ط (م	tm
+	_) طب	ti'b     // Medicine
+	_) طالب	ta:'lib   // Student/seeker
+	_) طاقت	ta:'q@t   // Power/strength
+	_) طوفان	tu:'fa:n  // Storm
+	_) طلوع	tu'lu:?   // Sunrise/rising
+	_) طبیعت	t@bi:'?@t // Nature
+	_) طریقه	t@ri:'qa  // Method/way
+	_) طلا	ti'la:    // Gold
+	_) طاعت	ta:'?@t   // Obedience
+	_) طبقه	t@'b@qa   // Class/layer
+	_) طاس	ta:s      // Bowl
+	_) طور	to:r      // Manner/way
+	_) طیاره	t@ja:'ra  // Airplane
+
+.group ظ
+	ظ	z
+	ظ (_	z
+	_) ظ (َ	z@      // Initial with fatha
+	_) ظ (ِ	z@      // Initial with kasra
+	_) ظ (ُ	z@      // Initial with damma
+	ظ (L02L02	z@      // Before consonant cluster
+	ظ (ظ	z:      // Geminated
+	ظ (ا	za:     // Common combinations
+	ظ (و	zu:
+	ظ (ی	zi:
+	ظ (ې	ze:
+	ظ (ۍ	z@i
+	ظ (ر	zr      // Consonant clusters
+	ظ (ل	zl
+	ظ (ن	zn
+	ظ (د	zd
+	ظ (ت	zt
+	ظ (س	zs
+	ظ (ش	zS
+	ظ (ک	zk
+	ظ (م	zm
+	_) ظلم	zu'lm    // Oppression/injustice
+	_) ظاهر	za:'hir   // Apparent/visible
+	_) ظرف	z@'r@f    // Container/vessel
+	_) ظریف	z@'ri:f   // Elegant/witty
+	_) ظهور	zu'hu:r   // Appearance/emergence
+	_) ظن	z@'n      // Opinion/thought
+	_) ظالم	za:'lim   // Oppressor/tyrant
+	_) ظفر	z@'f@r    // Victory/triumph
+	_) ظهر	zu'h@r    // Noon/midday
+	_) ظرافت	z@ra:'f@t // Elegance/wit
+
+.group ع
+	ع	?       // Updated to glottal stop (?) which is more accurate than Q
+	ع (_	?       // Updated to glottal stop
+	_) ع (َ	?@      // Initial with fatha
+	_) ع (ِ	?@      // Initial with kasra
+	_) ع (ُ	?@      // Initial with damma
+	ع (L02L02	?@      // Before consonant cluster
+	ع (ع	?:      // Geminated
+	ع (ا	?a:     // Common combinations
+	ع (و	?u:
+	ع (ی	?i:
+	ع (ې	?e:
+	ع (ۍ	?@i
+	ع (ر	?r      // Consonant clusters
+	ع (ل	?l
+	ع (ن	?n
+	ع (د	?d
+	ع (ت	?t
+	ع (س	?s
+	ع (ش	?S
+	ع (ک	?k
+	ع (م	?m
+	_) عام	?a:m      // Common/general
+	_) عمر	?u'mur    // Age/life
+	_) علم	?i'lm     // Knowledge/science
+	_) عزت	?i'zat    // Honor/respect
+	_) عقل	?a'qal    // Intellect/wisdom
+	_) عادت	?a:'dat   // Habit/custom
+	_) عذر	?u'zur    // Excuse/apology
+	_) عدل	?a'dal    // Justice
+	_) عشق	?i'Sq     // Love/passion
+	_) عمل	?a'mal    // Action/deed
+	_) عبادت	?iba:'dat // Worship
+	_) عجیب	?a'dZi:b  // Strange/wonderful
+	_) عاجز	?a:'dZiz  // Helpless/humble
+
+.group غ
+	غ	Q       // Updated to match ph_pashto
+	غ (_	Q
+	_) غ (َ	Q@      // Initial with fatha
+	_) غ (ِ	Q@      // Initial with kasra
+	_) غ (ُ	Q@      // Initial with damma
+	غ (L02L02	Q@      // Before consonant cluster
+	غ (غ	Q:      // Geminated
+	غان	Qa:n    // Common ending
+	غ (ر	Qr      // Common cluster
+	غ (ل	Ql      // Common cluster
+	غ (ا	Qa:     // Common combinations
+	غ (و	Qu:
+	غ (ی	Qi:
+	غ (ې	Qe:
+	غ (ۍ	Q@i
+	غ (ن	Qn      // Consonant clusters
+	غ (د	Qd
+	غ (ت	Qt
+	غ (س	Qs
+	غ (ش	QS
+	غ (ک	Qk
+	غ (م	Qm
+	غ (ړ	Qr.     // Specific to Pashto
+	غ (ښ	QS.     // Updated to match ph_pashto
+	// Common word examples for غ using phonemes defined in ph_pashto
+	_) غلط	Qa'lat.      // Wrong (incorrect)
+	_) غوښه	Qu'S.a       // Meat
+	_) غر	Qar          // Mountain
+	_) غاړه	Qa:'r.a      // Neck/collar
+	_) غوږ	Qu:Z.        // Ear
+	_) غږ	Q@Z          // Voice/sound
+	_) غونډ	Qu:nd.       // Gathering/assembly
+	_) غوا	Qwa:         // Cow
+	_) غټ	Qat.         // Big/large
+	_) غم	Qam          // Sorrow/grief
+	_) غاښ	Qa:S.        // Tooth
+	_) غوړ	Qur.         // Fat/oil
+	_) غونډۍ	Qu:n'd.@i    // Hill/mound
+	_) غورځول	Qur'dz@w@l   // To throw
+	_) غوښتل	QuS.'t@l     // To want/request
+.group ف
+	ف	f
+	ف (_	f
+	_) ف (َ	f@      // Initial with fatha
+	_) ف (ِ	f@      // Initial with kasra
+	_) ف (ُ	f@      // Initial with damma
+	ف (L02L02	f@      // Before consonant cluster
+	ف (ف	f:      // Geminated
+	ف (غ	f@'Qa:  // Updated to match ph_pashto
+	ف (ر	fr      // Common cluster
+	ف (ل	fl      // Common cluster
+	ف (ا	fa:     // Common combinations
+	ف (و	fu:
+	ف (ی	fi:
+	ف (ې	fe:
+	ف (ۍ	f@i
+	ف (ن	fn      // Consonant clusters
+	ف (د	fd
+	ف (ت	ft
+	ف (س	fs
+	ف (ش	fS
+	ف (ک	fk
+	ف (م	fm
+	ف (ړ	fr.     // Specific to Pashto
+	ف (ښ	fS.     // Updated to match ph_pashto
+	// Common word examples for ف using phonemes defined in ph_pashto
+	_) فکر	fi'k@r       // Thought/idea
+	_) فرش	fa'r@S       // Floor/carpet
+	_) فصل	fa's@l       // Season/chapter
+	_) فرمان	far'ma:n     // Order/command
+	_) فوج	fu:dZ        // Army
+	_) فیل	fi:l         // Elephant
+	_) فارم	fa:rm        // Farm
+	_) فلم	fi'l@m       // Film/movie
+	_) فرق	fa'r@q       // Difference
+	_) فیس	fi:s         // Fee
+	_) فون	fo:n         // Phone
+	_) فارسي	fa:r'si:     // Persian
+	_) فضل	fa'z@l       // Grace/favor
+	_) فتح	fa't@         // Victory/conquest
+	_) فریاد	far'ja:d     // Cry/plea
+
+.group ق
+	ق	q
+	ق (_	q
+	_) ق (َ	q@      // Initial with fatha
+	_) ق (ِ	q@      // Initial with kasra
+	_) ق (ُ	q@      // Initial with damma
+	ق (L02L02	q@      // Before consonant cluster
+	ق (ق	q:      // Geminated
+	ق (ر	qr      // Common cluster
+	ق (ل	ql      // Common cluster
+	ق (ا	qa:     // Common combinations
+	ق (و	qu:
+	ق (ی	qi:
+	ق (ې	qe:
+	ق (ۍ	q@i
+	ق (ن	qn      // Consonant clusters
+	ق (د	qd
+	ق (ت	qt
+	ق (س	qs
+	ق (ش	qS
+	ق (ک	qk
+	ق (م	qm
+	ق (ړ	qr.     // Specific to Pashto
+	ق (ښ	qS.     // Updated to match ph_pashto
+	// Common word examples for ق using phonemes defined in ph_pashto
+	_) قلم	qa'lam       // Pen
+	_) قصه	qi'sa        // Story
+	_) قانون	qa:'nu:n     // Law
+	_) قدرت	qu'd@rat     // Power
+	_) قبر	qa'b@r       // Grave
+	_) قسم	qa'sam       // Oath/type
+	_) قلعه	qa'la        // Fort/castle
+	_) قرآن	qu'ra:n      // Quran
+	_) قیمت	qi:'mat      // Price/value
+	_) قاضي	qa:'zi:      // Judge
+	_) قطار	qa'ta:r      // Line/row
+	_) قوم	qo:m         // Nation/tribe
+	_) قفل	qu'f@l       // Lock
+	_) قربان	qur'ba:n     // Sacrifice
+	_) قطره	qa't@ra      // Drop
+.group ک
+	ک	k
+	ک (_	k
+	کھ	k
+	_) ک (َ	k@      // Initial with fatha
+	_) ک (ِ	k@      // Initial with kasra
+	_) ک (ُ	k@      // Initial with damma
+	ک (L02L02	k@      // Before consonant cluster
+	ک (ک	k:      // Geminated
+	ک (ت	k@'t    // Common sequence
+	ک (تان	k@'ta:n // Common ending
+	ک (تاب	k@'ta:b // Common word part
+	کوون	ko:w@n  // Added for compound word "زده_کوونکی"
+	ک (ر	kr      // Common cluster
+	ک (ل	kl      // Common cluster
+	ک (ی	k@j     // Common ending
+	ک (ا	ka:     // Common combinations
+	ک (و	ku:
+	ک (ې	ke:
+	ک (ۍ	k@i
+	ک (ن	kn      // Consonant clusters
+	ک (د	kd
+	ک (س	ks
+	ک (ش	kS
+	ک (م	km
+	ک (ړ	kr.     // Specific to Pashto
+	ک (ښ	kS.     // Updated to match ph_pashto
+	// Common word examples for ک using phonemes defined in ph_pashto
+	_) کتاب	ki'ta:b      // Book
+	_) کار	ka:r         // Work
+	_) کور	ko:r         // Home
+	_) کال	ka:l         // Year
+	_) کلی	ku'l@j       // Village
+	_) کوچنی	kutS'n@j     // Small/child
+	_) کاغذ	ka:'Q@z      // Paper
+	_) کلمه	ka'lima      // Word
+	_) کمپیوټر	k@mpju:'t.@r  // Computer
+	_) کرکټ	kri'k@t.     // Cricket
+	_) کیسه	ki:'sa       // Story/tale
+	_) کمره	ka'mra       // Camera
+	_) کوټه	ko:'t.a      // Room
+	_) کښې	k@'S.e:      // Inside
+	_) کړه	k@'r.a       // Did (feminine)
+.group ګ
+	ګ	g
+	ګ (_	g
+	ګھ	g
+	_) ګ (َ	g@      // Initial with fatha
+	_) ګ (ِ	g@      // Initial with kasra
+	_) ګ (ُ	g@      // Initial with damma
+	ګ (L02L02	g@      // Before consonant cluster
+	ګ (ګ	g:      // Geminated
+	ګ (ر	g@'r    // Common sequence
+	ګ (ړ	g@r.    // Common sequence
+	ګ (ی	g@j     // Common ending
+	ګ (ا	ga:     // Common combinations
+	ګ (و	gu:
+	ګ (ې	ge:
+	ګ (ۍ	g@i
+	ګ (ل	gl      // Consonant clusters
+	ګ (ن	gn
+	ګ (د	gd
+	ګ (ت	gt
+	ګ (س	gs
+	ګ (ش	gS
+	ګ (ک	gk
+	ګ (م	gm
+	ګ (ښ	gS.     // Updated to match ph_pashto
+	// Common word examples for ګ using phonemes defined in ph_pashto
+	_) ګل	gul         // Flower
+	_) ګرم	g@'r@m      // Hot/warm
+	_) ګوته	go:'ta       // Finger
+	_) ګړندی	g@r.'@n'd@j  // Fast
+	_) ګاډی	ga:'d.@j     // Vehicle/car
+	_) ګټه	ga't.a       // Benefit/profit
+	_) ګڼه	ga'n.a       // Count/number
+	_) ګډون	ga'd.o:n     // Participation
+	_) ګومان	gu'ma:n      // Thought/opinion
+	_) ګوښه	go:'S.a      // Corner/isolated
+	_) ګیلاس	gi:'la:s     // Cherry/glass
+	_) ګیډه	ge:'d.a      // Stomach/belly
+	_) ګران	g@'ra:n      // Dear/expensive
+.group ل
+	ل	l
+	ل (_	l
+	_) ل (َ	l@      // Initial with fatha
+	_) ل (ِ	l@      // Initial with kasra
+	_) ل (ُ	l@      // Initial with damma
+	ل (L02L02	l@      // Before consonant cluster
+	ل (ل	l:      // Geminated
+	ل (م	l@'m    // Common sequence
+	ل (و	lw      // Common cluster
+	ل (ی	l@j     // Common ending
+	ل (ا	la:     // Common combinations
+	ل (ې	le:
+	ل (ۍ	l@i
+	ل (ر	lr      // Consonant clusters
+	ل (ن	ln
+	ل (د	ld
+	ل (ت	lt
+	ل (س	ls
+	ل (ش	lS
+	ل (ک	lk
+	ل (ګ	lg
+	ل (ړ	lr.     // Specific to Pashto
+	ل (ښ	lS.     // Updated to match ph_pashto
+	// Common word examples for ل using phonemes defined in ph_pashto
+	_) لاس	la:s        // Hand
+	_) لمر	l@'m@r      // Sun
+	_) لوی	lo:j        // Big/large
+	_) لږ	l@Z         // Little/few
+	_) لار	la:r        // Path/way
+	_) لوبه	lo:'ba       // Game/play
+	_) لیک	li:k        // Writing/letter
+	_) لوستل	lo:s't@l    // To read
+	_) لرل	la'r@l      // To have
+	_) لمبا	l@m'ba:     // Swimming
+	_) لوړ	lo:r.        // High/tall
+	_) لیدل	li:'d@l     // To see
+
+.group م
+	م	m
+	م (_	m
+	_) م (َ	m@      // Initial with fatha
+	_) م (ِ	m@      // Initial with kasra
+	_) م (ُ	m@      // Initial with damma
+	م (L02L02	m@      // Before consonant cluster
+	م (م	m:      // Geminated
+	م (س	m@'s    // Common sequence
+	م (سل	m@s@l   // Common sequence
+	م (ر	mr      // Common cluster
+	م (ل	ml      // Common cluster
+	م (ی	m@j     // Common ending
+	م (و	mw      // Common cluster
+	م (ن	m@n     // Common sequence
+	م (ا	ma:     // Common combinations
+	م (ې	me:
+	م (ۍ	m@i
+	م (د	md      // Consonant clusters
+	م (ت	mt
+	م (ش	mS
+	م (ک	mk
+	م (ګ	mg
+	م (ړ	mr.     // Specific to Pashto
+	م (ښ	mS.     // Updated to match ph_pashto
+	// Common word examples for م using phonemes defined in ph_pashto
+	_) مور	mo:r        // Mother
+	_) مور	mo:r        // Mother
+	_) مینه	mi:'na       // Love
+	_) مړ	m@r.         // Dead
+	_) ماشوم	ma:'Su:m     // Child
+	_) مځکه	m@'ts@ka     // Earth/ground
+	_) مخ	m@X         // Face
+	_) مرسته	m@r@s'ta    // Help
+	_) مڼه	m@'n.a      // Apple
+	_) ملګری	m@l'g@r@j   // Friend
+	_) مات	ma:t        // Broken
+	_) میاشت	mi:'a:St    // Month
+	_) مچ	m@tS        // Kiss/fly
+.group ن
+	ن	n
+	ن (_	n
+	_) ن (َ	n@      // Initial with fatha
+	_) ن (ِ	n@      // Initial with kasra
+	_) ن (ُ	n@      // Initial with damma
+	ن (L02L02	n@      // Before consonant cluster
+	ن (ن	n:      // Geminated
+	ن (س	n@s     // Common sequence
+	ن (ستان	n@s'ta:n // Common ending
+	ن (ر	nr      // Common cluster
+	ن (ی	n@j     // Common ending
+	ن (ه	n@      // Before he
+	ن (ا	na:     // Common combinations
+	ن (و	nu:
+	ن (ې	ne:
+	ن (ۍ	n@i
+	ن (ل	nl      // Consonant clusters
+	ن (د	nd
+	ن (ت	nt
+	ن (س	ns
+	ن (ش	nS
+	ن (ک	nk
+	ن (ګ	ng
+	ن (م	nm
+	ن (ړ	nr.     // Specific to Pashto
+	ن (ښ	nS.     // Updated to match ph_pashto
+	// Common word examples for ن using phonemes defined in ph_pashto
+	_) نن	n@n         // Today
+	_) نوم	no:m        // Name
+	_) نړۍ	n@'r.@i     // World
+	_) نوی	n@'w@j      // New
+	_) ناست	na:st       // Sitting
+	_) نیول	ni:'w@l     // To catch/take
+	_) نمر	n@'m@r      // Sun
+	_) نښه	n@'S.a      // Sign/mark
+	_) نږدې	n@Z'de:     // Near/close
+	_) نظر	na'z@r      // Opinion/view
+	_) نغمه	n@Q'ma      // Melody/song
+	_) نمونه	n@mu:'na    // Example/sample
+
+.group ڼ
+	ڼ	n.
+	ڼ (_	n.
+	_) ڼ (َ	n.@     // Initial with fatha
+	_) ڼ (ِ	n.@     // Initial with kasra
+	_) ڼ (ُ	n.@     // Initial with damma
+	ڼ (L02L02	n.@     // Before consonant cluster
+	ڼ (ڼ	n.:     // Geminated
+	ڼ (ی	n.@j    // Common ending
+	ڼ (ا	n.a:    // Common combinations
+	ڼ (و	n.u:
+	ڼ (ې	n.e:
+	ڼ (ۍ	n.@i
+	ڼ (ر	n.r     // Consonant clusters
+	ڼ (ل	n.l
+	ڼ (د	n.d
+	ڼ (ت	n.t
+	ڼ (س	n.s
+	ڼ (ش	n.S
+	ڼ (ک	n.k
+	ڼ (ګ	n.g
+	ڼ (م	n.m
+	ڼ (ړ	n.r.    // Specific to Pashto
+	ڼ (ښ	n.S.    // Updated to match ph_pashto
+	// Common word examples for ڼ using phonemes defined in ph_pashto
+	_) ڼڼ	n.:         // Retroflex nasal geminate
+	_) ڼه	n.@         // Retroflex nasal with he
+	_) ڼۍ	n.@i        // Retroflex nasal with ye
+	_) ڼګ	n.@g        // Retroflex nasal with gaf
+	_) ڼډ	n.@d.       // Retroflex nasal with retroflex d
+	_) ڼټ	n.@t.       // Retroflex nasal with retroflex t
+	_) ڼړ	n.@r.       // Retroflex nasal with retroflex r
+	_) ڼښ	n.@S.       // Retroflex nasal with retroflex sh
+	_) ڼکی	n.@'k@j     // Retroflex nasal with kaf and ye
+	_) ڼګی	n.@'g@j     // Retroflex nasal with gaf and ye
+	_) ڼوال	n.@'wa:l    // Retroflex nasal with waw and lam
+	_) ڼیز	n.@'ji:z    // Retroflex nasal with ye and ze
+
+.group و
+	و	w
+	_) و	w
+	_) وا	wa:
+	و (_	u:
+	وع	o
+	و (L03	w
+	وٗ	u:
+	وی	wi:
+	وَ	wa
+	و (ن	u:n
+	_) و (َ	w@      // Initial with fatha
+	_) و (ِ	w@      // Initial with kasra
+	_) و (ُ	w@      // Initial with damma
+	L02) و (L02	w      // Medial between consonants
+	L02) و (_	u:     // Final after consonant
+	و (ل	wl      // Common cluster
+	و (ر	wr      // Common cluster
+	و (ی	w@j     // Common ending
+	و (ا	wa:     // Common combinations
+	و (ې	we:
+	و (ۍ	w@i
+	و (د	wd      // Consonant clusters
+	و (ت	wt
+	و (س	ws
+	و (ش	wS
+	و (ک	wk
+	و (ګ	wg
+	و (م	wm
+	و (ن	wn
+	و (ړ	wr.     // Specific to Pashto
+	و (ښ	wS.     // Updated to match ph_pashto
+	// Common word examples for و using phonemes defined in ph_pashto
+	_) وخت	wa'X@t      // Time
+	_) واده	wa:'da      // Marriage
+	_) ویل	wi:l        // To say
+	_) وړ	w@r.        // Worthy/capable
+	_) وږی	w@'Z.@j     // Hungry
+	_) وطن	wa't.@n     // Country/homeland
+	_) ولس	w@'l@s      // Nation/people
+	_) وینه	wi:'na      // Blood
+	_) وروسته	wru:'sta    // After/later
+	_) وریځ	w@'ri:dZ    // Cloud
+	_) وږمه	w@Z.'ma     // Breeze
+	_) وړاندې	wr.a:n'de:  // Forward/ahead
+
+.group ه
+	ه	h
+	ه (_	h
+	_) ه (L01	h
+	ه (L01	h
+	هی	hi:
+	هے	he:
+	هو	ho:
+	هُو	hu:
+	ه (ن	h@n
+	ه (تون	h@n'tu:n
+	_) ه (َ	h@      // Initial with fatha
+	_) ه (ِ	h@      // Initial with kasra
+	_) ه (ُ	h@      // Initial with damma
+	L02) ه (L02	h@     // Medial between consonants
+	L02) ه (_	@h     // Final after consonant
+	ه (ی	h@j     // Common ending
+	ه (و	hw      // Common cluster
+	ه (ا	ha:     // Common combinations
+	ه (ې	he:
+	ه (ۍ	h@i
+	ه (ر	hr      // Consonant clusters
+	ه (ل	hl
+	ه (د	hd
+	ه (ت	ht
+	ه (س	hs
+	ه (ش	hS
+	ه (ک	hk
+	ه (ګ	hg
+	ه (م	hm
+	ه (ړ	hr.     // Specific to Pashto
+	ه (ښ	hS.     // Updated to match ph_pashto
+	// Common word examples for ه using phonemes defined in ph_pashto
+	_) هغه	ha'Q@      // That/he/she
+	_) هر	har        // Every
+	_) هېڅ	he:tS      // Nothing
+	_) هوا	ha'wa:     // Air
+	_) هلک	ha'l@k     // Boy
+	_) هلته	hal'ta     // There
+	_) هېواد	he:'wa:d   // Country
+	_) هوډ	ho:d.      // Determination
+	_) هنر	hu'nar     // Art/skill
+	_) هوښیار	ho:S'ja:r  // Intelligent
+	_) هډوکی	had.o:'ki: // Bone
+	_) هڅه	ha'ts@     // Effort/try
+
+.group ی
+	ی	j
+	ی (L01	j
+	ی (_	i:
+	یٰ	a:
+	یک	j@k    // For compound words ending with کی
+	_) ی (َ	j@      // Initial with fatha
+	_) ی (ِ	j@      // Initial with kasra
+	_) ی (ُ	j@      // Initial with damma
+	L02) ی (L02	j      // Medial between consonants
+	L02) ی (_	i:     // Final after consonant
+	ی (ی	j:      // Geminated
+	ی (و	jw      // Common cluster
+	ی (ن	j@n     // Common sequence
+	ی (ا	ja:     // Common combinations
+	ی (ې	je:
+	ی (ۍ	j@i
+	ی (ر	jr      // Consonant clusters
+	ی (ل	jl
+	ی (د	jd
+	ی (ت	jt
+	ی (س	js
+	ی (ش	jS
+	ی (ک	jk
+	ی (ګ	jg
+	ی (م	jm
+	ی (ړ	jr.     // Specific to Pashto
+	ی (ښ	jS.     // Updated to match ph_pashto
+	// Common word examples for ی using phonemes defined in ph_pashto
+	_) یو	jaw        // One
+	_) یار	ja:r       // Friend
+	_) یاد	ja:d       // Memory/remembrance
+	_) یخ	jax        // Ice/cold
+	_) یقین	ja'qi:n    // Certainty/belief
+	_) یون	ju:n       // Movement
+	_) یوازې	ja'wa:ze:  // Alone
+	_) یرغل	jar'Qal    // Attack/invasion
+	_) یوځای	jaw'dza:j  // Together
+	_) یوسف	ju:'suf    // Yusuf (name)
+	_) یاغي	ja:'Qi:    // Rebel
+	_) یادونه	ja:do:'na  // Memories/reminders
+.group ې
+	ې	e:
+	ې (_	e:
+	_) ې	'e:     // Initial with stress
+	L02) ې (L02	e:     // Medial between consonants
+	L02) ې (_	e:     // Final after consonant
+	ې (ی	e:j     // Common sequence
+	ې (و	e:w     // Common sequence
+	ې (ا	e:a:    // Common combinations
+	ې (ر	e:r     // Consonant clusters
+	ې (ل	e:l
+	ې (د	e:d
+	ې (ت	e:t
+	ې (س	e:s
+	ې (ش	e:S
+	ې (ک	e:k
+	ې (ګ	e:g
+	ې (م	e:m
+	ې (ن	e:n
+	ې (ړ	e:r.    // Specific to Pashto
+	ې (ښ	e:S.    // Updated to match ph_pashto
+	// Common word examples for ې using phonemes defined in ph_pashto
+	_) ېوان	e:'wa:n    // Veranda/porch
+	_) ېښ	e:S.       // Awake
+	_) ېره	e:'ra      // Fear
+	_) ېږد	e:Z.d      // Movement
+	_) ېږي	e:'Z.i:    // Is being (verb suffix)
+	_) ېړۍ	e:r.'@i    // Ship/boat
+	_) ېل	e:l        // Separate
+	_) ېلاق	e:'la:q    // Divorce
+	_) ېمه	e:'ma      // Ordinal suffix
+	_) ېنه	e:'na      // Sitting
+
+.group ۍ
+	ۍ	@i
+	ۍ (_	@i
+	_) ۍ	'@i     // Initial with stress
+	L02) ۍ (L02	@i     // Medial between consonants
+	L02) ۍ (_	@i     // Final after consonant
+	ۍ (ا	@ia:    // Common combinations
+	ۍ (و	@iu:
+	ۍ (ر	@ir     // Consonant clusters
+	ۍ (ل	@il
+	ۍ (د	@id
+	ۍ (ت	@it
+	ۍ (س	@is
+	ۍ (ش	@iS
+	ۍ (ک	@ik
+	ۍ (ګ	@ig
+	ۍ (م	@im
+	ۍ (ن	@in
+	ۍ (ړ	@ir.    // Specific to Pashto
+	ۍ (ښ	@iS.    // Retroflex fricative
+	// Common word examples for ۍ using phonemes defined in ph_pashto
+	_) ۍ	'@i        // Suffix for feminine nouns
+	_) ۍډو	'@id.o     // Feminine form of "filled"
+	_) ۍنه	'@ina      // Feminine form of "sitting"
+	_) ۍګۍ	'@ig@i     // Small feminine object (diminutive)
+	_) ۍړه	'@ir.a     // Feminine form with retroflex
+	_) ۍښه	'@iS.a     // Feminine form with retroflex fricative
+	_) ۍزه	'@iza      // Feminine form with z
+	_) ۍخه	'@iXa      // Feminine form with uvular fricative
+	_) ۍغه	'@iQa      // Feminine form with voiced uvular
+	_) ۍچه	'@itSa     // Feminine form with affricate
+	_) ۍځه	'@idza     // Feminine form with voiced affricate
+.group ئ
+	ئ	j
+	ئ (_	j 
+	_) ئ	j       // Initial
+	L02) ئ (L02	j      // Medial between consonants
+	L02) ئ (_	j      // Final after consonant
+	ئ (ا	ja:     // Common combinations
+	ئ (و	ju:
+	ئ (ی	ji:
+	ئ (ې	je:
+	ئ (ۍ	j@i
+	ئ (ر	jr      // Consonant clusters
+	ئ (ل	jl
+	ئ (د	jd
+	ئ (ت	jt
+	ئ (س	js
+	ئ (ش	jS
+	ئ (ک	jk
+	ئ (ګ	jg
+	ئ (م	jm
+	ئ (ن	jn
+	ئ (ړ	jr.     // Retroflex flap
+	ئ (ښ	jS.     // Retroflex fricative
+	// Common word examples for ئ using phonemes defined in ph_pashto
+	_) ئې	'je:       // You (plural imperative)
+	_) ئیل	'ji:l      // To say (imperative)
+	_) ئړل	'jr.@l     // To carry (imperative)
+	_) ئښل	'jS.@l     // To pull (imperative)
+	_) ئږل	'jZ.@l     // To press (imperative)
+	_) ئځل	'jdz@l     // To go (imperative)
+	_) ئڅل	'jts@l     // To drink (imperative)
+	_) ئډل	'jd.@l     // To fill (imperative)
+	_) ئټل	'jt.@l     // To push (imperative)
+	_) ئګل	'jg@l      // To sew (imperative)
+	_) ئخل	'jX@l      // To take (imperative)
+	_) ئغل	'jQ@l      // To call (imperative)
+
+// Special rules for common word patterns
+.group
+	_) زده (کوونکی	zd@_ko:w'@nk@j    // Student (complete word)
+	_) کتاب	k@'ta:b              // Book
+	_) ښوونکی	S.o:w'@nk@j        // Teacher (updated to use S. for ښ)
+	_) پښتو	p@S.'to             // Pashto (updated to use S. for ښ)
+	_) افغانستان	afQa:n@s'ta:n     // Afghanistan (updated to use Q for غ)
+	_) کابل	ka:'b@l             // Kabul
+	_) ننګرهار	n@ng@r'ha:r        // Nangarhar
+	_) کندهار	k@nd@'ha:r         // Kandahar
+	_) پکتیا	p@k'tja:           // Paktia
+	_) خوست	Xost               // Khost (updated to use X for خ)
+	_) لوګر	lo'g@r             // Logar
+	_) غزنی	Q@z'ni             // Ghazni (updated to use Q for غ)
+	_) هلمند	h@l'mand           // Helmand
+	_) بلخ	balX               // Balkh (updated to use X for خ)
+	_) هرات	h@'ra:t            // Herat
+	_) بدخشان	badaX'Sa:n         // Badakhshan (updated to use X for خ)
+	_) ورځ	wr@dz              // Day
+	_) شپه	S@'pe:             // Night
+	_) سړی	s@'r.@j            // Man
+	_) ښځه	S.@'dz@            // Woman (updated to use S. for ښ)
+	_) ماشوم	ma:'Sum            // Child
+	_) کور	kor                // House
+	_) ښوونځی	S.o:w'@ndz@j       // School (updated to use S. for ښ)
+	_) پوهنتون	poh@n'tu:n         // University
+	_) ډوډۍ	d.o'd.@i            // Bread
+	_) اوبه	o'b@               // Water
+	_) غر	Q'@r                // Mountain (updated to use Q for غ)
+	_) غږ	Q'Z.      // Sound/voice (غږ)
+	_) ږغ	Z.'Q      // Call/shout (ږغ)
+	_) سیند	si:nd              // River   
+		_) اږدود	aZ.'du:d     // Tradition
+	_) مږ	m@Z.         // Mouse
+	_) ږمونږ	Z.mu:nZ.     // Our/us
+	_) لږ	l@Z.         // Little/few
+	_) نږدې	n@Z.'de:     // Near/close
+	_) پاږه	pa:'Z.a      // Strain/filter
+	_) وږی	w@'Z.aj      // Hungry
+	_) غږېدل	Q@Z.e:d@l    // To speak/sound
+	_) غږول	Q@Z.aw@l     // To make a sound
+	_) ږغېدل	Z.@Qe:d@l    // To call out
+	_) نږغږ	n@Z.Q@Z.     // Harmony/accord
+	_) باغ	ba:Q         // Garden
+	_) چاغ	tSa:Q        // Fat/plump
+	_) دروغ	d@'r,o:Q       // Lie (falsehood)
+	_) مرغ	m@rQ         // Bird
+
+// Eastern dialect variation for ږ
+_) ږ	g      // Word-initial ږ in Eastern dialect
+L02) ږ (L02	g      // Word-medial ږ in Eastern dialect
+L02) ږ (_	g      // Word-final ږ in Eastern dialect
+
+// Standard (Southern/Western) pronunciation remains Z.
+_) ږ	Z.      // Standard pronunciation 
+
+ 
