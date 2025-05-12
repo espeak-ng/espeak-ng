@@ -193,7 +193,7 @@ phoneme S.
 endphoneme
 
 phoneme Z.
-  // ژ in Pashto - voiced retroflex fricative
+  // ږ in Pashto - voiced retroflex fricative
   vcd rfx frc sib
   lengthmod 6
   ipa ʐ
