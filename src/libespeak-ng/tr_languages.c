@@ -871,8 +871,8 @@ Translator *SelectTranslator(const char *name)
 	case L('h','e'): // Hebrew
 	{
 		tr->langopts.param[LOPT_APOSTROPHE] = 2; // bit 1  Apostrophe at end of word is part of the word, for words like בָּגָאז׳
-        tr->langopts.stress_flags = S_NO_AUTO_2; // don't use secondary stress
-        tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DFRACTION_2 | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND;
+		tr->langopts.stress_flags = S_NO_AUTO_2; // don't use secondary stress
+		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DFRACTION_2 | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND;
 	}
 		break;
 	case L('g', 'a'): // irish
