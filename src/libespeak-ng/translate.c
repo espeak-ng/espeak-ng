@@ -1489,20 +1489,6 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 	}
 	words[0].flags |= FLAG_FIRST_WORD;
 
-	// Add debug print header and print all words before processing
-	// fprintf(stderr, "\n=== Words in sentence ===\n");
-	// for (ix = 0; ix < word_count; ix++) {
-	// 	char word_copy[150];
-	// 	int word_len = 0;
-	// 	char *pw = &sbuf[words[ix].start];
-	// 	while (pw[word_len] != ' ' && pw[word_len] != 0 && word_len < 149) {
-	// 		word_copy[word_len] = pw[word_len];
-	// 		word_len++;
-	// 	}
-	// 	word_copy[word_len] = 0;
-	// 	fprintf(stderr, "Word %d: '%s'\n", ix + 1, word_copy);
-	// }
-
 	// Each TranslateWord2 may require up to 7 phonemes
 	// and after this loop we require 2 phonemes
 	for (ix = 0; ix < word_count && (n_ph_list2 < N_PHONEME_LIST-7-2); ix++) {
