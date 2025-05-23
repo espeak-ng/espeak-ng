@@ -1,0 +1,223 @@
+// ***************************************************************************/ 
+// *   Mongolian language mn mn_list                                         *
+// *   Original Author Battseren Badral 15-05-2025                           *
+// *   Contact info: bbattseren88@gmail.com                                  *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// Numbers
+_0      tEg_        // тэг (assuming t is asp /tʰ/, э is /e/, г is /g/ (velar, possibly palatalized by э to g;))
+?3 _0   tEg_
+_1      n;Eg;       // нэг
+_1f     n;Eg;
+_2      xuvlOjOr_  // хоёр (х before back vowel о -> xuvl)
+_2f     xuvlOjOr_
+_3      Gur;@v_
+_4      dYr;@v_
+_5      tav_
+_6      zurGA:      // зургаа (г before back а -> G)
+_7      dOl'O:
+_8      n'Ajm_
+_9      jEs_
+_10     Ar;@v_
+_11     Ar;v@n n;Eg;
+_12     Ar;v@n xuvlOjOr_
+_13     Ar;v@n Gur;@v_
+_14     Ar;v@n dYr;@v_
+_15     Ar;v@n tav_
+_16     Ar;v@n zurGA:
+_17     Ar;v@n dOl'O:
+_18     Ar;v@n n'Ajm_
+_19     Ar;v@n jEs_
+_2X     xOr_;In_
+_3X     GutS_;In_
+_4X     dYtS_;In_
+_5X     tav_;In_
+_6X     Zar;@n_
+_7X     dal;@n_
+_8X     naj;@n_
+_9X     jEr;@n_
+_0C     zU:n_
+_2C     xuvlOjOr zU:
+_3C     Gur;v@n zU:
+_4C     dYr;v@n zU:
+_5C     tav;@n zU:
+_6C     zurGAn zU:n_
+_7C     dOl'On zU:n_
+_8C     n'Ajm@n zU:n_
+_9C     jEs;@n zU:n_
+_1MA1   m;jaNG@     // мянга (г after н -> N, г itself is G)
+_0MA1   m;jaNG@
+_0M1    m;jaNG@
+_1MA2   saj;@
+_0MA2   saj;@
+_0M2    saj;@
+_1MA3   t;erbum_
+_0MA3   t;erbum_
+_0M3    t;erbum_
+_1MA4   Ix naj;@d_
+_0MA4   Ix naj;@d_
+_0M4    Ix naj;@d_
+
+// Decimal point related words
+_dpt    tAslAl_
+_dpt    tsEg_
+_dpt2   Ar@vnY_
+
+// Symbols
+_`      aks'Ent_
+&       ampers'And_
+_'      ap'ostrOf_
+\       UrUGU: zUr'A:s_
+_>      Ix tEmdEg_
+_       zUG'A:l dEf'is_
+$       d'Ol@r_
+₮       tYgrYg_
+_:      davxar tsEg
+^       OrOj tEmdEg_
+_"      xAjmAr Kav'yytSk@
+_<      bAGA tEmdEg_
+№       n'OmEr_
+_{      fig'UUr@n xA:lt @tkr
+_(      Eng'i:n xA:lt @tkr
+_[      dYr_@lZIn xA:lt @tkr
+_«      davxar xaSIlt n;e:x // хашилт -> xaSIlt
++       n;EmEx_     $max3
+_       dO:GU:r zur'A:s_ $max3
+%       xuv;I_      $max3
+=       t;Ents'U:   $max3
+#       SAr_@:
+/       zUr'A:s_    $max3
+@       @t tEmdEg_
+~       t;'il;d@
+_.      tsEg_
+_;      tsEg_tEj tAslAl_
+_|      bOsl'O: zUr'A:s_
+_?      As'U:lti:n tEmdEg_
+_!      AngxA:ru:lax tEmdEg_ // анхааруулах -> AngxAruulax (х before back а)
+_}      fig'UUr@n xA:lt xA:x
+_)      Eng'i:n xA:lt xA:x
+_]      dYr_@lZIn xA:lt xA:x
+_»      davxar xaSIlt xA:x
+* Od_         $max3
+_,      tAslAl_
+
+// Particles
+юм      jum $u
+уу      u: $u
+үү      y: $u      // Use your long front rounded vowel ('y.' if that's the name, or map to the correct phoneme)
+вэ      vE $u
+нь      n;I $u
+ч       tS;@ $u
+л       l@ $u
+даа     dA: $u
+шүү     SU: $u
+
+// Postpositions/Cases (examples)
+дээр    d'e:r
+доор    d'O:r
+хажууд  xadZ'U:d
+өмнө    Ymn@_
+ард     Ard_
+руу     rU: $u
+-аас    A:s $u
+-д      d@ $u
+
+// Conjunctions
+ба      ba $u
+бөгөөд  bYg'Y:d $pause
+буюу    buj'U: $pause
+эсвэл   Esv'El $pause
+харин   xar;'In $pause
+гэхдээ  gExd'e: $pause // гэхдээ (х before front э -> xvel) -> gExvelde: (adjust based on precise phoneme for х)
+тийм    t;'i:m $u
+учраас  utSr'A:s $pause
+
+// Questions
+хэн     xEn $pause      // хэн (х before front э -> xvel) -> xvelEn (adjust)
+юу      jU: $pause
+хаана   xA:n@ $pause
+хэзээ   xEz'e: $pause
+яагаад  jA:G'A:d $pause
+яаж    jA:Z $pause
+хичнээн xItSn'e:n $pause // хичнээн (х before front и -> xvel) -> xvelItSne:n (adjust)
+
+// Misc.
+үгүй    uG'uj      // Should be үGүj using front vowel phoneme 'y' -> yGyi (or ygyi if г palatalized)
+биш     bIS_
+байна   b'Ajn@
+байгаа  b'AjGA:
+мөн     mYn_
+за      za
+
+// Auxiliary Verbs
+байх    b'Ajxvel       // байх (х word final, could be xvel or xuvl based on preceding vowel) -> bA postcss xuvl (if 'a' makes it back)
+чадах   tSad;@xvel_    // чадах -> tSad;@xuvl
+байна   b'Ajn@ $u1
+байгаа  b'AjGA: $u1
+байсан  b'Ajs@n $u1
+болно   bOl;@n $u1
+чадна   tSad;@n@ $u1
+чадсан  tSad;@s@n $u1
+
+// Cyrillic letter names
+а       A:
+_б      bE
+б       bE $atend
+_в      vE
+в       vE $atend
+г       gE          // Velar G + E (front vowel) -> gE
+д       dE
+е       jE
+ё       jO
+_ж      ZE
+ж       ZE $atend
+з       dzE
+и       I:          // Long I for "и" letter name
+й       xAg;@s I:
+_к      kA          // к before back а -> qA
+к       qA $atend
+л       El;
+?3 л    El^
+м       Em
+н       En
+о       O:          // Long O for "о" letter name
+ө       Y:          // Long Y (Y.) for "ө" letter name
+п       pE
+р       Er
+_с      Es
+с       Es $atend
+т       tE
+у       U:          // Long U for "у" letter name
+ү       y:          // Long y (y.) for "ү" letter name
+ф       Ef
+х       xvelE      // хэ (х before front э -> xvel) or xuvlA for "ха"
+ц       tsE
+ч       tSE
+ш       SA
+щ       StSA
+ъ       xAt'U:Gi:n tEmdEg_
+ы       Er ug;i:n Y_mn
+ь       zY:ln;i: tEmdEg_
+э       E:          // Long E for "э" letter name
+ю       jU:         // Long jU for "ю" letter name
+я       jA:         // Long jA for "я" letter name
+
+// Exceptions & Phrases
+сайн_байна_уу    s'Ajn b'AjnU:
+баярлалаа       bajarUlUl'A:
+төгрөг          tYgrYg_
+Улаанбаатар     ulA:nb'A:tAr_

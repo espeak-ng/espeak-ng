@@ -1769,6 +1769,9 @@ include ph_lithuanian
 phonemetable lv base1
 include ph_latvian
 
+phonemetable mn base1
+include ph_mongolian
+
 phonemetable my base1
 include ph_myanmar
 
