@@ -1,0 +1,569 @@
+// ***************************************************************************/ 
+// *   Mongolian language mn phoneme                                       *
+// *   Original Author Battseren Badral 15-05-2025                           *
+// *   Contact info: bbattseren88@gmail.com                                  *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+phoneme g
+  vcd vel stp prevoice
+  voicingswitch k
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g3, 90)
+endphoneme
+
+
+phoneme G
+  import_phoneme base1/r"
+endphoneme
+
+phoneme U
+  vwl  starttype #o  endtype #o
+  length 170
+  FMT(vowel/uu)
+endphoneme
+
+phoneme V
+  vwl  starttype #o  endtype #o
+  ipa ʊ
+  length 140
+  ChangeIfDiminished(@)
+  FMT(vowel/o-_2)
+endphoneme
+
+phoneme 2
+  vwl starttype #o endtype #e
+  ipa œː
+  length 190
+  FMT(vdiph2/o@)
+endphoneme
+
+phoneme ʊ
+  vwl  starttype #o  endtype #o
+  ipa ʊ
+  length 140
+  ChangeIfDiminished(@)
+  FMT(vowel/o-_2)
+endphoneme
+
+phoneme p
+  import_phoneme consonants/p-
+endphoneme
+
+
+phoneme x
+  vls vel frc
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  WAV(ufric/x_hr, 30)
+endphoneme
+
+
+phoneme k
+  import_phoneme consonants/k-
+endphoneme
+
+
+phoneme l
+ liquid rfx
+ ipa ɭ
+ lengthmod 7
+ length 40
+ FMT(l^/l_rfx)
+endphoneme
+
+
+phoneme l^
+ liquid rfx pzd
+ ipa ɭ
+length 80
+ FMT(l^/l_rfx)
+endphoneme
+
+
+phoneme s
+  vls alv frc sib
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  WAV(ufric/s)
+endphoneme
+
+phoneme s;
+  import_phoneme en/s
+endphoneme
+
+
+phoneme n_
+  import_phoneme en/n
+endphoneme
+
+
+phoneme n#
+  vcd pal nas pzd
+  ipa ɲ
+  Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
+  lengthmod 4
+
+  IF KlattSynth THEN
+    VowelStart(klatt/n^@)
+    FMT(klatt/n^)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(n^/n^@)
+    VowelStart(n^/n^a)
+    VowelStart(n^/n^e)
+    VowelStart(n^/n^i)
+    VowelStart(n^/n^o)
+    VowelStart(n^/n^u)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(n^/_n^)
+  ELIF nextPh(isNotVowel) THEN
+    IF nextPhW(n^) THEN
+      length 75
+    ELIF prevPhW(n^) THEN
+      length 100
+    ENDIF
+    FMT(n^/n^_)
+  ENDIF
+endphoneme
+
+
+phoneme r
+  liquid rhotic alv trl nolink
+  length 80
+  IF prevPhW(isVowel) THEN
+  ELSE
+    InsertPhoneme(@-)
+  ENDIF
+  FMT(r3/r_trill,80) addWav(r3/r_trill.wav, 50)
+endphoneme
+
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+
+phoneme dZ;
+  vcd alp sib afr
+  voicingswitch tS;
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(x/dzh_)
+  ENDIF
+endphoneme
+
+
+phoneme tS;
+  vls alp sib afr
+  voicingswitch dZ;
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+
+  WAV(ustop/ts_pzd)
+endphoneme
+
+
+// Palatalized versions of consonants
+
+
+
+phoneme m;
+  vcd blb nas
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+
+  IF KlattSynth THEN
+    Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/m_)
+    ENDIF
+    FMT(klatt/m)
+  ENDIF
+
+  VowelStart(m/mi)
+
+  FMT(m/mj)
+endphoneme
+
+
+phoneme I^ // "silent i", palatilizes the preceding consonant
+  vwl starttype #i endtype #i
+  unstressed nsy
+  length 70
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(;)
+  ENDIF
+  IF prevPh(m;) THEN
+    FMT(vwl_ro/mi)
+  ENDIF
+  FMT(vwl_ru/ii-)
+endphoneme
+
+
+//*******************************************************************
+// VOWELS
+//*******************************************************************
+
+
+phoneme i
+  IF prevPh(Z) THEN
+    ChangePhoneme(y)
+  ENDIF
+  vwl starttype #i endtype #i
+  length 50
+  FMT(vwl_ru/ii)
+endphoneme
+
+
+phoneme I#
+  vwl starttype #i endtype #i
+  length 80
+  IF nextVowel(isMaxStress) THEN
+    ChangePhoneme(I)
+  ENDIF
+  IF thisPh(isMaxStress) THEN
+    ChangePhoneme(i)
+  ENDIF
+  FMT(vwl_ru/ii#)
+endphoneme
+
+
+phoneme y
+  vwl starttype #i endtype #i
+  length 100
+  FMT(vwl_ru/i#)
+endphoneme
+
+
+phoneme I
+  vwl starttype #i endtype #i
+  length 80
+  FMT(vwl_ru/ii)
+endphoneme
+
+
+phoneme I2
+  vwl starttype #i endtype #i
+  length 80
+  IF thisPh(isMaxStress) THEN
+    ChangePhoneme(e)
+  ENDIF
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(I)
+  ENDIF
+  FMT(vwl_ru/ii)
+endphoneme
+
+
+phoneme I3
+  vwl starttype #i endtype #i
+  length 80
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(e)
+    ELSE
+      ChangePhoneme(ja)
+    ENDIF
+  ENDIF
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(I)
+  ENDIF
+  FMT(vwl_ru/ii)
+endphoneme
+
+
+phoneme E
+  vwl  starttype #e  endtype #e
+  length 100
+  FMT(vwl_ru/e)
+endphoneme
+
+
+phoneme E#
+  vwl  starttype #e  endtype #e
+  length 100
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(e)
+    ELSE
+      ChangePhoneme(E)
+    ENDIF
+  ENDIF
+  FMT(vwl_ru/E#)
+endphoneme
+
+
+phoneme E2
+  vwl  starttype #e  endtype #e
+  length 80
+  IF nextVowel(isMaxStress) THEN
+    IF prevPh(j) THEN
+      ChangePhoneme(I3)
+    ELSE
+      ChangePhoneme(E#)
+    ENDIF
+  ENDIF
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(e)
+    ELSE
+      ChangePhoneme(E)
+    ENDIF
+  ENDIF
+
+  FMT(vwl_ru/E@)
+endphoneme
+
+
+phoneme E3
+  vwl  starttype #e  endtype #e
+  length 80
+  IF nextVowel(isMaxStress) THEN
+    ChangePhoneme(I)
+  ENDIF
+  IF thisPh(isMaxStress) THEN
+    ChangePhoneme(e)
+  ENDIF
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(E2)
+  ENDIF
+  FMT(vwl_ru/E@)
+endphoneme
+
+phoneme E%  // е in prefix "интер"
+  vwl
+  ChangePhoneme(E#)
+endphoneme
+
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 100
+  ChangeIfNotStressed(V)
+  FMT(vwl_ru/o)
+endphoneme
+
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 80
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(8)
+  ENDIF
+  IF thisPh(isMaxStress) THEN
+    ChangePhoneme(o)
+  ENDIF
+  FMT(vwl_ru/oo)
+endphoneme
+
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 80
+  FMT(vwl_ru/u)
+endphoneme
+
+
+phoneme u#
+  vwl starttype #u endtype #u
+  length 80
+  FMT(vwl_ru/u#)
+endphoneme
+
+
+phoneme u"
+  vwl starttype #u endtype #u
+  length 150
+  FMT(vwl_ru/u#u)
+endphoneme
+
+
+phoneme 8
+  vwl starttype #o endtype #o
+  length 100
+  ChangeIfNotStressed(V)
+  FMT(vwl_ru/8)
+endphoneme
+
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 100
+  IF prevPh(Z) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  IF prevPh(S) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  IF prevPh(ts) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  ChangeIfNotStressed(i)
+  FMT(vwl_ru/ee)
+endphoneme
+
+
+phoneme ju
+  vwl starttype #u endtype #u
+  length 190
+  FMT(vwl_ru/ju)
+endphoneme
+
+
+phoneme ja
+  vwl  starttype #i endtype #a
+  IF thisPh(isMaxStress) THEN
+    length 200
+    FMT(vwl_ru/ja)
+  ELSE
+    FMT(vdiph2/ii@)
+  ENDIF
+endphoneme
+
+
+phoneme ja#
+  vwl  starttype #i endtype #a
+  IF thisPh(isMaxStress) THEN
+    FMT(vowel/&)
+  ELSE
+    IF prevPhW(isPalatal) THEN
+    ChangePhoneme(I)
+    ENDIF
+  ENDIF
+endphoneme
+
+
+phoneme V#
+  vwl  starttype #a  endtype #@
+  unstressed
+  length 80
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(A)
+    ENDIF
+  ENDIF
+
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(V)
+  ENDIF
+  FMT(vowel/V_2)
+endphoneme
+
+
+phoneme Y // will not be used in future
+  vwl  starttype #u  endtype #u
+  unstressed
+  length 140
+  FMT(vowel/ii#)
+endphoneme
+
+
+phoneme A
+  vwl  starttype #a  endtype #a
+  length 100
+  FMT(vwl_ru/a)
+endphoneme
+
+
+phoneme a
+  vwl   starttype #a  endtype #a
+  length 100
+
+  IF prevPhW(j) THEN
+  ELSE
+    IF thisPh(isMaxStress) THEN
+      IF prevPhW(isPalatal) THEN
+        ChangePhoneme(ja)
+      ELSE
+        ChangePhoneme(A)
+      ENDIF
+    ELSE
+      IF prevPhW(isPalatal) THEN
+        ChangePhoneme(I)
+    ENDIF
+    ENDIF
+  ENDIF
+
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/a#_3)
+  ENDIF
+  FMT(vwl_ru/aa)
+endphoneme
+
+
+phoneme V
+  vwl  starttype #a  endtype #@
+  length 80
+  unstressed
+
+  IF nextVowel(isMaxStress) THEN
+    ChangePhoneme(a)
+  ENDIF
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(a)
+    ELSE
+      ChangePhoneme(A)
+    ENDIF
+  ENDIF
+
+  FMT(vowel/V_2)
+endphoneme
+
+
+phoneme a#
+  vwl   starttype #a  endtype #a
+  length 100
+  FMT(vowel/a#_3)
+endphoneme
+
+
+phoneme R4
+  liquid
+  lengthmod 6
+  Vowelin  f1=0  f2=1500 -300 300  f3=-200 80 rms=60 brk
+  Vowelout f1=2  f2=1500 -300 300  f3=-200 80
+  FMT(r3/r_ru2) addWav(r3/r_ru, 50)
+endphoneme
