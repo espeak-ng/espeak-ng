@@ -11,8 +11,7 @@ list(APPEND _dict_compile_list
   ja jbo
   ka kk kl kn kok ko ku ky
   la lb lfn lt lv
-  mi mk ml mr ms mto mt my
-  mn
+  mi mk ml mn mr ms mto mt my
   nci ne nl nog no
   om or
   pap pa piqd pl pt py
