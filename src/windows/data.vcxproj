@@ -284,6 +284,9 @@
   <Target Name="ml" Inputs="$(ProjectDir)..\..\dictsource\ml_rules;$(ProjectDir)..\..\dictsource\ml_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ml_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ml" />
   </Target>
+  <Target Name="mn" Inputs="$(ProjectDir)..\..\dictsource\mn_rules;$(ProjectDir)..\..\dictsource\mn_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\mn_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mn" />
+  </Target>
   <Target Name="mr" Inputs="$(ProjectDir)..\..\dictsource\mr_rules;$(ProjectDir)..\..\dictsource\mr_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\mr_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mr" />
   </Target>
