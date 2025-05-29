@@ -27,18 +27,21 @@ endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
+  ipa o
   length 170
   FMT(vowel/o_mid)
 endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
+  ipa u
   length 160
   FMT(vowel/u_bck2)
 endphoneme
 
 phoneme @
   vwl starttype #@ endtype #@
+  ipa ə
   length 170
   FMT(vowel/@_low)
 endphoneme
@@ -75,6 +78,7 @@ phoneme dz
 endphoneme
 
 phoneme c
+  ipa kˈ
   vls pal stp
   lengthmod 2
   Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
@@ -86,6 +90,7 @@ phoneme c
 endphoneme
 
 phoneme J
+  ipa gˈ
   vcd pla stp
   lengthmod 5
 
