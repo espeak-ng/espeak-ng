@@ -8,7 +8,9 @@
 .group a
         a      a
 	ai     aI
+        ai (_ 'aI     // word final diphthong syllable gets stressed
 	au     aU
+        au (_ 'aU     // word final diphthong syllable gets stressed
 
 .group ã
         ã      @
@@ -34,7 +36,9 @@
 	ea     ea
 	ea (_ 'e|a    // word penultimate syllable gets stressed (e.g. nãmuzea)
 	ei     eI
+        ei (_ 'eI     // word final diphthong syllable gets stressed
         eu     eU
+        eu (_ 'eU     // word final diphthong syllable gets stressed
 
 .group f
         f      f
@@ -43,15 +47,15 @@
 .group g
         g      g
         g  (L01 dZ
-	gh (L01  J
+	gh (L01 J
 
 .group h
         h      h
 
 .group i
         i      i
-	i (A     j
-     @) i (e_    j
+	i (A   j
+     @) i (e_  j
 
 .group j
         j      Z
@@ -76,7 +80,9 @@
 .group o
         o      'o
 	oa     Oa
+        oa (_  'o|a   // word penultimate syllable gets stressed (e.g. serenoa)   
 	oi     oI
+        oi (_ 'oI     // word final diphthong syllable gets stressed
 
 .group p
         p      p
@@ -108,7 +114,7 @@
 .group u
         u       u
 	u (A    w
-	ului (_ =uluI
+	ului (_ =uluI     // word penultimate syllable gets stressed
 
 .group v
         v       v
