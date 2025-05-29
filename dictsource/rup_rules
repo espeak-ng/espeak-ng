@@ -10,8 +10,8 @@
 
 .group a
         a      a
-	    ai     aI
-	    au     aU
+	ai     aI
+	au     aU
 
 .group ã
         ã      @
@@ -25,35 +25,35 @@
 .group c
         c      k
         c  (L01 tS
-	    ch (L01 c
+	ch (L01 c
 
 .group d
         d      d
-	    dh     D
-	    dz     dz
+	dh     D
+	dz     dz
 
 .group e
         e      e
-	    ea     ea
-		ea (_ 'e|a    // word penultimate syllable gets stressed (e.g. nãmuzea)
-	    ei     eI
+	ea     ea
+	ea (_ 'e|a    // word penultimate syllable gets stressed (e.g. nãmuzea)
+	ei     eI
         eu     eU
 
 .group f
         f      f
-		ff     f
+	ff     f
 
 .group g
         g      g
         g  (L01 dZ
-	    gh (L01  J
+	gh (L01  J
 
 .group h
         h      h
 
 .group i
         i      i
-	    i (A     j
+	i (A     j
      @) i (e_    j
 
 .group j
@@ -64,34 +64,33 @@
 
 .group l
         l      l
-     _) lj (_  l^
-	    lj     l^
-		ll     l
+	lj     l^
+	ll     l
 
 .group m
         m      m
-		mm     m
+	mm     m
 
 .group n
         n      n
-	    nj      n^
-		nn     n
+	nj      n^
+	nn     n
 
 .group o
         o      'o
-	    oa     Oa
-	    oi     oI
+	oa     Oa
+	oi     oI
 
 .group p
         p      p
-		pp     p
+	pp     p
 
 .group q
         q      k
 
 .group r
         r      R
-	    rr     R
+	rr     R
      A) r (A   *
      C) r (A   @-*
 
@@ -105,14 +104,14 @@
 
 .group t
         t       t
-	    th      T
-	    ts      ts
-		tt      t
+	th      T
+	ts      ts
+	tt      t
 
 .group u
         u       u
-	    u (A    w
-		ului (_ =uluI
+	u (A    w
+	ului (_ =uluI
 
 .group v
         v       v
@@ -125,7 +124,7 @@
 
 .group y
         y       Q
-	    y (L01  j
+	y (L01  j
 
 .group z
         z       z
