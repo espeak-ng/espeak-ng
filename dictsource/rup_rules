@@ -83,6 +83,8 @@
         oa (_  'o|a   // word penultimate syllable gets stressed (e.g. serenoa)   
 	oi     oI
         oi (_ 'oI     // word final diphthong syllable gets stressed
+        ou     oU
+        ou (_ 'oU     // word final diphthong syllable gets stressed 
 
 .group p
         p      p
