@@ -540,7 +540,7 @@ Translator *SelectTranslator(const char *name)
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
 		SetArabicLetters(tr);
 		break;
-	case L('r', 'u', 'p'): // Aromanian
+	case L3('r', 'u', 'p'): // Aromanian
 	{
 		static const short stress_lengths_rup[8] = { 170, 170,  180, 180,  0, 0,  240, 260 };
 		static const unsigned char stress_amps_rup[8] = { 15, 13, 18, 18, 20, 22, 22, 21 };
