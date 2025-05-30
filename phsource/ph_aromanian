@@ -72,7 +72,7 @@ endphoneme
 
 phoneme oU
   vwl starttype #o endtype #u
-  ipa ou
+  ipa ou̯
   length 260
   FMT(vdiph/ou_2)
 endphoneme
