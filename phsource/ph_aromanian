@@ -77,6 +77,13 @@ phoneme oU
   FMT(vdiph/ou_2)
 endphoneme
 
+phoneme iI
+  vwl starttype #i endtype #i
+  ipa ij
+  length 250
+  FMT(vdiph/ii)
+endphoneme
+
 
 // Consonants
 
