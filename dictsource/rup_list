@@ -227,7 +227,7 @@ prit      $u $brk
 su        $u $brk
 sum       $u $brk
 trã       $u $brk
-tru       $u brk
+tru       $u $brk
 
 
 // Character Names
