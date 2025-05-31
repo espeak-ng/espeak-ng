@@ -80,6 +80,12 @@ static const char variants_male[N_VOICE_VARIANTS] = { 1, 2, 3, 4, 5, 6, 0 };
 static const char variants_female[N_VOICE_VARIANTS] = { 11, 12, 13, 14, 0 };
 static const char *const variant_lists[3] = { variants_either, variants_male, variants_female };
 
+#ifdef _WIN32
+#define MB_PREFIX "mb\\"
+#else
+#define MB_PREFIX "mb/"
+#endif
+
 static voice_t voicedata;
 voice_t *voice = &voicedata;
 
@@ -1404,7 +1410,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 		j = 0;
 		for (ix = 0; (v = voices_list[ix]) != NULL; ix++) {
 			if ((v->languages[0] != 0) && (strcmp(&v->languages[1], "variant") != 0)
-			    && (memcmp(v->identifier, "mb/", 3) != 0))
+			    && (memcmp(v->identifier, MB_PREFIX, 3) != 0))
 				voices[j++] = v;
 		}
 		voices[j] = NULL;
