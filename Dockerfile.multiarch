@@ -1,0 +1,37 @@
+FROM --platform=$BUILDPLATFORM ubuntu:22.04
+
+ARG ARCH
+ARG COMPILER
+ARG CONFIG
+
+# Install build dependencies
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  build-essential \
+  clang \
+  gcc \
+  g++ \
+  cmake \
+  git \
+  valgrind \
+  ronn \
+  kramdown \
+  python3 \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy project source files into container
+COPY . .
+
+# Configure and build espeak-ng
+RUN mkdir -p build && cd build && \
+    cmake .. -DCMAKE_BUILD_TYPE=${CONFIG} && \
+    make -j$(nproc)
+
+# Install the compiled binary and data directory
+RUN cp build/src/espeak-ng /usr/local/bin/espeak-ng && \
+    cp -r build/espeak-ng-data /usr/local/share/espeak-ng-data
+
+# Default container command
+CMD ["espeak-ng", "--help"]
