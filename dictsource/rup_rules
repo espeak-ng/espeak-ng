@@ -34,7 +34,6 @@
 .group e
         e      e
 	ea     ea
-	ea (_ 'e|a    // word penultimate syllable gets stressed (e.g. nãmuzea)
 	ei     eI
         ei (_ 'eI     // word final diphthong syllable gets stressed
         eu     eU
@@ -80,9 +79,9 @@
 	nn     n
 
 .group o
-        o      'o
+        o      o
+        o (_  'o
 	oa     Oa
-        oa (_  'o|a   // word penultimate syllable gets stressed (e.g. serenoa)   
 	oi     oI
         oi (_ 'oI     // word final diphthong syllable gets stressed
         ou     oU
