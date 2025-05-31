@@ -71,7 +71,7 @@ _24  pat@-*usp@-*@j'inJits
 _25  tsisp@-*@j'inJits
 _26  Sasp@-*@j'inJits
 _27  Saptisp@-*@j'inJits
-_28  jijints'optu
+_28  optusp@-*@j'inJits
 _29  noaU@sp@-*@j'inJits
 _30  t@-*eIdz'@ts
 _3X  t@-*'eIdz@ts
@@ -188,6 +188,8 @@ cãndu       $u+
 disi        $u+
 e           je $u
 e           e $atend
+e           je $u $atend
+e           e
 ghioa       $u+
 icã         $u+ $brk
 ma          $u+
