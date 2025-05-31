@@ -1055,6 +1055,8 @@ repült	$unstressend
 gyújt	$unstressend
 hajt	$unstressend
 köp	$unstressend
+(nem azt látni)	$unstressend
+(azt látni)	$unstressend
 látni	$unstressend
 sült	$unstressend
 roncs	$unstressend
@@ -2767,7 +2769,6 @@ gyötörte	$unstressend
 ismerve	$unstressend
 fognia	$unstressend
 (mint azt látni)	$unstressend
-(azt látni)	$unstressend
 fontosak	$unstressend
 futni	$unstressend
 például	$unstressend $alt3
