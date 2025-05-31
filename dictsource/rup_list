@@ -186,8 +186,8 @@ cã          $u+
 cãnd        $u+
 cãndu       $u+
 disi        $u+
-e           je $u $atend
-e           e
+e           je $u
+e           e $atend
 ghioa       $u+
 icã         $u+ $brk
 ma          $u+
