@@ -1,0 +1,11 @@
+language variant
+name Kit
+klatt 6
+voicing 40
+pitch 298 378
+consonants 70 60
+formant 1 120 100 100
+formant 2 134  100 100 100
+formant 3 80  100 300
+formant 4 114  100 40
+formant 5 25  100 100

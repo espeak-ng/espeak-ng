@@ -1,0 +1,21 @@
+language variant
+name Osman
+gender male
+maintainer Enes Deniz
+pitch  110 155
+stressAmp 18 18 20 20 20 22 22 21
+formant 1 95 100 70
+formant 2 95 110 80
+formant 3 100 80 70
+formant 4 100 100 70
+formant 5 100 100 100
+formant 6 100 100 100
+formant 7 0 0 0
+formant 8 0 0 0
+voicing 100
+consonants 75 70
+tone 60 100 600 175 1200 150 2000 50
+speed 101
+stressAdd -2 -2 -2 -2 0 0 -2 -5
+breath 5 4 3 2 1 1
+breathw 150 150 200 200 400 400
