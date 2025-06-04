@@ -1931,6 +1931,9 @@ include ph_northern-sotho
 
 // *** Tables extending other language tables ***
 
+phonemetable de-ch de
+include ph_german_ch
+
 phonemetable ia eo
 include ph_interlingua
 
