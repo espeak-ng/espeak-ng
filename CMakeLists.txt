@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.8...3.10)
 
 project(espeak-ng
   VERSION 1.52.0.1
