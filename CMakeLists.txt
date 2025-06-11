@@ -8,7 +8,7 @@ project(espeak-ng
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(COMPILE_INTONATIONS "Intonation compilation" ON)
-option(ENABLE_TESTS "Intonation compilation" ON)
+option(ENABLE_TESTS "Enable tests" ON)
 
 include(CTest)
 
