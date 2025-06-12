@@ -16,12 +16,13 @@
 		
 .group г
     г        g
-	гъ       Q"
+    гъ       Q"
 		
 .group д
     д        d
-	дж       dZ
-	дз       dz
+    дд       d:
+    дж       dZ
+    дз       dz
 		
 .group е
     е        e
@@ -43,7 +44,8 @@
 		
 .group к
     к        k
-	къ       k?
+    кк       k:
+    къ       k?
 		
 .group л
     л        l
@@ -59,7 +61,8 @@
 		
 .group п
     п        p
-	пъ       p?
+    пп       p:
+    пъ       p?
 		
 .group р
     р        r
@@ -69,26 +72,27 @@
 		
 .group т
     т        t
-	тъ       t?
+    тъ       t?
 		
 .group у
     у        u
-	у  (A    w
+    уу       w:
+    у  (A    w
 		
 .group ф
     ф        f
 		
 .group х
     х        x
-	хъ       x?
+    хъ       x?
 		
 .group ц
     ц        ts
-	цъ       ts?
+    цъ       ts?
 		
 .group ч
     ч        tS
-	чъ       tS?
+    чъ       tS?
 		
 .group ш
     ш        S
