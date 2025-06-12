@@ -1,0 +1,59 @@
+// This file is UTF-8 encoded
+// translation rules for Ossetian
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
+
+// Numbers
+
+_0      n'ul?
+_1      'iw
+_2      d@ww'a#
+_3      a#rt'a#
+_4      ts@p:'ar
+_5      f'ondz
+_6      a#xS'a#Z
+_7      'avd
+_8      'aSt
+_9      far'aSt
+_10     d'a#S
+_11     iwa#nd'a#S
+_12     da#wwad'a#S
+_13     a#rt@nd'a#S
+_14     ts@p:a#rd'a#S
+_15     f@ndd'a#S
+_16     a#xSa#a#rd'a#S
+_17     a#vdd'a#S
+_18     a#Std'a#S
+_19     n@wd'a#S
+_2X     d@ww'@n
+_3X     a#rt'@n
+_4X     ts@p:'or
+_5X     fa#ndz'a#j
+_6X     a#xS'aj
+_7X     a#vd'aj
+_8X     a#St'aj
+_9X     na#w'a#dz
+_0C     Sa#d'a#
+_0M1    m'in
+
+_dpt    _Zapjat,oj_|
+
+
+// pronouns
+
+ӕз        $u
+ды        $u
+кӕд       $u
+кӕм       $u
+мах       $u
+сымах     $u2
+уый       $u2
+уыцы      $u2
+цы        $u
+чи        $u
+
+
+// conjunctions
+
+ӕмӕ     $u2
+ӕндӕр   $u2
+

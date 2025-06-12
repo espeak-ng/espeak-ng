@@ -1,0 +1,115 @@
+// This file is UTF-8 encoded
+// translation rules for Ossetian
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
+
+.group а
+    а        a
+		
+.group ӕ
+    ӕ        a#
+
+.group б
+    б        b
+		
+.group в
+    в        v
+		
+.group г
+    г        g
+	гъ       Q"
+		
+.group д
+    д        d
+	дж       dZ
+	дз       dz
+		
+.group е
+    е        e
+		
+.group ё
+    ё        jo
+		
+.group ж
+    ж        Z
+		
+.group з
+    з        Z
+
+.group и
+    и        i
+		
+.group й
+    й        j
+		
+.group к
+    к        k
+	къ       k?
+		
+.group л
+    л        l
+		
+.group м
+    м        m
+		
+.group н
+    н        n
+		
+.group о
+    о        o
+		
+.group п
+    п        p
+	пъ       p?
+		
+.group р
+    р        r
+		
+.group с
+    с        S
+		
+.group т
+    т        t
+	тъ       t?
+		
+.group у
+    у        u
+	у  (A    w
+		
+.group ф
+    ф        f
+		
+.group х
+    х        x
+	хъ       x?
+		
+.group ц
+    ц        ts
+	цъ       ts?
+		
+.group ч
+    ч        tS
+	чъ       tS?
+		
+.group ш
+    ш        S
+		
+.group щ
+    щ        StS
+		
+.group ъ
+    ъ        ?
+		
+.group ы
+    ы        @
+		
+.group ь
+    ь        ?
+		
+.group э
+    э        e
+		
+.group ю
+    ю        ju
+		
+.group я
+    я        ja

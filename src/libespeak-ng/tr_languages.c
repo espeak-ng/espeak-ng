@@ -1302,7 +1302,15 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND;
 		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 	}
+		case L('o', 's'): // Ossetian
+	{
+		SetCyrillicLetters(tr);
+		SetupTranslator(tr, stress_lengths_om, stress_amps_om);
+		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
+		tr->langopts.stress_flags = S_NO_AUTO_2; // no automatic secondary stress
+		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_4;
 		break;
+	}
 	case L('p', 'l'): // Polish
 	{
 		static const short stress_lengths_pl[8] = { 160, 190,  175, 175,  0, 0,  200, 210 };
