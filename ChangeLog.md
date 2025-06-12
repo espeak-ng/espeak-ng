@@ -11,7 +11,8 @@ The espeak-ng project is a fork of the espeak project.
 
 new languages:
 *  os (Ossetian) -- Andy Vladescu
-*  ps (Pashto) -- Hanif Rahman
+*  ps (Pashto) -- Hanif Rahman 
+*  rup (Aromanian) -- Andy Vladescu
 
 ### 1.52.0
 
