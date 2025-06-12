@@ -1318,6 +1318,8 @@ Translator *SelectTranslator(const char *name)
 	}
 		case L('o', 's'): // Ossetian
 	{
+		static const unsigned char stress_amps_os[8] = { 18, 18, 20, 20, 20, 22, 22, 21 };
+		static const short stress_lengths_os[8] = { 180, 180, 190, 180, 0, 0, 230, 240 };
 		SetCyrillicLetters(tr);
 		SetupTranslator(tr, stress_lengths_os, stress_amps_os);
 		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
