@@ -961,7 +961,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 		if ((fmt_params->wav_addr != 0) && ((frame1->frflags & FRFLAG_DEFER_WAV) == 0)) {
 			// there is a wave file to play along with this synthesis
 			seq_len_adjust = 0;
-	
+
 			int wavefile_amp;
 			if (fmt_params->wav_amp == 0)
 				wavefile_amp = 32;
@@ -1171,12 +1171,14 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
 		p = &phoneme_list[ix];
-		
+
 		if(output_hooks && output_hooks->outputPhoSymbol)
 		{
 			char buf[30];
 			int dummy=0;
-			WritePhMnemonic(buf, p->ph, p, 0, &dummy);
+			//WritePhMnemonic(buf, p->ph, p, 0, &dummy);
+			WritePhMnemonicWithStress(buf, p->ph, p, 0, &dummy);
+
 			DoPhonemeAlignment(strdup(buf),p->type);
 		}
 
@@ -1226,7 +1228,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			if ((p->type == phVOWEL) && (prev->type == phLIQUID || prev->type == phNASAL)) {
 				// For vowels following a liquid or nasal, do the phoneme event after the vowel-start
 			} else {
-				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				//WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				WritePhMnemonicWithStress(phoneme_name, p->ph, p, use_ipa, NULL);
+
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 				done_phoneme_marker = true;
 			}
@@ -1252,7 +1256,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			if (ph->phflags & phPREVOICE) {
 				// a period of voicing before the release
 				memset(&fmtp, 0, sizeof(fmtp));
-				InterpretPhoneme(NULL, 0x01, p, &phdata, &worddata);
+				InterpretPhoneme(NULL, 0x01, p, phoneme_list, &phdata, &worddata);
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 				fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
@@ -1264,12 +1268,12 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 				DoSpect2(ph, 0, &fmtp, p, 0);
 			}
 
-			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+			InterpretPhoneme(NULL, 0, p, phoneme_list, &phdata, &worddata);
 			phdata.pd_control |= pd_DONTLENGTHEN;
 			DoSample3(&phdata, 0, 0);
 			break;
 		case phFRICATIVE:
-			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+			InterpretPhoneme(NULL, 0, p, phoneme_list, &phdata, &worddata);
 
 			if (p->synthflags & SFLAG_LENGTHEN)
 				DoSample3(&phdata, p->length, 0); // play it twice for [s:] etc.
@@ -1298,7 +1302,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 			if ((prev->type == phVOWEL) || (ph->phflags & phPREVOICE)) {
 				// a period of voicing before the release
-				InterpretPhoneme(NULL, 0x01, p, &phdata, &worddata);
+				InterpretPhoneme(NULL, 0x01, p, phoneme_list, &phdata, &worddata);
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 				fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
@@ -1317,7 +1321,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 				StartSyllable();
 			} else
 				p->synthflags |= SFLAG_NEXT_PAUSE;
-			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+			InterpretPhoneme(NULL, 0, p, phoneme_list, &phdata, &worddata);
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
@@ -1349,7 +1353,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 				StartSyllable();
 			else
 				p->synthflags |= SFLAG_NEXT_PAUSE;
-			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+			InterpretPhoneme(NULL, 0, p, phoneme_list, &phdata, &worddata);
 			memset(&fmtp, 0, sizeof(fmtp));
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
@@ -1371,7 +1375,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			if (prev->type == phNASAL)
 				last_frame = NULL;
 
-			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+			InterpretPhoneme(NULL, 0, p, phoneme_list, &phdata, &worddata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
@@ -1404,7 +1408,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 			if (next->type == phVOWEL)
 				StartSyllable();
-			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+			InterpretPhoneme(NULL, 0, p, phoneme_list, &phdata, &worddata);
 
 			if ((value = (phdata.pd_param[i_PAUSE_BEFORE] - p->prepause)) > 0)
 				DoPause(value, 1);
@@ -1421,7 +1425,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 			memset(&fmtp, 0, sizeof(fmtp));
 
-			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+			InterpretPhoneme(NULL, 0, p, phoneme_list, &phdata, &worddata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH] * 2;
 			vowelstart_prev = 0;
 
@@ -1430,7 +1434,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 				fmtp.fmt_length = phdata.sound_param[pd_VWLSTART];
 			} else if (prev->type != phPAUSE) {
 				// check the previous phoneme
-				InterpretPhoneme(NULL, 0, prev, &phdata_prev, NULL);
+				InterpretPhoneme(NULL, 0, prev, phoneme_list, &phdata_prev, NULL);
 				if (((fmtp.fmt_addr = phdata_prev.sound_addr[pd_VWLSTART]) != 0) && (phdata_prev.pd_control & pd_FORNEXTPH)) {
 					// a vowel start has been specified by the previous phoneme
 					vowelstart_prev = 1;
@@ -1490,7 +1494,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			}
 
 			if ((option_phoneme_events) && (done_phoneme_marker == false)) {
-				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				//WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
+				WritePhMnemonicWithStress(phoneme_name, p->ph, p, use_ipa, NULL);
+
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 			}
 
@@ -1503,7 +1509,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 				fmtp.fmt2_lenadj = phdata.sound_param[pd_VWLEND];
 			else if (next->type != phPAUSE) {
 				fmtp.fmt2_lenadj = 0;
-				InterpretPhoneme(NULL, 0, next, &phdata_next, NULL);
+				InterpretPhoneme(NULL, 0, next, phoneme_list, &phdata_next, NULL);
 
 				fmtp.use_vowelin = 1;
 				fmtp.transition0 = phdata_next.vowel_transition[2]; // always do vowel_transition, even if ph_VWLEND ??  consider [N]

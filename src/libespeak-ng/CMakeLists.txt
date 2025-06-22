@@ -104,6 +104,13 @@ endif()
 if (HAVE_LIBPCAUDIO AND USE_LIBPCAUDIO)
   target_link_libraries(espeak-ng PRIVATE ${PCAUDIO_LIB})
   target_include_directories(espeak-ng PRIVATE ${PCAUDIO_INC})
+  if (APPLE)
+    target_link_libraries(espeak-ng PRIVATE "-framework CoreAudio" "-framework AudioToolbox" "-framework AudioUnit")
+  endif()
+endif()
+
+if (HAVE_PTHREAD)
+  target_link_libraries(espeak-ng PRIVATE Threads::Threads)
 endif()
 
 target_link_libraries(espeak-ng PRIVATE espeak-ng-config ucd)

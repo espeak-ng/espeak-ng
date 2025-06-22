@@ -44,7 +44,5 @@
 #define iswspace  ucd_isspace
 #define iswupper  ucd_isupper
 #define iswxdigit ucd_isxdigit
-#define tolower ucd_tolower
-#define toupper udc_toupper
 
 #endif

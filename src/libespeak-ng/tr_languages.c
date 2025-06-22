@@ -59,13 +59,14 @@
 #define OFFSET_GEORGIAN 0x10a0
 #define OFFSET_KOREAN   0x1100
 #define OFFSET_ETHIOPIC 0x1200
+#define OFFSET_SHAVIAN  0x10450
 
 // character ranges must be listed in ascending unicode order
 static const ALPHABET alphabets[] = {
 	{ "_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e', 'l'), AL_DONT_NAME | AL_NOT_LETTERS | AL_WORDS },
 	{ "_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0 },
 	{ "_hy",    OFFSET_ARMENIAN, 0x530, 0x58f,  L('h', 'y'), AL_WORDS },
-	{ "_he",    OFFSET_HEBREW,   0x590, 0x5ff,  0, 0 },
+	{ "_he",    OFFSET_HEBREW,   0x590, 0x5ff,  L('h', 'e'), 0 },
 	{ "_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  0, 0 },
 	{ "_syc",   OFFSET_SYRIAC,   0x700, 0x74f,  0, 0 },
 	{ "_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f, L('h', 'i'), AL_WORDS },
@@ -89,6 +90,7 @@ static const ALPHABET alphabets[] = {
 	{ "_ja",    0x3040,          0x3040, 0x30ff, 0, AL_NOT_CODE },
 	{ "_zh",    0x3100,          0x3100, 0x9fff, 0, AL_NOT_CODE },
 	{ "_ko",    0xa700,          0xa700, 0xd7ff, L('k', 'o'), AL_NOT_CODE | AL_WORDS },
+	{ "_shaw",  OFFSET_SHAVIAN,  0x10450, 0x1047F, L('e', 'n'), 0 },
 	{ NULL, 0, 0, 0, 0, 0 }
 };
 
@@ -538,6 +540,20 @@ Translator *SelectTranslator(const char *name)
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
 		SetArabicLetters(tr);
 		break;
+	case L3('r', 'u', 'p'): // Aromanian
+	{
+		static const short stress_lengths_rup[8] = { 170, 170,  180, 180,  0, 0,  240, 260 };
+		static const unsigned char stress_amps_rup[8] = { 15, 13, 18, 18, 20, 22, 22, 21 };
+
+		SetupTranslator(tr, stress_lengths_rup, stress_amps_rup);
+
+		tr->langopts.stress_rule = STRESSPOSN_1R;
+		tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY;
+
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3;
+	}
+		break;
 	case L('b', 'e'): // Belarusian
 	{
 		static const unsigned char stress_amps_be[8] = { 12, 10, 8, 8, 0, 0, 16, 17 };
@@ -866,6 +882,13 @@ Translator *SelectTranslator(const char *name)
         tr->langopts.ideographs = 1;
     }
         break;
+	case L('h','e'): // Hebrew
+	{
+		tr->langopts.param[LOPT_APOSTROPHE] = 2; // bit 1  Apostrophe at end of word is part of the word, for words like בָּגָאז׳
+		tr->langopts.stress_flags = S_NO_AUTO_2; // don't use secondary stress
+		tr->langopts.numbers = NUM_DFRACTION_2 | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND;
+	}
+		break;
 	case L('g', 'a'): // irish
 	case L('g', 'd'): // scots gaelic
 	{

@@ -1,0 +1,53 @@
+name: workflow-for-fuzzing-build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build synth_espeak on ${{ matrix.arch }}
+    # Do not run this job on any forked repos
+    if: github.repository == 'espeak-ng/espeak-ng'
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x86-32, x86-64]
+        include:
+          - arch: x86-32
+            archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
+            archconfig: "--host=i686-linux-gnu"
+            archconfigflags: "-m32"
+
+          - arch: x86-64
+            archdeps: ""
+            archconfigflags: ''
+    steps:
+    - uses: actions/checkout@v4
+    - uses: firebuild/apt-eatmydata-action@v1
+    - name: enable 32bit architecture
+      run: sudo dpkg --add-architecture i386
+      if: matrix.arch == 'x86-32'
+    - name: dependencies
+      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown clang llvm ${{ matrix.archdeps }}
+    - name: autoconf
+      run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
+    - name: configure
+      run: CC="clang ${{ matrix.archconfigflags }}" CXX="clang++ ${{ matrix.archconfigflags }}"
+           CFLAGS="-fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
+           CXXFLAGS="${{ matrix.archconfigflags }} -fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
+           LDFLAGS="-fsanitize=address,undefined -lubsan"
+           ./configure ${{ matrix.archconfig }} --with-libfuzzer
+    - name: Store the fuzzer config
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: config-${{ matrix.arch }}.log
+        path: config.log
+    - name: make
+      run: make -j
+    - uses: actions/cache@v4
+      with:
+        path: /home/runner/work/espeak-ng/espeak-ng
+        key: build-${{ matrix.arch }}-${{ github.sha }}
+

@@ -6,21 +6,40 @@ project(espeak-ng
   HOMEPAGE_URL "https://github.com/espeak-ng/espeak-ng"
 )
 
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(COMPILE_INTONATIONS "Intonation compilation" ON)
+option(ENABLE_TESTS "Enable tests" ON)
+
 include(CTest)
 
 include(cmake/deps.cmake)
 include(cmake/config.cmake)
 add_subdirectory(src)
-include(cmake/data.cmake)
+
+if (COMPILE_INTONATIONS)
+  if (CMAKE_CROSSCOMPILING)
+    find_program(NATIVEBUILD NAMES espeak-ng PATHS ${NativeBuild_DIR} NO_DEFAULT_PATH)
+    if(NATIVEBUILD)
+      message(STATUS "Native build of espeak-ng is located at: ${NATIVEBUILD}")
+      include(cmake/data.cmake)
+    else()
+      message(STATUS "Not building intonations as the build is a cross compile.")
+      message(STATUS "Call CMake with the location of the native build of espeak-ng")
+      message(STATUS "  e.g. -DNativeBuild=~/src/build-native")
+      message(STATUS "to build the intonations.")
+    endif()
+  else()
+    include(cmake/data.cmake)
+  endif()
+endif()
 include(cmake/docs.cmake)
 
 include(cmake/package.cmake)
 include(CPack)
 
-include(CTest)
-add_subdirectory(tests)
-
-option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+if(ENABLE_TESTS AND NOT CMAKE_CROSSCOMPILING)
+  add_subdirectory(tests)
+endif()
 
 message(STATUS "Configuration:")
 message(STATUS "  shared: ${BUILD_SHARED_LIBS}")

@@ -19,6 +19,9 @@
 
 #include "config.h"
 
+/* FIXME: we should be able to run several mbrola processes,
+ * in case we switch between languages within a synthesis. */
+
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #endif
@@ -216,7 +219,11 @@ static int start_mbrola(const char *voice_path)
 		_exit(1);
 	}
 
+#if defined(__sun) && defined(__SVR4)
+	snprintf(charbuf, sizeof(charbuf), "/proc/%d/psinfo", mbr_pid);
+#else
 	snprintf(charbuf, sizeof(charbuf), "/proc/%d/stat", mbr_pid);
+#endif
 	mbr_proc_stat = open(charbuf, O_RDONLY);
 	if (mbr_proc_stat == -1) {
 		error = errno;
@@ -342,7 +349,7 @@ static int mbrola_has_errors(void)
 
 		buf_ptr[result] = 0;
 
-		for (; (lf = strchr(buf_ptr, '\n')); buf_ptr = lf + 1) {
+		for (; (lf = strchr(buf_ptr, '\n')); result -= (lf+1) - buf_ptr, buf_ptr = lf + 1) {
 			// inhibit the reset signal messages
 			if (strncmp(buf_ptr, "Got a reset signal", 18) == 0 ||
 			    strncmp(buf_ptr, "Input Flush Signal", 18) == 0)
@@ -410,6 +417,19 @@ static int send_to_mbrola(const char *cmd)
 	return result;
 }
 
+#if defined(__sun) && defined(__SVR4) /* Solaris */
+#include <procfs.h>
+static int mbrola_is_idle(void)
+{
+	psinfo_t ps;
+
+	// look in /proc to determine if mbrola is still running or sleeping
+	if (pread(mbr_proc_stat, &ps, sizeof(ps), 0) != sizeof(ps))
+		return 0;
+
+	return strcmp(ps.pr_fname, "mbrola") == 0 && ps.pr_lwp.pr_sname == 'S';
+}
+#else
 static int mbrola_is_idle(void)
 {
 	char *p;
@@ -425,6 +445,7 @@ static int mbrola_is_idle(void)
 		return 0;
 	return p[1] == ' ' && p[2] == 'S';
 }
+#endif
 
 static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
 {

@@ -1,0 +1,53 @@
+name: workflow-for-fuzzing
+
+on:
+  workflow_call:
+    inputs:
+      lang:
+        required: true
+        type: string
+
+jobs:
+  fuzzing:
+    runs-on: ubuntu-latest
+    name: Fuzz synth_espeak on ${{ matrix.arch }} for ${{ inputs.lang }}
+    strategy:
+      matrix:
+        arch: [x86-32, x86-64]
+        include:
+          - arch: x86-32
+            archdeps: "libpcaudio0:i386 libsonic0:i386 libubsan1:i386 libc6-dbg:i386"
+
+          - arch: x86-64
+            archdeps: ""
+    steps:
+    - uses: actions/cache@v4
+      with:
+        path: /home/runner/work/espeak-ng/espeak-ng
+        key: build-${{ matrix.arch }}-${{ github.sha }}
+    - name: enable 32bit architecture
+      run: sudo dpkg --add-architecture i386
+      if: matrix.arch == 'x86-32'
+    - name: dependencies
+      run: sudo apt-get update && sudo apt-get install libpcaudio0 libsonic0 libubsan1 mbrola mbrola-en1 ${{ matrix.archdeps }}
+    - name: Fuzz function synth_espeak()
+      run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ inputs.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+    - name: Store the crash POC
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: crash-${{ matrix.arch }}-${{ inputs.lang }}.1
+        path: |
+          crash-*
+          timeout-*
+    - name: Fuzz function synth_espeak() with language-specific input
+      run:   cp dictsource/${{ inputs.lang }}_* tests/fuzzing/CORPUS_DIR/ || true ; FUZZ_VOICE=${{ inputs.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+    - name: Store the crash POC
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: crash-${{ matrix.arch }}-${{ inputs.lang }}.2
+        path: |
+          crash-*
+          timeout-*
+

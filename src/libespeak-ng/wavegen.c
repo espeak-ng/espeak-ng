@@ -1343,7 +1343,7 @@ static int WavegenFill2(void)
 #endif
 		case WCMD_MARKER:
 			marker_type = q[0] >> 8;
-			MarkerEvent(marker_type, q[1], q[2], q[3], out_ptr);
+			MarkerEvent(marker_type, q[1], * (int *) & q[2], * ((int *) & q[2] + 1), out_ptr);
 			break;
 		case WCMD_AMPLITUDE:
 			SetAmplitude(length, (unsigned char *)q[2], q[3]);
@@ -1372,6 +1372,16 @@ static int WavegenFill2(void)
 				sonicFlushStream(sonicSpeedupStream);
 				int length = (out_end - out_ptr);
 				length = sonicReadShortFromStream(sonicSpeedupStream, (short*)out_ptr, length/2);
+#ifdef ARCH_BIG
+				{
+					unsigned i;
+					for (i = 0; i < length/2; i++) {
+						unsigned short v = ((unsigned short *) out_ptr)[i];
+						out_ptr[i*2] = v & 0xff;
+						out_ptr[i*2+1] = v >> 8;
+					}
+				}
+#endif
 				out_ptr += length * 2;
 			}
 			break;
@@ -1392,12 +1402,22 @@ static int WavegenFill2(void)
 // Speed up the audio samples with libsonic.
 static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text)
 {
+#ifdef ARCH_BIG
+	unsigned i;
+#endif
+
 	if (length_in > 0) {
 		if (sonicSpeedupStream == NULL)
 			sonicSpeedupStream = sonicCreateStream(22050, 1);
 		if (sonicGetSpeed(sonicSpeedupStream) != sonicSpeed)
 			sonicSetSpeed(sonicSpeedupStream, sonicSpeed);
 
+#ifdef ARCH_BIG
+		for (i = 0; i < length_in; i++) {
+			unsigned short v = ((unsigned char*) outbuf)[i*2] | (((unsigned char *)outbuf)[i*2+1] << 8);
+			((unsigned short *) outbuf)[i] = v;
+		}
+#endif
 		sonicWriteShortToStream(sonicSpeedupStream, outbuf, length_in);
 	}
 
@@ -1406,7 +1426,16 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 
 	if (end_of_text)
 		sonicFlushStream(sonicSpeedupStream);
-	return sonicReadShortFromStream(sonicSpeedupStream, outbuf, length_out);
+
+	int ret = sonicReadShortFromStream(sonicSpeedupStream, outbuf, length_out);
+#ifdef ARCH_BIG
+	for (i = 0; i < length_out; i++) {
+		unsigned short v = ((unsigned short *) outbuf)[i];
+		((unsigned char *)outbuf)[i*2] = v & 0xff;
+		((unsigned char *)outbuf)[i*2+1] = v >> 8;
+	}
+#endif
+	return ret;
 }
 #endif
 

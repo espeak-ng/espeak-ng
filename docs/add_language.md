@@ -138,13 +138,6 @@ E.g. for French:
 
 Note, that you don't need to add `fr_extra` or `fr_emoji` reference in the last group, if your language doesn't have this file.
 
-Optionally, if you have [phoneme definition file](#phoneme-definition-file), following line also should be added:
-
-	phsource/phonemes.stamp: \
-	...
-	phsource/ph_french \
-	...
-
 ### Language File
 
 E.g. `espeak-ng-data/lang/roa/fr` is the language file for French.

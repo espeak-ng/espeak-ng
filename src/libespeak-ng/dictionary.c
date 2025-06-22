@@ -44,7 +44,7 @@
 #include "translate.h"                     // for Translator, utf8_in, LANGU...
 
 static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[2]);
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points);
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char word_buf[N_WORD_BYTES], Translator *tr, int command, int *failed, int *add_points);
 
 typedef struct {
 	int points;
@@ -468,7 +468,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 		if (plist == NULL)
 			InterpretPhoneme2(ph->code, &phdata);
 		else
-			InterpretPhoneme(NULL, 0, plist, &phdata, NULL);
+			InterpretPhoneme(NULL, 0, plist, plist, &phdata, NULL);
 
 		p = phdata.ipa_string;
 		if (*p == 0x20) {
@@ -522,6 +522,40 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 	*phon_out = 0;
 	return phon_out;
 }
+
+//// Extension: write phone mnemonic with stress
+char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags) {
+	if (plist->synthflags & SFLAG_SYLLABLE) {
+		unsigned char stress = plist->stresslevel;
+
+		if (stress > 1) {
+			int c = 0;
+
+			if (stress > STRESS_IS_PRIORITY) {
+				stress = STRESS_IS_PRIORITY;
+			}
+
+			if (use_ipa) {
+				c = 0x2cc; // ipa, secondary stress
+
+				if (stress > STRESS_IS_SECONDARY) {
+					c = 0x02c8; // ipa, primary stress
+				}
+			} else {
+				const char stress_chars[] = "==,,''";
+
+				c = stress_chars[stress];
+			}
+
+			if (c != 0) {
+				phon_out += utf8_out(c, phon_out);
+			}
+		}
+	}
+
+	return WritePhMnemonic(phon_out, ph, plist, use_ipa, flags);
+}
+////
 
 const char *GetTranslatedPhonemeString(int phoneme_mode)
 {
@@ -703,6 +737,8 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		if (pre) {
 			len = strlen(p);
 			w = word;
+			if (*w == 0)
+				goto skip;
 			for (i = 0; i < len-1; i++)
 			{
 				w--;
@@ -1195,7 +1231,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		}
 		break;
 
-	case STRESSPOSN_EU: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last. 
+	case STRESSPOSN_EU: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last.
 		if ((stressed_syllable == 0) && (vowel_count > 2)) {
 			for (ix = 1; ix < vowel_count; ix++) {
 				vowel_stress[ix] = STRESS_IS_DIMINISHED;
@@ -1427,6 +1463,8 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
 	p = ph;
 	while ((c = *p++) != 0) {
 		if (c >= n_phoneme_tab) continue;
+
+		if (!phoneme_tab[c]) continue;
 
 		if (phoneme_tab[c]->type == phSTRESS) {
 			if (phoneme_tab[c]->std_length < 4)
@@ -1723,7 +1761,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						syllable_count += 1; // number of syllables to match
 					}
 					vowel = 0;
-					while (letter_w != RULE_SPACE) {
+					while (letter_w != RULE_SPACE && letter_w != 0) {
 						if ((vowel == 0) && IsLetter(tr, letter_w, LETTERGP_VOWEL2)) {
 							// this is counting vowels which are separated by non-vowel letters
 							vowel_count++;
@@ -1740,7 +1778,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				case RULE_NOVOWELS:
 				{
 					char *p = post_ptr + letter_xbytes;
-					while (letter_w != RULE_SPACE) {
+					while (letter_w != RULE_SPACE && letter_w != 0) {
 						if (IsLetter(tr, letter_w, LETTERGP_VOWEL2)) {
 							failed = 1;
 							break;
@@ -1942,13 +1980,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case '.':
 					// dot in pre- section, match on any dot before this point in the word
-					for (p = pre_ptr; *p != ' '; p--) {
+					for (p = pre_ptr; *p && *p != ' '; p--) {
 						if (*p == '.') {
 							add_points = 50;
 							break;
 						}
 					}
-					if (*p == ' ')
+					if (!*p || *p == ' ')
 						failed = 1;
 					break;
 				case '-':
@@ -2951,7 +2989,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 				const char *p;
 				for (i = 0; (p = add_e_exceptions[i]) != NULL; i++) {
 					int len = strlen(p);
-					if (memcmp(p, &word_end[1-len], len) == 0)
+					if (word_end + 1-len >= word && memcmp(p, &word_end[1-len], len) == 0)
 						break;
 				}
 				if (p == NULL)
@@ -2960,7 +2998,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 				const char *p;
 				for (i = 0; (p = add_e_additions[i]) != NULL; i++) {
 					int len = strlen(p);
-					if (memcmp(p, &word_end[1-len], len) == 0) {
+					if (word_end + 1-len >= word && memcmp(p, &word_end[1-len], len) == 0) {
 						end_flags |= FLAG_SUFX_E_ADDED;
 						break;
 					}
@@ -2990,10 +3028,16 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	return end_flags;
 }
 
-static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char *word_buf, Translator *tr, int command, int *failed, int *add_points) {
+static void DollarRule(char *word[], char *word_start, int consumed, int group_length, char word_buf[N_WORD_BYTES], Translator *tr, int command, int *failed, int *add_points) {
 	// $list or $p_alt
 	// make a copy of the word up to the post-match characters
 	int ix = *word - word_start + consumed + group_length + 1;
+
+	if (ix+2 > N_WORD_BYTES) {
+		*failed = 1;
+		return;
+	}
+
 	memcpy(word_buf, word_start-1, ix);
 	word_buf[ix] = ' ';
 	word_buf[ix+1] = 0;

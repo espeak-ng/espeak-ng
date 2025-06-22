@@ -94,7 +94,7 @@ typedef enum {
   espeakEVENT_END = 5,             // End of sentence or clause
   espeakEVENT_MSG_TERMINATED = 6,  // End of message
   espeakEVENT_PHONEME = 7,         // Phoneme, if enabled in espeak_Initialize()
-  espeakEVENT_SAMPLERATE = 8       // internal use, set sample rate
+  espeakEVENT_SAMPLERATE = 8       // Set sample rate
 } espeak_EVENT_TYPE;
 
 
@@ -540,6 +540,12 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
         bits 8-23:  separator character, between phoneme names
 
 */
+
+#ifdef __cplusplus
+extern "C"
+#endif
+ESPEAK_API const char *espeak_TextToPhonemesWithTerminator(const void **textptr, int textmode, int phonememode, int *terminator);
+/* Version of espeak_TextToPhonemes that also returns the clause terminator (e.g., CLAUSE_INTONATION_FULL_STOP) */
 
 #ifdef __cplusplus
 extern "C"

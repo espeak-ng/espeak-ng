@@ -163,7 +163,7 @@ void SetSpeed(int control)
 
 	if (control & 2)
 		DoSonicSpeed(1 * 1024);
-	if ((wpm_value >= espeakRATE_MAXIMUM) || ((wpm_value > speed.fast_settings) && (wpm > 350))) {
+	if ((wpm_value > espeakRATE_MAXIMUM) || ((wpm_value > speed.fast_settings) && (wpm > 350))) {
 		int wpm2;
 		wpm2 = wpm;
 		wpm = espeakRATE_NORMAL;
@@ -743,7 +743,7 @@ void CalcLengths(Translator *tr)
 // indexes are the "length_mod" value for the following phonemes
 
 // use this table if vowel is not the last in the word
-static const unsigned char length_mods_en[100] = {
+static const unsigned char length_mods_en[LENGTH_MOD_LIMIT * LENGTH_MOD_LIMIT] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	100, 120, 100, 105, 100, 110, 110, 100,  95, 100, // a  <- next2
 	105, 120, 105, 110, 125, 130, 135, 115, 125, 100, // ,
@@ -758,7 +758,7 @@ static const unsigned char length_mods_en[100] = {
 };
 
 // as above, but for the last syllable in a word
-static const unsigned char length_mods_en0[100] = {
+static const unsigned char length_mods_en0[LENGTH_MOD_LIMIT * LENGTH_MOD_LIMIT] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	100, 150, 100, 105, 110, 115, 110, 110, 110, 100, // a  <- next2
 	105, 150, 105, 110, 125, 135, 140, 115, 135, 100, // ,
@@ -773,7 +773,7 @@ static const unsigned char length_mods_en0[100] = {
 };
 
 
-static const unsigned char length_mods_equal[100] = {
+static const unsigned char length_mods_equal[LENGTH_MOD_LIMIT * LENGTH_MOD_LIMIT] = {
 //	a    ,    t    s    n    d    z    r    N    <- next
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // a  <- next2
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110, // ,
@@ -801,6 +801,6 @@ void SetLengthMods(Translator *tr, int value)
 	int value2;
 
 	tr->langopts.length_mods0 = tr->langopts.length_mods = length_mod_tabs[value % 100];
-	if ((value2 = value / 100) != 0)
+	if ((value2 = value / (LENGTH_MOD_LIMIT * LENGTH_MOD_LIMIT)) != 0)
 		tr->langopts.length_mods0 = length_mod_tabs[value2];
 }

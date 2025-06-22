@@ -674,12 +674,20 @@ voice_t *LoadVoice(const char *vname, int control)
                     voice->samplerate = srate;
             }
                 break;
+#else
+            case V_MBROLA:
+                fprintf(stderr, "espeak-ng was built without mbrola support\n");
+                break;
 #endif
 #if USE_KLATT
             case V_KLATT:
                 voice->klattv[0] = 1; // default source: IMPULSIVE
                 Read8Numbers(p, voice->klattv);
                 voice->klattv[KLATT_Kopen] -= 40;
+                break;
+#else
+            case V_KLATT:
+                fprintf(stderr, "espeak-ng was built without klatt support\n");
                 break;
 #endif
             case V_FAST:
@@ -1110,7 +1118,8 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	}
 
 	// select and sort voices for the required language
-	nv = SetVoiceScores(&voice_select2, voices, 0);
+	nv = SetVoiceScores(&voice_select2, voices,
+			voice_select2.identifier && strncmp(voice_select2.identifier, "mb/", 3) == 0 ? 1 : 0);
 
 	if (nv == 0) {
 		// no matching voice, choose the default
