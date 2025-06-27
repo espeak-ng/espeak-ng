@@ -90,7 +90,7 @@
         ф        f
 
 .group х
-        х        x
+        х        X
 
 .group һ
         һ        h
@@ -99,13 +99,13 @@
         ц        ts
 
 .group ч
-        ч        tS
+        ч        tS;
 
 .group ш
         ш        s.
 
 .group щ
-        щ        S;tS;
+        щ        s.tS;
 
 .group ъ
         ъ        ?
