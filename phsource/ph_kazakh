@@ -23,13 +23,13 @@ phoneme 8
 endphoneme
 
 phoneme u#
-  vwl starttype @ endtype @
+  vwl starttype #u endtype #u
   length 100
   flag1
   IF thisPh(isWordEnd) THEN
     length 140
   ENDIF
-  FMT(vdiph2/uw_6)
+  FMT(vwl_ru/u#)
 endphoneme
 
 phoneme U
@@ -38,7 +38,7 @@ phoneme U
   IF thisPh(isWordEnd) THEN
     length 140
   ENDIF
-  FMT(vowel/uu_2)
+  FMT(vowel/uu)
 endphoneme
 
 
@@ -71,9 +71,9 @@ phoneme e
 endphoneme
 
 phoneme E
-  vwl starttype @ endtype @
+  vwl starttype #@ endtype #@
   length 200
-  FMT(vowel/@_fnt)
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme i
@@ -102,6 +102,11 @@ phoneme u
 endphoneme
 
 
+// Consonants
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
 
 phoneme r
   import_phoneme base1/R2
@@ -112,7 +117,7 @@ phoneme t
 endphoneme
 
 phoneme G
-  import_phoneme base1/r"
+  import_phoneme base1/Q
 endphoneme
 
 phoneme X
