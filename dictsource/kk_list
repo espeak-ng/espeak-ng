@@ -2,13 +2,17 @@
 // Spelling to phoneme rules for Kazakh
 
 // Letters
+а A
 б	bje
 в	vje
 г	gje
 ғ	GA
 д	dje
+е je
+ё jo
 ж	z.je
 з	zje
+и i
 й	q@sqA'i
 к	kA
 қ	qA
@@ -20,6 +24,9 @@
 р	E*
 с	Es
 т	tje
+у u
+ұ U
+ү u#
 ф	Ef
 х	XA
 һ	hA
@@ -27,6 +34,13 @@
 ч	tS;e
 ш	s.A
 щ	s.tS;A
+ъ Aj@*Uw||belgIs'I
+ы @
+i I
+ь z.INIs.kelIk||belgIs'I
+э E
+ю ju
+я ja
 
 // Numbers
 _0 n'8l
