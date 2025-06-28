@@ -22,6 +22,15 @@ phoneme 8
   FMT(vowel/8)
 endphoneme
 
+phoneme @
+  vwl starttype #@ endtype #@
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
 phoneme u#
   vwl starttype #u endtype #u
   length 100
