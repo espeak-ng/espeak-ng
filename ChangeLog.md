@@ -11,6 +11,7 @@ The espeak-ng project is a fork of the espeak project.
 
 new languages:
 *  ps (Pashto) -- Hanif Rahman 
+*  rup (Aromanian) -- Andy Vladescu
 
 ### 1.52.0
 
@@ -54,6 +55,7 @@ updated languages:
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  crh (Crimean Tatar) -- Andy Vladescu
 *  en-Shaw (English, Shavian script) -- Luna Rose
 *  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz
