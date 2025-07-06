@@ -641,6 +641,7 @@ U+20	fAsele_
 آنتروپوزوییک	AntRopozoik
 آنتروپویید	AntRopoid
 آنتروپی	AntRopi
+آنتروپیک	AntRopejk
 آنتروکوک	AntRokok
 آنتروکیناز	AntRokinAz
 آنتریک	AnteRik
@@ -648,6 +649,7 @@ U+20	fAsele_
 آنتوسیانین	AntosijAnin
 آنتونیو	Antonijo
 آنتی	Anti
+آنتیتز	Antitez
 آنتیموان	AntimuAn
 آنجانب	'AndZA:neb
 آنجل	AndZel
@@ -656,6 +658,7 @@ U+20	fAsele_
 آندانت	AndAnt
 آندرانیک	AndRAnik
 آندره	AndRe:
+آندرومدا	AndRomedA
 آندوتوکسین	Andotoksin
 آندوسکپ	Andoskop
 آندومتر	AndometR
@@ -1064,6 +1067,7 @@ U+20	fAsele_
 ادویۀ	advijeje
 ادّعا	edde?A
 ادکلن	odkolon
+ادگار	edgAR
 ادیت	edit
 ادیتور	editoR
 ادیسه	odise:
@@ -1213,6 +1217,7 @@ U+20	fAsele_
 ازنو	azno:
 ازوالتماس	ezzo_eltemAs
 ازوجز	ezzodZez
+ازون	azun
 ازوچز	ezzotSez
 ازپی	azpeje
 ازگل	ozgal
@@ -2128,6 +2133,7 @@ U+20	fAsele_
 اورتوپد	oRtoped
 اورجینال	oRdZinAl
 اورد	ovoRd
+اوردوز	oveRdo:z
 اورست	eveRest
 اورنگ	o:Rang
 اورهان	oRhAn
@@ -2136,6 +2142,7 @@ U+20	fAsele_
 اوروگویه	oRogue
 اورژینال	oRZinAl
 اورکت	oveRkot
+اورکلاک	oveRkelAk
 اورگن	oRegen
 اوریو	oRijo
 اوریون	oRijon
@@ -2385,6 +2392,7 @@ U+20	fAsele_
 اینروست	'inRust
 اینستاگرام	_instAgeRAm
 اینشتین	ajnStajn
+اینشورتک	inSuRtek
 اینطور	into:R
 اینفلوئنسر	infeluenseR
 اینقدر	inq1adR
@@ -3065,7 +3073,7 @@ U+20	fAsele_
 بزت	bozat
 بزخر	bozxaR
 بزخو	bozxu
-بزدلانه	bozdelAne
+بزدلان	bozdelAn
 بزدلی	bozdeli
 بزرو	bozRo:
 بزرک	bazRak
@@ -3315,6 +3323,7 @@ U+20	fAsele_
 بنامند	benA:mand
 بنان	banAn
 بناگوشک	banA:gu:Sak
+بنتلی	bentli
 بنج	bondZ
 بنجامین	bendZAmin
 بنجل	bondZol
@@ -4722,7 +4731,7 @@ U+20	fAsele_
 جغوربغور	dZaq1uRbaq1uR
 جف	dZef
 جفت	dZoft
-جفتمی	dZoftam
+جفتم	dZoftam
 جفر	dZafaR
 جفرسون	dZefeRson
 جفری	dZefRi
@@ -5236,6 +5245,7 @@ U+20	fAsele_
 خرمالو	xoRmAlu
 خرماپزان	xoRmApazAn
 خرمدره	xoRRamdaRRe:
+خرمدین	xoRRamdin
 خرمشاهی	xoRRamSAhi
 خرمشهر	xoRRamSahR
 خرمن	xaRman
@@ -6036,6 +6046,7 @@ U+20	fAsele_
 دیسننت	disonent
 دیسوننت	disonent
 دیسک	disk
+دیسکت	disket
 دیسکو	disko
 دیشب	diSab
 دیفالت	difAlt
@@ -6057,6 +6068,7 @@ U+20	fAsele_
 دیوث	dajjus
 دیوخو	divxu
 دیوخوی	divxuj
+دیود	dijod
 دیوسرشت	divseReSt
 دیوسیرت	divsiRat
 دیوسیما	divsimA
@@ -6613,6 +6625,7 @@ U+20	fAsele_
 ریع	Rej?
 ریل	Rejl
 ریلکس	Rilaks
+ریلکسیشن	RilaksejSen
 ریمل	Rimel
 ریموند	Rejmond
 ریمیکس	Rimiks
@@ -6826,6 +6839,7 @@ U+20	fAsele_
 زینال	zejnAl
 زینب	zejnab
 زینت	zinat
+زینک	zink
 زینگر	zingeR
 زیور	zivaR
 زیوس	zeus
@@ -7226,6 +7240,7 @@ U+20	fAsele_
 سنبه	sonbe:
 سنت	sonnat
 سنتر	senteR
+سنترال	sentRAl
 سنتز	santez
 سنتی	sonnati
 سنجد	sendZed
@@ -7476,6 +7491,7 @@ U+20	fAsele_
 سیمکارت	simkARt
 سیمکش	simkeS
 سیمیت	simit
+سیناپس	sinAps
 سینتکس	sintaks
 سینتیسایزر	sintisAjzeR
 سینجر	sindZeR
@@ -7716,6 +7732,7 @@ U+20	fAsele_
 شناسی	Sen'Asi
 شناور	SenAvaR
 شنبلیله	Sanbalile:
+شنسل	Sensel
 شنعت	Son?at
 شنفت	Senoft
 شنل	Senel
@@ -8876,6 +8893,7 @@ U+20	fAsele_
 فهمان	fahmAn
 فهمد	fahmad
 فوتو	foto
+فوتوسنتز	fotosantez
 فوتون	foton
 فوتینا	futejnA
 فوج	fo:dZ
@@ -8928,6 +8946,7 @@ U+20	fAsele_
 فیبر	fibR
 فیبرنوری	fibRenuRi
 فیتنس	fitnes
+فیتوپلانگتون	fitopelAngton
 فیتوپلاینکتون	fitopelAjnkton
 فیثاغورث	fisAq1oRes
 فیدلیتی	fideliti
@@ -8952,6 +8971,7 @@ U+20	fAsele_
 فیلیسیتی	filisiti
 فیلیپس	filips
 فیلیکس	filiks
+فینتک	fintek
 فینگر	fingeR
 فینیشر	finiSeR
 فیودال	feodAl
@@ -9050,6 +9070,7 @@ U+20	fAsele_
 قرتی	q1eRti
 قرحه	q1oRhe:
 قرشت	q1aRaSt
+قرشمال	q1eReSmAl
 قرص	q1oRs
 قرعه	q1oR?e:
 قرق	q1oRoq1
@@ -9421,6 +9442,7 @@ U+20	fAsele_
 لنت	lent
 لنج	lendZ
 لندرور	landRoveR
+لندروور	landRoveR
 لندن	landan
 لندهور	landehuR
 لندکروز	landkoRuz
@@ -9493,6 +9515,7 @@ U+20	fAsele_
 لژ	leZ
 لژیونر	leZjoneR
 لکات	lakkAt
+لکتر	lekteR
 لکسوس	leksus
 لکن	lAken
 لکنت	loknat
@@ -9543,6 +9566,7 @@ U+20	fAsele_
 لیون	lijon
 لیوناردو	le_onARdo
 لیونر	lijuneR
+لیونل	lijonel
 لیکن	liken
 لیکور	likoR
 مآب	ma?Ab
@@ -9752,6 +9776,7 @@ U+20	fAsele_
 متانت	metA:nat
 متانول	metAnol
 متاورس	metAveRs
+متاژنوم	metAZenom
 متبرک	motebaRRek
 متبسم	motebassem
 متبلور	motebalveR
@@ -11640,6 +11665,7 @@ U+20	fAsele_
 ندهیم	nadahim
 ندوند	nadavand
 ندیم	nadim
+ندیمان	nadimAn
 نذور	nozuR
 نرت	naRat
 نرجس	naRdZes
@@ -11940,6 +11966,7 @@ U+20	fAsele_
 نور	nuR
 نورالانوار	nuRol?anvAR
 نورالحق	nuRolhaq1q1
+نورالینک	noRAlink
 نوران	nuRAn
 نورباران	nuRbARAn
 نوربالا	nuRbAlA
@@ -12413,6 +12440,7 @@ U+20	fAsele_
 هندسۀ	hendeseje
 هندسی	hendesi
 هندل	hendel
+هندلینگ	handeling
 هندو	hendu
 هندوانه	hendevAne:
 هندوانۀ	hendevAneje
@@ -12685,6 +12713,7 @@ U+20	fAsele_
 وسطین	vasatejn
 وسع	vos?
 وسعت	vos?at
+وسمق	vasmaq1
 وسوسه	vasvase:
 وسپا	vespA
 وسیعا	vasian
@@ -12849,6 +12878,7 @@ U+20	fAsele_
 پاشنۀ	pASneje
 پافشاری	pAfeSARi
 پاقلع	pAq1al?
+پالئوزوئیک	pAle?ozo?ik
 پالادیم	pAlAdijom
 پالایش	pAlAjeS
 پالت	pAlet
@@ -12881,6 +12911,8 @@ U+20	fAsele_
 پایتخت	pAjtaxt
 پایتون	pAjton
 پایستگی	pAjestegi
+پایلوت	pAjlot
+پتا	petA
 پتابایت	petA:bAjt
 پتابیت	petA:bit
 پتاس	potAs
@@ -13057,6 +13089,7 @@ U+20	fAsele_
 پرهیخت	paRhixt
 پرهیز	paRhiz
 پرهیزد	paRhizad
+پرهیزم	paRhizam
 پرو	poRov
 پروا	paRvA
 پروار	paRvAR
@@ -13108,6 +13141,7 @@ U+20	fAsele_
 پرپل	peRpel
 پرچمدار	paRtSamdAR
 پرک	paRak
+پرکامبرین	peRkAmbeRijan
 پرکشش	poRkeSeS
 پرکلرین	peRkoloRin
 پرکینز	peRkinz
@@ -13147,6 +13181,7 @@ U+20	fAsele_
 پسامدرنیسم	pasAmodeRnism
 پسانداز	pasandAz
 پست	post
+پستال	postAl
 پستان	pestAn
 پستانک	pestAnak
 پستر	posteR
@@ -13227,6 +13262,7 @@ U+20	fAsele_
 پلانتاریم	pelAnetARijom
 پلانو	pelAno
 پلانکتون	pelAnkton
+پلانگتون	pelAngton
 پلاژ	pelAZ
 پلاک	pelAk
 پلاکارد	pelAkARd
@@ -13372,6 +13408,7 @@ U+20	fAsele_
 پوید	pujad
 پویش	pujeS
 پوینت	pojnt
+پوینتر	pojnteR
 پّله	pelle:
 پپرونی	pepeRoni
 پپسی	pepsi
@@ -13630,6 +13667,7 @@ U+20	fAsele_
 چمن	tSaman
 چموش	tSamuS
 چمپا	tSampA
+چمپیون	tSampijon
 چمچه	tSamtSe
 چنار	tSenAR
 چنال	tSenAl
@@ -13865,6 +13903,7 @@ U+20	fAsele_
 کالکشن	kA:lekSen
 کالیبر	kAlibR
 کالیفرنیا	kAlifoRnijA
+کامبرین	kAmbeRijan
 کامران	kAmRAn
 کامروا	kAmRavA
 کامرون	kAmeRon
@@ -13878,6 +13917,7 @@ U+20	fAsele_
 کامیونت	kAmijonet
 کانبرا	kAnbRA
 کانت	kAnt
+کانتر	kAnteR
 کانتینر	kAntineR
 کاندر	kandaR
 کاندم	kAndom
@@ -13921,9 +13961,11 @@ U+20	fAsele_
 کت	kot
 کتاب	ketAb
 کتابند	ketAband
+کتامین	ketAmin
 کتب	kotob
 کتبا	katban
 کتباً	katban
+کتت	kotat
 کتری	ketRi
 کترینگ	ketRing
 کتش	kotaS
@@ -14055,6 +14097,7 @@ U+20	fAsele_
 کریستال	keRistAl
 کریستف	keRistof
 کریستوفر	keRistofeR
+کریستیانو	keRistijAno
 کریستین	keRistijan
 کریسمس	keRismas
 کریسپی	keRispi
@@ -14213,6 +14256,7 @@ U+20	fAsele_
 کلۀ	kaleje
 کلی	ko'lli
 کلید	kelid
+کلیدر	kelidaR
 کلیدزن	kelidzan
 کلیسا	kelisA
 کلیسیا	kelisijA
@@ -14415,6 +14459,7 @@ U+20	fAsele_
 کوهپایه	kuhpAje:
 کوهکن	kuhkan
 کوپایلت	kopAjlet
+کوپایلوت	kopAjlot
 کوپن	kopen
 کوژپشت	kuZpoSt
 کوکاکولا	kokAkulA
@@ -14454,6 +14499,7 @@ U+20	fAsele_
 کیفر	kejfaR
 کیقباد	kejq1obAd
 کیلوبایت	kilubAjt
+کیلوتن	kiluton
 کیلومتر	kilumetR
 کیلوگرم	kilugeRam
 کیلیپس	kilips
@@ -14463,6 +14509,7 @@ U+20	fAsele_
 کیه	kije:
 کیهان	kejhAn
 کیوان	kejvAn
+کیوبیت	kijubit
 کیوتو	kijoto
 کیوسک	kijusk
 کیومرث	kijumaRs
@@ -14968,6 +15015,7 @@ U+20	fAsele_
 یهوه	jahovah
 یو	ju
 یوان	juAn
+یوتوبر	jutubeR
 یوتیوبر	jutijubeR
 یوحنا	juhannA
 یورتمه	juRtme:
