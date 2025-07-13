@@ -65,12 +65,14 @@ endphoneme
 
 phoneme &
   vwl starttype #@ endtype #@
+  ipa ɐ
   length 180
   FMT(vowel/a#_3)
 endphoneme
 
 phoneme &/       // Used for final "a" when next word starts with "a"
   vwl starttype #@ endtype #@
+  ipa ɐ
   length 180
   IF nextPh(isVowel) THEN
     ChangePhoneme(NULL)
