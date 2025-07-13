@@ -104,6 +104,7 @@ endphoneme
 
 phoneme y          // this is the same as [i] for Brazil
   vwl starttype #i endtype #i
+  ipa ɪ
   length 110
   IfNextVowelAppend(;)
   FMT(vowel/ii_6)
