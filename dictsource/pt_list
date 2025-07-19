@@ -85,7 +85,7 @@ _#9	tab
 %	pors'eINtU	$max3
 &	_'e_
 @	ax'ob&
-$	d'olaR
+$	d'OlaR
 €	'eU*U
 £	l'ibR&
 ¥	j'eNy
@@ -284,6 +284,14 @@ cc	$abbrev
 cd	$abbrev
 vi	vi
 
+// currency symbols
+(r $)	xe'aIs
+(us $)	'dOla*ys
+
+// currency codes
+brl	$abbrev
+usd	$abbrev
+eur	$abbrev
 
 // ABBREVIATIONS
 //**************
