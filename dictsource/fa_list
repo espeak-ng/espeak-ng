@@ -1475,6 +1475,7 @@ U+20	fAsele_
 اسپیریل	espiRil
 اسپیس	espejs
 اسپیلیتر	espiliteR
+اسپیناف	espinAf
 اسپینوزا	espinozA
 اسپیک	espik
 اسپیکر	espikeR
@@ -1537,6 +1538,7 @@ U+20	fAsele_
 اشاعر	aSA:?eR
 اشانتیون	eSAntijon
 اشباع	eSbA?
+اشتاین	eStAjn
 اشتباه	eStebAh
 اشتباها	eStebAhan
 اشتداد	eStedAd
@@ -2238,6 +2240,7 @@ U+20	fAsele_
 اپیلاسیون	epilAsjon
 اپیکور	epikoR
 اپیکوریسم	epikuRism
+اچم	atSom
 اژدها	eZdehA
 اژدهاکش	eZdehAkoS
 اژه	eZe:
@@ -2311,6 +2314,7 @@ U+20	fAsele_
 اگزیستانسیال	egzistAnsijAl
 اگزیستانسیالیست	egzistAnsijAlist
 اگزیستانسیالیسم	egzistAnsijAlism
+اگزینوس	egzinus
 اگنس	agnes
 ایاب	ajjAb
 ایادی	ajAdi
@@ -2488,6 +2492,7 @@ U+20	fAsele_
 بازد	bA:zad
 بازدم	bAzdam
 بازده	bAzdeh
+بازدۀ	bAzdeje
 بازدید	bAzdid
 بازرسان	bAzRasAn
 بازرگان	bAzaRgAn
@@ -3030,6 +3035,7 @@ U+20	fAsele_
 بروکراسی	boRukRAsi
 بروکسل	boRuksel
 بروکلی	boRukli
+بروکلین	beRuklin
 بروی	beRavi
 بروید	beRavid
 برویم	beRavim
@@ -3576,6 +3582,7 @@ U+20	fAsele_
 بیانگارد	bijangARad
 بیاور	bijAvaR
 بیاورد	bijA:vaRad
+بیاورم	bijAvaRam
 بیاید	bijA:jad
 بیت	bejt
 بیتقوا	bitaq1vA
@@ -4051,6 +4058,7 @@ U+20	fAsele_
 تریج	teRidZ
 ترید	taRid
 تریسام	teRisAm
+تریستان	teRistAn
 تریشین	teRiSin
 تریلر	teRejleR
 تریلوبیت	teRilobit
@@ -4668,6 +4676,7 @@ U+20	fAsele_
 جراح	dZaRRAh
 جراحات	dZeRAhAt
 جراحت	dZeRAhat
+جرارد	dZeRARd
 جرالد	dZeRAld
 جرالدین	dZeRAldin
 جرایم	dZaRAjem
@@ -5053,6 +5062,7 @@ U+20	fAsele_
 حملات	hamalAt
 حموم	hammum
 حموی	hamavi
+حمیر	hemjaR
 حمیرا	homejRA
 حناق	honnAq1
 حنبل	hanbal
@@ -6077,6 +6087,7 @@ U+20	fAsele_
 دیپلم	diplom
 دیپلماتیک	diplomAtik
 دیپلماسی	diplomAsi
+دیپورت	dipoRt
 دیژون	diZon
 دیکتاتور	diktAtoR
 دیکته	dikte:
@@ -6164,6 +6175,7 @@ U+20	fAsele_
 راضیم	RAzijam
 رافایل	RAfAel
 راقم	RAq1em
+رالف	RAlf
 رامبد	RAmbod
 رامتین	RAmtin
 رامجرد	RAmdZeRd
@@ -6335,6 +6347,7 @@ U+20	fAsele_
 رضوان	RezvAn
 رضوی	Razavi
 رطب	Rotab
+رطوبت	Rotu:bat
 رطوبی	Rotubi
 رطیل	Rotejl
 رعاف	Ro?Af
@@ -6560,10 +6573,12 @@ U+20	fAsele_
 رویکرد	RujkaRd
 رویگر	RujgaR
 رویۀ	Ravijeje
+رپتور	ReptoR
 رپر	RapeR
 رپرتاژ	RepoRtAZ
 رپرتر	RepoRteR
 رپرتوار	RepeRtuAR
+رپرتور	RepeRtoR
 رپورتاژ	RepoRtAZ
 رژ	RoZ
 رژه	ReZe
@@ -7504,6 +7519,7 @@ U+20	fAsele_
 سینوی	si:navi
 سینک	sink
 سینکروترون	sinkRotRon
+سینگر	singeR
 سینگل	singel
 سیه	sijah
 سیّاره	sajjARe:
@@ -8147,6 +8163,7 @@ U+20	fAsele_
 طور	'to:R
 طوراب	toR'Ab
 طوق	to:q1
+طومأنین	toma?nin
 طپش	tapeS
 طی	tejje
 طیار	tajAR
@@ -10352,13 +10369,14 @@ U+20	fAsele_
 مسئلۀ	mas?aleje
 مسابق	mosA:beq1
 مساحق	mosAheq1
-مساعد	mosA?ed
+مساعد	mosA:?ed
+مساعدت	mosA:?edat
 مسافت	masA:fat
-مسافر	mosAfeR
-مسافربر	mosAfeRbaR
-مسافرت	mosAfeRat
-مساقات	mosAq1At
-مسالمت	mosAlemat
+مسافر	mosA:feR
+مسافربر	mosA:feRbaR
+مسافرت	mosA:feRat
+مساقات	mosA:q1At
+مسالمت	mosA:lemat
 مساله	mas?ale:
 مسالک	masA:lek
 مسامح	mosAmeh
@@ -10959,6 +10977,7 @@ U+20	fAsele_
 منافقون	monAfeq1un
 منافی	monA:fi
 مناقش	monAq1eS
+منان	mannAn
 منبت	monabbat
 منبر	manbaR
 منبع	manba?
@@ -11036,6 +11055,7 @@ U+20	fAsele_
 منقّا	monaq1q1A
 منم	manam
 مننژیت	menanZit
+مننژیوم	menanZijom
 منها	'menhA
 منهای	menhAje
 منهدم	monhadem
@@ -11607,6 +11627,7 @@ U+20	fAsele_
 نتانیا	netAnijA
 نتانیاهو	netAnijAhu
 نتردام	noteRdAm
+نتفلیکس	netfiliks
 نتق	notoq1
 نتوان	natavAn
 نتیجتا	natidZatan
@@ -12013,6 +12034,7 @@ U+20	fAsele_
 نوشین	nuSin
 نوع	no?
 نوعا	no:?an
+نول	nol
 نولیست	novelist
 نومید	no:mid
 نونوار	no:navAR
@@ -12085,6 +12107,7 @@ U+20	fAsele_
 نگاه	negAh
 نگر	negaR
 نگران	negaRAn
+نگرانیت	negaRA:nijat
 نگرش	negaReS
 نگرو	negRo
 نگرید	nageRjad
@@ -12192,6 +12215,7 @@ U+20	fAsele_
 نیکلاس	nikolAs
 نیکلسون	nikolson
 نیکمنش	nikmaneS
+نیکوتین	nikotin
 نیکوخصال	nikuxesAl
 نیکوسخن	nikusoxan
 نیکولا	nikolA
@@ -12707,6 +12731,7 @@ U+20	fAsele_
 وزین	vazin
 وساطت	vesAtat
 وساوس	vasAves
+وست	vest
 وسترن	vesteRn
 وسط	vasat
 وسطا	vostA
@@ -12821,6 +12846,7 @@ U+20	fAsele_
 ویوالدی	vivAldi
 ویولا	vijolA
 ویولن	vijolon
+ویپ	vejp
 ویژن	viZen
 ویژوال	viZuAl
 ویکتور	viktoR
@@ -13669,6 +13695,7 @@ U+20	fAsele_
 چمپا	tSampA
 چمپیون	tSampijon
 چمچه	tSamtSe
+چمیدون	tSemidun
 چنار	tSenAR
 چنال	tSenAl
 چنان	tSe'nAn
@@ -14105,6 +14132,7 @@ U+20	fAsele_
 کریه	kaRih
 کریپتو	keRipto
 کریپتون	keRipton
+کریپتوکارنسی	keRiptokARensi
 کریکت	keRiket
 کزاز	kozAz
 کزازی	kazzA:zi
@@ -14572,6 +14600,7 @@ U+20	fAsele_
 گذارده	gozARde:
 گذاردیم	gozARdim
 گذارم	gozA:Ram
+گذاریم	gozA:Rim
 گذاشت	'gozASt
 گذر	gozaR
 گذرا	gozaRA
@@ -14609,6 +14638,7 @@ U+20	fAsele_
 گرانیت	geRAnit
 گراهام	geRAhAm
 گراوه	geRAve:
+گراک	geRAk
 گراید	geRAjad
 گرایش	geRAjeS
 گرایید	geRAid
@@ -14710,6 +14740,8 @@ U+20	fAsele_
 گزاردن	gozARdan
 گزارده	gozARde
 گزارش	'gozAReS
+گزارم	gozA:Ram
+گزاریم	gozA:Rim
 گزانتوفیل	gezAntofil
 گزانتین	gezAntin
 گزد	gazad
@@ -15043,6 +15075,7 @@ U+20	fAsele_
 یونیفورم	junifoRm
 یونیورسال	juniveRsAl
 یونیورسیتی	juniveRsiti
+یونیکد	junikod
 یونیکس	juniks
 یوهان	juhAn
 یوکابد	jukA:bed
