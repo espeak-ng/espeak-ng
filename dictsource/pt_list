@@ -284,6 +284,30 @@ cc	$abbrev
 cd	$abbrev
 vi	vi
 
+// common uses of Roman numerals
+(capítulo i)	k,ap'itulw||'u~N
+(capítulo v)	k,ap'itulU||s'iNkU
+(capítulo vi)	k,ap'itulU||s'eIs#
+(capítulo x)	k,ap'itulU||d'Es#
+(capítulo l)	k,ap'itulU||s,iNkw'eINt&
+(capítulo c)	k,ap'itulU||s'eIN
+(capítulo cc)	k,ap'itulU||duz'eINtus#
+(capítulo cd)	k,ap'itulU||kw'atRUs'eINtUz
+(capítulo dc)	k,ap'itulU||s,eIs'eINtUz
+(inciso i)	,iNs'izw||'u~N
+(inciso v)	,iNs'izU||s'iNkU
+(inciso vi)	,iNs'izU||s'eIs#
+(inciso x)	,iNs'izU||d'Es#
+(inciso l)	,iNs'izU||s,iNkw'eINt&
+(inciso c)	,iNs'izU||s'eIN
+(inciso cc)	,iNs'izU||d,uz'eINtUz
+(inciso cd)	,iNs'izU||kw'atRUs'eINtUz
+(inciso dc)	,iNs'izU||s,eIs'eINtUz
+(século i)	s'Ekulw||'u~N
+(século v)	s'EkulU||s'iNkU
+(século vi)	s'EkulU||s'eIs#
+(século x)	s'EkulU||d'Es#
+
 // currency symbols
 (r $)	xe'aIs
 (us $)	'dOla*ys
