@@ -42,5 +42,5 @@ endphoneme
 phoneme oU
   vwl starttype #o endtype #u
   length 260
-  FMT(vdiph/ou_2)
+  FMT(vdiph/oou)
 endphoneme
