@@ -1,0 +1,46 @@
+//========================================================================
+// Galician - based on ph_spanish
+//========================================================================
+
+// Vowels
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 190
+  ChangeIfNotStressed(e/)
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme e/
+  vwl starttype #e endtype #e
+  length 155
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/ii)
+  ENDIF
+  FMT(vowel/e_mid2, 90)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 195
+  ChangeIfNotStressed(o/)
+  FMT(vowel/oo)
+endphoneme
+
+phoneme o/
+  vwl starttype #u endtype #u
+  length 155
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/uu_2)
+  ENDIF
+  FMT(vowel/oo, 90)
+endphoneme
+
+
+// Diphthongs
+
+phoneme oU
+  vwl starttype #o endtype #u
+  length 260
+  FMT(vdiph/ou_2)
+endphoneme
