@@ -131,13 +131,14 @@
 
 .group o
 	o	    o
-	o (CK	o
-	o (r	o
-	o (Ch	o
-	oi	oI
-	oy (K	 oI
-	oy (_	'oI
-    ou         oU
+	o (CK	    o
+	o (r	    o
+	o (Ch	    o
+	oi	    oI
+	oy (K	    oI
+	oy (_	    'oI
+        ou          oU
+        ou (_       'oU
 
 .group p
         p          p
