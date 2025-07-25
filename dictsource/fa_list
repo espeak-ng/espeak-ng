@@ -1871,6 +1871,7 @@ U+20	fAsele_
 الوی	olovi
 الّاکلنگ	allAkolang
 الک	alak
+الکامپ	elekAmp
 الکترا	elekteRA
 الکترال	elekteRAl
 الکترریسیتۀ	elekteRisiteje
@@ -2067,6 +2068,7 @@ U+20	fAsele_
 انهار	?anhAR
 انورسادات	anvaRsAdAt
 انوش	anuS
+انویدیا	envidijA
 انژیوگرافی	anZijogeRAfi
 انکار	enkAR
 انکارنشدنی	enkARnaSodani
@@ -2213,6 +2215,7 @@ U+20	fAsele_
 اپال	opAl
 اپتومتر	optometR
 اپتیمم	optimom
+اپتیموس	optimus
 اپتیک	optik
 اپتیکال	optikAl
 اپرا	opeRA
@@ -2271,6 +2274,7 @@ U+20	fAsele_
 اکسایید	oksAid
 اکستازی	ekstA:zi
 اکسترنال	eksteRnAl
+اکستریم	eksteRim
 اکسس	akses
 اکسسوری	aksesoRi
 اکسل	eksel
@@ -3466,6 +3470,7 @@ U+20	fAsele_
 بورژوازی	buRZuvAzi
 بورک	buRek
 بوریتو	buRito
+بوز	bevaz
 بوزد	bevazad
 بوزرجمهر	bu:zaRdZomehR
 بوستر	busteR
@@ -5844,6 +5849,7 @@ U+20	fAsele_
 دمنه	demne:
 دمو	demo:
 دموکرات	demokRAt
+دموکراتیز	demokRAtiz
 دموکراتیک	demokRAtik
 دموکراسی	demokRAsi
 دموگرافی	demogeRAfi
@@ -6217,6 +6223,7 @@ U+20	fAsele_
 رایتل	RAjtel
 رایزن	RAjzan
 رایش	RAjS
+راین	RAjn
 ربا	RobA
 رباب	RobAb
 ربات	RobAt
@@ -6369,6 +6376,7 @@ U+20	fAsele_
 رفرمیزم	RefoRmizm
 رفرمیست	RefoRmist
 رفرمیسم	RefoRmism
+رفرنس	RefRens
 رفسنجان	RafsandZAn
 رفق	Rofaq1
 رفقا	Rofaq1A
@@ -6811,6 +6819,7 @@ U+20	fAsele_
 زهرمار	zahRemAR
 زهره	zohRe:
 زهرچشم	zahRetSeSm
+زهش	zehaS
 زهل	zohal
 زهم	zohm
 زهوار	zehvAR
@@ -6935,6 +6944,7 @@ U+20	fAsele_
 ساکن	sAken
 ساکنان	sAkenAn
 سایبر	sAjbeR
+سایبرتراک	sAjbeRteRAk
 سایت	sAjt
 ساید	sA:jad
 سایر	sAjeR
@@ -7378,6 +7388,7 @@ U+20	fAsele_
 سوپرانو	sopRAno
 سوپرجام	supeRdZAm
 سوپرسونیک	supeRsonik
+سوپرشارژر	supeRSARZeR
 سوپرمارکت	supeRmARket
 سوپرمن	supeRman
 سوپرنوا	supeRnovA
@@ -7847,6 +7858,7 @@ U+20	fAsele_
 شکست	Sekast
 شکستن	Sekastan
 شکسپیر	SekspiR
+شکش	SakkaS
 شکف	Sekof
 شکفت	Sekoft
 شکفد	Sekofad
@@ -8130,6 +8142,8 @@ U+20	fAsele_
 طرقبه	toRq1abe:
 طرقی	taRaq1q1i
 طره	toRRe
+طرّه	toRRe:
+طرّۀ	toRReje
 طرۀ	toRReje
 طریق	taRiq1e
 طریقت	taRiq1at
@@ -8273,9 +8287,9 @@ U+20	fAsele_
 عسر	?osR
 عسل	a:sal
 عسلویه	?asaluje
-عشا	eSA?
-عشاء	eSA?
-عشاع	eSA?
+عشا	_eSA
+عشاء	_eSA?
+عشاع	_eSA?
 عشاق	oSSAq1
 عشر	?aSaR
 عشرت	eSRat
@@ -8748,6 +8762,7 @@ U+20	fAsele_
 فروسرخ	foRusoRx
 فروشد	foRuSad
 فروشست	foRuSost
+فروشم	foRuSam
 فروشندگان	foRuSandegAn
 فروصوت	foRuso:t
 فروفرستاد	foRufeRestAd
@@ -8909,9 +8924,11 @@ U+20	fAsele_
 فهم	fahm
 فهمان	fahmAn
 فهمد	fahmad
+فوتج	futedZ
 فوتو	foto
 فوتوسنتز	fotosantez
 فوتون	foton
+فوتونیک	fotonik
 فوتینا	futejnA
 فوج	fo:dZ
 فورا	fo:Ran
@@ -8995,6 +9012,7 @@ U+20	fAsele_
 فیودالیسم	feodAlism
 فیودور	fijodoR
 فیوز	fijuz
+فیک	fejk
 فیکس	fiks
 فیکساتور	fiksAtoR
 فیگارو	figARo
@@ -10608,6 +10626,7 @@ U+20	fAsele_
 مصور	mosavvaR
 مصون	masun
 مصوّت	mosavvet
+مصیب	mosajjeb
 مصیبت	mosibat
 مضاربه	mozARebe:
 مضارع	mozA:Re?
@@ -11548,21 +11567,20 @@ U+20	fAsele_
 ناشران	nASeRAn
 ناشکر	nASokR
 ناصحانه	nAsehAne
-ناصرخسرو	nAseRxosRov
+ناصرخسرو	nAseRxosRo:
 ناظم	nAzem
 نافرمان	nAfaRmAn
 نافهم	nAfahm
-ناقلا	nAq1olA
+ناقلا	nA:q1olA
 ناقوس	nAq1us
 نالد	nAlad
 نام	'nAm
-نامبرده	nAmboRde:
-نامبردۀ	nAmboRdeje
+نامبرد	nAmboRd
 نامد	nAmad
 نامدار	nAmdAR
 نامرئی	nAmaR?i
 نامزد	nAmzad
-نامعین	nAmo_ajjan
+نامعین	nAmo?ajjan
 نامفید	nAmofid
 ناممکن	nAmomken
 نامور	nAmvaR
@@ -12208,6 +12226,7 @@ U+20	fAsele_
 نیوکسل	nijuksel
 نیویورک	nijojoRk
 نیّت	nijjat
+نیچر	nejtSeR
 نیچه	nitSe:
 نیکاراگوئه	nikARAgue:
 نیکسون	nikson
@@ -12494,6 +12513,7 @@ U+20	fAsele_
 هورمن	hoRmon
 هورمون	hoRmun
 هورن	hoRn
+هوروش	huRvaS
 هوز	havvaz
 هوس	havas
 هوسانه	havasAne
@@ -12656,6 +12676,7 @@ U+20	fAsele_
 واید	vAjd
 وایرلس	vAjeRles
 وایمکس	vAjmaks
+واین	vAjn
 وب	'veb
 وبر	vebeR
 وبسایت	vebsAjt
@@ -13759,6 +13780,7 @@ U+20	fAsele_
 چپش	tSapaS
 چپق	tSopoq1
 چپم	tSapam
+چپک	tSapak
 چچن	tSetSen
 چک	tSek
 چکاد	tSakAd
@@ -13963,6 +13985,7 @@ U+20	fAsele_
 کاهد	kAhad
 کاهش	kAheS
 کاهن	kA:hen
+کاهگل	kAhgel
 کاوش	'kAvoS
 کاپشن	kApSen
 کاپوچینو	kAputSino
@@ -14320,6 +14343,7 @@ U+20	fAsele_
 کمسیون	komisijon
 کمش	kamaS
 کمم	kamam
+کمون	kamun
 کمونیزم	komonizm
 کمونیست	komonist
 کمونیسم	komonism
@@ -14950,6 +14974,8 @@ U+20	fAsele_
 گورکانی	guRkAni
 گورکن	guRkan
 گوزن	gavazn
+گوزنش	gavaznaS
+گوزنم	gavaznam
 گوشبر	guSboR
 گوشت	guSt
 گوشتکوب	guStkub
@@ -14973,6 +14999,7 @@ U+20	fAsele_
 گچبر	gatSboR
 گیاه	gi:A:h
 گیت	gejt
+گیتس	gejts
 گیتی	giti
 گیدنز	gidenz
 گیربکس	giRboks
