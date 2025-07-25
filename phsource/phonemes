@@ -1964,6 +1964,9 @@ include ph_catalan_ba
 phonemetable an es
 include ph_aragon
 
+phonemetable gl es
+include ph_galician
+
 phonemetable ht fr
 include ph_haitian
 

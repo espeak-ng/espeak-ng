@@ -759,6 +759,7 @@ Translator *SelectTranslator(const char *name)
 	case L('e', 's'): // Spanish
 	case L('a', 'n'): // Aragonese
 	case L('c', 'a'): // Catalan
+	case L('g', 'l'): // Galician
 	case L('i', 'a'): // Interlingua
 	case L3('p', 'a', 'p'): // Papiamento
 	{
@@ -793,6 +794,9 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_ORDINAL;
 			tr->langopts.numbers2 = NUM2_ORDINAL_NO_AND;
 			tr->langopts.roman_suffix = utf8_ordinal;
+        } else if (name2 == L('g', 'l')) {
+			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_ORDINAL;
 		} else if (name2 == L3('p', 'a', 'p')) {
 			// stress last syllable unless word ends with a vowel
 			tr->langopts.stress_rule = STRESSPOSN_1R;
