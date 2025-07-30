@@ -2408,11 +2408,11 @@ int TransposeAlphabet(Translator *tr, char *text)
 
 			if (bits >= 8) {
 				bits -= 8;
-				*p2++ = (acc >> bits);
+				*p2++ = (char)((acc >> bits) & 0xff);
 			}
 		}
 		if (bits > 0)
-			*p2++ = (acc << (8-bits));
+			*p2++ = (char)((acc << (8-bits)) & 0xff);
 		*p2 = 0;
 		ix = p2 - buf;
 		memcpy(text, buf, ix);
