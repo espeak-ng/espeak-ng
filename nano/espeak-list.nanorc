@@ -17,6 +17,9 @@ color lightred "^([[:space:]]*\?[!]?[[:digit:]]{1,2})"
 # Other languages, e.g.: _^_FR _^_DE
 color lightyellow "_\^_[^[:space:]]{2}"
 
+# Character codes: 0xFF and U+FFFF
+color lightgreen "(0x[0-9a-fA-F]{2}|U\+[0-9a-fA-F]{4})"
+
 # Comments, e.g.: // comment
 color italic,lightblue "[[:space:]]*\/\/.*$"
 

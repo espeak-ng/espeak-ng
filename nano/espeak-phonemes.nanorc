@@ -12,9 +12,6 @@ syntax "espeak-phonemes" "/(phonemes|ph_.*)$"
 # Punctuation
 color cyan "[()=,]"
 
-# Unicode characters
-color lightgreen "U\+[0-9]{4}"
-
 # Phoneme block
 color bold,lightyellow "\<((end)?phoneme)[[:space:]]+[^[:space:]]+"
 color bold,lightred "\<((end)?phoneme)\>"
@@ -66,6 +63,9 @@ color lightcyan "\<(thisPh|prevPh|prevPhW|prev2PhW|nextPh|next2Ph|nextPhW|next2P
 
 # Conditional statement atributes
 color lightyellow "\<(isPause|isPause2|isVowel|isNotVowel|isLiquid|isNasal|isVFricative|isPalatal|isRhotic|isWordStart|notWordStart|isWordEnd|isFirstVowel|isSecondVowel|isFinalVowel|isAfterStress|isVoiced|isDiminished|isUnstressed|isNotStressed|isStressed|isMaxStress)\>"
+
+# Character codes: 0xFF and U+FFFF
+color lightgreen "(0x[0-9a-fA-F]{2}|U\+[0-9a-fA-F]{4})"
 
 # Comments, e.g.: // comment
 color italic,lightblue "[[:space:]]*\/\/.*$"
