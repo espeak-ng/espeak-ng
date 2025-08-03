@@ -12,7 +12,7 @@ color lightcyan "^([[:space:]]*\?[!]?[[:digit:]])?([[:space:]]*([^[:space:]]+|[(
 color lightred "\$[^[:space:]]+"
 
 # Conditionals, e.g.: ?1, $!2
-color lightred "^([[:space:]]*\?[!]?[[:digit:]])"
+color lightred "^([[:space:]]*\?[!]?[[:digit:]]{1,2})"
 
 # Other languages, e.g.: _^_FR _^_DE
 color lightyellow "_\^_[^[:space:]]{2}"
