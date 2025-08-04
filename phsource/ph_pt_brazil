@@ -3,13 +3,6 @@
 //  Portuguese  - based on Base2
 //====================================================
 
-phoneme I   // epenthetic i
-  vwl starttype #i endtype #i
-  unstressed
-  length 90
-  FMT(vowel/ii_6)
-endphoneme
-
 phoneme e~
   vwl starttype #e endtype #e
   length 240
@@ -102,7 +95,12 @@ phoneme e
 endphoneme
 
 
-phoneme y          // this is the same as [i] for Brazil
+phoneme y             // For Brazil, redirects reduced [i]; For Portugal, central [i].
+  vwl starttype #i endtype #i
+  ChangePhoneme(I)
+endphoneme
+
+phoneme I
   vwl starttype #i endtype #i
   ipa ɪ
   length 110
@@ -110,6 +108,13 @@ phoneme y          // this is the same as [i] for Brazil
   FMT(vowel/ii_6)
 endphoneme
 
+phoneme I-            // very short [i] used for epenthesis
+  vwl starttype #i endtype #i
+  ipa NULL
+  unstressed
+  length 50
+  FMT(vowel/ii_6)
+endphoneme
 
 phoneme i/            // changes to [j] before a vowel
   vwl starttype #i endtype #i
