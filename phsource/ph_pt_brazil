@@ -215,15 +215,25 @@ endphoneme
 
 phoneme *
   vcd alv stp
-  lengthmod 6
+  lengthmod 4
   ipa ɾ
   Vowelin f1=1  f2=1700 -300 300  f3=0 80
   Vowelout f1=2 f2=1700 -300 300  f3=0 80
-  IF PreVoicing THEN
-    FMT(d/x_tap)
+
+  IF prev2PhW(isNotVowel) AND prevPhW(@-) THEN
+    FMT(r3/@tap2) addWav(x/d, 40)
   ENDIF
   FMT(d/tap2) addWav(x/d, 40)
 endphoneme
+
+phoneme @-     // Short schwa to make weak /r/
+  vwl starttype #@  endtype #@
+  unstressed nsy
+  ipa NULL
+  length 20
+  FMT(vowel/@-)
+endphoneme
+
 
 phoneme t
   vls dnt stp
