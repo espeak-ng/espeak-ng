@@ -237,6 +237,26 @@ phoneme t
   WAV(ustop/t_hard, 60)
 endphoneme
 
+phoneme d
+  vcd dnt stp
+  lengthmod 5
+  voicingswitch t
+  Vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  Vowelout f1=2 f2=1500 -300 300  f3=-150 80
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ELIF nextPh(isRhotic) THEN
+    FMT(d/dr) addWav(x/d_dnt, 60)
+  ENDIF
+
+  FMT(d/d) addWav(x/d_dnt, 60)
+endphoneme
+
 phoneme k
   vls vel stp
   lengthmod 2
