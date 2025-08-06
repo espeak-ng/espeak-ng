@@ -409,6 +409,8 @@ mérlege $alt3
 előestéjén $alt3
 sorozatban $alt3
 éjszakája $alt3
+hajnalán $alt3
+hajnalát $alt3
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -1055,6 +1057,8 @@ repült	$unstressend
 gyújt	$unstressend
 hajt	$unstressend
 köp	$unstressend
+(nem azt látni)	$unstressend
+(azt látni)	$unstressend
 látni	$unstressend
 sült	$unstressend
 roncs	$unstressend
@@ -2767,7 +2771,6 @@ gyötörte	$unstressend
 ismerve	$unstressend
 fognia	$unstressend
 (mint azt látni)	$unstressend
-(azt látni)	$unstressend
 fontosak	$unstressend
 futni	$unstressend
 például	$unstressend $alt3
