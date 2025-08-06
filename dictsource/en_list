@@ -2395,7 +2395,7 @@ lavender	lav@nd3
 le		l@_|            $only
 lead		li:d
 leafy		li:fi
-(lean-to)	li:n||tu:
+(lean-to)	li:n||tu:   $noun
 leant		lEnt
 leapt		lEpt
 learned		l3:nI2#d		$noun	// adjective
@@ -5423,7 +5423,7 @@ haves            havz
 has              %ha#z		$pastf $only
 has              haz		$only $atend
 (has been)       %ha#z%bIn	$pastf
-(has-been)       hazbi:n   
+(has-been)       hazbi:n	$noun
 (has to)         haztu:		$atend
 (has not)        h@zn%0t	$pastf
 (has not)        ha#zn0t	$pastf $atend
