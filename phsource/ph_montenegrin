@@ -87,6 +87,12 @@ phoneme o
   FMT(vowel/oo_1)
 endphoneme
 
+phoneme O
+  vwl starttype #o endtype #o
+  length 180
+  FMT(vowel/oo_5)
+endphoneme
+
 phoneme u
   vwl starttype #u endtype #u
   length 140
