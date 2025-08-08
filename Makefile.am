@@ -459,8 +459,8 @@ dictionaries: \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/chr_dict \
 	espeak-ng-data/cmn_dict \
-        espeak-ng-data/cnr_dict \
-        espeak-ng-data/crh_dict \
+    espeak-ng-data/cnr_dict \
+    espeak-ng-data/crh_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
