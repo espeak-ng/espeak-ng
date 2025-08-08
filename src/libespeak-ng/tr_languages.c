@@ -616,6 +616,29 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM | S_FINAL_DIM_ONLY | S_EO_CLAUSE1;
 	}
 		break;
+	case L3('c', 'n', 'r'): // Montenegrin
+	{
+		static const unsigned char stress_amps_cnr[8] = { 17, 17, 20, 20, 20, 22, 22, 21 };
+		static const short stress_lengths_cnr[8] = { 180, 160, 200, 200, 0, 0, 220, 230 };
+
+		SetupTranslator(tr, stress_lengths_sr, stress_amps_cnr);
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
+
+		tr->langopts.stress_rule = STRESSPOSN_1L;
+		tr->langopts.stress_flags = S_FINAL_NO_2;
+		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
+		tr->langopts.max_initial_consonants = 5;
+		tr->langopts.spelling_stress = true;
+		tr->langopts.accents = 1;
+
+		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_CAPITALS;
+		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR5;
+		tr->langopts.our_alphabet = OFFSET_CYRILLIC; // don't say "cyrillic" before letter names
+
+		SetLetterVowel(tr, 'y');
+		SetLetterVowel(tr, 'r');
+	}
+		break;
 	case L('c', 'y'): // Welsh
 	{
 		static const short stress_lengths_cy[8] = { 170, 220, 180, 180, 0, 0, 250, 270 };

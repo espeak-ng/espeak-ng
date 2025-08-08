@@ -1,0 +1,254 @@
+// ***************************************************************************/ 
+// *   Montenegrin Language cnr ph_montenegrin                               *
+// *   Original Author Andy Vladescu, 2025                                   *
+// *   Contact info: andyvladescu770@gmail.com                               *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
+//========
+// Vowels
+//========
+
+phoneme @    //  Schwa
+  vwl starttype #@  endtype #@
+  length 140
+  FMT(vowel/@_hgh)
+endphoneme
+
+phoneme @2    //  Schwa (raised)
+  vwl starttype #@  endtype #@
+  length 140
+  FMT(vowel/@_fnt)
+endphoneme
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 160
+  ChangeIfNotStressed(&)
+  FMT(vowel/a)
+endphoneme
+
+phoneme A          // 'a' before 'r', doesn't reduce to [&]
+  vwl starttype #a endtype #a
+  length 160
+  FMT(vowel/a)
+endphoneme
+
+phoneme &
+  vwl starttype #a endtype #a
+  length 140
+  FMT(vowel/a#_2)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 140
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 140
+  FMT(vowel/e)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 120
+  ChangeIfNotStressed(I)
+  IfNextVowelAppend(;)
+  FMT(vowel/i_6)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  length 120
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 140
+  FMT(vowel/oo_1)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 140
+  ChangeIfNotStressed(U)
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  length 140
+  FMT(vowel/u_2)
+endphoneme
+
+
+//============
+// Diphthongs
+//============
+
+phoneme aI
+  vwl starttype #a endtype #i
+  length 250
+  FMT(vdiph/ai)
+endphoneme
+
+
+//============
+// Consonants
+//============
+
+
+phoneme S  // this is letter š
+  vls pla frc sib
+  lengthmod 3
+  voicingswitch Z
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+  IF nextPh(isPause2) THEN
+    WAV(ufric/sh3, 90)
+  ENDIF
+  WAV(ufric/sh3, 110)
+endphoneme
+
+phoneme tS  // this is letter č
+  vls pla afr sib
+  lengthmod 2
+  voicingswitch dZ
+  Vowelin f1=0  f2=1900 100 200  f3=-100 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh2, 40)
+  ENDIF
+  WAV(ustop/tsh2, 50)
+endphoneme
+
+phoneme tS;  // this is letter ć
+  vls alp sib afr
+  ipa tɕ
+  lengthmod 2
+  voicingswitch dZ;
+  Vowelin f1=0  f2=2500 300 500  f3=300 80 rate len=70
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_pzd3, 50)
+  ENDIF
+  WAV(ustop/ts_pzd3, 50)
+endphoneme
+
+phoneme Z    // letter ž
+  vcd pla frc sib
+  lengthmod 6
+  voicingswitch S
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh_) addWav(ufric/sh3, 80)
+  ENDIF
+  FMT(voc/zh) addWav(ufric/sh3, 150)
+endphoneme
+
+phoneme dZ    //letter dž
+  vcd pla afr sib
+  lengthmod 5
+  voicingswitch tS
+  Vowelin f1=2  f2=1900 100 300  f3=100 80
+  Vowelout f1=2  f2=1900 100 300  f3=100 80 brk
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(ustop/tsh2, 50)
+  ENDIF
+  FMT(dzh/dzh2) addWav(ustop/tsh2, 80)
+endphoneme
+
+phoneme dZ;    // letter đ
+  vcd alp sib afr
+  lengthmod 5
+  ipa dʑ
+  voicingswitch tS;
+  Vowelin f1=2  f2=2500 300 500  f3=300 80 rate len=70
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(ustop/ts_pzd3, 50)
+  ENDIF
+  FMT(dzh/dzh2) addWav(ustop/ts_pzd3, 80)
+endphoneme
+
+phoneme t        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme d
+  vcd alv stp
+  lengthmod 5
+  voicingswitch t
+  Vowelin f1=2  f2=1700 -300 300  f3=-100 80 amp=16
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ELIF nextPh(r) THEN
+    FMT(d/dr) addWav(x/d)
+  ENDIF
+
+  FMT(d/d) addWav(x/d, 50)
+endphoneme
+
+phoneme x
+  vls vel frc
+  lengthmod 3
+  voicingswitch Q
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  WAV(ufric/x_hr, 45)
+endphoneme
+
+phoneme R
+  import_phoneme base1/R
+endphoneme
+
+phoneme r*
+  vwl nsy
+  unstressed
+  ipa  NULL
+  length 50
+  starttype #@  endtype #@
+  AppendPhoneme(*)
+  FMT(vowel/@-)
+endphoneme
