@@ -1,0 +1,124 @@
+//===================================================================
+// Aromanian
+//===================================================================
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 180
+  FMT(vowel/a)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  ipa e
+  length 180
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  ipa i
+  length 150
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 170
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 160
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  ipa ə
+  length 170
+  FMT(vowel/@_low)
+endphoneme
+
+phoneme y
+  vwl starttype #@ endtype #@
+  ipa ɨ
+  length 180
+  FMT(vowel/i#_5)
+endphoneme
+
+
+// Diphthongs
+
+phoneme ea
+  vwl starttype #e endtype #a
+  ipa e̯a
+  length 250
+  FMT(vdiph2/ea)
+endphoneme
+
+phoneme Oa
+  vwl starttype #o endtype #a
+  ipa o̯a
+  length 250
+  FMT(vdiph2/oa)
+endphoneme
+
+phoneme oU
+  vwl starttype #o endtype #u
+  ipa ou̯
+  length 260
+  FMT(vdiph/ou_2)
+endphoneme
+
+phoneme iI
+  vwl starttype #i endtype #i
+  ipa ij
+  length 250
+  FMT(vdiph/ii)
+endphoneme
+
+
+// Consonants
+
+phoneme dz
+  import_phoneme consonants/dz
+endphoneme
+
+phoneme c
+  ipa kˈ
+  vls pal stp
+  lengthmod 2
+  Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
+  Vowelout f1=0  f2=2700 300 500  f3=300 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ki, 80)
+  ENDIF
+  WAV(ustop/ki)
+endphoneme
+
+phoneme J
+  ipa gˈ
+  vcd pla stp
+  lengthmod 5
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF KlattSynth THEN
+    FMT(klatt/dz_pzd) addWav(ustop/ki, 60)
+  ENDIF
+
+
+  FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
+endphoneme

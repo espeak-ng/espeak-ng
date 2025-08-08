@@ -540,6 +540,20 @@ Translator *SelectTranslator(const char *name)
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
 		SetArabicLetters(tr);
 		break;
+	case L3('r', 'u', 'p'): // Aromanian
+	{
+		static const short stress_lengths_rup[8] = { 170, 170,  180, 180,  0, 0,  240, 260 };
+		static const unsigned char stress_amps_rup[8] = { 15, 13, 18, 18, 20, 22, 22, 21 };
+
+		SetupTranslator(tr, stress_lengths_rup, stress_amps_rup);
+
+		tr->langopts.stress_rule = STRESSPOSN_1R;
+		tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY;
+
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3;
+	}
+		break;
 	case L('b', 'e'): // Belarusian
 	{
 		static const unsigned char stress_amps_be[8] = { 12, 10, 8, 8, 0, 0, 16, 17 };

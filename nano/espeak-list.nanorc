@@ -1,0 +1,28 @@
+# Nano syntax file
+# Language:	eSpeak Dictionary List Files
+# Filenames:    *_list, *_listx, *_extra, *_emoji
+#
+
+syntax "espeak-list" "_(list|listx|extra|emoji)$"
+
+# Words or phrases, e.g.: a-word (a phrase)
+color lightcyan "^([[:space:]]*\?[!]?[[:digit:]])?([[:space:]]*([^[:space:]]+|[(]([[:space:]]*[^[:space:])]+[[:space:]]*)+[)]))"
+
+# Flags, e.g.: $verb, $alt
+color lightred "\$[^[:space:]]+"
+
+# Conditionals, e.g.: ?1, $!2
+color lightred "^([[:space:]]*\?[!]?[[:digit:]])"
+
+# Other languages, e.g.: _^_FR _^_DE
+color lightyellow "_\^_[^[:space:]]{2}"
+
+# Comments, e.g.: // comment
+color italic,lightblue "[[:space:]]*\/\/.*$"
+
+# TODO, FIXME, XXX
+color black,lightyellow "(TODO|FIXME|XXX)"
+
+# Spaces at end of lines
+color ,lightgreen "[[:space:]]+$"
+
