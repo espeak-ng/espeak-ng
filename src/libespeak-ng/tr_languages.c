@@ -635,7 +635,7 @@ Translator *SelectTranslator(const char *name)
 		static const unsigned char stress_amps_cnr[8] = { 17, 17, 20, 20, 20, 22, 22, 21 };
 		static const short stress_lengths_cnr[8] = { 180, 160, 200, 200, 0, 0, 220, 230 };
 
-		SetupTranslator(tr, stress_lengths_sr, stress_amps_cnr);
+		SetupTranslator(tr, stress_lengths_cnr, stress_amps_cnr);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
