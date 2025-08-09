@@ -182,6 +182,9 @@
   <Target Name="gd" Inputs="$(ProjectDir)..\..\dictsource\gd_rules;$(ProjectDir)..\..\dictsource\gd_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\gd_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gd" />
   </Target>
+  <Target Name="gl" Inputs="$(ProjectDir)..\..\dictsource\gl_rules;$(ProjectDir)..\..\dictsource\gl_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\gl_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gl" />
+  </Target>
   <Target Name="gn" Inputs="$(ProjectDir)..\..\dictsource\gn_rules;$(ProjectDir)..\..\dictsource\gn_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\gn_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gn" />
   </Target>
