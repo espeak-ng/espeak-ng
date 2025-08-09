@@ -317,3 +317,23 @@ phoneme g
   FMT(g2/g) addWav(x/g2, 80)
 endphoneme
 
+
+phoneme X
+  vls uvl frc
+  voicingswitch g"
+  lengthmod 6
+  ipa χ
+  WAV(ufric/xx, 60)
+endphoneme
+
+phoneme g"
+  vcd uvl frc
+  lengthmod 6
+  ipa ʁ
+  FMT(voc/Q_ulv) addWav(ufric/xx, 80)
+endphoneme
+
+phoneme R#           // special phoneme for [X] (pt-br) or [g"] (pt-pt)
+  vls uvl frc
+  ChangePhoneme(X)
+endphoneme
