@@ -3,6 +3,9 @@
 //  Portuguese  - based on Base2
 //====================================================
 
+// This phonemes file is refered as "pt" in language and voice files.
+// The phonemes defined here are also used in the file `ph_portugal`.
+
 phoneme e~
   vwl starttype #e endtype #e
   length 240
@@ -95,12 +98,8 @@ phoneme e
 endphoneme
 
 
-phoneme y             // For Brazil, redirects reduced [i]; For Portugal, central [i].
-  vwl starttype #i endtype #i
-  ChangePhoneme(I)
-endphoneme
 
-phoneme I
+phoneme I            // unstressed /i/ in Brazil
   vwl starttype #i endtype #i
   ipa ɪ
   length 110
@@ -108,7 +107,18 @@ phoneme I
   FMT(vowel/ii_6)
 endphoneme
 
-phoneme I-            // very short [i] used for epenthesis
+phoneme i"           // unstressed /i/ in Portugal
+  vwl starttype #@ endtype #@
+  length 130
+  ipa ɨ
+  FMT(vowel/i#_5)
+endphoneme
+
+phoneme y            // special phoneme for [I] (pt-br) or [i"] (pt-pt)
+  import_phoneme pt/I
+endphoneme
+
+phoneme I-           // very short [i] used for epenthesis
   vwl starttype #i endtype #i
   ipa NULL
   unstressed
@@ -116,7 +126,7 @@ phoneme I-            // very short [i] used for epenthesis
   FMT(vowel/ii_6)
 endphoneme
 
-phoneme i/            // changes to [j] before a vowel
+phoneme i/           // changes to [j] before a vowel
   vwl starttype #i endtype #i
   length 150
   IF nextPh(isVowel) THEN
@@ -125,7 +135,6 @@ phoneme i/            // changes to [j] before a vowel
   IfNextVowelAppend(;)
   FMT(vowel/ii_6)
 endphoneme
-
 
 phoneme O
   vwl starttype #o endtype #o
