@@ -206,15 +206,6 @@ phoneme l
 endphoneme
 
 
-phoneme x
-  CALL base1/h
-  ipa x
-endphoneme
-
-
-phoneme r-
-  import_phoneme en/r-
-endphoneme
 
 
 phoneme s#     // This is [s] for Brazil, [S] for Portugal
@@ -227,26 +218,7 @@ phoneme s#     // This is [s] for Brazil, [S] for Portugal
 endphoneme
 
 
-phoneme *
-  vcd alv stp
-  lengthmod 4
-  ipa ɾ
-  Vowelin f1=1  f2=1700 -300 300  f3=0 80
-  Vowelout f1=2 f2=1700 -300 300  f3=0 80
 
-  IF prev2PhW(isNotVowel) AND prevPhW(@-) THEN
-    FMT(r3/@tap2) addWav(x/d, 40)
-  ENDIF
-  FMT(d/tap2) addWav(x/d, 40)
-endphoneme
-
-phoneme @-     // Short schwa to make weak /r/
-  vwl starttype #@  endtype #@
-  unstressed nsy
-  ipa NULL
-  length 20
-  FMT(vowel/@-)
-endphoneme
 
 
 phoneme t
@@ -318,22 +290,49 @@ phoneme g
 endphoneme
 
 
-phoneme X
-  vls uvl frc
-  voicingswitch g"
-  lengthmod 6
+
+phoneme x            // old strong /R/ kept for retrocompatibility
+  CALL base1/h
+  ipa x
+endphoneme
+
+phoneme X            // to be used in dialects such as from Rio
+  CALL base1/X
   ipa χ
-  WAV(ufric/xx, 60)
 endphoneme
 
-phoneme g"
-  vcd uvl frc
-  lengthmod 6
+phoneme Q"           // to be used in dialects such as from Lisbon
+  CALL base1/Q"
   ipa ʁ
-  FMT(voc/Q_ulv) addWav(ufric/xx, 80)
 endphoneme
 
-phoneme R#           // special phoneme for [X] (pt-br) or [g"] (pt-pt)
-  vls uvl frc
-  ChangePhoneme(X)
+phoneme *            // used for weak /r/ in coda or complex onset
+  vcd alv flp rhotic
+  lengthmod 3
+  ipa ɾ
+  Vowelin f1=1  f2=1700 -300 300  f3=0 80
+  Vowelout f1=2 f2=1700 -300 300  f3=0 80
+
+  IF prev2PhW(isNotVowel) AND prevPhW(@-) THEN
+    FMT(r3/@tap2) addWav(x/d, 30)
+  ENDIF
+  FMT(d/tap2) addWav(x/d, 30)
 endphoneme
+
+phoneme @-           // short schwa used with weak /r/
+  vwl starttype #@  endtype #@
+  unstressed nsy
+  ipa NULL
+  length 20
+  FMT(vowel/@-)
+endphoneme
+
+phoneme r-           // used for English words such as "software"
+  import_phoneme en/r-
+endphoneme
+
+phoneme R#           // special phoneme for strong /R/
+  vls glt frc
+  ChangePhoneme(h)
+endphoneme
+
