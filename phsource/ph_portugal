@@ -141,10 +141,6 @@ phoneme x            // old strong /R/ kept for retrocompatibility
   FMT(vwl_fr/@R) addWav(r3/rx, 120)
 endphoneme
 
-phoneme R    // for Portugal this is same the as [r]
-  import_phoneme pt/r
-endphoneme
-
 phoneme R#
   vcd uvl frc
   ChangePhoneme(Q")
