@@ -249,7 +249,7 @@ phoneme d
 
   IF nextPh(isPause2) THEN
     FMT(d/d_) addWav(x/d_)
-  ELIF nextPh(@-) AND next2PhW(*) THEN
+  ELIF nextPhW(*) THEN
     FMT(d/d) addWav(x/d_dnt, 80)
   ENDIF
 
@@ -267,9 +267,9 @@ phoneme k
     WAV(ustop/k_)
   ELIF nextPh(#i) OR nextPh(;) THEN
     WAV(ustop/ki)
-  ELIF nextPh(@-) AND next2PhW(*) THEN
+  ELIF nextPhW(*) THEN
     WAV(ustop/k_unasp, 80)
-  ELIF nextPh(l) THEN
+  ELIF nextPhW(l) THEN
     WAV(ustop/k_unasp, 80)
   ENDIF
   WAV(ustop/k_unasp, 60)
@@ -316,7 +316,8 @@ phoneme *            // used for weak /r/ in coda or complex onset
   Vowelin f1=1  f2=1700 -300 300  f3=0 80
   Vowelout f1=2 f2=1700 -300 300  f3=0 80
 
-  IF prev2PhW(isNotVowel) AND prevPhW(@-) THEN
+  IF prevPhW(isNotVowel) AND nextPhW(isVowel) THEN
+    InsertPhoneme(@-)
     FMT(r3/@tap2) addWav(x/d, 40)
   ENDIF
 
