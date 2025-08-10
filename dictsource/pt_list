@@ -1388,7 +1388,7 @@ drive	dR'aIv
 ?2 enter	'eNter
 ?2 esc     'Esk
 ?3 esc     'EskI
-?1 explorer   ,ekspl'O:*&r-
+?1 explorer   ,ekspl'O:*&r
 ?2        Explorer        ekspl'O*er
 ?1 eyes       'aiz
 ?2 eyes       'aIs
@@ -1406,8 +1406,8 @@ get   gEt
 ?2 google     g'ugol
 ?2 habeas	'abe&s
 ?2 handebol	hendZyb'Ow
-?1 hardware   'ard,w'Er-
-?2 hardware   h'ardwe@-
+?1 hardware   'ard,w'Er
+?2 hardware   h'ardwer
 happy  x'Epy
 ?2 haxixe	xaS'iSy
 ?1 home       'omy
@@ -1465,8 +1465,8 @@ shake	S'eIk
 ?2 shopping	S'OpiN
 ?2 slide		zl'aIdZy
 ?4 símbolo	s'iNbolU
-?1   software   s'Oft,w'Er-
-?2   software   s'Oftwe@-
+?1   software   s'Oft,w'Er
+?2   software   s'Oftwer
 ?1 space      sp'eIsy
 ?2 space      sp'eIs
 ?1 sporting   sp'Ort,ing
@@ -1519,10 +1519,10 @@ lady	l'eIdy
 ?2 linux       l'inUks
  live        l'aiv
  ?2 lobby	$alt
-?1 maker       m'eIk&r-
+?1 maker       m'eIk&r
 mac  mEk
 ?1 media       m'Ed,i&
-?1 messenger   m'Es&ndZ&r-
+?1 messenger   m'Es&ndZ&r
 ?1 microsoft   m,ik:r'os,Oft
 ?2 microsoft   m'aIkRows'Oft
 ?1 movie       m'uvi
@@ -1536,15 +1536,15 @@ mac  mEk
 ?1 outlook     'autl'uk
 ?2        Outlook        ,aUtl'uk
 ?1 paint       p'aint
-?1 player      pl'eI&r-
+?1 player      pl'eI&r
 ?1   playstation	_^_EN
 ?2   playstation	pleIst'eIS&~N
  point       p'oint
-?1 power       p'aU&r-
+?1 power       p'aU&r
 ?2 power	p'aUEr
 ?1 product     p:r'&d&kt
-?1 Publisher   p'&bl,iS&r-
-?1 reader      r'id,&r-
+?1 Publisher   p'&bl,iS&r
+?1 reader      r'id,&r
 ?1 setup       s'Et'&p
 ?1 scout       sk'aut // Nero scout       
 ?1 skype       sk'aip
