@@ -146,6 +146,10 @@ phoneme R#
   ChangePhoneme(Q")
 endphoneme
 
+phoneme r#
+  vcd alv flp rhotic
+  ChangePhoneme(*)
+endphoneme
 
 
 phoneme s#     // This is [s] for Brazil, [S] for Portugal

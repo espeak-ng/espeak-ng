@@ -340,3 +340,8 @@ phoneme R#           // special phoneme for strong /R/
   ChangePhoneme(h)   // this glotal rhotic has coarticulation with vowels
 endphoneme
 
+phoneme r#           // special phoneme for weak /r/
+  vcd alv flp rhotic
+  ChangePhoneme(*)   // the alveolar tap is predominant in Sao Paulo
+endphoneme
+
