@@ -129,7 +129,8 @@ phoneme w
 endphoneme
 
 
-phoneme x      // [r] for Portugal
+
+phoneme x            // old strong /R/ kept for retrocompatibility
   liquid trl
   ipa ʁ
   lengthmod 7
@@ -140,10 +141,15 @@ phoneme x      // [r] for Portugal
   FMT(vwl_fr/@R) addWav(r3/rx, 120)
 endphoneme
 
-
 phoneme R    // for Portugal this is same the as [r]
   import_phoneme pt/r
 endphoneme
+
+phoneme R#
+  vcd uvl frc
+  ChangePhoneme(Q")
+endphoneme
+
 
 
 phoneme s#     // This is [s] for Brazil, [S] for Portugal
@@ -156,7 +162,3 @@ endphoneme
 
 
 
-phoneme R#
-  vcd uvl frc
-  ChangePhoneme(g")
-endphoneme
