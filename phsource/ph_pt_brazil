@@ -246,8 +246,8 @@ phoneme d
 
   IF nextPh(isPause2) THEN
     FMT(d/d_) addWav(x/d_)
-  ELIF nextPh(isRhotic) THEN
-    FMT(d/dr) addWav(x/d_dnt, 60)
+  ELIF nextPh(@-) AND next2PhW(*) THEN
+    FMT(d/d) addWav(x/d_dnt, 80)
   ENDIF
 
   FMT(d/d) addWav(x/d_dnt, 60)
@@ -262,14 +262,14 @@ phoneme k
 
   IF nextPh(isPause2) THEN
     WAV(ustop/k_)
-  ELIF nextPh(isRhotic) THEN
-    WAV(ustop/kr)
   ELIF nextPh(#i) OR nextPh(;) THEN
     WAV(ustop/ki)
+  ELIF nextPh(@-) AND next2PhW(*) THEN
+    WAV(ustop/k_unasp, 80)
   ELIF nextPh(l) THEN
-    WAV(ustop/kl)
+    WAV(ustop/k_unasp, 80)
   ENDIF
-  WAV(ustop/k_unasp, 30)
+  WAV(ustop/k_unasp, 60)
 endphoneme
 
 phoneme g
@@ -314,12 +314,12 @@ phoneme *            // used for weak /r/ in coda or complex onset
   Vowelout f1=2 f2=1700 -300 300  f3=0 80
 
   IF prev2PhW(isNotVowel) AND prevPhW(@-) THEN
-    FMT(r3/@tap2) addWav(x/d, 30)
+    FMT(r3/@tap2) addWav(x/d, 40)
   ENDIF
-  FMT(d/tap2) addWav(x/d, 30)
+  FMT(d/tap2) addWav(x/d, 40)
 endphoneme
 
-phoneme @-           // short schwa used with weak /r/
+phoneme @-           // short schwa used along with weak /r/
   vwl starttype #@  endtype #@
   unstressed nsy
   ipa NULL
@@ -328,7 +328,7 @@ phoneme @-           // short schwa used with weak /r/
 endphoneme
 
 phoneme R#           // special phoneme for strong /R/
-  vls glt frc
-  ChangePhoneme(h)
+  vls glt frc rhotic
+  ChangePhoneme(h)   // this glotal rhotic has coarticulation with vowels
 endphoneme
 
