@@ -319,6 +319,10 @@ phoneme *            // used for weak /r/ in coda or complex onset
   IF prev2PhW(isNotVowel) AND prevPhW(@-) THEN
     FMT(r3/@tap2) addWav(x/d, 40)
   ENDIF
+
+  IF nextPhW(isNotVowel) THEN
+    AppendPhoneme(@-)
+  ENDIF
   FMT(d/tap2) addWav(x/d, 40)
 endphoneme
 
