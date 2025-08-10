@@ -327,10 +327,6 @@ phoneme @-           // short schwa used with weak /r/
   FMT(vowel/@-)
 endphoneme
 
-phoneme r-           // used for English words such as "software"
-  import_phoneme en/r-
-endphoneme
-
 phoneme R#           // special phoneme for strong /R/
   vls glt frc
   ChangePhoneme(h)
