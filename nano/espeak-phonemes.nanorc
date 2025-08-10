@@ -44,7 +44,7 @@ color lightcyan "\<(hgh|smh|umd|mid|lmd|sml|low|fnt|cnt|bck|unr|rnd)\>"
 color lightcyan "\<(egs|igs|brv|slv|stv|crv|glc|ptr|cmp|mrd|lrd|syl|nsy|asp|nrs|lrs|unx|pzd|vzd|fzd|nzd|rzd|atr|rtr|fts|lns|est|hlg|lng|elg)\>"
 
 # Phoneme instructions
-color lightcyan "\<(length|ipa|VowelStart|VowelEnding|Vowelin|Vowelout|IfNextVowelAppend)\>"
+color lightcyan "\<(length|ipa|VowelStart|VowelEnding|Vowelin|Vowelout|IfNextVowelAppend|InsertPhoneme|AppendPhoneme)\>"
 
 # Phoneme instructions of change
 color lightmagenta "\<(ChangePhoneme|ChangeIfDiminished|ChangeIfUnstressed|ChangeIfNotStressed|ChangeIfStressed|import_phoneme)\>"
