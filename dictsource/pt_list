@@ -104,8 +104,8 @@ _&	'e
 _(	,abRipa*'eINtezy
 ?1   ¶	pa*'agr&fU
 ?2   ¶	pa*'agR&fU
-●	s'i*@-kulU
-■	b'ax&ve*@-tSik'aUko*@-tad&
+●	s'i*kulU
+■	b'ax&ve*tSik'aUko*tad&
 ?1  ÷	divid'idUp'or
 ?2  ÷	dZividZ'idUp'or
  ×	v'ezys#
@@ -117,19 +117,19 @@ _−	m'enUs
 №	n'u~me*U
 ∞	iNfin'itU
 ∫	iNtegR'aU
-⅓	u~Nt'e*@-sU
-⅔	doIs#t'e*@-sUs#
-¼	u~Nku'a*@-tU
+⅓	u~Nt'e*sU
+⅔	doIs#t'e*sUs#
+¼	u~Nku'a*tU
 ½	m'eIU
-¾	tRes#kw'a*@-tUs#
+¾	tRes#kw'a*tUs#
 ®	xeZistR'adU
 ↑	s'Et&as'im&
 ↓	s'Et&ab'aISU
-←	s'Et&aes#k'e*@-d&
+←	s'Et&aes#k'e*d&
 ?2 →	s'Et&adZi*eIt&
 
-?1  ™	m'a*@-k&xeZiSt'ad&
-?2  ™	m'a*@-k&xeZistR'ad&
+?1  ™	m'a*k&xeZiSt'ad&
+?2  ™	m'a*k&xeZistR'ad&
 _,	v'irgul&
 _-	'ifeIN
 _/	b'aQ&
@@ -158,10 +158,10 @@ _¡	,eskl&mas,&U~,iNvertS'id&
 _¿	,iNtex,ogas,&U~,iNvertS'id&
 
 _"	'abRi;'asp&||d'upl&s#
-?1   º	O*@-din'almaskul'i~nU
-?2   º	o*@-dZin'aUmaskul'i~nU
-?1   ª	O*@-din'alfemin'i~nU
-?2   ª	o*@-dZin'aUfemin'i~nU
+?1   º	O*din'almaskul'i~nU
+?2   º	o*dZin'aUmaskul'i~nU
+?1   ª	O*din'alfemin'i~nU
+?2   ª	o*dZin'aUfemin'i~nU
 °	gR'aU
 
 
@@ -190,8 +190,8 @@ _11	'oNzy
 _12	d'ozy
 ?1_13	tr'ezy
 ?2_13	tR'ezy
-?1_14	k&t'orzy
-?2_14	kat'o*@-zy
+?1_14	k&t'o*zy
+?2_14	kat'o*zy
 _15	k'iNzy
 ?1_16	dyz&s'eis#
 ?2_16	d,ezes'eIs#
@@ -249,8 +249,8 @@ _ord	o
 
 _1o	pRim'eI*
 _2o	seg'u~Nd
-_3o	te*@-s'eI*
-_4o	kw'a*@-t
+_3o	te*s'eI*
+_4o	kw'a*t
 _5o	k'iNt
 _6o	s'est
 _7o	s'EtSim
@@ -1002,8 +1002,8 @@ evangelho	$alt
 exagero		$alt $verb
 exegeses	$alt
 exorto		$alt
-?2 expert	Eksp'E*@-t
-?2 experts	Eksp'E*@-ts
+?2 expert	Eksp'E*t
+?2 experts	Eksp'E*ts
 explore		$alt
 falangeta	$alt2
 farofa		$alt
@@ -1433,7 +1433,7 @@ laptop	lEpt'Op
         mails        m'eIls
 ?1 marketing	m'arktiN
 ?2 marketing	m'arketSiN
-?2  master	m'aste*@-
+?2  master	m'aste*
 ?2        mouse        m'aUzi
 ?1 menu       menu
 mickey	m'ikeI
@@ -1502,7 +1502,7 @@ baby	b'eIby
 ?2 campari	k&mp'a*y
 ?1 chrome	kr'owm
 ?2 chrome  kR'owmi
-corpus	k'O*@-pUs#
+corpus	k'O*pUs#
    debian      d'Ebj&~N
 ?1 excel       ,Eks'El
 ?1 express     ,Ekspr'Es
@@ -1549,7 +1549,7 @@ mac  mEk
 ?1 scout       sk'aut // Nero scout       
 ?1 skype       sk'aip
 ?2        Skype        sk'aIp
-        Slackware   sl'akwe@-
+        Slackware   sl'akwer
 ?1 smart       sm'art // nero StartSmart
 ?2   society   sos'aIty
    speak       spi:k

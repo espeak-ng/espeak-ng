@@ -1002,15 +1002,15 @@ _redar) gu (A      gw
      p) ostos (_A  Ost=Uz    // dispostos etc.
 ?1   p) ostos (_G  Ost=UZ    // dispostos etc.
 ?2   p) ostos (_G  Ost=Uz    // dispostos etc.
-        ortos (_   'O*@-tUs
-        ortos (_A  'O*@-tUz
-?1      ortos (_G  'O*@-tUZ
-?2      ortos (_G  'O*@-tUz
+        ortos (_   'O*tUs
+        ortos (_A  'O*tUz
+?1      ortos (_G  'O*tUZ
+?2      ortos (_G  'O*tUz
         ovos (_    Ov=Us#    novos, povos, etc.
         ovos (_A   Ov=Uz     novos, povos, etc.
 ?1      ovos (_G   Ov=UZ     novos, povos, etc.
 ?2      ovos (_G   Ov=Uz     novos, povos, etc.
-        ortos (_   O*@-t=Us# // tortos, mortos, etc.
+        ortos (_   O*t=Us# // tortos, mortos, etc.
   _Gar) o (tL08_   o
  _escr) o (tL08_   o
    zig) o (to_     o
@@ -1115,11 +1115,11 @@ _ortod) o (xL08_   O
      _) r (_       'Exe
         r          *
         r (_       *
-        r (C       *@-
+        r (C       *
      A) r (A       *
         r (_A      *
         r (_h      *
-     C) r (A       @-*
+     C) r (A       *
         rr         x
      _) r          x
      l) r (A       x
