@@ -59,6 +59,10 @@ test_phon bs "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE
 test_phon ca "d'on@ @m'oR k@ s@**'as f@l'is
 si n'o @nz @nt@n'Em p@** l^@Ngw'adZ@
 @nt@Ng'Emnus p@** @m'oR" "Dóna amor que seràs feliç. Si no ens entenem per llenguatge, entenguem-nos per amor." "Latn"
+test_phon cnr "sv'a l^'utsk& b'itS;& r**'adZ;AjU s'E sl'obodn&_:_: I j'edn&k&_! U d'ostoj,&nstvU_:_: I pr**'avIm&
+'on& sU 'obdAR,En& r**'azUmom_:_: I s'avjeStS;U I j'ednI pr**'Em& dr**'ugIm& tr**'Eb& d'a p'ostUp,AjU_! U d'uhU br**'atstv&" "Сва људска бића рађају се слободна и једнака у достојанству и правима. Она су обдарена разумом и савјешћу и једни према другима треба да поступају у духу братства." "Cyrl"
+test_phon cnr "sv'a l^'utsk& b'itS;& r**'adZ;AjU s'E sl'obodn&_:_: I j'edn&k&_! U d'ostoj,&nstvU_:_: I pr**'avIm&
+'on& sU 'obdAR,En& r**'azUmom_:_: I s'avjeStS;U I j'ednI pr**'Em& dr**'ugIm& tr**'Eb& d'a p'ostUp,AjU_! U d'uhU br**'atstv&" "Sva ljudska bića rađaju se slobodna i jednaka u dostojanstvu i pravima. Ona su obdarena razumom i savješću i jedni prema drugima treba da postupaju u duhu bratstva." "Latn"
 test_phon cs "n'exc j'iS hR^'i:Sne: s'aksof,oni J'a:blu: R'ozezv,utSi: s'i:n^ 'u:Jesn,i:mi t'o:ni v'aldzu
 t'aNga_! a kv'itskstepu
 pR^'i:liZ Zl'ucoUtSki: k'u:n^ 'u:pjel J'a:belske: 'o:di" "Nechť již hříšné saxofony ďáblů rozezvučí síň úděsnými tóny waltzu, tanga a quickstepu. Příliš žluťoučký kůň úpěl ďábelské ódy." "Latn"

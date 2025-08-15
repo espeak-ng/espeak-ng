@@ -1686,6 +1686,9 @@ include ph_bashkir
 phonemetable cmn base1
 include ph_cmn
 
+phonemetable cnr base1
+include ph_montenegrin
+
 phonemetable crh base1
 include ph_crimean_tatar
 
