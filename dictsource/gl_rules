@@ -1,0 +1,251 @@
+// This file is UTF-8 encoded
+// translation rules for Galician
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
+
+
+.L01 l r y
+.L02 b d g n m         // change [s] to [z] before these
+.L03 f h j r s y z       // allow [B] [D] [Q] before these consonants
+.L04 b v fl fr p      // labials, nasals are [m]
+.L05 g k          // velars, nasals are [N]
+.L06 j w l r b d g n m p t k c
+
+
+.group a
+        a          a
+        ai         aI
+        ay (K      aI
+        ay (_      'aI
+        au         aU
+        au (_      'aU
+
+.group b
+        b          b
+     _) b ($unpr   b         // phoneme definition may change it to [B]
+     _) b (L01A    b         // Only bl, br are allowed at start of word
+     _) b (A       b
+        b (A       B
+        b (cY      B
+        b (L03     B
+     m) b          b
+     n) b          b
+        b (iA      b
+        b (uA      b
+
+.group c
+        c          k
+     _) c (L01A    k         // allow: cl cr  at start of word
+     _) ch         tS        // allow _ch
+        c (Y       T         // ce, ci
+        ch         tS
+     A) ck         k
+
+.group ç
+	ç	s
+	A) ç (A	s
+	_) ç	s
+
+.group d
+        d          d
+     _) d ($unpr   d         // phoneme definition may change it to [D]
+     _) d (rA      d
+     _) d (A       d
+        d (A       D
+        d (_       d
+        d (_A      D
+        d (cY      D
+        d (L03     D
+     l) d          d
+
+        d (v       D
+     m) d          d
+     n) d          d
+     r) d          d
+
+.group e
+	e	e
+	e (nC	E
+	e (Ch	e
+	ei	eI
+	ey (K	eI
+	ey (_	'eI
+	eu	eU
+	eu (_	'eU
+	
+.group f
+        f          f
+     _) f (L01A    f         // allow fl fr  at start of word
+
+.group g
+        g          g
+     _) g ($unpr   g         // phoneme definition may change it to [Q]
+     _) g (L01A    g
+     _) gh (A      g         // allow _gh in foreign words
+     _) gn (A      n
+     _) g (A       g
+        g (A       Q
+        g (_A      Q
+        g (_       g
+        g (cY      Q
+        g (L03     Q
+     m) g          g
+     n) g          g
+        g (Y+      x         // ge gi
+     n) g (_                 // ing
+
+
+.group h
+        h                    // silent
+     _) hi (A      j
+
+.group i
+        i          i
+        i (A       j
+     C) i (A       j
+    gu) i (A       j
+
+.group k
+        k          k
+     _) k (L01A    k         // allow kl kr  at start of word
+
+.group l
+        l          l
+        ll (_      l^
+     _) ll (A      l^        // allowe _ll
+        ll         l^
+
+.group m
+        m          m
+     _) mn (em     n
+     _) mb (A      mb
+
+.group n
+        n          n
+        n (L04     m
+        n (_L04    m
+        n (L05     N
+        n (_L05    N
+        n (j       N
+        ny (A      n^        // catalan words
+     _) nh (A      N
+
+.group o
+	o	    o
+	o (CK	    o
+	o (r	    o
+	o (Ch	    o
+	oi	    oI
+	oy (K	    oI
+	oy (_	    'oI
+        ou          oU
+        ou (_       'oU
+
+.group p
+        p          p
+     _) p (L01A    p         // allow  pl pr  at start of word
+        p (t       p:
+     _) ph (A      f
+        ph (@      f
+        ph (K      f
+     _) ps (i      s
+     _) ps (eudo   s
+     _) pt (ero    t
+     _) pt (ol     t
+
+.group q
+        q          k
+        qu (Y      k         // que, qui
+     _) qw (A      kw        // qwerty
+
+.group rr
+	rr	R2
+
+.group r
+        r          r
+        r (_       r
+        r (t       r
+     A) r (A       r
+     C) r (A       r
+     _) r (A       R2
+     l) r (A       R2
+     m) r (A       R2
+     n) r (A       R2
+     s) r (A       R2
+
+.group s
+        s          s
+     &) s (_S1     s
+     _) s (K@      s
+     _) sh (A      S
+     _) sh (L01A   S
+        sh (K      S
+        sc (Y      s         // sce sci for non castilian accent
+
+.group t
+        t          t
+     _) t (L01A    t         // all tr at start of word
+     _) th (@      t
+        th (K      t
+
+.group u
+        u          u
+        u (u       u
+        u (A       w
+     g) u (e 
+     g) u (i 
+     g) u (é 
+     g) u (í 
+
+.group v
+        v          b
+     _) v ($unpr   b         // phoneme definition may change it to [B]
+     _) v (L01A    b         // Only bl, br are allowed at start of word
+     _) v (A       b
+        v (A       B
+        v (cY      B
+        v (L03     B
+     m) v          b
+     n) v          b
+        v (iA      b
+        v (uA      b
+
+.group w
+        w          w
+     _) wh (A      w
+
+.group x
+        x          S
+		x (_       ks
+
+.group y
+        y          i
+     _) y ($unpr   J
+    _m) y (A       j
+    _l) y (A       j
+        y (A       J^
+     _) y (A       J^
+     u) y (K       j
+    n_) y (A       dZ
+        y (_       i
+
+.group z
+        z          T
+        zz         ts
+
+.group
+        á          ''a
+        é          ''e
+        í          ''i
+		ï          ''i
+        ó          ''o
+        ú          ''u
+        ü          u
+        ñ          n^
+        $          d'olar
+		j          j
+
+	_) - (D	m'Enos
+    A_) - (_D      _
+    C_) - (_D      _
+
+        , (D       koma
