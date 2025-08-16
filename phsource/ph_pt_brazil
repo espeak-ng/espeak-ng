@@ -211,14 +211,6 @@ endphoneme
 
 
 
-phoneme s#     // This is [s] for Brazil, [S] for Portugal
-  IF nextPh(isVoiced) THEN
-    ChangePhoneme(z)
-  ENDIF
-
-  CALL base1/s
-  ipa s
-endphoneme
 
 
 
@@ -294,7 +286,7 @@ endphoneme
 
 
 
-phoneme x            // old strong /R/ kept for retrocompatibility
+phoneme x            // old strong /R/ kept for backward compatibility
   CALL base1/h
   ipa x
 endphoneme
@@ -311,23 +303,22 @@ endphoneme
 
 phoneme *            // used for weak /r/ in coda or complex onset
   vcd alv flp rhotic
-  lengthmod 3
+  lengthmod 6
   ipa ɾ
   Vowelin f1=1  f2=1700 -300 300  f3=0 80
   Vowelout f1=2 f2=1700 -300 300  f3=0 80
 
-  IF prevPhW(isNotVowel) AND nextPhW(isVowel) THEN
+  // ineffective after change
+  IF prevPhW(isNotVowel) THEN
     InsertPhoneme(@-)
-    FMT(r3/@tap2) addWav(x/d, 40)
   ENDIF
-
   IF nextPhW(isNotVowel) THEN
     AppendPhoneme(@-)
   ENDIF
   FMT(d/tap2) addWav(x/d, 40)
 endphoneme
 
-phoneme @-           // short schwa used along with weak /r/
+phoneme @-           // short schwa used along with weak /r/ only
   vwl starttype #@  endtype #@
   unstressed nsy
   ipa NULL
@@ -335,13 +326,33 @@ phoneme @-           // short schwa used along with weak /r/
   FMT(vowel/@-)
 endphoneme
 
-phoneme R#           // special phoneme for strong /R/
-  vls glt frc rhotic
+phoneme R#           // special phoneme for strong /R/ in onset
+  virtual
   ChangePhoneme(h)   // this glotal rhotic has coarticulation with vowels
 endphoneme
 
-phoneme r#           // special phoneme for weak /r/
-  vcd alv flp rhotic
+phoneme r#           // special phoneme for weak /r/ in coda
+  virtual
   ChangePhoneme(*)   // the alveolar tap is predominant in Sao Paulo
 endphoneme
 
+
+
+
+phoneme S
+  CALL base1/S
+  ipa ʃ
+endphoneme
+
+phoneme Z
+  CALL base1/Z
+  ipa ʒ
+endphoneme
+
+phoneme s#           // special phoneme for /s/ in coda
+  virtual
+  IF nextPh(isVoiced) THEN
+    ChangePhoneme(z)
+  ENDIF
+  ChangePhoneme(s)
+endphoneme

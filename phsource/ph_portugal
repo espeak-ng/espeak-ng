@@ -130,7 +130,7 @@ endphoneme
 
 
 
-phoneme x            // old strong /R/ kept for retrocompatibility
+phoneme x            // old strong /R/ kept for backward compatibility
   liquid trl
   ipa ʁ
   lengthmod 7
@@ -142,23 +142,19 @@ phoneme x            // old strong /R/ kept for retrocompatibility
 endphoneme
 
 phoneme R#
-  vcd uvl frc
+  virtual
   ChangePhoneme(Q")
 endphoneme
 
 phoneme r#
-  vcd alv flp rhotic
+  virtual
   ChangePhoneme(*)
 endphoneme
 
-
-phoneme s#     // This is [s] for Brazil, [S] for Portugal
+phoneme s#
+  virtual
   IF nextPh(isVoiced) THEN
     ChangePhoneme(Z)
   ENDIF
-  CALL base1/S
-  ipa ʃ
+  ChangePhoneme(S)
 endphoneme
-
-
-
