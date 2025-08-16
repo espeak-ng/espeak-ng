@@ -62,7 +62,8 @@ phoneme e
 endphoneme
 
 phoneme y
-  import_phoneme pt/i"
+  virtual
+  ChangePhoneme(i")
 endphoneme
 
 phoneme i

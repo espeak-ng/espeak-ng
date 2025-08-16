@@ -46,7 +46,7 @@ phoneme &U~
   vwl  starttype #@ endtype #u
   ipa ɐU+0303ʊU+0303
   length 240
-  IF thisPh(isUnstressed) THEN
+  IF thisPh(isDiminished) THEN
     FMT(vnasal/au_n)
   ENDIF
   FMT(vnasal/a#u_n)
@@ -118,7 +118,8 @@ phoneme i"           // unstressed /i/ in Portugal
 endphoneme
 
 phoneme y            // special phoneme for [I] (pt-br) or [i"] (pt-pt)
-  import_phoneme pt/I
+  virtual
+  ChangePhoneme(I)
 endphoneme
 
 phoneme I-           // very short [i] used for epenthesis
