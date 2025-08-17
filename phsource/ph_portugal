@@ -64,9 +64,8 @@ phoneme e
   FMT(vowel/e)
 endphoneme
 
-phoneme y
-  virtual
-  ChangePhoneme(i")
+phoneme y            // old unstressed /i/ kept for backward compatibility
+  CALL pt/i"
 endphoneme
 
 phoneme i
