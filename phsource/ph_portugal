@@ -42,6 +42,9 @@ phoneme &U~
   vwl  starttype #@ endtype #u
   ipa ɐU+0303ʊU+0303
   length 240
+  IF thisPh(isDiminished) THEN
+    FMT(vnasal/au_n)
+  ENDIF
   FMT(vnasal/a#u_n)
 endphoneme
 
