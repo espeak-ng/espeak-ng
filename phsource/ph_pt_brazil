@@ -117,9 +117,8 @@ phoneme i"           // unstressed /i/ in Portugal
   FMT(vowel/i#_5)
 endphoneme
 
-phoneme y            // special phoneme for [I] (pt-br) or [i"] (pt-pt)
-  virtual
-  ChangePhoneme(I)
+phoneme y            // old unstressed /i/ kept for backward compatibility
+  CALL pt/I
 endphoneme
 
 phoneme I-           // very short [i] used for epenthesis
