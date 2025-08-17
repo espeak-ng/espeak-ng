@@ -33,12 +33,16 @@
 8   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
+0   j   w      0   i
+0   j   VWL    0   i
 0   j   NULL   0   y
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
 0   &   NULL   0   a
 0   &/  NULL   0   a
+0   &~  j      0   @
+0   &~  y      0   @
 9   &~  N      0   an
 0   &~  NULL   0   an
 0   E   NULL   0   ee
@@ -58,7 +62,6 @@
 9   u~  N      0   un
 0   u~  NULL   0   un
 0   U   NULL   0   w
-0   y   NULL   0   y
 0   I   NULL   0   y
 0   I-  NULL   0   y
 
@@ -69,7 +72,7 @@
 0   OI  NULL  60   oo y
 0   uI  NULL  60   u  y
 0   aU  NULL  55   a  w
-0   &U~ NULL  0    @
+0   &U~ NULL  55   @  w
 0   eU  NULL  55   e  w
 0   EU  NULL  55   ee w
 0   iU  NULL  55   i  w
