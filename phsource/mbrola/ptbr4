@@ -6,12 +6,14 @@
 0   r-  NULL   0   r
 0   w/  NULL   0   w
 0   j/  NULL   0   y
-0   ;   NULL   0   NULL
 0   g-  NULL   0   NULL
-0   @-  NULL   0   NULL
-8   *   j      0   r
+0   @-  *      0   NULL
+9   *   @-     0   r2
+0   *   j      0   r
+0   *   w      0   r
 0   *   VWL    0   r
 0   *   NULL   0   r2
+0   ;   NULL   0   NULL
 0   :   NULL   0   NULL
 
 
@@ -23,7 +25,6 @@
 0   n^  NULL   0   nh
 0   N   NULL   0   n
 0   x   NULL   0   rr
-0   z   _      0   s2
 0   s   VWL    0   s
 0   s   w      0   s
 0   s   j      0   s
@@ -36,6 +37,18 @@
 0   j   w      0   i
 0   j   VWL    0   i
 0   j   NULL   0   y
+0   z   b      0   s2
+0   z   d      0   s2
+0   z   dZ     0   s2
+0   z   g      0   s2
+0   z   Z      0   s2
+0   z   l      0   s2
+0   z   n      0   s2
+0   z   m      0   s2
+0   z   x      0   s2
+0   z   h      0   s2
+0   z   v      0   s2
+0   z   _      0   s2
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
@@ -43,6 +56,7 @@
 0   &/  NULL   0   a
 0   &~  j      0   @
 0   &~  y      0   @
+0   &~  n^     0   @
 9   &~  N      0   an
 0   &~  NULL   0   an
 0   E   NULL   0   ee
@@ -61,7 +75,7 @@
 9   u~  j/     60  un i
 9   u~  N      0   un
 0   u~  NULL   0   un
-0   U   NULL   0   w
+0   U   NULL   0   u
 0   I   NULL   0   y
 0   I-  NULL   0   y
 
@@ -70,6 +84,7 @@
 0   EI  NULL  60   ee y
 0   oI  NULL  60   o  y
 0   OI  NULL  60   oo y
+9   uI  N     60   u  in    // muito
 0   uI  NULL  60   u  y
 0   aU  NULL  55   a  w
 0   &U~ NULL  55   @  w
