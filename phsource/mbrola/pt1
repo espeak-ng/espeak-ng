@@ -23,10 +23,16 @@ volume 15
 0   n^  NULL   0   J
 0   N   NULL   0   n
 0   x   NULL   0   R
+0   Q"  NULL   0   R
 0   s#  NULL   0   S
 8   r   VWL    0   r
 0   r   NULL   0   r
 0   R   NULL   0   r
+
+0   B   NULL   0   b
+0   D   NULL   0   d
+0   Q   NULL   0   g
+
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
@@ -50,6 +56,7 @@ volume 15
 0   U   NULL   0   u
 0   y   NULL   0   @
 0   I   NULL   0   @
+0   i"  NULL   0   @
 
 0   aI  NULL  60   a  j
 0   eI  NULL  60   e  j
