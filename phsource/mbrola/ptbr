@@ -8,16 +8,17 @@ volume 15
 0   r-  NULL   0   r
 0   w/  NULL   0   w
 0   j/  NULL   0   y
-0   @-  NULL   0   NULL
-0   *   @-     0   r2
+0   @-  *      0   NULL
+9   *   @-     0   r2
 0   *   j      0   r
+0   *   w      0   r
 0   *   VWL    0   r
 0   *   NULL   0   r2
 0   ;   NULL   0   NULL
 0   :   NULL   0   NULL
 
 
-0 S s 60 x i
+0   S   s      60  x i
 0   S   NULL   0   x
 0   Z   NULL   0   j
 0   dZ  NULL   0   d
@@ -36,8 +37,7 @@ volume 15
 0   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
-0   j   w      0   i
-0   j   NULL   0   y
+0   z   d      0   s2
 0   z   g      0   s2
 0   z   x      0   s2
 0   z   h      0   s2
@@ -83,7 +83,6 @@ volume 15
 9   &~  N      0   am
 0   &~  NULL   0   am
 0   E   NULL   0   ee
-9   eI  N      0   em
 0   i/  NULL   0   i
 9   i   N      0   im
 9   i~  N      0   im
@@ -100,11 +99,17 @@ volume 15
 0   U   NULL   0   o
 0   y   NULL   0   i
 
+0   j   w      0   i
+0   j   NULL   0   y
+
+
 0   aI  NULL  60   a  y
+9   eI  N     0    em      // setenta
 0   eI  NULL  60   e  y
 0   EI  NULL  60   ee y
 0   oI  NULL  60   o  y
 0   OI  NULL  60   oo y
+9   uI  N     60   u  y    // muito
 0   uI  NULL  60   u  y
 0   aU  NULL  55   a  w
 0   &U~ NULL  60   @  w
