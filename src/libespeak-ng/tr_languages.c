@@ -1316,6 +1316,20 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND;
 		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 	}
+		case L('o', 's'): // Ossetian
+	{
+		SetCyrillicLetters(tr);
+		static const unsigned char stress_amps_os[8] = { 18, 18, 20, 20, 20, 22, 22, 21 };
+		static const short stress_lengths_os[8] = { 180, 180, 190, 180, 0, 0, 230, 240 };
+
+		SetupTranslator(tr, stress_lengths_os, stress_amps_os);
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_9;
+
+		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
+
+		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_4;
+		tr->langopts.max_initial_consonants = 2;
+	}
 		break;
 	case L('p', 'l'): // Polish
 	{
