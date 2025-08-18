@@ -105,7 +105,8 @@ volume 15
 0   w   VWL    0   u
 
 0   aI  NULL  60   a  y
-9   eI  N     60   em im      // setenta
+9   eI  m     60   em im       // exemplo
+9   eI  N     60   em im       // setenta
 0   eI  NULL  60   e  y
 0   EI  NULL  60   ee y
 0   oI  NULL  60   o  y
