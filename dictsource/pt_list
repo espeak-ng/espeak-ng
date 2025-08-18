@@ -382,10 +382,10 @@ os	$u+	$nounf
 as	$u+	$nounf
 ?1 a    & $u+   $nounf
 
-um	$u	$nounf
-uma	$u	$nounf
-uns	$u	$nounf
-umas	$u	$nounf
+um	$u	$nounf	$strend
+uma	$u	$nounf	$strend
+uns	$u	$nounf	$strend
+umas	$u	$nounf	$strend
 
 
 // pronouns
