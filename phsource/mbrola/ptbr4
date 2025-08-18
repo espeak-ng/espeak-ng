@@ -34,9 +34,6 @@
 8   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
-0   j   w      0   i
-0   j   VWL    0   i
-0   j   NULL   0   y
 0   z   b      0   s2
 0   z   d      0   s2
 0   z   dZ     0   s2
@@ -60,13 +57,13 @@
 9   &~  N      0   an
 0   &~  NULL   0   an
 0   E   NULL   0   ee
-9   eI  m      0   en
-9   eI  N      0   en
 
 0   i/  NULL   0   i
 9   i   N      0   in
 9   i~  N      0   in
 0   i~  NULL   0   in
+0   I   NULL   0   y
+0   I-  NULL   0   y
 9   o   N      0   on
 9   o~  j/     60  on i
 9   o~  N      0   on
@@ -76,15 +73,19 @@
 9   u~  N      0   un
 0   u~  NULL   0   un
 0   U   NULL   0   u
-0   I   NULL   0   y
-0   I-  NULL   0   y
+
+0   j   w      0   i
+0   j   VWL    0   i
+0   j   NULL   0   y
+0   w   VWL    0   u
 
 0   aI  NULL  60   a  y
+9   eI  N     60   en in       // setenta
 0   eI  NULL  60   e  y
 0   EI  NULL  60   ee y
 0   oI  NULL  60   o  y
 0   OI  NULL  60   oo y
-9   uI  N     60   u  in    // muito
+9   uI  N     60   u  in       // muito
 0   uI  NULL  60   u  y
 0   aU  NULL  55   a  w
 0   &U~ NULL  55   @  w
