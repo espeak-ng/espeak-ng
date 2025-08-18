@@ -23,7 +23,7 @@ jobs:
             archdeps: ""
             archconfigflags: ''
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: firebuild/apt-eatmydata-action@v1
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386

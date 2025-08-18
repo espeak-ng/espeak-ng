@@ -31,7 +31,7 @@ jobs:
             archconfigflags: ''
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: firebuild/apt-eatmydata-action@v1
       - name: enable 32bit architecture
         run: sudo dpkg --add-architecture i386
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Run distcheck
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: firebuild/apt-eatmydata-action@v1
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }}
