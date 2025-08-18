@@ -87,22 +87,22 @@ volume 15
 9   i   N      0   im
 9   i~  N      0   im
 0   i~  NULL   0   im
-9   o   N      40   om
-8   o~  j     70  om i
+0   I   NULL   0   i
+0   I-  NULL   0   i
+0   y   NULL   0   i
+9   o   N      60  om um
+8   o~  j      70  om i
 9   o~  j/     90  om i
-9   o~  N      0   om
+9   o~  N      60  om um
 0   o~  NULL   0   om
 0   O   NULL   0   oo
 9   u~  j/     60  um i
 9   u~  N      0   um
 0   u~  NULL   0   um
-0   U   NULL   0   o
-0   y   NULL   0   i
+0   U   NULL   0   u
 
 0   j   w      0   i
-0   j   VWL    0   i
 0   j   NULL   0   y
-0   w   VWL    0   u
 
 0   aI  NULL  60   a  y
 9   eI  m     60   em im       // exemplo
@@ -127,8 +127,6 @@ volume 15
 0   D   NULL   0   z
 0   0   NULL   0   o
 0   V   NULL   0   a
-0   I   NULL   0   i
-0   I-  NULL   0   i
 0   I2  NULL   0   i
 0   A:  NULL   0   a
 0   A@  NULL  60   a r
