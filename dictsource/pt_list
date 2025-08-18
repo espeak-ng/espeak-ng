@@ -338,6 +338,7 @@ ecg	$abbrev
 edp	$abbrev
 ?1   etc	,ets'Et:*&
 ?2   etc	,ets'Ete*&
+?3   etc	,etI-s'Ete*&
 e.u.a	Eua
 eua	$abbrev
 fbi	$abbrev
