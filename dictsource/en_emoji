@@ -67,6 +67,38 @@ $textmode
 
 ⅓	one third							// [2153] other
 ⅔	two thirds							// [2154] other
+Ⅰ	roman one							// [2160] other
+Ⅱ	roman two							// [2161] other
+Ⅲ	roman three							// [2162] other
+Ⅳ	roman four							// [2163] other
+Ⅴ	roman five							// [2164] other
+Ⅵ	roman six							// [2165] other
+Ⅶ	roman seven							// [2166] other
+Ⅷ	roman eight							// [2167] other
+Ⅸ	roman nine							// [2168] other
+Ⅹ	roman ten							// [2169] other
+Ⅺ	roman eleven							// [216A] other
+Ⅻ	roman twelve							// [216B] other
+Ⅼ	roman fifty							// [216C] other
+Ⅽ	roman one hundred						// [216D] other
+Ⅾ	roman five hundred						// [216E] other
+Ⅿ	roman one thousand						// [216F] other
+ⅰ	roman one							// [2170] other
+ⅱ	roman two							// [2171] other
+ⅲ	roman three							// [2172] other
+ⅳ	roman four							// [2173] other
+ⅴ	roman five							// [2174] other
+ⅵ	roman six							// [2175] other
+ⅶ	roman seven							// [2176] other
+ⅷ	roman eight							// [2177] other
+ⅸ	roman nine							// [2178] other
+ⅹ	roman ten							// [2179] other
+ⅺ	roman eleven							// [217A] other
+ⅻ	roman twelve							// [217B] other
+ⅼ	roman fifty							// [217C] other
+ⅽ	roman one hundred						// [217D] other
+ⅾ	roman five hundred						// [217E] other
+ⅿ	roman one thousand						// [217F] other
 
 // 2190..21FF : Arrows
 
