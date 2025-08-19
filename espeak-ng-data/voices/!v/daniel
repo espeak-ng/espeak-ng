@@ -1,0 +1,24 @@
+language variant
+name Daniel
+gender male
+maintainer Enes Deniz
+pitch 40 120
+speed 95
+roughness 3
+formant 1 95  97 100
+formant 2 97  110 110
+formant 3  96 100 120
+formant 4  90 110 150
+formant 5 95 103 100
+formant 6 100 100 100
+formant 7 100 100 100
+formant 8 100 100 100
+
+intonation 3
+consonants 95 90
+stressAdd 1 1 5 3 1 1 15 30
+stressAmp 15 17  18 17  20 22  23 21
+tone 60 150 400 250 900 200 1500 100
+voicing 95
+breath 0 4  1   1   1   1  0 10
+breathw 150 150 200 200 400 400

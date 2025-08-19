@@ -1,0 +1,11 @@
+language variant
+name DoctorDennis2
+klatt 6
+consonants 60 70
+voicing 105
+pitch  90 148
+formant 1 72 100 100 60
+formant 2 85 100 100 240
+formant 3 88 100 100 403
+formant 4 114 60 60
+formant 5 110 40 60

@@ -1,0 +1,15 @@
+language variant
+name Eddy
+klatt 6
+consonants 85 85
+voicing 130
+breath 45
+
+pitch 85 122
+
+formant 1 75 100 90 80
+formant 2 84 100 85 260
+formant 3 103 100 100 -50
+formant 4 118 100 40 -400
+formant 5 100 100 100
+
