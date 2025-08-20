@@ -1819,6 +1819,8 @@ include ph_tigrinya
 phonemetable tn base1
 include ph_setswana
 
+phonemetable tok base1
+
 phonemetable tt base1
 include ph_tatar
 
