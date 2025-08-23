@@ -47,6 +47,12 @@ volume 15
 0   i/  NULL   0   i
 9   i~  N      0   i~
 0   i~  NULL   0   i~
+9   i   ;      0   i
+9   I   ;      0   i
+0   I   NULL   0   i
+0   I-  NULL   0   i
+0   i"  NULL   0   @
+0   y   NULL   0   @
 9   o~  j/     60  o~ i
 9   o~  N      0   o~
 0   o~  NULL   0   o~
@@ -54,9 +60,7 @@ volume 15
 9   u~  N      0   u~
 0   u~  NULL   0   u~
 0   U   NULL   0   u
-0   y   NULL   0   @
-0   I   NULL   0   @
-0   i"  NULL   0   @
+
 
 0   aI  NULL  60   a  j
 0   eI  NULL  60   e  j
