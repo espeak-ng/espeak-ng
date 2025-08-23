@@ -62,6 +62,8 @@
 9   i   N      0   in
 9   i~  N      0   in
 0   i~  NULL   0   in
+9   i   ;      90  i y
+9   I   ;      90  i y
 0   I   NULL   0   i
 0   I-  NULL   0   i
 0   y   NULL   0   i
@@ -99,6 +101,7 @@
 0   T   NULL   0   t
 0   D   NULL   0   z
 0   0   NULL   0   o
+9   V   m      0   am
 0   V   NULL   0   a
 0   I2  NULL   0   y
 0   A:  NULL   0   a
