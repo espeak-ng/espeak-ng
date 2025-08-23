@@ -34,18 +34,19 @@
 8   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
-0   z   b      0   s2
-0   z   d      0   s2
-0   z   dZ     0   s2
-0   z   g      0   s2
-0   z   Z      0   s2
-0   z   l      0   s2
-0   z   n      0   s2
-0   z   m      0   s2
-0   z   x      0   s2
-0   z   h      0   s2
-0   z   v      0   s2
-0   z   _      0   s2
+
+0   z   b      35  s2
+0   z   d      35  s2
+0   z   dZ     35  s2
+0   z   g      35  s2
+0   z   h      35  s2
+0   z   l      35  s2
+0   z   m      35  s2
+0   z   n      35  s2
+0   z   v      35  s2
+0   z   x      35  s2
+0   z   Z      35  s2
+0   z   _      35  s2
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
