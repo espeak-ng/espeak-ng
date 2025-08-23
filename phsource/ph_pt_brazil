@@ -208,6 +208,13 @@ phoneme l
   import_phoneme en/l   // use 'dark' [l] after a vowel, should be [w]
 endphoneme
 
+phoneme l^
+  liquid pal
+  lengthmod 7
+  ipa ʎ
+  CALL base1/l
+  CALL base1/j
+endphoneme
 
 
 
