@@ -38,12 +38,19 @@ volume 15
 0   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
-0   z   d      0   s2
-0   z   g      0   s2
-0   z   x      0   s2
-0   z   h      0   s2
-0   z   _      0   s2
 
+0   z   b      35  s2
+0   z   d      35  s2
+0   z   dZ     35  s2
+0   z   g      35  s2
+0   z   h      35  s2
+0   z   l      35  s2
+0   z   m      35  s2
+0   z   n      35  s2
+0   z   v      35  s2
+0   z   x      35  s2
+0   z   Z      35  s2
+0   z   _      35  s2
 
 // consonant combinations which are OK for br4 voice, but need epenthetic [i] for  br1 br3
 0 b s 90 b i
@@ -62,15 +69,6 @@ volume 15
 0 p t 90 p i
 0 p tS 90 p i
 0 t s 80 t i
-0 z b 35 s2
-0 z Z 35 s2
-0 z v 35 s2
-0 z dZ 35 s2
-0 z l 35 s2
-0 z m 35 s2
-0 z n 35 s2
-0 k VWL 20 k
-0 k w 10 k
 
 
 0   a/  NULL   0   a
