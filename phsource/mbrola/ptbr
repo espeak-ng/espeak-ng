@@ -21,6 +21,7 @@ volume 15
 0   S   s      60  x i
 0   S   NULL   0   x
 0   Z   NULL   0   j
+0   tS  NULL   0   t
 0   dZ  NULL   0   d
 0   l^  NULL   0   h
 0   n^  NULL   0   nh
@@ -61,8 +62,6 @@ volume 15
 0 p t 90 p i
 0 p tS 90 p i
 0 t s 80 t i
-0 tS y 90 t y
-0 tS NULL 0 t
 0 z b 35 s2
 0 z Z 35 s2
 0 z v 35 s2
@@ -86,6 +85,8 @@ volume 15
 0   i/  NULL   0   i
 9   i   N      0   im
 9   i~  N      0   im
+9   i   ;      90  i y
+9   I   ;      90  i y
 0   i~  NULL   0   im
 0   I   NULL   0   i
 0   I-  NULL   0   i
@@ -126,6 +127,7 @@ volume 15
 0   T   NULL   0   t
 0   D   NULL   0   z
 0   0   NULL   0   o
+9   V   m      0   am
 0   V   NULL   0   a
 0   I2  NULL   0   i
 0   A:  NULL   0   a
