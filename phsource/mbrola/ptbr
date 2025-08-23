@@ -83,11 +83,12 @@ volume 15
 0   i/  NULL   0   i
 9   i   N      0   im
 9   i~  N      0   im
+0   i~  NULL   0   im
 9   i   ;      90  i y
 9   I   ;      90  i y
-0   i~  NULL   0   im
 0   I   NULL   0   i
 0   I-  NULL   0   i
+0   i"  NULL   0   i
 0   y   NULL   0   i
 9   o   N      60  om um
 8   o~  j      70  om i
