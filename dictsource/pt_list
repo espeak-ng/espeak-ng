@@ -602,38 +602,37 @@ estavam	$u+
 estive	$u+
 esteve	$u+
 
-      // ter - to have
-ter	$u
-tenho	$u
-tens	$u
-tem	$u
-temos	$u
-tendes	$u
-têm	$u
+// ter - to have
+ter	$u+
+tenho	$u+
+tens	$u+
+tem	$u+
+temos	$u+
+tendes	$u+
+têm	$u+
 
-tinha	$u
-tínhamos	$u
-tínheis	$u
-tinham	$u
+tinha	$u+
+tínhamos	$u+
+tínheis	$u+
+tinham	$u+
 
-tive	$u
-tiveste	$u
-teve	tevy	$u1
-tivemos	$u
-tivestes	$u
-tiveram	$u
+tive	$u+
+tiveste	$u+
+teve	$u+
+tivemos	$u+
+tivestes	$u+
+tiveram	$u+
 
-tivera	$u
-tivéramos	$u
-tivéreis	$u
-tiveram	$u
+tivera	$u+
+tivéramos	$u+
+tivéreis	$u+
 
-terei	$u
-terás	$u
-terá	$u
-teremos	$u
-tereis	$u
-terão	$u
+terei	$u+
+terás	$u+
+terá	$u+
+teremos	$u+
+tereis	$u+
+terão	$u+
 
       // fazer - to do
 fazer	$u+
