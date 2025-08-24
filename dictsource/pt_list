@@ -661,7 +661,7 @@ puderam	$u+
 poderei	p%ode*eI $u+
 poderá	p%ode*a $u+
 poderemos	p%ode*'emUs $u+
-podeão	p%ode*&U~ $u+
+poderão	p%ode*&U~ $u+
 
 
 	// ir - to go  (used to make future tense)
@@ -683,14 +683,16 @@ e       E $atend        // assume letter-e at end of sentence
 o       O $atend
 
 
-// some common adjectives and adverbs
-alguns		$u	$noun	// some
-algumas		$u	$noun	// some
-não		n,&U~	$verbf $strend	// not
+// some common adjectives
+alguns	$u+	$nounf
+algumas	$u+	$nounf
+qualquer	$u+	$nounf
+quaisquer	$u+	$nounf
+
+// some common adverbs
+não	$u+	$verbf
 nunca	$u+	$verbf
 sempre	$u+	$verbf
-qualquer	$u	$nounf
-quaisquer	$u	$nounf
 jamais	$u+	$verbf
 
 
