@@ -551,44 +551,43 @@ se	$u+	$verbf		// if
 
 
 // auxillary verbs  (be, have, can, etc)
-	// ser, to be
+// ser, to be
 ser	$u
-sou	$u
-é	E  $u
-é	$atend $atstart $accent
-és	Es $u
-somos	$u
-sois	$u
-são	$u
+sou	$u+
+é	E	$u+
+és	Es	$u+
+somos	$u+
+sois	$u+
+são	$u+
 
-era	E*& $u1	// .. imperfect
-éramos	$u
-éreis	$u
-eram	E*&U~  $u1
+era	E*&	$u1+	// .. imperfect
+éramos	$u+
+éreis	$u+
+eram	E*&U~	$u1+
 
-fui	$u      // .. preterite
-foste	fostSy $u1   // & fostes
-foi	$u
-fomos	$u
+fui	$u+		// .. preterite
+foste	fos#tSy	$u1+	// & fostes
+foi	$u+
+fomos	$u+
 
 
-fora	$u      // .. pluperfect
-fômamos	$u
-fôreis	$u
-foram	fo*&U~  $u1
+fora	$u+		// .. pluperfect
+fôramos	$u+
+fôreis	$u+
+foram	fo*&U~	$u1+
 
-serei	$u	// .. future
-?2 será	se*a	$u2
-seremos	$u
-sereis	$u
-serão	$u
+serei	$u+		// .. future
+será	$u+
+seremos	$u+
+sereis	$u+
+serão	$u+
 
-seria	$u      // .. conditional
-seríamos $u
-seríeis	$u
-seriam	$u
+seria	$u+      	// .. conditional
+seríamos	$u+
+seríeis	$u+
+seriam	$u+
 
-	// estar - to be
+// estar - to be
 estar	$u
 estou	$u
 está	$u	est'a
