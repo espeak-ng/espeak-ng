@@ -588,28 +588,19 @@ seríeis	$u+
 seriam	$u+
 
 // estar - to be
-estar	$u
-estou	$u
-está	$u	est'a
-estamos	$u
-estais	$u
-estão	$u
+estar	$u+
+estou	$u+
+está	$u+
+estamos	$u+
+estais	$u+
+estão	$u+
 
-estava	$u
-estávamos	$u
-estavam	$u
+estava	$u+
+estávamos	$u+
+estavam	$u+
 
-estive	$u
-?2 esteve	estevy	$u2
-estivemos	$u
-estiveram	$u
-estiver	$u
-
-estarei	$u
-estará	$u
-estaremos	$u
-estarão	$u
-
+estive	$u+
+esteve	$u+
 
       // ter - to have
 ter	$u
