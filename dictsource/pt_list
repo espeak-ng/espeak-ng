@@ -475,7 +475,6 @@ pelo	$u $nounf
 
 ao	$u	$nounf
 à	,a:
-à	$atend $atstart $accent
 aos	$u	$nounf
 às	$u	$nounf
 para	$u		// for,to
@@ -677,9 +676,9 @@ há	$u+
 _a      a
 _e      E
 _o	O
-a       a $atend
+a       a $atend $sentence
 e       E $atend $sentence	// assume letter-e at end of sentence
-o       O $atend
+o       O $atend $sentence
 
 
 // some common adjectives
