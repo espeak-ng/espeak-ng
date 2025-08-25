@@ -500,7 +500,7 @@ com	$u		// with
 
 
 // conjunctions
-e	i 	$u		// and
+e	i	$u		// and
 se	$u+	$verbf		// if
 
 
@@ -517,7 +517,7 @@ se	$u+	$verbf		// if
 
 ?2	porque		// because
 ?2	pois		// because
-?2	como	$u	// as
+?2	como	$u+	// as
 
 ?2	embora		// although
 ?2	apesar		// despite
@@ -533,7 +533,7 @@ se	$u+	$verbf		// if
 
 
 ?2	quando			// when
-?2	onde	$u	// where
+?2	onde	$u+	// where
 ?2	apenas			// as soon as
 ?2	mal			// as soon as, hardly
 ?2	(logo que)	l'Oguki/		// as soon as
