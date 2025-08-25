@@ -26,15 +26,15 @@
 _lig	ligad'u*&
 _acu	ag'udU
 _ac2	ag'udUd'uplU	
-_brv	bR'Evi
-_ced	sedZ'ilj&
+_brv	b*'Evi
 ?1 _ced	syd'il^&
+?2 _ced	sedZ'il^&
 _cir	sirku~Nfl'EksU
-_dia	tR'em&
+_dia	t*'em&
 _dot	p'oNtU
-_grv	gR'avi
+_grv	g*'avi
 _hac	ka*'oN
-_mcn	makR'oN
+_mcn	mak*'oN
 _ogo	ogon'ek
 _rng	&~n'EU
 ?1 _rng	&~n'El
@@ -70,9 +70,9 @@ v	ve       // not Roman numbers
 x	Sis#
 
 _cap	maI'uskulU
-_sub	||subskR'itU
-_sup	||sob*eskR'itU
-_?A	l'etR&_
+_sub	||subsk*'itU
+_sup	||sob*esk*'itU
+_?A	l'et*&_
 _??	s'imbolU_
 _#32	esp'asU
 ?1 _#32	Sp'asU
@@ -85,9 +85,9 @@ _#9	tab
 %	pors'eINtU	$max3
 &	_'e_
 @	ax'ob&
-$	d'OlaR
+$	d'Ola*
 €	'eU*U
-£	l'ibR&
+£	l'ib*&
 ¥	j'eNy
 ¢	seNt'avUs#
 §	ses'&U~
@@ -97,40 +97,38 @@ _"	'asp&s#
 
 ?1   _#	k,ardin'al
 ?2   _#	k,ardZin'aU
-_$	s,ifR'&U~
+_$	s,if*'&U~
 _&	'e
-?1   _'	ap'OStr,ofy
-?2   _'	ap'OstRofU
-_(	,abRipa*'eINtezy
-?1   ¶	pa*'agr&fU
-?2   ¶	pa*'agR&fU
+?1   _'	ap'OSt*ofy
+?2   _'	ap'Ost*ofU
+_(	,ab*ipa*'eINtezy
+¶	pa*'ag*&fU
 ●	s'i*kulU
 ■	b'ax&ve*tSik'aUko*tad&
 ?1  ÷	divid'idUp'or
 ?2  ÷	dZividZ'idUp'or
  ×	v'ezys#
-?1 µ	m'ikrU
-?2 µ	m'ikRU
+µ	m'ik*U
 _)	f,ES&pa*'eINtezy
 _*	&ste*'iskU
 _−	m'enUs
 №	n'u~me*U
 ∞	iNfin'itU
-∫	iNtegR'aU
+∫	iNteg*'aU
 ⅓	u~Nt'e*sU
 ⅔	doIs#t'e*sUs#
 ¼	u~Nku'a*tU
 ½	m'eIU
-¾	tRes#kw'a*tUs#
-®	xeZistR'adU
+¾	t*es#kw'a*tUs#
+®	xeZist*'adU
 ↑	s'Et&as'im&
 ↓	s'Et&ab'aISU
 ←	s'Et&aes#k'e*d&
 ?2 →	s'Et&adZi*eIt&
 
 ?1  ™	m'a*k&xeZiSt'ad&
-?2  ™	m'a*k&xeZistR'ad&
-_,	v'irgul&
+?2  ™	m'a*k&xeZist*'ad&
+_,	v'i*gul&
 _-	'ifeIN
 _/	b'aQ&
 _:	d,oIsp'oNtus
@@ -140,15 +138,15 @@ _<      men'Or
 ?2   _=	igw'aU
 _>	maI'Or
 _?	,iNtex,ogas'&U~
-_[	,abRikowS'etSi
+_[	,ab*ikowS'etSi
 _\	b,ax&,iNvertS'id&
 _]	f,ES&kowS'etSi
 _^	s,irku~Nfl'Eksu
 _´	as'eINtu,ag'udU
-·	p'oNtUseINtR'adU
+·	p'oNtUseINt*'adU
 __	s,ublin^'adu
-  _`	gR'avi
-_{	,abRiS'avi
+  _`	g*'avi
+_{	,ab*iS'avi
 ?1   _|	b,ax&v,ertSik'al
 ?2   _|	b,ax&v,ertSik'aU
 _}	f,ES&S'avi
@@ -157,12 +155,12 @@ _}	f,ES&S'avi
 _¡	,eskl&mas,&U~,iNvertS'id&
 _¿	,iNtex,ogas,&U~,iNvertS'id&
 
-_"	'abRi;'asp&||d'upl&s#
+_"	'ab*i;'asp&||d'upl&s#
 ?1   º	O*din'almaskul'i~nU
 ?2   º	o*dZin'aUmaskul'i~nU
 ?1   ª	O*din'alfemin'i~nU
 ?2   ª	o*dZin'aUfemin'i~nU
-°	gR'aU
+°	g*'aU
 
 
 // numeric
@@ -173,9 +171,9 @@ _"	'abRi;'asp&||d'upl&s#
 ?1 _1	'um
 ?2 _1	'u~N
    _2	d'oIs#
-   _3	tR'es#
-?1 _4	kw'atru
-?2 _4	kw'atRU
+   _3	t*'es#
+?1 _4	kw'at*u
+?2 _4	kw'at*U
 ?1 _5	s'iNku
 ?2 _5	s'iNkU
    _6	s'eIs#
@@ -188,8 +186,7 @@ _"	'abRi;'asp&||d'upl&s#
 
 _11	'oNzy
 _12	d'ozy
-?1_13	tr'ezy
-?2_13	tR'ezy
+_13	t*'ezy
 ?1_14	k&t'o*zy
 ?2_14	kat'o*zy
 _15	k'iNzy
@@ -203,7 +200,7 @@ _15	k'iNzy
 ?2_19	dezen'Ovy
 ?1_2X	v'iNty
 ?2_2X	v'iNtSy
-_3X	tR'iNt&
+_3X	t*'iNt&
 ?1_4X	kw&*'eNt&
 ?2_4X	kwa*'eINt&
 _5X	siNkw'eINt&
@@ -221,7 +218,7 @@ _1C	s'eINtu
 ?1_2C	duz'eINtus#
 ?2_2C	duz'eINtUz
 ?1_3C	tryz'eINtus#
-?2_3C	tRez'eINtUz
+?2_3C	t*ez'eINtUz
 ?1_5C	kin^'eINtus#
 ?2_5C	kin^'eINtUz
 ?1_6C	seIs'eINtus#
@@ -231,12 +228,12 @@ _1C	s'eINtu
 ?1_1M1	m'il_
 ?2_1M1	m'iU_
 
-_0M2	milj'o~js#
-_1M2	'u~milj'&U~
-_0M3	bilj'o~js#
-_1M3	'u~mbilj'&U~
-_0M4	trilj'o~js#
-_1M4	'u~ntRilj'&U~
+_0M2	mil^'o~js#
+_1M2	'u~mil^'&U~
+_0M3	bil^'o~js#
+_1M3	'u~mbil^'&U~
+_0M4	t*il^'o~js#
+_1M4	'u~nt*il^'&U~
 _0and	i
 _dpt    _v'irgul&
 // _0Z2	seNt'Ezim&     // 100ths
@@ -247,7 +244,7 @@ _#º	U
 _#ª	&
 _ord	o
 
-_1o	pRim'eI*
+_1o	p*im'eI*
 _2o	seg'u~Nd
 _3o	te*s'eI*
 _4o	kw'a*t
@@ -258,7 +255,7 @@ _8o	oIt'av
 _9o	n'on
 _1Xo	d'Esim
 _2Xo	viZ'Ezim
-_3Xo	tRiZ'Ezim	
+_3Xo	t*iZ'Ezim
 _4Xo	kwad*aZ'Ezim
 _5Xo	kiNkwaZ'Ezim
 _6Xo	seksaZ'Ezim
@@ -268,7 +265,7 @@ _9Xo	nonaZ'Ezim
 _0Co	seINt'Ezim
 _1Co	seINt'Ezim
 _2Co	duseINt'Ezim
-_3Co	tRiseINt'Ezim
+_3Co	t*iseINt'Ezim
 _4Co	kwad*iZeINt'Ezim
 _5Co	kiNZeINt'Ezim
 _6Co	seIseINt'Ezim
@@ -292,7 +289,7 @@ vi	vi
 (capítulo l)	k,ap'itulU||s,iNkw'eINt&
 (capítulo c)	k,ap'itulU||s'eIN
 (capítulo cc)	k,ap'itulU||duz'eINtus#
-(capítulo cd)	k,ap'itulU||kw'atRUs'eINtUz
+(capítulo cd)	k,ap'itulU||kw'at*Us'eINtUz
 (capítulo dc)	k,ap'itulU||s,eIs'eINtUz
 (inciso i)	,iNs'izw||'u~N
 (inciso v)	,iNs'izU||s'iNkU
@@ -301,7 +298,7 @@ vi	vi
 (inciso l)	,iNs'izU||s,iNkw'eINt&
 (inciso c)	,iNs'izU||s'eIN
 (inciso cc)	,iNs'izU||d,uz'eINtUz
-(inciso cd)	,iNs'izU||kw'atRUs'eINtUz
+(inciso cd)	,iNs'izU||kw'at*Us'eINtUz
 (inciso dc)	,iNs'izU||s,eIs'eINtUz
 (século i)	s'Ekulw||'u~N
 (século v)	s'EkulU||s'iNkU
@@ -365,9 +362,9 @@ dr	dowtor	$dot
 dra	dowt'o*&	$dot
 mr	m'ister	$dot
 mrs	m'irsys	$dot
-prof	pR'Of	$dot
-profº	pR,ofes'or
-profª	pR,ofes'o*&
+prof	p*'Of	$dot
+profº	p*,ofes'o*
+profª	p*,ofes'o*&
 engº	eInZen^'eI*U
 engª	eInZen^'eI*&
 nº	n'u~me*U
@@ -478,7 +475,7 @@ ao	$u	$nounf
 aos	$u	$nounf
 às	$u	$nounf
 para	$u		// for,to
-pro	pRU	$u	$nounf
+pro	p*U	$u	$nounf
 pra	$u	$nounf
 pros	$u	$nounf
 pras	$u	$nounf
@@ -791,8 +788,8 @@ cacete		$alt2
 cacoete		$alt2
 caderneta	$alt2
 cadete		$alt2
-caibro		k'aIbRU
-cãibra		k'&~IbR&
+caibro		k'aIb*U
+cãibra		k'&~Ib*&
 caixeta		$alt2
 caldeia	$alt
 camelha		$alt
@@ -1236,7 +1233,7 @@ roseta		$alt2
 rubores		$alt2
 sabonete	$alt2
 sabores		$alt2
-saibro		s'aIbRU
+saibro		s'aIb*U
 sarjeta		$alt2
 seborreia	$alt
 seca		$alt2 $noun
@@ -1349,14 +1346,14 @@ black  blEk
 blind      bl'aind
 ?2 blue	blu
 ?1 braille    b:r'aily
-?2        Braille        bR'aili
+?2        Braille        b*'aili
 ?1 cancel     k'&ns'El
 ?1 caps       k'aps
 ?2 cappuccino	kaputS'inU
 ?2 center	s'eNter
 ?1 com        kom
 ?1 ctrl       k'oNt:r,Ol
-?2 control	k'oNtRow
+?2 control	k'oNt*ow
 doc        d'Ok
 ?1 delete     d'il'it
 ?1 design     d,iz'ain
@@ -1373,7 +1370,7 @@ doc        d'Ok
 ?2 download		daUNl'owd
 ?2 downloads		daUNl'owds
 ?3 download        dau~Nl'owd
-drive	dR'aIv
+drive	d*'aIv
 ?1 end        'end
 ?2 enter	'eNter
 ?2 esc     'Esk
@@ -1384,8 +1381,7 @@ drive	dR'aIv
 ?2 eyes       'aIs
 ?1 fixe		fiSy
 flash	flES
-?1 frame      fr'eImy
-?2 frame      fR'eImi
+frame      f*'eImy
 funk	f&~Nk
 game	g'eImy
 gay	geI
@@ -1406,7 +1402,7 @@ hot	xOt
 ?1 hotmail    h'Ot'eIl
 ?2 hotmail    hOtm'eIl
 ?1 install    ,inst'al
-?2 Intranet   iNtRan'Et
+?2 Intranet   iNt*an'Et
 ?1 kernel     k'Ern,El
 ?2 kernel     k'Ern@l
 ?2 jazz	dZIEs
@@ -1471,7 +1467,7 @@ sutiã		sutSi'&~N
 ?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p
 update		&pd'eIt
-upgrade		&pgR'eId
+upgrade		&pg*'eId
 upload		&pl'oud
 ?2        web        w'Eb
 writer r'aIter
@@ -1484,14 +1480,14 @@ yes        j'Es
 // foreign product names
 ?1 access      'aks,Es
 ?1 adobe       &d'Oby
-   android &NdR'Oid
+android &Nd*'Oid
 apple  'Epow
 outdoor	aUtd'Or
 ?2  outdoors	aUtd'Ors
 baby	b'eIby
 ?2 campari	k&mp'a*y
-?1 chrome	kr'owm
-?2 chrome  kR'owmi
+?1 chrome	k*'owm
+?2 chrome	k*'owmy
 corpus	k'O*pUs#
    debian      d'Ebj&~N
 ?1 excel       ,Eks'El
@@ -1513,8 +1509,8 @@ lady	l'eIdy
 mac  mEk
 ?1 media       m'Ed,i&
 ?1 messenger   m'Es&ndZ&r
-?1 microsoft   m,ik:r'os,Oft
-?2 microsoft   m'aIkRows'Oft
+?1 microsoft   m,ik:*'os,Oft
+?2 microsoft   m'aIk*ows'Oft
 ?1 movie       m'uvi
 ?1 nero        n'Eru
 ?2  netbooks   nEtbUks
@@ -1569,13 +1565,13 @@ dijkstra	d'ijkstrA:
 ?2 einstein	_!'aInst,aIn
 feuerbach	_^_DE
 feynman		f'ainm@n
-françois	fR&~Nsw'a
-freud		fR'OId
-friedrich	fR'i:dRiS
+françois	f*&~Nsw'a
+freud		f*'OId
+friedrich	f*'i:d*iS
 garibaldi	$3
 gauss		g'aUs
 geisel		g'aIzEU
-gottfried	g'OtfRi:t
+gottfried	g'Otf*i:t
 hamlet		x'&mlet
 hawking		h'o:king
 hegel		x'egel
@@ -1620,8 +1616,8 @@ anthony		$1
 arnold		$1
 ashley		$1
 brandon		$1
-brian		bR'aI;&~N
-bryan		bR'aI;&~N
+brian		b*'aI;&~N
+bryan		b*'aI;&~N
 caleb		$alt1
 christian	$1
 christopher	$1
@@ -1659,8 +1655,8 @@ kevin		$1 $alt1
 kimberly	$1
 klein		kl'aIn
 kleverson	$1 $alt1
-krueger		kR'i:ger
-krüger		kR'i:ger
+krueger		k*'i:ger
+krüger		k*'i:ger
 kühl		k'il
 louis		lw'i
 luigi		lU'iZI
