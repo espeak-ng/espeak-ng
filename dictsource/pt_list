@@ -501,8 +501,7 @@ com	$u		// with
 
 
 // conjunctions
-?1	e	i $u	// and
-?2	e	i $u   // and
+e	i 	$u		// and
 se	$u+	$verbf		// if
 
 
@@ -679,7 +678,7 @@ _a      a
 _e      E
 _o	O
 a       a $atend
-e       E $atend        // assume letter-e at end of sentence
+e       E $atend $sentence	// assume letter-e at end of sentence
 o       O $atend
 
 
