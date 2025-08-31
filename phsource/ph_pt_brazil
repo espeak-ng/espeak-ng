@@ -236,7 +236,7 @@ endphoneme
 
 
 phoneme x            // old strong /R/ kept for backward compatibility
-  CALL base1/h
+  CALL base1/h       // this glotal rhotic has coarticulation with vowels
   ipa x
 endphoneme
 
@@ -276,7 +276,7 @@ endphoneme
 
 phoneme R#           // special phoneme for strong /R/ in onset
   virtual
-  ChangePhoneme(h)   // this glotal rhotic has coarticulation with vowels
+  ChangePhoneme(x)
 endphoneme
 
 phoneme r#           // special phoneme for weak /r/ in coda

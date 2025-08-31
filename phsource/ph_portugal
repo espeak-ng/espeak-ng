@@ -146,7 +146,7 @@ endphoneme
 
 phoneme R#
   virtual
-  ChangePhoneme(Q")
+  ChangePhoneme(x)
 endphoneme
 
 phoneme r#
