@@ -138,9 +138,9 @@ _<      men'Or
 ?2   _=	igw'aU
 _>	maI'Or
 _?	,iNtex,ogas'&U~
-_[	,ab*ikowS'etSi
+_[	,ab*ikoUS'etSi
 _\	b,ax&,iNvertS'id&
-_]	f,ES&kowS'etSi
+_]	f,ES&koUS'etSi
 _^	s,irku~Nfl'Eksu
 _´	as'eINtu,ag'udU
 ·	p'oNtUseINt*'adU
@@ -358,8 +358,8 @@ unts	$abbrev
 usb	$abbrev
 
 
-dr	dowtor	$dot
-dra	dowt'o*&	$dot
+dr	doUtor	$dot
+dra	doUt'o*&	$dot
 mr	m'ister	$dot
 mrs	m'irsys	$dot
 prof	p*'Of	$dot
@@ -1034,7 +1034,7 @@ genebra		$alt
 gesso		$alt2
 gloso		$alt
 gonorreia	$alt
-gol		gow
+gol		goU
 gorda		$alt2
 gorjeta		$alt2
 gororoba	$alt
@@ -1253,12 +1253,12 @@ sinopse		$alt
 soco		$alt2
 soco		$alt $verb
 sogra		$alt
-soldo	s'owdU
+soldo	s'oUdU
 soldo	$alt $verb
 soldo	$alt $verb
-solta	s'owt&
+solta	s'oUt&
 solta	$alt $verb
-solto	s'owtU
+solto	s'oUtU
 solto	$alt $verb
 sopa		$alt2
 sopeses	$alt
@@ -1330,7 +1330,7 @@ zelo		$alt2 $noun
 zorra		$alt2
 
 // foreign words
-?2 álcool	'aUkow
+?2 álcool	'aUkoU
 ?1 alt        'alt
 ?1 back       b'Ek
 ?2   bahamas	bax'&~m&s
@@ -1340,8 +1340,8 @@ bad  bEd
 bank	beINk
 bacon	b'eIkoN
 ?2 basebol	beIzyb'Ow
-beatle  b'itow
-beatles  b'itows
+beatle  b'itoU
+beatles  b'itoUs
 black  blEk
 blind      bl'aind
 ?2 blue	blu
@@ -1353,7 +1353,7 @@ blind      bl'aind
 ?2 center	s'eNter
 ?1 com        kom
 ?1 ctrl       k'oNt:r,Ol
-?2 control	k'oNt*ow
+?2 control	k'oNt*oU
 doc        d'Ok
 ?1 delete     d'il'it
 ?1 design     d,iz'ain
@@ -1367,9 +1367,9 @@ doc        d'Ok
 ?1 down       d'a,wn
 ?2   down   d'aUN
 ?1 download   d'a,wnl'oud
-?2 download		daUNl'owd
-?2 downloads		daUNl'owds
-?3 download        dau~Nl'owd
+?2 download		daUNl'oUd
+?2 downloads		daUNl'oUds
+?3 download        dau~Nl'oUd
 drive	d*'aIv
 ?1 end        'end
 ?2 enter	'eNter
@@ -1397,7 +1397,7 @@ get   gEt
 happy  x'Epy
 ?2 haxixe	xaS'iSy
 ?1 home       'omy
-?2 home       h'owmi
+?2 home       h'oUmi
 hot	xOt
 ?1 hotmail    h'Ot'eIl
 ?2 hotmail    hOtm'eIl
@@ -1481,13 +1481,13 @@ yes        j'Es
 ?1 access      'aks,Es
 ?1 adobe       &d'Oby
 android &Nd*'Oid
-apple  'Epow
+apple  'EpoU
 outdoor	aUtd'Or
 ?2  outdoors	aUtd'Ors
 baby	b'eIby
 ?2 campari	k&mp'a*y
-?1 chrome	k*'owm
-?2 chrome	k*'owmy
+?1 chrome	k*'oUm
+?2 chrome	k*'oUmy
 corpus	k'O*pUs#
    debian      d'Ebj&~N
 ?1 excel       ,Eks'El
@@ -1510,12 +1510,12 @@ mac  mEk
 ?1 media       m'Ed,i&
 ?1 messenger   m'Es&ndZ&r
 ?1 microsoft   m,ik:*'os,Oft
-?2 microsoft   m'aIk*ows'Oft
+?2 microsoft   m'aIk*oUs'Oft
 ?1 movie       m'uvi
 ?1 nero        n'Eru
 ?2  netbooks   nEtbUks
-?2  notebook   nowtbUk
-?2  notebooks   nowtbUks
+?2  notebook   noUtbUk
+?2  notebooks   noUtbUks
 ?1 office      'Of,is
 ?2 office  'Ofsy
    openoffice  'opeIN|'Ofis
@@ -1547,9 +1547,9 @@ twitter  tw'iter
 ?1 unix        ,u:n'iks
 ?2 unix        j'uniks
 ?1 windows     w'iNd'ou:z
-?2 windows     w'iNdows
+?2 windows     w'iNdoUs
 ?1 window     w'iNd'ou
-?2 window      w'iNdow
+?2 window      w'iNdoU
 
 
 // historical and famous people
