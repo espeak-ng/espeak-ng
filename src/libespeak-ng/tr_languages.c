@@ -902,7 +902,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L3('g', 'a', 'g'): // Gagauz
 	{
-		SetupTranslator(tr, stress_lengths_gag, stress_amps_gag);
 		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
 		tr->langopts.stress_flags = S_NO_AUTO_2; // don't use secondary stress
 		tr->langopts.dotless_i = 1;
