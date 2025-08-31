@@ -202,6 +202,12 @@ phoneme EU
 endphoneme
 
 
+phoneme oU
+  vwl starttype #o endtype #u
+  length 230
+  IfNextVowelAppend(w)
+  FMT(vdiph/ou)
+endphoneme
 
 
 phoneme l
