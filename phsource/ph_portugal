@@ -53,14 +53,14 @@ endphoneme
 phoneme E
   vwl starttype #e endtype #e
   length 180
-  ChangeIfUnstressed(i")
+  ChangeIfUnstressed(y)
   FMT(vowel/e_mid)
 endphoneme
 
 phoneme e
   vwl starttype #e endtype #e
   length 180
-  ChangeIfUnstressed(i")
+  ChangeIfUnstressed(y)
   FMT(vowel/e)
 endphoneme
 
