@@ -73,8 +73,8 @@ volume 15
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
-0   &   NULL   0   a
-0   &/  NULL   0   a
+0   &   NULL   0   @
+0   &/  NULL   0   @
 9   &~  j      60  am i
 9   &~  y      60  am i
 9   &~  N      0   am
