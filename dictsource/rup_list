@@ -1,0 +1,233 @@
+// This file is UTF-8 encoded
+// translation rules for Aromanian
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
+
+// Letters
+
+_a   a
+_ã   @
+_â   y
+b    b@
+c    k@
+d    d@
+dh   D@
+dz   dz@
+_e   e
+f    f@
+g    g@
+h    h@
+_i   i
+j    Z@
+k    ka
+l    l@
+_lj   l^@
+m    m@
+n    n@
+nj   n^@
+_o   o
+p    p@
+q    kju
+r    R@
+_s    s@
+_sh   S@
+t    t@
+th   T@
+ts   ts@
+_u   u
+v    v@
+w    d,ubl@||v'@
+x    ks@
+y    i||g@-*'eak@
+z    z@
+
+
+// Numbers
+
+_0   z'e*o
+_1   'unu
+_2   d'oI
+_3   t@-*'eI
+_4   p'at@-*u
+_5   ts'intsi
+_6   S'asi
+_7   S'apti
+_8   'optu
+_9   n'aUy
+_10  dz'atsi
+_11  un@sp@-*@dz'atsi
+_12  dosp@-*@dz'atsi
+_13  t@-*eIsp@-*@dz'atsi
+_14  pat@-*usp@-*@dz'atsi
+_15  tsisp@-*@dz'atsi
+_16  Sasp@-*@dz'atsi
+_17  Saptisp@-*@dz'atsi
+_18  optusp@-*@dz'atsi
+_19  noaU@sp@-*@dz'atsi
+_20  j'inJits
+_21  jinJits'un@
+_22  jinJitsd'oI
+_23  t@-*eIsp@-*@j'inJits
+_24  pat@-*usp@-*@j'inJits
+_25  tsisp@-*@j'inJits
+_26  Sasp@-*@j'inJits
+_27  Saptisp@-*@j'inJits
+_28  jijints'optu
+_29  noaU@sp@-*@j'inJits
+_30  t@-*eIdz'@ts
+_3X  t@-*'eIdz@ts
+_40  pat@-*udz'@ts
+_4X  p'at@-*udz@ts
+_50  tsindz'@ts
+_5X  ts'indz@ts
+_60  SaIdz'@ts
+_6X  S'aidz@ts
+_70  Saptidz'@ts
+_7X  S'aptidz@ts
+_80  opdz'@ts
+_8X  'opdz@ts
+_90  noaU@dz'@ts
+_9X  n'oaU@dz@ts
+
+_0C  s'uti
+_1C  'un@||s'ut@
+_2C  d'aUy||s'uti
+
+_0M1 n^'il^i
+_1M1 'uny||n^'il^e
+_2M1 d'aUy||n^'il^i
+
+_0M2 milj'un^i
+_1M2 'unu||milj'unu
+_2M2 d'aUy||milj'un^i
+
+_0M3 milj'aRde
+_1M3 'unu||milj'aRdu
+_2M3 d'aUy||milj'aRde
+
+_dpt viRJ'il@
+
+
+// Symbols
+
+$ dolar $text
+€ euro $text
+% la sutã $text
+* asteriscã $text
++ ma multu $text
+- minus $text $max3
+= isa $text
+/ scotu di padi $text
+\ traptã nãpoi $text
+
+
+// Pronouns and Personal Pronouns
+
+aclo     $u2+
+aco      $u2+
+amindoilji  $u+
+andoilji  $u+
+aoatsi   $u+
+aotsi    $u+
+auatsi   $u+
+ãl       $u+
+ãlj      $u+
+dãs      $u+
+dãsã     $u+
+ea     ja    $u+
+eali   jali  $u+
+el     jel   $u+
+elj    jel^  $u+
+elu    jelu  $u+
+eu     jeU  $u+
+ia       $u+
+ilj      $u+
+io       $u+
+iou      $u+
+mea      $u+
+meu      $u+
+mi       $u+
+mine     $u+
+mini     $u+
+nes      $u+
+nesh     $u+
+ni       $u+
+nja      $u+
+njeu     $u+
+noastrã  $u+
+noauã    $u+
+noi      $u+
+nostru   $u+
+nostu    $u+
+nã       $u+
+nãs      $u+
+nãse     $u+
+nãsh     $u+
+nãsi     $u+
+nãsã     $u+
+ta       $u+
+tauã     $u+
+ti       $u+
+tine     $u+
+tini     $u+
+tsenushcari  $u+
+tsi      $u+
+tsine    $u+
+tsini    $u+
+tu       $u+ $pause
+tãu      $u+
+
+
+// Conjunctions
+
+che         $u+
+chend       $u+
+cum         $u+
+cã          $u+
+cãnd        $u+
+cãndu       $u+
+disi        $u+
+e           je $u $atend
+e           e
+ghioa       $u+
+icã         $u+ $brk
+ma          $u+
+macã        $u+
+nichi       $u+
+nitsi       $u+
+pãn         $u+
+pãnã        $u+
+shi         $u+
+
+
+// Prepositions
+
+ãn        $u $brk
+cu        $u $brk
+di        $u $brk
+dipã      $u $brk
+disuprã   $u $brk
+dit       $u $brk
+ditru     $u $brk
+dupu      $u $brk
+dupã      $u $brk
+fere      $u $brk
+fãrã      $u $pause
+la        $u $brk
+ninte     $u $brk
+ninti     $u $brk
+nãinti    $u $brk
+nãnte     $u $brk
+nãnti     $u $brk
+pi        $u $brk
+pisti     $u $brk
+pri       $u $brk
+pristi    $u $brk
+prisuprã  $u $brk
+prit      $u $brk
+su        $u $brk
+sum       $u $brk
+trã       $u $brk
+tru       $u $brk
+
+
+// Character Names

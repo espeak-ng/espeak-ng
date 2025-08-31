@@ -109,6 +109,10 @@ if (HAVE_LIBPCAUDIO AND USE_LIBPCAUDIO)
   endif()
 endif()
 
+if (HAVE_PTHREAD)
+  target_link_libraries(espeak-ng PRIVATE Threads::Threads)
+endif()
+
 target_link_libraries(espeak-ng PRIVATE espeak-ng-config ucd)
 if (NOT MSVC)
   target_link_libraries(espeak-ng PRIVATE m)

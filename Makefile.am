@@ -539,6 +539,7 @@ dictionaries: \
 	espeak-ng-data/qya_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
+        espeak-ng-data/rup_dict \
 	espeak-ng-data/sd_dict \
 	espeak-ng-data/shn_dict \
 	espeak-ng-data/si_dict \
@@ -869,6 +870,9 @@ espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_ext
 else
 espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_emoji
 endif
+
+rup: espeak-ng-data/rup_dict
+espeak-ng-data/rup_dict: dictsource/rup_list dictsource/rup_rules dictsource/rup_extra
 
 sd: espeak-ng-data/sd_dict
 espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
