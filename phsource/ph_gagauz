@@ -1,0 +1,120 @@
+//=========================================================================================
+// Gagauz
+//=========================================================================================
+
+
+// vowels
+
+phoneme A
+  vwl starttype #a endtype #a
+  length 150
+  FMT(vowel/aa_6)
+endphoneme
+
+phoneme &
+  vwl starttype #a endtype #a
+  length 150
+  FMT(vowel/ee_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 150
+  FMT(vwl_ru/ee)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 150
+  FMT(vwl_ru/ii)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 150
+  FMT(vwl_ru/o)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 150
+  FMT(vwl_ru/u)
+endphoneme
+
+phoneme I
+  vwl starttype #@ endtype #@
+  length 150
+  FMT(vowel/u#_7)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  length 150
+  FMT(vowel/oe)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  length 150
+  FMT(vwl_ru/u#)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 150
+  FMT(vowel/@)
+endphoneme
+
+
+// consonants
+
+phoneme r
+  import_phoneme base1/R2
+endphoneme
+
+phoneme t        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme c
+  vls pal stp
+  lengthmod 2
+  Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
+  Vowelout f1=0  f2=2700 300 500  f3=300 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ki, 80)
+  ENDIF
+  WAV(ustop/ki)
+endphoneme
+
+
+phoneme J
+  vcd pla stp
+  lengthmod 5
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF KlattSynth THEN
+    FMT(klatt/dz_pzd) addWav(ustop/ki, 60)
+  ENDIF
+
+
+  FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
+endphoneme

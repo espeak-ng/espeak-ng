@@ -1,0 +1,247 @@
+// This file is UTF-8 encoded
+// translation rules for Gagauz
+// Author: Andy Vladescu, andyvladescu770@gmail.com, 2025
+
+// Vowels (latin version)
+.L01 ä e i ö ü  // front vowels
+.L02 a ı o u    // back vowels
+
+
+// Vowels (cyrillic version)
+.L11 ӓ е и ӧ ӱ  // front vowels
+.L12 а о у ы    // back vowels
+
+
+// Latin group letters
+
+.group a
+   a       A
+
+.group ä
+   ä       &
+
+.group b
+   b       b
+
+.group c
+   c       dZ;
+
+.group ç
+   ç       tS;
+   ça (_   =tS;A
+
+.group d
+   d       d
+
+.group e
+ _) e      je  // at the beginning of words
+    e      ;e
+
+.group ê
+   ê       @
+
+.group f
+   f       f
+
+.group g
+   g       g
+   g (L01  J
+
+.group h
+ _) h      h  // at the beginning of words
+    h      x
+
+.group ı
+   ı       I
+
+.group i
+   i       i
+
+.group j
+   j       Z
+
+.group k
+   k       k
+   k (L01  c
+
+.group l
+   l       l
+   l (L02  L
+ L02) l    L
+   l (L01  l^
+
+.group m
+   m       m
+
+.group n
+   n       n
+   n (L01  n^
+
+.group o
+   o       o
+
+.group ö
+   ö       W
+
+.group p
+   p       p
+
+.group r
+   r       r
+
+.group s
+   s       s
+   s (L01  s;
+
+.group ş
+   ş       S
+
+.group t
+   t       t
+
+.group ţ
+   ţ       ts
+
+.group u
+   u       u
+
+.group ü
+   ü       y
+
+.group v
+   v       v
+   v (L02  w
+
+.group y
+   y       j
+
+.group z
+   z       z
+   z (L01  z;
+    
+
+// Cyrillic group letters
+
+.group а
+   а      a
+
+.group ӓ
+   ӓ       &
+
+.group б
+   б       b
+
+.group в
+   в       v
+   в (L12  w
+
+.group г
+   г       g
+   г (L11  J
+
+.group д
+   д       d
+
+.group е
+ _) е      je  // at the beginning of words
+    е      ;e
+
+.group ё
+   ё       jo
+
+.group ж
+   ж       Z
+
+.group ӂ
+   ӂ       dZ;
+
+.group з
+   з       z
+   з (L11  z;
+
+.group и
+   и       i
+
+.group й
+   й       j
+
+.group к
+   к       k
+   к (L01  c
+
+.group л
+   л       l
+   л (L12  L
+ L12) л    L
+   л (L11  l^
+
+.group м
+   м       m
+
+.group н
+   н       n
+   н (L01  n^
+
+.group о
+   о       o
+
+.group ӧ
+   ӧ       W
+
+.group п
+   п       p
+
+.group р
+   р       r
+
+.group с
+   с       s
+   с (L11  s;
+
+.group т
+   т       t
+
+.group у
+   у       u
+
+.group ӱ
+   ӱ       y
+
+.group ф
+   ф       f
+
+.group х
+ _) х      h  // at the beginning of words
+    х      x
+
+.group ц
+   ц       ts
+
+.group ч
+   ч       tS;
+   ча (_   =tS;A
+
+.group ш
+   ш       S
+
+.group щ
+   щ       S;tS;
+
+.group ъ
+   ъ       j
+
+.group ы
+   ы       I
+
+.group ь
+   ь       j
+
+.group э
+   э       @
+
+.group ю
+   ю       ju
+
+.group я
+   я       jA
+

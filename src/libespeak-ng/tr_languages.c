@@ -886,6 +886,17 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 1; // remove [:] phoneme from non-stressed syllables (Lang=gd)
 	}
 		break;
+	case L3('g', 'a', 'g'): // Gagauz
+	{
+		SetupTranslator(tr, stress_lengths_gag, stress_amps_gag);
+		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
+		tr->langopts.stress_flags = S_NO_AUTO_2; // don't use secondary stress
+		tr->langopts.dotless_i = 1;
+		tr->langopts.param[LOPT_SUFFIX] = 1;
+
+		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_4;
+	}
+		break;
 	case L('g','n'):   // guarani
 		{
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
