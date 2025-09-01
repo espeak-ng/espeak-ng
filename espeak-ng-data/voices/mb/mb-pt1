@@ -3,6 +3,7 @@ language pt 7
 name portugal-mbrola-1
 gender female
 pitch 145 240
+phonemes pt-pt
 
 dictrules 1
 voicing 70

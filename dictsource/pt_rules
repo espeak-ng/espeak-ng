@@ -1,4 +1,4 @@
- 	// translation rules Brazilian
+// Portuguese Translation Rules
 // This file is UTF-8 encoded
 
 // Options
@@ -23,6 +23,44 @@
 .L06 r ra ram ste sse ssem re rem rmo
 .L07 sse ssem ste
 .L08 a o
+
+// Normalize Unicode Latin-1 Supplement.
+// Languages such as PT, ES, FR, DE etc.
+// www.unicode.org/charts/PDF/U0080.pdf
+// www.unicode.org/charts/PDF/U0300.pdf
+.replace
+à	à	// a + U+0300 = U+00E0
+è	è	// e + U+0300 = U+00E8
+ì	ì	// i + U+0300 = U+00EC
+ò	ò	// o + U+0300 = U+00F2
+ù	ù	// u + U+0300 = U+00F9
+
+á	á	// a + U+0301 = U+00E1
+é	é	// e + U+0301 = U+00E9
+í	í	// i + U+0301 = U+00ED
+ó	ó	// o + U+0301 = U+00F3
+ú	ú	// u + U+0301 = U+00FA
+
+â	â	// a + U+0302 = U+00E2
+ê	ê	// e + U+0302 = U+00EA
+î	î	// i + U+0302 = U+00EE
+ô	ô	// o + U+0302 = U+00F4
+û	û	// u + U+0302 = U+00FB
+
+ä	ä	// a + U+0308 = U+00E4
+ë	ë	// e + U+0308 = U+00EB
+ï	ï	// i + U+0308 = U+00EF
+ö	ö	// o + U+0308 = U+00F6
+ü	ü	// u + U+0308 = U+00FC
+
+ç	ç	// c + U+0327 = U+00E7
+ã	ã	// a + U+0303 = U+00E3
+õ	õ	// o + U+0303 = U+00F5
+
+å	å	// a + U+030A = U+00E5
+ñ	ñ	// n + U+0303 = U+00F1
+ý	ý	// y + U+0301 = U+00FD
+ÿ	ÿ	// y + U+0308 = U+00FF
 
 
 .group a
@@ -139,7 +177,7 @@
      _) b (_       be
         b          b
         b (b 
-?3      b (B       bI
+?3      b (B       bI-
 ?3      b (s       b
 ?3      b (_C      b_
 
@@ -148,7 +186,8 @@
      _) c (_       se
         c          k
         c (Y       s         // ce ci
-?3      c (B       kI
+?3      ck         kI-
+?3      c (B       kI-
 ?3      c (s       k
 ?3      c (t       k
 ?3      c (_C      k_
@@ -165,7 +204,7 @@
      _) d (_       de
         d          d
         d (d 
-?3      d (B       dZI
+?3      d (B       dZI-
 ?3      d (_C      d_
 ?2      d (i       dZ
 ?2      d (í       dZ
@@ -568,7 +607,7 @@ _entorp) e (çL03_  e
      _) f (_       'Efy
         f          f
         f (f 
-?3      f (B       fI
+?3      f (B       fI-
 ?3      f (_C      f_
 
 
@@ -578,7 +617,7 @@ _entorp) e (çL03_  e
      _) g (_       Ze
         g          g
         g (g 
-?3      g (B       gI
+?3      g (B       gI-
 ?3      g (_C      g_
         g (Y       Z         // ge gi
         gu (Y      g
@@ -640,6 +679,7 @@ _redar) gu (A      gw
         im (_      iN
         im (C      im
 ?4      im (C      iN
+        in (_      iN
         in (C      iN        // ?4  ??
         in (g      iN
         in (k      iN
@@ -654,22 +694,25 @@ _redar) gu (A      gw
         iu (s_     iU
         i (uCK     i
 
-    áC) i (A_      j
-   áCC) i (A_      j
-    âC) i (A_      j
-   âCC) i (A_      j
-    éC) i (A_      j
-   éCC) i (A_      j
-    êC) i (A_      j
-   êCC) i (A_      j
-    íC) i (A_      j
-   íCC) i (A_      j
-    óC) i (A_      j
-   óCC) i (A_      j
-    ôC) i (A_      j
-   ôCC) i (A_      j
-    úC) i (A_      j
-   úCC) i (A_      j
+    áC) i (A_      I
+   áCC) i (A_      I
+    âC) i (A_      I
+   âCC) i (A_      I
+    éC) i (A_      I
+   éCC) i (A_      I
+    êC) i (A_      I
+   êCC) i (A_      I
+    íC) i (A_      I
+   íCC) i (A_      I
+    óC) i (A_      I
+   óCC) i (A_      I
+    ôC) i (A_      I
+   ôCC) i (A_      I
+    úC) i (A_      I
+   úCC) i (A_      I
+        i (onAC@   I       // acionado
+        i (onAC_   I       // nacional
+        i (onAA    I       // racionais
 
 ?1   _) i (ntern   'i        //inter
 ?1   @) ing (_     _^_EN
@@ -697,7 +740,7 @@ _redar) gu (A      gw
 .group j
      _) j (_       Z'Ot&
         j          Z
-?3      j (B       ZI
+?3      j (B       ZI-
 ?3      j (_C      Z_
 
 
@@ -706,7 +749,7 @@ _redar) gu (A      gw
 ?2   _) k (_       ka
         k          k
         k (k 
-?3      k (B       kI
+?3      k (B       kI-
 ?3      k (s       k
 ?3      k (t       k
 ?3      k (_C      k_
@@ -718,10 +761,7 @@ _redar) gu (A      gw
      _) l (_       'Ely
         l          l
      l) l 
-?1      lh         l^
-?2      lh         lj
-
-?4   A) lh         l^
+        lh         l^
 
 
 .group m
@@ -730,7 +770,7 @@ _redar) gu (A      gw
      _) m (_       'eme
         m          m
         m (m 
-?3      m (B       mI
+?3      m (B       mI-
 ?3      m (_C      m_
 
 
@@ -740,7 +780,7 @@ _redar) gu (A      gw
      _) n (_       'ene
         n          n
         n (n 
-?3      n (B       nI
+?3      n (B       nI-
 ?3      n (_C      n_
         nh         n^
 ?1   A) nn         n         //drop “n” (eg: connosco).
@@ -765,7 +805,7 @@ _redar) gu (A      gw
 ?2  _v) os (_      us
 ?2  _v) os (_A     uz
 ?2  _v) os (_G     uz
-        ou         ow
+        ou         oU
         oi         oI
         oi ($w_alt OI
         oi ($w_alt2++ oI
@@ -776,7 +816,7 @@ _redar) gu (A      gw
         o (iCK     o
         oo (C_     U
         o (os_     o
-?1   C) oo (_      ow        // eg: voo, enjoo, etc...
+?1   C) oo (_      oU        // eg: voo, enjoo, etc...
         oy         OI
 
         o (cL04_   O
@@ -816,7 +856,7 @@ _redar) gu (A      gw
         o (veCs_   O
 
         o (l_      'O
-?2      ol (B      ow
+?2      ol (B      oU
 
         om (_      oN
         o (ma_     o
@@ -964,15 +1004,15 @@ _redar) gu (A      gw
      p) ostos (_A  Ost=Uz    // dispostos etc.
 ?1   p) ostos (_G  Ost=UZ    // dispostos etc.
 ?2   p) ostos (_G  Ost=Uz    // dispostos etc.
-        ortos (_   'O*@-tUs
-        ortos (_A  'O*@-tUz
-?1      ortos (_G  'O*@-tUZ
-?2      ortos (_G  'O*@-tUz
+        ortos (_   'O*tUs
+        ortos (_A  'O*tUz
+?1      ortos (_G  'O*tUZ
+?2      ortos (_G  'O*tUz
         ovos (_    Ov=Us#    novos, povos, etc.
         ovos (_A   Ov=Uz     novos, povos, etc.
 ?1      ovos (_G   Ov=UZ     novos, povos, etc.
 ?2      ovos (_G   Ov=Uz     novos, povos, etc.
-        ortos (_   O*@-t=Us# // tortos, mortos, etc.
+        ortos (_   O*t=Us# // tortos, mortos, etc.
   _Gar) o (tL08_   o
  _escr) o (tL08_   o
    zig) o (to_     o
@@ -1022,7 +1062,7 @@ _ortod) o (xL08_   O
      _) p (_       pe
         p          p
         p (p 
-?3      p (B       pI
+?3      p (B       pI-
 ?3      p (s       p
 ?3      p (t       p
 ?3      p (_C      p_
@@ -1034,7 +1074,7 @@ _ortod) o (xL08_   O
 .group q
      _) q (_       ke
         q          k
-?3      q (B       kI
+?3      q (B       kI-
         qu         kw
         qü         kw
         qu (Y      k
@@ -1075,20 +1115,19 @@ _ortod) o (xL08_   O
 ?1   _) r (_W      'Err;     // within an acronym
 ?1   _) r (_       'Err
      _) r (_       'Exe
-     _) r (_\$     xe'aU     // currency
         r          *
-        r (_       r
-        r (C       *@-
+        r (_       r#
+        r (C       r#
      A) r (A       *
         r (_A      *
         r (_h      *
-     C) r (A       R
-        rr         x
-     _) r          x
-     l) r (A       x
-     n) r (+       x
-     s) r          x
-?1   A) r (_       r-        // [r-] is English linking-r
+     C) r (A       *
+        rr         R#
+     _) r          R#
+     l) r (A       R#
+     n) r (+       R#
+     s) r          R#
+?1   A) r (_       *@-
 
 
 .group s
@@ -1132,7 +1171,7 @@ _ortod) o (xL08_   O
      _) t (_       te
         t          t
         t (t 
-?3      t (B       tSI
+?3      t (B       tSI-
 ?3      t (_C      t_
 ?2      t (i       tS
 ?2      t (í       tS
@@ -1173,7 +1212,7 @@ _ortod) o (xL08_   O
         unh        u~n^
 
      g) u (Y 
-    _m) ui (tL08_    'wiN
+    _m) ui (tL08_    'uIN
 
 
 .group ú
@@ -1188,7 +1227,7 @@ _ortod) o (xL08_   O
 .group v
         v          v
         v (v 
-?3      v (B       vI
+?3      v (B       vI-
 ?3      v (_C      v_
 
 
@@ -1289,7 +1328,7 @@ _lagarti) x (A     S
      _) z (_       ze
         z          z
         z (z 
-?3      z (B       zI
+?3      z (B       zI-
 ?3      z (_C      z_
 ?1   @) z (_       S
 ?2   @) z (_       s
@@ -1301,6 +1340,7 @@ _lagarti) x (A     S
 ?1   A) z (_C      S
 ?1   A) z (_G+     Z
    _pi) zz (a      ts
+?3 _pi) zz (a      tI-s
 
 
 .group
@@ -1309,15 +1349,10 @@ _lagarti) x (A     S
         ü          u
         ß          s
 
-        $          sifR'&U~
-   _r_) $ 
-
     D_) º          %o        // ordinal
     D_) ª          %a        // ordinal
 
-
         , (D       v'irgul&
-
 
     __) - (_D      m'enUs
     D_) - (_D      m'enUs

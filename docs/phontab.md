@@ -18,6 +18,8 @@
   - [VowelEnding](#vowelending)
   - [Vowelin](#vowelin)
   - [Vowelout](#vowelout)
+  - [InsertPhoneme](#insertphoneme)
+  - [AppendPhoneme](#appendphoneme)
   - [ChangePhoneme](#changephoneme)
   - [ChangeIfDiminished](#changeifdiminished)
   - [ChangeIfUnstressed](#changeifunstressed)
@@ -223,7 +225,7 @@ the phoneme definition can include an `ipa` instruction to specify the correct
 IPA name. IPA strings may include non-ascii characters. They may also include
 characters specified by their character codes in the form `U+` followed by 4
 hexadecimal digits. For example a string: `aU+0303` indicates 'a' with a
-'combining tilde'.
+'combining tilde'. A phoneme can be hidden by passing NULL as argument.
 
 ### WAV
 
@@ -294,11 +296,29 @@ vowel. See [vowel transitions](#vowel-transitions).
 (C) Specifies the effects of this consonant on the formants of a preceding
 vowel. See [vowel transitions](#vowel-transitions).
 
+### AppendPhoneme
+
+	AppendPhoneme(<phoneme>)
+
+Add the specified phoneme after the current phoneme.
+
+### InsertPhoneme
+
+	InsertPhoneme(<phoneme>)
+
+Add the specified phoneme before the current phoneme.
+
+This instruction is ineffective after a change instruction.
+
 ### ChangePhoneme
 
 	ChangePhoneme(<phoneme>)
 
 Change to the specified phoneme.
+
+Change instructions like this are ineffective after another change instruction.
+
+A phoneme can be deleted by specifying NULL as argument.
 
 ### ChangeIfDiminished
 

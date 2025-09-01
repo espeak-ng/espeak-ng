@@ -1,3 +1,5 @@
+volume 15
+
 0   l/  NULL   0   w
 0   l/2 w      0   l
 0   l/2 j      0   l
@@ -6,14 +8,15 @@
 0   r-  NULL   0   r
 0   w/  NULL   0   w
 0   j/  NULL   0   y
-0   ;   NULL   0   NULL
 0   g-  NULL   0   NULL
-0   @-  NULL   0   NULL
-8   *   j      0   r
+0   @-  *      0   NULL
+9   *   @-     0   r2
+0   *   j      0   r
+0   *   w      0   r
 0   *   VWL    0   r
 0   *   NULL   0   r2
+0   ;   NULL   0   NULL
 0   :   NULL   0   NULL
-
 
 0   S   NULL   0   x 
 0   Z   NULL   0   j
@@ -22,56 +25,80 @@
 0   l^  NULL   0   lh
 0   n^  NULL   0   nh
 0   N   NULL   0   n
+0   h   NULL   0   rr
 0   x   NULL   0   rr
-0   z   _      0   s2
 0   s   VWL    0   s
 0   s   w      0   s
 0   s   j      0   s
+1   s   s      0   s
 0   s   NULL   0   s2
-8   s#  VWL    0   s
-0   s#  NULL   0   s2
 8   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
-0   j   NULL   0   y
+
+0   z   b      35  s2
+0   z   d      35  s2
+0   z   dZ     35  s2
+0   z   g      35  s2
+0   z   h      35  s2
+0   z   l      35  s2
+0   z   m      35  s2
+0   z   n      35  s2
+0   z   v      35  s2
+0   z   x      35  s2
+0   z   Z      35  s2
+0   z   z      35  s2
+0   z   _      35  s2
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
-0   &   NULL   0   a
-0   &/  NULL   0   a
+0   &   NULL   0   @
+0   &/  NULL   0   @
+0   &~  j      0   @
+0   &~  y      0   @
+0   &~  n^     0   @
 9   &~  N      0   an
 0   &~  NULL   0   an
 0   E   NULL   0   ee
-9   eI  m      0   en
-9   eI  N      0   en
 
 0   i/  NULL   0   i
 9   i   N      0   in
 9   i~  N      0   in
 0   i~  NULL   0   in
-9   o   N      0   on
+9   i   ;      90  i y
+9   I   ;      90  i y
+0   I   NULL   0   i
+0   I-  NULL   0   i
+0   i"  NULL   0   i
+0   y   NULL   0   i
+9   o   N      60  on un
 9   o~  j/     60  on i
-9   o~  N      0   on
+9   o~  N      60  on un
 0   o~  NULL   0   on
 0   O   NULL   0   oo
 9   u~  j/     60  un i
 9   u~  N      0   un
 0   u~  NULL   0   un
 0   U   NULL   0   w
-0   y   NULL   0   y
-0   I   NULL   0   y
+
+0   j   w      0   i
+0   j   NULL   0   y
 
 0   aI  NULL  60   a  y
+9   eI  m     60   en in       // exemplo
+9   eI  N     60   en in       // setenta
 0   eI  NULL  60   e  y
 0   EI  NULL  60   ee y
 0   oI  NULL  60   o  y
 0   OI  NULL  60   oo y
+9   uI  N     60   u  in       // muito
 0   uI  NULL  60   u  y
 0   aU  NULL  55   a  w
-0   &U~ NULL  0    @
+0   &U~ NULL  60   @  un
 0   eU  NULL  55   e  w
 0   EU  NULL  55   ee w
 0   iU  NULL  55   i  w
+0   oU  NULL  60   o  w
 
 
 // English phonemes
@@ -79,6 +106,7 @@
 0   T   NULL   0   t
 0   D   NULL   0   z
 0   0   NULL   0   o
+9   V   m      0   am
 0   V   NULL   0   a
 0   I2  NULL   0   y
 0   A:  NULL   0   a
