@@ -27,13 +27,11 @@ volume 15
 0   N   NULL   0   n
 0   h   NULL   0   rr
 0   x   NULL   0   rr
-0   s   VWL    0   s
-0   s   w      0   s
-0   s   j      0   s
+8   s   VWL    0   s
+8   s   w      0   s
+8   s   j      0   s
 1   s   s      0   s
 0   s   NULL   0   s2
-8   s#  VWL    0   s
-0   s#  NULL   0   s2
 8   r   VWL    0   r
 0   r   NULL   0   r2
 0   R   NULL   0   r
