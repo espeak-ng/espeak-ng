@@ -205,7 +205,7 @@ endphoneme
 phoneme oU
   vwl starttype #o endtype #u
   length 230
-  IfNextVowelAppend(w)
+//  IfNextVowelAppend(w)
   FMT(vdiph/ou)
 endphoneme
 
