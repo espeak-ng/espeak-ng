@@ -163,27 +163,3 @@ phoneme s#
 endphoneme
 
 
-phoneme b
-  vcd blb stp
-  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
-    ChangePhoneme(B)
-  ENDIF
-  CALL pt/b
-endphoneme
-
-phoneme d
-  vcd dnt stp
-  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
-    ChangePhoneme(D)
-  ENDIF
-  CALL pt/d
-endphoneme
-
-phoneme g
-  vcd vel stp
-  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
-    ChangePhoneme(Q)
-  ENDIF
-  CALL pt/g
-endphoneme
-

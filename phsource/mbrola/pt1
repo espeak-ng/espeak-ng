@@ -18,8 +18,6 @@ volume 15
 
 0   d   a      100 d 6  // FIX: da  -> ga
 0   d   aI     100 d 6  // FIX: dai -> gai
-0   D   a      100 d 6  // FIX: Da  -> ga
-0   D   aI     100 d 6  // FIX: Dai -> gai
 
 0   tS  NULL   0   t
 0   dZ  NULL   0   d
@@ -31,10 +29,6 @@ volume 15
 8   r   VWL    0   r
 0   r   NULL   0   r
 0   R   NULL   0   r
-
-0   B   NULL   0   b
-0   D   NULL   0   d
-0   Q   NULL   0   g
 
 
 0   a/  NULL   0   a
