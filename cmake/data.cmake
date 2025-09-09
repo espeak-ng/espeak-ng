@@ -5,7 +5,7 @@ list(APPEND _dict_compile_list
   da de
   el en eo es et eu
   fa fi fr
-  ga gd gn grc gu
+  ga gd gl gn grc gu
   hak haw he hi hr ht hu hy
   ia id io is it
   ja jbo
