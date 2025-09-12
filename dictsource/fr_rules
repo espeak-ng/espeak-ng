@@ -692,8 +692,8 @@ _quatrevin) gts (_ z2
     An) gt (A      t         // vingtaine doigté
 
         gu (i      g         // anguille
-    ai) gui (l     gyi      // aiguillage
-    in) gui (s     gyi      // linguiste
+    ai) gui (l     gɥi      // aiguillage
+    in) gui (s     gɥi      // linguiste
         g (C       g
 
   _ran) g (_                 // rang
@@ -1094,7 +1094,7 @@ _C)        oy (X      _^_en     // boy, toy
     se) pt (_      t         // sept
     se) pt (iè     t         // septième
   scul) p (t                 // sculpture
-     _) puisqu' (P7 pyisk
+     _) puisqu' (P7 pɥisk
 
 // group p: English section
         pad (_     _^_en
@@ -1106,9 +1106,9 @@ _C)        oy (X      _^_en     // boy, toy
         q          k         // coq
     _a) qua        kwa       // aquarium
     _A) qua        kwa       // équateur
-    _A) qui (dist  kyi       // équidistant
+    _A) qui (dist  kɥi       // équidistant
     _a) qu (if     ku        // aquifère
-    _A) qui (lat   kyi       // équilatéral
+    _A) qui (lat   kɥi       // équilatéral
     _C) qua        kwa       // squale square
     dé) qua        kwa       // adequate
      n) q (_cent_            // cinq cent
@@ -1377,14 +1377,16 @@ i)        t (uneX     _^_en
 
 
 .group u
-        u          y         // cruel nuage brut
-        ue (il       W      // orgueil
-        ui         yi       // nuit, fuite
-        uin (K     yE~       // juin
+        u          y         // brut culbuter
+        ua         ɥa        // nuage 
+        ue (il     W         // orgueil
+        ue         ɥE        // cruel  
+        ui         ɥi        // nuit, fuite
+        uin (K     ɥE~       // juin
     _C) u (rfX     W
    _bl) u (ff      W
     _s) u (rfeX    W
-        uy (A      yij
+        uy (A      ɥij
 
      C) ucci       utSi      // capuccino
     _g) ua         wa
@@ -1411,7 +1413,7 @@ i)        t (uneX     _^_en
 
     fl) ux (_      y         // flux, reflux
      g) u (A                 // fatigue
-     g) u (ï       y         // ambiguïté
+     g) u (ï       ɥ         // ambiguïté
      g) u (ë       y         // ambiguë
      p) u (tsch      u         // putsch
         uz (z      W
