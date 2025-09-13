@@ -472,4 +472,3 @@ phoneme ?  // glottal stp
   Vowelout glstop
   WAV(ustop/null)
 endphoneme
-
