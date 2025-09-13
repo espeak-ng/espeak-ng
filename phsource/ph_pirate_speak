@@ -404,10 +404,14 @@ endphoneme
 // Consonants
 //==============
 
-phoneme r/   // used for [r] when not preceding a vowel
-  liquid
-  lengthmod 2   //
-//  formants NULL
+phoneme r
+  liquid rhotic alv trl nolink
+  length 80
+  IF prevPhW(isVowel) THEN
+  ELSE
+    InsertPhoneme(@-)
+  ENDIF
+  FMT(r3/r_trill,80) addWav(r3/r_trill.wav, 50)
 endphoneme
 
 
