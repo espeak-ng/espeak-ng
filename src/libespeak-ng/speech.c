@@ -575,9 +575,7 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 		          ? audio_object_flush(my_audio)
 		          : audio_object_drain(my_audio);
 		if (error != 0)
-			fprintf(stderr, "audio %s error: %s\n",
-				(aStatus == ENS_SPEECH_STOPPED) ? "flush" : "drain",
-				audio_object_strerror(my_audio, error));
+			fprintf(stderr, "audio %s error: %s\n", audio_object_strerror(my_audio, error));
 	}
 #endif
 
