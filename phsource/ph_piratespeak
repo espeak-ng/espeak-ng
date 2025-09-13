@@ -6,7 +6,6 @@
 
 phoneme 3    //  Schwa, used for rhotic schwa in American
   vwl   starttype #@  endtype #@
-  ipa ɚ
   unstressed
   length 210
   IfNextVowelAppend(r-)
@@ -41,7 +40,6 @@ endphoneme
 
 phoneme a
   vwl  starttype #e  endtype #@
-  ipa æ
   length 210
 
   ChangeIfDiminished(a#)
@@ -118,9 +116,7 @@ phoneme I#
   vwl  starttype #i  endtype #i
   unstressed
   length 160
-  ipa ᵻ
-//  FMT(vowel/@_fnt)
-  FMT(vowel/ii#)
+  FMT(vowel/@_fnt)
 endphoneme
 
 
@@ -184,9 +180,9 @@ endphoneme
 
 phoneme A@      // Used for [A:] when followed by 'r', becomes [A:]+[r] in American
   vwl  starttype #a  endtype #a
-  ipa ɑː|ɹ
   IF nextPh(r-) THEN
-    ipa ɑː
+    length 80
+    FMT(r3/r_trill,80)
   ENDIF
   length 260
   IfNextVowelAppend(r-)
@@ -231,23 +227,25 @@ endphoneme
 phoneme O@
   vwl  starttype #o  endtype #@
   length 250
-  ipa ɔː|ɹ
   IF nextPhW(r) THEN
-    ipa ɔː
+    length 50
+    FMT(r/r_trill,50)
   ENDIF
   IfNextVowelAppend(r)
+  length 250
   FMT(vwl_en_us/oor)
 endphoneme
 
 
 phoneme o@
   vwl  starttype #o  endtype #@
-  length 250
-  ipa ɔː|ɹ
+  length 240
   IF nextPhW(r) THEN
-    ipa ɔː
+    length 40
+    FMT(r/r_trill,40)
   ENDIF
   IfNextVowelAppend(r)
+  length 240
   FMT(vwl_en_us/oor)
 endphoneme
 
@@ -299,8 +297,7 @@ endphoneme
 phoneme eI
   vwl  starttype #e  endtype #i
   length 220
-  FMT(vdiph2/ei_4)
-//  FMT(vdiph/eei_5)
+  FMT(vdiph/eei_5)
 endphoneme
 
 
@@ -314,9 +311,8 @@ endphoneme
 phoneme e@
   vwl  starttype #e  endtype #@
   length 260
-  ipa ɛ|ɹ
   IF nextPhW(r) THEN
-    ipa ɛ
+    FMT(r/r_trill,60)
   ENDIF
   IfNextVowelAppend(r)
   FMT(vwl_en_us/er)
@@ -405,7 +401,7 @@ endphoneme
 //==============
 
 phoneme r
-  liquid rhotic alv trl nolink
+  liquid rhotic alv trl
   length 60
   FMT(r3/r_trill2,60)
 endphoneme
