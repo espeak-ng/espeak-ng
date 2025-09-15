@@ -92,8 +92,8 @@ volume 15
 0   oI  NULL  60   o  y
 0   oI~ NULL  60   on in
 0   OI  NULL  60   oo y
-9   uI  N     60   u  in       // muito
 0   uI  NULL  60   u  y
+0   uI~ NULL  60   un in
 0   aU  NULL  55   a  w
 0   &U~ NULL  60   @  un
 0   eU  NULL  55   e  w
