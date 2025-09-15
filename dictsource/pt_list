@@ -923,6 +923,7 @@ dissabores	$alt2
 dobro		$alt2
 dobro		$alt $verb
 doce		$alt2
+doce		d'osy $stem	// docemente
 dogma		$alt
 dores	$alt2
 dorminhoco	$alt2
@@ -1237,6 +1238,7 @@ saibro		s'aIb*U
 sarjeta		$alt2
 seborreia	$alt
 seca		$alt2 $noun
+seca		s'ek& $stem	// secamente
 secas		$alt2
 seco		$alt2
 seco		$alt $verb
