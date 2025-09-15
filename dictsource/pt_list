@@ -13,10 +13,6 @@
 // $1..$7  change the stressed syllable from the 1st to the 7th
 // $text   specify another "sounds like" word, rather than specifying the phoneme string of a word
 
-// Note for "pt-pt" [R] is the same sound as [r]
-//      for "pt" [y] is the same sound as [i]
-
-
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
@@ -25,7 +21,7 @@
 // accent names
 _lig	ligad'u*&
 _acu	ag'udU
-_ac2	ag'udUd'uplU	
+_ac2	ag'udUd'uplU
 _brv	b*'Evi
 ?1 _ced	syd'il^&
 ?2 _ced	sedZ'il^&
@@ -36,11 +32,11 @@ _grv	g*'avi
 _hac	ka*'oN
 _mcn	mak*'oN
 _ogo	ogon'ek
-_rng	&~n'EU
 ?1 _rng	&~n'El
+?2 _rng	&~n'EU
 _stk	b'ax&
-_tld	tS'iU
-?1 _tld	til
+?1 _tld	t'il
+?2 _tld	tS'iU
 
 // alphabets
 _ar	'a*aby
@@ -66,16 +62,14 @@ _ó	$accent
 ü	$accent
 ß	_^_DE
 
-v	ve       // not Roman numbers
-x	Sis#
 
 _cap	maI'uskulU
 _sub	||subsk*'itU
 _sup	||sob*esk*'itU
 _?A	l'et*&_
 _??	s'imbolU_
-_#32	esp'asU
 ?1 _#32	Sp'asU
+?2 _#32	esp'asU
 _#9	tab
 
 *	&ste*'iskU	$max3
@@ -91,23 +85,21 @@ $	d'Ola*
 ¥	j'eNy
 ¢	seNt'avUs#
 §	ses'&U~
-
 _!	Skl&mas'&U~
 _"	'asp&s#
-
-?1   _#	k,ardin'al
-?2   _#	k,ardZin'aU
+?1 _#	k,ardin'al
+?2 _#	k,ardZin'aU
 _$	s,if*'&U~
 _&	'e
-?1   _'	ap'OSt*ofy
-?2   _'	ap'Ost*ofU
+?1 _'	ap'OSt*ofy
+?2 _'	ap'Ost*ofU
 _(	,ab*ipa*'eINtezy
 ¶	pa*'ag*&fU
 ●	s'i*kulU
 ■	b'ax&ve*tSik'aUko*tad&
-?1  ÷	divid'idUp'or
-?2  ÷	dZividZ'idUp'or
- ×	v'ezys#
+?1 ÷	divid'idUp'or
+?2 ÷	dZividZ'idUp'or
+×	v'ezys#
 µ	m'ik*U
 _)	f,ES&pa*'eINtezy
 _*	&ste*'iskU
@@ -123,19 +115,20 @@ _−	m'enUs
 ®	xeZist*'adU
 ↑	s'Et&as'im&
 ↓	s'Et&ab'aISU
-←	s'Et&aes#k'e*d&
-?2 →	s'Et&adZi*eIt&
-
-?1  ™	m'a*k&xeZiSt'ad&
-?2  ™	m'a*k&xeZist*'ad&
+?1 ←	s'Et&||Sk'e*d&
+?2 ←	s'Et&||,esk'e*d&
+?1 →	s'Et&||d,i*'eIt&
+?2 →	s'Et&||dZ,i*'eIt&
+?1 ™	m'a*k&||xeZiSt'ad&
+?2 ™	m'a*k&||xeZist*'ad&
 _,	v'i*gul&
 _-	'ifeIN
 _/	b'aQ&
 _:	d,oIsp'oNtus
 _;	p,oNtu_iv'irgul&
 _<      men'Or
-?1   _=	igw'al
-?2   _=	igw'aU
+?1 _=	igw'al
+?2 _=	igw'aU
 _>	maI'Or
 _?	,iNtex,ogas'&U~
 _[	,ab*ikoUS'etSi
@@ -147,19 +140,19 @@ _´	as'eINtu,ag'udU
 __	s,ublin^'adu
   _`	g*'avi
 _{	,ab*iS'avi
-?1   _|	b,ax&v,ertSik'al
-?2   _|	b,ax&v,ertSik'aU
+?1 _|	b,ax&v,ertSik'al
+?2 _|	b,ax&v,ertSik'aU
 _}	f,ES&S'avi
-?1   _~	t'il
-?2   _~	tS'iU
+?1 _~	t'il
+?2 _~	tS'iU
 _¡	,eskl&mas,&U~,iNvertS'id&
 _¿	,iNtex,ogas,&U~,iNvertS'id&
 
 _"	'ab*i;'asp&||d'upl&s#
-?1   º	O*din'almaskul'i~nU
-?2   º	o*dZin'aUmaskul'i~nU
-?1   ª	O*din'alfemin'i~nU
-?2   ª	o*dZin'aUfemin'i~nU
+?1 º	O*din'al||maskul'i~nU
+?2 º	o*dZin'aU||maskul'i~nU
+?1 ª	O*din'al||femin'i~nU
+?2 ª	o*dZin'aU||femin'i~nU
 °	g*'aU
 
 
@@ -170,63 +163,63 @@ _"	'ab*i;'asp&||d'upl&s#
 ?2 _0	z'E*U
 ?1 _1	'um
 ?2 _1	'u~N
-   _2	d'oIs#
-   _3	t*'es#
+_2	d'oIs#
+_3	t*'es#
 ?1 _4	kw'at*u
 ?2 _4	kw'at*U
 ?1 _5	s'iNku
 ?2 _5	s'iNkU
-   _6	s'eIs#
+_6	s'eIs#
 ?1 _7	s'Ety
 ?2 _7	s'EtSy
-?1   _8	'oItu
-?2      _8	'oItU
-   _9	n'Ovy
-   _10	d'Es#
-
+?1 _8	'oItu
+?2 _8	'oItU
+_9	n'Ovy
+_10	d'Es#
 _11	'oNzy
 _12	d'ozy
 _13	t*'ezy
-?1_14	k&t'o*zy
-?2_14	kat'o*zy
+?1 _14	k&t'o*zy
+?2 _14	kat'o*zy
 _15	k'iNzy
-?1_16	dyz&s'eis#
-?2_16	d,ezes'eIs#
-?1_17	dyz&s'Ety
-?2_17	d,ezes'EtSy
-?1_18	dyz'Oitu
-?2_18	dez'oItU
-?1_19	dyz&n'Ovy
-?2_19	dezen'Ovy
-?1_2X	v'iNty
-?2_2X	v'iNtSy
+?1 _16	dyz&s'eis#
+?2 _16	d,ezes'eIs#
+?1 _17	dyz&s'Ety
+?2 _17	d,ezes'EtSy
+?1 _18	dyz'Oitu
+?2 _18	dez'oItU
+?1 _19	dyz&n'Ovy
+?2 _19	dezen'Ovy
+?1 _2X	v'iNty
+?2 _2X	v'iNtSy
 _3X	t*'iNt&
-?1_4X	kw&*'eNt&
-?2_4X	kwa*'eINt&
+?1 _4X	kw&*'eNt&
+?2 _4X	kwa*'eINt&
 _5X	siNkw'eINt&
-?1_6X	sys'eINt&
-?2_6X	ses'eINt&
-?1_7X	syt'eINt&
-?2_7X	set'eINt&
+?1 _6X	sys'eINt&
+?2 _6X	ses'eINt&
+?1 _7X	syt'eINt&
+?2 _7X	set'eINt&
 _8X	oIt'eINt&
-?1   _9X	nuv'eINt&
-?2   _9X	nov'eINt&
+?1 _9X	nuv'eINt&
+?2 _9X	nov'eINt&
 _1C0	s'eIN
-?1_0C	s'eINtus#
-?2_0C	s'eINtUz
-_1C	s'eINtu
-?1_2C	duz'eINtus#
-?2_2C	duz'eINtUz
-?1_3C	tryz'eINtus#
-?2_3C	t*ez'eINtUz
-?1_5C	kin^'eINtus#
-?2_5C	kin^'eINtUz
-?1_6C	seIs'eINtus#
-?2_6C	seIs'eINtUz
-?1_0M1	m'il_
-?2_0M1	m'iU_
-?1_1M1	m'il_
-?2_1M1	m'iU_
+?1 _0C	s'eINtus#
+?2 _0C	s'eINtUs#
+?1 _1C	s'eINtu
+?2 _1C	s'eINtU
+?1 _2C	duz'eINtus#
+?2 _2C	duz'eINtUs#
+?1 _3C	t*yz'eINtus#
+?2 _3C	t*ez'eINtUs#
+?1 _5C	kin^'eINtus#
+?2 _5C	kin^'eINtUs#
+?1 _6C	seIs'eINtus#
+?2 _6C	seIs'eINtUs#
+?1 _0M1	m'il
+?2 _0M1	m'iw
+?1 _1M1	m'il
+?2 _1M1	m'iw
 
 _0M2	mil^'oI~s#
 _1M2	'u~mil^'&U~
@@ -234,8 +227,8 @@ _0M3	bil^'oI~s#
 _1M3	'u~mbil^'&U~
 _0M4	t*il^'oI~s#
 _1M4	'u~nt*il^'&U~
-_0and	i
-_dpt    _v'irgul&
+_0and	||i||
+_dpt    v'irgul&
 // _0Z2	seNt'Ezim&     // 100ths
 // _0Z3	mil'Ezim&      // 1000ths
 
@@ -316,61 +309,484 @@ eur	$abbrev
 
 // ABBREVIATIONS
 //**************
-aapp	$abbrev 
+aa	$abbrev
+aaa	$abbrev
+aac	$abbrev
+abc	$abbrev
+abcd	$abbrev
+aacd	$abbrev
+aacs	$abbrev
+aapp	$abbrev
 abadv	$abbrev
-abc	$abbrev 
-a.c	'as'e
+abgf	$abbrev
+abi	$abbrev
+abl	$abbrev
+abs	$abbrev
+acp	$abbrev
+adn	$abbrev
 adsl	$abbrev
-ae	$abbrev 
-aids	$abbrev 
+ae	$abbrev
+aeb	$abbrev
+aec	$abbrev
+aep	$abbrev
+afp	$abbrev
+agp	$abbrev
+agu	$abbrev
+aids	$abbrev
+aip	$abbrev
+am	$abbrev
+amc	$abbrev
+amd	$abbrev
+aml	$abbrev
+aneel	anel $text
+anm	$abbrev
+anmp	$abbrev
+anp	$abbrev
+anpd	$abbrev
+ans	$abbrev
+antt	$abbrev
 apedv	$abbrev
-avc	$abbrev 
-bios	b'i,OS
-d.c	d,es'e
-cne	$abbrev 
+api	$abbrev
+?1 app	_^_EN
+?2 app	'apy
+apm	$abbrev
+ascii	'aski
+asdi	$abbrev
+asg	$abbrev
+asp	$abbrev
+atm	$abbrev
+avc	$abbrev
+avg	$abbrev
+avi	$abbrev
+aws	$abbrev
+?1 bios	b'i,OS
+bndes	$abbrev
+btu	$abbrev
+byod	$abbrev
+cbo	$abbrev
+cbtu	$abbrev
+cco	$abbrev
+cdi	$abbrev
+cdo	$abbrev
+cdu	$abbrev
+cef	s'Efy
+ceo	$abbrev
+cep	s'Epy
+cfo	$abbrev
+cgi	$abbrev
+cgu	$abbrev
+ciee	$abbrev
+cma	$abbrev
+cmo	$abbrev
+cmos	$abbrev
+cna	$abbrev
+cnae	$abbrev
+cnas	$abbrev
+cne	$abbrev
+cnen	$abbrev
+cnes	$abbrev
+cni	$abbrev
+cnis	$abbrev
+cnu	$abbrev
+cpi	$abbrev
+cpmi	$abbrev
+cpo	$abbrev
 cpu	$abbrev
 cpuc	$abbrev
-dpoc	$abbrev 
-ecg	$abbrev 
+csce	$abbrev
+csma	$abbrev
+cta	$abbrev
+cti	$abbrev
+cto	$abbrev
+datasus data-sus $text
+dce	$abbrev
+ddi	$abbrev
+dgal	$abbrev
+dgeep	$abbrev
+dma	$abbrev
+dmi	$abbrev
+dna	$abbrev
+dner	$abbrev
+dnit    denite $text
+dnocs	den'Oks#
+docx	dóc-xís $text
+dpi	$abbrev
+dpoc	$abbrev
+dpu	$abbrev
+dpvat	depevate $text
+dre	$abbrev
+dsi	$abbrev
+dvi	$abbrev
+ead	$abbrev
+ebc	$abbrev
+ebct	$abbrev
+ec	$abbrev
+ecg	$abbrev
+ecp	$abbrev
+ect	$abbrev
 edp	$abbrev
-?1   etc	,ets'Et:*&
-?2   etc	,ets'Ete*&
-?3   etc	,etI-s'Ete*&
-e.u.a	Eua
+eee	$abbrev
+eeg	$abbrev
+eep	$abbrev
+efta	$abbrev
+ensp	$abbrev
+epp	$abbrev
+erp	$abbrev
+esf	$abbrev
+esg	$abbrev
+ess	$abbrev
+?1 etc	,ets'Et:*&
+?2 etc	,ets'Ete*&
+?3 etc	,etI-s'Ete*&
 eua	$abbrev
+exe	$abbrev
 fbi	$abbrev
-hiv	$abbrev 
-(http ://)	ag,atete'pe_
-icc	$abbrev 
-ieee	$abbrev // Institute of Electrical and Electronics Engineers 
-iss	$abbrev 
+fda	$abbrev
+fddi	$abbrev
+fmi	$abbrev
+fnde	$abbrev
+fne	$abbrev
+gpu	$abbrev
+gsi	$abbrev
+guid	$abbrev
+hdmi	$abbrev
+hiv	$abbrev
+(http ://)	http $text
+(https ://)	https $text
+iaas	$abbrev
+ibge	$abbrev
+ibm	$abbrev
+ibqp	$abbrev
+icaa	$abbrev
+icc	$abbrev
+icmbio	'is'e'e~myb'iU
+icmp	$abbrev
+icms	$abbrev
+idb	$abbrev
+idhm	$abbrev
+ids	$abbrev
+ieb	$abbrev
+ieee	$abbrev
+ietf	$abbrev
+iets	$abbrev
+ifac	$abbrev
+ifal	$abbrev
+ifam	$abbrev
+ifap	$abbrev
+ifb	$abbrev
+ifba	$abbrev
+ifce	$abbrev
+ifes	$abbrev
+ifg	$abbrev
+ifma	$abbrev
+ifmg	$abbrev
+ifms	$abbrev
+ifmt	$abbrev
+ifpa	$abbrev
+ifpb	$abbrev
+ifpe	$abbrev
+ifpr	$abbrev
+ifrj	$abbrev
+ifrn	$abbrev
+ifro	$abbrev
+ifrr	$abbrev
+ifrs	$abbrev
+ifs	$abbrev
+ifsc	$abbrev
+ifsp	$abbrev
+ifto	$abbrev
+ifx	$abbrev
+igc	$abbrev
+igd	$abbrev
+igf	$abbrev
+igp	$abbrev
+imc	$abbrev
+iml	$abbrev
+ims	$abbrev
+imt	$abbrev
+incc	$abbrev
+inct	$abbrev
+inpc	$abbrev
+inpi	$abbrev
+inps	$abbrev
+inss	$abbrev
+iof	$abbrev
+iot	$abbrev
+ip	$abbrev
+ipc	$abbrev
+ipca	$abbrev
+ipi	$abbrev
+ipm	$abbrev
+ipp	$abbrev
+ips	$abbrev
+ipsd	$abbrev
+iptu	$abbrev
+iptv	$abbrev
+ipva	$abbrev
+irc	$abbrev
+irpf	$abbrev
+irq	$abbrev
+irs	$abbrev
+isbn	$abbrev
+isdn	$abbrev
+iss	$abbrev
+issn	$abbrev
+issqn	$abbrev
+isv	$abbrev
+itbi	$abbrev
+itcmd	$abbrev
+itr	$abbrev
+itsm	$abbrev
+iuc	$abbrev
 jpeg	Z,Ot&p'Eg
+kpi	$abbrev
+lba	$abbrev
+lca	$abbrev
+lci	$abbrev
+lgbti	$abbrev
+lgbtqi	$abbrev
+lgbtqia	$abbrev
+lgbtqiap	$abbrev
+lgbtqiapn	$abbrev
+ltda	$abbrev
+lzma	$abbrev
+lzo	$abbrev
+?1 mac	_^_EN
+?2 mac	m'aky
+mba	$abbrev
+mcid	$abbrev
+mcom	$abbrev
+mcti	$abbrev
+mda	$abbrev
+mdic	$abbrev
+mec	m'Eky
+mercosul	mercossul $text
+mfa	$abbrev
+mma	$abbrev
+mme	$abbrev
+mne	$abbrev
+mpa	$abbrev
 mpeg	,Emp'Eg
-nba	$abbrev 
+mpi	$abbrev
+mpu	$abbrev
+mre	$abbrev
+mrna	$abbrev
+mte	$abbrev
+mtu	$abbrev
+nba	$abbrev
+nra	$abbrev
+nsa	$abbrev
 nvda	$abbrev
-oms	$abbrev 
-omt	$abbrev 
+oab	$abbrev
+ocde	$abbrev
+ocr	$abbrev
+odf	$abbrev
+odg	$abbrev
+ods	$abbrev
+odt	$abbrev
+oea	$abbrev
+ofk	$abbrev
+ofx	$abbrev
+olx	$abbrev
+ogm	$abbrev
+ogma	$abbrev
+oid	$abbrev
+oit	$abbrev
+olp	$abbrev
+omc	$abbrev
+omg	$abbrev
+oms	$abbrev
+omt	$abbrev
+ong	$abbrev
+onu	$abbrev
 osi	$abbrev
-?1   sa       ,Esj'a
-?1   sos       ,Esj,O'Es
-ue	$abbrev 
+otf	$abbrev
+otp	$abbrev
+ots	$abbrev
+paas	$abbrev
+pcdob	p'es'edUb'e
+pci	$abbrev
+pcie	$abbrev
+pcmso	$abbrev
+pco	$abbrev
+pdca	$abbrev
+pdi	$abbrev
+pdu	$abbrev
+petrobras	petrobrás $text
+pga	$abbrev
+pje	$abbrev
+pme	$abbrev
+pnab	$abbrev
+pnad	$abbrev
+pnae	$abbrev
+pnas	$abbrev
+pne	$abbrev
+pni	$abbrev
+pnma	$abbrev
+pnud	$abbrev
+ppa	$abbrev
+pse	$abbrev
+psoe	$abbrev
+psol	p'es'Ol
+pstu	$abbrev
+pto	$abbrev
+qed	$abbrev
+rca	$abbrev
+rne	$abbrev
+rfi	$abbrev
+rgeu	$abbrev
+rna	$abbrev
+?1 sa	,Esj'a
+saas	$abbrev
+sbi	$abbrev
+sedh	$abbrev
+seo	$abbrev
+sepm	$abbrev
+sga	$abbrev
+sku	$abbrev
+sla	$abbrev
+sna	$abbrev
+snba	$abbrev
+?1 sos	,Esj,O'Es
+?2 sos	$abbrev
+spu	$abbrev
+sri	$abbrev
+ssid	$abbrev
+suv	$abbrev
+tce	$abbrev
+tcu	$abbrev
+telebras	telebrás $text
+tiff	$abbrev
+tre	$abbrev
+tse	$abbrev
+tvi	$abbrev
+ubs	$abbrev
+uci	$abbrev
+ucp	$abbrev
+udi	$abbrev
+udp	$abbrev
+ue	$abbrev
+uea	$abbrev
+ueap	$abbrev
+uece	$abbrev
+ueds	$abbrev
+uefi	$abbrev
+uefs	$abbrev
+ueg	$abbrev
+uel	$abbrev
+uem	$abbrev
+uema	$abbrev
+uemg	$abbrev
+uems	$abbrev
+uenf	$abbrev
+uenp	$abbrev
+uepa	$abbrev
+uepb	$abbrev
+uepg	$abbrev
+uergs	$abbrev
+uerj	$abbrev
+uern	$abbrev
+uerr	$abbrev
+uesb	$abbrev
+uesc	$abbrev
+uezo	$abbrev
+ufabc	$abbrev
+ufac	$abbrev
+ufal	$abbrev
+ufam	$abbrev
+ufba	$abbrev
+ufc	$abbrev
+ufca	$abbrev
+ufcg	$abbrev
+ufcspa	$abbrev
+ufdpar	'u'Efyd'ep'a*
+ufes	$abbrev
+uff	$abbrev
+uffs	$abbrev
+ufg	$abbrev
+ufgd	$abbrev
+ufj	$abbrev
+ufjf	$abbrev
+ufla	$abbrev
+ufm	$abbrev
+ufma	$abbrev
+ufmg	$abbrev
+ufms	$abbrev
+ufmt	$abbrev
+ufnt	$abbrev
+ufop	$abbrev
+ufpa	$abbrev
+ufpb	$abbrev
+ufpe	$abbrev
+ufpel	'u'Efyp'EU
+ufpi	$abbrev
+ufpr	$abbrev
+ufr	$abbrev
+ufra	$abbrev
+ufrb	$abbrev
+ufrgs	$abbrev
+ufrj	$abbrev
+ufrn	$abbrev
+ufrpe	$abbrev
+ufrr	$abbrev
+ufrrj	$abbrev
+ufs	$abbrev
+ufsb	$abbrev
+ufsc	$abbrev
+ufscar	'u'Efy;'Esyk'a*
+ufsj	$abbrev
+ufsm	$abbrev
+uft	$abbrev
+uftm	$abbrev
+ufu	$abbrev
+ufv	$abbrev
+ufvjm	$abbrev
+uml	$abbrev
+unac	$abbrev
+unb	$abbrev
+undf	$abbrev
 unts	$abbrev
+uol	$abbrev
+url	$abbrev
+urrs	$abbrev
+urv	$abbrev
 usb	$abbrev
+usg	$abbrev
+usmca	$abbrev
+usp	uspe $text
+utf	$abbrev
+utfpr	$abbrev
+uti	$abbrev
+utp	$abbrev
+uuid	$abbrev
+uv	$abbrev
+vga	$abbrev
+wifi    waIf'aI
+(wi-fi) waIf'aI
+wma	$abbrev
+wpa	$abbrev
+xpto	$abbrev
+yaml	$abbrev
+yhwh	$abbrev
+ymca	$abbrev
 
 
-dr	doUtor	$dot
-dra	doUt'o*&	$dot
-mr	m'ister	$dot
-mrs	m'irsys	$dot
-prof	p*'Of	$dot
-profº	p*,ofes'o*
-profª	p*,ofes'o*&
-engº	eInZen^'eI*U
-engª	eInZen^'eI*&
-nº	n'u~me*U
-sr	$dot
-?1 sra	,Es;'Errj'a	$dot
-?2 sra	$dot
+dr	doutor $text $hasdot
+dra	doutora $text $hasdot
+mr	m'ister $hasdot
+mrs	m'irsys $hasdot
+prof	professor $text $hasdot
+profa	professora $text $hasdot
+profº	professor $text
+profª	professora $text
+eng	engenheiro $text $hasdot
+enga	engenheira $text $hasdot
+engº	engenheiro $text
+engª	engenheira $text
+nº	número $text
+sr	senhor $text $hasdot
+sra	senhora $text $hasdot
+srta	senhorita $text $hasdot
 
 // articles
 o	$u+	$nounf
@@ -1644,8 +2060,8 @@ herbert		$1 $alt1
 james		Z'eimys
 jason		Z'eIson
 jerry		$1 $alt1
-joe		ZI'oU
-john		ZI'oN
+joe		Z'oU
+john		Z'oN
 jonathan	$1
 jordan		$1 $alt1
 joseph		$1
@@ -1939,8 +2355,8 @@ jessica		jéssica $text
 jesuina		jesuína $text
 jesuino		jesuíno $text
 joao		joão $text
-?1 jonatas	jónata $text
-?2 jonatas	jônata $text
+?1 jonata	jónata $text
+?2 jonata	jônata $text
 ?1 jonatas	jónatas $text
 ?2 jonatas	jônatas $text
 josafa		josafá $text
