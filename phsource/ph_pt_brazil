@@ -55,7 +55,7 @@ endphoneme
 phoneme oI~
   vwl starttype #o endtype #i
   ipa oU+0303ɪU+0303
-  length 260
+  length 240
   FMT(vnasal/oi_n)
 endphoneme
 
