@@ -12,7 +12,16 @@
 // B  a consonant, except h l r w y
 // C  a consonant
 // G  a voiced consonant
-// K  not a vowel
+// Y  a front vowel: e, i, y
+
+// Special characters
+// +  increase the score by 20 points
+// D  the character is a digit
+// K  the character is not a vowel, i.e. anything alse, including nothing
+// N  use the rule if the word doesn't have a suffix
+// W  use the rule when spelling letter by letter
+// Pn the n characters is a prefix
+// Sn the n characters is a suffix
 
 // endings
 .L01 a am
@@ -613,9 +622,9 @@ _entorp) e (çL03_  e
 
 
 .group g
-?1   _) g (_       ge
 ?1   _) g (_W      Ze        // within an acronym
-     _) g (_       Ze
+?1   _) g (_       ge        // individual letter or end-of-acronym
+?2   _) g (_       Ze
         g          g
         g (g 
 ?3      g (B       gI-
@@ -759,7 +768,7 @@ _redar) gu (A      gw
 .group l
 ?1   _) l (_W      El;       // within an acronym
 ?1   _) l (_       El
-     _) l (_       'Ely
+?2   _) l (_       'Ely
         l          l
      l) l 
         lh         l^
@@ -768,7 +777,7 @@ _redar) gu (A      gw
 .group m
 ?1   _) m (_W      Em;
 ?1   _) m (_       Em
-     _) m (_       'eme
+?2   _) m (_       'emy
         m          m
         m (m 
 ?3      m (B       mI-
@@ -781,7 +790,7 @@ _redar) gu (A      gw
 .group n
 ?1   _) n (_W      En;
 ?1   _) n (_       En
-     _) n (_       'ene
+?2   _) n (_       'eny
         n          n
         n (n 
 ?3      n (B       nI-
@@ -791,8 +800,8 @@ _redar) gu (A      gw
 
 
 .group ñ
-     _) ñ (_       'enjE
-?1   _) ñ (_       enetil
+?1   _) ñ (_       'En||t'il
+?2   _) ñ (_       'eny||tS'iU
         ñ          n^
 
 
@@ -1116,22 +1125,22 @@ _ortod) o (xL08_   O
 
 
 .group r
-?1   _) r (_W      'Err;     // within an acronym
-?1   _) r (_       'Err
-     _) r (_       'Exe
+?1   _) r (_W      ER#;      // within an acronym
+?1   _) r (_       ER#
+?2   _) r (_       'ER#y
         r          *
         r (_       r#
         r (C       r#
      A) r (A       *
-        r (_A      *
-        r (_h      *
+     A) r (_A      *
+     A) r (_h      *
      C) r (A       *
         rr         R#
      _) r          R#
      l) r (A       R#
      n) r (+       R#
      s) r          R#
-?1   A) r (_       *@-
+?1   A) r (_       *
 
 
 .group s
@@ -1229,6 +1238,7 @@ _ortod) o (xL08_   O
         únh        ''u~n^
 
 .group v
+     _) v (_       ve
         v          v
         v (v 
 ?3      v (B       vI-
@@ -1237,13 +1247,14 @@ _ortod) o (xL08_   O
 
 .group w
 ?1   _) w (_       d'&bl,iu
-?2   _) w (_       d'ablju
+?2   _) w (_       d'ablI;U
         w          w
 ?1      w (_       _^_EN
 ?4   _) w          u
 
 
 .group x
+     _) x (_       Sis#
         x (A       S
      A) x (A       ks
      e) x (A       ks
@@ -1259,7 +1270,7 @@ _ortod) o (xL08_   O
         x (C       s
         xc (Y      s
         x (s 
-        x (_       ks
+     A) x (_       ks
         x (AxA     S
         x (ó_      z
      a) x (a       S
