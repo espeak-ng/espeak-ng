@@ -186,7 +186,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
      _) b (_       be
         b          b
         b (b 
-?3      b (B       bI-
+?3      b (B       bI/
 ?3      b (s       b
 ?3      b (_C      b_
 
@@ -195,8 +195,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
      _) c (_       se
         c          k
         c (Y       s         // ce ci
-?3      ck         kI-
-?3      c (B       kI-
+?3      ck         kI/
+?3      c (B       kI/
 ?3      c (s       k
 ?3      c (t       k
 ?3      c (_C      k_
@@ -213,7 +213,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
      _) d (_       de
         d          d
         d (d 
-?3      d (B       dZI-
+?3      d (B       dZI/
 ?3      d (_C      d_
 ?2      d (i       dZ
 ?2      d (í       dZ
@@ -617,7 +617,7 @@ _entorp) e (çL03_  e
      _) f (_       'Efy
         f          f
         f (f 
-?3      f (B       fI-
+?3      f (B       fI/
 ?3      f (_C      f_
 
 
@@ -627,7 +627,7 @@ _entorp) e (çL03_  e
 ?2   _) g (_       Ze
         g          g
         g (g 
-?3      g (B       gI-
+?3      g (B       gI/
 ?3      g (_C      g_
         g (Y       Z         // ge gi
         gu (Y      g
@@ -750,7 +750,7 @@ _redar) gu (A      gw
 .group j
      _) j (_       Z'Ot&
         j          Z
-?3      j (B       ZI-
+?3      j (B       ZI/
 ?3      j (_C      Z_
 
 
@@ -759,7 +759,7 @@ _redar) gu (A      gw
 ?2   _) k (_       ka
         k          k
         k (k 
-?3      k (B       kI-
+?3      k (B       kI/
 ?3      k (s       k
 ?3      k (t       k
 ?3      k (_C      k_
@@ -780,7 +780,7 @@ _redar) gu (A      gw
 ?2   _) m (_       'emy
         m          m
         m (m 
-?3      m (B       mI-
+?3      m (B       mI/
 ?3      m (_C      m_
 
 ?1  @@) mente (_S5 m''eINty
@@ -793,7 +793,7 @@ _redar) gu (A      gw
 ?2   _) n (_       'eny
         n          n
         n (n 
-?3      n (B       nI-
+?3      n (B       nI/
 ?3      n (_C      n_
         nh         n^
 ?1   A) nn         n         //drop “n” (eg: connosco).
@@ -1075,7 +1075,7 @@ _ortod) o (xL08_   O
      _) p (_       pe
         p          p
         p (p 
-?3      p (B       pI-
+?3      p (B       pI/
 ?3      p (s       p
 ?3      p (t       p
 ?3      p (_C      p_
@@ -1087,7 +1087,7 @@ _ortod) o (xL08_   O
 .group q
      _) q (_       ke
         q          k
-?3      q (B       kI-
+?3      q (B       kI/
         qu         kw
         qü         kw
         qu (Y      k
@@ -1184,7 +1184,7 @@ _ortod) o (xL08_   O
      _) t (_       te
         t          t
         t (t 
-?3      t (B       tSI-
+?3      t (B       tSI/
 ?3      t (_C      t_
 ?2      t (i       tS
 ?2      t (í       tS
@@ -1241,7 +1241,7 @@ _ortod) o (xL08_   O
      _) v (_       ve
         v          v
         v (v 
-?3      v (B       vI-
+?3      v (B       vI/
 ?3      v (_C      v_
 
 
@@ -1343,7 +1343,7 @@ _lagarti) x (A     S
      _) z (_       ze
         z          z
         z (z 
-?3      z (B       zI-
+?3      z (B       zI/
 ?3      z (_C      z_
 ?1   @) z (_       S
 ?2   @) z (_       s
@@ -1355,7 +1355,7 @@ _lagarti) x (A     S
 ?1   A) z (_C      S
 ?1   A) z (_G+     Z
    _pi) zz (a      ts
-?3 _pi) zz (a      tI-s
+?3 _pi) zz (a      tI/s
 
 
 .group

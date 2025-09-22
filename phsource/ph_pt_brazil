@@ -128,7 +128,7 @@ phoneme y            // old unstressed /i/ kept for backward compatibility
   CALL pt/I
 endphoneme
 
-phoneme I-           // very short [i] used for epenthesis
+phoneme I/           // very short [i] used for epenthesis
   vwl starttype #i endtype #i
   ipa NULL
   unstressed
