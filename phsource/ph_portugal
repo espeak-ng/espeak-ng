@@ -163,3 +163,14 @@ phoneme s#
 endphoneme
 
 
+
+phoneme d#           // special phoneme for /d/
+  virtual
+  ChangePhoneme(d)
+endphoneme
+
+phoneme t#           // special phoneme for /t/
+  virtual
+  ChangePhoneme(t)
+endphoneme
+

@@ -311,3 +311,27 @@ phoneme s#           // special phoneme for /s/ in coda
   ENDIF
   ChangePhoneme(s)
 endphoneme
+
+
+
+
+phoneme d#           // special phoneme for /d/
+  virtual
+  IF nextPhW(#e) OR nextPhW(#i) THEN
+    ChangePhoneme(dZ)
+  ELIF thisPh(isWordEnd) THEN
+    ChangePhoneme(dZ)
+  ENDIF
+  ChangePhoneme(d)
+endphoneme
+
+phoneme t#           // special phoneme for /t/
+  virtual
+  IF nextPhW(#e) OR nextPhW(#i) THEN
+    ChangePhoneme(tS)
+  ELIF thisPh(isWordEnd) THEN
+    ChangePhoneme(tS)
+  ENDIF
+  ChangePhoneme(t)
+endphoneme
+
