@@ -98,6 +98,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         a (ñ       &~
         a (nA@     &
         a (nAr_    &
+        amm (A     am
+        ann (A     an
         am (_      =&~N
         am (C      &~m
 ?4      am (C      &~N
@@ -186,6 +188,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
      _) b (_       be
         b          b
         b (b 
+?3      b (b 
 ?3      b (B       bI/
 ?3      b (s       b
 ?3      b (_C      b_
@@ -195,15 +198,19 @@ ÿ	ÿ	// y + U+0308 = U+00FF
      _) c (_       se
         c          k
         c (Y       s         // ce ci
-?3      ck         kI/
+        c (cY      k         // cce cci
+        c (c 
+?3      c (c 
 ?3      c (B       kI/
 ?3      c (s       k
 ?3      c (t       k
 ?3      c (_C      k_
         ch         S
         chr        kR
+        cch        k         // for Italian words such as Pinocchio
         ck         k
-?1      c (c                 //drop “c” in European Portuguese (eg: seleccionar)
+?3      ck         kI/
+?1      c (cY                //drop “c” in European Portuguese (eg: seleccionar)
 ?1   A) ct         t         //drop “c” in European Portuguese (eg: exacto)
 ?1   A) cç         s         //drop “c” in European Portuguese (eg: selecção)
 ?1 conta) ct (A      kt        // eg: contacto, contactar, contactável, incontactável, etc...
@@ -213,6 +220,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
      _) d (_       de
         d          d
         d (d 
+?3      d (d 
 ?3      d (B       dZI/
 ?3      d (_C      d_
 ?2      d (i       dZ
@@ -306,6 +314,8 @@ e (trL04_   E
 
         e (x_      E
         e (xL04_   E
+        emm (A     em
+        enn (A     en
         em (C      eIm
         en (K      eIN
         enh        en^
@@ -617,6 +627,7 @@ _entorp) e (çL03_  e
      _) f (_       'Efy
         f          f
         f (f 
+?3      f (f 
 ?3      f (B       fI/
 ?3      f (_C      f_
 
@@ -627,6 +638,7 @@ _entorp) e (çL03_  e
 ?2   _) g (_       Ze
         g          g
         g (g 
+?3      g (g 
 ?3      g (B       gI/
 ?3      g (_C      g_
         g (Y       Z         // ge gi
@@ -687,6 +699,8 @@ _redar) gu (A      gw
         i (ll+     i
 
         im (_      iN
+        imm (A     im
+        inn (A     in
         im (C      im
 ?4      im (C      iN
         in (_      iN
@@ -759,6 +773,7 @@ _redar) gu (A      gw
 ?2   _) k (_       ka
         k          k
         k (k 
+?3      k (k 
 ?3      k (B       kI/
 ?3      k (s       k
 ?3      k (t       k
@@ -796,7 +811,6 @@ _redar) gu (A      gw
 ?3      n (B       nI/
 ?3      n (_C      n_
         nh         n^
-?1   A) nn         n         //drop “n” (eg: connosco).
 
 
 .group ñ
@@ -874,6 +888,8 @@ _redar) gu (A      gw
         om (_      oN
         o (ma_     o
 
+        omm (A     om
+        onn (A     on
         om (C      om
 ?4      om (C      oN
         on (K      oN
@@ -1075,6 +1091,7 @@ _ortod) o (xL08_   O
      _) p (_       pe
         p          p
         p (p 
+?3      p (p 
 ?3      p (B       pI/
 ?3      p (s       p
 ?3      p (t       p
@@ -1184,6 +1201,7 @@ _ortod) o (xL08_   O
      _) t (_       te
         t          t
         t (t 
+?3      t (t 
 ?3      t (B       tSI/
 ?3      t (_C      t_
 ?2      t (i       tS
@@ -1219,6 +1237,8 @@ _ortod) o (xL08_   O
         u (lh+     u
         u (ll+     u
         um (_      u~N
+        umm (A     um
+        unn (A     un
         um (C      u~m
 ?4      um (C      u~N
         un (K      u~N
@@ -1241,6 +1261,7 @@ _ortod) o (xL08_   O
      _) v (_       ve
         v          v
         v (v 
+?3      v (v 
 ?3      v (B       vI/
 ?3      v (_C      v_
 
@@ -1343,6 +1364,7 @@ _lagarti) x (A     S
      _) z (_       ze
         z          z
         z (z 
+?3      z (z 
 ?3      z (B       zI/
 ?3      z (_C      z_
 ?1   @) z (_       S
@@ -1354,7 +1376,7 @@ _lagarti) x (A     S
 ?1   A) z (G+      Z
 ?1   A) z (_C      S
 ?1   A) z (_G+     Z
-   _pi) zz (a      ts
+   _pi) zz (a      t|s
 ?3 _pi) zz (a      tI/s
 
 
