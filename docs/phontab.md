@@ -135,6 +135,24 @@ means: `phoneme t` in this phoneme table is a copy of`phoneme t[` from phoneme
 table `base`. A `length` instruction can be used after `import\_phoneme` to
 vary the length from the original.
 
+It the phoneme name has a `/`, this character is as a variant indicator.
+When the phoneme mnemonics are written to the standard output (flag `-x`),
+this character is discarded with any other character after it. For example:
+
+	phoneme l
+	  IF NOT nextPhw(isVowel) THEN
+	    ChangePhoneme(l/2)
+          ENDIF
+          ...
+	endphoneme
+	
+	phoneme l/2   // dark L used before a consonant
+	  ...
+	endphoneme
+
+In the example, the normal `l` is replaced with a dark `l/2`, but when
+printing to the starndard output, it will be printed as `l`, not `l/2`.
+
 ## Phoneme Properties
 
 The phoneme features are described in the [Phonemes](phonemes.md) document. These
