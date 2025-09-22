@@ -551,8 +551,6 @@ lgbtqiapn	$abbrev
 ltda	$abbrev
 lzma	$abbrev
 lzo	$abbrev
-?1 mac	_^_EN
-?2 mac	m'aky
 mba	$abbrev
 mcid	$abbrev
 mcom	$abbrev
@@ -1548,6 +1546,7 @@ opereta		$alt2
 orno	$alt
 osso		$alt2
 ostra		$alt2
+ovo		$alt2
 outorgo	$alt
 pacheco		$alt2
 paexa		paeSa
@@ -1730,7 +1729,6 @@ tropeço		$alt2 $noun
 tropeços		$alt2
 trombeta	$alt2
 ureia	$alt
-vanessa		$alt2
 vareta		$alt2
 vera		$alt
 verbete		$alt2
@@ -1748,226 +1746,614 @@ zelo		$alt2 $noun
 zorra		$alt2
 
 // foreign words
+(ad hoc)	ad'Ok
+affair		af'Er#
+affaire		af'ER#
+air		Er#
+airbag		Er#b'Eg
 ?2 álcool	'aUkoU
-?1 alt        'alt
-?1 back       b'Ek
-?2   bahamas	bax'&~m&s
-?2  backup        bEk'&p
-?2  backups     bEk'&ps
-bad  bEd
-bank	beINk
-bacon	b'eIkoN
+?1 alt		'alt
+antidoping	$3 $alt
+antispam	,&~Nt#isp'&~
+apartheid	,apar#t'aId
+audiobook	,aUd#jUb'Uk
+back		b'Ek
+backup		bEk'&p
+backups		bEk'&ps
+bacon		b'eIkoN
+bad 		bEd
+?2 bahamas	bax'&~m&s
+(band aid)	b'&~nd||e'Id#
+bank		beINk
+banner		$1
 ?2 basebol	beIzyb'Ow
-beatle  b'itoU
-beatles  b'itoUs
-black  blEk
-blind      bl'aind
-?2 blue	blu
-?1 braille    b:r'aily
-?2        Braille        b*'aili
-?1 cancel     k'&ns'El
-?1 caps       k'aps
+beagle		b'igol
+beatle		b'itoU
+beatles		b'itoUs
+black		blEk
+blind		bl'aInd
+blockchain	bl'OktSeIn
+?2 blue		blu
+blush		bl&S
+board		b'or#d
+boarder		b'or#der#
+body		b'O*i
+boiler		$1 $alt1
+(bon vivant)	_^_FR
+boogie		b'ugi
+bookmarker	buk||m'ar#ker#
+booster		b'us#ter#
+boulevard	bulevar $text
+boutique	butique $text
+?1 braille	b:r'aily
+?2 braille	b*'aili
+brasserie	brasserri $text
+break		b*'eIk
+breakfast	b*'Ekf&st
+brie		b*'i
+briefing	b*'ifiN
+broadcast	b*'OdkEst#
+broadcasting	b*Odk'Est#IN
+brownie		b*'aUni
+browser		b*'aUzer#
+brunch		b*&ntS
+buffet		buf'e
+bug		b'&g
+bullying	$1
+bunker		b'&Nker#
+bureau		bi*'o
+byte		b'aIt#y
+campi		$1
+camping		$1
+campus		$1
+?1 cancel	k'&ns'El
 ?2 cappuccino	kaputS'inU
+?1 caps		k'aps
+caput		k'aput
+carpaccio	ka*p'atSjU
+cashmere	kaSym'ir#
 ?2 center	s'eNter
-?1 com        kom
-?1 ctrl       k'oNt:r,Ol
+champignon	S&~pin^'o~
+chantilly	S&~nt#i'li
+chardonnay	Sar#don'e
+chat		S'Et#
+check		S'Ek
+cheddar		S'Edar#
+chef		S'Ef
+cherry		S'Eri
+chester		S'Ester#
+(chop suey)	tS'OpsuI
+chutney		S'&t#ni
+clipper		$1
+clipping	$1
+close		$alt2
+closet		$1
+club		kl'&b
+cluster		kl'&ster#
+coach		k'oUtS
+coachee		koUtS'i
+coaching	k'oUtSiN
+cockpit		kOkp'it#
+coffee		k'Ofi
+?1 com		kom
+commodity	$2 $alt1
+compliance	kompl'aI&ns
 ?2 control	k'oNt*oU
-doc        d'Ok
-?1 delete     d'il'it
-?1 design     d,iz'ain
-?2 design     dez'aIn
-?2   designer	dez'aIner
-?2   designers	dez'aIners
+corpus		k'O*pUs#
+cowboy		kaUb'OI
+coworking	kow'or#kiN
+crossfit	k*Osf'it#
+?1 ctrl		k'oNt:r,Ol
+curriculum	$2
+curry		k'&ri
+cyberpunk	saIber#p'&nk
+(data venia)	dat&||v'en,i&
+deadline	dEd||l'aIny
+default		defoUt#
+(déjà vu)	d,eZav'u
+?1 delete	d'il'it
+?1 design	d,iz'ain
+?2 design	dez'aIn
+?2 designer	dez'aIner
+?2 designers	dez'aIners
 ?2 desktops	deskt'Ops
-?1  dj         d,i:dZ'eI
-?2   diesel	dZ'izEU
-?2   doha	d'ox&
-?1 down       d'a,wn
-?2   down   d'aUN
-?1 download   d'a,wnl'oud
-?2 download		daUNl'oUd
-?2 downloads		daUNl'oUds
-?3 download        dau~Nl'oUd
-drive	d*'aIv
-?1 end        'end
+dial		daI'Al
+?2 diesel	dZ'izEU
+diet		d'aIEt#
+?1 dj		d,i:dZ'eI
+doc		d'Ok
+?2 doha		d'ox&
+doll		d'Ol
+doping		d'OpiN
+?1 down		d'a,wn
+?2 down		d'aUN
+?1 download	d'a,wnl'oud
+?2 download	daUNl'oUd
+?3 download	dau~Nl'oUd
+?2 downloads	daUNl'oUds
+drive		d*'aIv
+drops		$alt1
+dumping		d'&mpiN
+ecstasy		$1
+email		im'eIl
+emoji		$2
+?1 end		'end
+ensemble	&~s'&~bly
 ?2 enter	'eNter
-?2 esc     'Esk
-?3 esc     'EskI
-?1 explorer   ,ekspl'O:*&r
-?2        Explorer        ekspl'O*er
-?1 eyes       'aiz
-?2 eyes       'aIs
+entourage	&~tux'aZ
+?2 esc		'Esk
+?3 esc		'EskI
+?1 explorer	,ekspl'O:*&r
+?2 explorer	ekspl'O*er
+?1 eyes		'aiz
+?2 eyes		'aIs
+factoring	$1
+(fade in)	f'eId||'iN
+(fade out)	f'eId||'aUt#
+fake		f'eIk
+fast		f'Est#
+feedback	f,idb'Ek
+feeling		f'iliN
+ferryboat	f,Erib'oUt#
 ?1 fixe		fiSy
-flash	flES
-frame      f*'eImy
-funk	f&~Nk
-game	g'eImy
-gay	geI
-get   gEt
-?1 gmail      g,em'eIl
-?2 Gmail      Zem'eIl
-?1 google     g'u:g&l 
-?2 google     g'ugol
+flamboyant	fl,&~boIj'&~
+flash		flES
+flashback	flESb'Ek
+flat		fl'Et#
+fondant		fo~d'&~
+fondue		fo~d#'i
+food		f'Ud#
+footing		f'ut#iN
+foyer		_^_FR
+frame		f*'eImy
+franchise	f*&~ntS'aIzy
+franchising	f*&~ntS'aIziN
+freelance	f*il'&~nsy
+freelancer	f*il'&~nser#
+freeware	f*'iw,Er
+freezer		f*'izer
+frisson		f*is'o~
+funk		f&~Nk
+gadget		g'EdZet#
+game		g'eImy
+gamer		g'eImer#
+gay		geI
+gentleman	dZ'EntoUman
+gestalt		geSt'alt#
+get		gEt
+gigabyte	Zig&b'aIt#y
+girl		_^_EN
+glamour		glamur $text
+(globe trotter) gloUb||t*'Oter
+?1 gmail	g,em'eIl
+?2 gmail	Zem'eIl
+?1 google	g'u:g&l
+?2 google	g'ugol
+?1 gospel	g'Os#pel
+?2 gospel	g'Os#peU
+gourmet		gu*m'e
+gruyère		gr,uj'E*y
 ?2 habeas	'abe&s
+hacker		h'aker#
+haddock		a'dOk
+hall		h'Ol
+halloween	h,aloU'iN
+hamster		h'&~mster#
 ?2 handebol	hendZyb'Ow
-?1 hardware   'ard,w'Er
-?2 hardware   h'ardwer
-happy  x'Epy
+happy		h'Epi
+hard		h'ar#d#
+hardcore	har#dk'Or#
+?1 hardware	'ard,w'Er
+?2 hardware	h'ardw,Er
+hashtag		h,ESt'Eg
 ?2 haxixe	xaS'iSy
-?1 home       'omy
-?2 home       h'oUmi
-hot	xOt
-?1 hotmail    h'Ot'eIl
-?2 hotmail    hOtm'eIl
-?1 install    ,inst'al
-?2 Intranet   iNt*an'Et
-?1 kernel     k'Ern,El
-?2 kernel     k'Ern@l
-?2 jazz	dZIEs
+(hi fi)		h,aIf'aI
+high		haI
+(hip hop)	h'ip||h'Op
+hippie		h'ipi
+hit		h'it#
+hobby		h'Obi
+?1 hold		h'old
+?2 hold		h'oUdZ
+?1 holding	h'oldiN
+?2 holding	h'oUdZiN
+?1 home		'omy
+?2 home		h'oUmy
+hooligan	h'ulig&~n
+hot		xOt
+?1 hotmail	h'Ot'eIl
+?2 hotmail	hOtm'eIl
+hotsite		h'Ots,aIt#
+?1 hour		'aU&r
+?2 hour		'aUEr
+how		h'aU
+iceberg		'aIsb,E*g
+impeachment	imp'itSm&~nt
+influencer	$3
+input		iNp'ut#
+?1 install	,inst'al
+?2 intranet	iNt*an'Et
+ipsis		$1
+?2 jazz		dZIEs
+jeans		dZ'ins
+jingle		dZ'iNgol
+jogging		dZ'OgiN
+?1 kernel	k'Ern,El
+?2 kernel	k'Ern@l
+kilobyte	kilob'aIt#y
+know		n'oU
+kosher		k'OSer#
+lady		l'eIdy
+(laissez-faire)	les'e||f'ER#
+laptop		lEpt'Op
+?2 laptops	lEpt'Ops
 laser		l'eIzer
 lasers		l'eIzers
-left	$alt
-laptop	lEpt'Op
-?2 laptops	lEpt'Ops
-?1 line       l'ain
-   layout     l'eI,aUt
-   ?2   login  logiN
-?1 lock       l'Ok
-   mail       m'eIl
-        mails        m'eIls
+(lato sensu)	l'atU||s'eINsU
+layout		l'eI,aUt#
+lead		l'id#
+leasing		l'izIN
+left		$alt
+like		l'aIk
+?1 line		l'ain
+lingerie	l&~ZeR#'i
+litteris	$1
+live		l'aIv
+lock		l'Ok
+lockdown	l'Okd,aUN
+lockout		l'Ok,aUt#
+log		l'Og
+looping		l'upiN
+macintosh	mak,int'OS
+mail		m'eIl
+mails		m'eIls
+(make up)	m,eIk'&p
+management	m'anedZment
+manager		m'anedZer#
+marchand	m,ar#S'&~
 ?1 marketing	m'arktiN
 ?2 marketing	m'arketSiN
-?2  master	m'aste*
-?2        mouse        m'aUzi
-?1 menu       menu
-mickey	m'ikeI
-next       n'Ekst
-   ok         Ok'eI
-?2 offline    Ofl'aIN
-?2 online     oNlaIN
-   org        Org
-?1 ovo        'ovu
+marshmallow	m,ar#Sm'EloU
+?2 master	m'aste*
+(match point)	m'EtS||p'oINt#
+match		m'EtS
+mayday		meId'eI
+meeting		m'it#iN
+megabyte	mEg&b'aIt#y
+ménage		men'aZy
+?1 menu		menu
+merchandising	merS&~nd'aIziN
+mezzosoprano	m,ezosop*'&~nU
+mickey		m'ikeI
+mignon		m,in^'oN
+milady		mil'eId#i
+(mini show)	m'ini||S'oU
+(mini system)	m'ini||s'isteIN
+(mise en plis)	m'iz||&~||pl'i
+(mise en scène)	m'iz||&~||s'En
+mister		$1
+(mock up)	m'Ok||'&p
+(modus operandi)	m'OdUz||ope*'&nd#y
+(modus vivendi)	m'OdUz||viv'eINd#y
+motocross	m,otok*'Os
+?2 mouse	m'aUzi
+mousse		m'usy
+muffin		m'&fiN
+music		mj'uzik
+nécessaire	nesEs'ER#
+network		n'Etw,or#k
+networking	n,Etw'or#kiN
+news		n,iUs#
+newsletter	n,iUzl'Eter#
+next		n'Ekst
+nobreak		noUb*'eIk
+nylon		n'aIloN
+(off line)	Of||l'aINy
+?1 offline	Ofl'aIN
+?2 offline	Ofl'aINy
+ok		Ok'eI
+ombudsman	$2
+(on line)	oN||l'aINy
+?1 online	oNl'aIN
+?2 online	oNl'aINy
+opus		'Opus
+org		Or#g
+origami		$3
+out		'aUt#
+outdoor		aUtd'Or#
+outdoors	aUtd'O*s
+outlet		aUtl'Et#
+output		aUtp'ut#
+outsider	aUts'aIder#
+overbooking	o,ver#b'UkiN
+oxford		oksf'Or#d#
+paddock		$alt1
+paella		pa'el^&
+page		p'eIdZ
+palmier		palmj'e
 ?2 palmtop	paUmyt'Op
-?1 pause      p'au:z
-   page       p'eIdZ
-   ?1   podcast	pOdkEst
-?2  podcast	pOdZyk'Est
-python     p'aIT&~N
+(papier mâché)	papj'e||maS'e
+pastrami	$2
+patchwork	p'EtSw,or#k
+?1 pause	p'au:z
+pendrive	p,eINd*aIv
+(per capita)	p'er#||c'apit&
+performance	$2 $alt1
+(petit four)	_^_FR
+(petit pois)	_^_FR
+pickles		$1
+pickup		pik'&p
+pidgin		p'idZiN
+piercing	p'ir#siN
+pinscher	p'iNSer#
+pipeline	paIpyl'aIny
+pixel		p'iksel
+pizzaiolo	p,itsaj'olU
+play		pl'eI
+playback	pl'eIb,Ek
+playground	pl'eIg*,aUNd
+plush		pl'&S
+?1 podcast	pOdkEst
+?2 podcast	pOdZyk'Est
+poltergeist	p'olter#g,aIst#
+poodle		p'udol
+poster		$1
+posteriori	$4
+(pot-pourri)	p'opuR#'i
+premier		p*emj'e
+première	p*emj'ER#
+(prêt à porter) p*'Et||a||por#t'e
+priori		$2
+(pro forma)	p*,o||f'O*m&
+(pro labore)	p*,o||l&b'O*y
+punk		p'&~Nk
+python		p'aIT&~N
+quantum		$1
 ?2 quantum	kw'&~Ntu~N
+quiche		k'iS
+quorum		$1 $alt1
+raclette	_^_FR
+radicchio	R#ad#'ikjU
+rafting		R#'aft,iN
+rallye		R#al'i
+ranking		R#'&~NkiN
 ?2 ranking	x'&NkIN
-?1 readme     r'i:dmi:
-right   r'aIt
-?1 sapi       s,ap'i
-?1 scanner    sk'En&r
-sky   sk'aI
-shake	S'eIk
-?1 shift      S'ift
-?1 scroll     sk:r'ol
-?1 site       s'aIt
-?2 site       s'aItSy
-?2   shampoo  S&mpu
+rap		R#Ep
+rapper		R#Ep,er#
+rash		R#aS
+rave		R#'eIv
+ravioli		R#avj'Oly
+?1 readme	r'i:dmi:
+reboot		R#ib'ut#
+recall		R#ik'Ol
+récamier	R#ekamj'e
+réchaud		R#eS'o
+record		R#'Ekor#d#
+reels		R#'ils
+reggae		R#'Eg,eI
+reggaeton	R#,Eget'oN
+reich		R#'aIS
+release		R#il'izy
+remake		R#im'eIk
+(rendez vous)	R#&~d'e||v'u
+resort		$alt1
+restaurateur	R#estaUr#&~tEr#
+réveillon	R#evej'oN
+revival		R#iv'aIv&l
+riesling	R#'isliN
+right		r'aIt
+(rock and roll)	r'Ok||end||r'ol
+rôtisserie	R#otiseR#'i
+rough		R#&f
+round		R#aUNd#
+royalty		R#'OIaUt#i
+rubber		R#&ber#
+rush		R#&S
+sanctus		s'&~nktUs
+(sans culotte)	s'&~||kul'Ot#
+?1 sapi		s,ap'i
+sauvignon	s,ovin^'oN
+(savoir faire)	savw'aR#||f'ER#
+scanner		sk'&ner#
+?1 scanner	sk'En&r
+scooter		sk'uter#
+scraper		sk*'eIper#
+?1 scroll	sk:r'ol
+(self service)	s'Elf||s'Er#visy
+seller		$1
+(sex appeal)	s'Eks||ap'il
+sexy		$alt1
+shake		S'eIk
+?2 shampoo	S&mpu
+shareware	S'Erw,Er#
+?1 shift	S'ift
 ?2 shopping	S'OpiN
-?2 slide		zl'aIdZy
+short		$alt1
+shot		$alt1
+(show business)	S'oU||b'iznes
+showroom	S,oUR#'um
+sidecar		s,aIdk'ar#
+sign		s'aIn
 ?4 símbolo	s'iNbolU
-?1   software   s'Oft,w'Er
-?2   software   s'Oftwer
-?1 space      sp'eIsy
-?2 space      sp'eIs
-?1 sporting   sp'Ort,ing
-statu	st'atU
+?1 site		s'aIt
+?2 site		s'aItSy
+sitter		$1
+skate		sk'eIt#
+sketch		sk'EtS
+skinhead	sk,iNh'Ed#
+sky		sk'aI
+slide		sl'aId#
+?2 slide	zl'aIdZy
+slogan		$1
+smoking		$1
+?1 software	s'Oft,w'Er
+?2 software	s'Oftw,Er
+sommelier	somelj'e
+sommelière	somelj'ER#
+sommier		somj'e
+?1 space	sp'eIsy
+?2 space	sp'eIs
+spaghetti	spag'Et#y
+spam		sp'&~m
+?1 sporting	sp'Ort,ing
+spot		$alt1
+spray		sp*'eI
+spread		sp*'Ed#
+squash		skw'OS
+staff		st'af
+(stand by)	st'&~Nd||b'aI
+standard	$1
+startup		st'ar#t||&p
+statu		st'atU
+stories		st'Or#is
+story		st'Or#i
+storyboard	st'Or#i||b'or#d
+streaming	st*'imiN
+stretch		st*'EtS
+(stricto sensu)	st*'iktU||s'eINsU
+striptease	st*,ipt'izy
+strogonoff	st*ogon'Of
+surf		s'&r#f
 sutiã		sutSi'&~N
- tab        t'aby
- tablet  t'ablet
-  tablets  t'ablets
-  ?2 tantum	t'&~Ntu~N
- taser	t'eIzer
-?1 telemóvel  t,El,Em'OvEl
-?1 telemóveis t,El,Em'OveIs#
-?1 up         &p
+swap		sw'Op
+swing		sw'iNg
+tab		t'aby
+tablet		t'ablet
+tablets		t'ablets
+tailleur	taj'Er
+?2 tantum	t'&~Ntu~N
+taser		t'eIzer
+teenager	t#in'eIdZer#
+telemarketing	$3
+?1 telemóveis	t,El,Em'OveIs#
+?1 telemóvel	t,El,Em'OvEl
+terabyte	tE*&b'aIt#y
+the		De
+thesaurus	$2
+ticket		$1
+(tik toker)	t#'ik||t'Oker#
+(tik tok)	t#'ik||t'Ok
+timer		t'aImer#
+toilette	tw,al'Et#
+tour		t'ur#
+trader		t*'eIder#
+trading		t*'eId#iN
+trailer		t*'eIler#
+training	t*'eIniN
+transfer	$1
+trash		t*aS
+trekking	$1 $alt1
+tricot		t*ik'o
+tsunami		$2
+under		'&~Nder#
+underground	,&~Nder#g*'aUNd#
+(up to date)	&p||tU||d'eIt#
+up  		&p
 update		&pd'eIt
 upgrade		&pg*'eId
 upload		&pl'oud
-?2        web        w'Eb
-writer r'aIter
-xerox	S'E*Oks
-?1 yahoo      'i,ah'u
-?2 yahoo      iah'u
-yes        j'Es
+verbis		$1 $alt1
+versus		$1 $alt1
+videobook	v,id#jUb'Uk
+videogame	v,id#jUg'eImy
+videolaser	v,id#jUl'eIzer#
+videomaker	v,id#jUm'eIker#
+(vis à vis)	v,izav'i
+vivant		_^_FR
+volley		vôlei $text
+volleyball	voleibol $text
+voyer		voj'e
+voyeur		voj'ER#
+waffle		w'Ofol
+(walkie talkie)	w'Oki||t'Oki
+?1 web		w'Eb
+?2 web		w'Eby
+webmaster	wEbm'aster#
+weekend		w'ik,end#
+woogie		w'ugi
+workaholic	w,or#kah'Olik
+workshop	w,or#kS'Op
+writer		r'aIter
+xerox		S'E*Oks
+?1 yahoo	'i,ah'u
+?2 yahoo	iah'u
+yes 		j'Es
+youtube		j'ut'uby
+youtuber	j'ut'uber#
+yuppie		j'upi
+zeitgeist	ts'aItg,aIst#
 
 
 // foreign product names
-?1 access      'aks,Es
-?1 adobe       &d'Oby
-android &Nd*'Oid
-apple  'EpoU
-outdoor	aUtd'Or
-?2  outdoors	aUtd'Ors
-baby	b'eIby
+access	'aks,Es
+?1 adobe	&d'Oby
+android		&Nd*'Oid#
+apple		'EpoU
+baby		b'eIby
 ?2 campari	k&mp'a*y
 ?1 chrome	k*'oUm
 ?2 chrome	k*'oUmy
-corpus	k'O*pUs#
-   debian      d'Ebj&~N
-?1 excel       ,Eks'El
-?1 express     ,Ekspr'Es
-   espeak      isp'i:k
-?1 espeakedit   isp'i:kEd,it
-facebook  feIsybuk
-?1 fedora      _^_EN
-    firefox     f'ai@fOks
-?1 front       fr'ont
-high   haI
-?1 jaws        dZ'au:z
-lady	l'eIdy
-?1 linux       l,in'uks
-?2 linux       l'inUks
- live        l'aiv
- ?2 lobby	$alt
-?1 maker       m'eIk&r
-mac  mEk
-?1 media       m'Ed,i&
-?1 messenger   m'Es&ndZ&r
-?1 microsoft   m,ik:*'os,Oft
-?2 microsoft   m'aIk*oUs'Oft
-?1 movie       m'uvi
-?1 nero        n'Eru
-?2  netbooks   nEtbUks
-?2  notebook   noUtbUk
-?2  notebooks   noUtbUks
-?1 office      'Of,is
-?2 office  'Ofsy
-   openoffice  'opeIN|'Ofis
-?1 outlook     'autl'uk
-?2        Outlook        ,aUtl'uk
-?1 paint       p'aint
-?1 player      pl'eI&r
-?1   playstation	_^_EN
-?2   playstation	pleIst'eIS&~N
- point       p'oint
-?1 power       p'aU&r
+debian		d'Ebj&~N
+?1 excel	,Eks'El
+?2 excel	,eks'EU
+?1 express	,Ekspr'Es
+espeak		isp'i:k
+?1 espeakedit	isp'i:kEd,it
+facebook	feIsybuk
+?1 fedora	_^_EN
+firefox		f'ai@fOks
+?1 front	fr'ont
+?1 jaws		dZ'au:z
+nike		n'aIk
+?1 linux	l,in'uks
+?2 linux	l'inUks
+?2 lobby	$alt
+?1 maker	m'eIk&r
+mac		mEk
+?1 media	m'Ed,i&
+?1 messenger	m'Es&ndZ&r
+?1 microsoft	m,ik:*'os,Oft
+?2 microsoft	m'aIk*oUs'Oft
+?1 movie	m'uvi
+?1 nero		n'Eru
+?2 netbook	nEtbUk
+?2 netbooks	nEtbUks
+?2 notebook	noUtbUk
+?2 notebooks	noUtbUks
+?1 office	'Of,is
+?2 office	'Ofsy
+openoffice	'opeIN|'Ofis
+?1 outlook	'autl'uk
+?2 outlook	,aUtl'uk
+?1 paint	p'aint
+?1 player	pl'eI&r
+?1 playstation	_^_EN
+?2 playstation	pleIst'eIS&~N
+point		p'oint
+?1 power	p'aU&r
 ?2 power	p'aUEr
-?1 product     p:r'&d&kt
-?1 Publisher   p'&bl,iS&r
-?1 reader      r'id,&r
-?1 setup       s'Et'&p
-?1 scout       sk'aut // Nero scout       
-?1 skype       sk'aip
-?2        Skype        sk'aIp
-        Slackware   sl'akwer
-?1 smart       sm'art // nero StartSmart
-?2   society   sos'aIty
-   speak       spi:k
-   suse        z'u:ts@
-?1 start       st'art // nero StartSmart
-?1 time        t'aImy // nero show time
-twitter  tw'iter
-   ubuntu      ub'untu
-?1 unix        ,u:n'iks
-?2 unix        j'uniks
-?1 windows     w'iNd'ou:z
-?2 windows     w'iNdoUs
-?1 window     w'iNd'ou
-?2 window      w'iNdoU
+?1 product	p:r'&d&kt
+?1 publisher	p'&bl,iS&r
+reader		r'id,&r
+setup		s'Et,&p
+?1 scout	sk'aut // Nero scout
+?1 skype	sk'aip
+?2 skype	sk'aIp
+slackware	sl'akwer
+?1 smart	sm'art // nero StartSmart
+?2 society	sos'aIty
+speak		spi:k
+suse		z'u:ts@
+?1 start	st'art // nero StartSmart
+?1 time		t'aImy // nero show time
+twitter		tw'iter
+ubuntu		ub'untu
+?1 unix		,u:n'iks
+?2 unix		j'uniks
+?1 windows	w'iNd'ou:z
+?2 windows	w'iNdoUs
+?1 window	w'iNd'ou
+?2 window	w'iNdoU
 
 
 // historical and famous people
@@ -1975,8 +2361,8 @@ alzheimer	aUz'aImEr
 babbage		b'abidZ
 bernhard	bern'ard
 biden		_^_EN
-?1 darwin		d'Arwin
-?2 darwin		d'Arvin
+?1 darwin	d'arwin
+?2 darwin	d'arvin
 ?2 diderot	didex'o
 dijkstra	d'ijkstrA:
 ?1 einstein	_!'aInSt,aIn
