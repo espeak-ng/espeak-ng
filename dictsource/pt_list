@@ -1160,6 +1160,7 @@ ateia		$alt
 aterro		$alt2
 aterro		$alt $verb
 avesso		$alt2
+avozinha	,avOz'in^&
 axé		aSE
 azeda		$alt $verb
 azedo		$alt $verb
@@ -1202,6 +1203,7 @@ cacete		$alt2
 cacoete		$alt2
 caderneta	$alt2
 cadete		$alt2
+cafezinho	k,afEz'in^U
 caibro		k'aIb*U
 cãibra		k'&~Ib*&
 caixeta		$alt2
@@ -1413,6 +1415,7 @@ farolete	$alt2
 fatora	$alt
 felisteia		$alt
 fezes		$alt
+fezinha		f,Ez'in^&
 filete		$alt2
 flerte		$alt2 $noun
 florete	$alt2
@@ -1482,6 +1485,7 @@ jogo		$alt2
 jogo		$alt $verb
 jogos		$alt
 joguete		$alt2
+joinha		Z,O'in^&
 judeia	$alt
 jurubeba	$alt
 lacerda	$alt
@@ -1524,6 +1528,7 @@ mor	$alt
 morcego		$alt2
 morda		$alt2
 moreia		$alt
+mormente	m,O*m'eINt#y
 mui		m'UI
 muleta		$alt2
 mutreta		$alt2
@@ -1578,6 +1583,8 @@ pesadelo		$alt2
 peses		$alt
 peseta		$alt2
 peso		$alt $verb
+pezão		pEz'&U~
+pezinho		p,Ez'in^U
 pigmeia	$alt
 piloto		$alt2 $noun
 pilotos	$alt2
@@ -1597,6 +1604,7 @@ porto		$alt $verb
 pose		$alt2
 poxa		p'oS&
 poços	$alt
+pozinho		p,Oz'in^U
 primavera	$alt
 primores	$alt2
 program	$alt
@@ -1646,6 +1654,7 @@ rolete		$alt2
 rolo		$alt2 $noun
 rose	$alt2
 roseta		$alt2
+rosinha		x,Oz'in^&
 rubores		$alt2
 sabonete	$alt2
 sabores		$alt2
@@ -1677,6 +1686,9 @@ solta	s'oUt&
 solta	$alt $verb
 solto	s'oUtU
 solto	$alt $verb
+somente		s,Om'eINt#y
+sozinho		s,Oz'in^&
+sozinha		s,Oz'in^U
 sopa		$alt2
 sopeses	$alt
 sopro		$alt2 $noun
@@ -1739,6 +1751,8 @@ vinheta	$alt2
 vodca	v'OdZik&
 voga		$alt
 voice	$alt
+vovozinha	v,ovOz'in^&
+vozinha		v,Oz'in^&
 xarope		$alt
 xereta		$alt2
 xeroxes	$alt
@@ -2043,7 +2057,8 @@ music		mj'uzik
 nécessaire	nesEs'ER#
 network		n'Etw,or#k
 networking	n,Etw'or#kiN
-news		n,iUs#
+new		n'iU
+news		n'iUs#
 newsletter	n,iUzl'Eter#
 next		n'Ekst
 nobreak		noUb*'eIk
