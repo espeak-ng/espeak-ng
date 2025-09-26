@@ -2,14 +2,14 @@
 א   alef?
 בּ   bet
 ב   vet
-ג   'gimel
-גּ   'gimel
-ד   'dalet
-דּ   'dalet
+ג   g'imel
+גּ   g'imel
+ד   d'alet
+דּ   d'alet
 ה   he
 ו   vav
-ז   'zajin
-זּ   'zajin
+ז   z'ajin
+זּ   z'ajin
 ח   Xet
 ט   tet
 טּ   tet
@@ -17,28 +17,28 @@
 יּ   jod
 כּ   kaf
 כ   Xaf
-ךּ   kaf so'fit
-ך   kaf so'fit
-ל   'lamed
-לּ   'lamed
+ךּ   kaf sof'it
+ך   Xaf sof'it
+ל   l'amed
+לּ   l'amed
 מ   mem
 מּ   mem
 ם   mem so'fit
 נ   nun
 נּ   nun
 ן   nun so'fit
-ס   'sameX
-סּ   'sameX
-ע   ?ajin
+ס   s'ameX
+סּ   s'ameX
+ע   ?'ajin
 פּ   pe
 פ   fe
 ף   pe sofit
-צ  'tsadi
-צּ  'tsadi
-ץ  'tsadi sofit
+צ  ts'adi
+צּ  ts'adi
+ץ  ts'adi sofit
 ק   kof
 קּ   kof
-ר  Q"ejS
+ר  ReS
 ש  Sin
 שּ  Sin
 שׁ  Sin
@@ -50,51 +50,53 @@
 
 // Numbers
 _0 'efes
-_1 'aXat
+_1 aX'at
 _2 St'ajim
-_3 S'aloS
-_4 'aQba?
-_5 X'ameS
+_3 Sal'oS
+_4 aRb'a?
+_5 Xam'eS
 _6 S'eS?
 _7 S'eva?
 _8 Sm'one
-_9 teSa
+_9 t'eSa
 _10 'eseR
-_11 'aXad?'a?saQ
-_12 Sn'ejm?'a?saQ
-_13 Sl'osa?'a?saQ
-_14 'aQb?a'a?saQ
-_15 X'amiSa?'a?saQ
-_16 S'iSa?'a?saQ
-_17 S'iva?'a?saQ
-_18 Sm'ona?'asaQ
-_19 t'S?a?'asaQ
-_2X 'esRim
-_3X Sl'oSim
-_4X 'aQba?im
-_5X X'amiSim
-_6X S'iSim
-_7X S'iv?'im
-_8X Sm'oSim
-_9X tS?'im
+_11 'aXad?'a?saR
+_12 Sn'ejm?a?s'aR
+_13 Sl'osa?a?s'aR
+_14 'aRb?aa?s'aR
+_15 X'amiSa?a?s'aR
+_16 SiS'a?a?s'aR
+_17 Siv'a?a?s'aR
+_18 Smon'a?as'aR
+_19 tS?'a?as'aR
+_2X esR'im
+_3X SloS'im
+_4X aRba?'im
+_5X XamiS'im
+_6X SiS'im
+_7X Siv?'im
+_8X Smon'im
+_9X tiS?'im
 _0C m'e?a
 _1C m'e?a
 _2C mat'ajim
 _3C Sl'oSme?'ot
-_4C 'aQbame?'ot
-_5C X'ameSme?'ot
+_4C aRb'ame?'ot
+_5C Xam'eSme?'ot
 _6C S'eSme?'ot
 _7C Sv'ame?'ot
-_8C Sm'oneme?'ot
+_8C Smon'eme?'ot
 _9C tS'ame?'ot
 _0M1 'elef
-_0M2 m'ilijon
+_1M1 'elef
+_2M1 ?alp'ajim
+_0M2 milj'on
 
-_dpt s'ik
+_dpt nekud'a
 _0and v,e
 
 // Symbols
 
-% aXuz@
-$ dolaR
-₪ Skalim
+% aX'uz@
+$ d'olaR
+₪ Skal'im

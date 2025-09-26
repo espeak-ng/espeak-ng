@@ -7,6 +7,12 @@
 
 The espeak-ng project is a fork of the espeak project.
 
+### 1.53.0
+
+new languages:
+*  ps (Pashto) -- Hanif Rahman 
+*  rup (Aromanian) -- Andy Vladescu
+
 ### 1.52.0
 
 attention! this is the last release witch support the autoconf build system. use cmake to compile espeak-ng.
@@ -49,6 +55,7 @@ updated languages:
 *  uz (Uzbek) -- Andiv06
 
 new languages:
+*  crh (Crimean Tatar) -- Andy Vladescu
 *  en-Shaw (English, Shavian script) -- Luna Rose
 *  ti (Tigrinya) -- Biniam Gebremichael
 *  mto (Totontepec Mixe) -- Bill Dengler, Elizabeth Resendiz

@@ -128,7 +128,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 #if USE_LIBPCAUDIO
 				int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 				if (error != 0) {
-					fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+					fprintf(stderr, "audio reopen error: %s\n", audio_object_strerror(my_audio, error));
 					err = ENS_AUDIO_ERROR;
 					return -1;
 				}
@@ -145,7 +145,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		if (out_samplerate == 0) {
 			int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 			if (error != 0) {
-				fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+				fprintf(stderr, "audio open error: %s\n", audio_object_strerror(my_audio, error));
 				err = ENS_AUDIO_ERROR;
 				return -1;
 			}
@@ -157,7 +157,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		if (outbuf && length && a_wave_can_be_played) {
 			int error = audio_object_write(my_audio, (char *)outbuf, 2*length);
 			if (error != 0)
-				fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+				fprintf(stderr, "audio write error: %s\n", audio_object_strerror(my_audio, error));
 		}
 #endif
 
@@ -575,7 +575,9 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 		          ? audio_object_flush(my_audio)
 		          : audio_object_drain(my_audio);
 		if (error != 0)
-			fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+			fprintf(stderr, "audio %s error: %s\n",
+				(aStatus == ENS_SPEECH_STOPPED) ? "flush" : "drain",
+				audio_object_strerror(my_audio, error));
 	}
 #endif
 
@@ -850,7 +852,7 @@ ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
 		f_trans = stderr;
 }
 
-ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode)
+ESPEAK_API const char* espeak_TextToPhonemesWithTerminator(const void** textptr, int textmode, int phonememode, int* terminator)
 {
 	/* phoneme_mode
 	    bit 1:   0=eSpeak's ascii phoneme names, 1= International Phonetic Alphabet (as UTF-8 characters).
@@ -864,10 +866,15 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 	if (text_decoder_decode_string_multibyte(p_decoder, *textptr, translator->encoding, textmode) != ENS_OK)
 		return NULL;
 
-	TranslateClause(translator, NULL, NULL);
+	TranslateClauseWithTerminator(translator, NULL, NULL, terminator);
 	*textptr = text_decoder_get_buffer(p_decoder);
 
 	return GetTranslatedPhonemeString(phonememode);
+}
+
+ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode)
+{
+	return espeak_TextToPhonemesWithTerminator(textptr, textmode, phonememode, NULL);
 }
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)

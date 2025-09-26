@@ -1,0 +1,501 @@
+// ***************************************************************************/ 
+// *   Mongolian language mn mn_rules                                        *
+// *   Original Author Battseren Badral 15-05-2025                           *
+// *   Contact info: bbattseren88@gmail.com                                  *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+.group ө
+    ө           Y
+
+.group ү
+    ү           y
+
+.group а
+        а       V
+     B) а (_    V
+     _) а       a
+        а (_    a
+
+.group б
+        б       b
+?2      б (_    b
+        б (Y    b;
+        б (_    p
+        б (бY   b;
+        б (бвY  b;
+        б (бмY  b;
+        б (вY   b;
+        б (кY   p
+        б (мY   b;
+        б (пY   p;
+        б (сY   p
+        б (тY   p
+        б (фY   p;
+        б (ффY  p;
+        б (хY   p
+        б (хкY  p
+        б (ч    p
+        б (щ    p
+        б (ь_   p;
+
+.group в
+        в       v
+?2      в (_    v-
+        в (_    f
+        в (Y    v;
+        в (бY   v;
+        в (вY   v;
+        в (вбY  v;
+        в (вмY  v;
+        в (кY   f
+        в (мY   v;
+        в (п'   f;
+        в (сY   f
+        в (тY   f
+        в (ф'   f;
+        в (хY   f
+        в (хкY  f
+        в (ч    f
+        в (щ    f
+        в (ь_   f;
+        в (ьт   f;
+     здра) в (ств         // silent v(не произносимая в)
+    чу) в (ств      // silent v(не произносимая в)  
+
+.group г
+        г       g
+    Cе) г (о_   v
+    Cо) г (о_   v
+  _все) г (о_   v
+        г (Y    g;
+        г (_    k
+        г (к    x
+        г (пY   k
+        г (сY   k
+        г (тY   k
+        г (фY   k
+        г (ффY  k
+        г (хY   k
+        г (хкY  k
+        ле) г (ч    x
+        _доро) г (о   g
+    _е) г (о_   v
+     е) г (ося_ v
+        _ле) г (о_       g  // лего, конструктор lego, до исправления читал как лево
+    _ло) г (о_      g  // сокращенное от логотип, до исправления читал как лово.
+  _мно) г (о_   g
+  _мое) г (о_   v
+   _намно) г (о_   g
+   _ненамно) г (о_   g
+(некое) г (о            v
+     _убо) г (о_         g
+            _настро) г (о_           g
+            _нестро) г (о_           g
+   _не) г (о_   v
+   _недоро) г (о_   g   
+   _занедоро) г (о_   g   
+     _немно) г (о_   g
+       _примно) г (о_               g
+   _се) г (о    v
+             _страте) г (о_               g // stratego board game
+   _стро) г (о   g
+ _твое) г (о_   v
+ _свое) г (о_   v
+
+.group д
+        д       d
+        д (B    d;
+        д (Y    d;
+        д (_    t
+            д (вк          t
+        д (дY   d;
+        д (зY   d;
+        д (к   t
+        д (нь   d;
+        д (п   t
+        д (с   t
+        д (сY   t;
+        д (тY   t;
+        д (фY   t
+        д (ффY  t
+        д (х   t
+        д (хкY  t
+             д (ш             t
+         д (ч               t
+             д (ц             t
+        д (ь_   t;
+        д (ьк   t;
+         _бан) д (жо_             // silent д (непроизносимая д)
+      з) д (н        // silent d(Непроизносимая д)
+    р) д (ц     // Silent D(не произносимая д)
+          мо) де (м        dE%
+             н) де (кс     dE2 // яндекс, индекс/ yandex, index
+         _мо) де (л               dE
+                 _мо) де (лир              dE%
+               мо) де (льер              dE%
+            мо) де (лист              dE%
+          ше) де (вр               dE
+
+.group е
+        е          e
+?2      A) е (_    ;e
+        A) е       je
+        A) е (_    jI3     //second position
+        _) е       jI3     //second position
+        т) е (ст   E%
+        про) е (кт    E
+        ъ) е       je
+        ъ) е (_    jI3     //second position
+        ь) е       je
+        ь) е (_    jI3     //second position
+
+.group ж
+        ж       Z
+        ж (_    S
+        ж (кY   S
+        ж (пY   S
+        ж (сY   S
+        ж (тY   S
+        ж (фY   S
+        ж (ффY  S
+        ж (хY   S
+        ж (хкY  S
+        жч      S;
+?2      жч      SS
+             жь (_             S
+
+.group з
+        з       z
+?2      з (е    z
+?2      зч     SS
+        з (Y    z;
+        з (_    s
+        з (дY   z;
+        з (ж    Z
+        з (зY_  s;
+        з (зY   z;
+        з (здY_ s;
+        з (здY  z;
+        з (знB_ s;
+        з (знB  z;
+        з (знY_ s;
+        з (знY  z;
+        з (кY   s
+        з (нB   z;
+        з (нY   z;
+        з (пY   s
+        з (сY   s;
+        з (тY   s;
+        з (фY   s
+        з (ффY  s
+        з (хY   s
+        з (хкY  s
+        зч      S;
+        з (ш    S
+        зщ      S;
+        з (щ    s
+
+.group и
+        и       i
+     H) и       y       // preceded by hard consonant
+     ж) и (_      y
+     _) и       I
+        и (_    I
+     ш) и (_      y
+               шв) и (ли               'I
+
+.group й
+        й       j
+        _пожалу) й (ста_             // silent й
+
+.group к
+        к       k
+        к (Y    k;
+        к (б    g
+        к (бY   g
+        к (г    g
+        к (гY   g
+        к (дB   g
+        к (д    g
+        к (дY   g
+        к (ж    g
+        к (з    g
+        к (зY   g
+
+.group л
+        л        l
+?2      л (Y    l;
+        л (Y    l;
+?3        л (Y    l^
+              _дисп) ле                lE
+                 п) ле (ер                  lE
+
+.group м
+        м       m
+?2      м (Y    m
+        м (Y    m;
+        м (бY   m;
+        м (вY   m;
+        м (пY   m;
+        м (фY   m;
+        м (ффY  m;
+                мене (дж               mEnE#
+              майоне (з             mVjin'E
+
+.group н
+        н       n
+?2      н (Y    n^
+       н (Y    n;
+?3       н (Y    n
+   биз) не (с   nE#
+      интер) не (т  nE      // интернет, интернетный, интернета... ??????????
+            _клар) не (т               nE
+             клар) не (тист                 nE%
+           э) не (рг              nE
+
+        н (_    n_
+
+.group о
+        о       o
+        ь) о       j8
+
+.group п
+        п       p
+        п (Y    p;
+        п (б    b
+        п (б'   b;
+        п (г    b
+        п (гY   b
+        п (д    b
+        п (дB   b
+        п (дY   b
+        п (ж    b
+        п (з    b
+        п (зY   b
+        п (мY   p;
+        п (пY   p;
+        п (пмY  p;
+        п (пфY  p;
+        п (фY   p;
+        п (ффY  p;
+
+.group р
+        р       r
+        р (B    r;
+        р (Y    r;
+        р (ь    RI^
+
+.group с
+        с       s
+?2      сч      S
+        с (Y    s;
+        с (б    z
+        с (г    z
+        с (дB   z;
+        с (дY   z;
+        с (д    z
+        с (ж    Z
+        с (ж    z
+        с (зY   z;
+        с (з    z
+        с (нB   s;
+        с (нY   s;
+        с (сY   s;
+        с (тY   s;
+        с (ть   s
+        сч      S;
+        с (ш    S
+        с (щ    s;s;
+       сь (G                  z;
+
+
+.group т
+        т       t
+        Y) тс   ts
+        т (Y    t;
+        т (б    d
+        т (г    d
+        т (дB   d;
+        т (д    d
+        т (дY   d;
+        т (ж    d
+        т (ж    d
+        т (з    d
+        т (зY   d;
+        т (нB   t;
+        т (нY   t;
+        т (сY   t;
+        т (тY   t;       
+
+.group у
+        у       u
+     B) у       u#
+
+.group ф
+        ф       f
+        ф (Y    f;
+        ф (б    v
+        ф (б'   v;
+        ф (гY   v
+        ф (г    v
+        ф (дB   v
+        ф (дY   v
+        ф (д    v
+        ф (ж    v
+        ф (зY   v
+        ф (з    v
+        ф (мY   f;
+        ф (пY   f;
+        ф (пмY  f;
+        ф (пфY  f;
+        ф (фY   f;
+
+.group х
+        х       x
+        х (Y    x     
+        х (бY   x
+        х (б    x
+        х (бвY  x
+        х (бмY  x
+        х (_бы  x
+        х (гY   x
+        х (г    x
+        х (дB   x
+        х (дY   x
+        х (д    x
+        х (ж    x
+        х (зY   x
+        х (з    x
+        х (кY   x   
+
+.group ц
+        ц       ts
+        ц (б    dz
+        ц (бY   dz
+        ц (бвY  dz
+        ц (бмY  dz
+        ц (г    dz
+        ц (гY   dz
+        ц (дB   dz
+        ц (д    dz
+        ц (дY   dz
+        ц (ж    dz
+        ц (з    dz
+        ц (зY   dz
+
+.group ч
+        ч       tS;
+   лу) ч (ше    t
+        ч (б    dZ;
+        ч (бY   dZ;
+        ч (бвY  dZ;
+        ч (бмY  dZ;
+        ч (г    dZ;
+        ч (гY   dZ;
+        ч (дB   dZ;
+        ч (д    dZ;
+        ч (дY   dZ;
+        ч (ж    dZ;
+        ч (з    dZ;
+        ч (зY   dZ;
+
+.group ш
+        ш       S
+        ш (бY   Z
+        ш (б    Z
+        ш (бвY  Z
+        ш (бмY  Z
+        ш (гY   Z
+        ш (г    Z
+        ш (дB   Z
+        ш (дY   Z
+        ш (д    Z
+        ш (ж    Z
+        ш (зY   Z
+        ш (з    Z
+
+.group щ
+        щ       S;
+?2      щ       SS
+        щ (бY   Z;
+        щ (б    Z;
+        щ (бвY  Z;
+        щ (бмY  Z;
+        щ (гY   Z;
+        щ (г    Z;
+        щ (дB   Z;
+        щ (дY   Z;
+        щ (д    Z;
+        щ (ж    Z;
+        щ (зY   Z;
+        щ (з    Z;
+
+.group ъ
+        ъ (Y    j
+?2      ъ (Y    _|
+
+.group ы
+        ы       y
+
+.group ь
+        ь (Y    j
+?2      ь (Y    _|
+
+.group э
+        э       E2
+     _) э       E#
+        э (_    E#
+
+.group ю
+        ю       u"
+     A) ю       ju
+     ъ) ю       ju
+     ь) ю       ju
+     _) ю       ju
+
+.group я
+        я       V     
+     A) я       ja
+     A) я (_    ja   
+     ъ) я       ja
+     ъ) я (_    ja     
+     ь) я       ja
+     ь) я (_    ja  
+     _) я       ja   
+        я (_    V
+
+.group ё
+        ё      '8
+   A) ё       'j8
+?2   A) ё       'j8
+     _) ё       'j8
+     ж) ё       'O
+     ш) ё       'O
+
+.group
+        ѓ       dZ;
+        ґ       g
+        ђ       dZ;
+        є       jE
+        і       i
+        ї       ji
+        ј       j   // U+458
+        ќ       kj
+        љ       lj
+        ћ       tS;
+        ў       w
+        џ       dZ

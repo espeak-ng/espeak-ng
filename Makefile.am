@@ -459,6 +459,7 @@ dictionaries: \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/chr_dict \
 	espeak-ng-data/cmn_dict \
+        espeak-ng-data/crh_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
@@ -512,6 +513,7 @@ dictionaries: \
 	espeak-ng-data/mi_dict \
 	espeak-ng-data/mk_dict \
 	espeak-ng-data/ml_dict \
+	espeak-ng-data/mn_dict \
 	espeak-ng-data/mr_dict \
 	espeak-ng-data/ms_dict \
 	espeak-ng-data/mt_dict \
@@ -528,6 +530,7 @@ dictionaries: \
 	espeak-ng-data/pap_dict \
 	espeak-ng-data/piqd_dict \
 	espeak-ng-data/pl_dict \
+	espeak-ng-data/ps_dict \
 	espeak-ng-data/pt_dict \
 	espeak-ng-data/py_dict \
 	espeak-ng-data/qdb_dict \
@@ -536,6 +539,7 @@ dictionaries: \
 	espeak-ng-data/qya_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
+        espeak-ng-data/rup_dict \
 	espeak-ng-data/sd_dict \
 	espeak-ng-data/shn_dict \
 	espeak-ng-data/si_dict \
@@ -620,6 +624,9 @@ espeak-ng-data/ca_dict: dictsource/ca_list dictsource/ca_rules dictsource/ca_ext
 
 chr: espeak-ng-data/chr_dict
 espeak-ng-data/chr_dict: dictsource/chr_list dictsource/chr_rules
+
+crh: espeak-ng-data/crh_dict
+espeak-ng-data/crh_dict: dictsource/crh_list dictsource/crh_rules dictsource/crh_extra dictsource/crh_emoji
 
 cs: espeak-ng-data/cs_dict
 espeak-ng-data/cs_dict: dictsource/cs_list dictsource/cs_rules dictsource/cs_extra dictsource/cs_emoji
@@ -780,6 +787,9 @@ espeak-ng-data/mk_dict: dictsource/mk_list dictsource/mk_rules dictsource/mk_ext
 ml: espeak-ng-data/ml_dict
 espeak-ng-data/ml_dict: dictsource/ml_list dictsource/ml_rules dictsource/ml_extra dictsource/ml_emoji
 
+mn: espeak-ng-data/mn_dict
+espeak-ng-data/mn_dict: dictsource/mn_list dictsource/mn_rules dictsource/mn_extra dictsource/mn_emoji
+
 mr: espeak-ng-data/mr_dict
 espeak-ng-data/mr_dict: dictsource/mr_list dictsource/mr_rules dictsource/mr_extra dictsource/mr_emoji
 
@@ -828,6 +838,9 @@ espeak-ng-data/piqd_dict: dictsource/piqd_list dictsource/piqd_rules
 pl: espeak-ng-data/pl_dict
 espeak-ng-data/pl_dict: dictsource/pl_list dictsource/pl_rules dictsource/pl_extra dictsource/pl_emoji
 
+ps: espeak-ng-data/ps_dict
+espeak-ng-data/ps_dict: dictsource/ps_list dictsource/ps_rules dictsource/ps_extra dictsource/ps_emoji
+
 pt: espeak-ng-data/pt_dict
 espeak-ng-data/pt_dict: dictsource/pt_list dictsource/pt_rules dictsource/pt_extra dictsource/pt_emoji
 
@@ -857,6 +870,9 @@ espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_ext
 else
 espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_emoji
 endif
+
+rup: espeak-ng-data/rup_dict
+espeak-ng-data/rup_dict: dictsource/rup_list dictsource/rup_rules dictsource/rup_extra
 
 sd: espeak-ng-data/sd_dict
 espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
