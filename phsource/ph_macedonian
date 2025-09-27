@@ -27,5 +27,5 @@ phoneme k^
 endphoneme
 
 phoneme t;
-  WAV(ustop/t_short)
+  WAV(ustop/t_short_)
 endphoneme
