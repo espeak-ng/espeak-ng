@@ -1,14 +1,5 @@
 // Based on ph_croatian
 
-phoneme k^
-  vls pal stp
-  lengthmod 2
-  Vowelin f1=0  f2=2700 400 600  f3=400 80
-  Vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
-  WAV(ustop/ki)
-endphoneme
-
-
 phoneme dZ;
   vcd alp sib afr
   lengthmod 5
@@ -24,4 +15,17 @@ phoneme dZ;
     FMT(dzh/dzh_) addWav(x/dzh_)
   ENDIF
   FMT(dzh/dzh) addWav(x/dz_pzd)
+endphoneme
+
+
+phoneme k^
+  vls pal stp
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=400 80
+  Vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
+  WAV(ustop/ki)
+endphoneme
+
+phoneme t;
+  WAV(ustop/t_short)
 endphoneme
