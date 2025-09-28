@@ -86,6 +86,11 @@ phoneme i/            // changes to NULL before a vowel
   FMT(vowel/i#_5)
 endphoneme
 
+phoneme I/           // very short [i] used for epenthesis
+  vwl starttype #i endtype #i
+  ChangePhoneme(NULL)
+endphoneme
+
 
 phoneme O
   vwl starttype #o endtype #o
