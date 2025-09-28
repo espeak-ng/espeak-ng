@@ -347,8 +347,6 @@ ans	$abbrev
 antt	$abbrev
 apedv	$abbrev
 api	$abbrev
-?1 app	_^_EN
-?2 app	'apy
 apm	$abbrev
 ascii	'aski
 asdi	$abbrev
@@ -518,7 +516,6 @@ ipca	$abbrev
 ipi	$abbrev
 ipm	$abbrev
 ipp	$abbrev
-ips	$abbrev
 ipsd	$abbrev
 iptu	$abbrev
 iptv	$abbrev
@@ -596,7 +593,6 @@ omg	$abbrev
 oms	$abbrev
 omt	$abbrev
 ong	$abbrev
-onu	$abbrev
 osi	$abbrev
 otf	$abbrev
 otp	$abbrev
@@ -744,7 +740,6 @@ unac	$abbrev
 unb	$abbrev
 undf	$abbrev
 unts	$abbrev
-uol	$abbrev
 url	$abbrev
 urrs	$abbrev
 urv	$abbrev
@@ -759,8 +754,6 @@ utp	$abbrev
 uuid	$abbrev
 uv	$abbrev
 vga	$abbrev
-wifi    waIf'aI
-(wi-fi) waIf'aI
 wma	$abbrev
 wpa	$abbrev
 xpto	$abbrev
@@ -1258,6 +1251,7 @@ colore		$alt
 colosso		$alt2
 colossos	$alt2
 colostro	$alt2
+?1 com		kom
 começo		$alt $verb
 concerto	$alt2 $noun
 concertos	$alt2
@@ -1514,7 +1508,6 @@ meta		$alt $noun
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
-mister	$alt
 mocreia		$alt
 modelo		$alt2
 modelo		$alt $verb
@@ -1542,7 +1535,6 @@ nitreto	$alt2
 novelo		$alt2
 odisseia	$alt
 oeste	$alt
-off		$alt
 onu		$1
 olho		$alt2 $noun
 olhos		$alt
@@ -1646,7 +1638,6 @@ reveses	$alt
 rigores		$alt2
 risoto		$alt2
 robson	$alt
-rock		$alt
 roem		$alt
 rola		$alt2 $noun
 roleta		$alt2
@@ -1760,542 +1751,1701 @@ zelo		$alt2 $noun
 zorra		$alt2
 
 // foreign words
+accelerando	_^_IT
+accordatura	_^_IT
+action		'EkS@n
 (ad hoc)	ad'Ok
 affair		af'Er#
 affaire		af'ER#
+agrément	_^_FR
+aileron		_^_FR
 air		Er#
 airbag		Er#b'Eg
 ?2 álcool	'aUkoU
+alive		&l'aIv
+all		Ol
+allegretto	_^_IT
+allegro		_^_IT
 ?1 alt		'alt
-antidoping	$3 $alt
+?2 alt		'aUtS
+always		'OlweIs
+angledozer	_^_EN
+anschauung	_^_DE
+anschluss	_^_DE
+antidoping	,&~Nt#id'OpiN
+antidumping	,&~Nt#id'&~mpIN
 antispam	,&~Nt#isp'&~
-apartheid	,apar#t'aId
+apartheid	,apar#t'aId#
+apfelstrudel	_^_DE
+aplomb		_^_FR
+app		'apI/
+appassionato	_^_IT
+appeal		@p'il
+appoggiatura	_^_IT
+apport		_^_FR
+approach	&p*oUtS
+argot		_^_FR
+arpeggiatura	_^_IT
+(art déco)	_^_FR
+(art nouveau)	_^_FR
+artsy		_^_EN
+assemblage	_^_FR
+assembler	_^_EN
+atelier		_^_FR
 audiobook	,aUd#jUb'Uk
+aufldärung	_^_DE
+autocross	_^_EN
+autumn		'Ot@m
+(avant première)	_^_FR
+away		&w'eI
 back		b'Ek
+backbone	_^_EN
+backdrop	_^_EN
+backgammon	_^_EN
+background	b,Ekg*'aUNd#
+backhand	_^_EN
+backland	_^_EN
+backlight	_^_EN
+backstage	_^_EN
 backup		bEk'&p
 backups		bEk'&ps
+backward	b'Ekw,@rd
 bacon		b'eIkoN
-bad 		bEd
+bad 		bEd#
+badine		_^_FR
+badland		_^_EN
+badminton	_^_EN
 ?2 bahamas	bax'&~m&s
+bake		b'eIk
+ball		b'Ol
 (band aid)	b'&~nd||e'Id#
-bank		beINk
-banner		$1
+band		b'&~Nd#
+bank		b'eINk
+banking		b'eINkIN
+banner		b'&~ner#
+barmaid		_^_EN
+barman		_^_EN
+(bas fond)	_^_FR
+baseball	_^_EN
 ?2 basebol	beIzyb'Ow
+basketball	_^_EN
+batch		b'EtS
+(bateau mouche)	_^_FR
+bauhaus		_^_DE
+bayeux		_^_FR
 beagle		b'igol
 beatle		b'itoU
 beatles		b'itoUs
-black		blEk
-blind		bl'aInd
+beatnik		_^_EN
+beige		_^_FR
+berceuse	_^_FR
+bergère		_^_FR
+best		b'Est#
+bet		b'Et#
+betting		_^_EN
+bidet		_^_FR
+bidon		_^_FR
+big		b'ig
+bikini		_^_EN
+biscuit		_^_FR
+biseauté	_^_FR
+bisque		_^_FR
+bit		b'it#
+bitcoin		b,it#k'Oin
+bitter		_^_EN
+black		bl'Ek
+blackout	bl,Ek'aUt#
+blague		_^_FR
+blanquette	_^_FR
+blasé		_^_FR
+blind		bl'aInd#
+blister		_^_EN
+blitz		_^_DE
+blitze		_^_DE
+blitzkrieg	_^_DE
+blocause	_^_DE
+blocausse	_^_DE
+block		bl'Ok
+blockbuster	_^_EN
 blockchain	bl'OktSeIn
-?2 blue		blu
-blush		bl&S
+blowup		_^_EN
+blue		bl'u
+blues		bl'us#
+bluetooth	blut'uT
+bluff		_^_EN
+blush		_^_EN
 board		b'or#d
 boarder		b'or#der#
+bodegón		_^_ES
 body		b'O*i
+(boho chic)	_^_EN
+boho		_^_EN
 boiler		$1 $alt1
+boîte		_^_FR
 (bon vivant)	_^_FR
+bonbonnière	_^_FR
 boogie		b'ugi
-bookmarker	buk||m'ar#ker#
+bookmarker	bukm'ar#ker#
 booster		b'us#ter#
+bordeaux	_^_FR
+bordereau	_^_FR
+boudoir		_^_FR
 boulevard	bulevar $text
+boulle		_^_FR
+bouquet		_^_FR
+bourbon		_^_FR
+bourrée		_^_FR
+boutade		_^_FR
 boutique	butique $text
-?1 braille	b:r'aily
-?2 braille	b*'aili
-brasserie	brasserri $text
+boxeur		_^_FR
+braciola	_^_IT
+braille		b*'aIly
+brandade	_^_FR
+brandy		_^_EN
+brasserie	_^_FR
 break		b*'eIk
-breakfast	b*'Ekf&st
+breakfast	b*'Ekf@st
+bremsstrahlung	_^_DE
+brevet		_^_FR
+brick		br'Ik
+bridge		_^_EN
 brie		b*'i
 briefing	b*'ifiN
+(brise bise)	_^_FR
+(brise soleil)	_^_FR
 broadcast	b*'OdkEst#
 broadcasting	b*Odk'Est#IN
+broadside	_^_EN
+brother		b*'Oder#
+brown		b*'aUn
 brownie		b*'aUni
+browning	_^_EN
 browser		b*'aUzer#
 brunch		b*&ntS
+brunette	_^_FR
+budget		_^_EN
+buffer		_^_EN
+buffering	_^_EN
 buffet		buf'e
 bug		b'&g
-bullying	$1
+bullying	b'UlIN
 bunker		b'&Nker#
 bureau		bi*'o
+burlesque	_^_FR
+burnout		b,&rn'aUt#
+burrata		_^_IT
+busdoor		_^_EN
+bush		_^_EN
+bushmen		_^_EN
+business	b'is#n,es#
+businessman	_^_EN
+button		_^_EN
+(by pass)	b,aI||p'Es
+by		b'aI
+bye		b'aI
 byte		b'aIt#y
+cabaretier	_^_FR
+cake		k'eIk
+call		k'Ol
+calzone		_^_IT
+camaïeu		_^_FR
+camber		_^_EN
+camembert	_^_FR
+cameraman	_^_EN
+campanile	_^_IT
 campi		$1
 camping		$1
 campus		$1
 ?1 cancel	k'&ns'El
-?2 cappuccino	kaputS'inU
+caniche		_^_FR
+cantabile	_^_IT
+cantata		_^_IT
+canyon		_^_EN
+cappuccino	kaputS'inU
 ?1 caps		k'aps
 caput		k'aput
+card		k'ar#d#
+cardan		_^_FR
+carnet		_^_FR
 carpaccio	ka*p'atSjU
+càrpano		_^_IT
+carrière	_^_FR
+carrying	_^_EN
+cash		k'ES
+cashback	k,ESb'Ek
 cashmere	kaSym'ir#
+cassoulet	_^_FR
+cast		_^_EN
+casting		_^_EN
+castrati	_^_IT
+castrato	_^_IT
+catch		k'EtS
+catering	_^_EN
+cattivo		_^_IT
+caucus		_^_EN
+causerie	_^_FR
+causeur		_^_FR
+causeuse	_^_FR
+céladon		_^_FR
 ?2 center	s'eNter
+cermet		_^_EN
+chagrin		_^_FR
+(chaise longue)	_^_FR
+chambertin	_^_FR
 champignon	S&~pin^'o~
+changeant	_^_FR
+(changer de dame)	_^_FR
+(changez de dame)	_^_FR
 chantilly	S&~nt#i'li
 chardonnay	Sar#don'e
+charleston	_^_EN
+charter		_^_EN
+chartreuse	_^_FR
+chasselás	_^_FR
 chat		S'Et#
+chatbot		S,Etb'Ot#
+chateaubriand	_^_FR
+châtelaine	_^_FR
+chauffage	_^_FR
+chauffeur	_^_FR
+(check out)	S,Ek'aUt#
+(check up)	S,Ek'&p
 check		S'Ek
+(check-in)	S,Ek'IN
+checkin		S,Ek'IN
+checking	tS'EkIN
+checklist	S,Ek'lIst#
+checkout	S,Ek'aUt#
+checkup		S,Ek'&p
 cheddar		S'Edar#
+cheese		_^_EN
+cheeseburger	S'iz||b'ur#ger#
+cheesecake	S'is||k'eIk
+(chef d'oeuvre)	_^_FR
 chef		S'Ef
+chemise	_^_FR
+chemisier	_^_FR
 cherry		S'Eri
 chester		S'Ester#
+chez		_^_FR
+chianti		_^_IT
+chic		S'ik
+chicano		_^_ES
+chiffrier	_^_FR
+chihuahua	_^_ES
+chimichurri	_^_ES
+chip		S'ip
+chippendale	_^_EN
+chômamge	_^_FR
 (chop suey)	tS'OpsuI
+(chow chow)	S,aUS'aU
 chutney		S'&t#ni
+ciao		_^_IT
+cielito		_^_ES
+cinemascope	_^_EN
+cinquecento	_^_IT
+civet		_^_FR
+clearance	_^_EN
+clearing	_^_EN
+click		kl'ik
+cliffhanger	_^_EN
+clip		kl'ip
 clipper		$1
 clipping	$1
-close		$alt2
-closet		$1
+cloche		_^_FR
+cloisonné	_^_FR
+(close up)	kl'oz||'&p
+close		kl'ozy
+closet		kl'ozyt#
+cloud		kl'aUd#
+clown		_^_EN
 club		kl'&b
+clumber		_^_EN
 cluster		kl'&ster#
+(co worker)	k,ow'or#ker#
+(co working)	k,ow'or#kIN
 coach		k'oUtS
 coachee		koUtS'i
 coaching	k'oUtSiN
+cocker		k'Oker#
 cockpit		kOkp'it#
+cocktail	kOkt'eIl
+cocotte		_^_FR
+code		k'oUd#
+coder		k'oUder#
 coffee		k'Ofi
-?1 com		kom
+cognac		_^_FR
+coin		k'Oin
+cold		k'old#
+collant		_^_FR
+collie		_^_EN
+coloratura	_^_IT
+colored		_^_EN
+colt		k'olt#
+commerce	k'om@rs
 commodity	$2 $alt1
+communard	_^_FR
+compact		komp'akt#
+compagnonnage	_^_FR
+complainte	_^_FR
 compliance	kompl'aI&ns
+complot		_^_FR
+comptoir	_^_FR
+computing	_^_EN
+comunero	_^_ES
+concierge	_^_FR
+condom		_^_EN
+condottiere	_^_IT
+condottiero	_^_IT
+connaisseur	_^_FR
+consommé	_^_FR
+container	k,oNt'eIner#
+conteur		_^_FR
 ?2 control	k'oNt*oU
+cookie		k'uki
+cooktop		k,ukt'Op
+cooler		k'uler#
+copy		k'Opi
+copyright	k,Opir'aIt
+coquette	_^_FR
+coquille	_^_FR
+corbeille	_^_FR
+(cordon bleu)	_^_FR
+corner		k'Or#ner#
 corpus		k'O*pUs#
+cortile		_^_IT
+cosnommé	_^_FR
+(côte rôtie)	_^_FR
+coterie		_^_FR
+cotillon	_^_FR
+cotswold	_^_EN
+cottage		_^_EN
+couché		_^_FR
+coudé		_^_FR
+counter		k'aUnter#
+counterglow	_^_EN
+country		k'aUnt*i
+(coup de foudre)	_^_FR
+(coup de grâce)	_^_FR
+(coup de main)	_^_FR
+(coup de maître)	_^_FR
+(coup de poing)	_^_FR
+(coup d'état)	_^_FR
+(coup de théâtre)	_^_FR
+coupé		_^_FR
+couplet		_^_FR
+coupon		_^_FR
+(court bouillon)	_^_FR
+couvade		_^_FR
+couvert		_^_FR
+covenant	_^_EN
+cover		k'over#
 cowboy		kaUb'OI
+coworker	k,ow'or#ker#
 coworking	kow'or#kiN
-crossfit	k*Osf'it#
+coworking	k,ow'or#kIN
+cowpox		_^_EN
+coxsackie	_^_EN
+crack		kr#'ak
+cracker		kr#'aker#
+cracking	kr#'akIN
+crapouillot	_^_FR
+crawl		_^_EN
+crayon		_^_FR
+cream		_^_EN
+creek		kr'ik
+crémant		_^_FR
+crevasse	_^_FR
+criadilla	_^_ES
+cricket		_^_EN
+croissant	_^_FR
+cromlech	_^_EN
+crooner		_^_EN
+croquis		_^_FR
+croskill	_^_EN
+cross		kr'Os
+crossdresser	_^_EN
+crossfit	k*,Osf'it#
+crossing	_^_EN
+croupier	_^_FR
+croupon		_^_FR
+croûte		_^_FR
+crowdfunding	_^_EN
+crowdlearning	_^_EN
+crown		_^_EN
+crudités	_^_FR
+cruiser		_^_EN
 ?1 ctrl		k'oNt:r,Ol
+cuesta		_^_ES
+(cul de lampe)	_^_FR
+(cul de sac)	_^_FR
 curriculum	$2
 curry		k'&ri
-cyberpunk	saIber#p'&nk
+cyberbullying 	s,aIber#b'UlIN
+cyberpunk	s,aIber#p'&nk
+dachshund	_^_DE
+dancing		_^_EN
+dasein		_^_DE
 (data venia)	dat&||v'en,i&
-deadline	dEd||l'aIny
+day		d'eI
+deadline	d,Ed#||l'aInI/
+dealer		_^_EN
+déboulé		_^_FR
+debriefing	_^_EN
+début		_^_FR
+deck		d'Ek
+décor		_^_FR
+découpage	_^_FR
 default		defoUt#
+dégagé		_^_FR
+dégagement	_^_FR
+dégradé		_^_FR
 (déjà vu)	d,eZav'u
+délavé		_^_FR
+delay		_^_EN
 ?1 delete	d'il'it
+delikatessen	_^_DE
+delivery	del'ive*i
+délivrance	_^_FR
+démanché	_^_FR
+démarche	_^_FR
+(demi monde)	_^_FR
+(demi vierge)	_^_FR
+démodé		_^_FR
+denier		_^_FR
+derrick		_^_EN
+derroche	_^_ES
+desdichado	_^_ES
+deshabillé	_^_FR
 ?1 design	d,iz'ain
 ?2 design	dez'aIn
+?1 designer	d,iz'ainer
 ?2 designer	dez'aIner
-?2 designers	dez'aIners
-?2 desktops	deskt'Ops
+?2 designer	dez'aIners
+desktop		d,eskt'Op
+desktops	d,eskt'Ops
+d'état		_^_FR
+détente		_^_FR
+détraqué	_^_FR
+développé	_^_FR
+diablerie	_^_FR
 dial		daI'Al
-?2 diesel	dZ'izEU
-diet		d'aIEt#
+diesel		d#'izel
+diet		d'aIet#
+dimmer		d#'imer#
+disc		d#'isk
+disclaimer	_^_EN
+discord		d,Isk'Or#d#
+diseur		_^_FR
+diseuse		_^_FR
+disk		d#'isk
+dislike		d,ysl'aIk
+display		d,yspl'eI
+distemper	_^_EN
+divertissement	_^_FR
 ?1 dj		d,i:dZ'eI
+dobermann	_^_DE
 doc		d'Ok
+docar		_^_EN
+dog		d'Og
+dogcart		_^_EN
 ?2 doha		d'ox&
+dolce		_^_IT
+dolcemente	_^_IT
 doll		d'Ol
+donjuán		_^_ES
 doping		d'OpiN
+doppler		_^_EN
+dossier		_^_FR
+doublé		_^_FR
 ?1 down		d'a,wn
 ?2 down		d'aUN
+downgrade	d,aUN*'eId#
 ?1 download	d'a,wnl'oud
-?2 download	daUNl'oUd
+?2 download	daUNl'oUd#
+?2 downloads	daUNl'oUd#s
 ?3 download	dau~Nl'oUd
-?2 downloads	daUNl'oUds
+downtime	_^_EN
+draft		_^_EN
+drag		d*'Eg
+drawback	_^_EN
+dread		d*'Ed#
+dreadlocks	_^_EN
+dreadnought	_^_EN
+dream		_^_EN
+dress		d*'Es
+dresser		_^_EN
+drink		d*'INk
 drive		d*'aIv
-drops		$alt1
-dumping		d'&mpiN
+driver		d*'aIver#
+drugstore	_^_EN
+drumlin		_^_EN
+dry		_^_EN
+dump		d'&~mp
+dumping		d'&~mpIN
+durée		_^_FR
+(e-book)	ib'Uk
+ebook		ib'Uk
+écarté		_^_FR
+éclair		_^_FR
+écran		_^_FR
 ecstasy		$1
+egrete		_^_FR
+(e-mail)	im'eIl
 email		im'eIl
+email		im'eIl
+(e-mails)	im'eIls
+emails		im'eIls
+emmenthal	_^_FR
 emoji		$2
 ?1 end		'end
+endomarketing	_^_EN
+enjambement	_^_FR
+ensalada	_^_ES
+ensaladilla	_^_ES
 ensemble	&~s'&~bly
 ?2 enter	'eNter
 entourage	&~tux'aZ
+entrechat	_^_FR
+entrecôte	_^_FR
+ersatz		_^_DE
 ?2 esc		'Esk
 ?3 esc		'EskI
+escargot	_^_FR
+establishment	_^_EN
+étagère		_^_FR
+ether		_^_EN
+expertise	_^_FR
 ?1 explorer	,ekspl'O:*&r
 ?2 explorer	ekspl'O*er
+eyelinner	_^_EN
 ?1 eyes		'aiz
 ?2 eyes		'aIs
+fact		f'akt#
 factoring	$1
 (fade in)	f'eId||'iN
 (fade out)	f'eId||'aUt#
+fading		_^_EN
+faille		_^_FR
+faire		_^_FR
+fairway		_^_EN
+faisandé	_^_FR
 fake		f'eIk
+fall		f'Ol
+fanfreluche	_^_FR
+farad		_^_EN
+faraday		f'a*ad,eI
+fashion		f'ES,@n
 fast		f'Est#
-feedback	f,idb'Ek
+fauteuil	_^_FR
+favicon		_^_EN
+feed		f,id#
+feedback	f,id#b'Ek
+feeder		_^_EN
 feeling		f'iliN
+féerie		_^_FR
+fermata		_^_IT
 ferryboat	f,Erib'oUt#
-?1 fixe		fiSy
+fettuccine	_^_IT
+ficelle	_^_FR
+(fil à fil)	_^_FR
+filet		_^_FR
+finesse		_^_FR
+fintech		f,INt'Ek
+firewall	f,aI@w'Ol
+first		f'@rst#
+fitness		_^_EN
+?1 fixe		f'iSy
+flamberge	_^_FR
 flamboyant	fl,&~boIj'&~
+flap		fl'Ep
 flash		flES
 flashback	flESb'Ek
 flat		fl'Et#
+flint-glass	_^_EN
+flirt		_^_EN
+flush		_^_EN
+flûte		_^_FR
+flutter		_^_EN
+flyback		_^_EN
+fog		f'Og
+fonda		_^_ES
 fondant		fo~d'&~
 fondue		fo~d#'i
+fontange	_^_FR
 food		f'Ud#
+foot		f'Ut#
 footing		f'ut#iN
+forfait		_^_FR
+fortran		_^_EN
+forward		f'Orw,@rd
+foul		_^_EN
+foulard		_^_FR
+four		_^_EN
+fourrure	_^_FR
+fox		f'Oks
+foxhound	_^_EN
 foyer		_^_FR
 frame		f*'eImy
 franchise	f*&~ntS'aIzy
 franchising	f*&~ntS'aIziN
+frappé		_^_FR
+(free lance)	f*il'&~nsy
+(free lancer)	f*il'&~nser#
 freelance	f*il'&~nsy
 freelancer	f*il'&~nser#
 freeware	f*'iw,Er
 freezer		f*'izer
+friday		f*'aIdeI
+friend		f*'end#
 frisson		f*is'o~
-funk		f&~Nk
+frizz		_^_EN
+frutti		_^_IT
+fugato		_^_IT
+fumoir		_^_FR
+funk		f'&~Nk
+fusain		_^_FR
+fuseau		_^_FR
 gadget		g'EdZet#
+gag		_^_EN
+galuchat	_^_FR
 game		g'eImy
 gamer		g'eImer#
-gay		geI
+gang		_^_EN
+gap		g'Ep
+garage		_^_FR
+garamond	_^_FR
+garçonnière	_^_FR
+gaslighting	_^_EN
+gauche		_^_FR
+gauleiter	_^_DE
+gay		g'eI
+geek		g'ik
 gentleman	dZ'EntoUman
 gestalt		geSt'alt#
-get		gEt
+get		g'Et#
+getter		g'Eter#
+ghost		g'oUst#
+gigabit		Zig&b'it#
 gigabyte	Zig&b'aIt#y
 girl		_^_EN
-glamour		glamur $text
-(globe trotter) gloUb||t*'Oter
+glacis		_^_FR
+glamour		gl&m'ur#
+glass		gl'Es
+glide		_^_EN
 ?1 gmail	g,em'eIl
 ?2 gmail	Zem'eIl
+gnocchi		_^_IT
+goal		_^_EN
+goalball	_^_EN
+goalkeeper	_^_EN
+gobelet		_^_FR
+gobelin		_^_FR
+golf		_^_EN
 ?1 google	g'u:g&l
 ?2 google	g'ugol
+gordon		_^_EN
 ?1 gospel	g'Os#pel
 ?2 gospel	g'Os#peU
+gourmand	_^_FR
 gourmet		gu*m'e
+(grand guignol)	_^_FR
+grapefruit	_^_EN
+gray		gr'eI
+green		gr'in
+greenwashing	_^_EN
+greisen		_^_DE
+grenadine	_^_FR
+grenat		_^_FR
+greyhound	_^_EN
+grid		g*'id#
+grill		g*'il
+grillroom	_^_EN
+groom		_^_EN
+(gros grain)	_^_FR
+ground		g*'aUNd#
+groupie		_^_EN
 gruyère		gr,uj'E*y
+guest		g'Est#
+guipure		_^_FR
+habanera	_^_ES
 ?2 habeas	'abe&s
+habillé		_^_FR
+habitué		_^_FR
+hacienda	_^_ES
+hack		_^_EN
 hacker		h'aker#
 haddock		a'dOk
+hair		h'Er
+half		_^_EN
 hall		h'Ol
-halloween	h,aloU'iN
+halloween	h,alow'iN
 hamster		h'&~mster#
+hand		h'End#
+handball	_^_EN
+handbike	_^_EN
+handcycle	_^_EN
 ?2 handebol	hendZyb'Ow
+handicap	_^_EN
+happening	_^_EN
 happy		h'Epi
 hard		h'ar#d#
 hardcore	har#dk'Or#
 ?1 hardware	'ard,w'Er
 ?2 hardware	h'ardw,Er
+harrier		_^_EN
+hartley		_^_EN
 hashtag		h,ESt'Eg
+hat		h'Et#
+hate		h'eIt#
+hater		h'eIter
+(haute gomme)	_^_FR
 ?2 haxixe	xaS'iSy
-(hi fi)		h,aIf'aI
-high		haI
+head		h'Ed#
+header		h'Eder#
+headhunter	h,Edh'&~nter#
+headphone	h,Edf'ony
+(health care)	h,ElTk'Er
+health		h'ElT
+healthcare	h,ElTk'Er
+hédge		_^_EN
+hélas		_^_FR
+hereford	_^_EN
+(hi fi)		h,aI||f'aI
+(high tech)	h,aI||t'Ek
+high		h'aI
+highline	h,aIl'aIn
+hinterland	_^_DE
 (hip hop)	h'ip||h'Op
+hiperlink	,iper#l'INk
 hippie		h'ipi
+hipster		_^_EN
 hit		h'it#
 hobby		h'Obi
-?1 hold		h'old
-?2 hold		h'oUdZ
-?1 holding	h'oldiN
-?2 holding	h'oUdZiN
+hockey		_^_EN
+hold		h'old#
+holding		h'old#iN
+holter		_^_EN
+(home care)	h'oUmyk'Er
 ?1 home		'omy
 ?2 home		h'oUmy
+homecare	h'oUmyk'Er
+homepage	h,oUmyp'eIdZ
 hooligan	h'ulig&~n
-hot		xOt
-?1 hotmail	h'Ot'eIl
-?2 hotmail	hOtm'eIl
-hotsite		h'Ots,aIt#
+hornpipe	_^_EN
+(hors concours)	_^_FR
+(hors d'oeuvre)	_^_FR
+(hors ligne)	_^_FR
+horsepower	_^_EN
+host		h'oUst#
+hostel		_^_EN
+hostess		_^_EN
+hot		hOt#
+hotmail		h,Ot#m'eIl
+hotsite		h,Ot#s'aIt#
 ?1 hour		'aU&r
 ?2 hour		'aUEr
+houston		h'iUstoN
+hovercraft	_^_EN
 how		h'aU
+huaca		_^_ES
+huapango	_^_ES
+huérfago	_^_ES
+humoresque	_^_FR
+humour		_^_EN
+husky		_^_EN
+hydrofoil	_^_EN
+hyperlink	_^_EN
+(ice cream)	'aIs||kr'im
 iceberg		'aIsb,E*g
+icecream	'aIs||kr'im
 impeachment	imp'itSm&~nt
+impériale	_^_FR
+impromptu	_^_FR
+indie		_^_EN
+indoor		,ind'Or#
 influencer	$3
-input		iNp'ut#
+input		,iNp'ut#
+inside		,ins'aId#
+insider		,ins'aIder#
 ?1 install	,inst'al
-?2 intranet	iNt*an'Et
+intaglio	_^_IT
+intermezzo	_^_IT
+interview	_^_EN
+intruder	_^_EN
 ipsis		$1
+isospin		_^_EN
+jacquard	_^_FR
+jacquerie	_^_FR
+jaen		_^_ES
+jam session	_^_EN
+?1 jazz		Zaz
 ?2 jazz		dZIEs
 jeans		dZ'ins
+jet		Z'Et#
+jeton		_^_FR
+(jeu de mots)	_^_FR
 jingle		dZ'iNgol
+job		dZ'Ob
+jodel		_^_DE
+jogger		dZ'Oger#
 jogging		dZ'OgiN
+jumpline	_^_EN
+(juste milieu)	_^_FR
+kaiser		_^_DE
+kart		k'ar#t#
+karting		k'ar#t#IN
+kelpie		_^_EN
 ?1 kernel	k'Ern,El
 ?2 kernel	k'Ern@l
+kersey		_^_EN
+?1 ketchup	k'EtS&p
+?2 ketchup	kEtS'up
+keuper		_^_DE
+kilobit		kilob'it#
 kilobyte	kilob'aIt#y
+kilt		_^_EN
+king		k'iNg
+kirsch		_^_DE
+kit		k'it#
+kite		k'aIt#
+kitesurf	k,aIts'@r#f
+kitsch		_^_DE
+klaxon		_^_EN
+knock		n'Ok
+knockout	n,Ok'aUt#
 know		n'oU
 kosher		k'OSer#
-lady		l'eIdy
+kümmel		_^_DE
+lady		l'eId#y
+(laissez aller)	_^_FR
+(laissez faire)	_^_FR
+(laissez passer)	_^_FR
 (laissez-faire)	les'e||f'ER#
+lake		l'eIk
+lambert		_^_EN
 laptop		lEpt'Op
 ?2 laptops	lEpt'Ops
+larghetto	_^_IT
 laser		l'eIzer
 lasers		l'eIzers
 (lato sensu)	l'atU||s'eINsU
-layout		l'eI,aUt#
+lavallière	_^_FR
+lawfare		l,Owf'Er
+layout		l,eI'aUt#
+layoutman	_^_EN
 lead		l'id#
+leader		l'ider#
 leasing		l'izIN
+leave		l'iv
+leaving		l'ivIN
 left		$alt
+leg		l'Eg
+legato		_^_IT
+liard		_^_FR
+life		l'aIf
+lifestyle	l'aIfst'aIl
+liftvan		_^_EN
+light		l'aIt#
 like		l'aIk
+limaçon		_^_FR
+line		l'aIny
 ?1 line		l'ain
 lingerie	l&~ZeR#'i
+link		l'INk
+liseuse		_^_FR
 litteris	$1
 live		l'aIv
+live-action	_^_EN
+living		_^_EN
+llano		_^_ES
+load		_^_EN
+lob		l'Ob
 lock		l'Ok
 lockdown	l'Okd,aUN
 lockout		l'Ok,aUt#
+loft		l'Oft#
 log		l'Og
+loggia		_^_IT
+loghouse	_^_EN
+login		l,og'IN
+logoff		l,og'Of
+logon		l,og'oN
+logout		l,og'aUt#
+longline	_^_EN
+look		l'uk
+loop		l'up
 looping		l'upiN
+lorgnon		_^_FR
+löss		_^_DE
+lounge		_^_EN
+loure		_^_FR
+louré		_^_FR
+lover		l'Over#
+luthier		_^_FR
+macaron		_^_FR
 macintosh	mak,int'OS
+mackintosh	_^_EN
+madeleine	_^_FR
+mademoiselle	_^_FR
+maestoso	_^_IT
 mail		m'eIl
 mails		m'eIls
+mainstream	_^_EN
+maître		_^_FR
 (make up)	m,eIk'&p
+making		m'eIkIN
+mall		m'Ol
+malware		m'alwer#
+mambo		_^_ES
 management	m'anedZment
 manager		m'anedZer#
+manoir		_^_FR
+manucure	_^_FR
 marchand	m,ar#S'&~
+mariachi	_^_ES
 ?1 marketing	m'arktiN
 ?2 marketing	m'arketSiN
+marketplace	_^_EN
 marshmallow	m,ar#Sm'EloU
-?2 master	m'aste*
+martenot	_^_FR
+master		m'aster#
 (match point)	m'EtS||p'oINt#
 match		m'EtS
-mayday		meId'eI
+maxwell		_^_EN
+mayday		m,eId'eI
+médoc		_^_FR
 meeting		m'it#iN
+megabit		mEg&b'it#
 megabyte	mEg&b'aIt#y
-ménage		men'aZy
-?1 menu		menu
+ménage		_^_FR
 merchandising	merS&~nd'aIziN
+mésalliance	_^_FR
+métier		_^_FR
 mezzosoprano	m,ezosop*'&~nU
+mezzotinta	_^_IT
+miami		maI'&~mi
 mickey		m'ikeI
+microchip	_^_EN
+microlearning	_^_EN
 mignon		m,in^'oN
+mignonne	_^_FR
 milady		mil'eId#i
-(mini show)	m'ini||S'oU
-(mini system)	m'ini||s'isteIN
+milieu		_^_FR
+milk		m'ilk
+milord		m,aIl'Or#d#
+mind		m'aInd#
+mindfulness	_^_EN
+mindset		m,aInds'Et#
+minesänger	_^_DE
+minnesang	_^_DE
+minnesinger	_^_DE
 (mise en plis)	m'iz||&~||pl'i
 (mise en scène)	m'iz||&~||s'En
+(mise en train)	_^_FR
+miss		_^_EN
 mister		$1
+mistress	_^_EN
+mixtape		_^_EN
 (mock up)	m'Ok||'&p
+modem		_^_EN
+moderato	_^_IT
 (modus operandi)	m'OdUz||ope*'&nd#y
 (modus vivendi)	m'OdUz||viv'eINd#y
+mohair		_^_EN
+moiré		_^_FR
+monday		m'@ndeI
+morgan		_^_EN
 motocross	m,otok*'Os
-?2 mouse	m'aUzi
+mouse		m'aUzy
 mousse		m'usy
+movietone	_^_EN
+mozzarella	_^_IT
 muffin		m'&fiN
+muguet		_^_FR
+multiplet	_^_EN
+multistandard	_^_EN
+musette		_^_FR
 music		mj'uzik
+my		m'aI
+naïf		_^_FR
 nécessaire	nesEs'ER#
-network		n'Etw,or#k
+nègre		_^_FR
+negroni		_^_IT
+nerd		n'Er#d#
+net		n'Et#
+network		n,Etw'or#k
 networking	n,Etw'or#kiN
 new		n'iU
+newmarket	_^_EN
 news		n'iUs#
 newsletter	n,iUzl'Eter#
 next		n'Ekst
+night		n'aIt#
 nobreak		noUb*'eIk
+nonsense	_^_EN
+nouveau		_^_FR
+nurse		_^_EN
+nurture		_^_EN
 nylon		n'aIloN
-(off line)	Of||l'aINy
-?1 offline	Ofl'aIN
-?2 offline	Ofl'aINy
+off		'Of
+(off line)	Ofl'aIny
+offline		Ofl'aIny
+offset		Ofs'Et#
+offshore	_^_EN
+offside		Ofs'aId#
 ok		Ok'eI
+okay		Ok'eI
 ombudsman	$2
-(on line)	oN||l'aINy
-?1 online	oNl'aIN
-?2 online	oNl'aINy
+(on line)	oNl'aIny
+online		oNl'aIny
 opus		'Opus
 org		Or#g
 origami		$3
+ossobuco	_^_IT
+ostinato	_^_IT
 out		'aUt#
-outdoor		aUtd'Or#
-outdoors	aUtd'O*s
-outlet		aUtl'Et#
-output		aUtp'ut#
-outsider	aUts'aIder#
+outboard	_^_EN
+outcaste	_^_EN
+outdoor		,aUtd'Or#
+outdoors	,aUtd'O*s
+outlet		,aUtl'Et#
+outline		aUt#l'aIny
+output		,aUtp'ut#
+outrigger	_^_EN
+outside		,aUts'aId#
+outsider	,aUts'aIder#
+ouverture	_^_FR
+over		'oUver#
+overall		_^_EN
+overblowing	_^_EN
 overbooking	o,ver#b'UkiN
+overdose	_^_EN
+overflow	_^_EN
+overhead	_^_EN
+overlay		_^_EN
 oxford		oksf'Or#d#
-paddock		$alt1
+paddock		_^_EN
 paella		pa'el^&
 page		p'eIdZ
+pager		_^_EN
 palmier		palmj'e
 ?2 palmtop	paUmyt'Op
+panaché		_^_FR
+panneau		_^_FR
+panzer		_^_DE
+paparazzi	_^_IT
+paparazzo	_^_IT
 (papier mâché)	papj'e||maS'e
-pastrami	$2
+pappardelle	_^_IT
+parking		_^_EN
+parkinson	_^_EN
+parkour		_^_FR
+parole		_^_FR
+parterre	_^_FR
+partisan	_^_FR
+party		p'art#i
+parvenu		_^_FR
+(pas de deux)	_^_FR
+(pas de quatre)	_^_FR
+pasodoble	_^_ES
+passacaglia	_^_IT
+passamezzo	_^_IT
+(passe partout)	_^_FR
+(passe pied)	_^_FR
+pastis		_^_FR
+pastrami	_^_EN
+patch		p'EtS
 patchwork	p'EtSw,or#k
+patronnesse	_^_FR
+pattern		_^_EN
 ?1 pause	p'au:z
+paywall		p,eIw'Ol
+pecorino	_^_IT
+peeling		_^_EN
+peignoir	_^_FR
+pellet		_^_EN
+pembroke	_^_EN
+pendant		_^_FR
+pendentif	_^_FR
 pendrive	p,eINd*aIv
+peppermint	_^_EN
 (per capita)	p'er#||c'apit&
-performance	$2 $alt1
+performance	_^_EN
+performer	_^_EN
+personal	_^_EN
+pet		p'Et#
+petenera	_^_ES
+(petit beurre)	_^_FR
 (petit four)	_^_FR
 (petit pois)	_^_FR
+(petit suisse)	_^_FR
+petshop		p'Et#S'Op
+phoenix 	f'iniks
+physique du rôle	_^_FR
+piadina		_^_IT
+pianoforte	_^_IT
+picardan	_^_FR
 pickles		$1
 pickup		pik'&p
 pidgin		p'idZiN
+(pièce de résistance)	_^_FR
+(pied de poule)	_^_FR
 piercing	p'ir#siN
+(pince nez)	_^_FR
+pink		p'iNk
 pinscher	p'iNSer#
+pinup		_^_EN
 pipeline	paIpyl'aIny
+pit		p'it#
+pitch		_^_EN
+pitching	_^_EN
 pixel		p'iksel
 pizzaiolo	p,itsaj'olU
+pizzicato	_^_IT
+place		pl'eIsy
+plafonnier	_^_FR
+plaid		_^_EN
+plantation	_^_EN
 play		pl'eI
 playback	pl'eIb,Ek
+playboy		pl,eIb'OI
+player		pl'eI@r
 playground	pl'eIg*,aUNd
-plush		pl'&S
-?1 podcast	pOdkEst
-?2 podcast	pOdZyk'Est
+playing		_^_EN
+playlist	_^_EN
+plié		_^_FR
+plush		_^_EN
+pochade		_^_FR
+poché		_^_FR
+podcast		pOd#k'Est#
+pointer		_^_EN
+poke		_^_EN
 poltergeist	p'olter#g,aIst#
-poodle		p'udol
-poster		$1
+ponticello	_^_IT
+poodle		_^_EN
+(porte bonheur)	_^_FR
+portland	_^_EN
+portoro		_^_IT
+poseur		_^_FR
+positronium	_^_EN
+post		p'oUst#
+poster		p'oUster#
 posteriori	$4
-(pot-pourri)	p'opuR#'i
+(pot pourri)	_^_FR
+pound		_^_EN
+poundal		_^_EN
 premier		p*emj'e
 première	p*emj'ER#
+(prêt à porter)	_^_FR
 (prêt à porter) p*'Et||a||por#t'e
 priori		$2
+prise		_^_FR
 (pro forma)	p*,o||f'O*m&
 (pro labore)	p*,o||l&b'O*y
+promoter	_^_EN
+proxy		_^_EN
+pub		p'ub
+pueblo		_^_ES
+pullman		_^_EN
+punch		_^_EN
 punk		p'&~Nk
+purée		_^_FR
+putsch		_^_DE
+putt		_^_EN
+putter		_^_EN
+putting		_^_EN
+puttino		_^_IT
+putto		_^_IT
+puzzle		_^_EN
 python		p'aIT&~N
 quantum		$1
 ?2 quantum	kw'&~Ntu~N
-quiche		k'iS
+quark		_^_EN
+quarkonium	_^_EN
+quart		_^_EN
+queen		kw'iN
+queer		_^_EN
+quérable	_^_FR
+quiz		_^_EN
 quorum		$1 $alt1
+raccord		_^_EN
+racing		_^_EN
+rack		_^_EN
+racle		_^_FR
 raclette	_^_FR
 radicchio	R#ad#'ikjU
-rafting		R#'aft,iN
-rallye		R#al'i
+raffiné		_^_FR
+rafting		_^_EN
+raglan		_^_EN
+ragtime		_^_EN
+raid		_^_EN
+rail		_^_EN
+railroad	_^_EN
+railway		_^_EN
+rallentando	_^_IT
+rallye		_^_EN
 ranking		R#'&~NkiN
-?2 ranking	x'&NkIN
-rap		R#Ep
+rap		R#'Ep
 rapper		R#Ep,er#
-rash		R#aS
-rave		R#'eIv
+rapport		_^_FR
+rash		_^_EN
+rattan		_^_EN
+ravigote	_^_FR
 ravioli		R#avj'Oly
-?1 readme	r'i:dmi:
+ravióli		_^_IT
+raygrass	_^_EN
+rayon		_^_EN
+readme		r'i:dmi:
+reality		R#i'alyt#i
+reblochon	_^_FR
 reboot		R#ib'ut#
 recall		R#ik'Ol
+recamier	_^_FR
 récamier	R#ekamj'e
-réchaud		R#eS'o
+receiver	_^_EN
+réchaud		_^_FR
+récit		_^_FR
 record		R#'Ekor#d#
+red		R#'Ed#
 reels		R#'ils
+referee		_^_EN
 reggae		R#'Eg,eI
 reggaeton	R#,Eget'oN
 reich		R#'aIS
+relais		_^_FR
+relax		_^_EN
 release		R#il'izy
 remake		R#im'eIk
 (rendez vous)	R#&~d'e||v'u
-resort		$alt1
-restaurateur	R#estaUr#&~tEr#
+rentrée		_^_FR
+replay		R#ipl'eI
+repoussé	_^_FR
+resort		R#iz'Or#t#
+restaurateur	_^_FR
+rétro		_^_FR
 réveillon	R#evej'oN
 revival		R#iv'aIv&l
-riesling	R#'isliN
+riesling	_^_DE
 right		r'aIt
-(rock and roll)	r'Ok||end||r'ol
-rôtisserie	R#otiseR#'i
-rough		R#&f
+ring		R#'INg
+rink		_^_EN
+ripieno		_^_IT
+ritardando	_^_IT
+ritenuto	_^_IT
+rocaille	_^_FR
+(rock and roll)	r'Ok||&~Nd||r'ol
+rock	r'Ok
+rollover	_^_EN
+romagnolo	_^_IT
+(roman fleuve)	_^_FR
+rooter		_^_EN
+roquefort	_^_FR
+rosé		_^_FR
+rôtisserie	_^_FR
+rouge		_^_FR
+rougeot		_^_FR
+rough		_^_EN
+roulade		_^_FR
+roulé		_^_FR
+roulotté	_^_FR
 round		R#aUNd#
+roux		_^_FR
 royalty		R#'OIaUt#i
-rubber		R#&ber#
-rush		R#&S
+rubato		_^_IT
+rubber		_^_EN
+ruche		_^_FR
+rush		_^_EN
+sake		s'eIk
 sanctus		s'&~nktUs
 (sans culotte)	s'&~||kul'Ot#
 ?1 sapi		s,ap'i
-sauvignon	s,ovin^'oN
+saturday	s'at@rd,eI
+sauvignon	_^_FR
 (savoir faire)	savw'aR#||f'ER#
-scanner		sk'&ner#
+(savoir vivre)	_^_FR
 ?1 scanner	sk'En&r
+?2 scanner	sk'&~ner#
+scat		_^_EN
+schedule	_^_EN
+scherzando	_^_IT
+scherzo		_^_IT
+schilling	_^_DE
+scholar		_^_EN
+schottisch	_^_DE
+(sci fi)	s,aIf'aI
+sciolto		_^_IT
 scooter		sk'uter#
-scraper		sk*'eIper#
+scordatura	_^_IT
+scotch		sk'Ot#
+scout		sk'aUt#
+scrambler	_^_EN
+scraper		_^_EN
+script		sk*'ipt#
 ?1 scroll	sk:r'ol
-(self service)	s'Elf||s'Er#visy
-seller		$1
-(sex appeal)	s'Eks||ap'il
-sexy		$alt1
+scuba		_^_EN
+(sealed beam)	s'ilyb'im
+section		_^_EN
+(self made)	s'Elfm'eId#
+self		s'Elf
+selfie		s'Elfi
+seller		s'Eler#
+service		s'Er#visy
+set		s'Et#
+setter		s'Eter#
+settimino	_^_IT
+sex		s'Eks
+sexting		_^_EN
+sexy		s'Eksi
 shake		S'eIk
-?2 shampoo	S&mpu
+shame		S'eImy
+shaming		S'eImIN
+shampoo		S&~mp'u
+share		S'Er
 shareware	S'Erw,Er#
+sharing		S'ErIN
+sharpie		_^_EN
+sheik		S'eIk
+sheriff		Ser#'if
 ?1 shift	S'ift
-?2 shopping	S'OpiN
-short		$alt1
-shot		$alt1
-(show business)	S'oU||b'iznes
+shilling	_^_EN
+shimmy		_^_EN
+shine		S'aIny
+shining		S'aInIN
+ship		S'ip
+shirt		S'@r#t#
+shop		S'Op
+shopping	S'OpiN
+short		S'Or#t#
+shortline	S'Or#t#l'aIn
+shot		S'Ot#
+show		S'oU
+showbiz		S,oUb'is#
+showcase	S,oUk'eIz
 showroom	S,oUR#'um
-sidecar		s,aIdk'ar#
+showrunner	_^_EN
+shunt		_^_EN
+sidecar		_^_EN
 sign		s'aIn
 ?4 símbolo	s'iNbolU
-?1 site		s'aIt
-?2 site		s'aItSy
+sir		s'@r
+site		s'aIt#
 sitter		$1
 skate		sk'eIt#
+skater		sk'eIter#
+skating		_^_EN
 sketch		sk'EtS
-skinhead	sk,iNh'Ed#
+(skin care)	sk,ink'Er
+skin		sk'iN
+skincare	sk,ink'Er
+skinhead	sk,Inh'Ed#
 sky		sk'aI
-slide		sl'aId#
-?2 slide	zl'aIdZy
+slack		sl'Ek
+slackline	_^_EN
+slang		_^_EN
+slave		sl'eIv
+slide		s#l'aId#
+sling		_^_EN
 slogan		$1
+slut		_^_EN
+smartphone	sm,art#||f'ony
+smash		_^_EN
 smoking		$1
+smorzando	_^_IT
+snipe		sn'aIp
+sniper		sn'aIper#
+soave		_^_IT
+socialite	s,osjal'aIt#
+softball	_^_EN
 ?1 software	s'Oft,w'Er
 ?2 software	s'Oftw,Er
-sommelier	somelj'e
+(soi disant)	_^_FR
+soirée		_^_FR
+sommelier	_^_FR
 sommelière	somelj'ER#
-sommier		somj'e
+sommier		_^_FR
+songbook	_^_EN
+sostenuto	_^_IT
+soubrette	_^_FR
+sound		s'aUnd#
 ?1 space	sp'eIsy
 ?2 space	sp'eIs
 spaghetti	spag'Et#y
 spam		sp'&~m
+spaniel		s#p'Enjel
 ?1 sporting	sp'Ort,ing
 spot		$alt1
 spray		sp*'eI
 spread		sp*'Ed#
 squash		skw'OS
+staccato	_^_IT
 staff		st'af
+stakeholder	st'eIkh'older#
+stalker		st'Oker#
+stalking	_^_EN
 (stand by)	st'&~Nd||b'aI
-standard	$1
-startup		st'ar#t||&p
-statu		st'atU
+stand		st'&~Nd#
+standard	st'&~Ndar#d#
+standing	_^_EN
+stanhope	_^_EN
+starlet		_^_EN
+(start up)	st'ar#t||'&p
+starter		st'ar#ter#
+startup		st'ar#t||'&p
+stator		_^_EN
+status		st'atUs#
+steak		st'eIk
+steeplechase	_^_EN
+stent		_^_EN
+step		st'Ep
+steward		_^_EN
+stick		st#'ik
+stonewashed	_^_EN
+(stop and go)	st'Op||&~Nd||g'oU
+stop		st'Op
+store		st'Or
 stories		st'Or#is
 story		st'Or#i
 storyboard	st'Or#i||b'or#d
+stout		_^_EN
+stracchino	_^_IT
+strambotto	_^_IT
+strass		_^_FR
+stream		_^_EN
 streaming	st*'imiN
+stress		st*'Es
 stretch		st*'EtS
+stretching	_^_EN
+stretta		_^_IT
+stretto		_^_IT
 (stricto sensu)	st*'iktU||s'eINsU
 striptease	st*,ipt'izy
 strogonoff	st*ogon'Of
-surf		s'&r#f
+strongman	_^_EN
+stud		_^_EN
+style		st'aIl
+stylist		_^_EN
+summer		s'&~mer#
+sunday		s'@ndeI
+surf		s'@r#f
+surfing		_^_EN
+sursis		_^_FR
 sutiã		sutSi'&~N
+swab		_^_EN
 swap		sw'Op
+sweepstake	_^_EN
 swing		sw'iNg
 tab		t'aby
+tableau		_^_FR
 tablet		t'ablet
-tablets		t'ablets
+tag		t'Eg
+tagliatelle	_^_IT
+tail		t'eIl
 tailleur	taj'Er
+take		t'eIk
+talkie		t'Oki
+tall		t'Ol
+tambourin	_^_FR
+tandem		_^_EN
 ?2 tantum	t'&~Ntu~N
+taper		_^_EN
+tartare		_^_FR
+tartine		_^_FR
 taser		t'eIzer
+tavolatura	_^_IT
+taxi		t'aksi
+teaser		_^_EN
+tech		t'Ek
+teckel		_^_DE
+teen		t#in
 teenager	t#in'eIdZer#
+teflon		_^_EN
 telemarketing	$3
 ?1 telemóveis	t,El,Em'OveIs#
 ?1 telemóvel	t,El,Em'OvEl
+teleprompter	_^_EN
+template	_^_EN
+tenuta		_^_IT
+tenuto		_^_IT
+terabit		tE*&b'it#
 terabyte	tE*&b'aIt#y
+terrier		_^_EN
+(tête à tête)	_^_FR
+(tête bêche)	_^_FR
 the		De
+theater		_^_EN
+théâtre		_^_FR
 thesaurus	$2
-ticket		$1
-(tik toker)	t#'ik||t'Oker#
-(tik tok)	t#'ik||t'Ok
+thinner		_^_EN
+thriller	_^_EN
+thru		t*'u
+thursday	t'@rzdeI
+ticket		t#'iket#
+(tie dye)	t'aI||d'aI
+(tik toker)	t#,ik||t'Oker#
+(tik tok)	t#,ik||t'Ok
+(time sharing)	t'aImS'ErIN
 timer		t'aImer#
+timing		t'aImIN
+tiramisu	_^_IT
+toast		_^_EN
+toddy		_^_EN
+toffee		_^_EN
 toilette	tw,al'Et#
+token		t'oUken
+tomahawk	_^_EN
+tondero		_^_ES
+toner		t'oUner#
+top		t'Op
+topless		t'OplEs
+tory		_^_EN
 tour		t'ur#
+touring		_^_EN
+tournedos	_^_FR
+tournée		_^_FR
+tournure	_^_FR
+trade		t*'eId#
 trader		t*'eIder#
-trading		t*'eId#iN
-trailer		t*'eIler#
-training	t*'eIniN
+trading		t*'eId#iNticket
+trailer		_^_EN
+train		_^_EN
+trainer		_^_EN
+training	_^_EN
+tramway		_^_EN
+tranche		_^_FR
 transfer	$1
+translate	t*,&~Nsl'eIt#
+trap		t*'Ep
 trash		t*aS
-trekking	$1 $alt1
+trattoria	_^_IT
+travelling	_^_EN
+treedozer	_^_EN
+trek		t*'Ek
+trekking	t*'EkiN
+tremolo		_^_IT
+trend		t*'end#
+trial		_^_EN
+trick		tr'Ik
+trickline	_^_EN
 tricot		t*ik'o
+trolley		_^_EN
+trottoir	_^_FR
+troupe		_^_FR
+trousse		_^_FR
+trouvaille	_^_FR
+true		tr'u
 tsunami		$2
+tuesday		tS'uzdeI
+tuner		t'uner#
+turf		_^_EN
+turnover	_^_EN
+tutti		_^_IT
+tweed		tw'id#
+tweet		tw'it#
+umlaut		_^_DE
 under		'&~Nder#
 underground	,&~Nder#g*'aUNd#
-(up to date)	&p||tU||d'eIt#
-up  		&p
-update		&pd'eIt
-upgrade		&pg*'eId
-upload		&pl'oud
+underwriting	_^_EN
+union		j'uni@n
+universe	j'univ,@rs
+unschooling	_^_EN
+(up to date)	'&p||tU||d'eIt#
+up  		'&p
+update		,&pd'eIt#
+upgrade		,&pg*'eId#
+upload		&pl'oUd#
+vaporwave	_^_EN
+vaudeville	_^_FR
+veduta		_^_IT
+veilleuse	_^_FR
+vendeuse	_^_FR
 verbis		$1 $alt1
+vermeil		_^_FR
+vernier		_^_FR
+vernissage	_^_FR
 versus		$1 $alt1
+vibrato		_^_IT
+(video game)	v,id#jU||g'eImy
 videobook	v,id#jUb'Uk
-videogame	v,id#jUg'eImy
+videogame	v,id#jU||g'eImy
 videolaser	v,id#jUl'eIzer#
 videomaker	v,id#jUm'eIker#
+videowall	_^_EN
+vintage		_^_EN
+violone		_^_IT
 (vis à vis)	v,izav'i
+vison		_^_FR
+vitaglass	_^_EN
+vivace		_^_IT
 vivant		_^_FR
+vocalise	_^_FR
+vocoder		_^_EN
+voile		_^_FR
+(vol au vent)	_^_FR
 volley		vôlei $text
 volleyball	voleibol $text
+voucher		v'aUSer#
 voyer		voj'e
 voyeur		voj'ER#
 waffle		w'Ofol
-(walkie talkie)	w'Oki||t'Oki
-?1 web		w'Eb
-?2 web		w'Eby
+waiver		_^_EN
+wakashan	_^_EN
+walk		w'Ok
+walker		w'Oker#
+walkie		w'Oki
+walkover	_^_EN
+war		w'Or#
+warfare		w,Or#f'Er
+warrant		_^_EN
+watch		w'OtS
+waterline	_^_EN
+way		w'eI
+web		w'Eb
+webcam		w,Ebk'&~m
+webinar		w'EbIn,ar
 webmaster	wEbm'aster#
+wednesday	w'enyzdeI
+(week end)	w'ik,end#
 weekend		w'ik,end#
+weltanschauung	_^_DE
+western		_^_EN
+westpolitik	_^_DE
+whig		_^_EN
+whiskey		_^_EN
+whisky		_^_EN
+white		w'aIt#
+wifi    	w,aIf'aI
+(wi-fi) 	w,aIf'aI
+winchester	_^_EN
+winter		w'iNter#
+wireless	_^_EN
+wombat		_^_EN
 woogie		w'ugi
 workaholic	w,or#kah'Olik
+worker		w'or#ker#
 workshop	w,or#kS'Op
+workstation	_^_EN
+wow		w'aU
+write		r'aIt
 writer		r'aIter
 xerox		S'E*Oks
+yacht		i'at#
+yachting	_^_EN
+yachtsman	_^_EN
 ?1 yahoo	'i,ah'u
 ?2 yahoo	iah'u
+yard		_^_EN
+yearling	_^_EN
+yellow		j'EloU
 yes 		j'Es
-youtube		j'ut'uby
-youtuber	j'ut'uber#
+york		j'Ork
+yorkshire	_^_EN
+you		j'U
+youtube		j,ut'ub
+youtuber	j,ut'uber#
 yuppie		j'upi
+zabaione	_^_IT
+zamacueca	_^_ES
 zeitgeist	ts'aItg,aIst#
 
 
@@ -2318,14 +3468,21 @@ facebook	feIsybuk
 ?1 fedora	_^_EN
 firefox		f'ai@fOks
 ?1 front	fr'ont
+ifood		,aIf'Ud#
+iphone		,aIf'ony
+ipod		,aIp'Od#
+ipad		,aIp'Ed#
+itunes		,aIt'unys
 ?1 jaws		dZ'au:z
 nike		n'aIk
 ?1 linux	l,in'uks
 ?2 linux	l'inUks
 ?2 lobby	$alt
-?1 maker	m'eIk&r
+make	m'eIk
+maker	m'eIk&r
 mac		mEk
 ?1 media	m'Ed,i&
+?2 media	m'idZj&
 ?1 messenger	m'Es&ndZ&r
 ?1 microsoft	m,ik:*'os,Oft
 ?2 microsoft	m'aIk*oUs'Oft
@@ -2341,7 +3498,6 @@ openoffice	'opeIN|'Ofis
 ?1 outlook	'autl'uk
 ?2 outlook	,aUtl'uk
 ?1 paint	p'aint
-?1 player	pl'eI&r
 ?1 playstation	_^_EN
 ?2 playstation	pleIst'eIS&~N
 point		p'oint
@@ -2351,17 +3507,21 @@ point		p'oint
 ?1 publisher	p'&bl,iS&r
 reader		r'id,&r
 setup		s'Et,&p
-?1 scout	sk'aut // Nero scout
 ?1 skype	sk'aip
 ?2 skype	sk'aIp
 slackware	sl'akwer
-?1 smart	sm'art // nero StartSmart
+smart		sm'art#
 ?2 society	sos'aIty
 speak		spi:k
 suse		z'u:ts@
-?1 start	st'art // nero StartSmart
-?1 time		t'aImy // nero show time
-twitter		tw'iter
+start		st'ar#t#
+?1 time		t'aImy
+twitter		tw'iter#
+twitch		tw'itS
+spotify		sp,Ot#yf'aI
+soundcloud	s,aUndkl'aUd#
+deezer		d#'izer#
+premium		pr'imi@m
 ubuntu		ub'untu
 ?1 unix		,u:n'iks
 ?2 unix		j'uniks
@@ -2458,8 +3618,11 @@ gregory		$1 $alt1
 hannah		x'&~n&
 helen		$1 $alt1
 herbert		$1 $alt1
-james		Z'eimys
+jack		Z'Ek
+jake		Z'eIk
+james		Z'eims
 jason		Z'eIson
+jenny		$1
 jerry		$1 $alt1
 joe		Z'oU
 john		Z'oN
