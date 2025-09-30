@@ -69,7 +69,14 @@ if (NOT BUILD_SHARED_LIBS)
   target_compile_definitions(espeak-ng INTERFACE "LIBESPEAK_NG_EXPORT=1")
 endif()
 
-target_compile_definitions(espeak-ng PRIVATE "PATH_ESPEAK_DATA=\"${CMAKE_INSTALL_PREFIX}/share/espeak-ng-data\"")
+set(espeakngdata "\"${CMAKE_INSTALL_PREFIX}/share/espeak-ng-data\"")
+if (MINGW)
+  include("${CMAKE_SOURCE_DIR}/cmake/msys2path.cmake")
+  msys_to_windows("${espeakngdata}" espeakngdata)
+  message(STATUS "Converted espeak-ng data path: ${espeakngdata}")
+endif()
+
+target_compile_definitions(espeak-ng PRIVATE "PATH_ESPEAK_DATA=${espeakngdata}")
 
 if (USE_ASYNC)
   target_sources(espeak-ng PRIVATE
