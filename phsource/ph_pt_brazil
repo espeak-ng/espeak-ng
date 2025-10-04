@@ -21,7 +21,7 @@ endphoneme
 
 phoneme o~
   vwl starttype #o endtype #o
-  length 240
+  length 180
   FMT(vnasal/o_n)
 endphoneme
 
@@ -334,4 +334,51 @@ phoneme t#           // special phoneme for /t/
   ENDIF
   ChangePhoneme(t)
 endphoneme
+
+procedure Nn
+  CALL base2/n
+  length 80
+  ipa n
+endprocedure
+
+procedure Nm
+  CALL base2/m
+  length 80
+  ipa m
+endprocedure
+
+procedure NN
+  CALL base2/N
+  length 80
+  ipa ŋ
+endprocedure
+
+procedure Nw
+  CALL base2/w
+  ipa w
+endprocedure
+
+phoneme N
+  vcd nas
+
+  IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
+    IF prevPh(o~) OR prevPh(u~) THEN
+      CALL Nw
+    ELSE
+      CALL NN
+    ENDIF
+    RETURN
+  ENDIF
+
+  IF nextPh(isVelar) THEN
+    CALL NN
+  ELIF nextPh(p) OR nextPh(b) THEN
+    CALL Nm
+  ELIF nextPh(f) OR nextPh(v) THEN
+    CALL Nm
+  ELSE
+    CALL Nn
+  ENDIF
+endphoneme
+
 
