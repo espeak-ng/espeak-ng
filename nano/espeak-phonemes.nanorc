@@ -62,7 +62,7 @@ color lightcyan "\<(IF|ELSE|ELSEIF|ELIF|THEN|ENDIF|AND|OR|NOT|NextVowelStarts|Pr
 color lightcyan "\<(thisPh|prevPh|prevPhW|prev2PhW|nextPh|next2Ph|nextPhW|next2PhW|next3PhW|nextVowel|prevVowel|PreVoicing|KlattSynth|MbrolaSynth)\>"
 
 # Conditional statement atributes
-color lightyellow "\<(isPause|isPause2|isVowel|isNotVowel|isLiquid|isNasal|isVFricative|isPalatal|isRhotic|isWordStart|notWordStart|isWordEnd|isFirstVowel|isSecondVowel|isFinalVowel|isAfterStress|isVoiced|isDiminished|isUnstressed|isNotStressed|isStressed|isMaxStress)\>"
+color lightyellow "\<(isPause|isPause2|isVowel|isNotVowel|isLiquid|isNasal|isVFricative|isPalatal|isRhotic|isVelar|isSibilant|isFlag1|isFlag2|isWordStart|notWordStart|isWordEnd|isFirstVowel|isSecondVowel|isFinalVowel|isAfterStress|isVoiced|isDiminished|isUnstressed|isNotStressed|isStressed|isMaxStress|isLong|isVStop|isUStop|isTranslationGiven)\>"
 
 # Character codes: 0xFF and U+FFFF
 color lightgreen "(0x[0-9a-fA-F]{2}|U\+[0-9a-fA-F]{4})"
