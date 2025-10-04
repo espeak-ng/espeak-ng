@@ -501,17 +501,20 @@ liquid consonant within the same word.
 	isNotVowel
 	isLiquid
 	isNasal
+	isUStop
+	isVStop
 	isVFricative
 
 These test the phoneme type.
 
 	isPalatal
 	isRhotic
+	isSibilant
+	isVelar
 
 These test whether the phoneme has this property.
 
 	isWordStart
-	notWordStart
 
 These text whether this is the first phoneme in a word.
 
@@ -552,6 +555,13 @@ True if the syllable stress is "primary stress".
 	isMaxStress
 
 True if this is the highest stressed syllable in the word.
+
+	isLong
+	isFlag1
+	isFlag2
+	isTranslationGiven
+
+These test whether the phoneme has this other property.
 
 ## Sound Specifications
 
