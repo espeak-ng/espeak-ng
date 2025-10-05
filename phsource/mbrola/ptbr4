@@ -1,5 +1,10 @@
 volume 15
 
+//  1: skip the next phoneme
+//  2: match this and previous phoneme (backwards)
+//  4: match only at the start of a word
+//  8: don't match two phonemes across a word boundary
+
 0   l/  NULL   0   w
 0   l/2 w      0   l
 0   l/2 j      0   l
@@ -7,109 +12,187 @@ volume 15
 0   r/  NULL   0   r2
 0   r-  NULL   0   r
 0   w/  NULL   0   w
-0   j/  NULL   0   y
-0   g-  NULL   0   NULL
-0   @-  *      0   NULL
-9   *   @-     0   r2
-0   *   j      0   r
-0   *   w      0   r
-0   *   VWL    0   r
-0   *   NULL   0   r2
 0   ;   NULL   0   NULL
 0   :   NULL   0   NULL
 
-0   S   NULL   0   x 
-0   Z   NULL   0   j
-0   tS  NULL   0   t
-0   dZ  NULL   0   d
 0   l^  NULL   0   lh
 0   n^  NULL   0   nh
 0   N   NULL   0   n
 0   h   NULL   0   rr
 0   x   NULL   0   rr
-0   s   VWL    0   s
-0   s   w      0   s
-0   s   j      0   s
-1   s   s      0   s
-0   s   NULL   0   s2
-8   r   VWL    0   r
-0   r   NULL   0   r2
-0   R   NULL   0   r
 
-0   z   b      35  s2
-0   z   d      35  s2
-0   z   dZ     35  s2
-0   z   g      35  s2
-0   z   h      35  s2
-0   z   l      35  s2
-0   z   m      35  s2
-0   z   n      35  s2
-0   z   v      35  s2
-0   z   x      35  s2
-0   z   Z      35  s2
-0   z   z      35  s2
-0   z   _      35  s2
+0   r   VWL    0   r
+4   r   NULL   0   rr
+0   r   NULL   0   r2
+
+8   @-  *      0   NULL
+9   *   @-     0   r2
+0   *   j      0   r
+0   *   w      0   r
+0   *   VWL    0   r
+0   *   NULL   0   r2
+
+0   s   s      0   NULL
+0   s   j      0   s
+0   s   w      0   s
+0   s   VWL    0   s
+4   s   NULL   10  i s2
+0   s   NULL   0   s2
+
+0   z   j      0   z
+0   z   w      0   z
+0   z   VWL    0   z
+4   z   NULL   10  i s2
+0   z   NULL   0   s2
+
+0   S   j      0   x
+0   S   w      0   x
+0   S   VWL    0   x
+0   S   NULL   90  x i
+
+0   Z   j      0   j
+0   Z   w      0   j
+0   Z   VWL    0   j
+0   Z   NULL   90  j i
+
+8   dZ   y      0   d
+8   dZ   j      0   d
+8   dZ   i      0   d
+8   dZ   i/     0   d
+8   dZ   i~     0   d
+8   dZ   I      0   d
+8   dZ   I/     0   d
+0   dZ   NULL   90  d i
+
+8   tS   y      0   t
+8   tS   j      0   t
+8   tS   i      0   t
+8   tS   i/     0   t
+8   tS   i~     0   t
+8   tS   I      0   t
+8   tS   I/     0   t
+0   tS   NULL   90  t i
+
+8   p    l      0   p
+8   p    r      0   p
+8   p    j      0   p
+8   p    w      0   p
+8   p    VWL    0   p
+0   p    NULL   90  p i
+
+8   b    l      0   b
+8   b    r      0   b
+8   b    j      0   b
+8   b    w      0   b
+8   b    VWL    0   b
+0   b    NULL   90  b i
+
+8   t    l      0   t
+8   t    r      0   t
+8   t    j      0   t
+8   t    w      0   t
+8   t    VWL    0   t
+0   t    NULL   90  t i
+
+8   d    l      0   d
+8   d    r      0   d
+8   d    j      0   d
+8   d    w      0   d
+8   d    VWL    0   d
+0   d    NULL   90  d i
+
+8   k    l      0   k
+8   k    r      0   k
+8   k    j      0   k
+8   k    w      0   k
+8   k    VWL    0   k
+0   k    NULL   90  k i
+
+8   g    l      0   g
+8   g    r      0   g
+8   g    j      0   g
+8   g    w      0   g
+8   g    VWL    0   g
+0   g    NULL   90  g i
+
+8   f    l      0   f
+8   f    r      0   f
+8   f    j      0   f
+8   f    w      0   f
+8   f    VWL    0   f
+0   f    NULL   90  f i
+
+8   v    l      0   v
+8   v    r      0   v
+8   v    j      0   v
+8   v    w      0   v
+8   v    VWL    0   v
+0   v    NULL  90   v i
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
-0   &   NULL   0   @
-0   &/  NULL   0   @
-0   &~  j      0   @
-0   &~  y      0   @
-0   &~  n^     0   @
+9   &   N      0   @
+0   &   NULL   0   a
+0   &/  NULL   0   a
+8   &~  n^     0   @
+9   &~  j      60  @ i
 9   &~  N      0   an
 0   &~  NULL   0   an
 0   E   NULL   0   ee
-
-0   i/  NULL   0   i
 9   i   N      0   in
 9   i~  N      0   in
 0   i~  NULL   0   in
-9   i   ;      90  i y
-9   I   ;      90  i y
+0   i/  NULL   0   i
+9   I   N      0   in
 0   I   NULL   0   i
 0   I/  NULL   0   i
 0   i"  NULL   0   i
 0   y   NULL   0   i
 9   o   N      60  on un
-9   o~  j/     60  on i
+9   o~  j      60  on i
 9   o~  N      60  on un
 0   o~  NULL   0   on
+9   O   N      60  on
 0   O   NULL   0   oo
-9   u~  j/     60  un i
+9   u   N      0   un
+9   u~  j      60  un i
 9   u~  N      0   un
 0   u~  NULL   0   un
-0   U   NULL   0   w
+0   U   NULL   0   u
 
-0   j   w      0   i
+2   j   w      0   i
 0   j   NULL   0   y
+2   w   ;      0   u
+2   w   j      0   u
+2   w   aI     0   u
+2   w   eI     0   u
+2   w   oI     0   u
 
 0   aI  NULL  60   a  y
-9   eI  m     60   en in       // exemplo
-9   eI  N     60   en in       // setenta
-0   eI  NULL  60   e  y
+9   eI  N     60   en in       // entendendo
+0   eI  NULL  60   e  i
 0   EI  NULL  60   ee y
 0   oI  NULL  60   o  y
 0   oI~ NULL  60   on in
 0   OI  NULL  60   oo y
 0   uI  NULL  60   u  y
-0   uI~ NULL  60   un in
-0   aU  NULL  55   a  w
-0   &U~ NULL  60   @  un
-0   eU  NULL  55   e  w
-0   EU  NULL  55   ee w
-0   iU  NULL  55   i  w
+0   uI~ NULL  60   un i
+0   aU  NULL  60   a  w
+0   &U~ NULL  60   @  w
+0   eU  NULL  60   e  w
+0   EU  NULL  60   ee w
+0   iU  NULL  60   i  w
 0   oU  NULL  60   o  w
+
 
 
 // English phonemes
 0   @   NULL   0   @
 0   T   NULL   0   t
-0   D   NULL   0   z
+0   D   NULL   0   d
 0   0   NULL   0   o
-9   V   m      0   am
 0   V   NULL   0   a
-0   I2  NULL   0   y
+0   I2  NULL   0   i
 0   A:  NULL   0   a
 0   A@  NULL  60   a r
 0   o:  NULL   0   o

@@ -89,6 +89,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1      a (l_      'A        // eg: Portugal, capital, etc.
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (K      aU
+?2      al (_A     aw
         a (lh+     a
         a (ll+     a
         a (m       &~
@@ -98,14 +99,14 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         a (ñ       &~
         a (nA@     &
         a (nAr_    &
+
+        am (_      =&U~
+        am (C      &~N
+        an (K      &~N
+
+        anh        &~n^
         amm (A     am
         ann (A     an
-        am (_      =&~N
-        am (C      &~m
-?4      am (C      &~N
-        an (K+     &~N
-        anh (A     &~n^
-        am (_      =&U~
 
 ?1   C) acç        'a's      // eg: selecção, etc...
 
@@ -147,7 +148,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         â          ''&
         â (m       ''&~
         â (n       ''&~
-        âm (K      ''&~m
+        âm (K      ''&~N
         ân (K      ''&~N
         ânh        ''&~n^
 
@@ -161,7 +162,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?2   _) às (_G     ,a:z
         à (m       &~
         à (n       &~
-        àm (K      &~m
+        àm (K      &~N
         àn (K      &~N
         ành (A     &~n^
 
@@ -182,6 +183,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 .group ã
         ã          &~
         ão         &U~
+        ãe         &~j
 
 
 .group b
@@ -314,16 +316,18 @@ e (trL04_   E
 
         e (x_      E
         e (xL04_   E
-        emm (A     em
-        enn (A     en
-        em (C      eIm
-        en (K      eIN
-        enh        en^
+
+        em (C      eIN
+        en (C      eIN
 
         em (_      =eIN
         em (s_     =eIN
         en (_      =eIN
         en (s_     =eIN
+
+        enh        en^
+        emm (A     em
+        enn (A     en
 
         ei         eI
         ei (s      eI
@@ -332,6 +336,7 @@ e (trL04_   E
         ey         eI
         eu         eU
         eu (s      eU
+        eu (_A     ew
         e (uCK     e
 
 ?1   d) e (CAA     y
@@ -614,8 +619,7 @@ _entorp) e (çL03_  e
 
 .group ê
         ê          ''e
-        êm (_      ''eIN
-        êm (C      ''eIm
+        êm (K      ''eIN
         ên (K      ''eIN
         ênh        ''en^
         êu         ''eU
@@ -668,7 +672,7 @@ _redar) gu (A      gw
   xtin) gu (A      gw
 ?1   n) gu (A      gw        // eg: língua, etc.
 ?1 man) gu (ei     g         // mangueira
-?1      gu (ém_    g         // eg: alguém, ninguém, etc...
+?1      gu (ém_+   g         // eg: alguém, ninguém, etc...
 
 
 .group h
@@ -698,21 +702,17 @@ _redar) gu (A      gw
         i (lh+     i
         i (ll+     i
 
-        im (_      iN
+        im (K      i~N
+        in (K      i~N
+
+        inh        in^
         imm (A     im
         inn (A     in
-        im (C      im
-?4      im (C      iN
-        in (_      iN
-        in (C      iN        // ?4  ??
-        in (g      iN
-        in (k      iN
-        inh        in^
 
         i (L04_    'i
 
-        io (_      iU
-        io (s_     iU
+        io (_      i%U
+        io (s_     i%U
         i (oCK     i
         iu (_      iU
         iu (s_     iU
@@ -754,9 +754,8 @@ _redar) gu (A      gw
         í          ''i
         í (m       ''i
         í (n       ''i
-        ím (_      ''iN
-        ím (C      ''im
-        ín (K      ''iN
+        ím (K      ''i~N
+        ín (K      ''i~N
         ính        ''in^
         íl (B      ''IU
 
@@ -801,6 +800,7 @@ _redar) gu (A      gw
 ?1  @@) mente (_S5 m''eINty
 ?2  @@) mente (_S5 m''eINtSy
 
+     _) mini  (0x2d m,in%i
 
 .group n
 ?1   _) n (_W      En;
@@ -833,6 +833,7 @@ _redar) gu (A      gw
 ?2  _v) os (_A     uz
 ?2  _v) os (_G     uz
         ou         oU
+        ou (_A     ow
         oi         oI
         oi ($w_alt OI
         oi ($w_alt2++ oI
@@ -884,18 +885,15 @@ _redar) gu (A      gw
 
         o (l_      'O
 ?2      ol (B      oU
-
-        om (_      o~N
         o (ma_     o
+    @s) on (_      %o~N       // words ending in -son
 
+        om (K      o~N
+        on (K      o~N
+
+        onh        o~n^
         omm (A     om
         onn (A     on
-        om (C      om
-?4      om (C      oN
-        on (K      oN
-    @s) on (_      %oN       // words ending in -son
-
-        onh        on^
 
         o (brL04_  O
 
@@ -1066,15 +1064,13 @@ _ortod) o (xL08_   O
 
 .group ô
         ô          ''o
-        ôm (_      ''o~N
-        ôm (C      ''om
-        ôn (K      ''oN
-        ônh        ''on^
+        ôm (K      ''o~N
+        ôn (K      ''o~N
+        ônh        ''o~n^
 
 
 .group ó
         ó          ''O
-
         ói         ''OI
         ói (s      ''OI
         ó (iCK     ''O
@@ -1234,13 +1230,13 @@ _ortod) o (xL08_   O
         ul (K      uw
         u (lh+     u
         u (ll+     u
-        um (_      u~N
+
+        um (K      u~N
+        un (K      u~N
+
+        unh        u~n^
         umm (A     um
         unn (A     un
-        um (C      u~m
-?4      um (C      u~N
-        un (K      u~N
-        unh        u~n^
 
      g) u (Y 
     _m) ui (t      'uI~
@@ -1248,10 +1244,7 @@ _ortod) o (xL08_   O
 
 .group ú
         ú          ''u
-        úm (_      ''u~N
-        úm (C      ''u~m
-        úm (A      ''u~m
-?4      úm (C      ''u~N
+        úm (K      ''u~N
         ún (K      ''u~N
         únh        ''u~n^
 
@@ -1352,7 +1345,7 @@ _lagarti) x (A     S
 
 .group y
 ?1   _) y (_       'ips,ilON
-?2   _) y (_       'ipsiloN
+?2   _) y (_       'ipsilo~N
         y          i
         y (A       j
         y (_       %i        // ?? stress on 1st syllable  EN

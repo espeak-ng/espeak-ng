@@ -1369,8 +1369,7 @@ diego		$alt2
 diogo		$alt2
 discordo	$alt
 dissabores	$alt2
-?1  dispneia	dISpyn'EI&
-?2  dispneia	dZIspyn'EI&
+dispneia	d#Is#pyn'EI&
 dobro		$alt2
 dobro		$alt $verb
 doce		$alt2
@@ -1833,6 +1832,7 @@ arpeggiatura	_^_IT
 artsy		_^_EN
 assemblage	_^_FR
 assembler	_^_EN
+associated	as,osy'eIted#
 atelier		_^_FR
 audiobook	,aUd#jUb'Uk
 aufldärung	_^_DE
@@ -1988,7 +1988,6 @@ business	b'is#n,es#
 businessman	_^_EN
 button		_^_EN
 (by pass)	b,aI||p'Es
-by		b'aI
 bye		b'aI
 byte		b'aIt#y
 cabaretier	_^_FR
@@ -2056,6 +2055,7 @@ chateaubriand	_^_FR
 châtelaine	_^_FR
 chauffage	_^_FR
 chauffeur	_^_FR
+chauvet		_^_FR
 (check out)	S,Ek'aUt#
 (check up)	S,Ek'&p
 check		S'Ek
@@ -2232,8 +2232,10 @@ cuesta		_^_ES
 (cul de sac)	_^_FR
 curriculum	$2
 curry		k'&ri
+cyber		s'aIber#
 cyberbullying 	s,aIber#b'UlIN
 cyberpunk	s,aIber#p'&nk
+cyborg		s,aIb'Org
 dachshund	_^_DE
 dancing		_^_EN
 dasein		_^_DE
@@ -2481,6 +2483,7 @@ gauche		_^_FR
 gauleiter	_^_DE
 gay		g'eI
 geek		g'ik
+gemini		Z'emini
 gentleman	dZ'EntoUman
 gestalt		geSt'alt#
 get		g'Et#
@@ -2612,6 +2615,7 @@ hotmail		h,Ot#m'eIl
 hotsite		h,Ot#s'aIt#
 ?1 hour		'aU&r
 ?2 hour		'aUEr
+house		h'aUzy
 houston		h'iUstoN
 hovercraft	_^_EN
 how		h'aU
@@ -2674,6 +2678,7 @@ kersey		_^_EN
 ?1 ketchup	k'EtS&p
 ?2 ketchup	kEtS'up
 keuper		_^_DE
+kiev		$alt
 kilobit		kilob'it#
 kilobyte	kilob'aIt#y
 kilohertz	kiloh'Er#ts
@@ -2862,6 +2867,7 @@ net		n'Et#
 network		n,Etw'or#k
 networking	n,Etw'or#kiN
 new		n'iU
+(new age)	n'iw||'eIZy
 newmarket	_^_EN
 news		n'iUs#
 newsletter	n,iUzl'Eter#
@@ -3031,6 +3037,7 @@ poundal		_^_EN
 ?2 power	p'aUEr
 premier		p*emj'e
 première	p*emj'ER#
+press		p*Es
 (prêt à porter)	_^_FR
 (prêt à porter) p*'Et||a||por#t'e
 priori		$2 $alt
@@ -3054,6 +3061,7 @@ puttino		_^_IT
 putto		_^_IT
 puzzle		_^_EN
 python		p'aIT&~N
+quaest		kw'Est#
 quantum		$1
 ?2 quantum	kw'&~Ntu~N
 quark		_^_EN
@@ -3081,7 +3089,7 @@ railroad	_^_EN
 railway		_^_EN
 rallentando	_^_IT
 rallye		_^_EN
-ransomware	R#'&ns@mw,Er
+ransomware	R#'&Ns@mw,Er
 ranking		R#'&~NkiN
 rap		R#'Ep
 rapper		R#Ep,er#
@@ -3121,6 +3129,7 @@ repoussé	_^_FR
 resort		R#iz'Or#t#
 restaurateur	_^_FR
 rétro		_^_FR
+reuters		R#'OIters
 réveillon	R#evej'oN
 revival		R#iv'aIv&l
 richmond	_^_EN
@@ -3160,6 +3169,7 @@ saint		s'eInt#
 sanctus		s'&~nktUs
 (sans culotte)	s'&~||kul'Ot#
 ?1 sapi		s,ap'i
+sapiens		s'apieINs
 saturday	s'at@rd,eI
 sauvignon	_^_FR
 (savoir faire)	savw'aR#||f'ER#
@@ -3259,6 +3269,7 @@ snipe		sn'aIp
 sniper		sn'aIper#
 soave		_^_IT
 socialite	s,osjal'aIt#
+soft		s'Oft#
 softball	_^_EN
 ?1 software	s'Oft,w'Er
 ?2 software	s'Oftw,Er
@@ -3368,8 +3379,8 @@ teaser		_^_EN
 tech		t'Ek
 technology	tEkI/n'OlodZi
 teckel		_^_DE
-teen		t#in
-teenager	t#in'eIdZer#
+teen		t#iN
+teenager	t#iN'eIdZer#
 teflon		_^_EN
 telemarketing	$3
 ?1 telemóveis	t,El,Em'OveIs#
@@ -3566,11 +3577,12 @@ zeitgeist	ts'aItg,aIst#
 
 
 // foreign product names
-access	'aks,Es
+access		'aks,Es
 ?1 adobe	&d'Oby
 android		&Nd*'Oid#
 apple		'EpoU
 baby		b'eIby
+boeing		b'Oi~Ng
 ?2 campari	k&mp'a*y
 ?1 chrome	k*'oUm
 ?2 chrome	k*'oUmy
@@ -3579,9 +3591,9 @@ debian		d'Ebj&~N
 ?2 excel	,eks'EU
 ?1 express	,Ekspr'Es
 espeak		isp'i:k
-?1 espeakedit	isp'i:kEd,it
+espeakedit	isp,i:kEd'it
 facebook	feIsybuk
-?1 fedora	_^_EN
+fedora		_^_EN
 firefox		f'ai@fOks
 ?1 front	fr'ont
 ifood		,aIf'Ud#
@@ -3591,16 +3603,18 @@ ipad		,aIp'Ed#
 itunes		,aIt'unys
 ?1 jaws		dZ'au:z
 nike		n'aIk
+libreoffice	l'ib*y||'Ofis
+(libre office)	l'ib*y||'Ofis
 ?1 linux	l,in'uks
 ?2 linux	l'inUks
 ?2 lobby	$alt
 mac		mEk
 ?1 media	m'Ed,i&
 ?2 media	m'idZj&
-?1 messenger	m'Es&ndZ&r
+messenger	m'Es&ndZ&r
 ?1 microsoft	m,ik:*'os,Oft
 ?2 microsoft	m'aIk*oUs'Oft
-?1 movie	m'uvi
+movie		m'uvi
 ?1 nero		n'Eru
 ?2 netbook	nEtbUk
 ?2 netbooks	nEtbUks
@@ -3608,14 +3622,15 @@ mac		mEk
 ?2 notebooks	noUtbUks
 ?1 office	'Of,is
 ?2 office	'Ofsy
-openoffice	'opeIN|'Ofis
+openoffice	'opeIN||'Ofis
+(open office)	'opeIN||'Ofis
 ?1 outlook	'autl'uk
 ?2 outlook	,aUtl'uk
 ?1 paint	p'aint
-?1 playstation	_^_EN
-?2 playstation	pleIst'eIS&~N
+playstation	pleI||st'eIS&~N
+(play station)	pleI||st'eIS&~N
 ?1 publisher	p'&bl,iS&r
-reader		r'id,&r
+reader		R#'id,er
 setup		s'Et,&p
 ?1 skype	sk'aip
 ?2 skype	sk'aIp
@@ -3636,10 +3651,10 @@ premium		pr'imi@m
 ubuntu		ub'untu
 ?1 unix		,u:n'iks
 ?2 unix		j'uniks
-?1 windows	w'iNd'ou:z
-?2 windows	w'iNdoUs
 ?1 window	w'iNd'ou
 ?2 window	w'iNdoU
+?1 windows	w'iNd'ou:z
+?2 windows	w'iNdoUs
 
 
 // historical and famous people
@@ -3647,12 +3662,15 @@ alzheimer	aUz'aImEr
 babbage		b'abidZ
 bernhard	bern'ard
 biden		_^_EN
+carter		$1
+clinton		$1
+collor		$1 $alt
 ?1 darwin	d'arwin
 ?2 darwin	d'arvin
 ?2 diderot	didex'o
 dijkstra	d'ijkstrA:
-?1 einstein	_!'aInSt,aIn
-?2 einstein	_!'aInst,aIn
+einstein	_!'aINs#t,aIN
+eisenhower	,aIzeNh'aUer
 feuerbach	_^_DE
 feynman		f'ainm@n
 françois	f*&~Nsw'a
@@ -3662,6 +3680,8 @@ garibaldi	$3
 gauss		g'aUs
 geisel		g'aIzEU
 gottfried	g'Otf*i:t
+goulart		gul'ar#t
+johnson		dZ'oNso~N
 hamlet		x'&mlet
 hawking		h'o:king
 hegel		x'egel
@@ -3678,23 +3698,29 @@ lavoisier	lavwazj'e
 leibniz		l'aIbni:ts
 lincoln		l'inkoN
 locke		lOk
+(michel temer)	miS'EU||t'emer#
 montesquieu	m,oNteskj'e
 mozart		$1
+nixon		$1
 neumann		n'OIman
 newton		n'I;utoN
 oppenheimer	_!'Op@nh,aImar
 richard		x'iS&rd
 riemann		r'i:man
 rijndael	x'ain;d'al
+roosevelt	R#'uzyvelt
 rousseau	xus'o
+rousseff	xus'Ef
 russell		x'usEl
 schrödinger	Sr'edinger
 stephen		st'i:v@n
 steve		st'i:v
-trump		_^_EN
+thatcher	$1
+truman		$1
+trump		t*&~Np
 turing		t'u*iNg
 voltaire	vOlt'Er
-von		f%On
+von		f%ON
 
 
 // foreign names and surnames
@@ -3717,6 +3743,7 @@ cynthia		$1
 deborah		$1 $alt
 dennis		$1
 donald		$1
+dwight		_^_EN
 edward		$1 $alt
 elton		$1 $alt
 emerson		$1 $alt
@@ -3726,18 +3753,20 @@ erick		$1 $alt
 evelyn		$1 $alt
 francis		$1
 franklin	$1
+gerald		$1
 gregory		$1 $alt
-hannah		x'&~n&
+hannah		h'&~n&
+harry		h'Er,i
 helen		$1 $alt
 herbert		$1 $alt
-jack		Z'Ek
-jake		Z'eIk
-james		Z'eims
-jason		Z'eIson
+jack		dZ'Ek
+jake		dZ'eIk
+james		dZ'eimys
+jason		dZ'eIsoN
 jenny		$1
 jerry		$1 $alt
-joe		Z'oU
-john		Z'oN
+joe		dZ'oU
+john		dZ'oN
 jonathan	$1
 jordan		$1 $alt
 joseph		$1
@@ -3752,6 +3781,7 @@ kleverson	$1 $alt
 krueger		k*'i:ger
 krüger		k*'i:ger
 kühl		k'il
+lyndon		$1
 louis		lw'i
 luigi		lU'iZI
 marjorie	$1

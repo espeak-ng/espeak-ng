@@ -6,22 +6,15 @@
 // This phonemes file is refered as "pt-pt" in language and voice files.
 // The phonemes specified in the file `ph_pt_brazil` are also used here.
 
+
+// Vowels
+
 phoneme &
   vwl starttype #@ endtype #@
   length 180
   ipa ɐ
   FMT(vowel/a#_3)
   unstressed
-endphoneme
-
-phoneme &/       // Used for final "a" when next word starts with "a"
-  vwl starttype #@ endtype #@
-  length 180
-  ipa ɐ
-  IF nextPh(isVowel) THEN
-    ChangePhoneme(NULL)
-  ENDIF
-  FMT(vowel/a#_3)
 endphoneme
 
 phoneme a
@@ -31,32 +24,6 @@ phoneme a
   FMT(vowel/a_2)
 endphoneme
 
-phoneme &~
-  vwl  starttype #e endtype #@
-  ipa ɐU+0303
-  length 240
-  FMT(vnasal/ee_n2)
-endphoneme
-
-phoneme &U~
-  vwl  starttype #@ endtype #u
-  ipa ɐU+0303ʊU+0303
-  length 240
-  IF thisPh(isDiminished) THEN
-    FMT(vnasal/au_n)
-  ENDIF
-  FMT(vnasal/a#u_n)
-endphoneme
-
-
-
-phoneme E
-  vwl starttype #e endtype #e
-  length 180
-  ChangeIfUnstressed(y)
-  FMT(vowel/e_mid)
-endphoneme
-
 phoneme e
   vwl starttype #e endtype #e
   length 180
@@ -64,15 +31,11 @@ phoneme e
   FMT(vowel/e)
 endphoneme
 
-phoneme y            // old unstressed /i/ kept for backward compatibility
-  CALL pt/i"
-endphoneme
-
-phoneme i
-  vwl starttype #i endtype #i
-  length 170
-  IfNextVowelAppend(;)
-  FMT(vowel/i)
+phoneme E
+  vwl starttype #e endtype #e
+  length 180
+  ChangeIfUnstressed(y)
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme i/            // changes to NULL before a vowel
@@ -86,19 +49,14 @@ phoneme i/            // changes to NULL before a vowel
   FMT(vowel/i#_5)
 endphoneme
 
-phoneme I/           // very short [i] used for epenthesis
+phoneme I/           // hiding the very short [i] used for epenthesis
   vwl starttype #i endtype #i
   ChangePhoneme(NULL)
 endphoneme
 
-
-phoneme O
-  vwl starttype #o endtype #o
-  length 180
-//  ChangeIfNotStressed(o)
-  FMT(vowel/0_2)
+phoneme y            // old unstressed /i/ kept for backward compatibility
+  CALL pt/i"
 endphoneme
-
 
 phoneme o
   vwl starttype #o endtype #o
@@ -107,6 +65,11 @@ phoneme o
   FMT(vowel/o)
 endphoneme
 
+phoneme O
+  vwl starttype #o endtype #o
+  length 180
+  FMT(vowel/0_2)
+endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
@@ -117,12 +80,24 @@ endphoneme
 phoneme U
   vwl starttype #u endtype #u
   length 130
-  IF thisPh(isWordEnd) AND thisPh(isAfterStress) AND nextPh(isVowel) THEN
+  IF thisPh(isWordEnd) AND thisPh(isUnstressed) AND nextPh(isVowel) THEN
     ChangePhoneme(w)
   ENDIF
   FMT(vowel/u_6)
 endphoneme
 
+
+// Nasal Consonants
+
+phoneme &~
+  vwl  starttype #e endtype #@
+  ipa ɐU+0303
+  length 240
+  FMT(vnasal/ee_n2)
+endphoneme
+
+
+// Diphthongs
 
 phoneme EU
   vwl starttype #e endtype #u
@@ -131,12 +106,27 @@ phoneme EU
 endphoneme
 
 
+// Nasal Diphthongs
+
+phoneme &U~
+  vwl  starttype #@ endtype #u
+  ipa ɐU+0303ʊU+0303
+  length 240
+  IF thisPh(isDiminished) THEN
+    FMT(vnasal/au_n)
+  ENDIF
+  FMT(vnasal/a#u_n)
+endphoneme
+
+
+// Glides
 
 phoneme w
   import_phoneme base2/w2
 endphoneme
 
 
+// Rhotic Consonants
 
 phoneme x            // old strong /R/ kept for backward compatibility
   liquid trl
@@ -149,17 +139,10 @@ phoneme x            // old strong /R/ kept for backward compatibility
   FMT(vwl_fr/@R) addWav(r3/rx, 120)
 endphoneme
 
-phoneme R#
-  virtual
-  ChangePhoneme(x)
-endphoneme
 
-phoneme r#
-  virtual
-  ChangePhoneme(*)
-endphoneme
+// Special Consonants for Dialectal Variation
 
-phoneme s#
+phoneme s#           // special phoneme for /S/ or /Z/ in coda
   virtual
   IF nextPh(isVoiced) THEN
     ChangePhoneme(Z)
@@ -167,15 +150,22 @@ phoneme s#
   ChangePhoneme(S)
 endphoneme
 
+phoneme R#           // special phoneme for strong /R/ in onset
+  virtual
+  ChangePhoneme(x)
+endphoneme
 
+phoneme r#           // special phoneme for weak /r/ in coda
+  virtual
+  ChangePhoneme(*)
+endphoneme
 
-phoneme d#           // special phoneme for /d/
+phoneme d#           // special phoneme for /d/ or /dZ/
   virtual
   ChangePhoneme(d)
 endphoneme
 
-phoneme t#           // special phoneme for /t/
+phoneme t#           // special phoneme for /t/ or /tS/
   virtual
   ChangePhoneme(t)
 endphoneme
-
