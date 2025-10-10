@@ -252,6 +252,11 @@ TtsEngine::Speak(DWORD flags,
 			if (textFragList->pTextStart) {
 				const wchar_t *text = textFragList->pTextStart;
 				while (*text) {
+					// Check for abort between characters
+					DWORD actions = site->GetActions();
+					if (actions & SPVES_ABORT)
+						return S_OK;
+					
 					espeak_ng_SpeakCharacter(*text);
 					text++;
 				}
@@ -265,6 +270,9 @@ TtsEngine::Speak(DWORD flags,
 				// Just speak the text content, ignoring the tag
 				espeak_ng_Synthesize(textFragList->pTextStart, 0, 0, POS_CHARACTER, 0, espeakCHARS_WCHAR, NULL, this);
 			}
+			break;
+		default:
+			// Unknown action type - ignore
 			break;
 		}
 
