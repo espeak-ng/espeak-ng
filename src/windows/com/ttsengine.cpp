@@ -26,6 +26,8 @@
 
 #include <new>
 #include <errno.h>
+#include <stdlib.h>
+#include <wchar.h>
 
 extern "C" ULONG ObjectCount;
 
@@ -204,12 +206,72 @@ TtsEngine::Speak(DWORD flags,
 		case SPVA_Speak:
 			espeak_ng_Synthesize(textFragList->pTextStart, 0, 0, POS_CHARACTER, 0, espeakCHARS_WCHAR, NULL, this);
 			break;
+		case SPVA_Silence:
+			{
+				// Insert silence for the specified duration in milliseconds
+				int silence_ms = textFragList->State.SilenceMSecs;
+				if (silence_ms > 0) {
+					// Generate silence using SSML break tag
+					wchar_t break_tag[64];
+					swprintf(break_tag, 64, L"<break time=\"%dms\"/>", silence_ms);
+					espeak_ng_Synthesize(break_tag, 0, 0, POS_CHARACTER, 0, espeakCHARS_WCHAR | espeakSSML, NULL, this);
+				}
+			}
+			break;
+		case SPVA_Pronounce:
+			// The text contains phonetic pronunciation (IPA or other format)
+			// eSpeak uses [[phonemes]] notation for phoneme input
+			if (textFragList->pTextStart) {
+				// Wrap the phonemes in [[ ]] notation for espeak
+				size_t len = wcslen(textFragList->pTextStart);
+				wchar_t *phoneme_text = (wchar_t *)malloc((len + 5) * sizeof(wchar_t));
+				if (phoneme_text) {
+					swprintf(phoneme_text, len + 5, L"[[%s]]", textFragList->pTextStart);
+					espeak_ng_Synthesize(phoneme_text, 0, 0, POS_CHARACTER, 0, espeakCHARS_WCHAR, NULL, this);
+					free(phoneme_text);
+				}
+			}
+			break;
+		case SPVA_Bookmark:
+			// Fire a bookmark event
+			if (textFragList->pTextStart) {
+				// Convert wide char bookmark name to UTF-8
+				size_t len = wcslen(textFragList->pTextStart);
+				char *bookmark = (char *)malloc(len * 4 + 1); // UTF-8 can be up to 4 bytes per char
+				if (bookmark) {
+					wcstombs(bookmark, textFragList->pTextStart, len * 4 + 1);
+					espeak_ng_SynthesizeMark(NULL, 0, bookmark, 0, espeakCHARS_WCHAR, NULL, this);
+					free(bookmark);
+					// Notify SAPI that we've completed the bookmark
+					site->CompleteSkip(0);
+				}
+			}
+			break;
+		case SPVA_SpellOut:
+			// Spell out text character by character
+			if (textFragList->pTextStart) {
+				const wchar_t *text = textFragList->pTextStart;
+				while (*text) {
+					espeak_ng_SpeakCharacter(*text);
+					text++;
+				}
+			}
+			break;
+		case SPVA_ParseUnknownTag:
+			// Handle unknown XML/SSML tags - typically just skip them
+			// The text in pTextStart contains the unknown tag
+			// We can either ignore it or try to synthesize the content
+			if (textFragList->pTextStart) {
+				// Just speak the text content, ignoring the tag
+				espeak_ng_Synthesize(textFragList->pTextStart, 0, 0, POS_CHARACTER, 0, espeakCHARS_WCHAR, NULL, this);
+			}
+			break;
 		}
 
 		textFragList = textFragList->pNext;
 	}
 
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 HRESULT __stdcall
