@@ -16,10 +16,14 @@ eSpeak NG is a compact open source software text-to-speech synthesizer that supp
 
 ## Build System
 
-- Uses autotools (autoconf, automake, libtool)
-- Build workflow: `./autogen.sh` → `./configure` → `make`
-- Always run `make check` to validate changes before committing
+- **Preferred**: CMake (see `CMakeLists.txt`)
+  - Build workflow: `cmake -S . -B build` → `cmake --build build`
+  - Run tests with: `ctest --test-dir build` or `cmake --build build --target test`
+- Alternative: autotools (autoconf, automake, libtool)
+  - Build workflow: `./autogen.sh` → `./configure` → `make`
+  - Run tests with: `make check`
 - The build system compiles dictionary and phoneme data as part of the build process
+- Always validate changes by running tests before committing
 
 ## Code Style
 
@@ -31,7 +35,9 @@ eSpeak NG is a compact open source software text-to-speech synthesizer that supp
 
 ## Testing Requirements
 
-- All changes must pass `make check` before submission
+- All changes must pass tests before submission
+  - With CMake: `ctest --test-dir build` or `cmake --build build --target test`
+  - With autotools: `make check`
 - Existing tests are in shell scripts (*.test) and C programs
 - For new/extended functionality, create appropriate automated tests
 - Test scripts follow a common pattern (see `tests/common` for utilities)
@@ -54,7 +60,7 @@ eSpeak NG is a compact open source software text-to-speech synthesizer that supp
 ## Contribution Guidelines
 
 1. **Single Problem Per PR**: Each pull request should solve one specific problem
-2. **Must Pass Tests**: Both local `make check` and CI checks must pass
+2. **Must Pass Tests**: Both local tests (CMake or autotools) and CI checks must pass
 3. **No Merge Conflicts**: Resolve any conflicts before review
 4. **Meaningful Changes**: Avoid trivial changes (whitespace, typos only, code style only)
 5. **Documentation**: Update relevant documentation for user-facing changes
@@ -67,13 +73,15 @@ eSpeak NG is a compact open source software text-to-speech synthesizer that supp
 2. Understand text-to-phoneme translation (see `docs/dictionary.md`)
 3. Study phoneme tables (see `docs/phontab.md`) and voice files (see `docs/voices.md`)
 4. Test with multiple text samples to validate pronunciation
-5. Consider contacting the language maintainer if one exists
+5. Run the test suite to ensure no regressions
+6. Consider contacting the language maintainer if one exists
 
 ### Modifying Core Engine
 1. Check the project roadmap for alignment
 2. Ensure C99 compatibility
 3. Test across multiple languages to avoid regressions
-4. Document any API changes
+4. Run tests with CMake (`ctest --test-dir build`) or autotools (`make check`)
+5. Document any API changes
 
 ### Working with Phonemes
 - Phoneme names follow specific conventions (see `docs/phonemes.md`)
@@ -104,7 +112,7 @@ eSpeak NG is a compact open source software text-to-speech synthesizer that supp
 - Keep commits focused and atomic
 - Write descriptive commit messages
 - Reference issue numbers in commits when applicable
-- Ensure the repository is clean (`make check` passes) before creating PR
+- Ensure tests pass (using CMake or autotools) before creating PR
 
 ## What NOT to Do
 
