@@ -1165,16 +1165,17 @@ _ortod) o (xL08_   O
         sh         S
 ?4   _) s (C       Is
      A) s (A       z
-?1   @) s (_       s#
-?2      s (_       s#
+
+     @) s (_       s#
+     @) s (_A      z
+
+     @) s (_S1     s#        // plural suffix
+     @) s (_AS1    z         // plural suffix preceding a vowel
 
 ?!4  @) s (_G      z         // next word starts with voiced consonant
-
-     A) s (_S1     s
-     A) s (_AS1    z         // next word starts with vowel
+?!4  A) s (_GS1    z         // next word starts with voiced consonant
 
    ese) s (_       s
-?!4  A) s (_GS1    z         // next word starts with voiced consonant
 
 ?1   A) s (C       s#
 ?1   A) ss         s
