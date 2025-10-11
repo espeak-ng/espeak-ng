@@ -625,6 +625,7 @@ osi	$abbrev
 otf	$abbrev
 otp	$abbrev
 ots	$abbrev
+ovni	'OvI/ni
 paas	$abbrev
 pcdob	p'es'edUb'e
 pci	$abbrev
@@ -1329,6 +1330,7 @@ cratera		$alt
 crede		$alt2
 credo		$alt
 crimeia	$alt
+darwinismo	d,a*vin'izmU
 decoreba	$alt
 decoro		$alt2 $noun
 degelo		$alt2
@@ -1710,7 +1712,7 @@ sinopse		$alt
 soco		$alt2
 soco		$alt $verb
 sogra		$alt
-soldo	s'oUdU
+soldo	s'ol#dU
 soldo	$alt $verb
 soldo	$alt $verb
 solta	s'oUt&
@@ -1718,8 +1720,8 @@ solta	$alt $verb
 solto	s'oUtU
 solto	$alt $verb
 somente		s,Om'eINt#y
-sozinho		s,Oz'in^&
-sozinha		s,Oz'in^U
+sozinha		s,Oz'in^&
+sozinho		s,Oz'in^U
 sopa		$alt2
 sopeses		$alt
 sopro		$alt2 $noun
@@ -1872,7 +1874,7 @@ barmaid		_^_EN
 barman		_^_EN
 (bas fond)	_^_FR
 baseball	_^_EN
-?2 basebol	beIzyb'Ow
+basebol		beIzyb'Ol#
 basketball	_^_EN
 batch		b'EtS
 (bateau mouche)	_^_FR
@@ -1966,6 +1968,7 @@ briefing	b*'ifiN
 broadcast	b*'OdkEst#
 broadcasting	b*Odk'Est#IN
 broadside	_^_EN
+broadway	b*'OdweI
 brooklyn	b*'uklIN
 brother		b*'Oder#
 brown		b*'aUn
@@ -2291,7 +2294,7 @@ développé	_^_FR
 (abu dhabi)	,abu||d'abi
 diablerie	_^_FR
 dial		daI'Al
-diesel		d#'izel
+diesel		d#'izel#
 diet		d'aIet#
 dimmer		d#'imer#
 disc		d#'isk
@@ -2502,7 +2505,7 @@ glamour		gl&m'ur#
 glass		gl'Es
 glide		_^_EN
 ?1 gmail	g,em'eIl
-?2 gmail	Zem'eIl
+?2 gmail	Z,em'eIl
 gnocchi		_^_IT
 goal		_^_EN
 goalball	_^_EN
@@ -2511,10 +2514,9 @@ gobelet		_^_FR
 gobelin		_^_FR
 golf		_^_EN
 ?1 google	g'u:g&l
-?2 google	g'ugol
+?2 google	g'u:gow
 gordon		_^_EN
-?1 gospel	g'Os#pel
-?2 gospel	g'Os#peU
+gospel		g'Os#pel#
 gourmand	_^_FR
 gourmet		gu*m'e
 (grand guignol)	_^_FR
@@ -2554,7 +2556,7 @@ hand		h'End#
 handball	_^_EN
 handbike	_^_EN
 handcycle	_^_EN
-?2 handebol	hendZyb'Ow
+handebol	hend#yb'Ol#
 handicap	_^_EN
 happening	_^_EN
 happy		h'Epi
@@ -2712,7 +2714,6 @@ lake		l'eIk
 lambert		_^_EN
 lansing		_^_EN
 laptop		lEpt'Op
-?2 laptops	lEpt'Ops
 larghetto	_^_IT
 laser		l'eIzer
 (lato sensu)	l'atU||s'eINsU
@@ -2932,7 +2933,7 @@ paella		pa'el^&
 page		p'eIdZ
 pager		_^_EN
 palmier		palmj'e
-?2 palmtop	paUmyt'Op
+palmtop		pal#mI/t'Op
 panaché		_^_FR
 panneau		_^_FR
 panzer		_^_DE
@@ -3004,7 +3005,7 @@ pipeline	paIpyl'aIny
 pit		p'it#
 pitch		_^_EN
 pitching	_^_EN
-pixel		p'iksel
+pixel		p'iksel#
 pizzaiolo	p,itsaj'olU
 pizzicato	_^_IT
 place		pl'eIsy
@@ -3362,6 +3363,8 @@ style		st'aIl
 stylist		_^_EN
 summer		s'&~mer#
 sunday		s'@ndeI
+deficit		d'Efysit#
+superavit	supe*'avit#
 surf		s'@r#f
 surfing		_^_EN
 sursis		_^_FR
@@ -3724,11 +3727,11 @@ dawkins		_^_EN
 deleuze		_^_FR
 dalton		$1
 davis		_^_EN
-deadpool	dEd#p'ul
+deadpool	dEd#p'ul#
 defoe		_^_EN
 dickens		$1
 dickinson	$1
-?2 diderot	didex'o
+diderot		dideR#'o
 dijkstra	d'ijkstrA:
 doyle		_^_EN
 durkheim	_^_DE
@@ -3753,7 +3756,7 @@ friedrich	f*'i:d*iS
 faulkner	_^_EN
 garibaldi	$3
 gauss		g'aUs
-geisel		g'aIzEU
+geisel		g'aIzEl#
 goethe		_^_DE
 gottfried	g'Otf*i:t
 goulart		gul'ar#t
@@ -3766,12 +3769,12 @@ harper		_^_EN
 harvey		_^_EN
 hawking		h'o:king
 hawthorne	_^_EN
-hegel		h'egel
+hegel		h'egel#
 heidegger	h'aIdege
 heisenberg	h'aIzEnberg
 heller		_^_EN
 hemingway	_^_EN
-herschel	h'ErSel
+herschel	h'Er#Sel#
 hilbert		h'ilber#t#
 hitler		h'itler
 ?2 hobbes	h'Obys
@@ -3780,13 +3783,13 @@ hooke		_^_EN
 hubble		h'&boU
 hulk		h'ulk
 humboldt	_^_EN
-husserl		h'usEl
+husserl		h'usEl#
 huxley		_^_EN
 irving		$1
 ?1 isaac	iz'&k
 ?2 isaac	iz'ac
 jackson		_^_EN
-kelsen		$1
+kelsen		k'El#seN
 kennedy		$1
 kepler		_^_EN
 kernighan	_^_EN
@@ -3806,7 +3809,7 @@ lovelace	_^_EN
 martin		$1
 melville	_^_EN
 mendel		$1
-(michel temer)	miS'EU||t'emer#
+(michel temer)	miS'El#||t'emer#
 miller		$1
 molière		_^_FR
 montaigne	_^_FR
@@ -3977,7 +3980,7 @@ mueler		m'iler
 mueller		m'iler
 müler		m'iler
 müller		m'iler
-neil		n'iU
+neil		n'il#
 nelson		$1 $alt
 nicholas	nícolas	$text
 norton		$1 $alt

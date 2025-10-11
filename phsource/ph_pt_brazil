@@ -72,7 +72,7 @@ endphoneme
 phoneme I/           // very short [i] used for epenthesis in Brasil
   vwl starttype #i endtype #i
   ipa NULL
-  unstressed
+  unstressed nsy
   length 50
   FMT(vowel/ii_6)
 endphoneme
@@ -285,10 +285,10 @@ endphoneme
 
 phoneme *            // weak /r/ in syllable onset or coda
   vcd alv flp rhotic
-  lengthmod 6
+  lengthmod 3
   ipa ɾ
-  Vowelin f1=1  f2=1700 -300 300  f3=0 80
-  Vowelout f1=2 f2=1700 -300 300  f3=0 80
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
 
   // ineffective after change
   IF prevPhW(isNotVowel) THEN
@@ -296,7 +296,7 @@ phoneme *            // weak /r/ in syllable onset or coda
   ELIF nextPhW(isNotVowel) AND NOT nextPhW(j) AND NOT nextPhW(w) THEN
     AppendPhoneme(@-)
   ENDIF
-  FMT(d/tap2) addWav(x/d, 40)
+  FMT(d/tap2) addWav(x/d, 60)
 endphoneme
 
 phoneme @-           // very short schwa used along with weak /r/ only
@@ -346,7 +346,12 @@ phoneme N            // polimorphic nasal consonant used in syllable onset
   ENDIF
 
   IF nextPh(isPause) THEN
-    CALL Nm
+    IF prevPh(#i) THEN
+      CALL NN
+    ELSE
+      CALL Nm
+    ENDIF
+    RETURN
   ELIF nextPh(k) OR nextPh(g) THEN
     CALL NN
   ELIF nextPh(p) OR nextPh(b) THEN
@@ -358,6 +363,14 @@ endphoneme
 
 
 // Special Consonants for Dialectal Variation
+
+phoneme l#           // special phoneme for /l/ or /w/ in coda
+  virtual
+  IF NOT nextPhW(isVowel) OR nextPh(isWordEnd) THEN
+    ChangePhoneme(w)
+  ENDIF
+  ChangePhoneme(l)
+endphoneme
 
 phoneme s#           // special phoneme for /s/ or /z/ in coda
   virtual

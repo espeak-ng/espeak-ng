@@ -87,7 +87,7 @@ phoneme U
 endphoneme
 
 
-// Nasal Consonants
+// Nasal Vowels
 
 phoneme &~
   vwl  starttype #e endtype #@
@@ -142,9 +142,16 @@ endphoneme
 
 // Special Consonants for Dialectal Variation
 
+phoneme l#           // special phoneme for /l/ or /w/ in coda
+  virtual
+  ChangePhoneme(l)
+endphoneme
+
 phoneme s#           // special phoneme for /S/ or /Z/ in coda
   virtual
-  IF nextPh(isVoiced) THEN
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(z)
+  ELIF nextPh(isVoiced) THEN
     ChangePhoneme(Z)
   ENDIF
   ChangePhoneme(S)
