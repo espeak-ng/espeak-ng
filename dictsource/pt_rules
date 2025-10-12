@@ -90,6 +90,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (K      aU
 ?2      al (_A     aw
+?2      al (_hA    aw
         a (lh+     a
         a (ll+     a
         a (m       &~
@@ -117,6 +118,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ay         aI
         ao (_      aU
         au         aU
+        au (_A     aw
+        au (_hA    aw
         au (s      aU
         au (CK     aU
     âB) a (C@      &
@@ -337,6 +340,7 @@ e (trL04_   E
         eu         eU
         eu (s      eU
         eu (_A     ew
+        eu (_hA    ew
         e (uCK     e
 
 ?1   d) e (CAA     y
@@ -606,7 +610,7 @@ _entorp) e (çL03_  e
         éi         ''EI
         éi (s      ''EI
         é (iCK     ''E
-        éy         ''eI
+        éy         ''EI
         él (B      ''EU
         éu         ''EU
         éu (s      ''EU
@@ -715,6 +719,8 @@ _redar) gu (A      gw
         io (s_     i%U
         i (oCK     i
         iu (_      iU
+        iu (_A     iw
+        iu (_hA    iw
         iu (s_     iU
         i (uCK     i
 
@@ -834,6 +840,7 @@ _redar) gu (A      gw
 ?2  _v) os (_G     uz
         ou         oU
         ou (_A     ow
+        ou (_hA    ow
         oi         oI
         oi ($w_alt OI
         oi ($w_alt2++ oI
