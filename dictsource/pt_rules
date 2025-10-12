@@ -211,14 +211,15 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?3      c (t       k
 ?3      c (_C      k_
         ch         S
-        chr        kR
+        chr        k*
         cch        k         // for Italian words such as Pinocchio
         ck         k
+        c (q                 // Jacques
 ?3      ck         kI/
 ?1      c (cY                //drop “c” in European Portuguese (eg: seleccionar)
 ?1   A) ct         t         //drop “c” in European Portuguese (eg: exacto)
 ?1   A) cç         s         //drop “c” in European Portuguese (eg: selecção)
-?1 conta) ct (A      kt        // eg: contacto, contactar, contactável, incontactável, etc...
+?1 conta) ct (A    kt        // eg: contacto, contactar, contactável, incontactável, etc...
 
 
 .group d
@@ -1101,7 +1102,7 @@ _ortod) o (xL08_   O
 ?3      p (_C      p_
         ph         f
         play       pl'eI
-?2   _) práxis (_  pR'aksis
+?2   _) práxis (_  p*'aksis
 
 
 .group q
@@ -1170,7 +1171,6 @@ _ortod) o (xL08_   O
         sc (Y      s
         sç         s
         sh         S
-?4   _) s (C       Is
      A) s (A       z
 
      @) s (_       s#
@@ -1209,8 +1209,15 @@ _ortod) o (xL08_   O
 ?2      t (i       tS
 ?2      t (í       tS
 ?2      t (e_      tS
-?2      t (_      tS
+?2      t (_       tS
+
 ?1      th         _^_EN
+?2      th          t
+?2      th (i      tS
+?2      th (í      tS
+?2      th (e_     tS
+?2      th (_      tS
+
 ?1      tion (_    _^_EN
 ?2   A) te (o_     tSj
 
@@ -1270,7 +1277,6 @@ _ortod) o (xL08_   O
 ?2   _) w (_       d'ablI;U
         w          w
 ?1      w (_       _^_EN
-?4   _) w          u
 
 
 .group x
