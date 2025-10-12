@@ -96,8 +96,10 @@ endphoneme
 phoneme U
   vwl starttype #u endtype #u
   length 140
-  IF thisPh(isWordEnd) AND thisPh(isUnstressed) AND nextPh(isVowel) THEN
-    ChangePhoneme(w)
+  IF thisPh(isWordEnd) AND thisPh(isUnstressed) THEN
+    IF NOT prevPh(w) AND nextPh(isVowel) THEN
+      ChangePhoneme(w)
+    ENDIF
   ENDIF
   FMT(vowel/uu_bck)
 endphoneme
@@ -188,6 +190,13 @@ phoneme EU
   FMT(vdiph/eeu)
 endphoneme
 
+phoneme oI
+  vwl starttype #o endtype #i
+  length 230
+  IfNextVowelAppend(;)
+  FMT(vdiph/oi)
+endphoneme
+
 phoneme OI
   vwl starttype #o endtype #i
   length 230
@@ -204,6 +213,7 @@ endphoneme
 phoneme uI
   vwl starttype #u endtype #i
   length 230
+  IfNextVowelAppend(;)
   FMT(vdiph/ui_4)
 endphoneme
 
