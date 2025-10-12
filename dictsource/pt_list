@@ -330,6 +330,7 @@ vi	vi
 // currency symbols
 (r $)	xe'aU
 (us $)	d'Ol&r#
+(cr $)  k*uz'eI*U
 
 // currency codes
 brl	$abbrev
@@ -352,8 +353,10 @@ abi	$abbrev
 abl	$abbrev
 abs	$abbrev
 acp	$abbrev
+adm	$abbrev
 adn	$abbrev
 adsl	$abbrev
+adv	$abbrev
 ae	$abbrev
 aeb	$abbrev
 aec	$abbrev
@@ -374,20 +377,22 @@ anpd	$abbrev
 ans	$abbrev
 antt	$abbrev
 apedv	$abbrev
-api	$abbrev
+?1 api	,&p,e'i
+?2 api	,ap,e'i
 apm	$abbrev
 ascii	'aski
 asdi	$abbrev
 asg	$abbrev
 asp	$abbrev
 atm	$abbrev
-avc	$abbrev
+?1 avc	,&v,es'e
+?2 avc	,av,es'e
 avg	$abbrev
 avi	$abbrev
 aws	$abbrev
 ?1 bios	b'i,OS
 bndes	$abbrev
-btu	$abbrev
+btu	b,et,e'u
 byod	$abbrev
 cbo	$abbrev
 cbtu	$abbrev
@@ -414,10 +419,10 @@ cnes	$abbrev
 cni	$abbrev
 cnis	$abbrev
 cnu	$abbrev
-cpi	$abbrev
-cpmi	$abbrev
+cpi	s,ep,e'i
+cpmi	s,ep,e,emy'i
 cpo	$abbrev
-cpu	$abbrev
+cpu	s,ep,e'u
 cpuc	$abbrev
 csce	$abbrev
 csma	$abbrev
@@ -431,12 +436,13 @@ dgal	$abbrev
 dgeep	$abbrev
 dma	$abbrev
 dmi	$abbrev
-dna	$abbrev
+?1 dna	d,e,En'a
+?2 dna	d,e,eny'a
 dner	$abbrev
 dnit    denite $text
 dnocs	den'Oks#
 docx	dóc-xís $text
-dpi	$abbrev
+dpi	d,ep,e'i
 dpoc	$abbrev
 dpu	$abbrev
 dpvat	depevate $text
@@ -472,7 +478,7 @@ fddi	$abbrev
 fmi	$abbrev
 fnde	$abbrev
 fne	$abbrev
-gpu	$abbrev
+gpu	Z,ep,e'u
 gsi	$abbrev
 guid	$abbrev
 hdmi	$abbrev
@@ -620,7 +626,8 @@ omc	$abbrev
 omg	$abbrev
 oms	$abbrev
 omt	$abbrev
-ong	$abbrev
+?1 ong	,O,Eng'e
+?2 ong	,O,enyZ'e
 osi	$abbrev
 otf	$abbrev
 otp	$abbrev
@@ -769,7 +776,8 @@ unac	$abbrev
 unb	$abbrev
 undf	$abbrev
 unts	$abbrev
-url	$abbrev
+?1 url	,u,Ex'El
+?2 url	,u,Exy'Ely
 urrs	$abbrev
 urv	$abbrev
 usb	$abbrev
@@ -778,7 +786,7 @@ usmca	$abbrev
 usp	uspe $text
 utf	$abbrev
 utfpr	$abbrev
-uti	$abbrev
+uti	,ut,e'i
 utp	$abbrev
 uuid	$abbrev
 uv	$abbrev
@@ -1940,6 +1948,7 @@ booster		b'us#ter#
 bordeaux	_^_FR
 bordereau	_^_FR
 boston		$1 $alt
+bot		b'Ot#
 boudoir		_^_FR
 boulevard	bulevar $text
 boulle		_^_FR
@@ -2058,7 +2067,8 @@ charter		_^_EN
 chartreuse	_^_FR
 chasselás	_^_FR
 chat		S'Et#
-chatbot		S,Etb'Ot#
+chatbot		S,Et#||b'Ot#
+chatgpt		S,Et#||Z,ep,et'e
 chateaubriand	_^_FR
 châtelaine	_^_FR
 chauffage	_^_FR
@@ -3637,6 +3647,7 @@ libreoffice	l'ib*y||'Ofis
 ?2 lobby	$alt
 mac		mEk
 marvel		$1
+mbrola		,emyb*'Ol&
 ?1 media	m'Ed,i&
 ?2 media	m'idZj&
 messenger	m'Es&ndZ&r
