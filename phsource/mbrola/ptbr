@@ -1,48 +1,48 @@
-volume 15
+volume 14
 
+// IMPORTANT NOTE:
+// This translation file is used by the mbrola voices BR1, BR2 and BR3.
+// There are very small differences between the files `ptbr` and `ptbr4`.
+// Use a diff tool to check the subtle differences between these two files.
+// This file is big because the Brazilian mbrola voices have incomplete databases.
+
+// Control numbers:
 //  1: skip the next phoneme
 //  2: match this and previous phoneme (backwards)
 //  4: match only at the start of a word
 //  8: don't match two phonemes across a word boundary
+//  9: skip the next phoneme and don't match two phonemes across a word boundary
 // 64: match only at the end of a word
-
-0   l/  NULL   0   l
-0   l/2 w      0   l
-0   l/2 j      0   l
-0   l/2 NULL   0   w
-0   r/  NULL   0   r2
-0   r-  NULL   0   r
-0   w/  NULL   0   w
-0   ;   NULL   0   NULL
-0   :   NULL   0   NULL
 
 0   l^  NULL   0   h		// yes, not lh
 0   n^  NULL   0   nh
+
 0   h   NULL   0   rr
 0   x   NULL   0   rr
 
-0   r   j      0   r
-0   r   w      0   r
-0   r   VWL    0   r		// aaron, carol (en)
 4   r   NULL   0   rr		// red, river (en)
+0   r   j      0   r		// próprio /-prju/
+0   r   w      0   r		// livro /-vrw/
+0   r   VWL    0   r		// aaron, carol (en)
 0   r   NULL   0   r2		// card, star (en)
 
 8   @-  *      0   NULL		// prata, cravo
 9   *   @-     0   r2		// porta, nervo
-0   *   j      0   r
-0   *   w      0   r
+0   *   j      0   r		// próprio /-prju/
+0   *   w      0   r		// livro /-vrw/
 0   *   VWL    0   r		// arara, cura
 0   *   NULL   0   r2           // porta, amar
 
 0   s   s      0   NULL		// as santas, os seixos
-0   s   j      0   s
-0   s   w      0   s
+0   s   j      0   s		// ciência /-sja/
+0   s   w      0   s		// passo /-sw/
 0   s   VWL    0   s		// santa, sexta
 4   s   NULL   10  i s2		// skate, snake
 0   s   NULL   0   s2		// teste, pasta
 
-0   z   j      0   z
-0   z   w      0   z
+0   z   @-     0   s2		// Mizraim /-zr-/
+0   z   j      0   z		// topázio /-zju/
+0   z   w      0   z		// lorenzo /-zw/
 0   z   VWL    0   z		// zerar, pezão
 4   z   NULL   10  i s2		// slave, smoke
 0   z   NULL   0   s2		// desde, mesmo
@@ -50,12 +50,12 @@ volume 15
 0   S   j      0   x
 0   S   w      0   x
 0   S   VWL    0   x		// chave, ducha
-0   S   NULL   90  x i		// ???
+0   S   NULL   90  x i		// flash (en)
 
 0   Z   j      0   j
 0   Z   w      0   j
 0   Z   VWL    0   j		// jeito, beijo
-0   Z   NULL   90  j i		// ???
+0   Z   NULL   90  j i		// page (en)
 
 8   tS   i      0   t		// tia, tchau
 8   tS   i~     0   t
@@ -64,8 +64,8 @@ volume 15
 8   tS   I/     0   t
 8   tS   j      0   t
 8   tS   y      0   t
-64  tS   NULL   0   t		// net, start
-0   tS   NULL   90  t i		// tcheca, tchau
+8   tS   VWL    0   x
+8   tS   NULL   90  t i
 
 8   dZ   i      0   d		// dia, john
 8   dZ   i~     0   d
@@ -74,160 +74,185 @@ volume 15
 8   dZ   I/     0   d
 8   dZ   j      0   d
 8   dZ   y      0   d
-64  dZ   NULL   0   d		// red, card
-0   dZ   NULL   90  d i		// jack, jason
+8   dZ   VWL    0   j
+8   dZ   NULL   90  d i
 
+0   p    _      0   p
 8   p    l      0   p
 8   p    r      0   p
 8   p    j      0   p
 8   p    w      0   p
 8   p    VWL    0   p
-0   p    NULL   90  p i		// opção, corrupto
+8   p    NULL   90  p i		// opção, corrupto
 
+0   b    _      0   b
 8   b    l      0   b
 8   b    r      0   b
 8   b    j      0   b
 8   b    w      0   b
 8   b    VWL    0   b
-0   b    NULL   90  b i		// objeto, observar
+8   b    NULL   90  b i		// objeto, observar
 
+0   t    _      0   t
 8   t    l      0   t
 8   t    r      0   t
 8   t    j      0   t
 8   t    w      0   t
 8   t    VWL    0   t
-0   t    NULL   90  t i		// atmosfera, etnia
+8   t    NULL   90  t i		// atmosfera, etnia
 
+0   d    _      0   d
 8   d    l      0   d
 8   d    r      0   d
 8   d    j      0   d
 8   d    w      0   d
 8   d    VWL    0   d
-0   d    NULL   90  d i		// advogado, adjetivo
+8   d    NULL   90  d i		// advogado, adjetivo
 
+0   k    _      0   k
 8   k    l      0   k
 8   k    r      0   k
 8   k    j      0   k
 8   k    w      0   k
 8   k    VWL    0   k
-0   k    NULL   90  k i		// lácteo, pacto
+8   k    NULL   90  k i		// lácteo, pacto
 
+0   g    _      0   g
 8   g    l      0   g
 8   g    r      0   g
 8   g    j      0   g
 8   g    w      0   g
 8   g    VWL    0   g
-0   g    NULL   90  g i		// magnético, enigma
+8   g    NULL   90  g i		// magnético, enigma
 
+0   f    _      0   f
 8   f    l      0   f
 8   f    r      0   f
 8   f    j      0   f
 8   f    w      0   f
 8   f    VWL    0   f
-0   f    NULL   90  f i		// afta, kafka
+8   f    NULL   90  f i		// afta, kafka
 
+0   v    _      0   v
 8   v    l      0   v
 8   v    r      0   v
 8   v    j      0   v
 8   v    w      0   v
 8   v    VWL    0   v
-0   v    NULL   90  v i		// ovni, raskólnikov
+8   v    NULL   90  v i		// ovni, raskólnikov
 
-0   m    _      0   n
+8   l    j      0   l
+8   l    w      0   l
+8   l    VWL    0   l
+8   l    NULL   90  l i		// carl, pearl
+
 8   m    j      0   m
 8   m    w      0   m
 8   m    VWL    0   m
-0   m    NULL   90  m i		// mnemônico
+8   m    NULL   90  m i		// mnemônico
 
-0   n    _      0   n
 8   n    j      0   n
 8   n    w      0   n
 8   n    VWL    0   n
-0   n    NULL   90  n i		// myanmar
+8   n    NULL   90  n i		// myanmar
 
-2   j   &~     0   i
-2   j   e~     0   i
-2   j   i~     0   i
-2   j   o~     0   i
-2   j   u~     0   i
-2   j   w      0   i
-2   j   ;      0   i
-2   l   w      0   i
-2   j   l^     0   i
-2   j   n^     0   i
-4   j   NULL   0   i
-0   j   NULL   0   y
+9   &   N      0   am
+9   &~  N      0   am
+9   e   N      0   em
+9   e~  N      0   em
+9   E   N      0   em
+9   i   N      0   im
+9   i~  N      0   im
+9   I   N      0   im
+9   o   N      0   om
+9   o~  N      0   om
+9   O   N      0   om
+9   u   N      0   um
+9   u~  N      0   um
 
-2   w   &~     0   u
-2   w   e~     0   u
-2   w   i~     0   u
-2   w   o~     0   u
-2   w   u~     0   u
-2   w   ;      0   u
-2   w   j      0   u
-2   w   l^     0   u
-2   w   n^     0   u
-4   w   NULL   0   u
-0   w   NULL   0   w
+8   aI  N      0   a
+2   N   aI     0   im
+8   eI  N      0   e
+2   N   eI     0   im
+8   EI  N      0   e
+2   N   EI     0   im
+8   oI  N      0   o
+2   N   oI     0   im
+8   OI  N      0   o
+2   N   OI     0   im
+8   uI  N      0   u
+2   N   uI     0   im
+
+8   aU  N      0   a
+2   N   aU     0   um
+8   eU  N      0   e
+2   N   eU     0   um
+8   iU  N      0   i
+2   N   iU     0   um
+8   oU  N      0   o
+2   N   oU     0   um
+
+8   &~  j      0   @
+2   j   &~     0   im
+8   e~  j      0   e
+2   j   e~     0   im
+8   o~  j      0   om
+2   j   o~     0   im
+8   &~  w      0   @
+2   w   &~     0   w
+
+2   j   VWL    0   y
+0   j   NULL   0   i
+2   w   VWL    0   w
+0   w   NULL   0   u
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
-9   &   N      0   am
-0   &   NULL   0   a
-0   &/  NULL   0   a
+0   &   NULL   0   @
+0   &/  NULL   0   @
 8   &~  n^     0   @
-9   &~  N      0   am
 0   &~  NULL   0   am
-9   e   N      0   em
 0   e   NULL   0   e
-9   E   N      0   em
 0   E   NULL   0   ee
-9   i   N      0   im
-9   i~  N      0   im
 0   i~  NULL   0   im
 0   i/  NULL   0   i
-9   I   N      0   im
 0   I   NULL   0   i
 0   I/  NULL   0   i
 0   i"  NULL   0   i
 0   y   NULL   0   i
-9   o   N      80  om um
-9   o~  N      80  om um
 0   o~  NULL   0   om
-9   O   N      80  om um
 0   O   NULL   0   oo
-9   u   N      0   um
-9   u~  N      0   um
 0   u~  NULL   0   um
 0   U   NULL   0   u
 
-9   aI  N     60   a  im
 0   aI  NULL  60   a  y
-9   eI  N     60   em im	// entendendo
 0   eI  NULL  60   e  y
-9   EI  N     60   ee im
 0   EI  NULL  60   ee y
-9   oI  N     60   o  im
 0   oI  NULL  60   o  y
-0   oI~ NULL  60   om im
-9   OI  N     60   oo im
+0   oI~ NULL  60   om i
 0   OI  NULL  60   oo y
-9   uI  N     60   u  im
 0   uI  NULL  60   u  y
 0   uI~ NULL  60   um i
 
-9   aU  N     60   a  um
 0   aU  NULL  60   a  w
-0   &U~ NULL  60   am um
-9   eU  N     60   e  um
+0   &U~ NULL  60   @  w		// não, ação
 0   eU  NULL  60   e  w
 0   EU  NULL  60   ee w
-9   iU  N     60   i  um
 0   iU  NULL  60   i  w
-9   oU  N     60   o  um
 0   oU  NULL  60   o  w
 
 
+
+// other phonemes
+0   l/  VWL    0   w
+0   l/  NULL   90  l i
+0   l/2 NULL   0   w
+0   w/  NULL   0   w
+0   r/  s      0   NULL		// perspectiva, lasers
+0   r/  NULL   0   r2
+0   r-  NULL   0   r
+0   ;   NULL   0   NULL
+0   :   NULL   0   NULL
 
 // English phonemes
 0   @   NULL   0   @
