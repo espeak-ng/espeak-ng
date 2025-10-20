@@ -73,7 +73,7 @@ phoneme I/           // very short [i] used for epenthesis in Brasil
   vwl starttype #i endtype #i
   ipa NULL
   unstressed nsy
-  length 50
+  length 80
   FMT(vowel/ii_6)
 endphoneme
 
@@ -107,17 +107,10 @@ endphoneme
 
 // Nasal Vowels
 
-procedure N?
-  IF nextPh(N) THEN
-    length 160
-  ENDIF
-endprocedure
-
 phoneme &~
   vwl  starttype #@ endtype #@
   ipa ɐU+0303
   length 180
-  CALL N?
   IF thisPh(isFinalVowel) THEN
     FMT(vnasal/a#_n2)
   ELSE
@@ -128,14 +121,12 @@ endphoneme
 phoneme e~
   vwl starttype #e endtype #e
   length 180
-  CALL N?
   FMT(vnasal/e_n)
 endphoneme
 
 phoneme i~
   vwl starttype #i endtype #i
   length 180
-  CALL N?
   IfNextVowelAppend(;)
   FMT(vnasal/i_n)
 endphoneme
@@ -143,14 +134,12 @@ endphoneme
 phoneme o~
   vwl starttype #o endtype #o
   length 180
-  CALL N?
   FMT(vnasal/o_n)
 endphoneme
 
 phoneme u~
   vwl starttype #u endtype #u
   length 180
-  CALL N?
   FMT(vnasal/u_n)
 endphoneme
 
@@ -158,14 +147,15 @@ endphoneme
 // Diththongs
 
 procedure N?2
-  IF nextPh(N) THEN
-    length 210
+  IF thisPh(isStressed) AND nextPh(N) THEN
+    length 200
   ENDIF
 endprocedure
 
 phoneme aI
   vwl starttype #a endtype #i
   length 230
+  CALL N?2
   IfNextVowelAppend(;)
   FMT(vdiph/ai)
 endphoneme
@@ -220,6 +210,12 @@ endphoneme
 
 // Nasal Diththongs
 
+procedure N?3
+  IF thisPh(isStressed) AND nextPh(j) THEN
+    length 200
+  ENDIF
+endprocedure
+
 phoneme &U~
   vwl  starttype #@ endtype #u
   ipa ɐU+0303ʊU+0303
@@ -234,9 +230,7 @@ phoneme oI~
   vwl starttype #o endtype #i
   ipa oU+0303ɪU+0303
   length 240
-  IF nextPhW(j) THEN
-    length 210
-  ENDIF
+  CALL N?3
   FMT(vnasal/oi_n)
 endphoneme
 
@@ -300,9 +294,8 @@ phoneme *            // weak /r/ in syllable onset or coda
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80
 
-  // ineffective after change
   IF prevPhW(isNotVowel) THEN
-    InsertPhoneme(@-)
+    InsertPhoneme(@-) // ineffective after change
   ELIF nextPhW(isNotVowel) AND NOT nextPhW(j) AND NOT nextPhW(w) THEN
     AppendPhoneme(@-)
   ENDIF

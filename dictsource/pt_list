@@ -44,13 +44,13 @@ _stk	b'aR#&
 // alphabets
 _ar	'a*aby
 _cyr	si*'ilikU
-_el     g*'egU
+_el	g*'egU
 _he	eb*'aIkU
-_hi     ,iNd#i'&~nU
+_hi	,iNd#i'&~nU
 ?1 _ja	Z,&pun'es#
 ?2 _ja	Z,apon'es#
-_th     t,aIl&~Nd'es
-_ko     k,o*e'&~nU
+_th	t,aIl&~Nd'es
+_ko	k,o*e'&~nU
 _zh	Sin'es
 
 
@@ -151,7 +151,7 @@ _-	'ifeIN
 _/	b'aR#&
 _:	d,oIs#||p'oNtus#
 _;	p,oNtw||i||v'i*gul&
-_<      men'Or#
+_<	men'Or#
 ?1 _=	igw'al
 ?2 _=	igw'aU
 _>	maI'Or#
@@ -256,10 +256,10 @@ _0M3	bil^'oI~s#
 _1M3	'u~m||bil^'&U~
 _0M4	t*il^'oI~s#
 _1M4	'u~n||t*il^'&U~
-_0and	||i||
-_dpt    v'ir#gul&
-// _0Z2	seNt'Ezim&     // 100ths
-// _0Z3	mil'Ezim&      // 1000ths
+_0and	||i
+_dpt	v'ir#gul&
+// _0Z2	seNt'Ezim&	// 100ths
+// _0Z3	mil'Ezim&	// 1000ths
 
 // ordinal numbers
 _#º	U
@@ -439,7 +439,7 @@ dmi	$abbrev
 ?1 dna	d,e,En'a
 ?2 dna	d,e,eny'a
 dner	$abbrev
-dnit    denite $text
+dnit	denite $text
 dnocs	den'Oks#
 docx	dóc-xís $text
 dpi	d,ep,e'i
@@ -778,7 +778,7 @@ undf	$abbrev
 unts	$abbrev
 ?1 url	,u,Ex'El
 ?2 url	,u,Exy'Ely
-urrs	$abbrev
+urss	$abbrev
 urv	$abbrev
 usb	$abbrev
 usg	$abbrev
@@ -821,7 +821,7 @@ o	$u+	$nounf
 a	$u+	$nounf
 os	$u+	$nounf
 as	$u+	$nounf
-?1 a    & $u+   $nounf
+?1 a	& $u+   $nounf
 
 um	$u+	$nounf
 uma	$u+	$nounf
@@ -850,13 +850,14 @@ lo	lU	$u
 las	$u
 los	$u
 se	$u
+lhe	l^y $u
 
-?2	este	$u+	$nounf	'estSy       // this
-?2	estes	$u+	$nounf       // these
+?2	este	$u+	$nounf	'estSy	// this
+?2	estes	$u+	$nounf		// these
 ?2	esta	'Est& $u+	$nounf
 ?2	nesta	$u+	$nounf
-?2	neste	$u+	$nounf	n'estSi      //in this
-?2	esse	$u+	$nounf	'esi       // that
+?2	neste	$u+	$nounf	n'estSi	//in this
+?2	esse	$u+	$nounf	'esi	// that
 essa	'Es&  $u+	$noun
 desse	$u+	$nounf
 desta	$nounf
@@ -869,7 +870,7 @@ daquela $u+ $nounf
 daquele	$alt2 $nounf
 praquela $u+ $nounf
 praquele	$alt2 $nounf
-que	$u+      // pronunciation is in pt_rules
+que	$u+	 // pronunciation is in pt_rules
 
 // possessive adjectives
 meu	$u+	$nounf  // meus
@@ -911,8 +912,8 @@ nuns	$u	$nounf
 numas	$u	$nounf
 
 por	$u $nounf	// by,for,through
-pelo	$u $nounf
-?2	pela	$u $nounf
+pelo	pelU 	$u1+ $nounf
+pela	pel&	$u1+ $nounf
 
 ao	$u	$nounf
 à	,a:	$nounf
@@ -941,8 +942,8 @@ com	$u		// with
 
 
 // conjunctions
-e	i	$u		// and
-se	$u+	$verbf		// if
+e	_:i	$u+		// and
+se	$u	$verbf		// if
 
 
 ?2	mas	$u	// but
@@ -951,16 +952,18 @@ se	$u+	$verbf		// if
 ?2	contudo		// nevertheless
 
 ?2	ou	$u	// or
+?4	ou	ow $u	// or
+
 ?2	quer		// whether
 
 ?2	assim		// thus
 ?2	portanto	// therefore
 
 	porque		p'or#ky		// because
-?2	porque		pUr#k'e		// because
+?2	porque		pUr#k'y		// because
 ?2 	(por que) 	por#||k'e	// why
 ?2 	(por que é) 	por#||k,y||'E	// why
-?2	pois		// because
+?2	pois	$u+	// because
 ?2	como	$u+	// as
 ?2	como	$atstart	// as
 
@@ -973,7 +976,7 @@ se	$u+	$verbf		// if
 ?2	(exceto se)	es'Etusi/  	// unless
 ?2	(salvo se)	s'alvusi/  	// unless
 
-?2	(para que)	p,a*&ki/          // so that
+?2	(para que)	p,a*&ki/	// so that
 
 
 
@@ -982,9 +985,9 @@ se	$u+	$verbf		// if
 ?2	apenas			// as soon as
 ?2	mal			// as soon as, hardly
 ?2	(logo que)	l'Oguki/		// as soon as
-?2	(antes que)     '&~NtSiski/ 	// before
-?2	(depois que)    dep'oIski/ 	// after
-?2	(sempre que)    s'eNpriki/ 	// whenever
+?2	(antes que)	'&~NtSiski/ 	// before
+?2	(depois que)	dep'oIski/ 	// after
+?2	(sempre que)	s'eNpriki/ 	// whenever
 ?2	enquanto 			// while
 
 
@@ -1026,7 +1029,7 @@ seremos	$u+
 sereis	$u+
 serão	$u+
 
-seria	$u+      	// .. conditional
+seria	$u+	   	// .. conditional
 seríamos	$u+
 seríeis	$u+
 seriam	$u+
@@ -1078,7 +1081,7 @@ teremos	$u+
 tereis	$u+
 terão	$u+
 
-      // fazer - to do
+// fazer - to do
 fazer	$u+
 faço	$u+
 faz	$u+
@@ -1086,7 +1089,7 @@ fazemos	$u+
 fazem	$u+
 
 
-	// poder - can
+// poder - can
 poder	$u+
 posso	$u+
 pode	$u+
@@ -1124,28 +1127,28 @@ há	$u+
 
 
 // Letter names
-_a      a
-_e      E
+_a	a
+_e	E
 _o	O
-a       a $atend $sentence	// assume (open) letter-a at end of sentence
-e       e $atend $sentence	// assume (mid-close) letter-e at end of sentence
-o       o $atend $sentence	// assume (mid-close) letter-o at end of sentence
+a	a $atend $sentence	// assume (open) letter-a at end of sentence
+e	e $atend $sentence	// assume (mid-close) letter-e at end of sentence
+o	o $atend $sentence	// assume (mid-close) letter-o at end of sentence
 
 
 // some common adjectives
-outro   $u+     $nounf
-outra   $u+     $nounf
+outro   $u+	$nounf
+outra   $u+	$nounf
 alguns	$u+	$nounf
 algumas	$u+	$nounf
 qualquer	$u+	$nounf
 quaisquer	$u+	$nounf
 
 // some common adverbs
-não	$u+	$verbf
-nunca	$u+	$verbf
-sempre	$u+	$verbf
-jamais	$u+	$verbf
-também	$u+     $verbf
+não	$verbf
+nunca	$verbf
+sempre	$verbf
+jamais	$verbf
+também	$verbf
 
 
 // MAIN WORD DICTIONARY
@@ -1516,6 +1519,7 @@ groselha	$alt
 grosso		$alt2
 groso		$alt
 gueto		$alt2
+hebreia		$alt
 hemorroida	$alt
 hidreto	$alt2
 hoje		$alt2
@@ -1535,6 +1539,7 @@ jogo		$alt $verb
 jogos		$alt
 joguete		$alt2
 joinha		Z,O'in^&
+jovens		Z'OveINs
 judeia	$alt
 jurubeba	$alt
 lacerda	$alt
@@ -1545,7 +1550,6 @@ lepra		$alt
 leses	$alt
 leste		$alt2 $verb
 letra	$alt2
-?2   lhe	l^y
 licores	$alt2
 lisboeta	$alt2
 lodo		$alt2
@@ -1618,8 +1622,7 @@ pateta		$alt
 peba		$alt
 pedro	$alt2
 peixoto	$alt2
-pela		$alt2 $nounf
-pelo		$alt2 $nounf
+pelo		$alt2 $noun
 penhores	$alt2 $noun
 perda		$alt2
 pereba		$alt
@@ -1738,7 +1741,7 @@ sopa		$alt2
 sopeses		$alt
 sopro		$alt2 $noun
 sorvete		$alt2
-sossego     	$alt2 $noun
+sossego		$alt2 $noun
 suborno		$alt  $verb
 sudoreses	$alt
 sufoco		$alt2 $noun
@@ -1804,29 +1807,32 @@ xeroxes	$alt
 zelo		$alt2 $noun
 zorra		$alt2
 
+
 // foreign words
-accelerando	_^_IT
-accordatura	_^_IT
+accelerando	atSeler#'&Ndo
+accordatura	akor#dat'u*a
+(ac / dc)	,eIs,i||d,is'i
 action		'EkS@n
 (ad hoc)	ad'Ok
 adware		'adw,Er
 affair		af'Er#
 affaire		af'ER#
-agrément	_^_FR
+agrément	ag*em&~
 aileron		_^_FR
 air		'Er#
 airbag		,Er#b'Eg
 airfryer	,Er#f*'aIer#
+album		'al#buN
 ?2 álcool	'aUkoU
 alien		$1
 alive		&l'aIv
 all		Ol
-allegretto	_^_IT
-allegro		_^_IT
+allegretto	aleg*'eto
+allegro		al'eg*o
 ?1 alt		'alt
 ?2 alt		'aUtS
 always		'OlweIs
-angledozer	_^_EN
+angledozer	,&Ngol#d'oUzer#
 annapolis	$2
 anschauung	_^_DE
 anschluss	_^_DE
@@ -1837,24 +1843,25 @@ apartheid	,apar#t'aId#
 apfelstrudel	_^_DE
 aplomb		_^_FR
 app		'apI/
-appassionato	_^_IT
+appassionato	a,pasjon'ato
 appeal		@p'il
-appoggiatura	_^_IT
-apport		_^_FR
+appoggiatura	a,podZat'u*a
+apport		ap'Or#
 approach	&p*oUtS
-argot		_^_FR
-arpeggiatura	_^_IT
+argot		ar#g'o
+argumentum	$3
+arpeggiatura	a*pedZat'u*a _^_IT
 (art déco)	_^_FR
 (art nouveau)	_^_FR
 artsy		_^_EN
 assemblage	_^_FR
 assembler	_^_EN
 associated	as,osy'eIted#
-atelier		_^_FR
+atelier		a,telj'e
 audiobook	,aUd#jUb'Uk
 aufldärung	_^_DE
 austin		$1
-autocross	_^_EN
+autocross	aUtokr#Os#
 autumn		'Ot@m
 (avant première)	_^_FR
 away		&w'eI
@@ -1932,10 +1939,11 @@ blitzkrieg	_^_DE
 blocause	_^_DE
 blocausse	_^_DE
 block		bl'Ok
-blockbuster	_^_EN
+blockbuster	bl,Okb'&ster#
 blockchain	bl'OktSeIn
 blowup		_^_EN
 blue		bl'u
+blueberry	bl,ub'Ery
 blues		bl'us#
 bluetooth	blut'uT
 bluff		_^_EN
@@ -1948,6 +1956,7 @@ body		b'O*i
 boho		_^_EN
 boiler		$1 $alt
 boîte		_^_FR
+(bon jovi)	boN||Z'Ovi
 (bon vivant)	_^_FR
 bonbonnière	_^_FR
 boogie		b'ugi
@@ -1956,6 +1965,7 @@ boomer		b'umer#
 booster		b'us#ter#
 bordeaux	_^_FR
 bordereau	_^_FR
+borg		b'OrgI/
 boston		$1 $alt
 bot		b'Ot#
 boudoir		_^_FR
@@ -1987,6 +1997,7 @@ broadcast	b*'OdkEst#
 broadcasting	b*Odk'Est#IN
 broadside	_^_EN
 broadway	b*'OdweI
+broccoli	b*'Okoli
 brooklyn	b*'uklIN
 brother		b*'Oder#
 brown		b*'aUn
@@ -1999,6 +2010,7 @@ budget		_^_EN
 buffer		_^_EN
 buffering	_^_EN
 buffet		buf'e
+buffalo		b'ufalU
 bug		b'&g
 bullying	b'ulIN
 bunker		b'&Nker#
@@ -2022,6 +2034,7 @@ california	$3 $alt
 calzone		_^_IT
 camaïeu		_^_FR
 camber		_^_EN
+cambridge	k'eINbr#,IdZy
 camembert	_^_FR
 cameraman	_^_EN
 campanile	_^_IT
@@ -2047,6 +2060,7 @@ carrying	_^_EN
 cash		k'ES
 cashback	k,ESb'Ek
 cashmere	kaSym'ir#
+cassiopeia	$alt
 cassoulet	_^_FR
 cast		_^_EN
 casting		_^_EN
@@ -2110,6 +2124,7 @@ chic		S'ik
 chicano		_^_ES
 chiffrier	_^_FR
 chihuahua	_^_ES
+chili		$1
 chimichurri	_^_ES
 chip		S'ip
 chippendale	_^_EN
@@ -2157,8 +2172,10 @@ coin		k'Oin
 cold		k'old#
 collant		_^_FR
 collie		_^_EN
+color		c'Olor#
 coloratura	_^_IT
 colored		_^_EN
+colour		c'Olor#
 colt		k'olt#
 columbia	$2
 commerce	k'om@rs
@@ -2181,6 +2198,7 @@ connecticut	_^_EN
 consommé	_^_FR
 container	k,oNt'eIner#
 conteur		_^_FR
+continuum	$2
 ?2 control	k'oNt*oU
 cookie		k'uki
 cooktop		k,ukt'Op
@@ -2266,12 +2284,14 @@ curry		k'&ri
 cyber		s'aIber#
 cyberbullying 	s,aIber#b'UlIN
 cyberpunk	s,aIber#p'&nk
-cyborg		s,aIb'Org
+cyborg		s,aIb'OrgI/
 dachshund	_^_DE
 dancing		_^_EN
 dasein		_^_DE
+dashboard	d,ES||b'or#d
 (data venia)	dat&||v'en,i&
 day		d'eI
+dead		d,Ed#
 deadline	d,Ed#||l'aInI/
 dealer		_^_EN
 déboulé		_^_FR
@@ -2340,10 +2360,12 @@ dolce		_^_IT
 dolcemente	_^_IT
 doll		d'Ol
 donjuán		_^_ES
+door		d'Or
 doping		d'OpiN
 doppler		_^_EN
 dossier		_^_FR
 doublé		_^_FR
+doubt		d'aUt#
 ?1 down		d'a,wn
 ?2 down		d'aUN
 downgrade	d,aUN*'eId#
@@ -2379,6 +2401,10 @@ ebook		ib'Uk
 ecstasy		$1
 edge		'EdZy
 egrete		_^_FR
+eight		eIt#
+eighteen	eIt'IN
+eighty		'eIty
+eleven		el'EveN
 (e-mail)	im'eIl
 email		im'eIl
 emmenthal	_^_FR
@@ -2419,6 +2445,7 @@ fairway		_^_EN
 faisandé	_^_FR
 fake		f'eIk
 fall		f'Ol
+family		$1
 fanfreluche	_^_FR
 farad		_^_EN
 faraday		f'a*ad,eI
@@ -2431,10 +2458,13 @@ feedback	f,id#b'Ek
 feeder		_^_EN
 feeling		f'iliN
 féerie		_^_FR
+faith		f'eIT
 fermata		_^_IT
 ferryboat	f,Erib'oUt#
 fettuccine	_^_IT
-ficelle	_^_FR
+ficelle		_^_FR
+fifteen		fift'IN
+fifty		f'ifty
 (fil à fil)	_^_FR
 filet		_^_FR
 finesse		_^_FR
@@ -2442,6 +2472,7 @@ fintech		f,INt'Ek
 firewall	f,aI@w'Ol
 first		f'@rst#
 fitness		_^_EN
+five		f'aIvy
 ?1 fixe		f'iSy
 flamberge	_^_FR
 flamboyant	fl,&~boIj'&~
@@ -2465,12 +2496,14 @@ foot		f'Ut#
 footer		f'Uter#
 footing		f'ut#iN
 forfait		_^_FR
+forty		f'Orty
 fortran		_^_EN
+fourteen	fOrt'IN
 forward		f'Orw,@rd
 forum		$1 $alt
 foul		_^_EN
 foulard		_^_FR
-four		_^_EN
+four		f'Or
 fourrure	_^_FR
 fox		f'Oks
 foxhound	_^_EN
@@ -2514,14 +2547,18 @@ gauleiter	_^_DE
 gay		g'eI
 geek		g'ik
 gemini		Z'emini
+genesis		$1
 gentleman	dZ'EntoUman
 gestalt		geSt'alt#
 get		g'Et#
 getter		g'Eter#
 ghost		g'oUst#
+ghosting	g'oUst#IN
+gift		g'ift#
 gigabit		Zig&b'it#
 gigabyte	Zig&b'aIt#y
 gigahertz	Zig&h'Er#ts
+gigawatt	Zig&w'Ot#
 girl		_^_EN
 glacis		_^_FR
 glamour		gl&m'ur#
@@ -2561,6 +2598,7 @@ groupie		_^_EN
 gruyère		gr,uj'E*y
 guest		g'Est#
 guipure		_^_FR
+gun		g'&N
 habanera	_^_ES
 ?2 habeas	'abe&s
 habillé		_^_FR
@@ -2573,6 +2611,7 @@ hair		h'Er
 half		_^_EN
 hall		h'Ol
 halloween	h,alow'iN
+hamas		h&m'as#
 hampshire	_^_EN
 hamster		h'&~mster#
 hand		h'End#
@@ -2606,6 +2645,7 @@ headphone	h,Edf'ony
 (health care)	h,ElTk'Er
 health		h'ElT
 healthcare	h,ElTk'Er
+heart		h'or#t#
 hédge		_^_EN
 hélas		_^_FR
 hereford	_^_EN
@@ -2632,6 +2672,7 @@ hollywood	h,Oliw'Ud#
 ?2 home		h'oUmy
 homecare	h'oUmyk'Er
 homepage	h,oUmyp'eIdZ
+hominem		$1
 (hong kong)	hoN||k'oNg
 hooligan	h'ulig&~n
 hopkins		h'OpkiNs
@@ -2657,6 +2698,7 @@ huapango	_^_ES
 huérfago	_^_ES
 humoresque	_^_FR
 humour		_^_EN
+hundred		h'&Ndred
 husky		_^_EN
 hydrofoil	_^_EN
 hyperlink	_^_EN
@@ -2668,6 +2710,7 @@ illinois	$alt
 impeachment	imp'itSm&~nt
 impériale	_^_FR
 impromptu	_^_FR
+incubus		$1
 indianapolis	$4
 indie		_^_EN
 indoor		,ind'Or#
@@ -2682,6 +2725,7 @@ interview	_^_EN
 intruder	_^_EN
 iowa		'aIow&
 ipsis		$1
+iron		'aIr#oN
 isospin		_^_EN
 jacquard	_^_FR
 jacquerie	_^_FR
@@ -2699,10 +2743,12 @@ job		dZ'Ob
 jodel		_^_DE
 jogger		dZ'Oger#
 jogging		dZ'OgiN
+journey		$1
 jumpline	_^_EN
 (juste milieu)	_^_FR
 juventus	$2
 kaiser		_^_DE
+kalahari	kalah'ar#i
 kart		k'ar#t#
 karting		k'ar#t#IN
 kelpie		_^_EN
@@ -2717,6 +2763,7 @@ kiev		$alt
 kilobit		kilob'it#
 kilobyte	kilob'aIt#y
 kilohertz	kiloh'Er#ts
+kilowatt	kilow'Ot#
 kilt		_^_EN
 king		k'iNg
 kirsch		_^_DE
@@ -2751,8 +2798,10 @@ leader		l'ider#
 leasing		l'izIN
 leave		l'iv
 leaving		l'ivIN
+led		l'Ed#
 left		$alt
 leg		l'Eg
+legging		l'EgIN
 legato		_^_IT
 liard		_^_FR
 life		l'aIf
@@ -2768,9 +2817,9 @@ link		l'INk
 liseuse		_^_FR
 litteris	$1
 live		l'aIv
-living		_^_EN
+living		l'ivIN
 llano		_^_ES
-load		_^_EN
+load		l'oUd#
 london		$1
 lob		l'Ob
 lock		l'Ok
@@ -2794,6 +2843,7 @@ löss		_^_DE
 lounge		_^_EN
 loure		_^_FR
 louré		_^_FR
+louvre		l'uv*y
 lover		l'Over#
 luthier		_^_FR
 macaron		_^_FR
@@ -2803,6 +2853,7 @@ madeleine	_^_FR
 mademoiselle	_^_FR
 madison		_^_EN
 maestoso	_^_IT
+maiden		m'eIdeIN
 mail		m'eIl
 mainstream	_^_EN
 maître		_^_FR
@@ -2837,10 +2888,12 @@ meeting		m'it#iN
 megabit		mEg&b'it#
 megabyte	mEg&b'aIt#y
 megahertz	mEg&h'Er#ts
+megawatt	mEg&w'Ot#
 melbourne	m'Elbor#ny
 ménage		_^_FR
 merchandising	merS&~nd'aIziN
 mésalliance	_^_FR
+metallica	$2
 métier		_^_FR
 mezzosoprano	m,ezosop*'&~nU
 mezzotinta	_^_IT
@@ -2867,15 +2920,14 @@ minnesota	$alt2
 (mise en plis)	m'iz||&~||pl'i
 (mise en scène)	m'iz||&~||s'En
 (mise en train)	_^_FR
-miss		_^_EN
-missouri	_^_EN
+missouri	miz'oUr#y
 mister		$1
 mistress	_^_EN
 mixer		$1
 mixtape		_^_EN
 (mock up)	m'Ok||'&p
-modem		_^_EN
-moderato	_^_IT
+modem		m'oUdeN
+moderato	mode*'ato
 (modus operandi)	m'OdUz||ope*'&nd#y
 (modus vivendi)	m'OdUz||viv'eINd#y
 mohair		_^_EN
@@ -2910,6 +2962,9 @@ news		n'iUs#
 newsletter	n,iUzl'Eter#
 next		n'Ekst
 night		n'aIt#
+nine		n'aIny
+nineteen	n'aInyt'IN
+ninety 		n'aInyty
 nobreak		noUb*'eIk
 nonsense	_^_EN
 north		_^_EN
@@ -2917,6 +2972,7 @@ nouveau		_^_FR
 nurse		_^_EN
 nurture		_^_EN
 nylon		n'aIloN
+oasis		o'azis#
 off		'Of
 (off line)	Ofl'aIny
 offline		Ofl'aIny
@@ -2926,6 +2982,7 @@ offside		Ofs'aId#
 ok		Ok'eI
 okay		Ok'eI
 oklahoma	,oUkl&h'oUm&
+one		w'ON
 olympia		olímpia $text
 ombudsman	$2
 (on line)	oNl'aIny
@@ -2994,6 +3051,7 @@ patronnesse	_^_FR
 pattern		_^_EN
 ?1 pause	p'au:z
 paywall		p,eIw'Ol
+pearl		p'er#l
 pecorino	_^_IT
 peeling		_^_EN
 peignoir	_^_FR
@@ -3003,11 +3061,12 @@ pendant		_^_FR
 pendentif	_^_FR
 pendrive	p,eINd*aIv
 pennsylvania	$3
+pepper		$1 $alt
 peppermint	_^_EN
 (per capita)	p'er#||c'apit&
-performance	_^_EN
-performer	_^_EN
-personal	_^_EN
+performance	$2 $alt
+performer	$2 $alt
+personal	$1
 pet		p'Et#
 petenera	_^_ES
 (petit beurre)	_^_FR
@@ -3057,6 +3116,7 @@ podcast		p,Od#k'Est#
 point		p'oINt#
 pointer		_^_EN
 poke		_^_EN
+police		$2
 poltergeist	p'olter#g,aIst#
 ponticello	_^_IT
 poodle		_^_EN
@@ -3092,6 +3152,7 @@ pullman		_^_EN
 punch		_^_EN
 punk		p'&~Nk
 purée		_^_FR
+purple		p'&r#pol#
 putsch		_^_DE
 putt		_^_EN
 putter		_^_EN
@@ -3118,12 +3179,12 @@ rack		_^_EN
 racle		_^_FR
 raclette	_^_FR
 radicchio	R#ad#'ikjU
-reagan		R#'eIg&n
+reagan		R#'eIg&N
 raffiné		_^_FR
 rafting		_^_EN
 raglan		_^_EN
 ragtime		_^_EN
-raid		_^_EN
+raid		R#'eId#
 rail		_^_EN
 railroad	_^_EN
 railway		_^_EN
@@ -3161,6 +3222,7 @@ reich		R#'aIS
 relais		_^_FR
 relax		_^_EN
 release		R#il'izy
+religion	R#el'iZioN
 remake		R#im'eIk
 (rendez vous)	R#&~d'e||v'u
 rentrée		_^_FR
@@ -3172,6 +3234,7 @@ rétro		_^_FR
 reuters		R#'OIters
 réveillon	R#evej'oN
 revival		R#iv'aIv&l
+revolution	R#,Evol'uS@N
 richmond	_^_EN
 riesling	_^_DE
 right		r'aIt
@@ -3185,6 +3248,7 @@ rocaille	_^_FR
 rock		r'Ok
 rocker		r'Oker
 rocket		r'Oket#
+rolling		$1
 rollover	_^_EN
 romagnolo	_^_IT
 (roman fleuve)	_^_FR
@@ -3204,7 +3268,7 @@ royalty		R#'OIaUt#i
 rubato		_^_IT
 rubber		_^_EN
 ruche		_^_FR
-rush		_^_EN
+rush		r'&S
 sake		s'eIk
 safari		$2
 saint		s'eInt#
@@ -3229,6 +3293,7 @@ schottisch	_^_DE
 sciolto		_^_IT
 scooter		sk'uter#
 scordatura	_^_IT
+scorpion	$1
 scotch		sk'Ot#
 scout		sk'aUt#
 scrambler	_^_EN
@@ -3238,6 +3303,7 @@ script		sk*'ipt#
 scuba		_^_EN
 (sealed beam)	s'ilyb'im
 seattle		_^_EN
+second		s'Econd#
 section		_^_EN
 (self made)	s'Elfm'eId#
 self		s'Elf
@@ -3248,6 +3314,9 @@ service		s'Er#visy
 set		s'Et#
 setter		s'Eter#
 settimino	_^_IT
+seven		s'EveN
+seventeen	sEvent'IN
+seventy		s'Eventy
 sex		s'Eks
 sexting		_^_EN
 sexy		s'Eksi
@@ -3281,7 +3350,7 @@ showcase	S,oUk'eIz
 showroom	S,oUR#'um
 showrunner	_^_EN
 shunt		_^_EN
-shutdown        S,&t#d'aUN
+shutdown	S,&t#d'aUN
 sidecar		_^_EN
 sign		s'aIn
 ?4 símbolo	s'iNbolU
@@ -3289,6 +3358,8 @@ sir		s'@r
 sister		$1
 site		s'aIt#
 sitter		$1
+sixteen		sikst'IN
+sixty		s'iksty
 skate		sk'eIt#
 skater		sk'eIter#
 skating		_^_EN
@@ -3333,6 +3404,7 @@ soutien		_^_FR
 ?1 space	sp'eIsy
 ?2 space	sp'eIs
 spaghetti	spag'Et#y
+spider		sp'aIder#
 spam		sp'&~m
 spaniel		s#p'Enjel
 speech		sp'i:tS
@@ -3344,6 +3416,7 @@ spread		sp*'Ed#
 springfield	sp*,iNgf'ild#
 spyware		sp'aIw,Er
 squash		skw'OS
+squeeze		skw'izy
 staccato	_^_IT
 staff		st'af
 stakeholder	st'eIkh'older#
@@ -3380,7 +3453,7 @@ stout		_^_EN
 stracchino	_^_IT
 strambotto	_^_IT
 strass		_^_FR
-stream		_^_EN
+stream		st*'iN
 streaming	st*'imiN
 stress		st*'Es
 stretch		st*'EtS
@@ -3394,6 +3467,7 @@ strongman	_^_EN
 stud		_^_EN
 style		st'aIl
 stylist		_^_EN
+succubus	$1
 summer		s'&~mer#
 sunday		s'@ndeI
 deficit		d'Efysit#
@@ -3450,8 +3524,12 @@ terrier		_^_EN
 the		De
 theater		_^_EN
 théâtre		_^_FR
+third		T'@rd#
+thirteen	T@rt'IN
+thirty		T'@rty
 thesaurus	$2
 thinner		_^_EN
+three		t'*i
 thriller	_^_EN
 thru		t*'u
 thursday	t'@rzdeI
@@ -3459,73 +3537,77 @@ ticket		t#'iket#
 (tie dye)	t'aI||d'aI
 (tik toker)	t#,ik||t'Oker#
 (tik tok)	t#,ik||t'Ok
-(time sharing)	t'aImS'ErIN
+(time share)	t'aImS'Er#
+(time sharing)	t'aImS'Er#IN
 timer		t'aImer#
 timing		t'aImIN
 tiramisu	_^_IT
-toast		_^_EN
-toddy		_^_EN
+toast		t'oUst#
+toddy		t'Od#i
 toffee		_^_EN
 toilette	tw,al'Et#
 token		t'oUken
-tomahawk	_^_EN
-tondero		_^_ES
+tomahawk	t,omah'Ok
 toner		t'oUner#
 top		t'Op
 topless		t'OplEs
-tory		_^_EN
+tory		t'oUri
 tour		t'ur#
-touring		_^_EN
-tournedos	_^_FR
-tournée		_^_FR
+touring		t'u*IN
+tournedos	tur#ned'o
+tournée		tur#n'e
 tournure	_^_FR
-trade		t*'eId#
-trader		t*'eIder#
-trading		t*'eId#iN
-trailer		_^_EN
-train		_^_EN
-trainer		_^_EN
-training	_^_EN
+trade		tr'eId#
+trader		tr'eIder#
+trading		tr'eId#iN
+trailer		tr'eIler#
+train		tr'eIN
+trainer		tr'eIner#
+training	tr'eInIN
 tramway		_^_EN
 tranche		_^_FR
 transfer	$1
-translate	t*,&~Nsl'eIt#
-trap		t*'Ep
-trash		t*aS
+translate	tr,&~Nsl'eIt#
+trap		tr'Ep
+trash		tr'ES
 trattoria	_^_IT
-travel		_^_EN
-travelling	_^_EN
-treedozer	_^_EN
-trek		t*'Ek
-trekking	t*'EkiN
-tremolo		_^_IT
+travel		tr'Evel#
+travelling	tr'EvelIN
+treedozer	trid'oUzer#
+trek		tr'Ek
+trekking	tr'EkiN
+tremolo		t*'emolo
 trend		t*'end#
-trial		_^_EN
+trial		tr'aIal#
 trick		tr'Ik
-trickline	_^_EN
+trickline	tr,Ikl'aIny
 tricot		t*ik'o
-trolley		_^_EN
+trolley		tr'Oli
 trottoir	_^_FR
 troupe		_^_FR
 trousse		_^_FR
 trouvaille	_^_FR
+(tse tse)	t|s,E||t|s'E
 tsunami		$2
 tuesday		tS'uzdeI
 tuner		t'uner#
 turf		_^_EN
-turnover	_^_EN
-tutti		_^_IT
+turnover	t&r#n'oUver#
+tutti		t'ut#i
 tweed		tw'id#
 tweet		tw'it#
+twelve		tw'El#vy
+twenty 		tw'eNty
+two		t'u:
 umlaut		_^_DE
 under		'&~Nder#
 underground	,&~Nder#g*'aUNd#
 underwriting	_^_EN
 union		j'uni@n
 united		j,un'aIted#
-universe	j'univ,@rs
-university	$3
-unschooling	_^_EN
+universe	j'univ,ers
+university	j,univ'ersIty
+unschooling	,&Nsk'ulIN
 (up to date)	'&p||tU||d'eIt#
 up  		'&p
 update		,&pd'eIt#
@@ -3533,25 +3615,23 @@ upgrade		,&pg*'eId#
 upload		&pl'oUd#
 utah		j,ut'a
 vancouver	v&Nk'uver#
-vaporwave	_^_EN
+vaporwave	v,eIpor#w'eIvI/
 vaudeville	_^_FR
 veduta		_^_IT
 veilleuse	_^_FR
 vendeuse	_^_FR
 verbis		$1 $alt
 vermeil		_^_FR
-vermont
 vernier		_^_FR
 vernissage	_^_FR
 versus		$1 $alt
-vibrato		_^_IT
 (video game)	v,id#jU||g'eImy
 videobook	v,id#jUb'Uk
 videogame	v,id#jU||g'eImy
 videolaser	v,id#jUl'eIzer#
 videomaker	v,id#jUm'eIker#
-videowall	_^_EN
-vintage		_^_EN
+videowall	v,id#jUw'Ol#
+vintage		v'INt&dZy
 violone		_^_IT
 (vis à vis)	v,izav'i
 vison		_^_FR
@@ -3566,7 +3646,7 @@ voile		_^_FR
 volley		vôlei $text
 volleyball	voleibol $text
 voucher		v'aUSer#
-voyager		_^_EN
+voyager		v'OI&dZ,er#
 voyer		voj'e
 voyeur		voj'ER#
 waffle		w'Ofol
@@ -3581,7 +3661,8 @@ warfare		w,Or#f'Er
 warrant		_^_EN
 watch		w'OtS
 water		w'Oter#
-waterline	_^_EN
+waterline	w,Oter#l'aIny
+watt		w'Ot#
 way		w'eI
 web		w'Eb
 webcam		w,Ebk'&~m
@@ -3591,41 +3672,42 @@ wednesday	w'enyzdeI
 (week end)	w'ik,end#
 weekend		w'ik,end#
 weltanschauung	_^_DE
-west		_^_EN
-western		_^_EN
-westpolitik	_^_DE
-whig		_^_EN
-whiskey		_^_EN
-whisky		_^_EN
+west		w'Est#
+western		w'Estern
+westpolitik	v,Estpolit'ik
+whig		w'yg
+whiskey		w'iski
+whisky		w'iski
 white		w'aIt#
-wifi    	w,aIf'aI
+wifi		w,aIf'aI
 (wi-fi) 	w,aIf'aI
 winchester	_^_EN
 winter		w'iNter#
-wireless	_^_EN
-wombat		_^_EN
+wireless	w'aIr#yl,Es
+wombat		w'oNbat#
 woogie		w'ugi
 workaholic	w,or#kah'Olik
 worker		w'or#ker#
 workshop	w,or#kS'Op
-workstation	_^_EN
+workspace	w,or#ksp'eIs
+workstation	w,or#kst'eIS@N
 wow		w'aU
 write		r'aIt
 writer		r'aIter
 wyoming		waI'oUmIN
 xerox		S'E*Oks
-yacht		i'at#
-yachting	_^_EN
-yachtsman	_^_EN
+yacht		i'atSI/
+yachting	i'atSIN
+yachtsman	i'atSI/sm&N
 ?1 yahoo	'i,ah'u
 ?2 yahoo	iah'u
-yard		_^_EN
+yard		j'ar#d#
 yearling	_^_EN
 yellow		j'EloU
 yale		i'eIl
 yes 		j'Es
 york		j'Ork
-yorkshire	_^_EN
+yorkshire	j'OrkS'aIry
 you		j'U
 youtube		j,ut'uby
 youtuber	j,ut'uber#
@@ -3633,20 +3715,22 @@ yuppie		j'upi
 zabaione	_^_IT
 zamacueca	_^_ES
 zeitgeist	ts'aItg,aIst#
+zeppelin	$1 $alt
 zhuhai		zuh'aI
 
 // foreign product names
 access		'aks,Es
 ?1 adobe	&d'Oby
-amstel		'amyst,El#
+amstel		,amyst'El#
 android		&Nd*'Oid#
 antarctica	&Nt'ar#tSIk&
-apple		'EpoU
+apple		'Epol#
 baby		b'eIby
 boeing		b'Oi~Ng
 bohemia		$2
 brahma		b*'&ma
-budweiser	b@dv'aIser#
+bud		b&d#
+budweiser	b&dv'aIzer#
 byd		b,iw,aId'i
 campari		$2
 chevrolet	S,ev@-*ol'E
@@ -3654,17 +3738,17 @@ chevrolet	S,ev@-*ol'E
 ?2 chrome	k*'oUmy
 citroën		s,it*o'eIN
 debian		d'Ebj&~N
-eisenbahn	aIzeINb&N
+eisenbahn	,aIzeINb'&N
 ?1 excel	,Eks'El
 ?2 excel	,eks'EU
 ?1 express	,Ekspr'Es
 espeak		isp'i:k
-espeakedit	isp,i:kEd'it
-facebook	feIsybuk
-fedora		_^_EN
+espeakedit	isp,i:k||Ed#'it#
+facebook	f,eIsyb,ukI/
+fedora		fed'O*&
 ferrari		$2
 fiat		f'i&t#I/
-firefox		f'ai@fOks
+firefox		f,aI*yf'Oks
 ?1 front	fr'ont
 github		g,ith'&bI/
 heineken	h'aInekeN
@@ -3683,11 +3767,11 @@ libreoffice	l'ib*y||'Ofis
 ?1 linux	l,in'uks
 ?2 linux	l'inUks
 ?2 lobby	$alt
-mac		mEk
+mac		m'Ek
 marvel		$1
-mbrola		,emyb*'Ol&
-?1 media	m'Ed,i&
-?2 media	m'idZj&
+mbrola		,emy||b*'Ol&
+?1 media	m'Ed,i& $noun
+?2 media	m'idZj& $noun
 messenger	m'Es&ndZ&r
 ?1 microsoft	m,ik:*'os,Oft
 ?2 microsoft	m'aIk*oUs'Oft
@@ -3700,6 +3784,7 @@ movie		m'uvi
 ?2 office	'Ofsy
 openoffice	'opeIN||'Ofis
 (open office)	'opeIN||'Ofis
+oracle		'Or#akol#
 ?1 outlook	'autl'uk
 ?2 outlook	,aUtl'uk
 ?1 paint	p'aint
@@ -3710,7 +3795,6 @@ playstation	pleI||st'eIS&~N
 reader		R#'id,er
 renault		R#en'o
 setup		s'Et,&p
-schin		sk'IN
 schin		sk'IN
 skol		s#k'Ol#
 ?1 skype	sk'aip
@@ -3726,7 +3810,7 @@ tinder		t#'iNder#
 twitter		tw'iter#
 twitch		tw'itS
 spotify		sp,Ot#yf'aI
-soundcloud	s,aUndkl'aUd#
+soundcloud	s,aUnd#||kl'aUd#
 deezer		d#'izer#
 premium		pr'imi@m
 ubuntu		ub'untu
@@ -3737,358 +3821,399 @@ volkswagen	fol#ksv'ageN
 ?2 window	w'iNdoU
 
 
-
 // historical and famous people
-adams		_^_EN
+adams		'ad&~Ns
+alanis		$2
 alckmin		$1
 alighieri	aligi'E*i
+(al pacino)	Al#||patS'inU
 alzheimer	aUz'aImEr
-arendt		_^_DE
+annie		'&ni
+arendt		'a*eINt#
 armstrong	$1
-austen		_^_EN
+astaire		ast'Er#
+austen		$1
 babbage		b'abidZ
-baldwin		_^_EN
-baudelaire	_^_FR
-beauvoir	_^_FR
-berners		_^_EN
-bernhard	bern'ard
-biden		_^_EN
-blair		_^_EN
-bobbio		_^_IT
+baldwin		$1
+bardot		bar#d'o
+baudelaire	bodel'Er#
+beauvoir	bovw'ar#
+berners		$1
+bernhard	bern'ard#
+bernoulli	b,er#nul'i
+bayes		b'eIs#
+beyoncé		bioNs'e
+biden		b'aIdeIN
+bieber		b'iber#
+billie		b'ili
+björk		bi'Or#k
+blair		bl'Er#
+bobbio		b'Obio
+bob		b'ObI/
 bohr 		bOr#
 boole		b'uly
-bovary		_^_FR
-bradbury	_^_EN
-brontë		_^_EN
+bovary		bovaR#'i
+bowie		b'oUwi
+brad		b*Ed#
+bradbury	b*,Ed#b'&ri
+brahms		b*&ms
+braxton		b*'EkstoN
+brontë		b*oNt'e
 brutus		$1
-carroll		_^_EN
+carey		k'EreI
+carpenter	$1
+carroll		k'Erol#
 carter		$1
-chandler	_^_EN
+céline		$2
+chandler	$1
+chaplin		S'aplIN
+charlie 	S'arli
+charlton	S'artoN
+chopin		Sop&N
+chuck		S'&k
+claude		kl'ody
 clinton		$1
-koch		k'Ok
+clooney		kl'uneI
+cobain		koUb'eIN
 colbert		$1
-collins		_^_EN
+collins		$1 $alt
 collor		$1 $alt
-connelly	_^_EN
+connelly	$1
+connery		$1
 connor		$1
 conrad		$1
-curie		kuR#'i
 cooper		k'uper#
+crawford	$1
+crews		kr'us
+cromwell	$1
+curie		kuR#'i
+cusack		$1
+cyndi		$1
+cyrus		s'aIr@s
+dalton		$1
 ?1 darwin	d'arwin
 ?2 darwin	d'arvin
 (da vinci)	da||v'iNtSi
-dawkins		_^_EN
-deleuze		_^_FR
-dalton		$1
-davis		_^_EN
+davis		d'eIvys
+dawkins		d'OwkINs
 deadpool	dEd#p'ul#
-defoe		_^_EN
+dean		d'iN
+debussy		$3
+defoe		def'oU
+deleuze		del'uzy
+denzel		$1
+depp		$alt
+rené		R#en'e
+descartes	dek'ar#t#
+(di caprio)	d#,i||k'ap*iU
 dickens		$1
 dickinson	$1
-diderot		dideR#'o
-dijkstra	d'ijkstrA:
-doyle		_^_EN
-durkheim	_^_DE
-dworkin		_^_EN
-einstein	_!'aINs#t,aIN
+diderot		d#ideR#'o
+dijkstra	d'aIkst*&
+downey		d'aUneI
+doyle		d'OIly
+durkheim	dur#kh'aIN
+dvorak		dyv'O*ak
+dworkin		dw'or#kIN
+dylan		$1
+eastwood	'istwud#
+eddie		'Ed#i
+eilish		'EliS
+einstein	'aINs#t,aIN
 eisenhower	,aIzeNh'aUer
-exupéry		_^_FR
+elvis		'El#vis
+eminem		$1
+exupéry		ezupeR#'i
 fahrenheit	f,a*eNh'aIt#
-fermi		$1 $alt
+faulkner	f'Ol#kner#
 fermat		fer#m'a
-feuerbach	_^_DE
-feynman		f'ainm@n
+fermi		$1 $alt
+feuerbach	f,OIer#b,ah
+feynman		f'ainm&N
+fishburne	f'iSb@rn
 fisher		$1
-fitzgerald	_^_EN
-flaubert 	_^_FR
+fitzgerald	fitI/sdZ'E*al#d#
+flaubert 	flob'Er#
 fleming		$1
-foucault	_^_FR
+ford		fOr#d#
+foucault	fuk'o
 françois	f*&~Nsw'a
-frankenstein	_^_DE
+frankenstein	f*,&NkeINs#t'aIN
+freddie		f*'Ed#i
+freeman		f*'im&N
 freud		f*'OId
-friedrich	f*'i:d*iS
-faulkner	_^_EN
+friedrich	f*'id*iS
+gable		g'eIbol#
 gandhi		g'&ndi
+gardner		$1
 garibaldi	$3
 gauss		g'aUs
 geisel		g'aIzEl#
-goethe		_^_DE
+gibbon		g'iboN
+goethe		g'ete
+gosling		$1 $alt
 gottfried	g'Otf*i:t
 goulart		gul'ar#t
 gulliver	$1
-johnson		dZ'oNso~N
-joyce		_^_EN
+hackman		h'Ekm&n
 halley		h'aleI
 hamlet		h'&mlet
-harper		_^_EN
-harvey		_^_EN
-hawking		h'o:king
-hawthorne	_^_EN
+handel		h'eNdel#
+hanks		heNks
+hardy		har#d'i
+harper		h'ar#per#
+harris		h'Eris
+harrison	h'ErisoN
+harvey		h'ar#veI
+hawking		h'Oking
+hawthorne	h'OwT,orn
+hayworth	h'eIworT
+heath		h'ET
 hegel		h'egel#
 heidegger	h'aIdege
 heisenberg	h'aIzEnberg
-heller		_^_EN
-hemingway	_^_EN
+heller		h'Eler#
+hemingway	h'EmIN,weI
+hendrix		h'eNdr#iks
+hepburn		h'EpIb@rn
 herschel	h'Er#Sel#
+heston		h'EstoN
 hilbert		h'ilber#t#
 hitler		h'itler
 ?2 hobbes	h'Obys
+hoffman		h'Ofm&N
+hooke		h'uky
 hopper		h'Oper
-hooke		_^_EN
+houaiss		u'aIs#
 hubble		h'&boU
 hulk		h'ulk
-humboldt	_^_EN
+humboldt	h,&~Nb'ol#t#
 husserl		h'usEl#
-huxley		_^_EN
+huxley		h'&ksl,eI
 irving		$1
 ?1 isaac	iz'&k
-?2 isaac	iz'ac
+?2 isaac	iz'ak
 jackson		Z'EksoN
+jagger		Z'Eger#
+janis		$1
+johnson		dZ'oNso~N
+joplin		$1 $alt
+joyce		dZ'OIsy
+justin		$1
+keanu		ki'&nU
+keaton		k'itoN
 kelsen		k'El#seN
 kennedy		$1
-kepler		_^_EN
+kepler		k'Epler#
 kernighan	_^_EN
 kerouac		_^_EN
-kierkegaard	_^_NL
+kierkegaard	k,ir#keg'o
+koch		k'Ok
 kubitschek	k,ubyS'Ek
-lawrence	_^_EN
+lauper		l'aUper#
+laurence	$1
 lavoisier	lavwazj'e
+lawrence	_^_EN
+ledger		l'EdZer#
 leibniz		l'aIbni:ts
+lennon		$1
+lennox		$1
+liam 		l'i&N
 lincoln		l'inkoN
 lispector	$2 $alt
 locke		lOk
+loren		l'OreN
 lorscheider	l,or#S'aIder#
 lovecraft	_^_EN
-lovelace	_^_EN
+lovelace	l'OvyleIs
+loveless	l'OvylEs
+lundgren	l'@NdgreN
 mahatma		mah'atm&
+malkovich	$1
+(mao tse)	m,aU||t|s'E
+mariah		mar'aI&
+marley		$1
 martin		$1
+maupassant	_^_FR
+(mc carthy)	_^_EN
+(mc cartney)	_^_EN
+meloni		$2
 melville	_^_EN
 mendel		$1
+mercury		$1 $alt
 (michel temer)	miS'El#||t'emer#
+miley		m'aIli
 miller		$1
-molière		_^_FR
-montaigne	_^_FR
-montesquieu	m,oNteskj'e
-moore		_^_EN
-morgan		_^_EN
-morrison	_^_EN
-mozart		$1
+mitchell	_^_EN
 mohamad		moh'amad
 mohamed		moh'amed
 mohammad	moh'amad
 mohammed	moh'amed
 muhammad	muh'amad
 muhammed	muh'amed
-murray		_^_EN
-nietzsche	_^_DE
+molière		moli'Er#y
+monroe		m'oNrow
+montaigne	moNt'eIN
+montesquieu	m,oNteskj'e
+moore		_^_EN
+morgan		m'Org&N
+morissette	$alt
+morrison	m'OrisON
+mozart		$1
+murphy		m'@r#fi
+murray		m'@reI
 musset		_^_FR
-nixon		$1
-(mc carthy)	_^_EN
-(mc cartney)	_^_EN
-maupassant	_^_FR
-mitchell	_^_EN
+neeson		n'isoN
 neumann		n'OIman
+newman		n'iUm&N
 newton		n'I;utoN
-ockham		_^_EN
-oppenheimer	_!'Op@nh,aImar
+nicholson	n'ikol#soN
+nietzsche	n'itS@
+nixon		$1
+norris		n'Oris
+ockham		'ok&N
+oppenheimer	,Op@nh'aImer#
 orwell		_^_EN
+osbourne	'Osbor#ny
 owen		$1
 paine		p'eIny
-patterson	_^_EN
 pasteur		past'Er#
+patterson	p'Eter#sON
 pauling		$1
 (paulo i)	p'aUlU||p*,im'eI*U
 (paulo ii)	p'aUlU||s,eg'u~NdU
 (pedro i)	p'ed*U||p*,im'eI*U
 (pedro ii)	p'ed*U||s,eg'u~NdU
+piaget		p,iaZ'e
+poitier		pwati'er#
 popper		_^_EN
+presley		$1 $alt
 proust		_^_FR
+puccini		pus'ini
 putin		$1
+reeves		r'ivys
 richard		x'iS&rd
 ricoeur		_^_FR
 riemann		r'i:man
-rijndael	x'ain;d'al
+rihanna		R#i'&n&
+rijndael	R#'aINd'al#
 rimbaud		_^_FR
 ritchie		_^_EN
 roitman		R#'OItSIm&~N
 roosevelt	R#'uzyvelt
+rossini		R#os'ini
 roth		_^_EN
-rousseau	xus'o
-rousseff	xus'Ef
+rousseau	R#us'o
+rousseff	R#us'Ef
 rowling		_^_EN
-russell		x'usEl
+russell		R#'usEl
 sagan		s'eIg&N
 salinger	$1
-sartre		_^_FR
+sartre		sar#t*y
+schönberg	S'oNber#g
 schrödinger	Sr'edinger
 schroedinger	Sr'edinger
-shakespeare	S'eIksp,e*
+schubert	S'uber#t#
+schumann	S'um&N
+schwarzenegger	Swarzyn'Eger#
+shakespeare	S'eIksp,er#
+sheeran		S'ir&N
 shelley		_^_EN
 somerville	_^_EN
-stalin		s#t'alIN
-steinbruch	s#taINbruk
-stendhal	_^_FR
-stephen		st'i:v@n
+spacey		sp'eIsi
+stalin		st'alIN
+steinbruch	staINbruk
+stendhal	st&Ndal#
+stephen		st'ifeIN
+stevens		st'iveINs
+stevenson	st'iveINsoN
 steve		st'i:v
 stevie		st'i:vi
-stevens		_^_EN
-stevenson	_^_EN
+streisand	st*'aIs&Nd#
+sylvester	$2 $alt
 tchaikovski	tSaIk'Ovs#ki
+teller		t'Eler#
+temple		t'eNpol#
+terry		t'Eri
 thatcher	t'atSer
+thoreau		_^_EN
+thor		t'Or#
+thousand	T'aUz&Nd
 tolstoi		$alt
 torvalds	$1
-thor		t'Or#
-thoreau		_^_EN
 truman		$1
 trump		t*&~Np
 turing		t'u*iNg
-twain		_^_EN
-tyson		_^_EN
-voltaire	vOlt'Er
-wallace		$1
-watson		_^_EN
-wilde		_^_EN
-winehouse	_^_EN
-winston		$1
-whitman		$1
-wolfgang	_^_DE
-von		f%ON
-vonnegut	_^_EN
-wright		_^_EN
-weber		_^_DE
-woolf		_^_EN
-wolverine	volve*'iny
-astaire		ast'Er#
-gable		g'eIbol#
-chaplin		$1
-wayne		w'eIny
-dean		d'iN
-keaton		k'itoN
-poitier		pwati'er#
-hepburn		h'EpIb@rn
-monroe		m'oNrow
-crawford	$1
-temple		t'eNpol#
-hayworth	h'eIworT
-loren		l'OreN
-gardner		$1
-nicholson	n'ikol#soN
-(al pacino)	Al#||patS'inU
-connery		$1
-hanks		heNks
-denzel		$1
-harrison	h'ErisoN
-ford		fOr#d#
-hoffman		h'Ofm&N
-(di caprio)	d,i||k'ap*iU
-spacey		sp'eIsi
-eastwood	'istwud#
-newman		n'iUm&N
-hackman		h'Ekm&n
-brad		b*Ed#
-charlton	S'artoN
-heston		h'EstoN
-heath		h'ET
-ledger		l'EdZer#
-murray		m'@reI
-eddie		'Edi
-murphy		m'@r#fi
-cusack		$1
-gosling		$1 $alt
-liam 		l'i&N
-neeson		n'isoN
-cromwell	$1
-harris		h'Eris
-malkovich	$1
-laurence	$1
-fishburne	f'iSb@rn
-downey		d'aUneI
-depp		$alt
-keanu		ki'&nU
-reeves		r'ivys
-freeman		f*'im&N
-charlie 	S'arli
-willis		$1
-clooney		kl'uneI
-sylvester	$2 $alt
-schwarzenegger	Swarzen'Eger#
-claude		kl'ody
-chuck		S'&k
-norris		n'Oris
-terry		t'Eri
-crews		kr'us
-lundgren	l'@NdgreN
-chopin		Sop&N
-brahms		b*&ms
-schubert	S'uber#t#
+turner		t'@rner#
+twain		tw'eIN
+tyson		t'aIsoN
 verdi		v'Er#di
 vivaldi		$2
-puccini		pus'ini
-handel		h'eNdel#
-rossini		R#os'ini
-schumann	S'um&N
-dvorak		dyv'O*ak
-schönberg	S'oNber#g
-debussy		$3
-tchaikovsky	$2 $alt
-beyoncé		bioNs'e
-rihanna		R#i'&n&
-mariah		mar'aI&
-carey		k'EreI
-billie		b'ili
-eilish		'EliS
-miley		m'aIli
-cyrus		s'aIr@s
-céline		$2
-alanis		$2
-morissette	$alt
-annie		'&ni
-lennox		$1
-janis		$1
-joplin		$1 $alt
-streisand	st*'aIs&Nd#
-cyndi		$1
-lauper		l'aUper#
-freddie		f*'Edi
-mercury		$1 $alt
-elvis		'El#vis
-presley		$1 $alt
-bob		b'ObI/
-dylan		$1
-justin		$1
-bieber		b'iber#
-sheeran		S'ir&N
-eminem		$1
-bowie		b'oUwi
+voltaire	vOlt'Er
+von		f%ON
+vonnegut	_^_EN
+wallace		$1
+watson		w'OtsoN
+wayne		w'eIny
+whitman		$1
+wilde		w'aIl#d#
+willis		$1
+winehouse	w,aInyh'aUzy
+winston		$1
+wolfgang	v'ol#fg,&Ng
+wolverine	volve*'iny
 wonder		$1
-lennon		$1
-marley		$1
-björk		bi'Or#k
-hardy		hard'i
-carpenter	$1
-cobain		koUb'eIN
-jagger		Z'Eger#
-osbourne	'Osbor#ny
-loveless	l'OvylEs
-turner		t'@rner#
-braxton		b*'EkstoN
+woolf		_^_EN
+wright		_^_EN
+
 
 // foreign names and surnames
 adrian		$1
+agostini	$3
+ahmed		ahmEd#
 alan		$1
 albert		$1
+alberti		$2
+albertoni	$3
 alexander	$3
+andreoli	$3
 andrew		$1
 anthony		$1
+antonelli	$3
+antonini	$3
 archer		$1
+armellini	$3
 arnold		$1
 ashley		$1
-brandon		$1
-brian		b*'aI;&~N
-bryan		b*'aI;&~N
+avancini	$3
+bacchi		$1
+barbieri	$3
+baricelli	$3
+bartoli		$2
+bassi		$1
+becker		b'Eker#
+belli		$1
+bellini		$2
+benini		$2
+bernardi	$2
+bianchi		bi'&Nki
+bloch		bl'Ok
+bohn		b'ON
+bonelli		$2
 bonner		$1
-carl		k'arl
+brandon		$1
+braun		b*aUN
+brian		b*'aI;&~N
+brunet		b*un'e
+bryan		b*'aI;&~N
+burlamaqui	$3
 caleb		$alt
+calloni		$2
+camarotti	$3 $alt
+carl		k'arl
+castelli	$2
+cavalcanti	$3
+cavalli		$2
 christian	$1
 christopher	$1
 churchill	S'@r#SIl#
@@ -4096,12 +4221,16 @@ cimenti		$2
 cleverson	$1 $alt
 conti		$1
 cynthia		$1
+d'avila		$1
 debbie		d'Ebi
 deborah		$1 $alt
 dennis		$1
+dieckmmann	d#'ikm&N
+diehl		_^_DE
 donald		$1
-dwight		_^_EN
+donati		$2
 duailibi	$3
+dwight		dw'aIt#
 edward		$1 $alt
 elton		$1 $alt
 emerson		$1 $alt
@@ -4109,30 +4238,52 @@ emily		$1
 eric		$1 $alt
 erick		$1 $alt
 evelyn		$1 $alt
-philip		$1
+fabbri		$1
+facioli		$3 $alt
+feghali		$2
+ferretti	$2
+ferri		$1
+fischer		f'iSer#
 flesch		fl'ES
+folgosi		$2 $alt
 francis		$1
 françoise	f*&Nsw'azy
 franklin	$1
-franzen		_^_EN
+franzen		$1
 franzini	$2
 friedrich	_^_EN
+gagliasso	$3
+galli		$1
+gatti		$1
 gentili		$2
 gerald		$1
-gibson		_^_EN
+gerardi		$2
+giardini	$2
+gibson		g'ibsoN
+giordani	$3
+giorgia		$2 $alt
+giovenazzi	$4
+giuliani	$3
 gregor		$1 $alt
 gregory		$1 $alt
+grimaldi	$2
+guidotti	$2 $alt
+hang		h'&Ng
 hannah		h'&~n&
 harry		h'Er,i
 helen		$1 $alt
 henry		$1
-hermann		_^_DE
 herbert		$1 $alt
+hermann		_^_DE
+herrmann	h'Er#m&N
 hilary		_^_EN
+hoffmann	h'Ofm&N
+horowicz	ho*ov'iks
+iozzi		$2 $alt
 jack		dZ'Ek
 jake		dZ'eIk
-janeway		dZ'anyweI
 james		dZ'eimys
+janeway		dZ'anyweI
 jason		dZ'eIsoN
 jenny		$1
 jerry		$1 $alt
@@ -4153,141 +4304,142 @@ kimberly	$1
 klein		kl'aIn
 kleverson	$1 $alt
 krähenbühl	k*aheINbul#
+krause		k*'aUsy
 krueger		k*'i:ger
 krüger		k*'i:ger
 kühl		k'il
+lancellotti	$3 $alt
+lemann		$1
+lehmann		$1
+lemmertz	l'emer#Its
 lewis		_^_EN
 liev		$alt
 linus		$1
+lombardi	$2
+lorenzi		$2
 louis		lw'i
+ludwig		lud#vig
 luigi		lU'iZI
 lyndon		$1
+maestrini	$3
+maggi		$1
+magrini		$2
+mallmann	$1
+mancini		$2
+mandelli	$2
+marchetti	$2
+mariani		$3
 marie		maR#'i
+marini		$2
 marjorie	$1
 marlon		$1
+martinelli	$2
+martini		$2
+meneghetti	$3 $alt
+meyer		m'EIer#
 michael		m'aIk@l#
 mike		m'aIk
-mueler		m'iler
-mueller		m'iler
-müler		m'iler
+milani		$2
+monti		$1
+moretti		$2
+morozetti	$3 $alt
+moscovis	$2 $alt
 muller		m'iler
 müller		m'iler
+napoli		$1
+nardoni		$2
+negri		$1 $alt
+negrini		$2
 neil		n'il#
 nelson		$1 $alt
+neri		$1 $alt
 neubarth	n'Oibart#
 nicholas	nícolas	$text
 norton		$1 $alt
 nuccio		n'utSiU
 oliver		$1 $alt
+palmieri	$3
+paraventi	$3
+parisi		$2
 patrick		$1
 paul		p'O:l
+pavanelli	$3
+pellegrini	$3
+périssé		peR#is'e
 perroni		$2
 peter		$1 $alt
+pfeifer		f'aIfer#
+philip		$1
+piovani		$3
+ranaldi		$2
+rech		_^_DE
+reymond		$1
+ricci		R#'isi
+rinaldi		$2
+ritter		R#'iter#
+rizzi		$1
 robert		$1 $alt
 robin		$1 $alt
 robinson	$1 $alt
+rockenbach	R#okeNb'ah
 roger		$1 $alt
+romanazzi	$3
 ronald		$1
-ronchi		r'Onki:
+ronchi		R#'oNki
+rossetti	$2
+rossi		$1 $alt
+ruschel		R#'uSel#
 ryan		x'aI&n
 sarah		$1
+sargentelli	$3
+sarti		$1
 scarlet		$1
-sean		_^_EN
+scherer		S'E*er#
+schmidt		Sym'it#
+schmitt		Sym'it#
+schmitz		Sym'it#s
+schneider	Syn'aIder#
+schreiber	Sy*'aIber#
+sean		S'oN
 sergei		ser#g'eI
 sergey		ser#g'eI
 sharon		$1
 shirley		$1
+silvestri	$2
 singer		$1
+stefanini	$3
+stein		st'aIN
 stephanie	$1 $alt
+sterblitch	$1 $alt
 susan		$1
-willie		w'ili
-tralli		$1
-tiffany		$1
-vogel		f'o:g@l
-volkmann	f'Olkman
-washington	w'OSiNtoN
-waldvogel	v,al#df'ogel#
-william		w'ili&N
-zimerman	$1
-zimmermann	$1
-dieckmmann	$1
-maestrini	$3
-negrini		$2
-cavalcanti	$3
-avancini	$3
-rinaldi		$2
-bloch		bl'Ok
-torloni		$2
-winits		$1
 suzuki		$2
-vecchio		$1 $alt
-giardini	$2
-schneider	Syn'aIder#
-pavanelli	$3
-albertoni	$3
-antonelli	$3
-lancellotti	$3 $alt
-camarotti	$3 $alt
-romanazzi	$3
-ranaldi		$2
-nardoni		$2
-watson		$1
-périssé		peR#is'e
-martini		$2
-lemmertz	l'emer#Its
-bacchi		$1
-cavalli		$2
-grimaldi	$2
-piovani		$3
-lombardi	$2
-mariani		$3
-armellini	$3
+szafir		zaf'ir#
+taylor		t'eIlor#
 tiburi		$2
-gerardi		$2
-iozzi		$2 $alt
-bernardi	$2
-burlamaqui	$3
-mandelli	$2
-ricci		R#'isi
-rossi		$1 $alt
-pfeifer		f'aIfer#
-werneck		ver#n'Ek
-fischer		f'iSer#
-brunet		b*un'e
-calloni		$2
+tiffany		$1
+torloni		$2
+tralli		$1
+valentini	$3
 valli		$1
-sargentelli	$3
-ahmed		ahmEd#
-horowicz	ho*ov'iks
 vecchia		$1 $alt
 vecchio		$1 $alt
-reymond		$1
-paraventi	$3
-morozetti	$3 $alt
-giovenazzi	$4
-sterblitch	$1 $alt
-moscovis	$2 $alt
-d'avila		$1
-folgosi		$2 $alt
-benini		$2
-stefanini	$3
-agostini	$3
-castelli	$2
-guidotti	$2 $alt
-taylor		t'eIlor#
-bianchi		bi'&Nki
-facioli		$3 $alt
-szafir		zaf'ir#
-baricelli	$3
-magrini		$2
-meneghetti	$3 $alt
-gagliasso	$3
-hoffmann	h'Ofm&N
-feghali		$2
-lemann		$1
-hang		h'&Ng
-herrmann	h'Er#m&N
-schmitt		Sym'it#
+vitali		$2
+vogel		f'o:g@l
+volkmann	f'Olkman
+wagner		v'agner#
+waldvogel	v,al#df'ogel#
+washington	w'OSiNtoN
+weber		v'Eber#
+werneck		ver#n'Ek
+william		w'ili&N
+willie		w'ili
+winits		$1
+zanetti		$2
+zanotti		$2
+zimerman	$1
+zimmermann	$1
+
+
 
 // names and surnames
 abilio		abílio $text
@@ -4413,6 +4565,8 @@ dionisio	dionísio $text
 ?1 domenico	doménico $text
 ?2 domenico	domênico $text
 doris		dóris $text
+doroteia	$alt
+dulcineia	$alt
 eder		éder $text
 ederson		éderson $text
 edesio		edésio $text

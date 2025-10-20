@@ -4,8 +4,8 @@
 // Options
 // ?1  European Portuguese
 // ?2  Brazilian Portuguese
-// ?3  Epenthetic [I] between consonants
-// ?4  Brazil mbrola voice
+// ?3  Epenthetic [I] (used to avoid bad diphones in MBROLA voices)
+// ?4  MBROLA variant (used to avoid bad diphones in MBROLA voices)
 
 // Letter groups
 // A  a vowel
@@ -80,6 +80,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
      &) a (s_      =&
    A_l) a (_       &
      &) a (_à      =&/
+?4   &) a (_à      =&
 ?1      a (_       =&        // in final unstressed syllable
 ?1      a (s_      =&
 ?1      a (_a      =&/       // ?? elide final a before a
@@ -88,7 +89,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1   p) a (d_      =E
 ?1      a (l_      'A        // eg: Portugal, capital, etc.
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
-?2      al (K      aU
+?2      al (B      aU
+?4      al (B+     aw
 ?2      al (_A     aw
 ?2      al (_hA    aw
         a (lh+     a
@@ -105,6 +107,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         am (C      &~N
         an (K      &~N
 
+?4      am (_      =&~w
+
         anh        &~n^
         amm (A     am
         ann (A     an
@@ -118,10 +122,15 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ay         aI
         ao (_      aU
         au         aU
+        au (s      aU
         au (_A     aw
         au (_hA    aw
-        au (s      aU
         au (CK     aU
+
+?4      au         aw
+?4      au (s      aw
+
+
     âB) a (C@      &
    âBC) a (C@      &
     êC) a (C@      &
@@ -145,6 +154,11 @@ ÿ	ÿ	// y + U+0308 = U+00FF
  _ultr) a (leve_   &
  _ultr) a (sso     &
  _ultr) a (violeta_ &
+
+?4      ai         aj
+?4      ai (s      aj
+?4      au         aw
+?4      au (s      aw
 
 
 .group â
@@ -182,58 +196,57 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1      ál         ''Al
         á (uCK     ''a
 
+?4      ái         ''aj
+?4      ái (s      ''aj
+?4      áu         ''aw
+?4      áu (s      ''aw
 
 .group ã
         ã          &~
         ão         &U~
         ãe         &~j
 
+?4      ão         &~w
 
 .group b
      _) b (_       be
         b          b
-        b (b 
-?3      b (b 
 ?3      b (B       bI/
-?3      b (s       b
-?3      b (_C      b_
+        b (b+ 
 
 
 .group c
      _) c (_       se
         c          k
-        c (Y       s         // ce ci
-        c (cY      k         // cce cci
-        c (c 
-?3      c (c 
 ?3      c (B       kI/
-?3      c (s       k
-?3      c (t       k
-?3      c (_C      k_
+        c (Y       s         // ce ci
+        c (cY+     k         // cce cci
+        c (c+ 
         ch         S
         chr        k*
         cch        k         // for Italian words such as Pinocchio
         ck         k
-        c (q                 // Jacques
 ?3      ck         kI/
-?1      c (cY                //drop “c” in European Portuguese (eg: seleccionar)
-?1   A) ct         t         //drop “c” in European Portuguese (eg: exacto)
-?1   A) cç         s         //drop “c” in European Portuguese (eg: selecção)
+?1      c (cY+               // drop “c” in European Portuguese (eg: seleccionar)
+?1   A) ct         t         // drop “c” in European Portuguese (eg: exacto)
+?1   A) cç         s         // drop “c” in European Portuguese (eg: selecção)
 ?1 conta) ct (A    kt        // eg: contacto, contactar, contactável, incontactável, etc...
+
+     A) c (q                 // Jacques, acquisition (French)
 
 
 .group d
      _) d (_       de
         d          d
-        d (d 
-?3      d (d 
-?3      d (B       dZI/
-?3      d (_C      d_
+?3      d (B       d#I/
+        d (d+ 
 ?2      d (i       dZ
 ?2      d (í       dZ
 ?2      d (e_      dZ
+?2      d (y       dZ
 ?2   A) de (o_     dZj
 
+     A) dg (Y      dZ        // gadget, pidgin (English)
 
 .group e
      _) e (_       E
@@ -245,12 +258,13 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?2  &r) e (_AN     =i
 ?1      e (_iN     =i/       // drop final [i] is next word starts with another i
 
-?1      e (e       i         //eg: candeeiro
+?1      e (e       i         // eg: candeeiro
 
-?2      el (K      EU
+?2      el (B      EU
+?4      el (B      Ew
         e (lh+     e
         e (ll+     E
-et (_  EtS
+        et (_  EtS
 
         e (bL02_   E
         e (cL04_   E
@@ -329,6 +343,15 @@ e (trL04_   E
         en (_      =eIN
         en (s_     =eIN
 
+?4      em (C      e~j
+?4      en (C      e~j
+
+?4      em (_      =e~j
+?4      em (s_     =e~j
+?4      en (_      =e~j
+?4      en (s_     =e~j
+
+
         enh        en^
         emm (A     em
         enn (A     en
@@ -343,6 +366,12 @@ e (trL04_   E
         eu (_A     ew
         eu (_hA    ew
         e (uCK     e
+
+?4      ei         ej
+?4      ei (s      ej
+?4      eu         ew
+?4      eu (s      ew
+
 
 ?1   d) e (CAA     y
 ?1   d) e (CACAA   y
@@ -370,12 +399,12 @@ e (trL04_   E
 ?2   ã) e (z       y         // mãezinha, etc.
 ?1   c) e (rea     y         // cereais
 ?1   d) e (fici    y         // deficiênte, deficiência, etc...
-?1  _d) e (fini    y         //definições.
+?1  _d) e (fini    y         // definições.
 ?1  _d) e (slig    y         // desligar.
 ?1  _d) e (sloc    y         // eg: deslocamento, etc...
 ?1  _f) e (ch      y         // fechar
 ?1  _p) e (rcentag y         // percentagem
-?1   p) e (ssoa    y         //pessoal, pessoais, etc.
+?1   p) e (ssoa    y         // pessoal, pessoais, etc.
 ?1  pr) e (cis     y         // precisar
 ?1  pr) e (f       y         // preferências, etc.
 ?1  _r) e (cicl    y         // recicla, reciclagem, etc...
@@ -393,12 +422,12 @@ e (trL04_   E
 ?1 hip) e (r       ,E        // eg: hiper
 ?1 sup) e (r       ,E        // super
 ?1  _m) e (ga      ,E        // mega
-?1 _int) e (rn      ,E        // Interno
+?1 _int) e (rn     ,E        // Interno
 ?1   n) e (t       'E        // eg: net
 ?1      e (l_      'E        // eg: possível, manuel, etc...
 ?1   v) e (l_      ,E        // eg: possível, amovível, disponível, etc...
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
-     
+
         e (drL04_  E
 
     âC) e (C@      e
@@ -408,17 +437,24 @@ e (trL04_   E
     ôC) e (C@      e
     áC) e (C@      e
 ?2  áC) el (_      eU
+?4  áC) el (_+     ew
    áCC) e (CA_     e
+?2  éC) el (_      eU
+?4  éC) el (_+     ew
    éCC) e (CA_     e
   éCCC) e (C@      e
 ?2  íC) el (_      eU
+?4  íC) el (_+     ew
      í) e (C@      e
     íC) e (C@      e
    íCC) e (C@      e
+?2  óC) el (_      eU
+?4  óC) el (_+     ew
     óC) e (C@      e
    óCC) e (CA_     e
-    úC) e (C@      e
 ?2  úC) el (_      eU
+?4  úC) el (_+     ew
+    úC) e (C@      e
         ection (_  'EkS&~N
 
 //sort
@@ -588,7 +624,7 @@ _obsol) e (tL08_   e
   viol) e (ta_     e
  _Carr) e (ta_     e
   _Gur) e (ta_     e
-        _n) eu (trL08_ 'eU
+    _n) eu (trL08_ 'eU
     _d) e (vL03_   e
    scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
@@ -621,6 +657,10 @@ _entorp) e (çL03_  e
         én (_      ''eIN
         én (s_     ''eIN
 
+?4      éi         ''Ej
+?4      éi (s      ''Ej
+?4      éu         ''Ew
+?4      éu (s      ''Ew
 
 .group ê
         ê          ''e
@@ -629,16 +669,16 @@ _entorp) e (çL03_  e
         ênh        ''en^
         êu         ''eU
 
+?4      êu         ''ew
+
 
 .group f
 ?1   _) f (_W      Ef;       // within an acronym
 ?1   _) f (_       Ef        // individual letter or end-of-acronym
      _) f (_       'Efy
         f          f
-        f (f 
-?3      f (f 
 ?3      f (B       fI/
-?3      f (_C      f_
+        f (f+ 
 
 
 .group g
@@ -646,10 +686,8 @@ _entorp) e (çL03_  e
 ?1   _) g (_       ge        // individual letter or end-of-acronym
 ?2   _) g (_       Ze
         g          g
-        g (g 
-?3      g (g 
 ?3      g (B       gI/
-?3      g (_C      g_
+        g (g+ 
         g (Y       Z         // ge gi
         gu (Y      g
      a) gu (ent    gw
@@ -703,7 +741,8 @@ _redar) gu (A      gw
     Cl) i          i
         i (_       'i
 
-?2      il (K      iU
+?2      il (B      iU
+?4      il (B      iw
         i (lh+     i
         i (ll+     i
 
@@ -720,10 +759,13 @@ _redar) gu (A      gw
         io (s_     i%U
         i (oCK     i
         iu (_      iU
+        iu (s_     iU
         iu (_A     iw
         iu (_hA    iw
-        iu (s_     iU
         i (uCK     i
+
+?4      iu (_      iw
+?4      iu (s_     iw
 
     áC) i (A_      j
    áCC) i (A_      j
@@ -771,19 +813,15 @@ _redar) gu (A      gw
      _) j (_       Z'Ot&
         j          Z
 ?3      j (B       ZI/
-?3      j (_C      Z_
+        j (j+ 
 
 
 .group k
 ?1   _) k (_       k'ap&
 ?2   _) k (_       ka
         k          k
-        k (k 
-?3      k (k 
 ?3      k (B       kI/
-?3      k (s       k
-?3      k (t       k
-?3      k (_C      k_
+        k (k+ 
 
 
 .group l
@@ -794,6 +832,7 @@ _redar) gu (A      gw
      l) l 
         lh         l^
 
+    @!) lli (_     =li       // Italian immigrants
 
 .group m
 ?1   _) m (_W      Em;
@@ -801,13 +840,13 @@ _redar) gu (A      gw
 ?2   _) m (_       'emy
         m          m
      m) m 
-?3      m (B       mI/
-?3      m (_C      m_
 
 ?1  @@) mente (_S5 m''eINty
 ?2  @@) mente (_S5 m''eINtSy
 
      _) mini  (0x2d m,in%i
+
+    @!) mann  (_S4 m%&N      // German immigrants
 
 .group n
 ?1   _) n (_W      En;
@@ -815,8 +854,6 @@ _redar) gu (A      gw
 ?2   _) n (_       'eny
         n          n
      n) n 
-?3      n (B       nI/
-?3      n (_C      n_
         nh         n^
 
 
@@ -840,20 +877,27 @@ _redar) gu (A      gw
 ?2  _v) os (_A     uz
 ?2  _v) os (_G     uz
         ou         oU
+        ou (s      oU
         ou (_A     ow
         ou (_hA    ow
         oi         oI
+        oi (s      oI
         oi ($w_alt OI
         oi ($w_alt2++ oI
         oi (a_     OI
         oi (cA_    OI
         oi (de_    OI
-        oi (s      oI
         o (iCK     o
-        oo (C_     U
+        oo (C_     U         // book
+        oo (CC_    U         // bluetooth
         o (os_     o
-?1   C) oo (_      oU        // eg: voo, enjoo, etc...
+?1   C) oo (_      oU       // eg: voo, enjoo, etc...
         oy         OI
+
+?4      oi         oj
+?4      oi (s      oj
+?4      ou         ow
+?4      ou (s      ow
 
         o (cL04_   O
 
@@ -893,6 +937,7 @@ _redar) gu (A      gw
 
         o (l_      'O
 ?2      ol (B      oU
+?4      ol (B      ow
         o (ma_     o
     @s) on (_      %o~N       // words ending in -son
 
@@ -944,7 +989,7 @@ _redar) gu (A      gw
 ?1  _p) o (rtuC    u         // Portugal, Portucalense, etc...
 ?1  pr) o (f       u
 ?1  _s) o (lu      u         // solução, soluções.
-?1 interr) o (g       u         // eg: interrogação
+?1 interr) o (g    u         // eg: interrogação
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
         o (luem_   o
         o (ssuem_  o
@@ -1047,7 +1092,7 @@ _redar) gu (A      gw
         ovos (_A   Ov=Uz     novos, povos, etc.
 ?1      ovos (_G   Ov=UZ     novos, povos, etc.
 ?2      ovos (_G   Ov=Uz     novos, povos, etc.
-        ortos (_   O*t=Us# // tortos, mortos, etc.
+        ortos (_   O*t=Us#   // tortos, mortos, etc.
   _Gar) o (tL08_   o
  _escr) o (tL08_   o
    zig) o (to_     o
@@ -1083,23 +1128,24 @@ _ortod) o (xL08_   O
         ói (s      ''OI
         ó (iCK     ''O
         óu         ''Ow
+        óu (s      ''Ow
         óy         ''OI
 
+?4      ói         ''Oj
+?4      ói (s      ''Oj
 
 .group õ
         õ          o~
         õe         oI~
 
+?4      õe         o~j
+
 
 .group p
      _) p (_       pe
         p          p
-        p (p 
-?3      p (p 
 ?3      p (B       pI/
-?3      p (s       p
-?3      p (t       p
-?3      p (_C      p_
+        p (p+ 
         ph         f
         play       pl'eI
 ?2   _) práxis (_  p*'aksis
@@ -1109,6 +1155,7 @@ _ortod) o (xL08_   O
      _) q (_       ke
         q          k
 ?3      q (B       kI/
+        q (q+ 
         qu         kw
         qü         kw
         qu (Y      k
@@ -1159,7 +1206,11 @@ _ortod) o (xL08_   O
      l) r (A       R#
      n) r (+       R#
      s) r          R#
-?1   A) r (_       *
+
+?4   A) rr         R#        // terra
+?4   A) r (G       r         // born, borg
+?4   A) r (l       r         // carl, pearl
+?4   A) r (s       r         // perspectiva
 
 
 .group s
@@ -1198,16 +1249,16 @@ _ortod) o (xL08_   O
   _sub) s (ist     z
 ?1      ssion (_   _^_EN
 
+    @!) ski (_     sk%i      // Polish immigrants
 
 .group t
      _) t (_       te
         t          t
-        t (t 
-?3      t (t 
-?3      t (B       tSI/
-?3      t (_C      t_
+?3      t (B       t#I/
+        t (t+ 
 ?2      t (i       tS
 ?2      t (í       tS
+?2      t (y       tS
 ?2      t (e_      tS
 ?2      t (_       tS
 
@@ -1220,6 +1271,8 @@ _ortod) o (xL08_   O
 
 ?1      tion (_    _^_EN
 ?2   A) te (o_     tSj
+
+    @!) tti (_     =t#i       // Italian immigrants
 
 
 .group u
@@ -1242,9 +1295,12 @@ _ortod) o (xL08_   O
         u (éC      u
         u (íC      u
         uy         uI
-        ul (K      uw
+        ul (B      uw
         u (lh+     u
         u (ll+     u
+
+?4      ui         uj
+?4      ui (_      'uj
 
         um (K      u~N
         un (K      u~N
@@ -1266,10 +1322,8 @@ _ortod) o (xL08_   O
 .group v
      _) v (_       ve
         v          v
-        v (v 
-?3      v (v 
 ?3      v (B       vI/
-?3      v (_C      v_
+        v (v+ 
 
 
 .group w
@@ -1362,16 +1416,15 @@ _lagarti) x (A     S
 ?2   _) y (_       'ipsilo~N
         y          i
         y (A       j
-        y (_       %i        // ?? stress on 1st syllable  EN
+        y (_       %i        // ?? stress on 1st syllable  EN // TODO
 
 
 .group z
      _) z (_       ze
         z          z
-        z (z 
-?3      z (z 
 ?3      z (B       zI/
-?3      z (_C      z_
+        z (z+ 
+
 ?1   @) z (_       S
 ?2   @) z (_       s
      @) z (_A      z
@@ -1382,12 +1435,17 @@ _lagarti) x (A     S
 ?1   A) z (_C      S
 ?1   A) z (_G+     Z
    _pi) zz (a      t|s
-?3 _pi) zz (a      tI/s
 
 
 .group
         ç          s
 
+        è          E
+
+        ä          a
+        ë          e
+        ö          o
+        ï          i
         ü          u
         ß          s
 
