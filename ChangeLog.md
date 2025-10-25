@@ -13,6 +13,9 @@ new languages:
 *  ps (Pashto) -- Hanif Rahman 
 *  rup (Aromanian) -- Andy Vladescu
 
+removed languages:
+*  en-Shaw (English, Shavian script) -- Manx Juan
+
 ### 1.52.0
 
 attention! this is the last release witch support the autoconf build system. use cmake to compile espeak-ng.
