@@ -10,10 +10,13 @@ The espeak-ng project is a fork of the espeak project.
 ### 1.53.0 Beta 1
 
 new languages:
+*  en-gb (English, United Kingdom of Great Britain and Northern Ireland) -- Manx Juan
+*  en-us (English, United States of America) -- Manx Juan
+*  en-us-nyc (English, United States of America, New York City) -- Manx Juan
 *  ps (Pashto) -- Hanif Rahman 
 *  rup (Aromanian) -- Andy Vladescu
 
-nonstandard languages:
+obsolete languages:
 *  en-Shaw (English, Shavian script) -- Manx Juan
 
 ### 1.52.0
