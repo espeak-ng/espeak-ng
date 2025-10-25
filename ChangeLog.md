@@ -7,7 +7,7 @@
 
 The espeak-ng project is a fork of the espeak project.
 
-### 1.53.0 Beta
+### 1.53.0 Beta 1
 
 new languages:
 *  ps (Pashto) -- Hanif Rahman 
