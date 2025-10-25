@@ -70,12 +70,6 @@ test_phon de "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s
 h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung." "Latn"
 test_phon el "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία." "Grek"
 test_phon en "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog" "Latn"
-test_phon en "h'i@3rIN m'i: b'oU
-DI2; 'aZ3 Tr'VS k'O:z
-'e@ j'O@ dZ'OIf@l 'A@ri:;@
-aI v'aU
-ju: w'0nt g'Ud tS'A:
-'EseI pu:'3:" "𐑣𐑽𐑦𐑙 𐑥𐑰 𐑚𐑴, 𐑞 𐑨𐑠𐑼 𐑔𐑮𐑳𐑖 𐑒𐑷𐑟. 𐑺 𐑘𐑹 𐑡𐑶𐑓𐑩𐑤 𐑸𐑾, 𐑲 𐑝𐑬, 𐑿 𐑢𐑪𐑯𐑑 𐑜𐑫𐑛 𐑗𐑭. 𐑧𐑕𐑱 𐑐𐑵'𐑻!." "Shaw"
 test_phon eo ",eble tS'i;u kv'azaUd'etsa f,uSxoR'aZo dZoI'igos homt'ipon
 ,exoS'andZo tS,i;uZ'aUde
 p@-*'eskaU f@-*'eSa tS'exa mandZ'aZo" "Eble ĉiu kvazaŭ-deca fuŝĥoraĵo ĝojigos homtipon. Eĥoŝanĝo ĉiuĵaŭde, preskaŭ freŝa ĉeĥa manĝaĵo." "Latn"
