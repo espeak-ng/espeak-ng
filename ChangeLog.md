@@ -7,13 +7,13 @@
 
 The espeak-ng project is a fork of the espeak project.
 
-### 1.53.0
+### 1.53.0 Beta
 
 new languages:
 *  ps (Pashto) -- Hanif Rahman 
 *  rup (Aromanian) -- Andy Vladescu
 
-removed languages:
+nonstandard languages:
 *  en-Shaw (English, Shavian script) -- Manx Juan
 
 ### 1.52.0
