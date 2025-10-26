@@ -107,10 +107,17 @@ endphoneme
 
 // Nasal Vowels
 
+procedure N?
+  IF nextPh(N) THEN
+    length 160
+  ENDIF
+endprocedure
+
 phoneme &~
   vwl  starttype #@ endtype #@
   ipa ɐU+0303
   length 180
+  CALL N?
   IF thisPh(isFinalVowel) THEN
     FMT(vnasal/a#_n2)
   ELSE
@@ -121,12 +128,14 @@ endphoneme
 phoneme e~
   vwl starttype #e endtype #e
   length 180
+  CALL N?
   FMT(vnasal/e_n)
 endphoneme
 
 phoneme i~
   vwl starttype #i endtype #i
   length 180
+  CALL N?
   IfNextVowelAppend(;)
   FMT(vnasal/i_n)
 endphoneme
@@ -134,12 +143,14 @@ endphoneme
 phoneme o~
   vwl starttype #o endtype #o
   length 180
+  CALL N?
   FMT(vnasal/o_n)
 endphoneme
 
 phoneme u~
   vwl starttype #u endtype #u
   length 180
+  CALL N?
   FMT(vnasal/u_n)
 endphoneme
 
