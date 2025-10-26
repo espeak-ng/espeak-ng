@@ -89,7 +89,9 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1   p) a (d_      =E
 ?1      a (l_      'A        // eg: Portugal, capital, etc.
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
+?2      al (_      aU
 ?2      al (B      aU
+?4      al (_+     aw
 ?4      al (B+     aw
 ?2      al (_A     aw
 ?2      al (_hA    aw
@@ -190,10 +192,11 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ái (s      ''aI
         á (iCK     ''a
         áy         ''aI
-        ál (B      ''aU
+?1      ál (B      ''Al
+?2      ál (B      ''aU
+?4      ál (B      ''aw
         áu         ''aU
         áu (s      ''aU
-?1      ál         ''Al
         á (uCK     ''a
 
 ?4      ái         ''aj
@@ -260,10 +263,13 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 
 ?1      e (e       i         // eg: candeeiro
 
+?2      el (_      EU
 ?2      el (B      EU
-?4      el (B      Ew
+?4      el (_+     Ew
+?4      el (B+     Ew
         e (lh+     e
         e (ll+     E
+
         et (_  EtS
 
         e (bL02_   E
@@ -648,7 +654,8 @@ _entorp) e (çL03_  e
         éi (s      ''EI
         é (iCK     ''E
         éy         ''EI
-        él (B      ''EU
+?2      él (B      ''EU
+?4      él (B+     ''Ew
         éu         ''EU
         éu (s      ''EU
         é (uCK     ''E
@@ -741,8 +748,10 @@ _redar) gu (A      gw
     Cl) i          i
         i (_       'i
 
+?2      il (_      iU
 ?2      il (B      iU
-?4      il (B      iw
+?4      il (_+     iw
+?4      il (B+     iw
         i (lh+     i
         i (ll+     i
 
@@ -806,7 +815,8 @@ _redar) gu (A      gw
         ím (K      ''i~N
         ín (K      ''i~N
         ính        ''in^
-        íl (B      ''IU
+?2      íl (B      ''iU
+?4      íl (B      ''Iw
 
 
 .group j
@@ -936,8 +946,9 @@ _redar) gu (A      gw
         o (veCs_   O
 
         o (l_      'O
-?2      ol (B      oU
-?4      ol (B      ow
+?2      ol (_      'Ow
+?2      ol (B      ow
+
         o (ma_     o
     @s) on (_      %o~N       // words ending in -son
 
@@ -1047,7 +1058,6 @@ _redar) gu (A      gw
    emb) o (lsL04_  O
   _env) o (ltL08_  o
   _esC) o (pA_     o
-     g) ol (pe_    Ow
   antr) o (pL08_   o
   flex) o (rA_ 
      p) o (rL02_   o
@@ -1133,6 +1143,8 @@ _ortod) o (xL08_   O
 
 ?4      ói         ''Oj
 ?4      ói (s      ''Oj
+
+?2      ól (B      ''Ow
 
 .group õ
         õ          o~
@@ -1295,7 +1307,9 @@ _ortod) o (xL08_   O
         u (éC      u
         u (íC      u
         uy         uI
-        ul (B      uw
+
+?2      ul (_      uw
+?2      ul (B      uw
         u (lh+     u
         u (ll+     u
 
@@ -1315,6 +1329,7 @@ _ortod) o (xL08_   O
 
 .group ú
         ú          ''u
+?2      úl (B      ''uw
         úm (K      ''u~N
         ún (K      ''u~N
         únh        ''u~n^
