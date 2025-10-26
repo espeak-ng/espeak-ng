@@ -3,9 +3,9 @@ language pt 8
 name brazil-mbrola-2
 gender female
 
-speed 76
-voicing 160
-pitch 120 170
+speed 75
+voicing 155
+pitch 120 190
 
 dictrules 2 3 4
 mbrola br2 ptbr_phtrans

@@ -3,8 +3,8 @@ language pt 8
 name brazil-mbrola-3
 gender male
 
-speed 76
-voicing 160
+speed 75
+voicing 150
 pitch 80 120
 
 dictrules 2 3 4
