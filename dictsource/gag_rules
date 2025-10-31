@@ -67,7 +67,7 @@
 .group l
    l       l
    l (L02  L
- L02) l    L
+ L02) l (K L
    l (L01  l^
 
 .group m
@@ -172,7 +172,7 @@
 .group л
    л       l
    л (L12  L
- L12) л    L
+ L12) л (K L
    л (L11  l^
 
 .group м
