@@ -470,7 +470,6 @@ endphoneme
 
 phoneme ?  // glottal stp
   vls glt stp
-  lengthmod 1   // 5? longer preceding vowel
   nolink
   Vowelin  glstop
   Vowelout glstop
