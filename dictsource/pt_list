@@ -1455,9 +1455,6 @@ cratera		$alt
 crede		$alt2
 credo		$alt
 crimeia		$alt
-darwiniana	d,a*vini'&n&
-darwiniano	d,a*vini'&nU
-darwinismo	d,a*vin'izmU
 decoreba	$alt
 decoro		$alt2 $noun
 degelo		$alt2
@@ -1935,7 +1932,7 @@ airbag		,Er#b'Eg
 airfryer	,Er#f*'aIer#
 album		'al#buN
 ?2 álcool	'aUkoU
-alien		$1
+alien		'alieN
 alive		&l'aIv
 all		Ol
 allegretto	aleg*'eto
@@ -2018,6 +2015,7 @@ beagle		b'igol
 beatle		b'itoU
 beatles		b'itoUs
 beatnik		b'itn'ik
+behavior	bIh'eIvior#
 beige		b'EZy
 berceuse	bEr#s'ezI/
 bergère		bEr#Z'Er#
@@ -2253,7 +2251,7 @@ close		kl'ozy
 closet		kl'ozyt#
 cloud		kl'aUd#
 clown		kl'aUN
-club		kl'&b
+club		kl'&b $only
 clumber		kl'&Nber#
 cluster		kl'&ster#
 (co worker)	k,ow'or#ker#
@@ -2645,10 +2643,11 @@ gauche		_^_FR
 gauleiter	g'aUlaIter#
 gay		g'eI
 geek		g'ik
+geiger		g'aIger#
 gemini		Z'emini
 genesis		$1
 gentleman	dZ'EntoUman
-gestalt		geSt'alt#
+gestalt		geSt'al#t#
 get		g'Et#
 getter		g'Eter#
 ghost		g'oUst#
@@ -3170,7 +3169,7 @@ peppermint	_^_EN
 (per capita)	p'er#||c'apit&
 performance	$2 $alt
 performer	$2 $alt
-personal	$1
+personal	p'er#sonal#
 pet		p'Et#
 petenera	_^_ES
 (petit beurre)	_^_FR
@@ -3341,7 +3340,7 @@ restaurateur	R#Estorat'Er
 rétro		R#et*o
 reuters		R#'OIters
 réveillon	R#evej'oN
-revival		R#iv'aIv&l
+revival		R#iv'aIv&l $only
 revolution	R#,Evol'uS@N
 richmond	_^_EN
 riesling	_^_DE
@@ -3461,6 +3460,7 @@ showrunner	_^_EN
 shunt		_^_EN
 shutdown	S,&t#d'aUN
 sidecar		_^_EN
+sievert		s'iver#t#
 sign		s'aIn
 ?4 símbolo	s'iNbolU
 sir		s'@r
@@ -3842,7 +3842,7 @@ baby		b'eIby
 boeing		b'Oi~Ng
 bohemia		$2
 brahma		b*'&ma
-bud		b&d#
+bud		b&d# $only
 budweiser	b&dv'aIzer#
 byd		b,iw,aId'i
 campari		$2
@@ -3867,6 +3867,7 @@ github		g,ith'&bI/
 heineken	h'aInekeN
 honda		h'oNd&
 hyundai		hj,u~Nd'aI
+huawei		waw'ej
 ifood		,aIf'Ud#
 instagram	,i~Nstag*'&N
 iphone		,aIf'ony
@@ -3893,6 +3894,7 @@ movie		m'uvi
 ?1 nero		n'Eru
 ?2 netbook	nEtbUk
 ?2 notebook	noUtbUk
+nokia		n'Okj&
 notepad		noUt#p'Ed#
 nvidia		eny||v'id#j&
 ?1 office	'Of,is
@@ -3913,6 +3915,7 @@ reader		R#'id,er
 renault		R#en'o
 setup		s'Et,&p
 schin		sk'IN
+siemens		s'imeINs
 skol		s#k'Ol#
 ?1 skype	sk'aip
 ?2 skype	sk'aIpI/
@@ -3936,6 +3939,7 @@ ubuntu		ub'untu
 volkswagen	fol#ksv'ageN
 ?1 window	w'iNd'ou
 ?2 window	w'iNdoU
+xiaomi		S'awmi
 
 
 // historical and famous people
@@ -3951,6 +3955,8 @@ armstrong	$1
 astaire		ast'Er#
 austen		$1
 babbage		b'abidZ
+bach		bax $only
+bach		bak $stem
 baldwin		$1
 bardot		bar#d'o
 bauman		b'aUm&N
@@ -3972,7 +3978,7 @@ billie		b'ili
 björk		bi'Or#k
 blair		bl'Er#
 bobbio		b'Obio
-bob		b'ObI/
+bob		b'ObI/ $only
 boccaccio	bok'atSjo
 bocelli		botS'Eli
 bosch		b'OS
@@ -4027,7 +4033,7 @@ curie		kuR#'i
 cusack		$1
 cyndi		$1
 cyrus		s'aIr@s
-dalton		$1
+dalton		dal#toN
 ?1 darwin	d'arwin
 ?2 darwin	d'arvin
 (da vinci)	da||v'iNtSi
@@ -4090,7 +4096,7 @@ freud		f*'OId#
 friedrich	f*'id*iS
 gable		g'eIbol#
 gandhi		g'&ndi
-galois		galw'a
+galois		galw'a $only
 gardner		$1
 garibaldi	$3
 garrett		gaR#'Et#
@@ -4133,7 +4139,7 @@ hepburn		h'EpIb@rn
 herschel	h'Er#Sel#
 heston		h'EstoN
 hilbert		h'ilber#t#
-hitler		h'itler
+hitler		h'itler#
 hitchcock	h'itSI/k'Ok
 ?2 hobbes	h'Obys
 hoffman		h'Ofm&N
@@ -4155,7 +4161,7 @@ janis		$1
 johnson		dZ'oNso~N
 joplin		$1 $alt
 joyce		dZ'OIsy
-justin		Z'ust#IN // also justiniano
+justin		dZ'&st#IN $only
 keanu		ki'&nU
 keaton		k'itoN
 keller		$1 $alt
@@ -4174,7 +4180,7 @@ lavoisier	lavwazj'e
 lawrence	_^_EN
 ledger		l'EdZer#
 leibniz		l'aIbni:ts
-lenin		l'enIN
+lenin		l'eniN
 lennon		$1
 lennox		$1
 leoni		$2
@@ -4477,7 +4483,7 @@ guidotti	$2 $alt
 hang		h'&Ng
 hannah		h'&~n&
 harry		h'Er,i
-helen		$1 $alt
+helen		$1 $only
 henry		$1
 herbert		$1 $alt
 hermann		_^_DE
@@ -4571,7 +4577,7 @@ palmieri	$3
 paraventi	$3
 parisi		$2
 patrick		$1
-paul		p'O:l
+paul		p'O:l $only
 pavanelli	$3
 pellegrini	$3
 périssé		peR#is'e
