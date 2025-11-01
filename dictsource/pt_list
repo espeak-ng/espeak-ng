@@ -2903,6 +2903,7 @@ leg		l'Eg
 legging		l'EgIN
 legato		_^_IT
 liard		_^_FR
+liechtenstein	liSteNst'aIN
 life		l'aIf
 lifestyle	l'aIfst'aIl
 liftvan		_^_EN
@@ -4085,12 +4086,14 @@ frankenstein	f*,&NkeINs#t'aIN
 frankl		f*'&Nkel
 freddie		f*'Ed#i
 freeman		f*'im&N
-freud		f*'OId
+freud		f*'OId#
 friedrich	f*'id*iS
 gable		g'eIbol#
 gandhi		g'&ndi
+galois		galw'a
 gardner		$1
 garibaldi	$3
+garrett		gaR#'Et#
 gates		g'eIt|s
 gaulle		g'oly
 gauss		g'aUs
@@ -4109,6 +4112,8 @@ halley		h'aleI
 hamlet		h'&mlet
 handel		h'eNdel#
 hanks		heNks
+hanover		han'over#
+hansen		h'&NseN
 hardy		har#d'i
 harper		h'ar#per#
 harris		h'Eris
@@ -4150,7 +4155,7 @@ janis		$1
 johnson		dZ'oNso~N
 joplin		$1 $alt
 joyce		dZ'OIsy
-justin		$1
+justin		Z'ust#IN // also justiniano
 keanu		ki'&nU
 keaton		k'itoN
 keller		$1 $alt
@@ -4192,7 +4197,7 @@ malthus		$1
 mariah		mar'aI&
 marilyn		m'ErilIN
 marley		$1
-martin		$1
+martin		m'ar#t#IN
 maslow		$1
 maupassant	_^_FR
 (mc carthy)	_^_EN
@@ -4297,6 +4302,7 @@ schubert	S'uber#t#
 schumann	S'um&N
 schwarzenegger	Swarzyn'Eger#
 shakespeare	S'eIksp,er#
+shakespear	S'eIksp,e* $stem // shakesperiano, shakesperiana
 sheeran		S'ir&N
 shelley		_^_EN
 sherlock	Ser#l'OkI/
@@ -4338,7 +4344,8 @@ tyson		t'aIsoN
 verdi		v'Er#di
 vivaldi		$2
 volpi		$1
-voltaire	vOlt'Er
+voltaire	vol#t'Er#
+voltair		vol#t'E* $stem // voltairiano, voltairiana
 von		f%ON
 vonnegut	_^_EN
 wallace		$1
@@ -4463,7 +4470,7 @@ giordani	$3
 giorgia		$2 $alt
 giovenazzi	$4
 giuliani	$3
-gregor		$1 $alt
+gregor		g*'Egor#
 gregory		$1 $alt
 grimaldi	$2
 guidotti	$2 $alt
