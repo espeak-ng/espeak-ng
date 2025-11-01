@@ -1950,7 +1950,7 @@ antispam	,&~Nt#isp'&~
 apartheid	,apar#t'aId#
 apfelstrudel	'apfelst*,udel
 aplomb		apl'o~
-app		'apI/
+app		'EpI/
 appassionato	a,pasjon'ato
 appeal		@p'il
 appoggiatura	a,podZat'u*a
@@ -2115,7 +2115,7 @@ buffer		b'&fer#
 buffering	b'&fer#IN
 buffet		buf'e
 buffalo		b'ufalU
-bug		b'&g
+bug		b'&g $only
 bullying	b'ulIN
 bunker		b'&Nker#
 bureau		bi*'o
@@ -2433,7 +2433,7 @@ développé	devylop'e
 diablerie	djableR#'i
 dial		daI'Al
 diesel		d#'izel#
-diet		d'aIet#
+diet		d'aIet# $only
 dimmer		d#'imer#
 disc		d#'isk
 disclaimer	dIskl'eImer#
@@ -2447,7 +2447,7 @@ distemper	dIst'emper#
 divertissement	d,ivEr#tism'&~
 ?1 dj		d,i:dZ'eI
 dobermann	d'ober#m&N
-doc		d'Ok
+doc		d'Ok $only
 dog		d'Og
 dogcart		g,Ogk'ar#t#
 ?2 doha		d'ox&
@@ -2484,7 +2484,8 @@ drive		d*'aIv
 driver		d*'aIver#
 drugstore	d*,&gst'Or#
 drumlin		d*'&NlIN
-dry		d*aI
+dry		d*'aI
+drywall		d*,aIw'Ol#
 dump		d'&~mp
 dumping		d'&~mpIN
 durée		_^_FR
@@ -2824,14 +2825,14 @@ interview	_^_EN
 intruder	_^_EN
 iowa		'aIow&
 ipsis		$1
-iron		'aIr#oN
+iron		'aIr#oN $only
 isospin		_^_EN
 jacquard	_^_FR
 jacquerie	_^_FR
 jaen		_^_ES
 (jam session)	_^_EN
 ?1 jazz		Zaz
-?2 jazz		dZIEs
+?2 jazz		dZIEs#
 jeans		dZ'ins
 jersey		dZ'Er#seI
 jet		Z'Et#
@@ -2898,7 +2899,7 @@ leasing		l'izIN
 leave		l'iv
 leaving		l'ivIN
 left		$alt
-leg		l'Eg
+leg		l'Eg $only
 legging		l'EgIN
 legato		_^_IT
 liard		_^_FR
@@ -3047,7 +3048,7 @@ muguet		_^_FR
 multiplet	_^_EN
 multistandard	_^_EN
 musette		_^_FR
-music		mj'uzik
+music		mj'uzik $only
 my		m'aI
 naïf		_^_FR
 nashville	_^_EN
@@ -3170,7 +3171,7 @@ peppermint	_^_EN
 performance	$2 $alt
 performer	$2 $alt
 personal	p'er#sonal#
-pet		p'Et#
+pet		p'Et# $only
 petenera	_^_ES
 (petit beurre)	_^_FR
 (petit four)	_^_FR
@@ -3585,7 +3586,7 @@ sunday		s'@ndeI
 deficit		d'Efysit#
 superavit	supe*'avit#
 surround	s&r'aUnd#
-surf		s'@r#f
+surf		s'@r#f $only
 surfing		_^_EN
 sursis		_^_FR
 sutiã		sutSi'&~N
@@ -3681,7 +3682,7 @@ tramway		_^_EN
 tranche		_^_FR
 transfer	$1
 translate	tr,&~Nsl'eIt#
-trap		tr'Ep
+trap		tr'Ep $only
 trash		tr'ES
 trattoria	_^_IT
 travel		tr'Evel#
@@ -3716,7 +3717,7 @@ umlaut		_^_DE
 under		'&~Nder#
 underground	,&~Nder#g*'aUNd#
 underwriting	_^_EN
-union		j'uni@n
+union		j'uni@n $only
 united		j,un'aIted#
 universe	j'univ,ers
 university	j,univ'ersIty
@@ -3769,6 +3770,7 @@ walk		w'Ok
 walker		w'Oker#
 walkie		w'Oki
 walkover	_^_EN
+wall		w'Ol#
 war		w'Or#
 warfare		w,Or#f'Er
 warrant		_^_EN
@@ -4419,7 +4421,7 @@ burlamaqui	$3
 caleb		$alt
 calloni		$2
 camarotti	$3 $alt
-carl		k'arl
+carl		k'arl $only
 castelli	$2
 cavalcanti	$3
 cavalli		$2
