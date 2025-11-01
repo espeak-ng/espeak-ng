@@ -2921,12 +2921,12 @@ living		l'ivIN
 llano		_^_ES
 load		l'oUd#
 london		$1
-lob		l'Ob
+lob		l'Ob $only
 lock		l'Ok
 lockdown	l,Okd'aUN
 lockout		l,Ok'aUt#
 loft		l'Oft#
-log		l'Og
+log		l'Og $only
 loggia		_^_IT
 loghouse	_^_EN
 login		l,og'IN
@@ -3947,7 +3947,7 @@ xiaomi		S'awmi
 // historical and famous people
 adams		'ad&~Ns
 alanis		$2
-alckmin		$1
+alckmin		'al#kmi~N
 alighieri	aligi'E*i
 (al pacino)	Al#||patS'inU
 alzheimer	aUz'aImEr
@@ -3996,7 +3996,7 @@ bradbury	b*,Ed#b'&ri
 brahms		b*&ms
 braxton		b*'EkstoN
 brecheret	b*eSe*'e
-brecht		$alt
+brecht		b*ESt#
 brontë		b*oNt'e
 brutus		$1
 bündchen	b'iNSeIN
@@ -4051,7 +4051,7 @@ denzel		$1
 depp		$alt
 descartes	dek'ar#t#
 (di caprio)	d#,i||k'ap*iU
-dickens		$1
+dickens		d#'ikeINs
 dickinson	$1
 diderot		d#ideR#'o
 dijkstra	d'aIkst*&
@@ -4062,7 +4062,7 @@ drucker		d*'&ker#
 durkheim	dur#kI/h'aIN
 dvorak		dyv'O*ak
 dworkin		dw'or#kIN
-dylan		$1
+dylan		d#'il&~N
 eastwood	'istwud#
 eddie		'Ed#i
 eilish		'EliS
@@ -4085,7 +4085,7 @@ fishburne	f'iSb@rn
 fisher		$1
 fitzgerald	fitI/sdZ'E*al#d#
 flaubert 	flob'Er#
-fleming		$1
+fleming		fl'emiN
 fontaine	fo~t'eIN
 ford		fOr#d#
 foucault	fuk'o
@@ -4114,7 +4114,7 @@ gogh		$alt
 gosling		$1 $alt
 gottfried	g'Otf*i:t
 goulart		gul'ar#t
-gulliver	$1
+gulliver	g'uliver#
 hackman		h'Ekm&n
 halley		h'aleI
 hamlet		h'&mlet
@@ -4168,7 +4168,7 @@ keanu		ki'&nU
 keaton		k'itoN
 keller		$1 $alt
 kelsen		k'El#seN
-kennedy		$1
+kennedy		k'ened#i
 kepler		k'Epler#
 kernighan	_^_EN
 kerouac		_^_EN
@@ -4196,11 +4196,11 @@ lovecraft	_^_EN
 lovelace	l'OvyleIs
 loveless	l'OvylEs
 lundgren	l'@NdgreN
-luther		$1
+luther		l'uter#
 mahatma		mah'atm&
 malcolm		m'al#koN
 malkovich	$1
-malthus		$1
+malthus		m'al#tus#
 (mao tse)	m,aU||t|s'E
 mariah		mar'aI&
 marilyn		m'ErilIN
@@ -4213,7 +4213,7 @@ maupassant	_^_FR
 melchior	mel#kj'Or#
 meloni		$2
 melville	_^_EN
-mendel		$1
+mendel		m'eINdel#
 mercury		$1 $alt
 messi		$1 $alt
 michelangelo	mikel'&~NZelU
@@ -4237,7 +4237,7 @@ moore		_^_EN
 morgan		m'Org&N
 morissette	$alt
 morrison	m'OrisON
-mozart		$1
+mozart		m'ozar#t#
 munch		m'uNk
 mussolini	$3
 murphy		m'@r#fi
@@ -4250,7 +4250,7 @@ newton		n'I;utoN
 nicholson	n'ikol#soN
 nietzsche	n'itS@
 nightingale	n,aIt#INg'eIl
-nixon		$1
+nixon		n'iksoN
 nolan		$1
 norris		n'Oris
 ockham		'ok&N
@@ -4266,7 +4266,7 @@ pauling		$1
 (paulo ii)	p'aUlU||s,eg'u~NdU
 (pedro i)	p'ed*U||p*,im'eI*U
 (pedro ii)	p'ed*U||s,eg'u~NdU
-pavlov		$alt
+pavlov		pavl'Ov
 piaget		p,iaZ'e
 poitier		pwati'er#
 pollock		$1 $alt
@@ -4277,10 +4277,11 @@ powell		p'awel#
 presley		$1 $alt
 proust		p*'ust#
 puccini		pus'ini
-putin		$1
+putin		p'ut#iN
 ratzinger	R#'atzINger#
 reeves		r'ivys
 rené		R#en'e
+renée		R#en'e
 rembrandt	R#eNb*&~Nt#
 richard		x'iS&rd
 ricoeur		_^_FR
@@ -4314,7 +4315,7 @@ shakespear	S'eIksp,e* $stem // shakesperiano, shakesperiana
 sheeran		S'ir&N
 shelley		_^_EN
 sherlock	Ser#l'OkI/
-skinner		$1
+skinner		sk'iner#
 somerville	_^_EN
 spacey		sp'eIsi
 spielberg	sp'il#b,er#g
@@ -4354,7 +4355,7 @@ vivaldi		$2
 volpi		$1
 voltaire	vol#t'Er#
 voltair		vol#t'E* $stem // voltairiano, voltairiana
-von		f%ON
+von		f%ON $only
 vonnegut	_^_EN
 wallace		$1
 warhol		w'OrhOl#
