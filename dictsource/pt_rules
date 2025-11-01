@@ -162,7 +162,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?4      au         aw
 ?4      au (s      aw
 
-     _) anti (@@P4 ,&~Nt#i   // antidoping, anticorpos (ó), *antieinstein (neologism)
+     _) anti (@@P4 ,&~Nt#i   // antidoping, anticorpos (ó), *antieinstein
+     _) anti (\-P4 ,&~Nt#i   // anti-herói, anti-imperialismo, anti-islâmico
      _) auto (@@P4 ,aUto     // o autogoverno (ê), o autocontrole (ô)
 
 .group â
@@ -734,6 +735,16 @@ _redar) gu (A      gw
 ?1   _) help       _^_En
 ?2   _) hel (p     x'EU
 
+?1   _) homo (@    OmO
+?1   _) homó (@    Om''O
+?1   _) homô (@    Om''o
+?1   _) homo (lo@  Omu
+
+?1   _) homeo (@    OmjO
+?1   _) homeó (@    Omj''O
+?1   _) homeô (@    Omj''o
+?1   _) homeo (gra  Omju
+
 
 .group i
      _) i (_       i
@@ -813,8 +824,8 @@ _redar) gu (A      gw
     @@) iano (_S4q i''&~nU   // darwiniano, einsteiniano, hertziano
     @@) iana (_S4q i''&~n&   // darwiniana, einsteiniana, hertziana
 
-    @@) ismo (_S4q ''izmU    // darwinismo, hitlerismo, gestaltismo
-    @@) ista (_S4q ''ist&    // darwinista, hitlerista, gestaltista
+    @@) ismo (_S4q ''is#mU    // darwinismo, hitlerismo, gestaltismo
+    @@) ista (_S4q ''is#t&    // darwinista, hitlerista, gestaltista
 
 
 .group í
@@ -1266,10 +1277,17 @@ _ortod) o (xL08_   O
         s (w+      s
         sr         zx
      _) sobre (@P5 sob*e
-  tran) s (A       z
+   _ob) s (eq      z         // obsequioso
+   _ob) s (éq      z         // obséquio
+  tran) s (A       z         // trans+amazônico, except tran+secular
  _trân) s (ito_    z
   _sub) s (ist     z
 ?1      ssion (_   _^_EN
+
+?1   _) semi (@   s,ym%i    // semiárido, semibárbaro, semicírculo
+?2   _) semi (@   s,em%i    // semiárido, semibárbaro, semicírculo
+?1   _) semi (\-  s,ym%i    // semi-internato, semi-inconsciente
+?2   _) semi (\-  s,em%i    // semi-internato, semi-inconsciente
 
      _) sch (K     S         // schmidt, schneider
     @!) ski (_     sk%i      // Polish immigrants
@@ -1378,7 +1396,7 @@ _ortod) o (xL08_   O
         x (s 
      A) x (_       ks
         x (AxA     S
-        x (ó_      z
+     A) x (ó_      S         // riquexó, pataxó
      a) x (a       S
      a) x (á       S
      a) x (ar      S
