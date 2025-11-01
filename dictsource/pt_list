@@ -1469,7 +1469,7 @@ desapego	$alt $verb
 desassossego	$alt2 $noun
 desconfortos	$alt2
 desconsolo	$alt2 $noun
-descontrol	$alt2 $noun
+descontrole	$alt2 $noun
 descordo	$alt
 descorno	$alt
 desemprego	$alt2
@@ -1571,7 +1571,6 @@ exagero		$alt $verb
 exegeses	$alt
 exorto		$alt
 ?2 expert	Eksp'E*t
-?2 experts	Eksp'E*ts
 explore		$alt
 falangeta	$alt2
 farofa		$alt
@@ -2748,6 +2747,7 @@ healthcare	h,ElTk'Er
 heart		h'or#t#
 hédge		_^_EN
 hélas		_^_FR
+hemp		h'eINpI/
 hereford	_^_EN
 hertz		h'Er#t|s
 (hi fi)		h,aI||f'aI
@@ -2936,6 +2936,7 @@ longline	_^_EN
 look		l'uk
 loop		l'up
 looping		l'upiN
+lord		l'Or#d
 lorgnon		_^_FR
 (los angeles)	l'oz||'&~NZelys#
 löss		_^_DE
@@ -3203,6 +3204,7 @@ pizzicato	_^_IT
 place		pl'eIsy
 plafonnier	_^_FR
 plaid		_^_EN
+planet		$1
 plantation	_^_EN
 play		pl'eI
 playback	pl'eIb,Ek
@@ -3376,7 +3378,7 @@ ruche		_^_FR
 rush		r'&S
 sake		s'eIk
 safari		$2
-saint		s'eInt#
+saint		s'eINt#
 sanctus		s'&~nktUs
 (sans culotte)	s'&~||kul'Ot#
 ?1 sapi		s,ap'i
@@ -3394,6 +3396,7 @@ scherzo		sk'e*t|so
 schilling	_^_DE
 scholar		_^_EN
 schottisch	_^_DE
+science		s'aIeINs
 (sci fi)	s,aIf'aI
 sciolto		_^_IT
 scooter		sk'uter#
@@ -3949,11 +3952,17 @@ austen		$1
 babbage		b'abidZ
 baldwin		$1
 bardot		bar#d'o
+bauman		b'aUm&N
 baudelaire	bodel'Er#
 beauvoir	bovw'ar#
+belchior	bel#kj'Or#
+beethoven	bet'oveN
+bergman		$1 $alt
+bergoglio	ber#g'Oljo
 berners		$1
 bernhard	bern'ard#
 bernoulli	b,er#nul'i
+bertolucci	b,er#tol'utSi
 bayes		b'eIs#
 beyoncé		bioNs'e
 biden		b'aIdeIN
@@ -3963,21 +3972,34 @@ björk		bi'Or#k
 blair		bl'Er#
 bobbio		b'Obio
 bob		b'ObI/
+boccaccio	bok'atSjo
 bocelli		botS'Eli
+bosch		b'OS
+botticelli	bot#itS'ElI
 bohr 		bOr#
 boole		b'uly
+bossuet		bosw'E
+bourdieu	bur#dj'e
 bovary		bovaR#'i
 bowie		b'oUwi
 brad		b*Ed#
 bradbury	b*,Ed#b'&ri
 brahms		b*&ms
 braxton		b*'EkstoN
+brecheret	b*eSe*'e
+brecht		$alt
 brontë		b*oNt'e
 brutus		$1
+bündchen	b'iNSeIN
+burton		b'&r#toN
+byron		b'aI*oN
+cameron		k'emeroN
+caravaggio	$3
 carey		k'EreI
 carpenter	$1
 carroll		k'Erol#
 carter		$1
+caymmi		ka'imi
 céline		$2
 chandler	$1
 chaplin		S'aplIN
@@ -4014,19 +4036,21 @@ deadpool	dEd#p'ul#
 dean		d'iN
 debussy		$3
 defoe		def'oU
+delacroix	delak*w'a
 deleuze		del'uzy
 denzel		$1
 depp		$alt
-rené		R#en'e
 descartes	dek'ar#t#
 (di caprio)	d#,i||k'ap*iU
 dickens		$1
 dickinson	$1
 diderot		d#ideR#'o
 dijkstra	d'aIkst*&
+disney		d'isneI
 downey		d'aUneI
 doyle		d'OIly
-durkheim	dur#kh'aIN
+drucker		d*'&ker#
+durkheim	dur#kI/h'aIN
 dvorak		dyv'O*ak
 dworkin		dw'or#kIN
 dylan		$1
@@ -4035,24 +4059,30 @@ eddie		'Ed#i
 eilish		'EliS
 einstein	'aINs#t,aIN
 eisenhower	,aIzeNh'aUer
+eller		$1 $alt
 elvis		'El#vis
 eminem		$1
 exupéry		ezupeR#'i
 fahrenheit	f,a*eNh'aIt#
 faulkner	f'Ol#kner#
+fellini		$2
 fermat		fer#m'a
 fermi		$1 $alt
 feuerbach	f,OIer#b,ah
 feynman		f'ainm&N
+fibonacci	fibon'atSi
+fincher		$1
 fishburne	f'iSb@rn
 fisher		$1
 fitzgerald	fitI/sdZ'E*al#d#
 flaubert 	flob'Er#
 fleming		$1
+fontaine	fo~t'eIN
 ford		fOr#d#
 foucault	fuk'o
 françois	f*&~Nsw'a
 frankenstein	f*,&NkeINs#t'aIN
+frankl		f*'&Nkel
 freddie		f*'Ed#i
 freeman		f*'im&N
 freud		f*'OId
@@ -4061,12 +4091,15 @@ gable		g'eIbol#
 gandhi		g'&ndi
 gardner		$1
 garibaldi	$3
+gates		g'eIt|s
 gaulle		g'oly
 gauss		g'aUs
 geisel		g'aIzEl#
+gessinger	g'EsiNger#
 gibbon		g'iboN
 goebbels	g'obel#s
 goethe		g'ete
+gogh		$alt
 gosling		$1 $alt
 gottfried	g'Otf*i:t
 goulart		gul'ar#t
@@ -4087,7 +4120,7 @@ hayworth	h'eIworT
 heath		h'ET
 hegel		h'egel#
 heidegger	h'aIdege
-heisenberg	h'aIzEnberg
+heisenberg	h'aIzeNberg
 heller		h'Eler#
 hemingway	h'EmIN,weI
 hendrix		h'eNdr#iks
@@ -4096,8 +4129,10 @@ herschel	h'Er#Sel#
 heston		h'EstoN
 hilbert		h'ilber#t#
 hitler		h'itler
+hitchcock	h'itSI/k'Ok
 ?2 hobbes	h'Obys
 hoffman		h'Ofm&N
+holmes		h'oUmys
 hooke		h'uky
 hopper		h'Oper
 houaiss		u'aIs#
@@ -4118,6 +4153,7 @@ joyce		dZ'OIsy
 justin		$1
 keanu		ki'&nU
 keaton		k'itoN
+keller		$1 $alt
 kelsen		k'El#seN
 kennedy		$1
 kepler		k'Epler#
@@ -4126,6 +4162,7 @@ kerouac		_^_EN
 kierkegaard	k,ir#keg'o
 koch		k'Ok
 kubitschek	k,ubyS'Ek
+kubrick		$1
 lauper		l'aUper#
 laurence	$1
 lavoisier	lavwazj'e
@@ -4135,6 +4172,7 @@ leibniz		l'aIbni:ts
 lenin		l'enIN
 lennon		$1
 lennox		$1
+leoni		$2
 liam 		l'i&N
 lincoln		l'inkoN
 lispector	$2 $alt
@@ -4145,20 +4183,27 @@ lovecraft	_^_EN
 lovelace	l'OvyleIs
 loveless	l'OvylEs
 lundgren	l'@NdgreN
+luther		$1
 mahatma		mah'atm&
+malcolm		m'al#koN
 malkovich	$1
 malthus		$1
 (mao tse)	m,aU||t|s'E
 mariah		mar'aI&
+marilyn		m'ErilIN
 marley		$1
 martin		$1
+maslow		$1
 maupassant	_^_FR
 (mc carthy)	_^_EN
 (mc cartney)	_^_EN
+melchior	mel#kj'Or#
 meloni		$2
 melville	_^_EN
 mendel		$1
 mercury		$1 $alt
+messi		$1 $alt
+michelangelo	mikel'&~NZelU
 (michel temer)	miS'El#||t'emer#
 miley		m'aIli
 miller		$1
@@ -4170,7 +4215,9 @@ mohammed	moh'amed
 muhammad	muh'amad
 muhammed	muh'amed
 molière		moli'Er#y
+molotov		molot'Ov
 monroe		m'oNrow
+monet		mon'e
 montaigne	moNt'eIN
 montesquieu	m,oNteskj'e
 moore		_^_EN
@@ -4178,6 +4225,7 @@ morgan		m'Org&N
 morissette	$alt
 morrison	m'OrisON
 mozart		$1
+munch		m'uNk
 mussolini	$3
 murphy		m'@r#fi
 murray		m'@reI
@@ -4188,7 +4236,9 @@ newman		n'iUm&N
 newton		n'I;utoN
 nicholson	n'ikol#soN
 nietzsche	n'itS@
+nightingale	n,aIt#INg'eIl
 nixon		$1
+nolan		$1
 norris		n'Oris
 ockham		'ok&N
 oppenheimer	,Op@nh'aImer#
@@ -4203,14 +4253,22 @@ pauling		$1
 (paulo ii)	p'aUlU||s,eg'u~NdU
 (pedro i)	p'ed*U||p*,im'eI*U
 (pedro ii)	p'ed*U||s,eg'u~NdU
+pavlov		$alt
 piaget		p,iaZ'e
 poitier		pwati'er#
+pollock		$1 $alt
 popper		_^_EN
+portinari	$3
+possi		$1 $alt
+powell		p'awel#
 presley		$1 $alt
 proust		p*'ust#
 puccini		pus'ini
 putin		$1
+ratzinger	R#'atzINger#
 reeves		r'ivys
+rené		R#en'e
+rembrandt	R#eNb*&~Nt#
 richard		x'iS&rd
 ricoeur		_^_FR
 riemann		r'i:man
@@ -4218,6 +4276,7 @@ rihanna		R#i'&n&
 rijndael	R#'aINd'al#
 rimbaud		_^_FR
 ritchie		_^_EN
+rodin		R#od'&~
 roitman		R#'OItSIm&~N
 roosevelt	R#'uzyvelt
 rossini		R#os'ini
@@ -4228,8 +4287,10 @@ rowling		_^_EN
 russell		R#'usEl
 sagan		s'eIg&N
 salinger	$1
-sartre		sar#t*y
+sanzio		$1
+sartre		s'ar#t*y
 schönberg	S'oNber#g
+schopenhauer	S,opeN'haUer#
 schrödinger	Sr'edinger
 schroedinger	Sr'edinger
 schubert	S'uber#t#
@@ -4238,8 +4299,11 @@ schwarzenegger	Swarzyn'Eger#
 shakespeare	S'eIksp,er#
 sheeran		S'ir&N
 shelley		_^_EN
+sherlock	Ser#l'OkI/
+skinner		$1
 somerville	_^_EN
 spacey		sp'eIsi
+spielberg	sp'il#b,er#g
 stalin		st'alIN
 steinbruch	staINbruk
 stendhal	st&Ndal#
@@ -4255,12 +4319,16 @@ tchaikovski	tSaIk'Ovs#ki
 teller		t'Eler#
 temple		t'eNpol#
 terry		t'Eri
+tesla		$alt
 thatcher	t'atSer
 thoreau		_^_EN
 thor		t'Or#
 thousand	T'aUz&Nd
+toller		$1 $alt
 tolstoi		$alt
+torricelli	toR#itS'Eli
 torvalds	$1
+truffaut	t*uf'o
 truman		$1
 trump		t*&~Np
 turing		t'u*iNg
@@ -4269,12 +4337,15 @@ twain		tw'eIN
 tyson		t'aIsoN
 verdi		v'Er#di
 vivaldi		$2
+volpi		$1
 voltaire	vOlt'Er
 von		f%ON
 vonnegut	_^_EN
 wallace		$1
+warhol		w'OrhOl#
 watson		w'OtsoN
 wayne		w'eIny
+werner		v'Er#ner#
 whitman		$1
 wilde		w'aIl#d#
 willis		$1
@@ -4283,11 +4354,15 @@ winston		$1
 wolfgang	v'ol#fg,&Ng
 wolverine	volve*'iny
 wonder		$1
+woody		w'ud#i
 woolf		_^_EN
+wojtyla		vojt#'ila
 wright		_^_EN
+zuckerberg	$alt
 
 
 // foreign names and surnames
+abraham		$1
 adrian		$1
 agostini	$3
 ahmed		ahmEd#
@@ -4317,6 +4392,7 @@ bellini		$2
 benini		$2
 bernardi	$2
 bianchi		bi'&Nki
+bill		b'il#
 bloch		bl'Ok
 bohn		b'ON
 bonelli		$2
@@ -4347,6 +4423,7 @@ deborah		$1 $alt
 dennis		$1
 dieckmmann	d#'ikm&N
 diehl		_^_DE
+dmitri		d#ym'itri
 donald		$1
 donati		$2
 duailibi	$3
@@ -4381,6 +4458,7 @@ gerald		$1
 gerardi		$2
 giardini	$2
 gibson		g'ibsoN
+giovanni	$3
 giordani	$3
 giorgia		$2 $alt
 giovenazzi	$4
@@ -4460,6 +4538,7 @@ martini		$2
 meneghetti	$3 $alt
 meyer		m'EIer#
 michael		m'aIk@l#
+midlej		m'idlej
 mike		m'aIk
 milani		$2
 monti		$1
@@ -4475,6 +4554,7 @@ negrini		$2
 neil		n'il#
 nelson		$1 $alt
 neri		$1 $alt
+nery		$1 $alt
 neubarth	n'Oibart#
 nicholas	nícolas	$text
 norton		$1 $alt
@@ -4546,6 +4626,7 @@ valentini	$3
 valli		$1
 vecchia		$1 $alt
 vecchio		$1 $alt
+vincent		$1
 vitali		$2
 vogel		f'o:g@l
 volkmann	f'Olkman
@@ -4554,6 +4635,7 @@ waldvogel	v,al#df'ogel#
 washington	w'OSiNtoN
 weber		v'Eber#
 werneck		ver#n'Ek
+will		w'il#
 william		w'ili&N
 willie		w'ili
 winits		$1
@@ -4854,6 +4936,7 @@ leticia		letícia $text
 lidia		lídia $text
 liduina		liduína $text
 ligia		lígia $text
+lygia		lígia $text
 lilia		lília $text
 liliam		líliam $text
 lilian		lílian $text
