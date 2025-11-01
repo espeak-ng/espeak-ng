@@ -884,6 +884,7 @@ uti	,ut,e'i
 utp	$abbrev
 uuid	$abbrev
 uv	$abbrev
+ux	$abbrev
 vba	$abbrev
 vci	$abbrev
 vga	$abbrev
@@ -906,24 +907,19 @@ ywha	$abbrev
 
 dr	doutor $text $hasdot
 dra	doutora $text $hasdot
-//dr.ª	doutora $text
 mr	m'ister $hasdot
 mrs	m'irsys $hasdot
 prof	professor $text $hasdot
 profa	professora $text $hasdot
 profº	professor $text
 profª	professora $text
-//prof.ª 	professora $text
 eng	engenheiro $text $hasdot
 enga	engenheira $text $hasdot
 engº	engenheiro $text
 engª	engenheira $text
-//eng.ª 	engenheira $text
 nº	número $text
-n.º	número $text
 sr	senhor $text $hasdot
 sra	senhora $text $hasdot
-//sr.ª 	senhora $text
 srta	senhorita $text $hasdot
 
 // articles
@@ -961,6 +957,8 @@ las	$u
 los	$u
 se	$u
 lhe	l^y $u
+lha	$u
+lho	$u
 
 ?2	este	$u+	$nounf	'estSy	// this
 ?2	estes	$u+	$nounf		// these
@@ -1266,70 +1264,96 @@ também	$u+	$verbf
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
+abadessa	$alt2
+abeto		$alt2 $noun
 aborto		$alt  $verb
 abortos		$alt2
 absorta		$alt2
+abrolhos	$alt
 acerto		$alt2 $noun
 acertos		$alt2
 acocho		$alt2 $noun
+açorda		$alt2
 acordo		$alt $verb
 acervo		$alt2
 adorno		$alt  $verb
+adrede		$alt2
+aedo		$alt
 aeroporto	$alt2
 aflore		$alt
+agridoce	$alt2
+agulheta	$alt2 $noun
 aids		'aId#,ys#
 alcateia	$alt
 alcova		$alt2
 alegrete	$alt2
+alegreto	$alt2
 alegro		$alt2 $noun
 almoço		$alt $verb
+(ama-seca)	$alt2
 ameba		$alt
 amores		$alt2
+amorfo		$alt
+amorfa		$alt
 amorno		$alt
 amuleto		$alt2
 ampola		$alt2
 ampulheta	$alt2
+anacoreta	$alt2
 anchieta	$alt2
 anchova		$alt2
 andorra		$alt2
 andrea		$alt
 andreia		$alt
+anodo		$alt2
 antigolpe	$alt
 antonieta	$alt2
 apego		$alt2 $noun
-apelo		$alt2  $noun
+apelo		$alt2 $noun
 apelos		$alt2
 aposto		$alt  $verb
 aperto		$alt2 $noun
 apertos		$alt2
 apneia		$alt
+apodo		$alt2
 apoio		$alt $verb
 aqueia		$alt
 arredores	$alt
 arremesso	$alt2 $noun
+arrojo		$alt2 $noun
 arrocho		$alt2 $noun
 arrochos	$alt2
 arroto		$alt2 $noun
 arrotos		$alt2
 arroz		$alt2
+arrozes		$alt2
+asbesto		$alt2
 assembleia	$alt
+asserto		$alt2 $noun
 assopro		$alt2 $noun
 ateia		$alt
 aterro		$alt2
 aterro		$alt $verb
+atropelo	$alt2 $noun
 athletico	$2 $alt
 avesso		$alt2
 avozinha	,avOz'in^&
 axé		aS'E
 azeda		$alt $verb
 azedo		$alt $verb
+azoto		$alt2
 açores		$alt2
+baeta		$alt2
 bairro		b'aIR#U
 baitola		$alt2
+baitolo		$alt2
 balancete	$alt2
+bancarrota	$alt2
 bangladesh	$alt
 banquete	$alt2
+barrete		$alt2
 barreto		$alt2
+borrego		$alt2
 basileia	$alt
 bastonete	$alt2
 baviera		$alt
@@ -1337,6 +1361,7 @@ beco		$alt2
 besta		$alt2
 beça		$alt
 bilhete		$alt2
+birosca		$alt
 bissulfeto	$alt2
 blazer		bl'eIzer
 blazers		bl'eIzers
@@ -1344,22 +1369,27 @@ boca		$alt2
 boceta		$alt2
 boda		$alt2
 bofe		$alt
+boldo		$alt2
 boleia		$alt
 bolero		$alt
 bolinha		b,Ol'in^&
 bolo		$alt2
-bolo		$alt  $verb
+bolo		$alt $verb
 borboleta	$alt2
+bororo		$alt2
 borra		$alt2 $noun
 boto		$alt2 $noun
 boxe		$alt
-bracelete		$alt2
+bracelete	$alt2
+branquense	b*,&~Nk'eINsy
 brejo		$alt
 bromelha	$alt
 broto		$alt2 $noun
+broxa		$alt
 buceta		$alt2
 cabresto	$alt2
 cacete		$alt2
+cacholeta	$alt2
 cacoete		$alt2
 caderneta	$alt2
 cadete		$alt2
@@ -1368,19 +1398,25 @@ caibro		k'aIb*U
 cãibra		k'&~Ib*&
 caixeta		$alt2
 caldeia		$alt
+cambeta		$alt2
 camelha		$alt
 camiseta	$alt2
 canaleta	$alt2
 cananeia	$alt
+canhestro	$alt2
 canhoto		$alt2
+?1 caoco	$alt2
 capacete	$alt2
 caractere	$alt
 carbureto	$alt2
+(carne-seca)	$alt2
 caroços		$alt
 carrapeta	$alt2
+carreto		$alt2
 carroça		$alt
 casebre		$alt
 catacreses	$alt
+cateter		$alt
 cateto		$alt2
 catequeses	$alt
 catorze		$alt2
@@ -1388,9 +1424,12 @@ cavalete	$alt2
 cebola		$alt2
 cefaleia	$alt
 centopeia	$alt
+cepa		$alt2
+cepo		$alt2
 cerebelo	$alt2
 cerca		$alt $verb
 cerco		$alt $verb
+cerro		$alt2 $noun
 chamego		$alt2
 chamego		$alt $verb
 chapeleta	$alt2
@@ -1398,10 +1437,12 @@ chaveta		$alt2
 choco		$alt2 $noun
 choça		$alt
 chofer		$alt
+chope		$alt2
 choro		$alt2 $noun
 chovesse	$alt2
 chuleta		$alt2
 chupeta		$alt2
+cincerro	$alt2
 clamores	$alt2
 clero		$alt
 cloreto		$alt2
@@ -1422,7 +1463,10 @@ começo		$alt $verb
 concerto	$alt2 $noun
 concertos	$alt2
 concordo	$alt
+condessa	$alt2
 conforto	$alt  $verb
+conserto	$alt2 $noun
+consertos	$alt2
 console		$alt2 $noun
 consolo		$alt2 $noun
 constroem	$alt
@@ -1449,16 +1493,24 @@ corveta		$alt2
 corvos		$alt
 costeleta	$alt2
 coto		$alt2
+cotoco		$alt2
 cotovelo	$alt2
+covo		$alt
 cozem		$alt
 cratera		$alt
 crede		$alt2
 credo		$alt
 crimeia		$alt
+crosta		$alt2
+cureta		$alt2
 decoreba	$alt
 decoro		$alt2 $noun
 degelo		$alt2
+denodo		$alt2
+derma		$alt
+derredor	$alt
 desacerto	$alt2
+desafogo	$alt2 $noun
 desaforo	$alt2
 desamores	$alt2
 desapego	$alt2
@@ -1469,6 +1521,8 @@ desconsolo	$alt2 $noun
 descontrole	$alt2 $noun
 descordo	$alt
 descorno	$alt
+desembolso	$alt2
+desembolso	$alt $verb
 desemprego	$alt2
 desemprego	$alt $verb
 desenvolto	$alt2
@@ -1476,10 +1530,17 @@ desespero	$alt2
 desespero	$alt $verb
 desfecho	$alt2
 desmantelo	$alt2 $noun
+desaperto	$alt2 $noun
+desassossego	$alt2 $noun
+desconcerto	$alt2 $noun
+desgoverno	$alt2 $noun
+desinteresse	$alt2 $noun
+desmazelo	$alt2 $noun
 despojo		$alt2 $noun
 despojos	$alt
 desporto	$alt2
 desprezo	$alt2 $noun
+destempero	$alt2 $noun
 desse		$alt2
 desse		$alt $verb
 deste		$alt2
@@ -1487,11 +1548,16 @@ deste		$alt $verb
 destempero	$alt2 $noun
 destemperos	$alt2
 desterro	$alt2
+destroço	$alt2 $noun
+destroços	$alt $noun
 destroem	$alt
 deteriore	$alt
+desvelo		$alt2 $noun
 deveras		$alt
 dez		$alt
+diabrete	$alt2
 diarreia	$alt
+diedro		$alt2
 diego		$alt2
 diogo		$alt2
 discordo	$alt
@@ -1510,33 +1576,47 @@ doze		$alt2
 dueto		$alt2
 edson		$alt
 egeia		$alt
+eh		'E
 eleia		$alt
+eletrodo	$alt2
+embolso		$alt2
+embolso		$alt $verb
 emborco		$alt
+empola		$alt2 $noun
 emprego		$alt2
 emprego		$alt2 $noun
 encasqueta	$alt
+enchova		$alt2 $noun
 encosto		$alt  $verb
 endereço	$alt  $verb
 endoide		$alt2
+endosso		$alt2 $noun
 eneias		$alt
 enforco		$alt
-engodo		$alt2
+engodo		$alt2 $noun
 engordo		$alt
+enlevo		$alt2 $noun
 enredo		$alt  $verb
 enrosco		$alt2 $noun
 ensosso		$alt2
 enterro		$alt2 $noun
+entojo		$alt2 $noun
 entorto		$alt
 entroso		$alt
 envelope	$alt
 enxaqueca	$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
+erg		$alt
 eritreia	$alt
 erro		$alt2
 erro		$alt $verb
 esboço		$alt  $verb
+escabelo	$alt2 $noun
+escalpelo	$alt2 $noun
+escaler		$alt
 escopeta	$alt2
+escopro		$alt2 $noun
 escova		$alt2
 escova		$alt $verb
 escovo		$alt
@@ -1544,12 +1624,16 @@ esforço		$alt  $verb
 esforços	$alt
 esgoto		$alt2
 esgoto		$alt $verb
+esmero		$alt2 $noun
+esmoler		$alt
+espatuleta	$alt2 $noun
 espectro	$alt
 espeto		$alt2 $noun
 espetos		$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
+estafeta	$alt2
 ester		$alt
 estilete	$alt2
 estocolmo	$alt
@@ -1557,6 +1641,8 @@ estojo		$alt2
 estorno		$alt  $verb
 estorvo		$alt  $verb
 estrela		$alt2
+estroço		$alt2 $noun
+estroços	$alt $noun
 estrofe		$alt
 estrogonofe	$alt
 eta		$alt2
@@ -1564,19 +1650,27 @@ europa		$alt
 europeia	$alt
 evangelho	$alt
 ex		es#
+excerto		$alt2 $noun
 exagero		$alt $verb
 exegeses	$alt
 exorto		$alt
 ?2 expert	Eksp'E*t
 explore		$alt
+faceto		$alt2 $noun
 falangeta	$alt2
+falsete		$alt2
+(farinha-seca)	$alt2
 farofa		$alt
 farolete	$alt2
 fatora		$alt
 felisteia	$alt
+felpa		$alt2
+feltro		$alt2
+ferrete		$alt2
 fezes		$alt
 fezinha		f,Ez'in^&
 filete		$alt2
+filipeta	$alt2
 flerte		$alt2 $noun
 florete		$alt2
 foda		$alt2 $verb
@@ -1589,6 +1683,8 @@ folheto		$alt2
 fonseca		$alt2
 fora		$alt
 fora		$alt2 $verb
+foro		$alt2 $noun
+foros		$alt $noun
 forca		$alt2
 força		$alt2
 força		$alt $verb
@@ -1596,12 +1692,19 @@ forço		$alt
 formos		$alt2
 forro		$alt $verb
 fosso		$alt2
+franquense	f*,&~Nk'eINsy
 frescores	$alt2
+fresa		$alt
 frevo		$alt2
 fulgores	$alt2
+gabiroba	$alt
+guabiroba	$alt
 gafanhoto	$alt2
+gaiolo		$alt2
 galera		$alt
 galeto		$alt2
+galhardete	$alt2
+galheta		$alt2
 galhofa		$alt
 galileia	$alt
 gangorra	$alt2
@@ -1610,39 +1713,62 @@ gelo		$alt2
 gelo		$alt $verb
 genebra		$alt
 gesso		$alt2
+gleba		$alt
 gloso		$alt
+godo		$alt2
+gonococo	$alt
 gonorreia	$alt
 gol		goU
 golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
+goro		$alt2
 gororoba	$alt
 gosto		$alt $verb
 gota		$alt2
+goto		$alt2
 governo		$alt2
 governo		$alt $verb
 gozo		$alt2 $noun
 gozos		$alt2
 graveto		$alt2
+grelo		$alt2
+greta		$alt2
 groselha	$alt
 grosso		$alt2
 groso		$alt
 gueto		$alt2
+grilheta	$alt2
+haltere		$alt
 hebreia		$alt
+hera		$alt
+herpes		$alt
+heliporto	$alt2
 hemorroida	$alt
+heterotermo	$alt
 hidreto		$alt2
+hiper		$1
+historieta	$alt2
 hoje		$alt2
+?1 homem	$alt
+?1 homens	$alt
+homeotermo	$alt
 homero		$alt
+?1 homo		$alt
 horrores	$alt2
 ideia		$alt
+indecoro	$alt2
 inovo		$alt
 interesse	$alt2
 interesse	$alt $verb
 interregno	$alt
+insosso		$alt2
 iodo		$alt2
 ioga		$alt
 isolda		$alt2
+jarrete		$alt2
 jereba		$alt
+joça		$alt
 jogo		$alt2
 jogo		$alt $verb
 jogos		$alt
@@ -1650,29 +1776,55 @@ joguete		$alt2
 joinha		Z,O'in^&
 jovens		Z'OveINs
 judeia		$alt
+junior		$1
+juniores	$alt2
 jurubeba	$alt
+labrego		$alt2
 lacerda		$alt
 lagosta		$alt2
+lazareto	$alt2
 lambreta	$alt2
 lembrete	$alt2
 lepra		$alt
+lero		$alt
 leses		$alt
 leste		$alt2 $verb
 letra		$alt2
+libreto		$alt2
 licores		$alt2
 lisboeta	$alt2
 lodo		$alt2
+logo		$alt2 $noun
+logro		$alt2 $noun
 lopes		$alt
+lorpa		$alt2
 lutero		$alt
 macete		$alt2
+machete		$alt2
 maioneses	$alt
+malacacheta	$alt2
+malhete		$alt2
 maniçoba	$alt
+manojo		$alt2
+mantelete	$alt2
+manzorra	$alt2
+marchete	$alt2
 marieta		$alt2
 mariposa	$alt2
+marnoto		$alt2
+marosca		$alt
 martelete	$alt2
+masseter	$alt
 megera		$alt
 melhor		$alt
+melopeia	$alt
+meningococo	$alt
+menosprezo	$alt2 $noun
+meseta		$alt2
 meta		$alt $noun
+micareta	$alt2
+micromicete	$alt2
+minarete	$alt2
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
@@ -1690,6 +1842,9 @@ morcego		$alt2
 morda		$alt2
 moreia		$alt
 mormente	m,O*m'eINt#y
+mornos		$alt
+mosquete	$alt2
+motete		$alt2
 mui		m'UI
 muleta		$alt2
 mutreta		$alt2
@@ -1702,7 +1857,13 @@ ninfeta		$alt2
 nitreto		$alt2
 novelo		$alt2
 odisseia	$alt
+oca		$alt $noun
+ocra		$alt
+ocre		$alt
 oeste		$alt
+ofego		$alt2 $noun
+?1 ogro		$alt
+oh		'O
 olho		$alt2 $noun
 olhos		$alt
 onomatopeia	$alt
@@ -1710,12 +1871,14 @@ opereta		$alt2
 orno		$alt
 osso		$alt2
 ostra		$alt2
+ostrogodo	$alt2
 ovo		$alt2
 outorgo		$alt
 pacheco		$alt2
 paexa		paeSa
 paella		pa'el^&
 palacete	$alt2
+palerma		$alt
 palermo		$alt
 palimpsesto	$alt2
 palheta		$alt2
@@ -1723,15 +1886,21 @@ palhoça		$alt
 panaceia	$alt
 pangeia		$alt
 pantera		$alt
+papeleta	$alt2
 papoco		$alt2 $noun
+paquete		$alt2
 paradoxo	$alt
 parede		$alt2
 pateta		$alt
 peba		$alt
+pecilotermo	$alt
 pedro		$alt2
 peixoto		$alt2
+pela		$alt $verb
+pelo		$alt $verb
 pelo		$alt2 $noun
 penhores	$alt2 $noun
+pera		$alt2
 perda		$alt2
 pereba		$alt
 peres		$alt
@@ -1741,19 +1910,27 @@ pesadelo	$alt2
 peses		$alt
 peseta		$alt2
 peso		$alt $verb
+peta		$alt2
 pezão		pEz'&U~
 pezinho		p,Ez'in^U
+picareta	$alt2
 pigmeia		$alt
 piloto		$alt2 $noun
 pilotos		$alt2
 pior		$alt
+pipeta		$alt2
 pipoco		$alt2 $noun
 piquete		$alt2
 plateia		$alt
 plebeia		$alt
+pletora		$alt
 poderem		$alt2
 polca		$alt
+polimorfa	$alt
+polimorfo	$alt
 pompeia		$alt
+pontalete	$alt2
+(ponta-seca)	$alt2
 popa		$alt2
 porcos		$alt
 porra		$alt2
@@ -1762,24 +1939,33 @@ pose		$alt2
 poxa		p'oS&
 poços		$alt
 pozinho		p,Oz'in^U
+prancheta	$alt2
 primavera	$alt
 primores	$alt2
+priora		$alt2
 program		$alt
 proso		$alt
 prosopopeia	$alt
 proveta		$alt2
 punheta		$alt2
+quaresma	$alt
 quarteto	$alt2
 quatorze	$alt2
 queda		$alt
 quede		$alt2
+quepe		$alt
 quimera		$alt
+quiosque	$alt
+quirera		$alt $noun
 quitinete	$alt
 quinteto	$alt2
 ramalhete	$alt2
 rancores	$alt2
 ranheta		$alt2
 raposa		$alt2
+rastelo		$alt2 $noun
+reboco		$alt2 $noun
+rebojo		$alt2 $noun
 recomeço	$alt $verb
 reconstroem	$alt
 recordo		$alt
@@ -1787,34 +1973,51 @@ recorto		$alt
 rede		$alt2
 reembolso	$alt2
 reembolso	$alt $verb
+refego		$alt2
+refle		$alt
 reforço		$alt $verb
 reforços	$alt
 refresco	$alt $verb
+regabofe	$alt
+regelo		$alt2 $noun
 rego		$alt2 $noun
 relevo		$alt2
 relevo		$alt $verb
+remelexo	R#,emel'eSU
 remoem		$alt
 remorso		$alt
 renovo		$alt $verb
 represa		$alt2
 represes	$alt
+requebro	$alt2 $noun
 retorno		$alt $verb
+retreta		$alt2
 reveses		$alt
+revesso		$alt2 $noun
+revolto		$alt2 $noun
+ricochete	$alt2
 rigores		$alt2
 risoto		$alt2
+robe		$alt
 robson		$alt
+rodo		$alt2 $noun
 roem		$alt
 rola		$alt2 $noun
 roleta		$alt2
 rolete		$alt2
 rolo		$alt2 $noun
+roquete		$alt2
 rose		$alt2
 roseta		$alt2
 rosinha		x,Oz'in^&
+roto		$alt2
+roupeta		$alt2
 rubores		$alt2
 sabonete	$alt2
 sabores		$alt2
 saibro		s'aIb*U
+saieta		$alt2
+sarampelo	$alt2
 sarjeta		$alt2
 seborreia	$alt
 seca		$alt2 $noun
@@ -1826,14 +2029,17 @@ sede		$alt2
 sedes		$alt
 selo		$alt2
 selo		$alt $verb
+serro		$alt2 $noun
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
 serdes		$alt2
 sinagoga	$alt
 sinopse		$alt
+sobrolhos	$alt
 soco		$alt2
 soco		$alt $verb
+socorros	$alt
 sogra		$alt
 soldo		s'ol#dU
 soldo		$alt $verb
@@ -1850,18 +2056,25 @@ sopeses		$alt
 sopro		$alt2 $noun
 sorvete		$alt2
 sossego		$alt2 $noun
-suborno		$alt  $verb
+subemprego	$alt2 $noun
+suborno		$alt $verb
 sudoreses	$alt
 sufoco		$alt2 $noun
 sufocos		$alt2
 sulfeto		$alt2
 sulfureto	$alt2
-super		s'Uper
+super		$1
 suporto		$alt
 suor		suOr
+tabuleta	$alt2
+tapeba		$alt
+taioba		$alt
 tambores	$alt2
+tamborete	$alt2
 tapera		$alt
 tapete		$alt2
+tarjeta		$alt2
+tatupeba	$alt
 tebas		$alt
 temores		$alt2
 tempero		$alt2 $noun
@@ -1874,18 +2087,34 @@ teses		$alt
 teta		$alt2
 tijolo		$alt2
 tijolos		$alt
+toco		$alt2 $noun
 togo		$alt2
+toldo		$alt2 $noun
+tolete		$alt2
 topo		$alt2 $noun
-torno		$alt  $verb
+torniquete	$alt2
+torno		$alt $verb
 tornozelo	$alt2
+torpe		$alt2
 torre		$alt2 $noun
 torres		$alt2
 torreta		$alt2
 torro		$alt
 toso		$alt
 totens		$alt
+transecto	t*,&~Ns'EktU
+transecular	t*,&~Nsekul'ar#
+transepto	t*,&~Ns'EptU
+transexual	t*,&~Nseksu'al#
+transexualidade	t*,&~Nseks,ualid'ad#y
+transexualismo	t*,&~Nseks,ual'is#mU
+transiberiano	t*,&~Nsibe*i'&~nU
+transubstanciação	t*,&~Nsubst&~Nsias'&U~
+transónico	t*,&~Ns'OnikU
+transônico	t*,&~Ns'onikU
 transtorno	$alt $verb
 traqueia	$alt
+traquete	$alt2
 travesso	$alt2
 tremores	$alt2
 treta		$alt2
@@ -1902,17 +2131,29 @@ vera		$alt
 verbete		$alt2
 verborreia	$alt
 verde		$alt2
+verga		$alt2 $noun
+versalete	$alt2
+verseto		$alt2
 vieses		$alt
 vileta		$alt2
 vinheta		$alt2
+virtuose	$alt2
+viscondessa	$alt2
+visigodo	$alt2
 vodca		v'Od#ik&
 voga		$alt
+voltarete	$alt2
 vovozinha	v,ovOz'in^&
 vozinha		v,Oz'in^&
+xador		$alt
+xarelete	$alt2
 xarope		$alt
+xepa		$alt2
+xerelete	$alt2
 xereta		$alt2
 xeroxes		$alt
 zelo		$alt2 $noun
+zelo		$alt2
 zorra		$alt2
 
 
@@ -2180,6 +2421,7 @@ cermet		s'&r#met
 chagrin		Sag*&~
 (chaise longue)	SEz||l'o~g
 chambertin	S&~ber#t'&~
+champagne	S,&~Np'&~n^y
 champignon	S&~pin^'o~
 changeant	S&~Z'&~
 (changer de dame)	S&~Z'e||de||d'&my
@@ -2495,7 +2737,8 @@ ebook		ib'Uk
 écarté		_^_FR
 éclair		_^_FR
 écran		_^_FR
-ecstasy		$1
+?1 ecstasy	$1 $alt
+?2 ecstasy	$1
 edge		'EdZy
 egrete		_^_FR
 eight		eIt#
@@ -2835,7 +3078,7 @@ jaen		_^_ES
 ?2 jazz		dZIEs#
 jeans		dZ'ins
 jersey		dZ'Er#seI
-jet		Z'Et#
+(jet lag)	Z'Et#I/||l'EgI/
 jeton		_^_FR
 (jeu de mots)	_^_FR
 jingle		dZ'iNgol
@@ -2899,7 +3142,6 @@ leasing		l'izIN
 leave		l'iv
 leaving		l'ivIN
 left		$alt
-leg		l'Eg $only
 legging		l'EgIN
 legato		_^_IT
 liard		_^_FR
@@ -3278,6 +3520,7 @@ queer		kw'ier#
 quérable	_^_FR
 quest		kw'Est#
 quiz		_^_EN
+quizzes		_^_EN
 quorum		$1 $alt
 raccord		_^_EN
 racing		_^_EN
@@ -3418,7 +3661,8 @@ section		_^_EN
 self		s'El#f
 selfie		s'El#fi
 seller		s'Eler#
-senior		s'enior#
+senior		$1
+seniores	$alt2
 service		s'Er#visy
 set		s'Et#
 setter		s'Eter#
@@ -3595,10 +3839,10 @@ swap		sw'Op
 sweepstake	_^_EN
 swing		sw'iNg
 sydney		$1
-tab		t'aby
+tab		t'abI/ $only
 tableau		_^_FR
-tablet		t'ablet
-tag		t'Eg
+tablet		t'ablet#
+tag		t'EgI/ $only
 tagliatelle	_^_IT
 tail		t'eIl
 tailleur	taj'Er
@@ -3666,6 +3910,7 @@ toner		t'oUner#
 top		t'Op
 topless		t'OplEs
 tory		t'oUri
+touché		tuS'e
 tour		t'ur#
 touring		t'u*IN
 tournedos	tur#ned'o
@@ -3958,6 +4203,8 @@ astaire		ast'Er#
 austen		$1
 babbage		b'abidZ
 bach		bax $only
+bachiana	b,aki;'&~n&
+bachiano	b,aki;'&~nU
 bach		bak $stem
 baldwin		$1
 bardot		bar#d'o
@@ -4205,7 +4452,6 @@ malthus		m'al#tus#
 mariah		mar'aI&
 marilyn		m'ErilIN
 marley		$1
-martin		m'ar#t#IN
 maslow		$1
 maupassant	_^_FR
 (mc carthy)	_^_EN
@@ -4494,6 +4740,7 @@ herrmann	h'Er#m&N
 hilary		_^_EN
 hoffmann	h'Ofm&N
 horowicz	ho*ov'iks
+ingrid		$1
 iozzi		$2 $alt
 jack		dZ'Ek
 jake		dZ'eIk
@@ -4576,6 +4823,7 @@ nicholas	nícolas	$text
 norton		$1 $alt
 nuccio		n'utSiU
 oliver		$1 $alt
+olga		$alt
 palmieri	$3
 paraventi	$3
 parisi		$2
@@ -4924,7 +5172,6 @@ juliete		$alt
 julio		júlio $text
 junia		júnia $text
 junio		júnio $text
-junior		júnior $text
 juvencio	juvêncio $text
 kaique		kaíque $text
 kassia		kássia $text
