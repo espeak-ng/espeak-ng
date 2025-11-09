@@ -350,6 +350,10 @@ endprocedure
 phoneme N            // polimorphic nasal consonant used in syllable onset
   vcd nas
 
+  IF NOT thisPh(isWordEnd) AND nextPh(isVowel) THEN
+    ChangePhoneme(n)
+  ENDIF
+
   IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
     IF prevPh(o~) OR prevPh(u~) THEN
       CALL Nw
