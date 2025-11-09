@@ -104,3 +104,26 @@ volume 15
 0   aU@ NULL   0   a
 0   t2  NULL   0   t
 
+// French phonemes
+0   A~  NULL   0   @
+0   E~  NULL   0   @
+0   O~  NULL   0   on
+0   W   NULL   0   ee
+0   Y   NULL   0   e
+0   j/  NULL   0   y
+0   r/2 NULL   0   r
+
+// Italian phonemes
+0   e/  NULL   0   e
+0   o/  NULL   0   o
+0   dz  NULL   0   z
+0   ts2 NULL   0   s
+0   R   NULL   0   r
+0   ss  NULL   0   s
+
+// Spanish phonemes
+0   B   NULL   0   b
+0   D   NULL   0   d
+0   Q   NULL   0   g
+0   **  NULL   0   r
+
