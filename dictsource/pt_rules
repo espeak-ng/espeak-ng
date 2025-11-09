@@ -162,9 +162,11 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?4      au         aw
 ?4      au (s      aw
 
-     _) anti (@@P4 ,&~Nt#i   // antidoping, anticorpos (ó), *antieinstein
-     _) anti (\-P4 ,&~Nt#i   // anti-herói, anti-imperialismo, anti-islâmico
-     _) auto (@@P4 ,aUto     // o autogoverno (ê), o autocontrole (ô)
+     _) anti (@@P4 ,&~Nt#%i   // antidoping, anticorpos (ó), *antieinstein
+     _) anti (\-P4 ,&~Nt#%i   // anti-herói, anti-imperialismo, anti-islâmico
+
+     _) auto (@@P4 ,aUto     // autogoverno (ê), autocontrole (ô)
+     _) auto (\-P4 ,aUto     // auto-hipnose, auto-engano
 
 .group â
         â          ''&
@@ -217,42 +219,51 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 .group b
      _) b (_       be
         b          b
-?3      b (B       bI/
         b (b+ 
+
+?3      b (B       bI/
+?3      b (s       b
+?3   @) b (_C      b_
 
 
 .group c
      _) c (_       se
         c          k
-?3      c (B       kI/
+        c (c+ 
         c (Y       s         // ce ci
         c (cY+     k         // cce cci
-        c (c+ 
         ch         S
-        chr        k*
-        cch        k         // for Italian words such as Pinocchio
-        ck         k
-?3      ck         kI/
+
 ?1      c (cY+               // drop “c” in European Portuguese (eg: seleccionar)
 ?1   A) ct         t         // drop “c” in European Portuguese (eg: exacto)
 ?1   A) cç         s         // drop “c” in European Portuguese (eg: selecção)
 ?1 conta) ct (A    kt        // eg: contacto, contactar, contactável, incontactável, etc...
 
-     A) c (q                 // Jacques, acquisition (French)
+?3      c (B       kI/
+?3      c (s       k
+?3      c (t       k
+?3   @) c (_C      k_
+
+        chr        k*        // Christian (English)
+        cch        k         // Pinocchio (Italian)
+     @) c (k                 // Jack, acknowledge (English)
+     @) c (q                 // Jacques, acquisition (French)
 
 
 .group d
      _) d (_       de
-        d          d
-?3      d (B       d#I/
+        d          d#
         d (d+ 
-?2      d (i       dZ
-?2      d (í       dZ
-?2      d (e_      dZ
-?2      d (y       dZ
-?2   A) de (o_     dZj
 
+?4      d (+       d         // Brazilian mbrola /d/s are already affricate
+
+?3      d (B       d#I/
+?3      d (s       d
+?3   @) d (_C      d_
+
+?2   A) de (o_     dZj
      A) dg (Y      dZ        // gadget, pidgin (English)
+
 
 .group e
      _) e (_       E
@@ -273,7 +284,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         e (lh+     e
         e (ll+     E
 
-        et (_  EtS
+        et (_      Et#
 
         e (bL02_   E
         e (cL04_   E
@@ -281,7 +292,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         e (cCL04_  E
      r) e (cho_    e
 
-   e (dL02_   E
+        e (dL02_   E
 
         e (fL04_   E
 
@@ -331,14 +342,14 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         e (rrL04_  E
         e (rvL04_  E
         e (tL04_   E
-e (trL04_   E
+        e (trL04_  E
      m) e (tL03_   e
     An) e (tA_     e
     on) e (te_     E
      u) e (ta_     e
         e (vL04_   E
      t) e (ve_     e
-        
+
     _r) eu (n      eu
 
         e (x_      E
@@ -360,7 +371,6 @@ e (trL04_   E
 ?4      en (_      =e~j
 ?4      en (s_     =e~j
 
-
         enh        en^
         emm (A     em
         enn (A     en
@@ -368,8 +378,9 @@ e (trL04_   E
         ei         eI
         ei (s      eI
         ei ($w_alt EI
-        e (iCK     e
         ey         eI
+        e (iCK     e
+
         eu         eU
         eu (s      eU
         eu (_A     ew
@@ -380,7 +391,6 @@ e (trL04_   E
 ?4      ei (s      ej
 ?4      eu         ew
 ?4      eu (s      ew
-
 
 ?1   d) e (CAA     y
 ?1   d) e (CACAA   y
@@ -525,13 +535,13 @@ _troux) e (L07_    E
   _ens) e (bL03_   E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
-    sev) e (rL04_   E
-     cel) e (brL04_  E
+   sev) e (rL04_   E
+   cel) e (brL04_  E
   _sop) e (sL04_   E
     _C) e (bre_    E
  _barb) e (tA_     e
  _boch) e (chL04_  e
-     impr) e (gnL04_  E
+  impr) e (gnL04_  E
   _enr) e (dL01_   E
     _v) e (dL03_   E
   _sob) e (rbL03_  e
@@ -579,7 +589,7 @@ _tetran) e (tL08_  E
   _tol) e (rL04_   E
   acel) e (rL04_   E         // des-
  _apod) e (rL04_   E
- enum) e (rL04_   E
+  enum) e (rL04_   E
  _exub) e (rL04_   E
 _adult) e (rL04_   E
 _aglom) e (rL04_   E
@@ -608,9 +618,9 @@ s_colh) e (res_    E
  _repr) e (sL03_   E
   _ent) e (sL04_   E
  _refr) e (scL01_  E
- _ef) e (tuL02_   e
+   _ef) e (tuL02_  e
     _p) e (scL03_  E
-    _m) e (sclL04_  E
+    _m) e (sclL04_ E
   dioc) e (ses_    E
  _aust) e (rL08_   E
     _d) e (spL02_  E
@@ -687,8 +697,10 @@ _entorp) e (çL03_  e
 ?1   _) f (_       Ef        // individual letter or end-of-acronym
      _) f (_       'Efy
         f          f
-?3      f (B       fI/
         f (f+ 
+
+?3      f (B       fI/
+?3   @) f (_C      f_
 
 
 .group g
@@ -696,9 +708,12 @@ _entorp) e (çL03_  e
 ?1   _) g (_       ge        // individual letter or end-of-acronym
 ?2   _) g (_       Ze
         g          g
-?3      g (B       gI/
         g (g+ 
         g (Y       Z         // ge gi
+
+?3      g (B       gI/
+?3   @) g (_C      g_
+
         gu (Y      g
      a) gu (ent    gw
  _alca) gue (t     gwe
@@ -732,18 +747,14 @@ _redar) gu (A      gw
 .group h
      _) h (_       ag'a
         h                    // silent
-?1   _) help       _^_En
-?2   _) hel (p     x'EU
 
 ?1   _) homo (@    OmO
 ?1   _) homó (@    Om''O
 ?1   _) homô (@    Om''o
-?1   _) homo (lo@  Omu
 
 ?1   _) homeo (@    OmjO
 ?1   _) homeó (@    Omj''O
 ?1   _) homeô (@    Omj''o
-?1   _) homeo (gra  Omju
 
 
 .group i
@@ -764,8 +775,10 @@ _redar) gu (A      gw
 
 ?2      il (_      iU
 ?2      il (B      iU
+
 ?4      il (_+     iw
 ?4      il (B+     iw
+
         i (lh+     i
         i (ll+     i
 
@@ -810,22 +823,21 @@ _redar) gu (A      gw
         i (onAC_   j       // nacional
         i (onAA    j       // racionais
 
-?1   _) i (ntern   'i        //inter
+?1   _) i (ntern   'i        // inter
 ?1   @) ing (_     _^_EN
 ?1   @) ings (_    _^_EN
-?2      il (ton_   'iU
-?2      i (rton_   'i
-?2  _v) i (king    'i
-?2      ight (_    'aIt
 ?1      ight (_    _^_EN
 ?1      ights (_   _^_EN
-    dr) i (ver     'aI
 
-    @@) iano (_S4q i''&~nU   // darwiniano, einsteiniano, hertziano
-    @@) iana (_S4q i''&~n&   // darwiniana, einsteiniana, hertziana
+?2      i (rton_   'i
+?2      il (ton_   'iU
+?2      ight (_    'aIt#
 
-    @@) ismo (_S4q ''is#mU    // darwinismo, hitlerismo, gestaltismo
-    @@) ista (_S4q ''is#t&    // darwinista, hitlerista, gestaltista
+     @) iano (_S4q i''&~nU   // darwiniano, einsteiniano, hertziano
+     @) iana (_S4q i''&~n&   // darwiniana, einsteiniana, hertziana
+
+     @) ismo (_S4q ''is#mU    // darwinismo, hitlerismo, gestaltismo
+     @) ista (_S4q ''is#t&    // darwinista, hitlerista, gestaltista
 
 
 .group í
@@ -835,6 +847,7 @@ _redar) gu (A      gw
         ím (K      ''i~N
         ín (K      ''i~N
         ính        ''in^
+
 ?2      íl (B      ''iU
 ?4      íl (B      ''Iw
 
@@ -842,17 +855,21 @@ _redar) gu (A      gw
 .group j
      _) j (_       Z'Ot&
         j          Z
-?3      j (B       ZI/
         j (j+ 
 
+?3      j (B       ZI/
+?3   @) j (_C      Z_
 
 .group k
 ?1   _) k (_       k'ap&
 ?2   _) k (_       ka
         k          k
-?3      k (B       kI/
         k (k+ 
 
+?3      k (B       kI/
+?3      k (s       k
+?3      k (t       k
+?3   @) k (_C      k_
 
 .group l
 ?1   _) l (_W      El;       // within an acronym
@@ -862,7 +879,11 @@ _redar) gu (A      gw
      l) l 
         lh         l^
 
+?3   l) l (_
+?3   C) l (_       lI/       // Carl, girl, curl (English)
+
     @!) lli (_     =li       // Italian immigrants
+
 
 .group m
 ?1   _) m (_W      Em;
@@ -871,12 +892,17 @@ _redar) gu (A      gw
         m          m
      m) m 
 
+?3   m) m (_
+?3   C) m (_       mI/       // napalm, alarm, film (English)
+
 ?1  @@) mente (_S5 m''eINty
 ?2  @@) mente (_S5 m''eINtSy
 
-     _) mini  (0x2d m,in%i
+     _) mini (@@P4 m,in%i    // minidicionário, minimercado, *minidarwin
+     _) mini (\-P4 m,in%i    // mini-pc, mini-hotel, mini-internato
 
     @!) mann  (_S4 m%&N      // German immigrants
+
 
 .group n
 ?1   _) n (_W      En;
@@ -886,12 +912,14 @@ _redar) gu (A      gw
      n) n 
         nh         n^
 
+?3   n) n (_
+?3   C) n (_       nI/       // Osborn, govern, popcorn (English)
+
 
 .group ñ
 ?1   _) ñ (_       'En||t'il
 ?2   _) ñ (_       'eny||tS'iU
         ñ          n^
-
 
 
 .group o
@@ -1131,9 +1159,9 @@ _redar) gu (A      gw
   _Com) o (do_     o
 _ortod) o (xL08_   O
   _arr) ox (A      OS
-  _B) o (jo_   o
-  b) o (rdo_  O
-  C) o (smA_  O
+    _B) o (jo_     o
+     b) o (rdo_    O
+     C) o (smA_    O
     _g) o (zL04_   O
   _alm) o (çL01_   O
   _esb) o (çL01_   O
@@ -1144,6 +1172,7 @@ _ortod) o (xL08_   O
   _end) o (çL03_   O
     _c) o (çL03_   O
 //endsort
+
 
 .group ô
         ô          ''o
@@ -1176,8 +1205,13 @@ _ortod) o (xL08_   O
 .group p
      _) p (_       pe
         p          p
-?3      p (B       pI/
         p (p+ 
+
+?3      p (B       pI/
+?3      p (s       p
+?3      p (t       p
+?3   @) p (_C      p_
+
         ph         f
      _) pf         f         // pfizer, pfeifer (DE)
         play       pl'eI
@@ -1187,8 +1221,11 @@ _ortod) o (xL08_   O
 .group q
      _) q (_       ke
         q          k
-?3      q (B       kI/
         q (q+ 
+
+?3      q (B       kI/
+?3   @) q (_C      k_
+
         qu         kw
         qü         kw
         qu (Y      k
@@ -1235,13 +1272,14 @@ _ortod) o (xL08_   O
      A) r (_h      *
      C) r (A       *
         rr         R#
-     _) r          R#
+     _) r ($noprefix R#      // use without prefix only
      l) r (A       R#
      n) r (+       R#
      s) r          R#
 
 ?4   A) rr         R#        // terra
 ?4   A) r (G       r         // born, borg
+?4   A) r (_G      r         // tornar-me
 ?4   A) r (l       r         // carl, pearl
 ?4   A) r (sK                // perspectiva
 
@@ -1294,21 +1332,17 @@ _ortod) o (xL08_   O
 
 .group t
      _) t (_       te
-        t          t
-?3      t (B       t#I/
+        t          t#
         t (t+ 
-?2      t (i       tS
-?2      t (í       tS
-?2      t (y       tS
-?2      t (e_      tS
-?2      t (_       tS
+
+?4      t (+       t         // Brazilian mbrola /t/s are already affricate
+
+?3      t (B       tI/
+?3      t (s       t
+?3   @) t (_C      t_
 
 ?1      th         _^_EN
-?2      th          t
-?2      th (i      tS
-?2      th (í      tS
-?2      th (e_     tS
-?2      th (_      tS
+?2      th         t#
 
 ?1      tion (_    _^_EN
 ?2   A) te (o_     tSj
@@ -1366,14 +1400,17 @@ _ortod) o (xL08_   O
 .group v
      _) v (_       ve
         v          v
-?3      v (B       vI/
         v (v+ 
+
+?3      v (B       vI/
+?3   @) v (_C      v_
 
 
 .group w
 ?1   _) w (_       d'&bl,iu
 ?2   _) w (_       d'ablI;U
         w          w
+
 ?1      w (_       _^_EN
 
 
@@ -1425,7 +1462,6 @@ _esdrA) x (ul      S
 _lagarti) x (A     S
    _li) x (A       S
    _lu) x (A       S
-  _mar) x          ks
     má) x (im      s         // máximo, máximas, etc.
     me) x (A       S
    _mé) x (i       S
@@ -1460,14 +1496,15 @@ _lagarti) x (A     S
 ?2   _) y (_       'ipsilo~N
         y          i
         y (A       j
-        y (_       %i        // ?? stress on 1st syllable  EN // TODO
+        y (_       %i        // ?? stress on 1st syllable  EN
 
 
 .group z
      _) z (_       ze
         z          z
-?4      z (B       s
         z (z+ 
+
+?4      z (B       s
 
 ?1   @) z (_       S
 ?2   @) z (_       s
@@ -1478,11 +1515,13 @@ _lagarti) x (A     S
 ?1   A) z (G+      Z
 ?1   A) z (_C      S
 ?1   A) z (_G+     Z
+
    _pi) zz (a      t|s
 
 
 .group
         ç          s
+        ß          s
 
         è          E
 
@@ -1491,14 +1530,13 @@ _lagarti) x (A     S
         ö          o
         ï          i
         ü          u
-        ß          s
 
     D_) º          %o        // ordinal
     D_) ª          %a        // ordinal
 
         , (D       v'irgul&
 
-    __) - (_D      m'enUs
-    D_) - (_D      m'enUs
+    __) - (_D      m'enUs#
+    D_) - (_D      m'enUs#
     A_) - (_D      _
     C_) - (_D      _
