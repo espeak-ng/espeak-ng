@@ -44,7 +44,7 @@ endphoneme
 phoneme I
   vwl starttype #@ endtype #@
   length 150
-  FMT(vowel/u#_7)
+  FMT(vwl_ru/i#)
 endphoneme
 
 phoneme W
