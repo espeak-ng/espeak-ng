@@ -1367,6 +1367,7 @@ U+20	fAsele_
 استمپ	estamp
 استن	aseton
 استند	estand
+استندآپ	estandAp
 استنفورد	estanfoRd
 استنلی	estanli
 استهبان	estahbAn
@@ -1515,6 +1516,7 @@ U+20	fAsele_
 اسپیریل	espiRil
 اسپیس	espejs
 اسپیلیتر	espiliteR
+اسپین	espin
 اسپیناف	espinAf
 اسپینر	espineR
 اسپینوزا	espinozA
@@ -1598,6 +1600,7 @@ U+20	fAsele_
 اشعه	aSa?e:
 اشغال	eSq1Al
 اشل	eSel
+اشلی	aSli
 اشمئزاز	eSme?zAz
 اشمیت	eSmit
 اشنویه	oSnavijje:
@@ -2119,6 +2122,7 @@ U+20	fAsele_
 انقضا	enq1ezA
 انقیاد	enq1ijAd
 انم	enom
+انما	enemA
 انهار	?anhAR
 انورسادات	anvaRsAdAt
 انوش	anuS
@@ -2297,6 +2301,7 @@ U+20	fAsele_
 اپیدمیولوژی	epidemijoloZi
 اپیدمیک	epidemik
 اپیزود	epizod
+اپیزودیک	epizodik
 اپیلاتور	epilAtoR
 اپیلاسیون	epilAsjon
 اپیکور	epikoR
@@ -2945,6 +2950,7 @@ U+20	fAsele_
 برازید	baRAzid
 براساس	baRasA:se
 براش	baRAS
+براعت	baRA?at
 برافتاد	baRoftAd
 برافراز	baRafRAz
 برافراشت	baRafRASt
@@ -4957,6 +4963,7 @@ U+20	fAsele_
 جولان	dZo:lAn
 جوند	dZavand
 جونور	dZunevaR
+جونیور	dZunijoR
 جوهر	dZo:haR
 جوون	dZavun
 جوّی	dZavvi
@@ -6105,6 +6112,7 @@ U+20	fAsele_
 دوماد	dumAd
 دومینو	domino
 دونالد	donAld
+دونتسک	donetsk
 دوند	davan'd
 دونست	dunest
 دونستم	dunestam
@@ -6248,6 +6256,7 @@ U+20	fAsele_
 دیگری	'digaRi
 دیگنیتی	digniti
 دیگه	dige:
+دیگو	dijego
 ذاتا	zAtan
 ذاشت	zASt
 ذبح	zebh
@@ -6256,7 +6265,14 @@ U+20	fAsele_
 ذرّت	zoRRat
 ذری	zoRRi
 ذغال	zoq1Al
+ذل	zell
 ذلت	zellat
+ذلش	zellaS
+ذلم	zellam
+ذلّ	zell
+ذلّت	zellat
+ذلّش	zellaS
+ذلّم	zellam
 ذلک	zAlek
 ذلیلمرده	zalilmoRde:
 ذلیلمردۀ	zalilmoReje
@@ -6430,11 +6446,13 @@ U+20	fAsele_
 رزاز	RazzAz
 رزاق	RazzAq1
 رزبری	RazbeRi
+رزت	Rozat
 رزرو	RezeRv
 رزرواسیون	RezeRvAsijon
 رزروت	RezeRvat
 رزروش	RezeRvaS
 رزروم	RezeRvam
+رزش	RozaS
 رزق	Rezq1
 رزم	Razm
 رزماری	RozmARi
@@ -6731,7 +6749,7 @@ U+20	fAsele_
 رویکرد	RujkaRd
 رویگر	RujgaR
 رویۀ	Ravijeje
-رپتور	ReptoR
+رپتور	RaptoR
 رپر	RapeR
 رپرتاژ	RepoRtAZ
 رپرتر	RepoRteR
@@ -6814,6 +6832,7 @@ U+20	fAsele_
 ریوس	Rous
 ریون	Rijon
 ریوی	Rijavi
+ریپورت	RipoRt
 ریچارد	RitSARd
 ریکاور	RikAveR
 رییس	Ra?is
@@ -7096,6 +7115,7 @@ U+20	fAsele_
 سانسیبل	sAnsibl
 سانفرانسیسکو	sAnfeRAnsisko:
 سانیتگراد	sAntigeRAd
+ساوج	sAvodZ
 ساوجبلاغ	sAvodZbolAq1
 ساپروفیت	sApRofit
 ساپورت	sApoRt
@@ -7401,6 +7421,7 @@ U+20	fAsele_
 سمبلیک	sambolik
 سمبول	sambol
 سمبولیزم	sambolizm
+سمبولیستیک	sambolistik
 سمبولیسم	sambolism
 سمبولیک	sambolik
 سمت	'samt
@@ -7494,6 +7515,7 @@ U+20	fAsele_
 سهیل	sohejl
 سهیلا	sohejlA
 سوء	su?e
+سوءظن	su?ezann
 سوئچ	suitS
 سوئیفت	su?ift
 سوابق	savAbeq1
@@ -7625,6 +7647,7 @@ U+20	fAsele_
 سکندر	sekandaR
 سکنی	soknA
 سکه	sekke:
+سکوریت	sekoRit
 سکولار	sekulAR
 سکولاریز	sekulARiz
 سکولاریزم	sekulARizm
@@ -7726,7 +7749,7 @@ U+20	fAsele_
 شاردن	SARdan
 شارش	SAReS
 شارل	SARl
-شارلمانی	SARlomAni
+شارلمانی	SARlemAni
 شارمهد	SARmahd
 شارمین	SARmin
 شارون	SARon
@@ -8113,6 +8136,7 @@ U+20	fAsele_
 شیهه	Sejhe:
 شیو	Sejv
 شیوا	SivA
+شیور	SejveR
 شیوع	Soju?
 شیون	Sivan
 شیوه	Sive:
@@ -8486,6 +8510,7 @@ U+20	fAsele_
 عشقم	?eSq1am
 عشوه	eSve:
 عشوۀ	eSveje
+عصار	assAR
 عصاره	osARe:
 عصب	asab
 عصبان	asabAn
@@ -8875,7 +8900,9 @@ U+20	fAsele_
 فردو	foRdo
 فردوس	feRdo:s
 فردوسی	feRdo:si
+فردیناند	feRdinAnd
 فرزاد	faRzAd
+فرزدق	faRazdaq1
 فرسا	faRsA
 فرساید	faRsA:jad
 فرسایش	faRsAjeS
@@ -8917,6 +8944,7 @@ U+20	fAsele_
 فرماید	faRmAjad
 فرمایش	faRmA:jeS
 فرمت	foRmat
+فرمند	faRmand
 فرمول	foRmul
 فرمولاسیون	foRmulAsijon
 فرمون	faRmun
@@ -9088,6 +9116,7 @@ U+20	fAsele_
 فلنگ	feleng
 فلنگو	felengo
 فله	falle:
+فلوبر	felobeR
 فلور	feloR
 فلورا	feloRA
 فلورانس	feloRAns
@@ -9095,6 +9124,7 @@ U+20	fAsele_
 فلورسانس	feloResAns
 فلورسنت	feluResent
 فلوریدا	feloRidA
+فلوشیپ	feloSip
 فلوچارت	felotSARt
 فلویور	felo_uR
 فلک	falak
@@ -9180,6 +9210,7 @@ U+20	fAsele_
 فیاض	fajjAz
 فیبر	fibR
 فیبرنوری	fibRenuRi
+فیبروز	fibRoz
 فیتنس	fitnes
 فیتوپلانگتون	fitopelAngton
 فیتوپلاینکتون	fitopelAjnkton
@@ -9218,6 +9249,7 @@ U+20	fAsele_
 فیکساتور	fiksAtoR
 فیگارو	figARo
 قائم	q1A?em
+قائن	q1A?en
 قابلیتها	q1AbelijathA
 قابلیتهای	q1AbelijathAje
 قاتق	q1Atoq1
@@ -9560,6 +9592,7 @@ U+20	fAsele_
 لایتخلف	lAjataxallaf
 لایتغیر	lAjataq1ajjaR
 لایتناهی	lAjatanAhi
+لایتنینگ	lAjtning
 لایزال	lAjazAl
 لایسنس	lAjsens
 لایعقل	lAja?q1al
@@ -9591,6 +9624,7 @@ U+20	fAsele_
 لتونی	letoni
 لثوی	lassavi
 لجاج	ledZAdZ
+لجاجت	ledZAdZat
 لجاره	ladZdZARe:
 لجام	ledZAm
 لجت	ladZat
@@ -10198,6 +10232,7 @@ U+20	fAsele_
 مجاور	modZAveR
 مجبور	madZbuR
 مجبورا	madZbuRan
+مجتبا	modZtabA
 مجتبوی	modZtabavi
 مجتبی	modZtabA
 مجتمعا	modZtame?an
@@ -10479,6 +10514,7 @@ U+20	fAsele_
 مرتبۀ	maRtabeje
 مرتد	moRtad
 مرتشی	moRtaSi
+مرتضا	moRtezA
 مرتضوی	moRtazavi
 مرتضی	moRtezA
 مرتعش	moRta?eS
@@ -10827,6 +10863,7 @@ U+20	fAsele_
 مصرع	mesRa?
 مصطبه	mestabe:
 مصطبۀ	mestabeje
+مصطفا	mostafA
 مصطفوی	mostafavi
 مصطفی	mostafA
 مصطلح	mostalah
@@ -11023,6 +11060,8 @@ U+20	fAsele_
 مغیلان	moq1ilAn
 مف	mof
 مفاتن	mafAten
+مفاخره	mofAxeRe:
+مفاخرۀ	mofAxeReje
 مفاد	mofAdd
 مفارق	mofAReq1
 مفارقت	mofAReq1at
@@ -11376,6 +11415,7 @@ U+20	fAsele_
 مهمل	mohmal
 مهمند	mohemmand
 مهمون	mehmun
+مهمیز	mehmiz
 مهندس	mo'handes
 مهندسان	mohandesAn
 مهگل	mahgol
@@ -11478,6 +11518,7 @@ U+20	fAsele_
 مولتی	molti
 مولد	movalled
 مولف	mo?allef
+مولوتف	molotof
 مولوتوف	molotof
 مولوی	mo:lavi
 مولویت	mo:lavijat
@@ -11553,6 +11594,7 @@ U+20	fAsele_
 مکانیسم	mekA:nism
 مکانیک	mekAnik
 مکبث	makbes
+مکبر	mokabbeR
 مکتشف	'mo,ktaSef
 مکتوب	maktub
 مکد	mekad
@@ -11872,6 +11914,7 @@ U+20	fAsele_
 نایلن	nAjlon
 نایلون	nAjlon
 نایلکس	nAjleks
+نایک	nAjk
 نباشد	nabASad
 نبد	nabod
 نبر	nabaR
@@ -11931,6 +11974,7 @@ U+20	fAsele_
 نخشب	naxSab
 نخع	naxa?
 نخم	naxam
+نخوان	naxAn
 نخوت	nexvat
 نخود	noxod
 نخیل	naxil
@@ -12494,6 +12538,7 @@ U+20	fAsele_
 نیکوخصال	nikuxesAl
 نیکوسخن	nikusoxan
 نیکولا	nikolA
+هابیت	hAbit
 هاتبرد	hAtbeRd
 هاتسون	hAtson
 هاتمیل	hAtmejl
@@ -12510,6 +12555,7 @@ U+20	fAsele_
 هافبک	hAfbak
 هالتر	hAlteR
 هالتریست	hAlteRist
+هالووین	hAlovin
 هالوپینو	hAlopino
 هالوژن	hAloZen
 هامبورگ	hAmbuRg
@@ -13008,6 +13054,7 @@ U+20	fAsele_
 ورموت	veRmut
 ورمونت	veRmont
 ورمیشل	veRmiSel
+ورن	veRn
 ورنی	veRni
 ورنیه	veRnije
 ورور	veRveR
@@ -13034,7 +13081,7 @@ U+20	fAsele_
 وسع	vos?
 وسعت	vos?at
 وسمق	vasmaq1
-وسوسه	vasvase:
+وسوس	vasvas
 وسپا	vespA
 وسیعا	vasian
 وشو	voSo
@@ -13223,6 +13270,7 @@ U+20	fAsele_
 پاناماسیتی	pAnAmAsiti
 پانتومیم	pAntomim
 پاند	pAnd
+پاندمی	pAndemi
 پانز	pAnz
 پانزده	'pAnzdah
 پانسمان	pAnsemAn
@@ -13369,6 +13417,7 @@ U+20	fAsele_
 پرسه	paRse:
 پرسو	poRsu
 پرسوجو	poRso'dZu:
+پرسونا	peRsonA
 پرسوناژ	peRsonAZ
 پرسپلیس	peRspolis
 پرسپولیس	peRspolis
@@ -13434,6 +13483,7 @@ U+20	fAsele_
 پروتئین	peRoto?in
 پروتز	poRotez
 پروتستان	poRotestAn
+پروتوتایپ	poRototAjp
 پروتون	poRoton
 پروتوپلاست	poRotopelAst
 پروتوپلاسم	poRtopelAsm
@@ -13852,6 +13902,7 @@ U+20	fAsele_
 پیواژه	pejvAZe
 پیوتر	pijuteR
 پیوره	pijoRe
+پیوس	pijus
 پیوست	pejvast
 پیوستار	pejvastAR
 پیوند	pejvand
@@ -14235,6 +14286,7 @@ U+20	fAsele_
 کارگروه	kARgoRuh
 کارگزین	kARgozin
 کارگو	kARgo
+کاریزماتیک	kARizmAtik
 کاریکاتور	kARikAtoR
 کاریکلماتور	kARikalamAtoR
 کازابلانکا	kAzAbelAnkA
@@ -14245,7 +14297,7 @@ U+20	fAsele_
 کاسنی	kAsni
 کاسپین	kAspijan
 کاسکت	kAsket
-کاسیو	kAAsi:jo
+کاسیو	kAsi:jo
 کاشت	k'ASt
 کاشکی	kASki
 کاظم	kAzem
@@ -14342,6 +14394,7 @@ U+20	fAsele_
 کتم	kotam
 کتمان	ketmAn
 کته	kate:
+کتول	katul
 کتون	katun
 کتک	kotak
 کتکش	kotakaS
@@ -14405,6 +14458,7 @@ U+20	fAsele_
 کرایۀ	keRAjeje
 کربلا	kaRbalA
 کربن	kaRbon
+کربنیز	kaRboniz
 کربنیفر	kaRbonifeR
 کربنیک	kaRbonik
 کربوهیدرات	kaRbohidRAt
@@ -14500,7 +14554,6 @@ U+20	fAsele_
 کسشعر	kosSe?R
 کسل	kesel
 کسم	kasam
-کسه	kosse:
 کسوت	kesvat
 کسپرسکی	kaspeReski
 کسچرخ	kostSaRx
@@ -14827,6 +14880,8 @@ U+20	fAsele_
 کولبار	kulebAR
 کولر	kuleR
 کولن	kulen
+کولون	kolon
+کولونوسکوپ	kolonoskop
 کولی	ko:li
 کومار	komAR
 کوماندو	komAndo
@@ -14926,6 +14981,7 @@ U+20	fAsele_
 گالون	gAlon
 گالکسی	gAleksi
 گالیم	gAlijom
+گالیور	gAliveR
 گالیکش	gA:li:keS
 گاماگلبولین	gAmAgolubulin
 گامتوفیت	gAmetofit
@@ -15385,6 +15441,7 @@ U+20	fAsele_
 یخش	jaxaS
 یخشکن	jaxSekan
 یخم	jaxam
+یخمک	jaxmak
 یخچال	jaxtSAl
 یددار	joddAR
 یدک	jadak
