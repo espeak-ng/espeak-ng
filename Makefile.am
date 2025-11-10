@@ -677,7 +677,7 @@ ga: espeak-ng-data/ga_dict
 espeak-ng-data/ga_dict: dictsource/ga_list dictsource/ga_rules dictsource/ga_extra dictsource/ga_emoji
 
 gag: espeak-ng-data/gag_dict
-espeak-ng-data/gag_dict: dictsource/gag_list dictsource/gag_rules dictsource/ga_extra
+espeak-ng-data/gag_dict: dictsource/gag_list dictsource/gag_rules dictsource/gag_extra
 
 gd: espeak-ng-data/gd_dict
 espeak-ng-data/gd_dict: dictsource/gd_list dictsource/gd_rules dictsource/gd_extra dictsource/gd_emoji
