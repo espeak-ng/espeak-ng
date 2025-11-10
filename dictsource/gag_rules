@@ -4,12 +4,12 @@
 
 // Vowels (latin version)
 .L01 ä e i ö ü  // front vowels
-.L02 a ı o u    // back vowels
+.L02 a ı o u ê  // back vowels
 
 
 // Vowels (cyrillic version)
 .L11 ӓ е и ӧ ӱ  // front vowels
-.L12 а о у ы    // back vowels
+.L12 а о у ы э  // back vowels
 
 
 // Latin group letters
