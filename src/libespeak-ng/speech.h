@@ -55,7 +55,12 @@ extern "C"
 #if defined(_WIN32) || defined(_WIN64) // Windows
 
 #define PLATFORM_WINDOWS 1
-#define PATHSEP '\\'
+
+#ifdef __MINGW32__
+    #define PATHSEP '/'
+#else
+    #define PATHSEP '\\'
+#endif
 #define N_PATH_HOME_DEF  230
 #define NO_VARIADIC_MACROS
 
