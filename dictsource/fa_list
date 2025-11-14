@@ -936,6 +936,7 @@ U+20	fAsele_
 اتوریته	otoRite:
 اتوسرویس	otoseRvis
 اتوسکپ	otoskop
+اتولایت	otolAjt
 اتومات	otomAt
 اتوماتیک	otomA'tik
 اتوماسیون	otomAsijon
@@ -2947,6 +2948,7 @@ U+20	fAsele_
 براده	boRAde
 برادوست	baRAdust
 برازجان	boRAzdZAn
+برازند	baRAzand
 برازید	baRAzid
 براساس	baRasA:se
 براش	baRAS
@@ -3036,6 +3038,7 @@ U+20	fAsele_
 برشده	baRSode:
 برشمر	baRSemoR
 برشمرد	baRSemoRd
+برشنه	beReSne:
 برشکست	baRSekast
 برشکن	baRSekan
 برص	baRas
@@ -3365,6 +3368,7 @@ U+20	fAsele_
 بلفضول	bolfozul
 بلقیس	belq1ejs
 بلم	balam
+بلمید	belamid
 بلند	'boland
 بلندا	bolandA:
 بلندای	bolandA:je
@@ -5585,6 +5589,7 @@ U+20	fAsele_
 خوروند	xoRund
 خوروپف	xoRRopof
 خوریان	xoRijAn
+خوزه	xoze:
 خوشایند	xoSAjand
 خوشبختان	xoSbaxtAn
 خوشحال	xoSh'Al
@@ -6718,6 +6723,7 @@ U+20	fAsele_
 روماریو	RomARijo
 رومان	RomAn
 رومانیا	RomAnijA
+رومبلی	Rumobli
 رومولوس	Romolus
 رومی	Rumi
 رومینا	RominA
@@ -6888,6 +6894,7 @@ U+20	fAsele_
 زرت	zeRt
 زرتشت	zaRtoSt
 زردشت	zaRdoSt
+زردمبو	zaRdambu
 زردنبو	zaRdanbu
 زردپوست	zaRadpust
 زردپی	zaRdpej
@@ -7463,6 +7470,7 @@ U+20	fAsele_
 سنجد	sendZed
 سنجش	sandZeS
 سنخ	'senx
+سنخوزه	sanxoze:
 سنخیت	senxijjat
 سند	sanad
 سندان	sendAn
@@ -8413,9 +8421,11 @@ U+20	fAsele_
 ظلم	zolm
 ظلمات	zolamAt
 ظلمانی	zolmAni
+ظلمت	zolmat
 ظلمه	zalame:
 ظهر	zohR
 ظهراب	zohRAb
+ظهرنویس	zahRnevis
 ظهیرالاسلام	zahiRoleslAm
 ظهیرالدوله	zahiRoddo:le:
 ظهیرالملک	zahiRolmolk
@@ -8776,6 +8786,7 @@ U+20	fAsele_
 فارماکولوژیک	fARmAkoloZik
 فارماکولژی	fARmAkoloZi
 فارماکولژیک	fARmAkoloZik
+فارنهایت	fARenhAjt
 فازمتر	fAzmetR
 فاستون	fAston
 فاشیسم	fASism
@@ -9137,6 +9148,7 @@ U+20	fAsele_
 فمینیست	feminist
 فمینیسم	feminism
 فناور	fannAvaR
+فنت	fannat
 فنتانیل	fentAnil
 فنجان	fendZAn
 فنجون	fendZun
@@ -9144,11 +9156,14 @@ U+20	fAsele_
 فندرسکی	fendeReski
 فندق	fandoq1
 فنر	fanaR
+فنش	fannaS
+فنم	fannam
 فنوتیپ	fenotip
 فنولیت	fonolit
 فنومن	fenomen
 فنومنولوژی	fenomenoloZi
 فنچ	fentS
+فنی	fanni
 فنیقی	feniq1i
 فهرست	fehRest
 فهم	fahm
@@ -9704,6 +9719,7 @@ U+20	fAsele_
 لمبون	lombun
 لمبوند	lombund
 لمبوندن	lombundan
+لمد	lamad
 لمعات	loma?At
 لمور	lemoR
 لمون	lemon
@@ -9759,6 +9775,7 @@ U+20	fAsele_
 لوز	lo:z
 لوزالمعده	lo:zolme?de:
 لوستر	lusteR
+لوسیفر	lusifeR
 لوسیون	losjon
 لولا	lo:lA
 لولر	leveleR
@@ -10469,6 +10486,7 @@ U+20	fAsele_
 مدیریتی	modiRijati
 مدیسون	medison
 مدینه	madine
+مدیوم	medijom
 مدیون	'madjun
 مذاب	mozAb
 مذاکر	mozAkeR
@@ -10543,6 +10561,7 @@ U+20	fAsele_
 مردنم	moRdanam
 مردنمان	moRdanemAn
 مردنمون	moRdanemun
+مردنگی	maRdangi
 مرده	moR'de:
 مردّد	moRaddad
 مردگان	moRdeg'An
@@ -11220,12 +11239,13 @@ U+20	fAsele_
 ملکول	molkul
 ملکۀ	malakeje
 ملی	me'lli
+ملیارد	meljARd
 ملیت	mellijat
 ملیسا	melisA
 ملین	molajjen
 ملینا	melinA
-ملیون	milju:n
-ملیونم	milju:nom
+ملیون	melju:n
+ملیونم	melju:nom
 ملیکا	melikA
 ممارست	momAResat
 مماشات	momA:SA:t
@@ -11331,6 +11351,7 @@ U+20	fAsele_
 منقا	monaq1q1A
 منقاد	monq1Ad
 منقار	menq1AR
+منقح	monaq1q1ah
 منقسم	monq1asem
 منقش	monaq1q1aS
 منقضی	monq1azi
@@ -11455,6 +11476,7 @@ U+20	fAsele_
 موجود	mo:dZu:d
 موحبت	mo:hebat
 موحد	movahhed
+موحش	muheS
 مودب	mo?addab
 مودت	mavaddat
 مودم	modem
@@ -11469,6 +11491,7 @@ U+20	fAsele_
 موردعلاق	mo:Rede?alA:q1
 موردنظر	mo:Rede'nazaR
 موردنیاز	mo:RedenijAz
+مورس	moRs
 مورفی	moRfi
 مورفین	moRfin
 مورچ	muRtS
@@ -12244,6 +12267,7 @@ U+20	fAsele_
 ننگبار	nangbAR
 ننگرد	nangaRad
 ننگه	nange:
+ننگین	nangin
 نه	na
 نها	nahA
 نهاندانه	nahAndAne
@@ -13468,6 +13492,7 @@ U+20	fAsele_
 پره	paRRe
 پرهام	paRhAm
 پرهون	paRhun
+پرهیب	paRhib
 پرهیبت	poRhejbat
 پرهیجان	poRhajadZAn
 پرهیخت	paRhixt
@@ -13516,10 +13541,9 @@ U+20	fAsele_
 پروپاگاندا	poRopAgAndA:
 پروپوزال	poRopozAl
 پروپیلن	poRopilen
+پروژ	poRoZ
 پروژسترون	peRoZesteRon
-پروژه	poRoZe:
 پروژکتور	poRoZektoR
-پروژۀ	poRoZeje
 پروکسی	peRoksi
 پروکسید	peRoksid
 پروگرام	poRogeRAm
@@ -14673,6 +14697,7 @@ U+20	fAsele_
 کلودیو	kelodijo
 کلوپاترا	kelopAtRA
 کلوچه	kolutSe:
+کلوین	kelvin
 کلّ	koll
 کلّی	kolli
 کلّیت	kollijat
@@ -15282,6 +15307,7 @@ U+20	fAsele_
 گلۀ	galleje
 گلیدر	gelejdeR
 گلیساندو	gelisAndo
+گلیسیرید	gelisiRid
 گلیسیرین	gelisiRin
 گلیش	geliS
 گلیم	gelim
