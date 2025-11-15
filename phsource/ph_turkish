@@ -54,7 +54,7 @@ phoneme e
     // don't reduce the vowel if phonemes are explicitly given
   ELSE
     IF nextPh(isWordEnd) OR next2PhW(isNotVowel) THEN
-      IF nextPh(isRhotic) OR nextPh(isNasal) OR nextPh(l) OR nextPh(L) THEN
+      IF nextPh(R) OR nextPh(isNasal) OR nextPh(l) OR nextPh(L) THEN
         ChangePhoneme(&)
       ENDIF
     ENDIF
