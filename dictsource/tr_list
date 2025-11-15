@@ -3,7 +3,7 @@
 // Spelling-to-phoneme words for Turkish
 
 a	a
-b	be
+b	bE
 c	dZE
 ç	tSE
 d	dE
@@ -36,7 +36,7 @@ y	jE
 z	zE
 
 _cap	byj'Yc
-_??	sEmb'Ol
+_??	s&mb'Ol
 _?A	haRf
 
 // accent names
@@ -64,7 +64,7 @@ _;	nOktaL'@vIRJ'Yl
 _:	ic'InOkt'a
 _…	'YtSnOkt'a
 _?	soR'UiSa*et,I
-_!	Ynl'EmiSa*et,I
+_!	Ynl'&miSa*et,I
 _-	k'@satSIzJ'I
 _–	'uzUntSIzJ'I
 _/	ej'IctSIzJ'I
@@ -74,11 +74,11 @@ _^	IndZ'&ltmEiSa*et'I
 &	_!v'E
 _&	v'EiSa*et'I
 _@	kUjRUkL'U'a
-_\	t'ERs||ej,IctSIzg'I
+_\	t'&Rs||ej,IctSIzg'I
 _(	atSpa*ant'Ez
 _)	kapapa*ant'Ez
-_’	tEkt@Rn'ak
-_‘	tEkt@Rn'ak
+_’	tEct@Rn'ak
+_‘	tEct@Rn'ak
 
 ¶	pa*agR'af
 §	tS&nJ'&l
