@@ -346,7 +346,7 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 				lastSlash++;
 				// Replace filename with "..\\share"
 				strcpy(lastSlash, "..\\share");
-				if (check_data_path(path, 1))
+				if (check_data_path(dllpath, 1))
 					return;
 			}
         }
