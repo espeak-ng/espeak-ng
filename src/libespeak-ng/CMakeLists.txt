@@ -69,9 +69,7 @@ if (NOT BUILD_SHARED_LIBS)
   target_compile_definitions(espeak-ng INTERFACE "LIBESPEAK_NG_EXPORT=1")
 endif()
 
-if(NOT MINGW)
-  target_compile_definitions(espeak-ng PRIVATE "PATH_ESPEAK_DATA=\"${CMAKE_INSTALL_PREFIX}/share/espeak-ng-data\"")
-endif(NOT MINGW)
+target_compile_definitions(espeak-ng PRIVATE "PATH_ESPEAK_DATA=\"${CMAKE_INSTALL_PREFIX}/share/espeak-ng-data\"")
 
 if (USE_ASYNC)
   target_sources(espeak-ng PRIVATE

@@ -40,6 +40,7 @@
 #if defined(_WIN32) || defined(_WIN64)
 #include <fcntl.h>
 #include <io.h>
+#include <windows.h>
 #include <winreg.h>
 #endif
 
@@ -360,9 +361,7 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 		return;
 #endif
 
-#ifndef __MINGW32__
 	strcpy(path_home, PATH_ESPEAK_DATA);
-#endif
 }
 
 const int param_defaults[N_SPEECH_PARAM] = {

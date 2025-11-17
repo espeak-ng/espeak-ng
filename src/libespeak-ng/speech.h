@@ -53,12 +53,10 @@ extern "C"
 #endif
 
 #if defined(_WIN32) || defined(_WIN64) // Windows
-#include <windows.h>
 
 #define PLATFORM_WINDOWS 1
-
 #define PATHSEP '\\'
-#define N_PATH_HOME_DEF  MAX_PATH
+#define N_PATH_HOME_DEF  230
 #define NO_VARIADIC_MACROS
 
 #else
