@@ -80,7 +80,7 @@ static const char variants_male[N_VOICE_VARIANTS] = { 1, 2, 3, 4, 5, 6, 0 };
 static const char variants_female[N_VOICE_VARIANTS] = { 11, 12, 13, 14, 0 };
 static const char *const variant_lists[3] = { variants_either, variants_male, variants_female };
 
-#if defined(_WIN32)
+#ifdef _WIN32
 #define MB_PREFIX "mb\\"
 #else
 #define MB_PREFIX "mb/"
