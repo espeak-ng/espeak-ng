@@ -247,7 +247,7 @@ static int check_data_path(const char *path, int allow_directory)
 {
 	if (!path) return 0;
 
-	snprintf(path_home, sizeof(path_home), "%s%sespeak-ng-data", path, PATHSEP);
+	snprintf(path_home, sizeof(path_home), "%s%cespeak-ng-data", path, PATHSEP);
 	if (GetFileLength(path_home) == -EISDIR)
 		return 1;
 
