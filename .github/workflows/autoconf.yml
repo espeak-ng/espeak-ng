@@ -74,7 +74,7 @@ jobs:
 
     - name: config-failed-upload
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: config-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}.log
         path: config.log

@@ -40,7 +40,7 @@ jobs:
            ./configure ${{ matrix.archconfig }} --with-libfuzzer
     - name: Store the fuzzer config
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: config-${{ matrix.arch }}.log
         path: config.log
