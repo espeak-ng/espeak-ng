@@ -106,6 +106,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         a (nAr_    &
 
         am (_      =&U~
+        am (n      &~m
         am (C      &~N
         an (K      &~N
 
@@ -258,7 +259,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?4      d (+       d         // Brazilian mbrola /d/s are already affricate
 
 ?3      d (B       d#I/
-?3      d (s       d
 ?3   @) d (_C      d_
 
 ?2   A) de (o_     dZj
@@ -355,6 +355,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         e (x_      E
         e (xL04_   E
 
+        em (n      em
         em (C      eIN
         en (C      eIN
 
@@ -880,7 +881,8 @@ _redar) gu (A      gw
         lh         l^
 
 ?3   l) l (_
-?3   C) l (_       lI/       // Carl, girl, curl (English)
+?3   C) l (_       lI/       // girl, curl (English)
+?3   C) ls (_      lI/s#     // girls, curls (English)
 
     @!) lli (_     =li       // Italian immigrants
 
@@ -1000,6 +1002,7 @@ _redar) gu (A      gw
         o (ma_     o
     @s) on (_      %o~N       // words ending in -son
 
+        om (n      o~m
         om (K      o~N
         on (K      o~N
 
@@ -1280,7 +1283,8 @@ _ortod) o (xL08_   O
 ?4   A) rr         R#        // terra
 ?4   A) r (G       r         // born, borg
 ?4   A) r (_G      r         // tornar-me
-?4   A) r (l       r         // carl, pearl
+?4   A) r (lA      r         // carl, pearl
+?4   A) r (lB      @         // world, marlboro
 ?4   A) r (sK                // perspectiva
 
 
@@ -1498,6 +1502,8 @@ _lagarti) x (A     S
         y (A       j
         y (_       %i        // ?? stress on 1st syllable  EN
 
+        ym (K      i~N
+        yn (K      i~N
 
 .group z
      _) z (_       ze

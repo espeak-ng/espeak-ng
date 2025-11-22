@@ -534,6 +534,7 @@ eua	$abbrev
 eula	$abbrev
 exe	$abbrev
 faa	$abbrev
+fab	$abbrev
 faq	$abbrev
 fbi	$abbrev
 fce	$abbrev
@@ -541,6 +542,7 @@ fcup	$abbrev
 fda	$abbrev
 fddi	$abbrev
 fdic	$abbrev
+feb	$abbrev
 fmi	$abbrev
 fnde	$abbrev
 fne	$abbrev
@@ -743,7 +745,7 @@ oms	$abbrev
 omt	$abbrev
 ?1 ong	,O,Eng'e
 ?2 ong	,O,enyZ'e
-onu	$1
+onu	$abbrev
 opv	$abbrev
 ortn	$abbrev
 osi	$abbrev
@@ -2708,6 +2710,7 @@ cruiser		k*'uzer#
 cuesta		kw'esta
 (cul de lampe)	_^_FR
 (cul de sac)	_^_FR
+cup		k&p $only
 curriculum	$2
 curry		k'&ri
 cyber		s'aIber#
@@ -2834,8 +2837,8 @@ eight		eIt#
 eighteen	eIt'IN
 eighty		'eIty
 eleven		el'EveN
-(e-mail)	im'eIl
-email		im'eIl
+(e-mail)	im'ejl#
+email		im'ejl#
 emmenthal	_^_FR
 emoji		$2
 ?1 end		'end
@@ -2957,6 +2960,7 @@ frisson		f*is'o~
 frizz		_^_EN
 frutti		_^_IT
 fugato		_^_IT
+führer		f'iR#er#
 fumoir		_^_FR
 funk		f'&~Nk
 fusain		_^_FR
@@ -2998,8 +3002,8 @@ glacis		_^_FR
 glamour		gl&m'ur#
 glass		gl'Es
 glide		gl'aId#y
-?1 gmail	g,em'eIl
-?2 gmail	Z,em'eIl
+?1 gmail	g,em'ejl#
+?2 gmail	Z,em'ejl#
 gnocchi		n^'oki
 goal		_^_EN
 goalball	_^_EN
@@ -3126,7 +3130,7 @@ host		h'oUst#
 hostel		_^_EN
 hostess		_^_EN
 hot		hOt#
-hotmail		h,Ot#m'eIl
+hotmail		h,Ot#m'ejl#
 hotsite		h,Ot#s'aIt#
 hotspot		h,Ot#sp'Ot#
 ?1 hour		'aU&r
@@ -3290,6 +3294,7 @@ loure		_^_FR
 louré		_^_FR
 louvre		l'uv*y
 lover		l'Over#
+luftwaffe	l,uft#v'afy
 luthier		_^_FR
 lycra		l'aIk*&
 macaron		_^_FR
@@ -3301,7 +3306,7 @@ mademoiselle	_^_FR
 madison		_^_EN
 maestoso	_^_IT
 maiden		m'eIdeIN
-mail		m'eIl
+mail		m'ejl#
 mainstream	_^_EN
 maître		m'Et*y
 (make up)	m,eIk'&p
@@ -3370,6 +3375,7 @@ minnesota	$alt2
 (mise en plis)	m'iz||&~||pl'i
 (mise en scène)	m'iz||&~||s'En
 (mise en train)	_^_FR
+mississipi	$3
 missouri	miz'oUr#y
 mister		$1
 mistress	_^_EN
@@ -3407,7 +3413,7 @@ negroni		_^_IT
 nerd		n'Er#d#
 network		n,Etw'or#k
 networking	n,Etw'or#kiN
-new		n'iU
+new		n'iw
 (new age)	n'iw||'eIZy
 newmarket	_^_EN
 news		n'iUs#
@@ -3421,6 +3427,7 @@ nobreak		noUb*'eIk
 nonsense	_^_EN
 north		_^_EN
 nouveau		nuv'o
+nürnberg	nu*eINb'Er#gI/
 nurse		_^_EN
 nurture		_^_EN
 nylon		n'aIloN
@@ -3434,7 +3441,7 @@ offside		Ofs'aId#
 ok		Ok'eI
 okay		Ok'eI
 oklahoma	,oUkl&h'oUm&
-one		w'ON
+one		w'oN
 olympia		olímpia $text
 ombudsman	$2
 (on line)	oNl'aIny
@@ -3714,6 +3721,7 @@ rooter		_^_EN
 roquefort	_^_FR
 rosé		_^_FR
 rôtisserie	_^_FR
+rouanet		R#u&n'e
 rouge		_^_FR
 rougeot		_^_FR
 rough		_^_EN
@@ -3735,6 +3743,7 @@ sandwich	s,&~Ndu'iSI/
 (sans culotte)	s'&~||kul'Ot#
 ?1 sapi		s,ap'i
 sapiens		s'apieINs
+sarajevo	s,a*aj'evU
 saturday	s'at@rd,eI
 sauvignon	_^_FR
 (savoir faire)	savw'aR#||f'ER#
@@ -4152,6 +4161,7 @@ wednesday	w'enyzdeI
 (week end)	w'ik,end#
 weekend		w'ik,end#
 weltanschauung	_^_DE
+wehrmacht	ver#m'axt
 west		w'Est#
 western		w'Estern
 westpolitik	v,Estpolit'ik
@@ -4186,7 +4196,7 @@ yankee		j'&~Nki
 yard		j'ar#d#
 yearling	_^_EN
 yellow		j'EloU
-yale		i'eIl
+yale		i'ejl#
 yes 		j'Es
 yokohama	j,okoh'&~m&
 york		j'Ork
@@ -4365,6 +4375,7 @@ bowie		b'oUwi
 brad		b*Ed#
 bradbury	b*,Ed#b'&ri
 brahms		b*&ms
+braudel		brod'El#
 braxton		b*'EkstoN
 brecheret	b*eSe*'e
 brecht		b*ESt#
@@ -4454,7 +4465,7 @@ feynman		f'ainm&N
 fibonacci	fibon'atSi
 fincher		$1
 fishburne	f'iSb@rn
-fisher		$1
+fischer		$1
 fitzgerald	fitI/sdZ'E*al#d#
 flaubert 	flob'Er#
 fleming		fl'emiN
@@ -4513,11 +4524,13 @@ hemingway	h'EmIN,weI
 hendrix		h'eNdr#iks
 hepburn		h'EpIb@rn
 herschel	h'Er#Sel#
+hesse		h'Esy
 heston		h'EstoN
 hilbert		h'ilber#t#
 hitler		h'itler#
 hitchcock	h'itSI/k'Ok
 ?2 hobbes	h'Obys
+hobsbawm	h'ObI/sbo~N
 hoffman		h'Ofm&N
 holmes		h'oUmys
 hooke		h'uky
@@ -4554,8 +4567,8 @@ kubrick		$1
 kyoto		$alt2
 lauper		l'aUper#
 laurence	$1
+lawrence	$1
 lavoisier	lavwazj'e
-lawrence	_^_EN
 ledger		l'EdZer#
 leibniz		l'aIbni:ts
 lenin		l'eniN
@@ -4645,6 +4658,7 @@ pauling		$1
 (pedro i)	p'ed*U||p*,im'eI*U
 (pedro ii)	p'ed*U||s,eg'u~NdU
 pavlov		pavl'Ov
+peirce		p'&*sy
 piaget		p,iaZ'e
 pinochet	pinoS'e
 poitier		pwati'er#
@@ -4673,6 +4687,7 @@ ritchie		_^_EN
 rochefoucauld	R#OSfuk'o
 rodin		R#od'&~
 roitman		R#'OItSIm&~N
+röntgen		R#'o~NtI/geIN
 roosevelt	R#'uzyvelt
 rossini		R#os'ini
 roth		_^_EN
@@ -4732,6 +4747,7 @@ turing		t'u*iNg
 turner		t'@rner#
 twain		tw'eIN
 tyson		t'aIsoN
+varnhagen	v,a*nI/h'ageIN
 verdi		v'Er#di
 vivaldi		$2
 volpi		$1
@@ -4878,9 +4894,9 @@ harry		h'Er,i
 helen		$1 $only
 henry		$1
 herbert		$1 $alt
-hermann		_^_DE
-herrmann	h'Er#m&N
-hilary		_^_EN
+hermann		h'E*m&~N
+herrmann	h'E*m&~N
+hilary		h'ilari
 hoffmann	h'Ofm&N
 horowicz	ho*ov'iks
 ingrid		$1
@@ -4941,6 +4957,7 @@ marini		$2
 marjorie	$1
 marlon		$1
 martinelli	$2
+martin		$1 $only
 martini		$2
 meneghetti	$3 $alt
 meyer		m'EIer#

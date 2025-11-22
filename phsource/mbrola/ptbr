@@ -87,6 +87,7 @@ volume 15
 0   p    s      90  p i		// opção
 0   p    t      90  p i		// corrupto
 0   p    z      90  p i		// leipzig
+64  p    NULL   90  p _
 
 0   b    d      90  b i		// abdicar
 0   b    f      90  b i		// subfamília
@@ -100,6 +101,7 @@ volume 15
 0   b    v      90  b i		// óbvio
 0   b    z      90  b i		// subzona
 0   b    Z      90  b i		// objeto
+64  b    NULL   90  b _
 
 0   t    k      90  t i		// bitcoin
 0   t    m      90  t i		// atmosfera
@@ -108,18 +110,18 @@ volume 15
 0   t    v      90  t i		// zemstvo
 0   t    z      90  t i		// tzar
 0   t    S      90  t i		// ketchup
+64  t    NULL   90  t _
 
 0   d    b      90  d i		// feedback
 0   d    g      90  d i		// edgar
 0   d    k      90  d i		// adquirir
 0   d    m      90  d i		// admitir
 0   d    n      90  d i		// sidney
-0   d    p      90  d i		// ?
 0   d    s      90  d i		// feldspato
 0   d    t      90  d i		// humboldt
 0   d    v      90  d i		// advogado
-0   d    z      90  d i		// podzol
 0   d    Z      90  d i		// adjetivo
+64  d    NULL   90  d _
 
 0   k    f      90  k i		// frankfurt
 0   k    m      90  k i		// dracma
@@ -130,6 +132,7 @@ volume 15
 0   k    v      90  k i		// kvas
 0   k    z      90  k i		// czar
 0   k    S      90  k i		// yorkshire
+64  k    NULL   90  k _
 
 0   g    b      90  g i		// rugby
 0   g    d      90  g i		// bagdá
@@ -139,14 +142,17 @@ volume 15
 0   g    s      90  g i		// tungsténio
 0   g    t      90  g i		// ragtime
 0   g    z      90  g i		// zigzag
+64  g    NULL   90  g _
 
 0   f    g      90  f i		// wolfgang
 0   f    k      90  f i		// kafka
 0   f    n      90  f i		// dafne
 0   f    t      90  f i		// afta
+64  f    NULL   90  f _
 
 0   v    n      90  v i		// ovni
 0   v    s      90  v i		// dostoievski
+64  v    NULL   90  v _
 
 64  l    NULL   90  l i		// carl, pearl
 
@@ -167,6 +173,7 @@ volume 15
 9   I   N      0   im
 9   o   N      0   om
 9   o~  N      0   om
+9   O   N      0   om
 9   u   N      0   um
 9   u~  N      0   um
 
