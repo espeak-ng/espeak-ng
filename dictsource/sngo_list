@@ -1,0 +1,93 @@
+// The <language>_list  file contains a list of words whose pronunciations
+// are given explicitly,
+// rather than determined by the Pronunciation Rules.
+// This file is UTF-8 encoded
+// precede by _  to distinguish from pronunciation as a language word
+
+
+// accent names
+
+// character names
+
+// Language names
+
+// Cyrillic letters
+
+
+// numbers
+_0      k'uo bo
+_1      k'uo vo
+_2      k'uo do
+_3      k'uo δo
+_4      k'uo jo
+_5      k'uo zo
+_6      k'uo go
+_7      k'uo yo
+_8      k'uo no
+_9      k'uo lo
+_10     k'uo vo bo
+_11     k'uo vo vo
+_12     k'uo vo do
+_13     k'uo vo δo
+_14     k'uo vo jo
+_15     k'uo vo zo
+_16     k'uo vo go
+_17     k'uo vo yo
+_18     k'uo vo no
+_19     k'uo vo lo
+_2X     k'uo do bo
+_21     k'uo do vo
+_22     k'uo do do
+_23     k'uo do δo
+_24     k'uo do jo
+_25     k'uo do zo
+_26     k'uo do go
+_27     k'uo do yo
+_28     k'uo do no
+_29     k'uo do lo
+_3X     k'uo δo bo
+_4X     k'uo jo bo
+_5X     k'uo zo bo
+_6X     k'uo go bo
+_7X     k'uo yo bo
+_8X     k'uo mo bo
+_9X     k'uo lo bo
+_0C     k'uo vo bo bo
+_0M1    k'ilo vo
+_1M1    k'ilo vo vo
+_0M2    k'ilo do
+_1M2    k'ilo do vo
+_0M3    k'ilo δo
+_1M3    k'ilo δo vo
+_0M4    k'ilo jo
+_1M4    k'ilo jo vo
+
+// abbreviations
+
+// articles
+
+// pronouns
+
+//  adjectives
+
+// conjunctions
+
+// prepositions
+
+// aux verb, to be
+// aux verb, to have
+
+// foreign words
+
+
+// Main  Dictionary
+
+
+//  countries, Proper names and locations and languages
+
+
+// Exceptions for verbs and others irregular verbs
+
+
+// Verbs without ultimate vowel
+

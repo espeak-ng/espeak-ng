@@ -1,0 +1,311 @@
+//====================================================
+//  Sinago  - import base1
+//====================================================
+
+phoneme a
+  vwl
+  ipa ɐ
+  length 170
+  FMT(vowel/a)
+endphoneme
+
+phoneme e
+  vwl
+  ipa e̞
+  length 170
+  FMT(vowel/e)
+endphoneme
+
+phoneme o
+  vwl
+  ipa o̞
+  length 170
+  FMT(vowel/o)
+endphoneme
+
+phoneme i
+  vwl
+  length 170
+  FMT(vowel/i)
+endphoneme
+
+phoneme u
+  vwl
+  length 170
+  FMT(vowel/u)
+endphoneme
+
+
+// CONSONANTS
+//===========
+
+phoneme b
+  import_phoneme base1/b
+endphoneme
+
+phoneme v
+  import_phoneme base1/v
+endphoneme
+
+phoneme d
+  import_phoneme base1/d
+endphoneme
+
+phoneme δ
+  vcd dnt frc
+  ipa ð
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+  FMT(voc/dh)
+endphoneme
+
+phoneme j
+  import_phoneme consonants/dz
+endphoneme
+
+phoneme jj
+  vcd alp sib afr
+  ipa dʑ
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2 f2=2700 400 600  f3=300 80
+  FMT(dzh/xdzh) addWav(x/dz_pzd)
+endphoneme
+
+phoneme z
+  import_phoneme base1/z
+endphoneme
+
+phoneme zz
+  vcd alp sib frc
+  ipa ʑ
+  lengthmod 6
+  Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(voc/z_pzd) addWav(ufric/sh_pzd, 80)
+endphoneme
+
+phoneme g
+  import_phoneme base1/g
+endphoneme
+
+phoneme gg
+  vcd pla stp
+  ipa ɟ
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+  FMT(dzh/dz_pzd)
+endphoneme
+
+phoneme y
+  vcd vel frc
+  ipa ɣ
+  lengthmod 6
+  FMT(voc/Q_ulv) addWav(ufric/xx, 50)
+endphoneme
+
+phoneme yy
+  vcd vel pal frc
+  ipa ʝ
+  lengthmod 6
+  Vowelin f1=2  f2=2300 200 400  f3=-100 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(voc/Q) addWav(vocw/Q)
+endphoneme
+
+phoneme n
+  import_phoneme base1/n
+endphoneme
+
+phoneme nn
+  vcd pal nas pzd
+  ipa ɲ
+  Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
+  lengthmod 4
+  IF KlattSynth THEN
+    VowelStart(klatt/n^@)
+    FMT(klatt/n^)
+  ENDIF
+  NextVowelStarts
+    VowelStart(n^/n^@)
+    VowelStart(n^/n^a)
+    VowelStart(n^/n^e)
+    VowelStart(n^/n^i)
+    VowelStart(n^/n^o)
+    VowelStart(n^/n^u)
+  EndSwitch
+  IF prevPh(isPause) THEN
+    FMT(n^/_n^)
+  ELIF nextPh(isNotVowel) THEN
+    IF nextPhW(n^) THEN
+      length 75
+    ELIF prevPhW(n^) THEN
+      length 100
+    ENDIF
+    FMT(n^/n^_)
+  ENDIF
+endphoneme
+
+phoneme l
+  liquid
+  lengthmod 7
+  IF nextPh(isNotVowel) THEN
+    // in case the next phoneme is no longer a vowel, in pass=2
+    PrevVowelEndings
+      VowelEnding(l/L1_@L, -60)
+      VowelEnding(l/L1_aL, -40)
+      VowelEnding(l/L1_eL, -30)
+      VowelEnding(l/L1_iL, -30)
+      VowelEnding(l/L1_oL, -40)
+      VowelEnding(l/L1_uL, -40)
+    EndSwitch
+    FMT(l/l_)
+    RETURN
+  ENDIF
+  CALL vowelstart_l
+  IF prevPh(#@) THEN
+    VowelEnding(l/xl, -50)
+  ELIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+  FMT(l/l)
+endphoneme
+
+phoneme ll
+  liquid
+  ipa ʎ
+  lengthmod 7
+  Vowelout len=60 lenadd rate
+  length 100
+  NextVowelStarts
+    VowelStart(l^/j2@)
+    VowelStart(l^/j2a)
+    VowelStart(l^/j2e)
+    VowelStart(l^/j2i)
+    VowelStart(l^/j2o)
+    VowelStart(l^/j2u)
+  EndSwitch
+  IF prevPh(isPause) THEN
+    FMT(l^/_l^)
+  ENDIF
+  FMT(l^/l^)
+endphoneme
+
+phoneme p
+  vls blb stp
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p)
+endphoneme
+
+phoneme f
+  import_phoneme base1/f
+endphoneme
+
+phoneme t
+  vls alv stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/t, 90)
+endphoneme
+
+phoneme θ
+  vls dnt frc
+  ipa θ
+  lengthmod 3
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ufric/th)
+endphoneme
+
+phoneme c
+  vls alv afr sib
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/ts)
+endphoneme
+
+phoneme cc
+  vls pal afr sib pal
+  ipa tɕ
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  WAV(ustop/ts_pzd)
+endphoneme
+
+phoneme s
+  vls alv frc sib
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ufric/s)
+endphoneme
+
+phoneme ss
+  vls pal frc sib pal
+  ipa ɕ
+  lengthmod 3
+  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate
+  WAV(ufric/sh_pzd)
+endphoneme
+
+phoneme k
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  WAV(ustop/k_unasp, 70)
+endphoneme
+
+phoneme kk
+  vls pal stp pal
+  ipa c
+  lengthmod 4
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
+  WAV(ustop/ki, 55)
+endphoneme
+
+phoneme h
+  vls glt apr
+  lengthmod 3
+  ipa h
+  IF nextPh(#a) THEN
+    WAV(h/ha)
+  ELIF nextPh(#e) THEN
+    WAV(h/he)
+  ELIF nextPh(#o) THEN
+    WAV(h/ho)
+  ELIF nextPh(#u) THEN
+    WAV(h/hu)
+  ENDIF
+  WAV(h/h_, 70)  // no vowel following
+endphoneme
+
+phoneme hh
+  vls pal frc
+  ipa ç
+  lengthmod 3
+  Vowelin  f1=0  f2=2700 400 600  f3=200 70
+  Vowelout f1=0  f2=2700 400 600  f3=200 70  rms=20
+  WAV(ufric/ch)
+endphoneme
+
+phoneme m
+  import_phoneme base1/m
+endphoneme
+
+phoneme r
+  vcd alv flp rhotic
+  ipa ɾ
+  lengthmod 3
+  FMT(d/tap3) addWav(r3/rx, 200)
+endphoneme
