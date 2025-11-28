@@ -1,0 +1,135 @@
+// translation rules FROM Esperanto
+// This file is UTF-8 encoded
+
+.L01 B b V v D d Δ δ W w J j Z z G g Y y N n L l P p F f T t Θ θ Q q C c S s K k H h M m R r A a E e O o I i U u
+
+.replace
+   w          δ
+   q          θ
+//   o          o-
+
+.group
+   # Default transliteration rules
+   a    a
+   e    e
+   o    o
+   i    i
+   u    u
+   w    δ
+   q    θ
+.end
+
+.group a
+    _) a (_       a
+       a          a
+       //a (Ja      a||
+
+.group e
+    _) e (_       e
+       e          e
+
+.group o
+    _) o (_       o
+       o          o
+       //o (Jo      o_;_  //any 'o' for words ending in -o, separated
+                        //_;_  clause pause
+
+.group i
+    _) i (_       i
+       i          i
+       //i (Ji      i||
+
+.group u
+    _) u (_       u
+       u          u
+
+
+.group b
+    _) b (_       bo
+       b          b
+
+.group v
+    _) v (_       vo
+       v          v
+
+.group d
+    _) d (_       do
+       d          d
+
+.group δ
+    _) δ (_       δo
+       δ          δ
+
+.group j
+    _) j (_       jo
+       j          j
+       jj         jj
+
+.group z
+    _) z (_       zo
+       z          z
+       zz         zz
+
+.group g
+    _) g (_       go
+       g          g
+       gg         gg
+
+.group y
+    _) y (_       yo
+       y          y
+       yy         yy
+
+.group n
+    _) n (_       no
+       n          n
+       nn         nn
+
+.group l
+    _) l (_       lo
+       ll         ll
+       l          l
+
+.group p
+    _) p (_       po
+       p          p
+
+.group f
+    _) f (_       fo
+       f          f
+
+.group t
+    _) t (_       to
+       t          t
+
+.group θ
+    _) θ (_       θo
+       θ          θ
+
+.group c
+    _) c (_       co
+       c          c
+       cc         cc
+
+.group s
+    _) s (_       so
+       s          s
+       ss         ss
+
+.group k
+    _) k (_       ko
+       k          k
+       kk         kk
+
+.group h
+    _) h (_       ho
+       h          h
+       hh         hh
+
+.group m
+    _) m (_       mo
+       m          m
+
+.group r
+    _) r (_       ro
+       r          r
