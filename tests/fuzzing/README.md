@@ -10,10 +10,11 @@ Currently, there is a fuzzer related to synthetizer, **synth_fuzzer** that will 
 
 We have added some switchs to configure.ac for fuzzing and coverage. The `--with-fuzzer` switch will check if your are actually using clang and clang++ as compilers (by looking at CC and CXX) and allows generation of compilation instructions for fuzzer targets. The `--with-coverage` will add `-fprofile-instr-generate -fcoverage-mapping` to AM_CPPFLAGS in espeak/Makefile.am.
 
-To configure and build the project with coverage and fuzzer.
-```./autogen.sh
-CC=clang CXX=clang++ ./configure --with-coverage --with-fuzzer
-make -j8
+To configure and build the project with coverage and fuzzer using the CMake
+build system:
+```
+CC=clang CXX=clang++ cmake -B build -DWITH_COVERAGE=ON -DWITH_FUZZER=ON
+cmake --build build -j8
 ```
 
 ## Run the fuzzers
