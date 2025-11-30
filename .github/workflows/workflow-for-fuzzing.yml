@@ -33,7 +33,7 @@ jobs:
     - name: Fuzz function synth_espeak()
       run: |
         mkdir -p tests/fuzzing/CORPUS_DIR
-        ESPEAK_DATA_PATH=build/src FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+        FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
       uses: actions/upload-artifact@v5
@@ -45,7 +45,7 @@ jobs:
     - name: Fuzz function synth_espeak() with language-specific input
       run: |
         cp dictsource/${{ inputs.lang }}_* tests/fuzzing/CORPUS_DIR/ || true
-        ESPEAK_DATA_PATH=build/src FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+        FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
       uses: actions/upload-artifact@v5
