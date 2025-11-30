@@ -8,7 +8,7 @@ Currently, there is a fuzzer related to synthetizer, **synth_fuzzer** that will 
 
 ## Configure the project for fuzzing
 
-We have added some switchs to configure.ac for fuzzing and coverage. The `--with-fuzzer` switch will check if your are actually using clang and clang++ as compilers (by looking at CC and CXX) and allows generation of compilation instructions for fuzzer targets. The `--with-coverage` will add `-fprofile-instr-generate -fcoverage-mapping` to AM_CPPFLAGS in espeak/Makefile.am.
+We have added some switchs to cmake for fuzzing and coverage. The `-DWITH_FUZZER=ON` switch will check if your are actually using clang and clang++ as compilers (by looking at CC and CXX) and allows generation of compilation instructions for fuzzer targets. The `-DWITH_COVERAGE=ON` will add `-fprofile-instr-generate -fcoverage-mapping` to `AM_CPPFLAGS` in `CMakeLists.txt`.
 
 To configure and build the project with coverage and fuzzer using the CMake
 build system:
