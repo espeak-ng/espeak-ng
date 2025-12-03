@@ -1,7 +1,7 @@
 // translation rules FROM Esperanto
 // This file is UTF-8 encoded
 
-.L01 B b V v D d Δ δ W w J j Z z G g Y y N n L l P p F f T t Θ θ Q q C c S s K k H h M m R r A a E e O o I i U u
+.L01 P p F f T t Θ θ Q q C c S s K k H h M m N n B b V v D d Δ δ W w J j Z z G g Y y L l R r A a E e O o I i U u
 
 .replace
    w          δ

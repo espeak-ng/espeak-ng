@@ -1804,8 +1804,8 @@ include ph_russian
 phonemetable shn base1
 include ph_shan
 
-phonemetable sngo base1
-include ph_sinago
+phonemetable sngu base1
+include ph_sinagu
 
 phonemetable sq base1
 include ph_albanian
