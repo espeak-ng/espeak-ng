@@ -1,0 +1,12 @@
+// https://synagonism.net/dirMcs/dirLag/McsLag000010.last.html
+// compilation docs: https://synagonism.net/dirMcs/dirTchInf/McsTchInf000036.last.html#idTchNlp004Espkng
+name sinagu
+language sngu
+phonemes sngu
+//stressRule 2
+//tunes s4 c4 q4 e4
+
+maintainer Kaseluris.Nikos.1959 <kaseluris.nikos@gmail.com>
+status experimental
+
+//pitch 80 130
