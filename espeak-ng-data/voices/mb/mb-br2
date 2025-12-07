@@ -4,12 +4,12 @@ name brazil-mbrola-2
 gender female
 
 speed 75
-voicing 155
-pitch 120 170
+voicing 150
+pitch 120 180
 
 dictrules 2 3 4
 mbrola br2 ptbr_phtrans
 
 intonation 3
-stressLength 180 100 220 220 0 0 240 260
+stressLength 180 120 220 220 0 0 240 260
 

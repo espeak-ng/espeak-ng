@@ -4,13 +4,13 @@ name brazil-mbrola-1
 gender male
 
 speed 80
-voicing 80
+voicing 90
 pitch 80 120
 
 dictrules 2 3 4
 mbrola br1 ptbr_phtrans
 
 intonation 3
-stressLength 180 100 220 220 0 0 240 260
+stressLength 180 120 220 220 0 0 240 260
 
 

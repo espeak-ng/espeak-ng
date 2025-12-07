@@ -91,8 +91,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (_      aU
 ?2      al (B      aU
-?4      al (_+     aw
-?4      al (B+     aw
 ?2      al (_A     aw
 ?2      al (_hA    aw
         a (lh+     a
@@ -106,13 +104,14 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         a (nAr_    &
 
         am (_      =&U~
-        am (n      &~m
-        am (C      &~N
+        am (b      &~N
+        am (p      &~N
         an (K      &~N
 
 ?4      am (_      =&~w
+?4      an (_      &~:N
 
-        anh        &~n^
+        anh (A     &~n^
         amm (A     am
         ann (A     an
 
@@ -129,10 +128,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         au (_A     aw
         au (_hA    aw
         au (CK     aU
-
-?4      au         aw
-?4      au (s      aw
-
 
     âB) a (C@      &
    âBC) a (C@      &
@@ -158,11 +153,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
  _ultr) a (sso     &
  _ultr) a (violeta_ &
 
-?4      ai         aj
-?4      ai (s      aj
-?4      au         aw
-?4      au (s      aw
-
      _) anti (@@P4 ,&~Nt#%i   // antidoping, anticorpos (ó), *antieinstein
      _) anti (\-P4 ,&~Nt#%i   // anti-herói, anti-imperialismo, anti-islâmico
 
@@ -173,9 +163,16 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         â          ''&
         â (m       ''&~
         â (n       ''&~
-        âm (K      ''&~N
+
+        âm (_      ''&~N
+        âm (b      ''&~N
+        âm (p      ''&~N
         ân (K      ''&~N
-        ânh        ''&~n^
+
+?4      âm (_      ''&~:N
+?4      ân (_      ''&~:N
+
+        ânh (A     ''&~n^
 
 
 .group à
@@ -187,8 +184,15 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?2   _) às (_G     ,a:z
         à (m       &~
         à (n       &~
-        àm (K      &~N
+
+        àm (_      &~N
+        àm (b      &~N
+        àm (p      &~N
         àn (K      &~N
+
+?4      àm (_      &~:N
+?4      àn (_      &~:N
+
         ành (A     &~n^
 
 
@@ -200,22 +204,25 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         áy         ''aI
 ?1      ál (B      ''Al
 ?2      ál (B      ''aU
-?4      ál (B      ''aw
         áu         ''aU
         áu (s      ''aU
         á (uCK     ''a
 
-?4      ái         ''aj
-?4      ái (s      ''aj
-?4      áu         ''aw
-?4      áu (s      ''aw
+        ám (_      ''&~N
+        ám (b      ''&~N
+        ám (p      ''&~N
+        án (K      ''&~N
+
+?4      ám (_      ''&~:N
+?4      án (_      ''&~:N
+
 
 .group ã
         ã          &~
         ão         &U~
+?4      ão         &~w
         ãe         &~j
 
-?4      ão         &~w
 
 .group b
      _) b (_       be
@@ -242,7 +249,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 
 ?3      c (B       kI/
 ?3      c (s       k
-?3      c (t       k
 ?3   @) c (_C      k_
 
         chr        k*        // Christian (English)
@@ -279,8 +285,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 
 ?2      el (_      EU
 ?2      el (B      EU
-?4      el (_+     Ew
-?4      el (B+     Ew
         e (lh+     e
         e (ll+     E
 
@@ -355,24 +359,18 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         e (x_      E
         e (xL04_   E
 
-        em (n      em
-        em (C      eIN
-        en (C      eIN
+        em (b      e~N
+        em (p      e~N
+        en (C      e~N
 
         em (_      =eIN
-        em (s_     =eIN
         en (_      =eIN
         en (s_     =eIN
 
-?4      em (C      e~j
-?4      en (C      e~j
-
 ?4      em (_      =e~j
-?4      em (s_     =e~j
 ?4      en (_      =e~j
-?4      en (s_     =e~j
 
-        enh        en^
+        enh (A     en^
         emm (A     em
         enn (A     en
 
@@ -388,10 +386,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         eu (_hA    ew
         e (uCK     e
 
-?4      ei         ej
-?4      ei (s      ej
-?4      eu         ew
-?4      eu (s      ew
 
 ?1   d) e (CAA     y
 ?1   d) e (CACAA   y
@@ -457,23 +451,18 @@ ÿ	ÿ	// y + U+0308 = U+00FF
     ôC) e (C@      e
     áC) e (C@      e
 ?2  áC) el (_      eU
-?4  áC) el (_+     ew
    áCC) e (CA_     e
 ?2  éC) el (_      eU
-?4  éC) el (_+     ew
    éCC) e (CA_     e
   éCCC) e (C@      e
 ?2  íC) el (_      eU
-?4  íC) el (_+     ew
      í) e (C@      e
     íC) e (C@      e
    íCC) e (C@      e
 ?2  óC) el (_      eU
-?4  óC) el (_+     ew
     óC) e (C@      e
    óCC) e (CA_     e
 ?2  úC) el (_      eU
-?4  úC) el (_+     ew
     úC) e (C@      e
         ection (_  'EkS&~N
 
@@ -669,28 +658,36 @@ _entorp) e (çL03_  e
         é (iCK     ''E
         éy         ''EI
 ?2      él (B      ''EU
-?4      él (B+     ''Ew
         éu         ''EU
         éu (s      ''EU
         é (uCK     ''E
-        ém (_      ''eIN
-        ém (s_     ''eIN
-        én (_      ''eIN
-        én (s_     ''eIN
 
-?4      éi         ''Ej
-?4      éi (s      ''Ej
-?4      éu         ''Ew
-?4      éu (s      ''Ew
+        ém (b      ''e~N
+        ém (p      ''e~N
+        én (C      ''e~N
+
+        ém (_      ''eIN
+        én (_      ''eIN
+
+?4      ém (_      ''e~j
+?4      én (_      ''e~j
+
 
 .group ê
         ê          ''e
-        êm (K      ''eIN
-        ên (K      ''eIN
-        ênh        ''en^
         êu         ''eU
 
-?4      êu         ''ew
+        êm (b      ''e~N
+        êm (p      ''e~N
+        ên (C      ''e~N
+
+        êm (_      ''eIN
+        ên (_      ''eIN
+
+?4      êm (_      ''e~j
+?4      ên (_      ''e~j
+
+        ênh (A     ''en^
 
 
 .group f
@@ -777,16 +774,18 @@ _redar) gu (A      gw
 ?2      il (_      iU
 ?2      il (B      iU
 
-?4      il (_+     iw
-?4      il (B+     iw
-
         i (lh+     i
         i (ll+     i
 
-        im (K      i~N
+        im (_      i~N
+        im (b      i~N
+        im (p      i~N
         in (K      i~N
 
-        inh        in^
+?4      im (_      i~:N
+?4      in (_      i~:N
+
+        inh (A     in^
         imm (A     im
         inn (A     in
 
@@ -800,9 +799,6 @@ _redar) gu (A      gw
         iu (_A     iw
         iu (_hA    iw
         i (uCK     i
-
-?4      iu (_      iw
-?4      iu (s_     iw
 
     áC) i (A_      j
    áCC) i (A_      j
@@ -837,20 +833,25 @@ _redar) gu (A      gw
      @) iano (_S4q i''&~nU   // darwiniano, einsteiniano, hertziano
      @) iana (_S4q i''&~n&   // darwiniana, einsteiniana, hertziana
 
-     @) ismo (_S4q ''is#mU    // darwinismo, hitlerismo, gestaltismo
-     @) ista (_S4q ''is#t&    // darwinista, hitlerista, gestaltista
+     @) ismo (_S4q ''is#mU   // darwinismo, hitlerismo, gestaltismo
+     @) ista (_S4q ''is#t&   // darwinista, hitlerista, gestaltista
 
 
 .group í
         í          ''i
         í (m       ''i
         í (n       ''i
-        ím (K      ''i~N
-        ín (K      ''i~N
-        ính        ''in^
-
 ?2      íl (B      ''iU
-?4      íl (B      ''Iw
+
+        ím (_      ''i~N
+        ím (b      ''i~N
+        ím (p      ''i~N
+        ín (K      ''i~N
+
+?4      ím (_      ''i~:N
+?4      ín (_      ''i~:N
+
+        ính (A     ''in^
 
 
 .group j
@@ -869,7 +870,6 @@ _redar) gu (A      gw
 
 ?3      k (B       kI/
 ?3      k (s       k
-?3      k (t       k
 ?3   @) k (_C      k_
 
 .group l
@@ -897,8 +897,7 @@ _redar) gu (A      gw
 ?3   m) m (_
 ?3   C) m (_       mI/       // napalm, alarm, film (English)
 
-?1  @@) mente (_S5 m''eINty
-?2  @@) mente (_S5 m''eINtSy
+    @@) mente (_S5 m''e~Nt#y
 
      _) mini (@@P4 m,in%i    // minidicionário, minimercado, *minidarwin
      _) mini (\-P4 m,in%i    // mini-pc, mini-hotel, mini-internato
@@ -912,7 +911,7 @@ _redar) gu (A      gw
 ?2   _) n (_       'eny
         n          n
      n) n 
-        nh         n^
+        nh (A      n^
 
 ?3   n) n (_
 ?3   C) n (_       nI/       // Osborn, govern, popcorn (English)
@@ -931,9 +930,11 @@ _redar) gu (A      gw
      _) o (_C      U
      _) o (_A      u
 ?2   _) os (_      Us
+?2   _) os (_h     Uz
 ?2   _) os (_A     Uz
 ?2   _) os (_G     Uz
 ?2  _v) os (_      us
+?2  _v) os (_h     uz
 ?2  _v) os (_A     uz
 ?2  _v) os (_G     uz
         ou         oU
@@ -953,11 +954,6 @@ _redar) gu (A      gw
         o (os_     o
 ?1   C) oo (_      oU       // eg: voo, enjoo, etc...
         oy         OI
-
-?4      oi         oj
-?4      oi (s      oj
-?4      ou         ow
-?4      ou (s      ow
 
         o (cL04_   O
 
@@ -1000,13 +996,18 @@ _redar) gu (A      gw
 ?2      ol (B      ow
 
         o (ma_     o
+    ss) on (_      o~N        // ultrassons
     @s) on (_      %o~N       // words ending in -son
 
-        om (n      o~m
-        om (K      o~N
+        om (_      o~N
+        om (b      o~N
+        om (p      o~N
         on (K      o~N
 
-        onh        o~n^
+?4      om (_      o~:N
+?4      on (_      o~:N
+
+        onh (A     o~n^
         omm (A     om
         onn (A     on
 
@@ -1110,7 +1111,7 @@ _redar) gu (A      gw
   _env) o (ltL08_  o
   _esC) o (pA_     o
   antr) o (pL08_   o
-  flex) o (rA_ 
+  flex) o (rA_     o
      p) o (rL02_   o
   _dev) o (rL02_   O
  _apav) o (rL02_   O
@@ -1179,9 +1180,16 @@ _ortod) o (xL08_   O
 
 .group ô
         ô          ''o
-        ôm (K      ''o~N
+
+        ôm (_      ''o~N
+        ôm (b      ''o~N
+        ôm (p      ''o~N
         ôn (K      ''o~N
-        ônh        ''o~n^
+
+?4      ôm (_      ''o~:N
+?4      ôn (_      ''o~:N
+
+        ônh (A     ''o~n^
 
 
 .group ó
@@ -1192,16 +1200,20 @@ _ortod) o (xL08_   O
         óu         ''Ow
         óu (s      ''Ow
         óy         ''OI
-
-?4      ói         ''Oj
-?4      ói (s      ''Oj
-
 ?2      ól (B      ''Ow
+
+        óm (_      ''o~N
+        óm (b      ''o~N
+        óm (p      ''o~N
+        ón (K      ''o~N
+
+?4      óm (_      ''o~:N
+?4      ón (_      ''o~:N
+
 
 .group õ
         õ          o~
         õe         oI~
-
 ?4      õe         o~j
 
 
@@ -1236,7 +1248,7 @@ _ortod) o (xL08_   O
      _) que (_     ky
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
-     @) quên       kw'eIN    // frequência, etc.
+     @) quên       kw'e~N    // frequência, etc.
    ade) qu (e      kw
      A) qu (idade_ kw
     _a) qu (ífero_ kw
@@ -1298,9 +1310,6 @@ _ortod) o (xL08_   O
         sç         s
         sh         S
      A) s (A       z
-
-     @) s (_       s#
-     @) s (_A      z
 
      @) s (_S1     s#        // plural suffix
      @) s (_AS1    z         // plural suffix preceding a vowel
@@ -1380,13 +1389,15 @@ _ortod) o (xL08_   O
         u (lh+     u
         u (ll+     u
 
-?4      ui         uj
-?4      ui (_      'uj
-
-        um (K      u~N
+        um (_      u~N
+        um (b      u~N
+        um (p      u~N
         un (K      u~N
 
-        unh        u~n^
+?4      um (_      u~:N
+?4      un (_      u~:N
+
+        unh (A     u~n^
         umm (A     um
         unn (A     un
 
@@ -1397,9 +1408,16 @@ _ortod) o (xL08_   O
 .group ú
         ú          ''u
 ?2      úl (B      ''uw
-        úm (K      ''u~N
+
+        úm (_      ''u~N
+        úm (b      ''u~N
+        úm (p      ''u~N
         ún (K      ''u~N
-        únh        ''u~n^
+
+?4      úm (_      ''u~:N
+?4      ún (_      ''u~:N
+
+        únh (A     ''u~n^
 
 .group v
      _) v (_       ve
@@ -1412,7 +1430,7 @@ _ortod) o (xL08_   O
 
 .group w
 ?1   _) w (_       d'&bl,iu
-?2   _) w (_       d'ablI;U
+?2   _) w (_       d'abljU
         w          w
 
 ?1      w (_       _^_EN
@@ -1502,8 +1520,13 @@ _lagarti) x (A     S
         y (A       j
         y (_       %i        // ?? stress on 1st syllable  EN
 
-        ym (K      i~N
+        ym (_      i~N
+        ym (b      i~N
+        ym (p      i~N
         yn (K      i~N
+
+?4      ym (_      i~:N
+?4      yn (_      i~:N
 
 .group z
      _) z (_       ze

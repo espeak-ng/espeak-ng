@@ -5,12 +5,12 @@ gender female
 
 speed 80
 voicing 90
-pitch 140 210
+pitch 140 220
 
 dictrules 2 3 4
 mbrola br4 ptbr4_phtrans
 
 intonation 3
-stressLength 180 100 220 220 0 0 240 260
+stressLength 180 120 220 220 0 0 240 260
 
 

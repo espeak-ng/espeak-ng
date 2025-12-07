@@ -1,58 +1,59 @@
 volume 15
 
-0   l/  NULL   0   w
-0   l/2 w      0   l
-0   l/2 j      0   l
-0   l/2 NULL   0   w
+
+0   l/  NULL   0   l
+0   l/2 NULL   0   l
 0   r/  NULL   0   r
-0   r-  NULL   0   r
-0   w/  NULL   0   w
-0   j/  NULL   0   j
 0   ;   NULL   0   NULL
-0   g-  NULL   0   NULL
+0   :   NULL   0   NULL
 0   @-  NULL   0   NULL
+
+
+0   h   NULL   0   R
+0   x   NULL   0   R
+0   Q"  NULL   0   R
 8   *   j      0   r
+8   *   w      0   r
 0   *   VWL    0   r
 0   *   NULL   0   r
-0   :   NULL   0   NULL
+0   r   j      0   r
+0   r   w      0   r
+0   r   VWL    0   r
+0   r   NULL   0   r
+0   R   NULL   0   r
 
-0   d   a      100 d 6  // FIX: da  -> ga
-0   d   aI     100 d 6  // FIX: dai -> gai
 
 0   tS  NULL   0   t
 0   dZ  NULL   0   d
 0   l^  NULL   0   L
 0   n^  NULL   0   J
 0   N   NULL   0   NULL
-0   h   NULL   0   R
-0   x   NULL   0   R
-0   Q"  NULL   0   R
-8   r   VWL    0   r
-0   r   NULL   0   r
-0   R   NULL   0   r
 
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
 0   &   NULL   0   6
 0   &/  NULL   0   6
+9   &   N      0   6~
 9   &~  N      0   6~
 0   &~  NULL   0   6~
 0   E   NULL   0   E
-9   eI  m      0   6~j~
+9   e   N      0   e~
+9   e~  N      0   e~
 9   eI  N      0   6~j~
-
 0   i/  NULL   0   i
+9   i   N      0   i~
 9   i~  N      0   i~
 0   i~  NULL   0   i~
+0   I   N      0   i~
 0   I   NULL   0   i
 0   I/  NULL   0   i
 0   i"  NULL   0   @
 0   y   NULL   0   @
-9   o~  j/     60  o~ i
+9   o   N      0   o~
 9   o~  N      0   o~
 0   o~  NULL   0   o~
-9   u~  j/     60  u~ i
+9   u   N      0   u~
 9   u~  N      0   u~
 0   u~  NULL   0   u~
 0   U   NULL   0   u
@@ -75,6 +76,8 @@ volume 15
 
 
 // English phonemes
+
+0   r-  NULL   0   r
 0   @   NULL   0   @
 0   T   NULL   0   t
 0   D   NULL   0   z
@@ -105,12 +108,13 @@ volume 15
 0   t2  NULL   0   t
 
 // French phonemes
-0   A~  NULL   0   @
-0   E~  NULL   0   @
-0   O~  NULL   0   on
-0   W   NULL   0   ee
+0   A~  NULL   0   6~
+0   E~  NULL   0   6~
+0   O~  NULL   0   o~
+0   W   NULL   0   E
 0   Y   NULL   0   e
-0   j/  NULL   0   y
+0   j/  NULL   0   j
+0   w/  NULL   0   w
 0   r/2 NULL   0   r
 
 // Italian phonemes
@@ -120,10 +124,4 @@ volume 15
 0   ts2 NULL   0   s
 0   R   NULL   0   r
 0   ss  NULL   0   s
-
-// Spanish phonemes
-0   B   NULL   0   b
-0   D   NULL   0   d
-0   Q   NULL   0   g
-0   **  NULL   0   r
 
