@@ -146,6 +146,7 @@ test_phwav ti 6fc09a43bb580d38b220fc9756ec6ea70789815d "ma na Na pa ta ka ?a ba 
 test_phwav th bd61d637711c32abcfee03b2d8d332f6442efcff "ma na Ja Na pa p_ha ba ta t_ha da ka k_ha ga ?a fa sa za Ta ha tS;a Ra ja wa la _:_ mi mI mW mu me m@ mo mE ma ma: mO miu meu mEu mau ma:u mWi mui m@i moi mai ma:i mOi maW _:_ ma1 ma2 ma3 ma4 ma5 ma6"
 test_phwav tk f67686d7831f044796e917f0fd50e63d74757b34 "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
 test_phwav tn 206f0e832cc4a5fa19dc3917752e1d5b274047d4 "ma na Na pa ta ka ba da ga fa Ta sa Sa xa ha va Da za Za tSa dZa la ra ja wa t2a t#a d#a z#a r-a z/2a w#a m- n- N- _:_ mI mE ma m0 mV mU mi: mA: mO: mu: m3: mA@ mO@ mo@ mU@ mi@3 mIR mVR mi@ me@ mi m@ m3 me# mI# mI2 meI maI mOI moU maU maa mO2 maI@ maI3 maU@"
+test_phwav tok 30b911b7190f9c9fe64e365340f360c57adc3653 "kijetesantakalu"
 test_phwav tr d825077cd573b9be9a38448bb52403b3117adf50 "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
 test_phwav tt f9363e26db4fd706e630787462c2b36318debc4b "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
 test_phwav ug 09635dcd9f86b27623d462a0f20661143e6d7bfc "ma na pa ba ta da tSa dZa tsa dza ca Ja Ca ka ga fa va sa za Sa Za xa Qa ha la ja wa Ra *a _:_ mi me m& my mW mu mo ma m@"
