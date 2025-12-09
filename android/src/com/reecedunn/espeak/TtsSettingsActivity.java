@@ -20,24 +20,44 @@ package com.reecedunn.espeak;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
+import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 
+import com.reecedunn.espeak.BuildConfig;
 import com.reecedunn.espeak.preference.ImportVoicePreference;
 import com.reecedunn.espeak.preference.SeekBarPreference;
 import com.reecedunn.espeak.preference.SpeakPunctuationPreference;
+import com.reecedunn.espeak.preference.SupportedLanguagesPreference;
 import com.reecedunn.espeak.preference.VoiceVariantPreference;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.Stack;
 
 public class TtsSettingsActivity extends PreferenceActivity {
 
     private static Context storageContext;
+    private static final String TAG = TtsSettingsActivity.class.getSimpleName();
+    private static final java.util.HashMap<String, LangInfo> sLangInfo = new java.util.HashMap<String, LangInfo>();
 
     @Override
     @SuppressWarnings("deprecation")
@@ -185,6 +205,145 @@ public class TtsSettingsActivity extends PreferenceActivity {
         return pref;
     }
 
+    private static Preference createSupportedLanguagesPreference(Context context, List<Voice> voices) {
+        final List<Voice> sortedVoices = new ArrayList<Voice>(voices);
+        Collections.sort(sortedVoices, new Comparator<Voice>() {
+            @Override
+            public int compare(Voice lhs, Voice rhs) {
+                return getDisplayName(lhs).compareToIgnoreCase(getDisplayName(rhs));
+            }
+        });
+
+        final SupportedLanguagesPreference pref = new SupportedLanguagesPreference(context);
+        pref.setTitle(R.string.espeak_supported_languages);
+        pref.setDialogTitle(R.string.espeak_supported_languages);
+
+        final CharSequence[] entries = new CharSequence[sortedVoices.size()];
+        final CharSequence[] entryValues = new CharSequence[sortedVoices.size()];
+        int index = 0;
+        for (Voice voice : sortedVoices) {
+            entries[index] = getVoiceLabel(voice);
+            entryValues[index] = voice.toString();
+            ++index;
+        }
+        pref.setEntries(entries);
+        pref.setEntryValues(entryValues);
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
+        Set<String> selected = LanguageSettings.getSelectedLanguages(prefs);
+        if (selected == null) {
+            selected = new HashSet<String>();
+            for (Voice voice : sortedVoices) {
+                selected.add(voice.toString());
+            }
+        }
+        pref.setValues(selected);
+        pref.setSummary(getSupportedLanguagesSummary(context, selected, entries.length));
+        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
+        return pref;
+    }
+
+    private static String getSupportedLanguagesSummary(Context context, Set<String> selected, int total) {
+        int enabled = (selected == null || selected.isEmpty()) ? total : selected.size();
+        if (enabled >= total) {
+            return context.getString(R.string.espeak_supported_languages_all);
+        }
+        return context.getString(R.string.espeak_supported_languages_summary, enabled, total);
+    }
+
+    private static String getDisplayName(Voice voice) {
+        final String displayName = voice.locale.getDisplayName();
+        return (displayName == null || displayName.isEmpty()) ? voice.toString() : displayName;
+    }
+
+    private static String getVoiceLabel(Voice voice) {
+        String name = voice.name; // eSpeak voice id (from engine data)
+        LangInfo info = lookupLangInfo(voice);
+        if (info != null) {
+            return info.language + " - " + info.displayName;
+        }
+        return name + " - " + name;
+    }
+
+    private static class LangInfo {
+        final String language;
+        final String displayName;
+        LangInfo(String language, String displayName) {
+            this.language = language;
+            this.displayName = displayName;
+        }
+    }
+
+    private static LangInfo lookupLangInfo(Voice voice) {
+        ensureLangInfoLoaded();
+        String key1 = voice.name;
+        String key2 = null;
+        if (voice.identifier != null) {
+            int slash = voice.identifier.lastIndexOf('/');
+            key2 = (slash >= 0 && slash < voice.identifier.length() - 1) ? voice.identifier.substring(slash + 1) : voice.identifier;
+        }
+        LangInfo info = sLangInfo.get(key1);
+        if (info == null && key2 != null) {
+            info = sLangInfo.get(key2);
+        }
+        return info;
+    }
+
+    private static void ensureLangInfoLoaded() {
+        if (!sLangInfo.isEmpty() || storageContext == null) return;
+        File root = new File(CheckVoiceData.getDataPath(storageContext), "lang");
+        if (!root.exists()) return;
+        Stack<File> stack = new Stack<File>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            File dir = stack.pop();
+            File[] list = dir.listFiles();
+            if (list == null) continue;
+            for (File f : list) {
+                if (f.isDirectory()) {
+                    stack.push(f);
+                } else {
+                    LangInfo info = parseLangFile(f);
+                    if (info != null) {
+                        sLangInfo.put(f.getName(), info);
+                    }
+                }
+            }
+        }
+    }
+
+    private static LangInfo parseLangFile(File file) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+            String language = null;
+            String name = null;
+            String line;
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (line.startsWith("language")) {
+                    language = line.substring("language".length()).trim();
+                } else if (line.startsWith("name")) {
+                    name = line.substring("name".length()).trim();
+                }
+                if (language != null && name != null) break;
+            }
+            if (language == null && name == null) return null;
+            if (language == null) language = file.getName();
+            if (name == null) name = file.getName();
+            return new LangInfo(language, name);
+        } catch (IOException e) {
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, "Failed parsing lang file " + file.getName() + ": " + e.getMessage());
+            }
+            return null;
+        } finally {
+            if (reader != null) {
+                try { reader.close(); } catch (IOException ignored) {}
+            }
+        }
+    }
+
     /**
      * Since the "%s" summary is currently broken, this sets the preference
      * change listener for all {@link ListPreference} views to fill in the
@@ -193,7 +352,9 @@ public class TtsSettingsActivity extends PreferenceActivity {
     private static void createPreferences(Context context, PreferenceGroup group) {
         SpeechSynthesis engine = new SpeechSynthesis(storageContext, null);
         VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), engine);
+        final List<Voice> voices = engine.getAvailableVoices();
 
+        group.addPreference(createSupportedLanguagesPreference(context, voices));
         group.addPreference(createImportVoicePreference(context));
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
@@ -215,7 +376,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
                             final CharSequence[] entries = listPreference.getEntries();
 
                             if (index >= 0 && index < entries.length) {
-                                summary = entries[index].toString();
+                            summary = entries[index].toString();
                             }
                         } else if (preference instanceof SeekBarPreference) {
                             final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
@@ -225,6 +386,15 @@ public class TtsSettingsActivity extends PreferenceActivity {
                             summary = (String)newValue;
                         }
                         preference.setSummary(summary);
+                    } else if (newValue instanceof Set && preference instanceof MultiSelectListPreference) {
+                        @SuppressWarnings("unchecked")
+                        final Set<String> values = new HashSet<String>((Set<String>) newValue);
+                        if (values.isEmpty()) {
+                            Toast.makeText(preference.getContext(), R.string.espeak_supported_languages_guard, Toast.LENGTH_SHORT).show();
+                            return false;
+                        }
+                        final int total = ((MultiSelectListPreference) preference).getEntries().length;
+                        preference.setSummary(getSupportedLanguagesSummary(preference.getContext(), values, total));
                     }
                     return true;
                 }

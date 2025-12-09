@@ -76,6 +76,12 @@
   <string name="resetToDefault">Set to default</string>
   <string name="espeak_pitch_range">Pitch variation</string>
   <string name="espeak_variant">Voice variant</string>
+  <string name="espeak_supported_languages">Supported languages</string>
+  <string name="espeak_supported_languages_all">All installed languages are reported to Android.</string>
+  <string name="espeak_supported_languages_summary">%1$d of %2$d languages reported to Android.</string>
+  <string name="espeak_select_all_languages">Select all languages</string>
+  <string name="espeak_deselect_all_languages">Deselect all languages</string>
+  <string name="espeak_supported_languages_guard">Select at least one language.</string>
   <string name="espeak_speak_punctuation">Speak punctuation</string>
   <string name="punctuation_all">All</string>
   <string name="punctuation_custom">Custom</string>
