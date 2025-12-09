@@ -178,6 +178,10 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
 
+        if (VoiceSettings.PREF_RATE.equals(key)) {
+            pref.enableRateBoost(VoiceSettings.PREF_RATE_BOOST);
+        }
+
         switch (parameter.getUnitType())
         {
             case Percentage:
