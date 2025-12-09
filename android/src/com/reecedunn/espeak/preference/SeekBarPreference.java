@@ -26,6 +26,8 @@ import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -35,6 +37,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 {
     private SeekBar mSeekBar;
     private TextView mValueText;
+    private CheckBox mRateBoost;
 
     private int mOldProgress = 0;
     private int mProgress = 0;
@@ -42,6 +45,9 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     private int mMin = 0;
     private int mMax = 100;
     private String mFormatter = "%s";
+    private boolean mRateBoostEnabled = false;
+    private String mRateBoostKey = null;
+    private boolean mOldRateBoost = false;
 
     public void setProgress(int progress) {
         mProgress = progress;
@@ -92,6 +98,11 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         return mFormatter;
     }
 
+    public void enableRateBoost(String key) {
+        mRateBoostEnabled = true;
+        mRateBoostKey = key;
+    }
+
     public SeekBarPreference(Context context, AttributeSet attrs, int defStyle)
     {
         super(context, attrs, defStyle);
@@ -132,6 +143,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         View root = super.onCreateDialogView();
         mSeekBar = (SeekBar)root.findViewById(R.id.seekBar);
         mValueText = (TextView)root.findViewById(R.id.valueText);
+        mRateBoost = (CheckBox)root.findViewById(R.id.rateBoost);
 
         Button reset = (Button)root.findViewById(R.id.resetToDefault);
         reset.setOnClickListener(new View.OnClickListener(){
@@ -147,6 +159,16 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
                 persistSettings(defaultValue);
             }
         });
+
+        if (mRateBoost != null) {
+            mRateBoost.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    updateValueText();
+                    persistRateBoost(isChecked);
+                }
+            });
+        }
         return root;
     }
 
@@ -157,10 +179,27 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         mSeekBar.setMax(mMax - mMin);
         mSeekBar.setProgress(mProgress - mMin);
 
+        if (mRateBoost != null) {
+            if (!mRateBoostEnabled) {
+                mRateBoost.setVisibility(View.GONE);
+            } else {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    PreferenceManager preferenceManager = getPreferenceManager();
+                    preferenceManager.setStorageDeviceProtected();
+                    prefs = preferenceManager.getSharedPreferences();
+                }
+                boolean enabled = prefs.getBoolean(mRateBoostKey, false);
+                mRateBoost.setChecked(enabled);
+                mOldRateBoost = enabled;
+            }
+        }
+
         // Update the last saved value to the so it can be restored later if
         // the user cancels the dialog.
 
         mOldProgress = mProgress;
+        updateValueText();
     }
 
     @Override
@@ -171,6 +210,9 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
                 // the dialog is dismissed.
 
                 mOldProgress = mSeekBar.getProgress() + mMin;
+                if (mRateBoostEnabled && mRateBoost != null) {
+                    mOldRateBoost = mRateBoost.isChecked();
+                }
                 break;
         }
         super.onClick(dialog, which);
@@ -195,6 +237,9 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         //     is closed (in this onDismiss handler).
 
         persistSettings(mOldProgress);
+        if (mRateBoostEnabled) {
+            persistRateBoost(mOldRateBoost);
+        }
     }
 
     @Override
@@ -207,9 +252,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         // value here will cause the speech rate to be set to 80 WPM (via the
         // onBindDialogView handler).
 
-        String text = String.format(getFormatter(), Integer.toString(progress + mMin));
-        mValueText.setText(text);
-        mSeekBar.setContentDescription(text);
+        updateValueText();
     }
 
     @Override
@@ -225,5 +268,42 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         // next time e.g. TalkBack reads part of the UI.
 
         persistSettings(mSeekBar.getProgress() + mMin);
+    }
+
+    private void persistRateBoost(boolean enabled) {
+        if (!mRateBoostEnabled || mRateBoostKey == null) return;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            PreferenceManager preferenceManager = getPreferenceManager();
+            preferenceManager.setStorageDeviceProtected();
+            prefs = preferenceManager.getSharedPreferences();
+        }
+        prefs.edit().putBoolean(mRateBoostKey, enabled).commit();
+    }
+
+    private int getDisplayValue() {
+        int value = mMin;
+        if (mSeekBar != null) {
+            value = mSeekBar.getProgress() + mMin;
+        } else {
+            value = mProgress;
+        }
+        if (mRateBoostEnabled && mRateBoost != null && mRateBoost.isChecked()) {
+            value = value * 3;
+            int boostedMax = mMax * 3;
+            if (value > boostedMax) value = boostedMax;
+        }
+        return value;
+    }
+
+    private void updateValueText() {
+        if (mValueText == null) return;
+        int displayValue = getDisplayValue();
+        String text = String.format(getFormatter(), Integer.toString(displayValue));
+        mValueText.setText(text);
+        if (mSeekBar != null) {
+            mSeekBar.setContentDescription(text);
+        }
     }
 }

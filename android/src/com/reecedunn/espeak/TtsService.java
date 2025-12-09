@@ -30,6 +30,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.media.AudioTrack;
 import android.os.Build;
 import android.os.Bundle;
@@ -68,16 +69,29 @@ public class TtsService extends TextToSpeechService {
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
 
+    private List<Voice> mAllVoices = new ArrayList<Voice>();
     private final Map<String, Voice> mAvailableVoices = new HashMap<String, Voice>();
     protected Voice mMatchingVoice = null;
 
+    private SharedPreferences mPreferences;
     private BroadcastReceiver mOnLanguagesDownloaded = null;
+    private final SharedPreferences.OnSharedPreferenceChangeListener mOnPreferencesChanged =
+            new SharedPreferences.OnSharedPreferenceChangeListener() {
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                    if (LanguageSettings.PREF_SUPPORTED_LANGUAGES.equals(key)) {
+                        rebuildAvailableVoices();
+                    }
+                }
+            };
 
     @Override
     public void onCreate() {
         storageContext = EspeakApp.getStorageContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(storageContext);
+        mPreferences.registerOnSharedPreferenceChangeListener(mOnPreferencesChanged);
         initializeTtsEngine();
         super.onCreate();
     }
@@ -87,6 +101,9 @@ public class TtsService extends TextToSpeechService {
         super.onDestroy();
         if (mOnLanguagesDownloaded != null) {
             unregisterReceiver(mOnLanguagesDownloaded);
+        }
+        if (mPreferences != null) {
+            mPreferences.unregisterOnSharedPreferenceChangeListener(mOnPreferencesChanged);
         }
     }
 
@@ -100,10 +117,10 @@ public class TtsService extends TextToSpeechService {
         }
 
         mEngine = new SpeechSynthesis(storageContext, mSynthCallback);
-        mAvailableVoices.clear();
-        for (Voice voice : mEngine.getAvailableVoices()) {
-            mAvailableVoices.put(voice.name, voice);
-        }
+        mMatchingVoice = null;
+        mAllVoices = mEngine.getAvailableVoices();
+        if (DEBUG) Log.i(TAG, "initializeTtsEngine(): loaded voices=" + mAllVoices.size());
+        rebuildAvailableVoices();
 
         final Intent intent = new Intent(ESPEAK_INITIALIZED);
         sendBroadcast(intent);
@@ -219,6 +236,7 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public List<android.speech.tts.Voice> onGetVoices() {
+        rebuildAvailableVoices();
         List<android.speech.tts.Voice> voices = new ArrayList<android.speech.tts.Voice>();
         for (Voice voice : mAvailableVoices.values()) {
             int quality = android.speech.tts.Voice.QUALITY_NORMAL;
@@ -266,10 +284,12 @@ public class TtsService extends TextToSpeechService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             final String name = request.getVoiceName();
             if (name != null && !name.isEmpty()) {
+                rebuildAvailableVoices();
                 return onLoadVoice(name);
             }
         }
 
+        rebuildAvailableVoices();
         final int result = onLoadLanguage(request.getLanguage(), request.getCountry(), request.getVariant());
         switch (result) {
             case TextToSpeech.LANG_MISSING_DATA:
@@ -310,13 +330,41 @@ public class TtsService extends TextToSpeechService {
 
         final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), mEngine);
         mEngine.setVoice(mMatchingVoice, settings.getVoiceVariant());
-        mEngine.Rate.setValue(settings.getRate(), request.getSpeechRate());
+
+        int rate = settings.getRate();
+        int rateScale = request.getSpeechRate();
+        if (rateScale <= 0) {
+            rateScale = 100;
+        }
+        rate = (int)(((long)rate * rateScale) / 100);
+        mEngine.Rate.setValue(rate);
         mEngine.Pitch.setValue(settings.getPitch(), request.getPitch());
         mEngine.PitchRange.setValue(settings.getPitchRange());
         mEngine.Volume.setValue(settings.getVolume());
         mEngine.Punctuation.setValue(settings.getPunctuationLevel());
         mEngine.setPunctuationCharacters(settings.getPunctuationCharacters());
         mEngine.synthesize(text, text.startsWith("<speak"));
+    }
+
+    private void rebuildAvailableVoices() {
+        synchronized (mAvailableVoices) {
+            mAvailableVoices.clear();
+            List<Voice> voices = mAllVoices;
+            if (mPreferences != null) {
+                voices = LanguageSettings.filterVoices(mAllVoices, mPreferences);
+            }
+            for (Voice voice : voices) {
+                mAvailableVoices.put(voice.name, voice);
+            }
+            if (DEBUG) {
+                Set<String> selected = LanguageSettings.getSelectedLanguages(mPreferences);
+                Log.i(TAG, "Rebuilt voices: selected=" + (selected == null ? "ALL" : selected.size()) +
+                        ", exposed=" + mAvailableVoices.size());
+            }
+            if (mMatchingVoice != null && !mAvailableVoices.containsKey(mMatchingVoice.name)) {
+                mMatchingVoice = null;
+            }
+        }
     }
 
     /**
