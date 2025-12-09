@@ -126,6 +126,12 @@ public class SupportedLanguagesPreference extends MultiSelectListPreference {
             mCheckedItems[i] = checked;
             mListView.setItemChecked(i, checked);
         }
+        mNewValues.clear();
+        if (checked) {
+            for (CharSequence value : mDialogEntryValues) {
+                mNewValues.add(value.toString());
+            }
+        }
     }
 
     private Set<String> collectSelections() {
