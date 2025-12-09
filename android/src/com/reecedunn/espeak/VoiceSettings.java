@@ -35,6 +35,8 @@ public class VoiceSettings {
     public static final String PREF_VOLUME = "espeak_volume";
     public static final String PREF_PUNCTUATION_LEVEL = "espeak_punctuation_level";
     public static final String PREF_PUNCTUATION_CHARACTERS = "espeak_punctuation_characters";
+    public static final String PREF_RATE_BOOST = "espeak_rate_boost";
+    public static final int RATE_BOOST_MULTIPLIER = 3;
 
     public static final String PRESET_VARIANT = "variant";
     public static final String PRESET_RATE = "rate";
@@ -74,7 +76,16 @@ public class VoiceSettings {
             rate = (int)((float)getPreferenceValue(PREF_DEFAULT_RATE, 100) / 100 * (float)mEngine.Rate.getDefaultValue());
         }
 
-        if (rate > max) rate = max;
+        if (isRateBoostEnabled()) {
+            // Allow values beyond the normal espeakRATE_MAXIMUM so the native
+            // engine can engage its Sonic fast path for very high rates.
+            rate = rate * RATE_BOOST_MULTIPLIER;
+            int boostedMax = max * RATE_BOOST_MULTIPLIER; // keep within a sensible upper bound
+            if (rate > boostedMax) rate = boostedMax;
+        } else if (rate > max) {
+            rate = max;
+        }
+
         if (rate < min) rate = min;
         return rate;
     }
@@ -155,5 +166,9 @@ public class VoiceSettings {
                 break;
         }
         return settings;
+    }
+
+    public boolean isRateBoostEnabled() {
+        return mPreferences.getBoolean(PREF_RATE_BOOST, false);
     }
 }

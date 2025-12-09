@@ -31,7 +31,6 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 
 import com.reecedunn.espeak.BuildConfig;
 import com.reecedunn.espeak.preference.ImportVoicePreference;
@@ -178,6 +177,10 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
 
+        if (VoiceSettings.PREF_RATE.equals(key)) {
+            pref.enableRateBoost(VoiceSettings.PREF_RATE_BOOST);
+        }
+
         switch (parameter.getUnitType())
         {
             case Percentage:
@@ -313,9 +316,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
     }
 
     private static LangInfo parseLangFile(File file) {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"))) {
             String language = null;
             String name = null;
             String line;
@@ -337,10 +338,6 @@ public class TtsSettingsActivity extends PreferenceActivity {
                 Log.d(TAG, "Failed parsing lang file " + file.getName() + ": " + e.getMessage());
             }
             return null;
-        } finally {
-            if (reader != null) {
-                try { reader.close(); } catch (IOException ignored) {}
-            }
         }
     }
 
@@ -376,7 +373,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
                             final CharSequence[] entries = listPreference.getEntries();
 
                             if (index >= 0 && index < entries.length) {
-                            summary = entries[index].toString();
+                                summary = entries[index].toString();
                             }
                         } else if (preference instanceof SeekBarPreference) {
                             final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
@@ -389,10 +386,6 @@ public class TtsSettingsActivity extends PreferenceActivity {
                     } else if (newValue instanceof Set && preference instanceof MultiSelectListPreference) {
                         @SuppressWarnings("unchecked")
                         final Set<String> values = new HashSet<String>((Set<String>) newValue);
-                        if (values.isEmpty()) {
-                            Toast.makeText(preference.getContext(), R.string.espeak_supported_languages_guard, Toast.LENGTH_SHORT).show();
-                            return false;
-                        }
                         final int total = ((MultiSelectListPreference) preference).getEntries().length;
                         preference.setSummary(getSupportedLanguagesSummary(preference.getContext(), values, total));
                     }
