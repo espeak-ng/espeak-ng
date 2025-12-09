@@ -314,15 +314,15 @@ vi	vi
 (capítulo cc)	k,ap'itulU||duz'e~Ntus#
 (capítulo cd)	k,ap'itulU||kw'at*Us'e~NtUz
 (capítulo dc)	k,ap'itulU||s,eIs'e~NtUz
-(inciso i)	,i~Ns'izw||'u~N
-(inciso v)	,i~Ns'izU||s'i~NkU
-(inciso vi)	,i~Ns'izU||s'eIs#
-(inciso x)	,i~Ns'izU||d'Es#
-(inciso l)	,i~Ns'izU||s,i~Nkw'e~Nt&
-(inciso c)	,i~Ns'izU||s'eIN
-(inciso cc)	,i~Ns'izU||d,uz'e~NtUz
-(inciso cd)	,i~Ns'izU||kw'at*Us'e~NtUz
-(inciso dc)	,i~Ns'izU||s,eIs'e~NtUz
+(inciso i)	i~Ns'izw||'u~N
+(inciso v)	i~Ns'izU||s'i~NkU
+(inciso vi)	i~Ns'izU||s'eIs#
+(inciso x)	i~Ns'izU||d'Es#
+(inciso l)	i~Ns'izU||s,i~Nkw'e~Nt&
+(inciso c)	i~Ns'izU||s'eIN
+(inciso cc)	i~Ns'izU||d,uz'e~NtUz
+(inciso cd)	i~Ns'izU||kw'at*Us'e~NtUz
+(inciso dc)	i~Ns'izU||s,eIs'e~NtUz
 (século i)	s'Ekulw||'u~N
 (século v)	s'EkulU||s'i~NkU
 (século vi)	s'EkulU||s'eIs#
@@ -1960,7 +1960,9 @@ parede		$alt2
 pateta		$alt
 peba		$alt
 pecilotermo	$alt
-pedro		$alt2
+pedro		p'ed*U
+(pedro i)	p'ed*U||p*,im'eI*U
+(pedro ii)	p'ed*U||s,eg'u~NdU
 peixoto		$alt2
 pela		$alt $verb
 pelo		$alt $verb
@@ -2284,6 +2286,7 @@ autocross	aUtokr#Os#
 autumn		'Ot&N
 (avant première)	av,&~||p*emj'Er#
 away		&w'eI
+baby		b'eIby
 back		b'Ek
 backbone	b,EkI/b'oUny
 backdrop	b,EkI/d*OpI/
@@ -3038,7 +3041,7 @@ gruyère		gr,uj'E*y
 guest		g'Est#
 guipure		gip'ir#
 guichet		giS'e
-gun		g'&N
+gun		g'&N $only
 ?2 habeas	'abe&s
 habillé		_^_FR
 habitué		_^_FR
@@ -3146,9 +3149,9 @@ hundred		h'&Ndred
 husky		h'&ski
 hydrofoil	haIdrofOIl#
 hyperlink	h,aIper#l'i~Nk
-(ice cream)	'aIs||kr'im
+icecream	'aIs||kr'iN
+(ice cream)	'aIs||kr'iN
 iceberg		'aIsb,E*g
-icecream	'aIs||kr'im
 idaho		'aIdahoU
 illinois	$alt
 impeachment	i~Np'itSm&~Nt
@@ -3266,6 +3269,7 @@ llano		l^'ano
 load		l'oUd#
 london		$1
 lob		l'Ob
+lobby		l'Obi
 lock		l'Ok
 lockdown	l,Okd'aUN
 lockout		l,Ok'aUt#
@@ -3551,7 +3555,7 @@ piercing	p'ir#siN
 (pince nez)	_^_FR
 pink		p'iNk
 pinscher	p'iNSer#
-pinup		_^_EN
+pinup		pin'&p
 pipeline	paIpyl'aIny
 pivot		_^_FR
 pitch		_^_EN
@@ -3643,6 +3647,7 @@ rack		_^_EN
 racle		_^_FR
 raclette	_^_FR
 radicchio	R#ad#'ikjU
+ranger		R#'eNdZer#
 reagan		R#'eIg&N
 raffiné		_^_FR
 rafting		_^_EN
@@ -3709,7 +3714,7 @@ ripieno		_^_IT
 ritardando	*ita*d'&Ndo
 ritenuto	_^_IT
 rocaille	_^_FR
-(rock and roll)	r'Ok||&~Nd||r'ol
+(rock and roll)	r'Ok||eNd||r'ol
 rock		r'Ok
 rocker		r'Oker
 rocket		r'Oket#
@@ -3839,9 +3844,9 @@ skater		sk'eIter#
 skatista	sk,eIt#'ist&
 skating		sk'eItiN
 sketch		sk'EtS
-(skin care)	sk,ink'Er
 skin		sk'iN
 skincare	sk,iNk'Er#
+(skin care)	sk,ink'Er
 skinhead	sk,iNh'Ed#
 sky		sk'aI
 slack		sl'Ek
@@ -3883,7 +3888,7 @@ soutien		_^_FR
 ?2 space	sp'eIs
 spaghetti	spag'Et#y
 spider		sp'aIder#
-spam		sp'&~m
+spam		sp'&~N
 spaniel		s#p'Enjel
 speech		sp'i:tS
 sport		sp'Ort#
@@ -4135,7 +4140,7 @@ voyer		voj'e
 voyeur		voj'Er#
 wafer		w'eIfer#
 waffle		w'Ofol#
-waiver		_^_EN
+waiver		w'eIver#
 wakashan	w'akaS&N
 walk		w'Ol#k
 walker		w'Ol#ker#
@@ -4150,6 +4155,7 @@ watch		w'OtS
 water		w'Oter#
 waterline	w,Oter#l'aIny
 watt		w'Ot#
+wave		w'eIvI/
 way		w'eI
 wayland		w,eIl'eNd#
 web		w'Eb
@@ -4217,7 +4223,6 @@ amstel		,amyst'El#
 android		&Nd*'Oid#
 antarctica	&Nt'ar#tSIk&
 apple		'Epol#
-baby		b'eIby
 blender		$1
 boeing		b'Oi~Ng
 bohemia		$2
@@ -4260,7 +4265,6 @@ libreoffice	l'ib*y||'Ofisy
 (libre office)	l'ib*y||'Ofisy
 ?1 linux	l,in'uks
 ?2 linux	l'inUks
-?2 lobby	$alt
 mac		m'Ek
 marvel		$1
 mbrola		,emy||b*'Ol&
@@ -4328,7 +4332,6 @@ youtube		j,ut'uby
 youtuber	j,ut'uber#
 
 // historical and famous people
-abbott		'Ebot
 adams		'ad&~Ns
 alanis		$2
 alckmin		'al#kmi~N
@@ -4337,7 +4340,7 @@ alighieri	aligi'E*i
 alzheimer	aUz'aImEr
 annie		'&ni
 arendt		'a*eNt#
-armstrong	$1
+armstrong	'armI/stroN
 astaire		ast'Er#
 atkins		'EtkiNs
 austen		$1
@@ -4367,7 +4370,6 @@ björk		bi'Or#k
 blair		bl'Er#
 blake		bl'eIk
 bobbio		b'Obio
-bob		b'ObI/ $only
 boccaccio	bok'atSjo
 bocelli		botS'Eli
 bosch		b'OS
@@ -4400,7 +4402,7 @@ caymmi		ka'imi
 céline		$2
 chandler	S'eNdler
 chamberlain	S,&~Nbe*l'eIN
-Chambers	S,&~Nbers
+chambers	S,&~Nbers
 chaplin		S'apliN
 charlie		S'arli
 charlton	S'artoN
@@ -4525,7 +4527,7 @@ hawthorne	h'OwT,orn
 hayworth	h'ejworT
 heath		h'ET
 hegel		h'egel#
-heidegger	h'aIdege
+heidegger	h'aIdeger#
 heisenberg	h'aIzeNberg
 heller		h'Eler#
 hemingway	h'EmiN,weI
@@ -4535,6 +4537,7 @@ hepburn		h'EpIb@rn
 herschel	h'Er#Sel#
 hesse		h'Esy
 heston		h'EstoN
+higgs		h'igs
 hilbert		h'ilber#t#
 hitler		h'itler#
 hitchcock	h'itSI/k'Ok
@@ -4667,10 +4670,6 @@ paine		p'eIny
 pasteur		past'Er#
 patterson	p'Eter#soN
 pauling		$1
-(paulo i)	p'aUlU||p*,im'eI*U
-(paulo ii)	p'aUlU||s,eg'u~NdU
-(pedro i)	p'ed*U||p*,im'eI*U
-(pedro ii)	p'ed*U||s,eg'u~NdU
 pavlov		pavl'Ov
 peirce		p'&*sy
 perrault	peR#'o
@@ -4797,6 +4796,7 @@ zuckerberg	$alt
 
 
 // foreign names and surnames
+abbott		'Ebot
 abraham		$1
 adrian		$1
 agostini	$3
@@ -4832,6 +4832,7 @@ beth		$alt
 bianchi		bi'&Nki
 bill		b'il#
 bloch		bl'Ok
+bob		b'ObI/ $only
 bohn		b'oN
 bonner		$1
 brandon		$1
@@ -4845,7 +4846,8 @@ butler		b'&tler#
 caleb		$alt
 camarotti	$3 $alt
 campbell	$1
-?!4 carl	k'arl $only
+carl		k'arl $only
+carrie		k'Eri
 cavalcanti	$3
 chalhoub	Sal#h'ub
 chambers	S'eNbers
@@ -4898,7 +4900,7 @@ ferri		$1 $alt
 fischer		f'iSer#
 flesch		fl'ES
 foster		$1 $alt
-fournier	fur#nj'e
+fournier	furnj'e
 francis		$1
 françoise	f*&Nsw'azy
 franklin	f*'&~Nkli~N
@@ -4968,7 +4970,7 @@ joseph		$1
 joshua		$1 $alt
 josie		$1
 juan		xu&~N
-?!4 karl	k'arl
+karl		k'arl
 kate		k'eIt#
 kathleen	$1
 kathryn		$1
@@ -5013,7 +5015,7 @@ meier		m'EIer#
 meyer		m'aIer#
 mendez		$1
 miyazaki	mij,az'aki
-michael		m'aIk@l#
+michael		m'aIkol#
 midlej		m'idlej
 mike		m'aIk
 milani		$2
@@ -5058,6 +5060,7 @@ peterson	p'iter#soN
 pfeifer		f'aIfer#
 philip		$1
 phillip		$1
+pike		p'aIk
 piovani		$3
 preston		p*EstoN
 price		p*'aIsy
@@ -5110,8 +5113,8 @@ sergey		ser#g'eI
 sharon		$1
 sherman		S'Erm&N
 shirley		$1
-silvestri	$2
-sinclair	siNcl'Er#
+silvestri	$2 $alt
+sinclair	siNkl'Er#
 singer		$1
 single		s'iNgol#
 simmons		$1
@@ -5160,7 +5163,7 @@ willie		w'ili
 winits		$1
 yamazaki	$3
 yamamoto	$alt2
-yates		j'eIts
+yates		j'eIt|s
 zanetti		$2 $alt
 zimerman	$1
 zimmermann	$1

@@ -108,9 +108,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         am (p      &~N
         an (K      &~N
 
-?4      am (_      =&~w
-?4      an (_      &~:N
-
         anh (A     &~n^
         amm (A     am
         ann (A     an
@@ -169,9 +166,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         âm (p      ''&~N
         ân (K      ''&~N
 
-?4      âm (_      ''&~:N
-?4      ân (_      ''&~:N
-
         ânh (A     ''&~n^
 
 
@@ -189,9 +183,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         àm (b      &~N
         àm (p      &~N
         àn (K      &~N
-
-?4      àm (_      &~:N
-?4      àn (_      &~:N
 
         ành (A     &~n^
 
@@ -213,14 +204,10 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ám (p      ''&~N
         án (K      ''&~N
 
-?4      ám (_      ''&~:N
-?4      án (_      ''&~:N
-
 
 .group ã
         ã          &~
         ão         &U~
-?4      ão         &~w
         ãe         &~j
 
 
@@ -230,7 +217,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         b (b+ 
 
 ?3      b (B       bI/
-?3      b (s       b
 ?3   @) b (_C      b_
 
 
@@ -248,7 +234,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1 conta) ct (A    kt        // eg: contacto, contactar, contactável, incontactável, etc...
 
 ?3      c (B       kI/
-?3      c (s       k
 ?3   @) c (_C      k_
 
         chr        k*        // Christian (English)
@@ -264,7 +249,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 
 ?4      d (+       d         // Brazilian mbrola /d/s are already affricate
 
-?3      d (B       d#I/
+?3      d (B       dI/
 ?3   @) d (_C      d_
 
 ?2   A) de (o_     dZj
@@ -366,9 +351,6 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         em (_      =eIN
         en (_      =eIN
         en (s_     =eIN
-
-?4      em (_      =e~j
-?4      en (_      =e~j
 
         enh (A     en^
         emm (A     em
@@ -669,9 +651,6 @@ _entorp) e (çL03_  e
         ém (_      ''eIN
         én (_      ''eIN
 
-?4      ém (_      ''e~j
-?4      én (_      ''e~j
-
 
 .group ê
         ê          ''e
@@ -683,9 +662,6 @@ _entorp) e (çL03_  e
 
         êm (_      ''eIN
         ên (_      ''eIN
-
-?4      êm (_      ''e~j
-?4      ên (_      ''e~j
 
         ênh (A     ''en^
 
@@ -782,9 +758,6 @@ _redar) gu (A      gw
         im (p      i~N
         in (K      i~N
 
-?4      im (_      i~:N
-?4      in (_      i~:N
-
         inh (A     in^
         imm (A     im
         inn (A     in
@@ -848,9 +821,6 @@ _redar) gu (A      gw
         ím (p      ''i~N
         ín (K      ''i~N
 
-?4      ím (_      ''i~:N
-?4      ín (_      ''i~:N
-
         ính (A     ''in^
 
 
@@ -869,7 +839,6 @@ _redar) gu (A      gw
         k (k+ 
 
 ?3      k (B       kI/
-?3      k (s       k
 ?3   @) k (_C      k_
 
 .group l
@@ -880,10 +849,6 @@ _redar) gu (A      gw
      l) l 
         lh         l^
 
-?3   l) l (_
-?3   C) l (_       lI/       // girl, curl (English)
-?3   C) ls (_      lI/s#     // girls, curls (English)
-
     @!) lli (_     =li       // Italian immigrants
 
 
@@ -893,9 +858,6 @@ _redar) gu (A      gw
 ?2   _) m (_       'emy
         m          m
      m) m 
-
-?3   m) m (_
-?3   C) m (_       mI/       // napalm, alarm, film (English)
 
     @@) mente (_S5 m''e~Nt#y
 
@@ -912,9 +874,6 @@ _redar) gu (A      gw
         n          n
      n) n 
         nh (A      n^
-
-?3   n) n (_
-?3   C) n (_       nI/       // Osborn, govern, popcorn (English)
 
 
 .group ñ
@@ -1003,9 +962,6 @@ _redar) gu (A      gw
         om (b      o~N
         om (p      o~N
         on (K      o~N
-
-?4      om (_      o~:N
-?4      on (_      o~:N
 
         onh (A     o~n^
         omm (A     om
@@ -1186,9 +1142,6 @@ _ortod) o (xL08_   O
         ôm (p      ''o~N
         ôn (K      ''o~N
 
-?4      ôm (_      ''o~:N
-?4      ôn (_      ''o~:N
-
         ônh (A     ''o~n^
 
 
@@ -1207,14 +1160,10 @@ _ortod) o (xL08_   O
         óm (p      ''o~N
         ón (K      ''o~N
 
-?4      óm (_      ''o~:N
-?4      ón (_      ''o~:N
-
 
 .group õ
         õ          o~
         õe         oI~
-?4      õe         o~j
 
 
 .group p
@@ -1223,8 +1172,6 @@ _ortod) o (xL08_   O
         p (p+ 
 
 ?3      p (B       pI/
-?3      p (s       p
-?3      p (t       p
 ?3   @) p (_C      p_
 
         ph         f
@@ -1295,10 +1242,8 @@ _ortod) o (xL08_   O
 ?4   A) rr         R#        // terra
 ?4   A) r (G       r         // born, borg
 ?4   A) r (_G      r         // tornar-me
-?4   A) r (lA      r         // carl, pearl
-?4   A) r (lB      @         // world, marlboro
-?4   A) r (sK                // perspectiva
-
+?4   A) r (lK      r         // carl, pearl
+?4   A) r (sK      r         // perspectiva
 
 .group s
 ?1   _) s (_W      Es|;      // within an acronym  [s]+[;] not [s;] phoneme
@@ -1351,7 +1296,6 @@ _ortod) o (xL08_   O
 ?4      t (+       t         // Brazilian mbrola /t/s are already affricate
 
 ?3      t (B       tI/
-?3      t (s       t
 ?3   @) t (_C      t_
 
 ?1      th         _^_EN
@@ -1394,9 +1338,6 @@ _ortod) o (xL08_   O
         um (p      u~N
         un (K      u~N
 
-?4      um (_      u~:N
-?4      un (_      u~:N
-
         unh (A     u~n^
         umm (A     um
         unn (A     un
@@ -1413,9 +1354,6 @@ _ortod) o (xL08_   O
         úm (b      ''u~N
         úm (p      ''u~N
         ún (K      ''u~N
-
-?4      úm (_      ''u~:N
-?4      ún (_      ''u~:N
 
         únh (A     ''u~n^
 
@@ -1525,8 +1463,6 @@ _lagarti) x (A     S
         ym (p      i~N
         yn (K      i~N
 
-?4      ym (_      i~:N
-?4      yn (_      i~:N
 
 .group z
      _) z (_       ze
