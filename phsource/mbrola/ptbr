@@ -5,6 +5,7 @@ volume 15
 // There are very small differences between the files `ptbr` and `ptbr4`.
 // Use a diff tool to check the subtle differences between these 2 files.
 // The voices of the Brazilian mbrola lack many unusual pairs of phonemes.
+// The compilation will fail if you put more than 255 rules in this file.
 
 // NAVIGATION HINT:
 // This file is organized in sections and blocks. Some sections have blocks.
@@ -44,13 +45,15 @@ volume 15
 
 // block r/
 0   r/   s      95  r @
+0   r/   y      0   r
 0   r/   w      0   r
+0   r/   VWL    0   r
 0   r/   NULL   0   r2
 
 // block r
 0   r   j      0   r
 0   r   w      0   r
-4   r   VWL    5   rr
+4   r   VWL    0   rr
 0   r   VWL    0   r
 0   r   NULL   0   r2
 
@@ -239,28 +242,21 @@ volume 15
 
 // section glides
 
-2   j   _      0   i
 2   j   N      0   i
-2   j   ;      0   i
-0   j   j      0   i
-0   j   w      0   i
+0   j   l/     0   i
+0   j   r/     0   i
 4   j   VWL    0   i
-0   j   NULL   0   y
+8   j   VWL    0   y
+10  j   VWL    0   y
+0   j   NULL   0   i
 
-2   w   _      0   u
-2   w   h      0   u
-2   w   x      0   u
-2   w   l^     0   u
 2   w   N      0   u
-2   w   S      0   u
-2   w   Z      0   u
-2   w   tS     0   u
-2   w   dZ     0   u
-2   w   ;      0   u
-0   w   j      0   u
-0   w   w      0   u
+0   w   l/     0   u
+0   w   r/     0   u
 4   w   VWL    0   u
-0   w   NULL   0   w
+8   w   VWL    0   w
+10  w   VWL    0   w
+0   w   NULL   0   u
 
 
 // section monothongs
@@ -269,8 +265,7 @@ volume 15
 0   A   NULL   0   a
 0   &   NULL   0   @
 0   &/  NULL   0   @
-8   &~  n^     0   @
-0   &~  NULL   0   am
+0   &~  NULL   0   @
 0   e   NULL   0   e
 0   e~  NULL   0   em
 0   E   NULL   0   ee
@@ -289,25 +284,28 @@ volume 15
 
 // section diphthongs
 
-0   aI  NULL  60   a  i
-0   eI  NULL  60   e  i
-0   EI  NULL  60   ee i
-0   oI  NULL  60   o  i
+0   aI  NULL  60   a  y
+0   eI  NULL  60   e  y
+0   EI  NULL  60   ee y
+0   oI  NULL  60   o  y
 0   oI~ NULL  60   om i
-0   OI  NULL  60   oo i
-0   uI  NULL  60   u  i
+0   OI  NULL  60   oo y
+0   uI  NULL  60   u  y
 0   uI~ NULL  60   um i
 
-0   aU  NULL  60   a  u
+0   aU  NULL  60   a  w
 0   &U~ NULL  60   @  um
-0   eU  NULL  60   e  u
-0   EU  NULL  60   ee u
-0   iU  NULL  60   i  u
-0   oU  NULL  60   o  u
+0   eU  NULL  60   e  w
+0   EU  NULL  60   ee w
+0   iU  NULL  60   i  w
+0   oU  NULL  60   o  w
 
 
 // section other phonemes
 
+0   Q   NULL   0   g
+0   B   NULL   0   b
+0   C   NULL   0   h
 0   ;   NULL   0   NULL
 0   :   NULL   0   NULL
 0   @-  NULL   0   NULL
@@ -323,7 +321,6 @@ volume 15
 0   I2  NULL   0   i
 0   A:  NULL   0   a
 0   A@  NULL  60   a r2
-0   e:  NULL   0   e
 0   o:  NULL   0   o
 0   O:  NULL   0   oo
 0   O@  NULL  60   oo r2
@@ -345,6 +342,7 @@ volume 15
 0   aU@ NULL   0   a
 0   t2  NULL   0   t
 0   r-  NULL   0   r
+
 
 // section french phonemes
 
