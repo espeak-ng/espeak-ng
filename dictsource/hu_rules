@@ -1093,6 +1093,12 @@ bőrön) d (sz d
 ren) d (szoft d
 pa) d (játé d
 föl) d (jöv d
+stran) d (járg d
+stran) d (járő d
+stran) d (játé d
+stran) d (játsz d
+stran) d (je d
+rekor) d (jel d
 
 .group dz
   fogó) dz (kod    ts
@@ -1958,6 +1964,11 @@ helybe) n (jár     n
  vagyo) n (nyilatkozat n     // for example vagyonnyilatkozat word need spokening single n phoneme before n^ phoneme, not two n^n^ phoneme.
    szí) n (jelzés  n
  kormá) ny (jelentés n^
+benzi) nj (é n^
+benzi) n (jegy n
+benzi) n (jeggy n
+benzi) nj (e n^
+benzi) nj (ü n^
  benzi) nj         nj
 mikrofo) n (nyílás n
    szí) n (nyom    n
@@ -2128,6 +2139,7 @@ indiá) n (játé n
 ásvá) ny (j n^
 szinkro) n (jel n
 magá) n (jach n
+dizáj) nny (e n|n^
 
 .group o
         o          o
@@ -3264,6 +3276,8 @@ szárnya) s (sz S
 juttatá) s (sz S
 va) s (szf S
 szerződé) s (z S
+teme) s (sz S
+közte) s (szám S
 
 .group ss
         ssz        ss2
@@ -4801,6 +4815,17 @@ palás) t (jog t
 épüle) t (s t
 régésze) t (sz t
 spor) t (járg t
+szele) t (so t
+állapo) t (ja t
+kísérte) t (já t
+kísérte) t (je t
+bo) t (sás t
+nemze) t (sp t
+nemze) t (jo t
+me) tssz (é ts:
+me) tssz (ük ts:
+me) tssz (ünk ts:
+me) tssz ts:
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -5503,6 +5528,7 @@ ré) z (si z
 ré) z (sí z
 ré) z (sug z
 ré) z (so z
+raj) z (zs z
 
 .group
         $          dolla:R2

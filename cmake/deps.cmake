@@ -24,6 +24,8 @@ else()
   FetchContent_MakeAvailable(sonic-git)
   FetchContent_GetProperties(sonic-git)
   add_library(sonic OBJECT ${sonic-git_SOURCE_DIR}/sonic.c)
+  # enable PIC in order to embed libsonic.a in a .so
+  set_property(TARGET sonic PROPERTY POSITION_INDEPENDENT_CODE ON)
   target_include_directories(sonic PUBLIC ${sonic-git_SOURCE_DIR})
   set(HAVE_LIBSONIC ON)
   set(SONIC_LIB sonic)
