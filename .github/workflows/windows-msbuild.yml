@@ -37,7 +37,7 @@ jobs:
         working-directory: "src/windows"
         run: msbuild espeak-ng.sln /p:Configuration=${{ matrix.config }} /p:Platform=x64
       - name: Upload MSI installer
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: windows-${{ matrix.config }}-msi
           path: "src/windows/installer/bin/x64/${{ matrix.config }}/espeak-ng.msi"
