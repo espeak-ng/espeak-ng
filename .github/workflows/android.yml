@@ -33,7 +33,7 @@ jobs:
       - name: make
         run: cd android && ./gradlew ${{ matrix.target }} --no-daemon
       - name: upload
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: android-${{ matrix.config }}.apk
           path: android/build/outputs/apk/${{ matrix.config }}/${{ matrix.apkname }}
