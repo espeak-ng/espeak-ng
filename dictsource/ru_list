@@ -1,7 +1,7 @@
 // This file is UTF8 encoded
 
 // Numbers
-_0      n'ojl;
+_0      n'ol;
 ?3 _0      n'ol^
 _1      V#d;'in_
 _1f     V#dn'a
@@ -11,33 +11,33 @@ _3      tR;'i
 _4      tS;It'yR;I
 _5      p;'V;t;
 _6      S'Es;t;
-_7      s;'ejm
+_7      s;'em;
 _8      v'os;im;
 _9      d;'evI3t;
 _10     d;'es;It;
-_11     Od;'innVttsVt;
-_12     dv;In'AttsVt;
-_13     tR;In'AttsVt;
-_14     tS;It'y@-*nVttsVt;
-_15     p;Itn'AttsVt;
-_16     SE#stn'AttsVt;
-_17     s;Imn'AttsVt;
-_18     vOs;Imn'AttsVt;
-_19     d;E2v;Itn'AttsVt;
-_2X     dv'AttsVt;
-_3X     tr;'ittsVt;
+_11     V#d;'innV_:tsVt;
+_12     dv;In'A_:tsVt;
+_13     tR;In'A_:tsVt;
+_14     tS;It'yRnV_:tsVt;
+_15     p;Itn'A_:tsVt;
+_16     Sysn'A_:tsVt;
+_17     s;Imn'A_:tsVt;
+_18     vV#s;Imn'A_:tsVt;
+_19     d;iv;Itn'A_:tsVt;
+_2X     dv'A_:tsVt;
+_3X     tr;'i_:tsVt;
 _4X     s'o@-rOk
-_5X     p;Vd;d;Is;'jat
-_6X     SE#z;d;is;'jat
-_7X     s;'emd;E2s;Vt
-_8X     v'os;I3md;E2s;Vt
+_5X     p;id;d;Is;'at
+_6X     Syz;d;is;'at
+_7X     s;'em;d;is;Vt
+_8X     v'os;I3m;d;is;Vt
 _9X     d;iv;In'ostO
 _0C     st'o
 _2C     dv;'es;t;I
 _3C     tr;'ista
 _4C     tS;it'yr;ista
 _5C     p;,Its'ot
-_6C     S,E#s;t;s'ot
+_6C     Syss'ot
 _7C     s;,Ims'ot
 _8C     vOs;Ims'ot
 _9C     d;Iv;its'ot
@@ -76,39 +76,39 @@ _dpt2   _d;Is;'atYx   // end of decimal fraction
 
 // symbols
 _`      akts'Ent
-&       ampers'and
+&       amp;irs'and
 _'      ap'ostrVf
 \       bEksl'ES  $max3
-_>      b'ol;SE
-_       def'is
-$       d'ollar
-_:      dvVet'otS;ie
+_>      b'ol;Sy
+_       d;if'is
+$       d'ollV#r
+_:      dvV#it'otS;iji
 ^       kr'ySka
 _"      kVv'ytS;ka
-_<      m;'en;SE
+_<      m;'en;Sy
 №       n'om;ir
-_{      'otkrfigur
-_(      'otkrkrug
-_[      'otkrkvadrat
-_«      'otkr uglof
-+       pl'jus  $max3
-_       pV#dtS;'8rk  $max3
-%       prVts'Ent  $max3
-=       ravn'o  $max3
-#       r;iS'otka  $max3
-/       sl'ES  $max3
+_{      l;'evV#ja||f;ig'urnV#ja||sk'opka#
+_(      l;'evV#ja||k@-r'uglV#ja||sk'opka#
+_[      l;'evV#ja||kvad@-r'AtnV#ja||sk'opka#
+_«      l;'evV#ja||kav'ytS;ka#||j'8lV#tS;ka#
++       pl;'u"s
+_       pV#ttS;'8rk;ivV#n;ijI
+%       prV#ts'Ent
+=       ravn'o
+#       r;iS'otka
+/       kV#s'Aja||tS;irt'A
 @       sV#b'aka
-~       t;'ilda
+~       t;'il;da
 _.      t'otS;ka
-_;      t'otS;kzap
-_|      v'ert
-_?      vopr'os
-_!      v'oskl;
-_}      z'akrfigur
-_)      z'akrkrug
-_]      z'akrkvadrat
-_»      z'akr uglof
-*       zv;izd'A  $max3
+_;      t'otS;ka#||z||zV#p;it'oj
+_|      v;irt;ik'AlnV#ja||tS;irt'a
+_?      vV#p@-rV#s;'it;ilnyj||zn'Ak
+_!      vV#skl;its'At;ilnyj||zn'Ak
+_}      p@-r'AvV#ja||f;ig'urnV#ja||sk'opka#
+_)      p@-r'AvV#ja||k@-r'uglV#ja||sk'opka#
+_]      p@-r'AvV#ja||kvad@-r'AtnV#ja||sk'opka#
+_»      p@-r'AvV#ja||kav'ytS;ka#||j'8lV#tS;ka#
+*       zv;'8zdV#tS;ka#
 _,      zVpit'aja
 
 // particle
@@ -120,6 +120,7 @@ _,      zVpit'aja
 // prepositions
 в       v  $u         // to,in,at 
 для        $u         // for
+для       $atend   // stressed at the end
 за        $u // behind
 за      $atend  // stressed at the end
 из        $u // from
@@ -127,6 +128,7 @@ _,      zVpit'aja
 на  n@ $u         // on
 ?3 на   $u         // on
 над                $u
+над           $atend    // stressed at the end
 от        $u         // from
 с       s  $u         // with,from,since
 у       u  $u         // by
@@ -155,25 +157,45 @@ _,      zVpit'aja
 
 // auxillary verbs
 будем   $u1
+будем      $atend    $1
 будет   $u1
+будет      $atend   $1
 будете  $u1
+будете     $atend   $1
 будешь  $u1
+будешь     $atend   $1
 буду    $u1
+буду     $atend   $1
 будут   $u1
+будут      $atend   $1
 был     $u1
+был     $atend    $1
 были    $u1
+были     $atend    $1
 было    $u1
+было     $atend    $1
 быть    $u1          // to be
+быть     $atend    $1
 еси     $u2
+еси     $atend    $2
 есмы    $u1
+есмы     $atend    $1
 есмь    $u1
+есмь      $atend    $1
 есте    $u1
+есте      $atend    $1
 есть    $u1
+есть      $atend    $1
 мог     $u1
+мог      $atend     $1
 могла   $u2
+могла     $atend    $2
 могли   $u2
+могли      $atend    $2
 могло   $u2
+могло      $atend     $2
 могу    $u2
+могу     $atend    $2
 могут   $u1
 можем   $u1
 может   $u1
@@ -218,7 +240,7 @@ _ж      ZE
 ж       ZE  $atend
 з       zE
 и       i  $atend
-й       ,i'k@-*'AtkOjI
+й       ,i'kR'AtkOjI
 _к       kA
 к       kA  $atend
 л       El;
@@ -237,10 +259,10 @@ _с      Es
 ц       tsE
 ч       tS;e
 ш       SA
-щ       S;ja
+щ       S;A
 ъ       tv;'8@-rdyjzn'Ak
 ы       y
-ь       m;'jaxk;I#jzn'Ak
+ь       m;'axk;I#jzn'Ak
 э       E
 ю       ju
 я       ja
@@ -308,3 +330,893 @@ _с      Es
              (что ж)             St'oS
              (что же)               St'oZy
 сша             sE#SE#'A
+        (у жены)       u||Zyn'y
+        (от жены)       od||Zyn'y
+        (из жены)       IZ||Zyn'y
+        (возле жены)       v'ozl;i||Zyn'y
+        (около жены)       'okVlV||Zyn'y
+        (подле жены)       p'odl;i||Zyn'y
+        (с жены)       z||Zyn'y
+        (для жены)       dl;A||Zyn'y
+        (после жены)       p'osl;i||Zyn'y
+        (напротив жены)       nap@-r'ot;iv||Zyn'y
+        (против жены)       p@-r'ot;iv||Zyn'y
+        (две жены)       dv;'e||Zyn'y
+        (три жены)       t@-r;'I||Zyn'y
+        (четыре жены)       tS;it'yr;i||Zyn'y
+        (нет жены)       n;'ed||Zyn'y
+        (нету жены)       n;'etu||Zyn'y
+        (жены нет)       Zyn'y||n;'et
+        (жены нету)       Zyn'y||n;'etu
+        (у воды)       u||vV#d'y
+       (от воды)       ot||vV#d'y
+        (из воды)       Iz||vV#d'y
+        (возле воды)        v'ozl;i||vV#d'y
+        (около воды)        'okVlV||vV#d'y
+        (подле воды)        p'odl;i||vV#d'y
+        (с воды)        s||vV#d'y
+        (для воды)        dl;A||vV#d'y
+        (после воды)        p'osl;i||vV#d'y
+        (напротив воды)       nap@-r'ot;iv||vV#d'y
+        (против воды)        p@-r'ot;iv||vV#d'y
+        (стакан воды)       stak'An_||vV#d'y
+        (стакана воды)       stak'Ana#||vV#d'y
+        (стакану воды)       stak'Anu||vV#d'y
+        (стаканом воды)       stak'AnVm||vV#d'y
+        (стакане воды)       stak'An;i||vV#d'y
+         (стаканы воды)        stak'Any||vV#d'y
+        (стаканов воды)        stak'AnVv||vV#d'y
+        (стаканам воды)        stak'AnVm||vV#d'y
+        (стаканами воды)        stak'AnVm;I||vV#d'y
+         (стаканах воды)       stak'AnVx||vV#d'y
+        (кружка воды)        k@-r'uSka#||vV#d'y
+         (кружки воды)        k@-r'uSk;I||vV#d'y
+        (кружке воды)         k@-r'uSk;i||vV#d'y
+        (кружку воды)       k@-r'uSku||vV#d'y
+         (кружкой воды)        k@-r'uSkVj||vV#d'y
+        (кружкою воды)        k@-r'uSkVju||vV#d'y
+        (кружек воды)       k@-r'uZyk||vV#d'y
+        (кружкам воды)      k@-r'uSkVm||vV#d'y
+         (кружками воды)       k@-r'uSkVm;I||vV#d'y
+        (кружках воды)         k@-r'uSkVx||vV#d'y
+         (капля воды)       k'Apl;V||vV#d'y
+        (капли воды)       k'Apl;I||vV#d'y
+       (капле воды)        k'Apl;i||vV#d'y
+       (каплей воды)       k'Apl;ij||vV#d'y
+       (каплею воды)       k'Apl;iju||vV#d'y
+        (каплю воды)       k'Apl;u"||vV#d'y
+       (капель воды)       k'Ap;il||vV#d'y
+        (каплям воды)        k'Apl;Vm||vV#d'y
+        (каплями воды)        k'Apl;Vm;I||vV#d'y
+        (каплях воды)        k'Apl;Vx||vV#d'y
+        (тарелка воды)        tar;'elka#||vV#d'y
+         (тарелки воды)        tar;'elk;I||vV#d'y
+         (тарелке воды)        tar;'elk;i||vV#d'y
+        (тарелкой воды)       tar;'elkVj||vV#d'y
+        (тарелкою воды)       tar;'elkVju||vV#d'y
+        (тарелок воды)        tar;'elVk||vV#d'y
+        (тарелкам воды)        tar;'elkVm||vV#d'y
+        (тарелками воды)       tar;'elkVm;I||vV#d'y
+       (тарелках воды)       tar;'elkVx||vV#d'y
+        (чашка воды)       tS;'ASka#||vV#d'y
+       (чашки воды)       tS;'ASk;I||vV#d'y
+        (чашке воды)       tS;'ASk;i||vV#d'y
+        (чашкой воды)       tS;'ASkVj||vV#d'y
+        (чашкою воды)      tS;'ASkVju||vV#d'y
+        (чашку воды)      tS;'ASku||vV#d'y
+        (чашек воды)      tS;'ASyk||vV#d'y
+       (чашкам воды)      tS;'ASkVm||vV#d'y
+       (чашками воды)       tS;'ASkVm;I||vV#d'y
+        (чашках воды)       tS;'ASkVx||vV#d'y
+        (ложка воды)      l'oSka#||vV#d'y
+       (ложки воды)       l'oSk;I||vV#d'y
+       (ложке воды)      l'oSk;i||vV#d'y
+       (ложку воды)      l'oSku||vV#d'y
+       (ложкой воды)     l'oSkVj||vV#d'y
+       (ложкою воды)      l'oSkVju||vV#d'y
+       (ложек воды)      l'oZyk||vV#d'y
+       (ложкам воды)       l'oSkVm||vV#d'y
+       (ложками воды)       l'oSkVm;I||vV#d'y
+       (ложках воды)      l'oSkVx||vV#d'y
+        (кастрюля воды)       kast@-r;'u"l;V||vV#d'y
+       (кастрюли воды)      kast@-r;'u"l;I||vV#d'y
+        (кастрюле воды)      kast@-r;'u"l;i||vV#d'y
+       (кастрюлю воды)      kast@-r;'u"l;u"||vV#d'y
+       (кастрюлей воды)      kast@-r;'u"l;ij||vV#d'y
+       (кастрюлею воды)      kast@-r;'u"l;iju||vV#d'y
+       (кастрюль воды)      kast@-r;'u"l||vV#d'y
+       (кастрюлям воды)      kast@-r;'u"l;Vm||vV#d'y
+       (кастрюлями воды)       kast@-r;'u"l;Vm;I||vV#d'y
+       (кастрюлях воды)      kast@-r;'u"l;Vx||vV#d'y
+       (лужа воды)      l'uZa#||vV#d'y
+       (лужи воды)     l'uZy||vV#d'y
+       (лужу воды)     l'uZu||vV#d'y
+        (луже воды)      l'uZy||vV#d'y
+       (лужей воды)       l'uZyj||vV#d'y
+       (лужею воды)        l'uZyju||vV#d'y
+      (луж воды)     l'uS||vV#d'y
+      (лужам воды)      l'uZVm||vV#d'y
+      (лужами воды)      l'uZVm;I||vV#d'y
+       (лужах воды)     l'uZVx||vV#d'y
+      (емкость воды)       j'emkVst;||vV#d'y
+       (емкости воды)      j'emkVs;t;I||vV#d'y
+      (емкостью воды)       j'emkVst;jju||vV#d'y
+       (емкостей воды)      j'emkVs;t;ij||vV#d'y
+      (емкостям воды)      j'emkVs;t;Vm||vV#d'y
+       (емкостями воды)      j'emkVs;t;Vm;I||vV#d'y
+      (емкостях воды)      j'emkVs;t;Vx||vV#d'y
+      (ёмкость воды)     j'8mkVst;||vV#d'y
+      (ёмкости воды)      j'8mkVs;t;I||vV#d'y
+      (ёмкостью воды)      j'8mkVst;jju||vV#d'y
+       (ёмкостей воды)      j'8mkVs;t;ij||vV#d'y
+       (ёмкостям воды)      j'8mkVs;t;Vm||vV#d'y
+      (ёмкостями воды)      j'8mkVs;t;Vm;I||vV#d'y
+      (ёмкостях воды)     j'8mkVs;t;Vx||vV#d'y
+      (бочка воды)     b'otS;ka#||vV#d'y
+      (бочки воды)     b'otS;k;I||vV#d'y
+      (бочке воды)     b'otS;k;i||vV#d'y
+     (бочку воды)     b'otS;ku||vV#d'y
+      (бочкой воды)     b'otS;kVj||vV#d'y
+      (бочкою воды)     b'otS;kVju||vV#d'y
+      (бочек воды)    b'otS;ik||vV#d'y
+      (бочкам воды)     b'otS;kVm||vV#d'y
+      (бочками воды)      b'otS;kVm;I||vV#d'y
+       (бочках воды)     b'otS;kVx||vV#d'y
+      (много воды)     mn'ogV||vV#d'y
+      (воды много)     vV#d'y||mn'ogV
+       (мало воды)    m'AlV||vV#d'y
+      (воды мало)     vV#d'y||m'AlV
+      (нет воды)     n;'et||vV#d'y
+      (нету воды)    n;'etu||vV#d'y
+      (воды нет)    vV#d'y||n;'et
+      (воды нету)     vV#d'y||n;'etu
+      (две воды)     dv;'e||vV#d'y
+     (три воды)     t@-r;'I||vV#d'y
+      (четыре воды)    tS;it'yr;i||vV#d'y
+      (бутылка воды)     but'ylka#||vV#d'y
+      (бутылки воды)    but'ylk;I||vV#d'y
+      (бутылке воды)    but'ylk;i||vV#d'y
+     (бутылку воды)    but'ylku||vV#d'y
+      (бутылкой воды)     but'ylkVj||vV#d'y
+      (бутылкою воды)     but'ylkVju||vV#d'y
+      (бутылок воды)    but'ylVk||vV#d'y
+     (бутылкам воды)    but'ylkVm||vV#d'y
+       (бутылками воды)     but'ylkVm;I||vV#d'y
+       (бутылках воды)     but'ylkVx||vV#d'y
+       (цистерна воды)    tsys;t;'erna#||vV#d'y
+       (цистерны воды)      tsys;t;'erny||vV#d'y
+       (цистерне воды)    tsys;t;'ern;i||vV#d'y
+      (цистерну воды)     tsys;t;'ernu||vV#d'y
+       (цистерной воды)    tsys;t;'ernVj||vV#d'y
+       (цистерною воды)     tsys;t;'ernVju||vV#d'y
+       (цистерн воды)    tsys;t;'ern_||vV#d'y
+       (цистернам воды)    tsys;t;'ernVm||vV#d'y
+       (цистернами воды)     tsys;t;'ernVm;I||vV#d'y
+       (цистернах воды)     tsys;t;'ernVx||vV#d'y
+       (другой стороны)       d@-rug'oj||stVrV#n'y
+       (третьей стороны)      t@-r;'et;jjij||stVrV#n'y
+       (обе стороны)      'ob;i||stVrV#n'y
+       (две стороны)      dv;'e||stVrV#n'y
+       (три стороны)     t@-r;'I||stVrV#n'y
+       (четыре стороны)       tS;it'yr;i||stVrV#n'y
+      (у стороны)      u||stVrV#n'y
+       (от стороны)     ot||stVrV#n'y
+       (после стороны)     p'osl;i||stVrV#n'y
+       (напротив стороны)      nap@-r'ot;if||stVrV#n'y
+       (около стороны)      'okVlV||stVrV#n'y
+       (возле стороны)      v'ozl;i||stVrV#n'y
+       (подле стороны)     p'odl;i||stVrV#n'y
+       (для стороны)      dl;A||stVrV#n'y
+       (ради жены)      @-r'Ad;I||Zyn'y
+       (моей жены)     mV#j'ej||Zyn'y
+       (твоей жены)      tvV#j'ej||Zyn'y
+       (его жены)      jIv'o||Zyn'y
+        (до жены)     d'o||Zyn'y
+       (ради воды)       @-r'Ad;I||vV#d'y
+       (моей воды)      mV#j'ej||vV#d'y
+       (твоей воды)     tvV#j'ej||vV#d'y
+      (нашей воды)      n'ASyj||vV#d'y
+       (вашей воды)     v'ASyj||vV#d'y
+       (до воды)      d'o||vV#d'y
+       (вдоль воды)     vd'ol||vV#d'y
+       (моей стороны)       mV#j'ej||stVrV#n'y
+       (твоей стороны)      tvV#j'ej||stVrV#n'y
+        (нашей стороны)     n'ASyj||stVrV#n'y
+       (вашей стороны)     v'ASyj||stVrV#n'y
+       (у войны)      u||vV#jn'y
+        (после войны)    p'osl;i||vV#jn'y
+      (отечественной войны)      V#t;'etS;istv;innVj||vV#jn'y
+      (турецкой войны)     tur;'etskVj||vV#jn'y
+      (крымской войны)     k@-r'ymskVj||vV#jn'y
+       (шведской войны)     Sv;'etskVj||vV#jn'y
+      (столетней войны)     stV#l;'et;n;ij||vV#jn'y
+       (троянской войны)     t@-rV#'janskVj||vV#jn'y
+      (татарской войны)     tat'ArskVj||vV#jn'y
+       (у сестры)     u||s;ist@-r'y
+       (возле сестры)     v'ozl;i||s;ist@-r'y
+       (до сестры)     d'o||s;ist@-r'y
+       (до войны)     d'o||vV#jn'y
+       (нет сестры)     n;'et||s;ist@-r'y
+       (около сестры)     'okVlV||s;ist@-r'y
+      (после сестры)     p'osl;i||s;ist@-r'y
+      (подле сестры)     p'odl;i||s;ist@-r'y
+       (от сестры)     ot||s;ist@-r'y
+       (ради сестры)     @-r'Ad;I||s;ist@-r'y
+       (для сестры)     dl;A||s;ist@-r'y
+       (из-за жены)      Izza#||Zyn'y
+       (из-за воды)     Izza#||vV#d'y
+       (из-за стороны)     Izza#||stVrV#n'y
+       (из-за сестры)      Izza#||s;ist@-r'y
+       (к берегу)      g||b;'er;igu
+       (с берега)     z||b;'er;iga#
+       (от берега)     od||b;'er;iga#
+       (до берега)      d'o||b;'er;iga#
+       (из берега)     Iz||b;'er;iga#
+       (вдоль берега)    vd'ol||b;'er;iga#
+      (на берегу)     n@||b;ir;ig'u
+       (после берега)    p'osl;i||b;'er;iga#
+       (подле берега)     p'odl;i||b;'er;iga#
+      (возле берега)     v'ozl;i||b;'er;iga#
+      (из-за берега)    Izza#||b;'er;iga#
+      (в носу)     v||nV#s'u
+      (в лесу)     v||l;is'u
+      (в порту)     f||pV#rt'u
+      (выпить воды)    v'yp;it;||vV#d'y
+      (выпью воды)     v'ypjju||vV#d'y
+      (выпьешь воды)    v'ypjjiS||vV#d'y
+     (выпьет воды)     v'ypjjit||vV#d'y
+      (выпьем воды)     v'ypjjim||vV#d'y
+      (выпьете воды)    v'ypjjit;i||vV#d'y
+      (выпьют воды)    v'ypjjut||vV#d'y
+      (выпей воды)    v'yp;ij||vV#d'y
+      (выпейте воды)     v'yp;ijt;i||vV#d'y
+      (выпил воды)    v'yp;il||vV#d'y
+     (выпила воды)    v'yp;ila#||vV#d'y
+      (выпило воды)     v'yp;ilV#||vV#d'y
+     (выпили воды)    v'yp;il;I||vV#d'y
+      (соленой воды)     sV#l;'enVj||vV#d'y
+     (солёной воды)    sV#l;'8nVj||vV#d'y
+     (пресной воды)    p@-r;'esnV#j||vV#d'y
+     (сладкой воды)    sl'AtkV#j||vV#d'y
+     (горькой воды)    g'oRI^kV#j||vV#d'y
+      (холодной воды)    xV#l'odnV#j||vV#d'y
+     (горячей воды)    gV#r;'AtS;ij||vV#d'y
+     (платной воды)    pl'AtnV#j||vV#d'y
+      (бесплатной воды)    b;ispl'AtnV#j||vV#d'y
+     (технической воды)    t;ixn;'itS;iskV#j||vV#d'y
+     (свойство воды)    sv'ojstvV#||vV#d'y
+     (свойства воды)    sv'ojstva#||vV#d'y
+     (свойству воды)    sv'ojstvu||vV#d'y
+    (свойством воды)    sv'ojstvV#m||vV#d'y
+      (свойстве воды)    sv'ojstv;i||vV#d'y
+     (свойств воды)    sv'ojstf||vV#d'y
+     (свойствам воды)    sv'ojstvVm||vV#d'y
+     (свойствами воды)    sv'ojstvVm;I||vV#d'y
+      (свойствах воды)    sv'ojstvVx||vV#d'y
+      (качество воды)    k'AtS;istvV#||vV#d'y
+      (качества воды)     k'AtS;istva#||vV#d'y
+     (качеству воды)     k'AtS;istvu||vV#d'y
+      (качеством воды)    k'AtS;istvV#m||vV#d'y
+     (качестве воды)    k'AtS;istv;i||vV#d'y
+      (качеств воды)     k'AtS;istv||vV#d'y
+     (качествам воды)    k'AtS;istvVm||vV#d'y
+     (качествами воды)     k'AtS;istvVm;I||vV#d'y
+      (качествах воды)    k'AtS;istvVx||vV#d'y
+     (жесткость воды)    Z'EskV#st;||vV#d'y
+      (жесткости воды)    Z'EskV#s;t;I||vV#d'y
+     (жесткостью воды)    Z'EskV#st;jju||vV#d'y
+     (жёсткость воды)    Z'oskV#st;||vV#d'y
+      (жёсткости воды)    Z'oskV#s;t;I||vV#d'y
+      (жёсткостью воды)    Z'oskV#st;jju||vV#d'y
+      (мягкость воды)    m;'AxkV#st;||vV#d'y
+     (мягкости воды)    m;'AxkV#s;t;I||vV#d'y
+      (мягкостью воды)    m;'AxkV#st;jju||vV#d'y
+      (безопасность воды)     b;izV#p'AsnV#st;||vV#d'y
+      (безопасности воды)    b;izV#p'AsnV#s;t;I||vV#d'y
+      (безопасностью воды)     b;izV#p'AsnV#st;jju||vV#d'y
+      (опасность воды)    V#p'AsnV#st;||vV#d'y
+      (опасности воды)    V#p'AsnV#s;t;I||vV#d'y
+      (опасностью воды)    V#p'AsnV#st;jju||vV#d'y
+      (дамы и господа)     d'Amy||I||gV#spV#d'a
+      (ради господа)    @-r'Ad;I||g'ospV#da#
+    (господа нашего)    g'ospV#da#||n'ASyvV#
+     (на дону)    n@||dV#n'u
+     (на крови)    n@||k@-rV#v;'I
+     (в крови)    f||k@-rV#v;'I
+    (в моей крови)    v||mV#j'ej||k@-rV#v;'I
+     (в твоей крови)    f||tvV#j'ej||k@-rV#v;'I
+     (в его крови)    v||jIv'o||k@-rV#v;'I
+     (в ее крови)    v||jIj'e||k@-rV#v;'I
+      (в её крови)    v||jIj'8||k@-rV#v;'I
+      (в нашей крови)    v||n'ASyj||k@-rV#v;'I
+     (в вашей крови)    v||v'ASyj||k@-rV#v;'I
+      (в их крови)     v||'Ix||k@-rV#v;'I
+      (на спирту)    n@||sp;irt'u
+     (в мозгу)    v||mV#zg'u
+     (наши леса и поля)   n'ASy||l;is'a||I||pV#l;'V      // The Russian National Anthem (Гимн России)
+     (в году)    v||gV#d'u
+     (текущем году)    t;ik'uS;im||gV#d'u
+     (этом году)    'EtV#m||gV#d'u
+      (прошлом году)    p@-r'oSlV#m||gV#d'u
+     (будущем году)    b'uduS;im||gV#d'u
+      (все года)    fs;'e||gV#d'a
+     (те года)    t;'e||gV#d'a
+     (эти года)    'Et;I||gV#d'a
+      (минувшие года)    m;in'ufSyjI||gV#d'a
+      (питьевой воды)    p;it;jjiv'oj||vV#d'y
+     (четвертой стороны)     tS;itv;'ertV#j||stV#rV#n'y
+     (четвёртой стороны)    tS;itv;'8rtV#j||stV#rV#n'y
+     (второй стороны)    ftV#r'oj||stV#rV#n'y
+     (времен войны)    v@-r;im;'en_||vV#jn'y
+     (времён войны)    v@-r;im;'8n_||vV#jn'y
+      (топор войны)    tV#p'or||vV#jn'y
+     (около берега)    'okV#lV#||b;'er;iga#
+     (следующем году)    sl;'edujuS;im||gV#d'u
+     (предыдущем году)    p@-r;idyd'uS;im||gV#d'u
+     (грядущие нам открывают года)    g@-r;id'uS;ijI||n'Am||V#tk@-ryv'Ajud||gV#d'a       // The Russian National Anthem (Гимн России)
+      (однокоренные слова)    V#dnV#kV#r;inn'yjI||slV#v'a
+      (родственные слова)    @-r'otstv;innyjI||slV#v'a
+     (пустые слова)    pust'yjI||slV#v'a
+     (красивые слова)    k@-ras;'ivyjI||slV#v'a
+     (золотые слова)    zV#lV#t'yjI||slV#v'a
+     (мудрые слова)    m'ud@-ryjI||slV#v'a
+     (прекрасные слова)    p@-r;ik@-r'AsnyjI||slV#v'a
+     (мои слова)    mV#'I||slV#v'a
+    (твои слова)   tvV#'I||slV#v'a
+     (наши слова)    n'ASy||slV#v'a
+    (ваши слова)    v'ASy||slV#v'a
+    (вашей жены)    v'ASyj||Zyn'y
+     (твои глаза)    tvV#'I||glaz'a
+     (наши глаза)    n'ASy||glaz'a
+     (ваши глаза)    v'ASy||glaz'a
+    (глаза мои)    glaz'a||mV#'I
+    (глаза твои)   glaz'A||tvV#'I
+    (глаза его)    glaz'a||jIv'o
+    (глаза ее)    glaz'a||jIj'e
+    (глаза её)    glaz'a||jIj'8
+     (глаза нас)    glaz'a||n'As
+    (глаза вас)    glaz'a||v'As
+     (глаза их)   glaz'a||'Ix
+    (эти глаза)    'Et;I||glaz'a
+     (большие глаза)    bV#lS'yjI||glaz'a
+    (широкие глаза)    Syr'ok;ijI||glaz'a
+    (удивленные глаза)    ud;ivl;'ennyjI||glaz'a
+     (удивлённые глаза)    ud;ivl;'8nnyjI||glaz'a
+     (красивые глаза)    k@-ras;'ivyjI||glaz'a
+     (карие глаза)    k'Ar;ijI||glaz'a
+     (черные глаза)    tS;'ernyjI||glaz'a
+     (чёрные глаза)    tS;'8rnyjI||glaz'a
+    (зеленые глаза)    z;il;'enyjI||glaz'a
+    (зелёные глаза)    z;il;'8nyjI||glaz'a
+     (голубые глаза)    gV#lub'yjI||glaz'a
+     (красные глаза)    k@-r'AsnyjI||glaz'a
+     (синие глаза)    s;'in;ijI||glaz'a
+     (белые глаза)    b;'elyjI||glaz'a
+     (на потом)    n@||pV#t'om
+     (окружающей среды)    V#k@-ruZ'AjuS;ij||s@-r;id'y
+     (твердой среды)    tv;'erdV#j||s@-r;id'y
+     (твёрдой среды)    tv;'8rdV#j||s@-r;id'y
+     (жидкой среды)    Z'ytkV#j||s@-r;id'y
+     (газообразной среды)    gV#zV#V#b@-r'AznV#j||s@-r;id'y
+     (общественной среды)    V#pS;'estv;innV#j||s@-r;id'y
+     (дисперсионной среды)    d;isp;irs;i'onnV#j||s@-r;id'y
+     (газовой среды)    g'AzV#vV#j||s@-r;id'y
+     (водной среды)     v'odnV#j||s@-r;id'y
+    (воздушной среды)    vV#zd'uSnV#j||s@-r;id'y
+     (городской среды)    gV#rV#tsk'oj||s@-r;id'y
+     (природной среды)    p@-r;ir'odnV#j||s@-r;id'y
+     (социальной среды)    sV#tsy'AlnV#j||s@-r;id'y
+     (органы человека)     'orgV#ny||tS;ilV#v;'eka#
+     (органа человека)    'orgV#na#||tS;ilV#v;'eka#
+     (органу человека)    'orgV#nu||tS;ilV#v;'eka#
+     (органом человека)    'orgV#nV#m||tS;ilV#v;'eka#
+     (органе человека)     'orgV#n;i||tS;ilV#v;'eka#
+     (органов человека)    'orgV#nV#f||tS;ilV#v;'eka#
+     (органам человека)    'orgV#nV#m||tS;ilV#v;'eka#
+    (органами человека)     'orgV#nV#m;I||tS;ilV#v;'eka#
+     (органах человека)    'orgV#nV#x||tS;ilV#v;'eka#
+     (органы тела)    'orgV#ny||t;'ela#
+     (органа тела)    'orgV#na#||t;'ela#
+     (органу тела)    'orgV#nu||t;'ela#
+     (органом тела)    'orgV#nV#m||t;'ela#
+      (органе тела)    'orgV#n;i||t;'ela#
+     (органов тела)    'orgV#nV#f||t;'ela#
+     (органам тела)    'orgV#nV#m||t;'ela#
+     (органами тела)    'orgV#nV#m;I||t;'ela#
+     (органах тела)    'orgV#nV#x||t;'ela#
+     (правоохранительные органы)    p@-rV#vV#V#x@-ran;'it;ilnyjI||'orgV#ny
+     (правоохранительного органа)    p@-rV#vV#V#x@-ran;'it;ilnV#vV#||'orgV#na#
+    (правоохранительному органу)    p@-rV#vV#V#x@-ran;'it;ilnV#mu||'orgV#nu
+     (правоохранительным органом)     p@-rV#vV#V#x@-ran;'it;ilnym||'orgV#nV#m
+     (правоохранительном органе)    p@-rV#vV#V#x@-ran;'it;ilnV#m||'orgV#n;i
+     (правоохранительных органов)    p@-rV#vV#V#x@-ran;'it;ilnyx||'orgV#nV#f
+     (правоохранительным органам)    p@-rV#vV#V#x@-ran;'it;ilnym||'orgV#nV#m
+    (правоохранительными органами)    p@-rV#vV#V#x@-ran;'it;ilnym;I||'orgV#nV#m;I
+      (правоохранительных органах)    p@-rV#vV#V#x@-ran;'it;ilnyx||'orgV#nV#x
+     (внутренние органы)    vn'ut@-r;inn;ijI||'orgV#ny
+     (внутреннего органа)    vn'ut@-r;inn;ivV#||'orgV#na#
+      (внутреннему органу)    vn'ut@-r;inn;imu||'orgV#nu
+     (внутренним органом)    vn'ut@-r;inn;im||'orgV#nV#m
+     (внутреннем органе)    vn'ut@-r;inn;im||'orgV#n;i
+     (внутренних органов)    vn'ut@-r;inn;ix||'orgV#nV#f
+     (внутренними органами)    vn'ut@-r;inn;im;I||'orgV#nV#m;I
+     (внутренним органам)    vn'ut@-r;inn;im||'orgV#nV#m
+     (внутренних органах)    vn'ut@-r;inn;ix||'orgV#nV#x
+    (законодательного органа)    zV#kV#nV#d'At;ilnV#vV#||'orgV#na#
+     (законодательному органу)    zV#kV#nV#d'At;ilnV#mu||'orgV#nu
+     (законодательным органом)    zV#kV#nV#d'At;ilnym||'orgV#nV#m
+     (законодательном органе)    zV#kV#nV#d'At;ilnV#m||'orgV#n;i
+     (законодательные органы)   zV#kV#nV#d'At;ilnyjI||'orgV#ny
+     (законодательных органов)    zV#kV#nV#d'At;ilnyx||'orgV#nV#f
+     (законодательным органам)   zV#kV#nV#d'At;ilnym||'orgV#nV#m
+    (законодательными органами)    zV#kV#nV#d'At;ilnym;I||'orgV#nV#m;I
+     (законодательных органах)    zV#kV#nV#d'At;ilnyx||'orgV#nV#x
+    (исполнительного органа)   IspV#ln;'it;ilnV#vV#||'orgV#na#
+     (исполнительному органу)    IspV#ln;'it;ilnV#mu||'orgV#nu
+     (исполнительным органом)    IspV#ln;'it;ilnym||'orgV#nV#m
+    (исполнительном органе)    IspV#ln;'it;ilnV#m||'orgV#n;i
+     (исполнительных органов)    IspV#ln;'it;ilnyx||'orgV#nV#f
+     (исполнительным органам)   IspV#ln;'it;ilnym||'orgV#nV#m
+     (исполнительными органами)    IspV#ln;'it;ilnym;I||'orgV#nV#m;I
+    (исполнительных органах)    IspV#ln;'it;ilnyx||'orgV#nV#x
+    (судебного органа)     sud;'ebnV#vV#||'orgV#na#
+    (судебному органу)    sud;'ebnV#mu||'orgV#nu
+     (судебным органом)    sud;'ebnym||'orgV#nV#m
+     (судебном органе)    sud;'ebnV#m||'orgV#n;i
+     (судебные органы)    sud;'ebnyjI||'orgV#ny
+     (судебных органов)    sud;'ebnyx||'orgV#nV#f
+     (судебным органам)    sud;'ebnym||'orgV#nV#m
+     (судебными органами)    sud;'ebnym;I||'orgV#nV#m;I
+     (судебных органах)    sud;'ebnyx||'orgV#nV#x
+    (государственного органа)    gV#sud'Arstv;innV#vV#||'orgV#na#
+     (государственному органу)    gV#sud'Arstv;innV#mu||'orgV#nu
+     (государственным органом)    gV#sud'Arstv;innym||'orgV#nV#m
+     (государственном органе)    gV#sud'Arstv;innV#m||'orgV#n;i
+     (государственные органы)    gV#sud'Arstv;innyjI||'orgV#ny
+    (государственных органов)    gV#sud'Arstv;innyx||'orgV#nV#f
+     (государственным органам)    gV#sud'Arstv;innym||'orgV#nV#m
+    (государственными органами)    gV#sud'Arstv;innym;I||'orgV#nV#m;I
+    (государственных органах)    gV#sud'Arstv;innyx||'orgV#nV#x
+    (органа законодательной власти)   'orgV#na#||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+     (органу законодательной власти)    'orgV#nu||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+    (органом законодательной власти)    'orgV#nV#m||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+     (органе законодательной власти)    'orgV#n;i||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+    (органы законодательной власти)    'orgV#ny||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+    (органов законодательной власти)    'orgV#nV#v||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+    (органам законодательной власти)    'orgV#nV#m||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+    (органами законодательной власти)    'orgV#nV#m;I||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+     (органах законодательной власти)    'orgV#nV#x||zV#kV#nV#d'At;ilnV#j||vl'As;t;I
+     (органа исполнительной власти)    'orgV#na#||IspV#ln;'it;ilnV#j||vl'As;t;I
+     (органу исполнительной власти)    'orgV#nu||IspV#ln;'it;ilnV#j||vl'As;t;I
+     (органом исполнительной власти)    'orgV#nV#m||IspV#ln;'it;ilnV#j||vl'As;t;I
+    (органе исполнительной власти)    'orgV#n;i||IspV#ln;'it;ilnV#j||vl'As;t;I
+     (органы исполнительной власти)    'orgV#ny||IspV#ln;'it;ilnV#j||vl'As;t;I
+    (органов исполнительной власти)    'orgV#nV#f||IspV#ln;'it;ilnV#j||vl'As;t;I
+     (органам исполнительной власти)    'orgV#nV#m||IspV#ln;'it;ilnV#j||vl'As;t;I
+     (органами исполнительной власти)    'orgV#nV#m;I||IspV#ln;'it;ilnV#j||vl'As;t;I
+    (органах исполнительной власти)    'orgV#nV#x||IspV#ln;'it;ilnV#j||vl'As;t;I
+    (органа судебной власти)    'orgV#na#||sud;'ebnV#j||vl'As;t;I
+    (органу судебной власти)    'orgV#nu||sud;'ebnV#j||vl'As;t;I
+     (органом судебной власти)    'orgV#nV#m||sud;'ebnV#j||vl'As;t;I
+     (органе судебной власти)    'orgV#n;i||sud;'ebnV#j||vl'As;t;I
+    (органы судебной власти)    'orgV#ny||sud;'ebnV#j||vl'As;t;I
+    (органов судебной власти)    'orgV#nV#f||sud;'ebnV#j||vl'As;t;I
+    (органам судебной власти)    'orgV#nV#m||sud;'ebnV#j||vl'As;t;I
+    (органами судебной власти)    'orgV#nV#m;I||sud;'ebnV#j||vl'As;t;I
+    (органах судебной власти)    'orgV#nV#x||sud;'ebnV#j||vl'As;t;I
+    (органы власти)    'orgV#ny||vl'As;t;I
+    (органа власти)    'orgV#na#||vl'As;t;I
+    (органу власти)    'orgV#nu||vl'As;t;I
+    (органом власти)    'orgV#nV#m||vl'As;t;I
+    (органе власти)    'orgV#n;i||vl'As;t;I
+    (органов власти)    'orgV#nV#f||vl'As;t;I
+    (органам власти)    'orgV#nV#m||vl'As;t;I
+     (органами власти)    'orgV#nV#m;I||vl'As;t;I
+    (органах власти)    'orgV#nV#x||vl'As;t;I
+    (со стороны)    sV#||stV#rV#n'y
+    (целую неделю)    ts'Eluju||n;id;'el;u"
+    (целую ночь)    ts'Eluju||n'otS;
+    (передо мной)    p;ir;idV#||mn'oj
+     (перед тобой)    p;ir;it||tV#b'oj
+    (перед ним)    p;ir;id||n;'im
+    (перед ней)    p;ir;id||n;'ej
+    (перед нею)    p;ir;id||n;'eju
+     (перед нами)    p;ir;id||n'Am;I
+     (перед вами)    p;ir;id||v'Am;I
+    (перед ними)    p;ir;id||n;'im;I
+    (как снег на голову)    k'Ak||s;n;'ek||n'a||gV#lV#vu      // out of the blue (Russian idiom)
+    (два часа)    dv'A||tS;is'a
+    (три часа)    t@-r;'I||tS;is'a
+    (четыре часа)    tS;it'yr;i||tS;is'a
+    (в первом часу)    f||p;'ervV#m||tS;is'u
+     (во втором часу)    v'o||ftV#r'om||tS;is'u
+     (в третьем часу)    f||t@-r;'et;jjim||tS;is'u
+    (в четвертом часу)    f||tS;itv;'ertV#m||tS;is'u
+     (в четвёртом часу)    f||tS;itv;'8rtV#m||tS;is'u
+    (в пятом часу)    f||p;'AtV#m||tS;is'u
+     (в шестом часу)    f||Syst'om||tS;is'u
+     (в седьмом часу)    f||s;id;m'om||tS;is'u
+     (в восьмом часу)    v||vV#s;m'om||tS;is'u
+     (в девятом часу)    v||d;iv;'AtV#m||tS;is'u
+     (в десятом часу)    v||d;is;'AtV#m||tS;is'u
+     (в одиннадцатом часу)    v||V#d;'innV#_:tsV#tV#m||tS;is'u
+     (в двенадцатом часу)    v||dv;in'A_:tsV#tV#m||tS;is'u
+     (в тринадцатом часу)    f||t@-r;in'A_:tsV#tV#m||tS;is'u
+     (в четырнадцатом часу)    f||tS;it'yrnV#_:tsV#tV#m||tS;is'u
+     (в пятнадцатом часу)    f||p;itn'A_:tsV#tV#m||tS;is'u
+    (в шестнадцатом часу)    f||Sysn'A_:tsV#tV#m||tS;is'u
+     (в семнадцатом часу)    f||s;imn'A_:tsV#tV#m||tS;is'u
+     (в восемнадцатом часу)    v||vV#s;imn'A_:tsV#tV#m||tS;is'u
+     (в девятнадцатом часу)    v||d;iv;itn'A_:tsV#tV#m||tS;is'u
+     (в двадцатом часу)    v||dvV_:ts'AtV#m||tS;is'u
+     (на дому)    n@||dV#m'u
+    (из дому)    'Iz||dV#mu
+    (высокие дома)    vys'ok;ijI||dV#m'a
+     (большие дома)    bV#lS'yjI||dV#m'a
+     (красивые дома)    k@-ras;'ivyjI||dV#m'a
+     (городские дома)    gV#rV#tsk;'ijI||dV#m'a
+     (деревенские дома)    d;ir;iv;'ensk;ijI||dV#m'a
+     (дачные дома)    d'AtS;nyjI||dV#m'a
+     (многоквартирные дома)    mnV#gV#kvart;'irnyjI||dV#m'a
+     (панельные дома)    pan;'elnyjI||dV#m'a
+     (кирпичные дома)    k;irp;'itS;nyjI||dV#m'a
+     (деревянные дома)    d;ir;iv;'AnnyjI||dV#m'a
+     (каменные дома)     k'Am;innyjI||dV#m'a
+     (большие города)     bV#lS'yjI||gV#rV#d'a
+     (маленькие города)    m'Al;ink;ijI||gV#rV#d'a
+     (древние города)    d@-r;'evn;ijI||gV#rV#d'a
+     (красивые города)    k@-ras;'ivyjI||gV#rV#d'a
+     (новые дома)     n'ovyjI||dV#m'a
+     (новые города)    n'ovyjI||gV#rV#d'a
+     (старые дома)    st'AryjI||dV#m'a
+     (старые города)    st'AryjI||gV#rV#d'a
+     (это здорово)    'EtV#||zd'orV#vV#
+     (очень здорово)    'otS;in||zd'orV#vV#
+     (здорово жить)    zd'orV#vV#||Z'yt;
+     (жить здорово)    Z'yt;||zd'orV#vV#
+    (перевод строки)    p;ir;iv'ot||st@-rV#k;'I
+     (перевода строки)    p;ir;iv'oda#||st@-rV#k;'I
+     (переводу строки)     p;ir;iv'odu||st@-rV#k;'I
+     (переводом строки)    p;ir;iv'odV#m||st@-rV#k;'I
+     (переводе строки)    p;ir;iv'od;i||st@-rV#k;'I
+     (переводы строки)    p;ir;iv'ody||st@-rV#k;'I
+     (переводов строки)    p;ir;iv'odV#f||st@-rV#k;'I
+     (переводам строки)    p;ir;iv'odV#m||st@-rV#k;'I
+     (переводами строки)    p;ir;iv'odV#m;I||st@-rV#k;'I
+     (переводах строки)    p;ir;iv'odV#x||st@-rV#k;'I
+     (на берегу реки)    n@||b;ir;ig'u||@-r;ik;'I
+     (к берегу реки)    g||b;'er;igu||@-r;ik;'I
+     (от берега реки)     od||b;'er;iga#||@-r;ik;'I
+     (у берега реки)    u||b;'er;iga#||@-r;ik;'I
+     (с берега реки)    z||b;'er;iga#||@-r;ik;'I
+     (из берега реки)    Iz||b;'er;iga#||@-r;ik;'I
+     (для берега)    dl;A||b;'er;iga#
+     (для берега реки)    dl;A||b;'er;iga#||@-r;ik;'I
+     (возле берега реки)    v'ozl;i||b;'er;iga#||@-r;ik;'I
+     (набережная реки)    n'Ab;ir;iZnV#ja||@-r;ik;'I
+     (набережной реки)     n'Ab;ir;iZnV#j||@-r;ik;'I
+     (набережных реки)    n'Ab;ir;iZnyx||@-r;ik;'I
+      (набережные реки)     n'Ab;ir;iZnyjI||@-r;ik;'I
+     (набережным реки)    n'Ab;ir;iZnym||@-r;ik;'I
+     (набережными реки)    n'Ab;ir;iZnym;I||@-r;ik;'I
+     (конец строки)    kV#n;'ets||st@-rV#k;'I
+     (конца строки)     kV#nts'A||st@-rV#k;'I
+     (концу строки)     kV#nts'u||st@-rV#k;'I
+     (концом строки)     kV#nts'om||st@-rV#k;'I
+     (конце строки)     kV#nts'E||st@-rV#k;'I
+     (начало строки)     natS;'AlV#||st@-rV#k;'I
+     (начала строки)     natS;'Ala#||st@-rV#k;'I
+      (началу строки)     natS;'Alu||st@-rV#k;'I
+      (началом строки)     natS;'AlV#m||st@-rV#k;'I
+      (начале строки)     natS;'Al;i||st@-rV#k;'I
+      (отступ строки)     'otstup||st@-rV#k;'I
+     (отступа строки)     'otstupa#||st@-rV#k;'I
+      (отступу строки)     'otstupu||st@-rV#k;'I
+      (отступом строки)     'otstupV#m||st@-rV#k;'I
+      (отступе строки)     'otstup;i||st@-rV#k;'I
+     (середина строки)     s;ir;id;'ina#||st@-rV#k;'I
+     (середины строки)     s;ir;id;'iny||st@-rV#k;'I
+      (середине строки)    s;ir;id;'in;i||st@-rV#k;'I
+      (серединой строки)     s;ir;id;'inV#j||st@-rV#k;'I
+      (серединою строки)     s;ir;id;'inV#ju||st@-rV#k;'I
+      (первой строки)     p;'ervV#j||st@-rV#k;'I
+      (второй строки)      ftV#r'oj||st@-rV#k;'I
+      (третьей строки)     t@-r;'et;jjij||st@-rV#k;'I
+      (четвертой строки)     tS;itv;'ertV#j||st@-rV#k;'I
+     (четвёртой строки)     tS;itv;'8rtV#j||st@-rV#k;'I
+     (пятой строки)    p;'AtV#j||st@-rV#k;'I
+      (шестой строки)     Syst'oj||st@-rV#k;'I
+     (седьмой строки)    s;id;m'oj||st@-rV#k;'I
+     (восьмой строки)     vV#s;m'oj||st@-rV#k;'I
+     (девятой строки)     d;iv;'AtV#j||st@-rV#k;'I
+    (десятой строки)     d;is;'AtV#j||st@-rV#k;'I
+     (одиннадцатой строки)     V#d;'innV#_:tsV#tV#j||st@-rV#k;'I
+     (двенадцатой строки)     dv;in'A_:tsV#tV#j||st@-rV#k;'I
+     (тринадцатой строки)    t@-r;in'A_:tsV#tV#j||st@-rV#k;'I
+      (четырнадцатой строки)    tS;it'yrnV#_:tsV#tV#j||st@-rV#k;'I
+     (пятнадцатой строки)     p;itn'A_:tsV#tV#j||st@-rV#k;'I
+     (шестнадцатой строки)     Sysn'A_:tsV#tV#j||st@-rV#k;'I
+      (семнадцатой строки)     s;imn'A_:tsV#tV#j||st@-rV#k;'I
+     (восемнадцатой строки)    vV#s;imn'A_:tsV#tV#j||st@-rV#k;'I
+      (девятнадцатой строки)    d;iv;itn'A_:tsV#tV#j||st@-rV#k;'I
+      (двадцатой строки)    dva_:ts'AtV#j||st@-rV#k;'I
+     (тридцатой строки)    t@-r;i_:ts'AtV#j||st@-rV#k;'I
+      (сороковой строки)    sV#rV#kV#v'oj||st@-rV#k;'I
+      (пятидесятой строки)     p;it;id;is;'AtV#j||st@-rV#k;'I
+     (шестидесятой строки)     Sys;t;id;is;'AtV#j||st@-rV#k;'I
+      (семидесятой строки)     s;im;id;is;'AtV#j||st@-rV#k;'I
+      (восьмидесятой строки)     vV#s;m;id;is;'AtV#j||st@-rV#k;'I
+      (девяностой строки)     d;iv;in'ostV#j||st@-rV#k;'I
+      (сотой строки)     s'otV#j||st@-rV#k;'I
+      (двухсотой строки)    dvuxs'otV#j||st@-rV#k;'I
+      (трехсотой строки)     t@-r;ixs'otV#j||st@-rV#k;'I
+      (трёхсотой строки)     t@-r;V#xs'otV#j||st@-rV#k;'I
+      (четырехсотой строки)     tS;ityr;ixs'otV#j||st@-rV#k;'I
+     (четырёхсотой строки)    tS;ityr;V#xs'otV#j||st@-rV#k;'I
+      (пятисотой строки)    p;it;is'otV#j||st@-rV#k;'I
+     (шестисотой строки)     Sys;t;is'otV#j||st@-rV#k;'I
+      (семисотой строки)     s;im;is'otV#j||st@-rV#k;'I
+     (восьмисотой строки)     vV#s;m;is'otV#j||st@-rV#k;'I
+     (девятисотой строки)     d;iv;it;is'otV#j||st@-rV#k;'I
+     (тысячной строки)     t'ys;itS;nV#j||st@-rV#k;'I
+     (двухтысячной строки)     dvuxt'ys;itS;nV#j||st@-rV#k;'I
+     (трехтысячной строки)     t@-r;ixt'ys;itS;nV#j||st@-rV#k;'I
+     (трёхтысячной строки)    t@-r;V#xt'ys;itS;nV#j||st@-rV#k;'I
+      (четырехтысячной строки)    tS;ityr;ixt'ys;itS;nV#j||st@-rV#k;'I
+     (четырёхтысячной строки)     tS;ityr;V#xt'ys;itS;nV#j||st@-rV#k;'I
+     (пятитысячной строки)     p;it;it'ys;itS;nV#j||st@-rV#k;'I
+     (шеститысячной строки)     Sys;t;it'ys;itS;nV#j||st@-rV#k;'I
+      (семитысячной строки)     s;im;it'ys;itS;nV#j||st@-rV#k;'I
+      (восьмитысячной строки)     vV#s;m;it'ys;itS;nV#j||st@-rV#k;'I
+     (девятитысячной строки)     d;iv;it;it'ys;itS;nV#j||st@-rV#k;'I
+      (десятитысячной строки)     d;is;it;it'ys;itS;nV#j||st@-rV#k;'I
+     (одиннадцатитысячной строки)     V#d;innV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (двенадцатитысячной строки)    dv;inV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (тринадцатитысячной строки)    t@-r;inV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (четырнадцатитысячной строки)    tS;ityrnV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+      (пятнадцатитысячной строки)     p;itnV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (шестнадцатитысячной строки)     SysnV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (семнадцатитысячной строки)     s;imnV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+      (восемнадцатитысячной строки)     vV#s;imnV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (девятнадцатитысячной строки)     d;iv;itnV#_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+      (двадцатитысячной строки)     dvV_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (тридцатитысячной строки)     t@-r;i_:tsV#t;it'ys;itS;nV#j||st@-rV#k;'I
+     (сорокатысячной строки)     sV#rV#kat'ys;itS;nV#j||st@-rV#k;'I
+     (пятидесятитысячной строки)     p;it;id;is;it;it'ys;itS;nV#j||st@-rV#k;'I
+     (шестидесятитысячной строки)     Sys;t;id;is;it;it'ys;itS;nV#j||st@-rV#k;'I
+     (семидесятитысячной строки)    s;im;id;is;it;it'ys;itS;nV#j||st@-rV#k;'I
+     (восьмидесятитысячной строки)     vV#s;m;id;is;it;it'ys;itS;nV#j||st@-rV#k;'I
+     (девяностотысячной строки)     d;iv;inV#stV#t'ys;itS;nV#j||st@-rV#k;'I
+     (стотысячной строки)     stV#t'ys;itS;nV#j||st@-rV#k;'I
+     (двухсоттысячной строки)    dvuxsV#tt'ys;itS;nV#j||st@-rV#k;'I
+     (трехсоттысячной строки)    t@-r;ixsV#tt'ys;itS;nV#j||st@-rV#k;'I
+     (трёхсоттысячной строки)     t@-r;V#xsV#tt'ys;itS;nV#j||st@-rV#k;'I
+     (четырехсоттысячной строки)     tS;ityr;ixsV#tt'ys;itS;nV#j||st@-rV#k;'I
+     (четырёхсоттысячной строки)     tS;ityr;V#xsV#tt'ys;itS;nV#j||st@-rV#k;'I
+     (пятисоттысячной строки)     p;it;isV#tt'ys;itS;nV#j||st@-rV#k;'I
+      (шестисоттысячной строки)     Sys;t;isV#tt'ys;itS;nV#j||st@-rV#k;'I
+     (семисоттысячной строки)     s;im;isV#tt'ys;itS;nV#j||st@-rV#k;'I
+      (восьмисоттысячной строки)    vV#s;m;isV#tt'ys;itS;nV#j||st@-rV#k;'I
+      (девятисоттысячной строки)     d;iv;it;isV#tt'ys;itS;nV#j||st@-rV#k;'I
+     (миллионной строки)     m;ill;i'onnV#j||st@-rV#k;'I
+      (верхней строки)     v;'erxn;ij||st@-rV#k;'I
+      (нижней строки)     n;'iZn;ij||st@-rV#k;'I
+     (правой строки)     p@-r'AvV#j||st@-rV#k;'I
+     (левой строки)     l;'evV#j||st@-rV#k;'I
+     (красной строки)    k@-r'AsnV#j||st@-rV#k;'I
+      (у строки)    u||st@-rV#k;'I
+      (из строки)     Is||st@-rV#k;'I
+      (от строки)     ot||st@-rV#k;'I
+     (до строки)     d'o||st@-rV#k;'I
+     (подле строки)     p'odl;i||st@-rV#k;'I
+      (возле строки)     v'ozl;i||st@-rV#k;'I
+      (после строки)     p'osl;i||st@-rV#k;'I
+     (этой строки)     'EtV#j||st@-rV#k;'I
+     (той строки)    t'oj||st@-rV#k;'I
+     (у страны)    u||st@-rAn'y
+     (из страны)     Is||st@-rAn'y
+     (до страны)     d'o||st@-rAn'y
+     (от страны)     ot||st@-rAn'y
+     (после страны)     p'osl;i||st@-rAn'y
+     (возле страны)     v'ozl;i||st@-rAn'y
+      (подле страны)     p'odl;i||st@-rAn'y
+      (около строки)     'okV#lV#||st@-rV#k;'I
+     (около страны)     'okV#lV#||st@-rAn'y
+     (для страны)     dl;A||st@-rAn'y
+      (для строки)     dl;A||st@-rV#k;'I
+     (ради строки)     @-r'Ad;I||st@-rV#k;'I
+      (ради страны)    @-r'Ad;I||st@-rAn'y
+     (моей строки)     mV#j'ej||st@-rV#k;'I
+     (твоей строки)     tvV#j'ej||st@-rV#k;'I
+     (нашей строки)     n'ASyj||st@-rV#k;'I
+     (вашей строки)     v'ASyj||st@-rV#k;'I
+     (моей страны)     mV#j'ej||st@-rAn'y
+     (твоей страны)     tvV#j'ej||st@-rAn'y
+     (нашей страны)     n'ASyj||st@-rAn'y
+     (вашей страны)     v'ASyj||st@-rAn'y
+      (любимой страны)     l;u"b;'imV#j||st@-rAn'y
+     (лучшей страны)    l'ut|Syj||st@-rAn'y
+     (великой страны)     v;il;'ikV#j||st@-rAn'y
+     (большой страны)     bV#lS'oj||st@-rAn'y
+     (огромной страны)     V#g@-r'omnV#j||st@-rAn'y
+      (сильной страны)    s;'ilnV#j||st@-rAn'y
+     (красивой страны)     k@-ras;'ivV#j||st@-rAn'y
+     (замечательной страны)     zV#m;itS;'At;ilnV#j||st@-rAn'y
+     (древней страны)     d@-r;'evn;ij||st@-rAn'y
+     (могучей страны)     mV#g'utS;ij||st@-rAn'y
+      (жилые дома)     Zyl'yjI||dV#m'a
+     (высота голоса)     vysV#t'A||g'olV#sa#
+     (настройки голоса)     nast@-r'ojk;I||g'olV#sa#
+     (настроек голоса)     nast@-r'ojig||g'olV#sa#
+     (настройкам голоса)     nast@-r'ojkV#m||g'olV#sa#
+     (настройками голоса)     nast@-r'ojkV#m;I||g'olV#sa#
+     (настройках голоса)     nast@-r'ojkV#x||g'olV#sa#
+     (настройка голоса)     nast@-r'ojka#||g'olV#sa#
+     (настройке голоса)     nast@-r'ojk;i||g'olV#sa#
+     (настройкой голоса)    nast@-r'ojkV#j||g'olV#sa#
+     (настройкою голоса)     nast@-r'ojkV#ju||g'olV#sa#
+     (громкость голоса)     g@-r'omkV#z;d;||g'olV#sa#
+     (громкости голоса)    g@-r'omkV#s;t;I||g'olV#sa#
+     (громкостью голоса)     g@-r'omkV#st;jju||g'olV#sa#
+      (диапазон голоса)     d;iV#paz'on_||g'olV#sa#
+     (диапазона голоса)     d;iV#paz'ona#||g'olV#sa#
+     (диапазону голоса)     d;iV#paz'onu||g'olV#sa#
+     (диапазоном голоса)     d;iV#paz'onV#m||g'olV#sa#
+      (диапазоне голоса)     d;iV#paz'on;i||g'olV#sa#
+     (диапазоны голоса)     d;iV#paz'ony||g'olV#sa#
+     (диапазонов голоса)     d;iV#paz'onV#v||g'olV#sa#
+     (диапазонам голоса)     d;iV#paz'onVm||g'olV#sa#
+     (диапазонами голоса)     d;iV#paz'onV#m;I||g'olV#sa#
+      (диапазонах голоса)     d;iV#paz'onV#x||g'olV#sa#
+     (красивого голоса)     k@-ras;'ivV#vV#||g'olV#sa#
+      (смешного голоса)      sm;iSn'ovV#||g'olV#sa#
+     (милого голоса)     m;'ilV#vV#||g'olV#sa#
+      (нежного голоса)     n;'eZnV#vV#||g'olV#sa#
+      (ласкового голоса)     l'AskV#vV#vV#||g'olV#sa#
+      (злого голоса)     zl'ovV#||g'olV#sa#
+      (грустного голоса)     g@-r'usnV#vV#||g'olV#sa#
+      (настройку голоса)     nast@-r'ojku||g'olV#sa#
+      (вертикальная черта)      v;irt;ik'AlnV#ja||tS;irt'a
+      (с утра)     s||ut@-r'a
+      (до утра)     d'o||ut@-r'a
+     (с вечера)     s||v;'etS;ira#
+     (до вечера)     d'o||v;'etS;ira#
+     (вчерашнего вечера)     ftS;ir'ASn;ivV#||v;'etS;ira#
+      (сегодняшнего вечера)     s;iv'odn;iSn;ivV#||v;'etS;ira#
+      (завтрашнего вечера)     z'Aft@-rV#Sn;ivV#||v;'etS;ira#
+     (вчерашнего утра)     ftS;ir'ASn;ivV#||ut@-r'a
+      (сегодняшнего утра)     s;iv'odn;iSn;ivV#||ut@-r'a
+      (завтрашнего утра)     z'Aft@-rV#Sn;ivV#||ut@-r'a
+      (в дыму)     v||dym'u
+      (в снегу)     f||s;n;ig'u
+      (в гробу)     v||g@-rV#b'u
+      (в сплошном дыму)     f||splV#Sn'om||dym'u       // Sergey Esenin "Letter to a Woman" (Сергей Есенин "Письмо к женщине")
+      (у лица)     u||l;its'a
+      (от лица)     ot||l;its'a
+     (из лица)     Iz||l;its'a
+      (с лица)     s||l;its'a
+     (до лица)     d'o||l;its'a
+      (этого лица)     'EtV#vV#||l;its'a
+      (того лица)     tV#v'o||l;its'a
+      (для лица)     dl;A||l;its'a
+      (ради лица)     @-r'Ad;I||l;its'a
+      (после лица)     p'osl;i||l;its'a
+      (подле лица)     p'odl;i||l;its'a
+      (возле лица)     v'ozl;i||l;its'a
+      (первого лица)     p;'ervV#vV#||l;its'a
+      (второго лица)     ftV#r'ovV#||l;its'a
+      (третьего лица)     t@-r;'et;jjivV#||l;its'a
+     (моего лица)     mV#jiv'o||l;its'a
+      (твоего лица)     tvV#jiv'o||l;its'a
+      (вашего лица)     v'ASyvV#||l;its'a
+      (нашего лица)     n'ASyvV#||l;its'a
+      (официального лица)     V#f;itsy'AlnV#vV#||l;its'a
+      (лица не увидать)     l;its'a||n;I||uv;id'At;       // Sergey Esenin "Letter to a Woman" (Сергей Есенин "Письмо к женщине")
+      (года прошли)     gV#d'a||p@-rV#Sl;'I       // Sergey Esenin "Letter to a Woman" (Сергей Есенин "Письмо к женщине")
+      (прошли года)     p@-rV#Sl;'I||gV#d'a
+      (из числа)    Is||tS;isl'a
+      (для числа)     dl;A||tS;isl'a
+      (этого числа)     'EtV#vV#||tS;isl'a
+      (того числа)     tV#v'o||tS;isl'a
+      (большого числа)     bV#lS'ovV#||tS;isl'a
+      (маленького числа)     m'Al;inkV#vV#||tS;isl'a
+      (единственного числа)     jId;'instv;innV#vV#||tS;isl'a
+      (двойственного числа)     dv'ojstv;innV#vV#||tS;isl'a
+      (тройственного числа)     t@-r'ojstv;innV#vV#||tS;isl'a
+      (множественного числа)     mn'oZystv;innV#vV#||tS;isl'a
+      (доверенного лица)     dV#v;'er;innV#vV#||l;its'a
+      (у семьи)     u||s;im;j'I
+      (от семьи)     ot||s;im;j'I
+      (из семьи)     Is||s;im;j'I
+      (для семьи)     dl;A||s;im;j'I
+      (до семьи)     d'o||s;im;j'I
+      (ради семьи)     @-r'Ad;I||s;im;j'I
+      (моей семьи)     mV#j'ej||s;im;j'I
+     (твоей семьи)     tvV#j'ej||s;im;j'I
+      (нашей семьи)     n'ASyj||s;im;j'I
+      (вашей семьи)     v'ASyj||s;im;j'I
+      (всей семьи)     fs;'ej||s;im;j'i
+      (всей страны)     fs;'ej||st@-rAn'y
+      (у земли)     u||z;iml;'i
+      (ради земли)     @-r'Ad;I||z;iml;'I
+      (для земли)     dl;A||z;iml;'I
+     (моей земли)     mV#j'ej||z;iml;'I
+      (твоей земли)     tvV#j'ej||z;iml;'I
+     (нашей земли)     n'ASyj||z;iml;'I
+      (вашей земли)     v'ASyj||z;iml;'I
+      (всей земли)     fs;'ej||z;iml;'I
+      (около семьи)     'okV#lV#||s;im;j'I
+      (около земли)     'okV#lV#||z;iml;'I
+      (у судьбы)     u||sud;b'y
+      (от судьбы)     ot||sud;b'y
+      (около судьбы)     'okV#lV#||sud;b'y
+     (для судьбы)     dl;A||sud;b'y
+      (ради судьбы)     @-r'Ad;I||sud;b'y
+      (моей судьбы)     mV#j'ej||sud;b'y
+     (твоей судьбы)     tvV#j'ej||sud;b'y
+      (нашей судьбы)     n'ASyj||sud;b'y
+      (вашей судьбы)     v'ASyj||sud;b'y
+      (мать сыра земля)     m'At;||syr'A||z;iml;'A
+      (физического лица)     f;iz;'itS;iskV#vV#||l;its'A
+     (юридического лица)     jur;id;'itS;iskV#vV#||l;its'A
+     (должностного лица)     dV#lZnV#sn'ovV#||l;its'A
+      (органы внутренних дел)     'orgV#ny||vn'ut@-r;inn;ix||d;'el
+     (органа внутренних дел)     'orgV#na#||vn'ut@-r;inn;ix||d;'el
+      (органу внутренних дел)     'orgV#nu||vn'ut@-r;inn;ix||d;'el
+      (органом внутренних дел)     'orgV#nV#m||vn'ut@-r;inn;ix||d;'el
+      (органе внутренних дел)     'orgV#n;i||vn'ut@-r;inn;ix||d;'el
+      (органов внутренних дел)     'orgV#nV#v||vn'ut@-r;inn;ix||d;'el
+      (органам внутренних дел)     'orgV#nVm||vn'ut@-r;inn;ix||d;'el
+     (органами внутренних дел)      'orgV#nVm;I||vn'ut@-r;inn;ix||d;'el
+      (органах внутренних дел)     'orgV#nVx||vn'ut@-r;inn;ix||d;'el
+     (исполнительные органы)     IspV#ln;'it;ilnyjI||'orgV#ny
+     (органа государственной власти)     'orgV#na#||gV#sud'Arstv;innV#j||vl'As;t;I
+     (органу государственной власти)     'orgV#nu||gV#sud'Arstv;innV#j||vl'As;t;I
+      (органом государственной власти)     'orgV#nV#m||gV#sud'Arstv;innV#j||vl'As;t;I
+      (органе государственной власти)     'orgV#n;i||gV#sud'Arstv;innV#j||vl'As;t;I
+     (органы государственной власти)     'orgV#ny||gV#sud'Arstv;innV#j||vl'As;t;I
+     (органов государственной власти)     'orgV#nV#v||gV#sud'Arstv;innV#j||vl'As;t;I
+     (органам государственной власти)     'orgV#nV#m||gV#sud'Arstv;innV#j||vl'As;t;I
+     (органами государственной власти)     'orgV#nV#m;I||gV#sud'Arstv;innV#j||vl'As;t;I
+     (органах государственной власти)     'orgV#nV#x||gV#sud'Arstv;innV#j||vl'As;t;I
+     (органа самоуправления)     'orgV#na#||sV#mV#up@-ravl;'en;ija
+      (органу самоуправления)     'orgV#nu||sV#mV#up@-ravl;'en;ija
+     (органом самоуправления)     'orgV#nV#m||sV#mV#up@-ravl;'en;ija
+     (органе самоуправления)     'orgV#n;i||sV#mV#up@-ravl;'en;ija
+     (органы самоуправления)     'orgV#ny||sV#mV#up@-ravl;'en;ija
+     (органов самоуправления)     'orgV#nV#f||sV#mV#up@-ravl;'en;ija
+     (органам самоуправления)     'orgV#nV#m||sV#mV#up@-ravl;'en;ija
+     (органами самоуправления)     'orgV#nV#m;I||sV#mV#up@-ravl;'en;ija
+     (органах самоуправления)     'orgV#nV#x||sV#mV#up@-ravl;'en;ija
+     (органа местного самоуправления)     'orgV#na#||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органу местного самоуправления)     'orgV#nu||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органом местного самоуправления)     'orgV#nV#m||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органе местного самоуправления)     'orgV#n;i||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органы местного самоуправления)     'orgV#ny||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органов местного самоуправления)     'orgV#nV#f||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органам местного самоуправления)     'orgV#nV#m||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органами местного самоуправления)     'orgV#nV#m;I||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (органах местного самоуправления)     'orgV#nV#x||m;'esnV#vV#||sV#mV#up@-ravl;'en;ija
+     (большой семьи)     bV#lS'oj||s;im;j'I
+     (маленькой семьи)     m'Al;inkV#j||s;im;j'I
+     (молодой семьи)     mV#lV#d'oj||s;im;j'I
+     (счастливой семьи)     S;isl;'ivV#j||s;im;j'I
+      (гражданин страны)     g@-rV#Zdan;'in_||st@-rAn'y
+      (гражданина страны)     g@-rV#Zdan;'ina#||st@-rAn'y
+      (гражданину страны)      g@-rV#Zdan;'inu||st@-rAn'y
+      (гражданином страны)     g@-rV#Zdan;'inV#m||st@-rAn'y
+      (гражданине страны)     g@-rV#Zdan;'in;i||st@-rAn'y
+      (граждане страны)      g@-r'AZdV#n;i||st@-rAn'y
+      (граждан страны)      g@-r'AZdV#n_||st@-rAn'y
+      (гражданам страны)     g@-r'AZdV#nV#m||st@-rAn'y
+      (гражданами страны)      g@-r'AZdV#nV#m;I||st@-rAn'y
+      (гражданах страны)     g@-r'AZdV#nV#x||st@-rAn'y
+      (гражданство страны)     g@-raZd'AnstvV#||st@-rAn'y
+      (гражданства страны)     g@-raZd'Anstva#||st@-rAn'y
+      (гражданству страны)     g@-raZd'Anstvu||st@-rAn'y
+      (гражданством страны)      g@-raZd'AnstvV#m||st@-rAn'y
+      (гражданстве страны)     g@-raZd'Anstv;i||st@-rAn'y
+      (гражданств страны)     g@-raZd'Anstf||st@-rAn'y
+      (гражданствам страны)     g@-raZd'AnstvV#m||st@-rAn'y
+      (гражданствами страны)     g@-raZd'AnstvV#m;I||st@-rAn'y
+      (гражданствах страны)     g@-raZd'AnstvV#x||st@-rAn'y
