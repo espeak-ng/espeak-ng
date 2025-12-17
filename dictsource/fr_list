@@ -176,8 +176,8 @@ _&	_e_komErsi'al
 _«	uvre||gijm'E
 ®	markdepoz'e
 ¯	makrO~
-²    pyis'A~s||d'Y
-³    pyisA~s||trwa
+²    pɥis'A~s||d'Y
+³    pɥisA~s||trwa
 ¶	paragraf
 ·	pwE~
 ¸	sedij
@@ -196,7 +196,7 @@ _4	katr
 _5	sE~k
 _6	siz3
 _7	sEt
-_8	_|yit3
+_8	_|ɥit3
 _9	nWf
 _10	diz3
 _11	_|O~z
@@ -206,7 +206,7 @@ _14	katOrz
 _15	kE~z
 _16	sEz
 _17	disEt
-_18	dizyit3
+_18	dizɥit3
 _19	diznWf
 _20	vE~t2
 _21	vE~te:W~
@@ -216,7 +216,7 @@ _24	vE~tkatr
 _25	vE~tsE~k
 _26	vE~tsiz3
 _27	vE~tsEt
-_28	vE~tyit3
+_28	vE~tɥit3
 _29	vE~tnWf
 _3X	trA~t
 _31	trA~te:W~
@@ -258,13 +258,13 @@ _roman	rom'E~
 //The Francophone Swiss use huitante for 80 (as well as the same 70 and 90 as the Belgians)
 ?3 _7X	sEptA~t
 ?3 _71	sEptA~te:W~
-?3 _80	yit3A~t
-?3 _8X	yit3A~te
-?3 _81	yit3A~te:W~
+?3 _80	ɥit3A~t
+?3 _8X	ɥit3A~te
+?3 _81	ɥit3A~te:W~
 ?3 _9X	nonA~t
 ?3 _91	nonA~te:W~
 
-(81 ème)	yit3A~te:yniEm
+(81 ème)	ɥit3A~te:yniEm
 
 
 
@@ -425,7 +425,7 @@ lors	$u+
 certes	$u+
 dont	   dO~t2 $u
 lorsque	   lOrsk=@ $u+
-puisque	   pyisk=@ $u+
+puisque	   pɥisk=@ $u+
 presque	   prEsk=@ $u+
 que	  $u+
 (parce que) 	   parsk@ $u+
@@ -794,7 +794,7 @@ queries	_^_en
 quid	kwid $u+
 quit	_^_en
 recorder	_^_en
-requiem	rekyijEm
+requiem	rekɥijEm
 revolver	revOlvEr
 (saint cloud)	sE~klu
 (st cloud)	sE~klu
