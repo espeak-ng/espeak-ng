@@ -1,0 +1,561 @@
+// This file is UTF-8 encoded
+// translation rules for Galician
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
+
+
+// letters
+
+_cap	kapit'al   // should be "capital" after the letter?
+_??	    s'imbolo/
+_#32	Esp'aTo/
+
+
+// accent names
+
+_lig	liQaD'ura
+_acu	aQ'uDo/
+_ac2	d'oble/||aQ'uDo/	
+_brv	br'eBe/
+_ced	TeD'iJ^a
+_cir	Tirkumfl'exo/
+_dia	dj'Eresis
+_dac	d'oble||aQ'uDU	
+_dot	p'untU
+_grv	gr'aBe/
+_hac	kar'on
+_mcn	makr'on
+_ogo	kol'ita
+_rng	an'iJ^o/
+_stk	b'aR2a	 // ??
+_tld	t'ilde/
+_sup	supEr'indiTe/
+_sub	suB'indiTe/
+
+
+// names of symbols
+
+°	grados
+_.	punto/
+_,	koma
+_;	p,untoek'oma
+_:	d,osp'untos
+_!	TER2'araDmiraTj'on
+_?	TER2'arintER2,oQaTj'on
+_¡	aBr'iraDmiraTj'on
+_¿	aBr'irintER2,oQaTj'on
+_<	men'orke/
+_>	maJ^'orke/
+_'	apostr'ofo/
+ꞌ	salt'il^o/	$only
+_"	kom'iJ^as
+_-	gJ^on
+__	suBraJ^'aDo/
+_/	baR2a
+_\	b'aR2aimbErt'iDa
+_`	aT'EntU||gr'aBe/
+_´	aT'EntU||aQ'uDo/
+_(	,aBrepar'Entesis
+_)	Tj,ER2apar'Entesis
+_[	,aBrekortS'ete/
+_]	Tj,ER2akortS'ete/
+_{	,aBreJ^'aBe/
+_}	Tj,ER2aJ^'aBe/
+_«	kom'iJ^as||iTkJ^'ErDas
+_»	kom'iJ^as||dEr'EtSas
+=	iQw'aIs  $max3
++	m'as   $max3
+#	almoaD'iJ^a  $max3
+*	astEr'iskU  $max3
+.	punto/   $max3
+^	Tirkumfl'eSo/
+₠	'eUro/
+€	eUro/
+%	porT'Ento/    $max3
+&	ampErs'ant
+@	aR2'oBa
+/	baR2a
+©	kopiR2'aIt
+£	liBras
+¶	p'aR2afo/
+§	sekTj'on
+¬	n'ot
+·	p'unto/||m'edjo/
+
+
+// language names
+
+_cyr Ti*'iliko/
+_hy	arm'enjo/
+_he	eBr'Eo/
+_ar	'a*aBe/
+_hi	'indi
+_bn	beNg,al'i_
+_ta	t'amil
+_te	tel'ugu
+_si	TiNgal'Es
+_th	t'ai
+_my	birm'ano/
+_ko	ko*e'ano/
+_ja	x,apon'Es
+_zh	tS'ino/
+
+
+// letter names
+
+a   a
+b	be
+c	Te
+d	de
+e   e
+f	Efe/
+g	xe
+h	atSe/
+i   i
+k	ka
+l	Ele/
+m	Eme/
+n	Ene/
+ñ	En^e/
+o   o
+p	pe
+q	ku
+r	ER2e/
+s	Ese/
+t	te
+u   u
+v	uBe/
+w	uBe/||d'oBre/
+x	Se
+y	igr'eQo/
+z	TEta
+ch	tSe
+ll	El^e/
+á	'a||aQ'uDo/
+é	'e||aQ'uDo/
+í	'i||aQ'uDo/
+ï   'i||kon||dj'eresis
+ó	'o||aQ'uDo/
+ú	'u||aQ'uDo/
+ü	'u||kon||dj'eresis
+ç	$accent
+
+
+// numbers
+
+_0 T'ero/      // cero
+_1 'un        // un
+_2 d'oUs      // dous
+_3 tr'Es      // tres
+_4 k'atro/     // catro
+_5 T'iNko/     // cinco
+_6 s'eIs      // seis
+_7 s'ete/      // sete
+_8 'oIto/      // oito
+_9 n'oBe/     // nove
+_10 d'ET      // dez
+_11 'onTe/     // once
+_12 d'oTe/     // doce
+_13 tr'eTe/    // trece
+_14 kat'orTe/  // catorce
+_15 k'inTe/    // quince
+_16 deTas'eIs  // dezaseis
+_17 deTas'ete/  // dezasete
+_18 deTa'oIto/  // dezaoitu
+_19 deTan'oBe/  // dezanove
+_2X B'inte/     // vinte
+_3X tr'inta    // trinta
+_4X kor'Enta    // corenta
+_5X TiNkw'Enta   // cincuenta
+_6X sEs'Enta    // sesenta
+_7X sEt'Enta    // setenta
+_8X oIt'Enta    // oitenta
+_9X noB'Enta    // noventa
+//_0C T'entos
+_1C0 T'en       // cen
+_1C T'ento/      // cento (e.g. 101)
+_2C doUsT'entos  // douscentos
+_3C tresT'entos  // trescentos
+_4C katroT'entos  // catrocentos
+_5C TiNkoT'entos  // cincosentos
+_6C seIsT'entos  // seiscentos
+_7C seteT'entos   // setecentos
+_8C oItoT'entos  // oitocentos
+_9C noBeT'entos   // novecentos
+_0M1 m'il       // mil
+_0M2 mil^'ons   // millóns
+_1M2 'un||mil^'on  // un millón
+
+_0and	e
+_dpt	koma
+_roman	R2om'ano/
+
+
+// ordinal numbers
+
+_#º	o/
+_#ª	a
+_ord	o/
+ºc	gr'ados||T'elsjus
+ºf	gr'ados||f'arenxaIt
+ºk	gr'ados||k'elBin
+
+_1o	prim'Er
+_2o	seQ'und
+_3o	terT'Er
+_4o	kw'art
+_5o	kint
+_6o	s'Ekst
+_7o	s'Etim
+_8o	oIt'aB
+_9o	noB'en
+_10o	D'ETim
+_11o	und'ETim
+_12o	DwoD'ETim
+_13o	DeTimotErT'Er
+_14o	DeTimokw'art
+_15o	DeTimok'int
+_16o	DeTimos'Ekst
+_17o	DeTimos'Eptim
+_18o	DeTimokt'aB
+_19o	DeTimonoB'en
+_20o	BiS'Esim
+_2Xo	BiS'Esim
+_3Xo	triS'Esim	
+_4Xo	kwaDraS'Esim
+_5Xo	kinkwaS'Esim
+_6Xo	seQsaS'Esim
+_7Xo	sEptwaS'Esim
+_8Xo	oktoS'Esim
+_9Xo	nonaS'Esim
+_0Co	TEnt'Esim
+_1Co	TEnt'Esim
+_2Co	duTEnt'Esim
+_3Co	triTEnt'Esim
+_4Co	kwaDriNxEnt'Esim
+_5Co	kiNxEnt'Esim
+_6Co	seksTEnt'Esim
+_7Co	sep:tiNxEnt'Esim
+_8Co	oktiNxEnt'Esim
+_9Co	noniNxEnt'Esim
+_0M1o	mil'Esim
+_1M1o   mil'Esim
+_2M1o   doUsmil'Esim
+_0M2o   mil^on'Esim
+_1M2o   mil^on'Esim
+_2M2o   doUsmil^on'Esim
+
+
+vi	bi	// not a Roman number
+
+
+// articles
+
+el           $u+   // The
+o            $u+   // Them
+a            $u+   // To
+os           $u+   // The
+as           $u+   // The
+é            $u+   // is
+
+
+// pronouns
+
+eu      $u+     // I
+tú      $u+     // You
+él      $u+     // He
+ella    $u+     // She
+nós     $u+     // We
+eles    $u+     // They (masculine form of pronouns)
+elas    $u+     // They (feminine form of pronouns)
+
+
+// possessives
+
+cadanseu $u+   // His/Hers/Its/Their
+meu      $u+   // My
+meus     $u+   // Mine
+miña     $u+   // Mine, My
+nosa     $u+   // Ours
+nosas    $u+   // Ours
+noso     $u+   // Our/Ours/Of Our/Of Ours
+nosos    $u+   // Ours
+seu      $u+   // His/Hers/Its/Their/Theirs
+seus     $u+   // His/Hers/Its/Their
+súa      $u+   // His/Hers/Its/Their
+súas     $u+   // His/Hers/Its/Their
+teu      $u+   // Yours
+teus     $u+   // Yours
+túa      $u+   // Yours
+túas     $u+   // Yours
+vosa     $u+   // Yours
+vosas    $u+   // Yours
+voso     $u+   // Your/Yours
+vosos    $u+   // Yours
+
+
+// prepositions
+
+a      $u+       // to
+ante   $u+       // before
+baixo  $u+       // under
+con	   $u+       // with
+contra $u+       // against
+de	   $u+       // of/from
+desde  $u+       // since/from
+e      %e        // and
+en	   $u+       // in/on/at
+entre  $u+       // between/among
+para   $u+       // for/in order to
+por	   $u+       // for/by/through
+sen	   $u+       // without
+sobre  $u+       // on/about
+tras   $u+       // after/behind
+
+
+// abbreviations
+
+abs $abbrev
+ac $abbrev
+acb $abbrev
+acm $abbrev
+acs $abbrev
+acup $abbrev
+adn $abbrev
+adsl $abbrev
+aea $abbrev
+aeci $abbrev
+aek $abbrev
+aepd $abbrev
+afp $abbrev
+ai $abbrev
+akp $abbrev
+amd $abbrev
+anb $abbrev
+anp $abbrev
+anv $abbrev
+ap $abbrev
+apec $abbrev
+aqu $abbrev
+atp $abbrev
+ats $abbrev
+avl $abbrev
+avs $abbrev
+avt $abbrev
+avv $abbrev
+bbva $abbrev
+bce $abbrev
+bme $abbrev
+bop $abbrev
+bopv $abbrev
+ca $abbrev
+cav $abbrev
+cbuc $abbrev
+ccaa $abbrev
+ccoo $abbrev
+ccuc $abbrev
+cee $abbrev
+ceoe $abbrev
+cepyme $abbrev
+cesid $abbrev
+cicr $abbrev
+cidui $abbrev
+ciemat $abbrev
+cis $abbrev
+cne $abbrev
+cni $abbrev
+csic $abbrev
+csif $abbrev
+dgaia $abbrev
+dlsi $abbrev
+dni $abbrev
+dogc $abbrev
+dogv $abbrev
+dya $abbrev
+eads $abbrev
+eaed $abbrev
+eb $abbrev
+ebb $abbrev
+eees $abbrev
+eei $abbrev
+egb $abbrev
+eln $abbrev
+emt $abbrev
+eoc $abbrev
+epsv $abbrev
+erc $abbrev
+ets $abbrev
+euia $abbrev
+facua $abbrev
+fao $abbrev
+fapae $abbrev
+fbi $abbrev
+fci $abbrev
+feb $abbrev
+fed $abbrev
+fib $abbrev
+finul $abbrev
+fmi $abbrev
+fuoc $abbrev
+gatt $abbrev
+iaaf $abbrev
+ibm $abbrev
+icaa $abbrev
+icde $abbrev
+icv $abbrev
+iec $abbrev
+iee $abbrev
+ieo $abbrev
+imc $abbrev
+ims $abbrev
+in3 $abbrev
+inc $abbrev
+inem $abbrev
+ing $abbrev
+inm $abbrev
+ip $abbrev
+ipc $abbrev
+ipca $abbrev
+iqua $abbrev
+isaf $abbrev
+itcat $abbrev
+itv $abbrev
+iu $abbrev
+iun $abbrev
+ko $abbrev
+lotc $abbrev
+mibor $abbrev
+mit $abbrev
+mnac $abbrev
+nba $abbrev
+nyse $abbrev
+ocde $abbrev
+ocu $abbrev
+oea $abbrev
+oiea $abbrev
+olp $abbrev
+omc $abbrev
+omg $abbrev
+oms $abbrev
+ong $abbrev
+op $abbrev
+pce $abbrev
+pda $abbrev
+pde $abbrev
+pdi $abbrev
+pec $abbrev
+pga $abbrev
+pge $abbrev
+pgou $abbrev
+pib $abbrev
+pid $abbrev
+pse $abbrev
+psoe $abbrev
+psuc $abbrev
+racc $abbrev
+raf $abbrev
+rba $abbrev
+ree $abbrev
+rfec $abbrev
+rne $abbrev
+rsa $abbrev
+rtve $abbrev
+samu $abbrev
+sdat $abbrev
+sec $abbrev
+smi $abbrev
+sod $abbrev
+sos $abbrev
+summa $abbrev
+tor $abbrev
+tpi $abbrev
+tse $abbrev
+tsja $abbrev
+tve $abbrev
+ua $abbrev
+uab $abbrev
+uaw $abbrev
+udc $abbrev
+udg $abbrev
+udl $abbrev
+ue $abbrev
+uem $abbrev
+ugt $abbrev
+uhf $abbrev
+uib $abbrev
+uicn $abbrev
+uimp $abbrev
+uji $abbrev
+um $abbrev
+umd $abbrev
+ump $abbrev
+upc $abbrev
+upd $abbrev
+upf $abbrev
+upn $abbrev
+ups $abbrev
+upv $abbrev
+url $abbrev
+urss $abbrev
+urv $abbrev
+usb $abbrev
+usfp $abbrev
+uss $abbrev
+uv $abbrev
+uveg $abbrev
+uz $abbrev
+vih $abbrev
+vpo $abbrev
+wap $abbrev
+witsa $abbrev
+
+
+// Proper Names and countries
+amsterdam	$3
+bardem	$2
+jerusalem	$4
+méxico       m'ESiko/
+vietnam $2
+
+// foreign words
+
+android	'androId
+apple	'ap@l
+copyright	k'opiRR2,aIt
+chrome	kr'owm
+curriculum	$2
+diem	d'i:em $only
+eloquence	'elokwens
+english ínglish      $text
+espeak	'isp'ik
+eyes	'aIs
+facebook f'eIsbuk
+firefox	f'aIrfoks
+free	fr'i
+google	g'ug@l
+hardware h'ardwer
+iphone	'aIfon
+ipod	'aIpod
+jaws	dZ'os
+jazz	dZ'as
+linux        $1
+live l'aIB
+messenger m'esendZer
+microsoft	m'aIkrosoft
+mozilla	moT'ila
+office	'ofis
+platform	pl'atfom
+power	p'awer
+service	s'erBis
+skype	sk'aIp
+snapshot	sn'apS,ot // _^_en
+software	s'oftwer
+spanish      sp'aniS
+speech	sp'itS
+thunderbird	t'anderbird
+twit	tw'it
+twitter	tw'iter
+window	w'indow
+
+(e speak) 'isp'ik
+(i phone)	'aIfon
+(i pod)	'aIpod
