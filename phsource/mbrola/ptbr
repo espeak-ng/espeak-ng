@@ -242,6 +242,7 @@ volume 15
 
 // section glides
 
+2   j   w      0   i
 2   j   N      0   i
 0   j   l/     0   i
 0   j   r/     0   i
@@ -250,6 +251,7 @@ volume 15
 10  j   VWL    0   y
 0   j   NULL   0   i
 
+2   w   j      0   u
 2   w   N      0   u
 0   w   l/     0   u
 0   w   r/     0   u
