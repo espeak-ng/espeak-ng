@@ -3,8 +3,9 @@
 // Options
 // ?1  European Portuguese
 // ?2  Brazilian Portuguese
-// ?3  Epenthetic [I] between consonants
-// ?4  Brazil mbrola voice
+// ?3  Epenthetic [I] (used to avoid bad diphones in MBROLA voices)
+// ?4  MBROLA ajustments (used to avoid bad diphones and lengthen vowels in MBROLA voices)
+
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -303,36 +304,50 @@ _1M1o	mil'Ezim
 // not roman numbers
 cc	$abbrev
 cd	$abbrev
-vi	vi
+li	l'i
+mi	m'i
+vi	v'i
+
 
 // common uses of Roman numerals
-(capítulo i)	k,ap'itulw||'u~N
-(capítulo v)	k,ap'itulU||s'i~NkU
-(capítulo vi)	k,ap'itulU||s'eIs#
-(capítulo x)	k,ap'itulU||d'Es#
-(capítulo l)	k,ap'itulU||s,i~Nkw'e~Nt&
-(capítulo c)	k,ap'itulU||s'eIN
-(capítulo cc)	k,ap'itulU||duz'e~Ntus#
-(capítulo cd)	k,ap'itulU||kw'at*Us'e~NtUz
-(capítulo dc)	k,ap'itulU||s,eIs'e~NtUz
-(inciso i)	i~Ns'izw||'u~N
-(inciso v)	i~Ns'izU||s'i~NkU
-(inciso vi)	i~Ns'izU||s'eIs#
-(inciso x)	i~Ns'izU||d'Es#
-(inciso l)	i~Ns'izU||s,i~Nkw'e~Nt&
-(inciso c)	i~Ns'izU||s'eIN
-(inciso cc)	i~Ns'izU||d,uz'e~NtUz
-(inciso cd)	i~Ns'izU||kw'at*Us'e~NtUz
-(inciso dc)	i~Ns'izU||s,eIs'e~NtUz
-(século i)	s'Ekulw||'u~N
-(século v)	s'EkulU||s'i~NkU
-(século vi)	s'EkulU||s'eIs#
-(século x)	s'EkulU||d'Es#
+(capítulo i)	capítulo 1 $text
+(capítulo v)	capítulo 5 $text
+(capítulo vi)	capítulo 6 $text
+(capítulo x)	capítulo 10 $text
+(capítulo l)	capítulo 50 $text
+(capítulo li)	capítulo 51 $text
+(capítulo c)	capítulo 100 $text
+(capítulo cc)	capítulo 200 $text
+(capítulo cd)	capítulo 400 $text
+(capítulo d)	capítulo 500 $text
+(capítulo dc)	capítulo 600 $text
+(capítulo m)	capítulo 1000 $text
+(capítulo mi)	capítulo 1001 $text
+(inciso i)	inciso 1 $text
+(inciso v)	inciso 5 $text
+(inciso vi)	inciso 6 $text
+(inciso x)	inciso 10 $text
+(inciso l)	inciso 50 $text
+(inciso li)	inciso 51 $text
+(inciso c)	inciso 100 $text
+(inciso cc)	inciso 200 $text
+(inciso cd)	inciso 400 $text
+(inciso d)	inciso 500 $text
+(inciso dc)	inciso 600 $text
+(inciso m)	inciso 1000 $text
+(inciso mi)	inciso 1001 $text
+(século i)	século 1 $text
+(século v)	século 5 $text
+(século vi)	século 6 $text
+(século x)	século 10 $text
+(século l)	século 50 $text
+(século li)	século 51 $text
 
 // currency symbols
-(r $)	xe'aU
-(us $)	d'Ol&r#
-(cr $)  k*uz'eI*U
+(r $)	real $text
+(us $)	dólar $text
+(cr $)	cruzeiro $text
+(cz $)	cruzado $text
 
 // currency codes
 brl	$abbrev
@@ -451,6 +466,7 @@ cdu	$abbrev
 cef	s'Efy
 ceo	$abbrev
 cep	s'Epy
+cet	s'Et#y
 cfo	$abbrev
 cgi	$abbrev
 cgu	$abbrev
@@ -501,8 +517,6 @@ dpi	d,ep,e'i
 dpoc	$abbrev
 dpu	$abbrev
 dpvat	depevate $text
-dra	$abbrev
-dras	$abbrev
 dre	$abbrev
 dru	$abbrev
 dsi	$abbrev
@@ -549,7 +563,7 @@ eua	$abbrev
 eula	$abbrev
 exe	$abbrev
 faa	$abbrev
-fab	$abbrev
+fab	f'aby
 faq	$abbrev
 fbi	$abbrev
 fce	$abbrev
@@ -557,7 +571,7 @@ fcup	$abbrev
 fda	$abbrev
 fddi	$abbrev
 fdic	$abbrev
-feb	$abbrev
+feb	f'Eby
 fmi	$abbrev
 fnde	$abbrev
 fne	$abbrev
@@ -595,11 +609,12 @@ icmbio	'is'e'e~myb'iU
 icmp	$abbrev
 icms	$abbrev
 icu	$abbrev
+id	i'de	// accepts plural
+ids	$abbrev $allcaps
 idb	$abbrev
 idc	$abbrev
 idh	$abbrev
 idhm	$abbrev
-ids	$abbrev
 iea	$abbrev
 ieb	$abbrev
 ied	$abbrev
@@ -657,6 +672,7 @@ inss	$abbrev
 iof	$abbrev
 iot	$abbrev
 ip	i'pe	// accepts plural
+ips	$abbrev $allcaps
 ipc	$abbrev
 ipca	$abbrev
 ipcc	$abbrev
@@ -701,7 +717,7 @@ lgbtqiap	$abbrev
 lgbtqiapn	$abbrev
 lnec	$abbrev
 lse	$abbrev
-ltda	$abbrev
+ltda	$abbrev $dot
 lxde	$abbrev
 lzma	$abbrev
 lzo	$abbrev
@@ -739,6 +755,7 @@ nsa	$abbrev
 nvda	$abbrev
 nyu	$abbrev
 oab	$abbrev
+oab	,O,ab'e
 oas	$abbrev
 ocde	$abbrev
 ocr	$abbrev
@@ -763,7 +780,7 @@ oms	$abbrev
 omt	$abbrev
 ?1 ong	,O,Eng'e
 ?2 ong	,O,enyZ'e
-onu	$abbrev
+onu	'onu
 opv	$abbrev
 ortn	$abbrev
 osi	$abbrev
@@ -788,6 +805,9 @@ pdu	$abbrev
 pea	$abbrev
 petrobras	petrobrás $text
 pga	$abbrev
+pib	p'iby
+pis	p'is#
+pix	p'iks
 pje	$abbrev
 pmbok	$abbrev
 pme	$abbrev
@@ -865,7 +885,7 @@ tva	$abbrev
 tvi	$abbrev
 ubp	$abbrev
 ubs	$abbrev
-uci	$abbrev
+uci	,us,e'i
 ucl	$abbrev
 ucp	$abbrev
 udi	$abbrev
@@ -968,7 +988,7 @@ usg	$abbrev
 usmc	$abbrev
 usmca	$abbrev
 usn	$abbrev
-usp	uspe $text
+usp	'us#py
 usr	$abbrev
 uss	$abbrev
 ussr	$abbrev
@@ -1003,76 +1023,104 @@ ywha	$abbrev
 
 // abbreviations of personal titles
 // advogado, advogada
-advº		advogado $text $hasdot
-adv.º		advogado $text $hasdot
-advª		advogada $text $hasdot
-adv.ª		advogada $text $hasdot
+advº		advogado $text
+advª		advogada $text
+adv.º		advogado $text
+adv.ª		advogada $text
 // doutor, doutora
-dr		doutor $text $hasdot
-drs		doutores $text $hasdot
-dra		doutora $text $hasdot
+dr		doutor $text $dot
+dr		$abbrev $allcaps
+drs		doutores $text $dot
+drs		$abbrev $allcaps
+dra		doutora $text $dot
+dra		$abbrev $allcaps
+dras		doutoras $text $dot
+dras		$abbrev $allcaps
 (dr . a)	doutora $text
 (dr . ª)	doutora $text
-dras		doutoras $text $hasdot
 (dr . as)	doutoras $text
+// enfermeiro, enfermeira
+enfº		enfermeiro $text
+enfª		enfermeira $text
+enf.º		enfermeiro $text
+enf.ª		enfermeira $text
 // engenheiro, engenheira
 engº		engenheiro $text
-(eng . º)	engenheiro $text
 engª		engenheira $text
+(eng . º)	engenheiro $text
 (eng . ª)	engenheira $text
 // excelentíssimo, excelentíssima
-exmo		excelentíssimo $text $hasdot
-exma		excelentíssima $text $hasdot
+exmo		excelentíssimo $text $dot
+exma		excelentíssima $text $dot
+exmos		excelentíssimos $text $dot
+exmas		excelentíssimas $text $dot
 (ex . mo)	excelentíssimo $text
 (ex . ma)	excelentíssima $text
-exmos		excelentíssimos $text $hasdot
-exmas		excelentíssimas $text $hasdot
 (ex . mos)	excelentíssimos $text
 (ex . mas)	excelentíssimas $text
 // ilustríssimo, ilustríssima
-ilmo		ilustríssimo $text $hasdot
-ilma		ilustríssima $text $hasdot
+ilmo		ilustríssimo $text $dot
+ilma		ilustríssima $text $dot
+ilmos		ilustríssimos $text $dot
+ilmas		ilustríssimas $text $dot
 (il . mo)	ilustríssimo $text
 (il . ma)	ilustríssima $text
-ilmos		ilustríssimos $text $hasdot
-ilmas		ilustríssimas $text $hasdot
 (il . mos)	ilustríssimos $text
 (il . mas)	ilustríssimas $text
 // mister, mistress
-mr		m'ister $hasdot
-mrs		m'irsys $hasdot
+mr		m'ister $dot
+mr		$abbrev $allcaps
+mrs		m'irsys $dot
+mrs		$abbrev $allcaps
 // nossa senhora
 (n . sra)	nossa senhora $text
 (n . sr . ª)	nossa senhora $text
 (n . sr . a)	nossa senhora $text
 // professor, professora
-prof		professor $text $hasdot
+prof		professor $text $dot
+profs		professores $text $dot
+profa		professora $text $dot
+profas		professoras $text $dot
 profº		professor $text
-(prof . º)	professor $text
-profs		professores $text $hasdot
-profa		professora $text $hasdot
 profª		professora $text
+(prof . º)	professor $text
 (prof . ª)	professora $text
-profas		professoras $text $hasdot
+(prof . a)	professora $text
 (prof . as)	professoras $text
 // santo, santa
 sto		santo $text $hasdot
-(s . to)	santo $text
 sta		santa $text $hasdot
+(s . to)	santo $text
 (s . ta)	santa $text
 // senhor, senhora, senhorita
-sr		senhor $text $hasdot
-srs		senhores $text $hasdot
-sres		senhores $text $hasdot
-(sr . es)	senhores $text
-sra		senhora $text $hasdot
-(sr . a)	senhora $text
+sr		senhor $text $dot
+sr		$abbrev $allcaps
+srs		senhores $text $dot
+srs		$abbrev $allcaps
+sres		senhores $text $dot
+sres		$abbrev $allcaps
+sra		senhora $text $dot
+sra		$abbrev $allcaps
+sras		senhoras $text $dot
+sras		$abbrev $allcaps
+srta		senhorita $text $dot
+srta		$abbrev $allcaps
 (sr . ª)	senhora $text
-sras		senhoras $text $hasdot
+(sr . a)	senhora $text
+(sr . es)	senhores $text
 (sr . as)	senhoras $text
-srta		senhorita $text $hasdot
 (sr . ta)	senhorita $text
 (srt . ª)	senhorita $text
+(srt . a)	senhorita $text
+// sua excelência
+(s . exa)	sua excelência $text
+(s . ex . ª)	sua excelência $text
+(s . ex . a)	sua excelência $text
+(s . ex . as)	suas excelências $text
+// sua senhoria
+(s . sa)	sua senhoria $text
+(s . s . ª)	sua senhoria $text
+(s . s . as)	suas senhorias $text
 // vossa excelência
 (v . exa)	vossa excelência $text
 (v . ex . ª)	vossa excelência $text
@@ -1084,13 +1132,15 @@ srta		senhorita $text $hasdot
 (v . s . as)	vossas senhorias $text
 
 
-// abbreviations used in law
+// abbreviations used in Law
+§§		parágrafos $text
 art     	artigo $text $hasdot
+arts     	artigo $text $hasdot
+artº		artigo $text
+(art . º)	artigo $text
 cód		código $text $hasdot
 (cód civ)	código civil $text
 (cód com)	código comercial $text
-(cód cont)	código de contabilidade $text
-(cód fl)	código florestal $text
 (cód mil)	código militar $text
 (cód pen)	código penal $text
 (cód proc)	código de processo $text
@@ -1098,15 +1148,39 @@ cód		código $text $hasdot
 (cód proc pen)	código de processo penal $text
 (cód trab)	código do trabalho $text
 
+// abbreviations without pronunciation
+// just to prevent phrase break by dot
+jan	$hasdot
+fev	$hasdot
+mar	$hasdot
+abr	$hasdot
+mai	$hasdot
+jun	$hasdot
+jul	$hasdot
+ago	$hasdot
+set	$hasdot
+out	$hasdot
+nov	$hasdot
+dez	$hasdot
+
 // other abbreviations
+aptº		apartamento $text
 (apt . º)	apartamento $text
+atte		atenciosamente $text $hasdot
 (at . te)	atenciosamente $text
-pág		página $text $hasdot
-págs		páginas $text $hasdot
+fl		folha $text $hasdot
+fls		folhas $text $hasdot
 núm		número $text $hasdot
 nº		número $text
+n°		número $text
 (n . º)		número $text
+(n . °)		número $text
+pág		página $text $hasdot
+págs		páginas $text $hasdot
 séc		século $text $hasdot
+sécs		séculos $text $hasdot
+tel		telefone $text $hasdot
+tels		telefones $text $hasdot
 
 
 // articles
@@ -1430,7 +1504,9 @@ o	o $atend $sentence	// assume (mid-close) letter-o at end of sentence
 
 
 // some common adverbs
-não	$u+ 	$verbf
+não	$u+	$verbf
+não	n'&U~ 	$verbf $allcaps
+?4 não	n'&U~: 	$verbf $allcaps
 nunca	$u+	$verbf
 sempre	$u+	$verbf
 jamais	$u+	$verbf
@@ -2658,15 +2734,15 @@ chauffage	Sof'aZy
 chauffeur	Sof'Er#
 chauvet		Sov'E
 chelsea		S'El#si
-(check out)	S,Ek'aUt#
-(check up)	S,Ek'&p
 check		S'Ek
-(check-in)	S,Ek'iN
 checkin		S,Ek'iN
+(check-in)	S,Ek'iN
 checking	S'EkiN
 checklist	S,Ek'list#
 checkout	S,Ek'aUt#
+(check out)	S,Ek'aUt#
 checkup		S,Ek'&p
+(check up)	S,Ek'&p
 cheddar		S'Edar#
 cheese		S'iz
 cheeseburger	S'iz||b'ur#ger#
@@ -2727,6 +2803,7 @@ cockpit		kOkp'it#
 cocktail	kOkI/t'ejl#
 cocotte		$alt
 code		k'oUd#
+coding		k'oUd#iN
 coder		k'oUder#
 codex		k'oUdeks
 coffee		k'Ofi
@@ -3192,6 +3269,8 @@ habitué		_^_FR
 hacienda	asi'eNda
 hack		h'akI/
 hacker		h'aker#
+hackear		h,akj'ar#
+hackeado	h,akj'adU
 haddock		a'dOk
 hair		h'Er
 half		h'af
@@ -3436,7 +3515,7 @@ log		l'OgI/ $only
 loggia		l'OdZa
 loghouse	l,Ogh'aUzy
 login		l,og'iN
-logoff		l,og'Of
+logoff		l,og'OfI/
 logon		l,og'oN
 logout		l,og'aUt#
 longline	l,oNgl'aIny
@@ -3622,7 +3701,6 @@ org		Or#g
 origami		$3
 ossobuco	_^_IT
 ostinato	_^_IT
-out		'aUt#
 outboard	,aUtb'or#d
 outcast		,aUtk'Est#
 outcaste	,aUtk'Est#
@@ -3831,11 +3909,12 @@ rallentando	R#alent'&Ndo
 rallye		_^_EN
 ransomware	R#'&NsoNw,Er
 ranking		R#'&~NkiN
-rap		R#'Ep
+rap		R#'EpI/
 rapper		R#Ep,er#
 rapport		R#ap'Or#
 rash		_^_EN
 rastafari	$3
+rating		r'eIt#iN
 rattan		r'at&N
 ravigote	_^_FR
 ravioli		R#avj'Oly
@@ -4126,7 +4205,7 @@ stretta		st*'eta
 stretto		st*'eto
 (stricto sensu)	st*'iktU||s'e~NsU
 striptease	st*,ipt'izy
-strogonoff	st*ogon'Of
+strogonoff	st*ogon'OfI/
 strongman	str'oNgm&N
 stud		st'&d
 style		st'aIl#
@@ -4206,8 +4285,8 @@ thru		t*'u
 thursday	t'@rzdeI
 ticket		t#'iket#
 (tie dye)	t'aI||d'aI
-(tik toker)	t#,ik||t'Oker#
 (tik tok)	t#,ik||t'Ok
+(tik toker)	t#,ik||t'Oker#
 (time share)	t'aImyS'Er#
 (time sharing)	t'aImyS'Er#iN
 timer		t'aImer#
@@ -4230,7 +4309,8 @@ touring		t'u*iN
 tournedos	tur#ned'o
 tournée		tur#n'e
 tournure	_^_FR
-trade		tr'eId#
+trade		tr'eId#I/
+tradeoff	tr,eId'OfI/
 trader		tr'eIder#
 trading		tr'eId#iN
 trailer		tr'eIler#
@@ -4297,6 +4377,7 @@ vermeil		_^_FR
 vernier		_^_FR
 vernissage	_^_FR
 versus		$1 $alt
+vibe		v'aIby
 (video game)	v,id#jU||g'eImy
 videobook	v,id#jUb'Uk
 videogame	v,id#jU||g'eImy
@@ -4343,7 +4424,7 @@ waterline	w,Oter#l'aIny
 watt		w'Ot#
 wave		w'eIvI/
 way		w'eI
-wayland		w,eIl'eNd#
+wayland		w'eIleNd#
 web		w'Eb
 webcam		w,Ebk'&~N
 webinar		w'EbIn,ar
