@@ -1722,6 +1722,9 @@ include ph_french
 phonemetable ga base1
 include ph_irish
 
+phonemetable gag base1
+include ph_gagauz
+
 phonemetable gn base1
 include ph_guarani
 
