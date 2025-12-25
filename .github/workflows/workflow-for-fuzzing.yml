@@ -21,7 +21,7 @@ jobs:
           - arch: x86-64
             archdeps: ""
     steps:
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: /home/runner/work/espeak-ng/espeak-ng
         key: build-${{ matrix.arch }}-${{ github.sha }}
@@ -34,7 +34,7 @@ jobs:
       run:   mkdir tests/fuzzing/CORPUS_DIR ; FUZZ_VOICE=${{ inputs.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: crash-${{ matrix.arch }}-${{ inputs.lang }}.1
         path: |
@@ -44,7 +44,7 @@ jobs:
       run:   cp dictsource/${{ inputs.lang }}_* tests/fuzzing/CORPUS_DIR/ || true ; FUZZ_VOICE=${{ inputs.lang }} tests/fuzzing/synth_fuzzer.test -seed=1  -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: crash-${{ matrix.arch }}-${{ inputs.lang }}.2
         path: |
