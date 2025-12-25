@@ -63,7 +63,12 @@ extern "C"
 
 #define PLATFORM_POSIX 1
 #define PATHSEP  '/'
-#define N_PATH_HOME_DEF  160
+#if defined(__linux__) // Linux
+#  include <linux/limits.h>
+#  define N_PATH_HOME_DEF  PATH_MAX
+#else
+#  define N_PATH_HOME_DEF  160
+#endif
 #define USE_NANOSLEEP
 #define __cdecl
 

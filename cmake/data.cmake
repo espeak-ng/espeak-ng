@@ -18,6 +18,8 @@ list(APPEND _dict_compile_list
   qdb quc qu qya
   ro ru
   sd shn si sjn sk sl sm smj sq sr sv sw
+  ro ru rup
+  sd shn si sjn sk sl smj sq sr sv sw
   ta te ti th tk tn tr tt
   ug uk ur uz
   vi
@@ -61,7 +63,12 @@ file(COPY "${DATA_SRC_DIR}/voices/!v" DESTINATION "${DATA_DIST_DIR}/voices")
 file(COPY "${PHONEME_SRC_DIR}" DESTINATION "${DATA_DIST_ROOT}")
 
 set(ESPEAK_RUN_ENV ${CMAKE_COMMAND} -E env "ESPEAK_DATA_PATH=${DATA_DIST_ROOT}")
-set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "$<TARGET_FILE:espeak-ng-bin>")
+# if building with CMAKE_CROSSCOMPILING use the NativeBuild of espeak-ng
+if(NATIVEBUILD)
+  set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "${NATIVEBUILD}")
+else()
+  set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "$<TARGET_FILE:espeak-ng-bin>")
+endif()
 
 add_custom_command(
   OUTPUT "${DATA_DIST_DIR}/intonations"

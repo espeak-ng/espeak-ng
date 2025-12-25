@@ -23,7 +23,7 @@ jobs:
             archdeps: ""
             archconfigflags: ''
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: firebuild/apt-eatmydata-action@v1
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386
@@ -40,13 +40,13 @@ jobs:
            ./configure ${{ matrix.archconfig }} --with-libfuzzer
     - name: Store the fuzzer config
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: config-${{ matrix.arch }}.log
         path: config.log
     - name: make
       run: make -j
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: /home/runner/work/espeak-ng/espeak-ng
         key: build-${{ matrix.arch }}-${{ github.sha }}
