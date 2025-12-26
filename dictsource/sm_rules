@@ -2,6 +2,9 @@
 // translation rules for Samoan
 // Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
 
+.replace
+ ‘        '
+
 .group a
    a      a       // ipa a
 
