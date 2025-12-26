@@ -1,0 +1,59 @@
+// This file is UTF-8 encoded
+// translation rules for Samoan
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
+
+// Letters
+
+a a
+ā a:
+e E
+ē e:
+i I
+ī i:
+o o
+ō O:
+u U
+ū u:
+f fa
+g Na
+l *a
+m mo
+n nU
+p pi
+s sa
+t ti
+v vi
+h hE
+k ka
+r *o
+‘ ?okina
+
+
+// Numbers
+
+_0 noa
+_1 tasI
+_2 *wa
+_3 to*U
+_4 fa
+_5 *Ima
+_6 ono
+_7 fItU
+_8 va*U
+_9 Iva
+
+_1X sEfU*U
+_2X *wa||sEfU*U
+_3X to*U||sEfU*U
+_4X fa||sEfU*U
+_5X *Ima||sEfU*U
+_6X ono||sEfU*U
+_7X fItU||sEfU*U
+_8X va*U||sEfU*U
+_9X Iva||sEfU*U
+
+_0C sE*aU
+_0M1 afE
+_0M2 mI*Iona
+
+_dpt koma

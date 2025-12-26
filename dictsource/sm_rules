@@ -1,0 +1,76 @@
+// This file is UTF-8 encoded
+// translation rules for Samoan
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 2025
+
+.replace
+ ‘        '
+
+.group a
+   a      a       // ipa a
+
+.group ā
+   ā      a:      // ipa aː
+
+.group e
+   e      E       // ipa ɛ
+
+.group ē
+   ē      e:      // ipa eː
+
+.group i
+   i      I       // ipa ɪ
+
+.group ī
+   ī      i:      // ipa iː
+
+.group o
+   o      o       // ipa o
+
+.group ō
+   ō      O:      // ipa ɔː
+
+.group u
+   u      U       // ipa ʊ
+   u (A   w       // is pronounced [w] when followed by a vowel
+
+.group ū
+   ū      u:      // ipa uː
+
+.group f
+   f      f       // ipa f
+
+.group g
+   g      N       // ipa ŋ
+
+.group l
+   l      *       // the letter of 'l' is pronounced [ɾ]
+
+.group m
+   m      m       // ipa m
+
+.group n
+   n      n       // ipa n
+
+.group p
+   p      p       // ipa p
+
+.group s
+   s      s       // ipa s
+
+.group t
+   t      t       // ipa t
+
+.group v
+   v      v       // ipa v
+
+.group h
+   h      h       // ipa h
+
+.group k
+   k      k       // ipa k
+
+.group r
+   r      *       // ipa ɾ
+
+.group '
+   '      ?       // ipa ʔ
