@@ -72,5 +72,5 @@
 .group r
    r      *       // ipa ɾ
 
-.group ‘
-   ‘      ?       // ipa ʔ
+.group '
+   '      ?       // ipa ʔ
