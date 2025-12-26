@@ -43,7 +43,7 @@
    g      N       // ipa ŋ
 
 .group l
-   l      l       // the letter of 'l' is pronounced [ɾ]
+   l      *       // the letter of 'l' is pronounced [ɾ]
 
 .group m
    m      m       // ipa m
