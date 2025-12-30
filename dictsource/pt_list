@@ -205,6 +205,7 @@ _3	t*'es#
 ?2 _5	s'i~NkU
 _6	s'eIs#
 _7	s'Et#y
+?4 _7	s'Ety
 ?1 _8	'oItu
 ?2 _8	'oItU
 _9	n'Ovy
@@ -501,6 +502,7 @@ datasus data-sus $text
 dba	$abbrev
 dce	$abbrev
 ddi	$abbrev
+ddos	$abbrev
 dgal	$abbrev
 dgeep	$abbrev
 dju	$abbrev
@@ -522,6 +524,7 @@ dru	$abbrev
 dsi	$abbrev
 dvi	$abbrev
 ead	$abbrev
+ean	$abbrev
 eap	$abbrev
 ebc	$abbrev
 ebct	$abbrev
@@ -578,16 +581,18 @@ fne	$abbrev
 fnma	$abbrev
 fpo	$abbrev
 fyi	$abbrev
-gzip	Z'ez'ipI/
-gpa	$abbrev
-gpu	Z,ep,e'u
+gfip	$abbrev
 gmat	$abbrev
 gmo	$abbrev
+gpa	$abbrev
+gpu	Z,ep,e'u
 gre	$abbrev
 gru	$abbrev
 gsi	$abbrev
 gte	$abbrev
+gtin	$abbrev
 guid	$abbrev
+gzip	Z'ez'ipI/
 hbo	$abbrev
 hdmi	$abbrev
 hiv	$abbrev
@@ -608,7 +613,9 @@ icm	$abbrev
 icmbio	'is'e'e~myb'iU
 icmp	$abbrev
 icms	$abbrev
+icp	$abbrev
 icu	$abbrev
+idf	$abbrev
 id	i'de	// accepts plural
 ids	$abbrev $allcaps
 idb	$abbrev
@@ -653,6 +660,7 @@ igc	$abbrev
 igd	$abbrev
 igf	$abbrev
 igp	$abbrev
+igpm	$abbrev
 ihgb	$abbrev
 imc	$abbrev
 imei	$abbrev
@@ -773,6 +781,7 @@ ohsa	$abbrev
 oid	$abbrev
 oit	$abbrev
 olp	$abbrev
+oltp	$abbrev
 olx	$abbrev
 omc	$abbrev
 omg	$abbrev
@@ -917,6 +926,7 @@ uerr	$abbrev
 uesb	$abbrev
 uesc	$abbrev
 uezo	$abbrev
+uf	$abbrev
 ufabc	$abbrev
 ufac	$abbrev
 ufal	$abbrev
@@ -971,6 +981,7 @@ ufvjm	$abbrev
 ufw	$abbrev
 ugt	$abbrev
 uhf	$abbrev
+uk	$abbrev
 uml	$abbrev
 unac	$abbrev
 unb	$abbrev
@@ -978,6 +989,7 @@ undf	$abbrev
 unifor	$alt
 unts	$abbrev
 upc	$abbrev
+upp	,up,ep'e
 ?1 url	,u,Ex'El
 ?2 url	,u,Exy'Ely
 urss	$abbrev
@@ -998,7 +1010,6 @@ utfpr	$abbrev
 uti	,ut,e'i
 utp	$abbrev
 uuid	$abbrev
-uk	$abbrev
 uv	$abbrev
 ux	$abbrev
 vba	$abbrev
@@ -2486,7 +2497,8 @@ away		&w'eI
 baby		b'eIby
 back		b'Ek
 backbone	b,EkI/b'oUny
-backdrop	b,EkI/d*OpI/
+backdoor	b,EkI/d'Or#
+backdrop	b,EkI/d*'OpI/
 backend		b,EkI/'eNd#I/
 backgammon	b,EkI/g'&moN
 background	b,EkI/g*'aUNd#
@@ -2596,6 +2608,7 @@ boson		$alt
 boss		$alt
 boston		$1 $alt
 bot		b'Ot#
+botnet		b,Ot#n'Et#
 boudoir		budw'ar#
 boulevard	b,ulev'ar#
 boulle		b'uly
@@ -2608,10 +2621,13 @@ boxeur		boks'Er#
 boxing		b'OksiN
 braciola	b*'atSjola
 braille		b*'aIly
+brain		b'*eIN
+(brain rot)	b,*eIN||r'Ot
 brainstorm	b,*eINst'O*mI/
 brainstorming	b,*eINst'O*miN
 brandy		br'eNdi
 brasserie	b*aseR#'i
+breach		br'itS
 break		b*'eIk
 breaking	b*'eIkiN
 breakdance	b*,eIkI/d'eNsy
@@ -2977,7 +2993,7 @@ detroit		det*OIt#
 développé	devylop'e
 (abu dhabi)	,abu||d'abi
 diablerie	djableR#'i
-dial		daI'Al
+dial		daI'al#
 diesel		d#'izel#
 diet		d'aIet# $only
 dimmer		d#'imer#
@@ -3015,6 +3031,7 @@ downgrade	d,aUNg*'eId#
 ?2 download	daUNl'oUd#
 downstream	d,aUNstr'iN
 downtime	d,aUNt'aImy
+doxing		d'OksiN
 draft		d*afI/t#
 drag		d*'Eg
 drawback	d*,Owb'Ek
@@ -3070,6 +3087,7 @@ entourage	&~tux'aZ
 entrechat	_^_FR
 entrecôte	_^_FR
 ennui		&~nw'i
+eros		'E*us#
 ersatz		Er#z'at|s
 ?2 esc		'Esk
 ?3 esc		'EskI
@@ -3077,7 +3095,8 @@ escargot	_^_FR
 esim		es'i~N
 establishment	Ist'ablISmeNt
 étagère		_^_FR
-ether		'eter#
+ether		'Eter#
+ethos		'Etus#
 expertise	_^_FR
 ?1 explorer	,ekspl'O:*&r
 ?2 explorer	ekspl'O*er#
@@ -3090,11 +3109,13 @@ factoring	$1
 (fade in)	f'eId||'iN
 (fade out)	f'eId||'aUt#
 fading		f'eId#iN
+fail		f'ejl#
 faille		_^_FR
+failover	f,ejl#||'oUver#
 faire		f'Er#
 fairway		f'Er#w,eI
 faisandé	_^_FR
-fake		f'eIk
+fake		f'eIkI/
 fall		f'Ol#
 family		$1
 fanfreluche	_^_FR
@@ -3123,6 +3144,7 @@ finder		f'aINder#
 finesse		_^_FR
 fintech		f,iNt'Ek
 firewall	f,aI*yw'Ol#
+firmware	f,irmw'Er
 first		f'@rst
 fitness		f'it#n,es
 five		f'aIvy
@@ -3201,6 +3223,7 @@ garage		_^_FR
 garamond	gaR#am'o~
 garçonnière	_^_FR
 gaslighting	g,Esl'aIt#iN
+gateway		g,eItw'eI
 gauche		_^_FR
 gauleiter	g'aUlaIter#
 gay		g'eI
@@ -3298,6 +3321,7 @@ harrisburg	h'Erisb,&rg
 hartford	h'artford
 hartley		h'artli
 harvard		h'arv&rd#
+hash		h'ES
 hashtag		h,ESt'Eg
 hat		h'Et#
 hate		h'eIt#
@@ -3327,6 +3351,7 @@ hezbollah	hezbol'a
 (high tech)	h,aI||t'Ek
 high		h'aI
 highline	h,aIl'aIn
+hijacker	h,aIdZ'Eker#
 hill		h'il#
 hinterland	h,iNter#l'&Nt
 (hip hop)	h'ip||h'Op
@@ -3407,6 +3432,8 @@ isospin		,aIsosp'iN
 issue		'iSu
 jacquard	_^_FR
 jacquerie	_^_FR
+jail		dZ'eil#
+jailbreak	dZ,eil#b*'eIk
 (jam session)	dZ'eN||s'ES&N
 ?1 jazz		Zaz
 ?2 jazz		dZEs#
@@ -3509,6 +3536,7 @@ lob		l'ObI/ $only
 lobby		l'Obi
 lock		l'Ok
 lockdown	l,Okd'aUN
+locker		l'Oker#
 lockout		l,Ok'aUt#
 loft		l'Oft
 log		l'OgI/ $only
@@ -3544,6 +3572,7 @@ madison		m'EdisoN
 maestoso	_^_IT
 maiden		m'eIdeIN
 mail		m'ejl#
+mainframe	m,eINf*'eImy
 mainstream	m,eINstr'iN
 maître		m'Et*y
 (make up)	m,eIk'&p
@@ -3570,6 +3599,7 @@ marketplace	m,a*ketpl'eIsy
 marshmallow	m,ar#Sm'EloU
 martenot	_^_FR
 maryland	m'E*il&~Nd#
+mashup		m,ES'&p
 massachusetts	m,asaS'uset|s
 master		m'aster#
 match		m'EtS
@@ -3774,6 +3804,8 @@ pendant		_^_FR
 pendentif	_^_FR
 pendrive	p,eNd*aIv
 pennsylvania	$3
+people		p'ipol#
+peopleware	p,ipol#||w'Er
 pepper		p'Eper#
 peppermint	p'Eper#m,iNt
 (per capita)	p'er#||k'apit&
@@ -3787,6 +3819,8 @@ petit		pet'i
 (petit suisse)	pet'i||su'is
 petshop		p'Et#S'Op
 philadelphia	$3 $alt
+pharming	f'armiN
+phishing	f'iSiN
 phoenix 	f'iniks
 (physique du rôle)	_^_FR
 piadina		_^_IT
@@ -3823,6 +3857,7 @@ playing		pl'ejiN
 playlist	pl,eIl'ist#
 plié		_^_FR
 plush		_^_EN
+(plus size)	pl,us'aIzy
 pochade		_^_FR
 poché		_^_FR
 podcast		p,Od#k'Est#
@@ -3885,7 +3920,7 @@ queen		kw'iN
 queer		kw'ier#
 quérable	_^_FR
 quest		kw'Est#
-quiz		_^_EN
+quiz		kw'is#
 quizzes		_^_EN
 quorum		$1 $alt
 raccord		_^_EN
@@ -3907,7 +3942,7 @@ railroad	R#,ejl#r'oUd#
 railway		R#,ejl#w'eI
 rallentando	R#alent'&Ndo
 rallye		_^_EN
-ransomware	R#'&NsoNw,Er
+ransomware	R#,&NsoNw'Er
 ranking		R#'&~NkiN
 rap		R#'EpI/
 rapper		R#Ep,er#
@@ -3926,6 +3961,7 @@ reality		R#i'alyt#i
 reblochon	R#ebloS'o~
 reboot		R#ib'ut#
 recall		R#ik'Ol#
+robocall	R#obok'Ol#
 recamier	_^_FR
 récamier	R#ekamj'e
 receiver	_^_EN
@@ -3975,6 +4011,7 @@ rollover	_^_EN
 romagnolo	_^_IT
 (roman fleuve)	_^_FR
 rooter		_^_EN
+rootkit		R#utk'it#
 roquefort	_^_FR
 rosé		_^_FR
 rôtisserie	_^_FR
@@ -3998,6 +4035,7 @@ sake		s'eIk
 safari		$2
 saint		s'eINt#
 sanctus		s'&~NktUs
+sandbox		s,&~Ndb'Oks
 sandwich	s,&~Ndu'iSI/
 (sans culotte)	s'&~||kul'Ot#
 ?1 sapi		s,ap'i
@@ -4009,6 +4047,7 @@ sauvignon	sovinj'o~
 (savoir vivre)	savw'ar#||v'iv*y
 ?1 scanner	sk'En&r
 ?2 scanner	sk'&~ner#
+scareware	sk,Erw'Er
 scat		sk'at
 schedule	_^_EN
 scherzando	ske*t|s'&Ndo
@@ -4120,6 +4159,8 @@ smoking		zm'oUkiN
 smorzando	zmo*t|s'&Ndo
 smurfing	zm'&rfiN
 snack		zn'EkI/
+sniffer		zn'ifer#
+sniffing	zn'ifiN
 snipe		zn'aIp
 sniper		zn'aIper#
 soave		_^_IT
@@ -4149,6 +4190,7 @@ spam		sp'&~N
 spammer		sp'&~mer#
 spaniel		s#p'Enjel
 speech		sp'i:tS
+spoofing	sp'ufiN
 sport		sp'Ort#
 ?1 sporting	sp'Ort,ing
 spot		$alt
@@ -4225,6 +4267,7 @@ swap		sw'Op
 sweater		sw'Eter#
 sweepstake	_^_EN
 swing		sw'iNg
+switch		sw'itS
 sydney		$1
 tab		t'abI/ $only
 tableau		_^_FR
@@ -4241,6 +4284,7 @@ talkie		t'Ol#ki
 tall		t'Ol#
 tambourin	_^_FR
 ?2 tantum	t'&~Ntu~N
+(tao te ching)	t,aU||t,e||S'iNg
 taper		_^_EN
 tartare		ta*t'ar#
 tartine		ta*t'iny
@@ -4340,6 +4384,7 @@ trottoir	_^_FR
 troupe		_^_FR
 trousse		_^_FR
 trouvaille	_^_FR
+truth		truT
 (tse tse)	t|s,E||t|s'E
 tsunami		$2
 tuesday		tS'uzdeI
@@ -4392,6 +4437,7 @@ vison		_^_FR
 vitaglass	_^_EN
 vivace		_^_IT
 vivant		_^_FR
+vlan		v,e||l'&~N
 vocalise	_^_FR
 vocoder		_^_EN
 voice		$alt
@@ -4422,12 +4468,14 @@ watch		w'OtS
 water		w'Oter#
 waterline	w,Oter#l'aIny
 watt		w'Ot#
+ware		w'Er
 wave		w'eIvI/
 way		w'eI
 wayland		w'eIleNd#
 web		w'Eb
 webcam		w,Ebk'&~N
 webinar		w'EbIn,ar
+webmail		w,Ebm'ejl#
 webmaster	w,Ebm'aster#
 website		w,Ebs'aIt#
 wednesday	w'enyzdeI
@@ -4444,17 +4492,21 @@ whisky		w'iski
 white		w'aIt#
 wifi		w,aIf'aI
 (wi-fi)		w,aIf'aI
+wlan		d,abljU||l'&~N
 winchester	w,iNS'Ester#
 winter		w'iNter#
 wireless	w'aIr#yl,Es
+wiki		w'iki
 wombat		w'oNbat#
 wood		w'ud#
+woodstock	w,udst'OkI/
 woogie		w'ugi
 workaholic	w,or#kah'Olik
 worker		w'or#ker#
 workshop	w,or#kS'Op
 workspace	w,or#ksp'eIs
 workstation	w,or#kst'eISoN
+worm		w'OrmI/
 wow		w'aU
 wrestling	_^_EN
 write		r'aIt
@@ -4484,7 +4536,8 @@ zeppelin	$1 $alt
 zombie		zo~Nb'i
 zhuhai		zuh'aI
 
-// foreign product names
+// foreign product and company names
+airbnb		'Er#||b,e,enyb'e
 access		'aks,Es
 ?1 adobe	&d'Oby
 amstel		,amyst'El#
@@ -4525,6 +4578,7 @@ honda		h'oNd&
 houaiss		,u'aIs#
 hyundai		hj,u~Nd'aI
 huawei		waw'ej
+ibis		'ibis#
 ifood		,aIf'Ud#
 instagram	,i~Nstag*'&N
 iphone		,aIf'ony
@@ -4556,6 +4610,7 @@ mitsubishi	$3
 mounjaro	moUNZ'arU
 movie		m'uvi
 ?1 nero		n'Eru
+nestlé		nes#tl'e
 ?2 netbook	nEtb'uk
 ?2 notebook	noUtb'uk
 nokia		n'Okj&
@@ -4600,11 +4655,14 @@ steam		sti~N
 ?1 time		t'aImy
 telegram	t'Eleg*&~N
 tinder		t#'iNder#
+tupperware	t,ap&w'Er
 twitter		tw'iter#
 twitch		tw'itS
 deezer		d#'izer#
 premium		pr'imiuN
+uber		'uber#
 ubuntu		ub'uNtu
+unboxing	,&~Nb'OksiN
 ?1 unix		,u:n'iks
 ?2 unix		j'uniks
 volkswagen	fol#ksv'ageN
@@ -5068,7 +5126,7 @@ torvalds	$1
 trotsky		t*'Ot|ski
 truffaut	t*uf'o
 truman		$1
-trump		t*&~Np
+trump		t*'&~NpI/
 turing		t'u*iNg
 turner		t'@rner#
 twain		tw'eIN

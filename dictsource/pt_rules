@@ -897,15 +897,20 @@ _redar) gu (A      gw
      m) m 
 
     @@) mente (_S5 m''e~Nt#y
+?4  @@) mente (_S5 m''e~Nty
 
-     _) micro (@@P5 m,ik*o   // microprocessor, microcomputer
-     _) micro (\-P5 m,ik*o   // micro-ondas, micro-habitat
+?1   _) micro (@@P5 m,ik*O   // microprocessor, microcomputer
+?2   _) micro (@@P5 m,ik*o
+?1   _) micro (\-P5 m,ik*O   // micro-ondas, micro-habitat
+?2   _) micro (\-P5 m,ik*o
 
      _) mini (@@P4 m,in%i    // minidicionário, minimercado, *minidarwin
      _) mini (\-P4 m,in%i    // mini-pc, mini-hotel, mini-internato
 
      _) multi (@@P5 m,ul#t#%i // multimilionário, multithreading
+?4   _) multi (@@P5 m,ul#t%i
      _) multi (\-P5 m,ul#t#%i // multi-institucional, multi-hospedeiro
+?4   _) multi (\-P5 m,ul#t%i
 
     @!) mann  (_S4 m%&N      // German immigrants
 
