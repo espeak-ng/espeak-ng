@@ -156,6 +156,7 @@ volume 15
 0   tS   I/     0   t
 0   tS   j      0   t
 0   tS   y      0   t
+64  tS   VWL    95  t y
 0   tS   VWL    0   x
 0   tS   NULL   95  t y
 
@@ -167,6 +168,7 @@ volume 15
 0   dZ   I/     0   d
 0   dZ   j      0   d
 0   dZ   y      0   d
+64  dZ   VWL    95  d y
 0   dZ   VWL    0   j
 0   dZ   NULL   95  d y
 

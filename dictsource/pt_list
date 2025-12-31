@@ -636,6 +636,7 @@ ic	$abbrev
 icaa	$abbrev
 icbm	$abbrev
 icc	$abbrev
+icl	$abbrev
 icm	$abbrev
 icmbio	'is'e'e~myb'iU
 icmp	$abbrev
@@ -2471,22 +2472,35 @@ zorra		$alt2
 
 
 // block of foreign words
+(ab aeterno)	,abI/||aIt'E*no
 (abat jour)	,aba||Z'ur#
+(ab initio)	,abI/||in'isjo
 accelerando	atSeler#'&Ndo
 accordatura	akor#dat'u*a
 (ac / dc)	,eIs,i||d,is'i
 action		'EkSoN
+(ad aeternum)	,ad#I/||aIt'E*nu~N
 adagio		,ad'aZjo
-(ad hoc)	ad'Ok
+(ad cautelam)	,ad#I/||kaUt'El&~N
+(ad hoc)	,ad'Ok
+(ad judicia)	,ad#I/||Zud'isja
+(ad negotia)	,ad#I/||neg'Osja
+(ad quem)	,ad#I/||k'e~N
+(ad referendum)	,ad#I/||R#efe*'e~Ndu~N
 adware		'adw,Er
 affair		af'Er#
 affaire		af'Er#
+(agnus dei)	,agnus#||d'eI
 agrément	ag*em&~
 aileron		EleR#o~
 air		'Er#
 airbag		,Er#b'Eg
 airfryer	,Er#f*'aIer#
+airline		,Er#||l'aIny
+(à la carte)	,a||la||k'a*ty
+alibi		'alibi
 (al qaeda)	al#k'aId&
+(alter ego)	,al#ter#||'Ego
 album		'al#buN
 ?2 álcool	'aUkoU
 alien		'alieN
@@ -2513,6 +2527,7 @@ appeal		@p'il
 appoggiatura	a,podZat'u*a
 apport		ap'Or#
 approach	&p*oUtS
+(a quo)		,a||kw'O
 argot		ar#g'o
 argumentum	$3
 arpeggiatura	a*pedZat'u*a
@@ -2609,6 +2624,7 @@ blister		bl'ister#
 blitz		bl'it|sI/
 blitze		bl'it|se
 blitzkrieg	blit|sk*igI/
+bloat		bl'oUt#
 blocause	blok'aUze
 blocausse	blok'aUse
 block		bl'Ok
@@ -2743,6 +2759,7 @@ carnegie	k'a*negi
 carnet		kar#n'E
 carpaccio	ka*p'atSjU
 càrpano		k'ar#pano
+(carpe diem)	k'ar#pe||d'ie~N
 carrière	kaR#jEr#
 carrying	k'EryiN
 cash		k'ES
@@ -2758,6 +2775,8 @@ catch		k'EtS
 catering	k'eIteriN
 cattivo		kat'ivo
 caucus		k'Ok&s
+(causa mortis)	k'aUz&||m'Or#tis#
+(causa petendi)	k'aUz&||pet'e~Ndi
 causerie	kozeR#'i
 causeur		koz'Er#
 causeuse	koz'Ezy
@@ -2820,6 +2839,7 @@ chown		s,eag'a||'oUN
 chômamge	Som'&NZI/
 (chop suey)	tS'OpsuI
 (chow chow)	S,aUS'aU
+christi		$1
 chutney		S'&t#ni
 ciao		tS'ao
 cielito		sjel'ito
@@ -2884,6 +2904,7 @@ computer	koNpj'uter#
 computing	koNpj'ut#iN
 comunero	k,omun'e*o
 concierge	ko~sj'Er#ZI/
+conditio	ko~Nd'isjo
 condom		k'oNdoN
 condottiere	koNdoti'E*e
 condottiero	koNdoti'E*o
@@ -2996,12 +3017,14 @@ début		deb'u
 deck		d'Ek
 décor		dek'Or#
 découpage	dekup'aZI/
+(de cujus)	d,e||k'uZus#
 default		defoUt#
 dégagé		degaZ'e
 dégagement	degaZym&~
 dégradé		deg*ad'e
 (déjà vu)	d,eZav'u
 délavé		delav'e
+(del credere)	d,el||k*'ede*e
 delay		dIl'eI
 delaware	dElaw'E&r
 ?1 delete	d'il'it
@@ -3124,6 +3147,7 @@ entourage	&~tux'aZ
 entrechat	_^_FR
 entrecôte	_^_FR
 ennui		&~nw'i
+(erga omnes)	,er#g&||'omI/nes#
 eros		'E*us#
 ersatz		Er#z'at|s
 ?2 esc		'Esk
@@ -3134,6 +3158,10 @@ establishment	Ist'ablISmeNt
 étagère		_^_FR
 ether		'Eter#
 ethos		'Etus#
+(ex adverso)	,Eks||adI/v'E*so
+(ex nunc)	,Eks||n'u~NkI/
+(ex officio)	,Eks||of'isjo
+(ex tunc)	,Eks||t'u~NkI/
 expertise	_^_FR
 ?1 explorer	,ekspl'O:*&r
 ?2 explorer	ekspl'O*er#
@@ -3412,6 +3440,7 @@ homeland	h,oUmyl'eNd#
 homepage	h,oUmyp'eIZ
 hominem		$1
 (hong kong)	hoN||k'oNg
+honoris		$2 $alt
 hooligan	h'ulig&~n
 hopkins		h'OpkiNs
 hornpipe	h,Ornp'aIp
@@ -3449,18 +3478,27 @@ illinois	$alt
 impeachment	i~Np'itSm&~Nt
 impériale	&~Npe*j'aly
 impromptu	&~pro~pt'y
+(in albis)	,i~N||'al#bis#
+(in continenti)	,i~N||ko~Ntin'e~Nti
 incubus		$1
 indianapolis	$4
 indie		'iNdi
 indoor		,iNd'Or#
+(in dubio)	,i~N||d'ub,io
+(in fine)	,i~N||f'ine
 influencer	$3
+(in limine)	,i~N||l'imine
+(in memoriam)	,i~N||mem'O*i&~N
 input		,iNp'ut#
+(in re)		,i~N||R#e
 inside		,iNs'aId#
 insider		,iNs'aIder#
 install		,iNst'al#
 intaglio	iNt'al^o
+inter		,i~Nter#
 intermezzo	iNte*m'ezo
 interview	,iNte*viw
+(in totum)	,i~N||t'Otu~N
 intruder	iNt*'uder#
 iowa		'aIow&
 ipsis		$1
@@ -3474,14 +3512,14 @@ jailbreak	dZ,eil#b*'eIk
 (jam session)	dZ'eN||s'ES&N
 ?1 jazz		Zaz
 ?2 jazz		dZEs#
-jeans		dZ'iNs
+jeans		dZ'iNs#
 jersey		dZ'Er#seI
 (jet lag)	Z'Et#I/||l'EgI/
 jeton		Zet'o~
 (jeu de mots)	Z'e||d@||m'o
 jihad		Zih'ad#
 jingle		Z'iNgol#
-job		dZ'Ob
+job		dZ'ObI/
 jockey		dZ'OkeI
 jodel		j'odel#
 jogger		dZ'Oger#
@@ -3490,6 +3528,7 @@ journey		dZ'oUrneI
 jump		dZ'&Np
 jumper		dZ'&Nper#
 jumpline	dZ,&Npl'aIny
+juris		Z'u*is#
 (juste milieu)	Z'ust||milj'e
 juventus	$2
 kaiser		k'aIzer#
@@ -3502,7 +3541,7 @@ kelpie		_^_EN
 ?2 kernel	k'Ern@l
 kersey		_^_EN
 ?1 ketchup	k'EtS&p
-?2 ketchup	kEtS'up
+?2 ketchup	kEt|S'upI/
 keuper		k'OIper#
 key		k'i
 kiev		$alt
@@ -3550,6 +3589,7 @@ leaving		l'iviN
 left		$alt
 legging		l'EgiN
 legato		_^_IT
+legis		l'EZis#
 liard		_^_FR
 liechtenstein	liSteNst'aIN
 life		l'aIf
@@ -3584,8 +3624,8 @@ logoff		l,og'OfI/
 logon		l,og'oN
 logout		l,og'aUt#
 longline	l,oNgl'aIny
-look		l'uk
-loop		l'up
+look		l'ukI/
+loop		l'upI/
 looping		l'upiN
 lord		l'Or#d
 lorgnon		lOrnj'o~
@@ -3603,6 +3643,7 @@ macaron		makaR#'o~
 maccherone	make*'one
 macintosh	makiNt'OS
 mackintosh	makiNt'OS
+(made in)	m'eIdy||,i~N
 madeleine	madl'eny
 mademoiselle	madmwaz'Ely
 madison		m'EdisoN
@@ -3700,6 +3741,7 @@ moderato	mode*'ato
 mohair		_^_EN
 moiré		_^_FR
 monday		m'oNdeI
+money		m'on,eI
 monkey		m'&Nki
 monkeypox	m,&NkIp'Oks
 montpelier	mo~pelj'e
@@ -3805,6 +3847,7 @@ paparazzi	_^_IT
 paparazzo	_^_IT
 (papier mâché)	papj'e||maS'e
 pappardelle	papa*d'Ele
+(pari passu)	p,ari||p'asu
 parking		p'ar#ki~N
 parkinson	p'ar#ki~Nso~N
 parkour		_^_FR
@@ -3914,6 +3957,8 @@ positronium	p,ozit*'oniu~N
 post		p'oUst#
 poster		p'oUster#
 posteriori	$4 $alt
+(post meridiem)	p,Ost||me*id'ie~N
+(post mortem)	p,Ost||m'O*te~N
 (pot pourri)	p'o||puR#'i
 pound		p'aUNd#
 poundal		p'aUNdal#
@@ -3923,14 +3968,18 @@ premier		p*emj'e
 première	p*emj'Er#
 press		p*Es
 (prêt à porter)	p*'Et||a||por#t'e
+primus		$1
 princeton	$1
 priori		$2 $alt
 prise		_^_FR
+probandi	$2
 processor	pros'Esor
 product		pr'Od&kt#
-(pro forma)	p*,o||f'O*m&
-(pro labore)	p*,o||l&b'O*y
+(pro forma)	p*,O||f'O*m&
+(pro labore)	p*,O||l&b'O*y
 promoter	_^_EN
+(pro rata)	p*,O||R#'at&
+(pro reo)	p*,O||R#EU
 proxy		_^_EN
 pueblo		pw'eblo
 pullman		p'ul#m&N
@@ -3960,6 +4009,7 @@ quest		kw'Est#
 quiz		kw'is#
 quizzes		_^_EN
 quorum		$1 $alt
+(quo vadis)	kw,O||v'adis#
 raccord		_^_EN
 racing		_^_EN
 raccoon		R#ak'uN
@@ -4008,6 +4058,7 @@ record		R#'Ekor#d#
 red		R#'Ed#
 reels		R#'ils
 referee		_^_EN
+referendum	R#efe*'e~Ndu~N
 reggae		R#'Eg,eI
 reggaeton	R#,Eget'oN
 reich		R#'aIS
@@ -4163,7 +4214,8 @@ sidecar		_^_EN
 sievert		s'iver#t#
 sign		s'aIN
 signer		s'aIner#
-symbol		s'iNbol#
+(sine die)	s'ine||d'ie
+(sine qua non)	s'ine||k,wa||n'o~N
 sir		s'@r
 sister		$1
 site		s'aIt#
@@ -4227,6 +4279,7 @@ spam		sp'&~N
 spammer		sp'&~mer#
 spaniel		s#p'Enjel
 speech		sp'i:tS
+sponsor		sp'oNsor#
 spoofing	sp'ufiN
 sport		sp'Ort#
 ?1 sporting	sp'Ort,ing
@@ -4254,6 +4307,7 @@ starlet		st'ar#let
 starter		st'ar#ter#
 startup		st'ar#t||'&p
 stator		st'eItor#
+(statu quo)	st,atU||kw'O
 status		st'atUs#
 steak		st'eIk
 stealthing	st'El#TiN
@@ -4293,6 +4347,8 @@ succubus	$1
 summer		s'&~mer#
 sunday		s'&NdeI
 deficit		d'Efysit#
+(sub judice)	s,ubI/||Z'udisy
+(sui generis)	s,uI||Z'eneris#
 superavit	supe*'avit#
 surround	s&r'aUNd#
 surf		s'@r#f $only
@@ -4306,6 +4362,7 @@ sweepstake	_^_EN
 swing		sw'iNg
 switch		sw'itS
 sydney		$1
+symbol		s'iNbol#
 tab		t'abI/ $only
 tableau		_^_FR
 tablet		t'ablet#
@@ -4368,6 +4425,7 @@ ticket		t#'iket#
 (tie dye)	t'aI||d'aI
 (tik tok)	t#,ik||t'Ok
 (tik toker)	t#,ik||t'Oker#
+(time is money)	t'aImy||iz||m'on,eI
 (time share)	t'aImyS'Er#
 (time sharing)	t'aImyS'Er#iN
 timer		t'aImer#
@@ -4471,6 +4529,7 @@ vintage		v'iNt&Zy
 violone		_^_IT
 (vis à vis)	v,izav'i
 vison		_^_FR
+vitae		v'itaI
 vitaglass	_^_EN
 vivace		_^_IT
 vivant		_^_FR
@@ -4484,6 +4543,8 @@ voip		v'OjpI/
 volley		vôlei $text
 volleyball	voleibol $text
 voucher		v'aUSer#
+(vox dei)	v'Oks||d'eI
+(vox populi)	v'Oks||p'Opuli
 voyager		v'OI&Z,er#
 voyer		voj'e
 voyeur		voj'Er#
@@ -4597,6 +4658,7 @@ chevrolet	S,ev*ol'E
 ?2 chrome	k*'omy
 citroën		s,it*o'eIN
 debian		d'Ebj&~N
+delphi		d'El#fi
 eisenbahn	,aIzeNb'&N
 ?1 excel	,Eks'El
 ?2 excel	,eks'EU
@@ -5508,6 +5570,7 @@ rossi		$1 $alt
 ruschel		R#'uSel#
 ryan		x'aI&n
 salvati		$2
+sam		s&~N
 sanchez		$1
 sanders		$1
 santis		$1
@@ -5692,6 +5755,7 @@ clovis		clóvis $text
 conceicao	conceição $text
 constancia	constância $text
 constancio	constâncio $text
+consuelo	$alt2
 cornelia	cornélia $text
 cornelio	cornélio $text
 cristovao	cristóvão $text
