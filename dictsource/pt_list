@@ -1,25 +1,52 @@
-// This file in UTF8 encoded
+// This file is UTF8 encoded
 
-// Options
-// ?1  European Portuguese
-// ?2  Brazilian Portuguese
-// ?3  Epenthetic [I] (used to avoid bad diphones in MBROLA voices)
-// ?4  MBROLA ajustments (used to avoid bad diphones and lengthen vowels in MBROLA voices)
+// NAVIGATION HINT:
+// This file is organized in sections and blocks. All sections have blocks.
+// If you want to go to the section that has the the main dictionary, press
+// UP or DOWN keys until you hear "SECTION" "OF" "THE" "MAIN" "DICTIONARY", or use a search tool.
+// If you want to go to the block that has a large list of foreign words, press
+// UP or DOWN buttons until you hear "block" "of" "foregin" "words", or use a search tool.
+
+// Conditional rules:
+// ?1	European Portuguese
+// ?2	Brazilian Portuguese
+// ?3	Epenthetic [I] (used to avoid bad diphones in MBROLA voices)
+// ?4	MBROLA ajustments (used to avoid bad diphones and lengthen vowels in MBROLA voices)
+
+// Change the opening of mid vowels:
+//  $alt	change [e] or [o] in the stressed syllable to open [E] or [O].
+//  $alt2	change [E] or [O] in the stressed syllable to closed [e] or [o].
+
+// Change the stressed syllable:
+// $1..$7	change the stressed syllable from the 1st to the 7th.
+
+// Pronunciation in plain portuguese:
+// $text	specify another "sounds like" word, rather than specifying the phoneme string of a word.
 
 
-//  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
-//  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
-//  Any [E] or [O] phonemes in unstressed words must be listed explicitly
 
-// $1..$7  change the stressed syllable from the 1st to the 7th
-// $text   specify another "sounds like" word, rather than specifying the phoneme string of a word
 
-// Letters
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
+// SECTION OF CHARACTERS
+// This section has blocks of accents and accented letters.
+// It also has blocks of alphabet names and special caracters.
+// If a letter or character has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter prefixed by a _ character.
 
-// accent names
+
+// block of alphabets
+_ar	'a*aby
+_cyr	si*'ilikU
+_el	g*'egU
+_he	eb*'aIkU
+_hi	,i~Nd#i'&~nU
+?1 _ja	Z,&pun'es#
+?2 _ja	Z,apon'es#
+_th	t,aIl&~Nd'es
+_ko	k,o*e'&~nU
+_zh	Sin'es
+
+
+// block of accents
 ?1 _lig	l,ig&d'u*&
 ?2 _lig	l,igad'u*&
 ?1 _acu	,&g'udU
@@ -42,21 +69,8 @@ _stk	b'aR#&
 ?1 _tld	t#'il
 ?2 _tld	t#'iU
 
-// alphabets
-_ar	'a*aby
-_cyr	si*'ilikU
-_el	g*'egU
-_he	eb*'aIkU
-_hi	,i~Nd#i'&~nU
-?1 _ja	Z,&pun'es#
-?2 _ja	Z,apon'es#
-_th	t,aIl&~Nd'es
-_ko	k,o*e'&~nU
-_zh	Sin'es
 
-
-// character names
-
+// block of accented letters
 _á	$accent
 _à	$accent   // à can be a word
 â	$accent
@@ -73,6 +87,7 @@ _ó	$accent
 ß	Est|s'Et
 
 
+// block of special character
 _cap	m,aI'us#kulU
 _sub	||subs#k*'itU
 ?1 _sup	||sob*ys#k*'itU
@@ -189,9 +204,13 @@ _"	,as#p&||d'upl&
 °	g*'aU
 
 
-// numeric
-//********
 
+
+// SECTION OF NUMBERS
+// This section has proncnciations of cardinal and ordinal numbers.
+// It also contains proncunciations of currency symbols and codes.
+
+// block of cardinal numbers
 ?1 _0	z'E*u
 ?2 _0	z'E*U
 ?1 _1	'uN
@@ -262,14 +281,15 @@ _0M4	t*il^'oI~s#
 _1M4	'u~n||t*il^'&U~
 _0and	||i
 _dpt	v'ir#gul&
-// _0Z2	seNt'Ezim&	// 100ths
-// _0Z3	mil'Ezim&	// 1000ths
 
-// ordinal numbers
+
+// block of ordinal indicators
 _#º	U
 _#ª	&
 _ord	o
 
+
+// block of ordinal numbers
 _1o	p*im'eI*
 _2o	seg'u~Nd
 _3o	te*s'eI*
@@ -302,7 +322,7 @@ _0M1o	mil'Ezim
 _1M1o	mil'Ezim
 
 
-// not roman numbers
+// block of not Roman numbers
 cc	$abbrev
 cd	$abbrev
 li	l'i
@@ -310,7 +330,7 @@ mi	m'i
 vi	v'i
 
 
-// common uses of Roman numerals
+// block of common uses of Roman numbers
 (capítulo i)	capítulo 1 $text
 (capítulo v)	capítulo 5 $text
 (capítulo vi)	capítulo 6 $text
@@ -344,21 +364,27 @@ vi	v'i
 (século l)	século 50 $text
 (século li)	século 51 $text
 
-// currency symbols
+
+// block of currency symbols
 (r $)	real $text
 (us $)	dólar $text
 (cr $)	cruzeiro $text
 (cz $)	cruzado $text
 
-// currency codes
+
+// block of currency codes
 brl	$abbrev
 usd	$abbrev
 eur	$abbrev
 
-// ABBREVIATIONS
-//**************
 
-// acronyms
+
+
+// SECTION OF ABBREVIATIONS
+// This section has a block of acronyms that should be read letter by letter such as FBI and CSI.
+// It also contains abbreviations of people titles such as Mr (mister) and Dr (doctor).
+
+// block of acronyms
 aa	$abbrev
 aaa	$abbrev
 aac	$abbrev
@@ -492,6 +518,7 @@ cpo	$abbrev
 cpu	s,ep,e'u
 cpuc	$abbrev
 crispr	$abbrev
+csi	$abbrev
 csce	$abbrev
 csma	$abbrev
 cta	$abbrev
@@ -854,6 +881,7 @@ rgeu	$abbrev
 rna	$abbrev
 ?1 sa	,Esj'a
 saas	$abbrev
+sabesp	sab'EspI/
 sars	$abbrev
 sbi	$abbrev
 sedh	$abbrev
@@ -1032,7 +1060,23 @@ ymha	$abbrev
 ywca	$abbrev
 ywha	$abbrev
 
-// abbreviations of personal titles
+
+// block of abbreviations of months
+jan	$hasdot
+fev	$hasdot
+mar	$hasdot
+abr	$hasdot
+mai	$hasdot
+jun	$hasdot
+jul	$hasdot
+ago	$hasdot
+set	$hasdot
+out	$hasdot
+nov	$hasdot
+dez	$hasdot
+
+
+// block of abbreviations of personal titles
 // advogado, advogada
 advº		advogado $text
 advª		advogada $text
@@ -1143,7 +1187,7 @@ srta		$abbrev $allcaps
 (v . s . as)	vossas senhorias $text
 
 
-// abbreviations used in Law
+// block of abbreviations used in Law
 §§		parágrafos $text
 art     	artigo $text $hasdot
 arts     	artigo $text $hasdot
@@ -1159,22 +1203,8 @@ cód		código $text $hasdot
 (cód proc pen)	código de processo penal $text
 (cód trab)	código do trabalho $text
 
-// abbreviations without pronunciation
-// just to prevent phrase break by dot
-jan	$hasdot
-fev	$hasdot
-mar	$hasdot
-abr	$hasdot
-mai	$hasdot
-jun	$hasdot
-jul	$hasdot
-ago	$hasdot
-set	$hasdot
-out	$hasdot
-nov	$hasdot
-dez	$hasdot
 
-// other abbreviations
+// block of other abbreviations
 aptº		apartamento $text
 (apt . º)	apartamento $text
 atte		atenciosamente $text $hasdot
@@ -1194,7 +1224,13 @@ tel		telefone $text $hasdot
 tels		telefones $text $hasdot
 
 
-// articles
+
+
+// SECTION OF PARTS OF SPEECH
+// This section contains blocks for the parts of speech such as article and pronoun.
+// It also contains a block for auxiliary verbs such as to be and to have.
+
+// block of articles
 o	$u+	$nounf
 a	$u+	$nounf
 os	$u+	$nounf
@@ -1206,7 +1242,8 @@ uma	$u+	$nounf
 uns	$u+	$nounf
 umas	$u+	$nounf
 
-// pronouns
+
+// block of pronouns
 eu	$u+	$verbf
 tu	$u+	$verbf
 você	vose	$u2+	$verbf
@@ -1251,7 +1288,8 @@ praquela $u+ $nounf
 praquele	$alt2 $nounf
 que	$u+	 // pronunciation is in pt_rules
 
-// possessive adjectives
+
+// block of possessive adjectives
 meu	$u+	$nounf  // meus
 minha	$u+	$nounf  // minhas
 teu	$u+	$nounf
@@ -1271,7 +1309,8 @@ nela	$u+
 neles	$u1+
 nelas	$u+
 
-// prepositions
+
+// block of prepositions
 de	$u	$nounf // of,from
 do	dU	$u	$nounf
 da	$u	$nounf
@@ -1320,10 +1359,9 @@ com	$u+		// with
 ?2	durante
 
 
-// conjunctions
+// block of conjunctions
 e	_:i	$u+		// and
 se	$u	$verbf		// if
-
 
 ?2	mas	$u	// but
 ?2	porém		// however
@@ -1338,7 +1376,7 @@ se	$u	$verbf		// if
 ?2	assim		// thus
 ?2	portanto	// therefore
 
-	porque		p'or#ky		// because
+?1	porque		p'or#ky		// because
 ?2	porque		pUr#k'y		// because
 ?2 	(por que) 	por#||k'e	// why
 ?2 	(por que é) 	por#||k,y||'E	// why
@@ -1349,15 +1387,12 @@ se	$u	$verbf		// if
 ?2	embora		// although
 ?2	apesar		// despite
 
-
 ?2	caso			// if
 ?2	(desde que)	d'esdZiki/ 	// provided that
 ?2	(exceto se)	es'Etusi/  	// unless
 ?2	(salvo se)	s'alvusi/  	// unless
 
 ?2	(para que)	p,a*&ki/	// so that
-
-
 
 ?2	quando			// when
 ?2	onde	$u+	// where
@@ -1370,13 +1405,14 @@ se	$u	$verbf		// if
 ?2	enquanto 			// while
 
 
-// negative
+// block of negatives
+// empty
 
-// questions
+// block of questions
+// empty
 
-
-// auxillary verbs  (be, have, can, etc)
-// ser, to be
+// block of auxiliary verbs
+// verbo ser (to be)
 ser	$u+
 sou	$u+
 é	E	$u+
@@ -1395,7 +1431,6 @@ foste	fos#tSy	$u1+	// & fostes
 foi	$u+
 fomos	$u+
 
-
 fora	$u+		// .. pluperfect
 fôramos	$u+
 fôreis	$u+
@@ -1413,7 +1448,7 @@ seríamos	$u+
 seríeis	$u+
 seriam	$u+
 
-// estar - to be
+// verbo estar (to be, also)
 estar	$u+
 estou	$u+
 está	$u+
@@ -1428,7 +1463,7 @@ estavam	$u+
 estive	$u+
 esteve	$u+
 
-// ter - to have
+// verbo ter (to have)
 ter	$u+
 tenho	$u+
 tens	$u+
@@ -1460,15 +1495,14 @@ teremos	$u+
 tereis	$u+
 terão	$u+
 
-// fazer - to do
+// verbo fazer (to do)
 fazer	$u+
 faço	$u+
 faz	$u+
 fazemos	$u+
 fazem	$u+
 
-
-// poder - can
+// verbo poder (can)
 poder	$u+
 posso	$u+
 pode	$u+
@@ -1495,17 +1529,17 @@ possamos	$u+
 possais		$u+
 possam		$u+
 
-// ir - to go  (used to make future tense)
+// verbo ir (to go, used to make future tense)
 vou	$u+
 vai	$u+
 vamos	$u+
 vão	$u+
 
-// haver
+// verbo haver (there are)
 há	$u+
 
 
-// Letter names
+// block of letter names
 _a	a
 _e	E
 _o	O
@@ -1514,7 +1548,7 @@ e	e $atend $sentence	// assume (mid-close) letter-e at end of sentence
 o	o $atend $sentence	// assume (mid-close) letter-o at end of sentence
 
 
-// some common adverbs
+// block of adverbs
 não	$u+	$verbf
 não	n'&U~ 	$verbf $allcaps
 ?4 não	n'&U~: 	$verbf $allcaps
@@ -1524,11 +1558,14 @@ jamais	$u+	$verbf
 também	$u+	$verbf
 
 
-// MAIN WORD DICTIONARY
-//*********************
-// $alt    changes stressed [e] or [o] phoneme to open [E] or [O]
-// $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
+
+// SECTION OF THE MAIN DICTIONARY
+// This section contains blocks of native and foreign words.
+// It also contains blocks of native and foreign people names such as Mario and Darwin.
+// Adictionaly, there is a block of company and product names such as Nike and Apple.
+
+// block of native words
 abadessa	$alt2
 abeto		$alt2 $noun
 aborto		$alt  $verb
@@ -2433,7 +2470,7 @@ zelo		$alt2
 zorra		$alt2
 
 
-// foreign words
+// block of foreign words
 (abat jour)	,aba||Z'ur#
 accelerando	atSeler#'&Ndo
 accordatura	akor#dat'u*a
@@ -4536,7 +4573,8 @@ zeppelin	$1 $alt
 zombie		zo~Nb'i
 zhuhai		zuh'aI
 
-// foreign product and company names
+
+// block of company and product names
 airbnb		'Er#||b,e,enyb'e
 access		'aks,Es
 ?1 adobe	&d'Oby
@@ -4675,7 +4713,8 @@ yamaha		j,&m'ah&
 youtube		j,ut'uby
 youtuber	j,ut'uber#
 
-// historical and famous people
+
+// block of historical and famous names
 adams		'ad&~Ns
 alanis		$2
 alckmin		'al#kmi~N
@@ -5166,7 +5205,7 @@ wright		r'aIt
 zuckerberg	$alt
 
 
-// foreign names and surnames
+// block of foreign names
 abbott		'Ebot
 abdullah	,abd'ul&
 abraham		$1
@@ -5550,8 +5589,7 @@ zimerman	$1
 zimmermann	$1
 
 
-
-// names and surnames
+// block of native names
 abilio		abílio $text
 abner		ábner $text
 abraao		abraão $text
