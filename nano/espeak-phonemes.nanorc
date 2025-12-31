@@ -1,0 +1,78 @@
+# Nano syntax file
+# Language:	eSpeak Dictionary Phonemes Files
+# Filenames:    phonemes, ph_*
+#
+# Usage:
+#
+#     include ~/.nano/espeak-phonemes.nanorc
+#
+
+syntax "espeak-phonemes" "/(phonemes|ph_.*)$"
+
+# Punctuation
+color cyan "[()=,]"
+
+# Phoneme block
+color bold,lightyellow "\<((end)?phoneme)[[:space:]]+[^[:space:]]+"
+color bold,lightred "\<((end)?phoneme)\>"
+
+# Procedure block
+color bold,lightred "\<(end)?procedure\>"
+
+# Phoneme table instruction
+color bold,lightred "\<(phonemetable|include)\>"
+
+# Phoneme properties
+color lightcyan "\<(starttype|endtype|lengthmod|voicingswitch|brkafter|stress_type)\>"
+
+# Phoneme types and properties
+color lightcyan "\<(liquid|pause|stress|virtual|rhotic|unstressed|nolink|nopause|trill|prevoice)\>"
+
+# Phoneme features for manner of articulation
+color lightcyan "\<(nas|stp|afr|frc|flp|trl|apr|clk|ejc|imp|vwl|lat|sib)\>"
+
+# Phoneme features for place of articulation
+color lightcyan "\<(blb|lbd|bld|dnt|alv|pla|rfx|alp|pal|vel|lbv|uvl|phr|glt)\>"
+
+# Phoneme features for voice presence
+color lightcyan "\<(vls|vcd)\>"
+
+# Phoneme features for vowel hight, backness and rounding
+color lightcyan "\<(hgh|smh|umd|mid|lmd|sml|low|fnt|cnt|bck|unr|rnd)\>"
+
+# Phoneme features for more details
+color lightcyan "\<(egs|igs|brv|slv|stv|crv|glc|ptr|cmp|mrd|lrd|syl|nsy|asp|nrs|lrs|unx|pzd|vzd|fzd|nzd|rzd|atr|rtr|fts|lns|est|hlg|lng|elg)\>"
+
+# Phoneme instructions
+color lightcyan "\<(length|ipa|VowelStart|VowelEnding|Vowelin|Vowelout|IfNextVowelAppend|InsertPhoneme|AppendPhoneme)\>"
+
+# Phoneme instructions of change
+color lightmagenta "\<(ChangePhoneme|ChangeIfDiminished|ChangeIfUnstressed|ChangeIfNotStressed|ChangeIfStressed|import_phoneme)\>"
+
+# Phoneme instructions of return
+color lightmagenta "\<(WAV|FMT|addWav|RETURN|CALL)\>"
+
+# Vowel transitions
+color lightcyan "\<(len|rms|f1|f2|f3|f4|f5|brk|rate|glstop)\>"
+
+# Conditional statements
+color lightcyan "\<(IF|ELSE|ELSEIF|ELIF|THEN|ENDIF|AND|OR|NOT|NextVowelStarts|PrevVowelEndings|EndSwitch)\>"
+
+# Conditional statement functions
+color lightcyan "\<(thisPh|prevPh|prevPhW|prev2PhW|nextPh|next2Ph|nextPhW|next2PhW|next3PhW|nextVowel|prevVowel|PreVoicing|KlattSynth|MbrolaSynth)\>"
+
+# Conditional statement atributes
+color lightyellow "\<(isPause|isPause2|isVowel|isNotVowel|isLiquid|isNasal|isVFricative|isPalatal|isRhotic|isVelar|isSibilant|isFlag1|isFlag2|isWordStart|notWordStart|isWordEnd|isFirstVowel|isSecondVowel|isFinalVowel|isAfterStress|isVoiced|isDiminished|isUnstressed|isNotStressed|isStressed|isMaxStress|isLong|isVStop|isUStop|isTranslationGiven)\>"
+
+# Character codes: 0xFF and U+FFFF
+color lightgreen "(0x[0-9a-fA-F]{2}|U\+[0-9a-fA-F]{4})"
+
+# Comments, e.g.: // comment
+color italic,lightblue "[[:space:]]*\/\/.*$"
+
+# TODO, FIXME, XXX
+color black,lightyellow "(TODO|FIXME|XXX)"
+
+# Spaces at end of lines
+color ,lightgreen "[[:space:]]+$"
+
