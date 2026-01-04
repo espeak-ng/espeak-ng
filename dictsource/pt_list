@@ -652,6 +652,7 @@ idh	$abbrev
 idhm	$abbrev
 iea	$abbrev
 ieb	$abbrev
+iec	$abbrev
 ied	$abbrev
 ieee	$abbrev
 iefp	$abbrev
@@ -740,6 +741,7 @@ itsm	$abbrev
 iuc	$abbrev
 iurd	$abbrev
 jpeg	Z,Ot&p'Eg
+json	dZ'eIs'oN
 kpi	$abbrev
 lba	$abbrev
 lca	$abbrev
@@ -818,6 +820,7 @@ omt	$abbrev
 ?1 ong	,O,Eng'e
 ?2 ong	,O,enyZ'e
 onu	'onu
+opep	op'EpI/
 opv	$abbrev
 ortn	$abbrev
 osi	$abbrev
@@ -926,6 +929,7 @@ ubs	$abbrev
 uci	,us,e'i
 ucl	$abbrev
 ucp	$abbrev
+ucs	$abbrev
 udi	$abbrev
 udn	$abbrev
 udp	$abbrev
@@ -1016,6 +1020,7 @@ unac	$abbrev
 unb	$abbrev
 undf	$abbrev
 unifor	$alt
+unirio	uniR#'iU
 unts	$abbrev
 upc	$abbrev
 upp	,up,ep'e
@@ -1047,6 +1052,7 @@ vga	$abbrev
 vih	$abbrev
 vtol	$abbrev
 wasp	$abbrev
+wcag	$abbrev
 wma	$abbrev
 wpa	$abbrev
 wto	$abbrev
@@ -1060,6 +1066,8 @@ ymca	$abbrev
 ymha	$abbrev
 ywca	$abbrev
 ywha	$abbrev
+zap	z'apI/
+zip	z'ipI/
 
 
 // block of abbreviations of months
@@ -2253,6 +2261,7 @@ poxa		p'oS&
 poços		$alt
 pozinho		p,Oz'in^U
 prancheta	$alt2
+práxis		p*'aksis
 primavera	$alt
 primores	$alt2
 priora		$alt2
@@ -2712,6 +2721,7 @@ buffering	b'&fe*iN
 buffet		buf'e
 buffalo		b'ufalU
 bug		b'&g $only
+build		b'il#d#
 bullying	b'uliN
 bunker		b'&Nker#
 bungalow	b&~Ngal'oU
@@ -2930,6 +2940,7 @@ cornell		$1 $alt
 corner		k'Or#ner#
 corpus		k'O*pUs#
 cortile		kor#t'ile
+cosplay		k,Os#pl'eI
 (côte rôtie)	k'ot||R#ot'i
 coterie		kotyR#i
 cotillon	kotijo~
@@ -3147,6 +3158,7 @@ entourage	&~tux'aZ
 entrechat	_^_FR
 entrecôte	_^_FR
 ennui		&~nw'i
+epub		ep'ubI/
 (erga omnes)	,er#g&||'omI/nes#
 eros		'E*us#
 ersatz		Er#z'at|s
@@ -3248,6 +3260,7 @@ fourrure	_^_FR
 fox		f'Oks
 foxhound	f,Oksh'aUNd#
 foyer		_^_FR
+fracking	f*'EkiN
 frame		f*'eImy
 framework	f*,eImyw'or#k
 franchise	f*&~NtS'aIzy
@@ -3282,6 +3295,7 @@ galuchat	_^_FR
 gambit		$1
 game		g'eImy
 gamer		g'eImer#
+gameplay	g,eImypl'eI
 gang		g'&NgI/
 gap		g'Ep
 garage		_^_FR
@@ -3432,11 +3446,13 @@ holding		h'old#iN
 holter		_^_EN
 holly		h'Oli
 hollywood	h,Oliw'ud#
-(home care)	h'oUmyk'Er
 ?1 home		'omy
 ?2 home		h'oUmy
-homecare	h'oUmyk'Er
+homecare	h'oUmy||k'Er
+(home care)	h'oUmy||k'Er
 homeland	h,oUmyl'eNd#
+homeoffice	h,oUmy||'Ofisy
+(home office)	h,oUmy||'Ofisy
 homepage	h,oUmyp'eIZ
 hominem		$1
 (hong kong)	hoN||k'oNg
@@ -3670,6 +3686,7 @@ manucure	_^_FR
 maquillage	makij'aZ
 marchand	m,ar#S'&~
 mariachi	ma*j'atSi
+markdown	m,arkd'aUN
 market		m'arket#
 ?1 marketing	m'arktiN
 ?2 marketing	m'arketSiN
@@ -3966,6 +3983,7 @@ poundal		p'aUNdal#
 ?2 power	p'aUEr
 premier		p*emj'e
 première	p*emj'Er#
+premise		pr'emisy
 press		p*Es
 (prêt à porter)	p*'Et||a||por#t'e
 primus		$1
@@ -4068,6 +4086,7 @@ relax		_^_EN
 release		R#il'izy
 religion	R#el'iZioN
 remake		R#im'eIk
+remaster	R#im'aster#
 (rendez vous)	R#&~d'e||v'u
 rentrée		R#&~t*'e
 replay		R#ipl'eI
@@ -4496,6 +4515,7 @@ umlaut		'uml,aUt
 under		'&~Nder#
 underground	,&~Nder#g*'aUNd#
 underwriting	,&Nder'aItiN
+unicode		,unik'oUd#
 union		j'unioN $only
 united		j,un'aIted#
 university	j,univ'ersIty
@@ -4572,10 +4592,12 @@ way		w'eI
 wayland		w'eIleNd#
 web		w'Eb
 webcam		w,Ebk'&~N
+webcast		w,Ebk'Est#
 webinar		w'EbIn,ar
 webmail		w,Ebm'ejl#
 webmaster	w,Ebm'aster#
 website		w,Ebs'aIt#
+websérie	w,Ebs'E*jy
 wednesday	w'enyzdeI
 (week end)	w'ik,eNd#
 weekend		w'ik,eNd#
@@ -4639,26 +4661,34 @@ zhuhai		zuh'aI
 airbnb		'Er#||b,e,enyb'e
 access		'aks,Es
 ?1 adobe	&d'Oby
+ambev		&~Nb'EvI/
 amstel		,amyst'El#
 android		&Nd*'Oid#
 antarctica	&Nt'ar#tSIk&
 alexa		al'Eks&
 apple		'Epol#
 atari		$2
+audible		'aUd#ibol#
 blender		$1
 boeing		b'Oi~Ng
 bohemia		$2
 brahma		b*'&ma
 bud		b&d# $only
 budweiser	b&dv'aIzer#
+burger		b'ur#ger#
 byd		b,iw,aId'i
+(c & a)		se||i||'a
 campari		$2
+carrefour	kaR#ef'ur#
 chevrolet	S,ev*ol'E
 ?1 chrome	k*'oUm
 ?2 chrome	k*'omy
 citroën		s,it*o'eIN
 debian		d'Ebj&~N
+deezer		d#'izer#
 delphi		d'El#fi
+docker		d'Oker#
+d'or		d'Or#
 eisenbahn	,aIzeNb'&N
 ?1 excel	,Eks'El
 ?2 excel	,eks'EU
@@ -4673,6 +4703,7 @@ firefox		f,aI*yf'Oks
 ?1 front	fr'oNt
 github		g,ith'&bI/
 (git hub)	g,ith'&bI/
+habib		hab'ibI/
 heineken	h'aInekeN
 honda		h'oNd&
 houaiss		,u'aIs#
@@ -4696,6 +4727,7 @@ libreoffice	l'ib*y||'Ofisy
 ?2 linux	l'inUks
 mac		m'Ek
 maggi		$1 $alt
+(mc donald's)	m,Ek||d'onal#ds#
 marvel		$1
 mbrola		,emy||b*'Ol&
 ?1 media	m'Ed,i& $noun
@@ -4736,7 +4768,11 @@ playstation	pleI||st'eIS&~N
 rappi		$1
 reader		R#'id,er
 renault		R#en'o
+renner		$1
+riachuelo	$alt2
+santander	$alt
 setup		s'Et,&p
+shell		S'El#
 schin		sk'iN
 sicredi		$2 $alt
 siemens		s'imeINs
@@ -4747,22 +4783,24 @@ slackware	sl'akw,Er
 ?2 society	sos'aIty
 soundcloud	s,aUNd#||kl'aUd#
 speak		spi:k
+spoleto		$alt2
 spotify		sp,Ot#yf'aI
 (stella artois)	s#t'El&||ar#tu'a
 suse		z'Use
 start		st'ar#t#
 steam		sti~N
+subway		subw'eI
 ?1 time		t'aImy
 telegram	t'Eleg*&~N
 tinder		t#'iNder#
 tupperware	t,ap&w'Er
 twitter		tw'iter#
 twitch		tw'itS
-deezer		d#'izer#
 premium		pr'imiuN
 uber		'uber#
 ubuntu		ub'uNtu
 unboxing	,&~Nb'OksiN
+unimed		,unim'Ed#I/
 ?1 unix		,u:n'iks
 ?2 unix		j'uniks
 volkswagen	fol#ksv'ageN
@@ -4890,6 +4928,7 @@ delacroix	delak*w'a
 deleuze		del'uzy
 denzel		$1
 depp		$alt
+derrida		deR#id'a
 descartes	dek'ar#t#
 (di caprio)	d#,i||k'ap*iU
 dickens		d#'ikeINs
@@ -4961,6 +5000,7 @@ gottfried	g'Otf*i:t
 goulart		gul'ar#t
 gramsci		g*'&~mSi
 gulliver	g'uliver#
+habermas	h'aber#m&s
 hackman		h'Ekm&n
 halley		h'aleI
 hamlet		h'&mlet
@@ -5115,6 +5155,7 @@ neumann		n'OIman
 newman		n'iUm&N
 newton		n'iwtoN
 nicholson	n'ikol#soN
+niemeyer	n,iem'aIer#
 nietzsche	n'itSy
 nietzsch	n'itS $stem	// nietzschiano, nietzschismo
 nightingale	n,aIt#iNg'ejl#
@@ -5148,6 +5189,7 @@ possi		$1 $alt
 potter		p'Oter#
 powell		p'awel#
 presley		$1 $alt
+proudhon	p*ud'o~
 proust		p*'ust#
 puccini		pus'ini
 putin		p'ut#iN
@@ -5174,6 +5216,7 @@ roth		r'OT
 rousseau	R#us'o
 rousseff	R#us'Ef
 rowling		_^_EN
+ruskin		R#'&skiN
 russell		R#'usEl
 sagan		s'eIg&~N
 salinger	$1
@@ -5217,7 +5260,7 @@ temple		t'eNpol#
 terry		t'Eri
 tesla		$alt
 thatcher	t'atSer
-thoreau		_^_EN
+thoreau		toR#o
 thor		t'Or#
 thousand	T'aUz&Nd
 toller		$1 $alt
@@ -5256,6 +5299,7 @@ willis		$1
 winehouse	w,aInyh'aUzy
 winnicott	w'inIkOt#
 winston		$1
+wittgenstein	v,itge~Ns#t'aIN
 wolfgang	v'ol#fg,&Ng
 wolverine	volve*'iny
 wonder		$1
@@ -5529,7 +5573,7 @@ palmieri	$3 $alt
 parisi		$2
 parker		$1
 patrick		$1
-paul		p'o:l $only
+paul		p'o:l# $only
 pellegrini	$3
 palocci		$2 $alt
 perez		$1 $alt
@@ -6104,7 +6148,6 @@ urania		urânia $text
 ursula		úrsula $text
 vagner		vágner $text
 valdineia	valdinéia $text
-valeria		valéria $text
 valerio		valério $text
 valquiria	valquíria $text
 valter		válter $text

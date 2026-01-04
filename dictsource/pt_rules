@@ -1241,8 +1241,6 @@ _ortod) o (xL08_   O
 
         ph         f
      _) pf         f         // pfizer, pfeifer (DE)
-        play       pl'eI
-?2   _) práxis (_  p*'aksis
 
 
 .group q
@@ -1327,6 +1325,9 @@ _ortod) o (xL08_   O
 
 ?!4  @) s (_G      z         // next word starts with voiced consonant
 ?!4  A) s (_GS1    z         // next word starts with voiced consonant
+
+    @') s (_S2     s#        // genitive and plural in English
+    C') s (_S2     s#        // Bob's, CD's etc
 
    ese) s (_       s
 
@@ -1580,3 +1581,6 @@ _lagarti) x (A     S
     D_) - (_D      m'enUs#
     A_) - (_D      _
     C_) - (_D      _
+
+     @) ' (s_                // genitive and plural in English
+     C) ' (s_                // Bob's, CD's etc
