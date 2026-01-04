@@ -24,7 +24,7 @@ jobs:
         - link: dll
           shlib: "ON"
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: configure
         run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=${{ matrix.shlib }} -A ${{ matrix.arch }}
       - name: make
