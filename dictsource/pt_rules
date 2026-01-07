@@ -95,6 +95,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?2      al (_hA    aw
         a (lh+     a
         a (ll+     a
+        all (K     al#
         a (m       &~
         a (mAr_    &
         a (mA@     &
@@ -292,6 +293,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 
         e (lh+     e
         e (ll+     E
+        ell (K     El#
 
         et (_      Et#
 
@@ -775,6 +777,8 @@ _redar) gu (A      gw
 
         i (lh+     i
         i (ll+     i
+        ill (K     il#
+
 
         im (_      i~N
         im (b      i~N
@@ -1005,6 +1009,7 @@ _redar) gu (A      gw
         o (l_      'O
 ?2      ol (_      'Ow
 ?2      ol (B      ow
+        oll (K     ol#
 
         o (ma_     o
     ss) on (_      o~N        // ultrassons
@@ -1347,13 +1352,18 @@ _ortod) o (xL08_   O
   _sub) s (ist     z
 ?1      ssion (_   _^_EN
 
-?1   _) semi (@   s,ym%i    // semiárido, semibárbaro, semicírculo
-?2   _) semi (@   s,em%i    // semiárido, semibárbaro, semicírculo
-?1   _) semi (\-  s,ym%i    // semi-internato, semi-inconsciente
-?2   _) semi (\-  s,em%i    // semi-internato, semi-inconsciente
-
+     _) sch (A     sk        // schedule, school
+     _) sch (u     S         // schultz, schumann
      _) sch (K     S         // schmidt, schneider
+     @) sch (_     S         // Bosch, kitsch
+
     @!) ski (_     sk%i      // Polish immigrants
+
+?1   _) semi (@   s,ym%i     // semiárido, semibárbaro, semicírculo
+?2   _) semi (@   s,em%i     // semiárido, semibárbaro, semicírculo
+?1   _) semi (\-  s,ym%i     // semi-internato, semi-inconsciente
+?2   _) semi (\-  s,em%i     // semi-internato, semi-inconsciente
+
 
 .group t
      _) t (_       te
@@ -1364,6 +1374,8 @@ _ortod) o (xL08_   O
 
 ?3   @) t (B       tI/
 ?3   @) t (_       tI/
+
+        tch        tS
 
 ?1      th         _^_EN
 ?2      th         t#
@@ -1400,6 +1412,7 @@ _ortod) o (xL08_   O
 
         u (lh+     u
         u (ll+     u
+        ull (K     ul#
 
         um (_      u~N
         um (b      u~N
@@ -1549,11 +1562,13 @@ _lagarti) x (A     S
 
 ?1   @) z (_       S
 ?2   @) z (_       s
+     @) z (_h      z
      @) z (_A      z
      @) z (_G      z
 
 ?1   A) z (C       S
 ?1   A) z (G+      Z
+?1   A) z (_h      z
 ?1   A) z (_C      S
 ?1   A) z (_G+     Z
 
