@@ -33,6 +33,8 @@
 .L06 r ra ram ste sse ssem re rem rmo
 .L07 sse ssem ste
 .L08 a o
+.L09 p b t d k g f v c h j q x
+
 
 // Normalize Unicode Latin-1 Supplement.
 // Languages such as PT, ES, FR, DE etc.
@@ -313,6 +315,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ell (K     El#
 
         et (_      Et#
+
+        e (L09_    E         // unicef, opep, pet, ed...
 
         e (bL02_   E
         e (cL04_   E
@@ -1045,6 +1049,8 @@ _redar) gu (A      gw
 ?4      oun (K     oUN
 ?4      oul (K     owl/
 ?4      our (K     owr/
+
+        o (L09_    O         // palop, pop, doc, gov...
 
         o (cL04_   O
 
