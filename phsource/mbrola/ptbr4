@@ -240,27 +240,36 @@ volume 15
 9   iU  N      60  i un
 9   oU  N      60  o un
 
-9   &~  j      60  @ in
-9   &~  w      60  @ un
-
 
 // SECTION OF GLIDES
 
+// block of j
 2   j   N      0   i
 0   j   l/     0   i
 0   j   r/     0   i
 4   j   VWL    0   i
 8   j   VWL    0   y
-10  j   VWL    0   y
+2   j   VWL    0   y
 0   j   NULL   0   i
 
+// block of w
 2   w   N      0   u
 0   w   l/     0   u
 0   w   r/     0   u
 4   w   VWL    0   u
 8   w   VWL    0   w
-10  w   VWL    0   w
+2   w   VWL    0   w
 0   w   NULL   0   u
+
+// block of I-
+2   I-  &~     0   in
+2   I-  e~     0   in
+2   I-  o~     0   in
+0   I-  NULL   0   y
+
+// block of U-
+2   U-  &~     0   un
+0   U-  NULL   0   w
 
 
 // SECTION OF MONOTHONGS

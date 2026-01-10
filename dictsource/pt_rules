@@ -4,8 +4,8 @@
 // Options
 // ?1  European Portuguese
 // ?2  Brazilian Portuguese
-// ?3  Epenthetic [I] (used to avoid bad diphones in MBROLA voices)
-// ?4  MBROLA ajustments (used to avoid bad diphones and lengthen vowels in MBROLA voices)
+// ?3  Epenthetic [I] between consonants (used to avoid bad diphones in Brazilian MBROLA voices)
+// ?4  MBROLA ajustments (used to modify nasal vowels, modify diphthongs, and for other adaptations in MBrola voices)
 
 
 // Letter groups
@@ -109,9 +109,10 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         am (p      &~N
         an (K      &~N
 
-?4      am (_      =&U~:
-?4      an (_      &~:N
-?4      an (s_     &~:N
+?4      am (_      =&~U-
+?4      am (b      &~
+?4      am (p      &~
+?4      an (K      &~
 
         anh (A     &~n^
         amm (A     am
@@ -119,17 +120,30 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 
 ?1   C) acç        'a's      // eg: selecção, etc...
 
-        ai         aI
-        ai (s      aI
         a (iu_     a         // caiu
         a (iCK     a
+
+        ai         aI
+        ai (s      aI
         ay         aI
+
+?4      ai         a|I-
+?4      ai (s      a|I-
+?4      ay         a|I-
+
         ao (_      aU
         au         aU
         au (s      aU
         au (_A     aw
         au (_hA    aw
         au (CK     aU
+
+?4      ao (_      a|U-
+?4      au         a|U-
+?4      au (s      a|U-
+?4      au (_A     a|U-
+?4      au (_hA    a|U-
+?4      au (CK     a|U-
 
 ?4      aun (K     aUN
 ?4      aul (K     awl/
@@ -175,9 +189,10 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         âm (p      ''&~N
         ân (K      ''&~N
 
-?4      âm (_      ''&~:N
-?4      ân (_      ''&~:N
-?4      ân (s_     ''&~:N
+?4      âm (_      ''&~
+?4      âm (b      ''&~
+?4      âm (p      ''&~
+?4      ân (K      ''&~
 
         ânh (A     ''&~n^
 
@@ -217,16 +232,18 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ám (p      ''&~N
         án (K      ''&~N
 
-?4      ám (_      ''&~:N
-?4      án (_      ''&~:N
-?4      án (s_     ''&~:N
+?4      ám (_      ''&~
+?4      ám (b      ''&~
+?4      ám (p      ''&~
+?4      án (K      ''&~
+
 
 .group ã
         ã          &~
         ão         &U~
-?4      ão         &U~:
+?4      ão         &~U-
         ãe         &~j
-?4      ãe         &~:j
+?4      ãe         &~I-
 
 
 .group b
@@ -370,26 +387,44 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         em (p      e~N
         en (C      e~N
 
+?4      em (b      e~
+?4      em (p      e~
+?4      en (C      e~
+
         em (_      =eIN
         en (_      =eIN
         en (s_     =eIN
+
+?4      em (_      =e~I-
+?4      en (_      =e~I-
+?4      en (s_     =e~I-
 
         enh (A     en^
         emm (A     em
         enn (A     en
 
+        e (iCK     e
+        e (uCK     e
+
         ei         eI
         ei (s      eI
         ei ($w_alt EI
         ey         eI
-        e (iCK     e
+
+?4      ei         e|I-
+?4      ei (s      e|I-
+?4      ei ($w_alt E|I-
+?4      ey         e|I-
 
         eu         eU
         eu (s      eU
         eu (_A     ew
         eu (_hA    ew
-        e (uCK     e
 
+?4      eu         e|U-
+?4      eu (s      e|U-
+?4      eu (_A     e|U-
+?4      eu (_hA    e|U-
 
 ?1   d) e (CAA     y
 ?1   d) e (CACAA   y
@@ -671,8 +706,15 @@ _entorp) e (çL03_  e
         ém (p      ''e~N
         én (C      ''e~N
 
+?4      ém (b      ''e~
+?4      ém (p      ''e~
+?4      én (C      ''e~
+
         ém (_      ''eIN
         én (_      ''eIN
+
+?4      ém (_      ''e~I-
+?4      én (_      ''e~I-
 
 
 .group ê
@@ -683,8 +725,15 @@ _entorp) e (çL03_  e
         êm (p      ''e~N
         ên (C      ''e~N
 
+?4      êm (b      ''e~
+?4      êm (p      ''e~
+?4      ên (C      ''e~
+
         êm (_      ''eIN
         ên (_      ''eIN
+
+?4      êm (_      ''e~I-
+?4      ên (_      ''e~I-
 
         ênh (A     ''en^
 
@@ -785,9 +834,10 @@ _redar) gu (A      gw
         im (p      i~N
         in (K      i~N
 
-?4      im (_      i~:N
-?4      in (_      i~:N
-?4      in (s_     i~:N
+?4      im (_      i~
+?4      im (b      i~
+?4      im (p      i~
+?4      in (K      i~
 
         inh (A     in^
         imm (A     im
@@ -797,11 +847,18 @@ _redar) gu (A      gw
 
         io (_      i%U
         io (s_     i%U
-        i (oCK     i
+
         iu (_      iU
         iu (s_     iU
         iu (_A     iw
         iu (_hA    iw
+
+?4      iu (_      i|U-
+?4      iu (s_     i|U-
+?4      iu (_A     i|U-
+?4      iu (_hA    i|U-
+
+        i (oCK     i
         i (uCK     i
 
     áC) i (A_      j
@@ -858,9 +915,10 @@ _redar) gu (A      gw
         ím (p      ''i~N
         ín (K      ''i~N
 
-?4      ím (_      ''i~:N
-?4      ín (_      ''i~:N
-?4      ín (s_     ''i~:N
+?4      ím (_      ''i~
+?4      ím (b      ''i~
+?4      ím (p      ''i~
+?4      ín (K      ''i~
 
         ính (A     ''in^
 
@@ -948,10 +1006,17 @@ _redar) gu (A      gw
 ?2  _v) os (_h     uz
 ?2  _v) os (_A     uz
 ?2  _v) os (_G     uz
+
         ou         oU
         ou (s      oU
         ou (_A     ow
         ou (_hA    ow
+
+?4      ou         o|U-
+?4      ou (s      o|U-
+?4      ou (_A     o|U-
+?4      ou (_hA    o|U-
+
         oi         oI
         oi (s      oI
         oi ($w_alt OI
@@ -959,12 +1024,23 @@ _redar) gu (A      gw
         oi (a_     OI
         oi (cA_    OI
         oi (de_    OI
+        oy         OI
+
+?4      oi         o|I-
+?4      oi (s      o|I-
+?4      oi ($w_alt O|I-
+?4      oi ($w_alt2++ o|I-
+?4      oi (a_     O|I-
+?4      oi (cA_    O|I-
+?4      oi (de_    O|I-
+?4      oy         O|I-
+
         o (iCK     o
+
         oo (C_     U         // book
         oo (CC_    U         // bluetooth
         o (os_     o
 ?1   C) oo (_      oU       // eg: voo, enjoo, etc...
-        oy         OI
 
 ?4      oun (K     oUN
 ?4      oul (K     owl/
@@ -1020,9 +1096,10 @@ _redar) gu (A      gw
         om (p      o~N
         on (K      o~N
 
-?4      om (_      o~:N
-?4      on (_      o~:N
-?4      on (s_     o~:N
+?4      om (_      o~
+?4      om (b      o~
+?4      om (p      o~
+?4      on (K      o~
 
         onh (A     o~n^
         omm (A     om
@@ -1203,9 +1280,10 @@ _ortod) o (xL08_   O
         ôm (p      ''o~N
         ôn (K      ''o~N
 
-?4      ôm (_      ''o~:N
-?4      ôn (_      ''o~:N
-?4      ôn (s_     ''o~:N
+?4      ôm (_      ''o~
+?4      ôm (b      ''o~
+?4      ôm (p      ''o~
+?4      ôn (K      ''o~
 
         ônh (A     ''o~n^
 
@@ -1225,15 +1303,16 @@ _ortod) o (xL08_   O
         óm (p      ''o~N
         ón (K      ''o~N
 
-?4      óm (_      ''o~:N
-?4      ón (_      ''o~:N
-?4      ón (s_     ''o~:N
+?4      óm (_      ''o~
+?4      óm (b      ''o~
+?4      óm (p      ''o~
+?4      ón (K      ''o~
 
 
 .group õ
         õ          o~
         õe         oI~
-?4      õe         oI~:
+?4      õe         o~I-
 
 
 .group p
@@ -1401,11 +1480,16 @@ _ortod) o (xL08_   O
 
         ui         uI
         ui (_      'uI
+        uy         uI
+
+?4      ui         u|I-
+?4      ui (_      'u|I-
+?4      uy         u|I-
+
         u (iu      w
         u (iCK     u
         u (éC      u
         u (íC      u
-        uy         uI
 
 ?2      ul (_      uw
 ?2      ul (B      uw
@@ -1419,9 +1503,10 @@ _ortod) o (xL08_   O
         um (p      u~N
         un (K      u~N
 
-?4      um (_      u~:N
-?4      un (_      u~:N
-?4      un (s_     u~:N
+?4      um (_      u~
+?4      um (b      u~
+?4      um (p      u~
+?4      un (K      u~
 
         unh (A     u~n^
         umm (A     um
@@ -1440,9 +1525,10 @@ _ortod) o (xL08_   O
         úm (p      ''u~N
         ún (K      ''u~N
 
-?4      úm (_      ''u~:N
-?4      ún (_      ''u~:N
-?4      ún (s_     ''u~:N
+?4      úm (_      ''u~
+?4      úm (b      ''u~
+?4      úm (p      ''u~
+?4      ún (K      ''u~
 
         únh (A     ''u~n^
 
@@ -1551,6 +1637,11 @@ _lagarti) x (A     S
         ym (b      i~N
         ym (p      i~N
         yn (K      i~N
+
+?4      ym (_      i~
+?4      ym (b      i~
+?4      ym (p      i~
+?4      yn (K      i~
 
 
 .group z
