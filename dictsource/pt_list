@@ -10,8 +10,8 @@
 // Conditional rules:
 // ?1	European Portuguese
 // ?2	Brazilian Portuguese
-// ?3	Epenthetic [I] (used to avoid bad diphones in MBROLA voices)
-// ?4	MBROLA ajustments (used to avoid bad diphones and lengthen vowels in MBROLA voices)
+// ?3	Epenthetic [I] between consonants (used to avoid bad diphones in Brazilian MBROLA voices)
+// ?4	MBROLA ajustments (used to modify nasal vowels, modify diphthongs, and for other adaptations in MBrola voices)
 
 // Change the opening of mid vowels:
 //  $alt	change [e] or [o] in the stressed syllable to open [E] or [O].
@@ -802,6 +802,7 @@ nyu	$abbrev
 oab	$abbrev
 oab	,O,ab'e
 oas	$abbrev
+obs	$abbrev
 ocde	$abbrev
 ocp	$abbrev
 ocr	$abbrev
@@ -830,6 +831,7 @@ omt	$abbrev
 ?2 ong	,O,enyZ'e
 onu	'onu
 opep	op'EpI/
+opf	$abbrev
 opv	$abbrev
 orm	$abbrev
 ortn	$abbrev
@@ -2370,6 +2372,7 @@ senhores	$alt2
 serdes		$alt2
 sinagoga	$alt
 sinopse		$alt
+sob		$alt2
 sobrolhos	$alt
 soco		$alt2
 soco		$alt $verb
@@ -3139,8 +3142,8 @@ dumping		d'&~NpiN
 durée		_^_FR
 east		'i:st#
 easter		'i:ster#
-(e-book)	ib'Uk
-ebook		ib'Uk
+ebook		,ib'Uk
+(e-book)	,ib'Uk
 écarté		_^_FR
 echo		'EkoU
 éclair		_^_FR
@@ -3443,6 +3446,7 @@ hell		h'El#
 help		h'El#pI/
 hemp		h'eINpI/
 hereford	_^_EN
+herr		h'Er#
 hertz		h'Er#t|s
 hezbollah	hezbol'a
 (hi end)	h,aI||'eINd#
@@ -3975,6 +3979,7 @@ playground	pl,eIg*'aUNd
 playing		pl'ejiN
 playlist	pl,eIl'ist#
 plié		_^_FR
+plot		pl'Ot#I/
 plush		_^_EN
 (plus size)	pl,us'aIzy
 pochade		_^_FR
@@ -4153,6 +4158,7 @@ roulade		_^_FR
 roulé		_^_FR
 roulotté	_^_FR
 round		R#aUNd#
+router		R#'aUter#
 roux		_^_FR
 royalty		R#'OIaUt#i
 rsync		'Exy||s'i~NkI/
@@ -4286,6 +4292,7 @@ slave		sl'eIv
 slide		s#l'aId#
 sling		sl'iNg
 slogan		$1
+slopware	sl,OpI/w'Er
 slot		$alt
 slut		sl'&t#
 smart		sm'art#
@@ -4299,6 +4306,7 @@ sniffer		zn'ifer#
 sniffing	zn'ifiN
 snipe		zn'aIp
 sniper		zn'aIper#
+snob		$alt
 soave		_^_IT
 soccer		s'Oker#
 socialite	s,osjal'aIt#
@@ -4395,6 +4403,7 @@ studio		st'udiU
 style		st'aIl#
 stylist		st'aIlist
 succubus	$1
+sudoku		$2
 summer		s'&~mer#
 sunday		s'&NdeI
 deficit		d'Efysit#
@@ -4729,6 +4738,7 @@ dosvox		d,os#v'Oks
 (dos vox)	d,os#||v'Oks
 dropbox		d*,OpI/b'Oks
 eisenbahn	,aIzeNb'&N
+embraer		$alt
 ?1 excel	,Eks'El
 ?2 excel	,eks'EU
 ?1 express	,Ekspr'Es
@@ -4765,7 +4775,9 @@ libreoffice	l'ib*y||'Ofisy
 ?1 linux	l,in'uks
 ?2 linux	l'inUks
 mac		m'Ek
+mecdaisy	m,EkI/d'eIzi
 maggi		$1 $alt
+mcdonald	m,Ek||d'onal#d
 (mc donald's)	m,Ek||d'onal#ds#
 marvel		$1
 mbrola		,emy||b*'Ol&
@@ -4810,7 +4822,7 @@ renault		R#en'o
 renner		$1
 riachuelo	$alt2
 santander	$alt
-setup		s'Et,&p
+setup		s,Et'&p
 shell		S'El#
 schin		sk'iN
 sicredi		$2 $alt
@@ -5432,6 +5444,7 @@ costatini	$3
 conti		$1
 cunningham	k'&niNgh&N
 cynthia		$1
+daisy		d'eIzi
 d'avila		$1
 debbie		d'Ebi
 deborah		$1 $alt
