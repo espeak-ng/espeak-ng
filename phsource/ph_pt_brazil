@@ -231,7 +231,7 @@ endphoneme
 
 phoneme j/           // asyllabic vowel similar to [j] used with MBrola voices
   vwl starttype #i endtype #i
-  ipa ɪ
+  ipa j
   length 120
   unstressed nsy
   FMT(vowel/ii_6)
@@ -239,7 +239,7 @@ endphoneme
 
 phoneme w/           // asyllabic vowel similar to [w] used with Mbrola voices
   vwl starttype #u endtype #u
-  ipa ʊ
+  ipa w
   length 120
   unstressed nsy
   FMT(vowel/uu_bck)
