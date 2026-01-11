@@ -245,18 +245,22 @@ volume 15
 
 // block of j
 2   j   N      0   i
+2   j   w      0   i
+2   j   w/     0   i
 0   j   l/     0   i
 0   j   r/     0   i
-4   j   VWL    0   i
+4   j   NULL   0   i
 8   j   VWL    0   y
 2   j   VWL    0   y
 0   j   NULL   0   i
 
 // block of w
 2   w   N      0   u
+2   w   j      0   u
+2   w   j/     0   u
 0   w   l/     0   u
 0   w   r/     0   u
-4   w   VWL    0   u
+4   w   NULL   0   u
 8   w   VWL    0   w
 2   w   VWL    0   w
 0   w   NULL   0   u
@@ -287,7 +291,6 @@ volume 15
 0   i~  NULL   0   in
 0   I   NULL   0   i
 0   I/  NULL   0   i
-0   i"  NULL   0   i
 0   y   NULL   0   i
 0   o~  NULL   0   on
 0   O   NULL   0   oo
@@ -364,8 +367,6 @@ volume 15
 0   O~  NULL   0   on
 0   W   NULL   0   ee
 0   Y   NULL   0   e
-0   j/  NULL   0   y
-0   w/  NULL   0   w
 0   r/2 NULL   0   r
 
 
