@@ -111,7 +111,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         am (p      &~N
         an (K      &~N
 
-?4      am (_      =&~U-
+?4      am (_      =&~w/
 ?4      am (b      &~
 ?4      am (p      &~
 ?4      an (K      &~
@@ -129,9 +129,9 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ai (s      aI
         ay         aI
 
-?4      ai         a|I-
-?4      ai (s      a|I-
-?4      ay         a|I-
+?4      ai         aj/
+?4      ai (s      aj/
+?4      ay         aj/
 
         ao (_      aU
         au         aU
@@ -140,12 +140,12 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         au (_hA    aw
         au (CK     aU
 
-?4      ao (_      a|U-
-?4      au         a|U-
-?4      au (s      a|U-
-?4      au (_A     a|U-
-?4      au (_hA    a|U-
-?4      au (CK     a|U-
+?4      ao (_      aw/
+?4      au         aw/
+?4      au (s      aw/
+?4      au (_A     aw/
+?4      au (_hA    aw/
+?4      au (CK     aw/
 
 ?4      aun (K     aUN
 ?4      aul (K     awl/
@@ -243,9 +243,9 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 .group ã
         ã          &~
         ão         &U~
-?4      ão         &~U-
+?4      ão         &~w/
         ãe         &~j
-?4      ãe         &~I-
+?4      ãe         &~j/
 
 
 .group b
@@ -399,9 +399,9 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         en (_      =eIN
         en (s_     =eIN
 
-?4      em (_      =e~I-
-?4      en (_      =e~I-
-?4      en (s_     =e~I-
+?4      em (_      =e~j/
+?4      en (_      =e~j/
+?4      en (s_     =e~j/
 
         enh (A     en^
         emm (A     em
@@ -415,20 +415,20 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         ei ($w_alt EI
         ey         eI
 
-?4      ei         e|I-
-?4      ei (s      e|I-
-?4      ei ($w_alt E|I-
-?4      ey         e|I-
+?4      ei         ej/
+?4      ei (s      ej/
+?4      ei ($w_alt Ej/
+?4      ey         ej/
 
         eu         eU
         eu (s      eU
         eu (_A     ew
         eu (_hA    ew
 
-?4      eu         e|U-
-?4      eu (s      e|U-
-?4      eu (_A     e|U-
-?4      eu (_hA    e|U-
+?4      eu         ew/
+?4      eu (s      ew/
+?4      eu (_A     ew/
+?4      eu (_hA    ew/
 
 ?1   d) e (CAA     y
 ?1   d) e (CACAA   y
@@ -717,8 +717,8 @@ _entorp) e (çL03_  e
         ém (_      ''eIN
         én (_      ''eIN
 
-?4      ém (_      ''e~I-
-?4      én (_      ''e~I-
+?4      ém (_      ''e~j/
+?4      én (_      ''e~j/
 
 
 .group ê
@@ -736,8 +736,8 @@ _entorp) e (çL03_  e
         êm (_      ''eIN
         ên (_      ''eIN
 
-?4      êm (_      ''e~I-
-?4      ên (_      ''e~I-
+?4      êm (_      ''e~j/
+?4      ên (_      ''e~j/
 
         ênh (A     ''en^
 
@@ -857,10 +857,10 @@ _redar) gu (A      gw
         iu (_A     iw
         iu (_hA    iw
 
-?4      iu (_      i|U-
-?4      iu (s_     i|U-
-?4      iu (_A     i|U-
-?4      iu (_hA    i|U-
+?4      iu (_      iw/
+?4      iu (s_     iw/
+?4      iu (_A     iw/
+?4      iu (_hA    iw/
 
         i (oCK     i
         i (uCK     i
@@ -1016,10 +1016,10 @@ _redar) gu (A      gw
         ou (_A     ow
         ou (_hA    ow
 
-?4      ou         o|U-
-?4      ou (s      o|U-
-?4      ou (_A     o|U-
-?4      ou (_hA    o|U-
+?4      ou         ow/
+?4      ou (s      ow/
+?4      ou (_A     ow/
+?4      ou (_hA    ow/
 
         oi         oI
         oi (s      oI
@@ -1030,14 +1030,14 @@ _redar) gu (A      gw
         oi (de_    OI
         oy         OI
 
-?4      oi         o|I-
-?4      oi (s      o|I-
-?4      oi ($w_alt O|I-
-?4      oi ($w_alt2++ o|I-
-?4      oi (a_     O|I-
-?4      oi (cA_    O|I-
-?4      oi (de_    O|I-
-?4      oy         O|I-
+?4      oi         oj/
+?4      oi (s      oj/
+?4      oi ($w_alt Oj/
+?4      oi ($w_alt2++ oj/
+?4      oi (a_     Oj/
+?4      oi (cA_    Oj/
+?4      oi (de_    Oj/
+?4      oy         Oj/
 
         o (iCK     o
 
@@ -1318,7 +1318,7 @@ _ortod) o (xL08_   O
 .group õ
         õ          o~
         õe         oI~
-?4      õe         o~I-
+?4      õe         o~j/
 
 
 .group p
@@ -1488,9 +1488,9 @@ _ortod) o (xL08_   O
         ui (_      'uI
         uy         uI
 
-?4      ui         u|I-
-?4      ui (_      'u|I-
-?4      uy         u|I-
+?4      ui         uj/
+?4      ui (_      'uj/
+?4      uy         uj/
 
         u (iu      w
         u (iCK     u

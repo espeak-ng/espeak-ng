@@ -261,15 +261,15 @@ volume 15
 2   w   VWL    0   w
 0   w   NULL   0   u
 
-// block of I-
-2   I-  &~     0   im
-2   I-  e~     0   im
-2   I-  o~     0   im
-0   I-  NULL   0   y
+// block of j/
+2   j/  &~     0   im
+2   j/  e~     0   im
+2   j/  o~     0   im
+0   j/  NULL   0   y
 
-// block of U-
-2   U-  &~     0   um
-0   U-  NULL   0   w
+// block of w/
+2   w/  &~     0   um
+0   w/  NULL   0   w
 
 
 // SECTION OF MONOTHONGS

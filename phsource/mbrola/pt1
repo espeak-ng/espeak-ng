@@ -33,13 +33,13 @@ volume 15
 0   N   NULL   0   NULL
 
 
-2   I-  &~     0   i~
-2   I-  e~     0   i~
-2   I-  o~     0   i~
-2   I-  NULL   0   j
+2   j/  &~     0   i~
+2   j/  e~     0   i~
+2   j/  o~     0   i~
+2   j/  NULL   0   j
 
-2   U-  &~     0   u~
-2   U-  NULL   0   w
+2   w/  &~     0   u~
+2   w/  NULL   0   w
 
 0   a/  NULL   0   a
 0   A   NULL   0   a
