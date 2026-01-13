@@ -13,4 +13,4 @@ else()
   set(USE_ASYNC OFF)
 endif()
 
-option(ESPEAK_COMPAT "Install compat binary symlinks" OFF)
+option(ESPEAK_COMPAT "Install compat binary symlinks" ON)
