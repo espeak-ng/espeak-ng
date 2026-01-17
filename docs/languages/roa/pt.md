@@ -185,7 +185,27 @@ Two types of phonemization are available:
 
 [Kirshenbaum](https://en.wikipedia.org/wiki/Usenet_ASCII-IPA_transcription) is the native way to specify pronounces in eSpeak NG. As input string, it describes pronunciation. As output string, it helps debugging. In both directions, Kirshenbaum is meant for eSpeak NG developers.
 
+You can translate the input text to Kirshenbaum using the `-x` flag:
+
+```bash
+espeak-ng -v pt-br "Oi, Mundo!" -x
+```
+```
+'oI
+m'u~NdU
+```
+
 [IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) is the international standard for speech description and transcription. For the language learner or the AI engigeer, IPA is more useful than Kirshenbaum.
+
+You can translate the input text to IPA using the `--ipa` flag:
+
+```bash
+espeak-ng -v pt-br "Oi, Mundo!" --ipa
+```
+```
+ˈoɪ
+mˈũndʊ
+```
 
 ### Sample Phonemization
 
@@ -507,7 +527,6 @@ For example, there are different pronunciations for the word "harwdare" in Portu
 ?2 hardware	h'ardw,Er
 ```
 
-
 The List of Rules File
 ---------------------------------------
 
@@ -589,6 +608,53 @@ ñ       n
 In the example, the letter "å" is replaced by "a", and the letter ñ is replaced by "n".
 
 Actually, the `.replace` group, in Portuguese language, is used as a hack for Unicode normalization.
+
+### Language Compilation
+
+It is necessary to compile the language for the modifications made to the `dictlist/pt_list` and `dictlist/pt_rules` files to take effect. This command can be executed in the `dictsource` folder within the local eSpeak NG repository to compile the changes:
+
+```bash
+cd dictsource;
+sudo espeak-ng --compile-debug=pt-br;
+```
+
+You should check if any errors occurred during compilation.
+
+### Language Debugging
+
+Debugging can be done using the `-X` flag:
+
+```bash
+espeak-ng -v pt-br "Oi, Mundo!" -X
+```
+```
+Translate 'oi'
+  1	 1001:	  [o]
+ 22	 1025:	  [oI]
+
+'oI
+Translate 'mundo'
+  1	  963:	  [m]
+
+  1	 1478:	  [u]
+ 42	 1512:	  [u~N]
+
+  1	  284:	  [d#]
+
+ 41	 1002:	) o (_ [,U]
+  1	 1001:	  [o]
+
+m'u~NdU
+```
+
+In the example above, we observe the following:
+
+- the words 'oi' and 'mundo' were translated separately.
+- the first column contains numbers representing the score of a match.
+- the second column contains numbers indicating the line of the rule that resulted in a match.
+- the third column shows, incompletely, which rule was analyzed.
+- in the last line of each translation block, there is a transcription of the word using characters from the Kirshenbaum alphabet.
+
 
 References
 ---------------------------------------
