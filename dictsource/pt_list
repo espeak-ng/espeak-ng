@@ -1105,8 +1105,8 @@ dez	$hasdot
 // advogado, advogada
 advº		advogado $text
 advª		advogada $text
-adv.º		advogado $text
-adv.ª		advogada $text
+(adv . º)	advogado $text
+(adv . ª)	advogada $text
 // doutor, doutora
 dr		doutor $text $dot
 dr		$abbrev $allcaps
@@ -1122,8 +1122,8 @@ dras		$abbrev $allcaps
 // enfermeiro, enfermeira
 enfº		enfermeiro $text
 enfª		enfermeira $text
-enf.º		enfermeiro $text
-enf.ª		enfermeira $text
+(enf . º)	enfermeiro $text
+(enf . ª)	enfermeira $text
 // engenheiro, engenheira
 engº		engenheiro $text
 engª		engenheira $text
@@ -2050,7 +2050,7 @@ gloso		$alt
 godo		$alt2
 gonococo	$alt
 gonorreia	$alt
-gol		goU
+gol		gol#
 golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
@@ -2212,7 +2212,8 @@ ostrogodo	$alt2
 ovo		$alt2
 outorgo		$alt
 pacheco		$alt2
-paexa		paeSa
+paexa		pa'eSa
+paeja		pa'eZa
 paella		pa'el^&
 palacete	$alt2
 palerma		$alt
@@ -2827,6 +2828,7 @@ chagrin		Sag*&~
 chambertin	S&~ber#t'&~
 champagne	S,&~Np'&~n^y
 champignon	S&~pin^'o~
+champion	$1
 changeant	S&~Z'&~
 (changer de dame)	S&~Z'e||de||d'&my
 (changez de dame)	S&~Z'e||de||d'&my
@@ -3335,6 +3337,7 @@ gambit		$1
 game		g'eImy
 gamer		g'eImer#
 gameplay	g,eImypl'eI
+gaming		g'eIm,iN
 gang		g'&NgI/
 gap		g'Ep
 garage		_^_FR
@@ -3386,6 +3389,7 @@ gourmand	gu*m'&~
 gourmet		gu*m'e
 (grand guignol)	_^_FR
 grapefruit	g*,eIpI/fr'ut#
+gratia		$1
 gray		g*'ej
 green		g*'iN
 greenwashing	g*,iNw'OSiN
@@ -3409,6 +3413,7 @@ guipure		gip'ir#
 guichet		giS'e
 gun		g'&N $only
 ?2 habeas	'abe&s
+habemus		$2
 habillé		_^_FR
 habitué		_^_FR
 hacienda	asi'eNda
@@ -3560,7 +3565,7 @@ inside		,iNs'aId#
 insider		,iNs'aIder#
 install		,iNst'al#
 intaglio	iNt'al^o
-inter		,i~Nter#
+inter		$1
 intermezzo	iNte*m'ezo
 interview	,iNte*viw
 (in totum)	,i~N||t'Otu~N
@@ -3570,6 +3575,7 @@ ipsis		$1
 iron		'aIr#oN $only
 isospin		,aIsosp'iN
 issue		'iSu
+iuris		$1
 jacquard	_^_FR
 jacquerie	_^_FR
 jail		dZ'eil#
@@ -3648,6 +3654,7 @@ layout		l,eI'aUt#
 layoutman	l,eI'aUt#meIN
 lead		l'id#
 leader		l'ider#
+league		l'igy
 learning	l'@r#niN
 leasing		l'iziN
 leave		l'iv
@@ -3705,6 +3712,7 @@ louré		luR#'e
 louvre		l'uv*y
 lover		l'Over#
 luftwaffe	l,uft#v'afy
+lupus		$1
 luthier		lutj'e
 lycra		l'aIk*&
 macaron		makaR#'o~
@@ -3717,6 +3725,7 @@ mademoiselle	madmwaz'Ely
 madison		m'EdisoN
 maestoso	_^_IT
 magnesium	$2 $alt
+magnus		$1
 maiden		m'eIdeIN
 mail		m'ejl#
 mainframe	m,eINf*'eImy
@@ -3755,6 +3764,7 @@ maxwell		_^_EN
 may		m'eI
 mayday		m,eId'eI
 mayotte		$alt
+maximus		$1
 médoc		_^_FR
 meeting		m'it#iN
 megabit		mEg&b'it#
@@ -3792,7 +3802,7 @@ minesänger	m,inez'eNger#
 millenial	m,il'enjal#
 minnesang	m,inez'aNg
 minnesinger	m,inez'iNger#
-minnesota	$alt2
+minnesota	m,ines'ot&
 (mise en plis)	m'iz||&~||pl'i
 (mise en scène)	m'iz||&~||s'En
 (mise en train)	_^_FR
@@ -3807,6 +3817,7 @@ mod		m'OdI/
 model		m'Odel#
 modem		m'oUdeN
 moderato	mode*'ato
+modus		$1 $alt
 (modus operandi)	m'OdUz||ope*'&~Nd#y
 (modus vivendi)	m'OdUz||viv'e~Nd#y
 mohair		_^_EN
@@ -3863,11 +3874,12 @@ nylon		n'aIloN
 oasis		o'azis#
 obsidian	Obs'idi&N
 off		'OfI/
-(off line)	OfI/l'aIny
 offline		OfI/l'aIny
+(off line)	OfI/l'aIny
 offset		OfI/s'Et#
 offshore	OfI/S'Or#
 offside		OfI/s'aId#
+ohio		oh'aIU
 ok		Ok'eI
 okay		Ok'eI
 oklahoma	,oUkl&h'oUm&
@@ -3875,8 +3887,9 @@ one		w'oN
 olympia		olímpia $text
 ombudsman	$2
 onboard		,o~N||b'or#d
-(on line)	oNl'aIny
 online		oNl'aIny
+(on line)	oNl'aIny
+optimus		$1 $alt
 opus		'Opus
 orange		$1 $alt
 oregon		$1 $alt
@@ -4052,11 +4065,13 @@ princeton	$1
 priori		$2 $alt
 prise		_^_FR
 probandi	$2
+(pro bono)	p*,O||b'onU
 processor	pros'Esor
 product		pr'Od&kt#
 (pro forma)	p*,O||f'O*m&
 (pro labore)	p*,O||l&b'O*y
 promoter	_^_EN
+(pro quo)	p*,O||kw'O
 (pro rata)	p*,O||R#'at&
 (pro reo)	p*,O||R#EU
 proxy		_^_EN
@@ -4250,7 +4265,7 @@ seattle		si'atol#
 second		s'EkoNd#
 section		s'EkSoN
 sed		s'Ed#I/
-seigneur	sEnj'Er
+seigneur	senj'Er
 (self made)	s'Elfm'eId#
 self		s'El#f
 selfie		s'El#fi
@@ -4509,6 +4524,7 @@ theater		_^_EN
 théâtre		te'at*y
 think		T'iNk
 thinking	T'iNkiN
+thing		T'iNg
 third		T'@rd#
 thirteen	T@rt'iN
 thirty		T'@rty
@@ -4618,6 +4634,8 @@ veilleuse	_^_FR
 vendeuse	_^_FR
 vendor		$1
 verbis		$1 $alt
+verbum		$1 $alt
+veritas		$1 $alt
 vermeil		_^_FR
 vernier		_^_FR
 vernissage	_^_FR
@@ -4632,6 +4650,7 @@ videowall	v,id#jUw'Ol#
 viking		v'iki~N
 vintage		v'iNt&Zy
 violone		_^_IT
+virtus		$1
 (vis à vis)	v,izav'i
 vision		v'izio~N
 vison		_^_FR
@@ -4677,6 +4696,8 @@ ware		w'Er
 wave		w'eIvI/
 way		w'eI
 wayland		w'eIleNd#
+wear		w'Er
+wearable	w'Erabol#
 web		w'Eb
 webcam		w,Ebk'&~N
 webcast		w,Ebk'Est#
@@ -4741,22 +4762,26 @@ zabaione	_^_IT
 zamacueca	samakw'eka
 zeitgeist	z'aItg,aIst#
 zeppelin	$1 $alt
+ziper		$1
 zombie		zo~Nb'i
 zhuhai		zuh'aI
 
 
 // block of company and product names
-airbnb		'Er#||b,e,enyb'e
 access		'aks,Es
+acer		'eIser#
 ?1 adobe	&d'Oby
+airbnb		'Er#||b,e,enyb'e
+alexa		al'Eks&
 amazon		'amazo~N
 ambev		&~Nb'EvI/
 amstel		,amyst'El#
 android		&Nd*'Oid#
 antarctica	&Nt'ar#tSIk&
-alexa		al'Eks&
 apple		'Epol#
+asus		$1
 atari		$2
+audi		$1
 audible		'aUd#ibol#
 blender		$1
 boeing		b'Oi~Ng
@@ -4813,6 +4838,7 @@ ipod		,aIp'Od#
 ipad		,aIp'Ed#
 itunes		,aIt'unys
 ?1 jaws		dZ'au:z
+kali		$1
 kindle		k'iNdol#
 konami		$2
 loggi		$1 $alt
@@ -4885,7 +4911,8 @@ soundcloud	s,aUNd#||kl'aUd#
 spoleto		$alt2
 spotify		sp,Ot#yf'aI
 (stella artois)	s#t'El&||ar#tu'a
-suse		z'Use
+suse		s'uzy
+opensuse	,ope~Ns'uzy
 start		st'ar#t#
 steam		sti~N
 subway		subw'eI
@@ -4899,7 +4926,9 @@ twitter		tw'iter#
 twitch		tw'itS
 premium		pr'imiuN
 uber		'uber#
-ubuntu		ub'uNtu
+ubuntu		$2
+xubuntu		$2
+xubuntu		$2
 unboxing	,&~Nb'OksiN
 unimed		,unim'Ed#I/
 ?1 unix		,u:n'iks
@@ -5171,6 +5200,7 @@ irving		$1
 ?2 isaac	iz'ak
 jackson		Z'EksoN
 jagger		Z'Eger#
+jekyll		Z'Ekil#
 janis		$1
 (joão vi)	joão sexto $text
 johnson		dZ'oNso~N

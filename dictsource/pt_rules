@@ -117,8 +117,8 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?4      an (K      &~
 
         anh (A     &~n^
-        amm (A     am
-        ann (A     an
+        amm (A     &~m
+        ann (A     &~n
 
 ?1   C) acç        'a's      // eg: selecção, etc...
 
@@ -1640,6 +1640,11 @@ _lagarti) x (A     S
         y          i
         y (A       j
         y (_       %i        // ?? stress on 1st syllable  EN
+
+?2      yl (_      iU
+?2      yl (B      iU
+?2      yl (_A     iw
+?2      yl (_hA    iw
 
         ym (_      i~N
         ym (b      i~N
