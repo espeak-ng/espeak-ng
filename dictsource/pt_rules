@@ -720,6 +720,7 @@ _entorp) e (çL03_  e
 ?4      ém (_      ''e~j/
 ?4      én (_      ''e~j/
 
+        ée (_      ''e       // Renée, Haydée (French)
 
 .group ê
         ê          ''e
@@ -1413,7 +1414,7 @@ _ortod) o (xL08_   O
      @) s (_S1     s#        // plural suffix
      @) s (_AS1    z         // plural suffix preceding a vowel
 
-?!4  @) s (_G      z         // next word starts with voiced consonant
+?!4  @) s (_GS1    z         // next word starts with voiced consonant
 ?!4  A) s (_GS1    z         // next word starts with voiced consonant
 
     @') s (_S2     s#        // genitive and plural in English
@@ -1442,6 +1443,7 @@ _ortod) o (xL08_   O
      _) sch (K     S         // schmidt, schneider
      @) sch (_     S         // Bosch, kitsch
 
+     @) sz (K      S         // Liszt, Grosz (Polish)
     @!) ski (_     sk%i      // Polish immigrants
 
 ?1   _) semi (@   s,ym%i     // semiárido, semibárbaro, semicírculo
