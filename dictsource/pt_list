@@ -549,6 +549,7 @@ dpi	d,ep,e'i
 dpoc	$abbrev
 dpu	$abbrev
 dpvat	depevate $text
+dram	d'e||R#'&~N
 dre	$abbrev
 dru	$abbrev
 dsi	$abbrev
@@ -575,6 +576,7 @@ efta	$abbrev
 eireli	eI*'Eli
 ekg	$abbrev
 emi	$abbrev
+ems	$abbrev
 emt	$abbrev
 enem	en'eIN
 eng	$abbrev
@@ -857,7 +859,6 @@ pdca	$abbrev
 pdi	$abbrev
 pdu	$abbrev
 pea	$abbrev
-petrobras	petrobrás $text
 pga	$abbrev
 pib	p'iby
 pis	p'is#
@@ -889,6 +890,7 @@ pto	$abbrev
 qca	$abbrev
 qed	$abbrev
 qi	$abbrev
+ram	R#'&~N
 rbi	$abbrev
 rca	$abbrev
 rda	$abbrev
@@ -904,6 +906,7 @@ saas	$abbrev
 sabesp	sab'EspI/
 sars	$abbrev
 sbi	$abbrev
+sdram	'Esyd'e||R#'&~N
 sedh	$abbrev
 seo	$abbrev
 sepm	$abbrev
@@ -936,6 +939,7 @@ telebras	telebrás $text
 tiff	$abbrev
 toefl	$abbrev
 tpi	$abbrev
+tpu	t,ep,e'u
 tre	$abbrev
 tse	$abbrev
 tva	$abbrev
@@ -1066,6 +1070,7 @@ vba	$abbrev
 vci	$abbrev
 vga	$abbrev
 vih	$abbrev
+vram	v'e||R#'&~N
 vtol	$abbrev
 wasp	$abbrev
 wcag	$abbrev
@@ -2542,6 +2547,7 @@ allegro		al'eg*o
 aluminium	$3
 aluminum	$2
 always		'OlweIs
+and		&~Nd
 angledozer	,&Ngol#d'oUzer#
 annapolis	$2
 angstrom	$1
@@ -2644,6 +2650,7 @@ bidet		bid'E
 bidon		bid'o~
 big		b'igI/ $only
 bikini		$2
+biodiesel	b,iod#'izel#
 biscuit		biskw'i
 biseauté	bizot'e
 bistrot		bist*'o
@@ -2801,6 +2808,7 @@ carpaccio	ka*p'atSjU
 càrpano		k'ar#pano
 (carpe diem)	k'ar#pe||d'ie~N
 carrière	kaR#jEr#
+carry		k'Eri
 carrying	k'EryiN
 cash		k'ES
 cashback	k,ESb'Ek
@@ -2935,6 +2943,7 @@ columbia	$2
 comintern	k,omi~Nt'E*ny
 commerce	k'ome*sy
 commodity	$2 $alt
+commodities	commoditys $text
 communard	komun'ar#
 compact		koNp'akI/t#
 compagnonnage	ko~p&njOn'aZI/
@@ -2977,7 +2986,7 @@ cosplay		k,Os#pl'eI
 coterie		kotyR#i
 cotillon	kotijo~
 cotswold	k'Ot|swol#d
-cottage		k'OtIZ
+cottage		k'Ot&Z
 couché		kuS'e
 coudé		kud'e
 counter		k'aUNter#
@@ -3894,6 +3903,7 @@ opus		'Opus
 orange		$1 $alt
 oregon		$1 $alt
 org		Or#g
+organon		$2
 origami		$3
 ossobuco	_^_IT
 ostinato	_^_IT
@@ -4058,8 +4068,10 @@ poundal		p'aUNdal#
 premier		p*emj'e
 première	p*emj'Er#
 premise		pr'emisy
+premium		pr'imiuN
 press		p*Es
 (prêt à porter)	p*'Et||a||por#t'e
+prime		p*'aImy
 primus		$1
 princeton	$1
 priori		$2 $alt
@@ -4429,6 +4441,7 @@ stonehenge	st,oUnyh'eNdZy
 stonewashed	st'oUnwOSt
 (stop and go)	st'Op||&~Nd||g'oU
 stop		st'Op
+storage		st'O*&Z
 store		st'Or
 stories		st'Or#is
 story		st'Or#i
@@ -4770,6 +4783,7 @@ zhuhai		zuh'aI
 // block of company and product names
 access		'aks,Es
 acer		'eIser#
+aché		aS'e
 ?1 adobe	&d'Oby
 airbnb		'Er#||b,e,enyb'e
 alexa		al'Eks&
@@ -4783,12 +4797,15 @@ asus		$1
 atari		$2
 audi		$1
 audible		'aUd#ibol#
+bayer		b'aIer#
 blender		$1
 boeing		b'Oi~Ng
 bohemia		$2
 brahma		b*'&ma
+braskem		$2
 bud		b&d# $only
 budweiser	b&dv'aIzer#
+bunge		b'u~Nge
 burger		b'ur#ger#
 byd		b,iw,aId'i
 (c & a)		se||i||'a
@@ -4799,6 +4816,7 @@ chevrolet	S,ev*ol'E
 ?1 chrome	k*'oUm
 ?2 chrome	k*'omy
 citroën		s,it*o'eIN
+cremer		k*'emer#
 debian		d'Ebj&~N
 deezer		d#'izer#
 dell		d'El#
@@ -4810,6 +4828,7 @@ dosvox		d,os#v'Oks
 (dos vox)	d,os#||v'Oks
 dropbox		d*,OpI/b'Oks
 eisenbahn	,aIzeNb'&N
+eletrobras	eletrobrás $text
 embraer		$alt
 ?1 excel	,Eks'El
 ?2 excel	,eks'EU
@@ -4822,10 +4841,12 @@ ferrari		$2
 fiat		f'i&t#I/
 firefox		f,aI*yf'Oks
 ?1 front	fr'oNt
+gillette	$alt
 github		g,ith'&bI/
 (git hub)	g,ith'&bI/
 habib		hab'ibI/
 heineken	h'aInekeN
+heinz		h'aINs
 honda		h'oNd&
 houaiss		,u'aIs#
 hyundai		hj,u~Nd'aI
@@ -4856,6 +4877,7 @@ marvel		$1
 mbrola		,emy||b*'Ol&
 ?1 media	m'Ed,i& $noun
 ?2 media	m'idZj& $noun
+medley		m'EdleI
 ?1 multimedia	m,ultim'Ed,i&
 ?2 multimedia	m,uwtim'idZj&
 messenger	m'Es&NdZ&r
@@ -4871,6 +4893,7 @@ nestlé		nes#tl'e
 ?2 notebook	noUtb'uk
 nokia		n'Okj&
 notepad		noUt#p'Ed#
+novartis	$2
 nvidia		eny||v'id#j&
 ?1 office	'Of,is
 ?2 office	'Ofisy
@@ -4884,10 +4907,15 @@ oracle		'Or#akol#
 ?2 outlook	,aUtl'uk
 ?1 paint	p'aint
 paypal		p,eIp'al#
+(p & g)		pe||i||Z'e
 pepsi		p'Epsi
+petrobras	petrobrás $text
 peugeot		peZ'o
+pfizer		f'aIzer#
 playstation	pleI||st'eIS&~N
 (play station)	pleI||st'eIS&~N
+prati		$1
+donaduzzi	$2
 ?1 publisher	p'&bl,iS&r
 ?2 publisher	p'&bl,iSer#
 rappi		$1
@@ -4924,8 +4952,8 @@ thunderbolt	t,&Nder#b'ol#t#
 tupperware	t,ap&w'Er
 twitter		tw'iter#
 twitch		tw'itS
-premium		pr'imiuN
 uber		'uber#
+unilever	$3 $alt
 ubuntu		$2
 xubuntu		$2
 xubuntu		$2
@@ -4943,6 +4971,7 @@ xiaomi		S'awmi
 yamaha		j,&m'ah&
 youtube		j,ut'uby
 youtuber	j,ut'uber#
+zeneca		z'enek&
 
 
 // block of historical and famous names
@@ -4959,7 +4988,7 @@ armstrong	'armI/stroN
 astaire		ast'Er#
 atkins		'EtkiNs
 austen		$1
-babbage		b'abaZ
+babbage		b'ab&Z
 bach		bax $only
 bach		bak $stem
 baldwin		$1
@@ -5075,6 +5104,7 @@ dijkstra	d'aIkst*&
 disney		d'isneI
 downey		d'aUneI
 doyle		d'OIly
+dreyfus		$1
 drucker		d*'&ker#
 durkheim	dur#kI/h'aIN
 dvorak		dyv'O*ak

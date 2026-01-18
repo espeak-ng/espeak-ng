@@ -106,12 +106,14 @@ ÿ	ÿ	// y + U+0308 = U+00FF
         a (nA@     &
         a (nAr_    &
 
-        am (_      =&U~
+     @) am (_      =&U~
+        am (_      &~N
         am (b      &~N
         am (p      &~N
         an (K      &~N
 
-?4      am (_      =&~w/
+?4   @) am (_      =&~w/
+?4      am (_      &~
 ?4      am (b      &~
 ?4      am (p      &~
 ?4      an (K      &~
@@ -451,6 +453,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1   C) e (ã       i         // leão, panteão, etc.
 ?1   C) e (a       i         // oceano, etc.
 ?1   C) e (o       'i        // eg: geologia, etc...
+    _n) e (o       ,E        // eg: neofascismo, neozelandês, etc...
 ?1   C) e (ú       i         // conteúdo, etc.
 ?1  Cã) e          j         // cães, mãe, etc...
 ?2   ã) e (z       y         // mãezinha, etc.
@@ -952,6 +955,8 @@ _redar) gu (A      gw
         l          l
      l) l 
         lh         l^
+
+?2   o) l (BA      w         // fix: volta, solda, etc
 
     @!) lli (_     =li       // Italian immigrants
 
