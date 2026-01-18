@@ -57,7 +57,7 @@ jobs:
       run: brew install gcc@12
 
     # Checkout code
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     # Configure
     - name: configure
@@ -74,7 +74,7 @@ jobs:
 
     - name: config-failed-upload
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: config-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}.log
         path: config.log
