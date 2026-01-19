@@ -33,7 +33,7 @@
 .L06 r ra ram ste sse ssem re rem rmo
 .L07 sse ssem ste
 .L08 a o
-.L09 p b t d k g f v c h j q x
+.L09 p b t d k g f v c h j q x ck ss
 
 
 // Normalize Unicode Latin-1 Supplement.
@@ -472,7 +472,7 @@ ÿ	ÿ	// y + U+0308 = U+00FF
 ?1   r) e (luz     y         // eg: reluzir
 ?1   r) e (lva     ,E        // eg: relvado
 ?1   r) e (smung   y         // resmungar
-?1   r) e (ss      y         // eg: ressequidos
+?1   r) e (ss@     y         // eg: ressequidos
 ?1   r) e (volv    y         // revolver
 ?1   r) e (vel     y         // revelar
 ?1  _t) e (rmin    y         // terminar.
@@ -510,7 +510,10 @@ ÿ	ÿ	// y + U+0308 = U+00FF
    óCC) e (CA_     e
 ?2  úC) el (_      eU
     úC) e (C@      e
-        ection (_  'EkS&~N
+
+        ection (_  'EkS&~N    // election, infection... (English)
+
+        eau (_     ''o        // bureau, tableau, beau... (French)
 
 //sort
     _d) e (L05_    E
@@ -1325,6 +1328,8 @@ _ortod) o (xL08_   O
         õ          o~
         õe         oI~
 ?4      õe         o~j/
+        õem        'o~e~N
+?4      õem        'o~e~j/
 
 
 .group p
@@ -1443,10 +1448,7 @@ _ortod) o (xL08_   O
   _sub) s (ist     z
 ?1      ssion (_   _^_EN
 
-     _) sch (A     sk        // schedule, school
-     _) sch (u     S         // schultz, schumann
-     _) sch (K     S         // schmidt, schneider
-     @) sch (_     S         // Bosch, kitsch
+        sch        S         // Schmidt, Schneider (German)
 
      @) sz (K      S         // Liszt, Grosz (Polish)
     @!) ski (_     sk%i      // Polish immigrants
