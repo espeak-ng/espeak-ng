@@ -1869,6 +1869,9 @@ include ph_mixe_mto
 phonemetable nci base2
 include ph_nahuatl
 
+phonemetable os base2
+include ph_ossetian
+
 phonemetable pt base2
 include ph_pt_brazil
 
