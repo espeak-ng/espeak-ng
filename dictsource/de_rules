@@ -29,8 +29,42 @@
 // Minutes
 .L06 0 1 2 3 4 5
 
-
 // This file is UTF-8 encoded
+
+// Normalize Unicode Latin-1 Supplement.
+// Languages such as PT, ES, FR, DE etc.
+// www.unicode.org/charts/PDF/U0080.pdf
+// www.unicode.org/charts/PDF/U0300.pdf
+.replace
+//common german letters:
+ä	ä	// a + U+0308 = U+00E4
+ö	ö	// o + U+0308 = U+00F6
+ü	ü	// u + U+0308 = U+00FC
+//non-common letters:
+ï	ï	// i + U+0308 = U+00EF
+ë	ë	// e + U+0308 = U+00EB
+à	à	// a + U+0300 = U+00E0
+è	è	// e + U+0300 = U+00E8
+ì	ì	// i + U+0300 = U+00EC
+ò	ò	// o + U+0300 = U+00F2
+ù	ù	// u + U+0300 = U+00F9
+á	á	// a + U+0301 = U+00E1
+é	é	// e + U+0301 = U+00E9
+í	í	// i + U+0301 = U+00ED
+ó	ó	// o + U+0301 = U+00F3
+ú	ú	// u + U+0301 = U+00FA
+â	â	// a + U+0302 = U+00E2
+ê	ê	// e + U+0302 = U+00EA
+î	î	// i + U+0302 = U+00EE
+ô	ô	// o + U+0302 = U+00F4
+û	û	// u + U+0302 = U+00FB
+ç	ç	// c + U+0327 = U+00E7
+ã	ã	// a + U+0303 = U+00E3
+õ	õ	// o + U+0303 = U+00F5
+å	å	// a + U+030A = U+00E5
+ñ	ñ	// n + U+0303 = U+00F1
+ý	ý	// y + U+0301 = U+00FD
+ÿ	ÿ	// y + U+0308 = U+00FF
 
 .group a
      _) a (_       A:
