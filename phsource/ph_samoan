@@ -1,0 +1,75 @@
+//=========================================================================
+// Samoan
+//=========================================================================
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 140
+  FMT(vowel/a)
+endphoneme
+
+phoneme a:
+  vwl starttype #a endtype #a
+  ipa aː
+  length 280
+  FMT(vowel/a)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  ipa ɛ
+  length 140
+  FMT(vowel/ee)
+endphoneme
+
+phoneme e:
+  vwl starttype #e endtype #e
+  ipa eː
+  length 280
+  FMT(vowel/e)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  ipa ɪ
+  length 140
+  FMT(vowel/ii)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  ipa iː
+  length 280
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 140
+  FMT(vowel/o)
+endphoneme
+
+phoneme O:
+  vwl starttype #o endtype #o
+  ipa ɔː
+  length 280
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  ipa ʊ
+  length 140
+  FMT(vowel/uu_2)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  ipa uː
+  length 280
+  FMT(vowel/u)
+endphoneme

@@ -17,7 +17,7 @@ list(APPEND _dict_compile_list
   pap pa piqd pl pt py
   qdb quc qu qya
   ro ru rup
-  sd shn si sjn sk sl smj sq sr sv sw
+  sd shn si sjn sk sl sm smj sq sr sv sw
   ta te ti th tk tn tr tt
   ug uk ur uz
   vi

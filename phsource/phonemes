@@ -1807,6 +1807,9 @@ include ph_shan
 phonemetable sq base1
 include ph_albanian
 
+phonemetable sm base1
+include ph_samoan
+
 phonemetable sv base1
 include ph_swedish
 
