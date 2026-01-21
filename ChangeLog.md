@@ -10,6 +10,7 @@ The espeak-ng project is a fork of the espeak project.
 ### 1.53.0
 
 new languages:
+*  gl (Galician) -- Andy Vladescu
 *  ps (Pashto) -- Hanif Rahman 
 *  rup (Aromanian) -- Andy Vladescu
 
