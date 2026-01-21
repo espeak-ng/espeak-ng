@@ -1,0 +1,270 @@
+.replace
+  œ    eu
+  á    à
+  í    ì
+  ú    ù
+  gli  ggi
+
+// 's' is [s] between these and a vowel
+.L01 a æ e i o ò u
+// 's' is [z] before these
+.L02 b d g l m n r v
+
+// simple vowels followed by these + a short vowel + word end are typically long
+.L03 b br cr ç d f gr l m n p pr r s t tr v vr x z
+// short vowels in end position
+.L04 a e i o u
+// simple vowels followed by these + word end are also typically long
+.L05 ca ce ci co cu cio cia ciu chi che ga ge gi go gu gio gia giu ghi ghe
+
+// imperfect tense endings
+.L06 va vo vi vimo van
+// conditional mood endings  (except for -æ which clashes with present indicative)
+.L07 eiva eivo ësci ëscimo eivan æn
+// future tense endings (except for -an which clashes with present indicative)
+.L08 ò à emo
+
+// hours and minutes
+.L16 0 1 2 3 4 5 6 7 8 9 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+.L17 0 1 2 3 4 5
+
+// aeio
+.L18 a e i o
+
+
+.group a
+       a              a
+       a    (C%       a
+       a    (L03L04_  a:
+       a    (L05_     a:
+       ao   (_        Ow
+       ai             aj
+       a    (L06_     'a:
+       ane  (L18_     'anj
+
+.group à
+       à  ''a
+
+.group ä
+       ä  a:
+
+.group â
+       â  ''a:
+
+.group æ
+       æ       E:
+       æ   (_  'E:
+       æn      EN
+       æn  (_  'EN
+
+.group b
+       b   b
+       bb  b
+
+.group c
+       c          k
+       cc         k
+       ch         k
+       cch        k
+       cc  (Y     tS
+       c   (Y     tS
+       ci  (A     tS
+       cci (A     tS
+       cì         tS'i
+       ccì        tS'i
+       cî         tS'i:
+       ccî        tS'i:
+       ci  (L07_  tSj'
+       ci  (L08_  tSj'
+
+.group ç
+       ç         s
+       çion  (_  'sjuN
+
+.group d
+       d   d
+       dd  d
+
+.group e
+       e             e
+       e   (C%       e
+       e   (L03L04_  e:
+       e   (L05_     e:
+       e   (L04_     'e:
+       ei            ej
+       ei   (L06_    'ej
+       en  (_        'eN
+
+.group è
+       è  ''E
+
+.group é
+       é  ''e
+
+.group ë
+       ë  e:
+
+.group ê
+       ê  ''e:
+
+.group eu
+   _)  eu  (ro       ew
+       eu  (C%       Y
+       eu            Y:
+
+.group f
+       f   f
+       ff  f
+
+.group g
+       g          g
+       gg         g
+       gn         n^
+       gh         g
+       ggh        g
+       gg  (Y     dZ
+       g   (Y     dZ
+       gi  (A     dZ
+       ggi (A     dZ
+       gì         dZ''i
+       ggì        dZ''i
+       gî         dZ''i:
+       ggî        dZ''i:
+       gi  (L07_  dZj'
+       gi  (L08_  dZj'
+
+
+.group h
+       h
+
+.group i
+       i             i
+       i   (C%       i
+       i   (L03L04_  i:
+       i   (L05_     i:
+       i   (A        j
+       in  (_        'iN
+   x)  i   (L04_     'i:
+       i   (L06_     'i:
+       i   (L07_     j'
+       i   (L08_     j'
+
+.group ì
+       ì        ''i
+       ì   (A_  ''i:
+
+.group ï
+       ï  i:
+
+.group î
+       î  ''i:
+
+.group j
+       j  dZ
+
+.group k
+       k   k
+       kk  k
+
+.group l
+       l   l
+       ll  l
+
+.group m
+       m      m
+       mm     m
+       m  (K  N
+
+.group n
+       n     n
+       nn    n
+       n (K  N
+
+.group ñ
+       ñ  N
+
+.group o
+       o             u
+       ou            'Ow
+       on  (_        'uN
+       o   (L03L04_  u:
+       o   (L05_     u:
+       o   (æ        w
+
+.group ò
+       ò  ''O
+
+.group ó
+       ó  ''u
+
+.group ô
+       ô  ''u:
+
+.group ö
+       ö  O:
+
+.group p
+       p   p
+       pp  p
+
+.group q
+       q       k
+
+.group r
+       r   R
+       rr  R
+
+.group s
+       s          s
+  L01) s    (A    z
+       s    (L02  z
+       ss         s
+
+.group sc
+       sc          sk
+       sch         sk
+       sc   (c     S
+       sc   (Y     S
+       sci  (A     S
+       scì         S'i
+       scî         S'i:
+       sci  (L07_  Sj'
+       sci  (L08_  Sj'
+
+.group t
+       t   t
+       tt  t
+
+.group u
+       u            y
+   g)  u  (A        w
+   q)  u  (A        w
+       u  (L04_     'y:
+       u  (L03L04_  y:
+       u  (L05_     y:
+
+.group ù
+       ù  ''y
+
+.group ü
+       ü  y:
+
+.group û
+       û  ''y:
+
+.group v
+       v   v
+       vv  v
+
+.group x
+       x        Z
+
+.group y
+       y  j
+
+.group z
+       z   z
+       zz  z
+
+.group
+       _L16_)	: (_L17D_	_%%e_	// say the time
