@@ -1,56 +1,76 @@
-// This file in UTF8 encoded
+// This file is UTF8 encoded
 
-// Options
-// ?1  European Portuguese
-// ?2  Brazilian Portuguese
-// ?3  Epenthetic [I] between consonants
-// ?4  Brazil mbrola voice
+// NAVIGATION HINT:
+// This file is organized in sections and blocks. All sections have blocks.
+// If you want to go to the section that has the the main dictionary, press
+// UP or DOWN keys until you hear "SECTION" "OF" "THE" "MAIN" "DICTIONARY", or use a search tool.
+// If you want to go to the block that has a large list of foreign words, press
+// UP or DOWN buttons until you hear "block" "of" "foregin" "words", or use a search tool.
 
-//  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
-//  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
-//  Any [E] or [O] phonemes in unstressed words must be listed explicitly
+// Conditional rules:
+// ?1	European Portuguese
+// ?2	Brazilian Portuguese
+// ?3	Epenthetic [I] between consonants (used to avoid bad diphones in Brazilian MBROLA voices)
+// ?4	MBROLA ajustments (used to modify nasal vowels, modify diphthongs, and for other adaptations in MBrola voices)
 
-// $1..$7  change the stressed syllable from the 1st to the 7th
-// $text   specify another "sounds like" word, rather than specifying the phoneme string of a word
+// Change the opening of mid vowels:
+//  $alt	change [e] or [o] in the stressed syllable to open [E] or [O].
+//  $alt2	change [E] or [O] in the stressed syllable to closed [e] or [o].
 
-// Note for "pt-pt" [R] is the same sound as [r]
-//      for "pt" [y] is the same sound as [i]
+// Change the stressed syllable:
+// $1..$7	change the stressed syllable from the 1st to the 7th.
+
+// Pronunciation in plain portuguese:
+// $text	specify another "sounds like" word, rather than specifying the phoneme string of a word.
 
 
-// Letters
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
 
-// accent names
-_lig	ligad'u*&
-_acu	ag'udU
-_ac2	ag'udUd'uplU	
-_brv	bR'Evi
-_ced	sedZ'ilj&
-?1 _ced	syd'il^&
-_cir	sirku~Nfl'EksU
-_dia	tR'em&
-_dot	p'oNtU
-_grv	gR'avi
-_hac	ka*'oN
-_mcn	makR'oN
-_ogo	ogon'ek
-_rng	&~n'EU
-?1 _rng	&~n'El
-_stk	b'ax&
-_tld	tS'iU
-?1 _tld	til
 
-// alphabets
+// SECTION OF CHARACTERS
+// This section has blocks of accents and accented letters.
+// It also has blocks of alphabet names and special caracters.
+// If a letter or character has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter prefixed by a _ character.
+
+
+// block of alphabets
 _ar	'a*aby
 _cyr	si*'ilikU
+_el	g*'egU
 _he	eb*'aIkU
+_hi	,i~Nd#i'&~nU
+?1 _ja	Z,&pun'es#
+?2 _ja	Z,apon'es#
+_th	t,aIl&~Nd'es
+_ko	k,o*e'&~nU
 _zh	Sin'es
 
 
-// character names
+// block of accents
+?1 _lig	l,ig&d'u*&
+?2 _lig	l,igad'u*&
+?1 _acu	,&g'udU
+?2 _acu	,ag'udU
+?1 _ac2	,&g'udU||d'uplU
+?2 _ac2	,ag'udU||d'uplU
+_brv	b*'Evy
+?1 _ced	syd#'il^&
+?2 _ced	sed#'il^&
+_cir	sirku~Nfl'EksU
+_dia	t*'em&
+_dot	p'o~NtU
+_grv	g*'avy
+_hac	ka*'oN
+_mcn	m'ak*'oN
+_ogo	ogon'ek
+?1 _rng	&~n'El
+?2 _rng	&~n'EU
+_stk	b'aR#&
+?1 _tld	t#'il
+?2 _tld	t#'iU
 
+
+// block of accented letters
 _á	$accent
 _à	$accent   // à can be a word
 â	$accent
@@ -64,298 +84,1258 @@ _ó	$accent
 õ	$accent
 ú	$accent
 ü	$accent
-ß	_^_DE
+ß	Est|s'Et
 
-v	ve       // not Roman numbers
-x	Sis#
 
-_cap	maI'uskulU
-_sub	||subskR'itU
-_sup	||sob*eskR'itU
-_?A	l'etR&_
-_??	s'imbolU_
-_#32	esp'asU
+// block of special character
+_cap	m,aI'us#kulU
+_sub	||subs#k*'itU
+?1 _sup	||sob*ys#k*'itU
+?2 _sup	||sob*es#k*'itU
+_?A	l'et*&_
+?1 _??	s'imbulU_
+?2 _??	s'imbolU_
 ?1 _#32	Sp'asU
+?2 _#32	esp'asU
 _#9	tab
 
-*	&ste*'iskU	$max3
-=	__igw'&l_	$max3
-.	p'oNtU		$max3
+?1 *	,&s#ty*'is#kU	$max3
+?2 *	,as#te*'is#kU	$max3
+?1 =	__igw'al_	$max3
+?2 =	__igw'aU_	$max3
+.	p'o~NtU		$max3
 +	maIs#		$max3
-%	pors'eINtU	$max3
+?1 %	p,ur#s'e~NtU	$max3
+?2 %	p,or#s'e~NtU	$max3
 &	_'e_
-@	ax'ob&
-$	d'olaR
+?1 @	,&R#'ob&
+?2 @	,aR#'ob&
+$	d'Olar#
 €	'eU*U
-£	l'ibR&
-¥	j'eNy
+£	l'ib*&
+¥	j'eny
 ¢	seNt'avUs#
-§	ses'&U~
-
-_!	Skl&mas'&U~
-_"	'asp&s#
-
-?1   _#	k,ardin'al
-?2   _#	k,ardZin'aU
-_$	s,ifR'&U~
+?1 §	p,&*'ag*&fU
+?2 §	p,a*'ag*&fU
+?1 _!	Skl&m&s'&U~
+?2 _!	,eskl&mas'&U~
+_"	'as#p&s#
+?1 _#	k,&r#d#in'al
+?2 _#	k,ar#d#in'aU
+_$	s,if*'&U~
 _&	'e
-?1   _'	ap'OStr,ofy
-?2   _'	ap'OstRofU
-_(	,abRipa*'eINtezy
-?1   ¶	pa*'agr&fU
-?2   ¶	pa*'agR&fU
-●	s'i*@-kulU
-■	b'ax&ve*@-tSik'aUko*@-tad&
-?1  ÷	divid'idUp'or
-?2  ÷	dZividZ'idUp'or
- ×	v'ezys#
-?1 µ	m'ikrU
-?2 µ	m'ikRU
-_)	f,ES&pa*'eINtezy
-_*	&ste*'iskU
+?1 _'	,&p'Os#t*ufy
+?2 _'	,ap'Os#t*ofU
+?1 _(	,ab*y||p,&*'e~Ntyzy
+?2 _(	,ab*y||p,a*'e~Ntezy
+?1 ¶	p,&*'ag*&fU
+?2 ¶	p,a*'ag*&fU
+●	s'ir#kulU
+?1 ■	b'aR#&||v,e*t#ik'Al||k,u*t'ad&
+?2 ■	b'aR#&||v,e*t#ik'aU||k,o*t'ad&
+÷	d#ivid#'idU||p'or
+×	v'ezys#
+µ	m'ik*U
+?1 _)	f,ES&||p,&*'e~Ntyzy
+?2 _)	f,ES&||p,a*'e~Ntezy
+?1 _*	,&s#ty*'is#kU
+?2 _*	,as#te*'is#kU
 _−	m'enUs
-№	n'u~me*U
-∞	iNfin'itU
-∫	iNtegR'aU
-⅓	u~Nt'e*@-sU
-⅔	doIs#t'e*@-sUs#
-¼	u~Nku'a*@-tU
+?1 №	n'u~my*U
+?2 №	n'u~me*U
+∞	i~Nfin'itU
+?1 ∫	,i~Ntyg*'al
+?2 ∫	,i~Nteg*'aU
+⅓	u~N||t'e*sU
+⅔	doIs#||t'e*sUs#
+¼	u~N||kw'a*tU
 ½	m'eIU
-¾	tRes#kw'a*@-tUs#
-®	xeZistR'adU
-↑	s'Et&as'im&
-↓	s'Et&ab'aISU
-←	s'Et&aes#k'e*@-d&
-?2 →	s'Et&adZi*eIt&
-
-?1  ™	m'a*@-k&xeZiSt'ad&
-?2  ™	m'a*@-k&xeZistR'ad&
-_,	v'irgul&
+¾	t*es#||kw'a*tUs#
+?1 ®	R#eZis#t'adU
+?2 ®	R#eZis#t*'adU
+?1 ↑	s,Et&||,&s'im&
+?2 ↑	s,Et&||,as'im&
+?1 ↓	s,Et&||,&b'aISU
+?2 ↓	s,Et&||,ab'aISU
+?1 ←	s,Et&||Sk'e*d&
+?2 ←	s,Et&||,esk'e*d&
+?1 →	s,Et&||d#,i*'eIt&
+?2 →	s,Et&||d#,i*'eIt&
+?1 ™	m,a*k&||R#eZis#t'ad&
+?2 ™	m,a*k&||R#eZis#t*'ad&
+_,	v'i*gul&
 _-	'ifeIN
-_/	b'aQ&
-_:	d,oIsp'oNtus
-_;	p,oNtu_iv'irgul&
-_<      men'Or
-?1   _=	igw'al
-?2   _=	igw'aU
-_>	maI'Or
-_?	,iNtex,ogas'&U~
-_[	,abRikowS'etSi
-_\	b,ax&,iNvertS'id&
-_]	f,ES&kowS'etSi
-_^	s,irku~Nfl'Eksu
-_´	as'eINtu,ag'udU
-·	p'oNtUseINtR'adU
-__	s,ublin^'adu
-  _`	gR'avi
-_{	,abRiS'avi
-?1   _|	b,ax&v,ertSik'al
-?2   _|	b,ax&v,ertSik'aU
-_}	f,ES&S'avi
-?1   _~	t'il
-?2   _~	tS'iU
-_¡	,eskl&mas,&U~,iNvertS'id&
-_¿	,iNtex,ogas,&U~,iNvertS'id&
+_/	b'aR#&
+_:	d,oIs#||p'o~Ntus#
+_;	p,o~Ntw||i||v'i*gul&
+_<	men'Or#
+?1 _=	igw'al
+?2 _=	igw'aU
+_>	maI'Or#
+?1 _?	,i~NtyR#,ug&s'&U~
+?2 _?	,i~NteR#,ogas'&U~
+?1 _[	,ab*y||k,olS'et#y
+?2 _[	,ab*y||k,oUS'et#y
+?1 _\	b,aR#&||,i~Nvy*t#'id&
+?2 _\	b,aR#&||,i~Nve*t#'id&
+?1 _]	f,ES&||k,olS'et#y
+?2 _]	f,ES&||k,oUS'et#y
+_^	s,irku~Nfl'EksU
+_´	as,e~Ntu||,ag'udU
+·	p,o~NtU||se~Nt*'adU
+__	s,ublin^'adU
+_`	g*'avy
+_{	,ab*y||S'avy
+?1 _|	b,aR#&||v,er#t#ik'al
+?2 _|	b,aR#&||v,er#t#ik'aU
+_}	f,ES&||S'avi
+?1 ~	t#'il
+?2 ~	t#'iU
+?1 _¡	Skl&m&s,&U~||,i~Nvy*t#'id&
+?2 _¡	,eskl&mas,&U~||,i~Nve*t#'id&
+?1 ¿	,i~NtyR#,ug&s,&U~||,i~Nvy*t#'id&
+?2 ¿	,i~NteR#,ogas,&U~||,i~Nve*t#'id&
 
-_"	'abRi;'asp&||d'upl&s#
-?1   º	O*@-din'almaskul'i~nU
-?2   º	o*@-dZin'aUmaskul'i~nU
-?1   ª	O*@-din'alfemin'i~nU
-?2   ª	o*@-dZin'aUfemin'i~nU
-°	gR'aU
+_"	,as#p&||d'upl&
+?1 º	O*d#in'al||mas#kul'i~nU
+?2 º	o*d#in'aU||mas#kul'i~nU
+?1 ª	O*d#in'al||fymin'i~nU
+?2 ª	o*d#in'aU||femin'i~nU
+°	g*'aU
 
 
-// numeric
-//********
 
+
+// SECTION OF NUMBERS
+// This section has proncnciations of cardinal and ordinal numbers.
+// It also contains proncunciations of currency symbols and codes.
+
+// block of cardinal numbers
 ?1 _0	z'E*u
 ?2 _0	z'E*U
-?1 _1	'um
+?1 _1	'uN
 ?2 _1	'u~N
-   _2	d'oIs#
-   _3	tR'es#
-?1 _4	kw'atru
-?2 _4	kw'atRU
-?1 _5	s'iNku
-?2 _5	s'iNkU
-   _6	s'eIs#
-?1 _7	s'Ety
-?2 _7	s'EtSy
-?1   _8	'oItu
-?2      _8	'oItU
-   _9	n'Ovy
-   _10	d'Es#
-
-_11	'oNzy
+?4 _1	'u~:N
+_2	d'oIs#
+_3	t*'es#
+?1 _4	kw'at*u
+?2 _4	kw'at*U
+?1 _5	s'i~Nku
+?2 _5	s'i~NkU
+_6	s'eIs#
+_7	s'Et#y
+?4 _7	s'Ety
+?1 _8	'oItu
+?2 _8	'oItU
+_9	n'Ovy
+_10	d'Es#
+_11	'o~Nzy
 _12	d'ozy
-?1_13	tr'ezy
-?2_13	tR'ezy
-?1_14	k&t'orzy
-?2_14	kat'o*@-zy
-_15	k'iNzy
-?1_16	dyz&s'eis#
-?2_16	d,ezes'eIs#
-?1_17	dyz&s'Ety
-?2_17	d,ezes'EtSy
-?1_18	dyz'Oitu
-?2_18	dez'oItU
-?1_19	dyz&n'Ovy
-?2_19	dezen'Ovy
-?1_2X	v'iNty
-?2_2X	v'iNtSy
-_3X	tR'iNt&
-?1_4X	kw&*'eNt&
-?2_4X	kwa*'eINt&
-_5X	siNkw'eINt&
-?1_6X	sys'eINt&
-?2_6X	ses'eINt&
-?1_7X	syt'eINt&
-?2_7X	set'eINt&
-_8X	oIt'eINt&
-?1   _9X	nuv'eINt&
-?2   _9X	nov'eINt&
+_13	t*'ezy
+?1 _14	k&t'o*zy
+?2 _14	kat'o*zy
+_15	k'i~Nzy
+?1 _16	dyz&s'eis#
+?2 _16	d,ezes'eIs#
+?1 _17	dyz&s'Et#y
+?2 _17	d,ezes'Et#y
+?1 _18	dyz'Oitu
+?2 _18	dez'oItU
+?1 _19	dyz&n'Ovy
+?2 _19	dezen'Ovy
+_2X	v'i~Nt#y
+_3X	t*'i~Nt&
+?1 _4X	kw&*'e~Nt&
+?2 _4X	kwa*'e~Nt&
+_5X	si~Nkw'e~Nt&
+?1 _6X	sys'e~Nt&
+?2 _6X	ses'e~Nt&
+?1 _7X	syt'e~Nt&
+?2 _7X	set'e~Nt&
+_8X	oIt'e~Nt&
+?1 _9X	nuv'e~Nt&
+?2 _9X	nov'e~Nt&
 _1C0	s'eIN
-?1_0C	s'eINtus#
-?2_0C	s'eINtUz
-_1C	s'eINtu
-?1_2C	duz'eINtus#
-?2_2C	duz'eINtUz
-?1_3C	tryz'eINtus#
-?2_3C	tRez'eINtUz
-?1_5C	kin^'eINtus#
-?2_5C	kin^'eINtUz
-?1_6C	seIs'eINtus#
-?2_6C	seIs'eINtUz
-?1_0M1	m'il_
-?2_0M1	m'iU_
-?1_1M1	m'il_
-?2_1M1	m'iU_
+?1 _0C	s'e~Ntus#
+?2 _0C	s'e~NtUs#
+?1 _1C	s'e~Ntu
+?2 _1C	s'e~NtU
+?1 _2C	duz'e~Ntus#
+?2 _2C	duz'e~NtUs#
+?1 _3C	t*yz'e~Ntus#
+?2 _3C	t*ez'e~NtUs#
+?1 _5C	kin^'e~Ntus#
+?2 _5C	kin^'e~NtUs#
+?1 _6C	seIs'e~Ntus#
+?2 _6C	seIs'e~NtUs#
+?1 _0M1	m'il
+?2 _0M1	m'iw
+?1 _1M1	m'il
+?2 _1M1	m'iw
 
-_0M2	milj'o~js#
-_1M2	'u~milj'&U~
-_0M3	bilj'o~js#
-_1M3	'u~mbilj'&U~
-_0M4	trilj'o~js#
-_1M4	'u~ntRilj'&U~
-_0and	i
-_dpt    _v'irgul&
-// _0Z2	seNt'Ezim&     // 100ths
-// _0Z3	mil'Ezim&      // 1000ths
+_0M2	mil^'oI~s#
+_1M2	'u~m||il^'&U~
+_0M3	bil^'oI~s#
+_1M3	'u~m||bil^'&U~
+_0M4	t*il^'oI~s#
+_1M4	'u~n||t*il^'&U~
+_0and	||i
+_dpt	v'ir#gul&
 
-// ordinal numbers
+
+// block of ordinal indicators
 _#º	U
 _#ª	&
 _ord	o
 
-_1o	pRim'eI*
+
+// block of ordinal numbers
+_1o	p*im'eI*
 _2o	seg'u~Nd
-_3o	te*@-s'eI*
-_4o	kw'a*@-t
-_5o	k'iNt
+_3o	te*s'eI*
+_4o	kw'a*t
+_5o	k'i~Nt
 _6o	s'est
-_7o	s'EtSim
+_7o	s'Et#im
 _8o	oIt'av
 _9o	n'on
 _1Xo	d'Esim
 _2Xo	viZ'Ezim
-_3Xo	tRiZ'Ezim	
+_3Xo	t*iZ'Ezim
 _4Xo	kwad*aZ'Ezim
-_5Xo	kiNkwaZ'Ezim
+_5Xo	ki~NkwaZ'Ezim
 _6Xo	seksaZ'Ezim
 _7Xo	septwaZ'Ezim
 _8Xo	oktoZ'Ezim
 _9Xo	nonaZ'Ezim
-_0Co	seINt'Ezim
-_1Co	seINt'Ezim
-_2Co	duseINt'Ezim
-_3Co	tRiseINt'Ezim
-_4Co	kwad*iZeINt'Ezim
-_5Co	kiNZeINt'Ezim
-_6Co	seIseINt'Ezim
-_7Co	septSiZeINt'Ezim
-_8Co	oktSiZeINt'Ezim
-_9Co	noNZeINt'Ezim
+_0Co	se~Nt'Ezim
+_1Co	se~Nt'Ezim
+_2Co	duse~Nt'Ezim
+_3Co	t*ese~Nt'Ezim
+_4Co	kwad*i~NZe~Nt'Ezim
+_5Co	ki~NZe~Nt'Ezim
+_6Co	seIse~Nt'Ezim
+_7Co	sept#i~NZe~Nt'Ezim
+_8Co	okt#i~NZe~Nt'Ezim
+_9Co	noni~NZe~Nt'Ezim
 _0M1o	mil'Ezim
 _1M1o	mil'Ezim
 
 
-// not roman numbers
+// block of not Roman numbers
 cc	$abbrev
 cd	$abbrev
-vi	vi
+li	l'i
+mi	m'i
+vi	v'i
 
 
-// ABBREVIATIONS
-//**************
-aapp	$abbrev 
+// block of common uses of Roman numbers
+(capítulo i)	capítulo 1 $text
+(capítulo v)	capítulo 5 $text
+(capítulo vi)	capítulo 6 $text
+(capítulo x)	capítulo 10 $text
+(capítulo l)	capítulo 50 $text
+(capítulo li)	capítulo 51 $text
+(capítulo c)	capítulo 100 $text
+(capítulo cc)	capítulo 200 $text
+(capítulo cd)	capítulo 400 $text
+(capítulo d)	capítulo 500 $text
+(capítulo dc)	capítulo 600 $text
+(capítulo m)	capítulo 1000 $text
+(capítulo mi)	capítulo 1001 $text
+(inciso i)	inciso 1 $text
+(inciso v)	inciso 5 $text
+(inciso vi)	inciso 6 $text
+(inciso x)	inciso 10 $text
+(inciso l)	inciso 50 $text
+(inciso li)	inciso 51 $text
+(inciso c)	inciso 100 $text
+(inciso cc)	inciso 200 $text
+(inciso cd)	inciso 400 $text
+(inciso d)	inciso 500 $text
+(inciso dc)	inciso 600 $text
+(inciso m)	inciso 1000 $text
+(inciso mi)	inciso 1001 $text
+(século i)	século 1 $text
+(século v)	século 5 $text
+(século vi)	século 6 $text
+(século x)	século 10 $text
+(século l)	século 50 $text
+(século li)	século 51 $text
+
+
+// block of currency symbols
+(r $)	real $text
+(us $)	dólar $text
+(cr $)	cruzeiro $text
+(cz $)	cruzado $text
+
+
+// block of currency codes
+brl	$abbrev
+usd	$abbrev
+eur	$abbrev
+
+
+
+
+// SECTION OF ABBREVIATIONS
+// This section has a block of acronyms that should be read letter by letter such as FBI and CSI.
+// It also contains abbreviations of people titles such as Mr (mister) and Dr (doctor).
+
+// block of acronyms
+aa	$abbrev
+aaa	$abbrev
+aac	$abbrev
+abc	$abbrev
+abcd	$abbrev
+aacd	$abbrev
+aacs	$abbrev
+aapp	$abbrev
 abadv	$abbrev
-abc	$abbrev 
-a.c	'as'e
+abgf	$abbrev
+abi	$abbrev
+abl	$abbrev
+abnt	$abbrev
+abs	$abbrev
+acc	$abbrev
+acm	$abbrev
+acp	$abbrev
+adc	$abbrev
+adct	$abbrev
+adi	$abbrev
+adm	$abbrev
+adn	$abbrev
+adpf	$abbrev
 adsl	$abbrev
-ae	$abbrev 
-aids	$abbrev 
+adv	$abbrev
+ae	$abbrev
+aeb	$abbrev
+aec	$abbrev
+aep	$abbrev
+aes	$abbrev
+afaik	$abbrev
+afp	$abbrev
+agp	$abbrev
+agu	$abbrev
+aib	$abbrev
+aip	$abbrev
+ait	$abbrev
+ak	$abbrev
+am	$abbrev
+amc	$abbrev
+amd	$abbrev
+aml	$abbrev
+amp	$abbrev
+aneel	anel $text
+aln	$abbrev
+anl	$abbrev
+anm	$abbrev
+anmp	$abbrev
+anp	$abbrev
+anpd	$abbrev
+ans	$abbrev
+ansi	$abbrev
+antt	$abbrev
+apca	$abbrev
 apedv	$abbrev
-avc	$abbrev 
-bios	b'i,OS
-d.c	d,es'e
-cne	$abbrev 
-cpu	$abbrev
+ap	$abbrev
+?1 api	,&p,e'i
+?2 api	,ap,e'i
+apl	$abbrev
+apm	$abbrev
+appacdm	$abbrev
+apt	$abbrev
+ars	$abbrev
+asae	$abbrev
+asap	$abbrev
+ascii	'aski
+asdi	$abbrev
+asg	$abbrev
+asp	$abbrev
+aspca	$abbrev
+asl	$abbrev
+atm	$abbrev
+atp	$abbrev
+att	$abbrev
+atv	$abbrev
+?1 avc	,&v,es'e
+?2 avc	,av,es'e
+avg	$abbrev
+avi	$abbrev
+awk	$abbrev
+aws	$abbrev
+azt	$abbrev
+bce	$abbrev
+bci	$abbrev
+bescl	$abbrev
+bfe	$abbrev
+?1 bios	b'i,OS
+bndes	$abbrev
+bnu	$abbrev
+bpa	$abbrev
+bpi	$abbrev
+bse	$abbrev
+btu	b,et,e'u
+byob	$abbrev
+byod	$abbrev
+caged	kaZ'Ed#
+catv	$abbrev
+cbo	$abbrev
+cbtu	$abbrev
+cce	$abbrev
+cci	$abbrev
+cco	$abbrev
+cdi	$abbrev
+cdo	$abbrev
+cdrom	s,ed'e||R#'o~N
+cdu	$abbrev
+cef	s'Efy
+ceo	$abbrev
+cep	s'Epy
+cet	s'Et#y
+cfo	$abbrev
+cgi	$abbrev
+cgu	$abbrev
+cie	$abbrev
+ciee	$abbrev
+cma	$abbrev
+cmo	$abbrev
+cmos	$abbrev
+cna	$abbrev
+cnae	$abbrev
+cnas	$abbrev
+cne	$abbrev
+cnen	$abbrev
+cnes	$abbrev
+cni	$abbrev
+cnis	$abbrev
+cnu	$abbrev
+cpa	$abbrev
+cpi	s,ep,e'i
+cpmi	s,ep,e,emy'i
+cpo	$abbrev
+cpu	s,ep,e'u
 cpuc	$abbrev
-dpoc	$abbrev 
-ecg	$abbrev 
+crispr	$abbrev
+csi	$abbrev
+csce	$abbrev
+csma	$abbrev
+cta	$abbrev
+cti	$abbrev
+cto	$abbrev
+cxi	$abbrev
+datasus data-sus $text
+dba	$abbrev
+dce	$abbrev
+dea	$abbrev
+ddi	$abbrev
+ddos	$abbrev
+dgal	$abbrev
+dgeep	$abbrev
+dju	$abbrev
+dma	$abbrev
+dmca	$abbrev
+dmi	$abbrev
+?1 dna	d,e,En'a
+?2 dna	d,e,eny'a
+dner	$abbrev
+dnit	denite $text
+dnocs	den'Oks#
+doc	d'Ok
+docx	dóc-xís $text
+(doi-codi) dOIk'Od#i
+dpi	d,ep,e'i
+dpoc	$abbrev
+dpu	$abbrev
+dpvat	depevate $text
+dram	d,e||R#'&~N
+dre	$abbrev
+dru	$abbrev
+dsi	$abbrev
+dto	$abbrev
+dvi	$abbrev
+ead	$abbrev
+ean	$abbrev
+eap	$abbrev
+ebc	$abbrev
+ebct	$abbrev
+ec	$abbrev
+ecg	$abbrev
+ecp	$abbrev
+ect	$abbrev
+edi	$abbrev
 edp	$abbrev
-?1   etc	,ets'Et:*&
-?2   etc	,ets'Ete*&
-e.u.a	Eua
+edt	$abbrev
+eec	$abbrev
+eee	$abbrev
+eeg	$abbrev
+eep	$abbrev
+efl	$abbrev
+efta	$abbrev
+eireli	eI*'Eli
+ekg	$abbrev
+emi	$abbrev
+ems	$abbrev
+emt	$abbrev
+enem	en'eIN
+eng	$abbrev
+ensp	$abbrev
+epge	$abbrev
+epp	$abbrev
+erj	$abbrev
+erp	$abbrev
+esf	$abbrev
+esg	$abbrev
+esl	$abbrev
+espn	$abbrev
+ess	$abbrev
+?1 etc	,et|s'Et:*&
+?2 etc	,et|s'Ete*&
+?3 etc	,et|I/s'Ete*&
+etd	$abbrev
+etl	$abbrev
 eua	$abbrev
+eula	$abbrev
+exe	$abbrev
+faa	$abbrev
+fab	f'aby
+faq	$abbrev
 fbi	$abbrev
-hiv	$abbrev 
-(http ://)	ag,atete'pe_
-icc	$abbrev 
-ieee	$abbrev // Institute of Electrical and Electronics Engineers 
-iss	$abbrev 
+fce	$abbrev
+fcup	$abbrev
+fda	$abbrev
+fddi	$abbrev
+fdic	$abbrev
+feb	f'Eby
+fmi	$abbrev
+fnde	$abbrev
+fne	$abbrev
+fnma	$abbrev
+fpo	$abbrev
+fyi	$abbrev
+gfip	$abbrev
+gmat	$abbrev
+gmo	$abbrev
+gpa	$abbrev
+gpu	Z,ep,e'u
+gre	$abbrev
+gru	$abbrev
+gsi	$abbrev
+gte	$abbrev
+gtin	$abbrev
+guid	$abbrev
+gzip	Z'ez'ipI/
+hbo	$abbrev
+hdmi	$abbrev
+hiv	$abbrev
+hmo	$abbrev
+(http ://)	http $text
+(https ://)	https $text
+iaas	$abbrev
+ibc	$abbrev
+ibge	$abbrev
+ibm	$abbrev
+ibmec	$abbrev
+ibqp	$abbrev
+ic	$abbrev
+icaa	$abbrev
+icbm	$abbrev
+icc	$abbrev
+icl	$abbrev
+icm	$abbrev
+icmbio	'is'e'e~myb'iU
+icmp	$abbrev
+icms	$abbrev
+icp	$abbrev
+icu	$abbrev
+icv	$abbrev
+idf	$abbrev
+id	i'de	// accepts plural
+ids	$abbrev $allcaps
+idb	$abbrev
+idc	$abbrev
+idh	$abbrev
+idhm	$abbrev
+iea	$abbrev
+ieb	$abbrev
+iec	$abbrev
+ied	$abbrev
+ieee	$abbrev
+iefp	$abbrev
+ietf	$abbrev
+iets	$abbrev
+ifac	$abbrev
+ifal	$abbrev
+ifam	$abbrev
+ifap	$abbrev
+ifb	$abbrev
+ifba	$abbrev
+ifce	$abbrev
+ifes	$abbrev
+ifg	$abbrev
+ifma	$abbrev
+ifmg	$abbrev
+ifms	$abbrev
+ifmt	$abbrev
+ifpa	$abbrev
+ifpb	$abbrev
+ifpe	$abbrev
+ifpr	$abbrev
+ifrj	$abbrev
+ifrn	$abbrev
+ifro	$abbrev
+ifrr	$abbrev
+ifrs	$abbrev
+ifs	$abbrev
+ifsc	$abbrev
+ifsp	$abbrev
+ifto	$abbrev
+ifx	$abbrev
+igc	$abbrev
+igd	$abbrev
+igf	$abbrev
+igp	$abbrev
+igpm	$abbrev
+ihgb	$abbrev
+imc	$abbrev
+imei	$abbrev
+imf	$abbrev
+imho	$abbrev
+iml	$abbrev
+ims	$abbrev
+imsi	$abbrev
+imt	$abbrev
+incc	$abbrev
+inct	$abbrev
+inl	$abbrev
+inpc	$abbrev
+inpi	$abbrev
+inps	$abbrev
+inss	$abbrev
+iof	$abbrev
+iot	$abbrev
+ip	i'pe	// accepts plural
+ips	$abbrev $allcaps
+ipc	$abbrev
+ipca	$abbrev
+ipcc	$abbrev
+ipi	$abbrev
+ipm	$abbrev
+ipp	$abbrev
+ippc	$abbrev
+ipsd	$abbrev
+iptu	$abbrev
+iptv	$abbrev
+ipva	$abbrev
+irb	$abbrev
+irc	$abbrev
+irpf	$abbrev
+irpj	$abbrev
+irq	$abbrev
+irs	$abbrev
+isbn	$abbrev
+isdn	$abbrev
+isp	$abbrev
+iss	$abbrev
+issn	$abbrev
+issqn	$abbrev
+ist	$abbrev
+isv	$abbrev
+itbi	$abbrev
+itcmd	$abbrev
+itr	$abbrev
+itsm	$abbrev
+iuc	$abbrev
+iurd	$abbrev
 jpeg	Z,Ot&p'Eg
-mpeg	,Emp'Eg
-nba	$abbrev 
+json	dZ'eIs'oN
+kpi	$abbrev
+lba	$abbrev
+lca	$abbrev
+lci	$abbrev
+ldo	$abbrev
+led	l'Ed#
+lgbti	$abbrev
+lgbtqi	$abbrev
+lgbtqia	$abbrev
+lgbtqiap	$abbrev
+lgbtqiapn	$abbrev
+lnec	$abbrev
+lpu	$abbrev
+lse	$abbrev
+ltda	$abbrev $dot
+lxde	$abbrev
+lzma	$abbrev
+lzo	$abbrev
+mba	$abbrev
+mci	$abbrev
+mcid	$abbrev
+mcom	$abbrev
+mcti	$abbrev
+mda	$abbrev
+mdic	$abbrev
+mec	m'Eky
+mercosul	mercossul $text
+mfa	$abbrev
+mkdir   $abbrev
+mma	$abbrev
+mme	$abbrev
+mne	$abbrev
+mpa	$abbrev
+mpeg	,emyp'Eg
+mpla	$abbrev
+mpi	$abbrev
+mpu	$abbrev
+mpac	$abbrev
+mpal	$abbrev
+mpap	$abbrev
+mpam	$abbrev
+mpba	$abbrev
+mpce	$abbrev
+mpes	$abbrev
+mpgo	$abbrev
+mpma	$abbrev
+mppa	$abbrev
+mppe	$abbrev
+mppi	$abbrev
+mpro	$abbrev
+mpse	$abbrev
+mpto	$abbrev
+mre	$abbrev
+mri	$abbrev
+mrna	$abbrev
+mte	$abbrev
+mtu	$abbrev
+naacp	$abbrev
+nba	$abbrev
+nber	$abbrev
+ncaa	$abbrev
+nco	$abbrev
+npu	,enyp,e'u
+nra	$abbrev
+nsa	$abbrev
 nvda	$abbrev
-oms	$abbrev 
-omt	$abbrev 
+ny	$abbrev
+nyc	$abbrev
+nyu	$abbrev
+oab	$abbrev
+oab	,O,ab'e
+oas	$abbrev
+obs	$abbrev
+ocde	$abbrev
+ocp	$abbrev
+ocr	$abbrev
+odf	$abbrev
+odg	$abbrev
+ods	$abbrev
+odt	$abbrev
+oea	$abbrev
+oecd	$abbrev
+ofk	$abbrev
+ofx	$abbrev
+ogm	$abbrev
+ogma	$abbrev
+ohsa	$abbrev
+oid	$abbrev
+oit	$abbrev
+okr	$abbrev
+olp	$abbrev
+oltp	$abbrev
+olx	$abbrev
+omc	$abbrev
+omg	$abbrev
+oms	$abbrev
+omt	$abbrev
+?1 ong	,O,Eng'e
+?2 ong	,O,enyZ'e
+onu	'onu
+opep	op'EpI/
+opf	$abbrev
+opv	$abbrev
+orm	$abbrev
+ortn	$abbrev
 osi	$abbrev
-?1   sa       ,Esj'a
-?1   sos       ,Esj,O'Es
-ue	$abbrev 
+oss	$abbrev
+otf	$abbrev
+otp	$abbrev
+ots	$abbrev
+ovni	'OvI/ni
+paas	$abbrev
+pabx	$abbrev
+paigc	$abbrev
+pcac	$abbrev
+pcal	$abbrev
+pcap	$abbrev
+pcam	$abbrev
+pcba	$abbrev
+pcce	$abbrev
+pces	$abbrev
+pcgo	$abbrev
+pcma	$abbrev
+pcpa	$abbrev
+pcpe	$abbrev
+pcpi	$abbrev
+pcro	$abbrev
+pcse	$abbrev
+pcto	$abbrev
+pcdob	p'es'edUb'e
+pci	$abbrev
+pcie	$abbrev
+pcmcia	$abbrev
+pcmso	$abbrev
+pco	$abbrev
+pcus	$abbrev
+pdca	$abbrev
+pdi	$abbrev
+pdu	$abbrev
+pea	$abbrev
+pga	$abbrev
+pib	p'iby
+pis	p'is#
+pix	p'iks
+pje	$abbrev
+pmbok	$abbrev
+pme	$abbrev
+pmi	$abbrev
+pmo	$abbrev
+pmac	$abbrev
+pmal	$abbrev
+pmap	$abbrev
+pmam	$abbrev
+pmba	$abbrev
+pmce	$abbrev
+pmes	$abbrev
+pmgo	$abbrev
+pmma	$abbrev
+pmpa	$abbrev
+pmpe	$abbrev
+pmpi	$abbrev
+pmro	$abbrev
+pmse	$abbrev
+pmto	$abbrev
+pnab	$abbrev
+pnad	$abbrev
+pnae	$abbrev
+pnas	$abbrev
+pne	$abbrev
+pni	$abbrev
+pnma	$abbrev
+pnud	$abbrev
+ppa	$abbrev
+poc	p'Ok
+pov	p'Ov
+pronasci	p*on'asi
+prouni	p*o'uni
+pse	$abbrev
+psoe	$abbrev
+psol	p'es'Ol
+pstu	$abbrev
+pta	$abbrev
+pto	$abbrev
+qca	$abbrev
+qed	$abbrev
+qi	$abbrev
+ram	ran $text
+rbi	$abbrev
+rca	$abbrev
+rda	$abbrev
+rem	$abbrev
+rne	$abbrev
+rfa	$abbrev
+rfi	$abbrev
+rfid	$abbrev
+rgeu	$abbrev
+rna	$abbrev
+?1 sa	,Esj'a
+saas	$abbrev
+sabesp	sab'EspI/
+sars	$abbrev
+sbi	$abbrev
+sdram	,Esyd,e||R#'&~N
+sedh	$abbrev
+seo	$abbrev
+sepm	$abbrev
+sga	$abbrev
+sids	$abbrev
+sku	$abbrev
+sla	$abbrev
+sme	$abbrev
+sna	$abbrev
+sni	$abbrev
+snba	$abbrev
+?1 sos	,Esj,O'Es
+?2 sos	$abbrev
+spu	$abbrev
+sra	$abbrev
+sras	$abbrev
+sri	$abbrev
+sro	$abbrev
+srta	$abbrev
+ssa	$abbrev
+ssid	$abbrev
+sta	$abbrev
+sto	$abbrev
+suv	$abbrev
+tba	$abbrev
+tce	$abbrev
+tcu	$abbrev
+tdah	$abbrev
+tjac	$abbrev
+tjal	$abbrev
+tjap	$abbrev
+tjam	$abbrev
+tjba	$abbrev
+tjce	$abbrev
+tjes	$abbrev
+tjgo	$abbrev
+tjma	$abbrev
+tjpa	$abbrev
+tjpe	$abbrev
+tjpi	$abbrev
+tjro	$abbrev
+tjse	$abbrev
+tjto	$abbrev
+telebras	telebrás $text
+tiff	$abbrev
+toefl	$abbrev
+tpi	$abbrev
+tpu	t,ep,e'u
+tre	$abbrev
+tse	$abbrev
+tva	$abbrev
+tvi	$abbrev
+ubp	$abbrev
+ubs	$abbrev
+uci	,us,e'i
+ucl	$abbrev
+ucp	$abbrev
+ucs	$abbrev
+udi	$abbrev
+udn	$abbrev
+udp	$abbrev
+udt	$abbrev
+ue	$abbrev
+uea	$abbrev
+ueap	$abbrev
+uece	$abbrev
+ueds	$abbrev
+uefi	$abbrev
+uefs	$abbrev
+ueg	$abbrev
+uel	$abbrev
+uem	$abbrev
+uema	$abbrev
+uemg	$abbrev
+uems	$abbrev
+uenf	$abbrev
+uenp	$abbrev
+uepa	$abbrev
+uepb	$abbrev
+uepg	$abbrev
+uergs	$abbrev
+uerj	$abbrev
+uern	$abbrev
+uerr	$abbrev
+uesb	$abbrev
+uesc	$abbrev
+uezo	$abbrev
+uf	$abbrev
+ufabc	$abbrev
+ufac	$abbrev
+ufal	$abbrev
+ufam	$abbrev
+ufba	$abbrev
+ufc	$abbrev
+ufca	$abbrev
+ufcg	$abbrev
+ufcspa	$abbrev
+ufdpar	'u'Efyd'ep'a*
+ufes	$abbrev
+uff	$abbrev
+uffs	$abbrev
+ufg	$abbrev
+ufgd	$abbrev
+ufj	$abbrev
+ufjf	$abbrev
+ufla	$abbrev
+ufm	$abbrev
+ufma	$abbrev
+ufmg	$abbrev
+ufms	$abbrev
+ufmt	$abbrev
+ufnt	$abbrev
+ufop	$abbrev
+ufpa	$abbrev
+ufpb	$abbrev
+ufpe	$abbrev
+ufpel	'u'Efyp'EU
+ufpi	$abbrev
+ufpr	$abbrev
+ufr	$abbrev
+ufra	$abbrev
+ufrb	$abbrev
+ufrgs	$abbrev
+ufrj	$abbrev
+ufrn	$abbrev
+ufrpe	$abbrev
+ufrr	$abbrev
+ufrrj	$abbrev
+ufs	$abbrev
+ufsb	$abbrev
+ufsc	$abbrev
+ufscar	'u'Efy;'Esyk'a*
+ufsj	$abbrev
+ufsm	$abbrev
+uft	$abbrev
+uftm	$abbrev
+ufu	$abbrev
+ufv	$abbrev
+ufvjm	$abbrev
+ufw	$abbrev
+ugt	$abbrev
+uhf	$abbrev
+uk	$abbrev
+uml	$abbrev
+unac	$abbrev
+unb	$abbrev
+undf	$abbrev
+unifor	$alt
+unirio	uniR#'iU
 unts	$abbrev
+upc	$abbrev
+upp	,up,ep'e
+?1 url	,u,Ex'El
+?2 url	,u,Exy'Ely
+urss	$abbrev
+urv	$abbrev
 usb	$abbrev
+usda	$abbrev
+usg	$abbrev
+usmc	$abbrev
+usmca	$abbrev
+usn	$abbrev
+usp	'us#py
+usr	$abbrev
+uss	$abbrev
+ussr	$abbrev
+utc	$abbrev
+utf	$abbrev
+utfpr	$abbrev
+uti	,ut,e'i
+utp	$abbrev
+uuid	$abbrev
+uv	$abbrev
+ux	$abbrev
+vba	$abbrev
+vci	$abbrev
+vga	$abbrev
+vih	$abbrev
+vram	v,e||R#'&~N
+vtol	$abbrev
+wasp	$abbrev
+wcag	$abbrev
+wma	$abbrev
+wpa	$abbrev
+wto	$abbrev
+wwi	$abbrev
+wwii	$abbrev
+xfce	$abbrev
+xpto	$abbrev
+yaml	$abbrev
+yhwh	$abbrev
+ymca	$abbrev
+ymha	$abbrev
+ywca	$abbrev
+ywha	$abbrev
+zap	z'apI/
+zip	z'ipI/
 
 
-dr	dowtor	$dot
-dra	dowt'o*&	$dot
-mr	m'ister	$dot
-mrs	m'irsys	$dot
-prof	pR'Of	$dot
-profº	pR,ofes'or
-profª	pR,ofes'o*&
-engº	eInZen^'eI*U
-engª	eInZen^'eI*&
-nº	n'u~me*U
-sr	$dot
-?1 sra	,Es;'Errj'a	$dot
-?2 sra	$dot
+// block of abbreviations of months
+jan	$hasdot
+fev	$hasdot
+mar	$hasdot
+abr	$hasdot
+mai	$hasdot
+jun	$hasdot
+jul	$hasdot
+ago	$hasdot
+set	$hasdot
+out	$hasdot
+nov	$hasdot
+dez	$hasdot
 
-// articles
+
+// block of abbreviations of personal titles
+// advogado, advogada
+advº		advogado $text
+advª		advogada $text
+(adv . º)	advogado $text
+(adv . ª)	advogada $text
+// doutor, doutora
+dr		doutor $text $dot
+dr		$abbrev $allcaps
+drs		doutores $text $dot
+drs		$abbrev $allcaps
+dra		doutora $text $dot
+dra		$abbrev $allcaps
+dras		doutoras $text $dot
+dras		$abbrev $allcaps
+(dr . a)	doutora $text
+(dr . ª)	doutora $text
+(dr . as)	doutoras $text
+// enfermeiro, enfermeira
+enfº		enfermeiro $text
+enfª		enfermeira $text
+(enf . º)	enfermeiro $text
+(enf . ª)	enfermeira $text
+// engenheiro, engenheira
+engº		engenheiro $text
+engª		engenheira $text
+(eng . º)	engenheiro $text
+(eng . ª)	engenheira $text
+// excelentíssimo, excelentíssima
+exmo		excelentíssimo $text $dot
+exma		excelentíssima $text $dot
+exmos		excelentíssimos $text $dot
+exmas		excelentíssimas $text $dot
+(ex . mo)	excelentíssimo $text
+(ex . ma)	excelentíssima $text
+(ex . mos)	excelentíssimos $text
+(ex . mas)	excelentíssimas $text
+// ilustríssimo, ilustríssima
+ilmo		ilustríssimo $text $dot
+ilma		ilustríssima $text $dot
+ilmos		ilustríssimos $text $dot
+ilmas		ilustríssimas $text $dot
+(il . mo)	ilustríssimo $text
+(il . ma)	ilustríssima $text
+(il . mos)	ilustríssimos $text
+(il . mas)	ilustríssimas $text
+// mister, mistress
+mr		m'ister $dot
+mr		$abbrev $allcaps
+mrs		m'irsys $dot
+mrs		$abbrev $allcaps
+// nossa senhora
+(n . sra)	nossa senhora $text
+(n . sr . ª)	nossa senhora $text
+(n . sr . a)	nossa senhora $text
+// professor, professora
+prof		professor $text $dot
+profs		professores $text $dot
+profa		professora $text $dot
+profas		professoras $text $dot
+profº		professor $text
+profª		professora $text
+(prof . º)	professor $text
+(prof . ª)	professora $text
+(prof . a)	professora $text
+(prof . as)	professoras $text
+// santo, santa
+sto		santo $text $hasdot
+sta		santa $text $hasdot
+(s . to)	santo $text
+(s . ta)	santa $text
+// senhor, senhora, senhorita
+sr		senhor $text $dot
+sr		$abbrev $allcaps
+srs		senhores $text $dot
+srs		$abbrev $allcaps
+sres		senhores $text $dot
+sres		$abbrev $allcaps
+sra		senhora $text $dot
+sra		$abbrev $allcaps
+sras		senhoras $text $dot
+sras		$abbrev $allcaps
+srta		senhorita $text $dot
+srta		$abbrev $allcaps
+(sr . ª)	senhora $text
+(sr . a)	senhora $text
+(sr . es)	senhores $text
+(sr . as)	senhoras $text
+(sr . ta)	senhorita $text
+(srt . ª)	senhorita $text
+(srt . a)	senhorita $text
+// sua excelência
+(s . exa)	sua excelência $text
+(s . ex . ª)	sua excelência $text
+(s . ex . a)	sua excelência $text
+(s . ex . as)	suas excelências $text
+// sua senhoria
+(s . sa)	sua senhoria $text
+(s . s . ª)	sua senhoria $text
+(s . s . as)	suas senhorias $text
+// vossa excelência
+(v . exa)	vossa excelência $text
+(v . ex . ª)	vossa excelência $text
+(v . ex . a)	vossa excelência $text
+(v . ex . as)	vossas excelências $text
+// vossa senhoria
+(v . sa)	vossa senhoria $text
+(v . s . ª)	vossa senhoria $text
+(v . s . as)	vossas senhorias $text
+
+
+// block of abbreviations used in Law
+§§		parágrafos $text
+art     	artigo $text $hasdot
+arts     	artigo $text $hasdot
+artº		artigo $text
+(art . º)	artigo $text
+cód		código $text $hasdot
+(cód civ)	código civil $text
+(cód com)	código comercial $text
+(cód mil)	código militar $text
+(cód pen)	código penal $text
+(cód proc)	código de processo $text
+(cód proc civ)	código de processo civil $text
+(cód proc pen)	código de processo penal $text
+(cód trab)	código do trabalho $text
+
+
+// block of other abbreviations
+aptº		apartamento $text
+(apt . º)	apartamento $text
+atte		atenciosamente $text $hasdot
+(at . te)	atenciosamente $text
+fl		folha $text $hasdot
+fls		folhas $text $hasdot
+núm		número $text $hasdot
+nº		número $text
+n°		número $text
+(n . º)		número $text
+(n . °)		número $text
+pág		página $text $hasdot
+págs		páginas $text $hasdot
+séc		século $text $hasdot
+sécs		séculos $text $hasdot
+tel		telefone $text $hasdot
+tels		telefones $text $hasdot
+
+
+
+
+// SECTION OF PARTS OF SPEECH
+// This section contains blocks for the parts of speech such as article and pronoun.
+// It also contains a block for auxiliary verbs such as to be and to have.
+
+// block of articles
 o	$u+	$nounf
 a	$u+	$nounf
 os	$u+	$nounf
 as	$u+	$nounf
-?1 a    & $u+   $nounf
+?1 a	& $u+   $nounf
 
-um	$u	$nounf
-uma	$u	$nounf
-uns	$u	$nounf
-umas	$u	$nounf
+um	$u+	$nounf
+uma	$u+	$nounf
+uns	$u+	$nounf
+umas	$u+	$nounf
 
 
-// pronouns
+// block of pronouns
 eu	$u+	$verbf
 tu	$u+	$verbf
 você	vose	$u2+	$verbf
@@ -376,13 +1356,16 @@ lo	lU	$u
 las	$u
 los	$u
 se	$u
+lhe	l^y $u
+lha	$u
+lho	$u
 
-?2	este	$u+	$nounf	'estSy       // this
-?2	estes	$u+	$nounf       // these
+?2	este	$u+	$nounf	'estSy	// this
+?2	estes	$u+	$nounf		// these
 ?2	esta	'Est& $u+	$nounf
 ?2	nesta	$u+	$nounf
-?2	neste	$u+	$nounf	n'estSi      //in this
-?2	esse	$u+	$nounf	'esi       // that
+?2	neste	$u+	$nounf	n'estSi	//in this
+?2	esse	$u+	$nounf	'esi	// that
 essa	'Es&  $u+	$noun
 desse	$u+	$nounf
 desta	$nounf
@@ -395,9 +1378,10 @@ daquela $u+ $nounf
 daquele	$alt2 $nounf
 praquela $u+ $nounf
 praquele	$alt2 $nounf
-	que	$u      // pronunciation is in pt_rules
+que	$u+	 // pronunciation is in pt_rules
 
-// possessive adjectives
+
+// block of possessive adjectives
 meu	$u+	$nounf  // meus
 minha	$u+	$nounf  // minhas
 teu	$u+	$nounf
@@ -417,7 +1401,8 @@ nela	$u+
 neles	$u1+
 nelas	$u+
 
-// prepositions
+
+// block of prepositions
 de	$u	$nounf // of,from
 do	dU	$u	$nounf
 da	$u	$nounf
@@ -428,7 +1413,7 @@ duma	$u	$nounf
 duns	$u	$nounf
 dumas	$u	$nounf
 
-em	$u	$noun  // in,on,at
+em	$u	$nounf  // in,on,at
 no	nU	$u	$nounf
 na	$u	$nounf
 num	$u	$nounf
@@ -437,16 +1422,15 @@ nuns	$u	$nounf
 numas	$u	$nounf
 
 por	$u $nounf	// by,for,through
-pelo	$u $nounf
-?2	pela	$u $nounf
+pelo	pelU 	$u1+ $nounf
+pela	pel&	$u1+ $nounf
 
 ao	$u	$nounf
-à	,a:
-à	$atend $atstart $accent
+à	,a:	$nounf
 aos	$u	$nounf
 às	$u	$nounf
 para	$u		// for,to
-pro	pRU	$u	$nounf
+pro	p*U	$u	$nounf
 pra	$u	$nounf
 pros	$u	$nounf
 pras	$u	$nounf
@@ -455,8 +1439,8 @@ prà	$u	$nounf
 pròs	$u	$nounf
 pràs	$u	$nounf
 
-com	$u		// with
-?2	sem		// without
+com	$u+		// with
+?2	sem	$u+	// without
 ?2	até	$u	// until
 ?2	desde	$u	// from,since
 ?2	entre		// between,among
@@ -467,11 +1451,9 @@ com	$u		// with
 ?2	durante
 
 
-// conjunctions
-?1	e	i $u	// and
-?2	e	i $u   // and
-se	$u+	$verbf		// if
-
+// block of conjunctions
+e	_:i	$u+		// and
+se	$u	$verbf		// if
 
 ?2	mas	$u	// but
 ?2	porém		// however
@@ -479,148 +1461,140 @@ se	$u+	$verbf		// if
 ?2	contudo		// nevertheless
 
 ?2	ou	$u	// or
+?4	ou	ow $u	// or
+
 ?2	quer		// whether
 
 ?2	assim		// thus
 ?2	portanto	// therefore
 
-?2	porque		// because
-?2	pois		// because
-?2	como	$u	// as
+?1	porque		p'or#ky		// because
+?2	porque		pUr#k'y		// because
+?2 	(por que) 	por#||k'e	// why
+?2 	(por que é) 	por#||k,y||'E	// why
+?2	pois	$u+	// because
+?2	como	$u+	// as
+?2	como	$atstart	// as
 
 ?2	embora		// although
 ?2	apesar		// despite
-
 
 ?2	caso			// if
 ?2	(desde que)	d'esdZiki/ 	// provided that
 ?2	(exceto se)	es'Etusi/  	// unless
 ?2	(salvo se)	s'alvusi/  	// unless
 
-?2	(para que)	p,a*&ki/          // so that
-
-
+?2	(para que)	p,a*&ki/	// so that
 
 ?2	quando			// when
-?2	onde	$u	// where
+?2	onde	$u+	// where
 ?2	apenas			// as soon as
 ?2	mal			// as soon as, hardly
 ?2	(logo que)	l'Oguki/		// as soon as
-?2	(antes que)     '&~NtSiski/ 	// before
-?2	(depois que)    dep'oIski/ 	// after
-?2	(sempre que)    s'eNpriki/ 	// whenever
+?2	(antes que)	'&~NtSiski/ 	// before
+?2	(depois que)	dep'oIski/ 	// after
+?2	(sempre que)	s'eNpriki/ 	// whenever
 ?2	enquanto 			// while
 
 
-// negative
+// block of negatives
+// empty
 
-// questions
+// block of questions
+// empty
 
+// block of auxiliary verbs
+// verbo ser (to be)
+ser	$u+
+sou	$u+
+é	E	$u+
+és	Es	$u+
+somos	$u+
+sois	$u+
+são	$u+
 
-// auxillary verbs  (be, have, can, etc)
-	// ser, to be
-ser	$u
-sou	$u
-é	E  $u
-é	$atend $atstart $accent
-és	Es $u
-somos	$u
-sois	$u
-são	$u
+era	E*&	$u1+	// .. imperfect
+éramos	$u+
+éreis	$u+
+eram	E*&U~	$u1+
 
-era	E*& $u1	// .. imperfect
-éramos	$u
-éreis	$u
-eram	E*&U~  $u1
+fui	$u+		// .. preterite
+foste	fos#tSy	$u1+	// & fostes
+foi	$u+
+fomos	$u+
 
-fui	$u      // .. preterite
-foste	fostSy $u1   // & fostes
-foi	$u
-fomos	$u
+fora	$u+		// .. pluperfect
+fôramos	$u+
+fôreis	$u+
+foram	fo*&U~	$u1+
 
+serei	$u+		// .. future
+será	$u+
+(será que) $atstart
+seremos	$u+
+sereis	$u+
+serão	$u+
 
-fora	$u      // .. pluperfect
-fômamos	$u
-fôreis	$u
-foram	fo*&U~  $u1
+seria	$u+	   	// .. conditional
+seríamos	$u+
+seríeis	$u+
+seriam	$u+
 
-serei	$u	// .. future
-?2 será	se*a	$u2
-seremos	$u
-sereis	$u
-serão	$u
+// verbo estar (to be, also)
+estar	$u+
+estou	$u+
+está	$u+
+estamos	$u+
+estais	$u+
+estão	$u+
 
-seria	$u      // .. conditional
-seríamos $u
-seríeis	$u
-seriam	$u
+estava	$u+
+estávamos	$u+
+estavam	$u+
 
-	// estar - to be
-estar	$u
-estou	$u
-está	$u	est'a
-estamos	$u
-estais	$u
-estão	$u
+estive	$u+
+esteve	$u+
 
-estava	$u
-estávamos	$u
-estavam	$u
+// verbo ter (to have)
+ter	$u+
+tenho	$u+
+tens	$u+
+tem	$u+
+temos	$u+
+tendes	$u+
+têm	$u+
 
-estive	$u
-?2 esteve	estevy	$u2
-estivemos	$u
-estiveram	$u
-estiver	$u
+tinha	$u+
+tínhamos	$u+
+tínheis	$u+
+tinham	$u+
 
-estarei	$u
-estará	$u
-estaremos	$u
-estarão	$u
+tive	$u+
+tiveste	$u+
+teve	$u+
+tivemos	$u+
+tivestes	$u+
+tiveram	$u+
 
+tivera	$u+
+tivéramos	$u+
+tivéreis	$u+
 
-      // ter - to have
-ter	$u
-tenho	$u
-tens	$u
-tem	$u
-temos	$u
-tendes	$u
-têm	$u
+terei	$u+
+terás	$u+
+terá	$u+
+teremos	$u+
+tereis	$u+
+terão	$u+
 
-tinha	$u
-tínhamos	$u
-tínheis	$u
-tinham	$u
-
-tive	$u
-tiveste	$u
-teve	tevy	$u1
-tivemos	$u
-tivestes	$u
-tiveram	$u
-
-tivera	$u
-tivéramos	$u
-tivéreis	$u
-tiveram	$u
-
-terei	$u
-terás	$u
-terá	$u
-teremos	$u
-tereis	$u
-terão	$u
-
-      // fazer - to do
+// verbo fazer (to do)
 fazer	$u+
 faço	$u+
 faz	$u+
 fazemos	$u+
 fazem	$u+
 
-
-	// poder - can
+// verbo poder (can)
 poder	$u+
 posso	$u+
 pode	$u+
@@ -639,153 +1613,205 @@ puderam	$u+
 poderei	p%ode*eI $u+
 poderá	p%ode*a $u+
 poderemos	p%ode*'emUs $u+
-podeão	p%ode*&U~ $u+
+poderão	p%ode*&U~ $u+
 
+possa		$u+
+possas		$u+
+possamos	$u+
+possais		$u+
+possam		$u+
 
-	// ir - to go  (used to make future tense)
+// verbo ir (to go, used to make future tense)
 vou	$u+
 vai	$u+
 vamos	$u+
 vão	$u+
 
-	// haver
+// verbo haver (there are)
 há	$u+
 
 
-// Letter names
-_a      a
-_e      E
+// block of letter names
+_a	a
+_e	E
 _o	O
-a       a $atend
-e       E $atend        // assume letter-e at end of sentence
-o       O $atend
+a	a $atend $sentence	// assume (open) letter-a at end of sentence
+e	e $atend $sentence	// assume (mid-close) letter-e at end of sentence
+o	o $atend $sentence	// assume (mid-close) letter-o at end of sentence
 
 
-// some common adjectives and adverbs
-alguns		$u	$noun	// some
-algumas		$u	$noun	// some
-não		n,&U~	$verbf $strend	// not
+// block of adverbs
+não	$u+	$verbf
+não	n'&U~ 	$verbf $allcaps
+?4 não	n'&U~: 	$verbf $allcaps
 nunca	$u+	$verbf
 sempre	$u+	$verbf
-qualquer	$u	$nounf
-quaisquer	$u	$nounf
 jamais	$u+	$verbf
+também	$u+	$verbf
 
 
-// MAIN WORD DICTIONARY
-//*********************
-// $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
-// $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
+
+// SECTION OF THE MAIN DICTIONARY
+// This section contains blocks of native and foreign words.
+// It also contains blocks of native and foreign people names such as Mario and Darwin.
+// Adictionaly, there is a block of company and product names such as Nike and Apple.
+
+// block of native words
+abadessa	$alt2
+abeto		$alt2 $noun
 aborto		$alt  $verb
-abortos	$alt2
+abortos		$alt2
 absorta		$alt2
+abrolhos	$alt
 acerto		$alt2 $noun
 acertos		$alt2
 acocho		$alt2 $noun
+açorda		$alt2
 acordo		$alt $verb
 acervo		$alt2
 adorno		$alt  $verb
+adrede		$alt2
+aedo		$alt
 aeroporto	$alt2
 aflore		$alt
+agridoce	$alt2
+agulheta	$alt2 $noun
+aids		'aId#,ys#
 alcateia	$alt
 alcova		$alt2
 alegrete	$alt2
+alegreto	$alt2
 alegro		$alt2 $noun
 almoço		$alt $verb
+(ama-seca)	$alt2
 ameba		$alt
 amores		$alt2
+amorfo		$alt
+amorfa		$alt
 amorno		$alt
 amuleto		$alt2
 ampola		$alt2
 ampulheta	$alt2
+anacoreta	$alt2
 anchieta	$alt2
 anchova		$alt2
 andorra		$alt2
-andrea	$alt
-andreia	$alt
+andrea		$alt
+andreia		$alt
+anodo		$alt2
+antigolpe	$alt
 antonieta	$alt2
 apego		$alt2 $noun
-apelo		$alt2  $noun
-apelos	$alt2
+apelo		$alt2 $noun
+apelos		$alt2
 aposto		$alt  $verb
 aperto		$alt2 $noun
-apertos	$alt2
+apertos		$alt2
 apneia		$alt
+apodo		$alt2
 apoio		$alt $verb
-aqueia	$alt
+aqueia		$alt
 arredores	$alt
 arremesso	$alt2 $noun
+arrojo		$alt2 $noun
 arrocho		$alt2 $noun
 arrochos	$alt2
 arroto		$alt2 $noun
-arrotos	$alt2
+arrotos		$alt2
 arroz		$alt2
+arrozes		$alt2
+asbesto		$alt2
 assembleia	$alt
+asserto		$alt2 $noun
 assopro		$alt2 $noun
 ateia		$alt
 aterro		$alt2
 aterro		$alt $verb
+atropelo	$alt2 $noun
+athletico	$2 $alt
 avesso		$alt2
-axé		aSE
+avozinha	,avOz'in^&
+axé		aS'E
 azeda		$alt $verb
 azedo		$alt $verb
-açores	$alt2
-bairro		b'aIxU
-baitola	$alt2
+azoto		$alt2
+açores		$alt2
+baeta		$alt2
+bairro		b'aIR#U
+baitola		$alt2
+baitolo		$alt2
 balancete	$alt2
+bancarrota	$alt2
 bangladesh	$alt
 banquete	$alt2
+barrete		$alt2
 barreto		$alt2
+borrego		$alt2
 basileia	$alt
 bastonete	$alt2
-baviera	$alt
+baviera		$alt
 beco		$alt2
 besta		$alt2
-beça	$alt
+beça		$alt
 bilhete		$alt2
+birosca		$alt
 bissulfeto	$alt2
 blazer		bl'eIzer
 blazers		bl'eIzers
 boca		$alt2
 boceta		$alt2
-boda	$alt2
+boda		$alt2
 bofe		$alt
+boldo		$alt2
 boleia		$alt
 bolero		$alt
+bolinha		b,Ol'in^&
 bolo		$alt2
-bolo		$alt  $verb
+bolo		$alt $verb
 borboleta	$alt2
+bororo		$alt2
 borra		$alt2 $noun
+botafogo	b,Otaf'ogU
 boto		$alt2 $noun
 boxe		$alt
-bracelete		$alt2
+bracelete	$alt2
+branquense	b*,&~Nk'e~Nsy
 brejo		$alt
 bromelha	$alt
 broto		$alt2 $noun
-buceta	$alt2
+broxa		$alt
+buceta		$alt2
 cabresto	$alt2
 cacete		$alt2
+cacholeta	$alt2
 cacoete		$alt2
 caderneta	$alt2
 cadete		$alt2
-caibro		k'aIbRU
-cãibra		k'&~IbR&
+cafezinho	k,afEz'in^U
+caibro		k'aIb*U
+cãibra		k'&~Ib*&
 caixeta		$alt2
-caldeia	$alt
+caldeia		$alt
+cambeta		$alt2
 camelha		$alt
 camiseta	$alt2
 canaleta	$alt2
 cananeia	$alt
+canhestro	$alt2
 canhoto		$alt2
+?1 caoco	$alt2
 capacete	$alt2
 caractere	$alt
 carbureto	$alt2
+(carne-seca)	$alt2
 caroços		$alt
 carrapeta	$alt2
+carreto		$alt2
 carroça		$alt
 casebre		$alt
 catacreses	$alt
+cateter		$alt
 cateto		$alt2
 catequeses	$alt
 catorze		$alt2
@@ -793,20 +1819,25 @@ cavalete	$alt2
 cebola		$alt2
 cefaleia	$alt
 centopeia	$alt
+cepa		$alt2
+cepo		$alt2
 cerebelo	$alt2
 cerca		$alt $verb
 cerco		$alt $verb
-chamego	$alt2
-chamego	$alt $verb
-chapeleta		$alt2
+cerro		$alt2 $noun
+chamego		$alt2
+chamego		$alt $verb
+chapeleta	$alt2
 chaveta		$alt2
 choco		$alt2 $noun
 choça		$alt
 chofer		$alt
+chope		$alt2
 choro		$alt2 $noun
 chovesse	$alt2
 chuleta		$alt2
 chupeta		$alt2
+cincerro	$alt2
 clamores	$alt2
 clero		$alt
 cloreto		$alt2
@@ -827,62 +1858,88 @@ começo		$alt $verb
 concerto	$alt2 $noun
 concertos	$alt2
 concordo	$alt
+condessa	$alt2
 conforto	$alt  $verb
+conserto	$alt2 $noun
+consertos	$alt2
 console		$alt2 $noun
 consolo		$alt2 $noun
 constroem	$alt
+contragolpe	$alt
 controle	$alt2 $noun
 controles	$alt2
 controles	$alt $verb
 controlo	$alt2 $noun
 conveses	$alt
+corinthians	$2
 coreia		$alt
-cores	$alt2
-cores	$alt $verb
+cores		$alt2
+cores		$alt $verb
 coreto		$alt2
 corneta		$alt2
 cornos		$alt
 coro		$alt2
 coro		$alt $verb
-corpete	$alt2
+corpete		$alt2
 corpos		$alt
 corto		$alt
-corveia	$alt
+corveia		$alt
 corveta		$alt2
 corvos		$alt
 costeleta	$alt2
 coto		$alt2
+cotoco		$alt2
 cotovelo	$alt2
-cozem	$alt
+covo		$alt
+cozem		$alt
 cratera		$alt
 crede		$alt2
 credo		$alt
-crimeia	$alt
+crimeia		$alt
+crosta		$alt2
+cureta		$alt2
+(d'água)	dágua $text
 decoreba	$alt
 decoro		$alt2 $noun
 degelo		$alt2
+(d'el rei)	del rei $text
+denodo		$alt2
+derma		$alt
+derredor	$alt
 desacerto	$alt2
+desafogo	$alt2 $noun
 desaforo	$alt2
 desamores	$alt2
 desapego	$alt2
 desapego	$alt $verb
-desassossego		$alt2 $noun
+desassossego	$alt2 $noun
 desconfortos	$alt2
-desconsolo		$alt2 $noun
-descontrole		$alt2 $noun
+desconsolo	$alt2 $noun
+descontrole	$alt2 $noun
 descordo	$alt
 descorno	$alt
-	desemprego	$alt2
+desembolso	$alt2
+desembolso	$alt $verb
+desemprego	$alt2
 desemprego	$alt $verb
 desenvolto	$alt2
 desespero	$alt2
 desespero	$alt $verb
 desfecho	$alt2
 desmantelo	$alt2 $noun
+desaperto	$alt2 $noun
+desassossego	$alt2 $noun
+desconcerto	$alt2 $noun
+desgoverno	$alt2 $noun
+desinteresse	$alt2 $noun
+desmazelo	$alt2 $noun
+desordem	$alt
+desordens	$alt
 despojo		$alt2 $noun
 despojos	$alt
 desporto	$alt2
 desprezo	$alt2 $noun
+destempero	$alt2 $noun
 desse		$alt2
 desse		$alt $verb
 deste		$alt2
@@ -890,56 +1947,75 @@ deste		$alt $verb
 destempero	$alt2 $noun
 destemperos	$alt2
 desterro	$alt2
+destroço	$alt2 $noun
+destroços	$alt $noun
 destroem	$alt
 deteriore	$alt
+desvelo		$alt2 $noun
 deveras		$alt
 dez		$alt
+diabrete	$alt2
 diarreia	$alt
+diedro		$alt2
 diego		$alt2
 diogo		$alt2
 discordo	$alt
 dissabores	$alt2
-?1  dispneia	dISpyn'EI&
-?2  dispneia	dZIspyn'EI&
+dispneia	d#Is#pyn'EI&
 dobro		$alt2
 dobro		$alt $verb
 doce		$alt2
+doce		d'osy $stem	// docemente
 dogma		$alt
-dores	$alt2
+dores		$alt2
 dorminhoco	$alt2
 dorminhocos	$alt
-doso	$alt
+doso		$alt
 doze		$alt2
 dueto		$alt2
 edson		$alt
-egeia	$alt
-eleia	$alt
-emborco	$alt
+egeia		$alt
+eh		'E
+eleia		$alt
+eletrodo	$alt2
+embolso		$alt2
+embolso		$alt $verb
+emborco		$alt
+empola		$alt2 $noun
 emprego		$alt2
 emprego		$alt2 $noun
 encasqueta	$alt
+enchova		$alt2 $noun
 encosto		$alt  $verb
 endereço	$alt  $verb
-endoide	$alt2
-eneias	$alt
+endoide		$alt2
+endosso		$alt2 $noun
+eneias		$alt
 enforco		$alt
-engodo	$alt2
+engodo		$alt2 $noun
 engordo		$alt
+enlevo		$alt2 $noun
 enredo		$alt  $verb
 enrosco		$alt2 $noun
 ensosso		$alt2
 enterro		$alt2 $noun
+entojo		$alt2 $noun
 entorto		$alt
 entroso		$alt
 envelope	$alt
 enxaqueca	$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
+erg		$alt
 eritreia	$alt
 erro		$alt2
 erro		$alt $verb
 esboço		$alt  $verb
+escabelo	$alt2 $noun
+escalpelo	$alt2 $noun
+escaler		$alt
 escopeta	$alt2
+escopro		$alt2 $noun
 escova		$alt2
 escova		$alt $verb
 escovo		$alt
@@ -947,12 +2023,16 @@ esforço		$alt  $verb
 esforços	$alt
 esgoto		$alt2
 esgoto		$alt $verb
+esmero		$alt2 $noun
+esmoler		$alt
+espatuleta	$alt2 $noun
 espectro	$alt
 espeto		$alt2 $noun
-espetos	$alt2
+espetos		$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
+estafeta	$alt2
 ester		$alt
 estilete	$alt2
 estocolmo	$alt
@@ -960,28 +2040,38 @@ estojo		$alt2
 estorno		$alt  $verb
 estorvo		$alt  $verb
 estrela		$alt2
+estroço		$alt2 $noun
+estroços	$alt $noun
 estrofe		$alt
 estrogonofe	$alt
 eta		$alt2
 europa		$alt
 europeia	$alt
 evangelho	$alt
-?2  ex es
+ex		es#
+excerto		$alt2 $noun
 exagero		$alt $verb
 exegeses	$alt
 exorto		$alt
-?2 expert	Eksp'E*@-t
-?2 experts	Eksp'E*@-ts
+?2 expert	Eksp'E*t
 explore		$alt
+faceto		$alt2 $noun
 falangeta	$alt2
+falsete		$alt2
+(farinha-seca)	$alt2
 farofa		$alt
 farolete	$alt2
-fatora	$alt
-felisteia		$alt
+fatora		$alt
+felisteia	$alt
+felpa		$alt2
+feltro		$alt2
+ferrete		$alt2
 fezes		$alt
+fezinha		f,Ez'in^&
 filete		$alt2
+filipeta	$alt2
 flerte		$alt2 $noun
-florete	$alt2
+florete		$alt2
 foda		$alt2 $verb
 fodo		$alt2
 fogo		$alt2
@@ -992,19 +2082,28 @@ folheto		$alt2
 fonseca		$alt2
 fora		$alt
 fora		$alt2 $verb
+foro		$alt2 $noun
+foros		$alt $noun
 forca		$alt2
 força		$alt2
 força		$alt $verb
 forço		$alt
 formos		$alt2
 forro		$alt $verb
-fosso	$alt2
+fosso		$alt2
+franquense	f*,&~Nk'e~Nsy
 frescores	$alt2
+fresa		$alt
 frevo		$alt2
 fulgores	$alt2
-gafanhoto		$alt2
+gabiroba	$alt
+guabiroba	$alt
+gafanhoto	$alt2
+gaiolo		$alt2
 galera		$alt
 galeto		$alt2
+galhardete	$alt2
+galheta		$alt2
 galhofa		$alt
 galileia	$alt
 gangorra	$alt2
@@ -1013,83 +2112,140 @@ gelo		$alt2
 gelo		$alt $verb
 genebra		$alt
 gesso		$alt2
+gleba		$alt
 gloso		$alt
+godo		$alt2
+gonococo	$alt
 gonorreia	$alt
-gol		gow
+gol		gol#
+golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
+goro		$alt2
 gororoba	$alt
 gosto		$alt $verb
 gota		$alt2
+goto		$alt2
 governo		$alt2
 governo		$alt $verb
 gozo		$alt2 $noun
-gozos	$alt2
+gozos		$alt2
 graveto		$alt2
+grelo		$alt2
+greta		$alt2
 groselha	$alt
 grosso		$alt2
 groso		$alt
 gueto		$alt2
+grilheta	$alt2
+haltere		$alt
+hanseníase	h,&~Nsen'i&zy
+hebreia		$alt
+hera		$alt
+herpes		$alt
+heliporto	$alt2
 hemorroida	$alt
-hidreto	$alt2
+heterotermo	$alt
+hidreto		$alt2
+hiper		$1
+historieta	$alt2
 hoje		$alt2
-homero	$alt
+?1 homem	$alt
+?1 homens	$alt
+homeotermo	$alt
+homero		$alt
+?1 homo		$alt
 horrores	$alt2
+ibiam		ibian $text
 ideia		$alt
+indecoro	$alt2
 inovo		$alt
 interesse	$alt2
 interesse	$alt $verb
 interregno	$alt
+insosso		$alt2
 iodo		$alt2
 ioga		$alt
-isolda	$alt2
+isolda		$alt2
+jarrete		$alt2
 jereba		$alt
+joça		$alt
 jogo		$alt2
 jogo		$alt $verb
 jogos		$alt
 joguete		$alt2
-judeia	$alt
+joinha		Z,O'in^&
+jovens		Z'OveINs
+judeia		$alt
+junior		$1
+juniores	$alt2
 jurubeba	$alt
-lacerda	$alt
+labrego		$alt2
+lacerda		$alt
 lagosta		$alt2
+lazareto	$alt2
 lambreta	$alt2
 lembrete	$alt2
 lepra		$alt
-leses	$alt
+lero		$alt
+leses		$alt
 leste		$alt2 $verb
-letra	$alt2
-?2   lhe	l^y
-licores	$alt2
+letra		$alt2
+libreto		$alt2
+licores		$alt2
 lisboeta	$alt2
 lodo		$alt2
+logo		$alt2 $noun
+logro		$alt2 $noun
 lopes		$alt
-lutero	$alt
+lorpa		$alt2
+lutero		$alt
 macete		$alt2
+machete		$alt2
 maioneses	$alt
+malacacheta	$alt2
+malhete		$alt2
 maniçoba	$alt
+manojo		$alt2
+mantelete	$alt2
+manzorra	$alt2
+marchete	$alt2
 marieta		$alt2
 mariposa	$alt2
+marnoto		$alt2
+marosca		$alt
 martelete	$alt2
+masseter	$alt
 megera		$alt
 melhor		$alt
+melopeia	$alt
+meningococo	$alt
+menosprezo	$alt2 $noun
+meseta		$alt2
 meta		$alt $noun
+micareta	$alt2
+micromicete	$alt2
+minarete	$alt2
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
-mister	$alt
 mocreia		$alt
 modelo		$alt2
 modelo		$alt $verb
 moeda		$alt
 moem		$alt
 mofo		$alt $verb
-mogno	$alt
+mogno		$alt
 molho		$alt2 $noun
 montenegro	$alt2
-mor	$alt
+mor		$alt
 morcego		$alt2
 morda		$alt2
 moreia		$alt
+mormente	m,O*m'e~Nt#y
+mornos		$alt
+mosquete	$alt2
+motete		$alt2
 mui		m'UI
 muleta		$alt2
 mutreta		$alt2
@@ -1097,89 +2253,128 @@ namoro		$alt2 $noun
 naquela		$nounf
 naquele		$alt2 $nounf
 nervo		$alt2
-niceia	$alt
-ninfeta	$alt2
-nitreto	$alt2
+(nhe nhem)	n^,e||n^'eIN
+(nhe nhe nhem)	n^,e||n^e||n^'eIN
+niceia		$alt
+ninfeta		$alt2
+nitreto		$alt2
 novelo		$alt2
 odisseia	$alt
-oeste	$alt
-off		$alt
-onu		$1
+oca		$alt $noun
+ocra		$alt
+ocre		$alt
+oeste		$alt
+ofego		$alt2 $noun
+?1 ogro		$alt
+oh		'O
 olho		$alt2 $noun
 olhos		$alt
 onomatopeia	$alt
 opereta		$alt2
-orno	$alt
+ordem		$alt
+ordens		$alt
+orno		$alt
 osso		$alt2
 ostra		$alt2
-outorgo	$alt
+ostrogodo	$alt2
+ovo		$alt2
+outorgo		$alt
 pacheco		$alt2
-paexa		paeSa
+paexa		pa'eSa
+paeja		pa'eZa
 paella		pa'el^&
 palacete	$alt2
-palermo	$alt
+palerma		$alt
+palermo		$alt
 palimpsesto	$alt2
 palheta		$alt2
 palhoça		$alt
 panaceia	$alt
 pangeia		$alt
 pantera		$alt
+papeleta	$alt2
 papoco		$alt2 $noun
-paradoxo		$alt
+paquete		$alt2
+paradoxo	$alt
 parede		$alt2
 pateta		$alt
 peba		$alt
-pedro	$alt2
-peixoto	$alt2
-pela		$alt2
-pelo		$alt2
+pecilotermo	$alt
+pedro		p'ed*U
+(pedro i)	p'ed*U||p*,im'eI*U
+(pedro ii)	p'ed*U||s,eg'u~NdU
+peixoto		$alt2
+pela		$alt $verb
+pelo		$alt $verb
+pelo		$alt2 $noun
 penhores	$alt2 $noun
+pera		$alt2
 perda		$alt2
 pereba		$alt
 peres		$alt
-perneta	$alt2
+perneta		$alt2
 peroba		$alt
-pesadelo		$alt2
+pesadelo	$alt2
 peses		$alt
 peseta		$alt2
 peso		$alt $verb
-pigmeia	$alt
+peta		$alt2
+pezão		pEz'&U~
+pezinho		p,Ez'in^U
+picareta	$alt2
+pigmeia		$alt
 piloto		$alt2 $noun
-pilotos	$alt2
+pilotos		$alt2
 pior		$alt
+pipeta		$alt2
 pipoco		$alt2 $noun
-piquete	$alt2
+piquete		$alt2
 plateia		$alt
 plebeia		$alt
-poderem	$alt2
+pletora		$alt
+poderem		$alt2
 polca		$alt
+polimorfa	$alt
+polimorfo	$alt
 pompeia		$alt
-popa	$alt2
+pontalete	$alt2
+(ponta-seca)	$alt2
+popa		$alt2
 porcos		$alt
-porque		$alt2
 porra		$alt2
 porto		$alt $verb
 pose		$alt2
 poxa		p'oS&
-poços	$alt
+poços		$alt
+pozinho		p,Oz'in^U
+prancheta	$alt2
+práxis		p*'aksis
 primavera	$alt
 primores	$alt2
-program	$alt
+priora		$alt2
+program		$alt
 proso		$alt
 prosopopeia	$alt
 proveta		$alt2
-punheta	$alt2
+punheta		$alt2
+quaresma	$alt
 quarteto	$alt2
 quatorze	$alt2
 queda		$alt
 quede		$alt2
+quepe		$alt
 quimera		$alt
+quiosque	$alt
+quirera		$alt $noun
 quitinete	$alt
 quinteto	$alt2
 ramalhete	$alt2
 rancores	$alt2
-ranheta	$alt2
+ranheta		$alt2
 raposa		$alt2
+rastelo		$alt2 $noun
+reboco		$alt2 $noun
+rebojo		$alt2 $noun
 recomeço	$alt $verb
 reconstroem	$alt
 recordo		$alt
@@ -1187,495 +2382,3699 @@ recorto		$alt
 rede		$alt2
 reembolso	$alt2
 reembolso	$alt $verb
-reforço		$alt  $verb
+refego		$alt2
+refle		$alt
+reforço		$alt $verb
 reforços	$alt
-refresco	$alt  $verb
+refresco	$alt $verb
+regabofe	$alt
+regelo		$alt2 $noun
 rego		$alt2 $noun
 relevo		$alt2
 relevo		$alt $verb
+remelexo	R#,emel'eSU
 remoem		$alt
 remorso		$alt
 renovo		$alt $verb
 represa		$alt2
-represes		$alt
+represes	$alt
+requebro	$alt2 $noun
 retorno		$alt $verb
-reveses	$alt
+retreta		$alt2
+reveses		$alt
+revesso		$alt2 $noun
+revolto		$alt2 $noun
+ricochete	$alt2
 rigores		$alt2
 risoto		$alt2
-robson	$alt
-rock		$alt
+robe		$alt
+robson		$alt
+rodo		$alt2 $noun
 roem		$alt
 rola		$alt2 $noun
 roleta		$alt2
 rolete		$alt2
 rolo		$alt2 $noun
-rose	$alt2
+roquete		$alt2
+rose		$alt2
 roseta		$alt2
+rosinha		x,Oz'in^&
+roto		$alt2
+roupeta		$alt2
 rubores		$alt2
 sabonete	$alt2
 sabores		$alt2
-saibro		s'aIbRU
+saibro		s'aIb*U
+saieta		$alt2
+sarampelo	$alt2
 sarjeta		$alt2
 seborreia	$alt
 seca		$alt2 $noun
+seca		s'ek& $stem	// secamente
 secas		$alt2
 seco		$alt2
 seco		$alt $verb
-sede	$alt2
-sedes	$alt
+sede		$alt2
+sedes		$alt
 selo		$alt2
 selo		$alt $verb
+serro		$alt2 $noun
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
-serdes	$alt2
+serdes		$alt2
 sinagoga	$alt
 sinopse		$alt
+sob		$alt2
+sobrolhos	$alt
 soco		$alt2
 soco		$alt $verb
+socorros	$alt
 sogra		$alt
-soldo	s'owdU
-soldo	$alt $verb
-soldo	$alt $verb
-solta	s'owt&
-solta	$alt $verb
-solto	s'owtU
-solto	$alt $verb
+soldo		s'ol#dU
+soldo		$alt $verb
+soldo		$alt $verb
+solta		s'oUt&
+solta		$alt $verb
+solto		s'oUtU
+solto		$alt $verb
+somente		s,Om'e~Nt#y
+sozinha		s,Oz'in^&
+sozinho		s,Oz'in^U
 sopa		$alt2
-sopeses	$alt
+sopeses		$alt
 sopro		$alt2 $noun
 sorvete		$alt2
-sossego     	$alt2 $noun
-suborno		$alt  $verb
+sossego		$alt2 $noun
+subemprego	$alt2 $noun
+suborno		$alt $verb
 sudoreses	$alt
 sufoco		$alt2 $noun
 sufocos		$alt2
 sulfeto		$alt2
 sulfureto	$alt2
-super		s'Uper
+super		$1
 suporto		$alt
 suor		suOr
+tabuleta	$alt2
+tapeba		$alt
+taioba		$alt
 tambores	$alt2
+tamborete	$alt2
 tapera		$alt
 tapete		$alt2
-tebas	$alt
+tarjeta		$alt2
+tatupeba	$alt
+tebas		$alt
 temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
-terdes	$alt2
-terma	$alt
+terdes		$alt2
+terma		$alt
 test		$alt
 terrores	$alt2
 teses		$alt
 teta		$alt2
-tijolo	$alt2
-tijolos	$alt
+tijolo		$alt2
+tijolos		$alt
+toco		$alt2 $noun
 togo		$alt2
+toldo		$alt2 $noun
+tolete		$alt2
 topo		$alt2 $noun
-torno		$alt  $verb
+torniquete	$alt2
+torno		$alt $verb
 tornozelo	$alt2
+torpe		$alt2
 torre		$alt2 $noun
 torres		$alt2
 torreta		$alt2
 torro		$alt
 toso		$alt
-totens	$alt
+totens		$alt
+transecto	t*,&~Ns'EktU
+transecular	t*,&~Nsekul'ar#
+transepto	t*,&~Ns'EptU
+transexual	t*,&~Nseksu'al#
+transexualidade	t*,&~Nseks,ualid'ad#y
+transexualismo	t*,&~Nseks,ual'is#mU
+transiberiano	t*,&~Nsibe*i'&~nU
+transubstanciação	t*,&~Nsubst&~Nsias'&U~
+transónico	t*,&~Ns'OnikU
+transônico	t*,&~Ns'onikU
 transtorno	$alt $verb
 traqueia	$alt
+traquete	$alt2
 travesso	$alt2
 tremores	$alt2
 treta		$alt2
 trevo		$alt2
-trocha	$alt2
+trocha		$alt2
 troco		$alt2 $noun
 tropa		$alt
 tropeço		$alt2 $noun
-tropeços		$alt2
+tropeços	$alt2
 trombeta	$alt2
-ureia	$alt
-vanessa		$alt2
+ureia		$alt
 vareta		$alt2
 vera		$alt
 verbete		$alt2
 verborreia	$alt
 verde		$alt2
+verga		$alt2 $noun
+versalete	$alt2
+verseto		$alt2
+vieses		$alt
 vileta		$alt2
-vinheta	$alt2
-vodca	v'OdZik&
+vinheta		$alt2
+virtuose	$alt2
+viscondessa	$alt2
+visigodo	$alt2
+vodca		$alt
+vodka		$alt
 voga		$alt
-voice	$alt
+voltarete	$alt2
+vovozinha	v,ovOz'in^&
+vozinha		v,Oz'in^&
+xador		$alt
+xarelete	$alt2
 xarope		$alt
+xepa		$alt2
+xerelete	$alt2
 xereta		$alt2
-xeroxes	$alt
+xeroxes		$alt
 zelo		$alt2 $noun
+zelo		$alt2
 zorra		$alt2
 
-// foreign words
-?2 álcool	'aUkow
-?1 alt        'alt
-?1 back       b'Ek
-?2   bahamas	bax'&~m&s
-?2  backup        bEk'&p
-?2  backups     bEk'&ps
-bad  bEd
-bank	beINk
-bacon	b'eIkoN
-?2 basebol	beIzyb'Ow
-beatle  b'itow
-beatles  b'itows
-black  blEk
-blind      bl'aind
-?2 blue	blu
-?1 braille    b:r'aily
-?2        Braille        bR'aili
-?1 cancel     k'&ns'El
-?1 caps       k'aps
-?2 cappuccino	kaputS'inU
+
+// block of foreign words
+(ab aeterno)	,abI/||aIt'E*no
+(abat jour)	,aba||Z'ur#
+(ab initio)	,abI/||in'isjo
+accelerando	atSeler#'&Ndo
+accordatura	akor#dat'u*a
+(ac / dc)	,eIs,i||d,is'i
+action		'EkS,oN
+(ad aeternum)	,ad#I/||aIt'E*n,u~N
+adagio		,ad'aZjo
+(ad cautelam)	,ad#I/||kaUt'El,&~N
+(ad hoc)	,ad'Ok
+(ad judicia)	,ad#I/||Zud'isja
+(ad negotia)	,ad#I/||neg'Osja
+(ad quem)	,ad#I/||k'e~N
+(ad referendum)	,ad#I/||R#efe*'e~Nd,u~N
+adware		'adw,Er
+affair		af'Er#
+affaire		af'Er#
+(agnus dei)	,agnus#||d'eI
+agrément	ag*em&~
+aileron		EleR#o~
+air		'Er#
+airbag		,Er#b'Eg
+airfryer	,Er#f*'aIer#
+airline		,Er#||l'aIny
+(à la carte)	,a||la||k'a*ty
+alibi		'alibi
+(al qaeda)	al#k'aId&
+(alter ego)	,al#ter#||'Ego
+album		'al#buN
+?2 álcool	'aUkoU
+alien		'ali,eN
+alive		&l'aIv
+all		Ol#
+allegretto	aleg*'eto
+allegro		al'eg*o
+?1 alt		'alt
+?2 alt		'aUtS
+aluminium	$3
+aluminum	$2
+always		'OlweIs
+amsterdam	amsterdan $text
+and		&~Nd
+angledozer	,&Ngol#d'oUzer#
+annapolis	$2
+angstrom	$1
+anonymous	$2
+anschauung	'&NS,awuN
+anschluss	'&NSl,Us
+antidoping	,&~Nt#id'OpiN
+antidumping	,&~Nt#id'&~NpiN
+antispam	,&~Nt#isp'&~N
+apartheid	,apar#t'aId#
+apfelstrudel	'apI/felst*,udel
+aplomb		apl'o~
+app		'EpI/
+appassionato	a,pasjon'ato
+appeal		@p'il
+appoggiatura	a,podZat'u*a
+apport		ap'Or#
+approach	&p*oUtS
+(a quo)		,a||kw'O
+argot		ar#g'o
+argumentum	$3
+arpeggiatura	a*pedZat'u*a
+(art déco)	ar#||dek'o
+(art nouveau)	ar#||nuv'o
+artsy		'ar#t|si
+assemblage	as&Nbl'aZy
+assembler	as'e~Nbler#
+associated	as,osy'eIted#
+atelier		a,telj'e
+audiobook	,aUd#jUb'Uk
+aufklärung	'aUfkl,E*uN
+auschwitz	'aUSv,it|s
+austin		$1
+autocross	aUtokr#Os#
+autumn		'Ot&N
+(avant première)	av,&~||p*emj'Er#
+away		&w'eI
+baby		b'eIby
+back		b'EkI/
+backbone	b,EkI/b'oUny
+backdoor	b,EkI/d'Or#
+backdrop	b,EkI/d*'OpI/
+backend		b,EkI/'eNd#I/
+backgammon	b,EkI/g'&m,oN
+background	b,EkI/g*'aUNd#
+backhand	b,EkI/h'eNd#
+backland	b,EkI/l'eNd#
+backlight	b,EkI/l'aIt#
+backlog		b,EkI/l'OgI/
+backoffice	b,EkI/'Ofisy
+backstage	b,EkI/st'eIZI/
+backup		bEk'&p
+backups		bEk'&ps
+backward	b'Ekw,@rd
+bacon		b'eIk,oN
+bad 		bEd#
+badland		b,Ed#I/l'eNd#
+badminton	b,Ed#I/m'iNt,oN
+baguette	bag'Et#y
+bahamas		bah'&~m&s
+bake		b'eIk
+baker		b'eIker#
+ball		b'Ol#
+ballet		bal'E
+band		b'&~Nd#
+(band aid)	b,&~Nd||'eId#
+bank		b'eINk
+banking		b'eINkiN
+bangkok		b&Nk'Ok
+banner		b'&~ner#
+barmaid		b,ar#m'eId#I/
+barman		b,ar#m'eIN
+(bas fond)	ba||f'o~
+baseball	b,eIzyb'Ol#
+basebol		b,eIzyb'Ol#
+basketball	b,asketI/b'Ol#
+batch		b'EtS
+(bateau mouche)	bat'o||m'uS
+bâton		bat'o~
+bauhaus		baUh'aUs
+bayeux		baj'e
+bayern		b'aIern
+beach		b'i:tS
+beagle		b'igol
+beatle		b'itoU
+beatles		b'itoUs
+beatnik		b'itn'ik
+beer		b'i@*
+behavior	bIh'eIvior#
+beige		b'EZy
+berceuse	bEr#s'ezI/
+bergère		bEr#Z'Er#
+berkeley	b'E*klej
+bering		b'E*iNgI/
+beryllium	$2
+best		b'Est#
+betting		b'EtiN
+bibelot		bibel'o
+bidet		bid'E
+bidon		bid'o~
+big		b'igI/ $only
+bikini		$2
+biodiesel	b,iod#'izel#
+birmingham	b'i*miNg,&~N
+biscuit		biskw'i
+biseauté	bizot'e
+bistrot		bist*'o
+bit		b'it# $only
+bitcoin		b,it#k'Oin
+bitter		b'iter#
+black		bl'Ek
+blackout	bl,Ek'aUt#
+blade		bl'eId#y
+blanquette	$alt
+blasé		blaz'e
+blind		bl'aINd#
+blister		bl'ister#
+blitz		bl'it|sI/
+blitze		bl'it|se
+blitzkrieg	blit|sk*igI/
+bloat		bl'oUt#
+blocause	blok'aUze
+blocausse	blok'aUse
+block		bl'Ok
+blockbuster	bl,OkI/b'&ster#
+blockchain	bl,OkI/tS'eIN
+blowup		bloU'&p
+blue		bl'u
+blueberry	bl,ub'Ery
+blues		bl'us#
+bluetooth	blut'uT
+bluff		bl&f
+(blu ray)	bl,u||r'eI
+blush		bl&S
+board		b'or#d
+boat		b'oUt#
+boarder		b'or#der#
+bodegón		bodeg'oN
+body		b'O*i
+bodyboard	b,O*ib'or#d
+bodycam		b,O*ik'&~N
+boho		b'oUhoU
+boiler		$1 $alt
+boîte		bu'at#
+bolshoi		$alt
+(bon jovi)	boN||Z'Ovi
+(bon vivant)	bo~||viv&~
+bonbonnière	bo~bo~ni'Er#y
+boogie		b'ugi
+bookmarker	bukm'ar#ker#
+boomer		b'umer#
+booster		b'us#ter#
+bordeaux	bOr#d'o
+bordereau	bOr#de*'o
+borg		b'OrgI/
+boson		$alt
+boss		$alt
+boston		$1 $alt
+bot		b'Ot#
+botnet		b,Ot#n'Et#
+boudoir		budw'ar#
+boulevard	b,ulev'ar#
+boulle		b'uly
+bouquet		buk'E
+bourbon		bur#b,oN
+bourrée		buR#'e
+boutade		butad#
+boutique	b,ut#'iky
+boxeur		boks'Er#
+boxing		b'OksiN
+braciola	b*'atSjola
+braille		b*'aIly
+brain		b'*eIN
+(brain rot)	b,*eIN||r'Ot
+brainstorm	b,*eINst'O*mI/
+brainstorming	b,*eINst'O*miN
+brandy		br'eNdi
+brasserie	b*aseR#'i
+breach		br'itS
+break		b*'eIk
+breaking	b*'eIkiN
+breakdance	b*,eIkI/d'eNsy
+breakfast	b*'Ekf@st
+bremsstrahlung	b*'eNst*aluNg
+brevet		b*ev'E
+brick		br'Ik
+bridge		br'idZI/
+brie		b*'i
+briefing	b*'ifiN
+(brise bise)	b*,iz||b'iz
+(brise soleil)	b*,iz||sol'EI
+broadcast	b*Odk'Est#
+broadcasting	b*Odk'Est#iN
+broadside	b*Ods'aId#
+broadway	b*'OdweI
+broccoli	b*'Okoli
+brooklyn	b*'ukliN
+brother		b*'Oder#
+brown		b*'aUn
+brownie		b*'aUni
+browning	b*'aUniN
+browser		b*'aUzer#
+brunch		b*&NtS
+brunette	$alt
+buckingham	b'@kiNh,&~N
+budget		b'&dZet#
+buffer		b'&fer#
+buffering	b'&fe*iN
+buffet		buf'e
+buffalo		b'ufalU
+bug		b'&g $only
+build		b'il#d#
+bullying	b'uliN
+bunker		b'&Nker#
+bungalow	b&~Ngal'oU
+bureau		bi*'o
+burlesque	$alt
+burndown	b,&rnd'aUN
+burnout		b,&rn'aUt#
+busdoor		b,&sd'Or#
+bush		b'US
+bushmen		b'US|meIN
+business	b'isn,es#
+businessman	b'isn,esm&N
+button		b'&t,oN
+(bypass)	b,aIp'Es
+(by pass)	b,aI||p'Es
+bye		b'aI
+byte		b'aIt#y
+cabaret		kaba*E
+cabaretier	kaba*etj'e
+cake		k'eIk
+call		k'Ol#
+california	$3 $alt
+caltech		kal#t'Ek
+cam		k'&~N $only
+camaïeu		kamaI'e
+camber		k'eNber#
+cambridge	k'eNbr,idZy
+camembert	kam&~bEr#
+cameraman	k&me*ameIN
+campanile	k&Npan'ile
+campi		$1
+camping		$1
+campus		$1
+cannellone	kanel'one
+?1 cancel	k'&Ns'El
+cantabile	k&Nt'abile
+cantata		k&Nt'ata
+canyon		k'Eni,oN
+capri		$1
+cappuccino	kaputS'inU
+?1 caps		k'aps
+caput		k'aput
+card		k'ar#d#
+cardan		kar#d'&~
+carnegie	k'a*negi
+carnet		kar#n'E
+carpaccio	ka*p'atSjU
+càrpano		k'ar#pano
+(carpe diem)	k'ar#pe||d'i,e~N
+carrière	kaR#jEr#
+carry		k'Eri
+carrying	k'EryiN
+cash		k'ES
+cashback	k,ESb'Ek
+cashmere	kaSym'ir#
+cassiopeia	$alt
+cassoulet	kasul'E
+cast		k'Est#
+casting		k'EstiN
+castrati	kast*'ati
+castrato	kast*'ato
+catch		k'EtS
+catering	k'eIteriN
+cattivo		kat'ivo
+caucus		k'Ok&s
+(causa mortis)	k'aUz&||m'Or#tis#
+(causa petendi)	k'aUz&||pet'e~Ndi
+causerie	kozeR#'i
+causeur		koz'Er#
+causeuse	koz'Ezy
+céladon		selad'o~
 ?2 center	s'eNter
-?1 com        kom
-?1 ctrl       k'oNt:r,Ol
-?2 control	k'oNtRow
-doc        d'Ok
-?1 delete     d'il'it
-?1 design     d,iz'ain
-?2 design     dez'aIn
-?2   designer	dez'aIner
-?2   designers	dez'aIners
-?2 desktops	deskt'Ops
-?1  dj         d,i:dZ'eI
-?2   diesel	dZ'izEU
-?2   doha	d'ox&
-?1 down       d'a,wn
-?2   down   d'aUN
-?1 download   d'a,wnl'oud
-?2 download		daUNl'owd
-?2 downloads		daUNl'owds
-?3 download        dau~Nl'owd
-drive	dR'aIv
-?1 end        'end
+cermet		s'&r#met
+chagrin		Sag*&~
+(chaise longue)	SEz||l'o~g
+chambertin	S&~ber#t'&~
+champagne	S,&~Np'&~n^y
+champignon	S&~pin^'o~
+champion	$1
+changeant	S&~Z'&~
+(changer de dame)	S&~Z'e||de||d'&my
+(changez de dame)	S&~Z'e||de||d'&my
+chantilly	S&~Nt#i'li
+chardonnay	Sar#don'e
+charleston	S'arlyst,oN
+charter		S'arter#
+chartreuse	Sar#t*'ez
+chasselás	Sasyl'a
+chat		S'Et#
+chatbot		S,Et#||b'Ot#
+chatgpt		S,Et#||Z,ep,et'e
+château		Sat'o
+chateaubriand	Satob*i'&~
+châtelaine	Satyl'EnI/
+chauffage	Sof'aZy
+chauffeur	Sof'Er#
+chauvet		Sov'E
+chelsea		S'El#si
+check		S'Ek
+checkin		S,Ek'iN
+(check-in)	S,Ek'iN
+checking	S'EkiN
+checklist	S,Ek'list#
+checkout	S,Ek'aUt#
+(check out)	S,Ek'aUt#
+checkup		S,Ek'&p
+(check up)	S,Ek'&p
+cheddar		S'Edar#
+cheese		S'iz
+cheeseburger	S'iz||b'ur#ger#
+cheesecake	S'is||k'eIk
+chef		S'Ef
+chemise		Sem'izI/
+chemisier	Semizj'e
+cherry		S'Eri
+chester		S'Ester#
+cheyenne	SaI'eny
+chez		S'e
+chianti		kj'&Nti
+chic		S'ik
+chiffrier	Sif*i'e
+chihuahua	Siw'aw&
+chili		$1
+chimichurri	SimitS'u*i
+chip		S'ip
+chippendale	S,ipeNdejl#
+chmod		s,eag'a||m'OdI/
+chown		s,eag'a||'oUN
+chômamge	Som'&NZI/
+(chop suey)	tS'OpsuI
+(chow chow)	S,aUS'aU
+christi		$1
+chromium	$1
+chutney		S'&t#ni
+ciao		tS'ao
+cielito		sjel'ito
+cinemascope	sinem,ask'oUpI/
+cinquecento	S,iNkweS'eNto
+civet		siv'E
+clean		kl'iN
+clear		kl'i@r
+clearance	kl'i@r&Ns
+clearing	kl'i@riN
+cleveland	kl'ivyl&Nd#
+click		kl'ikI/
+cliffhanger	kl,ifI/h'eNger#
+clip		kl'ipI/
+clipper		$1
+clipping	$1
+cloche		kl'OS
+cloisonné	klw,azOn'e
+closeup		kl'oz||'&p
+(close up)	kl'oz||'&p
+close		kl'ozy
+closet		kl'ozyt#
+cloud		kl'aUd#
+clown		kl'aUN
+club		kl'&bI/ $only
+clumber		kl'&Nber#
+cluster		kl'&ster#
+coach		k'oUtS
+coachee		koUtS'i
+coaching	k'oUtSiN
+cocker		k'Oker#
+cockpit		kOkp'it#
+cocktail	kOkI/t'ejl#
+cocotte		$alt
+code		k'oUd#
+coding		k'oUd#iN
+coder		k'oUder#
+codex		k'oUdeks
+coffee		k'Ofi
+cognac		konj'ak
+coin		k'Oin
+cold		k'old#
+collant		kOl'&~
+college		k'OleZI/
+collie		k'Oli
+color		k'Olor#
+colored		k'Ol@rd
+colour		k'Olor#
+colt		k'olt#
+columbia	$2
+comintern	k,omi~Nt'E*ny
+commerce	k'ome*sy
+commodity	$2 $alt
+commodities	commoditys $text
+commonwealth	k,omoNw'El#T
+communard	komun'ar#
+compact		koNp'akI/t#
+compagnonnage	ko~p&njOn'aZI/
+complainte	ko~pl&~t
+compliance	koNpl'aI&Ns
+complot		ko~pl'o
+comptoir	ko~tw'ar#
+computer	koNpj'uter#
+computing	koNpj'ut#iN
+comunero	k,omun'e*o
+concierge	ko~sj'Er#ZI/
+conditio	ko~Nd'isjo
+condom		k'oNd,oN
+condottiere	koNdoti'E*e
+condottiero	koNdoti'E*o
+confetti	ko~Nf'Et#i
+connaisseur	ko~nEsEr#
+connecticut	kon'Et#ik&t#
+consommé	ko~sOm'e
+container	k,oNt'eIner#
+conteur		ko~tEr#
+continuum	$2
+?2 control	k'oNt*oU
+cookie		k'uki
+cooktop		k,ukt'Op
+cooler		k'uler#
+copilot		k,oUp'aIlot#
+copy		k'Opi
+copyright	k,Opir'aIt
+coquette	$alt
+coquille	kok'ij
+corbeille	kor#b'Ej
+(cordon bleu)	kor#d'o~||bl'e
+cornell		$1 $alt
+corner		k'Or#ner#
+corpus		k'O*pUs#
+cortile		kor#t'ile
+cosplay		k,Os#pl'eI
+(côte rôtie)	k'ot||R#ot'i
+coterie		kotyR#i
+cotillon	kotijo~
+cotswold	k'Ot|swol#d
+cottage		k'Ot&Z
+couché		kuS'e
+coudé		kud'e
+counter		k'aUNter#
+counterglow	k,aUNter#gl'ow
+country		k'aUNt*i
+(coup de foudre)	_^_FR
+(coup de grâce)	_^_FR
+(coup de main)	_^_FR
+(coup de maître)	_^_FR
+(coup de poing)	_^_FR
+(coup d'état)	k'u||det'a
+(coup de théâtre)	k'u||dy||te'at*y
+coupé		kup'e
+couplet		kupl'E
+coupon		kupo~
+(court bouillon)	_^_FR
+couvade		kuv'ad
+couvert		kuv'Er#
+covenant	k'&ven&Nt#
+cover		k'over#
+cowboy		kaUb'OI
+coworker	k,ow'or#ker#
+(co worker)	k,ow'or#ker#
+coworking	k,ow'or#kiN
+(co working)	k,ow'or#kiN
+coworking	k,ow'or#kiN
+cowpox		k,aUp'Oks
+coxsackie	k,Oks|s'Eki
+crack		k*'ak
+cracker		k*'aker#
+cracking	k*'akiN
+crapouillot	k*apuj'o
+crawl		k*Ol
+crayon		k*Ejo~
+cream		k*imI/
+creek		kr'ik
+crémant		k*em'&~
+crevasse	k*ev'as
+criadilla	k*iad'il^a
+cricket		k*'iket
+croissant	k*w,as'&~
+cromlech	k*,omyl'Ek
+crooner		k*'uner#
+croquis		k*ok'i
+croskill	k*'Oskil#
+cross		k*'Os
+crossdresser	k*,Osd*'Eser#
+crossfit	k*,Osf'it#
+crossing	k*'OsiN
+croupier	k*upj'e
+croupon		k*up'o~
+croûte		k*ut
+crowdfunding	k*,aUd#I/f'&Nd#iN
+crowdlearning	k*,aUd#I/l'@r#niN
+crown		k*aUN
+crudités	k*udit'e
+cruiser		k*'uzer#
+?1 ctrl		k'oNt:r,Ol
+cuesta		kw'esta
+(cul de lampe)	_^_FR
+(cul de sac)	_^_FR
+cup		k&pI/ $only
+cupcake		k&pI/k'eIkI/
+curriculum	$2
+curry		k'&ri
+cyber		s'aIber#
+cyberbullying	s,aIber#b'uliN
+cyberpunk	s,aIber#p'&Nk
+cyborg		s,aIb'OrgI/
+dachshund	d'axsh,uNt
+dancing		d'eNsiN
+dasein		d'azaIN
+dashboard	d,ES||b'or#d
+(data venia)	dat&||v'en,i&
+day		d'eI
+dead		d,Ed#
+deadline	d,Ed#||l'aInI/
+dealer		d'iler#
+déboulé		debul'e
+debriefing	dib*'ifiN
+début		deb'u
+deck		d'Ek
+décor		dek'Or#
+découpage	dekup'aZI/
+(de cujus)	d,e||k'uZus#
+default		defoUt#
+dégagé		degaZ'e
+dégagement	degaZym&~
+dégradé		deg*ad'e
+(déjà vu)	d,eZav'u
+délavé		delav'e
+(del credere)	d,el||k*'ede*e
+delay		dIl'eI
+delaware	dElaw'E&r
+?1 delete	d'il'it
+delikatessen	delikat'Es,eN
+delivery	del'ive*i
+délivrance	deliv*&~s
+démanché	dem&~S'e
+démarche	demar#SI/
+(demi monde)	_^_FR
+(demi vierge)	_^_FR
+démodé		demod'e
+denier		denj'e
+denver		$1
+derrick		d'Erik
+desdichado	desditS'ado
+deshabillé	dezabij'e
+?1 design	d,iz'ain
+?2 design	dez'aIn
+?1 designer	d,iz'ainer
+?2 designer	dez'aIner
+desktop		d,eskt'Op
+d'état		det'a
+détente		det'&~t
+détraqué	det*ak'e
+detroit		det*OIt#
+développé	devylop'e
+(abu dhabi)	,abu||d'abi
+diablerie	djableR#'i
+dial		daI'al#
+diesel		d#'izel#
+diet		d'aIet# $only
+dimmer		d#'imer#
+disc		d#'iskI/
+disclaimer	dIskl'eImer#
+discord		d,Isk'Or#d#
+diseur		dizEr#
+diseuse		diz'ez
+disk		d#'iskI/
+dislike		d,ysl'aIk
+display		d,yspl'eI
+distemper	dIst'eNper#
+divertissement	d,ivEr#tism'&~
+?1 dj		d,i:dZ'eI
+dobermann	d'ober#m&N
+doc		d'Ok $only
+dog		d'Og $only
+dogcart		d,OgI/k'ar#t#
+doha		d'ox&
+dolce		d'oltSe
+dolcemente	d,oltSem'eNte
+doll		d'Ol#
+donjuán		d,oNxu'&N
+door		d'Or
+doping		d'OpiN
+doppler		d'Opler#
+dossier		dOsj'e
+doublé		dubl'e
+d'oeuvre	d'ov*y
+doubt		d'aUt#
+dover		$1
+?1 down		d'a,wn
+?2 down		d'aUN
+downgrade	d,aUNg*'eId#
+?1 download	d'a,wnl'oud
+?2 download	daUNl'oUd#
+downstream	d,aUNstr'iN
+downtime	d,aUNt'aImy
+doxing		d'OksiN
+draft		d*afI/t#
+drag		d*'Eg
+drawback	d*,Owb'Ek
+dread		d*'Ed#
+dreadlock	d*,Ed#l'Ok
+dreadnought	d*,Edn'Ot#
+dream		d*'iN
+dreamer		d*'imer#
+dress		d*'Es
+dresser		d*'Eser#
+drink		d*'iNk
+drive		d*'aIvI/
+driver		d*'aIver#
+driving		d*'aIviN
+drugstore	d*,&gst'Or#
+drumlin		d*'&NliN
+dry		d*'aj
+drywall		d*,ajw'Ol#
+dump		d'&~Np
+dumping		d'&~NpiN
+durée		_^_FR
+east		'i:st#
+easter		'i:ster#
+ebook		,ib'Uk
+(e-book)	,ib'Uk
+écarté		_^_FR
+echo		'EkoU
+éclair		_^_FR
+ecobag		Ekob'EgI/
+écran		_^_FR
+?1 ecstasy	$1 $alt
+?2 ecstasy	$1
+edam		edan $text
+edge		'EdZy
+egg		'EgI/
+egrete		_^_FR
+eight		eIt#
+eighteen	eIt'iN
+eighty		'eIty
+eleven		el'Ev,eN
+(e-mail)	im'ejl#
+email		im'ejl#
+emmenthal	_^_FR
+emoji		$2
+enchiridion	,e~Nki*'id#i,o~N
+?1 end		'eNd
+endomarketing	eNdoUm'ar#ket#iN
+(enfant gâté)	&~f&~||gat'e
+enjambement	_^_FR
+ensalada	eNsal'aDa
+ensaladilla	eNsalaD'ilja
+ensemble	&~s'&~bly
 ?2 enter	'eNter
-?2 esc     'Esk
-?3 esc     'EskI
-?1 explorer   ,ekspl'O:*&r-
-?2        Explorer        ekspl'O*er
-?1 eyes       'aiz
-?2 eyes       'aIs
-?1 fixe		fiSy
-flash	flES
-?1 frame      fr'eImy
-?2 frame      fR'eImi
-funk	f&~Nk
-game	g'eImy
-gay	geI
-get   gEt
-?1 gmail      g,em'eIl
-?2 Gmail      Zem'eIl
-?1 google     g'u:g&l 
-?2 google     g'ugol
+enterprise	eNter#p*'aIzy
+entourage	&~tux'aZ
+entrechat	_^_FR
+entrecôte	_^_FR
+ennui		&~nw'i
+epub		ep'ubI/
+(erga omnes)	,er#g&||'omI/nes#
+eros		'E*us#
+ersatz		Er#z'at|s
+?2 esc		'Esk
+?3 esc		'EskI
+escargot	_^_FR
+esim		es'i~N
+establishment	Ist'ablISmeNt
+étagère		_^_FR
+ether		'Eter#
+ethos		'Etus#
+(ex adverso)	,Eks||adI/v'E*so
+(ex nunc)	,Eks||n'u~NkI/
+(ex officio)	,Eks||of'isjo
+(ex tunc)	,Eks||t'u~NkI/
+expertise	_^_FR
+?1 explorer	,ekspl'O:*&r
+?2 explorer	ekspl'O*er#
+export		eksp'Or#t#
+express 	eksp*'Es
+eyeliner	,aIl'aIner#
+?1 eyes		'aiz
+?2 eyes		'aIs
+fact		f'akI/t#
+factoring	$1
+(fade in)	f'eId||'iN
+(fade out)	f'eId||'aUt#
+fading		f'eId#iN
+fail		f'ejl#
+faille		_^_FR
+failover	f,ejl#||'oUver#
+faire		f'Er#
+fairway		f'Er#w,eI
+faisandé	_^_FR
+fake		f'eIkI/
+fall		f'Ol#
+family		$1
+fanfreluche	_^_FR
+farad		f'a*ad#
+faraday		f'a*ad,eI
+fashion		f'ES,oN
+fast		f'Est#
+fauteuil	_^_FR
+favicon		f'avik,oN
+feed		f'id#
+feedback	f,id#b'Ek
+feeder		f'ider#
+feeling		f'iliN
+féerie		_^_FR
+faith		f'eIT
+fermata		_^_IT
+ferry		f'ER#i
+ferryboat	f,ER#ib'oUt#
+fettuccine	_^_IT
+ficelle		_^_FR
+fifteen		fift'iN
+fifty		f'ifty
+fight		f'aIt#
+fighter		f'aIter#
+(fil à fil)	_^_FR
+filet		_^_FR
+find		f'aINd# $only
+finder		f'aINder#
+finesse		_^_FR
+fintech		f,iNt'Ek
+firewall	f,aI*yw'Ol#
+firmware	f,irmw'Er
+first		f'@rst
+fitness		f'it#n,es
+five		f'aIvy
+?1 fixe		f'iSy
+flamberge	_^_FR
+flamboyant	fl,&~boj'&~
+flap		fl'Ep
+flash		flES
+flashback	flESb'Ek
+flat		fl'Et#
+(flint glass)	_^_EN
+flirt		_^_EN
+flush		_^_EN
+flûte		_^_FR
+flutter		_^_EN
+flyback		_^_EN
+fog		f'Og
+fondant		fo~d'&~
+fondue		fo~d#'i
+fontange	fo~t'&~Z
+food		f'Ud#
+foot		f'Ut#
+football	f,UtI/b'Ol#
+footer		f'Uter#
+footing		f'ut#iN
+forfait		_^_FR
+forty		f'Orty
+fortran		for#t*&N
+fourteen	fOrt'iN
+forward		f'Orw,@rd
+forum		$1 $alt
+foul		f'al#
+foulard		_^_FR
+four		f'Or
+fourrure	_^_FR
+fox		f'Oks
+foxhound	f,Oksh'aUNd#
+foyer		_^_FR
+fracking	f*'EkiN
+frame		f*'eImy
+framework	f*,eImyw'or#k
+franchise	f*&~NtS'aIzy
+franchising	f*&~NtS'aIziN
+frappé		_^_FR
+(free lance)	f*il'&~Nsy
+(free lancer)	f*il'&~Nser#
+freelance	f*il'&~Nsy
+freelancer	f*il'&~Nser#
+freeware	f*'iw,Er
+freezer		f*'izer
+fresh		frES
+fricassée	f*ikas'e
+friday		f*'aIdeI
+friend		f*'eNd#
+frisson		f*is'o~
+frizz		_^_EN
+frutti		_^_IT
+fugato		_^_IT
+fuji		$1
+führer		f'iR#er#
+(full time)	f,ul#||t'aImy
+fumoir		_^_FR
+funk		f'&~Nk
+fusain		_^_FR
+fuseau		_^_FR
+physis		f'izis#
+fryer		f*'aIer#
+gadget		g'EdZet#
+gag		g'EgI/
+galaxy		$1
+gelassenheit	gel,ase~Nh'aIt
+gallium		$1
+galuchat	_^_FR
+gambit		$1
+game		g'eImy
+gamer		g'eImer#
+gameplay	g,eImypl'eI
+gaming		g'eIm,iN
+gang		g'&NgI/
+gap		g'Ep
+garage		_^_FR
+garamond	gaR#am'o~
+garçonnière	_^_FR
+gaslighting	g,Esl'aIt#iN
+gateway		g,eItw'eI
+gauche		_^_FR
+gauleiter	g'aUlaIter#
+gay		g'eI
+geek		g'ik
+geiger		g'aIger#
+gemini		Z'emini
+genesis		$1
+gentleman	dZ'eNtol#m&N
+gestalt		geSt'al#t#
+gestapo		g,es#t'apU
+get		g'Et#
+gettysburg	g'Etisb@rg
+wget		d,abljU||g'Et#
+getter		g'Eter#
+ghost		g'oUst#
+ghosting	g'oUst#iN
+gift		g'ifI/t#
+gigabit		Zig&b'it#
+gigabyte	Zig&b'aIt#y
+gigahertz	Zig&h'Er#t|s
+gigawatt	Zig&w'Ot#
+girl		_^_EN
+glacis		_^_FR
+glamour		gl&m'ur#
+glass		gl'Es
+gloss		gl'Os
+glide		gl'aId#y
+?1 gmail	g,em'ejl#
+?2 gmail	Z,em'ejl#
+gnocchi		n^'oki
+goal		g'ol#
+goalball	g,ol#b'Ol#
+goalkeeper	g,ol#k'iper#
+gobelet		_^_FR
+gobelin		_^_FR
+god		g'Od#
+golf		_^_EN
+?1 google	g'u:g&l
+?2 google	g'u:gow
+gordon		g'Or#d,oN
+gospel		g'Os#pel#
+gotham		g'OT,&~N
+gourmand	gu*m'&~
+gourmet		gu*m'e
+(grand guignol)	_^_FR
+grapefruit	g*,eIpI/fr'ut#
+gratia		$1
+gray		g*'ej
+green		g*'iN
+greenwashing	g*,iNw'OSiN
+greisen		g*'aIz,eN
+grenadine	g*enad'iN
+grenat		g*en'a
+grep		g*'EpI/
+greyhound	gr,eIh'aUNd#
+grid		g*'id#
+grill		g*'il#
+grillroom	g*,il#R#'uN
+groom		g*'u:N
+(gros grain)	g*'o||g*'&~
+grosz		g*'OS
+ground		g*'aUNd#
+groupie		g*'upi
+gruyère		gr,uj'E*y
+guardrail	gw,ard#||R#'ejl#
+guest		g'Est#
+guipure		gip'ir#
+guichet		giS'e
+gun		g'&N $only
 ?2 habeas	'abe&s
-?2 handebol	hendZyb'Ow
-?1 hardware   'ard,w'Er-
-?2 hardware   h'ardwe@-
-happy  x'Epy
+habemus		$2
+habillé		_^_FR
+habitué		_^_FR
+hacienda	asi'eNda
+hack		h'akI/
+hacker		h'aker#
+hackear		h,akj'ar#
+hackeado	h,akj'adU
+hacktiv		h,akI/t#iv $stem // hacktivismo, hacktivista
+haddock		a'dOk
+hair		h'Er
+half		h'af
+(half time)	h,af||t'aImy
+hall		h'Ol#
+halloween	h,alow'iN
+hamas		h&m'as#
+hamburger	,&~Nb'u*ger#
+hampshire	h'e~NpSer#
+hamster		h'&~mster#
+hand		h'eNd#
+handball	h,eNd#b'Ol#
+handebol	h,eNd#b'Ol#
+handbike	h,eNd#b'aIk
+handcycle	h,eNd#s'aIkol#
+handicap	h,eNd#k'Ep
+happening	h'Epen,iN
+happy		h'Epi
+hard		h'ar#d#
+hardcore	har#dk'Or#
+?1 hardware	'ard,w'Er
+?2 hardware	h'ardw,Er
+harrier		h'Erier#
+harrisburg	h'Erisb,&rg
+hartford	h'artford
+hartley		h'artli
+harvard		h'arv&rd#
+hash		h'ES
+hashtag		h,ESt'Eg
+hat		h'Et#
+hate		h'eIt#
+hater		h'eIter
+(haute gomme)	,ot||g'omy
+hawaii		havaí $text
+hawk		h'Ok
 ?2 haxixe	xaS'iSy
-?1 home       'omy
-?2 home       h'owmi
-hot	xOt
-?1 hotmail    h'Ot'eIl
-?2 hotmail    hOtm'eIl
-?1 install    ,inst'al
-?2 Intranet   iNtRan'Et
-?1 kernel     k'Ern,El
-?2 kernel     k'Ern@l
-?2 jazz	dZIEs
+head		h'Ed#
+header		h'Eder#
+headhunter	h,Edh'&~nter#
+headphone	h,Edf'ony
+(health care)	h,ElTk'Er
+health		h'ElT
+healthcare	h,ElTk'Er
+heart		h'or#t#
+heaven		h'Ev,eN
+heavy		h'Evi
+hédge		_^_EN
+hélas		_^_FR
+hell		h'El#
+help		h'El#pI/
+hemp		h'eINpI/
+hereford	_^_EN
+herr		h'Er#
+hertz		h'Er#t|s
+hezbollah	hezbol'a
+(hi end)	h,aI||'eINd#
+(hi fi)		h,aI||f'aI
+(high tech)	h,aI||t'Ek
+high		h'aI
+highline	h,aIl'aIn
+hijacker	h,aIdZ'Eker#
+hill		h'il#
+hinterland	h,iNter#l'&Nt
+(hip hop)	h'ip||h'Op
+hiperlink	,iper#l'iNk
+hippie		h'ipi
+hipster		_^_EN
+history		h'istori
+hit		h'it#
+hobby		h'Obi
+hockey		_^_EN
+hold		h'old#
+holding		h'old#iN
+holter		_^_EN
+holly		h'Oli
+hollywood	h,Oliw'ud#
+?1 home		'omy
+?2 home		h'oUmy
+homecare	h'oUmy||k'Er
+(home care)	h'oUmy||k'Er
+homeland	h,oUmyl'eNd#
+homeoffice	h,oUmy||'Ofisy
+(home office)	h,oUmy||'Ofisy
+homepage	h,oUmyp'eIZ
+hominem		$1
+(hong kong)	hoN||k'oNg
+honoris		$2 $alt
+hooligan	h'ulig,&~N
+hopkins		h'OpkiNs
+hornpipe	h,Ornp'aIp
+(hors concours)	,Or||ko~k'ur#
+(hors d'oeuvre)	,Or||d'ov*y
+(hors ligne)	,Or||l'in^y
+horsepower	h,Orsyp'aUEr
+host		h'oUst#
+hostel		h'Ostel#
+hostess		h'oUstEs
+hot		hOt#
+hotmail		h,Ot#m'ejl#
+hotsite		h,Ot#|s'aIt#
+hotspot		h,Ot#|sp'Ot#
+?1 hour		'aU&r
+?2 hour		'aUEr
+house		h'aUzy
+houston		h'iUst,oN
+hovercraft	_^_EN
+how		h'aU
+hub		h'&bI/
+humoresque	_^_FR
+humour		_^_EN
+hundred		h'&Ndred
+husky		h'&ski
+hydrofoil	haIdrofOIl#
+hypado		haIp'adU
+hype		h'aIpI/
+hyperlink	h,aIper#l'i~Nk
+icecream	'aIs||kr'iN
+(ice cream)	'aIs||kr'iN
+iceberg		'aIsb,E*g
+idaho		'aIdahoU
+illinois	$alt
+(i love)	,aI||l'Ovy
+impeachment	i~Np'itSm&~Nt
+impériale	&~Npe*j'aly
+impromptu	&~pro~pt'y
+(in albis)	,i~N||'al#bis#
+(in continenti)	,i~N||ko~Ntin'e~Nti
+incubus		$1
+indianapolis	$4
+indie		'iNdi
+indium		$1
+indoor		,iNd'Or#
+(in dubio)	,i~N||d'ub,io
+(in fine)	,i~N||f'ine
+influencer	$3
+(in limine)	,i~N||l'imine
+(in memoriam)	,i~N||mem'O*i,&~N
+input		,iNp'ut#
+(in re)		,i~N||R#e
+inside		,iNs'aId#
+insider		,iNs'aIder#
+install		,iNst'al#
+intaglio	iNt'al^o
+inter		$1
+intermezzo	iNte*m'ezo
+interview	,iNte*viw
+(in totum)	,i~N||t'Ot,u~N
+intruder	iNt*'uder#
+iowa		'aIow&
+ipsis		$1
+iron		'aIr#oN $only
+islam		islan $text
+isospin		,aIsosp'iN
+issue		'iSu
+iuris		$1
+jacquard	_^_FR
+jacquerie	_^_FR
+jail		dZ'eil#
+jailbreak	dZ,eil#b*'eIk
+(jam session)	dZ'eN||s'ES&N
+?1 jazz		Zaz
+?2 jazz		dZEs#
+jeans		dZ'iNs#
+jersey		dZ'Er#seI
+(jet lag)	Z'Et#I/||l'EgI/
+jeton		Zet'o~
+(jeu de mots)	Z'e||d@||m'o
+jihad		Zih'ad#
+jingle		Z'iNgol#
+job		dZ'ObI/
+jockey		dZ'OkeI
+jodel		j'odel#
+jogger		dZ'Oger#
+jogging		dZ'OgiN
+journey		dZ'oUrneI
+jump		dZ'&Np
+jumper		dZ'&Nper#
+jumpline	dZ,&Npl'aIny
+juris		Z'u*is#
+(juste milieu)	Z'ust||milj'e
+juventus	$2
+kaiser		k'aIzer#
+kalahari	kalah'ar#i
+karaoke		ka*aok'e
+kart		k'ar#t#
+karting		k'ar#t#iN
+kelpie		_^_EN
+?1 kernel	k'Ern,El
+?2 kernel	k'Ern@l
+kersey		_^_EN
+?1 ketchup	k'EtS&p
+?2 ketchup	kEt|S'upI/
+keuper		k'OIper#
+key		k'i
+kiev		$alt
+kilobit		kilob'it#
+kilobyte	kilob'aIt#y
+kilohertz	kiloh'Er#t|s
+kilowatt	kilow'Ot#
+kilt		_^_EN
+king		k'iNg
+kiribati	$3
+kirsch		k'irS
+kit		k'it#
+kite		k'aIt#
+kitesurf	k,aIt#s'&r#fI/
+kitsch		k'itS
+klaxon		kl'aks,o~N
+knock		n'Ok
+knockout	n,Ok'aUt#
+know		n'oU
+kosher		k'OSer#
+kümmel		k'imel#
+kuwait		kw'ait#
+lady		l'eId#y
+(laissez aller)	lEs'ez||al'e
+(laissez-faire)	lEs'e||f'Er#
+(laissez passer)	lEs'e||pas'e
+lake		l'eIk
+lambert		l'&~Nber#t#
+lansing		l'eNs,iN
+laptop		lEpt'Op
+larghetto	_^_IT
 laser		l'eIzer
-lasers		l'eIzers
-left	$alt
-laptop	lEpt'Op
-?2 laptops	lEpt'Ops
-?1 line       l'ain
-   layout     l'eI,aUt
-   ?2   login  logiN
-?1 lock       l'Ok
-   mail       m'eIl
-        mails        m'eIls
+(lato sensu)	l'atU||s'e~NsU
+lavallière	_^_FR
+lawfare		l,Owf'Er
+layer		l'eIer#
+layoff		l,eI'OfI/
+layout		l,eI'aUt#
+layoutman	l,eI'aUt#meIN
+lead		l'id#
+leader		l'ider#
+league		l'igy
+learning	l'@r#niN
+leasing		l'iziN
+leave		l'iv
+leaving		l'iviN
+(leave in)	l,iv||'iN
+left		$alt
+legging		l'EgiN
+legato		_^_IT
+legis		l'EZis#
+liard		_^_FR
+liechtenstein	liSteNst'aIN
+life		l'aIf
+lifestyle	l'aIfst'ajl#
+liftvan		l'iftv,&~N
+light		l'aIt#
+like		l'aIk
+limaçon		limas'o~
+line		l'aIny
+?1 line		l'ain
+lingerie	l&~ZeR#'i
+link		l'iNk
+liseuse		_^_FR
+liszt		l'iSt
+litteris	$1
+live		l'aIv
+living		l'iv,iN
+llano		l^'ano
+load		l'oUd#
+london		$1
+lob		l'ObI/ $only
+lobby		l'Obi
+localhost	l,okal#h'oUst#
+lock		l'Ok
+lockdown	l,Okd'aUN
+locker		l'Oker#
+lockout		l,Ok'aUt#
+locus		$1 $alt
+loft		l'Oft
+log		l'OgI/ $only
+loggia		l'OdZa
+loghouse	l,Ogh'aUzy
+login		l,og'iN
+logoff		l,og'OfI/
+logon		l,og'oN
+logout		l,og'aUt#
+longline	l,oNgl'aIny
+look		l'ukI/
+loop		l'upI/
+looping		l'upiN
+lord		l'Or#d
+lorgnon		lOrnj'o~
+(los angeles)	l'oz||'&~NZelys#
+löss		l'os
+lounge		l'aUNZy
+loure		l'uR#y
+louré		luR#'e
+louvre		l'uv*y
+lover		l'Over#
+luftwaffe	l,uft#v'afy
+lupus		$1
+luthier		lutj'e
+lycra		l'aIk*&
+lyon		li'o~
+macaron		makaR#'o~
+maccherone	make*'one
+macintosh	makiNt'OS
+mackintosh	makiNt'OS
+(made in)	m'eIdy||,i~N
+madeleine	madl'eny
+mademoiselle	madmwaz'Ely
+madison		m'Edis,oN
+maestoso	_^_IT
+magnesium	$2 $alt
+magnus		$1
+maiden		m'eIdeIN
+mail		m'ejl#
+mainframe	m,eINf*'eImy
+mainstream	m,eINstr'iN
+maître		m'Et*y
+(make up)	m,eIk'&p
+make		m'eIk
+maker		m'eIker
+making		m'eIkiN
+manchester	$2 $alt
+malawi		mal'awi
+mall		m'Ol#
+malware		m'alw,Er
+mambo		m'&Nbo
+management	m'aneZmeINt#
+manager		m'aneZer#
+manhattan	m,&~Nh'at,&~N
+manoir		_^_FR
+manucure	_^_FR
+maquillage	makij'aZ
+marchand	m,ar#S'&~
+mariachi	ma*j'atSi
+markdown	m,arkd'aUN
+market		m'arket#
 ?1 marketing	m'arktiN
 ?2 marketing	m'arketSiN
-?2  master	m'aste*@-
-?2        mouse        m'aUzi
-?1 menu       menu
-mickey	m'ikeI
-next       n'Ekst
-   ok         Ok'eI
-?2 offline    Ofl'aIN
-?2 online     oNlaIN
-   org        Org
-?1 ovo        'ovu
-?2 palmtop	paUmyt'Op
-?1 pause      p'au:z
-   page       p'eIdZ
-   ?1   podcast	pOdkEst
-?2  podcast	pOdZyk'Est
-python     p'aIT&~N
-?2 quantum	kw'&~Ntu~N
-?2 ranking	x'&NkIN
-?1 readme     r'i:dmi:
-right   r'aIt
-?1 sapi       s,ap'i
-?1 scanner    sk'En&r
-sky   sk'aI
-shake	S'eIk
-?1 shift      S'ift
-?1 scroll     sk:r'ol
-?1 site       s'aIt
-?2 site       s'aItSy
-?2   shampoo  S&mpu
-?2 shopping	S'OpiN
-?2 slide		zl'aIdZy
-?4 símbolo	s'iNbolU
-?1   software   s'Oft,w'Er-
-?2   software   s'Oftwe@-
-?1 space      sp'eIsy
-?2 space      sp'eIs
-?1 sporting   sp'Ort,ing
-statu	st'atU
-sutiã		sutSi'&~N
- tab        t'aby
- tablet  t'ablet
-  tablets  t'ablets
-  ?2 tantum	t'&~Ntu~N
- taser	t'eIzer
-?1 telemóvel  t,El,Em'OvEl
-?1 telemóveis t,El,Em'OveIs#
-?1 up         &p
-update		&pd'eIt
-upgrade		&pgR'eId
-upload		&pl'oud
-?2        web        w'Eb
-writer r'aIter
-xerox	S'E*Oks
-?1 yahoo      'i,ah'u
-?2 yahoo      iah'u
-yes        j'Es
-
-
-// foreign product names
-?1 access      'aks,Es
-?1 adobe       &d'Oby
-   android &NdR'Oid
-apple  'Epow
-outdoor	aUtd'Or
-?2  outdoors	aUtd'Ors
-baby	b'eIby
-?2 campari	k&mp'a*y
-?1 chrome	kr'owm
-?2 chrome  kR'owmi
-corpus	k'O*@-pUs#
-   debian      d'Ebj&~N
-?1 excel       ,Eks'El
-?1 express     ,Ekspr'Es
-   espeak      isp'i:k
-?1 espeakedit   isp'i:kEd,it
-facebook  feIsybuk
-?1 fedora      _^_EN
-    firefox     f'ai@fOks
-?1 front       fr'ont
-high   haI
-?1 jaws        dZ'au:z
-lady	l'eIdy
-?1 linux       l,in'uks
-?2 linux       l'inUks
- live        l'aiv
- ?2 lobby	$alt
-?1 maker       m'eIk&r-
-mac  mEk
-?1 media       m'Ed,i&
-?1 messenger   m'Es&ndZ&r-
-?1 microsoft   m,ik:r'os,Oft
-?2 microsoft   m'aIkRows'Oft
-?1 movie       m'uvi
-?1 nero        n'Eru
-?2  netbooks   nEtbUks
-?2  notebook   nowtbUk
-?2  notebooks   nowtbUks
-?1 office      'Of,is
-?2 office  'Ofsy
-   openoffice  'opeIN|'Ofis
-?1 outlook     'autl'uk
-?2        Outlook        ,aUtl'uk
-?1 paint       p'aint
-?1 player      pl'eI&r-
-?1   playstation	_^_EN
-?2   playstation	pleIst'eIS&~N
- point       p'oint
-?1 power       p'aU&r-
+marketplace	m,a*ketpl'eIsy
+marshmallow	m,ar#Sm'EloU
+martenot	_^_FR
+maryland	m'E*il&~Nd#
+mashup		m,ES'&p
+massachusetts	m,asaS'uset|s
+master		m'aster#
+match		m'EtS
+maxwell		_^_EN
+may		m'eI
+mayday		m,eId'eI
+mayotte		$alt
+maximus		$1
+médoc		_^_FR
+meeting		m'it#iN
+megabit		mEg&b'it#
+megabyte	mEg&b'aIt#y
+megahertz	mEg&h'Er#t|s
+megastore	mEgast'Or#
+megawatt	mEg&w'Ot#
+melbourne	m'Elbor#ny
+meltdown	mEl#td'aUN
+ménage		_^_FR
+merchandising	merS&~Nd'aIziN
+merry		m'Eri
+mésalliance	_^_FR
+metallica	$2
+métier		_^_FR
+mezzosoprano	m,ezosop*'&~nU
+mezzotinta	medzot'iNta
+miami		maI'&~mi
+mickey		m'ikeI
+michigan	$1
+microchip	_^_EN
+microlearning	_^_EN
+mignon		m,in^'o~
+mignonne	m,in^'oN
+milady		mil'eId#i
+milan		$1
+millennial	mil'enial#
+millet		mil'e
+milieu		milj'e
+milk		m'ilk
+milord		m,aIl'Or#d#
+mind		m'aINd#
+mindfulness	m'aINdful#nes
+mindset		m,aINds'Et#
+minesänger	m,inez'eNger#
+millenial	m,il'enjal#
+minnesang	m,inez'aNg
+minnesinger	m,inez'iNger#
+minnesota	m,ines'ot&
+(mise en plis)	m'iz||&~||pl'i
+(mise en scène)	m'iz||&~||s'En
+(mise en train)	_^_FR
+mississipi	$3
+missouri	miz'oUr#y
+mister		$1
+mistress	_^_EN
+mixer		$1
+mixtape		_^_EN
+(mock up)	m'Ok||'&p
+mod		m'OdI/
+model		m'Odel#
+modem		m'oUd,eN
+moderato	mode*'ato
+modus		$1 $alt
+(modus operandi)	m'OdUz||ope*'&~Nd#y
+(modus vivendi)	m'OdUz||viv'e~Nd#y
+mohair		_^_EN
+moiré		_^_FR
+monday		m'oNdeI
+money		m'on,eI
+monkey		m'&Nki
+monkeypox	m,&NkIp'Oks
+montpelier	mo~pelj'e
+montpellier	mo~pelj'e
+mormon		m'Or#m,o~N
+motocross	m,otok*'Os
+mouse		m'aUzy
+mousse		m'usy
+mpox		emy||p'Oks
+movietone	m'u:vit,oUN
+mozzarella	mot|sa*'Ela
+muffin		m'&fiN
+muguet		mug'e
+multiplet	m'ul#tiplet
+multistandard	m,ul#tist'&~Ndar#d#
+musette		_^_FR
+music		mj'uzik $only
+my		m'aI
+naïf		_^_FR
+nagasaki	$3
+nashville	_^_EN
+nécessaire	nesEs'ER#y
+nègre		n'Eg*y
+negroni		_^_IT
+nerd		n'Er#d#
+network		n,Etw'or#k
+networking	n,Etw'or#kiN
+new		n'iw
+(new age)	n'iw||'eIZy
+newmarket	_^_EN
+news		n'iUs#
+newsletter	n,iUzl'Eter#
+next		n'Ekst
+nexus		n'EksUs#
+nickel		$1
+night		n'aIt#
+nine		n'aIny
+nineteen	n'aInyt'iN
+ninety 		n'aInyty
+nobreak		noUb*'eIk
+nonsense	n,oNs'eNsy
+north		n'OrT
+nottingham	n'Ot#i~Ng,&~N
+nouveau		nuv'o
+nürnberg	nu*eNb'Er#gI/
+nurse		n'&rsy
+nurture		_^_EN
+nylon		n'aIl,oN
+oasis		o'azis#
+obamacare	ob&mak'Er
+obsidian	Obs'idi&N
+off		'OfI/
+offline		OfI/l'aIny
+(off line)	OfI/l'aIny
+offset		OfI/s'Et#
+offshore	OfI/S'Or#
+offside		OfI/s'aId#
+ohio		oh'aIU
+ok		Ok'eI
+okay		Ok'eI
+oklahoma	,oUkl&h'oUm&
+one		w'oN
+olympia		olímpia $text
+ombudsman	$2
+onboard		,o~N||b'or#d
+online		oNl'aIny
+(on line)	oNl'aIny
+optimus		$1 $alt
+opus		'Opus
+orange		$1 $alt
+oregon		$1 $alt
+org		Or#g
+organon		$2
+origami		$3
+ossobuco	_^_IT
+ostinato	_^_IT
+outboard	,aUtb'or#d
+outcast		,aUtk'Est#
+outcaste	,aUtk'Est#
+outdoor		,aUtd'Or#
+outlet		,aUtl'Et#
+outline		,aUtl'aIny
+output		,aUtp'ut#
+outrigger	,aUtr'iger#
+outside		,aUt|s'aId#
+outsider	,aUt|s'aIder#
+ouverture	_^_FR
+over		'oUver#
+overall		_^_EN
+overblowing	_^_EN
+overbooking	o,ver#b'UkiN
+overdose	o,ver#d'Ozy
+overflow	_^_EN
+overhead	_^_EN
+overlay		_^_EN
+owner		'oUner
+oxford		oksf'Or#d#
+pack		p'EkI/
+paddock		_^_EN
+paella		pa'el^&
+page		p'eIZI/
+pager		p'eIZer#
+pageview	p,eIZI/v'iw
+palmier		palmj'e
+palmtop		pal#mI/t'Op
+panaché		_^_FR
+panneau		_^_FR
+panettone	panet'one
+panzer		p'&~Nzer#
+paparazzi	_^_IT
+paparazzo	_^_IT
+(papier mâché)	papj'e||maS'e
+pappardelle	papa*d'Ele
+(pari passu)	p,ari||p'asu
+parking		p'ar#k,i~N
+parkinson	p'ar#ki~Ns,o~N
+parkour		_^_FR
+parole		_^_FR
+parterre	_^_FR
+partisan	_^_FR
+party		p'art#i
+parvenu		_^_FR
+(pas de deux)	_^_FR
+(pas de quatre)	_^_FR
+passwd		p'as||d,abljUd'e
+pasodoble	p,asod'oble
+passacaglia	_^_IT
+passamezzo	_^_IT
+(passe partout)	_^_FR
+(passe pied)	_^_FR
+pastis		_^_FR
+pastrami	_^_EN
+patch		p'EtS
+patchwork	p'EtSw,or#k
+patronnesse	_^_FR
+pattern		_^_EN
+?1 pause	p'au:z
+pay		p'eI
+payday		p,eId'eI
+paywall		p,ejw'Ol#
+pearl		p'erl
+pecorino	_^_IT
+peeling		_^_EN
+peignoir	pEnju'ar#
+pellet		_^_EN
+pembroke	p'eNbroUk
+pendant		_^_FR
+pendentif	_^_FR
+pendrive	p,eNd*aIv
+pennsylvania	$3
+people		p'ipol#
+peopleware	p,ipol#||w'Er
+pepper		p'Eper#
+peppermint	p'Eper#m,iNt
+(per capita)	p'er#||k'apit&
+performance	$2 $alt
+performer	$2 $alt
+personal	p'er#sonal#
+petit		pet'i
+(petit beurre)	pet'i||b'Er#
+(petit four)	pet'i||f'ur#
+(petit pois)	pet'i||pw'a
+(petit suisse)	pet'i||su'is
+petshop		p'Et#S'Op
+philadelphia	$3 $alt
+pharming	f'armiN
+phishing	f'iSiN
+phoenix 	f'iniks
+(physique du rôle)	_^_FR
+piadina		_^_IT
+pianoforte	_^_IT
+picardan	_^_FR
+pickles		$1
+pickup		pik'&p
+pidgin		p'idZiN
+(pièce de résistance)	_^_FR
+(pied de poule)	_^_FR
+piercing	p'ir#siN
+(pince nez)	_^_FR
+pink		p'iNk
+pinscher	p'iNSer#
+pinup		pin'&p
+pipeline	paIpyl'aIny
+pivot		_^_FR
+pitch		_^_EN
+pitching	_^_EN
+pixel		p'iksel#
+pizzaiolo	p,it|saj'olU
+pizzicato	_^_IT
+place		pl'eIsy
+plafonnier	_^_FR
+plaid		_^_EN
+planet		$1
+plantation	pl&Nt'eIS,oN
+platinum	$1
+play		pl'eI
+playback	pl,eIb'Ek
+playboy		pl,eIb'OI
+player		pl'eI@r
+playground	pl,eIg*'aUNd
+playing		pl'ejiN
+playlist	pl,eIl'ist#
+plié		_^_FR
+plot		pl'Ot#I/
+plush		_^_EN
+(plus size)	pl,us'aIzy
+plutonium	$2
+pochade		_^_FR
+poché		_^_FR
+podcast		p,Od#k'Est#
+point		p'oINt#
+pointer		p'oINter#
+poke		_^_EN
+police		$2
+poltergeist	p'olter#g,aIst#
+ponticello	poNtitS'Elo
+poodle		p'udol#
+(pop up)	p,Op||'&p
+(porte bonheur)	p'Ort||boN'Er#
+portland	p'Ortl&Nd
+portoro		_^_IT
+poseur		_^_FR
+positronium	p,ozit*'oni,u~N
+post		p'oUst#
+poster		p'oUster#
+posteriori	$4 $alt
+(post meridiem)	p,Ost||me*id'i,e~N
+(post mortem)	p,Ost||m'O*t,e~N
+potassium	$2
+(pot pourri)	p'o||puR#'i
+potsdam		p'Ot|sd,&~N
+pound		p'aUNd#
+poundal		p'aUNdal#
+?1 power	p'aU&r
 ?2 power	p'aUEr
-?1 product     p:r'&d&kt
-?1 Publisher   p'&bl,iS&r-
-?1 reader      r'id,&r-
-?1 setup       s'Et'&p
-?1 scout       sk'aut // Nero scout       
-?1 skype       sk'aip
-?2        Skype        sk'aIp
-        Slackware   sl'akwe@-
-?1 smart       sm'art // nero StartSmart
-?2   society   sos'aIty
-   speak       spi:k
-   suse        z'u:ts@
-?1 start       st'art // nero StartSmart
-?1 time        t'aImy // nero show time
-twitter  tw'iter
-   ubuntu      ub'untu
-?1 unix        ,u:n'iks
-?2 unix        j'uniks
-?1 windows     w'iNd'ou:z
-?2 windows     w'iNdows
-?1 window     w'iNd'ou
-?2 window      w'iNdow
+premier		p*emj'e
+première	p*emj'Er#
+premise		pr'emisy
+premium		pr'imiuN
+press		p*Es
+(prêt à porter)	p*'Et||a||por#t'e
+prime		p*'aImy
+primus		$1
+princeton	$1
+priori		$2 $alt
+prise		_^_FR
+probandi	$2
+(pro bono)	p*,O||b'onU
+processor	pros'Esor
+product		pr'Od&kt#
+(pro forma)	p*,O||f'O*m&
+(pro labore)	p*,O||l&b'O*y
+promoter	_^_EN
+(pro quo)	p*,O||kw'O
+(pro rata)	p*,O||R#'at&
+(pro reo)	p*,O||R#EU
+proxy		_^_EN
+pueblo		pw'eblo
+pullman		p'ul#m&N
+pullover	pul'over#
+punch		p'&~NtS
+punk		p'&~Nk
+purée		_^_FR
+purple		p'&r#pol#
+putsch		p'utS
+putt		_^_EN
+putter		_^_EN
+putting		_^_EN
+puttino		_^_IT
+putto		_^_IT
+puzzle		p'&zol#
+python		p'aIT,o~N
+quaest		kw'Est#
+quantum		$1
+?2 quantum	kw'&~Nt,u~N
+quark		kw'ar#k
+quarkonium	$2
+quart		kw'ar#t#
+queen		kw'iN
+queer		kw'ier#
+quérable	_^_FR
+quest		kw'Est#
+quiz		kw'is#
+quizzes		_^_EN
+quorum		$1 $alt
+(quo vadis)	kw,O||v'adis#
+raccord		_^_EN
+racing		_^_EN
+raccoon		R#ak'uN
+rack		_^_EN
+racle		_^_FR
+raclette	_^_FR
+radicchio	R#ad#'ikjU
+ranger		R#'eNdZer#
+reagan		R#'eIg&N
+raffiné		_^_FR
+rafting		_^_EN
+raglan		r'Egl&N
+ragtime		r,Egt'aImy
+raid		R#'eId#
+rail		R#'ejl#
+railroad	R#,ejl#r'oUd#
+railway		R#,ejl#w'eI
+rallentando	R#alent'&Ndo
+rallye		_^_EN
+ransomware	R#,&NsoNw'Er
+ranking		R#'&~NkiN
+rap		R#'EpI/
+rapper		R#Ep,er#
+rapport		R#ap'Or#
+rash		_^_EN
+rastafari	$3
+rating		r'eIt#iN
+rattan		r'at&N
+ravigote	_^_FR
+ravioli		R#avj'Oly
+ravióli		_^_IT
+raygrass	_^_EN
+rayon		r'ej,oN
+readme		r'i:dmi:
+reality		R#i'alyt#i
+reblochon	R#ebloS'o~
+reboot		R#ib'ut#
+recall		R#ik'Ol#
+robocall	R#obok'Ol#
+recamier	_^_FR
+récamier	R#ekamj'e
+receiver	_^_EN
+réchaud		_^_FR
+récit		_^_FR
+record		R#ek'Or#d#
+recorder	R#ek'Or#der#
+red		R#'Ed#
+reels		R#'ils
+referee		_^_EN
+referendum	R#efe*'e~Nd,u~N
+reggae		R#'Eg,eI
+reggaeton	R#,Eget'oN
+reich		R#'aIS
+reichstag	R#,aISt'ag
+reiki		$1
+relais		_^_FR
+relax		_^_EN
+release		R#il'izy
+religion	R#el'iZi,oN
+remake		R#im'eIk
+remaster	R#im'aster#
+(rendez vous)	R#&~d'e||v'u
+rentrée		R#&~t*'e
+replay		R#ipl'eI
+review		R#iv'iw
+repoussé	R#@pus'e
+resort		R#iz'Or#t#
+restaurateur	R#Estorat'Er
+rétro		R#et*o
+reuters		R#'OIters
+réveillon	R#evej'oN
+revival		R#iv'aIv&l $only
+revolution	R#,Evol'uS,oN
+richmond	r'iSmoNd
+rider		R#'aIder#
+riesling	R#'isliNg
+right		r'aIt
+ring		R#'iNg
+rink		_^_EN
+ripieno		_^_IT
+ritardando	*ita*d'&Ndo
+ritenuto	_^_IT
+roaming		r'oUmiN
+rocaille	_^_FR
+(rock and roll)	r'Ok||eNd||r'ol
+rock		r'Ok
+rocker		r'Oker
+rocket		r'Oket#
+rolling		$1
+rollover	_^_EN
+romagnolo	_^_IT
+(roman fleuve)	_^_FR
+rooter		_^_EN
+rootkit		R#utk'it#
+roquefort	_^_FR
+rosé		_^_FR
+rotterdam	R#,ote*d'&~N
+rôtisserie	_^_FR
+rouanet		R#u&n'e
+rouge		_^_FR
+rougeot		_^_FR
+rough		_^_EN
+roulade		_^_FR
+roulé		_^_FR
+roulotté	_^_FR
+round		R#aUNd#
+router		R#'aUter#
+roux		_^_FR
+royalty		R#'OIaUt#i
+royalties	royaltys $text
+rsync		'Exy||s'i~NkI/
+rubato		_^_IT
+rubber		_^_EN
+ruche		_^_FR
+runner		R#'&ner#
+runtime		R#,&Nt'aImy
+rush		r'&S
+sake		s'eIk
+safari		$2
+saint		s'eINt#
+salam		salan $text
+sanctus		s'&~NktUs
+sandbox		s,&~Ndb'Oks
+sandwich	s,&~Ndu'iSI/
+(sans culotte)	s'&~||kul'Ot#
+?1 sapi		s,ap'i
+sapiens		s'apieINs
+sarajevo	s,a*aj'evU
+saturday	s'at@rd,eI
+sauvignon	sovinj'o~
+(savoir faire)	savw'ar#||f'Er#
+(savoir vivre)	savw'ar#||v'iv*y
+?1 scanner	sk'En&r
+?2 scanner	sk'&~ner#
+scareware	sk,Erw'Er
+scat		sk'at
+schedule	_^_EN
+schema		sk'im&
+scherzando	ske*t|s'&Ndo
+scherzo		sk'e*t|so
+schilling	S'iliNg
+scholar		sk'Olar#
+school		sk'ul#
+schooling	sk'uliN
+schottisch	S'OtiS
+science		s'aIeNs
+(sci fi)	s,aIf'aI
+sciolto		_^_IT
+scooter		sk'uter#
+scordatura	sko*dat'u*a
+scorpion	$1
+scotch		sk'Ot#
+scout		sk'aUt#
+scrambler	skr'&Nbler
+scraper		skr'eIper
+scrapbook	skr,EpI/b'ukI/
+script		sk*'ipt#
+?1 scroll	sk:r'ol
+scuba		sk'ub&
+(sealed beam)	s'ilyb'im
+seattle		si'atol#
+second		s'EkoNd#
+section		s'EkS,oN
+sed		s'Ed#I/
+seigneur	senj'Er
+(self made)	s'Elfm'eId#
+self		s'El#f
+selfie		s'El#fi
+seller		s'Eler#
+senior		$1
+seniores	$alt2
+service		s'Er#visy
+set		s'Et#
+setter		s'Eter#
+settimino	_^_IT
+seven		s'Ev,eN
+seventeen	sEveNt'iN
+seventy		s'EveNty
+sex		s'Eks
+sexting		_^_EN
+sexy		s'Eksi
+shake		S'eIk
+shame		S'eImy
+shaming		S'eImiN
+shampoo		S&~Np'u
+shape		S'eIp
+share		S'Er
+shareware	S'Erw,Er
+sharing		S'EriN
+sharpie		_^_EN
+sheik		S'eIk
+shenzhen	SeNz'eN
+sheriff		Ser#'if
+?1 shift	S'ift
+shilling	_^_EN
+shimmy		_^_EN
+shine		S'aIny
+shining		S'aIniN
+ship		S'ip
+shirt		S'@r#t#
+shop		S'Op
+shopping	S'OpiN
+short		S'Or#t#
+shortline	S'Or#t#l'aIn
+shot		S'Ot#
+show		S'oU
+showbiz		S,oUb'is#
+showcase	S,oUk'eIz
+showroom	S,oUR#'uN
+showrunner	S,oUR#'&ner#
+shunt		S'&Nt#
+shutdown	S,&t#d'aUN
+sidecar		_^_EN
+sievert		s'iver#t#
+sign		s'aIN
+signer		s'aIner#
+silver		$1
+(sine die)	s'ine||d'ie
+(sine qua non)	s'ine||k,wa||n'o~N
+sir		s'@r
+sister		$1
+site		s'aIt#
+sitter		$1
+sixteen		sikst'iN
+sixty		s'iksty
+skate		sk'eIt#
+skater		sk'eIter#
+skatista	sk,eIt#'ist&
+skating		sk'eItiN
+sketch		sk'EtS
+skill		sk'il#
+skin		sk'iN
+skincare	sk,iNk'Er#
+(skin care)	sk,ink'Er
+skinhead	sk,iNh'Ed#
+sky		sk'aI
+slack		sl'Ek
+slackline	sl,Ekl'aIny
+slang		sl'eNg
+slave		sl'eIv
+slide		s#l'aId#
+sling		sl'iNg
+slogan		$1
+slopware	sl,OpI/w'Er
+slot		$alt
+slut		sl'&t#
+smart		sm'art#
+smartphone	sm,art#||f'ony
+smash		sm'ES
+smoking		zm'oUkiN
+smorzando	zmo*t|s'&Ndo
+smurfing	zm'&rfiN
+snack		zn'EkI/
+sniffer		zn'ifer#
+sniffing	zn'ifiN
+snipe		zn'aIp
+sniper		zn'aIper#
+snob		$alt
+soave		_^_IT
+soccer		s'Oker#
+socialite	s,osjal'aIt#
+soft		s'Oft#
+softball	_^_EN
+?1 software	s'Oft,w'Er
+?2 software	s'Oftw,Er
+(soi disant)	sw,a||diz'&~
+soirée		swa*'e
+sommelier	_^_FR
+sommelière	somelj'Er#
+sommier		_^_FR
+songbook	s,oNgb'uk
+sorbonne	s,Or#b'ony
+sort		$alt
+sostenuto	_^_IT
+soubrette	_^_FR
+sound		s'aUNd#
+south		_^_EN
+soutien		_^_FR
+?1 space	sp'eIsy
+?2 space	sp'eIs
+spaghetti	spag'Et#y
+spider		sp'aIder#
+spam		sp'&~N
+spammer		sp'&~mer#
+spaniel		s#p'Enjel
+speak		sp'ik
+speaker		sp'iker#
+speech		sp'i:tS
+sponsor		sp'oNsor#
+spoofing	sp'ufiN
+sport		sp'Ort#
+?1 sporting	sp'Ort,ing
+spot		$alt
+spray		sp*'eI
+spread		sp*'Ed#
+springfield	sp*,iNgf'ild#
+spy		sp'aj
+spyware		sp'ajw,Er
+squash		skw'OS
+squeeze		skw'izy
+staccato	stak'ato
+staff		st'af
+stakeholder	st'eIkI/h'ol#der#
+stalker		st'Ol#ker#
+stalking	st'Ol#kiN
+(stand by)	st'&~Nd||b'aI
+stand		st'&~Nd#
+standard	st'&~Ndar#d#
+standing	st'&~NdiN
+stanford	st'&Nfo*d#
+stanhope	st'&NhoUp
+starlet		st'ar#let
+(start up)	st'ar#t||'&p
+starter		st'ar#ter#
+startup		st'ar#t||'&p
+stator		st'eItor#
+(statu quo)	st,atU||kw'O
+status		st'atUs#
+steadicam	st,Edik'&~N
+steak		st'eIk
+stealthing	st'El#TiN
+steeplechase	st'ipleS,eIs
+stent		st'eNt
+step		st'Ep
+stereo		st'E*eU
+stick		st#'ik
+stonehenge	st,oUnyh'eNdZy
+stonewashed	st'oUnwOSt
+(stop and go)	st'Op||&~Nd||g'oU
+stop		st'Op
+storage		st'O*&Z
+store		st'Or
+stories		st'Or#is
+story		st'Or#i
+storyboard	st'Or#i||b'or#d
+stout		st'aUt
+stracchino	st*ak'ino
+strambotto	st*&Nb'Oto
+strass		st*'as
+stream		st*'i~N
+streamer	st*'imer#
+streaming	st*'imiN
+stress		st*'Es
+stretch		st*'EtS
+stretching	st*'EtSiN
+stretta		st*'eta
+stretto		st*'eto
+(stricto sensu)	st*'iktU||s'e~NsU
+strike		st*'aIkI/
+striptease	st*,ipt'izy
+strogonoff	st*ogon'OfI/
+strongman	str'oNgm&N
+stud		st'&d
+studio		st'udiU
+style		st'aIl#
+stylist		st'aIlist
+succubus	$1
+sudoku		$2
+summer		s'&~mer#
+sunday		s'&NdeI
+deficit		d'Efysit#
+(sub judice)	s,ubI/||Z'udisy
+(sui generis)	s,uI||Z'eneris#
+superavit	supe*'avit#
+surround	s&r'aUNd#
+surf		s'@r#f $only
+surfing		_^_EN
+sursis		_^_FR
+sutiã		sutSi'&~N
+swab		_^_EN
+swap		sw'Op
+sweater		sw'Eter#
+sweepstake	_^_EN
+swing		sw'iNg
+switch		sw'itS
+sydney		$1
+symbol		s'iNbol#
+tab		t'abI/ $only
+tableau		_^_FR
+tablet		t'ablet#
+(tabula rasa)	t'abul&||R#'az&
+tag		t'EgI/ $only
+tagliatelle	tal^at'Ele
+tail		t'ejl#
+tailleur	taj'Er#
+take		t'eIk
+tallahassee	t,al&h'asi
+talk		t'Ol#k
+talkie		t'Ol#ki
+tall		t'Ol#
+tambourin	_^_FR
+?2 tantum	t'&~Nt,u~N
+(tao te ching)	t,aU||t,e||S'iNg
+taper		_^_EN
+tartare		ta*t'ar#
+tartine		ta*t'iny
+taser		t'eIzer
+tatoo		tat'u
+tavolatura	_^_IT
+taxi		t'aksi
+teaser		_^_EN
+tech		t'Ek
+technology	tEkI/n'OlodZi
+teckel		t'Ekel
+teen		t#iN
+teenager	t#iN'eIZer#
+teflon		tefl'oN
+(tel aviv)	t,elav'iv
+telemarketing	$3
+?1 telemóveis	t,El,Em'OveIs#
+?1 telemóvel	t,El,Em'OvEl
+teleprompter	t,Elepr'oNpter#
+template	teNpl'eIt#
+tenuta		_^_IT
+tenuto		_^_IT
+terabit		tE*&b'it#
+terabyte	tE*&b'aIt#y
+terrier		_^_EN
+(tête à tête)	_^_FR
+(tête bêche)	_^_FR
+tetris		$1 $alt
+the		De
+theater		_^_EN
+théâtre		te'at*y
+think		T'iNk
+thinking	T'iNkiN
+thing		T'iNg
+third		T'@rd#
+thirteen	T@rt'iN
+thirty		T'@rty
+thesaurus	$2
+thinner		_^_EN
+thread		T'*Ed#I/
+threading	T'*Ed#iN
+three		t'*i
+thriller	_^_EN
+thru		t*'u
+thursday	t'@rzdeI
+ticket		t#'iket#
+(tie dye)	t'aI||d'aI
+(tik tok)	t#,ik||t'Ok
+(tik toker)	t#,ik||t'Oker#
+(time is money)	t'aImy||iz||m'on,eI
+(timeline)	t,aImyl'aIny
+(time line)	t'aImy||l'aIny
+timeshare	t,aImyS'Er#
+(time share)	t,aImyS'Er#
+(time sharing)	t,aImyS'Er#iN
+timer		t'aImer#
+timing		t'aImiN
+tiramisu	_^_IT
+titanium	$2
+toast		t'oUst#
+toddy		t'Od#i
+toffee		_^_EN
+toilette	tw,al'Et#
+token		t'oUken
+tomahawk	t,omah'Ok
+toner		t'oUner#
+toolkit		t,ul#k'it#
+top		t'Op
+topless		t'OplEs
+tory		t'oUri
+touch		t'&tS
+touché		tuS'e
+tour		t'ur#
+touring		t'u*iN
+tournedos	tur#ned'o
+tournée		tur#n'e
+tournure	_^_FR
+trade		tr'eId#I/
+tradeoff	tr,eId'OfI/
+trader		tr'eIder#
+trading		tr'eId#iN
+trailer		tr'eIler#
+train		tr'eIN
+trainer		tr'eIner#
+training	tr'eIniN
+tramway		_^_EN
+tranche		_^_FR
+transfer	$1
+translate	tr,&~Nsl'eIt#
+trap		tr'Ep $only
+trash		tr'ES
+trattoria	_^_IT
+travel		tr'Evel#
+travelling	tr'EveliN
+treedozer	trid'oUzer#
+trek		tr'Ek
+trekking	tr'EkiN
+tremolo		t*'emolo
+trend		t*'eNd#
+trial		tr'aIal#
+trick		tr'Ik
+trickline	tr,Ikl'aIny
+tricot		t*ik'o
+trolley		tr'Oli
+trottoir	_^_FR
+troupe		_^_FR
+trousse		_^_FR
+trouvaille	_^_FR
+truth		truT
+(tse tse)	t|s,E||t|s'E
+tsunami		$2
+tuesday		tS'uzdeI
+tuner		t'uner#
+turf		_^_EN
+turnover	t&r#n'oUver#
+tutti		t'ut#i
+tweed		tw'id#
+tweet		tw'it#
+twelve		tw'El#vy
+twenty		tw'eNty
+two		t'u:
+umlaut		'uml,aUt
+under		'&~Nder#
+underground	,&~Nder#g*'aUNd#
+underwriting	,&Nder'aItiN
+unicode		,unik'oUd#
+union		j'unioN $only
+united		j,un'aIted#
+university	j,univ'ersIty
+unschooling	,&Nsk'uliN
+(up to date)	'&p||tU||d'eIt#
+up  		'&p
+update		,&pd'eIt#
+upgrade		,&pg*'eId#
+upload		&pl'oUd#
+uranium		$2
+utah		j,ut'a
+vancouver	v&Nk'uver#
+vaporwave	v,eIpor#w'eIvI/
+vaudeville	_^_FR
+veduta		_^_IT
+veilleuse	_^_FR
+vendeuse	_^_FR
+vendor		$1
+verbis		$1 $alt
+verbum		$1 $alt
+verdun		ver#d'&~
+veritas		$1 $alt
+vermeil		_^_FR
+vernier		_^_FR
+vernissage	_^_FR
+versus		$1 $alt
+vibe		v'aIby
+(video game)	v,id#jU||g'eImy
+videobook	v,id#jUb'Uk
+videogame	v,id#jU||g'eImy
+videolaser	v,id#jUl'eIzer#
+videomaker	v,id#jUm'eIker#
+videowall	v,id#jUw'Ol#
+vietnam		vietnan $text
+viking		v'ik,i~N
+vintage		v'iNt&Zy
+violone		_^_IT
+virtus		$1
+(vis à vis)	v,izav'i
+vision		v'izi,o~N
+vison		_^_FR
+vitae		v'itaI
+vitaglass	_^_EN
+vivace		_^_IT
+vivant		_^_FR
+vlan		v,e||l'&~N
+vocalise	_^_FR
+vocoder		_^_EN
+voice		$alt
+voile		_^_FR
+voip		v'OjpI/
+(vol au vent)	_^_FR
+volga		$alt
+volley		vôlei $text
+volleyball	voleibol $text
+voucher		v'aUSer#
+(vox dei)	v'Oks||d'eI
+(vox populi)	v'Oks||p'Opuli
+voyager		v'OI&Z,er#
+voyer		voj'e
+voyeur		voj'Er#
+wafer		w'eIfer#
+waffle		w'Ofol#
+waffen		v'af,eN
+waiver		w'eIver#
+wakashan	w'akaS&N
+walk		w'Ol#k
+walker		w'Ol#ker#
+walkie		w'Ol#ki
+walkman		w,Ol#km'eIN
+walkover	w,Ol#k'oUver#
+wall		w'Ol#
+war		w'Or#
+warehouse	w,Erh'aUzy
+warfare		w,Or#f'Er
+warrant		w'Or&Nt
+watch		w'OtS
+water		w'Oter#
+waterline	w,Oter#l'aIny
+waterloo	w,Oter#l'u
+watt		w'Ot#
+ware		w'Er
+wave		w'eIvI/
+way		w'eI
+wayland		w'eIleNd#
+wear		w'Er
+wearable	w'Erabol#
+web		w'Eb
+webcam		w,Ebk'&~N
+webcast		w,Ebk'Est#
+webinar		w'EbIn,ar
+webmail		w,Ebm'ejl#
+webmaster	w,Ebm'aster#
+website		w,Ebs'aIt#
+websérie	w,Ebs'E*jy
+wednesday	w'enyzdeI
+(week end)	w'ik,eNd#
+weekend		w'ik,eNd#
+weimar		v'aImar#
+weltanschauung	v,Elt&NS'aUuN
+wehrmacht	ver#m'axt
+west		w'Est#
+western		w'Estern
+westpolitik	v,Estpolit'ik
+whig		w'yg
+whiskey		w'iski
+whisky		w'iski
+white		w'aIt#
+wifi		w,aIf'aI
+(wi-fi)		w,aIf'aI
+wlan		d,abljU||l'&~N
+winchester	w,iNS'Ester#
+winter		w'iNter#
+wireless	w'aIr#yl,Es
+wiki		w'iki
+wombat		w'oNbat#
+wood		w'ud#
+woodstock	w,udst'OkI/
+woogie		w'ugi
+workaholic	w,or#kah'Olik
+worker		w'or#ker#
+workshop	w,or#kS'Op
+workspace	w,or#ksp'eIs
+workstation	w,or#kst'eIS,oN
+worm		w'OrmI/
+wow		w'aU
+wrestling	_^_EN
+write		r'aIt
+writer		r'aIter
+wyoming		waI'oUmiN
+xerox		S'E*Oks
+yacht		i'atSI/
+yachting	i'atSiN
+yachtsman	i'atSI/sm&N
+?1 yahoo	'i,ah'u
+?2 yahoo	iah'u
+yankee		j'&~Nki
+yard		j'ar#d#
+yearling	_^_EN
+yellow		j'EloU
+yale		i'ejl#
+yes 		j'Es
+yokohama	j,okoh'&~m&
+york		j'Ork
+yorkshire	j'OrkS'aIry
+you		j'U
+yuppie		j'upi
+zabaione	_^_IT
+zamacueca	samakw'eka
+zeitgeist	z'aItg,aIst#
+zeppelin	$1 $alt
+ziper		$1
+zombie		zo~Nb'i
+zhuhai		zuh'aI
 
 
-// historical and famous people
+// block of company and product names
+access		'aks,Es
+acer		'eIser#
+aché		aS'e
+?1 adobe	&d'Oby
+airbnb		'Er#||b,e,enyb'e
+alexa		al'Eks&
+amazon		'amaz,o~N
+ambev		&~Nb'EvI/
+amstel		,amyst'El#
+android		&Nd*'Oid#
+antarctica	&Nt'ar#tSIk&
+apple		'Epol#
+asus		$1
+atari		$2
+audi		$1
+audible		'aUd#ibol#
+bayer		b'aIer#
+blender		$1
+boeing		b'Oi~Ng
+bohemia		$2
+brahma		b*'&ma
+braskem		$2
+bud		b&d# $only
+budweiser	b&dv'aIzer#
+bunge		b'u~Nge
+burger		b'ur#ger#
+byd		b,iw,aId'i
+(c & a)		se||i||'a
+campari		$2
+carrefour	kaR#ef'ur#
+casio		k'asjU
+chevrolet	S,ev*ol'E
+?1 chrome	k*'oUm
+?2 chrome	k*'omy
+citroën		s,it*o'eIN
+cremer		k*'emer#
+debian		d'Ebj,&~N
+deezer		d#'izer#
+dell		d'El#
+delphi		d'El#fi
+deepseek	dZ,ips'ik
+docker		d'Oker#
+d'or		d'Or#
+dosvox		d,os#v'Oks
+(dos vox)	d,os#||v'Oks
+dropbox		d*,OpI/b'Oks
+eisenbahn	,aIzeNb'&N
+eletrobras	eletrobrás $text
+embraer		$alt
+?1 excel	,Eks'El
+?2 excel	,eks'EU
+?1 express	,Ekspr'Es
+espeak		isp'ik
+espeakedit	isp,ik||Ed#'it#
+facebook	f,eIsyb'ukI/
+fedora		fed'O*&
+ferrari		$2
+fiat		f'i&t#I/
+firefox		f,aI*yf'Oks
+?1 front	fr'oNt
+gillette	$alt
+github		g,ith'&bI/
+(git hub)	g,ith'&bI/
+habib		hab'ibI/
+heineken	h'aInek,eN
+heinz		h'aINs
+honda		h'oNd&
+houaiss		,u'aIs#
+hyundai		hj,u~Nd'aI
+huawei		waw'ej
+ibis		'ibis#
+ifood		,aIf'Ud#
+instagram	,i~Nstag*'&N
+iphone		,aIf'ony
+ipod		,aIp'Od#
+ipad		,aIp'Ed#
+itunes		,aIt'unys
+?1 jaws		dZ'au:z
+kali		$1
+kindle		k'iNdol#
+konami		$2
+loggi		$1 $alt
+nike		n'aIk
+libreoffice	l'ib*y||'Ofisy
+(libre office)	l'ib*y||'Ofisy
+?1 linux	l,in'uks
+?2 linux	l'inUks
+mac		m'Ek
+mach		m'ak
+mecdaisy	m,EkI/d'eIzi
+maggi		$1 $alt
+mcdonald	m,Ek||d'onal#d
+(mc donald's)	m,Ek||d'onal#ds#
+marvel		$1
+mbrola		,emy||b*'Ol&
+?1 media	m'Ed,i& $noun
+?2 media	m'idZj& $noun
+medley		m'EdleI
+?1 multimedia	m,ultim'Ed,i&
+?2 multimedia	m,uwtim'idZj&
+messenger	m'Es&NdZ&r
+?1 microsoft	m,ik*os'Oft
+?2 microsoft	m,aIk*os'Oft#
+michaelis	mika'Elis
+mitsubishi	$3
+mounjaro	moUNZ'arU
+movie		m'uvi
+?1 nero		n'Eru
+nestlé		nes#tl'e
+?2 netbook	nEtb'uk
+?2 notebook	noUtb'uk
+nokia		n'Okj&
+notepad		noUt#p'Ed#
+novartis	$2
+nvidia		eny||v'id#j&
+?1 office	'Of,is
+?2 office	'Ofisy
+(one note)	w'oN||n'oUt#
+openai		,opeIN||,eI'aI
+(open ai)	,opeIN||,eI'aI
+openoffice	'opeIN||'Ofisy
+(open office)	'opeIN||'Ofisy
+oracle		'Or#akol#
+?1 outlook	'autl'uk
+?2 outlook	,aUtl'uk
+?1 paint	p'aint
+paypal		p,eIp'al#
+(p & g)		pe||i||Z'e
+pepsi		p'Epsi
+petrobras	petrobrás $text
+peugeot		peZ'o
+pfizer		f'aIzer#
+playstation	pleI||st'eIS,&~N
+(play station)	pleI||st'eIS,&~N
+prati		$1
+donaduzzi	$2
+?1 publisher	p'&bl,iS&r
+?2 publisher	p'&bl,iSer#
+rappi		$1
+reader		R#'id,er
+renault		R#en'o
+renner		$1
+riachuelo	$alt2
+ryzen		R#'aIz,eN
+santander	$alt
+setup		s,Et'&p
+shell		S'El#
+schin		sk'iN
+sicredi		$2 $alt
+siemens		s'imeINs
+skol		s#k'Ol#
+?1 skype	sk'aip
+?2 skype	sk'aIpI/
+slackware	sl'akw,Er
+?2 society	sos'aIty
+soundcloud	s,aUNd#||kl'aUd#
+spoleto		$alt2
+spotify		sp,Ot#yf'aI
+(stella artois)	s#t'El&||ar#tu'a
+suse		s'uzy
+opensuse	,ope~Ns'uzy
+start		st'ar#t#
+steam		st'i~N
+subway		subw'eI
+?1 time		t'aImy
+telegram	t'Eleg*,&~N
+tinder		t#'iNder#
+totvs		t'OtUs#
+thunderbolt	t,&Nder#b'ol#t#
+tupperware	t,ap&w'Er
+twitter		tw'iter#
+twitch		tw'itS
+uber		'uber#
+unilever	$3 $alt
+ubuntu		$2
+xubuntu		$2
+xubuntu		$2
+unboxing	,&~Nb'OksiN
+unimed		,unim'Ed#I/
+?1 unix		,u:n'iks
+?2 unix		j'uniks
+volkswagen	fol#ksv'ag,eN
+volp		vol#pI/
+?1 window	w'iNd'ou
+?2 window	w'iNdoU
+xbox		,Eksb'Oks
+xeon		z'i,oN
+xiaomi		S'awmi
+yamaha		j,&m'ah&
+youtube		j,ut'uby
+youtuber	j,ut'uber#
+zeneca		z'enek&
+
+
+// block of historical and famous names
+adam		'ad,&~N
+alanis		$2
+alckmin		'al#km,i~N
+alighieri	aligi'E*i
+(al pacino)	Al#||patS'inU
+ariès		aR#j'Es
 alzheimer	aUz'aImEr
-babbage		b'abidZ
-bernhard	bern'ard
-biden		_^_EN
-?1 darwin		d'Arwin
-?2 darwin		d'Arvin
-?2 diderot	didex'o
-dijkstra	d'ijkstrA:
-?1 einstein	_!'aInSt,aIn
-?2 einstein	_!'aInst,aIn
-feuerbach	_^_DE
-feynman		f'ainm@n
-françois	fR&~Nsw'a
-freud		fR'OId
-friedrich	fR'i:dRiS
+annie		'&ni
+apollinaire	apolin'Er#
+arendt		'a*eNt#
+armstrong	'armI/str,oN
+astaire		ast'Er#
+atkins		'EtkiNs
+austen		$1
+babbage		b'ab&Z
+bach		bax $only
+bach		bak $stem
+baldwin		$1
+bardot		bar#d'o
+barrichello	baR#ik'ElU
+batman		b'atm,&~N
+bauman		b'aUm,&~N
+baumann		b'aUm,&~N
+baudelaire	bodel'Er#
+beauvoir	bovw'ar#
+beccaria	$2
+belchior	bel#kj'Or#
+bell		b'El#
+bentham		b'e~NT,&~N
+beethoven	bet'ov,eN
+bergman		$1 $alt
+bergoglio	ber#g'Oljo
+berners		$1 $alt
+bernhard	bern'ard#
+bernoulli	b,er#nul'i
+bertolucci	b,er#tol'utSi
+bayes		b'eIs#
+beyoncé		bioNs'e
+biden		b'aIdeIN
+bieber		b'iber#
+billie		b'ili
+björk		bi'Or#k
+blair		bl'Er#
+blake		bl'eIk
+bobbio		b'Obio
+boccaccio	bok'atSjo
+bocelli		botS'Eli
+boff		$alt
+bosch		b'OS
+botticelli	bot#itS'ElI
+bohr 		bOr#
+boole		b'uly
+bossuet		bosw'E
+bourdieu	bur#dj'
+bovary		bovaR#'i
+bowie		b'owi
+brad		b*Ed#
+bradbury	b*,Ed#b'&ri
+brahms		b*&ms
+braudel		brod'El#
+braxton		b*'Ekst,oN
+brecheret	b*eSe*'e
+brecht		b*ESt#
+brontë		b*oNt'e
+brutus		$1
+bündchen	b'iNSeIN
+burton		b'&r#t,oN
+byron		b'aI*,oN
+cameron		k'emer,oN
+capelier	kapelj'e
+caravaggio	$3
+carey		k'EreI
+carpenter	$1
+carroll		k'Erol#
+cassirer	kas'i:R#er#
+caprio		$1
+carter		$1
+caymmi		ka'imi
+céline		$2
+chandler	S'eNdler
+chamberlain	S,&~Nbe*l'eIN
+chambers	S,&~Nbers
+chaplin		S'apliN
+charlemagne	S,a*lem'&n^y
+charlie		S'arli
+charlton	S'art,oN
+chesterton	$1 $alt
+chopin		Sop&N
+christie	k*'is#t#i
+chuck		S'&k
+claude		kl'ody
+clemenceau	klem&~s'o
+clinton		$1
+clooney		kl'uneI
+cobain		koUb'eIN
+colbert		$1
+collins		$1 $alt
+collor		$1 $alt
+comte		k'o~Nty
+connelly	$1
+connery		$1
+connor		$1
+conrad		$1
+cooper		k'uper#
+corneille	kor#n'Ej
+crawford	$1
+crews		kr'us
+cromwell	$1
+curie		kuR#'i
+cusack		$1
+cyndi		$1
+cyrus		s'aIr@s
+d'alembert	d,al&~b'Er#
+dalton		d'al#t,oN
+?1 darwin	d'arwiN
+?2 darwin	d'arviN
+(da vinci)	da||v'iNtSi
+davis		d'eIvys
+dawkins		d'OwkiNs
+deadpool	dEd#p'ul#
+dean		d'iN
+debussy		$3
+defoe		def'oU
+delacroix	delak*w'a
+deleuze		del'uzy
+denzel		$1
+depp		$alt
+derrida		deR#id'a
+descartes	dek'ar#t#
+d'eu		deu $text
+dickens		d#'ikeINs
+dickinson	$1
+diderot		d#ideR#'o
+dijkstra	d'aIkst*&
+disney		d'isneI
+downey		d'aUneI
+doyle		d'OIly
+dreyfus		$1
+drucker		d*'&ker#
+dunant		dun'&~
+durkheim	dur#kI/h'aIN
+dvorak		dyv'O*ak
+dworkin		dw'or#kiN
+dylan		d#'il,&~N
+eastman		'istm,&N
+eastwood	'istwud#
+eckhout		'EkhOt
+eddie		'Ed#i
+eilish		'EliS
+einstein	'aINs#t,aIN
+eisenhower	,aIzeNh'aUer
+eller		$1 $alt
+elvis		'El#vis
+eminem		$1
+epicteto	,epit'etU
+exupéry		ezupeR#'i
+fahrenheit	f,a*eNh'aIt#
+faulkner	f'Ol#kner#
+falkenhayn	f'al#keNh,aIN
+fellini		$2
+fermat		fer#m'a
+fermi		$1 $alt
+feuerbach	f,OIer#b,ah
+feynman		f'ainm&N
+fibonacci	fibon'atSi
+fiji		$1
+fincher		$1
+fishburne	f'iSb@rn
+fischer		$1
+fittipaldi	$3
+fitzgerald	fitI/sdZ'E*al#d#
+flaubert	flob'Er#
+fleming		fl'em,iN
+fontaine	fo~t'eIN
+ford		fOr#d#
+foucault	fuk'o $only
+fourier		fuR#j'e $only
+françois	f*&~Nsw'a
+frankenstein	f*,&NkeNs#t'aIN
+frankl		f*'&Nkel
+freddie		f*'Ed#i
+freeman		f*'im,&~N
+freud		f*'OId#
+friedman	f*'idm,&~N
+friedrich	f*'id*iS
+fujimori	$3
+fukuyama	f,ukuj'&~m&
+gable		g'eIbol#
+gadamer		$1
+gandhi		g'&Ndi
+gauchet		goS'E
+goleman		g'ol#m,&~N
+galois		galw'a $only
+gardner		$1
 garibaldi	$3
+garrett		gaR#'Et#
+gates		g'eIt|s
+gaulle		g'oly
 gauss		g'aUs
-geisel		g'aIzEU
-gottfried	g'OtfRi:t
-hamlet		x'&mlet
-hawking		h'o:king
-hegel		x'egel
-heidegger	h'aIdege
-heisenberg	h'aIzEnberg
-hitler		h'itler
-?2 hobbes	x'Obys
-husserl		x'usEl
+geisel		g'aIzEl#
+genghis		Z'e~NZis#
+gerchman	g'Er#SI/m,&N
+gessinger	g'EsiNger#
+gibbon		g'ib,oN
+gilgamesh	$alt
+gilliam		g'ili,&N
+giorgi		$2 $alt
+gladwell	gl'adwEl#
+gnattali	nj'atali
+goebbels	g'obel#s
+goeldi		g'el#d#i
+goethe		g'ete
+gogh		$alt
+gosling		$1 $alt
+gottfried	g'Otf*i:t
+goulart		gul'ar#t
+graham		gr'eI,&N
+gramsci		g*'&~mSi
+gresham		gr'ES,&N
+gulliver	g'uliver#
+guarnieri	$3 $alt
+guignard	g,in^'aR#d
+habermas	h'aber#m&s
+hackman		h'Ekm&n
+haidt		h'aIt#
+halley		h'aleI
+hamlet		h'&mlet
+hamurabi	$3
+handel		h'eNdel#
+händel		h'eNdel#
+hanks		heNks
+hanover		han'over#
+hansen		h'&Ns,eN
+hardy		har#d'i
+harper		h'ar#per#
+harris		h'Eris
+harrison	h'Eris,oN
+harvey		h'ar#veI
+hawking		h'OkiN
+hawthorne	h'OwT,orn
+haydée		,aId'e
+hayworth	h'ejworT
+heath		h'ET
+hegel		h'egel#
+heidegger	h'aIdeger#
+heisenberg	h'aIzeNberg
+heller		h'Eler#
+hemingway	h'EmiN,weI
+hendrix		h'eNdriks
+hendricks	h'eNdriks
+hepburn		h'EpIb@rn
+herschel	h'Er#Sel#
+hesse		h'Esy
+heston		h'Est,oN
+higgs		h'igs
+higgins		h'igiNs
+hilbert		h'ilber#t#
+hindenburg	h,iNdeNb'ur#g
+hirszman	h'izm,&N
+hitler		h'itler#
+hitchcock	h'itSI/k'Ok
+?2 hobbes	h'Obys
+hobsbawm	h'ObI/sb,o~N
+holmes		h'oUmys
+homer		h'oUmer#
+hooke		h'uky
+hopper		h'Oper
+horkheimer	h,Ork'haImer#
+hubble		h'&bol#
+hulk		h'ulk
+humboldt	h,&~Nb'ol#t#
+husserl		h'usEl#
+huxley		h'&ksl,eI
+hyde		h'aId#
+irving		$1
 ?1 isaac	iz'&k
-?2 isaac	iz'ac
-kennedy		$1
+?2 isaac	iz'ak
+jackson		Z'Eks,oN
+jacobi		$2
+jagger		Z'Eger#
+janis		$1
+jaurès		ZoR#'Es
+jekyll		Z'Ekil#
+(joão vi)	joão sexto $text
+johnson		dZ'oNs,o~N
+joplin		$1 $alt
+(jong un)	Z'o~N||'un
+(jong il)	Z'o~N||'il#
+joyce		dZ'OIsy
+justin		dZ'&st#iN $only
+kahneman	k'&~nem,&~N
+kardec		kar#d'Ek $only
+keanu		ki'&nU
+keaton		k'it,oN
+keller		$1 $alt
+kelsen		k'El#s,eN
+kennedy		k'ened#i
+kepler		k'Epler#
+kernighan	k'er#nig&N
+kerouac		k'E*uak
+kierkegaard	k,ir#keg'ar#d
+koch		k'Ok
+koyré		kwaR#'e
+khomeini	k,ome'ini
+khouri		k'u*i
+krajcberg	k*'aIZb,Er#g
 kubitschek	k,ubyS'Ek
+kubrick		$1
+kyoto		$alt2
+laclos		lakl'o
+langsdorff	$alt
+lauper		l'aUper#
+laurence	$1
+lawrence	$1
 lavoisier	lavwazj'e
-leibniz		l'aIbni:ts
+(le corbusier)	le||kOr#buzij'e
+ledger		l'EdZer#
+leibniz		l'aIbnit|s
+(le goff)	l,e||g'Of
+leminski	$2
+lenin		l'eniN
+lennon		$1
+lennox		$1
+leoni		$2
+(lévi-strauss)	lev,ist*'os#
+liam		l'i&N
+lincoln		l'iNk,oN
+lispector	$2 $alt
 locke		lOk
+loren		l'Or,eN
+lorscheider	l,Or#S'aIder#
+lovecraft	l'OvykrEft#
+lovelace	l'OvyleIs
+loveless	l'OvylEs
+ludendorff	l'udeNdOr#f
+lundgren	l'&Ndgr,eN
+luther		l'uter#
+(mac intyre)	m'ak||iNt'aI*y
+macgyver	mag'aIver#
+mackenzie	mak'e~Nzi
+mahatma		mah'atm&
+malcolm		m'al#k,oN
+malkovich	$1
+malthus		m'al#tus#
+(mao tse)	m,aU||t|s'E
+maquiavel	$4
+(maria i)	maria primeira $text
+(maria ii)	maria segunda $text
+mariah		mar'aI&
+marilyn		m'EriliN
+marley		$1
+marshall	m'ar#Sal#
+mason		m'eIs,oN
+marx		m'a*ks
+maslow		$1
+maistre		m'Est*y
+maupassant	_^_FR
+(mc carthy)	m@||k'arDi
+(mc cartney)	m@||k'artni
+meadows		m'Edol#s
+melchior	mel#kj'Or#
+meloni		$2
+melville	_^_EN
+mendel		m'eNdel#
+mercury		$1 $alt
+messi		$1 $alt
+michelangelo	mikel'&~NZelU
+(michel temer)	miS'El#||t'emer#
+middleton	m'idol#t,oN
+miley		m'aIli
+miller		$1
+milliet		m,ilj'e
+mirandola	m,i*'&~Ndol&
+mitchell	m'itSel#
+mohamad		moh'amad
+mohamed		moh'amed
+mohammad	moh'amad
+mohammed	moh'amed
+muhammad	muh'amad
+muhammed	muh'amed
+molière		moli'Er#y
+molotov		molot'Ov
+monroe		m'oNrow
+monet		mon'e
+montaigne	moNt'eIN
 montesquieu	m,oNteskj'e
-mozart		$1
-neumann		n'OIman
-newton		n'I;utoN
-oppenheimer	_!'Op@nh,aImar
+moore		m'ur#
+morgan		m'Org&N
+morissette	$alt
+morrison	m'Oris,oN
+morus		$1 $alt
+mozart		m'ozar#t#
+munch		m'uNk
+mussolini	$3
+murphy		m'@r#fi
+murray		m'@reI
+musk		m'@s#k
+musset		_^_FR
+naftali		$2
+nagel		n'agel#
+naruhito	n,a*u'hitU
+neeson		n'is,oN
+netanyahu	n,et&nj'ahu
+neumann		n'OIm,&N
+newman		n'iUm,&N
+newton		n'iwt,oN
+nicholson	n'ikol#s,oN
+niemeyer	n,iem'aIer#
+nietzsche	n'itSy
+nietzsch	n'itS $stem	// nietzschiano, nietzschismo
+nightingale	n,aIt#iNg'ejl#
+nimrod		ni~NR#'Od#
+nixon		n'iks,oN
+nolan		$1
+norris		n'Oris
+nosferatu	$3
+nozick		n'oUzik
+occam		'ok,&~N
+ockham		'ok,&~N
+ohm		'o~N
+oppenheimer	,OpeNh'aImer#
+orwell		'OruEl#
+osbourne	'Osbor#ny
+owen		'oweIN
+paine		p'eIny
+pasteur		past'Er#
+patterson	p'Eter#s,oN
+pauling		$1
+(paulo i)	p'aUlU||p*,im'eI*U
+(paulo ii)	p'aUlU||s,eg'u~NdU
+pavlov		pavl'Ov
+peirce		p'&*sy
+péguy		peg'i
+pétain		pet'&~
+perrault	peR#'o
+piaget		p,iaZ'e
+pinker		$1
+pignatari	p,in^at'a*i
+piquet		p,ik'e
+pinochet	pinoS'e
+poitier		pwati'er#
+pollock		$1 $alt
+popkin		$1 $alt
+popper		_^_EN
+portinari	$3
+possi		$1 $alt
+potter		p'Oter#
+powell		p'awel#
+presley		$1 $alt
+proudhon	p*ud'o~
+proust		p*'ust#
+puccini		pus'ini
+putin		p'ut#iN
+putnam		p'utn,&~N
+rabelais	R#abel'E
+ratzinger	R#'atziNger#
+rawls		rOl#s#
+reeves		r'ivys
+rené		R#en'e
+renée		R#en'e
+rembrandt	R#eNb*&~Nt#
 richard		x'iS&rd
-riemann		r'i:man
-rijndael	x'ain;d'al
-rousseau	xus'o
-russell		x'usEl
+ricoeur		_^_FR
+riemann		r'i:m,&N
+rihanna		R#i'&n&
+rijndael	R#'aINd'al#
+rimbaud		_^_FR
+ritchie		R#'itSi
+rochefoucauld	R#OSfuk'o
+rodin		R#od'&~
+roitman		R#'OItm,&~N
+röntgen		R#'o~NtI/geIN
+roosevelt	R#'uzyvelt
+rossini		R#os'ini
+roth		r'OT
+rousseau	R#us'o
+rousseff	R#us'Ef
+rowling		R#'oUl,iN
+rugendas	R#ug'end&s#
+ruschi		R#'uski
+ruskin		R#'&skiN
+russell		R#'usEl
+sabin		s'eIbiN
+(saint-just)	s,&~Z'ust
+sagan		s'eIg,&~N
+saddam		sadan $text
+salinger	$1
+sandel		s'eNdEl#
+sanzio		$1
+sartre		s'ar#t*y
+savigny		savinj'i
+scheidel	S'aIdel#
+schelling	S'Eli~N
+schönberg	S'oNber#g
+schopenhauer	S,opeN'haUer#
 schrödinger	Sr'edinger
-stephen		st'i:v@n
+schroedinger	Sr'edinger
+schubert	S'uber#t#
+schumacher	S,um'aker#
+schumann	S'um&N
+schwarzenegger	Swarzyn'Eger#
+shaw		S'Ow
+shakespeare	S'eIksp,er#
+shakespear	S'eIksp,e* $stem // shakesperiano, shakesperiana
+sheeran		S'ir&N
+shelley		_^_EN
+sherlock	Ser#l'OkI/
+silesius	$2 $alt
+skinner		sk'iner#
+skywalker	sk,ajw'Ol#ker#
+somerville	_^_EN
+sontag		$1
+sowell		s'oUEl#
+spacey		sp'eIsi
+spencer		sp'e~Nser#
+spinoza		sp,in'Oz&
+espinoza	$3 $alt
+spielberg	sp'il#b,er#g
+stalin		st'aliN
+stallman	st'Ol#m,&N
+starmer		st'ar#mer#
+steinbruch	staINbruk
+stendhal	st&Ndal#
+stephen		st'ifeIN
+stevens		st'iveINs
+stevenson	st'iveNs,oN
 steve		st'i:v
-trump		_^_EN
+stevie		st'i:vi
+streisand	st*'aIs&Nd#
+sylvester	$2 $alt
+tchaikovski	tSaIk'Ovs#ki
+teller		t'Eler#
+temple		t'eNpol#
+terry		t'Eri
+tesla		$alt
+thatcher	t'atSer
+thoreau		toR#o
+thor		t'Or#
+thousand	T'aUz&Nd
+tocqueville	tokev'ily
+todorov		$alt
+toller		$1 $alt
+tolkien		$1
+tolstoi		$alt
+torricelli	toR#itS'Eli
+torvalds	$1
+trotsky		t*'Ot|ski
+truffaut	t*uf'o
+truman		$1
+trump		t*'&~NpI/
 turing		t'u*iNg
-voltaire	vOlt'Er
-von		f%On
+turner		t'@rner#
+twain		tw'eIN
+tyson		t'aIs,oN
+tzvetan		tI/zvet'&~N
+ulrich		$1
+varnhagen	v,a*nI/h'ageIN
+verdi		v'Er#di
+vivaldi		$2
+volpi		$1
+voltaire	vol#t'Er#
+voltair		vol#t'E* $stem // voltairiano, voltairiana
+von		f%oN $only
+vonnegut	_^_EN
+wegener		v'Egener#
+wallace		$1
+waller		w'Oler#
+warhol		w'OrhOl#
+watson		w'Ot|s,oN
+wayne		w'eIny
+weissmann	v'aIzm&N
+werner		v'Er#ner#
+whitman		$1
+wilde		w'ajl#d#
+willis		$1
+winehouse	w,aInyh'aUzy
+winnicott	w'inIkOt#
+winston		$1
+wittgenstein	v,itge~Ns#t'aIN
+wolfgang	v'ol#fg,&Ng
+wolverine	volve*'iny
+wonder		$1
+woody		w'ud#i
+woolf		w'olf
+wojtyla		vojt#'ila
+wright		r'aIt
+wycliffe	w'iklif
+xerxes		$alt
+(xi jinping)	S'i||Zi~Np'i~Ng
+zuckerberg	$alt
 
 
-// foreign names and surnames
+// block of foreign names
+abbott		'Ebot
+abdullah	,abd'ul&
+abraham		'ab*a,&~N
 adrian		$1
+agostini	$3
+ahmed		ahmEd#
 alan		$1
 albert		$1
+alberti		$2
+albrecht	'al#b*ESt#
 alexander	$3
+alfieri		$3 $alt
+alfred		$1
+alvarez		$1
 andrew		$1
+angelis		$1
+angelus		$1
 anthony		$1
+archer		$1
 arnold		$1
 ashley		$1
+bacchi		$1
+barbieri	$3 $alt
+battaglia	b,at'al^a
+battisti	$2
+bauer		$1
+bailey		b'eIli
+becker		b'Eker#
+bellini		$2
+bender		$1
+benedetti	$3 $alt
+bennett		$1
+berger		b'Er#ger#
+bermudez	$2
+bernardi	$2
+beth		$alt
+bianchi		bi'&Nki
+bill		b'il#
+bittencourt	b,ite~Nk'u*t#
+bloch		bl'Ok
+bob		b'ObI/ $only
+bohn		b'oN
+bonner		$1
 brandon		$1
-brian		bR'aI;&~N
-bryan		bR'aI;&~N
-caleb		$alt1
+braun		b*aUN
+brian		b*'aI;,&~N
+bryant		b*'aI;,&~Nt
+brunelli	$2
+brunet		b*un'e
+bryan		b*'aI;,&~N
+butler		b'&tler#
+caleb		$alt
+camarotti	$3 $alt
+campbell	$1
+carl		k'arl $only
+carrie		k'Eri
+cavalcanti	$3
+chalhoub	Sal#h'ub
+chambers	S'eNbers
+charlotte	$alt
+chevalier	Sevaj'e
 christian	$1
 christopher	$1
-cleverson	$1 $alt1
+churchill	S'@r#SIl#
+cimenti		$2
+clayton		kl'eIt,oN
+clément		klem'&~
+cleverson	$1 $alt
+cochran		k'Okr&N
+cochrane	k'Okr&ny
+coleman		$1
+costatini	$3
+conti		$1
+cunningham	k'&niNgh&N
 cynthia		$1
-deborah		$1 $alt1
+daisy		d'eIzi
+d'avila		dávila $text
+daimler		$1
+damien		damj'&~
+debbie		d'Ebi
+deborah		$1 $alt
+debret		deb*'e
 dennis		$1
+dieckmmann	d#'ikm&N
+diefenbach	d'ifeNb,ax
+dmitri		d#ym'itri
+dominguez	$2
 donald		$1
-edward		$1 $alt1
-elton		$1 $alt1
-emerson		$1 $alt1
+donati		$2
+donner		$1
+duailibi	$3
+dubois		dubw'a
+dwight		dw'aIt#
+edward		$1 $alt
+elisabeth	$alt
+elizabeth	$alt
+elon		'El,o~N
+elton		$1 $alt
+emerson		$1 $alt
 emily		$1
-eric		$1 $alt1
-erick		$1 $alt1
-evelyn		$1 $alt1
+engel		'eNgel#
+enriquez	$2
+eric		$1 $alt
+erick		$1 $alt
+erickson	$1 $alt
+estevez		$2
+étienne		et#j'eny
+evans		$1 $alt
+evelyn		$1 $alt
+fabbri		$1
+fachin		fak'iN
+feghali		$2
+ferretti	$2 $alt
+ferri		$1 $alt
+fischer		f'iSer#
+flesch		fl'ES
+foster		$1 $alt
+fournier	furnj'e
 francis		$1
-franklin	$1
-gregory		$1 $alt1
-hannah		x'&~n&
-helen		$1 $alt1
-herbert		$1 $alt1
-james		Z'eimys
-jason		Z'eIson
-jerry		$1 $alt1
-joe		ZI'oU
-john		ZI'oN
+françoise	f*&Nsw'azy
+franklin	f*'&~Nkl,i~N
+franzen		$1
+friedrich	f*'id*iS
+fujimoto	$alt2
+galli		$1
+gatti		$1
+gentili		$2
+georg		ge'Or#g
+gerald		$1
+gibson		g'ibs,oN
+gimenez		$2
+giovanni	$3
+giordani	$3
+giorgia		$2 $alt
+giuliani	$3
+gomez		$1
+gonzalez	$2
+grassi		$1
+gregor		g*'Egor# $only
+gregory		$1 $alt
+griffin		$1
+grimaldi	$2
+gruber		$1
+günther		$1
+hancock		h'eNkok
+hang		h'&Ng
+hanna		h'&~n&
+hannah		h'&~n&
+hans		h'&Ns#
+harry		h'Er,i
+hartmann	h'ar#tm,&~N
+hasegawa	h,aseg'aw&
+hashimoto	h,aSim'otU
+hassan		has'&~N
+hayashi		haI'aSi
+hayes		h'eIz
+helen		$1 $only
+henderson	h'eNder#s,oN
+henry		$1
+herbert		$1 $alt
+hermann		h'E*m,&~N
+herrmann	h'E*m,&~N
+hernandez	$2
+hilary		h'ilari
+hoffman		h'Ofm&N
+hoffmann	h'Ofm&N
+holt		h'Ol#t
+howard		h'award
+huber		h'uber#
+hughes		hj'ugys
+hunter		h'&Nter#
+hussein		h,us'eIN
+ingrid		$1
+iozzi		$2 $alt
+jack		dZ'Ek
+jackie		dZ'Eki
+jake		dZ'eIk
+james		dZ'eimys
+janeway		dZ'anyweI
+jenkins		$1
+jansen		$1
+jason		dZ'eIs,oN
+jenny		$1
+jeremy		$1
+jerry		$1 $alt
+jimenez		$2
+joe		dZ'oU
+john		dZ'oN
 jonathan	$1
-jordan		$1 $alt1
+jordan		$1 $alt
 joseph		$1
-joshua		$1 $alt1
+joshua		$1 $alt
 josie		$1
-juan		xu&~N
+juan		xu'&~N
+jürgen		i'uR#ge~N
+karl		k'arl
+kate		k'eIt#
 kathleen	$1
-kevin		$1 $alt1
+kathryn		$1
+kevin		$1 $alt
 kimberly	$1
-klein		kl'aIn
-kleverson	$1 $alt1
-krueger		kR'i:ger
-krüger		kR'i:ger
+klein		kl'aIN
+kobayashi	$3
+kowalski	kov'al#s#ki
+kleverson	$1 $alt
+krähenbühl	k*aheNbul#
+krause		k*'aUsy
+krueger		k*'i:ger
+krüger		k*'i:ger
 kühl		k'il
-louis		lw'i
+lafer		$1
+lancellotti	$3 $alt
+lemann		$1
+lehmann		$1
+levin		$1 $alt
+lewandowski	lev&Nd'OvIski
+lewis		l'uis
+liev		$alt
+linus		$1
+lombardi	$2
+lopez		$1 $alt
+louis		lu'i
+ludwig		lud#vig
 luigi		lU'iZI
+lyndon		$1
+maggie		m'Egi
+mahmoud		mahm'ud
+mancini		$2
+marchetti	$2 $alt
+mariani		$3
+marie		maR#'i
+marini		$2
 marjorie	$1
 marlon		$1
-michael		_^_EN
-mike		maIk
-mueler		m'iler
-mueller		m'iler
-müler		m'iler
+marquez		$1
+martin		$1 $only
+martinelli	$3 $alt
+martinez	$2
+martini		$2
+matsumoto	m,at|sum'otU
+meier		m'EIer#
+meyer		m'aIer#
+mendez		$1
+merriam		m'Eri,&~N
+miyazaki	mij,az'aki
+michael		m'aIkol#
+midlej		m'idlej
+mike		m'aIk
+milani		$2
+miles		m'aIlz
+montanari	$3
+montigny	mo~tin^'y
+monti		$1
+moreau		moR#'o
+morelli		$2 $alt
+moretti		$2 $alt
+morris		m'Oris
+muller		m'iler
 müller		m'iler
-nelson		$1 $alt1
+murakami	$3
+napoli		$1
+nardoni		$2
+negri		$1 $alt
+negrini		$2
+neil		n'il#
+nelson		$1 $alt
+neri		$1 $alt
+nery		$1 $alt
+neubarth	n'Oibart#
+nichols		n'ikol#s
 nicholas	nícolas	$text
-norton		$1 $alt1
-oliver		$1 $alt1
+norton		$1 $alt
+nowak		$1
+oliver		$1 $alt
+olga		$alt
+pagani		$2
+pagliari	p,al^'a*i
+palmieri	$3 $alt
+parisi		$2
+parker		$1
 patrick		$1
-paul		p'O:l
-robert		$1 $alt1
-robinson	$1
-roger		$1
+paul		p'o:l# $only
+pellegrini	$3
+palocci		$2 $alt
+perez		$1 $alt
+périssé		peR#is'e
+perroni		$2
+perry		p'Eri
+peter		$1 $alt
+peterson	p'iter#s,oN
+pfeifer		f'aIfer#
+philip		$1
+phillip		$1
+pike		p'aIk
+piovani		$3
+preston		p*'Est,oN
+price		p*'aIsy
+ramirez		$2
+ramsey		$1
+ranaldi		$2
+reymond		$1
+ricci		R#'isi
+richter		$1
+rinaldi		$2
+rivera		$alt
+ritter		R#'iter#
+rizzi		$1
+robert		$1 $alt
+robin		$1 $alt
+robinson	$1 $alt
+rockenbach	R#okeNb'ax
+rodriguez	$2
+roger		$1 $alt
+romanazzi	$3
 ronald		$1
-ronchi		r'Onki:
+ronchi		R#'oNki
+ross		r'Os
+rosset		R#os'E
+rossetti	$2 $alt
+rossi		$1 $alt
+ruschel		R#'uSel#
 ryan		x'aI&n
+salvati		$2
+sam		s'&~N
+sanchez		$1
+sanders		$1
+santis		$1
+sant'anna	santana $text
 sarah		$1
+sarti		$1
+sartori		$2
+saunders	$1
 scarlet		$1
+schäfer		S'Efer#
+scherer		S'E*er#
+schenberg	S'eNb,E*g
+schmidt		Sym'it#
+schmitt		Sym'it#
+schmitz		Sym'it|s
+schneider	Syn'aIder#
+schreiber	Sy*'aIber#
+schwartz	Sv'ar#t|z
+schwarcz	Sw'ar#t|s
+schulz		S'ul#t|s
+sean		S'oN
+sergei		ser#g'eI
+sergey		ser#g'eI
 sharon		$1
+sherman		S'Erm&N
 shirley		$1
-stephanie	$1 $alt1
+silvestri	$2 $alt
+sinclair	siNkl'Er#
+singer		$1
+single		s'iNgol#
+simmons		$1
+snyder		sn'aIder#
+staden		$1
+stanley		st'&~NleI
+stefanini	$3
+stein		st'aIN
+stephanie	$1 $alt
+sterblitch	$1 $alt
+steward		stj'uard
+stewart		stj'uart
+stuart		stj'uart
 susan		$1
+sullivan	$1
+suzuki		$2
+szafir		zaf'ir#
+takahashi	t,akah'aSi
+taniguchi	$3
+taunay		tun'E
+taylor		t'eIlor#
+theodor		t,eod'Or#
+tiburi		$2
 tiffany		$1
-vogel		f'o:g@l
-volkmann	f'Olkman
-washington	w'OSinton
-william		$1
+toffoli		$1 $alt
+torloni		$2
+tralli		$1
+tyler		t'aIler#
+valentini	$3
+vecchia		$1 $alt
+villegagnon	vilyganj'o~
+vecchio		$1 $alt
+vincent		$1
+visconti	$2
+vitali		$2
+vogel		f'ogel#
+volkmann	f'Ol#km,&N
+wagner		v'agner#
+waldvogel	v,al#df'ogel#
+walsh		w'Ol#S
+ward		w'Ord
+warner		w'Orner#
+washington	w'OSiNt,oN
+weber		v'Eber#
+webster		w'Ebster#
+werneck		ver#n'Ek
+will		w'il#
+wiley		w'ileI
+william		w'ili&N
+willie		w'ili
+winits		$1
+yamazaki	$3
+yamamoto	$alt2
+yates		j'eIt|s
+zanetti		$2 $alt
+zimmer		$1
+zimerman	$1
+zimmermann	$1
 
 
-// names and surnames
+// block of native names
 abilio		abílio $text
 abner		ábner $text
 abraao		abraão $text
@@ -1778,11 +6177,13 @@ clovis		clóvis $text
 conceicao	conceição $text
 constancia	constância $text
 constancio	constâncio $text
+consuelo	$alt2
 cornelia	cornélia $text
 cornelio	cornélio $text
 cristovao	cristóvão $text
 damiao		damião $text
 danubia		danúbia $text
+darcy		$2
 dario		dário $text
 debora		débora $text
 decio		décio $text
@@ -1799,6 +6200,8 @@ dionisio	dionísio $text
 ?1 domenico	doménico $text
 ?2 domenico	domênico $text
 doris		dóris $text
+doroteia	$alt
+dulcineia	$alt
 eder		éder $text
 ederson		éderson $text
 edesio		edésio $text
@@ -1862,6 +6265,7 @@ francilio	francílio $text
 gastao		gastão $text
 genesia		genésia $text
 genesio		genésio $text
+georgia		geórgia $text
 getulio		getúlio $text
 glauber		gláuber $text
 glaucia		gláucia $text
@@ -1902,7 +6306,7 @@ isis		ísis $text
 itala		ítala $text
 italo		ítalo $text
 iuri		iúri $text
-ivanete		$alt1
+ivanete		$alt
 jader		jáder $text
 janaina		janaína $text
 janio		jânio $text
@@ -1919,8 +6323,8 @@ jessica		jéssica $text
 jesuina		jesuína $text
 jesuino		jesuíno $text
 joao		joão $text
-?1 jonatas	jónata $text
-?2 jonatas	jônata $text
+?1 jonata	jónata $text
+?2 jonata	jônata $text
 ?1 jonatas	jónatas $text
 ?2 jonatas	jônatas $text
 josafa		josafá $text
@@ -1930,11 +6334,10 @@ joselio		josélio $text
 josue		josué $text
 julia		júlia $text
 julieta		$alt2
-juliete		$alt1
+juliete		$alt
 julio		júlio $text
 junia		júnia $text
 junio		júnio $text
-junior		júnior $text
 juvencio	juvêncio $text
 kaique		kaíque $text
 kassia		kássia $text
@@ -1962,6 +6365,7 @@ leticia		letícia $text
 lidia		lídia $text
 liduina		liduína $text
 ligia		lígia $text
+lygia		lígia $text
 lilia		lília $text
 liliam		líliam $text
 lilian		lílian $text
@@ -1969,6 +6373,7 @@ liria		líria $text
 lirio		lírio $text
 livia		lívia $text
 livio		lívio $text
+lourdes		lurdes $text
 lourenca	lourença $text
 lourenco	lourenço $text
 lucelia		lucélia $text
@@ -1987,6 +6392,7 @@ magnolia	magnólia $text
 maicon		máicon $text
 maira		maíra $text
 maisa		maísa $text
+maysa		maísa $text
 maite		maitê $text
 marcia		márcia $text
 marcilia	marcília $text
@@ -2000,10 +6406,11 @@ matusalem	matusalém $text
 mauricia	maurícia $text
 mauricio	maurício $text
 melania		melânia $text
+michel		$alt
 militao		militão $text
 milton		mílton $text
 miria		miriã $text
-miriam		míriam $text
+miriam		mírian $text
 mirian		mírian $text
 moises		moisés $text
 ?1 monica	mónica $text
@@ -2121,7 +6528,6 @@ urania		urânia $text
 ursula		úrsula $text
 vagner		vágner $text
 valdineia	valdinéia $text
-valeria		valéria $text
 valerio		valério $text
 valquiria	valquíria $text
 valter		válter $text
@@ -2148,7 +6554,6 @@ vitorio		vitório $text
 vitor		vítor $text
 vivian		vívian $text
 vladia		vládia $text
-wagner		vágner $text
 waldo		valdo $text
 walter		válter $text
 wanda		vanda $text
@@ -2162,4 +6567,5 @@ yuri		iúri $text
 zaira		zaíra $text
 zelia		zélia $text
 zelio		zélio $text
+
 
