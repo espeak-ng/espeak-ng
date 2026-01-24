@@ -97,12 +97,12 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
 | `art`       | `py`              | Constructed           | Pyash                       |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
-| `roa`       | `pt-br`           | Romance               | Portuguese                  | Brazillian             |
 | `art`       | `qdb`             | Constructed           | Lang Belta                  |                        |
 |             | `qu`              |                       | Quechua                     |                        |
 | `myn`       | `quc`             | Mayan                 | K'iche'                     |                        |
 | `art`       | `qya`             | Constructed           | Quenya                      |                        |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
+| `roa`       | `pt-br`           | Romance               | Portuguese                  | Brazil                 |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `art`       | `piqd`            | Constructed           | Klingon                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
