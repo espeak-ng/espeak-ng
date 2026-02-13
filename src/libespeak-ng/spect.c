@@ -26,7 +26,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef HAVE_SYS_ENDIAN_H
+#if HAVE_SYS_ENDIAN_H
 #include <sys/endian.h>
 #else
 #include <endian.h>

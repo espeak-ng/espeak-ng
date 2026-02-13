@@ -16,7 +16,6 @@ jobs:
         include:
           - arch: x86-32
             archdeps: "gcc-multilib g++-multilib libpcaudio-dev:i386 libsonic-dev:i386 libc6-dbg:i386"
-            archconfig: "--host=i686-linux-gnu"
             archconfigflags: "-m32"
 
           - arch: x86-64
@@ -29,25 +28,32 @@ jobs:
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
     - name: dependencies
-      run: sudo apt-get update && sudo apt-get install libpcaudio-dev libsonic-dev ronn kramdown clang llvm ${{ matrix.archdeps }}
-    - name: autoconf
-      run: ./autogen.sh ; chmod -x INSTALL m4/*.m4
-    - name: configure
-      run: CC="clang ${{ matrix.archconfigflags }}" CXX="clang++ ${{ matrix.archconfigflags }}"
-           CFLAGS="-fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
-           CXXFLAGS="${{ matrix.archconfigflags }} -fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer"
-           LDFLAGS="-fsanitize=address,undefined -lubsan"
-           ./configure ${{ matrix.archconfig }} --with-libfuzzer
-    - name: Store the fuzzer config
+      run: sudo apt-get update && sudo apt-get install cmake ninja-build libpcaudio-dev libsonic-dev ronn kramdown clang llvm ${{ matrix.archdeps }}
+    - name: configure (CMake)
+      run: |
+        proc="x86_64"
+        if [ "${{ matrix.arch }}" = "x86-32" ]; then proc="i686"; fi
+        target_flag=""
+        if [ "${proc}" = "i686" ]; then target_flag="-DCMAKE_C_COMPILER_TARGET=i686-linux-gnu -DCMAKE_CXX_COMPILER_TARGET=i686-linux-gnu"; fi
+        cmake -B build -G Ninja \
+          -DCMAKE_C_COMPILER=clang \
+          -DCMAKE_CXX_COMPILER=clang++ \
+          -DCMAKE_C_FLAGS="-fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer ${{ matrix.archconfigflags }}" \
+          -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fstack-protector-strong -g -Og -fno-omit-frame-pointer ${{ matrix.archconfigflags }}" \
+          -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined" \
+          -DCMAKE_SYSTEM_PROCESSOR=${proc} ${target_flag} \
+          -DWITH_FUZZER=ON \
+          -DUSE_ASYNC:BOOL=OFF \
+          -DBUILD_SHARED_LIBS:BOOL=OFF
+    - name: Store the CMake build tree
       if: ${{ failure() }}
       uses: actions/upload-artifact@v6
       with:
-        name: config-${{ matrix.arch }}.log
-        path: config.log
-    - name: make
-      run: make -j
+        name: cmake-${{ matrix.arch }}-builddir
+        path: build
+    - name: build fuzzer + data
+      run: cmake --build build --target synth_fuzzer data --parallel
     - uses: actions/cache@v5
       with:
         path: /home/runner/work/espeak-ng/espeak-ng
         key: build-${{ matrix.arch }}-${{ github.sha }}
-
