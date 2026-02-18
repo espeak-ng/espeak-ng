@@ -3,7 +3,7 @@
 // Spelling-to-phoneme words for Turkish
 
 a	a
-b	be
+b	bE
 c	dZE
 ç	tSE
 d	dE
@@ -35,8 +35,8 @@ x	iks
 y	jE
 z	zE
 
-_cap	byj'Yk
-_??	sEmb'Ol
+_cap	byj'Yc
+_??	s&mb'Ol
 _?A	haRf
 
 // accent names
@@ -49,7 +49,7 @@ _cir	Sapk'a
 _dia	UmLa'Ut
 _dot	YstnOkt'a
 _grv	'aksanimI
-_hac	t'ERsSapk'a
+_hac	t'&RsSapk'a
 _mcn	uz'atmaimI
 _ogo	ogon'Ek
 _rng	haLk'a
@@ -61,29 +61,29 @@ _tld	tIld'E
 _.	nOkt'a
 _,	vIRJ'Yl
 _;	nOktaL'@vIRJ'Yl
-_:	ik'InOkt'a
+_:	ic'InOkt'a
 _…	'YtSnOkt'a
 _?	soR'UiSa*et,I
-_!	Ynl'EmiSa*et,I
-_-	k'@satSIzg'I
-_–	'uzUntSIzg'I
-_/	ej'IktSIzg'I
+_!	Ynl'&miSa*et,I
+_-	k'@satSIzJ'I
+_–	'uzUntSIzJ'I
+_/	ej'IctSIzJ'I
 _"	t@Rn'akiSa*et'I
 _'	apOstR'Of
-_^	IndZ'EltmEiSa*et'I
+_^	IndZ'&ltmEiSa*et'I
 &	_!v'E
 _&	v'EiSa*et'I
 _@	kUjRUkL'U'a
-_\	t'ERs||ej,IktSIzg'I
+_\	t'&Rs||ej,IctSIzg'I
 _(	atSpa*ant'Ez
 _)	kapapa*ant'Ez
-_’	tEkt@Rn'ak
-_‘	tEkt@Rn'ak
+_’	tEct@Rn'ak
+_‘	tEct@Rn'ak
 
 ¶	pa*agR'af
-§	tSEnJ'El
+§	tS&nJ'&l
 °	de*edZ'E
-_#	dij'Ez
+#	dij'Ez
 _~	jakLaS'@k
 __	,aLttSIzg'I
 *	j'@Ld@z		$max3
@@ -94,33 +94,33 @@ __	,aLttSIzg'I
 
 
 _0	s@f'@R
-_1	b'iR
-_2	ic'i
-_3	'ytS
+_1	b'IR
+_2	ic'I
+_3	'YtS
 _4	d'WRt
 _5	b'ES
 _6	aLt'@
-_7	jed'i
+_7	jed'I
 _8	sec'Iz
-_9	d'okuz
-_10	'on
-_11	'onbiR
-_12	'onici
+_9	d'okUz
+_10	'On
+_11	'OnbIR
+_12	'OnicI
 _1X	'on
-_2X	jiRm'i
-_3X	ot'uz
+_2X	jIRm'I
+_3X	ot'Uz
 _4X	k'@Rk
-_5X	ell'i
+_5X	&ll'I
 _6X	aLtm'@S
-_7X	jetm'iS
-_8X	seks'En
+_7X	jEtm'IS
+_8X	sEcs'&n
 _9X	doks'an
-_0C	'jyz
-_2C	'icijyz
-_0M1	b'in
-_0M2	milj'on
-_0M3	milj'ar
-_dpt	_viRg,Yl_|
+_0C	'jYz
+_2C	'icIjYz
+_0M1	b'In
+_0M2	mIlj'On
+_0M3	mIlj'aR
+_dpt	_vIRJ,Yl_|
 
 
 // Abbreviations
