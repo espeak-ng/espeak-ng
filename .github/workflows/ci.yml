@@ -200,6 +200,8 @@ jobs:
     - name: apt-compile-clang
       if: matrix.os == 'ubuntu' && matrix.compiler == 'clang'
       run: sudo apt-get install clang
+    - name: dependencies-pip
+      run: pip3 install -U pyparsing
 
     # MacOS - dependencies
     - name: brew-deps
