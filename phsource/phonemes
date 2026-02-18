@@ -1892,6 +1892,9 @@ include ph_turkish
 phonemetable en-n en
 include ph_english_n
 
+phonemetable en-ca en
+include ph_english_ca
+
 phonemetable en-rp en
 include ph_english_rp
 
