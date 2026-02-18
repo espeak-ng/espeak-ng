@@ -960,9 +960,8 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   ENDIF
 endphoneme
 
-phoneme j.
+phoneme ɥ
   liquid
   lengthmod 7
   ipa U+0265
-  ChangePhoneme(y)
 endphoneme

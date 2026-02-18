@@ -202,6 +202,8 @@ jobs:
       run: sudo apt-get install clang
 
     # MacOS - dependencies
+    - name: Uninstall existing cmake (if present)
+      run: brew uninstall --force cmake || true
     - name: brew-deps
       if: matrix.os == 'macos'
       run: brew install cmake ronn OJFord/homebrew-formulae/kramdown
