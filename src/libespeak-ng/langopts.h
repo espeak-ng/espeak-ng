@@ -29,7 +29,7 @@ extern "C"
 #endif
 
 void LoadLanguageOptions(Translator *translator, int key, char *keyValue);
-void LoadConfig(void);
+void LoadConfig(Translator *tr);
 
 #ifdef __cplusplus
 }
