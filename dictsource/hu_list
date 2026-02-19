@@ -390,6 +390,7 @@ folyamán	$alt
 úton	$alt
 lts	$alt
 reggelén $alt3
+legkínosabb $alt3
 legyen $alt3
 hétfőtől $alt3
 keddtől $alt3
@@ -411,6 +412,18 @@ sorozatban $alt3
 éjszakája $alt3
 hajnalán $alt3
 hajnalát $alt3
+sorsáról	$alt3
+hivatalos	$alt3
+szellemiségében	$alt3
+szellemiségégbe	$alt3
+szellemiségével	$alt3
+éjfélkor	$alt3
+akárcsak	$alt3
+szintén	$alt3
+ami	$alt3
+éppen	$alt3
+nagypéntek	$alt3
+
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -594,7 +607,8 @@ mögé	$unstressend
 
 kívül	$unstressend
 után	$unstressend $alt3    // after
-
+történetében $alt3
+várhat	$alt3
 alól	$unstressend
 alá	$unstressend
 alatt	$unstressend    // below
@@ -770,7 +784,7 @@ nap	$unstressend
 név	$unstressend
 lány	$unstressend
 lányt	$unstressend
-vár	$unstressend
+vár	$alt3 $unstressend
 várt	$unstressend
 ért	$unstressend
 ér	$unstressend
@@ -1361,7 +1375,7 @@ célok	$unstressend
 növelése	$unstressend
 oldal	$unstressend
 cégek	$unstressend
-fontos	$unstressend
+fontos	$unstressend $alt3
 halasztott	$unstressend
 érdekében	$unstressend
 érdek	$unstressend
@@ -4790,7 +4804,7 @@ azután	$unstressend
 vitába	$unstressend
 múltról	$unstressend
 munkahely	$unstressend
-pedig	$unstressend
+pedig	$unstressend $alt3
 vitában	$unstressend
 (ki kell mondani) ki_||kEl:_||mondAni	$unstressend
 (lehet venni) lEhEt_'||vEn:i	$unstressend
@@ -4930,7 +4944,9 @@ bankja	$unstressend
 banknak	$unstressend
 kérdését	$unstressend
 várják	$unstressend
-történetében	$unstressend
+történetében	$alt3 $unstressend
+hajnaláig	$alt3 $unstressend
+továbbra	$alt3
 kormánynak	$unstressend
 legfeltűnőbb	$unstressend
 körülmény	$unstressend

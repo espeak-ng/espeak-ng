@@ -1,4 +1,8 @@
 #cmakedefine01 HAVE_MKSTEMP
+#cmakedefine01 HAVE_NBTOOL_CONFIG_H
+#cmakedefine01 HAVE_DECL_OPTRESET
+#cmakedefine01 HAVE_SYS_ENDIAN_H
+#cmakedefine01 HAVE_ISWBLANK
 
 #cmakedefine01 USE_ASYNC
 #cmakedefine01 USE_KLATT
