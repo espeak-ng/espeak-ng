@@ -350,7 +350,36 @@ Uds	ustedes		$text $capital $dot
 ser	s'e@-* $only // it's not a abbrev
 vilmente b'ilm'ente
 cruelmente kr'welm'ente
+fielmente fj'elm'ente
+grismente gr'ism'ente
+ali $u $stem
+argu $u $stem
+ator $u $stem
+comple $u $stem
+condi $u $stem
+contraargu $u $stem
+cumpli $u $stem
 depri $u $stem
+desfrag $u $stem
+diri $u $stem
+docu $u $stem
+escar $u $stem
+excre $u $stem
+exi $u $stem
+experi $u $stem
+funda $u $stem
+imple $u $stem
+incle $u $stem
+incre $u $stem
+jura $u $stem
+orna $u $stem
+parla $u $stem
+pavi $u $stem
+puli $u $stem
+regla $u $stem
+sedi $u $stem
+sacra $u $stem
+sobreali $u $stem
 // Proper Names and countries
 amsterdam	$3
 bardem	$2
