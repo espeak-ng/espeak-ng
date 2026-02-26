@@ -161,8 +161,7 @@ endphoneme
 
 phoneme n;
   vcd alv nas pzd
-  ipa nʲ 
-  voicingswitch t;
+  ipa nʲ
   lengthmod 3
   length 100
   Vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
