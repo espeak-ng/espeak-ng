@@ -32,11 +32,13 @@
 
 .group б
        б       b
+	   б (L04 b;
        б (_    p
        б (L02  p
 
 .group в
        в       v
+	   в (L04  v;
 
 .group г
        г       Q     // ɣ
@@ -48,6 +50,7 @@
        д (_    t
        д (L02  t
        дз      dz
+	   дз (L04 dz;
        дз (_   ts
        дж      dz.
        дж (_   ts.
@@ -93,12 +96,15 @@
 
 .group л
        л       l
+	   л (L04  l;
 
 .group м
        м       m
+	   м (L04  m;
 
 .group н
        н       n
+	   н (L04  n;
 
 .group о
        о       'O
@@ -106,6 +112,7 @@
 .group п
        п       p
        п (L03  b
+	   п (L04  p;
 
 .group р
        р       r
@@ -139,6 +146,7 @@
        ц       ts    // t͡s
        цц      ts:
        ц (L03  dz
+	   ц (ь    ts;
 
 .group ч
        ч       ts.   // ʈ͡ʂ
@@ -155,6 +163,7 @@
 
 .group ь
        ь       ;     // ʲ
+	   ь (_    I^
 
 .group э
        э       E     // ɛ
