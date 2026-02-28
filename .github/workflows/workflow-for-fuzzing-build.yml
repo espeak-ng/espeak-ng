@@ -28,7 +28,7 @@ jobs:
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
     - name: dependencies
-      run: sudo apt-get update && sudo apt-get install cmake ninja-build libpcaudio-dev libsonic-dev ronn kramdown clang llvm ${{ matrix.archdeps }}
+      run: sudo apt-get update && sudo apt-get install cmake ninja-build libpcaudio-dev libsonic-dev ronn kramdown clang llvm mbrola ${{ matrix.archdeps }}
     - name: configure (CMake)
       run: |
         proc="x86_64"
