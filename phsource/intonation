@@ -348,3 +348,43 @@ nucleus0	fall	0	0
 onset		0	0	0
 headlast	0	0	0
 endtune
+
+// Swedish tunes
+// Swedish has a characteristic "singing" intonation with more pitch variation
+// Accent 2 (grave accent) gives a falling-rising pattern on stressed syllables
+
+tune sv_s
+prehead   50 62
+headenv   fall 20
+head       6 85 55 -6 -4
+headextend 2 68 42 15 2
+nucleus  fall 75 20 28 14
+nucleus0 fall 68 10
+endtune
+
+tune sv_c
+prehead   50 62
+headenv   fall 18
+head       6 82 52 -6 -4
+headextend 2 65 40 13 2
+nucleus  fall 72 35 20 10
+nucleus0 fall 65 30
+endtune
+
+tune sv_q
+prehead   52 64
+headenv   rise 18
+head       6 82 52 -6 -4
+headextend 2 68 42 15 2
+nucleus  rise 65 78 18 6
+nucleus0 rise 70 82
+endtune
+
+tune sv_e
+prehead   50 65
+headenv   fall 22
+head       8 88 58 -5 -3
+headextend 3 72 45 16 3
+nucleus  fall 80 18 30 16
+nucleus0 fall 72 10
+endtune
