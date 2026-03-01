@@ -139,7 +139,6 @@ det	de:t $u
 man	man $u
 vi	$u
 ni	$u
-de	$u
 
 
 // possessive adjectives
@@ -166,7 +165,6 @@ eran	E:Ran $u+
 deras	de:Ras $u+
 
 // prepositions
-i	i: $u $brk	// in
 på	$u		// on, in, at
 vid	$u $brk		// by, at, next to
 av	$u		// of, by
@@ -188,7 +186,6 @@ under	$brk		// during
 // conjunctions
 och	'Ok $u $pause	// and
 eller	$u $pause	// or
-om	$u $pause	// if
 då	$u $brk		// as
 fastän	$pause		// although
 medan	$pause		// while
@@ -215,7 +212,6 @@ kan	k'an $u		// can
 kunde	$u		// could
 vill	$u		// want to
 ville	$u		// wanted to
-ska	skA: $u		// should, supposed to
 skulle	$u
 bör	$u		// should, ought to
 borde	b'u:RdE $u
@@ -241,7 +237,6 @@ anse	anse:
 anser	anse:R
 anses	anse:s
 arkiv    'aRki:v
-av      A:v    $u
 barock  baR'Ok
 bäste     b'EstE
 bet	be:t
@@ -253,7 +248,6 @@ botten     b'OtEn
 bra	bRA:
 dags	daks
 dan	dA:n
-dem	dEm
 dig	dEj
 dra	dRA:
 drar	dRA:R
@@ -264,9 +258,7 @@ egen	e:gEn
 egna	e:gna
 emot    Em'u:t
 etc	e:te:s'e:
-ett	'Et
 far         fA:R
-fem         fEm
 fram     fR'am
 framme     fR'amE
 framåt	   fRamOt
@@ -276,7 +268,6 @@ grep	gRe:p
 greps	gRe:ps
 gripna	gRi:pna
 ha	hA:
-har	hA:R $u
 hej          hEj
 helt	he:lt
 heta	he:ta
@@ -339,7 +330,6 @@ usas	 u-Es'A:s
 usa:s	 u-Es'A:s
 vad	vA:d $u
 valt	vA:lt
-var	vA:R $u
 vare	vA:RE $u
 vem	vEm
 
@@ -405,3 +395,242 @@ view     _^_EN
 web	_^_EN
 with	_^_EN
 word    _^_EN
+
+// === Days of the week ===
+måndag      m'o:ndA:g
+tisdag      t'i:sdA:g
+onsdag      'u:nsdA:g
+fredag      fR'e:dA:g
+lördag      l'Y:RdA:g
+söndag      s'WndA:g
+måndagen    m'o:ndA:gEn
+tisdagen    t'i:sdA:gEn
+onsdagen    'u:nsdA:gEn
+fredagen    fR'e:dA:gEn
+lördagen    l'Y:RdA:gEn
+söndagen    s'WndA:gEn
+
+// === Months ===
+januari     jan8'A:RI
+februari    fEbR8'A:RI
+mars        maS
+april       apR'Il
+maj         maj
+juni        j'u-nI
+juli        j'u-lI
+augusti     a8g'8stI
+september   sEpt'EmbER
+oktober     Okt'u:bER
+november    nOv'EmbER
+december    dEs'EmbER
+
+// === Common words with irregular pronunciation ===
+de          dOm
+dem         dOm
+djur        ju-R
+djup        ju-p
+djärv       jE:Rv
+ljus        ju-s
+ljud        ju-d
+ljuv        ju-v
+ljuga       ju-ga
+hjälm       jElm
+hjärta      jE:ta
+hjärna      jE:n.a
+hjord       ju:d
+gärna       jE:n.a
+göra        jY:Ra
+ge          je:
+gick        jIk
+gift        jIft
+gifta       jIfta
+givit       ji:vIt
+givet       ji:vEt
+given       ji:vEn
+givna       ji:vna
+gärde       jE:dE
+gärdet      jE:dEt
+mycket      m'ykE
+mycken      m'ykEn
+myckets     m'ykEts
+sju         sx'u-
+sjuk        sx'u-k
+sjuka       sx'u-ka
+sjukhus     sx'u-khu-s
+själ        sx'E:l
+själv       sx'Elv
+självklart  sx'ElvklA:t
+sjö         sx'Y:
+sjön        sx'Y:n
+sjöar       sx'Y:aR
+sjöman      sx'Y:man
+skjorta     sx'u:ta
+skjuta      sx'u-ta
+skjuts      sx8ts
+stjärna     sx'E:n.a
+stjäla      sx'E:la
+station     stasxu:n
+nations     nasxu:ns
+national    nasxUn'E:l
+relation    RElasxu:n
+reaktion    REaksxu:n
+situation   sIt8asxu:n
+operation   OpERasxu:n
+funktion    f8Nksxu:n
+information InfORmasxu:n
+generation  jEnERasxu:n
+kärna       S;E:n.a
+kärr        S;ER
+känd        S;End
+känt        S;Ent
+känn        S;En
+känna       S;Ena
+köpa        S;Y:pa
+köper       S;Y:pER
+köpt        S;Y:pt
+köra        S;Y:Ra
+kör         S;Y:R
+körde       S;Y:dE
+kött        S;Wt
+köld        S;Wld
+kök         S;Y:k
+köket       S;Y:kEt
+kemisk      S;e:mIsk
+kemi        S;Em'i:
+kina        S;i:na
+kines       S;In'e:s
+kinesisk    S;In'e:sIsk
+kyrka       S;yRka
+kyrkan      S;yRkan
+kyrkogård   S;yRkOgo:d
+
+// === Retroflex examples ===
+barn        bA:n.
+bord        bu:d
+sort        su:t
+fort        fu:t
+karl        kA:l.
+barnen      bA:n.En
+bordet      bu:dEt
+gård        go:d
+gården      go:dEn
+hårt        ho:t
+vård        vo:d
+värd        vE:d
+värde       vE:dE
+värden      vE:dEn
+fors        fOs.
+kurs        k8s.
+förste      fWs.tE
+först       fWs.t
+norsk       nOs.k
+
+// === Numbers written out ===
+noll        nOl
+två         tvo:
+tre         tRe:
+fyra        fy:Ra
+åtta        Ota
+nio         n'i:u:
+tio         t'i:u:
+elva        Elva
+tolv        tOlv
+tretton     tREtOn
+fjorton     fju:tOn
+femton      fEmtOn
+sexton      sEkstOn
+sjutton     sx8tOn
+arton       A:tOn
+nitton      nItOn
+tjugo       S;'u-gO
+trettio     tREtI
+fyrtio      fWtI
+femtio      fEmtI
+sextio      sEkstI
+sjuttio     sx8tI
+åttio       OtI
+nittio      nItI
+hundra      h8ndRa
+tusen       tu-sEn
+miljon      mIlj'u:n
+miljoner    mIlj'u:nER
+miljard     mIlj'A:d
+miljarder   mIlj'A:dER
+
+// === Common abbreviations ===
+tex.       t'Ileks,EmpEl
+bl.a.       bland'anat
+osv.        Osx'A:v'IdaRE
+dvs.        dEt'vIls'Eja
+m.m.        mEdm'e:Ra
+o.s.v.      Osx'A:v'IdaRE
+m.fl.       mEdfle:Ra
+s.k.        so:k'alad
+f.d        fY:REdEta
+kl.         klOkan
+nr.         n8mER
+dr.         dOktOR
+st         stykEn
+kr.         kRu:nOR
+km          S;Ilu:m'e:tER
+cm          s'EntIm'e:tER
+mm          m'IlIm'e:tER
+kg          S;'i:lu:gRam
+mg          m'IlIgRam
+
+// === Common Swedish words ===
+också       'OksO
+bara        bA:Ra
+inte        IntE
+redan       Re:dan
+sedan       se:dan
+aldrig      aldRIg
+alltid      altI:d
+ibland      Ibland
+kanske      kansx'E
+väldigt     vEldIgt
+verkligen   v'ERklIgEn
+fortfarande fOtfA:RandE
+naturligtvis nat'u-RlIgtvi:s
+förmodligen fWRm'u:dlIgEn
+antagligen  antA:glIgEn
+uppenbarligen 8pEnbA:RlIgEn
+egentligen  e:jEntlIgEn
+tydligen    ty:dlIgEn
+troligen    tRu:lIgEn
+säkert      s'E:kERt
+klockan     klOkan
+igår        Igo:R
+imorgon     ImOROn
+vatten      vatEn
+Sverige     svERjE
+svenska     svEnska
+svensk      svEnsk
+Stockholm   st'OkhOlm
+Göteborg    jY:tEbORj
+Malmö       malm'Y:
+
+// === More common words ===
+flicka      flIka
+pojke       pOjkE
+kvinna      kvIna
+gubbe       g8bE
+gammal      gamal
+liten       li:tEn
+lilla       lIla
+stora       stu:Ra
+öppna       Wpna
+stänga      stENa
+läsa        lE:sa
+skriva      skRi:va
+tänka       tENka
+behöva      bEhY:va
+förstå      fWs.to:
+fundera     f8nde:Ra
+bestämma    bEst'Ema
+användare   anvEndaRE
+dator       dA:tOR
+hemsida     he:msI:da
+lösenord    lY:sEnORd
+tangentbord tanjEntbu:d
+
