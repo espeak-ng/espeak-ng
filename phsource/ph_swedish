@@ -75,10 +75,11 @@ endphoneme
 
 phoneme u-
   vwl starttype #u endtype #u
-  ipa ʉ
-  length 200
+  ipa ʉː
+  length 210
   FMT(vowel/u#_2)
 endphoneme
+
 
 phoneme Y:
   vwl starttype #@ endtype #@
