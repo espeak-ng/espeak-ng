@@ -187,6 +187,7 @@
 .group d
         d          d
         d (d 
+        dj         j
         dagen      dA:gEn
         daglig     dA:glIg
         diske      dIskE
@@ -315,6 +316,10 @@
         familj     fam'Ilj
         formad     fORmad
         face       _^_EN
+        fn (_      mn
+     _) fj (ärd    fj
+     _) fj (ärr    fj
+     _) fj (äll    fj
 
 .group g
         g          g
@@ -327,7 +332,8 @@
         g (ä       j
         g (ö       j
         g (t       k
-        g (n       N
+        gn         Nn
+     _) gn         gn
         gj         j
     lä) g (e       g
     vä) g          g
@@ -578,7 +584,6 @@
         r          R
 	r) r 
         rs         s.
-        r (t	    //Silent
 
         rsi (o     Rsx'
         rsk        s.k
@@ -607,7 +612,7 @@
         sk (ö      sx
     fi) s (k       s
     fu) s (k       s
-        skj        S;
+        skj        sx
         stj        sx
         sio (n     sx'u:
         ssio (n    sx'u:
@@ -648,6 +653,8 @@
         tagit      t'A:gIt
         tangent    tanjEnt
         teknik     tEkn'i:k
+     _) tion       sx'u:n
+        tions      sx'u:ns
 
 .group u
         u          u-
