@@ -155,6 +155,7 @@ endphoneme
 
 phoneme sx        // Swedish "sj" sound
   vls vel frc
+  ipa ɧ
   lengthmod 3
   Vowelin f1=0  f2=2300 300 400  f3=200 100
   Vowelout f1=0 f2=2300 300 400  f3=200 100  rms=20

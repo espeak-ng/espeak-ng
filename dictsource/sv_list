@@ -135,7 +135,7 @@ du	$u
 han	han $u
 hon	hUn  $u
 den	dEn $u
-det	de:t $u
+det	de:
 man	man $u
 vi	$u
 ni	$u
@@ -319,10 +319,10 @@ tas      tA:s
 togs	t'u:gs
 tomt	t'Umt
 tom	t'Um
-torsdag	 t'u:SdA:g
-torsdags	 t'u:Sdags
-torsdagen	 t'u:SdA:gEn
-torsdagens	 t'u:SdA:gEns
+torsdag	 t'OSdA:g
+torsdags	 t'OSdags
+torsdagen	 t'OSdA:gEn
+torsdagens	 t'OSdA:gEns
 tredje	 tR'e:djE-
 tyvärr	 t%yv'E:R
 usa	 u-Es'A:
@@ -336,7 +336,7 @@ vem	vEm
 
 // some words to translate using English (mostly for screenreaders)
 adobe    _^_EN
-browser	_^_EN
+browser	bR'aUsER
 button   _^_EN
 cancel    _^_EN
 checked   _^_EN
@@ -399,13 +399,13 @@ word    _^_EN
 // === Days of the week ===
 måndag      m'o:ndA:g
 tisdag      t'i:sdA:g
-onsdag      'u:nsdA:g
+onsdag      'OnsdA:g
 fredag      fR'e:dA:g
 lördag      l'Y:d.A:g
 söndag      s'WndA:g
 måndagen    m'o:ndA:gEn
 tisdagen    t'i:sdA:gEn
-onsdagen    'u:nsdA:gEn
+onsdagen    'OnsdA:gEn
 fredagen    fR'e:dA:gEn
 lördagen    l'Y:d.A:gEn
 söndagen    s'WndA:gEn
@@ -641,7 +641,7 @@ mur	mu-R
 bur	bu-R
 rut	Ru-t
 slut	slu-t
-ljus	ju-s
+ljus	j8:s
 ljud	ju-d
 
 // === Phase 4: -igt words (silent g) ===
@@ -735,7 +735,7 @@ norrtälje	n'Ot.EljE
 nyköping	n'y:S;Y:pIN
 södertälje	s'Y:dEt.,EljE
 falun	fA:l'u-n
-borlänge	bu:l.'ENE
+borlänge	b'u:RlENE
 mora	m'u:Ra
 avesta	av'Esta
 
@@ -825,3 +825,276 @@ bla	bland'anat
 sk	so:k'alad
 fd	fY:REdEta
 tom	t,IlOkm'e:d
+
+// === Phase 7: Date and time words ===
+
+// === Phase 8: Counties ===
+södermanland	s,Y:dERman,land
+östergötland	,WstERj'Y:tland
+kronoberg	kR'u:nu:b,ERj
+gotland	g'Otland
+blekinge	bl'e:kINE
+skåne	sk'o:nE
+halland	h'aland
+värmland	v'E:Rmland
+västmanland	v'EstmanIand
+dalarna	d'A:laRna
+gävleborg	j'EvlEb,ORj
+västernorrland	v,EstERn'Orland
+jämtland	j'Emtland
+västerbotten	v,EstER'bOtEn
+norrbotten	n,OR'bOtEn
+
+// === Cities/places ===
+skellefteå	sx'ElEftEo:
+kristianstad	kRIst'janstad
+varberg	v'A:RbERj
+uddevalla	,8dEv'ala
+lidköping	l'IdxY:pIN
+skövde	sx'WvdE
+mariestad	maR'i:Estad
+arvika	'A:RvIka
+karlskoga	k'A:lsku:ga
+motala	m'u:tA:la
+strängnäs	stR'ENnEs
+enköping	'EnxY:pIN
+tierp	t'i:ERp
+sandviken	s'andv,i:kEn
+hudiksvall	h'u:dIks,val
+härnösand	h,E:Rn'Y:sand
+sollefteå	s,OlEft'Eo:
+ånge	'oNE
+sveg	sve:g
+storuman	st'u:R8man
+lycksele	l'yksE:lE
+vilhelmina	v,IlhElm'i:na
+dorotea	d,u:Ru:t'e:a
+gällivare	j'ElIv,A:RE
+jokkmokk	j'OkmOk
+boden	b'u:dEn
+piteå	p'i:tEo:
+haparanda	h,apaR'anda
+
+// === Surnames ===
+andersson	'andE,Son
+johansson	j'u:han,sOn
+karlsson	k'A:l,sOn
+nilsson	n'Il,sOn
+eriksson	'e:RIk,sOn
+larsson	l'A:,Son
+olsson	'u:l,sOn
+persson	p'E:,Son
+svensson	sv'En,sOn
+gustafsson	g'8staf,sOn
+pettersson	p'EtER,sOn
+jonsson	j'On,sOn
+jansson	j'an,sOn
+hansson	h'an,sOn
+bengtsson	b'ENt,sOn
+jönsson	j'Wn,sOn
+lindberg	l'IndbERj
+jakobsson	j'A:kOb,sOn
+magnusson	m'agn8s,On
+olofsson	'u:lOfs,On
+lindström	l'IndstRWm
+lindqvist	l'Indkv,Ist
+lindgren	l'IndgRe:n
+axelsson	'aksEl,sOn
+bergström	b'ERjstRWm
+lundberg	l'8ndbERj
+lundgren	l'8ndgRe:n
+lundqvist	l'8ndkv,Ist
+mattsson	m'at,sOn
+berglund	b'ERjl8nd
+fredriksson	fR'e:dRIk,sOn
+sandberg	s'andbERj
+henriksson	h'EnRIk,sOn
+forsberg	f'O:SbERj
+sjöberg	sx'Y:bERj
+wallin	val'i:n
+engström	'ENstRWm
+eklund	'e:kl8nd
+danielsson	d'A:nIEl,sOn
+lundin	l8nd'i:n
+håkansson	h'o:kan,sOn
+björk	bj'WRk
+bergman	b'ERjman
+gunnarsson	g'8naR,sOn
+holm	hOlm
+wikström	v'IkstRWm
+samuelsson	s'A:m8El,sOn
+
+// === Food/drink ===
+kanelbulle	kan'e:lb,8lE
+prinsesstårta	pR,InsEs't'o:Rta
+surströmming	s'8:RstR,WmIN
+knäckebröd	kn'EkEbR,Y:d
+filmjölk	f'i:lmj,Wlk
+lingonsylt	l'INOns,ylt
+glögg	glWg
+tunnbröd	t'8nbR,Y:d
+gravlax	gR'A:vlaks
+ärtsoppa	'E:Rts,Opa
+pannkakor	p'ankA:k,u:R
+plättar	pl'EtaR
+våfflor	v'oflOR
+falukorv	f'A:l8k,ORv
+prinskorv	pR'Insk,ORv
+potatis	pu:t'A:tIs
+rödkål	R'Y:dk,o:l
+sill	sIl
+kroppkakor	kR'Opk,A:ku:R
+palt	palt
+pitepalt	p'i:tEp,alt
+blodpudding	bl'u:dp,8dIN
+raggmunk	R'agm,8Nk
+kräftor	kR'EftOR
+löjrom	l'Wjr,Om
+smörgås	sm'WRgo:s
+macka	m'aka
+
+// === IT/tech loanwords ===
+router	R'aUtER
+server	s'E:RvER
+backup	b'ak8p
+streaming	stR'i:mIN
+bluetooth	bl'u:tu:t
+download	d'aUnlo:d
+upload	'8plo:d
+hashtag	h'aStag
+podcast	p'Odkast
+app	ap
+smartphone	sm'A:Rtfo:n
+laptop	l'aptOp
+website	v'Ebsajt
+database	d'e:tabejs
+firewall	f'ajERvOl
+malware	m'alvE:R
+phishing	f'ISIN
+ransomware	R'ansOmvE:R
+cloud	klaUd
+
+// === Children's words ===
+nalle	n'alE
+gosedjur	g'u:sEj,u:R
+leksak	l'e:ksA:k
+docka	d'Oka
+mjölk	mjWlk
+godis	g'u:dIs
+glass	glas
+kakor	k'A:ku:R
+frukt	fR8kt
+äpple	'EplE
+banan	ban'A:n
+jordgubbe	j'u:Rdg,8bE
+blåbär	bl'o:b,E:R
+hallon	h'al,On
+morot	m'u:Ru:t
+gurka	g'8Rka
+tomat	tum'A:t
+saft	saft
+kakao	kak'A:u:
+frukost	fR'8kOst
+lunch	l8nS
+middag	m'IdA:g
+mellanmål	m'Elanm,o:l
+säng	sEN
+stol	stu:l
+lampa	l'ampa
+dörr	dWR
+fönster	f'WnstER
+golv	gOlv
+tak	tA:k
+vägg	vEg
+trappa	tR'apa
+hund	h8nd
+katt	kat
+kanin	kan'i:n
+hamster	h'amstER
+fisk	fIsk
+fågel	f'o:gEl
+häst	hEst
+ko	ku:
+gris	gRi:s
+får	fo:R
+höna	h'Y:na
+anka	'aNka
+fjäril	fj'E:RIl
+nyckelpiga	n'ykElp,i:ga
+spindel	sp'IndEl
+mask	mask
+snigel	sn'i:gEl
+
+// === Common adjectives ===
+lång	loN
+kort	kORt
+bred	bRe:d
+smal	smA:l
+tjock	xOk
+tunn	t8n
+snabb	snab
+långsam	l'oNsam
+varm	vaRm
+kall	kal
+sval	svA:l
+mörk	mWRk
+svart	svaRt
+grön	gRY:n
+gul	g8:l
+orange	OR'aNsx
+rosa	R'u:sa
+lila	l'i:la
+brun	bR8:n
+grå	gRo:
+ung	8N
+glad	glA:d
+ledsen	l'e:dsEn
+arg	aRj
+rädd	REd
+trött	tRWt
+pigg	pIg
+hungrig	h'8NgRIg
+törstig	t'WRstIg
+mätt	mEt
+frisk	fRIsk
+stark	staRk
+svag	svA:g
+ren	Re:n
+smutsig	sm'8tsIg
+torr	tOR
+våt	vo:t
+mjuk	mj8:k
+hård	ho:d.
+
+// === Common verbs ===
+springa	spR'INa
+hoppa	h'Opa
+sitta	s'Ita
+ligga	l'Iga
+dricka	dR'Ika
+sova	s'u:va
+vakna	v'akna
+tvätta	tv'Eta
+borsta	b'O:sta
+leka	l'e:ka
+rita	R'i:ta
+måla	m'o:la
+sjunga	sx'8Na
+dansa	d'ansa
+räkna	R'Ekna
+prata	pR'A:ta
+lyssna	l'ysna
+titta	t'Ita
+lukta	l'8kta
+smaka	sm'A:ka
+minnas	m'Inas
+glömma	gl'Wma
+vilja	v'Ilja
+våga	v'o:ga
+hjälpa	j'Elpa
+flyga	fl'y:ga
+simma	s'Ima
+cykla	s'ykla
+klättra	kl'EtRa
+
+// === Phase 9: Assimilation - key function words ===
