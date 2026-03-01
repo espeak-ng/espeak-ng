@@ -39,7 +39,7 @@ z	s'E:ta
 _é	$accent
 
 
-_cap	st'u:Rt
+_cap	st'u:t.
 _?A	b'u:kstavE-n
 _??	s'ymbu:lE-n
 _#32	bl'aNk
@@ -82,15 +82,15 @@ _10	t'i:;u:
 _11	'Elva
 _12	t'Olv
 _13	tR'EtOn
-_14	fj'u:RtOn
+_14	fj'u:t.On
 _15	f'EmtOn
 _16	s'EkstOn
 _17	sx'8tOn
-_18	'A:RtOn
+_18	'A:t.On
 _19	n'ItOn
 _2X	S;'u-gO
 _3X	tR'EtI
-_4X	f'WRtI
+_4X	f'Wt.I
 _5X	f'EmtI
 _6X	s'EkstI
 _7X	sx'8tI
@@ -107,7 +107,7 @@ _dpt    p'8Nkt
 (1 : e)  f'Ws.tE-
 (2 : a)  andRa
 (3 : e)  tRe:djE-
-(4 : e)  fjE:RdE-
+(4 : e)  fjE:d.E-
 (5 : e)  fEmtE-
 (6 : e)  sxEt:E-
 (7 : e)  sx8ndE-
@@ -158,7 +158,7 @@ vår	$u+
 vårt	$u+
 våra	$u+
 er	$u+
-ert	e:Rt $u+
+ert	e:t. $u+
 era	$u+
 erat	E:Rat $u+
 eran	E:Ran $u+
@@ -214,7 +214,7 @@ vill	$u		// want to
 ville	$u		// wanted to
 skulle	$u
 bör	$u		// should, ought to
-borde	b'u:RdE $u
+borde	b'u:d.E $u
 brukar	$u		// usually
 brukade	$u		// used to
 
@@ -242,7 +242,7 @@ bäste     b'EstE
 bet	be:t
 // betala    b'Et'A:l,a
 betalt    b'Et'A:lt
-bort	bORt
+bort	bOt.
 bott     b'Ut
 botten     b'OtEn
 bra	bRA:
@@ -309,7 +309,7 @@ staden	stA:dEn
 stadens	stA:dEns
 stan	stA:n
 stor	stu:R
-stort	stu:Rt
+stort	stu:t.
 susanna	s8s'ana
 susanne	s8s'an
 svar	svA:R
@@ -401,13 +401,13 @@ måndag      m'o:ndA:g
 tisdag      t'i:sdA:g
 onsdag      'u:nsdA:g
 fredag      fR'e:dA:g
-lördag      l'Y:RdA:g
+lördag      l'Y:d.A:g
 söndag      s'WndA:g
 måndagen    m'o:ndA:gEn
 tisdagen    t'i:sdA:gEn
 onsdagen    'u:nsdA:gEn
 fredagen    fR'e:dA:gEn
-lördagen    l'Y:RdA:gEn
+lördagen    l'Y:d.A:gEn
 söndagen    s'WndA:gEn
 
 // === Months ===
@@ -506,15 +506,15 @@ kyrkogård   S;yRkOgo:d
 
 // === Retroflex examples ===
 barn        bA:n.
-bord        bu:d
-sort        su:t
-fort        fu:t
+bord        bu:d.
+sort        su:t.
+fort        fu:t.
 karl        kA:l.
 barnen      bA:n.En
-bordet      bu:dEt
-gård        go:d
-gården      go:dEn
-hårt        ho:t
+bordet      bu:d.Et
+gård        go:d.
+gården      go:d.En
+hårt        ho:t.
 vård        vo:d
 värd        vE:d
 värde       vE:dE
@@ -591,14 +591,14 @@ kanske      kansx'E
 väldigt     vEldIgt
 verkligen   v'ERklIgEn
 fortfarande fOtfA:RandE
-naturligtvis nat'u-RlIgtvi:s
+naturligtvis nat'u-l.Igtvi:s
 förmodligen fWRm'u:dlIgEn
 antagligen  antA:glIgEn
-uppenbarligen 8pEnbA:RlIgEn
+uppenbarligen 8pEnbA:l.IgEn
 egentligen  e:jEntlIgEn
 tydligen    ty:dlIgEn
 troligen    tRu:lIgEn
-säkert      s'E:kERt
+säkert      s'E:kEt.
 klockan     klOkan
 igår        Igo:R
 imorgon     ImOROn
@@ -632,5 +632,5 @@ användare   anvEndaRE
 dator       dA:tOR
 hemsida     he:msI:da
 lösenord    lY:sEnORd
-tangentbord tanjEntbu:d
+tangentbord tanjEntbu:d.
 
