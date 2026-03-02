@@ -645,6 +645,7 @@
      _) sionist    si:o:n'Ist
      _) sh         sx
         sweden     _^_EN
+        samhäll    s'amhEl
 
 .group t
         t          t
@@ -802,3 +803,21 @@
      *) * (* 
 ** 
     **) * (_       _::
+
+// === Phase 13: Prosody - suffix rules ===
+// Common Swedish suffixes for improved word splitting
+
+.group
+// -ighet suffix (common abstract noun ending)
+        ighet (_   Ig,e:t
+        igheten    Ig,e:tEn
+        igheter    Ig,e:tER
+
+// -else suffix
+        elsen (_   ElsEn
+        elser (_   ElsER
+
+// -ande/-ende suffix (present participle / gerund)
+        ande (_    andE
+        ende (_    EndE
+
