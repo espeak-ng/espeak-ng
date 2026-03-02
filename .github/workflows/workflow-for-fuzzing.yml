@@ -36,7 +36,7 @@ jobs:
         FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: crash-${{ matrix.arch }}-${{ inputs.lang }}.1
         path: |
@@ -48,7 +48,7 @@ jobs:
         FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: crash-${{ matrix.arch }}-${{ inputs.lang }}.2
         path: |
