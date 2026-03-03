@@ -226,7 +226,7 @@ jobs:
 
     - name: config-failed-upload
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: cmake-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}-${{ matrix.config }}-builddir
         path: build

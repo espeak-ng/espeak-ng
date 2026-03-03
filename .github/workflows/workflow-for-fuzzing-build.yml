@@ -47,7 +47,7 @@ jobs:
           -DBUILD_SHARED_LIBS:BOOL=OFF
     - name: Store the CMake build tree
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: cmake-${{ matrix.arch }}-builddir
         path: build
