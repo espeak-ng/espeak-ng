@@ -41,6 +41,7 @@
      B) а (_    V
      _) а       a
         а (_    a
+        а (́   ''V
 
 .group б
         б       b
@@ -86,7 +87,7 @@
         в (ь_   f;
         в (ьт   f;
      здра) в (ств         // silent v(не произносимая в)
-    чу) в (ств      // silent v(не произносимая в)  
+    чу) в (ств      // silent v(не произносимая в)
 
 .group г
         г       g
@@ -118,8 +119,8 @@
             _настро) г (о_           g
             _нестро) г (о_           g
    _не) г (о_   v
-   _недоро) г (о_   g   
-   _занедоро) г (о_   g   
+   _недоро) г (о_   g
+   _занедоро) г (о_   g
      _немно) г (о_   g
        _примно) г (о_               g
    _се) г (о    v
@@ -174,6 +175,10 @@
         ъ) е (_    jI3     //second position
         ь) е       je
         ь) е (_    jI3     //second position
+        _) е ((́   ''je
+        A) е ((́   ''je
+        C) е ((́   ''e
+        A(́) е   je
 
 .group ж
         ж       Z
@@ -229,6 +234,7 @@
         и (_    I
      ш) и (_      y
                шв) и (ли               'I
+        и (́   ''i
 
 .group й
         й       j
@@ -284,6 +290,7 @@
 .group о
         о       o
         ь) о       j8
+        о (́   ''o
 
 .group п
         п       p
@@ -351,7 +358,7 @@
         т (нB   t;
         т (нY   t;
         т (сY   t;
-        т (тY   t;        
+        т (тY   t;
           тс (я               ts
              тьс (я               ,ts
           с) т (н         // Silent t(Непроизносимая т)
@@ -373,6 +380,7 @@
 .group у
         у       u
      B) у       u#
+        у (́   ''u
 
 .group ф
         ф       f
@@ -492,6 +500,7 @@
 
 .group ы
         ы       y
+        ы (́   ''y
 
 .group ь
         ь (Y    j
@@ -501,6 +510,7 @@
         э       E2
      _) э       E#
         э (_    E#
+        э (́   ''E2
 
 .group ю
         ю       u"
@@ -508,6 +518,10 @@
      ъ) ю       ju
      ь) ю       ju
      _) ю       ju
+        _) ю ((́   ''ju
+        A) ю ((́   ''ju
+        C) ю ((́   ''u"
+        A(́) ю   ju
 
 .group я
         я       V       // TODO: in unstressed position it sometimes sounds more like [i] than like [V]
@@ -519,6 +533,10 @@
      ь) я (_    ja      //second position
      _) я       ja      //second position
         я (_    V
+        _) я ((́   ''ja
+        A) я ((́   ''ja
+        C) я ((́   ''V
+        A(́) я   ja
 
 .group ё
         ё      '8
@@ -527,6 +545,10 @@
      _) ё       'j8
      ж) ё       'O
      ш) ё       'O
+        _) ё ((́   ''j8
+        A) ё ((́   ''j8
+        C) ё ((́   ''8
+        A(́) ё   j8
 
 .group
         // other cyrillic letters
