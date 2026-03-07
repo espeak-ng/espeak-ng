@@ -369,6 +369,13 @@ lé) c (sárk ts
 mufur) c (s ts
 riban) c (cs ts
 ér) c (zó ts
+pá) c (csir ts
+pá) c (sül ts
+lidér) c (s ts
+stru) cc (s ts
+román) c (cs ts
+tán) c (zs ts
+ar) c (zón ts
 
 .group C
 C ts
@@ -525,6 +532,8 @@ ná) ds (ej d|S
         dsz (a     ds
         dsz (á     ds
      a) dsz (A     ts:
+pa) dsz (öv d|s
+tren) dsz (ó d|s
      e) dsz (A     ts:
      o) dsz (A     ts:
      a) dsz (í     ds
@@ -1242,6 +1251,20 @@ snowboar) d (s d
 ká) d (jav d
 ami) d (s d
 kaloi) d (s d
+gepár) d (sz d
+kavalká) d (s d
+tize) d (jöv d
+epizó) d (játé d
+negye) d (jeg d
+bolon) d (szer d
+pa) d (jav d
+sorren) d (szül d
+ren) dsz (erint ts
+kó) d (sab d
+va) d (sár d
+ha) d (száll d
+kobol) d (sm d
+anó) d (s d
 
 .group dz
   fogó) dz (kod    ts
@@ -1706,6 +1729,8 @@ na) gy (süv J
 tár) gy (jav J
 ta) g (gyor g
 ke) gy (ért J
+vé) g (gyul g
+me) ggy (át J:
 
 .group gy
         gy         J
@@ -2390,6 +2415,20 @@ kormá) ny (jel n^
 élmé) nyj (ü n^
 
 
+kötvé) ny (j n^
+remé) ny (jo n^
+asszo) ny (je n^
+magá) n (jav n
+magá) n (jár n
+magá) n (ját n
+magá) n (je n
+magá) n (jö n
+magá) n (juh n
+káno) n (je n
+utá) n (járás n
+roko) n (jel n^
+börtö) n (jegy n
+fé) ny (jav n^
 
 .group o
         o          o
@@ -3757,6 +3796,29 @@ permetezé) s (sz S
 leve) s (zell S
 lódulá) ssz  S|s
 csárdá) s (sz S
+fogyókúrá) s (sz S
+gyarmatosítá) s (sz S
+lába) s (sz S
+ösztönzé) s (sz S
+elvtár) s (zs S
+óriá) s (sz S
+tulajdonlá) s (sz S
+fazeka) s (zs S
+szaka) sz (u s
+hú) ssz (t S|s
+csuklá) s (sz S
+ha) s (szöv S
+szivárgá) s (sz S
+tulajdono) s (sz S
+gyűrődé) s (sz S
+krumpli) s (sz S
+préselé) s (sz S
+szülé) ssz (ak s:
+szülé) ssz (el s:
+szülé) ssz (tráj s:
+társulá) s (z S
+dongá) s (sz S
+egyene) s (z S
 
 .group ss
         ssz        ss2
@@ -5416,6 +5478,30 @@ burkola) t (s t
 pecsé) t (jel t
 csapa) t (je t
 sprin) t (s t
+homlokza) t (s t
+kiraka) t (je t
+természe) t (jel t
+hi) t (s t
+hi) tsz (ol t|s
+szige) t (ját t
+csapa) t (jav t
+csopor) t (jav t
+antan) t (se t
+jelene) t (s t
+nyilatkoza) t (jav t
+robo) t (játé t
+sej) t (s t
+képle) t (sáv t
+kür) t (játé t
+pilo) t (jel t
+kerami) t (sz t
+szárazula) t (s t
+sike) ts (é tS:
+szen) t (sz t
+anké) tsz (erű t|s
+erede) t (já t
+fasír) t (s t
+ütköze) t (s t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
