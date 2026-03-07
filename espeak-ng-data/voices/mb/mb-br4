@@ -3,10 +3,14 @@ language pt 8
 name brazil-mbrola-4
 gender female
 
+speed 80
+voicing 90
 pitch 140 220
-voicing 80
 
 dictrules 2 3 4
-
 mbrola br4 ptbr4_phtrans
+
+intonation 3
+stressLength 180 120 220 220 0 0 240 260
+
 
