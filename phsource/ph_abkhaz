@@ -1,0 +1,380 @@
+phoneme a
+ipa a
+vwl 
+FMT(vowel/a#_2, 40)
+endphoneme
+
+phoneme b
+ipa b
+vcd stp
+FMT(b/b, 70) addWav(x/b.wav, 20)
+endphoneme
+
+phoneme v
+import_phoneme consonants/v
+endphoneme
+
+phoneme g
+import_phoneme consonants/g
+endphoneme
+
+phoneme gj
+ipa gʲ
+vcd vel stp pzd
+length 80
+FMT(g/gr) addWav(ustop/k_asp_e, 30)  addWav(ustop/ki_ejc, 10) 
+endphoneme
+
+phoneme gw
+ipa gʷ
+vcd stp rnd
+Vowelin f1=2  f2=2300 200 300  f3=-300 80
+Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+length 90
+FMT(g/g_)  addWav(vowel/u, 50) 
+endphoneme
+
+phoneme R
+ipa ʁ
+vcd stp  frc
+length 90
+FMT(g2/g, 70) addWav(ufric/x2.wav, 40)
+endphoneme
+
+phoneme Rj
+ipa ʁʲ
+vcd frc pzd
+length 130
+FMT(vwl_fr/rj)
+endphoneme
+
+phoneme Rw
+ipa ʁʷ
+vcd uvl frc rnd
+length 130
+FMT(vwl_fr/ru)
+endphoneme
+
+phoneme d
+ipa d
+vcd alv stp
+lengthmod 5
+length 90
+Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+FMT(d/xd) addWav(x/d.wav, 20) 
+endphoneme
+
+phoneme dw
+ipa dʷ
+vcd stp blb
+length 130
+FMT(d/d_, 140) addWav(vowel/u, 100)
+endphoneme
+
+phoneme e
+ipa e
+vwl starttype e endtype e
+FMT(vowel/e, 130)
+endphoneme
+
+phoneme Z
+ipa ʐ
+vcd  frc sib
+FMT(voc/z, 60) addWav(vocw/zh, 30) addWav(w/w@, 70) addWav(klatt/v_, 70)
+endphoneme
+
+phoneme Zj
+ipa ʒ
+vcd alp sib frc
+lengthmod 6
+FMT(voc/z_pzd) addWav(ufric/s_pzd, 80)
+endphoneme
+
+phoneme Zw
+ipa ʒʷ
+vcd rnd frc sib
+FMT(klatt/zh_) addWav(ufric/sh_rfx, 20)
+endphoneme
+
+phoneme z
+ipa z
+vcd alv frc sib
+FMT(voc/z) addWav(ufric/s_, 30)
+endphoneme
+
+phoneme dz
+import_phoneme consonants/dz
+endphoneme
+
+
+phoneme dzw
+ipa dʑʷ
+vcd afr sib rfx
+FMT(dzh/dzh_, 60) addWav(ustop/ts_rfx_unasp.wav, 20) addWav(ufric/f.wav, 20) addWav(ufric/ch_.wav, 10)
+endphoneme
+
+
+phoneme i
+ipa i
+vwl starttype i endtype i
+FMT(vowel/i, 130)
+endphoneme
+
+phoneme k_
+ipa k
+vls vel stp ejc
+WAV(ustop/k_unasp2.wav)
+endphoneme
+
+phoneme k_j
+ipa kʲ
+vls  vel stp ejc pzd
+length 60
+WAV(ustop/ki.wav) addWav(vowel/a, 20)
+endphoneme
+
+phoneme k_w
+ipa kʷ
+vcd  vel stp  pzd
+FMT(g/g, 70)  addWav(ustop/k_ejc2, 20) addWav(vowel/u, 60)
+endphoneme
+
+
+phoneme k
+ipa kʰ
+vcd vel stp
+Vowelin f1=1  f2=1400 -100 100  f3=-150 80
+Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+FMT(g/g, 90) addWav(ustop/k_asp, 40)
+endphoneme
+
+phoneme kj
+ipa kʲʰ
+vls  vel stp pzd
+Vowelin f1=1  f2=1400 -100 100  f3=-150 80
+Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+WAV(ustop/k_asp_e.wav, 40) addWav(vowel/i, 40)
+endphoneme
+
+phoneme kw
+ipa kʷʰ
+vcd  vel stp
+Vowelin f1=1  f2=1400 -100 100  f3=-150 80
+Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+FMT(g/g, 90) addWav(ustop/k_asp, 40) addWav(vowel/u, 40)
+endphoneme
+
+phoneme q
+ipa q
+vcd vel frc
+lengthmod 6
+FMT(voc/Q_ulv, 90) addWav(ufric/x_ku, 20) 
+endphoneme
+
+
+phoneme qj
+ipa qʲ
+vcd vel frc pzd
+lengthmod 6
+FMT(voc/Q_ulv, 90) addWav(vowel/i, 30) 
+endphoneme
+
+phoneme qw
+ipa qʷ
+vcd vel frc rnd
+lengthmod 6
+FMT(voc/Q_ulv, 90) addWav(vowel/u, 30) 
+endphoneme
+
+phoneme l
+ipa l
+vcd alv apr
+length 100
+FMT(l/l_@, 70)
+endphoneme
+
+phoneme m
+import_phoneme consonants/m
+endphoneme
+
+phoneme n
+import_phoneme consonants/n
+endphoneme
+
+phoneme o
+ipa o
+vwl
+FMT(vowel/o)
+endphoneme
+
+phoneme p_
+import_phoneme consonants/p-
+endphoneme
+
+phoneme p
+//ipa pʰ
+import_phoneme consonants/ph
+endphoneme
+
+phoneme r
+import_phoneme base1/R
+endphoneme
+
+phoneme s
+import_phoneme consonants/s
+endphoneme
+
+phoneme t_
+import_phoneme consonants/t-
+endphoneme
+
+phoneme t_w
+ipa tʷ
+vcd stp 
+FMT(d/d, 90) addWav(ustop/p_unasp, 30)
+endphoneme
+
+
+phoneme t
+import_phoneme base1/t
+endphoneme
+
+phoneme tw
+ipa tʷʰ
+vcd  vel stp  pzd
+FMT(d/d, 90) addWav(ustop/th_rfx, 30)
+endphoneme
+
+phoneme u
+ipa u
+vwl
+length 40
+FMT(vowel/u)
+endphoneme
+
+phoneme f
+import_phoneme base1/f
+endphoneme
+
+phoneme x
+ipa χ
+vls uvl frc
+WAV(ufric/x2, 60)
+endphoneme
+
+phoneme xj
+ipa χʲ
+vls  uvl frc pzd
+WAV(ufric/x2, 60) addWav(vdiph2/i@_3, 60)
+endphoneme
+
+phoneme xw
+ipa χʷ
+vls  uvl frc
+WAV(ufric/x_ku, 60)
+endphoneme
+
+phoneme h
+ipa ħ
+vls  phr frc
+WAV(h/h_phr, 50)
+endphoneme
+
+phoneme hw
+ipa ħʷ
+vls  phr frc rnd
+WAV(h/ho, 50)
+endphoneme
+
+phoneme c
+ipa tsʰ
+vls afr dnt
+length 100
+WAV(ustop/ts_.wav)
+endphoneme
+
+phoneme cw
+ipa tɕʷʰ
+vls afr dnt rnd
+WAV(ustop/tsh_asp.wav)
+endphoneme
+
+phoneme c_
+ipa ts
+vls afr dnt ejc
+WAV(ustop/ts2.wav)
+endphoneme
+
+phoneme c_w
+ipa tɕʷ
+vls afr dnt ejc rnd
+WAV(ustop/tsh_unasp.wav)
+endphoneme
+
+phoneme C
+ipa tʃʰ
+vcd  afr
+FMT(dzh/dz_pzd_, 10) addWav(ustop/tsh_asp, 60)
+endphoneme
+
+phoneme C_
+ipa tʃ
+vcd afr ejc 
+FMT(dzh/dzh2, 40) addWav(ustop/tsh_, 70)
+endphoneme
+
+phoneme E
+ipa ʈʂʰ
+vls sib afr
+WAV(ustop/ts_rfx.wav)
+endphoneme
+
+phoneme E_
+ipa ʈʂ
+vls sib afr ejc
+WAV(ustop/ts_rfx_unasp.wav)
+endphoneme
+
+phoneme S
+ipa ʂ
+vls sib frc
+WAV(ufric/sh_.wav)
+endphoneme
+
+phoneme Sj
+ipa ʃ
+vls pla sib frc
+WAV(ufric/sh.wav)
+endphoneme
+
+phoneme Sw
+ipa ʃʷ
+vls pla sib frc rnd
+WAV(ufric/sh_rfx.wav)
+endphoneme
+
+phoneme @
+ipa ə
+vwl
+length 85
+FMT(vowel/@)
+endphoneme
+
+phoneme Uw
+ipa ɥ
+vwl
+FMT(voc/vj, 40) addWav(vowel/u_3, 20)
+endphoneme
+
+phoneme J
+ipa ɖʐ
+vcd afr sib rfx
+FMT(dzh/dzh_, 60) addWav(ustop/ts_rfx_unasp.wav, 20)
+endphoneme
+
+phoneme Jj
+ipa ʤ
+vcd afr sib  pzd
+FMT(dzh/dzh_, 60) addWav(ustop/ts_pzd3.wav, 20)
+endphoneme
