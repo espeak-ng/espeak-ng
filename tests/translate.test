@@ -119,3 +119,70 @@ p'o:le" "ക: ത: പ: കേരളം: താമര: പോലെ:"
 test_phon ru "k'oS(en)k'A:(ru)" "кошKa"
 test_phon ru "'ju(en)m'Vni(ru)" "юMoney"
 test_phon ru "'ju(en)m'Vni(ru)" "ЮMoney"
+
+
+
+# Абхазский язык (ab) - базовые слова
+# Простые слова (базовые согласные)
+test_phon ab "'ab" "аб"                    
+test_phon ab "'aba" "аба"                   
+test_phon ab "aps'adgj@l" "аԥсадгьыл"                     
+test_phon ab "ag'ara" "агара"                     
+test_phon ab "'amza" "амза"
+
+# Абруптивные
+
+test_phon ab "t_'at_a" "тата"                  
+test_phon ab ",ac_ar'@Uw" "аҵарыҩ"                  
+test_phon ab "mak_j'ana" "макьана"                  
+test_phon ab "l'auk_" "лаук"
+test_phon ab ",au'ap_a" "ауапа"
+
+# Увулярные
+test_phon ab "aq'ama" "аҟама"
+test_phon ab "'aR" "аӷ"                     
+test_phon ab "'axra" "ахра"                      
+
+# Лабиализованные
+test_phon ab "'agwla" "агәла"                   
+test_phon ab "'akw" "ақә"                   
+test_phon ab "'aqwa" "аҟәа"                  
+test_phon ab "'aRwra" "аӷәра"                  
+test_phon ab "'axw" "ахә"                   
+test_phon ab "'ahwra" "аҳәра"                   
+test_phon ab "at_w'@la" "атәыла"                   
+test_phon ab ",atwatw'ara" "аҭәаҭәара"                 
+test_phon ab "'acw" "ацә"                   
+test_phon ab "ac_wqj'ara" "аҵәҟьара"                 
+test_phon ab "'aZw" "ажә"                   
+test_phon ab "'aSw@" "ашәы"                   
+
+# Палатализованные
+test_phon ab "agj'ama" "агьама"                   
+test_phon ab "am'akja" "амақьа"                   
+test_phon ab "mak_j'ana" "макьана"                 
+test_phon ab "ac_wqj'ara" "аҵәҟьара"
+test_phon ab "'aRj" "аӷь"                   
+test_phon ab "axj'aa" "ахьаа"                   
+test_phon ab "'aZja" "ажьа"                   
+test_phon ab ",aSja'idza" "ашьаиӡа"                   
+test_phon ab "'aJjma" "аџьма"                   
+
+# Аффрикаты
+test_phon ab "'amca" "амца"                     
+test_phon ab "'ac_la" "аҵла"                   
+test_phon ab "'aCa" "ача"                     
+test_phon ab "m'aC_" "маҷ"                   
+test_phon ab "adz'ia" "аӡиа"                    
+test_phon ab "adzwdzw'aga" "аӡәӡәага"                  
+test_phon ab "aE'aga" "аҽага"                       
+test_phon ab "E_'@c" "ҿыц"                   
+test_phon ab "aJ'@Sla" "аџышла"                    
+
+# Фрикативные
+test_phon ab ",asasa'irta" "асасаирҭа"                     
+test_phon ab "'am@z" "амыз"                     
+test_phon ab "ap'@Swa" "аԥышәа"                     
+test_phon ab "'abZa" "абжа"                     
+test_phon ab "'af" "аф"                     
+test_phon ab ",avan'@za" "аваныза"                     
