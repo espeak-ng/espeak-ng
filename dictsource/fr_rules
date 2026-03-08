@@ -437,6 +437,7 @@ _appar) en (t_     A~        // apparent
 Vxcell) ent (_     t2        // excellent
 
   iCam) en (t_     A~
+testam) en (t_     A~
     mm) en (t_     A~
     em) en (t_     A~        // lentement
    mom) en (t_     A~        // moment
