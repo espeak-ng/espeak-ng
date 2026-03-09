@@ -657,6 +657,7 @@ ssip	$abbrev
 st	s@nt
 suv	$abbrev
 tbsp	teIb@Lspu:n
+tdae	$abbrev
 th	T
 thu	T3:        // Thursday
 ?5 thu	TIR        // Thursday
