@@ -2,6 +2,10 @@
 # Language:	eSpeak Dictionary Rules Files
 # Filenames:    *_rules
 #
+# Usage:
+#
+#     include ~/.nano/espeak-rules.nanorc
+#
 
 syntax "espeak-rules" "_rules$"
 
@@ -35,6 +39,9 @@ color bold,lightred "^[[:space:]]*\.(group|replace)"
 color lightcyan "^[[:space:]]*\.L[[:digit:]]{2}.*"
 color bold,lightred "^[[:space:]]*\.L[[:digit:]]{2}"
 
+# Character codes: 0xFF and U+FFFF
+color lightgreen "(0x[0-9a-fA-F]{2}|U\+[0-9a-fA-F]{4})"
+
 # Comments, e.g.: // comment
 color italic,lightblue "[[:space:]]*\/\/.*$"
 
@@ -43,3 +50,4 @@ color black,lightyellow "(TODO|FIXME|XXX)"
 
 # Spaces at end of lines
 color ,lightgreen "[[:space:]]+$"
+
