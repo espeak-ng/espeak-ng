@@ -1,42 +1,97 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!--Source: Activity title.
-        Description: Title for the Settings activity.-->
+  <!--
+        Source: Activity title.
+        Description: Title for the Settings activity.
+    -->
   <string name="tts_settings_label">Nastavení modulu eSpeak TTS</string>
-  <!--Source: Preference title.
-        Description: Title for the preference that controls default voice pitch.-->
-  <string name="setting_default_pitch">Výchozí výška hlasu</string>
-  <!--Source: Preference title.
-        Description: Title for the preference that controls default speech rate.-->
-  <string name="setting_default_rate">Multiplikátor rychlosti řeči</string>
-  <!--Source: Dialog text.
-        Description: Status message shown when installing voice data.-->
-  <string name="installing_voice_data">Instalace hlasových dat...</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <!--
+        Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.
+    -->
+  <string name="setting_default_pitch">Výška hlasu</string>
+  <!--
+        Source: Preference title.
+        Description: Title for the preference that controls default speech rate.
+    -->
+  <string name="setting_default_rate">Rychlost řeči</string>
+  <!--
+        Source: Dialog text.
+        Description: Status message shown when installing voice data.
+    -->
+  <string name="installing_voice_data">Instalace hlasových dat…</string>
+  <!--
+        Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.
+    -->
   <string name="set_default_message">Aplikace eSpeak není nastavena jako váš výchozí modul pro převod textu na řeč.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that voice data installation failed.-->
+  <!--
+        Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.
+    -->
   <string name="voice_data_failed_message">Aplikaci eSpeak se nepodařilo nainstalovat hlasová data. Zkontrolujte prosím kartu SD.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <!--
+        Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.
+    -->
   <string name="error_message">Je nám líto, aplikaci eSpeak se nepodařilo spustit.</string>
-  <!--Source: Label text.
-        Description: Label informing the user of the current text-to-speech language.-->
+  <!--
+        Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.
+    -->
   <string name="current_tts_locale">Výchozí hlas</string>
-  <!--Source: Label text.
-        Description: Label informing the user of how many voices are installed.-->
+  <!--
+        Source: Label text.
+        Description: Label informing the user of how many voices are installed.
+    -->
   <string name="available_voices">Počet nainstalovaných hlasů</string>
-  <!--Source: Button label.
-        Description: Button for launching general text-to-speech settings.-->
-  <string name="tts_settings">Obecná nastavení modulu TTS</string>
-  <!--Source: Button label.
-        Description: Button for launching eSpeak-specific settings.-->
+  <!--
+        Source: Button label.
+        Description: Button for launching general text-to-speech settings.
+    -->
+  <string name="tts_settings">Obecná nastavení TTS</string>
+  <!--
+        Source: Button label.
+        Description: Button for launching eSpeak-specific settings.
+    -->
   <string name="engine_settings">Nastavení modulu eSpeak TTS</string>
-  <!--Source: Label text.
-        Description: Label informing the user that eSpeak is loading resources.-->
-  <string name="loading">Načítání, čekejte prosím...</string>
-  <!--Source: Spoken aloud.
-        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <!--
+        Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.
+    -->
+  <string name="loading">Načítání, čekejte prosím…</string>
+  <!--
+        Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.
+    -->
   <string name="sample_text">Toto je ukázkový text namluvený v jazyce %s</string>
+  <string name="status">Stav</string>
+  <string name="tts_version">Verze aplikace eSpeak</string>
+  <string name="speak">Mluvit</string>
+  <string name="ssml">Načíst šablonu SSML</string>
+  <string name="synthesis_demo">Zadejte text k přečtení:</string>
+  <string name="espeak_volume">Hlasitost</string>
+  <string name="formatter_wpm">%s WPM</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Nastavit na výchozí</string>
+  <string name="espeak_pitch_range">Variace výšky</string>
+  <string name="espeak_variant">Varianta hlasu</string>
+  <string name="espeak_speak_punctuation">Interpunkce v řeči</string>
+  <string name="punctuation_all">Všechna</string>
+  <string name="punctuation_custom">Vlastní</string>
+  <string name="punctuation_custom_fmt">Vlastní: %s</string>
+  <string name="punctuation_none">Žádná</string>
+  <string name="punctuation_characters">Znaky interpunkce</string>
+  <string name="category">Kategorie</string>
+  <string name="variant">Varianta</string>
+  <string name="variant_male">Muž</string>
+  <string name="variant_female">Žena</string>
+  <string name="variant_default">Výchozí</string>
+  <string name="variant_n">Varianta %d</string>
+  <string name="variant_young">Mladý</string>
+  <string name="variant_old">Starý</string>
+  <string name="variant_croak">Chraplavý</string>
+  <string name="variant_whisper">Šeptání</string>
+  <string name="import_voice_title">Importovat slovník eSpeak</string>
+  <string name="import_voice_description">Importovat soubor hlasového slovníku eSpeak z karty SD.</string>
 </resources>
