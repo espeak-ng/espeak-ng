@@ -3,6 +3,7 @@
 - [User Guide](guide.md)
   - [espeak-ng Command Line](../src/espeak-ng.1.ronn)
   - [speak-ng Command Line](../src/speak-ng.1.ronn)
+  - [speak-ng Configuration file](configuration.md)
   - [Supported Languages](languages.md)
   - [SSML and HTML Support](markup.md)
   - [Using eSpeak NG as a C library](integration.md)
