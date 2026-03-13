@@ -3,6 +3,7 @@
 - [Features](#features)
 - [Supported languages](docs/languages.md)
 - [Documentation](#documentation)
+- [Installation](#installation)
 - [eSpeak Compatibility](#espeak-compatibility)
 - [History](#history)
 - [License Information](#license-information)
@@ -68,6 +69,10 @@ The following platforms are supported:
 5. Look at [contribution guide](docs/contributing.md) to start your contribution.
 6. Look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap) to participate in development of eSpeak NG.
 
+## Installation
+eSpeak NG is available in the following Linux and BSD repositories: AlmaLinux, Arch Linux, CentOS, Debian, Fedora, FreeBSD, Mageia, openSUSE, Rocky Linux, Slackware, Solus, Ubuntu, Void Linux
+It can be installed on Android from the [Google Play Store](https://play.google.com/store/apps/details?id=com.redzoc.ramees.tts.espeak) and [F-Droid](https://f-droid.org/en/packages/com.reecedunn.espeak/).
+It is also available on iOS from the [App Store](https://apps.apple.com/us/app/espeak-ng/id6444089174)
 ## eSpeak Compatibility
 
 The *espeak-ng* binaries use the same command-line options as *espeak*, with
