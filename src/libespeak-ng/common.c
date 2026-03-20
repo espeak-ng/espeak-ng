@@ -220,6 +220,17 @@ int IsAlpha(unsigned int c)
 	if ((c > 0x3040) && (c <= 0xa700))
 		return 1; // Chinese/Japanese.  Should never get here, but Mac OS 10.4's iswalpha seems to be broken, so just make sure
 
+	// Emoji and symbol ranges — treat as word characters so they reach
+	// dictionary lookup where $textmode entries map them to text
+	// descriptions (e.g. U+1F600 → "grinning face").
+	// Without this, espeak_TextToPhonemes() silently drops emoji.
+	if ((c >= 0x2600) && (c <= 0x27bf))
+		return 1; // Miscellaneous Symbols + Dingbats
+	if ((c >= 0x1f000) && (c <= 0x1fbff))
+		return 1; // Emoji blocks (Emoticons, Transport, Supplemental, etc.)
+	if ((c >= 0x1f1e0) && (c <= 0x1f1ff))
+		return 1; // Regional Indicator Symbols (flag sequences)
+
 	return 0;
 }
 
