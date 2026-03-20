@@ -71,8 +71,8 @@ test_phon en "'e@ri:z" "♈"
 test_phon my "pru3'a2nke3DN_|_| mj@@lu3'a2mj@2tsnh,a2N_|_| nm_|n'e3DN_|_| mj@@nh,ats" "😙"
 test_phon ka "k'ots#nis g'amomx,atveli s'axe m'omQim,are t#v'alebit#" "😙"
 test_phon ka "'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "😥"
-# TODO: Fix adjacent emoji without whitespace so the pronunciation is separated by a space.
-test_phon en "'e@ri:zr'eInboU" "♈🌈"
+# Adjacent emoji without whitespace now correctly separated (IsAlpha emoji fix).
+test_phon en "'e@ri:z r'eInboU" "♈🌈"
 test_phon en "'e@ri:z r'eInboU" "♈ 🌈"
 
 # multi-word emoji
