@@ -1,11 +1,6 @@
 Portuguese
 =======================================
 
-Introduction
----------------------------------------
-
-This document contains important information that the maintainer wishes they had learned when they started using eSpeak NG. They hope that reading this document will make the work of future contributors easier.
-
 Basic Usage
 ---------------------------------------
 
@@ -75,8 +70,6 @@ How to speak a text from standard input:
 echo "Olá, mundo!" | espeak-ng -v pt-br
 ```
 
-> **NOTE**: each line read from the standard input is limited to 1000 characters by default. Prefer reading from a text file instead to avoid this limit.
-
 ### How to read content from text files
 
 You use eSpeak NG to read the text in a file using the `-f` flag.
@@ -98,40 +91,46 @@ iconv -t UTF-8 text-file.txt > text-file.utf8.txt
 
 ### How to Generate audio files as output
 
-You can use eSpeak NG to generate an audio file using the `-w` flag.
-
-The generated files have these properties:
-
-* Container: WAVE
-* Channels: 1 (mono)
-* Bit rate: 256 kbps
-* Sample rate: 16 kHz
-* Format: PCM signed 16-bit little-endian
-
-How to generate an WAVE audio file from a text file:
+How to generate an WAV audio file from a text file:
 
 ```bash
 espeak-ng -v pt-br -f text-file.txt -w audio-file.wav
 ```
-
-However, the audio files produced by eSpeak NG can be big, e.g. an e-book may take precious gigabytes of your storage. You have to use another program to convert the WAVE file into another format, say, MP3 file.
 
 How to generate an MP3 audio file using `ffmpeg` program:
 
 ```bash
 # sudo apt install ffmpeg
-espeak-ng -v pt-br -f text-file.txt -w audio-file.wav
-ffmpeg -i audio-file.wav audio-file.mp3 && rm audio-file.wav
+espeak-ng -v pt-br -f text-file.txt --stdout | ffmpeg -i - audio-file.mp3
 ```
 
-How to generate an MP3 audio file using `--stdout` flag and `lame` program:
+How to generate an MP3 audio file using `lame` program:
 
 ```bash
 # sudo apt install lame
 espeak-ng -v pt-br -f text-file.txt --stdout | lame -b 32 - audio-file.mp3
 ```
 
-> **NOTE**: there's a [misterious bug](https://github.com/espeak-ng/espeak-ng/issues/2334) that truncates some audio files after 13 hours of playback, specifically at 13:31:36.
+### WAV file duration
+
+The main voices `pt-br` and `pt-pt` generate WAV files with these properties: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 22050 Hz. The maximum duration for thes voices is 13 hours and 31 minutes.
+
+Some voices such as `mb-br1` and `mb-br4` generate 16 kHz files. Due to this detail, maximum duration for these voices is 18 hours and 38 minutes.
+
+This table lists the maximum durations and WAV properties for each Portuguese voice:
+
+| Voice  | Max duration |  WAV properties                        |
+|---     | ---          | ---                                    |
+|pt-br   | 13h 31m 36s  | RIFF, WAVE, PCM, 16 bit, mono 22050 Hz |
+|pt-pt   | 13h 31m 36s  | RIFF, WAVE, PCM, 16 bit, mono 22050 Hz |
+|mb-br1  | 18h 38m 29s  | RIFF, WAVE, PCM, 16 bit, mono 16000 Hz |
+|mb-br2  | 13h 31m 36s  | RIFF, WAVE, PCM, 16 bit, mono 22050 Hz |
+|mb-br3  | 13h 31m 36s  | RIFF, WAVE, PCM, 16 bit, mono 22050 Hz |
+|mb-br4  | 18h 38m 29s  | RIFF, WAVE, PCM, 16 bit, mono 16000 Hz |
+|mb-pt1  | 13h 31m 36s  | RIFF, WAVE, PCM, 16 bit, mono 22050 Hz |
+
+If you have a big ebook, maybe you have to split it into 2 or more parts before converting it to an audiobook.
+
 
 MBrola voices
 ---------------------------------------
@@ -227,17 +226,17 @@ Brazilian Portuguese transcription of the sample:
 espeak-ng --ipa -v pt-br -f text-sample.txt
 ```
 
-> ʊ vˈẽntʊ nˈɔɾtʃi iʲ ʊ sˈɔw dʒˌiskutʃˈiʲɐ̃ʊ̃ kwˈaʊ dʊz dˈoɪz ˌɛɾɐ ʊ mˈaɪs fˈɔɾtʃɪ  
-> kwˈɐ̃ndʊ sˌusedˈeʊ pasˈaɾ ũn vˌiʲaʒˈɐ̃ntʃj ˌẽnvˈoltʊ nˌumɐ kˈapɐ  
+> ʊ vˈẽntʊ nˈɔɾtʃj i ʊ sˈɔw dʒˌiskutʃˈiɐ̃ʊ̃ kwaʊ dʊz dˈoɪz ˌɛɾɐ ʊ mˈaɪs fˈɔɾtʃɪ  
+> kwˈɐ̃ndʊ sˌusedˈeʊ pasˈaɾ ũn vˌiaʒˈɐ̃ntʃj ˌẽnvˈowtʊ nˌumɐ kˈapɐ  
 > aʊ vˈelʊ  
-> pˈõɪ̃msɪ dʒj ˌakˈoɾdw eɪŋ kˌomw ˌakˈelɪ kɪ pɾˌimˈeɪɾʊ kˌõnseɡˈisj ˌobɾiɡˈaɾ ʊ vˌiʲaʒˈɐ̃ntʃj a tʃiɾˈaɾ a kˈapɐ seɾˌiʲɐ kˌõnsideɾˈadw ʊ mˈaɪs fˈɔɾtʃɪ  
+> pˈõẽnsɪ dʒɪ ˌakˈoɾdw eɪŋ kˌomw akˌelɪ kɪ pɾˌimˈeɪɾʊ kˌõnseɡˈisj ˌobɾiɡˈaɾ ʊ vˌiaʒˈɐ̃ntʃj a tʃiɾˈaɾ a kˈapɐ seɾˌiɐ kˌõnsideɾˈadw ʊ mˈaɪs fˈɔɾtʃɪ  
 > ʊ vˈẽntʊ nˈɔɾtʃɪ kˌomesˈow a sopɾˈaɾ kõn mˈũɪ̃tɐ fˈuɾjɐ  
-> mas kwˈɐ̃ntʊ mˈaɪs sˌopɾˈavɐ  
-> mˈaɪz ʊ vˌiʲaʒˈɐ̃ntʃɪ sj ˌakõnʃeɡˈav ˌaː sˌuɐ kˈapɐ  
-> atˌɛ kɪʲ ʊ vˈẽntʊ nˈɔɾtʃɪ dˌezistʃˈiʊ  
-> ʊ sˈɔw bɾiʎˈow ẽntˈɐ̃ʊ̃ kõn tˈodw u ˌesplẽndˈoɾ  
-> iʲ ˌimedʒˌiʲatɐmˈẽntʃɪʲ ʊ vˌiʲaʒˈɐ̃ntʃɪ tʃiɾˈow a kˈapɐ  
-> ʊ vˈẽntʊ nˈɔɾtʃɪ tˌevj asˈĩn dʒɪ xˌekõɲesˈeɾ a sˌupeɾˌiʲoɾidˈadʒɪ dʊ sˈɔw  
+> mas kwˌɐ̃ntʊ mˈaɪs sˌopɾˈavɐ  
+> mˈaɪz ʊ vˌiaʒˈɐ̃ntʃɪ sɪ ˌakõnʃeɡˈav aː sˌuɐ kˈapɐ  
+> atˌɛ kɪ ʊ vˈẽntʊ nˈɔɾtʃɪ dˌezistʃˈiʊ  
+> ʊ sˈɔw bɾiʎˈow ẽntˈɐ̃ʊ̃ kõn tˈodw ʊ ˌesplẽndˈoɾ  
+> i ˌimedʒˌiatɐmˈẽntʃɪ ʊ vˌiaʒˈɐ̃ntʃɪ tʃiɾˈow a kˈapɐ  
+> ʊ vˈẽntʊ nˈɔɾtʃɪ tˌevj asˈĩn dʒɪ xˌekõɲesˈeɾ a sˌupeɾˌioɾidˈadʒɪ dʊ sˈɔw  
 
 European Portuguese transcription of the sample:
 
@@ -245,21 +244,21 @@ European Portuguese transcription of the sample:
 espeak-ng --ipa -v pt-pt -f text-sample.txt
 ```
 
-> ʊ vˈẽntʊ nˈɔɾtɨ iʲ ʊ sˈɔl dˌiʃkutˈiʲɐ̃ʊ̃ kwˈɑl dʊʒ dˈoɪz ˌɛɾɐ ʊ mˈaɪʃ fˈɔɾtɨ  
-> kwˈɐ̃ndʊ sˌusɨdˈeʊ pɐsˈaɾ ũn vˌiʲɐʒˈɐ̃ntɨ ˌẽnvˈoltʊ nˌumɐ kˈapɐ  
+> ʊ vˈẽntʊ nˈɔɾtɨ i ʊ sˈɔɫ dˌiʃkutˈiɐ̃ʊ̃ kwˈaɫ dʊʒ dˈoɪz ˌɛɾɐ ʊ mˈaɪʃ fˈɔɾtɨ  
+> kwˈɐ̃ndʊ sˌusɨðˈeʊ pɐsˈaɾ ũn vˌiɐʒˈɐ̃ntɨ ˌẽnvˈoɫtʊ nˌumɐ kˈapɐ  
 > aʊ vˈelʊ  
-> pˈõɪ̃msɨ dɨ ˌɐkˈoɾdw eɪŋ kˈomw ˌɐkˈelɨ kɨ pɾˌimˈeɪɾʊ kˌõnsɨɡˈisɨ ˌɔbɾiɡˈaɾ ʊ vˌiʲɐʒˈɐ̃ntɨ ɐ tiɾˈaɾ ɐ kˈapɐ sɨɾˌiʲɐ kˌõnsidɨɾˈadw ʊ mˈaɪʃ fˈɔɾtɨ  
+> pˈõẽnsɨ dɨ ˌɐkˈoɾdw eɪŋ kˈomw ɐkˌelɨ kɨ pɾˌimˈeɪɾʊ kˌõnsɨɣˈisɨ ˌɔβɾiɣˈaɾ ʊ vˌiɐʒˈɐ̃ntɨ ɐ tiɾˈaɾ ɐ kˈapɐ sɨɾˌiɐ kˌõnsiðɨɾˈaðw ʊ mˈaɪʃ fˈɔɾtɨ  
 > ʊ vˈẽntʊ nˈɔɾtɨ kˌumɨsˈow ɐ supɾˈaɾ kõn mˈũɪ̃tɐ fˈuɾjɐ  
 > mɐʃ kwˈɐ̃ntʊ mˈaɪʃ sˌupɾˈavɐ  
-> mˈaɪz ʊ vˌiʲɐʒˈɐ̃ntɨ sɨ ˌɐkõnʃɨɡˈav ˌaː sˌuɐ kˈapɐ  
-> ɐtˈɛ kɨ ʊ vˈẽntʊ nˈɔɾtɨ dˌɨziʃtˈiʊ  
-> ʊ sˈɔl bɾiʎˈow ẽntˈɐ̃ʊ̃ kõn tˈodw u ʃplẽndˈoɾ  
-> iʲ ˌimɨdˌiʲɐtɐmˈẽntɨ ʊ vˌiʲɐʒˈɐ̃ntɨ tiɾˈow ɐ kˈapɐ  
-> ʊ vˈẽntʊ nˈɔɾtɨ tˌevɨ ɐsˈĩn dɨ ʁˌekõɲɨsˈeɾ ɐ supˌɛɾiʲˌuɾidˈadɨ dʊ sˈɔl  
+> mˈaɪz ʊ vˌiɐʒˈɐ̃ntɨ sɨ ˌɐkõnʃɨɣˈav aː sˌuɐ kˈapɐ  
+> ɐtˌɛ kɨ ʊ vˈẽntʊ nˈɔɾtɨ dˌɨziʃtˈiʊ  
+> ʊ sˈɔɫ bɾiʎˈow ẽntˈɐ̃ʊ̃ kõn tˈoðw ʊ ʃplẽndˈoɾ  
+> i ˌimɨðˌiɐtɐmˈẽntɨ ʊ vˌiɐʒˈɐ̃ntɨ tiɾˈow ɐ kˈapɐ  
+> ʊ vˈẽntʊ nˈɔɾtɨ tˌevɨ ɐsˈĩn dɨ ʁˌekõɲɨsˈeɾ ɐ sˌupɨɾˌiuɾiðˈaðɨ dʊ sˈɔɫ  
 
 The sample text used in this document was extracted from:
 
-> Barbosa PA, Albano EC. Brazilian Portuguese. Journal of the International Phonetic Association. 2004;34(2):227-232. doi:10.1017/S0025100304001756
+Barbosa PA, Albano EC. Brazilian Portuguese. Journal of the International Phonetic Association. 2004;34(2):227-232. doi:10.1017/S0025100304001756
 
 
 > **NOTE**: the transcription of MBrola voices have some differences due to necessary ajustments.
@@ -379,6 +378,43 @@ Notes about these vowels:
 |		|		|	|
 |ãʊ ãw		|&U\~ a\~w	|a\~w	|
 
+**Vowel aliases:**
+
+There are many cases where we need to specify two rules or exceptions for the same word: one for European Portuguese and another for Brazilian portuguese.
+
+The vowels aliases below can be used to reduce duplication, by helping to specify only one rule or exception for a word in both dialects.
+
+|Alias	|pt-BR	|pt-PT  | Usage Context       | Exemples   |
+|---	|---	|---	|---                  |---         |
+|a#	|a	|&	| unstressed syllable | `a#g'O*&`  |
+|e#	|e	|i"	| unstressed syllable | `n'ume#*U` |
+|o#	|o	|u	| unstressed syllable | `p'E*o#l&` |
+
+They are redirected to the relevant vowel in the current dialect; i.e. /o#/ is redirected to /u/ in European Portuguese.
+
+**Consonant aliases:**
+
+The following consonant aliases can also reduce duplication.
+
+|Alias	|pt-BR	|pt-PT    | Usage Context | Examples            |
+|---	|---	|---	  |---            |---                  |
+|R#	|x	|x	  | onset         | `R#'atU`, `k'aR#U`  |
+|r#	|*	|*	  | coda          | `p'Or#t&`, `k'ar#U` |
+|d#	|d / dZ	|d	  | onset or coda | `d#'i&`, `dav'id#`  |
+|t#	|t / tS	|t	  | onset or coda | `t#'i&`, `n'Et#`    |
+|s#	|s / z	|S / Z / z| coda          | `k'as#k&`, `doIs#`  |
+|l#	|w	|l	  | coda          | `t'al#`, `'al#m&`   |
+
+Likewise, they are redirected to the other consonants, depending on the dialect; i.e. /l#/ is redirected to /w/ in Brazilian Portuguese.
+
+**Other aliases:**
+
+Currently there's only one alias to be used in English words ended with `/er/`, such as "skater" and "gamer".
+
+|Alias	|pt-BR	|pt-PT    | Usage Context | Examples                  |
+|---	|---	|---	  |---            |---                        |
+|3#	|e	|&	  | word end      | `sk'eIt3#r#`, `g'eIm3#r#` |
+
 
 Normalization
 ---------------------------------------
@@ -401,9 +437,7 @@ Another loose normalization is the substitution of currency simbols with the cor
 
 Cardinal numbers are supported with a comma as decimal separator, for example: 1 or 1,00.
 
-Large cardinal numbers may have a dot as thousands separator, for example: 1.000 or 1.000,00.
-
-> **NOTE**: currently, there's an unreported bug that produces a very high noise in MBrola voices if the space is allowed as thousands separator, for example: 1 000. What causes the bug is unknown. For that reason, the space as thousand separator should not be enabled for Portuguese.
+Large cardinal numbers may have a dot or space as thousands separator, for example: 1.000 or 1 000.
 
 ### Ordinal numbers
 
@@ -440,6 +474,8 @@ Common abbreviations for people titles are included in Portuguese configuration 
 Abbreviations used in Law, such as "art." (law article) and "§" (law paragraph) are also included.
 
 Also, there are many acronyms listed in Portuguese configuration that can be recognized, such as, CPI and IPVA.
+
+> **NOTE**: currently the sentence breaks if has an abbreviation with a dot. See #2340 and #735.
 
 ### Currency
 
@@ -574,8 +610,10 @@ Some wildcard symbols can be used in PRE-pattern and POST-pattern fields.
 These are the wildcards in Portuguese:
 
 * `A`: a vowel, including y.
-* `B`: a consonant, except h, l, r, w, and y.
 * `C`: a consonant.
+* `B`: a consonant, except h l r w y (excludes the second letter in consonant clusters and semivowels)
+* `H`: a consonant, except l m n r s w y (excludes common letters in syllable coda and semivowels)
+* `F`: a voiceless consonant: p, t, k...
 * `G`: a voiced consonant: b, d, g...
 * `Y`: a front vowel: e, i and y.
 
@@ -608,6 +646,8 @@ ñ       n
 In the example, the letter "å" is replaced by "a", and the letter ñ is replaced by "n".
 
 Actually, the `.replace` group, in Portuguese language, is used as a hack for Unicode normalization.
+
+There should be only one `.replace` group in `dictlist/pt_rules`.
 
 ### Language Compilation
 
