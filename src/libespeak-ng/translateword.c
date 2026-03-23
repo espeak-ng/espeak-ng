@@ -1152,10 +1152,13 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 // append plural suffixes depending on preceding letter
 static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
 {
+	if (!(flags & FLAG_HAS_PLURAL)) return;
+
+	// for English
 	char word_zz[5] = { 0, ' ', 'z', 'z', 0 };
 	char word_iz[5] = { 0, ' ', 'i', 'z', 0 };
 	char word_ss[5] = { 0, ' ', 's', 's', 0 };
-	if (flags & FLAG_HAS_PLURAL) {
+	if (tr->translator_name == L('e', 'n')) {
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if (last_char == 'f')
 			TranslateRules(tr, &word_ss[2], word_phonemes, N_WORD_PHONEMES,
@@ -1166,6 +1169,14 @@ static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *w
 		else
 			TranslateRules(tr, &word_iz[2], word_phonemes, N_WORD_PHONEMES,
 			NULL, 0, NULL);
+	}
+
+	// for Portuguese
+	char word_s[4] = { 0, ' ', 's', 0 };
+	if (tr->translator_name == L('p', 't')) {
+		// s or 's suffix, just append [s]
+		TranslateRules(tr, &word_s[2], word_phonemes, N_WORD_PHONEMES,
+		NULL, 0, NULL);
 	}
 }
 

@@ -69,6 +69,7 @@ volume 15
 
 // block of p
 0   p    _      0   p
+0   p    l      0   p
 0   p    j      0   p
 0   p    w      0   p
 0   p    VWL    0   p
@@ -76,6 +77,7 @@ volume 15
 
 // block of b
 0   b    _      0   b
+0   b    l      0   b
 0   b    j      0   b
 0   b    w      0   b
 0   b    VWL    0   b
@@ -83,6 +85,7 @@ volume 15
 
 // block of t
 0   t    _      0   t
+0   t    l      0   t
 0   t    j      0   t
 0   t    w      0   t
 0   t    VWL    0   t
@@ -90,6 +93,7 @@ volume 15
 
 // block of d
 0   d    _      0   d
+0   d    l      0   d
 0   d    j      0   d
 0   d    w      0   d
 0   d    VWL    0   d
@@ -97,6 +101,7 @@ volume 15
 
 // block of k
 0   k    _      0   k
+0   k    l      0   k
 0   k    j      0   k
 0   k    w      0   k
 0   k    VWL    0   k
@@ -104,6 +109,7 @@ volume 15
 
 // block of g
 0   g    _      0   g
+0   g    l      0   g
 0   g    j      0   g
 0   g    w      0   g
 0   g    VWL    0   g
@@ -111,6 +117,7 @@ volume 15
 
 // block of f
 0   f    _      0   f
+0   f    l      0   f
 0   f    j      0   f
 0   f    w      0   f
 0   f    VWL    0   f
@@ -118,6 +125,7 @@ volume 15
 
 // block of v
 0   v    _      0   v
+0   v    l      0   v
 0   v    j      0   v
 0   v    w      0   v
 0   v    VWL    0   v
@@ -178,6 +186,7 @@ volume 15
 
 // block of l
 8   l    j      0   l
+8   l    j/     0   l
 8   l    w      0   l
 8   l    VWL    0   l
 0   l    NULL   99  l @
@@ -304,13 +313,15 @@ volume 15
 // SECTION OF DIPHTHONGS
 
 0   aI  NULL  60   a  y
+0   &I  NULL  60   @  y
+0   &I~ NULL  60   @  in
 0   eI  NULL  60   e  y
 0   EI  NULL  60   ee y
 0   oI  NULL  60   o  y
-0   oI~ NULL  60   on i
+0   oI~ NULL  60   on in
 0   OI  NULL  60   oo y
 0   uI  NULL  60   u  y
-0   uI~ NULL  60   un i
+0   uI~ NULL  60   un in
 
 0   aU  NULL  60   a  w
 0   &U~ NULL  60   @  un
@@ -318,6 +329,8 @@ volume 15
 0   EU  NULL  60   ee w
 0   iU  NULL  60   i  w
 0   oU  NULL  60   o  w
+0   OU  NULL  60   oo w
+0   uU  NULL  60   u  w
 
 
 // SECTION OF OTHER PHONEMES

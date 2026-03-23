@@ -70,6 +70,8 @@ volume 15
 0   U   NULL   0   u
 
 0   aI  NULL  60   a  j
+0   &I  NULL  60   6~ j
+0   &I~ NULL  60   6~ i~
 0   eI  NULL  60   e  j
 0   EI  NULL  60   E  j
 0   oI  NULL  60   o  j
@@ -83,6 +85,8 @@ volume 15
 0   EU  NULL  55   E  w
 0   iU  NULL  55   i  w
 0   oU  NULL  60   o  w
+0   OU  NULL  60   O  w
+0   uU  NULL  60   u  w
 
 
 // English phonemes
