@@ -9,8 +9,22 @@ project(espeak-ng
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(COMPILE_INTONATIONS "Intonation compilation" ON)
 option(ENABLE_TESTS "Enable tests" ON)
+option(WITH_COVERAGE "Enable clang source-based coverage instrumentation" OFF)
+option(WITH_FUZZER "Build libFuzzer targets (requires Clang)" OFF)
 
 include(CTest)
+
+if (WITH_COVERAGE OR WITH_FUZZER)
+  if (NOT CMAKE_C_COMPILER_ID STREQUAL "Clang")
+    message(FATAL_ERROR "WITH_COVERAGE and WITH_FUZZER require Clang")
+  endif()
+endif()
+
+if (WITH_COVERAGE)
+  add_compile_options(-fprofile-instr-generate -fcoverage-mapping)
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
+  set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
+endif()
 
 include(cmake/deps.cmake)
 include(cmake/config.cmake)
