@@ -68,8 +68,7 @@ replacing `v120` with the appropriate value for the target Visual Studio version
 
 In order to build eSpeak NG, you need:
 
-1.  a functional autotools system (`make`, `autoconf`, `automake`, `libtool`
-    and `pkg-config`);
+1.  [CMake](https://cmake.org/) 3.10 or later;
 2.  a functional c compiler that supports C99 (e.g. gcc or clang). Note: if building with speechPlayer, a C++ compiler is required.
 
 Optionally, you need:
@@ -92,7 +91,7 @@ be installed using the following commands:
 
 | Dependency    | Install                                                          |
 |---------------|------------------------------------------------------------------|
-| autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
+| cmake         | `sudo apt-get install cmake`                                     |
 | c99 compiler  | `sudo apt-get install gcc g++`                                   |
 | sonic         | `sudo apt-get install libsonic-dev`                              |
 | ronn          | `sudo apt-get install ronn`                                      |
@@ -106,111 +105,96 @@ For recent Debian or Ubuntu >= 18.04 you should also install:
 
 ### Building
 
-The first time you build eSpeak NG, or when you want to change how to build
-eSpeak NG, you need to run the following standard autotools commands:
+Configure the build using CMake:
 
-	./autogen.sh
-	./configure --prefix=/usr
+	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=/usr
 
-__NOTE:__ The `--prefix` option above will install the files to the `/usr`
-directory, instead of the default `/usr/local` location. You can use other
-standard `configure` options to control the output. For more information,
-you can run:
+__NOTE:__ The `-DCMAKE_INSTALL_PREFIX` option above will install the files to the `/usr`
+directory, instead of the default `/usr/local` location. For more information
+on available options, you can run:
 
-	./configure --help
+	cmake -Bbuild -LH
 
 To use a different compiler, or compiler flags, you can specify these before
-the `configure` command. For example:
+the `cmake` command. For example:
 
-	CC=clang CFLAGS=-Wextra ./configure --prefix=/usr
+	CC=clang CFLAGS=-Wextra cmake -Bbuild -DCMAKE_INSTALL_PREFIX=/usr
 
 The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
 then be built with:
 
-	make
+	cmake --build build
 
-__NOTE:__ Building the voice data does not work when using the `-jN` option.
-If you want to use that option, you can run:
+The data (language dictionaries, phoneme tables, intonation) can be built with:
 
-	make -j8 src/espeak-ng src/speak-ng
-	make
+	cmake --build build --target data
 
-The documentation can be built by running:
+Specific languages can be compiled by running the built binary directly:
 
-	make docs
+	ESPEAK_DATA_PATH=`pwd`/build build/src/espeak-ng --compile=LANG
 
-Specific languages can be compiled by running:
-
-	make LANG
-
-where `LANG` is the language code of the given language. More information can
-be found in the [Adding or Improving a Language](add_language.md)
+where `LANG` is the language code of the given language (e.g. `fr` for French).
+More information can be found in the [Adding or Improving a Language](add_language.md)
 documentation.
-
-If project settings are changed, you may need to force rebuilding all project,
-including already built files. To do this execute command:
-
-	make -B
 
 #### Cross Compilation
 
 Because the eSpeak NG build process uses the built program to compile the
-language and voice data, you need to build it locally first. Once you have
-built it locally you can perform the cross compilation using:
+language and voice data, you need to build it natively first. Once you have
+built it natively you can perform the cross compilation by pointing CMake
+to the native build:
 
-	./configure --build=... --host=... --target=...
-	make -B src/espeak-ng src/speak-ng
+	cmake -Bbuild-cross -DCMAKE_TOOLCHAIN_FILE=... -DNativeBuild_DIR=build/src
+	cmake --build build-cross
 
 #### Sanitizer Flag Configuration
 
 It is possible to build eSpeak NG with the gcc or clang sanitizer by passing
-the appropriate `CFLAGS` and `LDFLAGS` options to `configure`. For example:
+the appropriate flags to CMake. For example:
 
-	CFLAGS="-fsanitize=address,undefined -g" \
-		LDFLAGS="-fsanitize=address,undefined" \
-		CC=clang ./configure
-	make
-	make check
-
-__NOTE:__ The `-fsanitize=fuzzer` option does not work when using the above
-configuration method. This is because `clang` will use the `libFuzzer` library
-which defines its own `main` and requires `LLVMFuzzerTestOneInput` to be
-defined. This breaks the autoconf check to see if the C compiler works.
+	CC=clang cmake -Bbuild \
+		-DCMAKE_C_FLAGS="-fsanitize=address,undefined -g" \
+		-DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
+	cmake --build build
+	ctest --test-dir build --output-on-failure
 
 #### LLVM Fuzzer Support
 
 To enable libFuzzer support you need clang 6.0 or later. It is enabled with
 the following:
 
-	CC=clang ./configure --with-libfuzzer=yes
-	make
-	make check
+	CC=clang cmake -Bbuild -DWITH_FUZZER=ON
+	cmake --build build
+	ctest --test-dir build --output-on-failure
 
 #### eSpeak NG Feature Configuration
 
-The following `configure` options control which eSpeak NG features are enabled:
+The following CMake options control which eSpeak NG features are enabled:
 
-| Option          | Description                                  | Default |
-|-----------------|----------------------------------------------|---------|
-| `--with-klatt`  | Enable Klatt formant synthesis.              | yes     |
-| `--with-speechplayer`  | Enable the speechPlayer Klatt implementation.              | yes     |
-| `--with-mbrola` | Enable MBROLA voice support.                 | yes     |
-| `--with-sonic`  | Use the sonic library to support higher WPM. | yes     |
-| `--with-async`  | Enable asynchronous commands.                | yes     |
+| Option               | Description                                  | Default |
+|----------------------|----------------------------------------------|---------|
+| `-DUSE_KLATT`        | Enable Klatt formant synthesis.              | ON      |
+| `-DUSE_SPEECHPLAYER` | Enable the speechPlayer Klatt implementation.| ON      |
+| `-DUSE_MBROLA`       | Enable MBROLA voice support.                 | ON (if available) |
+| `-DUSE_LIBSONIC`     | Use the sonic library to support higher WPM. | ON (if available) |
+| `-DUSE_ASYNC`        | Enable asynchronous commands.                | ON (if pthread available) |
 
-__NOTE:__ The `--with-sonic` option requires that the sonic library and header
+__NOTE:__ The `-DUSE_LIBSONIC` option requires that the sonic library and header
 is accessible on the system.
 
 #### Extended Dictionary Configuration
 
-The following `configure` options control which of the extended dictionary files
-to build:
+Extended dictionaries are automatically enabled when an `extra/<lang>_listx`
+file is present in `dictsource/`. They can be toggled per-language with CMake
+options:
 
-| Option               | Extended Dictionary | Default |
-|----------------------|---------------------|---------|
-| `--with-extdict-ru`  | Russian             | no      |
-| `--with-extdict-cmn` | Mandarin Chinese    | no      |
-| `--with-extdict-yue` | Cantonese           | no      |
+| Option                  | Extended Dictionary | Default |
+|-------------------------|---------------------|---------|
+| `-DEXTRA_ru`            | Russian             | ON      |
+| `-DEXTRA_cmn`           | Mandarin Chinese    | ON      |
+| `-DEXTRA_yue`           | Cantonese           | ON      |
+
+Set to `OFF` to exclude an extended dictionary (e.g. `-DEXTRA_ru=OFF`).
 
 The extended dictionaries are taken from
 [http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/) and
@@ -222,26 +206,28 @@ dictionary size.
 Before installing, you can test the built espeak-ng using the following command
 from the top-level directory of this project:
 
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak-ng ...
+    ESPEAK_DATA_PATH=`pwd`/build build/src/espeak-ng ...
 
 The `ESPEAK_DATA_PATH` variable needs to be set to use the espeak-ng data from
-the source tree. Otherwise, espeak-ng will look in `$(HOME)` or
+the build tree. Otherwise, espeak-ng will look in `$(HOME)` or
 `/usr/share/espeak-ng-data`.
 
-The `LD_LIBRARY_PATH` is set as `espeak` uses the `libespeak-ng.so` shared
-library. This ensures that `espeak` uses the built shared library in the
-`src` directory and not the one on the system (which could be an older
-version).
+If you are building with `-DBUILD_SHARED_LIBS=ON`, you also need to set
+`LD_LIBRARY_PATH` to the shared library output directory:
+
+    LD_LIBRARY_PATH=build/src/libespeak-ng:${LD_LIBRARY_PATH}
+
+You can run the test suite with:
+
+    ctest --test-dir build -j$(nproc) --output-on-failure
 
 ### Installing
 
 You can install eSpeak NG by running the following command:
 
-    sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
+    cmake --install build
 
-__NOTE:__ The `LIBDIR` path may be different to the one on your system (the
-above is for 64-bit Debian/Ubuntu releases that use the multi-arch package
-structure -- that is, Debian Wheezy or later).
+__NOTE:__ You may need to run with `sudo` depending on the install prefix.
 
 You can find out where espeak-ng is installed to on your system if you
 already have an espeak-ng install by running:
@@ -262,10 +248,10 @@ branch when the repository tracked eSpeak releases.
 
 In order to build the Android APK file, you need:
 
-1.  the [Android Studio](https://developer.android.com/studio/) with API 26 support;
+1.  the [Android Studio](https://developer.android.com/studio/) with API 34 support;
 2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
-3.  Gradle 7.4+
-4.  JDK 11
+3.  Gradle 8.13+
+4.  JDK 17
 
 ### Building with Gradle
 
@@ -274,23 +260,12 @@ In order to build the Android APK file, you need:
         $ export ANDROID_HOME=<path-to-the-android-sdk>
 (where `<path-to-the-android-sdk>` is your actual path of SDK folder e.g. `/home/user/Android/Sdk`)
 
-2. Configure the project:
+2. Build the project from the `android` directory:
 
-        $ ./autogen.sh
-        $ ./configure --with-gradle=<path-to-gradle>
+        $ cd android
+        $ ./gradlew assembleRelease
 
-Check that log shows following lines:
-
-        ...
-        gradle (Android):              gradle
-        ...
-`<path-to-gradle>` may be just `gradle` if it is found in your path by simple name.
-
-3. Build the project:
-
-        $ make apk-release
-
-This will create an `android/build/outputs/apk/espeak-release-unsigned.apk` file.
+This will create an `android/build/outputs/apk/release/espeak-release-unsigned.apk` file.
 
 ### Signing the APK
 
