@@ -424,7 +424,8 @@ ami	$alt3
 éppen	$alt3
 nagypéntek	$alt3
 presztízsharc $alt3
-
+délután $alt3
+délutánját $alt3
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -744,7 +745,7 @@ mindent	$strend
 //részben	$u	// partly
 
 egyik	$unstressend	// one of
-//másik	$u	// the other
+másik	$u $alt3	// the other
 lehet	$unstressend
 rossz	$unstressend
 jó	$unstressend
