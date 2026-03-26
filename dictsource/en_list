@@ -541,7 +541,7 @@ avc	$abbrev
 avg	$abbrev
 awol	eIw0l
 bsod	$abbrev
-bvld	bUl@vA@d
+blvd	bUl@vA@d
 byod	$abbrev
 c       $abbrev $allcaps
 c#      $abbrev $allcaps
@@ -657,6 +657,7 @@ ssip	$abbrev
 st	s@nt
 suv	$abbrev
 tbsp	teIb@Lspu:n
+tdae	$abbrev
 th	T
 thu	T3:        // Thursday
 ?5 thu	TIR        // Thursday
@@ -849,6 +850,7 @@ almost		O:lmoUst
 aloe		aloU
 alpaca		alp'ak@
 alphabetize	alf@b@taIz
+alpharetrovirus	alpha retrovirus $text
 alt		0lt   // not abbrev
 alternate	O:lt'3:n@t     $only
 alternate	O:lt3neIt      $verb
@@ -1034,6 +1036,7 @@ backend		bak'End
 backstory	baksto@ri
 badmouth	$alt1
 bakelite	beIk@laIt
+banknote	b'aNknoUt
 balas		bal@s
 ?3 balk		bO:k
 ballad		bal@d
@@ -3440,7 +3443,7 @@ solenoid	soUl@nOId
 solicit		s@lIsI2t       // solicited,ing
 solute		s0lju:t
 solution	s@lu:S@n
-sommelier	s0m'Eli@
+sommelier	s0m@lj'e
 ?3 sommelier	sVm@lj'eI
 son		sVn
 sonar		soUnA@
@@ -3836,6 +3839,7 @@ webpage		wEbpeIdZ
 wehrmacht	ve@maxt
 website		wEbsaIt
 ?!3 weekend	$2
+weeknote	w'i:knoUt
 weres		we@z
 whaddaya	wVd@j@   // what do you
 ?2 whaddaya	w#Vd@j@  // what do you
@@ -5094,6 +5098,7 @@ Lamaze		la#mA:z
 Lazarus		laz@r@s
 Levine		l@vi:n
 linkedin	lInkt||'In
+Loomis		l'u:mIs
 Louvre		lu:v	$capital
 Lussier		lVsIeI
 Machen		meItSI#n
