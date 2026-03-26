@@ -60,13 +60,6 @@ public class DownloadVoiceData extends Activity {
                 .sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        mAsyncExtract.cancel(true);
-    }
-
     private static class AsyncExtract extends AsyncTask<Void, Void, Integer> {
         private final Context mContext;
 

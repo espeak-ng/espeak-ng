@@ -104,6 +104,9 @@ public class CheckVoiceData extends Activity {
 
             while ((entry = zipStream.getNextEntry()) != null) {
                 final File file = new File(outputDir, entry.getName());
+                if (!file.getCanonicalPath().startsWith(outputDir.getCanonicalPath())) {
+                    throw new SecurityException("Zip entry outside target dir: " + entry.getName());
+                }
                 if (entry.isDirectory()) {
                     file.mkdirs();
                     continue;
@@ -122,7 +125,7 @@ public class CheckVoiceData extends Activity {
 
             final String version = FileUtils.read(
                 context.getResources().openRawResource(R.raw.espeakdata_version));
-            FileUtils.write(new File(outputDir, "espeak-ng-data/version"), version);
+            FileUtils.write(new File(getDataPath(context), "version"), version);
             return true;
         } catch (Exception e) {
             Log.e(TAG, "Failed to extract voice data", e);
