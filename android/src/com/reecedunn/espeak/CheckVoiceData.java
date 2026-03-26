@@ -35,11 +35,17 @@ import android.util.Log;
 
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class CheckVoiceData extends Activity {
     private static final String TAG = "eSpeakTTS";
@@ -80,6 +86,53 @@ public class CheckVoiceData extends Activity {
             return !version.equals(installedVersion);
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    public static boolean extractVoiceData(Context context) {
+        final File dataPath = getDataPath(context);
+        FileUtils.rmdir(dataPath);
+
+        final InputStream stream = context.getResources().openRawResource(R.raw.espeakdata);
+        final ZipInputStream zipStream = new ZipInputStream(new BufferedInputStream(stream));
+        final File outputDir = dataPath.getParentFile();
+
+        try {
+            final byte[] buffer = new byte[10240];
+            int bytesRead;
+            ZipEntry entry;
+
+            while ((entry = zipStream.getNextEntry()) != null) {
+                final File file = new File(outputDir, entry.getName());
+                if (entry.isDirectory()) {
+                    file.mkdirs();
+                    continue;
+                }
+                file.getParentFile().mkdirs();
+                final FileOutputStream outputStream = new FileOutputStream(file);
+                try {
+                    while ((bytesRead = zipStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                } finally {
+                    outputStream.close();
+                }
+                zipStream.closeEntry();
+            }
+
+            final String version = FileUtils.read(
+                context.getResources().openRawResource(R.raw.espeakdata_version));
+            FileUtils.write(new File(outputDir, "espeak-ng-data/version"), version);
+            return true;
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to extract voice data", e);
+            return false;
+        } finally {
+            try {
+                zipStream.close();
+            } catch (IOException e) {
+                // ignored
+            }
         }
     }
 
