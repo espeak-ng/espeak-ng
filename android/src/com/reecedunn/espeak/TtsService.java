@@ -26,10 +26,8 @@
 package com.reecedunn.espeak;
 
 import android.annotation.SuppressLint;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.media.AudioTrack;
 import android.os.Build;
@@ -74,7 +72,6 @@ public class TtsService extends TextToSpeechService {
     protected Voice mMatchingVoice = null;
 
     private SharedPreferences mPreferences;
-    private BroadcastReceiver mOnLanguagesDownloaded = null;
     private final SharedPreferences.OnSharedPreferenceChangeListener mOnPreferencesChanged =
             new SharedPreferences.OnSharedPreferenceChangeListener() {
                 @Override
@@ -92,6 +89,10 @@ public class TtsService extends TextToSpeechService {
             storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
         mPreferences = PreferenceManager.getDefaultSharedPreferences(storageContext);
         mPreferences.registerOnSharedPreferenceChangeListener(mOnPreferencesChanged);
+        if (!CheckVoiceData.hasBaseResources(storageContext)
+                || CheckVoiceData.canUpgradeResources(storageContext)) {
+            CheckVoiceData.extractVoiceData(storageContext);
+        }
         initializeTtsEngine();
         super.onCreate();
     }
@@ -99,9 +100,6 @@ public class TtsService extends TextToSpeechService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mOnLanguagesDownloaded != null) {
-            unregisterReceiver(mOnLanguagesDownloaded);
-        }
         if (mPreferences != null) {
             mPreferences.unregisterOnSharedPreferenceChangeListener(mOnPreferencesChanged);
         }
@@ -147,23 +145,7 @@ public class TtsService extends TextToSpeechService {
     }
 
     private Pair<Voice, Integer> findVoice(String language, String country, String variant) {
-        if (!CheckVoiceData.hasBaseResources(storageContext) || CheckVoiceData.canUpgradeResources(storageContext)) {
-            if (mOnLanguagesDownloaded == null) {
-                mOnLanguagesDownloaded = new BroadcastReceiver() {
-                    @Override
-                    public void onReceive(Context context, Intent intent) {
-                        initializeTtsEngine();
-                    }
-                };
-
-                final IntentFilter filter = new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
-                registerReceiver(mOnLanguagesDownloaded, filter);
-            }
-
-            final Intent intent = new Intent(storageContext, DownloadVoiceData.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-
+        if (!CheckVoiceData.hasBaseResources(storageContext)) {
             return new Pair<>(null, TextToSpeech.LANG_MISSING_DATA);
         }
 
