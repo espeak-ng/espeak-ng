@@ -6,6 +6,9 @@
 // but aaii, aauu and eeii must be pronounced [a:i:], [a:u:] and [e:i:].
 
 .L01 mei tei hei noi // pronouns for allative case + enclitics  doubling
+.L02 a o u            // back vowels
+.L03 y ä ö            // front vowels
+.L04 i e              // neutral vowels
 
 .group a
           a          a
@@ -78,6 +81,9 @@
 
 .group h
           h          h
+      L02) h (k       x        // /h/ → [x] after back vowels before /k/ (e.g. tuhka → [tuxka])
+      L03) h (k       C        // /h/ → [ç] after front vowels before /k/ (e.g. pyhkiä → [pyçkiä])
+      L04) h (k       C        // /h/ → [ç] after neutral vowels before /k/ (e.g. vihko → [viçko])
 
 
 .group i
