@@ -1,2 +1,9 @@
 name Swedish
 language sv
+
+tunes sv_s sv_c sv_q sv_e
+
+// Swedish prosody tuning
+// Swedish has distinctive pitch accents (accent 1 & 2) and wide pitch variation
+pitch 76 118
+speed 155
