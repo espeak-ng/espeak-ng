@@ -5804,6 +5804,7 @@ multip) ly         laI
      _) re (tir+   rI#
         re (trib+  rE
      _) retro (@P5 r,EtroU   // prefix
+     A) retro (@   r,EtroU   // infix
      _) re (vel    rE
         reve (nA   rEv@
         re (veren  rE
