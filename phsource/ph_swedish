@@ -175,3 +175,16 @@ phoneme r.        // retroflex flap (r + any)
   FMT(r3/@tap_rfx)
 endphoneme
 
+// Swedish Tone Accents
+//=====================
+
+phoneme 1        // Swedish accent 1 (acute)
+  stress
+  Tone(35, 20, envelope/sv_accent1, NULL)
+endphoneme
+
+phoneme 2        // Swedish accent 2 (grave)  
+  stress
+  Tone(42, 35, envelope/sv_accent2, NULL)
+endphoneme
+

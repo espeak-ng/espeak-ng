@@ -348,3 +348,44 @@ nucleus0	fall	0	0
 onset		0	0	0
 headlast	0	0	0
 endtune
+
+// Swedish intonation patterns
+// Statement (påstående) - fallande ton
+tune sv_s1
+prehead   46 57
+headenv   fall 18
+head       4 75 50 -10 -8
+headextend 0 60 40 15 0
+nucleus0 fall 60 12
+nucleus  fall 65 50 38 12
+endtune
+
+// Question (fråga) - stigande ton
+tune sv_q1  
+prehead   45 56
+headenv   rise 16
+head       3 65 48 0 8
+headextend 20 65 45 20 5
+nucleus0 rise 70 25
+nucleus  rise 70 25 45 78
+endtune
+
+// Exclamation/Emphasis (utrop) - kraftig fallande ton
+tune sv_e1
+prehead   50 60
+headenv   fall 20
+head       3 85 55 -15 -10
+headextend 15 75 50 25 10
+nucleus0 fall 85 15
+nucleus  fall 90 75 60 15
+endtune
+
+// List item (lista) - lätt stigande
+tune sv_l1
+prehead   46 57
+headenv   rise 12
+head       3 70 50 -5 5
+headextend 10 65 45 18 8
+nucleus0 rise 65 18
+nucleus  rise 65 18 30 58
+endtune

@@ -775,6 +775,14 @@
         +          pl8s
         &          _:'Ok
         @          sn'A:bElA:
+
+// Swedish tone accent rules (basic version)
+// Compound words typically get accent 2 (grave)
+        vardagsrum     v'A:Rdagsru-m   // compound word - accent 2
+        köksfönster    S'Y:ksfY:nstER  // compound word - accent 2  
+        badrum         b'A:dru-m       // compound word - accent 2
+        sovrum         s'o:vru-m       // compound word - accent 2
+        sjukhus        sx'u-khus       // compound word - accent 2
         /          sn'e:dstREk
         €          'EvRu:
 

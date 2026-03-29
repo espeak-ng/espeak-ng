@@ -504,3 +504,17 @@ alltid         'alty:        // long i
 under          '8ndEr        // short u
 omkring        'OmkrIN       // short o
 eftersom       'EftERsOm     // proper stress pattern
+
+// Problematic words to fix:
+de             dOm          // pronounced "dom" in speech  
+dem            dOm          // pronounced "dom" in speech
+europe         '8RO:p@      // Swedish pronunciation of Europe 
+euro           '8RO:        // Swedish pronunciation of euro
+wifi           _^_EN        // Keep English pronunciation
+bluetooth      _^_EN        // Keep English pronunciation  
+computer       _^_EN        // Keep English pronunciation
+några          nO:Ra        // pronounced "nåra"  
+någon          nO:n         // pronounced "nån"
+något          nO:t         // pronounced "nåt"
+jag            jA:          // long "a" in "jag"
+säg            sE:          // long "ä" in "säg"
