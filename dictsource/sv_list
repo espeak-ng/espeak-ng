@@ -405,3 +405,14 @@ view     _^_EN
 web	_^_EN
 with	_^_EN
 word    _^_EN
+
+// Swedish sj-ljud compound word fixes (yeager 2026-03-29)
+östersjön      'WstERsx,Y:n
+insjöar        'InsxY:aR
+storsjön       'stu:RsxY:n
+sjöfart        sx'Y:fA:Rt
+sjöhäst        sx'Y:hEst
+sjöjungfru     sx'Y:j8NfRu-
+sjökort        sx'Y:kO:Rt
+sjösätta       sx'Y:sEta
+sjöstjärna     sx'Y:sxERna
