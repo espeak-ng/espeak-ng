@@ -427,5 +427,80 @@ förskjutning   fWRsx'u-:tnIN
 överskjutande  'Y:vERsxu-:t,andE
 underskjuta    '8ndERsxu-:t,a
 
-// gärna: g not j
-gärna          j'E:Rna
+// Retroflex fixes (r+consonant)
+bord           b'u:r.         // r+d → retroflex
+barn           b'A:r.n        // r+n → retroflex  
+karl           k'ar.l         // r+l → retroflex
+sort           s'Or.t         // r+t → retroflex
+hjärta         j'E:r.ta       // r+t → retroflex
+gärna          j'E:r.na       // g→j, r+n → retroflex
+hjord          j'u:r.         // r+d → retroflex
+karta          k'ar.ta        // r+t → retroflex
+storm          st'Orm         // r+m stays normal
+berg           b'Erj          // r+g stays normal
+
+// u-ljud fixes (long vs short)
+mun            m'u-:n         // long u, not short ɵ  
+djur           j'u-:r         // long u  
+jul            j'u-:l         // long u
+kul            k'u-:l         // long u
+kultur         k8lt'u-:r      // long u in stressed syllable
+pur            p'u-:r         // long u
+
+// o-ljud fixes (long o should be uː) 
+bord           b'u:r.         // long o → uː
+ord            'u:r.          // long o → uː  
+kor            k'u:r          // long o → uː
+for            f'u:r          // long o → uː
+dor            d'u:r          // long o → uː
+
+// Compound words
+fotbollsplan   f'u:tbOlspl,an
+sjukhus        sx'u-:kh,u-:s
+flygplats      fl'y:gpl,ats
+affärsidé      af'E:RsId,e:
+affärscentrum  af'E:RsE,ntrQm
+
+// Loan words  
+garage         gar'A:sx      // French pronunciation
+chef           sx'e:f        // sj-ljud, not English ch  
+research       R'i:sY:Rtsx   // English with Swedish phonology
+juice          j'u-:s        // Swedish j-sound, not English
+budget         b'8dxEt       // Swedish pronunciation
+buffé          b8f'e:        // French pronunciation
+
+// Place names
+stockholm      st'Okh,Olm    // proper Swedish pronunciation  
+göteborg       j'Y:tEb,Orj   // g→j in Swedish
+malmö          m'alm,Y:      // proper pronunciation
+uppsala        '8ps,ala      // stress on first syllable
+
+// Problematic words with correct phonology
+mjölk          mj'Wlk        // mj-sound correct, W = kort ö
+ljung          j'8N          // lj→j correct  
+stegen         st'e:gEn      // no j-insertion before en
+
+// Most common mispronounced words
+och            'O             // very short o
+det            d'e:          // long e
+den            d'e:n         // long e  
+för            f'Y:r         // long ö
+från           fr'O:n        // long å
+med            m'e:          // long e
+till           t'Il          // short i
+när            n'E:r         // long ä
+var            v'a:r         // long a
+även           'E:vEn        // long ä
+skulle         sk'8lE        // proper u-sound
+ville          v'IlE         // short i
+kommer         k'OmEr        // short o  
+några          n'O:gra       // long å, r before consonant
+andra          'andra        // proper stress
+första         f'Y:sta       // long ö
+efter          'EftEr        // stress on first syllable
+mellan         m'ElaN        // short e
+genom          j'e:nOm       // long e, stress on first
+alltid         'alty:        // long i  
+under          '8ndEr        // short u
+omkring        'OmkrIN       // short o
+eftersom       'EftERsOm     // proper stress pattern
