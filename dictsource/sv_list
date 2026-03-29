@@ -406,13 +406,26 @@ web	_^_EN
 with	_^_EN
 word    _^_EN
 
-// Swedish sj-ljud compound word fixes (yeager 2026-03-29)
+// Swedish pronunciation fixes (yeager 2026-03-29)
+
+// sj-ljud compound words
 östersjön      'WstERsx,Y:n
-insjöar        'InsxY:aR
 storsjön       'stu:RsxY:n
-sjöfart        sx'Y:fA:Rt
-sjöhäst        sx'Y:hEst
-sjöjungfru     sx'Y:j8NfRu-
-sjökort        sx'Y:kO:Rt
-sjösätta       sx'Y:sEta
-sjöstjärna     sx'Y:sxERna
+storsjö        'stu:RsxY:
+
+// sch-words (loan words using sj-ljud, not English sh)
+dusch          d'8sx
+revansch       REv'aNsx
+marsch         m'aRsx
+marschen       m'aRsxEn
+schweiz        sx'vEjts
+schweizisk     sx'vEjtsIsk
+
+// skj-compounds where rule doesn't match
+förskjuta      fWRsx'u-:ta
+förskjutning   fWRsx'u-:tnIN
+överskjutande  'Y:vERsxu-:t,andE
+underskjuta    '8ndERsxu-:t,a
+
+// gärna: g not j
+gärna          j'E:Rna
