@@ -81,9 +81,9 @@
 
 .group h
           h          h
-      L02) h (k       x        // /h/ → [x] after back vowels before /k/ (e.g. tuhka → [tuxka])
-      L03) h (k       C        // /h/ → [ç] after front vowels before /k/ (e.g. pyhkiä → [pyçkiä])
-      L04) h (k       C        // /h/ → [ç] after neutral vowels before /k/ (e.g. vihko → [viçko])
+      L02) h (C       x        // /h/ → [x] after back vowels before any consonant (e.g. tuhka → [tuxka], ahma)
+      L03) h (C       C        // /h/ → [ç] after front vowels before any consonant (e.g. pyhkiä → [pyçkiä], yhdeksän)
+      L04) h (C       C        // /h/ → [ç] after neutral vowels before any consonant (e.g. vihje → [viçje], vihko)
 
 
 .group i
