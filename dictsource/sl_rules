@@ -23,6 +23,7 @@
 .group b
         b        b
         b (L07   p
+        b (_     p
 
 .group c
         c        ts
@@ -38,7 +39,8 @@
         dz       dz
         dž       dZ
         d (L07   t
-
+        d (_     t
+        dž (_    tS
 
 .group e
         e        e:
@@ -63,7 +65,7 @@
 .group g
         g        g
         g (L07   k
-
+        g (_     k
 
 .group h
         h        x
@@ -202,11 +204,13 @@
 .group z
         z        z
         z (L07   s
+        z (_     s
 
 
 .group ž
         ž        Z
         ž (L07   S
+        ž (_     S
 
 
 .group
