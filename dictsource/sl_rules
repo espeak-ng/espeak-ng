@@ -8,7 +8,7 @@
 .L04 l v
 
 .L05 m l n r j v
-.l06 g d z b ž dž
+.L06 g d z b ž dž
 .L07 p t s š č k f h c
 
 .group a
@@ -22,6 +22,7 @@
 
 .group b
         b        b
+        b (L07   p
 
 .group c
         c        ts
@@ -36,6 +37,7 @@
         d        d
         dz       dz
         dž       dZ
+        d (L07   t
 
 
 .group e
@@ -60,6 +62,7 @@
 
 .group g
         g        g
+        g (L07   k
 
 
 .group h
@@ -81,6 +84,7 @@
 
 .group k
         k        k
+        k (L06   g
 
 
 .group l
@@ -131,6 +135,7 @@
         
 .group p
         p        p
+        p (L06   b
 
 
 .group q
@@ -148,15 +153,18 @@
 .group s
         s        s
         sch      S
+        s (L06   z
 
 
 .group š
         š        S
+        š (L06   Z
 
 
 .group t
         t        t
    Krs) t (_     _|t
+        t (L06   d
 
 
 .group u
@@ -193,10 +201,12 @@
 
 .group z
         z        z
+        z (L07   s
 
 
 .group ž
         ž        Z
+        ž (L07   S
 
 
 .group
