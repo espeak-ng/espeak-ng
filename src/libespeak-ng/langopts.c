@@ -178,13 +178,14 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 	}
 }
 
-void LoadConfig(void) {
-	// Load configuration file, if one exists
+void LoadConfig(Translator *tr) {
+	// Load configuration file, if one exists.
+	// Default location is espeak-ng-data/config.
+	// Parse the configuration options.
+	// The format of the file is exactly like language files is espeak-ng-data/lang/*
+
 	char buf[sizeof(path_home)+10];
 	FILE *f;
-	int ix;
-	char c1;
-	char string[200];
 
 	sprintf(buf, "%s%c%s", path_home, PATHSEP, "config");
 	if ((f = fopen(buf, "r")) == NULL)
@@ -192,20 +193,15 @@ void LoadConfig(void) {
 
 	while (fgets(buf, sizeof(buf), f) != NULL) {
 		if (buf[0] == '/')  continue;
+			// isolate the attribute name
+			char *p;
+		for (p = buf; (*p != 0) && !isspace(*p); p++) ;
+			*p++ = 0;
 
-		if (memcmp(buf, "tone", 4) == 0)
-			ReadTonePoints(&buf[5], tone_points);
-		else if (memcmp(buf, "soundicon", 9) == 0) {
-			ix = sscanf(&buf[10], "_%c %s", &c1, string);
-			if (ix == 2) {
-				// add sound file information to soundicon array
-				// the file will be loaded to memory by LoadSoundFile2()
-				soundicon_tab[n_soundicon_tab].name = c1;
-				soundicon_tab[n_soundicon_tab].filename = strdup(string);
-				soundicon_tab[n_soundicon_tab++].length = 0;
-			}
-		}
+		int key = LookupMnem(langopts_tab, buf);
+		LoadLanguageOptions(tr, key, p);
 	}
+
 	fclose(f);
 }
 
