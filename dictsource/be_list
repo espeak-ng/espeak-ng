@@ -3,7 +3,7 @@
 
 // Letter names
 а       a $u
-б       b $u
+б       bE $u
 в       vE $u
 г       QE $u
 д       dE $u
@@ -34,32 +34,33 @@
 э       E $u
 ю       ju $u
 я       ja $u
+'       ap'Ostraf
 
 // Numbers
-_0     n'ul;
+_0     n'ul;I^
 _1     adz;'in
 _1f    adna
 _2     dv'a
 _2f    dz;v;'E
 _3     tr'i"
 _4     ts.at'i"ri"
-_5     p;'ats;
-_6     s.'Es;ts;
+_5     p;'ats;I^
+_6     s.'Es;ts;I^
 _7     s;'Em
 _8     v'Os;Em
-_9     dz;'Ev;ats;
-_10    dz;'Es;ats;
-_11    adz;'inats:ats;
-_12    dvan'ats:ats;
-_13    tri"n'ats:ats;
-_14    ts.at'i"rnats:ats;
-_15    p;atn'ats:ats;
-_16    s.asn'ats:ats;
-_17    s;amn'ats:ats;
-_18    vas;amn'ats:ats;
-_19    dz;Ev;atn'ats:ats;
-_2X    dv'ats:ats;||
-_3X    tr'i"ts:ats;||
+_9     dz;'Ev;ats;I^
+_10    dz;'Es;ats;I^
+_11    adz;'inats:ats;I^
+_12    dvan'ats:ats;I^
+_13    tri"n'ats:ats;I^
+_14    ts.at'i"rnats:ats;I^
+_15    p;atn'ats:ats;I^
+_16    s.asn'ats:ats;I^
+_17    s;amn'ats:ats;I^
+_18    vas;amn'ats:ats;I^
+_19    dz;Ev;atn'ats:ats;I^
+_2X    dv'ats:ats;I^||
+_3X    tr'i"ts:ats;I^||
 _4X    s'Orak||
 _5X    p;adz;:Es;'at||
 _6X    s.Ezdz;:Es;'at||
@@ -79,6 +80,6 @@ _1MA1  t'i"s;ats.a
 _0MA1  t'i"s;ats.i"
 _0M1   t'i"s;ats.      // NOTE: in 10k > appends `_!`
 
-# exceptions
+// exceptions
 дождж d'Os.ts.
 відзскі v;'itsk;i
