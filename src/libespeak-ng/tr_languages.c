@@ -1272,8 +1272,8 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('m', 'n'): // Mongolian (Khalkha)
 	{
-		static const unsigned char stress_amps_mn[8] = { 16, 16, 18, 18, 18, 18, 18, 17 };
-		static const short stress_lengths_mn[8] = { 220, 200, 260, 260, 0, 0, 280, 270 };
+		static const unsigned char stress_amps_mn[8] = { 16, 16, 17, 17, 20, 20, 22, 18 };
+		static const short stress_lengths_mn[8] = { 190, 180, 220, 220, 0, 0, 260, 240 };
 
 		tr->letter_bits_offset = OFFSET_CYRILLIC;
 		memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
@@ -1284,14 +1284,14 @@ Translator *SelectTranslator(const char *name)
 		SetupTranslator(tr, stress_lengths_mn, stress_amps_mn);
 
 		tr->langopts.stress_rule = STRESSPOSN_1L; // first syllable stress
-		tr->langopts.stress_flags = S_NO_AUTO_2 | S_NO_EOC_LENGTHEN | S_FINAL_DIM_ONLY;
+		tr->langopts.stress_flags = S_NO_AUTO_2 | S_NO_EOC_LENGTHEN;
 		tr->langopts.lengthen_tonic = 0;
 		tr->langopts.param[LOPT_SUFFIX] = 1;
-		tr->langopts.word_gap = 1;
-		tr->langopts.vowel_pause = 2;
+		tr->langopts.word_gap = 1; // natural word gap
+		tr->langopts.vowel_pause = 1;
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_6;
-		tr->langopts.max_initial_consonants = 2;
-		SetLengthMods(tr, 3); // all equal
+		tr->langopts.max_initial_consonants = 3;
+		SetLengthMods(tr, 3);
 	}
 		break;
 	case L('m', 't'): // Maltese

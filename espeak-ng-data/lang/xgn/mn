@@ -1,5 +1,20 @@
 name Mongolian
 language mn
 
-pitch 80 170
-speed 80
+// Pitch range: male-oriented baseline, natural Khalkha intonation
+pitch 75 180
+
+// Speaking rate: slower for formant synthesis intelligibility
+speed 85
+
+// Formant adjustments for more natural Mongolian timbre
+formant 0 100 100 100
+formant 1 96 100 100
+formant 2 100 100 100
+
+// Breathiness adds naturalness to formant synthesis
+breath 2  3  1  1  1  1
+breathw 100 100 100 100 100 100
+
+// Intonation
+intonation 1

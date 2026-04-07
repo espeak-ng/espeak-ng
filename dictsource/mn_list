@@ -18,6 +18,7 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
+
 // ============================================================
 //  Numbers
 // ============================================================
@@ -33,15 +34,15 @@ _7      dOlO:
 _8      naIm
 _9      jes
 _10     arav
-_11     arvan neg
-_12     arvan xOjOr
-_13     arvan gUrav
-_14     arvan d8r8v
-_15     arvan tav
-_16     arvan zUrga:
-_17     arvan dOlO:
-_18     arvan naIm
-_19     arvan jes
+_11     arvan'neg
+_12     arvan'xOjOr
+_13     arvan'gUrav
+_14     arvan'd8r8v
+_15     arvan'tav
+_16     arvan'zUrga:
+_17     arvan'dOlO:
+_18     arvan'naIm
+_19     arvan'jes
 _2X     xOrin
 _3X     gUtSin
 _4X     d8tSin
@@ -51,14 +52,14 @@ _7X     dalan
 _8X     najan
 _9X     jeren
 _0C     zU:n
-_2C     xOjOr zU:
-_3C     gUrvan zU:
-_4C     d8rven zU:
-_5C     tavan zU:
-_6C     zUrga:n zU:
-_7C     dOlO:n zU:
-_8C     naIman zU:
-_9C     jesen zU:
+_2C     xOjOr'zU:
+_3C     gUrvan'zU:
+_4C     d8rven'zU:
+_5C     tavan'zU:
+_6C     zUrga:n'zU:
+_7C     dOlO:n'zU:
+_8C     naIman'zU:
+_9C     jesen'zU:
 _1MA1   mjaNga
 _0MA1   mjaNga
 _0M1    mjaNga
@@ -68,12 +69,12 @@ _0M2    saja
 _1MA3   terbUm
 _0MA3   terbUm
 _0M3    terbUm
-_1MA4   ix naja:d
-_0MA4   ix naja:d
-_0M4    ix naja:d
+_1MA4   ix'naja:d
+_0MA4   ix'naja:d
+_0M4    ix'naja:d
 
-// Decimal point
 _dpt    tseg
+
 
 // ============================================================
 //  Symbols
@@ -82,42 +83,47 @@ _dpt    tseg
 _`      aksent
 &       ampersand
 _'      apostrOf
-\       UrU:g zUra:s
-_>      ix temdeg
-_       dU:gU:r defis
+\       UrU:g'zUra:s
+_>      ix'temdeg
+_       dU:gU:r'defis
 $       dOllar
-_:      davxar tseg
-^       OrOI temdeg
-_"      xaImar xaSilt
-_<      baga temdeg
+_:      davxar'tseg
+^       OrOI'temdeg
+_"      xaImar'xaSilt
+_<      baga'temdeg
 +       nemex           $max3
 %       xUvi            $max3
 =       tentse:         $max3
 #       Sar
 /       zUra:s          $max3
-@       at temdeg
+@       at'temdeg
 ~       tild
 _.      tseg
-_;      tsegteI taslal
-_|      bOslO: zUra:s
-_?      asU:lti:n temdeg
-_!      aNxa:rU:lax temdeg
+_;      tsegteI'taslal
+_|      bOslO:'zUra:s
+_?      asU:lti:n'temdeg
+_!      aNxa:rU:lax'temdeg
 *       Od              $max3
 _,      taslal
 
+
 // ============================================================
-//  Particles (unstressed)
+//  Particles (unstressed, clitics)
 // ============================================================
 
 юм      jUm $u
 уу      U: $u
 үү      y: $u
 вэ      ve $u
-нь      ni $u
-ч       tS $u
+нь      n^ $u
+ч       tSi $u
 л       l $u
 даа     da: $u
+дээ     de: $u
 шүү     Sy: $u
+бэ      be $u
+аа      a: $u
+
 
 // ============================================================
 //  Postpositions / Case markers
@@ -128,7 +134,16 @@ _,      taslal
 хажууд  xadZU:d
 өмнө   8mn8
 ард     ard
+дотор   dOtOr
+гадна   gadna
+хооронд xO:rOnd
 руу     rU: $u
+рүү     ry: $u
+луу     lU: $u
+лүү     ly: $u
+тийш    ti:S
+нааш    na:S
+
 
 // ============================================================
 //  Conjunctions / Discourse
@@ -137,45 +152,357 @@ _,      taslal
 ба      ba $u
 бөгөөд  b8g8:d $pause
 буюу    bUjU: $pause
-эсвэл  esvel $pause
+эсвэл   esvel $pause
 харин   xarin $pause
 гэхдээ  gexde: $pause
 тийм    ti:m $u
 учраас  Utsra:s $pause
+мөн     m8n $u
+гэсэн   geseN $pause
+гэдэг   gedeg $pause
+гэж     gedZ $pause
+гэвэл   gevel $pause
+
 
 // ============================================================
 //  Question words
 // ============================================================
 
-хэн     xen $pause
-юу      jU: $pause
-хаана   xa:na $pause
-хэзээ   xeze: $pause
-яагаад  ja:ga:d $pause
-яаж     ja:dZ $pause
-хичнээн xitsne:n $pause
+хэн     xeN
+юу      jU:
+хаана   xa:na
+хэзээ   xeze:
+яагаад  ja:ga:d
+яаж     ja:dZ
+хэд     xed
+хэдэн   xedeN
+хичнээн xitsne:N
+ямар    jamar
+аль     ali
+яах     ja:x
+
 
 // ============================================================
-//  Common words
+//  Pronouns
 // ============================================================
 
-үгүй    ygy:j
-биш     biS
+би      bi
+чи      tSi
+та      ta
+тэр     ter
+бид     bid
+бидэнд  bidend
+тэд     ted
+тэдэнд  tedend
+миний   mini:
+чиний   tSini:
+таны    tani
+түүний  ty:ni:
+манай   manaI
+бидний  bidni:
+
+
+// ============================================================
+//  Common Verbs
+// ============================================================
+
 байна   baIna
 байгаа  baIga:
-мөн     m8n
-за      za
-
-// Auxiliary verbs
 байх    baIx
-чадах   tSadax
 байсан  baIsan
 болно   bOlnO
+болох   bOlOx
+болсон  bOlsON
+ирэх    irex
+ирсэн   irseN
+явах    javax
+явна    javna
+явсан   javsaN
+очих    OtSix
+өгөх    8g8x
+авах    avax
+авна    avna
+хийх    xi:x
+хийнэ   xi:ne
+хийсэн  xi:seN
+идэх    idex
+уух     U:x
+ярих    jarix
+ярья    jarija
+сурах   sUrax
+сурна   sUrna
+ойлгох  OIlgOx
+хэлэх   xelex
+мэдэх   medex
+мэднэ   medne
+чадах   tSadax
 чадна   tSadna
-чадсан  tSadsan
+амьдрах amidirax
+амьдардаг amidardag
+хүсэх   xyseX
+хүсье   xysije
+оршдог  OrSdOg
+
 
 // ============================================================
-//  Cyrillic letter names
+//  Common Nouns
+// ============================================================
+
+хүн     xyN
+хүмүүс  xy:my:s
+гэр     ger
+газар   gazar
+газарт  gazart
+зам     zam
+цаг     tsag
+цагт    tsaxt
+жил     dZil
+нар     nar
+хот     xOt
+нутаг   nUtag
+нутгийн nUtgi:N
+нутгийг nUtgi:g
+үг      yg
+ус      Us
+гал     gal
+мод     mOd
+морь    mOri
+морьтой mOrtOI
+ном     nOm
+далай   dalaI
+орон    OrON
+улс     Uls
+хэл     xel
+хэлэнд xelend
+эрх     erx
+
+
+// ============================================================
+//  Common Adjectives
+// ============================================================
+
+сайн    saIN
+сайхан  saIxaN
+муу     mU:
+их      ix
+бага    baga
+том     tOm
+жижиг   dZidZig
+шинэ    Sine
+хуучин  xU:tSiN
+урт     Urt
+Урт     Urt
+богино  bOginO
+өндөр   8nd8r
+нам     nam
+хүйтэн xUIteN
+халуун  xalU:N
+цэвэр   tsever
+нарийн  nari:N
+уудам   U:dam
+чанга   tSaNga
+
+
+// ============================================================
+//  Common Adverbs / Modifiers
+// ============================================================
+
+маш     maS
+тун     tUN
+нэлээд  nele:d
+хамгийн xamgi:N
+их      ix
+бас     bas
+ч       tSi $u
+мөн     m8n
+
+
+// ============================================================
+//  Place Names
+// ============================================================
+
+Улаанбаатар     Ula:nba:tar
+Монгол          mONgOl
+Монголын        mONgOliN
+Дархан          darxaN
+Эрдэнэт        erdenet
+Чойбалсан       tSOIbalsaN
+Хэнтий          xenti:
+Хөвсгөл         x8vsg8l
+Хангай          xaNgaI
+Говийн          gOvi:N
+
+
+// ============================================================
+//  Recording Script Vocabulary (narakeet sections 1-5)
+// ============================================================
+
+// Section 1: vowel isolation / minimal pairs
+тал     tal
+таал    ta:l
+бор     bOr
+боор    bO:r
+төр     t8r
+төөр    t8:r
+ул      Ul
+уул     U:l
+эр      er
+ээр     e:r
+
+// Section 1: consonant CV
+ба      ba
+ван     vaN
+жил     dZil
+ёс      jOs
+кино    kinO
+файл    faIl
+шар     Sar
+
+// Section 1: diphthong words
+нохой   nOxOI
+тойрон  tOIrON
+уйлах   UIlax
+үйлдвэр UIldver
+
+// Section 2: liquids (л/р) in words
+аль     ali
+эль     eli
+дэлхий  delxi:
+тольтой tOltOI
+арга    arga
+эрдэм   erdem
+өргөн   8rg8N
+үргэлж  yrgeldZ
+
+// Section 2: coda clusters
+алт     alt
+олт     Olt
+эрдэнэ  erdene
+амт     amt
+онд     Ond
+
+// Section 2: palatalized CV
+тюмэн   ty:meN
+нёдон   njOdON
+лёнхо   ljONxO
+нян     njaN
+
+// Section 2: soft sign words
+амь     ami
+өмнө    8mn8
+ямар    jamar
+нэмэр   nemer
+умай    UmaI
+хөмүүс  x8my:s
+
+// Section 2: coda + geminate
+суулт   sU:lt
+оролт   OrOlt
+нэмэлт  nemelt
+
+// Section 2: long vowel words
+агаар   aga:r
+оноо    OnO:
+дуу     dU:
+зуу     zU:
+зуун    zU:N
+нэгэн   negeN
+мөнгө   m8Ng8
+түүх    ty:x
+дүүрэн  dy:reN
+
+// Section 3: consonant clusters
+амна    amna
+мандал  mandal
+хангай  xaNgaI
+тунгалаг tUNgalag
+алтан   altaN
+борлуулалт bOrlU:lalt
+нэмэлт nemelt
+бүтэн   byteN
+цэвэр   tsever
+
+// Section 3: simple sentences (verified from audio)
+гэр     ger
+миний   mini:
+хамт    xamt
+бид     bid
+маргааш marga:S
+агаар   aga:r
+
+// Section 3: place names
+нийслэл ni:slel
+нуруу   nUrU:
+олон    OlON
+бий     bi:
+бүс     bys
+нуур    nU:r
+
+// Section 4: question words (already above)
+төгрөг  t8gr8g
+тэгсэн tegseN
+
+// Section 4: numbers as words
+нэг     neg
+хоёр    xOjOr
+гурав   gUrav
+дөрөв   d8r8v
+тав     tav
+зургаа  zUrga:
+долоо   dOlO:
+найм    naIm
+ес      jes
+арав    arav
+хорин   xOrin
+гучин   gUtSin
+дөчин   d8tSin
+тавин   tavin
+мянга   mjaNga
+сая     saja
+тэрбум  terbUm
+
+// Section 4: greetings
+баярлалаа bajarlala:
+уучлаарай U:tSla:raI
+ойлгохгүй OIlgOxgy:j
+эрүүл   ery:l
+мэнд    mend
+
+// Section 5: vowel harmony sentences
+эвсэг   evseg
+эгшиг   egSig
+зохицол zOxitsOl
+байдаг  baIdag
+богино  bOginO
+эгшгээс egSge:s
+ялгаатай jalga:taI
+
+// Benchmark sentence words
+харьцангуй   xaritsaNgUI
+өргөрөгт    8rg8r8xt
+километр    kilOme:tr
+зайтай      zaItaI
+зэрэг       zereg
+шалтгаанаас Saltga:na:s
+болж        bOldZ
+дэлхийн     delxi:N
+нийслэлд    ni:sleld
+тооцогддог  tO:tsOgdOg
+тооцогдох   tO:tsOgdOx
+эргээс      erge:s
+байрладаг   baIrladag
+
+// Additional words from narakeet_5 text
+орны        Orni
+улсын       UlsiN
+тухай       tUxaI
+ялгаатай    jalga:taI
+хэлэнд     xelend
+богино      bOginO
+
+
+// ============================================================
+//  Cyrillic Letter Names (for spelling mode)
 // ============================================================
 
 _а      a:
@@ -188,7 +515,7 @@ _ё      jO
 _ж      dZe
 _з      ze
 _и      i:
-_й      xagas i:
+_й      xagas'i:
 _к      ka
 _л      el
 _м      em
@@ -207,40 +534,22 @@ _ц      tse
 _ч      tSe
 _ш      Sa
 _щ      Sa
-_ъ      xatU: temdeg
+_ъ      xatU:'temdeg
 _ы      i
-_ь      z8:l8n temdeg
+_ь      z8:l8N'temdeg
 _э      e:
 _ю      jU:
 _я      ja:
 
-// ============================================================
-//  Exceptions & Phrases
-// ============================================================
-
-сайн_байна_уу    saIN baInaU:
-баярлалаа       bajarlala:
-төгрөг          t8gr8g
-Улаанбаатар     Ula:nba:tar
 
 // ============================================================
 //  Poem: "Миний Төрсөн Нутаг" (Нацагдорж)
 // ============================================================
 
-// Proper nouns
 Нацагдорж       natsagdOrdZ
-Хэнтэй         xenteI
-Хангай          xaNgaI
-Говийн          gOvi:N
-
-// Key vocabulary
-нутаг           nUtag
-нутгийн         nUtgi:N
-нутгийг         nUtgi:g
 дуулья          dU:lja
 хамгаалан       xamga:laN
 хүрээлэн        xyre:leN
-тойрон          tOIrON
 жигдрэн         dZigdreN
 соёрхоно        sOjOrxOnO
 мэлмий          melmi:
@@ -248,25 +557,51 @@ _я      ja:
 энхрий          eNxri:
 харагдана       xaragdana
 зэрэглээтэй    zeregle:teI
-бэлчээртэй     beltSe:rteI
-тариатай        tariataI
-цэцэгтэй       tsetsegteI
-мөрнүүд         m8rny:d
-зэрэгцэн        zeregtseN
-тэнүүлс         teny:ls
-тунгалаг        tUNgalag
-бялхан          bjalxaN
-шандална        Sandalna
-хүйтнээ         xUItne:
-нэвтлэм         nevtlem
-шуурга          SU:rga
-борооны         bOrO:ni
-нөлөөтэй       n8l8:teI
-цоохор          tsO:xOr
-оруулан         OrU:laN
-аянга           ajaNga
-морьтой         mOrtOI
-хамгийн         xamgi:N
-дэлхийн         delxi:N
-минийхээ        mini:xe:
-магтан          magtaN
+
+
+// ============================================================
+//  Additional Common Words
+// ============================================================
+
+сайн_байна_уу    saIN'baInaU:
+үгүй    ygy:j
+биш     biS
+за      za
+бол     bOl
+хэрэг   xereg
+хэрэгтэй xeregteI
+ажил    adZil
+сургууль sUrgU:li
+эмнэлэг emneleg
+хоол    xO:l
+идээ    ide:
+цай     tsaI
+сүү     sy:
+талх    talx
+мах     max
+ногоо   nOgO:
+жимс    dZims
+зурган  zUrgaN
+дуу     dU:
+дуулах  dU:lax
+тоглох  tOglOx
+нислэг  nisleg
+байгаль baIgal
+салхи   salxi
+борооны bOrO:ni
+цас     tsas
+нөлөөтэй n8l8:teI
+шуурга  SU:rga
+аянга   ajaNga
+дулаан  dUla:N
+хавар   xavar
+зун     zUN
+намар   namar
+өвөл    8v8l
+хээрийн xe:ri:N
+улаан   Ula:N
+цагаан  tsaga:N
+хар     xar
+шар     Sar
+ногоон  nOgO:N
+цэнхэр  tseNxer

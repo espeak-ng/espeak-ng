@@ -18,17 +18,37 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
+// ============================================================
+//  Khalkha Mongolian Spelling-to-Phoneme Rules
+//
+//  Cyrillic alphabet: а б в г д е ё ж з и й к л м н о ө п р
+//                     с т у ү ф х ц ч ш щ ъ ы ь э ю я
+//
+//  Vowel harmony: back {а,о,у} vs front {э,ө,ү}; и is neutral.
+//
+//  Key phonological rules:
+//    1. Doubled vowels = long vowels
+//    2. й after vowel = diphthong (ай, ой, эй, уй/үй)
+//    3. н before г/к/х/word-end = velar nasal [ŋ]
+//    4. ь (soft sign) palatalizes preceding consonant + creates
+//       glide before iotated vowels
+//    5. е,ё,ю,я = j+vowel after pause, vowel, or ь
+//    6. ы = [i] (archaic, same as и in modern Khalkha)
+// ============================================================
+
 
 // ============================================================
 //  VOWELS
 // ============================================================
 
 .group а
+        аай     a:j
         аа      a:
         ай      aI
         а       a
 
 .group э
+        ээй     e:j
         ээ      e:
         эй      eI
         э       e
@@ -39,48 +59,69 @@
         и       i
 
 .group о
+        оой     O:j
         оо      O:
         ой      OI
         о       O
 
 .group ө
+        өөй     8:j
         өө      8:
         ө       8
 
 .group у
+        ууй     U:j
         уу      U:
         уй      UI
         у       U
 
 .group ү
+        үүй     y:j
         үү      y:
         үй      UI
         ү       y
 
-// Compound vowel letters
+
+// -- Iotated vowels: е, ё, ю, я ----------------------------
+// Word-initial or after vowel/ь: j + vowel
+// After consonant: just the vowel
 
 .group е
-        _) е    je
-        A) е    je
-        е       e
+        _) еэ       je:
+        A) еэ       je:
+        ь) еэ       e:
+        еэ          e:
+        _) е        je
+        A) е        je
+        ь) е        e
+        е           e
 
 .group ё
-        _) ё    jO
-        A) ё    jO
-        ё       O
+        _) ё        jO
+        A) ё        jO
+        ь) ё        O
+        ё           O
 
 .group ю
-        _) ю    jU
-        A) ю    jU
-        ю       U
+        _) ю        jU
+        A) ю        jU
+        ь) ю        U
+        ю           U
 
 .group я
-        _) я    ja
-        A) я    ja
-        я       a
+        _) яа       ja:
+        A) яа       ja:
+        ь) яа       a:
+        яа          a:
+        _) я        ja
+        A) я        ja
+        ь) я        a
+        я           a
 
+// -- ы (same as и in modern Khalkha) -----------------------
 .group ы
         ы       i
+
 
 // ============================================================
 //  CONSONANTS
@@ -93,6 +134,7 @@
         в       v
 
 .group г
+        г (т    x
         г       g
 
 .group д
@@ -116,11 +158,13 @@
 .group м
         м       m
 
+// н: velar nasal [N] before velars and at word end
 .group н
         н (г    N
         н (к    N
         н (х    N
         н (_    N
+        нг (_   N
         н       n
 
 .group п
@@ -153,7 +197,12 @@
 .group щ
         щ       S
 
+// -- Hard sign / soft sign ---------------------------------
 .group ъ
+        ъ (я    j
+        ъ (ё    j
+        ъ (ю    j
+        ъ (е    j
         ъ
 
 .group ь
@@ -161,4 +210,5 @@
         ь (ё    j
         ь (ю    j
         ь (е    j
+        ь (и    j
         ь
