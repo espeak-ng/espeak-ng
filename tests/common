@@ -14,7 +14,7 @@ is_hash() {
     fi
 }
 check_hash() {
-    which $1 &&
+    command -v $1 &&
     $1 </dev/null 2>/dev/null |
     awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
     # Test some common commands to find the correct one for the system being tested on.
@@ -23,7 +23,7 @@ check_hash() {
 # test if MBROLA synthesizer is installed
 is_mbrola() {
     echo -n "checking if MBROLA is installed ... "
-    if [ "`which mbrola`" != "" ]; then
+    if [ "`command -v mbrola`" != "" ]; then
         echo "yes"
     else
         echo "no"
