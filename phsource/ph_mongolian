@@ -34,7 +34,7 @@ phoneme a
   vwl starttype #a endtype #a
   length 150
   ChangeIfUnstressed(a#)
-  FMT(vowel/a)
+  FMT(mongolian/a)
 endphoneme
 
 // Reduced a in unstressed positions (same quality, just shorter)
@@ -42,7 +42,7 @@ phoneme a#
   ipa a
   vwl starttype #a endtype #a
   length 100
-  FMT(vowel/a)
+  FMT(mongolian/a)
 endphoneme
 
 // e /e/ - front mid unrounded
@@ -51,7 +51,7 @@ phoneme e
   vwl starttype #e endtype #e
   length 150
   ChangeIfUnstressed(e#)
-  FMT(vowel/e)
+  FMT(mongolian/e)
 endphoneme
 
 // Reduced e (same quality, just shorter)
@@ -59,7 +59,7 @@ phoneme e#
   ipa e
   vwl starttype #e endtype #e
   length 100
-  FMT(vowel/e)
+  FMT(mongolian/e)
 endphoneme
 
 // i /i/ - front close unrounded (vowel-harmony neutral)
@@ -68,7 +68,7 @@ phoneme i
   vwl starttype #i endtype #i
   length 140
   ChangeIfUnstressed(i#)
-  FMT(vowel/i)
+  FMT(mongolian/i)
 endphoneme
 
 // Reduced i (same quality, just shorter)
@@ -76,7 +76,7 @@ phoneme i#
   ipa i
   vwl starttype #i endtype #i
   length 95
-  FMT(vowel/i)
+  FMT(mongolian/i)
 endphoneme
 
 // O /O/ - back mid-open rounded
@@ -85,7 +85,7 @@ phoneme O
   vwl starttype #o endtype #o
   length 150
   ChangeIfUnstressed(O#)
-  FMT(vowel/oo)
+  FMT(mongolian/O)
 endphoneme
 
 // Reduced O (same quality, just shorter)
@@ -93,24 +93,24 @@ phoneme O#
   ipa O
   vwl starttype #o endtype #o
   length 100
-  FMT(vowel/oo)
+  FMT(mongolian/O)
 endphoneme
 
 // 8 /8/ - front mid rounded (+ATR), Khalkha /ɵ/
 phoneme 8
   ipa 8
-  vwl starttype #@ endtype #@
+  vwl starttype #o endtype #o
   length 150
   ChangeIfUnstressed(8#)
-  FMT(vowel/oe)
+  FMT(mongolian/oe)
 endphoneme
 
 // Reduced 8 (same quality, just shorter)
 phoneme 8#
   ipa 8
-  vwl starttype #@ endtype #@
+  vwl starttype #o endtype #o
   length 100
-  FMT(vowel/oe)
+  FMT(mongolian/oe)
 endphoneme
 
 // U /U/ - back near-close rounded (-ATR)
@@ -119,7 +119,7 @@ phoneme U
   vwl starttype #u endtype #u
   length 150
   ChangeIfUnstressed(U#)
-  FMT(vowel/uu_2)
+  FMT(mongolian/u)
 endphoneme
 
 // Reduced U (same quality, just shorter)
@@ -127,7 +127,7 @@ phoneme U#
   ipa U
   vwl starttype #u endtype #u
   length 100
-  FMT(vowel/uu_2)
+  FMT(mongolian/u)
 endphoneme
 
 // y /u/ - front close rounded (+ATR) (Mongolian u with umlaut)
@@ -136,7 +136,7 @@ phoneme y
   vwl starttype #u endtype #u
   length 140
   ChangeIfUnstressed(y#)
-  FMT(vowel/u_bck)
+  FMT(mongolian/y)
 endphoneme
 
 // Reduced y (same quality, just shorter)
@@ -144,7 +144,7 @@ phoneme y#
   ipa u
   vwl starttype #u endtype #u
   length 95
-  FMT(vowel/u_bck)
+  FMT(mongolian/y)
 endphoneme
 
 
@@ -155,49 +155,49 @@ phoneme a:
   ipa a:
   vwl starttype #a endtype #a
   length 270
-  FMT(vowel/a)
+  FMT(mongolian/a_long)
 endphoneme
 
 phoneme e:
   ipa e:
   vwl starttype #e endtype #e
   length 260
-  FMT(vowel/e)
+  FMT(mongolian/e_long)
 endphoneme
 
 phoneme i:
   ipa i:
   vwl starttype #i endtype #i
   length 250
-  FMT(vowel/i)
+  FMT(mongolian/i_long)
 endphoneme
 
 phoneme O:
   ipa O:
   vwl starttype #o endtype #o
   length 270
-  FMT(vowel/oo)
+  FMT(mongolian/O_long)
 endphoneme
 
 phoneme 8:
   ipa 8:
-  vwl starttype #@ endtype #@
+  vwl starttype #o endtype #o
   length 260
-  FMT(vowel/oe)
+  FMT(mongolian/oe_long)
 endphoneme
 
 phoneme U:
   ipa U:
   vwl starttype #u endtype #u
   length 270
-  FMT(vowel/uu_2)
+  FMT(mongolian/u_long)
 endphoneme
 
 phoneme y:
   ipa u:
   vwl starttype #u endtype #u
   length 250
-  FMT(vowel/u_bck)
+  FMT(mongolian/y_long)
 endphoneme
 
 
@@ -208,7 +208,7 @@ phoneme aI
   ipa ai
   vwl starttype #a endtype #i
   length 240
-  FMT(vdiph/ai)
+  FMT(mongolian/ai)
 endphoneme
 
 // ei /ei/
@@ -216,7 +216,7 @@ phoneme eI
   ipa ei
   vwl starttype #e endtype #i
   length 220
-  FMT(vdiph/eei)
+  FMT(mongolian/ei)
 endphoneme
 
 // Oi /Oi/
@@ -224,7 +224,7 @@ phoneme OI
   ipa Oi
   vwl starttype #o endtype #i
   length 240
-  FMT(vdiph/ooi)
+  FMT(mongolian/oi)
 endphoneme
 
 // Ui /Ui/
@@ -232,7 +232,7 @@ phoneme UI
   ipa Ui
   vwl starttype #u endtype #i
   length 230
-  FMT(vdiph/ui)
+  FMT(mongolian/ui)
 endphoneme
 
 
