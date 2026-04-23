@@ -30,6 +30,7 @@
 #include_next <wctype.h>
 #endif
 
+#ifndef __EMSCRIPTEN__
 #include <ucd/ucd.h>
 
 #define iswalnum  ucd_isalnum
@@ -44,5 +45,6 @@
 #define iswspace  ucd_isspace
 #define iswupper  ucd_isupper
 #define iswxdigit ucd_isxdigit
+#endif
 
 #endif
