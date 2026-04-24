@@ -1,0 +1,111 @@
+#!/usr/bin/python3
+
+import os
+import re
+import sys
+import math
+import codecs
+
+import xml.etree.ElementTree as etree
+
+class Emoji:
+    def __init__(self, m):
+        self.emoji = m.group(1)
+        self.pronunciation = m.group(2)
+        self.codepoints = m.group(3)
+        self.comment = m.group(4)
+
+    def __repr__(self):
+        return "Emoji(emoji={0}, pronunciation={1}, codepoints={2}, comment={3})".format(
+            repr(self.emoji),
+            repr(self.pronunciation),
+            repr(self.codepoints),
+            repr(self.comment))
+
+    def __str__(self):
+        return "{0}{1}// [{2}]{3}".format(self.emoji, self.pronunciation, self.codepoints, self.comment)
+
+def read_annotations(filename):
+    ldml = etree.parse(filename).getroot()
+    for annotations in ldml.findall("annotations"):
+        for annotation in annotations.findall("annotation"):
+            if annotation.attrib.get("type", "") == "tts":
+                yield annotation.attrib["cp"], annotation.text
+
+def read_emoji(filename, encoding="utf-8"):
+    re_emoji = re.compile(r"^([^ \t]*)([^/]*)// \[([^\]]*)\](.*)$")
+    with codecs.open(filename, "r", encoding) as f:
+        for line in f:
+            line = line.replace("\n", "")
+            if line.strip() == "":
+                yield line # blank line
+            elif line.startswith("//"):
+                yield line # line comment
+            elif line.startswith("$"):
+                yield line # flags only
+            else:
+                m = re_emoji.match(line)
+                if m:
+                    yield Emoji(m)
+                else:
+                    yield line
+
+def find_langname(lang):
+    espeak_data_path = os.path.join(os.getcwd(), "espeak-ng-data")
+    for root, dirnames, filenames in os.walk(espeak_data_path):
+        if lang in filenames:
+            filename = os.path.join(root, lang)
+            with codecs.open(filename, "r", "utf-8") as f:
+                for line in f:
+                    line = line.replace("\n", "")
+                    if line.startswith("name "):
+                        return line.replace("name ", "")
+
+def normalize(text):
+    text = text.replace("„", "")
+    text = text.replace("“", "")
+    text = text.replace("\"", "")
+    text = text.replace("‘", "'")
+    text = text.replace("·", " ")
+    text = text.replace("| ", "") # alternatives, e.g. af "vonkstok | skitterstokkie"
+    return text
+
+emoji_dict = sys.argv[1]
+lang = sys.argv[2]
+cldr_path = sys.argv[3]
+
+filenames = [
+    os.path.join(cldr_path, "common", "annotations", "{0}.xml".format(lang)),
+    os.path.join(cldr_path, "common", "annotationsDerived", "{0}.xml".format(lang)),
+    os.path.join("data", "annotationsEspeak", "{0}.xml".format(lang))
+]
+
+annotations = {}
+for filename in filenames:
+    if os.path.exists(filename):
+        for cp, name in read_annotations(filename):
+            annotations[cp] = name
+
+for entry in read_emoji(emoji_dict):
+    if isinstance(entry, Emoji):
+        translation = annotations.get(entry.emoji.replace("\uFE0F", ""), None)
+        if translation:
+            translation = normalize(translation)
+            length = len(entry.pronunciation.strip())
+            tabs = entry.pronunciation.count('\t') - 1
+            first_tab = 8 - (length % 8)
+            tab_length = length + first_tab + ((tabs - 1) * 8)
+
+            new_length = len(translation)
+            new_tabs = math.ceil((tab_length - new_length)/8)
+
+            entry.pronunciation = "\t{0}{1}".format(translation, "\t"*int(new_tabs))
+        else:
+            entry.comment += " (no translation)"
+            entry = "//{0}".format(entry)
+    elif entry == "// Emoji and Other Symbol pronunciations for English":
+        langname = find_langname(lang)
+        entry = "// Emoji and Other Symbol pronunciations for {0}".format(langname)
+    elif entry == "//   2.  common/annotations/en.xml (CLDR)":
+        entry = "//   2.  common/annotations/{0}.xml (CLDR)".format(lang)
+    print(entry)
