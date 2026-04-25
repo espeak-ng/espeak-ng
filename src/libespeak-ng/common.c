@@ -224,13 +224,25 @@ int IsAlpha(unsigned int c)
 	// dictionary lookup where $textmode entries map them to text
 	// descriptions (e.g. U+1F600 → "grinning face").
 	// Without this, espeak_TextToPhonemes() silently drops emoji.
+	if (IsEmoji(c))
+		return 1;
+
+	return 0;
+}
+
+int IsEmoji(unsigned int c)
+{
+	// Returns true for codepoints in the emoji/symbol ranges that IsAlpha()
+	// admits as word characters. Used by the clause tokenizer to force a
+	// word boundary between emoji and adjacent letters, so that a regular
+	// word followed directly by an emoji (e.g. "дыму🐠") is not merged
+	// into one token — that would defeat dictionary lookup for the word
+	// and trigger letter-by-letter spelling of its alphabetic part.
 	if ((c >= 0x2600) && (c <= 0x27bf))
 		return 1; // Miscellaneous Symbols + Dingbats
 	if ((c >= 0x1f000) && (c <= 0x1fbff))
-		return 1; // Emoji blocks (Emoticons, Transport, Supplemental, etc.)
-	if ((c >= 0x1f1e0) && (c <= 0x1f1ff))
-		return 1; // Regional Indicator Symbols (flag sequences)
-
+		return 1; // Emoji blocks (Emoticons, Transport, Supplemental, etc.),
+		          // includes Regional Indicator Symbols at U+1F1E0..U+1F1FF
 	return 0;
 }
 
