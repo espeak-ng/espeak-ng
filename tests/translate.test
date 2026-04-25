@@ -75,6 +75,12 @@ test_phon ka "'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "😥"
 test_phon en "'e@ri:z r'eInboU" "♈🌈"
 test_phon en "'e@ri:z r'eInboU" "♈ 🌈"
 
+# A regular word directly followed by an emoji must not be merged into a
+# single token; otherwise the rules engine aborts on the unrecognised
+# emoji and falls back to spelling the alphabetic part letter-by-letter.
+test_phon en "f'IS tr'0pIk@L f'IS" "fish🐠"
+test_phon ru "d'ymu t@-rVp;'itS;iskVja @-r'yba#" "дыму🐠"
+
 # multi-word emoji
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
