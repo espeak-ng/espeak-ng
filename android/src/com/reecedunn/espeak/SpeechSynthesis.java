@@ -241,7 +241,7 @@ public class SpeechSynthesis {
     }
 
     /** Speech rate. */
-    public final Parameter Rate = new Parameter(1, 80, 449, UnitType.WordsPerMinute);
+    public final Parameter Rate = new Parameter(1, 80, 450, UnitType.WordsPerMinute);
 
     /** Audio volume. */
     public final Parameter Volume = new Parameter(2, 0, 200, UnitType.Percentage);

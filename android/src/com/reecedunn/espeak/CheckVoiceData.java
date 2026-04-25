@@ -27,16 +27,25 @@ package com.reecedunn.espeak;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech.Engine;
 import android.util.Log;
 
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class CheckVoiceData extends Activity {
     private static final String TAG = "eSpeakTTS";
@@ -80,11 +89,63 @@ public class CheckVoiceData extends Activity {
         }
     }
 
+    public static boolean extractVoiceData(Context context) {
+        final File dataPath = getDataPath(context);
+        FileUtils.rmdir(dataPath);
+
+        final InputStream stream = context.getResources().openRawResource(R.raw.espeakdata);
+        final ZipInputStream zipStream = new ZipInputStream(new BufferedInputStream(stream));
+        final File outputDir = dataPath.getParentFile();
+
+        try {
+            final String canonicalOutputDirPath = outputDir.getCanonicalPath() + File.separator;
+            final byte[] buffer = new byte[10240];
+            int bytesRead;
+            ZipEntry entry;
+
+            while ((entry = zipStream.getNextEntry()) != null) {
+                final File file = new File(outputDir, entry.getName());
+                if (!file.getCanonicalPath().startsWith(canonicalOutputDirPath)) {
+                    throw new SecurityException("Zip entry outside target dir: " + entry.getName());
+                }
+                if (entry.isDirectory()) {
+                    file.mkdirs();
+                    continue;
+                }
+                file.getParentFile().mkdirs();
+                final FileOutputStream outputStream = new FileOutputStream(file);
+                try {
+                    while ((bytesRead = zipStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                } finally {
+                    outputStream.close();
+                }
+                zipStream.closeEntry();
+            }
+
+            final String version = FileUtils.read(
+                context.getResources().openRawResource(R.raw.espeakdata_version));
+            FileUtils.write(new File(getDataPath(context), "version"), version);
+            return true;
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to extract voice data", e);
+            return false;
+        } finally {
+            try {
+                zipStream.close();
+            } catch (IOException e) {
+                // ignored
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Context storageContext = EspeakApp.getStorageContext();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
         ArrayList<String> availableLanguages = new ArrayList<String>();
         ArrayList<String> unavailableLanguages = new ArrayList<String>();
 
@@ -98,7 +159,11 @@ public class CheckVoiceData extends Activity {
         }
 
         final SpeechSynthesis engine = new SpeechSynthesis(storageContext, mSynthReadyCallback);
-        final List<Voice> voices = engine.getAvailableVoices();
+        final List<Voice> voices = LanguageSettings.filterVoices(engine.getAvailableVoices(), prefs);
+        if (BuildConfig.DEBUG) {
+            Set<String> selected = LanguageSettings.getSelectedLanguages(prefs);
+            Log.i(TAG, "CheckVoiceData: selected=" + (selected == null ? "ALL" : selected.size()) + ", exposing=" + voices.size());
+        }
 
         for (Voice voice : voices) {
             availableLanguages.add(voice.toString());

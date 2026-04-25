@@ -80,7 +80,11 @@ extern "C"
 
 // will look for espeak_data directory here, and also in user's home directory
 #ifndef PATH_ESPEAK_DATA
-   #define PATH_ESPEAK_DATA ("%cespeak-ng-data", PATHSEP)
+#  if defined(_WIN32) || defined(_WIN64)
+#    define PATH_ESPEAK_DATA "\\espeak-ng-data"
+#  else
+#    define PATH_ESPEAK_DATA "/espeak-ng-data"
+#  endif
 #endif
 
 void cancel_audio(void);

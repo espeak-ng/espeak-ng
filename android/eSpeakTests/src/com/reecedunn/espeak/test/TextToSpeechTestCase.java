@@ -16,11 +16,16 @@
 
 package com.reecedunn.espeak.test;
 
+import android.content.Context;
 import android.os.Build;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
-import android.test.AndroidTestCase;
 import android.util.Log;
+
+import androidx.test.platform.app.InstrumentationRegistry;
+
+import org.junit.After;
+import org.junit.Before;
 
 import java.util.Locale;
 
@@ -28,7 +33,7 @@ import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class TextToSpeechTestCase extends AndroidTestCase
+public class TextToSpeechTestCase
 {
     private TextToSpeech mEngine = null;
     private boolean mInitialised = false;
@@ -44,7 +49,16 @@ public class TextToSpeechTestCase extends AndroidTestCase
         }
     };
 
-    @Override
+    protected Context getContext()
+    {
+        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return context.createDeviceProtectedStorageContext();
+        }
+        return context;
+    }
+
+    @Before
     public void setUp() throws Exception
     {
         try
@@ -65,7 +79,7 @@ public class TextToSpeechTestCase extends AndroidTestCase
 
             Locale en = new Locale("en");
             int available = mEngine.isLanguageAvailable(en);
-            for (int count = 0; available != TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE && count < (4 * 20); ++count)
+            for (int count = 0; available < TextToSpeech.LANG_AVAILABLE && count < (4 * 20); ++count)
             {
                 Thread.sleep(250);
                 available = mEngine.isLanguageAvailable(en);
@@ -81,7 +95,7 @@ public class TextToSpeechTestCase extends AndroidTestCase
         }
     }
 
-    @Override
+    @After
     public void tearDown()
     {
         if (mEngine != null)
