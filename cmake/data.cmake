@@ -64,8 +64,10 @@ set(ESPEAK_RUN_ENV ${CMAKE_COMMAND} -E env "ESPEAK_DATA_PATH=${DATA_DIST_ROOT}")
 # if building with CMAKE_CROSSCOMPILING use the NativeBuild of espeak-ng
 if(NATIVEBUILD)
   set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "${NATIVEBUILD}")
+  set(ESPEAK_BIN_DEP "")
 else()
   set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "$<TARGET_FILE:espeak-ng-bin>")
+  set(ESPEAK_BIN_DEP "$<TARGET_FILE:espeak-ng-bin>")
 endif()
 
 add_custom_command(
@@ -74,7 +76,7 @@ add_custom_command(
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile intonations"
   DEPENDS
-    "$<TARGET_FILE:espeak-ng-bin>"
+    ${ESPEAK_BIN_DEP}
     "${PHONEME_SRC_DIR}/intonation"
 )
 
@@ -105,7 +107,7 @@ add_custom_command(
   COMMENT "Compile phonemes"
   DEPENDS
     "${DATA_DIST_DIR}/intonations"
-    "$<TARGET_FILE:espeak-ng-bin>"
+    ${ESPEAK_BIN_DEP}
     ${_phon_deps}
 )
 
@@ -141,7 +143,7 @@ foreach(_dict_name ${_dict_compile_list})
     COMMAND ${ESPEAK_RUN_CMD} --compile=${_dict_name}
     WORKING_DIRECTORY "${DICT_TMP_DIR}"
     DEPENDS
-      "$<TARGET_FILE:espeak-ng-bin>"
+      ${ESPEAK_BIN_DEP}
       "${DATA_DIST_DIR}/phondata"
       "${DATA_DIST_DIR}/intonations"
       ${_dict_deps}
@@ -158,7 +160,7 @@ if (HAVE_MBROLA AND USE_MBROLA)
     add_custom_command(
       OUTPUT "${_mbl_out}"
       COMMAND ${ESPEAK_RUN_CMD} --compile-mbrola="${_mbl_src}"
-      DEPENDS "$<TARGET_FILE:espeak-ng-bin>" "${_mbl_src}"
+      DEPENDS ${ESPEAK_BIN_DEP} "${_mbl_src}"
     )
   endforeach(_mbl)
 endif()
