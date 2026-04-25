@@ -37,6 +37,7 @@ add_library(espeak-ng
 
   espeak_api.c
 )
+
 set_target_properties(
   espeak-ng PROPERTIES
   MACOSX_RPATH ON
@@ -62,6 +63,13 @@ if (NOT MSVC)
     "-Wint-conversion"
     "-Wimplicit"
     "-Wmisleading-indentation"
+
+    # All path buffers are sized to the platform path limit (PATH_MAX /
+    # MAX_PATH) and written with snprintf. Truncation on a near-limit path
+    # is therefore safe and deliberate. -Wformat-truncation fires whenever
+    # GCC cannot statically prove inputs fit, which is unavoidable for
+    # runtime path strings.
+    "-Wno-format-truncation"
   )
 endif()
 target_compile_definitions(espeak-ng PRIVATE "LIBESPEAK_NG_EXPORT=1")
