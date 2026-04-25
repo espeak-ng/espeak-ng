@@ -39,7 +39,7 @@
 
         <activity
             android:name=".DownloadVoiceData"
-            android:theme="@android:style/Theme.Dialog"
+            android:theme="@style/AppTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.speech.tts.engine.INSTALL_TTS_DATA" />
