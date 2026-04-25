@@ -1848,8 +1848,8 @@ L09L04) السّادات (_Sm8	ossAdAt
 		_) دیر (آL09L09$noprefixP3@	diR
 		_) دست (L04L09L09P3@	dast
 		_) دست (آL09L09P3@	dast
-		_) درست (L04L09L09P4@	dorost
-		_) درست (آL09L09P4@	dorost
+		_) درست (L04L09L09P4@	doRost
+		_) درست (آL09L09P4@	doRost
 		_) دراز (L04L09L09P4@	deRAz
 		_) دراز (آL09L09P4@	deRAz
 		_) درال (L04L09L09$noprefixP4@	dARol
@@ -3062,7 +3062,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 	// Prefixes ص
 		_) صاحب (L04L09L09P4@	sAheb
 		_) صاحب (آL09L09P4@	sAheb
-		_) صدر (L09L09L09P3@	sadr
+		_) صدر (L09L09L09P3@	sadR
 
 	// Suffixes ص
 		// L09L09) صد (_Sm2	sad
