@@ -12,38 +12,9 @@
   <!--Source: Dialog text.
         Description: Status message shown when installing voice data.-->
   <string name="installing_voice_data">Prebieha inštalácia hlasových údajov...</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
-  <string name="set_default_message">Aplikácia eSpeak nie je nastavená ako predvolený nástroj prevodu textu na reč.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that voice data installation failed.-->
-  <string name="voice_data_failed_message">Aplikácii eSpeak sa nepodarilo nainštalovať hlasové údaje. Skontrolujte kartu SD.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that an unknown error has occurred.-->
-  <string name="error_message">Je nám ľúto, aplikáciu eSpeak sa nepodarilo spustiť.</string>
-  <!--Source: Label text.
-        Description: Label informing the user of the current text-to-speech language.-->
-  <string name="current_tts_locale">Predvolený hlas</string>
-  <!--Source: Label text.
-        Description: Label informing the user of how many voices are installed.-->
-  <string name="available_voices">Počet nainštalovaných hlasov</string>
-  <!--Source: Button label.
-        Description: Button for launching general text-to-speech settings.-->
-  <string name="tts_settings">Všeobecné nastavenia prevodu textu na reč</string>
-  <!--Source: Button label.
-        Description: Button for launching eSpeak-specific settings.-->
-  <string name="engine_settings">Nastavenia eSpeak</string>
-  <!--Source: Label text.
-        Description: Label informing the user that eSpeak is loading resources.-->
-  <string name="loading">Prebieha načítavanie, čakajte prosím...</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Toto je ukážkový text nahovorený v jazyku %s</string>
-  <string name="status">Stav</string>
-  <string name="tts_version">Verzia eSpeak</string>
-  <string name="speak">Hovoriť</string>
-  <string name="ssml">Načítať šablónu SSML</string>
-  <string name="synthesis_demo">Text na prečítanie:</string>
   <string name="espeak_volume">Hlasitosť</string>
   <string name="formatter_wpm">%s WPM</string>
   <string name="formatter_percentage">%s%%</string>

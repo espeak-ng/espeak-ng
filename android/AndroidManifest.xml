@@ -6,12 +6,21 @@
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.type.watch"
+        android:required="false" />
 
     <application
         android:name="com.reecedunn.espeak.EspeakApp"
         android:icon="@mipmap/icon"
         android:theme="@style/AppTheme"
         android:label="@string/app_name" >
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="false" />
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
         <service
             android:name=".TtsService"
             android:label="@string/app_name"
@@ -68,16 +77,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".eSpeakActivity"
-            android:label="@string/app_name"
-            android:exported="true">
+        <activity-alias
+            android:name=".WearLauncher"
+            android:targetActivity=".TtsSettingsActivity"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/icon"
+            android:label="@string/tts_settings_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
     </application>
 
 </manifest>

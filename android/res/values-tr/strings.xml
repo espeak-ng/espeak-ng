@@ -12,38 +12,9 @@
   <!--Source: Dialog text.
         Description: Status message shown when installing voice data.-->
   <string name="installing_voice_data">Ses verileri yükleniyor...</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
-  <string name="set_default_message">eSpeak varsayılan metin konuşma motorunuz olarak ayarlanmadı.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that voice data installation failed.-->
-  <string name="voice_data_failed_message">eSpeak ses verisini yükleyemedi. Lütfen SD kartınızı kontrol edin.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that an unknown error has occurred.-->
-  <string name="error_message">Maalesef, eSpeak başlatılamadı.</string>
-  <!--Source: Label text.
-        Description: Label informing the user of the current text-to-speech language.-->
-  <string name="current_tts_locale">Varsayılan ses</string>
-  <!--Source: Label text.
-        Description: Label informing the user of how many voices are installed.-->
-  <string name="available_voices">Yüklenen ses sayısı</string>
-  <!--Source: Button label.
-        Description: Button for launching general text-to-speech settings.-->
-  <string name="tts_settings">Genel TTS ayarları</string>
-  <!--Source: Button label.
-        Description: Button for launching eSpeak-specific settings.-->
-  <string name="engine_settings">eSpeak TTS ayarları</string>
-  <!--Source: Label text.
-        Description: Label informing the user that eSpeak is loading resources.-->
-  <string name="loading">Yükleniyor, lütfen bekleyin...</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Bu, %s dilinde seslendirilen örnek bir metindir</string>
-  <string name="status">Durum</string>
-  <string name="tts_version">eSpeak sürümü</string>
-  <string name="speak">Konuş</string>
-  <string name="ssml">SSML Şablonu yükle</string>
-  <string name="synthesis_demo">Konuşulacak metni girin:</string>
   <string name="espeak_volume">Ses</string>
   <string name="formatter_wpm">%s Kelime/dk</string>
   <string name="formatter_percentage">%s%%</string>
