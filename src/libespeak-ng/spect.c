@@ -48,11 +48,13 @@ static const int default_width[N_PEAKS] =
 static const int default_klt_bw[N_PEAKS] =
 { 89, 90, 140, 260, 260, 260, 500, 500, 500 };
 
-static double read_double(FILE *stream)
+static espeak_ng_STATUS read_double(FILE *stream, double *out)
 {
 	unsigned char bytes[10];
-	fread(bytes, sizeof(char), 10, stream);
-	return ieee_extended_to_double(bytes);
+	if (fread(bytes, sizeof(char), 10, stream) != 10)
+		return ENS_UNEXPECTED_EOF;
+	*out = ieee_extended_to_double(bytes);
+	return ENS_OK;
 }
 
 float polint(float xa[], float ya[], int n, float x)
@@ -134,70 +136,73 @@ static void SpectFrameDestroy(SpectFrame *frame)
 	free(frame);
 }
 
+/* Read exactly one short from stream, byte-swap it, and store it.
+ * Returns ENS_UNEXPECTED_EOF if the read is short. */
+#define READ_SHORT(dest, stream) \
+	do { \
+		if (fread(&(dest), sizeof(short), 1, (stream)) != 1) \
+			return ENS_UNEXPECTED_EOF; \
+		(dest) = le16toh(dest); \
+	} while (0)
+
 static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 {
 	short ix;
 	short x;
 	unsigned short *spect_data;
+	espeak_ng_STATUS status;
+	double tmp;
 
-	frame->time = read_double(stream);
-	frame->pitch = read_double(stream);
-	frame->length = read_double(stream);
-	frame->dx = read_double(stream);
-	fread(&frame->nx, sizeof(short), 1, stream);
-	fread(&frame->markers, sizeof(short), 1, stream);
-	fread(&frame->amp_adjust, sizeof(short), 1, stream);
-	frame->nx = le16toh(frame->nx);
-	frame->markers = le16toh(frame->markers);
-	frame->amp_adjust = le16toh(frame->amp_adjust);
+	if ((status = read_double(stream, &tmp)) != ENS_OK) return status;
+	frame->time = (float)tmp;
+	if ((status = read_double(stream, &tmp)) != ENS_OK) return status;
+	frame->pitch = (float)tmp;
+	if ((status = read_double(stream, &tmp)) != ENS_OK) return status;
+	frame->length = (float)tmp;
+	if ((status = read_double(stream, &tmp)) != ENS_OK) return status;
+	frame->dx = (float)tmp;
+
+	READ_SHORT(frame->nx,         stream);
+	READ_SHORT(frame->markers,    stream);
+	READ_SHORT(frame->amp_adjust, stream);
 
 	if (file_format_type == 2) {
-		fread(&ix, sizeof(short), 1, stream); // spare
-		fread(&ix, sizeof(short), 1, stream); // spare
+		READ_SHORT(ix, stream); // spare
+		READ_SHORT(ix, stream); // spare
 	}
 
 	for (ix = 0; ix < N_PEAKS; ix++) {
-		fread(&frame->formants[ix].freq, sizeof(short), 1, stream);
-		fread(&frame->formants[ix].bandw, sizeof(short), 1, stream);
-		fread(&frame->peaks[ix].pkfreq, sizeof(short), 1, stream);
-		fread(&frame->peaks[ix].pkheight, sizeof(short), 1, stream);
-		fread(&frame->peaks[ix].pkwidth, sizeof(short), 1, stream);
-		fread(&frame->peaks[ix].pkright, sizeof(short), 1, stream);
-		frame->formants[ix].freq = le16toh(frame->formants[ix].freq);
-		frame->formants[ix].bandw = le16toh(frame->formants[ix].bandw);
-		frame->peaks[ix].pkfreq = le16toh(frame->peaks[ix].pkfreq);
-		frame->peaks[ix].pkheight = le16toh(frame->peaks[ix].pkheight);
-		frame->peaks[ix].pkwidth = le16toh(frame->peaks[ix].pkwidth);
-		frame->peaks[ix].pkright = le16toh(frame->peaks[ix].pkright);
+		READ_SHORT(frame->formants[ix].freq,    stream);
+		READ_SHORT(frame->formants[ix].bandw,   stream);
+		READ_SHORT(frame->peaks[ix].pkfreq,     stream);
+		READ_SHORT(frame->peaks[ix].pkheight,   stream);
+		READ_SHORT(frame->peaks[ix].pkwidth,    stream);
+		READ_SHORT(frame->peaks[ix].pkright,    stream);
 		if (frame->peaks[ix].pkheight > 0)
 			frame->keyframe = 1;
 
 		if (file_format_type == 2) {
-			fread(&frame->peaks[ix].klt_bw, sizeof(short), 1, stream);
-			fread(&frame->peaks[ix].klt_ap, sizeof(short), 1, stream);
-			fread(&frame->peaks[ix].klt_bp, sizeof(short), 1, stream);
-			frame->peaks[ix].klt_bw = le16toh(frame->peaks[ix].klt_bw);
-			frame->peaks[ix].klt_ap = le16toh(frame->peaks[ix].klt_ap);
-			frame->peaks[ix].klt_bp = le16toh(frame->peaks[ix].klt_bp);
+			READ_SHORT(frame->peaks[ix].klt_bw, stream);
+			READ_SHORT(frame->peaks[ix].klt_ap, stream);
+			READ_SHORT(frame->peaks[ix].klt_bp, stream);
 		}
 	}
 
 	if (file_format_type > 0) {
 		for (ix = 0; ix < N_KLATTP2; ix++)
-		{
-			fread(frame->klatt_param + ix, sizeof(short), 1, stream);
-			frame->klatt_param[ix] = le16toh(frame->klatt_param[ix]);
-		}
+			READ_SHORT(frame->klatt_param[ix], stream);
 	}
 
 	spect_data = malloc(sizeof(unsigned short) * frame->nx);
-
 	if (spect_data == NULL)
 		return ENOMEM;
 
 	frame->max_y = 0;
 	for (ix = 0; ix < frame->nx; ix++) {
-		fread(&x, sizeof(short), 1, stream);
+		if (fread(&x, sizeof(short), 1, stream) != 1) {
+			free(spect_data);
+			return ENS_UNEXPECTED_EOF;
+		}
 		x = le16toh(x);
 		spect_data[ix] = x;
 		if (x > frame->max_y) frame->max_y = x;
@@ -206,6 +211,8 @@ static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_form
 
 	return ENS_OK;
 }
+
+#undef READ_SHORT
 
 double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 {
@@ -286,6 +293,22 @@ static float GetFrameLength(SpectSeq *spect, int frame)
 	return (spect->frames[ix]->time - spect->frames[frame]->time) * 1000.0 + adjust;
 }
 
+/* Read and byte-swap a uint32 from stream. Jumps to eof_error label on failure. */
+#define READ_U32(dest, stream) \
+	do { \
+		if (fread(&(dest), sizeof(uint32_t), 1, (stream)) != 1) \
+			goto eof_error; \
+		(dest) = le32toh(dest); \
+	} while (0)
+
+/* Read and byte-swap a short from stream. Jumps to eof_error label on failure. */
+#define READ_S16(dest, stream) \
+	do { \
+		if (fread(&(dest), sizeof(short), 1, (stream)) != 1) \
+			goto eof_error; \
+		(dest) = le16toh(dest); \
+	} while (0)
+
 #pragma GCC visibility push(default)
 espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 {
@@ -301,10 +324,8 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 		return errno;
 	}
 
-	fread(&id1, sizeof(uint32_t), 1, stream);
-	id1 = le32toh(id1);
-	fread(&id2, sizeof(uint32_t), 1, stream);
-	id2 = le32toh(id2);
+	READ_U32(id1, stream);
+	READ_U32(id2, stream);
 
 	if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 		spect->file_format = 0; // eSpeak formants
@@ -318,25 +339,21 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 		return ENS_UNSUPPORTED_PHON_FORMAT;
 	}
 
-	fread(&name_len, sizeof(uint32_t), 1, stream);
-	name_len = le32toh(name_len);
+	READ_U32(name_len, stream);
 	if (name_len > 0) {
 		if ((spect->name = (char *)malloc(name_len)) == NULL) {
 			fclose(stream);
 			return ENOMEM;
 		}
-		fread(spect->name, sizeof(char), name_len, stream);
+		if (fread(spect->name, sizeof(char), name_len, stream) != name_len)
+			goto eof_error;
 	} else
 		spect->name = NULL;
 
-	fread(&n, sizeof(short), 1, stream);
-	fread(&spect->amplitude, sizeof(short), 1, stream);
-	fread(&spect->max_y, sizeof(short), 1, stream);
-	fread(&temp, sizeof(short), 1, stream); // unused
-	n = le16toh(n);
-	spect->amplitude = le16toh(spect->amplitude);
-	spect->max_y = le16toh(spect->max_y);
-	temp = le16toh(temp);
+	READ_S16(n,               stream);
+	READ_S16(spect->amplitude, stream);
+	READ_S16(spect->max_y,    stream);
+	READ_S16(temp,            stream); // unused
 
 	if (n == 0) {
 		fclose(stream);
@@ -400,5 +417,12 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	}
 	fclose(stream);
 	return ENS_OK;
+
+eof_error:
+	fclose(stream);
+	return ENS_UNEXPECTED_EOF;
 }
 #pragma GCC visibility pop
+
+#undef READ_U32
+#undef READ_S16
