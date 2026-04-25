@@ -56,26 +56,39 @@ extern "C"
 
 #define PLATFORM_WINDOWS 1
 #define PATHSEP '\\'
-#define N_PATH_HOME_DEF  230
 #define NO_VARIADIC_MACROS
+#include <windef.h>    // defines MAX_PATH (260, includes NUL)
+#ifndef N_PATH_BUF
+#  define N_PATH_BUF  MAX_PATH
+#endif
 
 #else
 
 #define PLATFORM_POSIX 1
 #define PATHSEP  '/'
-#if defined(__linux__) // Linux
-#  include <linux/limits.h>
-#  define N_PATH_HOME_DEF  PATH_MAX
+#if defined(__linux__)
+#  include <linux/limits.h>   // defines PATH_MAX (4096)
 #else
-#  define N_PATH_HOME_DEF  160
+#  include <limits.h>         // PATH_MAX on other POSIX systems
 #endif
 #define USE_NANOSLEEP
 #define __cdecl
 
+#ifndef N_PATH_BUF
+#  ifdef PATH_MAX
+#    define N_PATH_BUF  PATH_MAX
+#  else
+#    define N_PATH_BUF  4096
+#  endif
 #endif
 
-#ifndef N_PATH_HOME
-#define N_PATH_HOME N_PATH_HOME_DEF
+#endif
+
+// NAME_MAX: maximum length of a single filename component, excluding NUL.
+// Defined by <linux/limits.h> and <limits.h> on POSIX systems. Windows has
+// no standard equivalent; NTFS supports up to 255 UTF-16 code units.
+#ifndef NAME_MAX
+#  define NAME_MAX 255
 #endif
 
 // will look for espeak_data directory here, and also in user's home directory
@@ -89,7 +102,7 @@ extern "C"
 
 void cancel_audio(void);
 
-extern char path_home[N_PATH_HOME];    // this is the espeak-ng-data directory
+extern char path_home[N_PATH_BUF];    // this is the espeak-ng-data directory
 
 #ifdef __cplusplus
 }
