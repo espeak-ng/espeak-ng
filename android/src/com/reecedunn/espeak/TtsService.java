@@ -27,7 +27,6 @@ package com.reecedunn.espeak;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioTrack;
 import android.os.Build;
@@ -58,8 +57,6 @@ import java.util.Set;
  */
 @SuppressLint("NewApi")
 public class TtsService extends TextToSpeechService {
-    public static final String ESPEAK_INITIALIZED = "com.reecedunn.espeak.ESPEAK_INITIALIZED";
-
     private static final String TAG = TtsService.class.getSimpleName();
     private static Context storageContext;
     private static final boolean DEBUG = BuildConfig.DEBUG;
@@ -122,9 +119,6 @@ public class TtsService extends TextToSpeechService {
             if (DEBUG) Log.i(TAG, "initializeTtsEngine(): loaded voices=" + mAllVoices.size());
         }
         rebuildAvailableVoices();
-
-        final Intent intent = new Intent(ESPEAK_INITIALIZED);
-        sendBroadcast(intent);
     }
 
     @Override

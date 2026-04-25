@@ -24,6 +24,9 @@ import android.os.Build;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
+import android.view.HapticFeedbackConstants;
+import android.view.InputDevice;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -181,6 +184,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         mSeekBar.setOnSeekBarChangeListener(this);
         mSeekBar.setMax(mMax - mMin);
         mSeekBar.setProgress(mProgress - mMin);
+        attachRotaryEncoder(mSeekBar);
 
         if (mRateBoost != null) {
             if (!mRateBoostEnabled) {
@@ -268,6 +272,39 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         // next time e.g. TalkBack reads part of the UI.
 
         persistSettings(mSeekBar.getProgress() + mMin);
+    }
+
+    /**
+     * Wire the Wear OS rotating crown to the SeekBar. Rotary input is
+     * delivered as ACTION_SCROLL events on SOURCE_ROTARY_ENCODER and only
+     * reaches the focused view, so the SeekBar has to take focus when the
+     * dialog opens. The listener is a no-op on phones (no rotary device
+     * ever fires it), so this code path stays harmless on non-watch builds.
+     */
+    private void attachRotaryEncoder(final SeekBar seekBar) {
+        final int range = mMax - mMin;
+        final int step = Math.max(1, range / 40);
+        seekBar.setOnGenericMotionListener(new View.OnGenericMotionListener() {
+            @Override
+            public boolean onGenericMotion(View v, MotionEvent ev) {
+                if (ev.getAction() != MotionEvent.ACTION_SCROLL
+                        || !ev.isFromSource(InputDevice.SOURCE_ROTARY_ENCODER)) {
+                    return false;
+                }
+                float scroll = ev.getAxisValue(MotionEvent.AXIS_SCROLL);
+                if (scroll == 0f) return false;
+                int delta = (scroll > 0f ? -1 : 1) * step;
+                int updated = Math.max(0, Math.min(range, seekBar.getProgress() + delta));
+                if (updated != seekBar.getProgress()) {
+                    seekBar.setProgress(updated);
+                    v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                }
+                return true;
+            }
+        });
+        seekBar.setFocusable(true);
+        seekBar.setFocusableInTouchMode(true);
+        seekBar.requestFocus();
     }
 
     private void persistRateBoost(boolean enabled) {

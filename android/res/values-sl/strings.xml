@@ -12,38 +12,9 @@
   <!--Source: Dialog text.
         Description: Status message shown when installing voice data.-->
   <string name="installing_voice_data">Namestitev podatkov glasu …</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
-  <string name="set_default_message">Mehanizem eSpeak ni nastavljen kot privzeti za pretvorbo besedila v govor.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that voice data installation failed.-->
-  <string name="voice_data_failed_message">eSpeak ni uspel namestiti podatkov glasu. Preverite SD kartico.</string>
-  <!--Source: Dialog message.
-        Description: Alert dialog telling the user that an unknown error has occurred.-->
-  <string name="error_message">Mehanizma eSpeak ni bilo mogoče zagnati.</string>
-  <!--Source: Label text.
-        Description: Label informing the user of the current text-to-speech language.-->
-  <string name="current_tts_locale">Privzeti glas</string>
-  <!--Source: Label text.
-        Description: Label informing the user of how many voices are installed.-->
-  <string name="available_voices">Št. nameščenih glasov</string>
-  <!--Source: Button label.
-        Description: Button for launching general text-to-speech settings.-->
-  <string name="tts_settings">Splošne nastavitve pretvorbe besedila v govor</string>
-  <!--Source: Button label.
-        Description: Button for launching eSpeak-specific settings.-->
-  <string name="engine_settings">Nastavitve eSpeak pretvorbe besedila v govor</string>
-  <!--Source: Label text.
-        Description: Label informing the user that eSpeak is loading resources.-->
-  <string name="loading">Nalaganje, počakajte trenutek …</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">To je vzorec besedila, izgovorjen v %s</string>
-  <string name="status">Status</string>
-  <string name="tts_version">Različica eSpeak</string>
-  <string name="speak">Izgovori</string>
-  <string name="ssml">Naloži SSML predlogo</string>
-  <string name="synthesis_demo">Vnesite tekst za izgovorjavo</string>
   <string name="espeak_volume">Glasnost</string>
   <string name="formatter_wpm">%s BNM (WPM)</string>
   <string name="formatter_percentage">%s%%</string>

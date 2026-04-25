@@ -20,6 +20,7 @@ package com.reecedunn.espeak;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.util.Log;
 import android.os.Build;
 import android.os.Bundle;
@@ -351,8 +352,15 @@ public class TtsSettingsActivity extends PreferenceActivity {
         VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), engine);
         final List<Voice> voices = engine.getAvailableVoices();
 
-        group.addPreference(createSupportedLanguagesPreference(context, voices));
-        group.addPreference(createImportVoicePreference(context));
+        boolean isWatch = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH);
+
+        // The supported-languages multi-select and the file-picker-driven
+        // voice import don't fit on a watch screen and have no meaningful
+        // input affordance there, so omit them on Wear.
+        if (!isWatch) {
+            group.addPreference(createSupportedLanguagesPreference(context, voices));
+            group.addPreference(createImportVoicePreference(context));
+        }
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
         group.addPreference(createSeekBarPreference(context, engine.Rate, VoiceSettings.PREF_RATE, R.string.setting_default_rate));
