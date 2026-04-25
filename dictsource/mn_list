@@ -1,5 +1,5 @@
-// ***************************************************************************/ 
-// *   Mongolian language mn mn_list                                         *
+// ***************************************************************************/
+// *   Mongolian (Khalkha) exception lexicon  mn_list                        *
 // *   Original Author Battseren Badral 15-05-2025                           *
 // *   Contact info: bbattseren88@gmail.com                                  *
 // ***************************************************************************/
@@ -18,206 +18,590 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
-// Numbers
-_0      tEg_        // тэг (assuming t is asp /tʰ/, э is /e/, г is /g/ (velar, possibly palatalized by э to g;))
-?3 _0   tEg_
-_1      n;Eg;       // нэг
-_1f     n;Eg;
-_2      xuvlOjOr_  // хоёр (х before back vowel о -> xuvl)
-_2f     xuvlOjOr_
-_3      Gur;@v_
-_4      dYr;@v_
-_5      tav_
-_6      zurGA:      // зургаа (г before back а -> G)
-_7      dOl'O:
-_8      n'Ajm_
-_9      jEs_
-_10     Ar;@v_
-_11     Ar;v@n n;Eg;
-_12     Ar;v@n xuvlOjOr_
-_13     Ar;v@n Gur;@v_
-_14     Ar;v@n dYr;@v_
-_15     Ar;v@n tav_
-_16     Ar;v@n zurGA:
-_17     Ar;v@n dOl'O:
-_18     Ar;v@n n'Ajm_
-_19     Ar;v@n jEs_
-_2X     xOr_;In_
-_3X     GutS_;In_
-_4X     dYtS_;In_
-_5X     tav_;In_
-_6X     Zar;@n_
-_7X     dal;@n_
-_8X     naj;@n_
-_9X     jEr;@n_
-_0C     zU:n_
-_2C     xuvlOjOr zU:
-_3C     Gur;v@n zU:
-_4C     dYr;v@n zU:
-_5C     tav;@n zU:
-_6C     zurGAn zU:n_
-_7C     dOl'On zU:n_
-_8C     n'Ajm@n zU:n_
-_9C     jEs;@n zU:n_
-_1MA1   m;jaNG@     // мянга (г after н -> N, г itself is G)
-_0MA1   m;jaNG@
-_0M1    m;jaNG@
-_1MA2   saj;@
-_0MA2   saj;@
-_0M2    saj;@
-_1MA3   t;erbum_
-_0MA3   t;erbum_
-_0M3    t;erbum_
-_1MA4   Ix naj;@d_
-_0MA4   Ix naj;@d_
-_0M4    Ix naj;@d_
 
-// Decimal point related words
-_dpt    tAslAl_
-_dpt    tsEg_
-_dpt2   Ar@vnY_
+// ============================================================
+//  Numbers
+// ============================================================
 
-// Symbols
-_`      aks'Ent_
-&       ampers'And_
-_'      ap'ostrOf_
-\       UrUGU: zUr'A:s_
-_>      Ix tEmdEg_
-_       zUG'A:l dEf'is_
-$       d'Ol@r_
-₮       tYgrYg_
-_:      davxar tsEg
-^       OrOj tEmdEg_
-_"      xAjmAr Kav'yytSk@
-_<      bAGA tEmdEg_
-№       n'OmEr_
-_{      fig'UUr@n xA:lt @tkr
-_(      Eng'i:n xA:lt @tkr
-_[      dYr_@lZIn xA:lt @tkr
-_«      davxar xaSIlt n;e:x // хашилт -> xaSIlt
-+       n;EmEx_     $max3
-_       dO:GU:r zur'A:s_ $max3
-%       xuv;I_      $max3
-=       t;Ents'U:   $max3
-#       SAr_@:
-/       zUr'A:s_    $max3
-@       @t tEmdEg_
-~       t;'il;d@
-_.      tsEg_
-_;      tsEg_tEj tAslAl_
-_|      bOsl'O: zUr'A:s_
-_?      As'U:lti:n tEmdEg_
-_!      AngxA:ru:lax tEmdEg_ // анхааруулах -> AngxAruulax (х before back а)
-_}      fig'UUr@n xA:lt xA:x
-_)      Eng'i:n xA:lt xA:x
-_]      dYr_@lZIn xA:lt xA:x
-_»      davxar xaSIlt xA:x
-* Od_         $max3
-_,      tAslAl_
+_0      teg
+_1      neg
+_2      xOjOr
+_3      gUrav
+_4      d8r8v
+_5      tav
+_6      zUrga:
+_7      dOlO:
+_8      naIm
+_9      jes
+_10     arav
+_11     arvan'neg
+_12     arvan'xOjOr
+_13     arvan'gUrav
+_14     arvan'd8r8v
+_15     arvan'tav
+_16     arvan'zUrga:
+_17     arvan'dOlO:
+_18     arvan'naIm
+_19     arvan'jes
+_2X     xOrin
+_3X     gUtSin
+_4X     d8tSin
+_5X     tavin
+_6X     dZaran
+_7X     dalan
+_8X     najan
+_9X     jeren
+_0C     zU:n
+_2C     xOjOr'zU:
+_3C     gUrvan'zU:
+_4C     d8rven'zU:
+_5C     tavan'zU:
+_6C     zUrga:n'zU:
+_7C     dOlO:n'zU:
+_8C     naIman'zU:
+_9C     jesen'zU:
+_1MA1   mjaNga
+_0MA1   mjaNga
+_0M1    mjaNga
+_1MA2   saja
+_0MA2   saja
+_0M2    saja
+_1MA3   terbUm
+_0MA3   terbUm
+_0M3    terbUm
+_1MA4   ix'naja:d
+_0MA4   ix'naja:d
+_0M4    ix'naja:d
 
-// Particles
-юм      jum $u
-уу      u: $u
-үү      y: $u      // Use your long front rounded vowel ('y.' if that's the name, or map to the correct phoneme)
-вэ      vE $u
-нь      n;I $u
-ч       tS;@ $u
-л       l@ $u
-даа     dA: $u
-шүү     SU: $u
+_dpt    tseg
 
-// Postpositions/Cases (examples)
-дээр    d'e:r
-доор    d'O:r
-хажууд  xadZ'U:d
-өмнө    Ymn@_
-ард     Ard_
+
+// ============================================================
+//  Symbols
+// ============================================================
+
+_`      aksent
+&       ampersand
+_'      apostrOf
+\       UrU:g'zUra:s
+_>      ix'temdeg
+_       dU:gU:r'defis
+$       dOllar
+_:      davxar'tseg
+^       OrOI'temdeg
+_"      xaImar'xaSilt
+_<      baga'temdeg
++       nemex           $max3
+%       xUvi            $max3
+=       tentse:         $max3
+#       Sar
+/       zUra:s          $max3
+@       at'temdeg
+~       tild
+_.      tseg
+_;      tsegteI'taslal
+_|      bOslO:'zUra:s
+_?      asU:lti:n'temdeg
+_!      aNxa:rU:lax'temdeg
+*       Od              $max3
+_,      taslal
+
+
+// ============================================================
+//  Particles (unstressed, clitics)
+// ============================================================
+
+юм      jUm $u
+уу      U: $u
+үү      y: $u
+вэ      ve $u
+нь      n^ $u
+ч       tSi $u
+л       l $u
+даа     da: $u
+дээ     de: $u
+шүү     Sy: $u
+бэ      be $u
+аа      a: $u
+
+
+// ============================================================
+//  Postpositions / Case markers
+// ============================================================
+
+дээр    de:r
+доор    dO:r
+хажууд  xadZU:d
+өмнө   8mn8
+ард     ard
+дотор   dOtOr
+гадна   gadna
+хооронд xO:rOnd
 руу     rU: $u
--аас    A:s $u
--д      d@ $u
+рүү     ry: $u
+луу     lU: $u
+лүү     ly: $u
+тийш    ti:S
+нааш    na:S
 
-// Conjunctions
+
+// ============================================================
+//  Conjunctions / Discourse
+// ============================================================
+
 ба      ba $u
-бөгөөд  bYg'Y:d $pause
-буюу    buj'U: $pause
-эсвэл   Esv'El $pause
-харин   xar;'In $pause
-гэхдээ  gExd'e: $pause // гэхдээ (х before front э -> xvel) -> gExvelde: (adjust based on precise phoneme for х)
-тийм    t;'i:m $u
-учраас  utSr'A:s $pause
+бөгөөд  b8g8:d $pause
+буюу    bUjU: $pause
+эсвэл   esvel $pause
+харин   xarin $pause
+гэхдээ  gexde: $pause
+тийм    ti:m $u
+учраас  Utsra:s $pause
+мөн     m8n $u
+гэсэн   geseN $pause
+гэдэг   gedeg $pause
+гэж     gedZ $pause
+гэвэл   gevel $pause
 
-// Questions
-хэн     xEn $pause      // хэн (х before front э -> xvel) -> xvelEn (adjust)
-юу      jU: $pause
-хаана   xA:n@ $pause
-хэзээ   xEz'e: $pause
-яагаад  jA:G'A:d $pause
-яаж    jA:Z $pause
-хичнээн xItSn'e:n $pause // хичнээн (х before front и -> xvel) -> xvelItSne:n (adjust)
 
-// Misc.
-үгүй    uG'uj      // Should be үGүj using front vowel phoneme 'y' -> yGyi (or ygyi if г palatalized)
-биш     bIS_
-байна   b'Ajn@
-байгаа  b'AjGA:
-мөн     mYn_
+// ============================================================
+//  Question words
+// ============================================================
+
+хэн     xeN
+юу      jU:
+хаана   xa:na
+хэзээ   xeze:
+яагаад  ja:ga:d
+яаж     ja:dZ
+хэд     xed
+хэдэн   xedeN
+хичнээн xitsne:N
+ямар    jamar
+аль     ali
+яах     ja:x
+
+
+// ============================================================
+//  Pronouns
+// ============================================================
+
+би      bi
+чи      tSi
+та      ta
+тэр     ter
+бид     bid
+бидэнд  bidend
+тэд     ted
+тэдэнд  tedend
+миний   mini:
+чиний   tSini:
+таны    tani
+түүний  ty:ni:
+манай   manaI
+бидний  bidni:
+
+
+// ============================================================
+//  Common Verbs
+// ============================================================
+
+байна   baIna
+байгаа  baIga:
+байх    baIx
+байсан  baIsan
+болно   bOlnO
+болох   bOlOx
+болсон  bOlsON
+ирэх    irex
+ирсэн   irseN
+явах    javax
+явна    javna
+явсан   javsaN
+очих    OtSix
+өгөх    8g8x
+авах    avax
+авна    avna
+хийх    xi:x
+хийнэ   xi:ne
+хийсэн  xi:seN
+идэх    idex
+уух     U:x
+ярих    jarix
+ярья    jarija
+сурах   sUrax
+сурна   sUrna
+ойлгох  OIlgOx
+хэлэх   xelex
+мэдэх   medex
+мэднэ   medne
+чадах   tSadax
+чадна   tSadna
+амьдрах amidirax
+амьдардаг amidardag
+хүсэх   xyseX
+хүсье   xysije
+оршдог  OrSdOg
+
+
+// ============================================================
+//  Common Nouns
+// ============================================================
+
+хүн     xyN
+хүмүүс  xy:my:s
+гэр     ger
+газар   gazar
+газарт  gazart
+зам     zam
+цаг     tsag
+цагт    tsaxt
+жил     dZil
+нар     nar
+хот     xOt
+нутаг   nUtag
+нутгийн nUtgi:N
+нутгийг nUtgi:g
+үг      yg
+ус      Us
+гал     gal
+мод     mOd
+морь    mOri
+морьтой mOrtOI
+ном     nOm
+далай   dalaI
+орон    OrON
+улс     Uls
+хэл     xel
+хэлэнд xelend
+эрх     erx
+
+
+// ============================================================
+//  Common Adjectives
+// ============================================================
+
+сайн    saIN
+сайхан  saIxaN
+муу     mU:
+их      ix
+бага    baga
+том     tOm
+жижиг   dZidZig
+шинэ    Sine
+хуучин  xU:tSiN
+урт     Urt
+Урт     Urt
+богино  bOginO
+өндөр   8nd8r
+нам     nam
+хүйтэн xUIteN
+халуун  xalU:N
+цэвэр   tsever
+нарийн  nari:N
+уудам   U:dam
+чанга   tSaNga
+
+
+// ============================================================
+//  Common Adverbs / Modifiers
+// ============================================================
+
+маш     maS
+тун     tUN
+нэлээд  nele:d
+хамгийн xamgi:N
+их      ix
+бас     bas
+ч       tSi $u
+мөн     m8n
+
+
+// ============================================================
+//  Place Names
+// ============================================================
+
+Улаанбаатар     Ula:nba:tar
+Монгол          mONgOl
+Монголын        mONgOliN
+Дархан          darxaN
+Эрдэнэт        erdenet
+Чойбалсан       tSOIbalsaN
+Хэнтий          xenti:
+Хөвсгөл         x8vsg8l
+Хангай          xaNgaI
+Говийн          gOvi:N
+
+
+// ============================================================
+//  Recording Script Vocabulary (narakeet sections 1-5)
+// ============================================================
+
+// Section 1: vowel isolation / minimal pairs
+тал     tal
+таал    ta:l
+бор     bOr
+боор    bO:r
+төр     t8r
+төөр    t8:r
+ул      Ul
+уул     U:l
+эр      er
+ээр     e:r
+
+// Section 1: consonant CV
+ба      ba
+ван     vaN
+жил     dZil
+ёс      jOs
+кино    kinO
+файл    faIl
+шар     Sar
+
+// Section 1: diphthong words
+нохой   nOxOI
+тойрон  tOIrON
+уйлах   UIlax
+үйлдвэр UIldver
+
+// Section 2: liquids (л/р) in words
+аль     ali
+эль     eli
+дэлхий  delxi:
+тольтой tOltOI
+арга    arga
+эрдэм   erdem
+өргөн   8rg8N
+үргэлж  yrgeldZ
+
+// Section 2: coda clusters
+алт     alt
+олт     Olt
+эрдэнэ  erdene
+амт     amt
+онд     Ond
+
+// Section 2: palatalized CV
+тюмэн   ty:meN
+нёдон   njOdON
+лёнхо   ljONxO
+нян     njaN
+
+// Section 2: soft sign words
+амь     ami
+өмнө    8mn8
+ямар    jamar
+нэмэр   nemer
+умай    UmaI
+хөмүүс  x8my:s
+
+// Section 2: coda + geminate
+суулт   sU:lt
+оролт   OrOlt
+нэмэлт  nemelt
+
+// Section 2: long vowel words
+агаар   aga:r
+оноо    OnO:
+дуу     dU:
+зуу     zU:
+зуун    zU:N
+нэгэн   negeN
+мөнгө   m8Ng8
+түүх    ty:x
+дүүрэн  dy:reN
+
+// Section 3: consonant clusters
+амна    amna
+мандал  mandal
+хангай  xaNgaI
+тунгалаг tUNgalag
+алтан   altaN
+борлуулалт bOrlU:lalt
+нэмэлт nemelt
+бүтэн   byteN
+цэвэр   tsever
+
+// Section 3: simple sentences (verified from audio)
+гэр     ger
+миний   mini:
+хамт    xamt
+бид     bid
+маргааш marga:S
+агаар   aga:r
+
+// Section 3: place names
+нийслэл ni:slel
+нуруу   nUrU:
+олон    OlON
+бий     bi:
+бүс     bys
+нуур    nU:r
+
+// Section 4: question words (already above)
+төгрөг  t8gr8g
+тэгсэн tegseN
+
+// Section 4: numbers as words
+нэг     neg
+хоёр    xOjOr
+гурав   gUrav
+дөрөв   d8r8v
+тав     tav
+зургаа  zUrga:
+долоо   dOlO:
+найм    naIm
+ес      jes
+арав    arav
+хорин   xOrin
+гучин   gUtSin
+дөчин   d8tSin
+тавин   tavin
+мянга   mjaNga
+сая     saja
+тэрбум  terbUm
+
+// Section 4: greetings
+баярлалаа bajarlala:
+уучлаарай U:tSla:raI
+ойлгохгүй OIlgOxgy:j
+эрүүл   ery:l
+мэнд    mend
+
+// Section 5: vowel harmony sentences
+эвсэг   evseg
+эгшиг   egSig
+зохицол zOxitsOl
+байдаг  baIdag
+богино  bOginO
+эгшгээс egSge:s
+ялгаатай jalga:taI
+
+// Benchmark sentence words
+харьцангуй   xaritsaNgUI
+өргөрөгт    8rg8r8xt
+километр    kilOme:tr
+зайтай      zaItaI
+зэрэг       zereg
+шалтгаанаас Saltga:na:s
+болж        bOldZ
+дэлхийн     delxi:N
+нийслэлд    ni:sleld
+тооцогддог  tO:tsOgdOg
+тооцогдох   tO:tsOgdOx
+эргээс      erge:s
+байрладаг   baIrladag
+
+// Additional words from narakeet_5 text
+орны        Orni
+улсын       UlsiN
+тухай       tUxaI
+ялгаатай    jalga:taI
+хэлэнд     xelend
+богино      bOginO
+
+
+// ============================================================
+//  Cyrillic Letter Names (for spelling mode)
+// ============================================================
+
+_а      a:
+_б      be
+_в      ve
+_г      ge
+_д      de
+_е      je
+_ё      jO
+_ж      dZe
+_з      ze
+_и      i:
+_й      xagas'i:
+_к      ka
+_л      el
+_м      em
+_н      en
+_о      O:
+_ө      8:
+_п      pe
+_р      er
+_с      es
+_т      te
+_у      U:
+_ү      y:
+_ф      ef
+_х      xe
+_ц      tse
+_ч      tSe
+_ш      Sa
+_щ      Sa
+_ъ      xatU:'temdeg
+_ы      i
+_ь      z8:l8N'temdeg
+_э      e:
+_ю      jU:
+_я      ja:
+
+
+// ============================================================
+//  Poem: "Миний Төрсөн Нутаг" (Нацагдорж)
+// ============================================================
+
+Нацагдорж       natsagdOrdZ
+дуулья          dU:lja
+хамгаалан       xamga:laN
+хүрээлэн        xyre:leN
+жигдрэн         dZigdreN
+соёрхоно        sOjOrxOnO
+мэлмий          melmi:
+дэлгэнэ         delgene
+энхрий          eNxri:
+харагдана       xaragdana
+зэрэглээтэй    zeregle:teI
+
+
+// ============================================================
+//  Additional Common Words
+// ============================================================
+
+сайн_байна_уу    saIN'baInaU:
+үгүй    ygy:j
+биш     biS
 за      za
-
-// Auxiliary Verbs
-байх    b'Ajxvel       // байх (х word final, could be xvel or xuvl based on preceding vowel) -> bA postcss xuvl (if 'a' makes it back)
-чадах   tSad;@xvel_    // чадах -> tSad;@xuvl
-байна   b'Ajn@ $u1
-байгаа  b'AjGA: $u1
-байсан  b'Ajs@n $u1
-болно   bOl;@n $u1
-чадна   tSad;@n@ $u1
-чадсан  tSad;@s@n $u1
-
-// Cyrillic letter names
-а       A:
-_б      bE
-б       bE $atend
-_в      vE
-в       vE $atend
-г       gE          // Velar G + E (front vowel) -> gE
-д       dE
-е       jE
-ё       jO
-_ж      ZE
-ж       ZE $atend
-з       dzE
-и       I:          // Long I for "и" letter name
-й       xAg;@s I:
-_к      kA          // к before back а -> qA
-к       qA $atend
-л       El;
-?3 л    El^
-м       Em
-н       En
-о       O:          // Long O for "о" letter name
-ө       Y:          // Long Y (Y.) for "ө" letter name
-п       pE
-р       Er
-_с      Es
-с       Es $atend
-т       tE
-у       U:          // Long U for "у" letter name
-ү       y:          // Long y (y.) for "ү" letter name
-ф       Ef
-х       xvelE      // хэ (х before front э -> xvel) or xuvlA for "ха"
-ц       tsE
-ч       tSE
-ш       SA
-щ       StSA
-ъ       xAt'U:Gi:n tEmdEg_
-ы       Er ug;i:n Y_mn
-ь       zY:ln;i: tEmdEg_
-э       E:          // Long E for "э" letter name
-ю       jU:         // Long jU for "ю" letter name
-я       jA:         // Long jA for "я" letter name
-
-// Exceptions & Phrases
-сайн_байна_уу    s'Ajn b'AjnU:
-баярлалаа       bajarUlUl'A:
-төгрөг          tYgrYg_
-Улаанбаатар     ulA:nb'A:tAr_
+бол     bOl
+хэрэг   xereg
+хэрэгтэй xeregteI
+ажил    adZil
+сургууль sUrgU:li
+эмнэлэг emneleg
+хоол    xO:l
+идээ    ide:
+цай     tsaI
+сүү     sy:
+талх    talx
+мах     max
+ногоо   nOgO:
+жимс    dZims
+зурган  zUrgaN
+дуу     dU:
+дуулах  dU:lax
+тоглох  tOglOx
+нислэг  nisleg
+байгаль baIgal
+салхи   salxi
+борооны bOrO:ni
+цас     tsas
+нөлөөтэй n8l8:teI
+шуурга  SU:rga
+аянга   ajaNga
+дулаан  dUla:N
+хавар   xavar
+зун     zUN
+намар   namar
+өвөл    8v8l
+хээрийн xe:ri:N
+улаан   Ula:N
+цагаан  tsaga:N
+хар     xar
+шар     Sar
+ногоон  nOgO:N
+цэнхэр  tseNxer

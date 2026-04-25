@@ -1,2 +1,15 @@
 name Mongolian
 language mn
+
+pitch 80 140
+
+speed 85
+
+formant 0 100 100 100
+formant 1 96 100 100
+formant 2 100 100 100
+
+breath 2  3  1  1  1  1
+breathw 100 100 100 100 100 100
+
+intonation 1

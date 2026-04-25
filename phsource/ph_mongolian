@@ -1,5 +1,5 @@
-// ***************************************************************************/ 
-// *   Mongolian language mn phoneme                                       *
+// ***************************************************************************/
+// *   Mongolian (Khalkha) phoneme definitions  ph_mongolian                 *
 // *   Original Author Battseren Badral 15-05-2025                           *
 // *   Contact info: bbattseren88@gmail.com                                  *
 // ***************************************************************************/
@@ -18,8 +18,241 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
+// ============================================================
+//  Khalkha Mongolian Vowel System
+//
+//  7 short vowels, 7 long vowels, 4 diphthongs.
+//  Vowel harmony: back {a, O, U} vs front {e, 8, y}; i neutral.
+//  Unstressed short vowels reduce significantly in natural speech.
+// ============================================================
+
+// -- SHORT VOWELS -------------------------------------------------
+
+// a /a/ - open central-to-back unrounded
+phoneme a
+  ipa a
+  vwl starttype #a endtype #a
+  length 150
+  ChangeIfUnstressed(a#)
+  FMT(mongolian/a)
+endphoneme
+
+// Reduced a in unstressed positions (same quality, just shorter)
+phoneme a#
+  ipa a
+  vwl starttype #a endtype #a
+  length 100
+  FMT(mongolian/a)
+endphoneme
+
+// e /e/ - front mid unrounded
+phoneme e
+  ipa e
+  vwl starttype #e endtype #e
+  length 150
+  ChangeIfUnstressed(e#)
+  FMT(mongolian/e)
+endphoneme
+
+// Reduced e (same quality, just shorter)
+phoneme e#
+  ipa e
+  vwl starttype #e endtype #e
+  length 100
+  FMT(mongolian/e)
+endphoneme
+
+// i /i/ - front close unrounded (vowel-harmony neutral)
+phoneme i
+  ipa i
+  vwl starttype #i endtype #i
+  length 140
+  ChangeIfUnstressed(i#)
+  FMT(mongolian/i)
+endphoneme
+
+// Reduced i (same quality, just shorter)
+phoneme i#
+  ipa i
+  vwl starttype #i endtype #i
+  length 95
+  FMT(mongolian/i)
+endphoneme
+
+// O /O/ - back mid-open rounded
+phoneme O
+  ipa O
+  vwl starttype #o endtype #o
+  length 150
+  ChangeIfUnstressed(O#)
+  FMT(mongolian/O)
+endphoneme
+
+// Reduced O (same quality, just shorter)
+phoneme O#
+  ipa O
+  vwl starttype #o endtype #o
+  length 100
+  FMT(mongolian/O)
+endphoneme
+
+// 8 /8/ - front mid rounded (+ATR), Khalkha /ɵ/
+phoneme 8
+  ipa 8
+  vwl starttype #o endtype #o
+  length 150
+  ChangeIfUnstressed(8#)
+  FMT(mongolian/oe)
+endphoneme
+
+// Reduced 8 (same quality, just shorter)
+phoneme 8#
+  ipa 8
+  vwl starttype #o endtype #o
+  length 100
+  FMT(mongolian/oe)
+endphoneme
+
+// U /U/ - back near-close rounded (-ATR)
+phoneme U
+  ipa U
+  vwl starttype #u endtype #u
+  length 150
+  ChangeIfUnstressed(U#)
+  FMT(mongolian/u)
+endphoneme
+
+// Reduced U (same quality, just shorter)
+phoneme U#
+  ipa U
+  vwl starttype #u endtype #u
+  length 100
+  FMT(mongolian/u)
+endphoneme
+
+// y /u/ - front close rounded (+ATR) (Mongolian u with umlaut)
+phoneme y
+  ipa u
+  vwl starttype #u endtype #u
+  length 140
+  ChangeIfUnstressed(y#)
+  FMT(mongolian/y)
+endphoneme
+
+// Reduced y (same quality, just shorter)
+phoneme y#
+  ipa u
+  vwl starttype #u endtype #u
+  length 95
+  FMT(mongolian/y)
+endphoneme
+
+
+// -- LONG VOWELS --------------------------------------------------
+// Approximately 2.2x short vowel duration.
+
+phoneme a:
+  ipa a:
+  vwl starttype #a endtype #a
+  length 270
+  FMT(mongolian/a_long)
+endphoneme
+
+phoneme e:
+  ipa e:
+  vwl starttype #e endtype #e
+  length 260
+  FMT(mongolian/e_long)
+endphoneme
+
+phoneme i:
+  ipa i:
+  vwl starttype #i endtype #i
+  length 250
+  FMT(mongolian/i_long)
+endphoneme
+
+phoneme O:
+  ipa O:
+  vwl starttype #o endtype #o
+  length 270
+  FMT(mongolian/O_long)
+endphoneme
+
+phoneme 8:
+  ipa 8:
+  vwl starttype #o endtype #o
+  length 260
+  FMT(mongolian/oe_long)
+endphoneme
+
+phoneme U:
+  ipa U:
+  vwl starttype #u endtype #u
+  length 270
+  FMT(mongolian/u_long)
+endphoneme
+
+phoneme y:
+  ipa u:
+  vwl starttype #u endtype #u
+  length 250
+  FMT(mongolian/y_long)
+endphoneme
+
+
+// -- DIPHTHONGS ---------------------------------------------------
+
+// ai /ai/
+phoneme aI
+  ipa ai
+  vwl starttype #a endtype #i
+  length 240
+  FMT(mongolian/ai)
+endphoneme
+
+// ei /ei/
+phoneme eI
+  ipa ei
+  vwl starttype #e endtype #i
+  length 220
+  FMT(mongolian/ei)
+endphoneme
+
+// Oi /Oi/
+phoneme OI
+  ipa Oi
+  vwl starttype #o endtype #i
+  length 240
+  FMT(mongolian/oi)
+endphoneme
+
+// Ui /Ui/
+phoneme UI
+  ipa Ui
+  vwl starttype #u endtype #i
+  length 230
+  FMT(mongolian/ui)
+endphoneme
+
+
+// ============================================================
+//  Consonants
+//
+//  base1 inherited: b, d, p, t, k, m, n, N, s, z, S, f, v,
+//                   j, tS, dZ
+//
+//  Mongolian-specific overrides below:
+//    g - softer velar stop with prevoicing support
+//    l - voiced lateral fricative /lateralFric/ (Khalkha feature)
+//    r - apical alveolar trill
+//    x - voiceless velar fricative (very frequent)
+//    ts - voiceless alveolar affricate (imported)
+// ============================================================
+
+// g - voiced velar stop, softer release
 phoneme g
-  vcd vel stp prevoice
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
@@ -28,542 +261,64 @@ phoneme g
   IF PreVoicing THEN
     FMT(g/xg)
   ENDIF
-
   IF nextPh(isPause2) THEN
     FMT(g/g_) addWav(x/g_)
   ENDIF
-  FMT(g/g) addWav(x/g3, 90)
+  FMT(g/g) addWav(x/g2, 100)
 endphoneme
 
+// l - voiced lateral fricative (characteristic of Khalkha)
+phoneme l
+  ipa l
+  liquid
+  lengthmod 7
 
-phoneme G
-  import_phoneme base1/r"
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la)
+    VowelStart(l/le)
+    VowelStart(l/li)
+    VowelStart(l/lo)
+    VowelStart(l/lu)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(l/l_)
+  ENDIF
 endphoneme
 
-phoneme U
-  vwl  starttype #o  endtype #o
-  length 170
-  FMT(vowel/uu)
+// r - alveolar trill (strong onset, lighter between vowels)
+phoneme r
+  ipa r
+  liquid rhotic trl
+  lengthmod 7
+  length 60
+
+  IF nextPh(isVowel) THEN
+    FMT(r3/r_trill) addWav(r3/r_trill, 40)
+  ELIF prevPh(isVowel) AND nextPh(isNotVowel) THEN
+    FMT(r3/r_) addWav(r3/r_trill, 30)
+  ENDIF
+  FMT(r3/r_trill) addWav(r3/r_trill, 35)
 endphoneme
 
-phoneme V
-  vwl  starttype #o  endtype #o
-  ipa ʊ
-  length 140
-  ChangeIfDiminished(@)
-  FMT(vowel/o-_2)
-endphoneme
-
-phoneme 2
-  vwl starttype #o endtype #e
-  ipa œː
-  length 190
-  FMT(vdiph2/o@)
-endphoneme
-
-phoneme ʊ
-  vwl  starttype #o  endtype #o
-  ipa ʊ
-  length 140
-  ChangeIfDiminished(@)
-  FMT(vowel/o-_2)
-endphoneme
-
-phoneme p
-  import_phoneme consonants/p-
-endphoneme
-
-
+// x - voiceless velar fricative (most frequent Mongolian consonant)
 phoneme x
+  ipa x
   vls vel frc
   lengthmod 3
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-  WAV(ufric/x_hr, 30)
-endphoneme
 
-
-phoneme k
-  import_phoneme consonants/k-
-endphoneme
-
-
-phoneme l
- liquid rfx
- ipa ɭ
- lengthmod 7
- length 40
- FMT(l^/l_rfx)
-endphoneme
-
-
-phoneme l^
- liquid rfx pzd
- ipa ɭ
-length 80
- FMT(l^/l_rfx)
-endphoneme
-
-
-phoneme s
-  vls alv frc sib
-  lengthmod 3
-  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-
-  WAV(ufric/s)
-endphoneme
-
-phoneme s;
-  import_phoneme en/s
-endphoneme
-
-
-phoneme n_
-  import_phoneme en/n
-endphoneme
-
-
-phoneme n#
-  vcd pal nas pzd
-  ipa ɲ
-  Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
-  lengthmod 4
-
-  IF KlattSynth THEN
-    VowelStart(klatt/n^@)
-    FMT(klatt/n^)
+  IF nextPh(isPause) THEN
+    WAV(ufric/x_hr, 15)
   ENDIF
-
-  NextVowelStarts
-    VowelStart(n^/n^@)
-    VowelStart(n^/n^a)
-    VowelStart(n^/n^e)
-    VowelStart(n^/n^i)
-    VowelStart(n^/n^o)
-    VowelStart(n^/n^u)
-  EndSwitch
-
-  IF prevPh(isPause) THEN
-    FMT(n^/_n^)
-  ELIF nextPh(isNotVowel) THEN
-    IF nextPhW(n^) THEN
-      length 75
-    ELIF prevPhW(n^) THEN
-      length 100
-    ENDIF
-    FMT(n^/n^_)
-  ENDIF
+  WAV(ufric/x_hr, 23)
 endphoneme
 
-
-phoneme r
-  liquid rhotic alv trl nolink
-  length 80
-  IF prevPhW(isVowel) THEN
-  ELSE
-    InsertPhoneme(@-)
-  ENDIF
-  FMT(r3/r_trill,80) addWav(r3/r_trill.wav, 50)
-endphoneme
-
-
+// ts - voiceless alveolar affricate
 phoneme ts
   import_phoneme consonants/ts
-endphoneme
-
-
-phoneme dZ;
-  vcd alp sib afr
-  voicingswitch tS;
-  lengthmod 5
-  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
-
-  IF PreVoicing THEN
-    FMT(dzh/xdzh)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(dzh/dzh_) addWav(x/dzh_)
-  ENDIF
-endphoneme
-
-
-phoneme tS;
-  vls alp sib afr
-  voicingswitch dZ;
-  lengthmod 2
-  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-
-  WAV(ustop/ts_pzd)
-endphoneme
-
-
-// Palatalized versions of consonants
-
-
-
-phoneme m;
-  vcd blb nas
-  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
-  lengthmod 4
-
-  IF KlattSynth THEN
-    Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
-    IF nextPh(isPause2) THEN
-      FMT(klatt/m_)
-    ENDIF
-    FMT(klatt/m)
-  ENDIF
-
-  VowelStart(m/mi)
-
-  FMT(m/mj)
-endphoneme
-
-
-phoneme I^ // "silent i", palatilizes the preceding consonant
-  vwl starttype #i endtype #i
-  unstressed nsy
-  length 70
-  IF nextPh(isVowel) THEN
-    ChangePhoneme(;)
-  ENDIF
-  IF prevPh(m;) THEN
-    FMT(vwl_ro/mi)
-  ENDIF
-  FMT(vwl_ru/ii-)
-endphoneme
-
-
-//*******************************************************************
-// VOWELS
-//*******************************************************************
-
-
-phoneme i
-  IF prevPh(Z) THEN
-    ChangePhoneme(y)
-  ENDIF
-  vwl starttype #i endtype #i
-  length 50
-  FMT(vwl_ru/ii)
-endphoneme
-
-
-phoneme I#
-  vwl starttype #i endtype #i
-  length 80
-  IF nextVowel(isMaxStress) THEN
-    ChangePhoneme(I)
-  ENDIF
-  IF thisPh(isMaxStress) THEN
-    ChangePhoneme(i)
-  ENDIF
-  FMT(vwl_ru/ii#)
-endphoneme
-
-
-phoneme y
-  vwl starttype #i endtype #i
-  length 100
-  FMT(vwl_ru/i#)
-endphoneme
-
-
-phoneme I
-  vwl starttype #i endtype #i
-  length 80
-  FMT(vwl_ru/ii)
-endphoneme
-
-
-phoneme I2
-  vwl starttype #i endtype #i
-  length 80
-  IF thisPh(isMaxStress) THEN
-    ChangePhoneme(e)
-  ENDIF
-  IF prevPhW(isPalatal) THEN
-    ChangePhoneme(I)
-  ENDIF
-  FMT(vwl_ru/ii)
-endphoneme
-
-
-phoneme I3
-  vwl starttype #i endtype #i
-  length 80
-  IF thisPh(isMaxStress) THEN
-    IF prevPhW(j) THEN
-      ChangePhoneme(e)
-    ELSE
-      ChangePhoneme(ja)
-    ENDIF
-  ENDIF
-  IF prevPhW(isPalatal) THEN
-    ChangePhoneme(I)
-  ENDIF
-  FMT(vwl_ru/ii)
-endphoneme
-
-
-phoneme E
-  vwl  starttype #e  endtype #e
-  length 100
-  FMT(vwl_ru/e)
-endphoneme
-
-
-phoneme E#
-  vwl  starttype #e  endtype #e
-  length 100
-  IF thisPh(isMaxStress) THEN
-    IF prevPhW(j) THEN
-      ChangePhoneme(e)
-    ELSE
-      ChangePhoneme(E)
-    ENDIF
-  ENDIF
-  FMT(vwl_ru/E#)
-endphoneme
-
-
-phoneme E2
-  vwl  starttype #e  endtype #e
-  length 80
-  IF nextVowel(isMaxStress) THEN
-    IF prevPh(j) THEN
-      ChangePhoneme(I3)
-    ELSE
-      ChangePhoneme(E#)
-    ENDIF
-  ENDIF
-
-  IF thisPh(isMaxStress) THEN
-    IF prevPhW(j) THEN
-      ChangePhoneme(e)
-    ELSE
-      ChangePhoneme(E)
-    ENDIF
-  ENDIF
-
-  FMT(vwl_ru/E@)
-endphoneme
-
-
-phoneme E3
-  vwl  starttype #e  endtype #e
-  length 80
-  IF nextVowel(isMaxStress) THEN
-    ChangePhoneme(I)
-  ENDIF
-  IF thisPh(isMaxStress) THEN
-    ChangePhoneme(e)
-  ENDIF
-  IF prevPhW(isPalatal) THEN
-    ChangePhoneme(E2)
-  ENDIF
-  FMT(vwl_ru/E@)
-endphoneme
-
-phoneme E%  // е in prefix "интер"
-  vwl
-  ChangePhoneme(E#)
-endphoneme
-
-
-phoneme o
-  vwl starttype #o endtype #o
-  length 100
-  ChangeIfNotStressed(V)
-  FMT(vwl_ru/o)
-endphoneme
-
-
-phoneme O
-  vwl starttype #o endtype #o
-  length 80
-  IF prevPhW(isPalatal) THEN
-    ChangePhoneme(8)
-  ENDIF
-  IF thisPh(isMaxStress) THEN
-    ChangePhoneme(o)
-  ENDIF
-  FMT(vwl_ru/oo)
-endphoneme
-
-
-phoneme u
-  vwl starttype #u endtype #u
-  length 80
-  FMT(vwl_ru/u)
-endphoneme
-
-
-phoneme u#
-  vwl starttype #u endtype #u
-  length 80
-  FMT(vwl_ru/u#)
-endphoneme
-
-
-phoneme u"
-  vwl starttype #u endtype #u
-  length 150
-  FMT(vwl_ru/u#u)
-endphoneme
-
-
-phoneme 8
-  vwl starttype #o endtype #o
-  length 100
-  ChangeIfNotStressed(V)
-  FMT(vwl_ru/8)
-endphoneme
-
-
-phoneme e
-  vwl starttype #e endtype #e
-  length 100
-  IF prevPh(Z) THEN
-    ChangeIfNotStressed(y)
-    ChangePhoneme(E)
-  ENDIF
-  IF prevPh(S) THEN
-    ChangeIfNotStressed(y)
-    ChangePhoneme(E)
-  ENDIF
-  IF prevPh(ts) THEN
-    ChangeIfNotStressed(y)
-    ChangePhoneme(E)
-  ENDIF
-  ChangeIfNotStressed(i)
-  FMT(vwl_ru/ee)
-endphoneme
-
-
-phoneme ju
-  vwl starttype #u endtype #u
-  length 190
-  FMT(vwl_ru/ju)
-endphoneme
-
-
-phoneme ja
-  vwl  starttype #i endtype #a
-  IF thisPh(isMaxStress) THEN
-    length 200
-    FMT(vwl_ru/ja)
-  ELSE
-    FMT(vdiph2/ii@)
-  ENDIF
-endphoneme
-
-
-phoneme ja#
-  vwl  starttype #i endtype #a
-  IF thisPh(isMaxStress) THEN
-    FMT(vowel/&)
-  ELSE
-    IF prevPhW(isPalatal) THEN
-    ChangePhoneme(I)
-    ENDIF
-  ENDIF
-endphoneme
-
-
-phoneme V#
-  vwl  starttype #a  endtype #@
-  unstressed
-  length 80
-
-  IF thisPh(isMaxStress) THEN
-    IF prevPhW(j) THEN
-      ChangePhoneme(A)
-    ENDIF
-  ENDIF
-
-  IF prevPhW(isPalatal) THEN
-    ChangePhoneme(V)
-  ENDIF
-  FMT(vowel/V_2)
-endphoneme
-
-
-phoneme Y // will not be used in future
-  vwl  starttype #u  endtype #u
-  unstressed
-  length 140
-  FMT(vowel/ii#)
-endphoneme
-
-
-phoneme A
-  vwl  starttype #a  endtype #a
-  length 100
-  FMT(vwl_ru/a)
-endphoneme
-
-
-phoneme a
-  vwl   starttype #a  endtype #a
-  length 100
-
-  IF prevPhW(j) THEN
-  ELSE
-    IF thisPh(isMaxStress) THEN
-      IF prevPhW(isPalatal) THEN
-        ChangePhoneme(ja)
-      ELSE
-        ChangePhoneme(A)
-      ENDIF
-    ELSE
-      IF prevPhW(isPalatal) THEN
-        ChangePhoneme(I)
-    ENDIF
-    ENDIF
-  ENDIF
-
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/a#_3)
-  ENDIF
-  FMT(vwl_ru/aa)
-endphoneme
-
-
-phoneme V
-  vwl  starttype #a  endtype #@
-  length 80
-  unstressed
-
-  IF nextVowel(isMaxStress) THEN
-    ChangePhoneme(a)
-  ENDIF
-
-  IF thisPh(isMaxStress) THEN
-    IF prevPhW(j) THEN
-      ChangePhoneme(a)
-    ELSE
-      ChangePhoneme(A)
-    ENDIF
-  ENDIF
-
-  FMT(vowel/V_2)
-endphoneme
-
-
-phoneme a#
-  vwl   starttype #a  endtype #a
-  length 100
-  FMT(vowel/a#_3)
-endphoneme
-
-
-phoneme R4
-  liquid
-  lengthmod 6
-  Vowelin  f1=0  f2=1500 -300 300  f3=-200 80 rms=60 brk
-  Vowelout f1=2  f2=1500 -300 300  f3=-200 80
-  FMT(r3/r_ru2) addWav(r3/r_ru, 50)
 endphoneme
