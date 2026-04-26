@@ -194,7 +194,18 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
-        return findVoice(language, country, variant).second;
+        final int result = findVoice(language, country, variant).second;
+        if (result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            // When the requested language is filtered out but other voices are
+            // available, report the language as available so that screen readers
+            // (e.g. Jieshuo) don't skip this engine entirely.
+            synchronized (mAvailableVoices) {
+                if (!mAvailableVoices.isEmpty()) {
+                    return TextToSpeech.LANG_AVAILABLE;
+                }
+            }
+        }
+        return result;
     }
 
     @Override
@@ -203,6 +214,20 @@ public class TtsService extends TextToSpeechService {
         if (match.first != null) {
             synchronized (mAvailableVoices) {
                 mMatchingVoice = match.first;
+            }
+            return match.second;
+        }
+        if (match.second == TextToSpeech.LANG_NOT_SUPPORTED) {
+            // Fall back to a previously selected or available voice so that
+            // screen readers requesting the system language still get speech.
+            synchronized (mAvailableVoices) {
+                if (mMatchingVoice != null) {
+                    return TextToSpeech.LANG_AVAILABLE;
+                }
+                if (!mAvailableVoices.isEmpty()) {
+                    mMatchingVoice = mAvailableVoices.values().iterator().next();
+                    return TextToSpeech.LANG_AVAILABLE;
+                }
             }
         }
         return match.second;
@@ -271,6 +296,32 @@ public class TtsService extends TextToSpeechService {
         }
     }
 
+    protected int selectLanguageWithFallback(String language, String country, String variant) {
+        final int result = onLoadLanguage(language, country, variant);
+        switch (result) {
+            case TextToSpeech.LANG_MISSING_DATA:
+                return TextToSpeech.ERROR;
+            case TextToSpeech.LANG_NOT_SUPPORTED:
+                // fall back to a previously selected or available voice instead of failing.
+                // This allows screen readers that request the system language (e.g. Jieshuo)
+                // to still work when the user has selected only other languages.
+                synchronized (mAvailableVoices) {
+                    // Prefer reusing the last matching voice if one is already selected.
+                    if (mMatchingVoice != null) {
+                        return TextToSpeech.SUCCESS;
+                    }
+                    // Otherwise, pick an arbitrary available voice if any exist.
+                    if (!mAvailableVoices.isEmpty()) {
+                        mMatchingVoice = mAvailableVoices.values().iterator().next();
+                        return TextToSpeech.SUCCESS;
+                    }
+                }
+                // No previous voice and no available voices to fall back to.
+                return TextToSpeech.ERROR;
+        }
+        return TextToSpeech.SUCCESS;
+    }
+
     private int selectVoice(SynthesisRequest request) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             final String name = request.getVoiceName();
@@ -278,18 +329,14 @@ public class TtsService extends TextToSpeechService {
                 return onLoadVoice(name);
             }
         }
-
-        final int result = onLoadLanguage(request.getLanguage(), request.getCountry(), request.getVariant());
-        switch (result) {
-            case TextToSpeech.LANG_MISSING_DATA:
-            case TextToSpeech.LANG_NOT_SUPPORTED:
-                return TextToSpeech.ERROR;
-        }
-        return TextToSpeech.SUCCESS;
+        return selectLanguageWithFallback(request.getLanguage(), request.getCountry(), request.getVariant());
     }
 
     @Override
     protected synchronized void onSynthesizeText(SynthesisRequest request, SynthesisCallback callback) {
+        if (selectVoice(request) == TextToSpeech.ERROR)
+            return;
+
         final Voice voice;
         synchronized (mAvailableVoices) {
             voice = mMatchingVoice;
@@ -339,7 +386,7 @@ public class TtsService extends TextToSpeechService {
         mEngine.synthesize(text, text.startsWith("<speak"));
     }
 
-    private void rebuildAvailableVoices() {
+    protected void rebuildAvailableVoices() {
         synchronized (mAvailableVoices) {
             mAvailableVoices.clear();
             List<Voice> voices = mAllVoices;

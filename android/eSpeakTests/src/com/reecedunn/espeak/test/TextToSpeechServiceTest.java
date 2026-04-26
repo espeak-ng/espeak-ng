@@ -18,12 +18,15 @@ package com.reecedunn.espeak.test;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
+import com.reecedunn.espeak.LanguageSettings;
 import com.reecedunn.espeak.TtsService;
 import com.reecedunn.espeak.Voice;
 
@@ -32,6 +35,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
@@ -69,6 +73,14 @@ public class TextToSpeechServiceTest
             return mMatchingVoice;
         }
 
+        public int selectLanguageWithFallback(String language, String country, String variant) {
+            return super.selectLanguageWithFallback(language, country, variant);
+        }
+
+        public void rebuildAvailableVoicesNow() {
+            rebuildAvailableVoices();
+        }
+
         @SuppressLint("NewApi")
         private android.speech.tts.Voice getVoice(String name) {
             for (android.speech.tts.Voice voice : onGetVoices()) {
@@ -81,21 +93,28 @@ public class TextToSpeechServiceTest
     }
 
     private TtsServiceTest mService = null;
+    private Context mContext = null;
 
     @Before
     public void setUp() throws Exception
     {
-        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        mContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            context = context.createDeviceProtectedStorageContext();
+            mContext = mContext.createDeviceProtectedStorageContext();
         }
-        mService = new TtsServiceTest(context);
+        mService = new TtsServiceTest(mContext);
         mService.onCreate();
     }
 
     @After
     public void tearDown()
     {
+        if (mContext != null) {
+            PreferenceManager.getDefaultSharedPreferences(mContext)
+                    .edit()
+                    .remove(LanguageSettings.PREF_SUPPORTED_LANGUAGES)
+                    .apply();
+        }
         if (mService != null)
         {
             mService.onDestroy();
@@ -146,7 +165,10 @@ public class TextToSpeechServiceTest
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is(defaultEnName));
 
-        assertThat(mService.onLoadLanguage("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        // Genuinely unsupported languages now fall back to the previously
+        // loaded voice and report LANG_AVAILABLE so screen readers don't skip
+        // the engine.
+        assertThat(mService.onLoadLanguage("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is(defaultEnName));
     }
@@ -190,7 +212,9 @@ public class TextToSpeechServiceTest
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is("vi-vn-x-central"));
 
-        assertThat(mService.onIsLanguageAvailable("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        // Genuinely unsupported languages now report LANG_AVAILABLE so that
+        // screen readers don't skip the engine when other voices are loaded.
+        assertThat(mService.onIsLanguageAvailable("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "central");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is("vi-vn-x-central"));
@@ -269,5 +293,82 @@ public class TextToSpeechServiceTest
                 assertThat(features.size(), is(0));
             }
         }
+    }
+
+    private void setFilteredLanguages(String... voiceIds) {
+        Set<String> selected = new HashSet<>();
+        for (String id : voiceIds) {
+            selected.add(id);
+        }
+        PreferenceManager.getDefaultSharedPreferences(mContext)
+                .edit()
+                .putStringSet(LanguageSettings.PREF_SUPPORTED_LANGUAGES, selected)
+                .commit();
+        // SharedPreferences listener is dispatched on the main thread when
+        // commit() is called from a non-main thread, so the service's filter
+        // would otherwise rebuild asynchronously after our assertions run.
+        mService.rebuildAvailableVoicesNow();
+    }
+
+    @Test
+    public void testOnIsLanguageAvailable_filteredFallback() {
+        // Filter to Russian only.
+        setFilteredLanguages("rus");
+
+        // English is not in the filtered set, but Russian is available.
+        // Should report LANG_AVAILABLE so screen readers don't skip this engine.
+        assertThat(mService.onIsLanguageAvailable("eng", "", ""),
+                isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+    }
+
+    @Test
+    public void testOnLoadLanguage_filteredFallback_freshStart() {
+        // Filter to Russian only.
+        setFilteredLanguages("rus");
+
+        // Fresh start: no voice loaded yet, requesting English.
+        // Should fall back to Russian and report LANG_AVAILABLE.
+        assertThat(mService.onLoadLanguage("eng", "", ""),
+                isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("ru"));
+    }
+
+    @Test
+    public void testOnLoadLanguage_filteredFallback_reusesExistingVoice() {
+        // Load Russian first.
+        assertThat(mService.onLoadLanguage("rus", "", ""),
+                isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(mService.getActiveVoice().name, is("ru"));
+
+        // Now filter to Russian only.
+        setFilteredLanguages("rus");
+
+        // Request English — should keep the previously loaded Russian voice.
+        assertThat(mService.onLoadLanguage("eng", "", ""),
+                isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("ru"));
+    }
+
+    @Test
+    public void testSelectLanguageWithFallback_filteredToRussianOnly() {
+        // Filter to Russian only.
+        setFilteredLanguages("rus");
+
+        // Fresh start: requesting English should fall back to Russian.
+        int result = mService.selectLanguageWithFallback("eng", "", "");
+        assertThat(result, is(TextToSpeech.SUCCESS));
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("ru"));
+    }
+
+    @Test
+    public void testSelectLanguageWithFallback_supportedLanguageStillWorks() {
+        // With all languages available, requesting English should work normally.
+        int result = mService.selectLanguageWithFallback("eng", "", "");
+        assertThat(result, is(TextToSpeech.SUCCESS));
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, startsWith("en-gb"));
     }
 }
