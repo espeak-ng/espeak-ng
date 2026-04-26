@@ -386,7 +386,7 @@ public class TtsService extends TextToSpeechService {
         mEngine.synthesize(text, text.startsWith("<speak"));
     }
 
-    private void rebuildAvailableVoices() {
+    protected void rebuildAvailableVoices() {
         synchronized (mAvailableVoices) {
             mAvailableVoices.clear();
             List<Voice> voices = mAllVoices;

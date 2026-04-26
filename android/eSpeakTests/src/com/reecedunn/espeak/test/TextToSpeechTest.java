@@ -165,7 +165,9 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         assertThat(getEngine(), is(notNullValue()));
 
         Locale initialLocale = getLanguage(getEngine());
-        assertThat(getEngine().isLanguageAvailable(new Locale("cel")), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        // Engine now reports LANG_AVAILABLE for unsupported languages when any
+        // voice is loaded so screen readers don't skip the engine.
+        assertThat(getEngine().isLanguageAvailable(new Locale("cel")), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         Locale language = getLanguage(getEngine());
 
         assertThat(getLanguage(getEngine()).getLanguage(), is(initialLocale.getLanguage()));

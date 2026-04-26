@@ -77,6 +77,10 @@ public class TextToSpeechServiceTest
             return super.selectLanguageWithFallback(language, country, variant);
         }
 
+        public void rebuildAvailableVoicesNow() {
+            rebuildAvailableVoices();
+        }
+
         @SuppressLint("NewApi")
         private android.speech.tts.Voice getVoice(String name) {
             for (android.speech.tts.Voice voice : onGetVoices()) {
@@ -161,7 +165,10 @@ public class TextToSpeechServiceTest
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is(defaultEnName));
 
-        assertThat(mService.onLoadLanguage("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        // Genuinely unsupported languages now fall back to the previously
+        // loaded voice and report LANG_AVAILABLE so screen readers don't skip
+        // the engine.
+        assertThat(mService.onLoadLanguage("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is(defaultEnName));
     }
@@ -205,7 +212,9 @@ public class TextToSpeechServiceTest
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is("vi-vn-x-central"));
 
-        assertThat(mService.onIsLanguageAvailable("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        // Genuinely unsupported languages now report LANG_AVAILABLE so that
+        // screen readers don't skip the engine when other voices are loaded.
+        assertThat(mService.onIsLanguageAvailable("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "central");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is("vi-vn-x-central"));
@@ -295,6 +304,10 @@ public class TextToSpeechServiceTest
                 .edit()
                 .putStringSet(LanguageSettings.PREF_SUPPORTED_LANGUAGES, selected)
                 .commit();
+        // SharedPreferences listener is dispatched on the main thread when
+        // commit() is called from a non-main thread, so the service's filter
+        // would otherwise rebuild asynchronously after our assertions run.
+        mService.rebuildAvailableVoicesNow();
     }
 
     @Test
