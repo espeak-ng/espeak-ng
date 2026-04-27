@@ -14,7 +14,7 @@ target_link_libraries(
 set_target_properties(
   espeak-ng-bin PROPERTIES
   MACOSX_RPATH ON
-  INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib"
+  INSTALL_RPATH "${CMAKE_INSTALL_LIBDIR}"
 )
 if (MINGW)
   target_link_options(espeak-ng-bin PRIVATE "-static-libstdc++" "-static")

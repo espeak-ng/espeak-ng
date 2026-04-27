@@ -26,6 +26,7 @@ if (WITH_COVERAGE)
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
 endif()
 
+include(GNUInstallDirs)
 include(cmake/deps.cmake)
 include(cmake/config.cmake)
 add_subdirectory(src)
