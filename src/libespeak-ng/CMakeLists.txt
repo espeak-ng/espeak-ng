@@ -40,7 +40,7 @@ add_library(espeak-ng
 set_target_properties(
   espeak-ng PROPERTIES
   MACOSX_RPATH ON
-  INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib"
+  INSTALL_RPATH "${CMAKE_INSTALL_LIBDIR}"
 )
 
 target_include_directories(espeak-ng BEFORE PRIVATE $<TARGET_PROPERTY:espeak-include,INTERFACE_INCLUDE_DIRECTORIES>)
