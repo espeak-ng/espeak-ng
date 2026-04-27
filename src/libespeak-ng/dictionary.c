@@ -201,7 +201,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	int length;
 	FILE *f;
 	int size;
-	char fname[sizeof(path_home)+20];
+	char fname[N_PATH_BUF];
 
 	if (dictionary_name != name)
 		snprintf(dictionary_name, sizeof(dictionary_name), "%s", name); // currently loaded dictionary name
@@ -211,7 +211,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	// Load a pronunciation data file into memory
 	// bytes 0-3:  offset to rules data
 	// bytes 4-7:  number of hash table entries
-	sprintf(fname, "%s%c%s_dict", path_home, PATHSEP, name);
+	snprintf(fname, sizeof(fname), "%s%c%s_dict", path_home, PATHSEP, name);
 	size = GetFileLength(fname);
 
 	if (tr->data_dictlist != NULL) {

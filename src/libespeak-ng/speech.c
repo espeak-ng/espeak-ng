@@ -85,7 +85,7 @@ static espeak_ng_STATUS err = ENS_OK;
 
 static t_espeak_callback *synth_callback = NULL;
 
-char path_home[N_PATH_HOME]; // this is the espeak-ng-data directory
+char path_home[N_PATH_BUF]; // this is the espeak-ng-data directory
 extern int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
 
 void cancel_audio(void)
