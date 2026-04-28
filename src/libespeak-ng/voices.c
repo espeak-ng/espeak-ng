@@ -507,8 +507,9 @@ voice_t *LoadVoice(const char *vname, int control)
 		// append the variant file name to the voice identifier
 		if ((p = strchr(voice_identifier, '+')) != NULL)
 			*p = 0;    // remove previous variant name
-		sprintf(buf, "+%s", &vname[3]);    // omit  !v/  from the variant filename
-		strcat(voice_identifier, buf);
+		else
+			p = voice_identifier + strlen(voice_identifier);
+		snprintf(p, sizeof(voice_identifier) - (p - voice_identifier), "+%s", &vname[3]);    // omit  !v/  from the variant filename
 	}
 	VoiceReset(tone_only);
 
