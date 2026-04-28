@@ -921,7 +921,7 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 	// thousands_exact:  bit 0  no hundreds,tens,or units,  bit 1  ordinal numberr
 	int found;
 	int found_value = 0;
-	char string[14];
+	char string[26];
 	char ph_of[12];
 	char ph_thousands[N_PHONEME_BYTES];
 	char ph_buf[N_PHONEME_BYTES];
@@ -1026,7 +1026,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 	int found_ordinal = 0;
 	int next_phtype;
 	int ord_type = 'o';
-	char string[12]; // for looking up entries in *_list
+	char string[14]; // for looking up entries in *_list
 	char ph_ordinal[20];
 	char ph_tens[50];
 	char ph_digits[50];
@@ -1267,13 +1267,13 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 	int tplex;
 	bool say_zero_hundred = false;
 	bool say_one_hundred;
-	char string[12]; // for looking up entries in **_list
+	char string[14]; // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
 	char ph_100[N_PHONEME_BYTES];
 	char ph_10T[N_PHONEME_BYTES];
 	char ph_digits[50];
-	char ph_thousands[50];
+	char ph_thousands[211];
 	char ph_hundred_and[12];
 	char ph_thousand_and[12];
 

@@ -195,7 +195,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 	return NULL;
 }
 
-static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only)
+static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only)
 {
 	// Find the phoneme string (in ascii) to speak the name of character c
 	// Used for punctuation characters and symbols
@@ -277,7 +277,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int bufix1;
 	char buf[200];
 	char ph_buf[30];
-	char cn_buf[60];
+	char cn_buf[74];
 
 	c2 = *c2_ptr;
 	buf[0] = 0;
@@ -829,7 +829,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				char *p2;
 
 				p2 = &buf[ix];
-				char cn_buf[60];
+				char cn_buf[74];
 				sprintf(p2, "%s", LookupCharName(cn_buf, tr, c1, true));
 				if (p2[0] != 0) {
 					ix += strlen(p2);
