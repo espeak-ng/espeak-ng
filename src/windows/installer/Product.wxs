@@ -342,6 +342,9 @@
                 <Component Id="ru_dict" Guid="A243A313-6904-4396-B75A-082695CF3990">
                     <File Id="ru_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\ru_dict" />
                 </Component>
+                <Component Id="scn_dict" Guid="9C46F82D-3E31-4DB0-914B-19B48B8E77CB">
+                    <File Id="scn_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\scn_dict" />
+                </Component>
                 <Component Id="sd_dict" Guid="4DE21FF9-00D6-4897-B92F-D7F77B6B48CB">
                     <File Id="sd_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\sd_dict" />
                 </Component>
@@ -1562,6 +1565,7 @@
       <ComponentRef Id="qya_dict" />
       <ComponentRef Id="ro_dict" />
       <ComponentRef Id="ru_dict" />
+      <ComponentRef Id="scn_dict" />
       <ComponentRef Id="sd_dict" />
       <ComponentRef Id="shn_dict" />
       <ComponentRef Id="si_dict" />
