@@ -1,0 +1,192 @@
+﻿
+//====================================================
+//  Spanish  - based on Base2
+//====================================================
+
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 190
+  ChangeIfNotStressed(a/)
+  FMT(vowel/a_4)
+endphoneme
+
+phoneme a/
+  vwl starttype #a endtype #a
+  length 155
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/a_4, 85)
+  ENDIF
+  FMT(vowel/a_4, 95)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 190
+  ChangeIfNotStressed(e/)
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme e/
+  vwl starttype #e endtype #e
+  length 150
+  FMT(vowel/e_mid2, 90)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 175
+  ChangeIfNotStressed(e/)
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 190
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 195
+  ChangeIfNotStressed(o/)
+  IF nextPhW(n) THEN
+    length 160
+    FMT(vowel/o_mid2)
+  ENDIF
+  FMT(vowel/oo)
+endphoneme
+
+phoneme o/
+  vwl starttype #o endtype #o
+  length 155
+  IF thisPh(isWordEnd) THEN
+    FMT(vwl_es/oo_)
+  ENDIF
+  FMT(vowel/oo, 90)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme oI
+  vwl starttype #o endtype #i
+  length 245
+  IF thisPh(isWordEnd) OR prevPh(r) THEN
+    length 260
+    FMT(vwl_es/ooi_)
+  ENDIF
+  FMT(vwl_es/ooi)
+endphoneme
+
+
+phoneme g
+  vcd vel stp
+  lengthmod 5
+  voicingswitch k
+  Vowelin  f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) THEN
+    ELSE
+      ChangePhoneme(Q)
+    ENDIF
+  ENDIF
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2)        // weaker [g]
+endphoneme
+
+phoneme d
+  vcd dnt stp
+
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(j) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) OR prevPh(l) THEN
+    ELSE
+      ChangePhoneme(D)
+    ENDIF
+  ENDIF
+
+  CALL base2/d
+endphoneme
+
+phoneme b
+  vcd blb stp
+
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) THEN
+    ELSE
+      ChangePhoneme(B)
+    ENDIF
+  ENDIF
+
+  CALL base1/b
+endphoneme
+
+
+phoneme D
+  vcd dnt frc
+  lengthmod 6
+  voicingswitch T
+  CALL base1/D
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh, 35)   // weaker 
+  ENDIF
+endphoneme
+
+
+phoneme s
+  vls alv frc sib
+  lengthmod 3
+  voicingswitch  z
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_2, 60)    // quieter 's' at end of word
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!2)
+  ENDIF
+  WAV(ufric/s2, 80)
+endphoneme
+
+
+phoneme v#   // a shorter [v], a little towards [b]
+  vcd lbd frc
+  ipa ʋ
+  lengthmod 6
+  voicingswitch f
+  Vowelin  f1=1  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=10
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v, 80)
+  ENDIF
+  FMT(voc/v2) addWav(vocw/v, 80)
+endphoneme
+
+
+phoneme r
+  vcd alv flp rhotic
+  brkafter
+  ipa ɾ
+  lengthmod 3
+
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(**)
+  ENDIF
+
+  CALL base1/*
+endphoneme
+
