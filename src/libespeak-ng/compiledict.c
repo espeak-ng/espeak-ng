@@ -717,7 +717,7 @@ static int compile_dictlist_file(CompileContext *ctx, const char *path, const ch
 	int count = 0;
 	FILE *f_in;
 	char buf[200];
-	char fname[sizeof(path_home)+45];
+	char fname[N_PATH_BUF];
 	char dict_line[256]; // length is uint8_t, so an entry can't take up more than 256 bytes
 
 	ctx->text_mode = false;
@@ -1534,9 +1534,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	FILE *f_out;
 	int offset_rules = 0;
 	int value;
-	char fname_in[sizeof(path_home)+45];
-	char fname_out[sizeof(path_home)+15];
-	char path[sizeof(path_home)+40];       // path_dsource+20
+	char fname_in[N_PATH_BUF];
+	char fname_out[N_PATH_BUF];
+	char path[N_PATH_BUF];
 
 	CompileContext *ctx = calloc(1, sizeof(CompileContext));
 
@@ -1554,17 +1554,17 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 		ctx->f_log = stderr;
 
 	// try with and without '.txt' extension
-	sprintf(path, "%s%s_", dsource, dict_name);
-	sprintf(fname_in, "%srules.txt", path);
+	snprintf(path, sizeof(path), "%s%s_", dsource, dict_name);
+	snprintf(fname_in, sizeof(fname_in), "%srules.txt", path);
 	if ((f_in = fopen(fname_in, "r")) == NULL) {
-		sprintf(fname_in, "%srules", path);
+		snprintf(fname_in, sizeof(fname_in), "%srules", path);
 		if ((f_in = fopen(fname_in, "r")) == NULL) {
 			clean_context(ctx);
 			return create_file_error_context(context, errno, fname_in);
 		}
 	}
 
-	sprintf(fname_out, "%s%c%s_dict", path_home, PATHSEP, dict_name);
+	snprintf(fname_out, sizeof(fname_out), "%s%c%s_dict", path_home, PATHSEP, dict_name);
 	if ((f_out = fopen(fname_out, "wb+")) == NULL) {
 		int error = errno;
 		fclose(f_in);

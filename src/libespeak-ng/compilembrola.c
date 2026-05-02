@@ -63,8 +63,8 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 	char phoneme2[40];
 	char name1[40];
 	char name2[40];
-	char mbrola_voice[40];
-	char buf[sizeof(path_home)+30];
+	char mbrola_voice[NAME_MAX];
+	char buf[N_PATH_BUF];
 	int mbrola_ctrl = 20; // volume in 1/16 ths
 	MBROLA_TAB data[N_PHONEME_TAB];
 
@@ -106,7 +106,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 	fclose(f_in);
 
 	strcpy(mbrola_voice, basename(filepath));
-	sprintf(buf, "%s/mbrola_ph/%s_phtrans", path_home, mbrola_voice);
+	snprintf(buf, sizeof(buf), "%s/mbrola_ph/%s_phtrans", path_home, mbrola_voice);
 	if ((f_out = fopen(buf, "wb")) == NULL)
 		return create_file_error_context(context, errno, buf);
 

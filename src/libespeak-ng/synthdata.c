@@ -69,9 +69,9 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 
 	FILE *f_in;
 	int length;
-	char buf[sizeof(path_home)+40];
+	char buf[N_PATH_BUF];
 
-	sprintf(buf, "%s%c%s", path_home, PATHSEP, fname);
+	snprintf(buf, sizeof(buf), "%s%c%s", path_home, PATHSEP, fname);
 	length = GetFileLength(buf);
 	if (length < 0) // length == -errno
 		return create_file_error_context(context, -length, buf);

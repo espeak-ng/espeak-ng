@@ -50,8 +50,8 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	FILE *f;
 	unsigned char *p;
 	int length;
-	char fname_temp[100];
-	char fname2[sizeof(path_home)+13+40];
+	char fname_temp[N_PATH_BUF];
+	char fname2[N_PATH_BUF];
 
 	if (fname == NULL) {
 		// filename is already in the table
@@ -63,7 +63,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 
 	if (fname[0] != '/') {
 		// a relative path, look in espeak-ng-data/soundicons
-		sprintf(fname2, "%s%csoundicons%c%s", path_home, PATHSEP, PATHSEP, fname);
+		snprintf(fname2, sizeof(fname2), "%s%csoundicons%c%s", path_home, PATHSEP, PATHSEP, fname);
 		fname = fname2;
 	}
 
