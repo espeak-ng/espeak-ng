@@ -1,0 +1,11 @@
+name Sicilian
+language scn
+
+maintainer Richard Calvi <richard.calvi@gmail.com>
+status testing
+
+phonemes scn
+
+apostrophe 1
+
+tunes s4 c4 q4 e4

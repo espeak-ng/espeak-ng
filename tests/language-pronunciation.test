@@ -125,6 +125,41 @@ test_phon is "c'aI:mI n'i:; 'WksI hj'E:_|R
 'I:JIsd Tj'oU:vym n'u: b'aI:DI v'i:l#_:_: O:x 'aUd@-RE:ba
 s'aI:vW_|R g@-Rj'E:d 'aU:Dan_:_: Tvi:; 'ulban va:_|R 'oU:nid" "Kæmi ný öxi hér, ykist þjófum nú bæði víl og ádrepa. Sævör grét áðan því úlpan var ónýt." "Latn"
 test_phon it "kwel f'Ets zg'embo k'Op@-*e dav'antI" "Quel fez sghembo copre davanti" "Latn"
+test_phon scn "b'Ed.0d.U siS'ilja
+C'umI
+S:'a*a E S:'ankU" "Beddu Sicilia, ciumi, sciara e xancu." "Latn"
+test_phon scn "un J'O*nU t.r.'i J0J'O*na kI J0J'O*nU" "un jornu
+tri jorna
+chi jornu" "Latn"
+test_phon scn "lu sp'ats:jU n kw'i" "lu spazziu 'n cui" "Latn"
+test_phon scn "'Oc0cU v'OJ0JU c0c'u J0J'Ot:a" "occhiu
+vogghiu
+cchiù
+gghiotta" "Latn"
+test_phon scn "p'its:a m'EndzU ts'itU" "pizza
+menzu
+zitu" "Latn"
+test_phon scn "'a: sk*'ivi*,I; 'O: tj'at.r.U d'u: l'ib:*U" "hâ scrìviri
+ô tiatru
+dû libbru" "Latn"
+test_phon scn "m'i;a ma*'i;a siS'ilja pj'anU" "mia
+Maria
+Sicilia
+pianu" "Latn"
+test_phon scn "s'aN:U k'ap:a 'ak:a k:'a" "sangu
+k
+h
+kka" "Latn"
+test_phon scn "'af:a 'av:a 'al:a" "affa
+avva
+alla" "Latn"
+test_phon scn "'ERE 'ERE s'Essa" "r
+erre
+sessa" "Latn"
+test_phon scn "E 'ERE 'O n'OvI" "e
+erre
+o
+novi" "Latn"
 test_phon ja ",ir\`oh,anihoh'eto
 t_s\\,ir\`inur\`'uo
 w,akaj,otar\`'eso
