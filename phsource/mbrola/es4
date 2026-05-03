@@ -1,46 +1,61 @@
 volume 15
+
 0  a   NULL  0   a
 0  a/  NULL  0   a
 0  a:  NULL  50  a   a
+0  aI  NULL  60  a   i
+0  aU  NULL  60  a   u
 0  B   NULL  0   b
 0  b   NULL  0   b
 0  D   NULL  0   d
+0  d   NULL  0   d
 0  E   NULL  0   e
 0  e   NULL  0   e
 0  e/  NULL  0   e
 0  e:  NULL  50  e   e
+0  eI  NULL  60  e   i
+0  eU  NULL  60  e   u
 0  f   NULL  0   f
 0  g   NULL  0   g
-0  h   NULL  0   jj
+0  h   NULL  0   NULL
 0  i   NULL  0   i
 0  i:  NULL  50  i   i
 0  y   NULL  0   i
-0  j   NULL  0   j
+0  j   NULL  0   i
+0  J^  NULL  0   i
 0  k   NULL  0   k
-0  l   NULL  0   L
-0  l^ NULL   0  L
-0  l/  NULL  0   L
+0  l   NULL  0   l
+0  l^  NULL  0   L
+0  l/  NULL  0   l
 0  m   NULL  0   m
-0  n^  NULL  0   J
 0  N   NULL  0   n
 0  n   NULL  0   n
-0  **  NULL  0   jj
+0  n^  NULL  0   J
 0  o   NULL  0   o
 0  o/  NULL  0   o
 0  o:  NULL  50  o   o
+0  oI  NULL  60  o   i
 0  p   NULL  0   p
-0  Q   NULL  0   jj
+0  Q   NULL  0   g
 0  q   NULL  0   k
+0  **  NULL  0   r
 0  r   NULL  0   r
 0  R   NULL  0   rr
+0  R2  NULL  0   rr
 0  s   NULL  0   s
 0  T   NULL  0   T
 0  t   NULL  0   t
-0  tS  NULL  0   tS
 0  u   NULL  0   u
 0  u:  NULL  50  u   u
 0  v   NULL  0   b
 0  v#  NULL  0   b
-0  w   NULL  0   b
+0  w   NULL  0   u
 0  x   NULL  0   x
 0  z   NULL  0   z
+
+0  dZ  NULL  60  tS
+0  tS  NULL  0   tS
+0  ts  NULL  50  t   s
+0  S   NULL  90  s i
+0  Z   NULL  90  s i
+0  ;   NULL  0   NULL
