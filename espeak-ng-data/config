@@ -1,0 +1,4 @@
+// Sample configuration file
+// These settings overwrite the settings in a language file
+
+// See docs/voices.md and espeak-ng-data/lang/*/* for examples.
