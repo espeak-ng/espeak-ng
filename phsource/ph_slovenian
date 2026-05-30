@@ -91,7 +91,12 @@ endphoneme
 
 
 phoneme v
-  import_phoneme base1/v#
+  vcd lbd frc
+  ipa v
+  lengthmod 2
+  Vowelin   f1=0  f2=800    200 300
+  Vowelout  f1=0  f2=800    200 300
+  FMT(voc/v, 50) addWav(vocw/v, 125)
 endphoneme
 
 
