@@ -129,6 +129,22 @@ _1M10   n'oniljo:ns
 _0M10   n'oniljo:ni
 _dpt    k'omats_
 
+// inflected ordinal endings — agreement (case/gender/number) with the following word
+// The number engine (numbers.c, lang=lv) strips the nominative "-ais" of an ordinal
+// and appends one of these endings, chosen from the following word's ending.
+_oe2    aja:    // locative sg            (1. maijā  -> pirmajā)
+_oe3    a:      // gen masc sg / nom fem sg  (1. vieta -> pirmā)
+_oe4    ajam    // dat masc sg
+_oe5    uo      // acc sg / instr sg / gen pl
+_oe6    ajai    // dat fem sg
+_oe7    a:s     // gen fem sg / nom+acc fem pl
+_oe8    ie      // nom masc pl
+_oe9    ajiem   // dat masc pl
+_oe10   uos     // acc masc pl
+_oe11   ajuos   // loc masc pl
+_oe12   aja:m   // dat fem pl
+_oe13   aja:s   // loc fem pl
+
 // ordinal numbers
 _1o     p'iRmais
 _2o     'otRais
