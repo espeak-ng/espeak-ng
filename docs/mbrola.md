@@ -9,7 +9,7 @@
 - [Adding new MBROLA voice entry to eSpeak NG](#adding-new-mbrola-voice-entry-to-espeak-ng)
   - [1. Add MBROLA voice definition file](#1-add-mbrola-voice-definition-file)
   - [2. Add MBROLA phoneme translation file](#2-add-mbrola-phoneme-translation-file)
-  - [3. Compile voice and update Makefile.am file](#3-compile-voice-and-update-makefileam-file)
+  - [3. Compile voice](#3-compile-voice)
 
 ----------
 
@@ -220,7 +220,7 @@ To add new MBROLA voice entry for eSpeak NG you have to:
 
 1. add MBROLA voice definition file,
 2. add MBROLA phoneme translation file,
-3. update Makefile.am file and compile voice.
+3. compile voice.
 
 These steps are described in details in following sections.
 
@@ -336,28 +336,25 @@ where `/usr/share/mbrola/en1/en1` is location of the voice file.
 When phoneme translation source file is compiled (look at next section)
 `espeak-ng-data/mbrola_ph/xxN_phtrans` file is created.
 
-### 3. Compile voice and update Makefile.am file
+### 3. Compile voice
 
-Separate MBROLA voice can be compiled using comand:
+Separate MBROLA voice can be compiled using command:
 
-	espeak-ng --compile-mbrola=<xxN>
+	espeak-ng --compile-mbrola=phsource/mbrola/<xxN>
 
-where `xxN` is MBROLA voice name.
+where `phsource/mbrola/<xxN>` is the path to the MBROLA phoneme translation
+source file (e.g. `phsource/mbrola/en1`).
 
-`Makefile.am` is build configuration file which should be extended, to include automatic compilation
-of newly added MBROLA voice for eSpeak NG.
-
-Search for  `mbrola: \` line in `Makefile.am` and add additional line for newly created MBROLA voice, e.g.:
-
-	mbrola: \
-	...
-	espeak-ng-data/mbrola_ph/xxN_phtrans \
+The CMake build system in `cmake/data.cmake` handles automatic compilation
+of MBROLA voices. To add a newly created MBROLA voice, add its identifier
+to the `_mbrola_lang_list` in `cmake/data.cmake`.
 
 Note that it could be that several voices share the same translation file. Then translation file
 is named just `xx`.
 
-When `Makefile.am` is update, when espek-ng will be compiled, e.g. by
-entering command `automake; make -B` newly added MBROLA voice will be compiled automatically.
+After updating the list, rebuild with:
+
+	cmake --build build --target data
 
 <a name="footnote1">1</a>: You can get list of configured entries for MBROLA synthesizer with following command
 in espeak-ng project folder:

@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
+        classpath 'com.android.tools.build:gradle:8.13.2'
     }
 }
 plugins {
@@ -22,24 +22,28 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'org.hamcrest:hamcrest-all:1.3'
+    androidTestImplementation 'org.hamcrest:hamcrest:2.2'
+    androidTestImplementation 'org.hamcrest:hamcrest-core:2.2'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test:core:1.6.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
 }
 
 android {
-    compileSdk 34
-    buildToolsVersion "34.0.0"
-    ndkVersion "26.1.10909125"
-    namespace "com.reecedunn.espeak"
+    compileSdk = 34
+    ndkVersion = "29.0.14206865"
+    namespace = "com.reecedunn.espeak"
 
     buildFeatures {
         buildConfig = true
     }
 
     defaultConfig {
-        minSdk 21
-        targetSdk 33
-        versionCode 22
-        versionName "1.52.0"
+        minSdk = 21
+        targetSdk = 33
+        versionCode = 22
+        versionName = "1.52.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         externalNativeBuild {
             cmake {
@@ -51,8 +55,8 @@ android {
 
     externalNativeBuild {
         cmake {
-            path "jni/CMakeLists.txt"
-            version "3.22.1"
+            path = "jni/CMakeLists.txt"
+            version = "3.22.1"
         }
     }
 
@@ -69,7 +73,7 @@ android {
     }
 
     lint {
-        abortOnError false
+        abortOnError = false
     }
 }
 
@@ -124,6 +128,12 @@ project.afterEvaluate {
     tasks.named('mapDebugSourceSetPaths') {
         dependsOn ':createDataVersion', ':createDataArchive'
     }
+    tasks.named('generateDebugResources') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('processDebugNavigationResources') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
     tasks.named('mergeDebugResources') {
         dependsOn ':createDataVersion', ':createDataArchive'
     }
@@ -131,6 +141,12 @@ project.afterEvaluate {
         dependsOn ':createDataVersion', ':createDataArchive'
     }
     tasks.named('mapReleaseSourceSetPaths') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('generateReleaseResources') {
+        dependsOn ':createDataVersion', ':createDataArchive'
+    }
+    tasks.named('processReleaseNavigationResources') {
         dependsOn ':createDataVersion', ':createDataArchive'
     }
     tasks.named('mergeReleaseResources') {

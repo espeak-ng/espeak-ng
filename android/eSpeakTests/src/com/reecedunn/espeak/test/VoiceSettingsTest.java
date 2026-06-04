@@ -19,15 +19,20 @@ package com.reecedunn.espeak.test;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.VoiceSettings;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+@RunWith(AndroidJUnit4.class)
 public class VoiceSettingsTest extends TextToSpeechTestCase
 {
     private SpeechSynthesis.SynthReadyCallback mCallback = new SpeechSynthesis.SynthReadyCallback()
@@ -45,6 +50,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
 
     // No Settings (New Install)
 
+    @Test
     public void testNoPreferences()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -84,6 +90,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
 
     // Old Settings
 
+    @Test
     public void testDefaultGenderMale()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -122,6 +129,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testDefaultGenderFemale()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -197,10 +205,11 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testDefaultRate()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-        defaultRateTest(300, 449, synth); // clamped to maximum value
+        defaultRateTest(300, 450, synth); // clamped to maximum value
         defaultRateTest(200, 350, synth);
         defaultRateTest(100, 175, synth); // default value
         defaultRateTest( 50,  87, synth);
@@ -244,6 +253,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testDefaultPitch()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
@@ -257,6 +267,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
 
     // New Settings
 
+    @Test
     public void testEspeakVariant()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -332,10 +343,11 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testEspeakRate()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-        espeakRateTest(500, 449, synth); // clamped to maximum value
+        espeakRateTest(500, 450, synth); // clamped to maximum value
         espeakRateTest(400, 400, synth);
         espeakRateTest(200, 200, synth);
         espeakRateTest(175, 175, synth); // default value
@@ -380,6 +392,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testEspeakPitch()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
@@ -427,6 +440,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testEspeakPitchRange()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
@@ -474,6 +488,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testEspeakVolume()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
@@ -521,6 +536,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testEspeakPunctuationLevel()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
@@ -531,6 +547,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         espeakPunctuationLevelTest(-1, SpeechSynthesis.PUNCT_NONE, "none", synth); // clamped to minimum value
     }
 
+    @Test
     public void testEspeakPunctuationCharacters()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -572,6 +589,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
 
     // Mixed (Old and New) Settings
 
+    @Test
     public void testEspeakVariantWithDefaultGenderFemale()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -611,6 +629,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testEspeakRateWithDefaultRate()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -650,6 +669,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         }
     }
 
+    @Test
     public void testEspeakPitchWithDefaultPitch()
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

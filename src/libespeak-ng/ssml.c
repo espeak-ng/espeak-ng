@@ -1012,7 +1012,7 @@ int ParseSsmlReference(char *ref, int *c1, int *c2) {
 	if (ref[0] == '#') {
 		// character reference
 		if (ref[1] == 'x')
-			return sscanf(&ref[2], "%x", c1);
+			return sscanf(&ref[2], "%x", (unsigned int *)c1);
 		else
 			return sscanf(&ref[1], "%d", c1);
 	} else { 

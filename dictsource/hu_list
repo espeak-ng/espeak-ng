@@ -418,6 +418,14 @@ szellemiségében	$alt3
 szellemiségégbe	$alt3
 szellemiségével	$alt3
 éjfélkor	$alt3
+akárcsak	$alt3
+szintén	$alt3
+ami	$alt3
+éppen	$alt3
+nagypéntek	$alt3
+presztízsharc $alt3
+délután $alt3
+délutánját $alt3
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -737,7 +745,7 @@ mindent	$strend
 //részben	$u	// partly
 
 egyik	$unstressend	// one of
-//másik	$u	// the other
+másik	$u $alt3	// the other
 lehet	$unstressend
 rossz	$unstressend
 jó	$unstressend
@@ -1369,7 +1377,7 @@ célok	$unstressend
 növelése	$unstressend
 oldal	$unstressend
 cégek	$unstressend
-fontos	$unstressend
+fontos	$unstressend $alt3
 halasztott	$unstressend
 érdekében	$unstressend
 érdek	$unstressend
@@ -4798,7 +4806,7 @@ azután	$unstressend
 vitába	$unstressend
 múltról	$unstressend
 munkahely	$unstressend
-pedig	$unstressend
+pedig	$unstressend $alt3
 vitában	$unstressend
 (ki kell mondani) ki_||kEl:_||mondAni	$unstressend
 (lehet venni) lEhEt_'||vEn:i	$unstressend
