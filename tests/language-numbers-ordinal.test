@@ -27,3 +27,13 @@ d'esmitais g'ads" "1. gads. 2. gads. 3. gads. 4. gads. 5. gads. 6. gads. 7. gads
 test_phon lv "s'imtais g'ads
 t'u:kstuo:Sais g'ads
 d'evin^i t'u:kstuo:Sais g'ads" "100. gads. 1000. gads. 9000. gads"
+# ordinal agrees in case/gender/number with the following word (locative)
+test_phon lv "p'iRmaja: m'aijja:
+'uotRaja: m'aijja:
+d'esmitaja: m'aijja:
+d'ivdesmit p'iRmaja: m'aijja:
+s'imtaja: m'aijja:" "1. maijā. 2. maijā. 10. maijā. 21. maijā. 100. maijā." "inflected locative"
+# feminine nominative, masculine genitive, feminine dative
+test_phon lv "p'iRma: v'ieta
+p'iRma: m'aijja
+p'iektajai v'ietai" "1. vieta. 1. maija. 5. vietai." "inflected case/gender"
