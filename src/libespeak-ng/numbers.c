@@ -77,6 +77,7 @@ static char *digit_lookup;
 static int speak_missing_thousands;
 static int number_control;
 static int ordinal_case_lv; // lang=lv: grammatical case of an ordinal number, inferred from the following word (0/1 = nominative)
+static int cardinal_case_lv; // lang=lv: case/gender bucket of a cardinal number, inferred from the counted noun (0/1 = nominative masculine)
 
 typedef struct {
 	const char *name;
@@ -752,6 +753,61 @@ static void lv_apply_ordinal_case(Translator *tr, char *ph)
 	}
 }
 
+// lang=lv: infer the case/gender of a cardinal number from the orthographic ending of the
+// counted noun that follows it, returning a bucket id used to look up the inflected cardinal
+// form (_<n>k<id> in lv_list). Bucket 1 (and 0) = nominative masculine = no change.
+// Like lv_ordinal_case the mapping is heuristic, but tuned for a counted noun: counted nouns
+// after 2-9 are plural, and e.g. -us is most often accusative plural (piecus metrus).
+static int lv_cardinal_case(const char *next_word)
+{
+	if (next_word == NULL)
+		return 1;
+	while (*next_word == ' ')
+		next_word++;
+
+	const char *end = next_word;
+	while ((*end != 0) && (*end != ' '))
+		end++;
+	int len = (int)(end - next_word);
+	if (len < 1)
+		return 1;
+
+	#define LV_ENDS(suffix) ((len >= (int)(sizeof(suffix)-1)) && (memcmp(end - (sizeof(suffix)-1), suffix, sizeof(suffix)-1) == 0))
+
+	if (LV_ENDS("iem")) return 9;                                            // dat masc pl   (pieciem)
+	if (LV_ENDS("\xc4\x81m") || LV_ENDS("\xc4\x93m") || LV_ENDS("\xc4\xabm")) return 10; // ām/ēm/īm dat fem pl (piecām)
+	if (LV_ENDS("\xc4\x81s") || LV_ENDS("\xc4\x93s") || LV_ENDS("\xc4\xabs")) return 11; // ās/ēs/īs loc fem pl (piecās)
+	if (LV_ENDS("os")) return 12;                                            // loc masc pl   (piecos)
+	if (LV_ENDS("us")) return 13;                                            // acc masc pl   (piecus)
+	if (LV_ENDS("\xc4\x81") || LV_ENDS("\xc4\xab") || LV_ENDS("\xc4\x93")) return 7; // ā/ī/ē loc sg (vienā)
+	if (LV_ENDS("am") || LV_ENDS("im") || LV_ENDS("um")) return 4;           // dat masc sg   (vienam)
+	if (LV_ENDS("ai") || LV_ENDS("ei")) return 5;                            // dat fem sg    (vienai)
+	if (LV_ENDS("ie")) return 8;                                             // nom masc pl   (default)
+	if (LV_ENDS("as") || LV_ENDS("es")) return 3;                            // nom+acc fem pl / gen fem sg (piecas / vienas)
+	if (LV_ENDS("is") || LV_ENDS("s")) return 1;                             // nom masc sg   (default)
+	if (LV_ENDS("a") || LV_ENDS("e")) return 2;                              // nom fem sg    (viena)
+	if (LV_ENDS("i")) return 8;                                              // nom masc pl   (default)
+	if (LV_ENDS("u")) return 6;                                              // acc sg / gen pl (vienu / piecu)
+
+	#undef LV_ENDS
+	return 1;
+}
+
+// lang=lv: replace a cardinal number's default (nominative masculine) form with the
+// case/gender-specific form _<n>k<bucket> from lv_list. No-op when no inflected form exists
+// (invariable numbers like 3/10/teens, or the default masculine bucket).
+static void lv_apply_cardinal_form(Translator *tr, int n, char *ph)
+{
+	char form[60];
+	char key[12];
+
+	if (cardinal_case_lv < 2)
+		return; // 0/1 = nominative masculine, leave unchanged
+	sprintf(key, "_%dk%d", n, cardinal_case_lv);
+	if (Lookup(tr, key, form))
+		strcpy(ph, form);
+}
+
 static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB *wtab, int roman)
 {
 	int ordinal = 0;
@@ -1172,6 +1228,8 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 					}
 				}
 			}
+			if (found && (control & 0x400))
+				lv_apply_cardinal_form(tr, value, ph_digits); // lang=lv: inflect a standalone cardinal (1-9)
 		}
 
 		// no, speak as tens+units
@@ -1250,6 +1308,8 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 							sprintf(string, "_%d", units);
 							Lookup(tr, string, ph_digits);
 						}
+						if (control & 0x400)
+							lv_apply_cardinal_form(tr, units, ph_digits); // lang=lv: inflect final units of a compound cardinal
 					}
 				}
 			}
@@ -1507,6 +1567,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 			x |= 0x10;
 		}
 
+		if (thousandplex == 0)
+			x |= 0x400; // lang=lv: this is the final units element, eligible for cardinal case/gender agreement
 		if (LookupNum2(tr, tensunits, thousandplex, x | (control & 0x100), buf2) != 0) {
 			if (tr->langopts.numbers & NUM_SINGLE_AND)
 				ph_hundred_and[0] = 0; // don't put 'and' after 'hundred' if there's 'and' between tens and units
@@ -1588,6 +1650,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 	digit_lookup = buf_digit_lookup;
 	number_control = control;
 	ordinal_case_lv = 0;
+	cardinal_case_lv = 0;
 
 	for (ix = 0; IsDigit09(word[ix]); ix++) ;
 	n_digits = ix;
@@ -1618,6 +1681,15 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 	if (prev_thousands || (word[0] != '0')) {
 		// don't check for ordinal if the number has a leading zero
 		ordinal = CheckDotOrdinal(tr, word, &word[ix], wtab, 0);
+	}
+
+	if ((ordinal == 0) && (tr->translator_name == L('l', 'v'))) {
+		// lang=lv: a cardinal number agrees in case/gender with the counted noun that follows it
+		char *p = &word[ix];
+		while ((*p != 0) && (IsDigit09(*p) || (*p == tr->langopts.thousands_sep)
+		       || ((*p == ' ') && IsDigit09(p[1])) || ((*p == '.') && IsDigit09(p[1]))))
+			p++;
+		cardinal_case_lv = lv_cardinal_case(p);
 	}
 
 	if ((word[ix] == '.') && !IsDigit09(word[ix+1]) && !IsDigit09(word[ix+2]) && !(wtab[1].flags & FLAG_NOSPACE)) {
