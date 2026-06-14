@@ -124,6 +124,7 @@
 	n) dere (_	=deRe
 	_) dall' (P5t	dall
 	_) dell' (P5t	dell
+	_) dev' (P4t	dEv  // deve + elision before vowel
 	_) dov' (P4t	dOv  // dove + elision before vowel
 	_) d' (P2t	d
 	donat (Y_	don'at
@@ -555,6 +556,7 @@
 	_) quell' (P6t	kwell
 	_) quest' (P6t	kwest
 	_) quant' (P6t	kwant
+	_) quand' (P6t	kwand
 	_) qualcos' (P8t	kwalkOs  // qualcosa + elision before vowel
 	_) quel 	kwel
 	_)quest (A_	kwest
@@ -606,6 +608,7 @@
 	_) s' (P2t	s
 	_) sull' (P5t	sull
 	_) sant' (P5t	sant
+	_) sott' (P5t	sot:
 	_sotto) s (A	_||s
 	sfere (_	sf'eRe
 	@) scer (L04_	=SE@-*  // pron.s verbs
