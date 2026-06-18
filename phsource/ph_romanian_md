@@ -1,0 +1,264 @@
+//===================================================================
+// Romanian (Republic of Moldova) - based on ph_russian
+//===================================================================
+
+// use 'flag1' for front vowels
+
+// Vowels
+
+phoneme I^          // "silent i", palatilizes the preceding consonant
+  vwl starttype #i endtype #i
+  unstressed
+  ipa ʲ
+  length 70
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(;)
+  ENDIF
+  IF prevPh(l;) THEN
+    length 60
+    FMT(vwl_ro/li)
+  ENDIF
+  IF prevPh(m;) THEN
+    FMT(vwl_ro/mi)
+  ENDIF
+  IF prevPh(n;) THEN
+    FMT(vwl_ro/ni)
+  ENDIF
+  FMT(vwl_ru/ii-)
+endphoneme
+
+phoneme a
+  vwl starttype #a endtype #a
+  ipa a
+  length 180
+  FMT(vwl_ru/a)
+endphoneme
+
+phoneme e
+  vwl flag1 starttype #e endtype #e
+  length 180
+  ipa e
+  FMT(vwl_ru/ee)
+endphoneme
+
+phoneme i/              // used for "i" at end of word
+  vwl flag1 starttype #i endtype #i
+  length 150
+  ipa i
+  ChangeIfNotStressed(I^)
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_final)
+endphoneme
+
+phoneme i
+  vwl flag1 starttype #i endtype #i
+  length 150
+  ipa i
+  FMT(vowel/ii_final)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  ipa o
+  length 170
+  FMT(vwl_ru/o)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  ipa u
+  length 160
+  FMT(vwl_ru/u)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  ipa ə
+  length 170
+  FMT(vowel/a#_3)
+endphoneme
+
+phoneme y
+  vwl flag1 starttype #@ endtype #@
+  ipa ɨ
+  length 180
+  FMT(vwl_ru/i#)
+endphoneme
+
+// Consonants
+
+phoneme r
+  import_phoneme base1/R2
+endphoneme
+
+phoneme l
+  import_phoneme en/l
+endphoneme
+
+phoneme m
+  vcd alv nas
+  ipa m
+  IF nextPh(isFlag1) THEN
+    ChangePhoneme(m;)      // front vowels (which used in Moldavian accents)
+  ENDIF
+  CALL base1/m
+endphoneme
+
+phoneme m;
+  vcd blb nas pzd
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+
+  IF KlattSynth THEN
+    Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/m_)
+    ENDIF
+    FMT(klatt/m)
+  ENDIF
+
+  FMT(m/mi)
+endphoneme
+
+phoneme n
+  vcd alv nas
+  ipa n
+  IF nextPh(isFlag1) THEN
+    ChangePhoneme(n;)      // front vowels (which used in Moldavian accents)
+  ENDIF
+  CALL base1/n
+endphoneme
+
+phoneme n;
+  vcd alv nas pzd
+  ipa nʲ 
+  lengthmod 3
+  length 100
+  Vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
+  Vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=70 colr=1
+
+  IF prevPh(isPause) THEN
+    FMT(n^/_n^)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(n^/n^_)
+  ELSE
+    FMT(n^/n^_)
+  ENDIF
+endphoneme
+
+phoneme tS   
+  vls pla afr sib
+  lengthmod 2
+
+  IF prevPhW(isVoiced) OR nextPhW(isVoiced) THEN
+    ChangePhoneme(tS;)                                 // ipa tɕ (which used in Moldavian accents)
+  ENDIF
+endphoneme
+
+phoneme h   
+  vls glt apr
+  lengthmod 3
+
+  IF prevPhW(isVoiced) OR nextPhW(isVoiced) THEN
+    ChangePhoneme(x) 	// ipa x (which used in Moldavian accents)
+  ENDIF
+endphoneme
+
+phoneme x
+  vls vel frc
+  ipa x
+  lengthmod 3
+  
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  
+    IF nextPh(isFlag1) THEN
+    WAV(ufric/ch)                                     // ipa xʲ (which used in Moldavian accents)    
+  ENDIF
+  CALL ru/x
+endphoneme
+
+phoneme g
+  vcd vel stp prevoice
+  ipa g
+  voicingswitch k
+  lengthmod 5
+
+  IF nextPh(isFlag1) THEN
+    ChangePhoneme(g;)                                 // ipa gʲ (which used in Moldavian accents)
+  ENDIF
+  CALL ru/g
+endphoneme
+
+phoneme g;
+  vcd vel stp pzd
+  ipa gʲ
+  lengthmod 5
+
+  Vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
+  Vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100 colr=1
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ELSE
+    FMT(g/g) addWav(x/g2, 150)
+  ENDIF
+endphoneme
+
+phoneme k
+  vls vel stp
+  ipa k
+  voicingswitch g
+  lengthmod 2
+
+  IF nextPh(isFlag1) THEN
+    ChangePhoneme(k;)                             // ipa kʲ (which used in Moldavian accents)
+  ENDIF
+  CALL consonants/k-
+endphoneme
+
+phoneme k;
+  vls vel stp pzd
+  ipa kʲ
+  lengthmod 2
+  voicingswitch g;
+
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
+  
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELSE
+    WAV(ustop/ki)
+  ENDIF
+endphoneme
+
+// Diphthongs
+//============
+
+phoneme ea
+  vwl flag1 starttype #i endtype #a
+  length 250
+  FMT(vdiph2/ea)
+endphoneme
+
+phoneme eI
+  vwl flag1 starttype #i endtype #i
+  length 250
+  FMT(vdiph/ei)
+endphoneme
+
+phoneme eo
+  vwl flag1 starttype #i endtype #o
+  length 270
+  FMT(vdiph2/eo)
+endphoneme
+
+phoneme eu
+  vwl flag1 starttype #i endtype #u
+  length 250
+  FMT(vdiph/eu)
+endphoneme

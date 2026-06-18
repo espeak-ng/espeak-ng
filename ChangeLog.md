@@ -10,7 +10,8 @@ The espeak-ng project is a fork of the espeak project.
 ### 1.53.0
 
 new languages:
-*  ps (Pashto) -- Hanif Rahman 
+*  ps (Pashto) -- Hanif Rahman
+*  ro-md (Romanian (Republic of Moldova)) -- Andy Vladescu 
 
 ### 1.52.0
 

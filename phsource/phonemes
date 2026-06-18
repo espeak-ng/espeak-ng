@@ -2078,3 +2078,6 @@ include ph_karakalpak
 
 phonemetable ps base1
 include ph_pashto
+
+phonemetable ro-md ro
+include ph_romanian_md
