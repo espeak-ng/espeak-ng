@@ -90,6 +90,11 @@ the logic to build the dictionary, phoneme and intonation binary files into the
 `libespeak-ng.so` file that is accessible from the `espeak-ng` command line and
 C API.
 
+## Related projects
+
+* **[espeak-ng-sapi](https://github.com/gozaltech/espeak-ng-sapi)** –  
+  A third-party Windows SAPI 5 engine implementation for eSpeak NG.
+
 ## History
 
 The program was originally known as __speak__ and originally written

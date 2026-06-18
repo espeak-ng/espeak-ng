@@ -33,7 +33,7 @@ to view and discuss other related topics.
 
 <a class="anchor" id="step5">5. Get familiar with [voice files](voices.md) and [phoneme tables](phontab.md) configuration files.
 
-<a class="anchor" id="step6">6. Make your improvements (i.e. additions or modifications) and check your project with `make check` command. Fix issues if necessary.
+<a class="anchor" id="step6">6. Make your improvements (i.e. additions or modifications) and check your project with `ctest --test-dir build --output-on-failure` command. Fix issues if necessary.
 
 <a class="anchor" id="step7">7. If you contribute to an existing language, find language maintainer in language configuration file located in `espeak-ng-data/lang` folder[<sup>1</sup>](#1) and ask him to review your changes. If you can't find language maintainer, you can review list of all contributors[<sup>2</sup>](#2) and contact them. You can also volunteer to become language maintainer just by updating [language configuration file](voices.md) and submitting your changes as it is described in [step 9](#9).
 
@@ -42,7 +42,7 @@ to view and discuss other related topics.
 Note that:
 
 1. Pull request can have one or many commits, but it should have single problem solved, which should be properly described in commits and in description of the pull request.
-2. `make check` on your local computer and remote checks of the pull request on the server must pass.
+2. `ctest --test-dir build --output-on-failure` on your local computer and remote checks of the pull request on the server must pass.
 3. There shouldn't be merging conflicts indicated.
 4. For new/extended functionality new automated tests should be created.
 5. There shouldn't be trivial changes only like code indentation, fixed typos, language style changes etc.

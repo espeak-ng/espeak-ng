@@ -40,7 +40,7 @@ add_library(espeak-ng
 set_target_properties(
   espeak-ng PROPERTIES
   MACOSX_RPATH ON
-  INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib"
+  INSTALL_RPATH "${CMAKE_INSTALL_FULL_LIBDIR}"
 )
 
 target_include_directories(espeak-ng BEFORE PRIVATE $<TARGET_PROPERTY:espeak-include,INTERFACE_INCLUDE_DIRECTORIES>)
@@ -107,6 +107,10 @@ if (HAVE_LIBPCAUDIO AND USE_LIBPCAUDIO)
   if (APPLE)
     target_link_libraries(espeak-ng PRIVATE "-framework CoreAudio" "-framework AudioToolbox" "-framework AudioUnit")
   endif()
+endif()
+
+if (HAVE_PTHREAD)
+  target_link_libraries(espeak-ng PRIVATE Threads::Threads)
 endif()
 
 target_link_libraries(espeak-ng PRIVATE espeak-ng-config ucd)

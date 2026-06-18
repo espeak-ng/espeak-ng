@@ -30,6 +30,7 @@ void espeak_srand(long seed);
 long espeak_rand(long min, long max);
 
 int IsAlpha(unsigned int c);
+int IsEmoji(unsigned int c);
 int IsBracket(int c);
 int IsDigit(unsigned int c);
 int IsDigit09(unsigned int c);

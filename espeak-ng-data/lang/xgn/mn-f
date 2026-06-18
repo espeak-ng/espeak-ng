@@ -1,0 +1,19 @@
+name Ankhmaa
+language mn 4
+
+pitch 140 210
+
+speed 85
+
+// Mongolian-specific female formant scaling derived from
+// acoustic analysis of Ankhmaa recordings vs Ganbaa (male).
+// Ratios: F1=112%, F2=117%, F3=111%
+formant 0 100 100 100
+formant 1 112 100 100
+formant 2 117 100 100
+formant 3 111 100 100
+
+breath 2  3  1  1  1  1
+breathw 100 100 100 100 100 100
+
+intonation 1

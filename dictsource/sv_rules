@@ -187,6 +187,7 @@
 .group d
         d          d
         d (d 
+        dj         j
         dagen      dA:gEn
         daglig     dA:glIg
         diske      dIskE
@@ -315,6 +316,10 @@
         familj     fam'Ilj
         formad     fORmad
         face       _^_EN
+        fn (_      mn
+     _) fj (ärd    fj
+     _) fj (ärr    fj
+     _) fj (äll    fj
 
 .group g
         g          g
@@ -326,8 +331,10 @@
         g (y       j
         g (ä       j
         g (ö       j
+     i) g (t_      
         g (t       k
-        g (n       N
+        gn         Nn
+     _) gn         gn
         gj         j
     lä) g (e       g
     vä) g          g
@@ -577,8 +584,12 @@
 .group r
         r          R
 	r) r 
+        rd         d.
+        rd (s      d.
+        rn         n.
+        rl         l.
+        rt         t.
         rs         s.
-        r (t	    //Silent
 
         rsi (o     Rsx'
         rsk        s.k
@@ -607,7 +618,7 @@
         sk (ö      sx
     fi) s (k       s
     fu) s (k       s
-        skj        S;
+        skj        sx
         stj        sx
         sio (n     sx'u:
         ssio (n    sx'u:
@@ -634,6 +645,7 @@
      _) sionist    si:o:n'Ist
      _) sh         sx
         sweden     _^_EN
+        samhäll    s'amhEl
 
 .group t
         t          t
@@ -648,6 +660,8 @@
         tagit      t'A:gIt
         tangent    tanjEnt
         teknik     tEkn'i:k
+     _) tion       sx'u:n
+        tions      sx'u:ns
 
 .group u
         u          u-
@@ -789,3 +803,21 @@
      *) * (* 
 ** 
     **) * (_       _::
+
+// === Phase 13: Prosody - suffix rules ===
+// Common Swedish suffixes for improved word splitting
+
+.group
+// -ighet suffix (common abstract noun ending)
+        ighet (_   Ig,e:t
+        igheten    Ig,e:tEn
+        igheter    Ig,e:tER
+
+// -else suffix
+        elsen (_   ElsEn
+        elser (_   ElsER
+
+// -ande/-ende suffix (present participle / gerund)
+        ande (_    andE
+        ende (_    EndE
+

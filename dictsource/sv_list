@@ -39,7 +39,7 @@ z	s'E:ta
 _é	$accent
 
 
-_cap	st'u:Rt
+_cap	st'u:t.
 _?A	b'u:kstavE-n
 _??	s'ymbu:lE-n
 _#32	bl'aNk
@@ -82,15 +82,15 @@ _10	t'i:;u:
 _11	'Elva
 _12	t'Olv
 _13	tR'EtOn
-_14	fj'u:RtOn
+_14	fj'u:t.On
 _15	f'EmtOn
 _16	s'EkstOn
 _17	sx'8tOn
-_18	'A:RtOn
+_18	'A:t.On
 _19	n'ItOn
 _2X	S;'u-gO
 _3X	tR'EtI
-_4X	f'WRtI
+_4X	f'Wt.I
 _5X	f'EmtI
 _6X	s'EkstI
 _7X	sx'8tI
@@ -107,7 +107,7 @@ _dpt    p'8Nkt
 (1 : e)  f'Ws.tE-
 (2 : a)  andRa
 (3 : e)  tRe:djE-
-(4 : e)  fjE:RdE-
+(4 : e)  fjE:d.E-
 (5 : e)  fEmtE-
 (6 : e)  sxEt:E-
 (7 : e)  sx8ndE-
@@ -135,11 +135,10 @@ du	$u
 han	han $u
 hon	hUn  $u
 den	dEn $u
-det	de:t $u
+det	de:
 man	man $u
 vi	$u
 ni	$u
-de	$u
 
 
 // possessive adjectives
@@ -159,14 +158,13 @@ vår	$u+
 vårt	$u+
 våra	$u+
 er	$u+
-ert	e:Rt $u+
+ert	e:t. $u+
 era	$u+
 erat	E:Rat $u+
 eran	E:Ran $u+
 deras	de:Ras $u+
 
 // prepositions
-i	i: $u $brk	// in
 på	$u		// on, in, at
 vid	$u $brk		// by, at, next to
 av	$u		// of, by
@@ -188,7 +186,6 @@ under	$brk		// during
 // conjunctions
 och	'Ok $u $pause	// and
 eller	$u $pause	// or
-om	$u $pause	// if
 då	$u $brk		// as
 fastän	$pause		// although
 medan	$pause		// while
@@ -215,10 +212,9 @@ kan	k'an $u		// can
 kunde	$u		// could
 vill	$u		// want to
 ville	$u		// wanted to
-ska	skA: $u		// should, supposed to
 skulle	$u
 bör	$u		// should, ought to
-borde	b'u:RdE $u
+borde	b'u:d.E $u
 brukar	$u		// usually
 brukade	$u		// used to
 
@@ -241,19 +237,17 @@ anse	anse:
 anser	anse:R
 anses	anse:s
 arkiv    'aRki:v
-av      A:v    $u
 barock  baR'Ok
 bäste     b'EstE
 bet	be:t
 // betala    b'Et'A:l,a
 betalt    b'Et'A:lt
-bort	bORt
+bort	bOt.
 bott     b'Ut
 botten     b'OtEn
 bra	bRA:
 dags	daks
 dan	dA:n
-dem	dEm
 dig	dEj
 dra	dRA:
 drar	dRA:R
@@ -264,9 +258,7 @@ egen	e:gEn
 egna	e:gna
 emot    Em'u:t
 etc	e:te:s'e:
-ett	'Et
 far         fA:R
-fem         fEm
 fram     fR'am
 framme     fR'amE
 framåt	   fRamOt
@@ -276,7 +268,6 @@ grep	gRe:p
 greps	gRe:ps
 gripna	gRi:pna
 ha	hA:
-har	hA:R $u
 hej          hEj
 helt	he:lt
 heta	he:ta
@@ -318,7 +309,7 @@ staden	stA:dEn
 stadens	stA:dEns
 stan	stA:n
 stor	stu:R
-stort	stu:Rt
+stort	stu:t.
 susanna	s8s'ana
 susanne	s8s'an
 svar	svA:R
@@ -328,10 +319,10 @@ tas      tA:s
 togs	t'u:gs
 tomt	t'Umt
 tom	t'Um
-torsdag	 t'u:SdA:g
-torsdags	 t'u:Sdags
-torsdagen	 t'u:SdA:gEn
-torsdagens	 t'u:SdA:gEns
+torsdag	 t'OSdA:g
+torsdags	 t'OSdags
+torsdagen	 t'OSdA:gEn
+torsdagens	 t'OSdA:gEns
 tredje	 tR'e:djE-
 tyvärr	 t%yv'E:R
 usa	 u-Es'A:
@@ -339,14 +330,13 @@ usas	 u-Es'A:s
 usa:s	 u-Es'A:s
 vad	vA:d $u
 valt	vA:lt
-var	vA:R $u
 vare	vA:RE $u
 vem	vEm
 
 
 // some words to translate using English (mostly for screenreaders)
 adobe    _^_EN
-browser	_^_EN
+browser	bR'aUsER
 button   _^_EN
 cancel    _^_EN
 checked   _^_EN
@@ -405,3 +395,803 @@ view     _^_EN
 web	_^_EN
 with	_^_EN
 word    _^_EN
+
+// === Days of the week ===
+måndag      m'o:ndA:g
+tisdag      t'i:sdA:g
+onsdag      'OnsdA:g
+fredag      fR'e:dA:g
+lördag      l'Y:d.A:g
+söndag      s'WndA:g
+måndagen    m'o:ndA:gEn
+tisdagen    t'i:sdA:gEn
+onsdagen    'OnsdA:gEn
+fredagen    fR'e:dA:gEn
+lördagen    l'Y:d.A:gEn
+söndagen    s'WndA:gEn
+
+// === Months ===
+januari     jan8'A:RI
+februari    fEbR8'A:RI
+mars        maS
+april       apR'Il
+maj         maj
+juni        j'u-nI
+juli        j'u-lI
+augusti     a8g'8stI
+september   sEpt'EmbER
+oktober     Okt'u:bER
+november    nOv'EmbER
+december    dEs'EmbER
+
+// === Common words with irregular pronunciation ===
+de          dOm
+dem         dOm
+djur        ju-R
+djup        ju-p
+djärv       jE:Rv
+ljus        ju-s
+ljud        ju-d
+ljuv        ju-v
+ljuga       ju-ga
+hjälm       jElm
+hjärta      jE:ta
+hjärna      jE:n.a
+hjord       ju:d
+gärna       jE:n.a
+göra        jY:Ra
+ge          je:
+gick        jIk
+gift        jIft
+gifta       jIfta
+givit       ji:vIt
+givet       ji:vEt
+given       ji:vEn
+givna       ji:vna
+gärde       jE:dE
+gärdet      jE:dEt
+mycket      m'ykE
+mycken      m'ykEn
+myckets     m'ykEts
+sju         sx'u-
+sjuk        sx'u-k
+sjuka       sx'u-ka
+sjukhus     sx'u-khu-s
+själ        sx'E:l
+själv       sx'Elv
+självklart  sx'ElvklA:t
+sjö         sx'Y:
+sjön        sx'Y:n
+sjöar       sx'Y:aR
+sjöman      sx'Y:man
+skjorta     sx'u:ta
+skjuta      sx'u-ta
+skjuts      sx8ts
+stjärna     sx'E:n.a
+stjäla      sx'E:la
+station     stasxu:n
+nations     nasxu:ns
+national    nasxUn'E:l
+relation    RElasxu:n
+reaktion    REaksxu:n
+situation   sIt8asxu:n
+operation   OpERasxu:n
+funktion    f8Nksxu:n
+information InfORmasxu:n
+generation  jEnERasxu:n
+kärna       S;E:n.a
+kärr        S;ER
+känd        S;End
+känt        S;Ent
+känn        S;En
+känna       S;Ena
+köpa        S;Y:pa
+köper       S;Y:pER
+köpt        S;Y:pt
+köra        S;Y:Ra
+kör         S;Y:R
+körde       S;Y:dE
+kött        S;Wt
+köld        S;Wld
+kök         S;Y:k
+köket       S;Y:kEt
+kemisk      S;e:mIsk
+kemi        S;Em'i:
+kina        S;i:na
+kines       S;In'e:s
+kinesisk    S;In'e:sIsk
+kyrka       S;yRka
+kyrkan      S;yRkan
+kyrkogård   S;yRkOgo:d
+
+// === Retroflex examples ===
+barn        bA:n.
+bord        bu:d.
+sort        su:t.
+fort        fu:t.
+karl        kA:l.
+barnen      bA:n.En
+bordet      bu:d.Et
+gård        go:d.
+gården      go:d.En
+hårt        ho:t.
+vård        vo:d
+värd        vE:d
+värde       vE:dE
+värden      vE:dEn
+fors        fOs.
+kurs        k8s.
+förste      fWs.tE
+först       fWs.t
+norsk       nOs.k
+
+// === Numbers written out ===
+noll        nOl
+två         tvo:
+tre         tRe:
+fyra        fy:Ra
+åtta        Ota
+nio         n'i:u:
+tio         t'i:u:
+elva        Elva
+tolv        tOlv
+tretton     tREtOn
+fjorton     fju:tOn
+femton      fEmtOn
+sexton      sEkstOn
+sjutton     sx8tOn
+arton       A:tOn
+nitton      nItOn
+tjugo       S;'u-gO
+trettio     tREtI
+fyrtio      fWtI
+femtio      fEmtI
+sextio      sEkstI
+sjuttio     sx8tI
+åttio       OtI
+nittio      nItI
+hundra      h8ndRa
+tusen       tu-sEn
+miljon      mIlj'u:n
+miljoner    mIlj'u:nER
+miljard     mIlj'A:d
+miljarder   mIlj'A:dER
+
+// === Common abbreviations ===
+tex.       t'Ileks,EmpEl
+osv.        Osx'A:v'IdaRE
+dvs.        dEt'vIls'Eja
+o.s.v.      Osx'A:v'IdaRE
+m.fl.       mEdfle:Ra
+kl.         klOkan
+nr.         n8mER
+dr.         dOktOR
+st         stykEn
+kr.         kRu:nOR
+km          S;Ilu:m'e:tER
+cm          s'EntIm'e:tER
+mm          m'IlIm'e:tER
+kg          S;'i:lu:gRam
+mg          m'IlIgRam
+
+// === Common Swedish words ===
+också       'OksO
+bara        bA:Ra
+inte        IntE
+redan       Re:dan
+sedan       se:dan
+aldrig      aldRIg
+alltid      altI:d
+ibland      Ibland
+kanske      kansx'E
+väldigt     vEldIgt
+verkligen   v'ERklIgEn
+fortfarande fOtfA:RandE
+naturligtvis nat'u-l.Igtvi:s
+förmodligen fWRm'u:dlIgEn
+antagligen  antA:glIgEn
+uppenbarligen 8pEnbA:l.IgEn
+egentligen  e:jEntlIgEn
+tydligen    ty:dlIgEn
+troligen    tRu:lIgEn
+säkert      s'E:kEt.
+klockan     klOkan
+igår        Igo:R
+imorgon     ImOROn
+vatten      vatEn
+Sverige     svERjE
+svenska     svEnska
+svensk      svEnsk
+Stockholm   st'OkhOlm
+Göteborg    jY:tEbORj
+Malmö       malm'Y:
+
+// === More common words ===
+flicka      flIka
+pojke       pOjkE
+kvinna      kvIna
+gubbe       g8bE
+gammal      gamal
+liten       li:tEn
+lilla       lIla
+stora       stu:Ra
+öppna       Wpna
+stänga      stENa
+läsa        lE:sa
+skriva      skRi:va
+tänka       tENka
+behöva      bEhY:va
+förstå      fWs.to:
+fundera     f8nde:Ra
+bestämma    bEst'Ema
+användare   anvEndaRE
+dator       dA:tOR
+hemsida     he:msI:da
+lösenord    lY:sEnORd
+tangentbord tanjEntbu:d.
+
+
+// === Phase 3: Vowel distinction words ===
+ful	fu-l
+hus	hu-s
+bus	bu-s
+mus	mu-s
+sur	su-R
+mur	mu-R
+bur	bu-R
+rut	Ru-t
+slut	slu-t
+ljus	j8:s
+ljud	ju-d
+
+// === Phase 4: -igt words (silent g) ===
+vanligt	v'A:nlIt
+riktigt	R'IktIt
+viktigt	v'IktIt
+dåligt	d'o:lIt
+roligt	R'u:lIt
+farligt	f'A:l.It
+tydligt	t'y:dlIt
+möjligt	m'Y:jlIt
+svårt	svo:t.
+otroligt	'u:tRu:lIt
+nödvändigt	n'Y:dvEndIt
+
+// === Phase 4: More -lig words ===
+naturlig	nat'u-l.Ig
+möjlig	m'Y:jlIg
+farlig	f'A:l.Ig
+vanlig	v'A:nlIg
+tydlig	t'y:dlIg
+
+// === Phase 4: Compound words ===
+fotboll	f'u:tbOl
+skoldag	sk'u:ldA:g
+arbetsplats	'A:be:tsplats
+flygplats	fl'y:gplats
+barnbok	b'A:n.bu:k
+bilväg	b'i:lvE:g
+järnväg	j'E:n.vE:g
+huvudstad	h'u-v8dstA:d
+vardagsrum	v'A:dA:gsR8m
+sovrum	s'u:vR8m
+badrum	b'A:dR8m
+köksbord	S;'Y:ksbu:d.
+matlagning	m'A:tlA:gnIN
+tidning	t'i:dnIN
+tidningen	t'i:dnINEn
+morgon	m'OROn
+morgonen	m'OROnEn
+
+// === Phase 4: Silent letters ===
+hjälm	jElm
+hjärta	jE:ta
+hjul	ju-l
+hjälte	jEltE
+hjord	ju:d.
+
+// === Phase 5: Abbreviations ===
+osv	Osx'o:v'i:daRE
+osv.	Osx'o:v'i:daRE
+dvs	dEtv'Ils'Eja
+dvs.	dEtv'Ils'Eja
+ca	s'IRka
+
+// === Phase 5: Units ===
+kr	kR'u:nOR
+km	S;,Ilu:m'e:tER
+kg	S;'i:lu:gR,am
+cm	s'EntIm,e:tER
+mm	m'IlIm,e:tER
+ml	m'IlIl,i:tER
+
+// === Phase 6: Swedish place names ===
+göteborg	j'Y:tEb,ORj
+malmö	malm'Y:
+stockholm	st'OkhOlm
+uppsala	'8psA:la
+lund	l8nd
+linköping	l'INS;Y:p,IN
+norrköping	n'OS;Y:p,IN
+kiruna	kIR'u-na
+luleå	l'u-lEo:
+sundsvall	s'8ndsval
+östersund	'WstERs,8nd
+karlstad	k'A:l.stad
+jönköping	j'WNS;Y:p,IN
+västerås	v'EstERo:s
+örebro	'Y:REbR,u:
+gävle	j'E:vlE
+umeå	'u-mEo:
+växjö	v'EksxY:
+helsingborg	h'ElsINb,ORj
+borås	b'u:Ro:s
+visby	v'Isby:
+kalmar	k'almA:R
+halmstad	h'almstad
+trollhättan	tR'Olh,Etan
+eskilstuna	Esk'Ilstu-na
+norrtälje	n'Ot.EljE
+nyköping	n'y:S;Y:pIN
+södertälje	s'Y:dEt.,EljE
+falun	fA:l'u-n
+borlänge	b'u:RlENE
+mora	m'u:Ra
+avesta	av'Esta
+
+// === Phase 6: Common Swedish names ===
+karin	k'A:RIn
+göran	j'Y:Ran
+björn	bjY:n.
+kjell	S;El
+gunilla	g8n'Ila
+ingrid	'INRId
+bengt	bENt
+sven	svEn
+inger	'INER
+lars	lA:s.
+per	pE:R
+olof	'u:lOf
+astrid	'astRId
+erik	'e:RIk
+magnus	m'aNn8s
+hans	hans
+sigrid	s'IgRId
+gustav	g'8stav
+karl	kA:l.
+axel	'aksEl
+anna	'ana
+maria	m%aR'i:a
+johan	j'u:han
+anders	'andEs.
+peter	p'e:tER
+mikael	mIk'A:El
+fredrik	fR'e:dRIk
+stefan	st'Efan
+daniel	dan'i:El
+mattias	mat'i:as
+kristina	kRIst'i:na
+helena	hEl'e:na
+elisabeth	El'i:sabEt
+margareta	maRgaR'e:ta
+linnea	lIn'e:a
+sofia	sOf'i:a
+
+// === Phase 6: Common loanwords ===
+garage	gaR'A:sx
+chef	sx'e:f
+choklad	sx'u:klA:d
+juice	ju-s
+genre	sx'aNR
+beige	be:sx
+jalusi	sxal8s'i:
+journalist	sx8Rnal'Ist
+pizza	p'Itsa
+design	dEs'ajn
+mejl	me:l
+team	ti:m
+jeans	dji:ns
+image	'ImIdj
+internet	'IntERnEt
+computer	kOmpj'u-tER
+software	s'OftvE:R
+budget	b'8djEt
+restaurant	REstOR'aN
+parfym	paRf'y:m
+balkong	balk'ON
+frisör	fRIs'Y:R
+parfym	paRf'y:m
+nivå	nIv'o:
+miljö	mIlj'Y:
+porträtt	pOtR'Et
+detalj	dEt'alj
+garderob	gaRdER'u:b
+debut	dEb'y:
+kupong	k8p'ON
+kulör	k8l'Y:R
+fåtölj	fo:t'Wlj
+affär	af'E:R
+annons	an'Ons
+bukett	b8k'Et
+dessert	dEs'E:R
+frisyr	fRIs'y:R
+karaktär	kaRakt'E:R
+kamouflage	kam8fl'A:sx
+champagne	sjamp'anj
+
+// === Abbreviations (without dots, since espeak splits on periods) ===
+tex	t,IlEks'EmpEl
+bla	bland'anat
+sk	so:k'alad
+fd	fY:REdEta
+tom	t,IlOkm'e:d
+
+// === Phase 7: Date and time words ===
+
+// === Phase 8: Counties ===
+södermanland	s,Y:dERman,land
+östergötland	,WstERj'Y:tland
+kronoberg	kR'u:nu:b,ERj
+gotland	g'Otland
+blekinge	bl'e:kINE
+skåne	sk'o:nE
+halland	h'aland
+värmland	v'E:Rmland
+västmanland	v'EstmanIand
+dalarna	d'A:laRna
+gävleborg	j'EvlEb,ORj
+västernorrland	v,EstERn'Orland
+jämtland	j'Emtland
+västerbotten	v,EstER'bOtEn
+norrbotten	n,OR'bOtEn
+
+// === Cities/places ===
+skellefteå	sx'ElEftEo:
+kristianstad	kRIst'janstad
+varberg	v'A:RbERj
+uddevalla	,8dEv'ala
+lidköping	l'IdxY:pIN
+skövde	sx'WvdE
+mariestad	maR'i:Estad
+arvika	'A:RvIka
+karlskoga	k'A:lsku:ga
+motala	m'u:tA:la
+strängnäs	stR'ENnEs
+enköping	'EnxY:pIN
+tierp	t'i:ERp
+sandviken	s'andv,i:kEn
+hudiksvall	h'u:dIks,val
+härnösand	h,E:Rn'Y:sand
+sollefteå	s,OlEft'Eo:
+ånge	'oNE
+sveg	sve:g
+storuman	st'u:R8man
+lycksele	l'yksE:lE
+vilhelmina	v,IlhElm'i:na
+dorotea	d,u:Ru:t'e:a
+gällivare	j'ElIv,A:RE
+jokkmokk	j'OkmOk
+boden	b'u:dEn
+piteå	p'i:tEo:
+haparanda	h,apaR'anda
+
+// === Surnames ===
+andersson	'andE,Son
+johansson	j'u:han,sOn
+karlsson	k'A:l,sOn
+nilsson	n'Il,sOn
+eriksson	'e:RIk,sOn
+larsson	l'A:,Son
+olsson	'u:l,sOn
+persson	p'E:,Son
+svensson	sv'En,sOn
+gustafsson	g'8staf,sOn
+pettersson	p'EtER,sOn
+jonsson	j'On,sOn
+jansson	j'an,sOn
+hansson	h'an,sOn
+bengtsson	b'ENt,sOn
+jönsson	j'Wn,sOn
+lindberg	l'IndbERj
+jakobsson	j'A:kOb,sOn
+magnusson	m'agn8s,On
+olofsson	'u:lOfs,On
+lindström	l'IndstRWm
+lindqvist	l'Indkv,Ist
+lindgren	l'IndgRe:n
+axelsson	'aksEl,sOn
+bergström	b'ERjstRWm
+lundberg	l'8ndbERj
+lundgren	l'8ndgRe:n
+lundqvist	l'8ndkv,Ist
+mattsson	m'at,sOn
+berglund	b'ERjl8nd
+fredriksson	fR'e:dRIk,sOn
+sandberg	s'andbERj
+henriksson	h'EnRIk,sOn
+forsberg	f'O:SbERj
+sjöberg	sx'Y:bERj
+wallin	val'i:n
+engström	'ENstRWm
+eklund	'e:kl8nd
+danielsson	d'A:nIEl,sOn
+lundin	l8nd'i:n
+håkansson	h'o:kan,sOn
+björk	bj'WRk
+bergman	b'ERjman
+gunnarsson	g'8naR,sOn
+holm	hOlm
+wikström	v'IkstRWm
+samuelsson	s'A:m8El,sOn
+
+// === Food/drink ===
+kanelbulle	kan'e:lb,8lE
+prinsesstårta	pR,InsEs't'o:Rta
+surströmming	s'8:RstR,WmIN
+knäckebröd	kn'EkEbR,Y:d
+filmjölk	f'i:lmj,Wlk
+lingonsylt	l'INOns,ylt
+glögg	glWg
+tunnbröd	t'8nbR,Y:d
+gravlax	gR'A:vlaks
+ärtsoppa	'E:Rts,Opa
+pannkakor	p'ankA:k,u:R
+plättar	pl'EtaR
+våfflor	v'oflOR
+falukorv	f'A:l8k,ORv
+prinskorv	pR'Insk,ORv
+potatis	pu:t'A:tIs
+rödkål	R'Y:dk,o:l
+sill	sIl
+kroppkakor	kR'Opk,A:ku:R
+palt	palt
+pitepalt	p'i:tEp,alt
+blodpudding	bl'u:dp,8dIN
+raggmunk	R'agm,8Nk
+kräftor	kR'EftOR
+löjrom	l'Wjr,Om
+smörgås	sm'WRgo:s
+macka	m'aka
+
+// === IT/tech loanwords ===
+router	R'aUtER
+server	s'E:RvER
+backup	b'ak8p
+streaming	stR'i:mIN
+bluetooth	bl'u:tu:t
+download	d'aUnlo:d
+upload	'8plo:d
+hashtag	h'aStag
+podcast	p'Odkast
+app	ap
+smartphone	sm'A:Rtfo:n
+laptop	l'aptOp
+website	v'Ebsajt
+database	d'e:tabejs
+firewall	f'ajERvOl
+malware	m'alvE:R
+phishing	f'ISIN
+ransomware	R'ansOmvE:R
+cloud	klaUd
+
+// === Children's words ===
+nalle	n'alE
+gosedjur	g'u:sEj,u:R
+leksak	l'e:ksA:k
+docka	d'Oka
+mjölk	mjWlk
+godis	g'u:dIs
+glass	glas
+kakor	k'A:ku:R
+frukt	fR8kt
+äpple	'EplE
+banan	ban'A:n
+jordgubbe	j'u:Rdg,8bE
+blåbär	bl'o:b,E:R
+hallon	h'al,On
+morot	m'u:Ru:t
+gurka	g'8Rka
+tomat	tum'A:t
+saft	saft
+kakao	kak'A:u:
+frukost	fR'8kOst
+lunch	l8nS
+middag	m'IdA:g
+mellanmål	m'Elanm,o:l
+säng	sEN
+stol	stu:l
+lampa	l'ampa
+dörr	dWR
+fönster	f'WnstER
+golv	gOlv
+tak	tA:k
+vägg	vEg
+trappa	tR'apa
+hund	h8nd
+katt	kat
+kanin	kan'i:n
+hamster	h'amstER
+fisk	fIsk
+fågel	f'o:gEl
+häst	hEst
+ko	ku:
+gris	gRi:s
+får	fo:R
+höna	h'Y:na
+anka	'aNka
+fjäril	fj'E:RIl
+nyckelpiga	n'ykElp,i:ga
+spindel	sp'IndEl
+mask	mask
+snigel	sn'i:gEl
+
+// === Common adjectives ===
+lång	loN
+kort	kORt
+bred	bRe:d
+smal	smA:l
+tjock	xOk
+tunn	t8n
+snabb	snab
+långsam	l'oNsam
+varm	vaRm
+kall	kal
+sval	svA:l
+mörk	mWRk
+svart	svaRt
+grön	gRY:n
+gul	g8:l
+orange	OR'aNsx
+rosa	R'u:sa
+lila	l'i:la
+brun	bR8:n
+grå	gRo:
+ung	8N
+glad	glA:d
+ledsen	l'e:dsEn
+arg	aRj
+rädd	REd
+trött	tRWt
+pigg	pIg
+hungrig	h'8NgRIg
+törstig	t'WRstIg
+mätt	mEt
+frisk	fRIsk
+stark	staRk
+svag	svA:g
+ren	Re:n
+smutsig	sm'8tsIg
+torr	tOR
+våt	vo:t
+mjuk	mj8:k
+hård	ho:d.
+
+// === Common verbs ===
+springa	spR'INa
+hoppa	h'Opa
+sitta	s'Ita
+ligga	l'Iga
+dricka	dR'Ika
+sova	s'u:va
+vakna	v'akna
+tvätta	tv'Eta
+borsta	b'O:sta
+leka	l'e:ka
+rita	R'i:ta
+måla	m'o:la
+sjunga	sx'8Na
+dansa	d'ansa
+räkna	R'Ekna
+prata	pR'A:ta
+lyssna	l'ysna
+titta	t'Ita
+lukta	l'8kta
+smaka	sm'A:ka
+minnas	m'Inas
+glömma	gl'Wma
+vilja	v'Ilja
+våga	v'o:ga
+hjälpa	j'Elpa
+flyga	fl'y:ga
+simma	s'Ima
+cykla	s'ykla
+klättra	kl'EtRa
+
+// === Phase 9: Assimilation - key function words ===
+
+// === Phase 11: Compound words ===
+
+// Everyday compounds
+barnvagn	b'A:n.vaNn
+lekplats	l'e:kplats
+skolväska	sk'u:lvEska
+tandborste	t'andb,O:stE
+morgonmat	m'ORgOnmA:t
+kvällsmat	kv'ElsmA:t
+köksbordet	S;'Y:ksb,u:dEt
+bokhylla	b'u:kh,yla
+mobiltelefon	mob,i:ltElEf'u:n
+
+// Child-relevant compounds (autism apps)
+bildschema	b'Ildsx,e:ma
+belöningskarta	bEl,Y:nINsk'A:ta
+känslokarta	S;'EnslukA:ta
+rutinkort	R8t'i:nkO:t
+ordbok	'u:Rdbu:k
+ljudbok	j'u-dbu:k
+sagobok	s'A:gub,u:k
+färgpenna	f'ERjp,Ena
+vattenfärg	v'atEnf,ERj
+nattlampa	n'atl,ampa
+kudde	k'8dE
+filt	fIlt
+
+// Nature/weather
+solsken	s'u:lsx,e:n
+regnväder	R'Egnv,E:dER
+snöflinga	sn'Y:fl,INa
+åskväder	'o:skv,E:dER
+molnigt	m'OlnIgt
+blåsigt	bl'o:sIgt
+
+// Food compounds
+köttbullar	S;'ytb,8laR
+pannkaka	p'ankA:ka
+chokladkaka	sx'u:klA:dk,A:ka
+
+// Body
+huvudvärk	h'u-v8dv,ERk
+magont	m'A:gu:nt
+tandvärk	t'andv,ERk
+knävärk	kn'E:v,ERk
+
+// Transport
+tågstation	t'o:gstasj,u:n
+busshållplats	b'8shOlpl,ats
+cykelväg	s'ykElv,E:g
+
+// === Phase 12: Loanwords ===
+
+// English loans
+cool	ku:l
+nice	najs
+sorry	s'ORi
+jobb	jOb
+tejp	te:p
+dejt	de:t
+sajt	sajt
+webb	vEb
+
+// French loans
+restaurang	REstOR'aN
+
+// IT terms
+wifi	v'ajfaj
+
+// === Phase 13: Common suffix words ===
+
+// -tion words
+station	stasj'u:n
+information	Inf,ORmasj'u:n
+situation	sIt,8asj'u:n
+organisation	O:Rgan,Isasj'u:n
+kommunikation	kOm,u:nIkasj'u:n
+
+// -ighet words
+hastighet	h'astIg,e:t
+möjlighet	m'Y:jlIg,e:t
+svårighet	sv'o:RIg,e:t
+rättighet	R'EtIg,e:t
+tryggighet	tR'ygIg,e:t
+
+// -else words
+känsla	S;'Ensla
+upplevelse	'8plE:v,ElsE
+händelse	h'EndElsE
+förändelse	f,Y:R'EndrIN
+
+// -ning words
+utbildning	'u-tbIldnIN
+övning	'Y:vnIN
+förklaring	f,Y:Rkl'A:RIN
+upprepning	'8pRe:pnIN

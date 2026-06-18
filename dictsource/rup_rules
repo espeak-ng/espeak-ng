@@ -1,0 +1,138 @@
+// This file is UTF-8 encoded
+// translation rules for Aromanian
+// Author: Andy Vladescu <andyvladescu770@gmail.com>, 29-05-2025
+
+// Vowels
+.L01 e i  // front vowels
+
+.group a
+        a      a
+	ai     aI
+        ai (_ 'aI     // word final diphthong syllable gets stressed
+	au     aU
+        au (_ 'aU     // word final diphthong syllable gets stressed
+
+.group ã
+        ã      @
+
+.group â
+        â      y
+
+.group b
+        b      b
+
+.group c
+        c      k
+        c  (L01 tS
+	ch (L01 c
+
+.group d
+        d      d
+	dh     D
+	dz     dz
+
+.group e
+        e      e
+	ea     ea
+	ea (_ 'e|a    // word penultimate syllable gets stressed (e.g. nãmuzea)
+	ei     eI
+        ei (_ 'eI     // word final diphthong syllable gets stressed
+        eu     eU
+        eu (_ 'eU     // word final diphthong syllable gets stressed
+
+.group f
+        f      f
+	ff     f
+
+.group g
+        g      g
+        g  (L01 dZ
+	gh (L01 J
+
+.group h
+        h      h
+
+.group i
+        i      i
+	i (A   j
+     @) i (e_  j
+        ii     iI
+
+.group j
+        j      Z
+
+.group k
+        k      k
+
+.group l
+        l      l
+     _) lj (_  l^@
+	lj     l^
+	ll     l
+
+.group m
+        m      m
+	mm     m
+
+.group n
+        n      n
+	nj      n^
+	nn     n
+
+.group o
+        o      'o
+	oa     Oa
+        oa (_  'o|a   // word penultimate syllable gets stressed (e.g. serenoa)   
+	oi     oI
+        oi (_ 'oI     // word final diphthong syllable gets stressed
+        ou     oU
+        ou (_ 'oU     // word final diphthong syllable gets stressed 
+
+.group p
+        p      p
+	pp     p
+
+.group q
+        q      k
+
+.group r
+        r      R
+	rr     R
+     A) r (A   *
+     C) r (A   @-*
+
+.group s
+     _) s (_       s@
+     _) s (-       s
+        s          s
+     _) sh (_      S@
+     _) sh (-      S
+        sh         S
+
+.group t
+        t       t
+	th      T
+	ts      ts
+	tt      t
+
+.group u
+        u       u
+	u (A    w
+	ului (_ =uluI     // word penultimate syllable gets stressed
+
+.group v
+        v       v
+
+.group w
+        w       w
+
+.group x
+        x       ks
+
+.group y
+        y       Q
+	y (L01  j
+
+.group z
+        z       z
+        zz      z

@@ -1,0 +1,45 @@
+# Nano syntax file
+# Language:	eSpeak Dictionary Rules Files
+# Filenames:    *_rules
+#
+
+syntax "espeak-rules" "_rules$"
+
+# First column of text
+color lightmagenta "[[:space:]]*([^[:space:]]\))?[[:space:]]*[^[:space:]()]+[[:space:]]*"
+
+# Previous chars, e.g.: abc)
+color lightcyan "[[:space:]]*[^[:space:]]+[)][[:space:]]"
+
+# Next chars, e.g.: (abc
+color lightcyan "[[:space:]][(][^[:space:]]+[[:space:]]*"
+
+# Special characteres, e.g.: A, C, @
+color lightblue "[ACBHFGYDKXZN@#%&/+_-]"
+# Special characteres, e.g.: L01, S1, P1
+color lightred "(L[[:digit:]]{2}|[SP][[:digit:]])"
+# Special characteres, e.g.: $noprefix, $w_alt
+color lightred "\$(noprefix|[wp]_(alt)[12]?)"
+
+# Conditionals, e.g.: ?1, ?!2
+color lightred "^([[:space:]]*\?[!]?[[:digit:]])"
+
+# Second column of text (keep it normal color)
+color normal "[[:space:]]+[^[:space:]()]+[[:space:]]*(\/\/.*)?$"
+
+# Groups or replaces, e.g.: .group, .replace
+color bold,lightmagenta "^[[:space:]]*\.(group)[[:space:]]+[^[:space:]]+"
+color bold,lightred "^[[:space:]]*\.(group|replace)"
+
+# Numbered lists, e.g.: .L01, .L99
+color lightcyan "^[[:space:]]*\.L[[:digit:]]{2}.*"
+color bold,lightred "^[[:space:]]*\.L[[:digit:]]{2}"
+
+# Comments, e.g.: // comment
+color italic,lightblue "[[:space:]]*\/\/.*$"
+
+# TODO, FIXME, XXX
+color black,lightyellow "(TODO|FIXME|XXX)"
+
+# Spaces at end of lines
+color ,lightgreen "[[:space:]]+$"

@@ -76,3 +76,24 @@ endif()
 endif()
 
 add_custom_target(tests DEPENDS ${_binary_tests})
+
+if (WITH_FUZZER AND UNIX)
+  add_executable(synth_fuzzer fuzzing/synth_fuzzer.c)
+  target_link_libraries(synth_fuzzer PRIVATE
+    espeak-ng
+    espeak-ng-config
+    espeak-include
+  )
+  target_include_directories(
+    synth_fuzzer PRIVATE
+    $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>
+    $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>/include/compat
+    $<TARGET_PROPERTY:espeak-ng,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:espeak-ng-config,INTERFACE_INCLUDE_DIRECTORIES>
+  )
+  target_compile_definitions(synth_fuzzer PRIVATE LIBESPEAK_NG_EXPORT=1)
+  target_compile_definitions(synth_fuzzer PRIVATE PATH_ESPEAK_DATA="${CMAKE_BINARY_DIR}/espeak-ng-data")
+  target_compile_options(synth_fuzzer PRIVATE "-fsanitize=fuzzer" "-fno-omit-frame-pointer")
+  set_property(TARGET synth_fuzzer APPEND_STRING PROPERTY LINK_FLAGS " -fsanitize=fuzzer")
+  add_dependencies(synth_fuzzer data)
+endif()

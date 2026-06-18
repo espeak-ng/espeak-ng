@@ -14,28 +14,28 @@ $textmode
 
 // 0000..007F : C0 Controls and Basic Latin
 
-//+	plus								// [002B] other (no translation)
++	plus								// [002B] other
 
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
 //¢	cents								// [00A2] other (no translation)
-//£	pound								// [00A3] other (no translation)
+£	pund								// [00A3] other
 //¤	currency sign							// [00A4] other (no translation)
-//¥	yen								// [00A5] other (no translation)
-//§	section								// [00A7] other (no translation)
+¥	yen								// [00A5] other
+§	paragraftecken							// [00A7] other
 //¨	double dot							// [00A8] other (no translation)
 ©	upphovsrättssymbol						// [00A9] text|emoji
 //¬	not sign							// [00AC] other (no translation)
 ®	registrerat varumärke						// [00AE] text|emoji
-//°	degrees								// [00B0] other (no translation)
-//±	plus or minus							// [00B1] other (no translation)
+°	grader								// [00B0] other
+±	plus eller minus						// [00B1] other
 //µ	micro								// [00B5] other (no translation)
 //¶	paragraph							// [00B6] other (no translation)
-//¼	a quarter							// [00BC] other (no translation)
-//½	a half								// [00BD] other (no translation)
-//¾	three quarters							// [00BE] other (no translation)
-//×	times								// [00D7] other (no translation)
-//÷	divided by							// [00F7] other (no translation)
+¼	en fjärdedel							// [00BC] other
+½	en halv								// [00BD] other
+¾	tre fjärdedelar							// [00BE] other
+×	gånger								// [00D7] other
+÷	delat med							// [00F7] other
 
 // 02B0..02FF : Spacing Modifier Letters
 
@@ -53,7 +53,7 @@ $textmode
 // 20A0..20CF : Currency Symbols
 
 //₨	rupee								// [20A8] other (no translation)
-//€	euros								// [20AC] other (no translation)
+€	euro								// [20AC] other
 //₹	rupee								// [20B9] other (no translation)
 
 // 2100..214F : Letterlike Symbols
@@ -70,10 +70,10 @@ $textmode
 
 // 2190..21FF : Arrows
 
-//←	left arrow							// [2190] other (no translation)
-//↑	up arrow							// [2191] other (no translation)
-//→	right arrow							// [2192] other (no translation)
-//↓	down arrow							// [2193] other (no translation)
+←	vänsterpil							// [2190] other
+↑	uppåtpil							// [2191] other
+→	högerpil							// [2192] other
+↓	nedåtpil							// [2193] other
 ↔	pil höger och vänster						// [2194] text|emoji
 ↕	pil upp och ned							// [2195] text|emoji
 ↖	uppåtpil vänster						// [2196] text|emoji

@@ -540,6 +540,20 @@ Translator *SelectTranslator(const char *name)
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
 		SetArabicLetters(tr);
 		break;
+	case L3('r', 'u', 'p'): // Aromanian
+	{
+		static const short stress_lengths_rup[8] = { 170, 170,  180, 180,  0, 0,  240, 260 };
+		static const unsigned char stress_amps_rup[8] = { 15, 13, 18, 18, 20, 22, 22, 21 };
+
+		SetupTranslator(tr, stress_lengths_rup, stress_amps_rup);
+
+		tr->langopts.stress_rule = STRESSPOSN_1R;
+		tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY;
+
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3;
+	}
+		break;
 	case L('b', 'e'): // Belarusian
 	{
 		static const unsigned char stress_amps_be[8] = { 12, 10, 8, 8, 0, 0, 16, 17 };
@@ -1254,6 +1268,30 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_3R; // antipenultimate
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
 		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR2;
+	}
+		break;
+	case L('m', 'n'): // Mongolian (Khalkha)
+	{
+		static const unsigned char stress_amps_mn[8] = { 16, 16, 17, 17, 20, 20, 22, 18 };
+		static const short stress_lengths_mn[8] = { 190, 180, 220, 220, 0, 0, 260, 240 };
+
+		tr->letter_bits_offset = OFFSET_CYRILLIC;
+		memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
+		SetLetterBits(tr, LETTERGP_A, (char *)ru_vowels);
+		SetLetterBits(tr, LETTERGP_C, (char *)ru_consonants);
+		SetLetterBits(tr, LETTERGP_VOWEL2, (char *)ru_vowels);
+
+		SetupTranslator(tr, stress_lengths_mn, stress_amps_mn);
+
+		tr->langopts.stress_rule = STRESSPOSN_1L; // first syllable stress
+		tr->langopts.stress_flags = S_NO_AUTO_2 | S_NO_EOC_LENGTHEN;
+		tr->langopts.lengthen_tonic = 0;
+		tr->langopts.param[LOPT_SUFFIX] = 1;
+		tr->langopts.word_gap = 1; // natural word gap
+		tr->langopts.vowel_pause = 1;
+		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_6;
+		tr->langopts.max_initial_consonants = 3;
+		SetLengthMods(tr, 3);
 	}
 		break;
 	case L('m', 't'): // Maltese

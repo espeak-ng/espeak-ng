@@ -8,12 +8,13 @@ Currently, there is a fuzzer related to synthetizer, **synth_fuzzer** that will 
 
 ## Configure the project for fuzzing
 
-We have added some switchs to configure.ac for fuzzing and coverage. The `--with-fuzzer` switch will check if your are actually using clang and clang++ as compilers (by looking at CC and CXX) and allows generation of compilation instructions for fuzzer targets. The `--with-coverage` will add `-fprofile-instr-generate -fcoverage-mapping` to AM_CPPFLAGS in espeak/Makefile.am.
+We have added some switches to cmake for fuzzing and coverage. The `-DWITH_FUZZER=ON` switch will check if your are actually using clang and clang++ as compilers (by looking at CC and CXX) and allows generation of compilation instructions for fuzzer targets. The `-DWITH_COVERAGE=ON` will add `-fprofile-instr-generate -fcoverage-mapping` to the compiler flags.
 
-To configure and build the project with coverage and fuzzer.
-```./autogen.sh
-CC=clang CXX=clang++ ./configure --with-coverage --with-fuzzer
-make -j8
+To configure and build the project with coverage and fuzzer using the CMake
+build system:
+```
+CC=clang CXX=clang++ cmake -B build -DWITH_COVERAGE=ON -DWITH_FUZZER=ON
+cmake --build build -j8
 ```
 
 ## Run the fuzzers
@@ -22,26 +23,23 @@ You are now able to run the fuzzer and will have to give 2 parameters to it. Fir
 
 Here is how you can start fuzzing  `espeak_Synth` function.
 ```
-
-# first we move to tests/fuzzing directory
-cd tests/fuzzing
 #to have interesting file in the corpus , there is a simple python script that allows you to do that
-./create_dict_corpus_file.py -c CORPUS/
+./tests/fuzzing/create_dict_corpus_file.py -c tests/fuzzing/CORPUS/
 
 # we consider here you have added corpus files into tests/fuzzing/CORPUS directory
-FUZZ_VOICE=en ./synth_fuzzer CORPUS/
+FUZZ_VOICE=en build/tests/synth_fuzzer tests/fuzzing/CORPUS/
 
 # to run the fuzzer using parallelization
 # you can even set more jobs than workers (the ones that just stopped will be instantly replaced by a new fuzzer process)
-FUZZ_VOICE=en ./synth_fuzzer CORPUS/ -workers=8 -jobs=8
+FUZZ_VOICE=en build/tests/synth_fuzzer tests/fuzzing/CORPUS/ -workers=8 -jobs=8
 ```
 After running the fuzzer multiple times with the same corpus directory, it might be possible that many corpus files added by the fuzzer explores the same paths. Hopefully, libfuzzer allows you to minimize a corpus. There is a simple bash script in tests/fuzzing that allows you to do that.
 ```
-./minimize-corpus.sh CORPUS/
+./tests/fuzzing/minimize-corpus.sh tests/fuzzing/CORPUS/
 
 
 # if you have added a POC file in the corpus directory and you want to keep it intact, change his extension to .txt and use --preserve-txt switch that keep .txt files intact in the directory
-./minimize-corpus.sh --preserve-txt CORPUS/
+./tests/fuzzing/minimize-corpus.sh --preserve-txt tests/fuzzing/CORPUS/
 ```
 ## Look at fuzzer coverage
 
@@ -49,7 +47,7 @@ If you want to see what are the source code parts that are explored by the fuzze
 To be able to use the coverage data, you need first to compile the raw profile data file of the run. By default, this file is created after execution under the name of default.profraw but you can specify it with `LLVM_PROFILE_FILE`.
 Here is how to do that.
 ```
-LLVM_PROFILE_FILE=synth_fuzzer.profraw FUZZ_VOICE=en ./synth_fuzzer CORPUS/ -workers=8 -jobs=8
+LLVM_PROFILE_FILE=synth_fuzzer.profraw FUZZ_VOICE=en build/tests/synth_fuzzer tests/fuzzing/CORPUS/ -workers=8 -jobs=8
 
 # wait for a bit and press CTRL+C
 
@@ -57,5 +55,5 @@ LLVM_PROFILE_FILE=synth_fuzzer.profraw FUZZ_VOICE=en ./synth_fuzzer CORPUS/ -wor
 llvm-profdata merge -sparse synth_fuzzer.profraw -o synth_fuzzer.profdata
 
 # show coverage (redlines are the one wich are reached)
-llvm-cov show ./synth_fuzzer -instr-profile=synth_fuzzer.profdata
+llvm-cov show build/tests/synth_fuzzer -instr-profile=synth_fuzzer.profdata
 ```

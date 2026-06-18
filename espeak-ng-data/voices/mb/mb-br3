@@ -2,10 +2,13 @@ language pt-br 6
 language pt 8
 name brazil-mbrola-3
 gender male
+
+speed 75
+voicing 150
 pitch 80 120
 
 dictrules 2 3 4
-voicing 120
-
 mbrola br3 ptbr_phtrans
 
+intonation 3
+stressLength 180 120 220 220 0 0 240 260
