@@ -70,6 +70,8 @@ test_phon de "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s
 h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung." "Latn"
 test_phon el "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία." "Grek"
 test_phon en "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog" "Latn"
+test_phon en "h@l'oU" "𝐇𝐞𝐥𝐥𝐨" "math-bold normalized to ASCII"
+test_phon en "h@l'oU" "ℍ𝕖𝕝𝕝𝕠" "double-struck normalized to ASCII"
 test_phon en "h'i@3rIN m'i: b'oU
 DI2; 'aZ3 Tr'VS k'O:z
 'e@ j'O@ dZ'OIf@l 'A@ri:;@
