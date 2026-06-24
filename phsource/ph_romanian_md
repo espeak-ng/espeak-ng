@@ -79,7 +79,7 @@ phoneme @
 endphoneme
 
 phoneme y
-  vwl flag1 starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa ɨ
   length 180
   FMT(vwl_ru/i#)
