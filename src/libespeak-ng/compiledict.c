@@ -620,6 +620,29 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ALLCAPS;
 	}
 
+	{
+		// strip variation selectors (U+FE0E text style, U+FE0F emoji style) from
+		// the word: TranslateClause discards them from the input text, so they
+		// must not appear in dictionary keys (some emoji entries contain U+FE0F)
+		char *ps = word;
+		char *pd = word;
+		int c2;
+
+		while (*ps != 0) {
+			ix = utf8_in(&c2, ps);
+			if ((c2 != 0xfe0e) && (c2 != 0xfe0f)) {
+				if (pd != ps)
+					memmove(pd, ps, ix);
+				pd += ix;
+			}
+			ps += ix;
+		}
+		*pd = 0;
+	}
+
+	if (word[0] == 0)
+		return 0; // the word contained only variation selectors
+
 	len_word = strlen(word);
 
 	if (translator->transpose_min > 0)

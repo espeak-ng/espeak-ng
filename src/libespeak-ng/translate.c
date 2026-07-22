@@ -1181,6 +1181,10 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			if (c == 8)
 				continue; // ignore this character
 
+			if ((c == 0xfe0e) || (c == 0xfe0f))
+				continue; // variation selector (text/emoji presentation style), not spoken;
+				          // emoji dictionary keys are stripped of these at compile time to match
+
 			if (char_inserted)
 				next_in = char_inserted;
 
@@ -1189,6 +1193,10 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				if (IsAlpha(prev_out)) {
 					if (tr->langopts.tone_numbers && IsDigit09(c) && !IsDigit09(next_in)) {
 						// allow a tone number as part of the word
+					} else if ((c == 0x200d) && IsEmoji(prev_out) && IsEmoji(next_in)) {
+						// keep U+200D ZERO WIDTH JOINER between two emoji in the word,
+						// so the sequence can match a multi-codepoint emoji dictionary
+						// entry (e.g. woman + ZWJ + microscope = woman scientist)
 					} else {
 						c = ' '; // ensure we have an end-of-word terminator
 						space_inserted = true;
@@ -1222,8 +1230,21 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			}
 
 			if (IsAlpha(c)) {
+				bool emoji_join = false;
+
 				alpha_count++;
-				if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))) || (IsEmoji(c) != IsEmoji(prev_out))) {
+				if ((prev_out == 0x200d) && IsEmoji(c)) {
+					// U+200D ZERO WIDTH JOINER: continue the emoji sequence only if
+					// the current word began with an emoji; a word-initial ZWJ (stray
+					// joiner in the input) must not absorb the following emoji, which
+					// would prevent its dictionary lookup
+					int wc_first;
+					utf8_in(&wc_first, &sbuf[words[word_count].start]);
+					emoji_join = IsEmoji(wc_first);
+				}
+				if (emoji_join) {
+					// continuation of a ZWJ emoji sequence: not a word boundary
+				} else if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))) || (IsEmoji(c) != IsEmoji(prev_out))) {
 					if (wcschr(tr->punct_within_word, prev_out) == 0)
 						letter_count = 0; // don't reset count for an apostrophy within a word
 

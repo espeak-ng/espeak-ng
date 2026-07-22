@@ -86,6 +86,26 @@ test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
 test_phon en "r'oUlIN 0nD@ fl'o@ l'aafIN" "🤣" # skip words
 
+# ED-9a - emoji presentation sequence: variation selectors (U+FE0E/U+FE0F)
+# are presentation-only and must not affect the pronunciation
+# bug: https://github.com/espeak-ng/espeak-ng/issues/308
+test_phon en "r'Ed h'A@t" "❤"
+test_phon en "r'Ed h'A@t" "❤️"
+test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉️"
+
+# ED-14a/ED-16 - ZWJ emoji sequences must match their multi-codepoint
+# dictionary entries instead of being read as individual components
+# bug: https://github.com/espeak-ng/espeak-ng/issues/308
+test_phon en "r'eInboU fl'ag" "🏳‍🌈"
+test_phon en "r'eInboU fl'ag" "🏳️‍🌈" # with U+FE0F after the base
+test_phon en "w'Um@n s'aI@ntIst" "👩‍🔬"
+test_phon en "f'amIli m'an w'Um@n g'3:l" "👨‍👩‍👧"
+test_phon en "k'Is w'Um@n m'an" "👩‍❤️‍💋‍👨" # U+FE0F inside the sequence
+test_phon en "w'Um@n dI2t'EktIv" "🕵️‍♀️" # U+FE0F in the dictionary key
+# a ZWJ sequence without a dictionary entry falls back to reading each
+# component, silently skipping the ZWJ and any skin tone modifier position
+test_phon en "w'Um@n m'i:di@m sk'In t'oUn m'aIkr@sk,oUp" "👩🏽‍🔬"
+
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phon sk "sm'eju:tsa s'a tv'a:R" "☺"
 test_phon sk "bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
