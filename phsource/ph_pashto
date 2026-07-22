@@ -15,11 +15,11 @@ phoneme a    // َ (zabar/fatha) - short 'a' as in "man"
   FMT(vowel/a)
 endphoneme
 
-phoneme a:   // ا - long 'aa' as in "father"
+phoneme a:   // ا - long back 'aa' as in "father", [ɑː]
   vwl starttype #a endtype #a
   length 280
   ipa aː
-  FMT(vowel/a)  // Keeping formant consistent with short 'a'
+  FMT(vowel/aa)  // back vowel, distinct in quality from short front 'a'
 endphoneme
 
 phoneme e    // ِ (zer/kasra) - short 'e' as in "bed" "ketab"
@@ -120,23 +120,19 @@ endphoneme
 
 phoneme ts
   // څ in Pashto - voiceless alveolar affricate
-  vls alv afr
+  // No instruction statements (e.g. ipa) may follow import_phoneme: they
+  // compile into a local program that replaces the imported FMT/WAV one.
+  import_phoneme consonants/ts
+  voicingswitch dz
   lengthmod 2
-  ipa ts
-  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
-  WAV(ustop/ts)
 endphoneme
 
 phoneme dz
-  // ځ in Pashto - voiced alveolar affricate
-  vcd alv afr
-  lengthmod 5
-  ipa dz
+  // ځ in Pashto - voiced alveolar affricate; the master definition has the
+  // voiced closure plus a strong burst, the old local one rendered like [d]
+  import_phoneme consonants/dz
   voicingswitch ts
-  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=1 f2=1700 -300 300  f3=-100 80  brk
-  WAV(ustop/ts) addWav(x/d, 70)  // Using standard WAV files
+  lengthmod 5
 endphoneme
 
 phoneme t.
@@ -596,34 +592,27 @@ phoneme l/
 endphoneme
 
 phoneme r
+  // ر - alveolar tap [ɾ]; uses the master flap acoustics rather than the
+  // English approximant formants, which sound wrong for Pashto
   liquid rhotic
-  lengthmod 7
+  lengthmod 3
   ipa r
 
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(r/)
   ENDIF
 
-  NextVowelStarts
-    VowelStart(r/r@, -15)
-    VowelStart(r/ra, -15)
-    VowelStart(r/re, -15)
-    VowelStart(r/ri, -15)
-    VowelStart(r/ro, -15)
-    VowelStart(r/ru, -15)
-  EndSwitch
-
-  IF prevPh(isVowel) THEN
-    VowelEnding(r/xr, -50)
+  IF nextPh(#e) OR nextPh(#i) THEN
+    Vowelin f1=0  f2=1500 -300 300  f3=-200 80
+    FMT(d/tap1) addWav(r3/rx, 150)
   ENDIF
 
-  IF prevPh(isPause) THEN
-    FMT(r/_r)
-  ELIF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
-    FMT(r/tr)
+  Vowelin f1=2  f2=1500 -300 300  f3=-200 80
+  IF nextPh(#a) THEN
+    FMT(d/tap3) addWav(r3/rx, 200)
   ENDIF
 
-  FMT(r/r)
+  FMT(d/tap3) addWav(r3/rx, 150)
 endphoneme
 
 phoneme r/

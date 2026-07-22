@@ -69,9 +69,9 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 
 	FILE *f_in;
 	int length;
-	char buf[sizeof(path_home)+40];
+	char buf[N_PATH_BUF];
 
-	sprintf(buf, "%s%c%s", path_home, PATHSEP, fname);
+	snprintf(buf, sizeof(buf), "%s%c%s", path_home, PATHSEP, fname);
 	length = GetFileLength(buf);
 	if (length < 0) // length == -errno
 		return create_file_error_context(context, -length, buf);
@@ -366,7 +366,7 @@ void SelectPhonemeTable(int number)
 {
 	if (current_phoneme_table == number) return;
 	n_phoneme_tab = 0;
-	MAKE_MEM_UNDEFINED(&phoneme_tab, sizeof(phoneme_tab));
+	memset(phoneme_tab, 0, sizeof(phoneme_tab)); // clear so a code absent from the new table looks up as NULL, not a stale pointer from the previous table
 	SetUpPhonemeTable(number); // recursively for included phoneme tables
 	n_phoneme_tab++;
 	current_phoneme_table = number;
@@ -413,11 +413,14 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 	PHONEME_LIST *pl;
 	static const int condition_level[4] = { 1, 2, 4, 15 };
 
-	if (phoneme_tab[plist[0].phcode]->type == phVOWEL)
+	PHONEME_TAB *ph0 = phoneme_tab[plist[0].phcode];
+	if (ph0 != NULL && ph0->type == phVOWEL)
 		pl = plist;
 	else {
-		// consonant, get stress from the following vowel
-		if (phoneme_tab[plist[1].phcode]->type == phVOWEL)
+		// consonant (or a phoneme from another table after a phoneme-table
+		// switch), get stress from the following vowel
+		PHONEME_TAB *ph1 = phoneme_tab[plist[1].phcode];
+		if (ph1 != NULL && ph1->type == phVOWEL)
 			pl = &plist[1];
 		else
 			return false; // no stress elevel for this consonant
@@ -456,7 +459,7 @@ static int CountVowelPosition(PHONEME_LIST *plist, PHONEME_LIST *plist_start)
 	int count = 0;
 
 	for (;;) {
-		if (plist->ph->type == phVOWEL)
+		if (plist->ph != NULL && plist->ph->type == phVOWEL)
 			count++;
 		if (plist->sourceix != 0 || plist == plist_start)
 			break;
@@ -535,7 +538,12 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			for (which = 1;; which++) {
 				if (plist[which].sourceix)
 					return false;
-				if (phoneme_tab[plist[which].phcode]->type == phVOWEL) {
+				PHONEME_TAB *phw = phoneme_tab[plist[which].phcode];
+				if (phw == NULL)
+					// phoneme from another table after a phoneme-table switch;
+					// treat it as a boundary, there is no next vowel in this word
+					return false;
+				if (phw->type == phVOWEL) {
 					plist = &plist[which];
 					break;
 				}
@@ -580,6 +588,12 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		PHONEME_TAB *ph;
 		ph = plist->ph;
 
+		if (ph == NULL)
+			// the neighbouring phoneme is not in the current phoneme table
+			// (e.g. a phoneme from another table after a mid-clause phoneme-table
+			// switch); it cannot satisfy a condition, so treat it as not matching
+			return false;
+
 		if (instn2 < 7) {
 			// 'data' is a phoneme number
 			if ((phoneme_tab[data]->mnemonic == ph->mnemonic) == true)
@@ -615,7 +629,9 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			case isWordStart:
 				return plist->sourceix != 0;
 			case isWordEnd:
-				return plist[1].sourceix || (plist[1].ph->type == phPAUSE);
+				// a phoneme from another table (NULL ph) after a phoneme-table
+				// switch acts as a word boundary
+				return plist[1].sourceix || (plist[1].ph == NULL) || (plist[1].ph->type == phPAUSE);
 			case isAfterStress:
 				if (plist->sourceix != 0)
 					return false;
@@ -635,6 +651,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 					plist++;
 					if (plist->sourceix != 0)
 						return true; // start of next word, without finding another vowel
+					if (plist->ph == NULL)
+						return true; // reached another phoneme table, no more vowels in this word
 					if (plist->ph->type == phVOWEL)
 						return false;
 				}
@@ -677,9 +695,14 @@ static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, unsigne
 
 	if (instn_type == 2) {
 		phdata->pd_control |= pd_FORNEXTPH;
+		if (plist[1].ph == NULL)
+			return; // next phoneme is from another table (phoneme-table switch)
 		voweltype = plist[1].ph->start_type; // SwitchNextVowelType
-	} else
+	} else {
+		if (plist[-1].ph == NULL)
+			return; // previous phoneme is from another table (phoneme-table switch)
 		voweltype = plist[-1].ph->end_type; // SwitchPrevVowelType
+	}
 
 	voweltype -= phonVOWELTYPES;
 	if ((voweltype >= 0) && (voweltype < 6)) {

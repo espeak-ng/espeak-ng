@@ -265,6 +265,7 @@ rule with more syllables.
 |--------|-------------|
 | `&`    | A syllable which may be stressed (i.e. is not defined as unstressed). |
 | `V`    | Matches only if a previous word has indicated that a verb form is expected. |
+| `!`    | Only use this rule if the word starts with a capital letter. |
 | `xxJ`  | Skip letters until `xx`. Simple `xx` means start of current word. `xx_yy` means `xx` as end of previous and `yy` as start of current word. If necessary, more than one `J` can be used, and `Lxx` group as letter mark. |
 
 e.g.
@@ -285,6 +286,7 @@ e.g.
 | `P<number>` | This number of matching characters are a standard prefix, remove them and retranslate the word. |
 | `Lnn`       | `nn` is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group `nn` |
 | `N`         | Only use this rule if the word is not a retranslation after removing a suffix. |
+| `W`         | Only use this rule when spelling letter by letter, as in USA and BBC. |
 | `#`         | (English specific) change the next "e" into a special character "E" |
 | `$noprefix` | Only use this rule if the word is not a retranslation after removing a prefix. |
 | `$w_alt`    | Only use this rule if the word is `$w_alt2` found in the `*_list` file with the `$w_alt3`, `$alt`, `$alt2` or `$alt3` attribute respectively. |

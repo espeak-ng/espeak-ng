@@ -15,12 +15,13 @@
 
 0  ** NULL   0  r
 0  R  NULL   0  rr
-0  R2 NULL   0  NULL
+0  R2 NULL   0  rr
 0  v# NULL   0  b
 0  v  NULL   0  b
 0  j  NULL   0  i
+0  j: NULL   0  i
 0  J  NULL   0  L
-0  J^ NULL   0  L
+0  J^ NULL   0  jj
 0  n^ NULL   0  J
 0  N  NULL   0  n
 0  B  NULL   0  b
@@ -31,7 +32,9 @@
 0  T  s      0  s
 
 0  a/ NULL   0  a
+0  e/ NULL   0  e
 0  E  NULL   0  e
+0  o/ NULL   0  o
 0  O  NULL   0  o
 0  aI NULL   60 a i
 0  eI NULL   60 e i
@@ -40,8 +43,10 @@
 0  eU NULL   60 e u
 
 0  dZ NULL   0  tS
-0  S  NULL   60 s jj
-0  Z  NULL   60 s jj
+0  tS NULL   0  tS
+0  ts NULL   50 t s
+0  S  NULL   90 s jj
+0  Z  NULL   90 s jj
 
 0  @  NULL   0  e
 0  @2 NULL   0  e

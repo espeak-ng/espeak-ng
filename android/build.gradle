@@ -41,8 +41,8 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 33
-        versionCode = 22
-        versionName = "1.52.0"
+        versionCode = 23
+        versionName = "1.53.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         externalNativeBuild {

@@ -37,7 +37,7 @@ local.properties
 .cxx
 .gradle/
 .idea/
-build/
+build*/
 *.iml
 !gradlew.bat
 
@@ -135,7 +135,6 @@ espeak-ng-*.*/
 /tests/fuzzing/*.profraw
 /tests/fuzzing/.deps/*.Po
 /tests/fuzzing/.dirstamp
-!tests/fuzzing/CORPUS*/*.txt
 # Windows builds
 
 src/pcaudiolib/
@@ -163,7 +162,6 @@ src/pcaudiolib/
 *.cache
 *.user
 
-*.txt
 *.wixobj
 *.wixpdb
 *.cab
@@ -175,8 +173,6 @@ src/pcaudiolib/
 *.nativecodeanalysis.xml
 *.nativecodeanalysis.all.xml
 *.lastcodeanalysissucceeded
-
-!src/ucd-tools/data/*/*.txt
 
 # Linux/Source distribution files
 
@@ -227,6 +223,3 @@ espeak-ng-data/phontab
 
 espeak-ng-data/mbrola/
 espeak-ng-data/mbrola_ph/*_phtrans
-
-# fastlane metadata
-!fastlane/metadata/android/*/*.txt

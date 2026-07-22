@@ -180,13 +180,13 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 
 void LoadConfig(void) {
 	// Load configuration file, if one exists
-	char buf[sizeof(path_home)+10];
+	char buf[N_PATH_BUF];
 	FILE *f;
 	int ix;
 	char c1;
 	char string[200];
 
-	sprintf(buf, "%s%c%s", path_home, PATHSEP, "config");
+	snprintf(buf, sizeof(buf), "%s%c%s", path_home, PATHSEP, "config");
 	if ((f = fopen(buf, "r")) == NULL)
 		return;
 

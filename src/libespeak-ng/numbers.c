@@ -690,14 +690,18 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 static char ph_ordinal2[12];
 static char ph_ordinal2x[12];
 
-static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB *wtab, int roman)
+static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB *wtab, int wtab_remaining, int roman)
 {
 	int ordinal = 0;
 	int c2;
 	int nextflags;
+	int next_wtab_flags = 0;
 
-	if ((tr->langopts.numbers & NUM_ORDINAL_DOT) && ((word_end[0] == '.') || (wtab[0].flags & FLAG_HAS_DOT)) && !(wtab[1].flags & FLAG_NOSPACE)) {
-		if (roman || !(wtab[1].flags & FLAG_FIRST_UPPER)) {
+	if (wtab_remaining > 1)
+		next_wtab_flags = wtab[1].flags;
+
+	if ((tr->langopts.numbers & NUM_ORDINAL_DOT) && ((word_end[0] == '.') || (wtab[0].flags & FLAG_HAS_DOT)) && !(next_wtab_flags & FLAG_NOSPACE)) {
+		if (roman || !(next_wtab_flags & FLAG_FIRST_UPPER)) {
 			if (word_end[0] == '.')
 				utf8_in(&c2, &word_end[2]);
 			else
@@ -753,7 +757,7 @@ static int hu_number_e(const char *word, int thousandplex, int value)
 	return 0;
 }
 
-int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, WORD_TAB *wtab)
+int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, WORD_TAB *wtab, int wtab_remaining)
 {
 	int c;
 	char *p;
@@ -845,7 +849,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, W
 		return 0;
 	}
 
-	if (CheckDotOrdinal(tr, word_start, word, wtab, 1))
+	if (CheckDotOrdinal(tr, word_start, word, wtab, wtab_remaining, 1))
 		wtab[0].flags |= FLAG_ORDINAL;
 
 	if (tr->langopts.numbers & NUM_ROMAN_ORDINAL) {
@@ -863,7 +867,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, W
 
 	tr->prev_dict_flags[0] = 0;
 	tr->prev_dict_flags[1] = 0;
-	TranslateNumber(tr, &number_chars[2], p, ph_out_end, flags, wtab, num_control);
+	TranslateNumber(tr, &number_chars[2], p, ph_out_end, flags, wtab, wtab_remaining, num_control);
 
 	if (tr->langopts.numbers & NUM_ROMAN_AFTER)
 		strcat(ph_out, ph_roman);
@@ -921,7 +925,7 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 	// thousands_exact:  bit 0  no hundreds,tens,or units,  bit 1  ordinal numberr
 	int found;
 	int found_value = 0;
-	char string[14];
+	char string[26];
 	char ph_of[12];
 	char ph_thousands[N_PHONEME_BYTES];
 	char ph_buf[N_PHONEME_BYTES];
@@ -1026,7 +1030,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 	int found_ordinal = 0;
 	int next_phtype;
 	int ord_type = 'o';
-	char string[12]; // for looking up entries in *_list
+	char string[14]; // for looking up entries in *_list
 	char ph_ordinal[20];
 	char ph_tens[50];
 	char ph_digits[50];
@@ -1256,6 +1260,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 	//           bit 1,  ordinal number
 	//           bit 5   variant form of ordinal number
 	//           bit 8   followed by decimal fraction
+	//           bit 10  feminine number
 
 	int found;
 	int hundreds;
@@ -1267,13 +1272,13 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 	int tplex;
 	bool say_zero_hundred = false;
 	bool say_one_hundred;
-	char string[12]; // for looking up entries in **_list
+	char string[14]; // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
 	char ph_100[N_PHONEME_BYTES];
 	char ph_10T[N_PHONEME_BYTES];
 	char ph_digits[50];
-	char ph_thousands[50];
+	char ph_thousands[211];
 	char ph_hundred_and[12];
 	char ph_thousand_and[12];
 
@@ -1415,6 +1420,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 		x = 0;
 		if (thousandplex == 0) {
 			x = 2; // allow "eins" for 1 rather than "ein"
+			if (control & 0x400)
+				x |= 8; // use feminine form
 			if (ordinal)
 				x = 3; // ordinal number
 			if ((value < 100) && !(control & 1))
@@ -1466,7 +1473,7 @@ static bool CheckThousandsGroup(char *word, int group_len)
 	return true;
 }
 
-static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_out_end, unsigned int *flags, WORD_TAB *wtab, int control)
+static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_out_end, unsigned int *flags, WORD_TAB *wtab, int wtab_remaining, int control)
 {
 	//  Number translation with various options
 	// the "word" may be up to 4 digits
@@ -1488,6 +1495,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 	int decimal_count;
 	int max_decimal_count;
 	int decimal_mode;
+	bool fraction_suffix;
 	int suffix_ix;
 	int skipwords = 0;
 	int group_len;
@@ -1541,10 +1549,10 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 
 	if (prev_thousands || (word[0] != '0')) {
 		// don't check for ordinal if the number has a leading zero
-		ordinal = CheckDotOrdinal(tr, word, &word[ix], wtab, 0);
+		ordinal = CheckDotOrdinal(tr, word, &word[ix], wtab, wtab_remaining, 0);
 	}
 
-	if ((word[ix] == '.') && !IsDigit09(word[ix+1]) && !IsDigit09(word[ix+2]) && !(wtab[1].flags & FLAG_NOSPACE)) {
+	if ((word[ix] == '.') && !IsDigit09(word[ix+1]) && !IsDigit09(word[ix+2]) && ((wtab_remaining <= 1) || !(wtab[1].flags & FLAG_NOSPACE))) {
 		// remove dot unless followed by another number
 		word[ix] = 0;
 	}
@@ -1611,7 +1619,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		// a "thousand"/"million" suffix to this one
 		digix = n_digits + thousands_inc;
 
-		while (((wtab[thousandplex+1].flags & FLAG_MULTIPLE_SPACES) == 0) && CheckThousandsGroup(&word[digix], group_len)) {
+		while ((thousandplex + 1 < wtab_remaining) && ((wtab[thousandplex+1].flags & FLAG_MULTIPLE_SPACES) == 0) && CheckThousandsGroup(&word[digix], group_len)) {
 			for (ix = 0; ix < group_len; ix++) {
 				if (word[digix+ix] != '0') {
 					thousands_exact = 0;
@@ -1634,7 +1642,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 
 	if (tr->translator_name == L('h', 'u')) {
 		// variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (but not a, e, az, ez, azt, ezt
-		if ((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact == 1) && hu_number_e(&word[suffix_ix], thousandplex, value))
+		if ((thousandplex < wtab_remaining) && (wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact == 1) && hu_number_e(&word[suffix_ix], thousandplex, value))
 			number_control |= 1; // use _1e variant of number
 	}
 
@@ -1671,14 +1679,14 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		while (IsDigit09(p[1])) p++; // just use the last digit
 		if (IsDigit09(p[-1])) {
 			p2 = p - 1;
-			if (LookupDictList(tr, &p2, buf_digit_lookup, flags, FLAG_SUFX, wtab)) // lookup 2 digits
+			if (LookupDictList(tr, &p2, buf_digit_lookup, flags, FLAG_SUFX, wtab, wtab_remaining)) // lookup 2 digits
 				n_digit_lookup = 2;
 		}
 
 		if ((buf_digit_lookup[0] == 0) && (*p != '0')) {
 			// LANG=hu ?
 			// not found, lookup only the last digit (?? but not if dot-ordinal has been found)
-			if (LookupDictList(tr, &p, buf_digit_lookup, flags, FLAG_SUFX, wtab)) // don't match '0', or entries with $only
+			if (LookupDictList(tr, &p, buf_digit_lookup, flags, FLAG_SUFX, wtab, wtab_remaining)) // don't match '0', or entries with $only
 				n_digit_lookup = 1;
 		}
 
@@ -1715,6 +1723,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 
 	while (decimal_point) {
 		n_digits++;
+		fraction_suffix = false;
 
 		decimal_count = 0;
 		while (IsDigit09(word[n_digits+decimal_count]))
@@ -1751,11 +1760,23 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		case NUM_DFRACTION_1: // italian, say "hundredths" if leading zero
 		case NUM_DFRACTION_5: // hungarian, always say "tenths" etc.
 		case NUM_DFRACTION_6: // kazakh, always say "tenths" etc, before the decimal fraction
-			LookupNum3(tr, atoi(&word[n_digits]), ph_buf, false, 0, 0);
+			value = atoi(&word[n_digits]);
+			LookupNum3(tr, value, ph_buf, false, 0,
+			           (tr->langopts.numbers2 & NUM2_FRACTION_FEMININE) ? 0x400 : 0);
 			if ((word[n_digits] == '0') || (decimal_mode != NUM_DFRACTION_1)) {
 				// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
-				sprintf(string, "_0Z%d", decimal_count);
-				if (Lookup(tr, string, buf1) == 0)
+				if ((tr->langopts.numbers2 & NUM2_FRACTION_FEMININE)
+				    && ((value % 10) == 1) && ((value % 100) != 11)) {
+					sprintf(string, "_0Z%ds", decimal_count);
+					Lookup(tr, string, buf1);
+				} else
+					buf1[0] = 0;
+
+				if (buf1[0] == 0) {
+					sprintf(string, "_0Z%d", decimal_count);
+					Lookup(tr, string, buf1);
+				}
+				if (buf1[0] == 0)
 					break; // revert to speaking single digits
 
 				if (decimal_mode == NUM_DFRACTION_6) {
@@ -1766,6 +1787,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 					ph_cur += len;
 				} else
 					strcat(ph_buf, buf1);
+				fraction_suffix = true;
 			}
 
 			len = strlen(ph_buf);
@@ -1817,7 +1839,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		}
 
 		// something after the decimal part ?
-		if (Lookup(tr, "_dpt2", buf1)) {
+		if (!fraction_suffix && Lookup(tr, "_dpt2", buf1)) {
 			len = strlen(buf1);
 			if (ph_cur + len + 1 > ph_out_end)
 				goto stop;
@@ -1862,12 +1884,12 @@ stop:
 	return 1;
 }
 
-int TranslateNumber(Translator *tr, char *word1, char *ph_out, char *ph_out_end, unsigned int *flags, WORD_TAB *wtab, int control)
+int TranslateNumber(Translator *tr, char *word1, char *ph_out, char *ph_out_end, unsigned int *flags, WORD_TAB *wtab, int wtab_remaining, int control)
 {
 	if ((option_sayas == SAYAS_DIGITS1) || (wtab[0].flags & FLAG_INDIVIDUAL_DIGITS))
 		return 0; // speak digits individually
 
 	if (tr->langopts.numbers != 0)
-		return TranslateNumber_1(tr, word1, ph_out, ph_out_end, flags, wtab, control);
+		return TranslateNumber_1(tr, word1, ph_out, ph_out_end, flags, wtab, wtab_remaining, control);
 	return 0;
 }

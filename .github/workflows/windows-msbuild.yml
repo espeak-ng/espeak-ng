@@ -27,9 +27,9 @@ jobs:
       - name: Install WiX
         run: dotnet tool install --global wix
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Checkout pcaudiolib
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: "espeak-ng/pcaudiolib"
           path: "src/pcaudiolib"

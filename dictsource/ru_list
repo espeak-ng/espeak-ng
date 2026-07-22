@@ -73,6 +73,30 @@ _0M10        nVn;il;i'onV#f
 _0MA10        nVn;il;i'ona
 _dpt    _:'i_:        // start of decimal fraction
 _dpt2   _d;Is;'atYx   // end of decimal fraction
+_0Z1    _d;Is;'atYx
+_0Z1s   _d;Is;'atV#ja
+_0Z2    _s'otYx
+_0Z2s   _s'otV#ja
+_0Z3    _t'ys;itS;nYx
+_0Z3s   _t'ys;itS;nV#ja
+_0Z4    _d;is;it;it'ys;itS;nYx
+_0Z4s   _d;is;it;it'ys;itS;nV#ja
+_0Z5    _stV#t'ys;itS;nYx
+_0Z5s   _stV#t'ys;itS;nV#ja
+_0Z6    _m;,IlI;'onnYx
+_0Z6s   _m;,IlI;'onnV#ja
+_0Z7    _d;is;it;im;,IlI;'onnYx
+_0Z7s   _d;is;it;im;,IlI;'onnV#ja
+_0Z8    _stV#m;,IlI;'onnYx
+_0Z8s   _stV#m;,IlI;'onnV#ja
+_0Z9    _m;,IlI;'ardnYx
+_0Z9s   _m;,IlI;'ardnV#ja
+_0Z10   _d;is;it;im;,IlI;'ardnYx
+_0Z10s  _d;is;it;im;,IlI;'ardnV#ja
+_0Z11   _stV#m;,IlI;'ardnYx
+_0Z11s  _stV#m;,IlI;'ardnV#ja
+_0Z12   _tr;,IlI;'onnYx
+_0Z12s  _tr;,IlI;'onnV#ja
 
 // symbols (названия символов)
 _`      akts'Ent
@@ -412,7 +436,7 @@ _с      Es
 ?3          (наконец-то)             nVkV#n'etstV#
          (на поводу)            n@||pV#vV#d'u
           (не были)              n;'ebyl;I
-?3          (не были)              n'ebyl;I
+?3          (не были)              n'ebyl^I
         (не было)               n;'ebylV
 ?3        (не было)               n'ebylV
              (не за что)               n;'ezV#StV#

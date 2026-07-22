@@ -4,23 +4,24 @@ list(APPEND _dict_compile_list
   ca chr cmn crh cs cv cy
   da de
   el en eo es et eu
-  fa fi fr
+  fa fi fo fr
   ga gd gn grc gu
   hak haw he hi hr ht hu hy
   ia id io is it
   ja jbo
-  ka kk kl kn kok ko ku ky
-  la lb lfn lt lv
+  ka kaa kk kl kn kok ko ku ky
+  la lb lfn lij lt lv
   mi mk ml mn mr ms mto mt my
   nci ne nl nog no
   om or
-  pap pa piqd pl pt py
+  pap pa piqd pl ps pt py
   qdb quc qu qya
   ro ru rup
   sd shn si sjn sk sl smj sq sr sv sw
   ta te ti th tk tn tr tt
   ug uk ur uz
   vi
+  xex
   yue
 )
 
@@ -150,7 +151,7 @@ foreach(_dict_name ${_dict_compile_list})
   )
 endforeach()
 
-if (HAVE_MBROLA AND USE_MBROLA)
+if (USE_MBROLA)
   file(COPY "${DATA_SRC_DIR}/voices/mb" DESTINATION "${DATA_DIST_DIR}/voices")
   file(MAKE_DIRECTORY "${DATA_DIST_DIR}/mbrola_ph")
   foreach(_mbl ${_mbrola_lang_list})

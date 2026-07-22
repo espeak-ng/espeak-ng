@@ -238,8 +238,20 @@ int IsEmoji(unsigned int c)
 	// word followed directly by an emoji (e.g. "дыму🐠") is not merged
 	// into one token — that would defeat dictionary lookup for the word
 	// and trigger letter-by-letter spelling of its alphabetic part.
+	if ((c >= 0x2194) && (c <= 0x2199))
+		return 1; // arrows with emoji presentation, U+2194/U+2195 also occur
+		          // in ZWJ sequences (head shaking horizontally/vertically)
+	if ((c == 0x21a9) || (c == 0x21aa))
+		return 1; // hooked arrows with emoji presentation
 	if ((c >= 0x2600) && (c <= 0x27bf))
 		return 1; // Miscellaneous Symbols + Dingbats
+	if ((c >= 0x2b05) && (c <= 0x2b07))
+		return 1; // left/up/down arrow buttons
+	if ((c == 0x2b1b) || (c == 0x2b1c))
+		return 1; // large squares, U+2B1B also occurs in ZWJ sequences
+		          // (black cat, black bird)
+	if ((c == 0x2b50) || (c == 0x2b55))
+		return 1; // star, hollow red circle
 	if ((c >= 0x1f000) && (c <= 0x1fbff))
 		return 1; // Emoji blocks (Emoticons, Transport, Supplemental, etc.),
 		          // includes Regional Indicator Symbols at U+1F1E0..U+1F1FF
