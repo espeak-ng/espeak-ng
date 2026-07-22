@@ -44,6 +44,7 @@ bug fixes:
 *  handled fread errors and propagate ENS_UNEXPECTED_EOF in spect -- Rudi Heitbaum
 *  fixed %x format specifier type mismatch in SSML parsing -- Rudi Heitbaum
 *  fixed character classification to handle ZWJ and variation selectors -- Tamas Geczy
+*  fixed silently dropped emoji descriptions in Chinese, Cantonese and Thai: dictionary replacement text is now word-segmented like normal input, with nested text replacements (hanzi to pinyin) -- Alexander Epaneshnikov
 *  fixed PATH_ESPEAK_DATA macro type -- Anthony DePasquale
 *  added different voice identifier for Windows -- Charley3d
 *  increased Sonic synthesis activation threshold -- Danstiv

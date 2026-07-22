@@ -48,7 +48,7 @@
 static int CalcWordLength(int source_index, int charix_top, short int *charix, WORD_TAB *words, int word_count);
 static void CombineFlag(Translator *tr, WORD_TAB *wtab, int wtab_remaining, char *word, int *flags, unsigned char *p, char *word_phonemes);
 static void SwitchLanguage(char *word, char *word_phonemes);
-static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_remaining, char *word_out);
+static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_remaining, char *word_out, int depth);
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -142,7 +142,46 @@ char *strchr_w(const char *s, int c)
 	return strchr((char *)s, c); // (char *) is needed for Borland compiler
 }
 
-static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_remaining, char *word_out)
+static void SegmentReplacement(Translator *tr, const char *text, char *out, int out_size)
+{
+	// Apply the word-splitting rules of the clause tokenizer (TranslateClause)
+	// to dictionary replacement text, so that a $textmode replacement is
+	// re-translated in the same word units as if it had been normal input:
+	// for languages with langopts.ideographs each CJK character is a separate
+	// word (so that hanzi words can match their multi-word *_list entries),
+	// and a non-alpha mark such as a Thai tone mark terminates a word instead
+	// of derailing the letter-to-phoneme rules mid-word.
+	// ASCII characters are always kept in-word: for Latin-script replacement
+	// text ("t-rex", "cai3hong2") the existing single-word behaviour is kept.
+	int ix = 0, out_ix = 0;
+	int c = 0;
+
+	while (text[ix] != 0) {
+		int prev = c;
+		int nbytes = utf8_in(&c, &text[ix]);
+		bool insert_space = false;
+
+		if (IsAlpha(prev)) {
+			if (IsAlpha(c)) {
+				if (tr->langopts.ideographs && ((c > 0x3040) || (prev > 0x3040)))
+					insert_space = true; // each ideograph is a separate word
+			} else if (!IsSpace(c) && (c >= 0x80) && (wcschr(tr->punct_within_word, c) == 0))
+				insert_space = true; // eg. a Thai tone mark ends the word, as in the clause tokenizer
+		} else if ((prev >= 0x80) && !IsSpace(prev) && IsAlpha(c) && (wcschr(tr->punct_within_word, prev) == 0))
+			insert_space = true; // a letter after such a mark starts a new word
+
+		if (out_ix + nbytes + 2 > out_size)
+			break;
+		if (insert_space)
+			out[out_ix++] = ' ';
+		memcpy(&out[out_ix], &text[ix], nbytes);
+		out_ix += nbytes;
+		ix += nbytes;
+	}
+	out[out_ix] = 0;
+}
+
+static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_remaining, char *word_out, int depth)
 {
 	char words_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 	char *phonemes = words_phonemes;
@@ -152,10 +191,12 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 	if (flags & FLAG_TEXTMODE && word_out) {
 		// Ensure that start of word rules match with the replaced text,
 		// so that emoji and other characters are pronounced correctly.
-		char word[N_WORD_BYTES+1];
+		// The buffer allows for a space inserted after every character of
+		// the replacement by SegmentReplacement().
+		char word[2+N_WORD_BYTES*2];
 		word[0] = 0;
 		word[1] = ' ';
-		strcpy(word+2, word_out);
+		SegmentReplacement(tr, word_out, word+2, sizeof(word)-2);
 		word_out = word+2;
 
 			bool first_word = true;
@@ -174,7 +215,17 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 			// However, dictionary_skipwords value is still needed outside this scope.
 			// So we backup and restore it at the end of this scope.
 			int skipwords = dictionary_skipwords;
-			TranslateWord3(tr, word_out, wtab, wtab_remaining, NULL, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
+			if (depth < 3) {
+				// translate through TranslateWordWithBounds so that a replacement
+				// word which itself has a $textmode entry is expanded too: eg. an
+				// emoji entry replaces the emoji by hanzi, and the hanzi words map
+				// to pinyin through *_list. The depth limit guards against an
+				// entry cycle in the dictionary (a $textmode b, b $textmode a).
+				char word_replacement2[N_WORD_BYTES+1];
+				word_replacement2[0] = 0;
+				TranslateWordWithBounds(tr, word_out, wtab, wtab_remaining, word_replacement2, depth+1);
+			} else
+				TranslateWord3(tr, word_out, wtab, wtab_remaining, NULL, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
 
 			int n;
 			if (first_word) {
@@ -213,7 +264,7 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 
 int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
 {
-	return TranslateWordWithBounds(tr, word_start, wtab, 0, word_out);
+	return TranslateWordWithBounds(tr, word_start, wtab, 0, word_out, 0);
 }
 
 static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
@@ -407,7 +458,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int wtab_r
 		word_copy_len = ix;
 
 		word_replaced[2] = 0;
-		flags = TranslateWordWithBounds(translator, word, wtab, wtab_remaining, &word_replaced[2]);
+		flags = TranslateWordWithBounds(translator, word, wtab, wtab_remaining, &word_replaced[2], 0);
 
 		if (flags & FLAG_SPELLWORD) {
 			// re-translate the word as individual letters, separated by spaces
@@ -439,9 +490,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int wtab_r
 					if (word_replaced[2] != 0) {
 						word_replaced[0] = 0; // byte before the start of the word
 						word_replaced[1] = ' ';
-						flags = TranslateWordWithBounds(translator2, &word_replaced[1], wtab, wtab_remaining, NULL);
+						flags = TranslateWordWithBounds(translator2, &word_replaced[1], wtab, wtab_remaining, NULL, 0);
 					} else
-						flags = TranslateWordWithBounds(translator2, word, wtab, wtab_remaining, &word_replaced[2]);
+						flags = TranslateWordWithBounds(translator2, word, wtab, wtab_remaining, &word_replaced[2], 0);
 				}
 
 				if (p[0] != phonSWITCH)
@@ -1773,7 +1824,7 @@ static void CombineFlag(Translator *tr, WORD_TAB *wtab, int wtab_remaining, char
 		char ph_buf[N_WORD_PHONEMES];
 		strcpy(ph_buf, word_phonemes);
 
-		flags2[0] = TranslateWordWithBounds(tr, p2+1, wtab+1, wtab_remaining-1, NULL);
+		flags2[0] = TranslateWordWithBounds(tr, p2+1, wtab+1, wtab_remaining-1, NULL, 0);
 		if ((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
 			ok = false;
 
@@ -1794,11 +1845,11 @@ static void CombineFlag(Translator *tr, WORD_TAB *wtab, int wtab_remaining, char
 	if (ok) {
 		*p2 = '-'; // replace next space by hyphen
 		wtab[0].flags &= ~FLAG_ALL_UPPER; // prevent it being considered an abbreviation
-		*flags = TranslateWordWithBounds(translator, word, wtab, wtab_remaining, NULL); // translate the combined word
+		*flags = TranslateWordWithBounds(translator, word, wtab, wtab_remaining, NULL, 0); // translate the combined word
 		if ((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f))) {
 			// revert to separate words
 			*p2 = ' ';
-			*flags = TranslateWordWithBounds(translator, word, wtab, wtab_remaining, NULL);
+			*flags = TranslateWordWithBounds(translator, word, wtab, wtab_remaining, NULL, 0);
 		} else {
 			if (*flags == 0)
 				*flags = flags2[0]; // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"

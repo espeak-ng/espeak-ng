@@ -68,7 +68,9 @@ test_phon en "h@w'aIi:" "Hawaiʻi"
 
 # ED-3 - emoji_character
 test_phon en "'e@ri:z" "♈"
-test_phon my "pru3'a2nke3DN_|_| mj@@lu3'a2mj@2tsnh,a2N_|_| nm_|n'e3DN_|_| mj@@nh,ats" "😙"
+# the replacement text is segmented like direct input (see SegmentReplacement),
+# so the Burmese asat mark now ends a word as it does in normal text
+test_phon my "pru3'a2nke3DN _|_| mj@k _| lu3'a2mj@2tsnh,a2N _|_| nm _| n'e3DN _|_| mj@k _| nh'ats" "😙"
 test_phon ka "k'ots#nis g'amomx,atveli s'axe m'omQim,are t#v'alebit#" "😙"
 test_phon ka "'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "😥"
 # Adjacent emoji without whitespace now correctly separated (IsAlpha emoji fix).
@@ -115,6 +117,24 @@ test_phon en "w'Um@n s'aI@ntIst m'i:di@m sk'In t'oUn" "👩🏽‍🔬"
 test_phon en "T'Vmz 'Vp l'aIt sk'In t'oUn" "👍🏻"
 # the modifier alone keeps its own dictionary entry
 test_phon en "m'i:di@m sk'In t'oUn" "🏽"
+
+# languages whose replacement text needs clause-style word segmentation
+# (SegmentReplacement): each hanzi is a separate word which then maps to
+# pinyin/jyutping through a second $textmode lookup, and a Thai tone mark
+# ends a word; without this the replacement text was silently dropped
+test_phon cmn "tshai21X'ong35_|" "🌈"
+test_phon yue "c'oi2_| h'ung4_|" "🌈"
+test_phon th "r'u2 ng" "🌈"
+# ZWJ sequence keys combined with segmented replacement text
+test_phon cmn "X'ei55_| m'Au55_|" "🐈‍⬛"
+test_phon yue "h'a1k_| m'aau1_|" "🐈‍⬛"
+test_phon th "tha2ng'a2ssru2 ng" "🏳️‍🌈"
+# skin tone sequence: base name and modifier name (女人 中等肤色) are both
+# segmented and expanded hanzi to pinyin
+test_phon cmn "n'y21_| z.'@35n_| ts.ong55t'@21N_| f'u55_| s'o-51_|" "👩🏽"
+# no Thai modifier name in CLDR yet, so only the base name is spoken,
+# but the sequence must not fall back to codepoint spelling or silence
+test_phon th "ch'u:2ni2 w'o2p nga5kh'ue2 n" "👍🏻"
 
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phon sk "sm'eju:tsa s'a tv'a:R" "☺"
