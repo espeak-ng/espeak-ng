@@ -12,37 +12,37 @@
 
 
 // Letters
-   b	b@
-   c	ts@
-   č	tS@
-   ć	tS;@2
-   d	d@
-   dž	dZ@
-   đ	dZ;@2
-   f	f@
-   g	g@
-   h	x@
-   j	j@2
-   k	k@
-   l	l@
-   lj	l^@
-   m	m@
-   n	n@
-   nj	n^@
-   p	p@
-   q	kv@
-   r	R@
-   _s	s@
-   š	S@
-   t	t@
-   v	v@
-   w	dvostr*uko||v@
+b	b@
+c	ts@
+č	tS@
+ć	tS;@2
+d	d@
+dž	dZ@
+đ	dZ;@2
+f	f@
+g	g@
+h	x@
+j	j@2
+k	k@
+l	l@
+lj	l^@
+m	m@
+n	n@
+nj	n^@
+p	p@
+q	kv@
+r	R@
+_s	s@
+š	S@
+t	t@
+v	v@
+w	dvostr*uko||v@
 ?2 w	duplo||v@
-   x	iks
-   y	ipsilon
-   z	z@
-   ž	Z@
-   
+x	iks
+y	ipsilon
+z	z@
+ž	Z@
+
 а	a
 б	b@
 ц	ts@
@@ -116,131 +116,131 @@ _tld	t'ild&
 
 
 // symbols
-   _??	znak          // unknown symbol
-   _?A	slovo         // unknown letter
-   _cap	k'apIt&l      // ?? use English until I find the correct word
+_??	znak          // unknown symbol
+_?A	slovo         // unknown letter
+_cap	k'apIt&l      // ?? use English until I find the correct word
 
-   ©	'aUtoRsk&||pr*av&
-   *	zvj'ezdits&	$max3
-   = 	_j'edn&ko	$max3
-   %	p'osto	$max3
-   +	plus	$max3
-   .	totSk&	$max3
+©	'aUtoRsk&||pr*av&
+*	zvj'ezdits&	$max3
+= 	_j'edn&ko	$max3
+%	p'osto	$max3
++	plus	$max3
+.	totSk&	$max3
 ?4 .	tatSk&	$max3
-   €	'euRo
+€	'euRo
 ?4 €	'evr*o
-   @	_'at
+@	_'at
 ?2 @	tRgovatSkoi
-   &	_'end
-   !	'usklItSnIk
+&	_'end
+!	'usklItSnIk
 ?2 !	'uzvItSnIk
-   :	dv'ototSk&
+:	dv'ototSk&
 ?4 :	dv'ot&tSk&
-   #	br*'oj_	$max3
-   /	kr*'oz_	$max3
-   \	b'EkslES	$max3
-   ^	ts'iRkumfleks
-   ~	t'ild&
-   ¤	v'alut&
-   §	'odlom&k
-   µ	m'ikr*o
-   ¶	tSl'an&k
-   °	st'up&n^
+#	br*'oj_	$max3
+/	kr*'oz_	$max3
+\	b'EkslES	$max3
+^	ts'iRkumfleks
+~	t'ild&
+¤	v'alut&
+§	'odlom&k
+µ	m'ikr*o
+¶	tSl'an&k
+°	st'up&n^
 ?4 °	st'epen
-   _"	n'avodnIk
+_"	n'avodnIk
 ?2 _"	n'avod
-   _‚	'otvoReni||n'avodnIk
-   _„	sp'uSteni||n'avodnIk
+_‚	'otvoReni||n'avodnIk
+_„	sp'uSteni||n'avodnIk
 ?2 _„	z&tvoReni||n'avodnIk
-   _…	tr*'i||t'otSke
+_…	tr*'i||t'otSke
 ?4 _…	tr*'i||t'atSke
-   †	kr*'iZ
+†	kr*'iZ
 ?2 †	kr-'st
-   ‡	dv'ostr*Uki||kr*'iZ
+‡	dv'ostr*Uki||kr*'iZ
 ?2 ‡	dv'ostRUki||kR'st
-   ‰	pr*'omil
-   _‹	'otvoReni||n'avodnIk
-   _‘	'otvoReni||n'avodnIk
-   _’	j'ednostr*'uki||n'avodnIk
-   _“	'otvoReni||n'avodnIk
-   _”	z'atvoReni||n'avodnIk
-   _•	kr*'upna||t'otSk&
+‰	pr*'omil
+_‹	'otvoReni||n'avodnIk
+_‘	'otvoReni||n'avodnIk
+_’	j'ednostr*'uki||n'avodnIk
+_“	'otvoReni||n'avodnIk
+_”	z'atvoReni||n'avodnIk
+_•	kr*'upna||t'otSk&
 ?4 _•	kr*'upna||t'atSk&
-   _–	En||ts'r-t&
-   _—	Em||ts'r-t&
-   ™	pr*'o'izvodZ&tS
-   ˘	br*'evis
-   ¨	pr*'ijegl&s
+_–	En||ts'r-t&
+_—	Em||ts'r-t&
+™	pr*'o'izvodZ&tS
+˘	br*'evis
+¨	pr*'ijegl&s
 ?2 ¨	pr*'egl&s
-   _«	'otvoReni||n'avodnIk
-   _­	pr*'ivr*emen&||ts'r-t'its&
-   ·	p'ut&
-   ¸	sed'il&
-   _»	z'atvoReni||n'avodnIk
-   ®	R'egistr*atsIj&
-   ł	l@||s&||ts'r-t'itsom
-   ×	p'ut&
-   ÷	p'odijel^,eno
+_«	'otvoReni||n'avodnIk
+_­	pr*'ivr*emen&||ts'r-t'its&
+·	p'ut&
+¸	sed'il&
+_»	z'atvoReni||n'avodnIk
+®	R'egistr*atsIj&
+ł	l@||s&||ts'r-t'itsom
+×	p'ut&
+÷	p'odijel^,eno
 ?2 ÷	p'odel^,eno
 
-   $    d'ol&R
-   _-	m'inus
-   _*	zvj'ezdits&
+$    d'ol&R
+_-	m'inus
+_*	zvj'ezdits&
 ?2 _*	zv'ezdits&
-   _@	t'r-g'ov&tSko||'a
+_@	t'r-g'ov&tSko||'a
 ?2 _@	et
 
-   _(	'otvoRen&||z'agr*ad&
-   _)	z'atvoRen&||z'agr*ad&
-   _'	'apostr*of
-   _,	z'aRez
+_(	'otvoRen&||z'agr*ad&
+_)	z'atvoRen&||z'agr*ad&
+_'	'apostr*of
+_,	z'aRez
 ?2 _,	z'apeta
-   _-	ts'r-t'its&
-   _.	t'otSk&
+_-	ts'r-t'its&
+_.	t'otSk&
 ?4 _.	t'atSk&
-   _;	t'otSk&z,a*Ez
+_;	t'otSk&z,a*Ez
 ?2 _;	t'atSk&z,apeta
 ?3 _;	t'atSk&z,a*Ez
-   _<	m'an^i||'od
-   _=	j'edn&ko
-   _>	v'etSi||'od
-   _?	'upitnIk
-   _&	t'r-g'ov&tSko||'i
-   _[	'otvoRen&||'ugl&t&
+_<	m'an^i||'od
+_=	j'edn&ko
+_>	v'etSi||'od
+_?	'upitnIk
+_&	t'r-g'ov&tSko||'i
+_[	'otvoRen&||'ugl&t&
 ?2 _[	'otvoRen&||'ugl&st&
-   _]	z'atvoRen&||'ugl&t&
+_]	z'atvoRen&||'ugl&t&
 ?2 _]	z'atvoRen&||'ugl&st&
-   __	ts'r-t&
-   _`	gr*'avis
-   _{	'otvoRen&||v'ititS&st&
-   _|	'okomits&
+__	ts'r-t&
+_`	gr*'avis
+_{	'otvoRen&||v'ititS&st&
+_|	'okomits&
 ?2 _|	'uspR&vn&
-   _}	z'atvoRen&||v'ititS&st&
+_}	z'atvoRen&||v'ititS&st&
 
 
 // Numbers
-   _0    n'ul&
-   _1    j'ed&n
-   _2    dv'a
-   _2f   dv'ije
+_0    n'ul&
+_1    j'ed&n
+_2    dv'a
+_2f   dv'ije
 ?2 _2f   dv'E
-   _3    tr*'i
-   _4    tS'EtIRI
-   _5    p'Et
-   _6    S'Est
-   _7    s'Ed&m
-   _8    'os&m
-   _9    d'EvEt
-   _10   d'EsEt
-   _11   j'ed&naIst
-   _12   dv'anaIst
-   _13   tr*'inaIst
-   _14   tS'Etr-naIst
-   _15   p'EtnaIst
-   _16   S'EsnaIst
-   _17   s'Ed&mnaIst
-   _18   'os&mnaIst
-   _19   d'EvEtnaIst
+_3    tr*'i
+_4    tS'EtIRI
+_5    p'Et
+_6    S'Est
+_7    s'Ed&m
+_8    'os&m
+_9    d'EvEt
+_10   d'EsEt
+_11   j'ed&naIst
+_12   dv'anaIst
+_13   tr*'inaIst
+_14   tS'Etr-naIst
+_15   p'EtnaIst
+_16   S'EsnaIst
+_17   s'Ed&mnaIst
+_18   'os&mnaIst
+_19   d'EvEtnaIst
 ?2 _11   j'ed&naEst
 ?2 _12   dv'anaEst
 ?2 _13   tr*'inaEst
@@ -250,25 +250,25 @@ _tld	t'ild&
 ?2 _17   s'Ed&mnaEst
 ?2 _18   'os&mnaEst
 ?2 _19   d'EvEtnaEst
-   _2X   dv'adEsEt
-   _3X   tr*'idEsEt
-   _4X   tS'Etr-dEsEt
-   _5X   p'EdEsEt
-   _6X   S'EzdEsEt
-   _7X   s'Ed&mdEsEt
-   _8X   'os&mdEsEt
-   _9X   d'EvEdEsEt
-   _0C   st'o_
+_2X   dv'adEsEt
+_3X   tr*'idEsEt
+_4X   tS'Etr-dEsEt
+_5X   p'EdEsEt
+_6X   S'EzdEsEt
+_7X   s'Ed&mdEsEt
+_8X   'os&mdEsEt
+_9X   d'EvEdEsEt
+_0C   st'o_
 ?2 _0C   st'O_
-   _2C   dvj'est'o
+_2C   dvj'est'o
 ?2 _2C   dv'est'a_
 ?2 _3C   tR'ist'a_
 ?2 _4C   tSetR'ist'o_
-   _6C   S'Est'o
+_6C   S'Est'o
 
-   _0M1  t'isUtS;&
-   _0MA1 t'isUtS;e
-   _1M1  t'isUtS;U
+_0M1  t'isUtS;&
+_0MA1 t'isUtS;e
+_1M1  t'isUtS;U
 ?2 _0M1  h'il^,&d&
 ?2 _0MA1 h'il^,&de
 ?2 _1M1  h'il^,&dU
@@ -277,27 +277,27 @@ _tld	t'ild&
 ?3 _0MA1 h'il^ade
 ?3 _1M1  h'il^adU
 
-   _0M2  m'ilijU:na
-   _0MA2 m'ilijU:na
-   _1M2  m'ilijU:n
-?4 _0M2  m'ilijO:na
-?4 _0MA2 m'ilijO:na
-?4 _1M2  m'ilijO:n
+_0M2  m'ilijU:na
+_0MA2 m'ilijU:na
+_1M2  m'ilijU:n
+?4 _0M2  m'iliO:na
+?4 _0MA2 m'iliO:na
+?4 _1M2  m'iliO:n
 
-   _0M3  m'ilia:RdI
-   _0MA3 m'ilia:Rde
-   _1M3  m'ilia:RdU
+_0M3  m'ilia:RdI
+_0MA3 m'ilia:Rde
+_1M3  m'ilia:RdU
 ?2 _0M3  milijA:rdI
 ?2 _0MA3 milijA:rde
 ?2 _1M3  milijA:rdU
 
-   _0M4  b'ilijU:na
-   _1M4  b'ilijU:n
-?4 _0M4  b'ilijO:na
-?4 _1M4  b'ilijO:n
+_0M4  b'ilijU:na
+_1M4  b'ilijU:n
+?4 _0M4  b'iliO:na
+?4 _1M4  b'iliO:n
 
-   _dpt  _:z'a*Ez_
-   _roman  r*'imsko
+_dpt  _:z'a*Ez_
+_roman  r*'imsko
 
 // not Roman numerals
 // vi	vi   // not needed if only all-capitals are spoken as Roman numbers
