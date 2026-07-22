@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+
+from glob import glob
+from os.path import isfile
+from pyparsing import (
+  Keyword,
+  Literal,
+  LineStart,
+  OneOrMore,
+  ParseException,
+  Word,
+  ZeroOrMore,
+  Group,
+  Dict,
+  Empty,
+  LineEnd,
+  ParserElement,
+  Optional,
+  dbl_slash_comment,
+  printables,
+  rest_of_line,
+)
+
+### Data formats
+
+ParserElement.setDefaultWhitespaceChars(' \t')
+
+_int = Word('-0123456789', '0123456789')
+
+### https://github.com/espeak-ng/espeak-ng/blob/master/docs/voices.md
+
+_lang_line = LineStart() + (
+  # Identification Attributes
+  (Keyword('name') + rest_of_line.ignore_whitespace()) |
+  (Keyword('language') + Word(printables) + Optional(_int)) |
+
+  # Maintenance Attributes
+  (Keyword('maintainer') + rest_of_line.ignore_whitespace()) |
+  (Keyword('status') + (Literal('testing') | Literal('mature'))) |
+
+  # Language Attributes
+  (Keyword('brackets') + _int) |
+  (Keyword('bracketsAnnounced') + _int) |
+  (Keyword('phonemes') + Word(printables)) |
+  (Keyword('dictionary') + Word(printables)) |
+  (Keyword('dictrules') + OneOrMore(_int)) |
+  (Keyword('lowercaseSentence')) |
+  (Keyword('replace') + _int + Word(printables) + Word(printables)) |
+  (Keyword('spellingStress')) |
+  (Keyword('stressOpt') + OneOrMore(_int)) |
+  (Keyword('stressRule') + _int + Optional(_int + _int)) |
+  (Keyword('stressLength') + _int + _int + _int + _int + _int + _int + _int + _int) |
+  (Keyword('stressAdd')    + _int + _int + _int + _int + _int + _int + _int + _int) |
+  (Keyword('stressAmp')    + _int + _int + _int + _int + _int + _int + _int + _int) |
+  (Keyword('intonation') + _int) |
+  (Keyword('dict_min') + _int) |
+
+  # Voice attributes - should not be used...
+  (Keyword('pitch') + rest_of_line) |
+  (Keyword('formant') + rest_of_line) |
+  (Keyword('tone') + rest_of_line) |
+  (Keyword('flutter') + rest_of_line) |
+  (Keyword('roughness') + rest_of_line) |
+  (Keyword('voicing') + rest_of_line) |
+  (Keyword('consonants') + rest_of_line) |
+  (Keyword('speed') + rest_of_line) |
+  (Keyword('words') + rest_of_line) |
+
+  # Undocumented attributes - ???
+  (Keyword('apostrophe') + rest_of_line) |
+  (Keyword('l_unpronouncable') + rest_of_line) |
+  (Keyword('numbers') + rest_of_line) |
+  (Keyword('tunes') + rest_of_line) |
+
+  Empty()
+) + Optional(dbl_slash_comment) + LineEnd()
+_lang_def = Dict(ZeroOrMore(Group(_lang_line)))
+_wrong_lang_opts = {
+  'pitch',
+  'formant',
+  'tone',
+  'flutter',
+  'roughness',
+  'voicing',
+  'consonants',
+  'speed',
+  'words',
+  'apostrophe',
+  'l_unpronouncable',
+  'numbers',
+  'tunes',
+}
+
+# _voice_line = Literal('TODO') + dbl_slash_comment
+# _voice_def = Dict(ZeroOrMore(Group(_voice_line)))
+
+### File lists
+
+LANG_FILES = [f for f in glob('espeak-ng-data/lang/**', recursive=True) if isfile(f)]
+VOICE_FILES = [f for f in glob('espeak-ng-data/voices/**', recursive=True) if isfile(f)]
+
+### Execute test
+
+for f in LANG_FILES:
+  print('   LINT %s'%(f))
+  try:
+    lang = _lang_def.parse_file(f, parse_all=True)
+    errors = [l[0] for l in lang if len(l) > 0 and l[0] in _wrong_lang_opts]
+    if len(errors) > 0:
+      print(*('!!! Unexpected attribute: %s'%(e) for e in errors), sep='\n')
+  except ParseException as e:
+    print('!!!', e)
+
+# for f in VOICE_FILES:
+#   print('   LINT %s'%(f))
+#   voice = _voice_def.parse_file(f, parse_all=True)
+#   print(voice)
