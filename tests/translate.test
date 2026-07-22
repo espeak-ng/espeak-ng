@@ -102,9 +102,13 @@ test_phon en "w'Um@n s'aI@ntIst" "👩‍🔬"
 test_phon en "f'amIli m'an w'Um@n g'3:l" "👨‍👩‍👧"
 test_phon en "k'Is w'Um@n m'an" "👩‍❤️‍💋‍👨" # U+FE0F inside the sequence
 test_phon en "w'Um@n dI2t'EktIv" "🕵️‍♀️" # U+FE0F in the dictionary key
-# a ZWJ sequence without a dictionary entry falls back to reading each
-# component, silently skipping the ZWJ and any skin tone modifier position
-test_phon en "w'Um@n m'i:di@m sk'In t'oUn m'aIkr@sk,oUp" "👩🏽‍🔬"
+# ED-13 - emoji modifier sequence: a sequence with skin tone modifiers
+# (U+1F3FB..U+1F3FF) is spoken as the base sequence followed by the
+# modifier names
+test_phon en "w'Um@n s'aI@ntIst m'i:di@m sk'In t'oUn" "👩🏽‍🔬"
+test_phon en "T'Vmz 'Vp l'aIt sk'In t'oUn" "👍🏻"
+# the modifier alone keeps its own dictionary entry
+test_phon en "m'i:di@m sk'In t'oUn" "🏽"
 
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phon sk "sm'eju:tsa s'a tv'a:R" "☺"

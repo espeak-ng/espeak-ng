@@ -49,11 +49,111 @@ static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *w
 static void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 static void ChangeWordStress(Translator *tr, char *word, int new_stress);
 static int CheckDottedAbbrev(char *word1);
+static bool LookupEmojiSkinTone(Translator *tr, char **wordptr, unsigned int *flags, WORD_TAB *wtab, int wtab_remaining);
 static int NonAsciiNumber(int letter);
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word, const ALPHABET *current_alphabet, char word_phonemes[]);
 static int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, const ALPHABET *current_alphabet);
 static int Unpronouncable(Translator *tr, char *word, int posn);
 static int Unpronouncable2(Translator *tr, char *word);
+
+static bool LookupEmojiSkinTone(Translator *tr, char **wordptr, unsigned int *flags, WORD_TAB *wtab, int wtab_remaining)
+{
+	// An emoji sequence containing skin tone modifiers (U+1F3FB..U+1F3FF)
+	// usually has no dictionary entry of its own.  Retry the lookup with the
+	// modifiers removed, and speak the modifier names after the base sequence:
+	// woman + medium skin tone + ZWJ + microscope -> "woman scientist medium skin tone"
+
+	static char replacement[N_WORD_BYTES];
+	char stripped[N_WORD_BYTES + 2];
+	int modifiers[8];
+	int n_modifiers = 0;
+	int c;
+	int nbytes;
+	int length = 0;
+	int len2;
+	int ix;
+	const char *p;
+	char *wp;
+	char ph_buf[N_WORD_PHONEMES];
+	unsigned int flags2[2];
+
+	p = *wordptr;
+	utf8_in(&c, p);
+	if (!IsEmoji(c))
+		return false;
+
+	while ((*p != 0) && (*p != ' ')) {
+		nbytes = utf8_in(&c, p);
+		if ((c >= 0x1f3fb) && (c <= 0x1f3ff)) {
+			if (n_modifiers < 8)
+				modifiers[n_modifiers++] = c;
+		} else if (length + nbytes < N_WORD_BYTES) {
+			memcpy(&stripped[length], p, nbytes);
+			length += nbytes;
+		}
+		p += nbytes;
+	}
+
+	if ((n_modifiers == 0) || (length == 0))
+		return false;
+
+	stripped[length] = ' ';
+	stripped[length+1] = 0;
+
+	flags2[0] = 0;
+	flags2[1] = 0;
+	wp = stripped;
+	LookupDictList(tr, &wp, ph_buf, flags2, FLAG_ALLOW_TEXTMODE, wtab, wtab_remaining);
+	if (!(flags2[0] & FLAG_TEXTMODE))
+		return false; // the base sequence has no replacement text either
+
+	// wp now points into a static buffer which the modifier lookups below
+	// will overwrite, so copy the base replacement text out immediately
+	length = strlen(wp); // includes a trailing space
+	if (length > N_WORD_BYTES-4)
+		return false;
+	replacement[0] = 0;
+	replacement[1] = ' ';
+	memcpy(&replacement[2], wp, length+1);
+	length += 2;
+
+	for (ix = 0; ix < n_modifiers; ix++) {
+		char modifier_word[8];
+
+		len2 = utf8_out(modifiers[ix], modifier_word);
+		modifier_word[len2] = ' ';
+		modifier_word[len2+1] = 0;
+
+		flags2[0] = 0;
+		flags2[1] = 0;
+		wp = modifier_word;
+		LookupDictList(tr, &wp, ph_buf, flags2, FLAG_ALLOW_TEXTMODE, wtab, wtab_remaining);
+		if (!(flags2[0] & FLAG_TEXTMODE))
+			continue; // no replacement text for the modifier in this language
+
+		len2 = strlen(wp);
+		if (length + len2 >= N_WORD_BYTES-1)
+			break;
+		memcpy(&replacement[length], wp, len2+1);
+		length += len2;
+	}
+
+	if (option_phonemes & espeakPHONEMES_TRACE) {
+		char word_buf[N_WORD_BYTES];
+
+		for (len2 = 0; len2 < N_WORD_BYTES-1; len2++) {
+			if (((c = (*wordptr)[len2]) == 0) || (c == ' '))
+				break;
+			word_buf[len2] = c;
+		}
+		word_buf[len2] = 0;
+		fprintf(f_trans, "Replace: %s  %s\n", word_buf, &replacement[2]);
+	}
+
+	*wordptr = &replacement[2];
+	*flags |= FLAG_TEXTMODE;
+	return true;
+}
 
 int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_remaining, char *word_out, bool *any_stressed_words, ALPHABET *current_alphabet, char word_phonemes[], size_t size_word_phonemes)
 {
@@ -167,6 +267,9 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 	} else {
 		if (!found)
 			found = LookupDictList(tr, &word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab, wtab_remaining);   // the original word
+
+		if (!found && !(dictionary_flags[0] & FLAG_TEXTMODE) && IsEmoji(first_char))
+			LookupEmojiSkinTone(tr, &word1, dictionary_flags, wtab, wtab_remaining);
 
 		if ((dictionary_flags[0] & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (wordx[1] == '.'))
 			wordx[1] = ' '; // remove a Dot after this word
