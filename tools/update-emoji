@@ -1,0 +1,302 @@
+#!/usr/bin/python3
+"""Update dictsource/*_emoji files from CLDR annotation data.
+
+Usage: tools/update-emoji CLDR_PATH [LANG ...]
+
+CLDR_PATH is a checkout of https://github.com/unicode-org/cldr (only
+common/annotations and common/annotationsDerived are needed). With no LANG
+arguments, every dictsource/*_emoji file is updated.
+
+Unlike tools/emoji, which regenerates a language file from an English
+template, this tool is additive and preserves hand-curated content:
+
+ 1. existing entries are kept untouched (names are not re-synchronized);
+ 2. entries previously commented out as "(no translation)" are revived
+    when the language's CLDR data now provides a name;
+ 3. emoji missing from the file are inserted in codepoint order, using
+    the name from common/annotations, common/annotationsDerived, and
+    data/annotationsEspeak (later files win); emoji the language has no
+    name for are added as commented "(no translation)" entries.
+
+Skin tone modifier sequences (U+1F3FB..U+1F3FF) are not added: the engine
+speaks them as the base sequence followed by the modifier names. Tag
+sequences (subdivision flags) are not added: the clause tokenizer does not
+combine tag characters into emoji words.
+
+Run from the repository root, e.g.:
+
+    tools/update-emoji ../cldr en de fr
+"""
+
+import glob
+import math
+import os
+import re
+import sys
+import unicodedata
+import xml.etree.ElementTree as etree
+
+ZWJ = "‍"
+VS16 = "️"
+
+# espeak-ng language codes whose CLDR locale name differs
+CLDR_LOCALES = {
+    "cmn": "zh",
+    "yue": "yue",
+}
+
+
+def read_annotations(filename, annotations):
+    ldml = etree.parse(filename).getroot()
+    for annotation in ldml.iter("annotation"):
+        if annotation.attrib.get("type", "") == "tts" and annotation.text:
+            annotations[annotation.attrib["cp"]] = annotation.text
+
+
+def load_annotations(cldr_path, lang):
+    filenames = [
+        os.path.join(cldr_path, "common", "annotations", "{0}.xml".format(lang)),
+        os.path.join(cldr_path, "common", "annotationsDerived", "{0}.xml".format(lang)),
+        os.path.join("data", "annotationsEspeak", "{0}.xml".format(lang)),
+    ]
+    annotations = {}
+    found = False
+    for filename in filenames:
+        if os.path.exists(filename):
+            read_annotations(filename, annotations)
+            found = True
+    return annotations if found else None
+
+
+def is_skin_tone(cp):
+    return any(0x1F3FB <= ord(c) <= 0x1F3FF for c in cp)
+
+
+def is_tag_sequence(cp):
+    return any(0xE0020 <= ord(c) <= 0xE007F for c in cp)
+
+
+def is_flag_sequence(cp):
+    return len(cp) == 2 and all(0x1F1E6 <= ord(c) <= 0x1F1FF for c in cp)
+
+
+def wanted(cp):
+    # which CLDR annotation keys are eligible for dictionary entries
+    if is_skin_tone(cp) or is_tag_sequence(cp):
+        return False
+    if len(cp) == 1 and (ord(cp) < 0x2000 or unicodedata.category(cp)[0] != "S"):
+        # CLDR also annotates letters, digits, punctuation (brackets, dashes,
+        # quotation marks, ...) and ASCII or script-specific symbols ($, ฿):
+        # those are ordinary text for the synthesizer, handled by the
+        # punctuation, number and currency logic or by the *_list files, so
+        # only accept symbols (Sm, Sc, Sk, So) from U+2000 upwards as
+        # single-codepoint entries
+        return False
+    return True
+
+
+def normalize(text, cp):
+    # match the conventions used by the existing entries
+    text = text.replace("‘", "'")
+    text = text.replace("| ", "")  # alternatives, e.g. af "vonkstok | skitterstokkie"
+    if is_flag_sequence(cp):
+        # "flag: France" -> "France"; the prefix word differs per language
+        for colon in (":", "："):
+            if colon in text:
+                text = text.split(colon, 1)[1]
+                break
+    # replacement text is spoken word by word, so punctuation must not leak
+    # into it: localized separators (Arabic ،, Ethiopic ፣, fullwidth ，, ...)
+    # would be spoken by their dictionary names ("comma"), parentheses and
+    # dashes silently distort words.  Replace every punctuation or symbol
+    # codepoint with a space, keeping only the characters the existing
+    # entries use inside names.  Format characters (e.g. ZWNJ in Persian
+    # orthography) and combining marks are kept.
+    kept = []
+    for ch in text:
+        if ch in "'’-&.":
+            kept.append(ch)
+        elif unicodedata.category(ch)[0] in ("P", "S"):
+            kept.append(" ")
+        else:
+            kept.append(ch)
+    text = " ".join("".join(kept).split())
+    return text
+
+
+def codepoints(cp):
+    return " ".join("{0:04X}".format(ord(c)) for c in cp)
+
+
+def sort_key(cp):
+    return tuple(ord(c) for c in cp)
+
+
+def format_entry(cp, name):
+    # align the comment column with the surrounding entries (tab stops of 8)
+    text_length = 8 + len(name)  # key occupies the first tab stop
+    tabs = max(1, math.ceil((64 - text_length) / 8))
+    return "{0}\t{1}{2}// [{3}]".format(cp, name, "\t" * tabs, codepoints(cp))
+
+
+# an entry line: key, name, "// [CODEPOINTS]" comment
+RE_ENTRY = re.compile(r"^([^ \t/$]+) ?\t[^/]*// \[([0-9A-Fa-f ]+)\]")
+# a commented-out entry produced by tools/emoji for missing translations
+RE_UNTRANSLATED = re.compile(r"^//([^ \t/$]+) ?\t[^/]*// \[([0-9A-Fa-f ]+)\].*\(no translation\)")
+
+
+def parse_key(match):
+    return "".join(chr(int(x, 16)) for x in match.group(2).split())
+
+
+def block_name(cp):
+    first = ord(cp[0])
+    blocks = [
+        (0x1F780, 0x1F7FF, "Geometric Shapes Extended"),
+        (0x1FA00, 0x1FA6F, "Chess Symbols"),
+        (0x1FA70, 0x1FAFF, "Symbols and Pictographs Extended-A"),
+    ]
+    for start, end, name in blocks:
+        if start <= first <= end:
+            return "{0:04X}..{1:04X} : {2}".format(start, end, name)
+    return None
+
+
+def list_file_keys(lang):
+    # keys already defined in the language's *_list file; adding them to the
+    # emoji file as well would create duplicate dictionary entries
+    keys = set()
+    filename = os.path.join("dictsource", "{0}_list".format(lang))
+    if os.path.exists(filename):
+        with open(filename, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("//") and not line.startswith("$"):
+                    keys.add(line.split()[0])
+    return keys
+
+
+def update_file(filename, lang, cldr_path, en_keys):
+    annotations = load_annotations(cldr_path, CLDR_LOCALES.get(lang, lang))
+    if annotations is None:
+        print("{0}: no CLDR annotations, skipped".format(filename))
+        return
+
+    names = {}
+    for cp, name in annotations.items():
+        cp = cp.replace(VS16, "")
+        if wanted(cp):
+            names[cp] = normalize(name, cp)
+
+    with open(filename, encoding="utf-8") as f:
+        lines = f.read().split("\n")
+
+    # only update tool-generated files: hand-made files (e.g. lb, mn, ti)
+    # use different formats which this tool would corrupt
+    candidates = [l for l in lines
+                  if l and not l.startswith("//") and not l.startswith("$")]
+    parseable = [l for l in candidates if RE_ENTRY.match(l)]
+    if "$textmode" not in lines or len(parseable) < len(candidates) * 0.9:
+        print("{0}: not in the generated format, skipped".format(filename))
+        return None
+
+    # find the existing entries and revive newly-translated ones
+    present = set()
+    entries = []  # (line index, key)
+    revived = 0
+    for ix, line in enumerate(lines):
+        m = RE_ENTRY.match(line)
+        if m:
+            key = parse_key(m).replace(VS16, "")
+            present.add(key)
+            entries.append((ix, key))
+            continue
+        m = RE_UNTRANSLATED.match(line)
+        if m:
+            key = parse_key(m).replace(VS16, "")
+            present.add(key)
+            entries.append((ix, key))
+            if key in names:
+                lines[ix] = format_entry(key, names[key])
+                revived += 1
+
+    # for English, the file defines the entry universe; for other languages,
+    # follow the English file so every language covers the same emoji
+    if en_keys is None:
+        universe = sorted(names.keys(), key=sort_key)
+    else:
+        universe = en_keys
+
+    in_list_file = list_file_keys(lang)
+    missing = [k for k in universe if k not in present and k not in in_list_file]
+    all_keys = present | set(missing)
+    if not missing and not revived:
+        print("{0}: up to date".format(filename))
+        return all_keys
+
+    # insertion point for a key: after the last entry that sorts before it,
+    # keeping ZWJ sequences within the ZWJ section of the file
+    zwj_entries = [(ix, k) for ix, k in entries if ZWJ in k]
+    plain_entries = [(ix, k) for ix, k in entries if ZWJ not in k]
+
+    insertions = {}  # line index -> list of new lines
+    added = 0
+    for key in missing:
+        region = zwj_entries if (ZWJ in key and zwj_entries) else plain_entries
+        position = None
+        for ix, k in region:
+            if sort_key(k) <= sort_key(key):
+                position = ix
+            else:
+                break
+        if position is None:
+            position = region[0][0] - 1 if region else len(lines) - 1
+
+        if key in names:
+            entry = format_entry(key, names[key])
+        else:
+            entry = "//" + format_entry(key, "") + " (no translation)"
+
+        block = block_name(key)
+        pending = insertions.setdefault(position, [])
+        if block is not None and not any(block in l for l in lines) \
+                and not any(block in l for ls in insertions.values() for l in ls):
+            pending.append("")
+            pending.append("// {0}".format(block))
+        pending.append(entry)
+        added += 1
+
+    out = []
+    for ix, line in enumerate(lines):
+        out.append(line)
+        if ix in insertions:
+            out.extend(insertions[ix])
+
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("\n".join(out))
+
+    print("{0}: {1} added, {2} revived".format(filename, added, revived))
+    return all_keys
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        sys.stderr.write(__doc__)
+        sys.exit(1)
+
+    cldr_path = sys.argv[1]
+    langs = sys.argv[2:]
+    if not langs:
+        langs = sorted(os.path.basename(f)[:-len("_emoji")]
+                       for f in glob.glob(os.path.join("dictsource", "*_emoji")))
+        # English defines the entry universe, update it first
+        if "en" in langs:
+            langs.remove("en")
+            langs.insert(0, "en")
+
+    en_keys = None
+    for lang in langs:
+        filename = os.path.join("dictsource", "{0}_emoji".format(lang))
+        keys = update_file(filename, lang, cldr_path, en_keys if lang != "en" else None)
+        if lang == "en" and keys is not None:
+            en_keys = sorted(keys, key=sort_key)

@@ -102,6 +102,12 @@ test_phon en "w'Um@n s'aI@ntIst" "👩‍🔬"
 test_phon en "f'amIli m'an w'Um@n g'3:l" "👨‍👩‍👧"
 test_phon en "k'Is w'Um@n m'an" "👩‍❤️‍💋‍👨" # U+FE0F inside the sequence
 test_phon en "w'Um@n dI2t'EktIv" "🕵️‍♀️" # U+FE0F in the dictionary key
+# emoji added after CLDR 33.1 (Unicode Emoji 12..16, via tools/update-emoji)
+test_phon en "p'INk h'A@t" "🩷"
+test_phon en "bl'ak k'at" "🐈‍⬛" # U+2B1B in a ZWJ sequence
+test_phon en "h'Ed S'eIkIN v'3:tIkli" "🙂‍↕️" # U+2195 in a ZWJ sequence
+test_phon de "Sv'arts@ k'ats@" "🐈‍⬛"
+
 # ED-13 - emoji modifier sequence: a sequence with skin tone modifiers
 # (U+1F3FB..U+1F3FF) is spoken as the base sequence followed by the
 # modifier names
