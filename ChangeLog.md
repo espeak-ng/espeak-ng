@@ -52,6 +52,7 @@ features:
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov
 *  added skin tone emoji support: sequences are spoken as the base name plus the modifier names -- Alexander Epaneshnikov
 *  updated emoji and symbol data from CLDR 33.1 to CLDR 48.2 (Unicode Emoji 12..16) for 66 languages, with a new additive tools/update-emoji updater -- Alexander Epaneshnikov
+*  added emoji and symbol pronunciation for 28 more languages from CLDR data (Hebrew, Ukrainian, Thai, Norwegian, Belarusian, Uzbek, Kazakh, Faroese, ...) -- Alexander Epaneshnikov
 *  split emoji from adjacent words at clause tokenization -- Alexander Epaneshnikov
 *  added emoji recognition support for dictionary lookup -- Tamas Geczy
 *  added espeak_TextToPhonemesWithTerminator API function -- Jonathan McDowell
