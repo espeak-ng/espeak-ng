@@ -154,11 +154,11 @@
      _) au (C	    O
      @) ans (_      'ans
       b) a          a
-    
+
 
 .group b
         b          b
-        b (b 
+        b (b
         bevakn     bEvA:kn
         bredband   bRe:dband
         begrav     bEgRA:v
@@ -186,7 +186,7 @@
 
 .group d
         d          d
-        d (d 
+        d (d
         dj         j
         dagen      dA:gEn
         daglig     dA:glIg
@@ -312,7 +312,7 @@
 
 .group f
         f          f
-        f (f 
+        f (f
         familj     fam'Ilj
         formad     fORmad
         face       _^_EN
@@ -331,7 +331,7 @@
         g (y       j
         g (ä       j
         g (ö       j
-     i) g (t_      
+     i) g (t_
         g (t       k
         gn         Nn
      _) gn         gn
@@ -357,7 +357,7 @@
 
 .group h
         h          h
-        h (h 
+        h (h
         hj         j
         hjälp      jElp
         hög        hY:g
@@ -369,7 +369,7 @@
         i (CC      I
         i (nf      %I
         i (g_      I
-    k) i (g	    I	
+    k) i (g	    I
         i (nstr    %I
      s) i (t       I
     dr) i (v       i:
@@ -435,7 +435,7 @@
 
 .group l
         l          l
-        l (l 
+        l (l
         lg (_      lj
      _) lj         j
         låg        l'o:g
@@ -445,7 +445,7 @@
 
 .group m
         m          m
-        m (m 
+        m (m
         menu       _^_EN
         människ    m'EnIsx,
         medl       m'e:dl
@@ -470,7 +470,7 @@
 
 .group n
         n          n
-        n (n 
+        n (n
         ng         N
     fu) ng (er     ng
         n (k       N
@@ -568,7 +568,7 @@
 
 .group p
         p          p
-        p (p 
+        p (p
         pion       pI;'u:n
         påstå      po:sto:
         paket      pak'e:t
@@ -578,12 +578,12 @@
 
 .group q
         q          k
-        q (q 
+        q (q
         qu         kw
 
 .group r
         r          R
-	r) r 
+	r) r
         rd         d.
         rd (s      d.
         rn         n.
@@ -693,7 +693,7 @@
 
 .group v
         v          v
-        v (v 
+        v (v
         vali       valI
         varandra   vaRandRa
         varn       vA:Rn
@@ -709,7 +709,7 @@
 
 .group x
         x          ks
-        x (x 
+        x (x
 
 .group y
         y          y:
@@ -739,14 +739,14 @@
     sk) å (l       o:
      h) å (l       o:
      h) å (ll      O
-     
+
 
 .group ä
         ä          E:
         ä (CC      E
         ä (r       E:
   ion) ä (r       'E:
-     t) ä (r       'E:  
+     t) ä (r       'E:
         ä (rd      E:
     tr) ä (d       E:
      v) ä (lk      E:
@@ -790,7 +790,7 @@
 // Swedish tone accent rules (basic version)
 // Compound words typically get accent 2 (grave)
         vardagsrum     v'A:Rdagsru-m   // compound word - accent 2
-        köksfönster    S'Y:ksfY:nstER  // compound word - accent 2  
+        köksfönster    S'Y:ksfY:nstER  // compound word - accent 2
         badrum         b'A:dru-m       // compound word - accent 2
         sovrum         s'o:vru-m       // compound word - accent 2
         sjukhus        sx'u-khus       // compound word - accent 2
@@ -800,16 +800,16 @@
 
         .          p'8Nt
         . (.       _:
-    \.) . 
+    \.) .
 
     __) - (_D      m'i:n8s
     A_) - (_D      _
     C_) - (_D      _
-    --) - 
+    --) -
 
         *          sx'E:Rna
-     *) * (* 
-** 
+     *) * (*
+**
     **) * (_       _::
 
 // === Phase 13: Prosody - suffix rules ===

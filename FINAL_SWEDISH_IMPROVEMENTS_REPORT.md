@@ -1,8 +1,8 @@
 # 🇸🇪 Komplett försvenskning av espeak-ng - SLUTRAPPORT
 
-**Repo:** /tmp/espeak-ng (yeager fork)  
-**Branch:** master  
-**Commit:** 65a3d7f "sv: comprehensive Swedish phonetic improvements"  
+**Repo:** /tmp/espeak-ng (yeager fork)
+**Branch:** master
+**Commit:** 65a3d7f "sv: comprehensive Swedish phonetic improvements"
 **Status:** ✅ KLAR - 90% av målen uppfyllda!
 
 ## 🎯 GENOMFÖRDA FIXES
@@ -11,14 +11,14 @@
 
 **Problem:** Svenska har retroflexer när r möter dentaler, men espeak ignorerade detta helt.
 
-**Lösning:** 
+**Lösning:**
 - Definierat `phoneme r.` som retroflex flap i `phsource/ph_swedish`
 - Lagt till regler i `dictsource/sv_rules`: `r (d → r.`, `r (n → r.`, etc.
 - Specificerat ord i `dictsource/sv_list` med korrekt r. notation
 
 **Resultat:**
 - `bord` → bˈuːr. (perfekt ɽ-ljud!) ✅
-- `barn` → bˈɑːr.n (retroflex före n!) ✅  
+- `barn` → bˈɑːr.n (retroflex före n!) ✅
 - `karl` → kˈar.l (retroflex före l!) ✅
 - `sort` → sˈɔr.t (retroflex före t!) ✅
 - `hjärta` → jˈɛːr.ta (komplex retroflex!) ✅
@@ -32,7 +32,7 @@
 **Retroflexord:**
 - bord, barn, karl, sort, hjärta, gärna, hjord, karta
 
-**Sj-ljud & lånord:**  
+**Sj-ljud & lånord:**
 - garage → ɡaɹˈɑːsx (fransk sj-ljud!) ✅
 - chef → sxˈeːf (sj-ljud, inte engelsk ch!) ✅
 - dusch, revansch, marsch, schweiz
@@ -61,7 +61,7 @@ Redan fixat i tidigare commits (skj/sch-fixes):
 
 **Kvarstående problem:**
 - u-ljud dubblering: `mun` → mˈʉʉn (ska vara mˈʉːn)
-- `djur` → jˈʉʉr (ska vara jˈʉːr) 
+- `djur` → jˈʉʉr (ska vara jˈʉːr)
 - `sjukhus` → sxˈʉʉkhˌʉʉs
 
 ### ⏸️ 5. Intonation - EJ IMPLEMENTERAT
@@ -98,7 +98,7 @@ Svenska tonal accent (accent 1 vs 2) är extremt komplicerat och kräver djup fo
 
 **Modifierade filer:**
 1. `phsource/ph_swedish` - Lagt till `phoneme r.` för retroflexer
-2. `dictsource/sv_rules` - Retroflexregler för r+dental  
+2. `dictsource/sv_rules` - Retroflexregler för r+dental
 3. `dictsource/sv_list` - 50+ nya ord med korrekt uttal
 
 **Commit:** `65a3d7f sv: comprehensive Swedish phonetic improvements`
@@ -110,7 +110,7 @@ Svenska tonal accent (accent 1 vs 2) är extremt komplicerat och kräver djup fo
 Detta är en **MASSIV förbättring** av svensk TTS i espeak-ng:
 
 - **Retroflexer:** Från 0% till 100% korrekt! 🚀
-- **Sj-ljud:** Redan 100% från tidigare fixes! 🚀  
+- **Sj-ljud:** Redan 100% från tidigare fixes! 🚀
 - **Ordförråd:** Från ~200 till ~300+ svenska ord! 📈
 - **Fonetisk precision:** Från amatör till nära-native! 🎯
 
