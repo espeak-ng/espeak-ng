@@ -130,17 +130,22 @@ test_phon en "k,aza#khst'A:n sImb@L_|w'0n_|'Ef_|w'0n_|'Ef_|'eI_:" "🇰🇿🇺"
 
 # ED-14a - emoji tag sequence: the tag characters (U+E0020..U+E007F) spelling
 # out a subdivision code must stay in the word, or only the base emoji matches
-# and the flag is read as "black flag"
-test_phon en "'INgl@nd" "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
-test_phon en "sk'0tl@nd" "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
-test_phon en "w'eIlz" "🏴󠁧󠁢󠁷󠁬󠁳󠁿"
-test_phon en "'INgl@nd k,aza#khst'A:n" "🏴󠁧󠁢󠁥󠁮󠁧󠁿🇰🇿"
+# and the flag is read as "black flag".
+# The tag characters below are invisible, so the input of each test is given as
+# codepoints too. These three differ from the bare 🏴 of the "black flag" test
+# further down only by those tag characters, so they fail if the tags are lost.
+test_phon en "'INgl@nd" "🏴󠁧󠁢󠁥󠁮󠁧󠁿"   # 1F3F4 E0067 E0062 E0065 E006E E0067 E007F  gbeng
+test_phon en "sk'0tl@nd" "🏴󠁧󠁢󠁳󠁣󠁴󠁿"  # 1F3F4 E0067 E0062 E0073 E0063 E0074 E007F  gbsct
+test_phon en "w'eIlz" "🏴󠁧󠁢󠁷󠁬󠁳󠁿"     # 1F3F4 E0067 E0062 E0077 E006C E0073 E007F  gbwls
+test_phon en "'INgl@nd k,aza#khst'A:n" "🏴󠁧󠁢󠁥󠁮󠁧󠁿🇰🇿" # gbeng then 1F1F0 1F1FF
 # the base emoji on its own, and in a ZWJ sequence, keep their own readings
-test_phon en "bl'ak fl'ag" "🏴"
+test_phon en "bl'ak fl'ag" "🏴"       # 1F3F4 alone, no tag characters
 test_phon en "p'aIr@t fl'ag" "🏴‍☠️"
-# a subdivision with no entry of its own falls back to the base emoji name
-# rather than to silence (🏴 + "ustx" = flag of Texas)
-test_phon en "bl'ak fl'ag" "🏴󠁵󠁳󠁴󠁸󠁿"
+# A subdivision with no entry of its own falls back to the base emoji name
+# rather than to silence. The expected phonemes deliberately match the bare
+# 🏴 case above: that is the fallback being asserted, not a copy of it. The
+# input is a full tag sequence, as the codepoints show.
+test_phon en "bl'ak fl'ag" "🏴󠁵󠁳󠁴󠁸󠁿"    # 1F3F4 E0075 E0073 E0074 E0078 E007F  ustx (Texas)
 
 # a replacement whose first letter is a non-ASCII capital must be lower cased
 # with towlower2(), not tolower(): the latter dropped the letter entirely
