@@ -110,6 +110,55 @@ test_phon en "bl'ak k'at" "🐈‍⬛" # U+2B1B in a ZWJ sequence
 test_phon en "h'Ed S'eIkIN v'3:tIkli" "🙂‍↕️" # U+2195 in a ZWJ sequence
 test_phon de "Sv'arts@ k'ats@" "🐈‍⬛"
 
+# ED-7/ED-14 - emoji flag sequence: a flag is exactly two regional indicator
+# symbols (U+1F1E6..U+1F1FF). A run of flags written without whitespace must be
+# split into one word per pair, otherwise the whole run misses its dictionary
+# entries and is spelled out codepoint by codepoint.
+test_phon en "k,aza#khst'A:n" "🇰🇿"
+test_phon en "k,aza#khst'A:n ju:n'aItI2d st'eIts" "🇰🇿🇺🇸"
+test_phon en "k,aza#khst'A:n ju:n'aItI2d st'eIts dZ'3:m@ni" "🇰🇿🇺🇸🇩🇪"
+test_phon ru "fl'Ag;i kVzaxst'An_ fl'Ag;i sVjid;in;'ennyjI St'Aty" "🇰🇿🇺🇸"
+test_phon de "fl'age: k'Azaxst,A:n fl'age: fEr_!'aInIgt@ St'A:t@n" "🇰🇿🇺🇸"
+# a flag next to a non-flag emoji, or next to a word, is its own token too
+test_phon en "r'Ed h'A@t k,aza#khst'A:n" "❤️🇰🇿"
+test_phon en "k,aza#khst'A:n r'Ed h'A@t" "🇰🇿❤️"
+test_phon en "f'IS k,aza#khst'A:n" "fish🇰🇿"
+test_phon en "k,aza#khst'A:n f'IS" "🇰🇿fish"
+# an unpaired trailing indicator is not a flag, and must not pull the
+# preceding pair out of its flag reading
+test_phon en "k,aza#khst'A:n sImb@L_|w'0n_|'Ef_|w'0n_|'Ef_|'eI_:" "🇰🇿🇺"
+
+# ED-14a - emoji tag sequence: the tag characters (U+E0020..U+E007F) spelling
+# out a subdivision code must stay in the word, or only the base emoji matches
+# and the flag is read as "black flag"
+test_phon en "'INgl@nd" "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+test_phon en "sk'0tl@nd" "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+test_phon en "w'eIlz" "🏴󠁧󠁢󠁷󠁬󠁳󠁿"
+test_phon en "'INgl@nd k,aza#khst'A:n" "🏴󠁧󠁢󠁥󠁮󠁧󠁿🇰🇿"
+# the base emoji on its own, and in a ZWJ sequence, keep their own readings
+test_phon en "bl'ak fl'ag" "🏴"
+test_phon en "p'aIr@t fl'ag" "🏴‍☠️"
+# a subdivision with no entry of its own falls back to the base emoji name
+# rather than to silence (🏴 + "ustx" = flag of Texas)
+test_phon en "bl'ak fl'ag" "🏴󠁵󠁳󠁴󠁸󠁿"
+
+# a replacement whose first letter is a non-ASCII capital must be lower cased
+# with towlower2(), not tolower(): the latter dropped the letter entirely
+# (Казахстан was read as "азахстан")
+test_phon ru "fl'Ag;i kVzaxst'An_" "🇰🇿"
+test_phon uk "kaz'axst[an" "🇰🇿"
+test_phon el "sim'ea k,azakst'an" "🇰🇿"
+
+# a hyphen between two letters ends a word in replacement text as it does in
+# normal input; otherwise the rules stop at the hyphen and everything from
+# there on is lost (Burkina-Faso was silent, États-Unis read as "drapeau")
+test_phon tk "bURk'inA f,ATo" "🇧🇫"
+test_phon uk "buRk'i:na f'aso" "🇧🇫"
+test_phon fr "drap'o et'az2 yn'i" "🇺🇸"
+test_phon fr "drap'o rwaj'om yn'i" "🇬🇧"
+# ASCII text without a hyphen keeps its existing single-word segmentation
+test_phon en "t'i: r'Eks" "🦖"
+
 # ED-13 - emoji modifier sequence: a sequence with skin tone modifiers
 # (U+1F3FB..U+1F3FF) is spoken as the base sequence followed by the
 # modifier names

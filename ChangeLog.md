@@ -55,6 +55,10 @@ bug fixes:
 *  fixed Sinhala ZWJ conjunct clusters being read as separate letters instead of one conjunct -- Ramees Muhammed
 *  fixed Arabic text being spelled letter-by-letter under non-Arabic voices -- Ramees Muhammed
 *  fixed Russian decimal fractions to use feminine unit forms and numerators (e.g. "одна сотая", "две тысячных") -- Danil Kostenkov
+*  fixed flag emoji written without whitespace being spelled out codepoint by codepoint instead of read as country names -- Alexander Epaneshnikov
+*  fixed subdivision flag emoji (England, Scotland, Wales) being read as "black flag" -- Alexander Epaneshnikov
+*  fixed the first letter of emoji descriptions being dropped when it is a non-ASCII capital ("Казахстан" was read as "азахстан") -- Alexander Epaneshnikov
+*  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
 
 features:
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov

@@ -258,6 +258,28 @@ int IsEmoji(unsigned int c)
 	return 0;
 }
 
+int IsRegionalIndicator(unsigned int c)
+{
+	// Regional Indicator Symbol Letter A..Z. A flag emoji is exactly two of
+	// these (e.g. U+1F1F0 U+1F1FF = KZ), so they are kept in the same token
+	// in pairs.
+	return (c >= 0x1f1e6) && (c <= 0x1f1ff);
+}
+
+int IsEmojiModifier(unsigned int c)
+{
+	// Emoji skin tone modifiers, which attach to the preceding emoji.
+	return (c >= 0x1f3fb) && (c <= 0x1f3ff);
+}
+
+int IsEmojiTag(unsigned int c)
+{
+	// Tag characters, including the cancel tag U+E007F. They spell out a
+	// subdivision code after a base emoji in a tag sequence, such as
+	// U+1F3F4 + "gbsct" + cancel = flag of Scotland.
+	return (c >= 0xe0020) && (c <= 0xe007f);
+}
+
 // brackets, also 0x2014 to 0x021f which don't need to be in this list
 static const unsigned short brackets[] = {
 	'(', ')', '[', ']', '{', '}', '<', '>', '"', '\'', '`',

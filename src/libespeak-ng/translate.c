@@ -150,9 +150,12 @@ static void SegmentReplacement(Translator *tr, const char *text, char *out, int 
 	// for languages with langopts.ideographs each CJK character is a separate
 	// word (so that hanzi words can match their multi-word *_list entries),
 	// and a non-alpha mark such as a Thai tone mark terminates a word instead
-	// of derailing the letter-to-phoneme rules mid-word.
-	// ASCII characters are always kept in-word: for Latin-script replacement
-	// text ("t-rex", "cai3hong2") the existing single-word behaviour is kept.
+	// of derailing the letter-to-phoneme rules mid-word.  A hyphen between two
+	// letters also ends a word, as it does in normal input; without this a
+	// hyphenated replacement name ("Burkina-Faso", "États-Unis") is handed to
+	// the rules as one token, which stops at the hyphen and drops the rest.
+	// Other ASCII characters are kept in-word, so that Latin-script
+	// replacement text such as "cai3hong2" stays a single word.
 	int ix = 0, out_ix = 0;
 	int c = 0;
 
@@ -165,6 +168,20 @@ static void SegmentReplacement(Translator *tr, const char *text, char *out, int 
 			if (IsAlpha(c)) {
 				if (tr->langopts.ideographs && ((c > 0x3040) || (prev > 0x3040)))
 					insert_space = true; // each ideograph is a separate word
+			} else if (c == '-') {
+				int next;
+
+				utf8_in(&next, &text[ix + nbytes]);
+				if (IsAlpha(next)) {
+					// hyphen between two letters: the clause tokenizer turns it
+					// into a word break, so do the same and drop the hyphen
+					if (out_ix + 2 > out_size)
+						break;
+					out[out_ix++] = ' ';
+					ix += nbytes;
+					c = ' ';
+					continue;
+				}
 			} else if (!IsSpace(c) && (c >= 0x80) && (wcschr(tr->punct_within_word, c) == 0))
 				insert_space = true; // eg. a Thai tone mark ends the word, as in the clause tokenizer
 		} else if ((prev >= 0x80) && !IsSpace(prev) && IsAlpha(c) && (wcschr(tr->punct_within_word, prev) == 0))
@@ -203,10 +220,20 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 			int available = N_WORD_PHONEMES;
 		while (*word_out && available > 1) {
 			int c;
-			utf8_in(&c, word_out);
+			int nbytes = utf8_in(&c, word_out);
 			if (iswupper(c)) {
+				char lower_buf[8];
+				int n_lower;
+
 				wtab->flags |= FLAG_FIRST_UPPER;
-				utf8_out(tolower(c), word_out);
+				// towlower2(), not tolower(): the latter only knows ASCII, and
+				// on a non-ASCII capital (Казахстан, Καζακστάν) it returned a
+				// value whose UTF-8 form is a different length, which corrupted
+				// the first letter of the word. Leave the letter alone if its
+				// lower case form does not fit the same number of bytes.
+				n_lower = utf8_out(towlower2(c, tr), lower_buf);
+				if (n_lower == nbytes)
+					memcpy(word_out, lower_buf, nbytes);
 			} else {
 				wtab->flags &= ~FLAG_FIRST_UPPER;
 			}
@@ -1248,6 +1275,13 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 						// keep U+200D ZERO WIDTH JOINER between two emoji in the word,
 						// so the sequence can match a multi-codepoint emoji dictionary
 						// entry (e.g. woman + ZWJ + microscope = woman scientist)
+					} else if (IsEmojiTag(c) && IsEmoji(prev_out)) {
+						// keep the tag characters of an emoji tag sequence in the
+						// word, so that it can match its dictionary entry (black
+						// flag + the tag letters "gbsct" + cancel tag = flag of
+						// Scotland). The following tag characters get here with a
+						// tag character as prev_out, which is not IsAlpha, so they
+						// are kept without needing a case of their own.
 					} else {
 						c = ' '; // ensure we have an end-of-word terminator
 						space_inserted = true;
@@ -1282,6 +1316,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 
 			if (IsAlpha(c)) {
 				bool emoji_join = false;
+				bool emoji_break = false;
 
 				alpha_count++;
 				if ((prev_out == 0x200d) && IsEmoji(c)) {
@@ -1292,6 +1327,33 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 					int wc_first;
 					utf8_in(&wc_first, &sbuf[words[word_count].start]);
 					emoji_join = IsEmoji(wc_first);
+				} else if (IsEmoji(c) && IsEmoji(prev_out)) {
+					// Two emoji written next to each other. They only belong to the
+					// same token when they form one of the sequences that the emoji
+					// dictionary has a key for; otherwise each emoji must become its
+					// own word, or the whole run fails its dictionary lookup and is
+					// spelled out codepoint by codepoint.
+					if (IsEmojiModifier(c)) {
+						// skin tone modifier, part of the preceding emoji
+					} else if (IsRegionalIndicator(c) && IsRegionalIndicator(prev_out)) {
+						// A flag is exactly two regional indicators (e.g. 🇰🇿), so
+						// count how many of them the word already holds: an odd
+						// count means this one completes a flag, an even count
+						// means it starts the next one.
+						int n_ri = 0;
+						int j = ix;
+
+						while (j > (int)words[word_count].start) {
+							int wc_ri;
+							utf8_in2(&wc_ri, &sbuf[j-1], 1);
+							if (!IsRegionalIndicator(wc_ri))
+								break;
+							n_ri++;
+							j -= 4; // a regional indicator is 4 bytes in UTF-8
+						}
+						emoji_break = ((n_ri & 1) == 0);
+					} else
+						emoji_break = true;
 				}
 				// Start a new word where an adjacent letter belongs to a script
 				// that is foreign to the base language (e.g. Latin glued to
@@ -1307,7 +1369,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				bool prev_foreign = (alpha_prev != NULL) && (alpha_prev->offset != tr->letter_bits_offset);
 				if (emoji_join) {
 					// continuation of a ZWJ emoji sequence: not a word boundary
-				} else if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))) || (IsEmoji(c) != IsEmoji(prev_out)) || (c_foreign != prev_foreign)) {
+				} else if (emoji_break || !IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))) || (IsEmoji(c) != IsEmoji(prev_out)) || (c_foreign != prev_foreign)) {
 					if (wcschr(tr->punct_within_word, prev_out) == 0)
 						letter_count = 0; // don't reset count for an apostrophy within a word
 
