@@ -123,6 +123,10 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 		fclose(f);
 		return ENOMEM;
 	}
+	// realloc() has taken ownership of the previous buffer, so the table must
+	// not keep pointing at it if one of the error paths below is taken.
+	soundicon_tab[index].data = NULL;
+	soundicon_tab[index].length = 0;
 	if (fread(p, 1, length, f) != length) {
 		int error = errno;
 		fclose(f);
@@ -135,8 +139,22 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	if (fname_temp[0])
 		remove(fname_temp);
 
-	length = p[40] | (p[41] << 8) | (p[42] << 16) | (p[43] << 24);
-	soundicon_tab[index].length = length / 2; // length in samples
+	if (length < 44) {
+		// Fewer bytes than the 44-byte WAV header. The buffer can even be
+		// empty, because a file whose format does not match is replaced by an
+		// empty temp file above. Reject it rather than reading past the end.
+		free(p);
+		return EINVAL;
+	}
+
+	// The data-size field in the header is not trustworthy, so bound it by the
+	// number of bytes actually read. Otherwise the wave player is handed a
+	// sample count that walks past the end of the buffer.
+	unsigned int data_size = (unsigned int)p[40] | ((unsigned int)p[41] << 8)
+	                       | ((unsigned int)p[42] << 16) | ((unsigned int)p[43] << 24);
+	if (data_size > (unsigned int)(length - 44))
+		data_size = length - 44;
+	soundicon_tab[index].length = data_size / 2; // length in samples
 	soundicon_tab[index].data = (char *) p;
 	return ENS_OK;
 }
@@ -178,6 +196,8 @@ int LoadSoundFile2(const char *fname)
 	}
 
 	// load the file into the current slot and increase index
+	if (n_soundicon_tab >= N_SOUNDICON_TAB)
+		return -1; // soundicon table is full
 	if (LoadSoundFile(fname, n_soundicon_tab, NULL) != ENS_OK)
 		return -1;
 
