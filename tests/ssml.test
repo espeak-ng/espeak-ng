@@ -52,6 +52,47 @@ test_ssml_audio "<prosody>" 88fccb35536158f25f4ae44a03fb005fef95c99b "<speak><pr
 test_ssml_audio "<prosody> bug #410" 8d3bace9548ae73c4770a73c88c6f65e848b45cf "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low. </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
 test_ssml_audio "<audio>" 5134c1db757b2d6b8d1f3f2416124462e401b4c6 "<speak>ha: <audio src=\"$PWD/phsource/h/ha.wav\"></audio></speak>"
 
+# The sound icon loader must stay inside the buffer it read, whatever the
+# <audio> file turns out to contain. Each of these accessed memory out of
+# bounds before LoadSoundFile()/LoadSoundFile2() were given bounds checks.
+test_ssml_audio_nocrash() {
+	TEST_NAME=$1
+	TEST_TEXT=$2
+
+	echo "testing ${TEST_NAME}"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" > /dev/null || exit 1
+}
+
+# A file whose format does not match is replaced by an empty temporary file,
+# so the loader ends up with nothing to read the WAV header from.
+test_ssml_audio_nocrash "<audio> file that is not a WAV" \
+	"<speak><audio src=\"$PWD/ChangeLog.md\"></audio>x</speak>"
+
+# The same file again after the first load was rejected: the table entry must
+# not still point at the buffer that was released.
+test_ssml_audio_nocrash "<audio> rejected file loaded twice" \
+	"<speak><audio src=\"$PWD/ChangeLog.md\"></audio>a<audio src=\"$PWD/ChangeLog.md\"></audio>b</speak>"
+
+# A truncated icon: the header still announces the full data chunk, but only a
+# few bytes of it are present.
+SOUNDICON_TRUNCATED="${TMPDIR:-/tmp}/espeak-ng-truncated-icon.wav"
+head -c 60 "$PWD/phsource/h/ha.wav" > "$SOUNDICON_TRUNCATED"
+test_ssml_audio_nocrash "<audio> truncated WAV" \
+	"<speak><audio src=\"$SOUNDICON_TRUNCATED\"></audio>x</speak>"
+rm -f "$SOUNDICON_TRUNCATED"
+
+# More distinct icon paths than the table has room for.
+SOUNDICON_MANY="<speak>"
+SOUNDICON_SLASHES=""
+SOUNDICON_I=0
+while [ $SOUNDICON_I -lt 85 ] ; do
+	SOUNDICON_MANY="${SOUNDICON_MANY}<audio src=\"$PWD${SOUNDICON_SLASHES}/phsource/h/ha.wav\"></audio>"
+	SOUNDICON_SLASHES="${SOUNDICON_SLASHES}/"
+	SOUNDICON_I=$((SOUNDICON_I+1))
+done
+test_ssml_audio_nocrash "<audio> more icons than the table holds" "${SOUNDICON_MANY}</speak>"
+
 test_ssml_audio "<break> at start" 949ad49d180108b30c1f0f16bef6ca2f3b6199cd "<speak><break time=\"1000ms\"/>test</speak>"
 
 # Test SSML breaks inside prosody (#1512)
