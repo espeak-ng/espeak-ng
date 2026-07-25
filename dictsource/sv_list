@@ -1,6 +1,17 @@
 
 // This file in UTF8 encoded
 
+// Accent 1
+anden       'andEn1      // “anden” = anden, fågeln
+tomten      t'OmtEn1     // tomten, tomten på gården
+
+// Accent 2
+anden       'andEn2      // “anden” = anden, andningen
+tomten      t'OmtEn2     // tomten, jultomten
+vardagsrum  v'A:dA:gsR8m2
+badrum      b'A:dR8m2
+sovrum      s'u:vR8m2
+
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
