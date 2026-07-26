@@ -248,7 +248,7 @@ static int check_data_path(const char *path, int allow_directory)
 {
 	if (!path) return 0;
 
-	snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", path);
+	snprintf(path_home, sizeof(path_home), "%s%cespeak-ng-data", path, PATHSEP);
 	if (GetFileLength(path_home) == -EISDIR)
 		return 1;
 
@@ -327,6 +327,32 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 
 	if (check_data_path(buf, 1))
 		return;
+
+#ifdef __MINGW32__
+
+	char dllpath[MAX_PATH];
+	HMODULE hModule = NULL;
+
+	// Pass NULL for current process EXE, or use GetModuleHandle for DLL
+	if (GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                          GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                          (LPCTSTR)espeak_ng_InitializePath, &hModule)) {
+		if (GetModuleFileName(hModule, dllpath, MAX_PATH)) {
+
+			// Find last backslash
+			char *lastSlash = strrchr(dllpath, PATHSEP);
+			if (lastSlash) {
+				// Move pointer to after the slash
+				lastSlash++;
+				// Replace filename with "..\\share"
+				strcpy(lastSlash, "..\\share");
+				if (check_data_path(dllpath, 1))
+					return;
+			}
+        }
+    }
+#endif
+
 #elif !defined(PLATFORM_DOS)
 	if (check_data_path(getenv("ESPEAK_DATA_PATH"), 1))
 		return;
@@ -879,14 +905,14 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 {
-#if USE_ASYNC
-	fifo_stop();
-	event_clear_all();
-#endif
-
 #if USE_LIBPCAUDIO
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
 		audio_object_flush(my_audio);
+#endif
+
+#if USE_ASYNC
+	fifo_stop();
+	event_clear_all();
 #endif
 	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
 
