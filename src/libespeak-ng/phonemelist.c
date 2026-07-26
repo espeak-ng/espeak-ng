@@ -111,6 +111,13 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 		}
 
 		// copy phoneme into the output list
+		if (phoneme_tab[plist2->phcode] == NULL) {
+			// a word flagged as using phonemes from another language can carry a
+			// phoneme code that is not present in the currently selected phoneme
+			// table; skip it rather than dereference a NULL phoneme entry
+			deleted_sourceix = plist2->sourceix;
+			continue;
+		}
 		memcpy(&plist_out[n_plist_out], plist2, sizeof(PHONEME_LIST2));
 		plist_out[n_plist_out].ph = phoneme_tab[plist2->phcode];
 		plist_out[n_plist_out].type = plist_out[n_plist_out].ph->type;
