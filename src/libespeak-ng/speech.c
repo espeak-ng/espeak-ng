@@ -573,7 +573,10 @@ void RescaleEventSamples(int length_pre, int length_post)
 			continue;
 		if (offset > length_pre)
 			offset = length_pre;
-		offset = (int)(((long)offset * length_post) / length_pre);
+		// Both factors are bounded by the buffer length, so the product can
+		// exceed 32 bits for buffers over about two seconds.  long is 32-bit on
+		// Windows, so widen explicitly rather than relying on it.
+		offset = (int)(((int64_t)offset * length_post) / length_pre);
 
 		ep->sample = base + offset;
 		ep->audio_position = (int)(((double)ep->sample * 1000.0) / samplerate);
