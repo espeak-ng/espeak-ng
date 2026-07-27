@@ -59,6 +59,7 @@ bug fixes:
 *  fixed subdivision flag emoji (England, Scotland, Wales) being read as "black flag" -- Alexander Epaneshnikov
 *  fixed the first letter of emoji descriptions being dropped when it is a non-ASCII capital ("Казахстан" was read as "азахстан") -- Alexander Epaneshnikov
 *  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
+*  fixed word and phoneme event positions drifting past the audio they belong to at speech rates where libsonic compresses the output, which broke word-boundary highlighting for API callers -- Alexander Epaneshnikov
 
 features:
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov
