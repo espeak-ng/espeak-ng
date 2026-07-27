@@ -350,11 +350,9 @@ public class TtsService extends TextToSpeechService {
      * utterance, which hides failures from screen readers.
      */
     private void reportError(SynthesisCallback callback, int errorCode) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            callback.error(errorCode);
-        } else {
-            callback.error();
-        }
+        // error(int) has been available since API 21, which is minSdk here, so
+        // the code always reaches the caller.
+        callback.error(errorCode);
         callback.done();
     }
 
@@ -419,16 +417,22 @@ public class TtsService extends TextToSpeechService {
         if (text.startsWith("<?xml"))
         {
             // eSpeak does not recognise/skip "<?...?>" preprocessing tags,
-            // so need to remove these before passing to synthesize.
-            final int declarationEnd = text.indexOf("?>") + 2;
-            // Track what was dropped from the front, so that word boundaries can
-            // be reported against the text the caller actually passed in. This
-            // mirrors what String.trim() strips (anything <= ' ').
-            textOffset = declarationEnd;
-            while (textOffset < text.length() && text.charAt(textOffset) <= ' ') {
-                textOffset++;
+            // so need to remove these before passing to synthesize. A
+            // declaration missing its "?>" is left alone rather than having its
+            // first character eaten by a -1 index.
+            final int terminator = text.indexOf("?>");
+            if (terminator >= 0)
+            {
+                final int declarationEnd = terminator + 2;
+                // Track what was dropped from the front, so that word boundaries can
+                // be reported against the text the caller actually passed in. This
+                // mirrors what String.trim() strips (anything <= ' ').
+                textOffset = declarationEnd;
+                while (textOffset < text.length() && text.charAt(textOffset) <= ' ') {
+                    textOffset++;
+                }
+                text = text.substring(declarationEnd).trim();
             }
-            text = text.substring(declarationEnd).trim();
         }
 
         mSynthText = text;
