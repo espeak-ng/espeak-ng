@@ -80,7 +80,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	int ix;
 	int *pw;
 	FILE *f_in;
-	char path[sizeof(path_home)+15];
+	char path[N_PATH_BUF];
 
 	mbrola_name[0] = 0;
 	mbrola_delay = 0;
@@ -95,7 +95,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	if (!load_MBR())
 		return ENS_MBROLA_NOT_FOUND;
 
-	sprintf(path, "%s/mbrola/%s", path_home, mbrola_voice);
+	snprintf(path, sizeof(path), "%s/mbrola/%s", path_home, mbrola_voice);
 #if PLATFORM_POSIX
 	// if not found, then also look in
 	//   $data_dir/mbrola/xx, $data_dir/mbrola/xx/xx, $data_dir/mbrola/voices/xx
@@ -104,19 +104,19 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	bool found = false;
 	if (GetFileLength(path) <= 0) {
 		while(data_dir) {
-			sprintf(path, "%s/mbrola/%s", data_dir, mbrola_voice);
+			snprintf(path, sizeof(path), "%s/mbrola/%s", data_dir, mbrola_voice);
 			if (GetFileLength(path) > 0) {
 				found = true;
 				break;
 			}
 
-			sprintf(path, "%s/mbrola/%s/%s", data_dir, mbrola_voice, mbrola_voice);
+			snprintf(path, sizeof(path), "%s/mbrola/%s/%s", data_dir, mbrola_voice, mbrola_voice);
 			if (GetFileLength(path) > 0) {
 				found = true;
 				break;
 			}
 
-			sprintf(path, "%s/mbrola/voices/%s", data_dir, mbrola_voice);
+			snprintf(path, sizeof(path), "%s/mbrola/voices/%s", data_dir, mbrola_voice);
 			if (GetFileLength(path) > 0) {
 				found = true;
 				break;
@@ -139,7 +139,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 				system_data_dirs());
 		// Set path back to simple name, otherwise it shows misleading error only for
 		// last unsuccessfully searched path
-		sprintf(path, "%s", mbrola_voice);
+		snprintf(path, sizeof(path), "%s", mbrola_voice);
 	}
 	close_MBR();
 #endif
@@ -150,7 +150,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	setNoError_MBR(1); // don't stop on phoneme errors
 
 	// read eSpeak's mbrola phoneme translation data, eg. en1_phtrans
-	sprintf(path, "%s/mbrola_ph/%s", path_home, phtrans);
+	snprintf(path, sizeof(path), "%s/mbrola_ph/%s", path_home, phtrans);
 	size = GetFileLength(path);
 	if (size < 0) // size == -errno
 		return -size;

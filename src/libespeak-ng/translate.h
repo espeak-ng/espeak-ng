@@ -483,6 +483,7 @@ typedef struct {
 #define NUM2_ORDINAL_AND_THOUSANDS 0x00040000 // same variant for ordinals and thousands (#o = #a)
 #define NUM2_ORDINAL_DROP_VOWEL    0x00080000 // drop final vowel from cardial number before adding ordinal suffix (currently only tens and units)
 #define NUM2_ZERO_TENS             0x00100000 // say zero tens
+#define NUM2_FRACTION_FEMININE     0x00200000 // use feminine units in decimal fractions
 
 #define NUM2_THOUSANDPLEX_VAR_THOUSANDS 0x00000002
 #define NUM2_THOUSANDPLEX_VAR_MILLIARDS 0x00000008

@@ -426,6 +426,9 @@ nagypéntek	$alt3
 presztízsharc $alt3
 délután $alt3
 délutánját $alt3
+üzenete	$alt3
+történelmi	$alt3
+fekete	$alt3
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -634,7 +637,7 @@ neki	$unstressend
 nekem	$unstressend
 közül	$unstressend
 közé	$unstressend
-között	$u $alt3
+között	$alt3 $u
 délelőtt	$alt3
 idén	$alt3
 környékén	$alt3
@@ -1610,7 +1613,7 @@ idő	$unstressend
 részek	$unstressend
 alakul	$unstressend
 véget	$unstressend
-helyett	$unstressend
+helyett	$alt3 $unstressend
 körét	$unstressend
 vonatkozik	$unstressend
 javaslat	$unstressend

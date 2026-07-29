@@ -47,7 +47,7 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, unsigned int *dict_flags);
 int TransposeAlphabet(Translator *tr, char *text);
 int Lookup(Translator *tr, const char *word, char *ph_out);
-int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
+int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab, int wtab_remaining);
 int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 
 #ifdef __cplusplus

@@ -31,6 +31,9 @@ long espeak_rand(long min, long max);
 
 int IsAlpha(unsigned int c);
 int IsEmoji(unsigned int c);
+int IsRegionalIndicator(unsigned int c);
+int IsEmojiModifier(unsigned int c);
+int IsEmojiTag(unsigned int c);
 int IsBracket(int c);
 int IsDigit(unsigned int c);
 int IsDigit09(unsigned int c);

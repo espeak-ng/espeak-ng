@@ -18,6 +18,8 @@
   - [VowelEnding](#vowelending)
   - [Vowelin](#vowelin)
   - [Vowelout](#vowelout)
+  - [InsertPhoneme](#insertphoneme)
+  - [AppendPhoneme](#appendphoneme)
   - [ChangePhoneme](#changephoneme)
   - [ChangeIfDiminished](#changeifdiminished)
   - [ChangeIfUnstressed](#changeifunstressed)
@@ -133,6 +135,24 @@ means: `phoneme t` in this phoneme table is a copy of`phoneme t[` from phoneme
 table `base`. A `length` instruction can be used after `import\_phoneme` to
 vary the length from the original.
 
+It the phoneme name has a `/`, this character is as a variant indicator.
+When the phoneme mnemonics are written to the standard output (flag `-x`),
+this character is discarded with any other character after it. For example:
+
+	phoneme l
+	  IF NOT nextPhw(isVowel) THEN
+	    ChangePhoneme(l/2)
+          ENDIF
+          ...
+	endphoneme
+	
+	phoneme l/2   // dark L used before a consonant
+	  ...
+	endphoneme
+
+In the example, the normal `l` is replaced with a dark `l/2`, but when
+printing to the starndard output, it will be printed as `l`, not `l/2`.
+
 ## Phoneme Properties
 
 The phoneme features are described in the [Phonemes](phonemes.md) document. These
@@ -223,7 +243,7 @@ the phoneme definition can include an `ipa` instruction to specify the correct
 IPA name. IPA strings may include non-ascii characters. They may also include
 characters specified by their character codes in the form `U+` followed by 4
 hexadecimal digits. For example a string: `aU+0303` indicates 'a' with a
-'combining tilde'.
+'combining tilde'. A phoneme can be hidden by passing NULL as argument.
 
 ### WAV
 
@@ -294,11 +314,29 @@ vowel. See [vowel transitions](#vowel-transitions).
 (C) Specifies the effects of this consonant on the formants of a preceding
 vowel. See [vowel transitions](#vowel-transitions).
 
+### AppendPhoneme
+
+	AppendPhoneme(<phoneme>)
+
+Add the specified phoneme after the current phoneme.
+
+### InsertPhoneme
+
+	InsertPhoneme(<phoneme>)
+
+Add the specified phoneme before the current phoneme.
+
+This instruction is ineffective after a change instruction.
+
 ### ChangePhoneme
 
 	ChangePhoneme(<phoneme>)
 
 Change to the specified phoneme.
+
+Change instructions like this are ineffective after another change instruction.
+
+A phoneme can be deleted by specifying NULL as argument.
 
 ### ChangeIfDiminished
 
@@ -463,17 +501,20 @@ liquid consonant within the same word.
 	isNotVowel
 	isLiquid
 	isNasal
+	isUStop
+	isVStop
 	isVFricative
 
 These test the phoneme type.
 
 	isPalatal
 	isRhotic
+	isSibilant
+	isVelar
 
 These test whether the phoneme has this property.
 
 	isWordStart
-	notWordStart
 
 These text whether this is the first phoneme in a word.
 
@@ -514,6 +555,13 @@ True if the syllable stress is "primary stress".
 	isMaxStress
 
 True if this is the highest stressed syllable in the word.
+
+	isLong
+	isFlag1
+	isFlag2
+	isTranslationGiven
+
+These test whether the phoneme has this other property.
 
 ## Sound Specifications
 

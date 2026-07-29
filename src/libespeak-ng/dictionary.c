@@ -201,7 +201,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	int length;
 	FILE *f;
 	int size;
-	char fname[sizeof(path_home)+20];
+	char fname[N_PATH_BUF];
 
 	if (dictionary_name != name)
 		snprintf(dictionary_name, sizeof(dictionary_name), "%s", name); // currently loaded dictionary name
@@ -211,7 +211,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	// Load a pronunciation data file into memory
 	// bytes 0-3:  offset to rules data
 	// bytes 4-7:  number of hash table entries
-	sprintf(fname, "%s%c%s_dict", path_home, PATHSEP, name);
+	snprintf(fname, sizeof(fname), "%s%c%s_dict", path_home, PATHSEP, name);
 	size = GetFileLength(fname);
 
 	if (tr->data_dictlist != NULL) {
@@ -468,7 +468,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 		if (plist == NULL)
 			InterpretPhoneme2(ph->code, &phdata);
 		else
-			InterpretPhoneme(NULL, 0, plist, plist, &phdata, NULL);
+			InterpretPhoneme(NULL, 0, plist, phoneme_list, &phdata, NULL);
 
 		p = phdata.ipa_string;
 		if (*p == 0x20) {
@@ -1443,46 +1443,91 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	return;
 }
 
-void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
-{
-	/* Add new phoneme string "ph" to "string"
-	    Keeps count of the number of vowel phonemes in the word, and whether these
-	   can be stressed syllables.  These values can be used in translation rules
-	 */
+//void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
+//{
+//	/* Add new phoneme string "ph" to "string"
+//	    Keeps count of the number of vowel phonemes in the word, and whether these
+//	   can be stressed syllables.  These values can be used in translation rules
+//	 */
+//
+//	const char *p;
+//	unsigned char c;
+//	int length;
+//
+//	length = strlen(ph) + strlen(string);
+//	if (length >= size)
+//		return;
+//
+//	// any stressable vowel ?
+//	bool unstress_mark = false;
+//	p = ph;
+//	while ((c = *p++) != 0) {
+//		if (c >= n_phoneme_tab) continue;
+//
+//		if (phoneme_tab[c]->type == phSTRESS) {
+//			if (phoneme_tab[c]->std_length < 4)
+//				unstress_mark = true;
+//		} else {
+//			if (phoneme_tab[c]->type == phVOWEL) {
+//				if (((phoneme_tab[c]->phflags & phUNSTRESSED) == 0) &&
+//				    (unstress_mark == false)) {
+//					tr->word_stressed_count++;
+//				}
+//				unstress_mark = false;
+//				tr->word_vowel_count++;
+//			}
+//		}
+//	}
+//
+//	if (string != NULL)
+//		strcat(string, ph);
+//}
 
-	const char *p;
-	unsigned char c;
-	int length;
+void AppendPhonemes(Translator *tr, char *string, int size, const char *ph) {
+    if (!tr || !ph) return;
 
-	length = strlen(ph) + strlen(string);
-	if (length >= size)
-		return;
+    const char *p;
+    unsigned char c;
+    int length;
 
-	// any stressable vowel ?
-	bool unstress_mark = false;
-	p = ph;
-	while ((c = *p++) != 0) {
-		if (c >= n_phoneme_tab) continue;
+    length = strlen(ph) + strlen(string);
+    if (length >= size)
+        return;
 
-		if (!phoneme_tab[c]) continue;
+    // any stressable vowel?
+    bool unstress_mark = false;
+    p = ph;
+    while ((c = *p++) != 0) {        
+        // Check if index is within bounds
+        if (c >= n_phoneme_tab) continue;
+        
+        // Check if phoneme_tab itself is valid
+        if (!phoneme_tab) continue;
+        
+        // Check if phoneme_tab[c] is valid
+        PHONEME_TAB *phTab = phoneme_tab[c];
+        if (!phTab) continue;
+        
+        // Additional bounds check for type field
+        if ((size_t)&phTab->type >= (size_t)phTab + sizeof(PHONEME_TAB)) continue;        
 
-		if (phoneme_tab[c]->type == phSTRESS) {
-			if (phoneme_tab[c]->std_length < 4)
-				unstress_mark = true;
-		} else {
-			if (phoneme_tab[c]->type == phVOWEL) {
-				if (((phoneme_tab[c]->phflags & phUNSTRESSED) == 0) &&
-				    (unstress_mark == false)) {
-					tr->word_stressed_count++;
+		  if (phoneme_tab[c]->type == phSTRESS) {
+				if (phoneme_tab[c]->std_length < 4)
+					unstress_mark = true;
+			} else {
+				if (phoneme_tab[c]->type == phVOWEL) {
+					if (((phoneme_tab[c]->phflags & phUNSTRESSED) == 0) &&
+				   	(unstress_mark == false)) {
+						tr->word_stressed_count++;
+					}
+					unstress_mark = false;
+					tr->word_vowel_count++;
 				}
-				unstress_mark = false;
-				tr->word_vowel_count++;
 			}
-		}
-	}
+      }
 
-	if (string != NULL)
-		strcat(string, ph);
+   	if (string != NULL)
+      	strcat(string, ph);
 }
 
 static void MatchRule(Translator *tr, char *word[], char *word_start, int group_length, char *rule, MatchRecord *match_out, int word_flags, int dict_flags)
@@ -2432,7 +2477,7 @@ int TransposeAlphabet(Translator *tr, char *text)
     end_flags:  indicates whether this is a retranslation after removing a suffix
  */
 static const char *LookupDict2(Translator *tr, const char *word, const char *word2,
-                               char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab)
+                               char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab, int wtab_remaining)
 {
 	char *p;
 	char *next;
@@ -2530,7 +2575,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 
 				// don't use the contraction if any of the words are emphasized
 				//  or has an embedded command, such as MARK
-				if (wtab != NULL) {
+				if ((wtab != NULL) && (wtab_remaining > skipwords)) {
 					for (ix = 0; ix <= skipwords && wtab[ix].length; ix++) {
 						if (wtab[ix].flags & FLAG_EMPHASIZED2)
 							condition_failed = true;
@@ -2721,7 +2766,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 
    end_flags:  indicates if a suffix has been removed
  */
-int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab)
+int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab, int wtab_remaining)
 {
 	int length;
 	const char *found;
@@ -2741,7 +2786,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	while ((word2[nbytes = utf8_nbytes(word2)] == ' ') && (word2[nbytes+1] == '.')) {
 		// look for an abbreviation of the form a.b.c
 		// try removing the spaces between the dots and looking for a match
-		if (length + 1 > sizeof(word)) {
+		if ((nbytes <= 0) || ((size_t)nbytes + 1 > sizeof(word) - (size_t)length)) {
 			/* Too long abbreviation, leave as it is */
 			length = 0;
 			break;
@@ -2759,7 +2804,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		if (length + nbytes + 1 <= sizeof(word)) {
 			memcpy(&word[length], word2, nbytes);
 			word[length+nbytes] = 0;
-			found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
+			found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab, wtab_remaining);
 			if (found) {
 				// set the skip words flag
 				flags[0] |= FLAG_SKIPWORDS;
@@ -2780,7 +2825,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	}
 	word[length] = 0;
 
-	found = LookupDict2(tr, word, word1, ph_out, flags, end_flags, wtab);
+	found = LookupDict2(tr, word, word1, ph_out, flags, end_flags, wtab, wtab_remaining);
 
 	if (flags[0] & FLAG_MAX3) {
 		if (strcmp(ph_out, tr->phonemes_repeat) == 0) {
@@ -2811,11 +2856,11 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		if ((end_flags & FLAG_SUFX_E_ADDED) && (word[length-1] == 'e')) {
 			// try removing an 'e' which has been added by RemoveEnding
 			word[length-1] = 0;
-			found = LookupDict2(tr, word, word1, ph_out, flags, end_flags, wtab);
+			found = LookupDict2(tr, word, word1, ph_out, flags, end_flags, wtab, wtab_remaining);
 		} else if ((end_flags & SUFX_D) && (word[length-1] == word[length-2])) {
 			// try removing a double letter
 			word[length-1] = 0;
-			found = LookupDict2(tr, word, word1, ph_out, flags, end_flags, wtab);
+			found = LookupDict2(tr, word, word1, ph_out, flags, end_flags, wtab, wtab_remaining);
 		}
 	}
 
@@ -2867,7 +2912,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 
 	flags[0] = 0;
 	flags[1] = FLAG_LOOKUP_SYMBOL;
-	if ((flags0 = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL)) != 0)
+	if ((flags0 = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL, 0)) != 0)
 		flags0 = flags[0];
 
 	if (flags[0] & FLAG_TEXTMODE) {
@@ -2896,7 +2941,7 @@ static int LookupFlags(Translator *tr, const char *word, unsigned int flags_out[
 	char *word1 = (char *)word;
 
 	flags[0] = flags[1] = 0;
-	LookupDictList(tr, &word1, buf, flags, 0, NULL);
+	LookupDictList(tr, &word1, buf, flags, 0, NULL, 0);
 	flags_out[0] = flags[0];
 	flags_out[1] = flags[1];
 	return flags[0];

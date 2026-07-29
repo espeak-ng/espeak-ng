@@ -1,6 +1,6 @@
 # Languages
 
-Development version of eSpeak NG supports 148 languages and accents,
+Development version of eSpeak NG supports 152 languages and accents,
 which are listed in table below.
 
 To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
@@ -91,6 +91,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `bat`       | `ltg`               | Baltic                | Latgalian                            |                        |
 | `itc`       | `la`                | Italic                | Latin                                |                        |
 | `bat`       | `lv`                | Baltic                | Latvian                              |                        |
+| `roa`       | `lij`               | Romance               | Ligurian                             |                        |
 | `art`       | `lfn`               | Constructed           | Lingua Franca Nova<sup>\[1,2\]</sup> |                        |
 | `bat`       | `lt`                | Baltic                | Lithuanian                           |                        |
 | `art`       | `jbo`               | Constructed           | Lojban                               |                        |
@@ -112,6 +113,9 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `cus`       | `om`                | Cushitic              | Oromo                                |                        |
 | `roa`       | `pap`               | Romance               | Papiamento                           |                        |
 | `ira`       | `ps`                | Iranian               | Pashto                               |                        |
+| `ira`       | `ps-x-northwest`    | Iranian               | Pashto                               | Northwestern           |
+| `ira`       | `ps-x-southeast`    | Iranian               | Pashto                               | Southeastern           |
+| `ira`       | `ps-x-yusufzai`     | Iranian               | Pashto                               | Yusufzai               |
 | `ira`       | `fa`                | Iranian               | Persian                              |                        |
 | `ira`       | `fa-latn`           | Iranian               | Persian<sup>\[1,5\]</sup>            |                        |
 | `zlw`       | `pl`                | West Slavic           | Polish                               |                        |

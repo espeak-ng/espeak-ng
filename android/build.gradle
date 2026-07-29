@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.2'
+        classpath 'com.android.tools.build:gradle:9.3.0'
     }
 }
 plugins {
@@ -41,14 +41,14 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 33
-        versionCode = 22
-        versionName = "1.52.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionCode = 23
+        versionName = "1.53.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         externalNativeBuild {
             cmake {
-                arguments "-DUSE_ASYNC:BOOL=OFF", "-DUSE_MBROLA:BOOL=OFF"
-                targets "ttsespeak", "espeak-data"
+                arguments.addAll(["-DUSE_ASYNC:BOOL=OFF", "-DUSE_MBROLA:BOOL=OFF", "-DUSE_LIBSONIC:BOOL=ON"])
+                targets.addAll(["ttsespeak", "espeak-data"])
             }
         }
     }
@@ -62,13 +62,13 @@ android {
 
     sourceSets {
         main {
-            manifest.srcFile 'AndroidManifest.xml'
+            manifest.srcFile('AndroidManifest.xml')
             java.srcDirs = ['src']
             res.srcDirs = ['res']
         }
-        androidTest.setRoot('eSpeakTests')
         androidTest {
             java.srcDirs = ['eSpeakTests/src']
+            res.srcDirs = ['eSpeakTests/res']
         }
     }
 
