@@ -181,6 +181,9 @@ int IsAlpha(unsigned int c)
 	if (iswalpha(c))
 		return 1;
 
+	if ((c >= 0x250) && (c <= 0x2af))
+		return 1; // IPA Extensions (used by African languages)
+
 	if (c < 0x300)
 		return 0;
 

@@ -1527,6 +1527,26 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_OMIT_1_HUNDRED;
 	}
 		break;
+	case L3('b', 'o', 'f'): // Bété (Daloa)
+	{
+		static const short stress_lengths_bof[8] = { 160, 170,  200, 200,    0,   0,  320, 340 };
+		static const unsigned char stress_amps_bof[] = { 16, 12, 19, 19, 20, 22, 22, 21 };
+		static const wchar_t vowels_bof[] = {
+			0x61, 0x65, 0x69, 0x6f, 0x75, // a e i o u
+			0xf6, 0xeb, 0xef, 0xe4,       // ö ë ï ä
+			0x254, 0x25b, 0x269, 0x28b,    // ɔ ɛ ɩ ʋ
+			0
+		};
+
+		SetupTranslator(tr, stress_lengths_bof, stress_amps_bof);
+		tr->langopts.length_mods0 = tr->langopts.length_mods;
+
+		tr->langopts.stress_rule = STRESSPOSN_2R;
+		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+		tr->langopts.max_initial_consonants = 4;
+		tr->letter_groups[0] = tr->letter_groups[7] = vowels_bof;
+	}
+		break;
 	case L('t', 'a'): // Tamil
 	case L('k', 'n'): // Kannada
 	case L('m', 'l'): // Malayalam
