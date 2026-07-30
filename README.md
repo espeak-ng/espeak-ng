@@ -38,10 +38,11 @@ eSpeak NG is available as:
    and also HTML.
 *  Compact size.  The program and its data, including many languages,
    totals about few Mbytes.
-*  Can be used as a front-end to [MBROLA diphone voices](docs/mbrola.md).
+*  Can be used as a front-end (Grapheme-To-Phoneme) for back-ends
+   (Phoneme-To-Sound) like [MBROLA diphone voices](docs/mbrola.md).
    eSpeak NG converts text to phonemes with pitch and length information.
 *  Can translate text into phoneme codes, so it could be adapted as a
-   front end for another speech synthesis engine.
+   front-end for another speech synthesis engine.
 *  Potential for other languages. Several are included in varying stages
    of progress. Help from native speakers for these or other languages is
    welcome.
