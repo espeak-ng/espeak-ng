@@ -29,7 +29,10 @@ The Gradle build has custom tasks that run automatically:
 3. `createDataHash` generates SHA256 for upgrade detection
 4. `createDataVersion` writes the hash to `res/raw/espeakdata_version`
 
-Native build disables `USE_ASYNC` and `USE_MBROLA` (not needed on Android).
+Native build disables `USE_ASYNC` and `USE_MBROLA` (not needed on Android) and
+enables `USE_LIBSONIC` for speech rates above `espeakRATE_MAXIMUM`. libsonic has
+no NDK sysroot package, so `jni/CMakeLists.txt` fetches and builds it from
+source and pre-seeds `SONIC_LIB`/`SONIC_INC` for `cmake/deps.cmake`.
 
 ## Architecture
 
@@ -47,15 +50,31 @@ Android TTS Framework
 
 ### Key Classes (`src/com/reecedunn/espeak/`)
 
+- **EspeakApp** — `Application` subclass; owns the device-protected storage context and the Wear launcher alias state (see below)
 - **TtsService** — Android TTS engine service; handles `onSynthesizeText()`, voice selection, parameter setup
 - **SpeechSynthesis** — JNI wrapper; loads `libttsespeak.so`, exposes native functions as Java API
 - **VoiceSettings** — SharedPreferences wrapper for rate, pitch, volume, punctuation, variant
 - **LanguageSettings** — Filters available voices by user-selected languages
 - **CheckVoiceData** — Intent handler that verifies voice data files exist on device
 - **DownloadVoiceData** — Extracts `espeakdata.zip` to device-protected storage
-- **eSpeakActivity** — Demo/launcher activity for manual testing
-- **TtsSettingsActivity** — Preferences UI (voice variant, rate, pitch, etc.)
+- **TtsSettingsActivity** — Preferences UI (voice variant, rate, pitch, etc.); also the `CONFIGURE_ENGINE` target and, on Wear, the launcher entry point
 - **Voice / VoiceVariant** — Data models for voice metadata and variant parsing
+
+### Launcher icon and Wear
+
+There is no standalone launcher activity. The only `MAIN`/`LAUNCHER` entry is
+the `.WearLauncher` `<activity-alias>` targeting `TtsSettingsActivity`, and it
+ships `android:enabled="false"`. `EspeakApp.syncWearLauncherState()` enables it
+at runtime on watches only; phones reach the settings UI through the gear in
+the system Text-to-speech settings (`CONFIGURE_ENGINE`).
+
+**Never disable that alias at runtime.** Disabling a launcher alias closes the
+activity that was started through it — silently, with no exception, and
+`DONT_KILL_APP` does not prevent it. An earlier revision shipped the alias
+enabled and disabled it on phones at first launch, which made the settings
+screen open and immediately vanish. A `@bool/`-with-`values-watch` override on
+`android:enabled` does not work either: PackageManager parses that attribute
+against a configuration with no UI mode, so it always resolves to the default.
 
 ### JNI Layer (`jni/jni/eSpeakService.c`)
 
@@ -69,13 +88,13 @@ On first launch (or version mismatch), `DownloadVoiceData` extracts `res/raw/esp
 
 ```
 android/
-├── src/com/reecedunn/espeak/   # Java sources (18 classes)
+├── src/com/reecedunn/espeak/   # Java sources (14 classes)
 │   └── preference/             # Custom preference widgets (5 classes)
 ├── jni/
-│   ├── CMakeLists.txt          # Native build (links espeak-ng + JNI)
-│   ├── jni/eSpeakService.c     # JNI bridge (344 lines)
+│   ├── CMakeLists.txt          # Native build (links espeak-ng + JNI, builds libsonic)
+│   ├── jni/eSpeakService.c     # JNI bridge (11 native methods)
 │   └── include/                # config.h, Log.h
-├── res/                        # Resources (40+ locale translations)
+├── res/                        # Resources (46 locale translations, plus values-v21/-watch)
 ├── eSpeakTests/                # Instrumentation tests
 ├── build.gradle                # Gradle config
 └── AndroidManifest.xml         # Services, activities, intents
