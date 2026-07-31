@@ -60,3 +60,11 @@ phoneme t;
   ENDIF
   WAV(ustop/t_pzd, 60)
 endphoneme
+
+phoneme k
+  import_phoneme base2/k
+endphoneme
+
+phoneme p
+  import_phoneme base2/p
+endphoneme
