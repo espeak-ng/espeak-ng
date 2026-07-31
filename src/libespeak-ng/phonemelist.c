@@ -98,7 +98,8 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 
 					// substitute the replacement phoneme
 					plist2->phcode = replace_phonemes[k].new_ph;
-					if ((plist2->stresslevel > 1) && (phoneme_tab[plist2->phcode]->phflags & phUNSTRESSED))
+					if ((plist2->stresslevel > 1) && (phoneme_tab[plist2->phcode] != NULL) &&
+					    (phoneme_tab[plist2->phcode]->phflags & phUNSTRESSED))
 						plist2->stresslevel = 0; // the replacement must be unstressed
 					break;
 				}
@@ -110,10 +111,17 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 			}
 		}
 
+		PHONEME_TAB *ph = phoneme_tab[plist2->phcode];
+		if (ph == NULL)
+			// this phoneme is not in the current phoneme table, so nothing
+			// downstream can interpret it (everything there works through ph);
+			// drop it, as for a phoneme replaced by NULL above
+			continue;
+
 		// copy phoneme into the output list
 		memcpy(&plist_out[n_plist_out], plist2, sizeof(PHONEME_LIST2));
-		plist_out[n_plist_out].ph = phoneme_tab[plist2->phcode];
-		plist_out[n_plist_out].type = plist_out[n_plist_out].ph->type;
+		plist_out[n_plist_out].ph = ph;
+		plist_out[n_plist_out].type = ph->type;
 		n_plist_out++;
 	}
 	return n_plist_out;

@@ -30,3 +30,7 @@ test_crash_vector dotted-abbrev-skipwords-oob -v en
 test_crash_vector lookupdict-boundary -v hu
 test_crash_vector phoneme-table-switch-nextvowel -v ru
 test_crash_vector phoneme-table-switch-stress -v ar
+test_crash_vector phoneme-table-switch-condition -v ab
+test_crash_vector phoneme-table-switch-condition -v he
+test_crash_vector phoneme-table-switch-condition -v quc
+test_crash_vector phoneme-table-switch-condition -v sw

@@ -596,7 +596,12 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 
 		if (instn2 < 7) {
 			// 'data' is a phoneme number
-			if ((phoneme_tab[data]->mnemonic == ph->mnemonic) == true)
+			// it may not be in the current phoneme table either (same reason as
+			// above), in which case no exact match is possible, but 'data' is
+			// still meaningful as a vowel type below
+			PHONEME_TAB *ph_data = phoneme_tab[data];
+
+			if ((ph_data != NULL) && (ph_data->mnemonic == ph->mnemonic))
 				return true;
 
 			//  not an exact match, check for a vowel type (eg. #i )
