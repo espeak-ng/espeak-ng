@@ -974,11 +974,14 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	// copy input string into internal buffer
 	for (ix = 0; ix < N_WORD_PHONEMES; ix++) {
 		phonetic[ix] = output[ix];
-		// check for unknown phoneme codes
-		if (phonetic[ix] >= n_phoneme_tab)
-			phonetic[ix] = phonSCHWA;
 		if (phonetic[ix] == 0)
 			break;
+		// check for unknown phoneme codes. A code may be out of range, or it may
+		// fall in a gap of the current table, in which case phoneme_tab holds NULL
+		// for it (see SelectPhonemeTable). The code below dereferences these
+		// entries unconditionally, so both cases must be substituted here.
+		if ((phonetic[ix] >= n_phoneme_tab) || (phoneme_tab[phonetic[ix]] == NULL))
+			phonetic[ix] = phonSCHWA;
 	}
 	if (ix == 0) return;
 	final_ph = phonetic[ix-1];
