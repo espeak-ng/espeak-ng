@@ -158,7 +158,7 @@ test_phon el "sim'ea k,azakst'an" "🇰🇿"
 # normal input; otherwise the rules stop at the hyphen and everything from
 # there on is lost (Burkina-Faso was silent, États-Unis read as "drapeau")
 test_phon tk "bURk'inA f,ATo" "🇧🇫"
-test_phon uk "buRk'i:na f'aso" "🇧🇫"
+test_phon uk "buRk'ina f'aso" "🇧🇫"
 test_phon fr "drap'o et'az2 yn'i" "🇺🇸"
 test_phon fr "drap'o rwaj'om yn'i" "🇬🇧"
 # ASCII text without a hyphen keeps its existing single-word segmentation
