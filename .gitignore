@@ -4,6 +4,10 @@
 .*.swp
 *.bat
 
+# OS metadata files:
+
+.DS_Store
+
 # Eclipse project files:
 
 .autotools
