@@ -151,7 +151,7 @@ test_phon en "bl'ak fl'ag" "🏴󠁵󠁳󠁴󠁸󠁿"    # 1F3F4 E0075 E0073 E00
 # with towlower2(), not tolower(): the latter dropped the letter entirely
 # (Казахстан was read as "азахстан")
 test_phon ru "fl'Ag;i kVzaxst'An_" "🇰🇿"
-test_phon uk "kaz'axst[an" "🇰🇿"
+test_phon uk "kaz'axstan" "🇰🇿"
 test_phon el "sim'ea k,azakst'an" "🇰🇿"
 
 # a hyphen between two letters ends a word in replacement text as it does in
