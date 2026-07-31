@@ -112,11 +112,14 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 		}
 
 		PHONEME_TAB *ph = phoneme_tab[plist2->phcode];
-		if (ph == NULL)
+		if (ph == NULL) {
 			// this phoneme is not in the current phoneme table, so nothing
 			// downstream can interpret it (everything there works through ph);
-			// drop it, as for a phoneme replaced by NULL above
+			// drop it as above, carrying its sourceix to the next phoneme so
+			// that a word which starts here is still marked as a word start
+			deleted_sourceix = plist2->sourceix;
 			continue;
+		}
 
 		// copy phoneme into the output list
 		memcpy(&plist_out[n_plist_out], plist2, sizeof(PHONEME_LIST2));

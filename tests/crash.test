@@ -34,3 +34,5 @@ test_crash_vector phoneme-table-switch-condition -v ab
 test_crash_vector phoneme-table-switch-condition -v he
 test_crash_vector phoneme-table-switch-condition -v quc
 test_crash_vector phoneme-table-switch-condition -v sw
+test_crash_vector phoneme-table-switch-otherlang -v fr
+test_crash_vector phoneme-table-switch-otherlang -v pt
