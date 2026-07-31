@@ -2,6 +2,9 @@
 /// Spelling to phoneme words and exceptions for Ukrainian
 // Author: Andrij Mizyk <andm1zyk@proton.me>, 2022
 
+.replace
+       ’        '
+
 .group а
        а     a
 
@@ -37,10 +40,10 @@
        и     I
 
 .group і
-       і     i:
+       і     i
 
 .group ї
-       ї     ji:
+       ї     ji
 
 .group й
        й     j
@@ -80,7 +83,7 @@
        с     s
 
 .group т
-       т     t[
+       т     t
        ть    t;
 
 .group у
@@ -100,7 +103,6 @@
 
 .group ш
        ш     S
-       ш (в  l#  // швеція
 
 .group щ
        щ     StS
