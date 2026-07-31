@@ -40,7 +40,7 @@ i    I
 ь    z.INIs.kjelIk||bjelgIs'I
 э    E
 ю    ju
-я    ja
+я    jA
 
 // Numbers
 _0 n'8l
@@ -70,3 +70,38 @@ _0M3 m@jLL@j'A*d
 _1M3 m@jLL@j'A*d
 
 _dpt u#t'I*
+
+// Symbols
+
+_. nu#ktj'e
+_, u#t'I*
+_: t,oq||IS'jek
+_; nu#ktjel,I||u#t'I*
+_( As.,@q||z.Aqs.'A
+_) z.Ab,@q||z.Aqs.'A
+_[ As.,@q||t,Ik||z.Aqs.'A
+_] z.Ab,@q||t,Ik||z.Aqs.'A
+_{ bUj*,A||z.Aqs.ALA*d,@||As.'Uw
+_} z.Ab@LAt,@n||bUj*,A||z.Aqs.'A
+_? sUr,Aq||bjelgIs'I
+_! lj,ep||bjelgIs'I
+_" d&jeks'8z
+_~ tIL?d'A
+_` kje*,I||d&jeks'8z
+_^ tsI*kUwmflj'eks
+_| t,Ik||z.oL'Aq
+_< Az@*'Aq
+_> u#lkjenI*j'ek
+
++ plj'Us $max3
+- min'Uws $max3
+* z.Uld@zs.'A $max3
+/ q@jG,As.||s@z'@q $max3
+= tj'eN $max3
+_ Ast,@n||s@z'Uw||s@z@G'@
+% pAj'@z
+& Ampje*s'And
+$ doLL'A*
+# Xj'es.
+@ bjelgIdj'e
+\ kje*,I||q@jG,As.||s@z'@q
