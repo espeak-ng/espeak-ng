@@ -18,13 +18,26 @@ _3X	san||d_z\u_!
 _4X	jon||d_z\u_!
 _5X	go||d_z\u_!
 _6X	r`oku||d_z\u_!
-_7X	sit_s\i||d_z\u_!
+_7X	nana||d_z\u_!
 _8X	hat_s\i||d_z\u_!
 _9X	k_ju:||d_z\u_!
 _0C	Caku
 _1C Caku
+// 300, 600 and 800 are irregular: sanbyaku, roppyaku, happyaku.
+// 400 and 700 take yon-/nana-, not shi-/shichi-.
+_3C	sanb_jaku
+_4C	jonCaku
+_6C	r`opp_jaku
+_7C	nanaCaku
+_8C	happ_jaku
 _0M1 sen
 _1M1 sen
+// 3000 and 8000 are irregular: sanzen, hassen.
+// 4000 and 7000 take yon-/nana-, not shi-/shichi-.
+_3M1	sanzen
+_4M1	jonsen
+_7M1	nanasen
+_8M1	hassen
 _10M1 it_s\iman
 _20M1 niman
 _30M1 sanman
@@ -39,6 +52,13 @@ _0M2 Cakuman
 _1M2 Cakuman
 _10M2 senman
 _100M2 it_s\ioku
-_0M3 it_s\o:
-_1M3 it_s\o:
-_10M3 d_z\ut_s\o:
+// M3 is 10^9, which in the myriad system is 10 oku, not 1 chou
+_0M3	d_z\u:oku
+_1M3	d_z\u:oku
+_10M3	Cakuoku
+_100M3	senoku
+// M4 is 10^12 = 1 chou
+_0M4	itt_s\o:
+_1M4	itt_s\o:
+_10M4	d_z\utt_s\o:
+_100M4	Cakut_s\o:
