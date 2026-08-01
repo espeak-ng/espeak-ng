@@ -57,7 +57,7 @@ _3C     gUrvan'zU:
 _4C     d8rven'zU:
 _5C     tavan'zU:
 _6C     zUrga:n'zU:
-_7C     dOlO:n'zU:
+_7C     dOl#O:n'zU:
 _8C     naIman'zU:
 _9C     jesen'zU:
 _1MA1   mj'aNga
@@ -89,7 +89,7 @@ _       dU:gU:r'defis
 $       dOl#l#ar
 _:      davxar'tseg
 ^       OrOI'temdeg
-_"      xaImar'xaSilt
+_"      xaImar'xaSil#t
 _<      baga'temdeg
 +       nemex           $max3
 %       xUvi            $max3
@@ -117,7 +117,7 @@ _,      tasl#al#
 вэ      ve $u
 нь      n^ $u
 ч       tSi $u
-л       l $u
+л       l# $u
 даа     da: $u
 дээ     de: $u
 шүү     Sy: $u
@@ -272,8 +272,8 @@ _,      tasl#al#
 далай   dalaI
 орон    OrON
 улс     Ul#s
-хэл     xel
-хэлэнд xelend
+хэл     xel#
+хэлэнд xel#end
 эрх     erx
 
 
@@ -322,8 +322,8 @@ _,      tasl#al#
 // ============================================================
 
 Улаанбаатар     Ul#a:nba:tar
-Монгол          mONgOl
-Монголын        mONgOliN
+Монгол          mONgOl#
+Монголын        mONgOl#iN
 Дархан          darxaN
 Эрдэнэт        erdenet
 Чойбалсан       tSOIbal#saN
@@ -396,9 +396,9 @@ _,      tasl#al#
 хөмүүс  x8my:s
 
 // Section 2: coda + geminate
-суулт   sU:lt
-оролт   OrOlt
-нэмэлт  nemelt
+суулт   sU:l#t
+оролт   OrOl#t
+нэмэлт  nemel#t
 
 // Section 2: long vowel words
 агаар   aga:r
