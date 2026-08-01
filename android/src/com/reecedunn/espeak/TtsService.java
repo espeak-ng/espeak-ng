@@ -335,9 +335,17 @@ public class TtsService extends TextToSpeechService {
     private int selectVoice(SynthesisRequest request) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             final String name = request.getVoiceName();
-            if (name != null && !name.isEmpty()) {
-                return onLoadVoice(name);
+            if (name != null && !name.isEmpty()
+                    && onLoadVoice(name) == TextToSpeech.SUCCESS) {
+                return TextToSpeech.SUCCESS;
             }
+            // Deliberately fall through when the named voice is unknown rather
+            // than returning its error. The framework attaches a voice name to
+            // every request on API 21+ -- including the system default one when
+            // the client never picked a voice itself -- so a name that has been
+            // filtered out of the user's language selection would otherwise
+            // fail every request and make selectLanguageWithFallback() below
+            // unreachable. The name is a hint; the language cascade decides.
         }
         return selectLanguageWithFallback(request.getLanguage(), request.getCountry(), request.getVariant());
     }
