@@ -23,35 +23,35 @@
 //  Numbers
 // ============================================================
 
-_0      teg
-_1      neg
-_2      xOjOr
-_3      gUrav
-_4      d8r8v
-_5      tav
-_6      zUrga:
-_7      dOlO:
-_8      naIm
-_9      jes
-_10     arav
+_0      t'eg
+_1      n'eg
+_2      x'OjOr
+_3      g'Urav
+_4      d'8r8v
+_5      t'av
+_6      zUrg'a:
+_7      dOl#'O:
+_8      n'aIm
+_9      j'es
+_10     'arav
 _11     arvan'neg
 _12     arvan'xOjOr
 _13     arvan'gUrav
 _14     arvan'd8r8v
 _15     arvan'tav
-_16     arvan'zUrga:
-_17     arvan'dOlO:
+_16     arvanzUrg'a:
+_17     arvan'dOl#'O:
 _18     arvan'naIm
 _19     arvan'jes
-_2X     xOrin
-_3X     gUtSin
-_4X     d8tSin
-_5X     tavin
-_6X     dZaran
-_7X     dalan
-_8X     najan
-_9X     jeren
-_0C     zU:n
+_2X     x'Orin
+_3X     g'UtSin
+_4X     d'8tSin
+_5X     t'avin
+_6X     dZ'aran
+_7X     d'al#an
+_8X     n'ajan
+_9X     j'eren
+_0C     z'U:n
 _2C     xOjOr'zU:
 _3C     gUrvan'zU:
 _4C     d8rven'zU:
@@ -60,18 +60,18 @@ _6C     zUrga:n'zU:
 _7C     dOlO:n'zU:
 _8C     naIman'zU:
 _9C     jesen'zU:
-_1MA1   mjaNga
-_0MA1   mjaNga
-_0M1    mjaNga
-_1MA2   saja
-_0MA2   saja
-_0M2    saja
-_1MA3   terbUm
-_0MA3   terbUm
-_0M3    terbUm
-_1MA4   ix'naja:d
-_0MA4   ix'naja:d
-_0M4    ix'naja:d
+_1MA1   mj'aNga
+_0MA1   mj'aNga
+_0M1    mj'aNga
+_1MA2   s'aja
+_0MA2   s'aja
+_0M2    s'aja
+_1MA3   t'erbUm
+_0MA3   t'erbUm
+_0M3    t'erbUm
+_1MA4   ixn'aja:d
+_0MA4   ixn'aja:d
+_0M4    ixn'aja:d
 
 _dpt    tseg
 
@@ -86,7 +86,7 @@ _'      apostrOf
 \       UrU:g'zUra:s
 _>      ix'temdeg
 _       dU:gU:r'defis
-$       dOllar
+$       dOl#l#ar
 _:      davxar'tseg
 ^       OrOI'temdeg
 _"      xaImar'xaSilt
@@ -97,14 +97,14 @@ _<      baga'temdeg
 #       Sar
 /       zUra:s          $max3
 @       at'temdeg
-~       tild
+~       til#d
 _.      tseg
-_;      tsegteI'taslal
+_;      tsegteI'tasl#al#
 _|      bOslO:'zUra:s
 _?      asU:lti:n'temdeg
 _!      aNxa:rU:lax'temdeg
 *       Od              $max3
-_,      taslal
+_,      tasl#al#
 
 
 // ============================================================
@@ -139,8 +139,8 @@ _,      taslal
 хооронд xO:rOnd
 руу     rU: $u
 рүү     ry: $u
-луу     lU: $u
-лүү     ly: $u
+луу     l#U: $u
+лүү     l#y: $u
 тийш    ti:S
 нааш    na:S
 
@@ -152,7 +152,7 @@ _,      taslal
 ба      ba $u
 бөгөөд  b8g8:d $pause
 буюу    bUjU: $pause
-эсвэл   esvel $pause
+эсвэл   esvel# $pause
 харин   xarin $pause
 гэхдээ  gexde: $pause
 тийм    ti:m $u
@@ -161,7 +161,7 @@ _,      taslal
 гэсэн   geseN $pause
 гэдэг   gedeg $pause
 гэж     gedZ $pause
-гэвэл   gevel $pause
+гэвэл   gevel# $pause
 
 
 // ============================================================
@@ -178,7 +178,7 @@ _,      taslal
 хэдэн   xedeN
 хичнээн xitsne:N
 ямар    jamar
-аль     ali
+аль     al#i
 яах     ja:x
 
 
@@ -210,9 +210,9 @@ _,      taslal
 байгаа  baIga:
 байх    baIx
 байсан  baIsan
-болно   bOlnO
-болох   bOlOx
-болсон  bOlsON
+болно   bOl#nO
+болох   bOl#Ox
+болсон  bOl#sON
 ирэх    irex
 ирсэн   irseN
 явах    javax
@@ -231,8 +231,8 @@ _,      taslal
 ярья    jarija
 сурах   sUrax
 сурна   sUrna
-ойлгох  OIlgOx
-хэлэх   xelex
+ойлгох  OIl#gOx
+хэлэх   xel#ex
 мэдэх   medex
 мэднэ   medne
 чадах   tSadax
@@ -264,14 +264,14 @@ _,      taslal
 нутгийг nUtgi:g
 үг      yg
 ус      Us
-гал     gal
+гал     gal#
 мод     mOd
 морь    mOri
 морьтой mOrtOI
 ном     nOm
 далай   dalaI
 орон    OrON
-улс     Uls
+улс     Ul#s
 хэл     xel
 хэлэнд xelend
 эрх     erx
@@ -296,7 +296,7 @@ _,      taslal
 өндөр   8nd8r
 нам     nam
 хүйтэн xUIteN
-халуун  xalU:N
+халуун  xal#U:N
 цэвэр   tsever
 нарийн  nari:N
 уудам   U:dam
@@ -309,7 +309,7 @@ _,      taslal
 
 маш     maS
 тун     tUN
-нэлээд  nele:d
+нэлээд  nel#e:d
 хамгийн xamgi:N
 их      ix
 бас     bas
@@ -321,14 +321,14 @@ _,      taslal
 //  Place Names
 // ============================================================
 
-Улаанбаатар     Ula:nba:tar
+Улаанбаатар     Ul#a:nba:tar
 Монгол          mONgOl
 Монголын        mONgOliN
 Дархан          darxaN
 Эрдэнэт        erdenet
-Чойбалсан       tSOIbalsaN
+Чойбалсан       tSOIbal#saN
 Хэнтий          xenti:
-Хөвсгөл         x8vsg8l
+Хөвсгөл         x8vsg8l#
 Хангай          xaNgaI
 Говийн          gOvi:N
 
@@ -338,41 +338,41 @@ _,      taslal
 // ============================================================
 
 // Section 1: vowel isolation / minimal pairs
-тал     tal
-таал    ta:l
+тал     tal#
+таал    ta:l#
 бор     bOr
 боор    bO:r
 төр     t8r
 төөр    t8:r
-ул      Ul
-уул     U:l
+ул      Ul#
+уул     U:l#
 эр      er
 ээр     e:r
 
 // Section 1: consonant CV
 ба      ba
 ван     vaN
-жил     dZil
+жил     dZil#
 ёс      jOs
 кино    kinO
-файл    faIl
+файл    faIl#
 шар     Sar
 
 // Section 1: diphthong words
 нохой   nOxOI
 тойрон  tOIrON
-уйлах   UIlax
-үйлдвэр UIldver
+уйлах   UIl#ax
+үйлдвэр UIl#dver
 
 // Section 2: liquids (л/р) in words
-аль     ali
-эль     eli
-дэлхий  delxi:
-тольтой tOltOI
+аль     al#i
+эль     el#i
+дэлхий  del#xi:
+тольтой tOl#tOI
 арга    arga
 эрдэм   erdem
 өргөн   8rg8N
-үргэлж  yrgeldZ
+үргэлж  yrgel#dZ
 
 // Section 2: coda clusters
 алт     alt
@@ -384,7 +384,7 @@ _,      taslal
 // Section 2: palatalized CV
 тюмэн   ty:meN
 нёдон   njOdON
-лёнхо   ljONxO
+лёнхо   l#jONxO
 нян     njaN
 
 // Section 2: soft sign words
@@ -413,12 +413,12 @@ _,      taslal
 
 // Section 3: consonant clusters
 амна    amna
-мандал  mandal
+мандал  mandal#
 хангай  xaNgaI
-тунгалаг tUNgalag
-алтан   altaN
-борлуулалт bOrlU:lalt
-нэмэлт nemelt
+тунгалаг tUNgal#ag
+алтан   al#taN
+борлуулалт bOrl#U:l#al#t
+нэмэлт nemel#t
 бүтэн   byteN
 цэвэр   tsever
 
@@ -431,9 +431,9 @@ _,      taslal
 агаар   aga:r
 
 // Section 3: place names
-нийслэл ni:slel
+нийслэл ni:sl#el#
 нуруу   nUrU:
-олон    OlON
+олон    Ol#ON
 бий     bi:
 бүс     bys
 нуур    nU:r
@@ -448,8 +448,8 @@ _,      taslal
 гурав   gUrav
 дөрөв   d8r8v
 тав     tav
-зургаа  zUrga:
-долоо   dOlO:
+зургаа  zUrg'a:
+долоо   dOl#'O:
 найм    naIm
 ес      jes
 арав    arav
@@ -462,16 +462,16 @@ _,      taslal
 тэрбум  terbUm
 
 // Section 4: greetings
-баярлалаа bajarlala:
+баярлалаа bajarl#al#'a:
 уучлаарай U:tSla:raI
-ойлгохгүй OIlgOxgy:j
-эрүүл   ery:l
+ойлгохгүй OIl#gOxgy:j
+эрүүл   ery:l#
 мэнд    mend
 
 // Section 5: vowel harmony sentences
 эвсэг   evseg
 эгшиг   egSig
-зохицол zOxitsOl
+зохицол zOxitsOl#
 байдаг  baIdag
 богино  bOginO
 эгшгээс egSge:s
@@ -480,24 +480,24 @@ _,      taslal
 // Benchmark sentence words
 харьцангуй   xaritsaNgUI
 өргөрөгт    8rg8r8xt
-километр    kilOme:tr
+километр    kil#Ome:tr
 зайтай      zaItaI
 зэрэг       zereg
-шалтгаанаас Saltga:na:s
-болж        bOldZ
-дэлхийн     delxi:N
-нийслэлд    ni:sleld
+шалтгаанаас Sal#tga:na:s
+болж        bOl#dZ
+дэлхийн     del#xi:N
+нийслэлд    ni:sl#el#d
 тооцогддог  tO:tsOgdOg
 тооцогдох   tO:tsOgdOx
 эргээс      erge:s
-байрладаг   baIrladag
+байрладаг   baIrl#adag
 
 // Additional words from narakeet_5 text
 орны        Orni
-улсын       UlsiN
+улсын       Ul#siN
 тухай       tUxaI
-ялгаатай    jalga:taI
-хэлэнд     xelend
+ялгаатай    jal#ga:taI
+хэлэнд     xel#end
 богино      bOginO
 
 
@@ -517,7 +517,7 @@ _з      ze
 _и      i:
 _й      xagas'i:
 _к      ka
-_л      el
+_л      el#
 _м      em
 _н      en
 _о      O:
@@ -536,7 +536,7 @@ _ш      Sa
 _щ      Sa
 _ъ      xatU:'temdeg
 _ы      i
-_ь      z8:l8N'temdeg
+_ь      z8:l#8N'temdeg
 _э      e:
 _ю      jU:
 _я      ja:
@@ -547,59 +547,59 @@ _я      ja:
 // ============================================================
 
 Нацагдорж       natsagdOrdZ
-дуулья          dU:lja
-хамгаалан       xamga:laN
-хүрээлэн        xyre:leN
+дуулья          dU:l#ja
+хамгаалан       xamga:l#aN
+хүрээлэн        xyre:l#eN
 жигдрэн         dZigdreN
 соёрхоно        sOjOrxOnO
 мэлмий          melmi:
 дэлгэнэ         delgene
 энхрий          eNxri:
 харагдана       xaragdana
-зэрэглээтэй    zeregle:teI
+зэрэглээтэй    zeregl#e:teI
 
 
 // ============================================================
 //  Additional Common Words
 // ============================================================
 
-сайн_байна_уу    saIN'baInaU:
+(сайн байна уу)    saIN'baInaU:
 үгүй    ygy:j
 биш     biS
 за      za
-бол     bOl
+бол     bOl#
 хэрэг   xereg
 хэрэгтэй xeregteI
-ажил    adZil
-сургууль sUrgU:li
-эмнэлэг emneleg
-хоол    xO:l
+ажил    adZil#
+сургууль sUrgU:l#i
+эмнэлэг emnel#eg
+хоол    xO:l#
 идээ    ide:
 цай     tsaI
 сүү     sy:
-талх    talx
+талх    tal#x
 мах     max
 ногоо   nOgO:
 жимс    dZims
 зурган  zUrgaN
 дуу     dU:
-дуулах  dU:lax
-тоглох  tOglOx
-нислэг  nisleg
-байгаль baIgal
-салхи   salxi
+дуулах  dU:l#ax
+тоглох  tOgl#Ox
+нислэг  nisl#eg
+байгаль baIgal#
+салхи   sal#xi
 борооны bOrO:ni
 цас     tsas
-нөлөөтэй n8l8:teI
+нөлөөтэй n8l#8:teI
 шуурга  SU:rga
 аянга   ajaNga
-дулаан  dUla:N
+дулаан  dUl#a:N
 хавар   xavar
 зун     zUN
 намар   namar
-өвөл    8v8l
+өвөл    8v8l#
 хээрийн xe:ri:N
-улаан   Ula:N
+улаан   Ul#a:N
 цагаан  tsaga:N
 хар     xar
 шар     Sar
