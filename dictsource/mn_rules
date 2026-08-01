@@ -44,40 +44,47 @@
 .group а
         аай     a:j
         аа      a:
+        аа (_  'a:  // word final syllable gets stressed for long vowels
         ай      aI
         а       a
 
 .group э
         ээй     e:j
         ээ      e:
+        ээ (_  'e:  // word final syllable gets stressed for long vowels
         эй      eI
         э       e
 
 .group и
         ий      i:
         ии      i:
+        ии (_  'i:  // word final syllable gets stressed for long vowels
         и       i
 
 .group о
         оой     O:j
         оо      O:
+        оо (_  'O:  // word final syllable gets stressed for long vowels
         ой      OI
         о       O
 
 .group ө
         өөй     8:j
         өө      8:
+        өө (_  '8:  // word final syllable gets stressed for long vowels
         ө       8
 
 .group у
         ууй     U:j
         уу      U:
+        уу (_  'U:  // word final syllable gets stressed for long vowels
         уй      UI
         у       U
 
 .group ү
         үүй     y:j
         үү      y:
+        үү (_  'y:  // word final syllable gets stressed for long vowels
         үй      UI
         ү       y
 
@@ -153,7 +160,7 @@
         к       k
 
 .group л
-        л       l
+        л       l#    // ipa ɮ
 
 .group м
         м       m
