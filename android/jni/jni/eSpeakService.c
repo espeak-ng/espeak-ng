@@ -97,6 +97,11 @@ enum synthesis_result {
 
 static JavaVM *jvm = NULL;
 jmethodID METHOD_nativeSynthCallback;
+jmethodID METHOD_nativeSynthWordCallback;
+
+/* Audio frames handed to the Java layer so far for the current request.
+ * Reset by nativeSynthesize before each espeak_Synth call. */
+static int frames_delivered = 0;
 
 static JNIEnv *getJniEnv() {
   JNIEnv *env = NULL;
@@ -110,15 +115,45 @@ static int SynthCallback(short *audioData, int numSamples,
   JNIEnv *env = getJniEnv();
   jobject object = (jobject)events->user_data;
 
-  if (numSamples < 1) {
+  /* espeak marks the end of the request with a NULL buffer, not with a zero
+   * sample count -- an empty buffer can legitimately occur mid-stream. */
+  if (audioData == NULL) {
     (*env)->CallVoidMethod(env, object, METHOD_nativeSynthCallback, NULL);
     return SYNTH_ABORT;
-  } else {
+  }
+
+  for (espeak_EVENT *event = events;
+       event->type != espeakEVENT_LIST_TERMINATED; ++event) {
+    if (event->type != espeakEVENT_WORD)
+      continue;
+
+    /* event->sample is an absolute frame index within the request, but it is
+     * recorded inside WavegenFill2() before libsonic compresses the buffer, so
+     * at sonic-accelerated rates (wpm above espeakRATE_MAXIMUM) it can point
+     * past the audio actually produced.  Clamping to the current buffer keeps
+     * it exact while sonic is idle and bounded by one buffer when it is not. */
+    int marker = event->sample;
+    if (marker < frames_delivered)
+      marker = frames_delivered;
+    else if (marker > frames_delivered + numSamples)
+      marker = frames_delivered + numSamples;
+
+    (*env)->CallVoidMethod(env, object, METHOD_nativeSynthWordCallback,
+                           (jint) event->text_position, (jint) event->length,
+                           (jint) marker);
+  }
+
+  if (numSamples > 0) {
     jbyteArray arrayAudioData = (*env)->NewByteArray(env, numSamples * 2);
     (*env)->SetByteArrayRegion(env, arrayAudioData, 0, (numSamples * 2), (jbyte *) audioData);
     (*env)->CallVoidMethod(env, object, METHOD_nativeSynthCallback, arrayAudioData);
-    return SYNTH_CONTINUE;
+    /* The callback runs many times per request without returning to Java, so
+     * the local reference has to be released here or the table overflows. */
+    (*env)->DeleteLocalRef(env, arrayAudioData);
+    frames_delivered += numSamples;
   }
+
+  return SYNTH_CONTINUE;
 }
 
 #ifdef __cplusplus
@@ -143,6 +178,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
     JNIEnv* env, jclass clazz) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   METHOD_nativeSynthCallback = (*env)->GetMethodID(env, clazz, "nativeSynthCallback", "([B)V");
+  METHOD_nativeSynthWordCallback = (*env)->GetMethodID(env, clazz, "nativeSynthWordCallback", "(III)V");
 
   return JNI_TRUE;
 }
@@ -310,6 +346,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
   unsigned int unique_identifier;
 
   espeak_SetSynthCallback(SynthCallback);
+  frames_delivered = 0;
   const espeak_ERROR result = espeak_Synth(c_text, strlen(c_text), 0,  // position
                POS_CHARACTER, 0, // end position (0 means no end position)
                isSsml ? espeakCHARS_UTF8 | espeakSSML // UTF-8 encoded SSML
