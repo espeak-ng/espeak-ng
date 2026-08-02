@@ -36,3 +36,6 @@ test_crash_vector phoneme-table-switch-condition -v quc
 test_crash_vector phoneme-table-switch-condition -v sw
 test_crash_vector phoneme-table-switch-otherlang -v fr
 test_crash_vector phoneme-table-switch-otherlang -v pt
+test_crash_vector phoneme-table-switch-latin -v fa
+test_crash_vector phoneme-table-switch-latin -v he
+test_crash_vector phoneme-table-switch-latin -v uk
