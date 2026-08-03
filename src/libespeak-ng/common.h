@@ -23,6 +23,17 @@
 #include "espeak-ng/espeak_ng.h"
 #include "translate.h"
 
+// Marks a deliberate fall-through between switch labels, so that
+// -Wimplicit-fallthrough only fires on accidental ones. A comment alone is not
+// enough: clang ignores comment forms entirely.
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ > 201710L
+#define ESPEAK_FALLTHROUGH [[fallthrough]]
+#elif defined(__GNUC__) || defined(__clang__)
+#define ESPEAK_FALLTHROUGH __attribute__((fallthrough))
+#else
+#define ESPEAK_FALLTHROUGH ((void)0)
+#endif
+
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 

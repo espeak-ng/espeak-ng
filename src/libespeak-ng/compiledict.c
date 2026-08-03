@@ -283,7 +283,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 				break;
 			case RULE_PRE_ATSTART:
 				at_start = true;
-				// fallthrough:
+				ESPEAK_FALLTHROUGH;
 			case RULE_PRE:
 				match_type = RULE_PRE;
 				*p = 0;
@@ -879,7 +879,7 @@ static void copy_rule_string(CompileContext *ctx, char *string, int *state_out)
 
 				case 'Y':
 					c = 'I';
-					// fallthrough:
+					ESPEAK_FALLTHROUGH;
 				case 'A': // vowel
 				case 'B':
 				case 'C':
@@ -994,7 +994,7 @@ static void copy_rule_string(CompileContext *ctx, char *string, int *state_out)
 					break;
 				case 'P': // Prefix
 					sxflags |= SUFX_P;
-					// fallthrough
+					ESPEAK_FALLTHROUGH;
 				case 'S': // Suffix
 					output[ix++] = RULE_ENDING;
 					value = 0;

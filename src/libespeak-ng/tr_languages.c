@@ -841,7 +841,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('e', 't'): // Estonian
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
-		// fallthrough:
+		ESPEAK_FALLTHROUGH;
 	case L('f', 'i'): // Finnish
 	{
 		tr->langopts.long_stop = 130;

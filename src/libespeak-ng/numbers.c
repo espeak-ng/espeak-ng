@@ -1734,7 +1734,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		{
 		case NUM_DFRACTION_4:
 			max_decimal_count = 5;
-			// fallthrough:
+			ESPEAK_FALLTHROUGH;
 		case NUM_DFRACTION_2:
 			// French/Polish decimal fraction
 			while (word[n_digits] == '0') {

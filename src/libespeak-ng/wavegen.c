@@ -1051,6 +1051,7 @@ void SetEmbedded(int control, int value)
 	{
 	case EMBED_T:
 		WavegenSetEcho(); // and drop through to case P
+		ESPEAK_FALLTHROUGH;
 	case EMBED_P:
 		SetPitchFormants();
 		break;
@@ -1329,6 +1330,7 @@ static int WavegenFill2(void)
 			break;
 		case WCMD_SPECT2: // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
+			ESPEAK_FALLTHROUGH;
 		case WCMD_SPECT:
 			echo_complete = echo_length;
 			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
@@ -1336,6 +1338,7 @@ static int WavegenFill2(void)
 #if USE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
+			ESPEAK_FALLTHROUGH;
 		case WCMD_KLATT:
 			echo_complete = echo_length;
 			result = Wavegen_Klatt(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3], &wdata, wvoice);

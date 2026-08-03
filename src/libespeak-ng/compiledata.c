@@ -2033,7 +2033,7 @@ static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 				break;
 			case kWAV:
 				ctx->if_stack[ctx->if_level].returned = true;
-				// fallthrough:
+				ESPEAK_FALLTHROUGH;
 			case kVOWELSTART:
 			case kVOWELENDING:
 			case kANDWAV:
@@ -2063,7 +2063,7 @@ static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 			case kINCLUDE:
 			case kPHONEMETABLE:
 				error(ctx, "Missing 'endphoneme' before '%s'", ctx->item_string);  // drop through to endphoneme
-				// fallthrough:
+				ESPEAK_FALLTHROUGH;
 			case kENDPHONEME:
 			case kENDPROCEDURE:
 				endphoneme = 1;
