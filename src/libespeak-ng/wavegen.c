@@ -1455,10 +1455,16 @@ int WavegenFill(void)
 	if (sonicSpeed > 1.0) {
 		int length;
 		int max_length;
+		int length_in;
 
 		max_length = (out_end - p_start);
-		length =  2*SpeedUp((short *)p_start, (out_ptr-p_start)/2, max_length/2, finished);
+		length_in = (out_ptr-p_start)/2;
+		length =  2*SpeedUp((short *)p_start, length_in, max_length/2, finished);
 		out_ptr = p_start + length;
+
+		// The events recorded while this buffer was filled refer to the
+		// uncompressed audio, so move them onto what libsonic produced.
+		RescaleEventSamples(length_in, length/2);
 
 		if (length >= max_length)
 			finished = 0; // there may be more data to flush
