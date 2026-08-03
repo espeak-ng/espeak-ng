@@ -39,3 +39,8 @@ test_crash_vector phoneme-table-switch-otherlang -v pt
 test_crash_vector phoneme-table-switch-latin -v fa
 test_crash_vector phoneme-table-switch-latin -v he
 test_crash_vector phoneme-table-switch-latin -v uk
+test_crash_vector phoneme-table-switch-appendvowel -v de
+test_crash_vector phoneme-table-switch-appendvowel -v ru
+test_crash_vector phoneme-table-switch-appendvowel -v ar
+test_crash_vector phoneme-table-switch-appendvowel -v el
+test_crash_vector phoneme-table-switch-appendvowel -v ja
