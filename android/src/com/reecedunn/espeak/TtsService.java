@@ -64,6 +64,16 @@ public class TtsService extends TextToSpeechService {
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
 
+    /** Text handed to eSpeak for the current request. */
+    private String mSynthText;
+    /** Where {@link #mSynthText} starts within the text the caller supplied. */
+    private int mSynthTextOffset;
+    /** Number of code points in {@link #mSynthText}. */
+    private int mSynthTextCodePoints;
+    /** Anchor for incremental code point to UTF-16 index conversion. */
+    private int mAnchorCodePoint;
+    private int mAnchorOffset;
+
     private List<Voice> mAllVoices = new ArrayList<Voice>();
     private final Map<String, Voice> mAvailableVoices = new HashMap<String, Voice>();
     protected Voice mMatchingVoice = null;
@@ -325,28 +335,81 @@ public class TtsService extends TextToSpeechService {
     private int selectVoice(SynthesisRequest request) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             final String name = request.getVoiceName();
-            if (name != null && !name.isEmpty()) {
-                return onLoadVoice(name);
+            if (name != null && !name.isEmpty()
+                    && onLoadVoice(name) == TextToSpeech.SUCCESS) {
+                return TextToSpeech.SUCCESS;
             }
+            // Deliberately fall through when the named voice is unknown rather
+            // than returning its error. The framework attaches a voice name to
+            // every request on API 21+ -- including the system default one when
+            // the client never picked a voice itself -- so a name that has been
+            // filtered out of the user's language selection would otherwise
+            // fail every request and make selectLanguageWithFallback() below
+            // unreachable. The name is a hint; the language cascade decides.
         }
         return selectLanguageWithFallback(request.getLanguage(), request.getCountry(), request.getVariant());
     }
 
+    /**
+     * Reports a synthesis failure to the caller.
+     *
+     * <p>The framework only dispatches an error once {@code done()} follows, and
+     * treats a request that returns without calling either as a successful empty
+     * utterance, which hides failures from screen readers.
+     */
+    private void reportError(SynthesisCallback callback, int errorCode) {
+        // error(int) has been available since API 21, which is minSdk here, so
+        // the code always reaches the caller.
+        callback.error(errorCode);
+        callback.done();
+    }
+
+    /**
+     * Converts a 0-based code point index within {@link #mSynthText} into the
+     * UTF-16 index that {@link SynthesisCallback#rangeStart} expects.
+     *
+     * <p>Walks forward from the previous result, since word events arrive in text
+     * order; the occasional out-of-order event falls back to a full rescan.
+     */
+    private int codePointToOffset(int codePointIndex) {
+        if (codePointIndex <= 0) {
+            return 0;
+        }
+        if (codePointIndex >= mSynthTextCodePoints) {
+            return mSynthText.length();
+        }
+        if (codePointIndex < mAnchorCodePoint) {
+            mAnchorCodePoint = 0;
+            mAnchorOffset = 0;
+        }
+        mAnchorOffset = mSynthText.offsetByCodePoints(
+                mAnchorOffset, codePointIndex - mAnchorCodePoint);
+        mAnchorCodePoint = codePointIndex;
+        return mAnchorOffset;
+    }
+
     @Override
     protected synchronized void onSynthesizeText(SynthesisRequest request, SynthesisCallback callback) {
-        if (selectVoice(request) == TextToSpeech.ERROR)
+        if (selectVoice(request) == TextToSpeech.ERROR) {
+            reportError(callback, CheckVoiceData.hasBaseResources(storageContext)
+                    ? TextToSpeech.ERROR_SERVICE : TextToSpeech.ERROR_NOT_INSTALLED_YET);
             return;
+        }
 
         final Voice voice;
         synchronized (mAvailableVoices) {
             voice = mMatchingVoice;
         }
-        if (voice == null)
+        if (voice == null) {
+            reportError(callback, TextToSpeech.ERROR_SERVICE);
             return;
+        }
 
         String text = getRequestString(request);
-        if (text == null)
+        if (text == null) {
+            reportError(callback, TextToSpeech.ERROR_INVALID_REQUEST);
             return;
+        }
 
         if (DEBUG) {
             Log.i(TAG, "Received synthesis request: {language=\"" + voice.name + "\"}");
@@ -358,12 +421,33 @@ public class TtsService extends TextToSpeechService {
             }
         }
 
+        int textOffset = 0;
         if (text.startsWith("<?xml"))
         {
             // eSpeak does not recognise/skip "<?...?>" preprocessing tags,
-            // so need to remove these before passing to synthesize.
-            text = text.substring(text.indexOf("?>") + 2).trim();
+            // so need to remove these before passing to synthesize. A
+            // declaration missing its "?>" is left alone rather than having its
+            // first character eaten by a -1 index.
+            final int terminator = text.indexOf("?>");
+            if (terminator >= 0)
+            {
+                final int declarationEnd = terminator + 2;
+                // Track what was dropped from the front, so that word boundaries can
+                // be reported against the text the caller actually passed in. This
+                // mirrors what String.trim() strips (anything <= ' ').
+                textOffset = declarationEnd;
+                while (textOffset < text.length() && text.charAt(textOffset) <= ' ') {
+                    textOffset++;
+                }
+                text = text.substring(declarationEnd).trim();
+            }
         }
+
+        mSynthText = text;
+        mSynthTextOffset = textOffset;
+        mSynthTextCodePoints = text.codePointCount(0, text.length());
+        mAnchorCodePoint = 0;
+        mAnchorOffset = 0;
 
         mCallback = callback;
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount());
@@ -432,6 +516,26 @@ public class TtsService extends TextToSpeechService {
         @Override
         public void onSynthDataComplete() {
             mCallback.done();
+        }
+
+        @Override
+        public void onSynthWordBoundary(int textPosition, int textLength, int markerInFrames) {
+            // rangeStart() is API 26; below that the framework has no way to
+            // deliver word boundaries to the caller.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || mSynthText == null) {
+                return;
+            }
+
+            // eSpeak counts code points from 1, rangeStart() wants 0-based UTF-16
+            // indices into the text the caller supplied.
+            final int wordStart = textPosition - 1;
+            final int start = codePointToOffset(wordStart);
+            final int end = codePointToOffset(wordStart + Math.max(textLength, 0));
+            if (end <= start) {
+                return;
+            }
+
+            mCallback.rangeStart(markerInFrames, mSynthTextOffset + start, mSynthTextOffset + end);
         }
     };
 }

@@ -80,7 +80,7 @@
         <activity-alias
             android:name=".WearLauncher"
             android:targetActivity=".TtsSettingsActivity"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/icon"
             android:label="@string/tts_settings_label">
