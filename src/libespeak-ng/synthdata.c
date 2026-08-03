@@ -831,7 +831,12 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 					break;
 				}
 			} else if (instn2 == i_APPEND_IFNEXTVOWEL) {
-				if (phoneme_tab[plist[1].phcode]->type == phVOWEL)
+				// the next phoneme may not be in the current phoneme table (e.g.
+				// a phoneme from another table after a mid-clause phoneme-table
+				// switch); it cannot be shown to be a vowel, so don't append
+				PHONEME_TAB *ph_next = phoneme_tab[plist[1].phcode];
+
+				if ((ph_next != NULL) && (ph_next->type == phVOWEL))
 					phdata->pd_param[i_APPEND_PHONEME] = data;
 			} else if (instn2 == i_ADD_LENGTH) {
 				if (data & 0x80) {
