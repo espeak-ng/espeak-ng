@@ -1,0 +1,12 @@
+language variant
+name Ali
+
+formant 0  105  150   90
+formant 1  110  130   90
+formant 2  110  130   85
+formant 3  108  125   85
+formant 4  102  100   80
+formant 5  100   85   80
+formant 6  100   70   75
+formant 7  100   55   75
+formant 8  100   40   75
