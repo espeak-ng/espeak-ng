@@ -508,7 +508,15 @@ public class TtsService extends TextToSpeechService {
 
             while (offset < audioData.length) {
                 final int bytesToWrite = Math.min(maxBytesToCopy, (audioData.length - offset));
-                mCallback.audioAvailable(audioData, offset, bytesToWrite);
+                if (mCallback.audioAvailable(audioData, offset, bytesToWrite)
+                        != TextToSpeech.SUCCESS) {
+                    // The framework has stopped accepting audio for this request,
+                    // so the rest of the buffer has nowhere to go. onStop() has
+                    // already told the engine to abort; stop feeding it either
+                    // way, in case this is a failure it did not accompany.
+                    mEngine.stop();
+                    return;
+                }
                 offset += bytesToWrite;
             }
         }
