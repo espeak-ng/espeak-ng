@@ -102,7 +102,7 @@ android:
 *  added selectable supported languages in Android -- Alexander Epaneshnikov
 *  fixed Android max speech rate -- Danstiv
 *  removed compatibility fallback -- Ricardo Snoek-Valkenburg
-*  updated Russian localization in Android app -- AlexanderKhalmaktanov
+*  updated Russian localization in Android app and added some missing localization translations (e.g. for the language selector) -- AlexanderKhalmaktanov
 
 documentation:
 *  updated documentation to replace autotools references with CMake -- Alexander Epaneshnikov
