@@ -33,9 +33,13 @@
   <string name="espeak_volume">Volume</string>
   <string name="formatter_wpm">%s WPM</string>
   <string name="formatter_percentage">%s%%</string>
-  <string name="resetToDefault">Set to default</string>
+  <string name="resetRateToDefault">Set speech rate to default</string>
+  <string name="resetPitchToDefault">Set pitch to default</string>
+  <string name="resetRangeToDefault">Set pitch variation to default</string>
+  <string name="resetVolumeToDefault">Set volume to default</string>
   <string name="espeak_pitch_range">Pitch variation</string>
   <string name="espeak_variant">Voice variant</string>
+  <string name="espeak_voice_settings">Voice settings</string>
   <string name="espeak_supported_languages">Supported languages</string>
   <string name="espeak_supported_languages_all">All installed languages are reported to Android.</string>
   <string name="espeak_supported_languages_summary">%1$d of %2$d languages reported to Android.</string>

@@ -93,6 +93,8 @@ build:
 *  restored the fo (Faroese), kaa (Karakalpak) and xex dictionary builds under CMake -- Alexander Epaneshnikov
 
 android:
+*  Fixed the bug where settings not correctly updated live when seekbars are changed with talkback gestures -- Amir Mahdi Fard
+*  Fixed and cleaned up seekbars -- Amir Mahdi Fard
 *  added fallback to available voice when requested language is filtered out -- Alexander Epaneshnikov
 *  implemented Wear rotary crown support for numeric preferences -- Alexander Epaneshnikov
 *  removed ActionBar and tailored settings UI for Wear OS -- Alexander Epaneshnikov

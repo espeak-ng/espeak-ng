@@ -170,45 +170,61 @@ public class TtsSettingsActivity extends PreferenceActivity {
         return pref;
     }
 
-    private static Preference createSeekBarPreference(Context context, SpeechSynthesis.Parameter parameter, String key, int titleRes) {
+    private static Preference createVoiceParamsPreference(Context context,
+                                                          SpeechSynthesis engine,
+                                                          int titleRes) {
         final String title = context.getString(titleRes);
-        final int defaultValue = parameter.getDefaultValue();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
 
         final SeekBarPreference pref = new SeekBarPreference(context);
         pref.setTitle(title);
         pref.setDialogTitle(title);
-        pref.setKey(key);
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
 
-        if (VoiceSettings.PREF_RATE.equals(key)) {
-            pref.enableRateBoost(VoiceSettings.PREF_RATE_BOOST);
-        }
+        String rateStr = prefs.getString(VoiceSettings.PREF_RATE, null);
+        int rateVal = (rateStr == null) ? engine.Rate.getDefaultValue() : Integer.parseInt(rateStr);
+        boolean boost = prefs.getBoolean(VoiceSettings.PREF_RATE_BOOST, false);
+        pref.setRateConfig(
+                context.getString(R.string.setting_default_rate),
+                engine.Rate.getMinValue(),
+                engine.Rate.getMaxValue(),
+                engine.Rate.getDefaultValue(),
+                rateVal,
+                boost,
+                context.getString(R.string.formatter_wpm));
 
-        switch (parameter.getUnitType())
-        {
-            case Percentage:
-                pref.setFormatter(context.getString(R.string.formatter_percentage));
-                break;
-            case WordsPerMinute:
-                pref.setFormatter(context.getString(R.string.formatter_wpm));
-                break;
-            default:
-                throw new IllegalStateException("Unsupported unit type for the parameter.");
-        }
+        String pitchStr = prefs.getString(VoiceSettings.PREF_PITCH, null);
+        int pitchVal = (pitchStr == null) ? engine.Pitch.getDefaultValue() : Integer.parseInt(pitchStr);
+        pref.setPitchConfig(
+                context.getString(R.string.setting_default_pitch),
+                engine.Pitch.getMinValue(),
+                engine.Pitch.getMaxValue(),
+                engine.Pitch.getDefaultValue(),
+                pitchVal,
+                context.getString(R.string.formatter_percentage));
 
-        pref.setMin(parameter.getMinValue());
-        pref.setMax(parameter.getMaxValue());
-        pref.setDefaultValue(defaultValue);
+        String rangeStr = prefs.getString(VoiceSettings.PREF_PITCH_RANGE, null);
+        int rangeVal = (rangeStr == null) ? engine.PitchRange.getDefaultValue() : Integer.parseInt(rangeStr);
+        pref.setRangeConfig(
+                context.getString(R.string.espeak_pitch_range),
+                engine.PitchRange.getMinValue(),
+                engine.PitchRange.getMaxValue(),
+                engine.PitchRange.getDefaultValue(),
+                rangeVal,
+                context.getString(R.string.formatter_percentage));
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
-        final String prefString = prefs.getString(key, null);
-        if (prefString == null) {
-            pref.setProgress(defaultValue);
-        } else {
-            pref.setProgress(Integer.parseInt(prefString));
-        }
+        String volStr = prefs.getString(VoiceSettings.PREF_VOLUME, null);
+        int volVal = (volStr == null) ? engine.Volume.getDefaultValue() : Integer.parseInt(volStr);
+        pref.setVolumeConfig(
+                context.getString(R.string.espeak_volume),
+                engine.Volume.getMinValue(),
+                engine.Volume.getMaxValue(),
+                engine.Volume.getDefaultValue(),
+                volVal,
+                context.getString(R.string.formatter_percentage));
 
+        pref.setSummary(pref.buildSummary());
         return pref;
     }
 
@@ -434,10 +450,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         }
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
-        group.addPreference(createSeekBarPreference(context, engine.Rate, VoiceSettings.PREF_RATE, R.string.setting_default_rate));
-        group.addPreference(createSeekBarPreference(context, engine.Pitch, VoiceSettings.PREF_PITCH, R.string.setting_default_pitch));
-        group.addPreference(createSeekBarPreference(context, engine.PitchRange, VoiceSettings.PREF_PITCH_RANGE, R.string.espeak_pitch_range));
-        group.addPreference(createSeekBarPreference(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
+        group.addPreference(createVoiceParamsPreference(context, engine, R.string.espeak_voice_settings));
     }
 
     private static final OnPreferenceChangeListener mOnPreferenceChanged =
@@ -455,9 +468,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
                                 summary = entries[index].toString();
                             }
                         } else if (preference instanceof SeekBarPreference) {
-                            final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
-                            String formatter = seekBarPreference.getFormatter();
-                            summary = String.format(formatter, (String)newValue);
+                            summary = (String) newValue;
                         } else {
                             summary = (String)newValue;
                         }
