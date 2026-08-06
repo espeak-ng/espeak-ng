@@ -1,0 +1,400 @@
+// Sicilian translation rules
+// This file is UTF-8 encoded
+// Preliminary support using the Italian phoneme table as a base.
+
+// A  any vowel
+// C  any consonant
+// K  not a vowel
+// Y  front vowels: e i and accented variants
+
+.L01 a e i o u à á â è é ê ì í î ò ó ô ù ú û
+.L02 b c d f g h j k l m n p q r s t v x z ç ḍ ḥ ṅ ṛ ṭ
+
+// Syntactic gemination (dubbramentu).  These cross-word contexts match
+// exact trigger words while preserving the word boundary and stress domain.
+
+.group '
+        'n (_S2    n
+
+.group a
+        a          a
+        ai         aI
+        au         aU
+
+.group à
+        à          'a
+
+.group á
+        á          'a
+
+.group â
+        â          a:
+
+.group b
+        _e_) b       b:
+        _è_) b       b:
+        _a_) b       b:
+        _ma_) b      b:
+        _di_) b      b:
+        _pi_) b      b:
+        _chi_) b     b:
+        b          b
+        bb         b:
+
+.group c
+        _e_) ci (L01  tS:
+        _è_) ci (L01  tS:
+        _a_) ci (L01  tS:
+        _ma_) ci (L01 tS:
+        _di_) ci (L01 tS:
+        _pi_) ci (L01 tS:
+        _chi_) ci (L01 tS:
+        _e_) c (Y    tS:
+        _è_) c (Y    tS:
+        _a_) c (Y    tS:
+        _ma_) c (Y   tS:
+        _di_) c (Y   tS:
+        _pi_) c (Y   tS:
+        _chi_) c (Y  tS:
+        _e_) c       k:
+        _è_) c       k:
+        _a_) c       k:
+        _ma_) c      k:
+        _di_) c      k:
+        _pi_) c      k:
+        _chi_) c     k:
+        c          k
+        cc         k:
+        chi (L01   c
+        cchi (L01  c0c
+        ch (Y      c
+        cch (Y     c0c
+        ci (L01    C
+        cci (L01   tS;
+        n) c (Y    tS
+        r) c (Y    tS
+        c (Y       S
+        cc (Y      tS:
+
+.group ç
+        ç          C
+
+.group d
+        _e_) d       d:
+        _è_) d       d:
+        _a_) d       d:
+        _ma_) d      d:
+        _di_) d      d:
+        _pi_) d      d:
+        _chi_) d     d:
+        d          d
+        dd         d.0d.     // Sicilian cacuminal/retroflex geminate: unreleased closure plus release.
+        dr         d.r.
+        L01) d (L01 *
+
+.group ḍ
+        ḍ          d.
+        ḍḍ         d.0d.
+
+.group e
+        e          E
+
+.group é
+        é          'E
+
+.group è
+        è          'E
+
+.group ê
+        ê          E:
+
+.group f
+        _e_) f       f:
+        _è_) f       f:
+        _a_) f       f:
+        _ma_) f      f:
+        _di_) f      f:
+        _pi_) f      f:
+        _chi_) f     f:
+        f          f
+        ff         f:
+
+.group g
+        _e_) gi (L01  dZ:
+        _è_) gi (L01  dZ:
+        _a_) gi (L01  dZ:
+        _ma_) gi (L01 dZ:
+        _di_) gi (L01 dZ:
+        _pi_) gi (L01 dZ:
+        _chi_) gi (L01 dZ:
+        _e_) g (Y    dZ:
+        _è_) g (Y    dZ:
+        _a_) g (Y    dZ:
+        _ma_) g (Y   dZ:
+        _di_) g (Y   dZ:
+        _pi_) g (Y   dZ:
+        _chi_) g (Y  dZ:
+        _e_) g       g:
+        _è_) g       g:
+        _a_) g       g:
+        _ma_) g      g:
+        _di_) g      g:
+        _pi_) g      g:
+        _chi_) g     g:
+        g          g
+        gg         g:
+        ghi (L01   J
+        gghi (L01  J0J
+        gh (Y      J
+        ggh (Y     J0J
+        gn         n^
+        gli        l^
+        gi (L01    dZ
+        ggi (L01   dZ:
+        g (Y       dZ
+        gg (Y      dZ:
+        gu (L01    gw
+
+.group h
+        h
+
+.group ḥ
+        ḥ          C
+
+.group i
+        i          i
+        i (L01     j
+
+.group ì
+        ì          'i
+
+.group í
+        í          'i
+
+.group î
+        î          i:
+
+.group j
+        n_) j      J
+        _tri_) j    J0J
+        _e_) j       J0J
+        _è_) j       J0J
+        _a_) j       J0J
+        _ma_) j      J0J
+        _di_) j      J0J
+        _pi_) j      J0J
+        _chi_) j     J0J
+        j          j
+
+.group k
+        k          k
+        kk         k:
+
+.group l
+        _e_) l       l:
+        _è_) l       l:
+        _a_) l       l:
+        _ma_) l      l:
+        _di_) l      l:
+        _pi_) l      l:
+        _chi_) l     l:
+        l          l
+        ll         l:
+
+.group m
+        _e_) m       m:
+        _è_) m       m:
+        _a_) m       m:
+        _ma_) m      m:
+        _di_) m      m:
+        _pi_) m      m:
+        _chi_) m     m:
+        m          m
+        mm         m:
+
+.group n
+        _e_) n       n:
+        _è_) n       n:
+        _a_) n       n:
+        _ma_) n      n:
+        _di_) n      n:
+        _pi_) n      n:
+        _chi_) n     n:
+        n          n
+        nn         n:
+        n (dr      n.
+        n (tr      n.
+        ng (L01    N:
+        n (b       m
+        n (p       m
+        n (g       N
+        n (k       N
+        n (q       N
+
+.group ṅ
+        ṅ          N
+
+.group o
+        o          O
+        oi         oI
+
+.group ó
+        ó          'O
+
+.group ò
+        ò          'O
+
+.group ô
+        ô          O:
+
+.group p
+        _e_) p       p:
+        _è_) p       p:
+        _a_) p       p:
+        _ma_) p      p:
+        _di_) p      p:
+        _pi_) p      p:
+        _chi_) p     p:
+        p          p
+        pp         p:
+
+.group q
+        _e_) q       k:
+        _è_) q       k:
+        _a_) q       k:
+        _ma_) q      k:
+        _di_) q      k:
+        _pi_) q      k:
+        _chi_) q     k:
+        q          k
+        qu (L01    kw
+
+.group r
+        _e_) r       R
+        _è_) r       R
+        _a_) r       R
+        _ma_) r      R
+        _di_) r      R
+        _pi_) r      R
+        _chi_) r     R
+        r          *
+        _) r (L01  R
+        rr         R
+
+.group ṛ
+        ṛ          r.
+
+.group s
+        _e_) str     s.:r.
+        _è_) str     s.:r.
+        _a_) str     s.:r.
+        _ma_) str    s.:r.
+        _di_) str    s.:r.
+        _pi_) str    s.:r.
+        _chi_) str   s.:r.
+        _e_) sci (L01 S:
+        _è_) sci (L01 S:
+        _a_) sci (L01 S:
+        _ma_) sci (L01 S:
+        _di_) sci (L01 S:
+        _pi_) sci (L01 S:
+        _chi_) sci (L01 S:
+        _e_) sc (Y   S:
+        _è_) sc (Y   S:
+        _a_) sc (Y   S:
+        _ma_) sc (Y  S:
+        _di_) sc (Y  S:
+        _pi_) sc (Y  S:
+        _chi_) sc (Y S:
+        _e_) s       ss
+        _è_) s       ss
+        _a_) s       ss
+        _ma_) s      ss
+        _di_) s      ss
+        _pi_) s      ss
+        _chi_) s     ss
+        s          s
+        ss         ss
+        str        s.:r.
+        sdr        z.:r.
+        sci (L01   S:
+        sc (Y      S:
+        s (b       Z
+        s (v       Z
+        s (d       z
+        s (g       z
+        s (l       z
+        s (m       z
+        s (n       z
+        s (r       z
+
+.group t
+        _e_) tr      t.r.
+        _è_) tr      t.r.
+        _a_) tr      t.r.
+        _ma_) tr     t.r.
+        _di_) tr     t.r.
+        _pi_) tr     t.r.
+        _chi_) tr    t.r.
+        _e_) t       t:
+        _è_) t       t:
+        _a_) t       t:
+        _ma_) t      t:
+        _di_) t      t:
+        _pi_) t      t:
+        _chi_) t     t:
+        t          t
+        tt         t:
+        tr         t.r.
+
+.group ṭ
+        ṭ          t.
+
+.group u
+        u          u
+        u (L01     w
+
+.group ù
+        ù          'u
+
+.group ú
+        ú          'u
+
+.group û
+        û          u:
+
+.group v
+        _e_) v       v:
+        _è_) v       v:
+        _a_) v       v:
+        _ma_) v      v:
+        _di_) v      v:
+        _pi_) v      v:
+        _chi_) v     v:
+        v          v
+        vv         v:
+
+.group x
+        _e_) x       S:
+        _è_) x       S:
+        _a_) x       S:
+        _ma_) x      S:
+        _di_) x      S:
+        _pi_) x      S:
+        _chi_) x     S:
+        x          S
+
+.group z
+        _e_) z       ts:
+        _è_) z       ts:
+        _a_) z       ts:
+        _ma_) z      ts:
+        _di_) z      ts:
+        _pi_) z      ts:
+        _chi_) z     ts:
+        L01) zz    ts:
+        n) zz      ts:
+        zz         ts:
+        L01) z     dz
+        n) z       dz
+        z          ts
