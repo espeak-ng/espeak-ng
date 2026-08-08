@@ -29,6 +29,7 @@ endphoneme
 phoneme A            // for "al" in European Portuguese, don't reduce to [&]
   vwl starttype #a endtype #a
   length 200
+  ipa a
   FMT(vowel/a_2)
 endphoneme
 
@@ -71,13 +72,15 @@ endphoneme
 
 phoneme I/           // very short [i] used for epenthesis in Brasil
   vwl starttype #i endtype #i
-  ipa NULL
   unstressed nsy
+  ipa NULL
   length 80
+  IfNextVowelAppend(;)
   FMT(vowel/ii_6)
 endphoneme
 
 phoneme y            // old unstressed /i/ kept for backward compatibility
+  vwl starttype #i endtype #i
   CALL pt/I
 endphoneme
 
@@ -203,7 +206,7 @@ endphoneme
 // Nasal Diththongs
 
 phoneme &U~
-  vwl  starttype #@ endtype #u
+  vwl starttype #@ endtype #u
   ipa ɐU+0303ʊU+0303
   length 240
   IF thisPh(isDiminished) THEN
@@ -248,8 +251,8 @@ endphoneme
 
 // Lateral Consonants
 
-phoneme l
-  import_phoneme en/l   // 'dark' /l/ used in coda for European Portuguese
+phoneme l            // can be a 'dark' /l/ for European Portuguese
+  import_phoneme en/l
 endphoneme
 
 phoneme l^
@@ -261,34 +264,13 @@ phoneme l^
 endphoneme
 
 
-// Sibilant Consonants
-
-phoneme S
-  CALL base1/S
-  ipa ʃ
-endphoneme
-
-phoneme Z
-  CALL base1/Z
-  ipa ʒ
-endphoneme
-
-
 // Rhotic Consonants
 
 phoneme x            // old strong /R/ kept for backward compatibility
+  vls glt apr
+  lengthmod 3
   CALL base1/h       // this glotal rhotic has coarticulation with vowels
   ipa x
-endphoneme
-
-phoneme X            // to be used in dialects such as from Rio
-  CALL base1/X
-  ipa χ
-endphoneme
-
-phoneme Q"           // to be used in dialects such as from Lisbon
-  CALL base1/Q"
-  ipa ʁ
 endphoneme
 
 phoneme *            // weak /r/ in syllable onset or coda
@@ -307,7 +289,7 @@ phoneme *            // weak /r/ in syllable onset or coda
 endphoneme
 
 phoneme @-           // very short schwa used along with weak /r/ only
-  vwl starttype #@  endtype #@
+  vwl starttype #@ endtype #@
   unstressed nsy
   ipa NULL
   length 20
@@ -319,19 +301,16 @@ endphoneme
 
 procedure Nn
   CALL base2/n
-  length 50
   ipa n
 endprocedure
 
 procedure Nm
   CALL base2/m
-  length 50
   ipa m
 endprocedure
 
 procedure NN
   CALL base2/N
-  length 50
   ipa ŋ
 endprocedure
 
@@ -340,8 +319,9 @@ procedure Nw
   ipa w
 endprocedure
 
-phoneme N            // polimorphic nasal consonant used in syllable onset
+phoneme N            // polimorphic nasal consonant used in syllable coda
   vcd nas
+  length 60          // the nasal murmur is short (when it exists)
 
   IF NOT thisPh(isWordEnd) AND nextPh(isVowel) THEN
     ChangePhoneme(n)
@@ -373,36 +353,57 @@ phoneme N            // polimorphic nasal consonant used in syllable onset
 endphoneme
 
 
-// Special Consonants for Dialectal Variation
+// Vowel Aliases for Dialectal Variation
 
-phoneme l#           // special phoneme for /l/ or /w/ in coda
-  virtual
-  IF NOT nextPhW(isVowel) OR nextPh(isWordEnd) THEN
-    ChangePhoneme(w)
-  ENDIF
-  ChangePhoneme(l)
+phoneme a#           // alias for /a/ in unstressed syllable
+  vwl starttype #a endtype #a
+  ChangePhoneme(a)
 endphoneme
 
-phoneme s#           // special phoneme for /s/ or /z/ in coda
-  virtual
-  IF nextPh(isVoiced) THEN
+phoneme e#           // alias for /e/ in unstressed syllable
+  vwl starttype #e endtype #e
+  ChangePhoneme(e)
+endphoneme
+
+phoneme o#           // alias for /o/ in unstressed syllable
+  vwl starttype #o endtype #o
+  ChangePhoneme(o)
+endphoneme
+
+
+// Consonant Aliases for Dialectal Variation
+
+phoneme l#           // alias for /w/ in coda
+  liquid
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(l) // necessary for words with suffixes
+  ENDIF
+  ChangePhoneme(w)
+endphoneme
+
+phoneme s#           // alias for /s/ or /z/ in coda
+  vls alv frc sib
+  IF nextPh(isVoiced) OR nextPh(d#) THEN
     ChangePhoneme(z)
   ENDIF
   ChangePhoneme(s)
 endphoneme
 
-phoneme R#           // special phoneme for strong /R/ in onset
-  virtual
+phoneme R#           // alias for strong /R/ in onset
+  vls glt apr
   ChangePhoneme(x)
 endphoneme
 
-phoneme r#           // special phoneme for weak /r/ in coda
-  virtual
+phoneme r#           // alias for weak /r/ in coda
+  vcd alv flp rhotic
+  IF thisPh(isWordStart) THEN
+    ChangePhoneme(x)
+  ENDIF
   ChangePhoneme(*)
 endphoneme
 
-phoneme d#           // special phoneme for /d/ or /dZ/
-  virtual
+phoneme d#           // alias for /d/ or /dZ/
+  vcd alv stp
   IF nextPhW(#i) THEN
     ChangePhoneme(dZ)
   ELIF thisPh(isWordEnd) THEN
@@ -411,13 +412,21 @@ phoneme d#           // special phoneme for /d/ or /dZ/
   ChangePhoneme(d)
 endphoneme
 
-phoneme t#           // special phoneme for /t/ or /tS/
-  virtual
+phoneme t#           // alias for /t/ or /tS/
+  vls alv stp
   IF nextPhW(#i) THEN
     ChangePhoneme(tS)
   ELIF thisPh(isWordEnd) THEN
     ChangePhoneme(tS)
   ENDIF
   ChangePhoneme(t)
+endphoneme
+
+
+// Other Aliases for Dialectal Variation
+
+phoneme 3#           // alias for /e/ in English words ended with /er/
+  vwl starttype #e endtype #e
+  ChangePhoneme(e)
 endphoneme
 
