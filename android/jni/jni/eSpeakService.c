@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdatomic.h>
 #include <stdbool.h>
 #include <string.h>
 #include <jni.h>
@@ -103,6 +104,14 @@ jmethodID METHOD_nativeSynthWordCallback;
  * Reset by nativeSynthesize before each espeak_Synth call. */
 static int frames_delivered = 0;
 
+/* Set by nativeStop from the framework's control thread while espeak_Synth is
+ * still running on the synthesis thread.  espeak_ng_Cancel() cannot interrupt a
+ * synthesis in progress -- its body is entirely #if USE_ASYNC, which this build
+ * disables -- so returning SYNTH_ABORT from the callback is the only way to end
+ * one early.  Without it a stop has to wait for the whole utterance to be
+ * synthesized, which is silence for as long as the text the user just left. */
+static atomic_int stop_requested;
+
 static JNIEnv *getJniEnv() {
   JNIEnv *env = NULL;
   (*jvm)->AttachCurrentThread(jvm, &env, NULL);
@@ -117,7 +126,10 @@ static int SynthCallback(short *audioData, int numSamples,
 
   /* espeak marks the end of the request with a NULL buffer, not with a zero
    * sample count -- an empty buffer can legitimately occur mid-stream. */
-  if (audioData == NULL) {
+  if (audioData == NULL || atomic_load(&stop_requested)) {
+    /* Report completion either way: espeak returns ENS_SPEECH_STOPPED without
+     * a final NULL-buffer callback when aborted, so this is the only place the
+     * Java side hears that the request is over and can call done(). */
     (*env)->CallVoidMethod(env, object, METHOD_nativeSynthCallback, NULL);
     return SYNTH_ABORT;
   }
@@ -347,6 +359,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
 
   espeak_SetSynthCallback(SynthCallback);
   frames_delivered = 0;
+  atomic_store(&stop_requested, 0);
   const espeak_ERROR result = espeak_Synth(c_text, strlen(c_text), 0,  // position
                POS_CHARACTER, 0, // end position (0 means no end position)
                isSsml ? espeakCHARS_UTF8 | espeakSSML // UTF-8 encoded SSML
@@ -370,6 +383,7 @@ JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeStop(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
+  atomic_store(&stop_requested, 1);
   espeak_Cancel();
 
   return JNI_TRUE;

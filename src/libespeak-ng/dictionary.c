@@ -974,11 +974,14 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	// copy input string into internal buffer
 	for (ix = 0; ix < N_WORD_PHONEMES; ix++) {
 		phonetic[ix] = output[ix];
-		// check for unknown phoneme codes
-		if (phonetic[ix] >= n_phoneme_tab)
-			phonetic[ix] = phonSCHWA;
 		if (phonetic[ix] == 0)
 			break;
+		// check for unknown phoneme codes. A code may be out of range, or it may
+		// fall in a gap of the current table, in which case phoneme_tab holds NULL
+		// for it (see SelectPhonemeTable). The code below dereferences these
+		// entries unconditionally, so both cases must be substituted here.
+		if ((phonetic[ix] >= n_phoneme_tab) || (phoneme_tab[phonetic[ix]] == NULL))
+			phonetic[ix] = phonSCHWA;
 	}
 	if (ix == 0) return;
 	final_ph = phonetic[ix-1];
@@ -1443,91 +1446,46 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	return;
 }
 
-//void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
-//{
-//	/* Add new phoneme string "ph" to "string"
-//	    Keeps count of the number of vowel phonemes in the word, and whether these
-//	   can be stressed syllables.  These values can be used in translation rules
-//	 */
-//
-//	const char *p;
-//	unsigned char c;
-//	int length;
-//
-//	length = strlen(ph) + strlen(string);
-//	if (length >= size)
-//		return;
-//
-//	// any stressable vowel ?
-//	bool unstress_mark = false;
-//	p = ph;
-//	while ((c = *p++) != 0) {
-//		if (c >= n_phoneme_tab) continue;
-//
-//		if (phoneme_tab[c]->type == phSTRESS) {
-//			if (phoneme_tab[c]->std_length < 4)
-//				unstress_mark = true;
-//		} else {
-//			if (phoneme_tab[c]->type == phVOWEL) {
-//				if (((phoneme_tab[c]->phflags & phUNSTRESSED) == 0) &&
-//				    (unstress_mark == false)) {
-//					tr->word_stressed_count++;
-//				}
-//				unstress_mark = false;
-//				tr->word_vowel_count++;
-//			}
-//		}
-//	}
-//
-//	if (string != NULL)
-//		strcat(string, ph);
-//}
+void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
+{
+	/* Add new phoneme string "ph" to "string"
+	    Keeps count of the number of vowel phonemes in the word, and whether these
+	   can be stressed syllables.  These values can be used in translation rules
+	 */
 
-void AppendPhonemes(Translator *tr, char *string, int size, const char *ph) {
-    if (!tr || !ph) return;
+	const char *p;
+	unsigned char c;
+	int length;
 
-    const char *p;
-    unsigned char c;
-    int length;
+	length = strlen(ph) + strlen(string);
+	if (length >= size)
+		return;
 
-    length = strlen(ph) + strlen(string);
-    if (length >= size)
-        return;
+	// any stressable vowel ?
+	bool unstress_mark = false;
+	p = ph;
+	while ((c = *p++) != 0) {
+		if (c >= n_phoneme_tab) continue;
 
-    // any stressable vowel?
-    bool unstress_mark = false;
-    p = ph;
-    while ((c = *p++) != 0) {        
-        // Check if index is within bounds
-        if (c >= n_phoneme_tab) continue;
-        
-        // Check if phoneme_tab itself is valid
-        if (!phoneme_tab) continue;
-        
-        // Check if phoneme_tab[c] is valid
-        PHONEME_TAB *phTab = phoneme_tab[c];
-        if (!phTab) continue;
-        
-        // Additional bounds check for type field
-        if ((size_t)&phTab->type >= (size_t)phTab + sizeof(PHONEME_TAB)) continue;        
+		if (!phoneme_tab[c]) continue;
 
-		  if (phoneme_tab[c]->type == phSTRESS) {
-				if (phoneme_tab[c]->std_length < 4)
-					unstress_mark = true;
-			} else {
-				if (phoneme_tab[c]->type == phVOWEL) {
-					if (((phoneme_tab[c]->phflags & phUNSTRESSED) == 0) &&
-				   	(unstress_mark == false)) {
-						tr->word_stressed_count++;
-					}
-					unstress_mark = false;
-					tr->word_vowel_count++;
+		if (phoneme_tab[c]->type == phSTRESS) {
+			if (phoneme_tab[c]->std_length < 4)
+				unstress_mark = true;
+		} else {
+			if (phoneme_tab[c]->type == phVOWEL) {
+				if (((phoneme_tab[c]->phflags & phUNSTRESSED) == 0) &&
+				    (unstress_mark == false)) {
+					tr->word_stressed_count++;
 				}
+				unstress_mark = false;
+				tr->word_vowel_count++;
 			}
-      }
+		}
+	}
 
-   	if (string != NULL)
-      	strcat(string, ph);
+	if (string != NULL)
+		strcat(string, ph);
 }
 
 static void MatchRule(Translator *tr, char *word[], char *word_start, int group_length, char *rule, MatchRecord *match_out, int word_flags, int dict_flags)
