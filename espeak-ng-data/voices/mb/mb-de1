@@ -6,4 +6,6 @@ pitch 140 220
 
 stressLength 400 400 400 400 500 500 500 500
 mbrola de1 de2_phtrans
+replace 00 _!  _
+replace 00 _|  _
 
