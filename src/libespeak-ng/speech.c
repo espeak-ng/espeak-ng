@@ -872,6 +872,647 @@ ESPEAK_API const char* espeak_TextToPhonemesWithTerminator(const void** textptr,
 	return GetTranslatedPhonemeString(phonememode);
 }
 
+/* Helpers for espeak_TextToWordPhonemePairsWithTerminator().
+ *
+ * The word records are derived from the same translated phoneme list that
+ * GetTranslatedPhonemeString() renders flat, so joining all records' phonemes
+ * with single spaces reproduces the flat clause string character-for-character. */
+
+typedef struct {
+	char *buf;   // malloc'd NUL-terminated string
+	size_t len;  // bytes used, excluding the NUL
+	size_t cap;  // allocated size
+} PhonemeString;
+
+typedef struct {
+	int offset;  // clause-relative character offset of the word
+	int length;  // word length in characters (sourceix >> 11, capped at 31)
+	PhonemeString phonemes;
+} PhonemeWordGroup;
+
+typedef struct {
+	int token_start;   // message-relative character offset of the word
+	int token_end;     // message-relative character offset one past the word
+	PhonemeString phonemes;
+} WordPhonemeRecord;
+
+static void PhonemeString_Init(PhonemeString *s)
+{
+	s->buf = NULL;
+	s->len = 0;
+	s->cap = 0;
+}
+
+static void PhonemeString_Free(PhonemeString *s)
+{
+	free(s->buf);
+	PhonemeString_Init(s);
+}
+
+static int PhonemeString_Append(PhonemeString *s, const char *data, size_t n)
+{
+	if (s->len + n + 1 > s->cap) {
+		size_t new_cap = s->cap ? s->cap : 64;
+		char *new_buf;
+
+		while (new_cap < s->len + n + 1)
+			new_cap *= 2;
+		if ((new_buf = (char *)realloc(s->buf, new_cap)) == NULL)
+			return -1;
+		s->buf = new_buf;
+		s->cap = new_cap;
+	}
+	memcpy(&s->buf[s->len], data, n);
+	s->len += n;
+	s->buf[s->len] = 0;
+	return 0;
+}
+
+/* Word-span scanning over the original text.
+ *
+ * The packed sourceix values record clause-relative character offsets that
+ * include the tokenizer's one-character look-ahead, and the packed word
+ * length is unreliable for words whose pronunciation is split into several
+ * groups (numbers, ".NET" etc.) or re-joined across tokenizer words
+ * ("Don't").  The span of each word is therefore found by scanning the
+ * original text for the token which contains the character at the recorded
+ * offset, which also makes the reported spans exact character offsets into
+ * the caller's text. */
+
+typedef struct {
+	int start;  // message-relative character offset
+	int end;    // exclusive
+} WordTextToken;
+
+// Read one character of the text, advancing *pp; returns -1 at the end.
+static int NextTextChar(const char **pp, const char *end, bool utf8)
+{
+	const char *p = *pp;
+	int c;
+	int n;
+
+	if (p >= end)
+		return -1;
+	if (utf8) {
+		n = utf8_in(&c, p);
+		if ((n <= 0) || (p + n > end)) {
+			c = (unsigned char)*p;
+			n = 1;
+		}
+	} else {
+		c = (unsigned char)*p;
+		n = 1;
+	}
+	*pp = p + n;
+	return c;
+}
+
+// The character at p without advancing p.
+static int PeekTextChar(const char *p, const char *end, bool utf8)
+{
+	const char *q = p;
+	return NextTextChar(&q, end, utf8);
+}
+
+// A word run in the original text may contain letters and digits, and also
+// apostrophe, hyphen or underscore, or a full stop/comma when it is internal
+// to the word (followed by another word character, e.g. "2.5" or ".NET").
+static bool IsWordTextChar(int c, int next_c)
+{
+	if (iswalnum(c))
+		return true;
+	switch (c) {
+	case '\'':
+	case '-':
+	case '_':
+		return true;
+	case '.':
+	case ',':
+		return iswalnum(next_c);
+	default:
+		return false;
+	}
+}
+
+// Scan forward over word characters, starting with first_c at character
+// position pos (first_c has already been consumed and is a word character);
+// advances *pp past the run (leaving the first non-word character for the
+// caller) and returns the exclusive character position.
+static int ScanWordRun(const char **pp, const char *end, int pos, bool utf8, int first_c)
+{
+	(void)first_c;
+	int next_c = PeekTextChar(*pp, end, utf8);
+	int run_end = pos + 1; // first_c is at position pos and belongs to the run
+
+	while (next_c >= 0) {
+		const char *q = *pp;
+		int after;
+
+		NextTextChar(&q, end, utf8);
+		after = PeekTextChar(q, end, utf8);
+		if (!IsWordTextChar(next_c, after))
+			break;
+		*pp = q;
+		run_end++;
+		next_c = after;
+	}
+	return run_end;
+}
+
+// Find the word token containing the character at message-relative offset
+// `approx`, scanning the text which starts at text_start (message-relative
+// position text_start_pos).  When approx is text_start_pos-1 the word starts
+// with the character which was read as clause look-ahead at the end of the
+// previous clause and is re-used at the start of this one.
+static bool FindWordToken(const char *text_start, const char *text_end, int text_start_pos, int approx, bool utf8, WordTextToken *token)
+{
+	const char *p = text_start;
+	int pos = text_start_pos;
+	int c;
+	int run_start;
+	int run_end;
+
+	if (approx == text_start_pos - 1) {
+		if (text_start_pos <= 0)
+			return false;
+		token->start = text_start_pos - 1;
+		c = NextTextChar(&p, text_end, utf8);
+		if (c < 0)
+			return false;
+		token->end = ScanWordRun(&p, text_end, text_start_pos, utf8, c);
+		return true;
+	}
+
+	// Tokenize the visible text until the token containing `approx` is found.
+	for (;;) {
+		c = NextTextChar(&p, text_end, utf8);
+		if (c < 0)
+			return false;
+		if (IsWordTextChar(c, PeekTextChar(p, text_end, utf8))) {
+			run_start = pos;
+			run_end = ScanWordRun(&p, text_end, pos, utf8, c);
+			if ((approx >= run_start) && (approx < run_end)) {
+				token->start = run_start;
+				token->end = run_end;
+				return true;
+			}
+			pos = run_end;
+			if (approx < pos)
+				return false;
+		} else {
+			pos++;
+			if (pos > approx) {
+				// `approx` fell on a non-word character; the word is the
+				// next run in the text.
+				for (;;) {
+					c = NextTextChar(&p, text_end, utf8);
+					if (c < 0)
+						return false;
+					if (IsWordTextChar(c, PeekTextChar(p, text_end, utf8))) {
+						token->start = pos;
+						token->end = ScanWordRun(&p, text_end, pos, utf8, c);
+						return true;
+					}
+					pos++;
+				}
+			}
+		}
+	}
+}
+
+/* Render one entry of phoneme_list exactly like the body of
+ * GetTranslatedPhonemeString() (dictionary.c), appending the result to out.
+ * The start-of-word separator is suppressed for the first entry of a group
+ * (first_in_group); the caller re-inserts single spaces between records. */
+static int WritePhonemeListEntry(PhonemeString *out, PHONEME_LIST *plist, int ix, int phoneme_mode, bool first_in_group)
+{
+	int use_ipa;
+	int use_tie;
+	int separate_phonemes;
+	int flags = 0;
+	int stress;
+	int c;
+	int count;
+	const char *p;
+	char *buf;
+	char phon_buf[30];
+	char phon_buf2[30];
+	static const char stress_chars[] = "==,,''";
+
+	use_ipa = phoneme_mode & espeakPHONEMES_IPA;
+	if (phoneme_mode & espeakPHONEMES_TIE) {
+		use_tie = phoneme_mode >> 8;
+		separate_phonemes = 0;
+	} else {
+		separate_phonemes = phoneme_mode >> 8;
+		use_tie = 0;
+	}
+
+	buf = phon_buf;
+
+	WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
+	if (!first_in_group && (plist->newword & PHLIST_START_OF_WORD) && !(plist->newword & (PHLIST_START_OF_SENTENCE | PHLIST_START_OF_CLAUSE)))
+		*buf++ = ' ';
+
+	if ((!plist->newword) || (separate_phonemes == ' ')) {
+		if ((separate_phonemes != 0) && (ix > 1)) {
+			utf8_in(&c, phon_buf2);
+			if ((c < 0x2b0) || (c > 0x36f)) // not if the phoneme starts with a superscript letter
+				buf += utf8_out(separate_phonemes, buf);
+		}
+	}
+
+	if (plist->synthflags & SFLAG_SYLLABLE) {
+		if ((stress = plist->stresslevel) > 1) {
+			c = 0;
+			if (stress > STRESS_IS_PRIORITY) stress = STRESS_IS_PRIORITY;
+
+			if (use_ipa) {
+				c = 0x2cc; // ipa, secondary stress
+				if (stress > STRESS_IS_SECONDARY)
+					c = 0x02c8; // ipa, primary stress
+			} else
+				c = stress_chars[stress];
+
+			if (c != 0)
+				buf += utf8_out(c, buf);
+		}
+	}
+
+	flags = 0;
+	count = 0;
+	for (p = phon_buf2; *p != 0;) {
+		p += utf8_in(&c, p);
+		if (use_tie != 0) {
+			// look for non-initial alphabetic character, but not diacritic, superscript etc.
+			if ((count > 0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha(c))
+				buf += utf8_out(use_tie, buf);
+		}
+		buf += utf8_out(c, buf);
+		count++;
+	}
+
+	if (plist->ph->code != phonSWITCH) {
+		if (plist->synthflags & SFLAG_LENGTHEN)
+			buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], plist, use_ipa, NULL);
+		if ((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL)) {
+			// syllabic consonant
+			buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], plist, use_ipa, NULL);
+		}
+		if (plist->tone_ph > 0)
+			buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], plist, use_ipa, NULL);
+	}
+
+	return PhonemeString_Append(out, phon_buf, buf - phon_buf);
+}
+
+/* Callback which receives one word of the current clause.  Return non-zero to
+ * abort. */
+typedef int (*WordPhonemeCallback)(int text_position, int length, const char *phonemes, void *user_data);
+
+/* Build the word records for the current clause from phoneme_list[] and invoke
+ * word_callback once per word.  Returns the number of records, or -1 on
+ * allocation failure (in which case the callback is not invoked). */
+static int BuildWordPhonemeRecords(int phoneme_mode, const char *text_start, int textmode, WordPhonemeCallback word_callback, void *user_data)
+{
+	PhonemeWordGroup groups[N_PHONEME_LIST];
+	WordPhonemeRecord records[N_PHONEME_LIST];
+	PhonemeString pending;
+	const char *text_end;
+	bool utf8 = false;
+	bool scan_text;
+	bool tokens_ok;
+	int token_start[N_PHONEME_LIST];
+	int token_end[N_PHONEME_LIST];
+	int n_groups = 0;
+	int n_records = 0;
+	int ix;
+	int i;
+
+	if ((textmode == espeakCHARS_WCHAR) || (textmode == espeakCHARS_16BIT))
+		scan_text = false;
+	else if (text_start == NULL)
+		scan_text = false;
+	else {
+		scan_text = true;
+		text_end = text_start + strlen(text_start);
+		utf8 = (textmode != espeakCHARS_8BIT);
+	}
+
+	PhonemeString_Init(&pending);
+
+	// Walk the translated phoneme list exactly like GetTranslatedPhonemeString():
+	// entries [1 .. n_phoneme_list-2) of the current clause.  Each entry that
+	// starts a word opens a group; entries between groups (pauses, inserted
+	// boundary phonemes such as lengthening duplicates) are appended to the
+	// nearest preceding group, exactly where the flat renderer places them.
+	for (ix = 1; ix < n_phoneme_list - 2; ix++) {
+		PHONEME_LIST *plist = &phoneme_list[ix];
+
+		if (plist->newword & PHLIST_START_OF_WORD) {
+			PhonemeWordGroup *group;
+
+			if (n_groups >= N_PHONEME_LIST)
+				break;
+			group = &groups[n_groups++];
+			group->offset = plist->sourceix & 0x7ff;
+			group->length = plist->sourceix >> 11;
+			PhonemeString_Init(&group->phonemes);
+			if (pending.len > 0) {
+				// leading entries before the first word of the clause
+				if (PhonemeString_Append(&group->phonemes, pending.buf, pending.len) != 0)
+					goto error;
+				PhonemeString_Free(&pending);
+			}
+			if (WritePhonemeListEntry(&group->phonemes, plist, ix, phoneme_mode, true) != 0)
+				goto error;
+		} else {
+			PhonemeString *target = (n_groups > 0) ? &groups[n_groups-1].phonemes : &pending;
+
+			if (WritePhonemeListEntry(target, plist, ix, phoneme_mode, false) != 0)
+				goto error;
+		}
+	}
+	PhonemeString_Free(&pending);
+
+	// Find the text token of each group.  The recorded sourceix offset is the
+	// tokenizer's clause-relative character offset plus its one-character
+	// look-ahead, so the token containing offset+clause_start_char-2 is the
+	// word.
+	tokens_ok = scan_text;
+	for (i = 0; (i < n_groups) && tokens_ok; i++) {
+		WordTextToken tok;
+		int approx = groups[i].offset + clause_start_char - 2;
+
+		if (!FindWordToken(text_start, text_end, clause_start_char, approx, utf8, &tok)) {
+			tokens_ok = false;
+			break;
+		}
+		token_start[i] = tok.start;
+		token_end[i] = tok.end;
+	}
+
+	// Merge groups into one record when they belong to the same text token
+	// (e.g. "2.5" -> "two" "point" "five", ".NET" -> "dot" + spelled letters),
+	// joining the group phonemes with single spaces.
+	if (tokens_ok) {
+		for (i = 0; i < n_groups; i++) {
+			PhonemeWordGroup *group = &groups[i];
+			WordPhonemeRecord *record;
+			bool merged = false;
+
+			if (n_records > 0) {
+				record = &records[n_records-1];
+				merged = (token_start[i] < record->token_end);
+			}
+			if (!merged) {
+				record = &records[n_records++];
+				record->token_start = token_start[i];
+				record->token_end = token_end[i];
+				PhonemeString_Init(&record->phonemes);
+			} else if (token_end[i] > record->token_end)
+				record->token_end = token_end[i];
+
+			if (group->phonemes.len > 0) {
+				if (merged) {
+					if (PhonemeString_Append(&record->phonemes, " ", 1) != 0)
+						goto error;
+				}
+				if (PhonemeString_Append(&record->phonemes, group->phonemes.buf, group->phonemes.len) != 0)
+					goto error;
+			}
+		}
+	} else {
+		// Fallback: use the packed sourceix offsets and lengths (as documented
+		// for espeak_TextToWordPhonemePairsWithTerminator, word length is capped at 31).
+		int last_end = 0;
+
+		for (i = 0; i < n_groups; i++) {
+			PhonemeWordGroup *group = &groups[i];
+			WordPhonemeRecord *record;
+			bool merged = false;
+			int group_end = group->offset + group->length;
+
+			if (n_records > 0)
+				merged = (group->offset <= last_end);
+			if (!merged) {
+				record = &records[n_records++];
+				record->token_start = group->offset + clause_start_char;
+				record->token_end = group_end + clause_start_char;
+				PhonemeString_Init(&record->phonemes);
+				last_end = group_end;
+			} else {
+				record = &records[n_records-1];
+				if (group_end > last_end) {
+					record->token_end += group_end - last_end;
+					last_end = group_end;
+				}
+			}
+
+			if (group->phonemes.len > 0) {
+				if (merged) {
+					if (PhonemeString_Append(&record->phonemes, " ", 1) != 0)
+						goto error;
+				}
+				if (PhonemeString_Append(&record->phonemes, group->phonemes.buf, group->phonemes.len) != 0)
+					goto error;
+			}
+		}
+	}
+
+	// Invoke the callback once per word; skip records with no phonemes
+	// (deleted/skipped words).
+	for (i = 0; i < n_records; i++) {
+		WordPhonemeRecord *record = &records[i];
+
+		if (record->phonemes.len == 0)
+			continue;
+		if (word_callback != NULL) {
+			if (word_callback(record->token_start, record->token_end - record->token_start, record->phonemes.buf, user_data) != 0)
+				break; // abort
+		}
+	}
+
+	for (i = 0; i < n_groups; i++)
+		PhonemeString_Free(&groups[i].phonemes);
+	for (i = 0; i < n_records; i++)
+		PhonemeString_Free(&records[i].phonemes);
+	return n_records;
+
+error:
+	for (i = 0; i < n_groups; i++)
+		PhonemeString_Free(&groups[i].phonemes);
+	for (i = 0; i < n_records; i++)
+		PhonemeString_Free(&records[i].phonemes);
+	PhonemeString_Free(&pending);
+	return -1;
+}
+
+/* Collect the word phoneme pairs of one clause into a growable array. */
+typedef struct {
+	espeak_word_phoneme_pair *pairs;
+	int n_pairs;
+	int cap_pairs;
+	const char *text_start;  // the text pointer passed to the call
+	int text_start_pos;      // message-relative character position of text_start
+	bool utf8;
+	bool oom;
+} WordPhonemeCollector;
+
+// Copy the word at message-relative character offset text_position (length
+// characters) out of the caller's text.  text_start is the pointer passed to
+// espeak_TextToWordPhonemePairsWithTerminator() and text_start_pos its
+// message-relative character position.  The first word of a clause which
+// follows another begins one character before text_start (the character which
+// was read as clause look-ahead); for byte-oriented input that character is
+// recovered by stepping back one character.  Returns NULL for wide-character
+// input modes.
+static char *SliceWordCopy(const char *text_start, int text_start_pos, int text_position, int length, bool utf8)
+{
+	const char *p;
+	char *word;
+	size_t n = 0;
+	int i;
+
+	if ((text_position < 0) || (length < 0) || (text_position < text_start_pos - 1))
+		return NULL;
+
+	if (text_position == text_start_pos - 1) {
+		// The word starts one character before the visible text.
+		if (text_start_pos <= 0)
+			return NULL;
+		p = text_start - 1;
+		if (utf8) {
+			int nback = 1;
+			while ((nback < 4) && ((*p & 0xc0) == 0x80)) {
+				p--;
+				nback++;
+			}
+		}
+	} else {
+		// Advance from text_start to the word start.
+		p = text_start;
+		for (i = 0; i < text_position - text_start_pos; i++) {
+			if (utf8) {
+				int c;
+				int nb = utf8_in(&c, p);
+				if (nb <= 0)
+					return NULL;
+				p += nb;
+			} else
+				p++;
+		}
+	}
+
+	if ((word = (char *)malloc((size_t)length * 4 + 1)) == NULL)
+		return NULL;
+	for (i = 0; i < length; i++) {
+		if (utf8) {
+			int c;
+			int nb = utf8_in(&c, p);
+			if (nb <= 0)
+				break;
+			memcpy(&word[n], p, nb);
+			n += nb;
+			p += nb;
+		} else {
+			if (*p == 0)
+				break;
+			word[n++] = *p++;
+		}
+	}
+	word[n] = 0;
+	if (n == 0) {
+		free(word);
+		return NULL;
+	}
+	return word;
+}
+
+// Callback which copies one word phoneme pair into the collector.
+static int CollectWordPhonemePair(int text_position, int length, const char *phonemes, void *user_data)
+{
+	WordPhonemeCollector *collector = (WordPhonemeCollector *)user_data;
+	espeak_word_phoneme_pair *pair;
+
+	if (collector->n_pairs >= collector->cap_pairs) {
+		int new_cap = collector->cap_pairs ? collector->cap_pairs * 2 : 16;
+		espeak_word_phoneme_pair *new_pairs = (espeak_word_phoneme_pair *)realloc(collector->pairs, new_cap * sizeof(espeak_word_phoneme_pair));
+
+		if (new_pairs == NULL) {
+			collector->oom = true;
+			return 1;
+		}
+		collector->pairs = new_pairs;
+		collector->cap_pairs = new_cap;
+	}
+
+	pair = &collector->pairs[collector->n_pairs++];
+	pair->word_position = text_position;
+	pair->word_length = length;
+	pair->phonemes = strdup(phonemes);
+	pair->word = SliceWordCopy(collector->text_start, collector->text_start_pos, text_position, length, collector->utf8);
+	if (pair->phonemes == NULL) {
+		collector->oom = true;
+		return 1;
+	}
+	return 0;
+}
+
+ESPEAK_API void espeak_FreeWordPhonemePairs(espeak_word_phoneme_pairs *pairs)
+{
+	int i;
+
+	if (pairs == NULL)
+		return;
+	for (i = 0; i < pairs->size_pairs; i++) {
+		free(pairs->pairs[i].word);
+		free(pairs->pairs[i].phonemes);
+	}
+	free(pairs->pairs);
+	free(pairs->clause_phonemes);
+	free(pairs);
+}
+
+ESPEAK_API espeak_word_phoneme_pairs *espeak_TextToWordPhonemePairsWithTerminator(const void **textptr, int textmode, int phonememode, int *terminator)
+{
+	const char *text_start = (const char *)*textptr;
+	const char *flat = espeak_TextToPhonemesWithTerminator(textptr, textmode, phonememode, terminator);
+	espeak_word_phoneme_pairs *result;
+	WordPhonemeCollector collector;
+	int i;
+
+	if (flat == NULL)
+		return NULL;
+
+	if ((result = (espeak_word_phoneme_pairs *)calloc(1, sizeof(*result))) == NULL)
+		return NULL;
+	if ((result->clause_phonemes = strdup(flat)) == NULL) {
+		free(result);
+		return NULL;
+	}
+
+	memset(&collector, 0, sizeof(collector));
+	collector.text_start = text_start;
+	collector.text_start_pos = clause_start_char;
+	collector.utf8 = (textmode != espeakCHARS_8BIT);
+	BuildWordPhonemeRecords(phonememode, text_start, textmode, CollectWordPhonemePair, &collector);
+
+	if (collector.oom) {
+		for (i = 0; i < collector.n_pairs; i++) {
+			free(collector.pairs[i].word);
+			free(collector.pairs[i].phonemes);
+		}
+		free(collector.pairs);
+		espeak_FreeWordPhonemePairs(result);
+		return NULL;
+	}
+
+	result->pairs = collector.pairs;
+	result->size_pairs = collector.n_pairs;
+	return result;
+}
+
 ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode)
 {
 	return espeak_TextToPhonemesWithTerminator(textptr, textmode, phonememode, NULL);

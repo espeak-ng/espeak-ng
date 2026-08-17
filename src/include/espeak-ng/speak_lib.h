@@ -547,6 +547,77 @@ extern "C"
 ESPEAK_API const char *espeak_TextToPhonemesWithTerminator(const void **textptr, int textmode, int phonememode, int *terminator);
 /* Version of espeak_TextToPhonemes that also returns the clause terminator (e.g., CLAUSE_INTONATION_FULL_STOP) */
 
+/* One word of the original text and its phonemes, as returned by
+   espeak_TextToWordPhonemePairsWithTerminator().
+
+   word_position is a character offset from the start of the whole input text
+   (message), 0-based, NOT a byte offset.  word_length is the word length in
+   characters of the original input text.  Together they slice the word back
+   out of the original text.
+
+   word is a NUL-terminated copy of the word from the original text (NULL for
+   the espeakCHARS_WCHAR / espeakCHARS_16BIT input modes).  phonemes is a
+   NUL-terminated UTF-8 phoneme string in the same style as
+   espeak_TextToPhonemes() (stress marks included).  Neither has a leading or
+   trailing space; phonemes may contain internal spaces when one source word
+   expands to several parts (e.g. "2.5" -> "t'u: pOInt f'aIv").  Both are
+   owned by the enclosing espeak_word_phoneme_pairs result and are freed by
+   espeak_FreeWordPhonemePairs(). */
+typedef struct {
+	int word_position;   /* character offset of the word from the start of the
+	                        whole input text (message), 0-based, NOT byte
+	                        offset */
+	int word_length;     /* word length in characters in the original input text */
+	char *word;          /* NUL-terminated word from the original text, or NULL
+	                        for wide-character input modes */
+	char *phonemes;      /* NUL-terminated IPA UTF-8 phonemes, same style as
+	                        espeak_TextToPhonemes (stress marks included) */
+} espeak_word_phoneme_pair;
+
+/* The result of espeak_TextToWordPhonemePairsWithTerminator(): the flat clause
+   phoneme string (identical to espeak_TextToPhonemesWithTerminator) and one
+   pair per word of the clause.  Joining the pairs' phonemes with single spaces
+   reproduces clause_phonemes character-for-character.  Inter-word spaces and
+   clause punctuation are not reported: callers re-insert a single space
+   between pairs and map the returned terminator to punctuation glyphs.
+
+   The structure and everything it points to are heap-allocated and must be
+   freed with espeak_FreeWordPhonemePairs().
+
+   size_pairs is the number of entries in pairs.  The end of the text is
+   signaled by *textptr == NULL after the call (or by a NULL return), not by
+   the contents of this structure. */
+typedef struct {
+	char *clause_phonemes; /* NUL-terminated flat phoneme string of the whole
+	                          clause; its value is the same as
+	                          espeak_TextToPhonemesWithTerminator returns */
+	espeak_word_phoneme_pair *pairs;  /* one entry per word of the clause */
+	int size_pairs;
+} espeak_word_phoneme_pairs;
+
+#ifdef __cplusplus
+extern "C"
+#endif
+ESPEAK_API espeak_word_phoneme_pairs *espeak_TextToWordPhonemePairsWithTerminator(const void **textptr, int textmode, int phonememode, int *terminator);
+/* Version of espeak_TextToPhonemesWithTerminator that also returns the word
+   phoneme pairs of the clause (see espeak_word_phoneme_pairs).  It is
+   clause-iterative exactly like espeak_TextToPhonemesWithTerminator: each call
+   translates one clause, advances/sets *textptr, optionally returns the clause
+   terminator (terminator may be NULL), and returns a heap-allocated result
+   which the caller frees with espeak_FreeWordPhonemePairs().  Returns NULL on
+   failure.
+
+   Known limitation: the word length is carried internally as a packed value
+   capped at 31 characters, so the length of the last word of a record may be
+   under-reported for words longer than 31 characters. */
+
+#ifdef __cplusplus
+extern "C"
+#endif
+ESPEAK_API void espeak_FreeWordPhonemePairs(espeak_word_phoneme_pairs *pairs);
+/* Free a result previously returned by
+   espeak_TextToWordPhonemePairsWithTerminator().  pairs may be NULL. */
+
 #ifdef __cplusplus
 extern "C"
 #endif
