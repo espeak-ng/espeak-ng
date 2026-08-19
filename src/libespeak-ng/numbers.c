@@ -689,6 +689,11 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 
 // Numbers
 
+// LookupNum2() control bit: this element carries the final units of the whole
+// number, so it is the one that agrees with the following word (lang=lv).
+// Unrelated to LookupNum3()'s control bit 0x400, which selects feminine fractions.
+#define NUM2_LV_FINAL_UNITS 0x400
+
 static char ph_ordinal2[12];
 static char ph_ordinal2x[12];
 
@@ -737,20 +742,24 @@ static int lv_ordinal_case(const char *next_word)
 
 // lang=lv: replace the nominative ordinal ending (compiled phonemes [ai][s]) with the
 // case-specific ending _oe<id> from lv_list. No-op unless a non-nominative case was detected.
-static void lv_apply_ordinal_case(Translator *tr, char *ph)
+static void lv_apply_ordinal_case(Translator *tr, char *ph, size_t ph_size)
 {
-	char ph_end[40];
+	char ph_end[N_WORD_PHONEMES]; // Lookup() may write up to this much
 	char key[8];
+	size_t n;
 
 	if (ordinal_case_lv < 2)
 		return; // 0/1 = nominative, leave unchanged
 	sprintf(key, "_oe%d", ordinal_case_lv);
-	if (Lookup(tr, key, ph_end)) {
-		int n = strlen(ph);
-		if (n >= 2)
-			ph[n-2] = 0; // strip the nominative "-ais" ending ([ai] + [s] = 2 phoneme codes)
-		strcat(ph, ph_end);
-	}
+	if (Lookup(tr, key, ph_end) == 0)
+		return;
+
+	n = strlen(ph);
+	if (n >= 2)
+		n -= 2; // strip the nominative "-ais" ending ([ai] + [s] = 2 phoneme codes)
+	if (n + strlen(ph_end) + 1 > ph_size)
+		return; // would not fit, leave the nominative form unchanged
+	strcpy(&ph[n], ph_end);
 }
 
 // lang=lv: infer the case/gender of a cardinal number from the orthographic ending of the
@@ -796,16 +805,19 @@ static int lv_cardinal_case(const char *next_word)
 // lang=lv: replace a cardinal number's default (nominative masculine) form with the
 // case/gender-specific form _<n>k<bucket> from lv_list. No-op when no inflected form exists
 // (invariable numbers like 3/10/teens, or the default masculine bucket).
-static void lv_apply_cardinal_form(Translator *tr, int n, char *ph)
+static void lv_apply_cardinal_form(Translator *tr, int n, char *ph, size_t ph_size)
 {
-	char form[60];
+	char form[N_WORD_PHONEMES]; // Lookup() may write up to this much
 	char key[12];
 
 	if (cardinal_case_lv < 2)
 		return; // 0/1 = nominative masculine, leave unchanged
 	sprintf(key, "_%dk%d", n, cardinal_case_lv);
-	if (Lookup(tr, key, form))
-		strcpy(ph, form);
+	if (Lookup(tr, key, form) == 0)
+		return;
+	if (strlen(form) + 1 > ph_size)
+		return; // would not fit, leave the default form unchanged
+	strcpy(ph, form);
 }
 
 static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB *wtab, int wtab_remaining, int roman)
@@ -1202,7 +1214,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 					found = Lookup(tr, string, ph_digits);
 				}
 				if (found)
-					lv_apply_ordinal_case(tr, ph_digits); // lang=lv: inflect standalone 1-19 and round tens
+					lv_apply_ordinal_case(tr, ph_digits, sizeof(ph_digits)); // lang=lv: inflect standalone 1-19 and round tens
 				found_ordinal = found;
 			}
 
@@ -1232,8 +1244,8 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 					}
 				}
 			}
-			if (found && (control & 0x400))
-				lv_apply_cardinal_form(tr, value, ph_digits); // lang=lv: inflect a standalone cardinal (1-9)
+			if (found && (control & NUM2_LV_FINAL_UNITS))
+				lv_apply_cardinal_form(tr, value, ph_digits, sizeof(ph_digits)); // lang=lv: inflect a standalone cardinal (1-9)
 		}
 
 		// no, speak as tens+units
@@ -1291,7 +1303,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 							sprintf(string, "_%d%c", units, ord_type);
 							if ((found = Lookup(tr, string, ph_digits)) != 0) {
 								found_ordinal = 1;
-								lv_apply_ordinal_case(tr, ph_digits); // lang=lv: inflect final units of a compound ordinal
+								lv_apply_ordinal_case(tr, ph_digits, sizeof(ph_digits)); // lang=lv: inflect final units of a compound ordinal
 							}
 						}
 						if (found == 0) {
@@ -1312,8 +1324,8 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 							sprintf(string, "_%d", units);
 							Lookup(tr, string, ph_digits);
 						}
-						if (control & 0x400)
-							lv_apply_cardinal_form(tr, units, ph_digits); // lang=lv: inflect final units of a compound cardinal
+						if (control & NUM2_LV_FINAL_UNITS)
+							lv_apply_cardinal_form(tr, units, ph_digits, sizeof(ph_digits)); // lang=lv: inflect final units of a compound cardinal
 					}
 				}
 			}
@@ -1490,7 +1502,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 				found = Lookup(tr, string, ph_digits);
 
 				if (found && (tensunits == 0))
-					lv_apply_ordinal_case(tr, ph_digits); // lang=lv: inflect a hundreds ordinal (simtais)
+					lv_apply_ordinal_case(tr, ph_digits, sizeof(ph_digits)); // lang=lv: inflect a hundreds ordinal (simtais)
 
 				if ((tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL) && (tensunits > 0)) {
 					// Use ordinal form of hundreds, as well as for tens and units
@@ -1575,7 +1587,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 		}
 
 		if (thousandplex == 0)
-			x |= 0x400; // lang=lv: this is the final units element, eligible for cardinal case/gender agreement
+			x |= NUM2_LV_FINAL_UNITS; // lang=lv: eligible for cardinal case/gender agreement
 		if (LookupNum2(tr, tensunits, thousandplex, x | (control & 0x100), buf2) != 0) {
 			if (tr->langopts.numbers & NUM_SINGLE_AND)
 				ph_hundred_and[0] = 0; // don't put 'and' after 'hundred' if there's 'and' between tens and units
