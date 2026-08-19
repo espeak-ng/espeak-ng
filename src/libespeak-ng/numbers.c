@@ -731,8 +731,9 @@ static int lv_ordinal_case(const char *next_word)
 	if (LV_ENDS("ai") || LV_ENDS("ei")) return 6;                   // dat fem sg
 	if (LV_ENDS("ie")) return 8;                                    // nom masc pl
 	if (LV_ENDS("as") || LV_ENDS("es")) return 7;                   // gen fem sg / nom+acc fem pl (short)
-	if (LV_ENDS("is") || LV_ENDS("us") || LV_ENDS("s")) return 1;   // nom masc sg (maijs, janvāris)
-	if (LV_ENDS("a")) return 3;                                     // gen masc sg / nom fem sg
+	if (LV_ENDS("us")) return 10;                                   // acc masc pl (pirmos gadus); nom sg -us is a small closed class
+	if (LV_ENDS("is") || LV_ENDS("s")) return 1;                    // nom masc sg (maijs, janvāris)
+	if (LV_ENDS("a") || LV_ENDS("e")) return 3;                     // gen masc sg / nom fem sg (pirmā gada, pirmā klase)
 	if (LV_ENDS("u")) return 5;                                     // acc sg / gen pl
 	if (LV_ENDS("i")) return 8;                                     // nom masc pl (tentative)
 

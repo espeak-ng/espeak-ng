@@ -37,3 +37,8 @@ s'imtaja: m'aijja:" "1. maijā. 2. maijā. 10. maijā. 21. maijā. 100. maijā."
 test_phon lv "p'iRma: v'ieta
 p'iRma: m'aijja
 p'iektajai v'ietai" "1. vieta. 1. maija. 5. vietai." "inflected case/gender"
+# nouns in -e are 5th-declension feminine (nom sg), -us after an ordinal is accusative plural
+test_phon lv "p'iRma: kl'ase
+p'iekta: kl'ase
+p'iRmuos g'adus
+p'iRmajiem g'adiem" "1. klase. 5. klase. 1. gadus. 1. gadiem." "inflected -e and -us"
