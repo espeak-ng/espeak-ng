@@ -46,6 +46,11 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         public void onSynthDataComplete()
         {
         }
+
+        @Override
+        public void onSynthWordBoundary(int textPosition, int textLength, int markerInFrames)
+        {
+        }
     };
 
     // No Settings (New Install)

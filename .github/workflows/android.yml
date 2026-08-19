@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build debug APK
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build release APK
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Instrumented tests
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:

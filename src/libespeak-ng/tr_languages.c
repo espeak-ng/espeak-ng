@@ -67,7 +67,7 @@ static const ALPHABET alphabets[] = {
 	{ "_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0 },
 	{ "_hy",    OFFSET_ARMENIAN, 0x530, 0x58f,  L('h', 'y'), AL_WORDS },
 	{ "_he",    OFFSET_HEBREW,   0x590, 0x5ff,  L('h', 'e'), 0 },
-	{ "_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  0, 0 },
+	{ "_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  L('a', 'r'), AL_WORDS },
 	{ "_syc",   OFFSET_SYRIAC,   0x700, 0x74f,  0, 0 },
 	{ "_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f, L('h', 'i'), AL_WORDS },
 	{ "_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, L('b', 'n'), AL_WORDS },
@@ -1721,8 +1721,9 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.stress_rule = STRESSPOSN_SYLCOUNT;
 	tr->langopts.stress_flags = S_NO_AUTO_2;
 
-	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
-	tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDS_VAR1; // variant numbers before thousands
+	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_5;
+	tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDS_VAR1 |
+	                       NUM2_FRACTION_FEMININE; // variant numbers before thousands and in decimal fractions
 	tr->langopts.max_digits = 32;
 	tr->langopts.max_initial_consonants = 5;
 }		

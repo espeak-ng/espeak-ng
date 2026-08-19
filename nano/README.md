@@ -14,5 +14,6 @@ cp nano/*.nanorc  ~/.nano
 ```
 include ~/.nano/espeak-list.nanorc
 include ~/.nano/espeak-rules.nanorc
+include ~/.nano/espeak-phonemes.nanorc
 ```
 

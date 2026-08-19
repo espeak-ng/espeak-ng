@@ -1863,6 +1863,9 @@ include ph_italian
 phonemetable ku base2
 include ph_kurdish
 
+phonemetable lij base2
+include ph_ligurian
+
 phonemetable mi base2
 include ph_maori
 

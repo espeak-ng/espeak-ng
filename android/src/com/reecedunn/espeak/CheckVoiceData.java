@@ -190,5 +190,10 @@ public class CheckVoiceData extends Activity {
         public void onSynthDataComplete() {
             // Do nothing.
         }
+
+        @Override
+        public void onSynthWordBoundary(int textPosition, int textLength, int markerInFrames) {
+            // Do nothing.
+        }
     };
 }

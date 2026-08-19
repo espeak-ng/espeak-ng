@@ -274,6 +274,14 @@ public class SpeechSynthesis {
         }
     }
 
+    @SuppressWarnings("unused") // called from eSpeakService.c
+    private void nativeSynthWordCallback(int textPosition, int textLength, int markerInFrames) {
+        if (mCallback == null)
+            return;
+
+        mCallback.onSynthWordBoundary(textPosition, textLength, markerInFrames);
+    }
+
     private void attemptInit() {
         if (mInitialized) {
             return;
@@ -333,6 +341,19 @@ public class SpeechSynthesis {
         void onSynthDataReady(byte[] audioData);
 
         void onSynthDataComplete();
+
+        /**
+         * Reports the start of a spoken word.
+         *
+         * @param textPosition 1-based index of the word in the synthesized text,
+         *                     counted in Unicode code points (not UTF-16 units).
+         * @param textLength Word length in code points. eSpeak packs this into a
+         *                   single byte, so words longer than 255 report a
+         *                   truncated length.
+         * @param markerInFrames Absolute frame offset of the word within the audio
+         *                       generated for this request.
+         */
+        void onSynthWordBoundary(int textPosition, int textLength, int markerInFrames);
     }
 
     public static String getIanaLanguageCode(String code) {

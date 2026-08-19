@@ -18,12 +18,15 @@
 
 package com.reecedunn.espeak;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
@@ -293,7 +296,11 @@ public class TtsSettingsActivity extends PreferenceActivity {
         return info;
     }
 
-    private static void ensureLangInfoLoaded() {
+    // Synchronized because createPreferences() warms this from a worker thread
+    // while lookupLangInfo() may reach it from the main thread. Readers always
+    // come through here first, so they block until a build in progress
+    // finishes rather than observing a half-populated map.
+    private static synchronized void ensureLangInfoLoaded() {
         if (!sLangInfo.isEmpty() || storageContext == null) return;
         File root = new File(CheckVoiceData.getDataPath(storageContext), "lang");
         if (!root.exists()) return;
@@ -343,16 +350,80 @@ public class TtsSettingsActivity extends PreferenceActivity {
     }
 
     /**
+     * Gathers what the preference screen needs from the engine, then builds it.
+     *
+     * All of the expensive part used to run inline in onCreate(): constructing
+     * SpeechSynthesis initialises the native library (nativeCreate loads
+     * phondata and the dictionaries), getAvailableVoices() enumerates every
+     * voice over JNI, and building the supported-languages list walks the whole
+     * lang/ tree opening and parsing one file per voice. That is seconds of
+     * disk and JNI work on a cold start with a slow filesystem, on the thread
+     * that has to stay responsive -- the ANR risk reported in #2430.
+     *
+     * So it is gathered on a worker thread and the preferences are added when
+     * it lands. The Preference objects themselves are still built on the main
+     * thread, which is required: they bind to the hosting PreferenceGroup.
+     */
+    private static void createPreferences(final Context context, final PreferenceGroup group) {
+        final Context storage = storageContext;
+        final Handler handler = new Handler(Looper.getMainLooper());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final boolean isWatch = context.getPackageManager()
+                        .hasSystemFeature(PackageManager.FEATURE_WATCH);
+
+                final SpeechSynthesis engine = new SpeechSynthesis(storage, null);
+                final List<Voice> voices = engine.getAvailableVoices();
+
+                // Warm the lang/ metadata cache here rather than leaving it to
+                // the first getVoiceLabel() call, which would drag the whole
+                // scan back onto the main thread. Skipped on Wear, where the
+                // supported-languages list is not built at all.
+                if (!isWatch) {
+                    ensureLangInfoLoaded();
+                }
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (isGone(context)) {
+                            return;
+                        }
+                        addPreferences(context, group, engine, voices, isWatch);
+                    }
+                });
+            }
+        }, "espeak-settings-load").start();
+    }
+
+    /**
+     * True once the hosting activity can no longer accept preference updates.
+     * The load outlives a screen the user backed straight out of, and adding
+     * preferences to a dead activity's group would leak it.
+     */
+    private static boolean isGone(Context context) {
+        if (!(context instanceof Activity)) {
+            return false;
+        }
+        final Activity activity = (Activity) context;
+        if (activity.isFinishing()) {
+            return true;
+        }
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
+                && activity.isDestroyed();
+    }
+
+    /**
      * Since the "%s" summary is currently broken, this sets the preference
      * change listener for all {@link ListPreference} views to fill in the
      * summary with the current entry value.
      */
-    private static void createPreferences(Context context, PreferenceGroup group) {
-        SpeechSynthesis engine = new SpeechSynthesis(storageContext, null);
+    private static void addPreferences(Context context, PreferenceGroup group,
+                                       SpeechSynthesis engine, List<Voice> voices,
+                                       boolean isWatch) {
         VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), engine);
-        final List<Voice> voices = engine.getAvailableVoices();
-
-        boolean isWatch = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH);
 
         // The supported-languages multi-select and the file-picker-driven
         // voice import don't fit on a watch screen and have no meaningful

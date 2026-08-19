@@ -383,6 +383,11 @@ har) c (sis ts
 gombó) c (s ts
 por) c (sor ts
 lán) c (star ts
+gó) c (zón ts
+ar) c (csop ts
+ar) c (seb ts
+pia) c (sta ts
+extrémala) cs (on tS
 
 .group C
 C ts
@@ -478,6 +483,7 @@ ar) ch (enge ts|h
 eu) ch (ari h
 tri) ch (ot h
 tra) ch (e h
+ya) ch (t h
 
 .group cz
 bar) cz ts
@@ -493,6 +499,7 @@ kun) cz (e ts
 kun) cz (é ts
 kun) cz ts
 kuka) cz (á ts|z	For example kukaczápor word
+aká) cz (uh ts|z
 
 .group d
         d          d
@@ -532,6 +539,7 @@ ná) ds (ej d|S
     va) d (sző     d
      C) ds         tS
         ds (C      tS
+bár) ds (ora d|S
      vé) d (so d	For example hádvédsornak word
      A) ds (A      tS:
         dsz        ts
@@ -1293,6 +1301,12 @@ ná) d (si d
 ná) d (sé d
 ná) d (sá d
 ná) d (su d
+le) dj (el d|j
+szolenoi) d (sz d
+bár) ds (or d|S
+bőrön) d (s d
+apró) d (jel d
+dtj (á c:
 
 .group dz
   fogó) dz (kod    ts
@@ -1769,6 +1783,7 @@ biztonsá) g (gy g
 meetin) g (gy g
 méltósá) g (gy g
 tanulsá) g (gy g
+na) gy (sűr J
 
 .group gy
         gy         J
@@ -2026,6 +2041,7 @@ depressz) í (v i:
 degressz) í (v i:
 regressz) í (v i:
 növénykv) í (z i:
+v) í (zivás i:
 
 .group j
         j          j
@@ -2486,7 +2502,8 @@ holdfé) ny (jó n^
 intézmé) ny (jár n^
 őslé) ny (jel n^
 külö) n (jel n
-
+lexiko) n (jel n
+wester) n (jel n
 .group o
         o          o
 
@@ -2566,6 +2583,7 @@ robbaná) s         S
 ?1 juventu) s         s         //a radio station name
     va) s (s       S
   óriá) s          S
+látá) sz (ava S|z
   látá) s (zavar   S
  hallá) s (zavar   S
 gyalogo) s (zászló S
@@ -3932,6 +3950,30 @@ rakódá) s (sz S
 extázi) s (z S
 hato) s (sz S
 póru) s (z S
+tárolá) s (sz S
+lanto) s (sz S
+spórolá) s (sz S
+gyor) s (zár S
+extázi) s (sz S
+eksztázi) s (sz S
+barabá) s (sz S
+tájékoztatá) s (sz S
+dörrené) s (sz S
+katyva) szsz (er s|s
+döccené) s (sz S
+mazochizmu) s (sz S
+özönlé) s (sz S
+intenzitá) s (sz S
+lincselé) s (sz S
+pisilé) s (sz S
+cseresznyé) s (sz S
+tisztítá) s (sz S
+bünteté) s (z S
+modellezé) s (sz S
+ha) s (szakér S
+pajtá) s (sz S
+adjuván) s (sz S
+makogá) s (sz S
 
 .group ss
         ssz        ss2
@@ -5661,6 +5703,20 @@ ezüs) t (juh t
 felüle) t (sz t
 épüle) t (jel t
 kerüle) t (sz t
+szolgála) t (jel t
+felnő) tt (jel t
+többle) t (s t
+ütköze) t (jel t
+pecsé) t (jeg t
+katapul) t (játé t
+szüre) t (s t
+terüle) t (jegy t
+pár) t (jog t
+szemé) t (szolg t
+tes) t (jeg t
+látsza) t (jázmi t
+tuca) t (sor t
+defek) t (ja t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -6406,6 +6462,9 @@ ri) zszs (izs ZZ
 csimpán) z (s z
 í) z (str z
 vá) z (sor z
+í) z (sorn z
+í) z (sorre z
+matró) z (s z
 
 .group
         $          dolla:R2

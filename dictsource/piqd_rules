@@ -26,8 +26,25 @@
        w
        y
        '
-       ,
-       .
+          1 
+          2
+          3
+          4
+          5
+          6
+          7
+          8
+          9
+          0
+         ,
+         .
+//XIFAN (klingon mapped to latin)
+//     c   ch
+     f   ng
+//     g   gh
+     k   q
+     x   th
+     z   '
 
 .group a
     a     a
@@ -44,15 +61,15 @@
     d     D
 
 .group e
-    e     e
+    e     E
     ey    ei
-    ew    eu
+    ew    Eu
 
 .group g
     gh    r-
 
 .group h
-    h     h
+    h     x
 
 .group i
     i     i
@@ -81,13 +98,13 @@
 
 .group q
     q     q
-    qh    qh  // from replaced Klingon Q letter
+    qh    qx  // from replaced Klingon Q letter
 
 .group r
     r     R
 
 .group s
-    s     s
+    s     S
 
 .group t
     t     t
@@ -100,6 +117,7 @@
 
 .group v
     v     v
+    vI    vi
 
 .group w
     w     w
@@ -107,5 +125,6 @@
 .group y
     y     j
 
-.group
+.group 
     '     ?
+    z     ?

@@ -620,6 +620,29 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ALLCAPS;
 	}
 
+	{
+		// strip variation selectors (U+FE0E text style, U+FE0F emoji style) from
+		// the word: TranslateClause discards them from the input text, so they
+		// must not appear in dictionary keys (some emoji entries contain U+FE0F)
+		char *ps = word;
+		char *pd = word;
+		int c2;
+
+		while (*ps != 0) {
+			ix = utf8_in(&c2, ps);
+			if ((c2 != 0xfe0e) && (c2 != 0xfe0f)) {
+				if (pd != ps)
+					memmove(pd, ps, ix);
+				pd += ix;
+			}
+			ps += ix;
+		}
+		*pd = 0;
+	}
+
+	if (word[0] == 0)
+		return 0; // the word contained only variation selectors
+
 	len_word = strlen(word);
 
 	if (translator->transpose_min > 0)
@@ -717,7 +740,7 @@ static int compile_dictlist_file(CompileContext *ctx, const char *path, const ch
 	int count = 0;
 	FILE *f_in;
 	char buf[200];
-	char fname[sizeof(path_home)+45];
+	char fname[N_PATH_BUF];
 	char dict_line[256]; // length is uint8_t, so an entry can't take up more than 256 bytes
 
 	ctx->text_mode = false;
@@ -737,6 +760,19 @@ static int compile_dictlist_file(CompileContext *ctx, const char *path, const ch
 
 	while (fgets(buf, sizeof(buf), f_in) != NULL) {
 		ctx->linenum++;
+
+		size_t buf_len = strlen(buf);
+		if (buf_len > 0 && buf[buf_len-1] != '\n' && !feof(f_in)) {
+			// The line was longer than buf and has been split by fgets.
+			// Discard the remainder so it is not parsed as a separate
+			// (bogus) entry on the next iteration. Without this, a long
+			// entry with a trailing comment (e.g. a Sinhala or Myanmar
+			// emoji line) leaks a spurious entry whose key can hijack
+			// another word, such as a bare digit.
+			int ch;
+			while ((ch = fgetc(f_in)) != EOF && ch != '\n')
+				;
+		}
 
 		length = compile_line(ctx, buf, dict_line, sizeof(dict_line), &hash);
 		if (length == 0)  continue; // blank line
@@ -1534,9 +1570,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	FILE *f_out;
 	int offset_rules = 0;
 	int value;
-	char fname_in[sizeof(path_home)+45];
-	char fname_out[sizeof(path_home)+15];
-	char path[sizeof(path_home)+40];       // path_dsource+20
+	char fname_in[N_PATH_BUF];
+	char fname_out[N_PATH_BUF];
+	char path[N_PATH_BUF];
 
 	CompileContext *ctx = calloc(1, sizeof(CompileContext));
 
@@ -1554,17 +1590,17 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 		ctx->f_log = stderr;
 
 	// try with and without '.txt' extension
-	sprintf(path, "%s%s_", dsource, dict_name);
-	sprintf(fname_in, "%srules.txt", path);
+	snprintf(path, sizeof(path), "%s%s_", dsource, dict_name);
+	snprintf(fname_in, sizeof(fname_in), "%srules.txt", path);
 	if ((f_in = fopen(fname_in, "r")) == NULL) {
-		sprintf(fname_in, "%srules", path);
+		snprintf(fname_in, sizeof(fname_in), "%srules", path);
 		if ((f_in = fopen(fname_in, "r")) == NULL) {
 			clean_context(ctx);
 			return create_file_error_context(context, errno, fname_in);
 		}
 	}
 
-	sprintf(fname_out, "%s%c%s_dict", path_home, PATHSEP, dict_name);
+	snprintf(fname_out, sizeof(fname_out), "%s%c%s_dict", path_home, PATHSEP, dict_name);
 	if ((f_out = fopen(fname_out, "wb+")) == NULL) {
 		int error = errno;
 		fclose(f_in);

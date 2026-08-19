@@ -22,7 +22,7 @@ jobs:
             archdeps: ""
             archconfigflags: ''
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - uses: firebuild/apt-eatmydata-action@v1
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386
@@ -53,7 +53,7 @@ jobs:
         path: build
     - name: build fuzzer + data
       run: cmake --build build --target synth_fuzzer data --parallel
-    - uses: actions/cache@v5
+    - uses: actions/cache@v6
       with:
         path: /home/runner/work/espeak-ng/espeak-ng
         key: build-${{ matrix.arch }}-${{ github.sha }}

@@ -109,6 +109,11 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         public void onSynthDataComplete()
         {
         }
+
+        @Override
+        public void onSynthWordBoundary(int textPosition, int textLength, int markerInFrames)
+        {
+        }
     };
 
     private Map<String, Voice> mVoices = null;

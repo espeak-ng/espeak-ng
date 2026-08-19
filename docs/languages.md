@@ -17,7 +17,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `inc`       | `as`              | Indic                 | Assamese                    |                        |
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
 | `trk`       | `ba`              | Turkic                | Bashkir                     |                        |
-| `trk`       | `cu`              | Turkic                | Chuvash                     |                        |
+| `trk`       | `cv`              | Turkic                | Chuvash                     |                        |
 |             | `eu`              |                       | Basque                      |                        |
 | `zle`       | `be`              | East Slavic           | Belarusian                  |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
