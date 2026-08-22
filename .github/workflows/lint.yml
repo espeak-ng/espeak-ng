@@ -13,7 +13,7 @@ jobs:
     - name: apt-deps
       run: |
         sudo apt-get update
-        sudo apt-get install -y ronn kramdown python3 clang-tidy-21
+        sudo apt-get install -y ronn kramdown python3 clang-tidy
 
     - uses: actions/checkout@v7
       with:
@@ -28,9 +28,8 @@ jobs:
     - name: clang-tidy-diff
       run: |
         git diff -U0 "origin/${{ github.base_ref }}...HEAD" -- 'src/libespeak-ng/*.c' 'src/libespeak-ng/*.h' \
-          | python3 /usr/lib/llvm-21/share/clang/clang-tidy-diff.py \
-              -clang-tidy-binary clang-tidy-21 \
+          | clang-tidy-diff \
+              -clang-tidy-binary clang-tidy \
               -path build \
-              -config-file .clang-tidy \
               -j "$(nproc)" \
               -p1
