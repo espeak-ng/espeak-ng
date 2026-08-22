@@ -353,11 +353,14 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 			}
 
 			if (max_ph == 0) {
-				// not recognised, report and ignore
+				// not recognised: skip this character (which may be a
+				// multi-byte UTF-8 sequence) and keep encoding the rest
+				// of the string, rather than truncating everything after it
+				int bad_c;
+				p += utf8_in(&bad_c, p);
 				if (bad_phoneme != NULL)
-					utf8_in(bad_phoneme, p);
-				*outptr++ = 0;
-				return p+1;
+					*bad_phoneme = bad_c;
+				continue;
 			}
 
 			if (max <= 0)
