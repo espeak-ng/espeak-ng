@@ -2090,3 +2090,5 @@ include ph_pashto
 
 phonemetable ab base
 include ph_abkhaz
+
+phonemetable gag ro
