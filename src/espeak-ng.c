@@ -643,6 +643,8 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
+	espeak_SetPhonemeTrace(phoneme_options | (phonemes_separator << 8), f_phonemes_out);
+
 	if (voicename[0] == 0)
 		strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
@@ -693,8 +695,6 @@ int main(int argc, char **argv)
 		espeak_SetParameter(espeakSSML_BREAK_MUL, ssml_break, 0);
 	if (option_punctuation == 2)
 		espeak_SetPunctuationList(option_punctlist);
-
-	espeak_SetPhonemeTrace(phoneme_options | (phonemes_separator << 8), f_phonemes_out);
 
 	if (filename[0] == 0) {
 		if ((optind < argc) && (flag_stdin == 0)) {
