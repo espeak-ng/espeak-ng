@@ -14,6 +14,11 @@ option(WITH_FUZZER "Build libFuzzer targets (requires Clang)" OFF)
 option(WITH_ASAN "Enable ASAN" OFF)
 option(WITH_LSAN "Enable LSAN" OFF)
 
+if(APPLE)
+  # Required to expose standard POSIX/BSD APIs needed for compilation
+  add_compile_definitions(_DARWIN_C_SOURCE)
+endif()
+
 include(CTest)
 
 if (WITH_COVERAGE OR WITH_FUZZER)
