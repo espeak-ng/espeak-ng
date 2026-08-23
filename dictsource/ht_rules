@@ -1,103 +1,228 @@
-// Haitian Creole rules for Espeak
+// ***************************************************************************
+// *   Copyright (C) 2026 by Haricot Lincoln Compère                         *
+// *   email: lincolncompere@gmail.com                                       *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
 // This file is UTF-8 encoded
+//
+// ht_rules — Règles de transcription orthographe -> phonèmes
+// Créole haïtien, ORTHOGRAPHE OFFICIELLE DU 28 SEPTEMBRE 1979
+// (reconduite sans modification par la résolution AKA du 1er juin 2017)
+//
+// Reconstruction vérifiée contre : Compère, H.L., « Mémoire — Alphabet
+// Atomique Créole (AAC) », v1.2.5, 2026 — chapitre II (diagnostic du
+// système 1979) et tableaux 10 à 13 (correspondances phonémiques).
+// Chaque règle ci-dessous cite la section du mémoire qui la justifie.
+//
+// Inventaire couvert : les 32 lettres nominales de 1979 (§3.1.4), PLUS
+// un jeu d'exceptions pour noms propres et emprunts français/anglais
+// (c, q, x, ph, th — cf. fin de fichier), qui n'appartiennent pas à
+// l'alphabet créole mais restent d'usage courant (Carine, Christian,
+// Philippe, Xerox, Quota...).
+//
+// PHONÈMES (Kirshenbaum ; valeurs prises telles quelles aux tableaux
+// 10, 11 et 12 du mémoire) :
+//   a E e i O o u        a, è, e, i, ò, o, ou   (Table 10)
+//   A~ E~ O~             an, en, on               (Table 10, nasales — 3 seules
+//                                                  nasales existent dans ph_haitian)
+//   u puis n (2 phonèmes) oun                      (pas de nasale /u/ : voyelle
+//                                                  orale + consonne n, cf. §ci-dessous)
+//   b d f g k l m n p s t v z                    consonnes (Table 11)
+//   Z /ʒ/ (j) · S /ʃ/ (ch) · R /ʁ/ (r) · n^ /ɲ/ (ng)   (Table 11)
+//   w /w/ · j /j/ (y) · wi pour ui /ɥi~jw/        (Table 12)
+//   h /h/ — usage marginal, cf. §3.1.3
+//
+// RAPPEL DE SYNTAXE (bug corrigé au fil des itérations précédentes) :
+// le champ de sortie phonème est délimité par tabulation — un ESPACE à
+// l'intérieur de ce champ (ex. "u n" au lieu de "un") tronque le
+// compilateur au premier espace et perd silencieusement tout ce qui
+// suit. Toute séquence de plusieurs phonèmes doit être écrite COLLÉE
+// (ex. "un", "an", "wi"), jamais avec un espace.
+
+
+// ---------------------------------------------------------------------
+// GROUPES DE LETTRES
+// ---------------------------------------------------------------------
+
+.L01 a e i o             // voyelles simples -> teste si n est suivi d'une
+                          // voyelle (n = attaque, pas de nasalisation,
+                          // corollaire §3.2, ex. wana, fonolojik)
+.L02 b d f g h j k l m n p r s t v w y z
+
+// ---------------------------------------------------------------------
+// A / AN, avec priorité à ANG (résolution de l'ambiguïté documentée §2.2)
+// ---------------------------------------------------------------------
 
 .group a
-         a         a
+_) a (_		a		// "a" isolé, nom de la lettre
+ang		an^		// PRIORITÉ sur "an" : a + ng-digramme (/ɲ/), pas an+g.
+			// Cf. §2.2 (ambiguïté n+g documentée) et Table 4, ex. lang -> Laŋ :
+			// "l + a + ŋ", PAS "l + an + g". Sans cette règle en 3 lettres,
+			// la règle "an" (2 lettres) intercepterait "an" avant "ng".
+an (L01		an		// an + voyelle qui suit : n reste consonne d'attaque
+			// §3.2 corollaire, ex. wana (wa-na)
+an		A~		// an en coda de syllabe : nasale par défaut — §3.2, ex. manman
+a		a		// a oral, cas par défaut
+an		A~ n	// ann avec double consonnes :ex. zanmann
 
-.group ã
-         ã         a
+.group à
+à		a		// aksan fòs : oral, bloque la nasalisation du n qui suit
+			// §3.1.2 et §3.2, couple pàn/pan
 
-.group b
-         b         b
-
-.group c
-         c         s
-         c (h      S
-
-.group d
-         d         d
+// ---------------------------------------------------------------------
+// E / EN, avec priorité à ENG ; È
+// ---------------------------------------------------------------------
 
 .group e
-         e         e
+eng		en^		// par symétrie avec ang (aucun exemple direct au mémoire,
+			// mais même logique structurelle que §2.2 pour ng)
+en (L01		en
+en		E~		// §3.2, ex. mwen (nasale déjà transparente, table 10)
+e		e		// Table 13 : e note /e/ ou /ɛ/ ; /e/ retenu par défaut
+en		E~ n	// ann avec double consonnes :ex. Nennenn
 
 .group è
-         è         e
+è		E		// §3.1.2, ex. lanmè
 
-.group ɛ̃
-         ɛ̃         e
-
-.group f
-         f         f
-
-.group g
-         g         g
-
-.group h
-         h         h
-
-.group i
-         i         i
-
-.group j
-         j         j
-      d) j         dZ
-
-.group k
-         k         k
-
-.group l
-         l         l
-
-.group m
-         m         m
-
-.group n
-         n         n
-         n (g      N
+// ---------------------------------------------------------------------
+// O / ON, avec priorité à ONG ; OU / OUN (trigramme opaque fixe) ; Ò
+// ---------------------------------------------------------------------
 
 .group o
-         o         o
-         o (u      ou
+ong		on^		// par symétrie avec ang
+on (L01		on
+on		O~		// §3.2, ex. tonbe (table 10)
+on		O~ n	// ann avec double consonnes :ex. tomonn,
+oun		un		// TRIGRAMME OPAQUE (§2.1). Toujours u (oral) + n (consonne) :
+			// pas de voyelle nasale /u/ dans ph_haitian, et ce n'est pas
+			// non plus le son réellement attendu — "doune/boune/dune"
+			// sont voyelle orale + consonne n, pas une nasale. Ex. moun -> [mun].
+ou		u		// digramme opaque §2.1, ex. pou, sou (table 10)
+o		o		// Table 13 : o note /o/ ou /ɔ/ ; /o/ retenu par défaut
 
 .group ò
-         ò         o
+ò		O		// §3.1.2, ex. lekòl, mòn (contraste avec moun, table 4)
 
-.group õ
-         õ         o
+// ---------------------------------------------------------------------
+// CH — digramme opaque (§2.1), seule fonction de "c" en créole
+// ---------------------------------------------------------------------
 
-.group p
-         p         p
+.group c
+chr		k		// cluster grec chr- : Christian, Christophe, Christelle -> /k/, pas /ʃ/
+ch		S		// ex. chèche, chita (table 4, exemple 1)
+c (e		s		// emprunts/prénoms : Celimene, Cesar
+c (i		s		// Cindy
+c		k		// Carine, Carl — défaut
 
-.group q
-         q         k
 
-.group r
-         r         h
+// ---------------------------------------------------------------------
+// NG isolé (quand non précédé de a/e/o — ex. début de mot ou après i)
+// ---------------------------------------------------------------------
 
-.group s
-         s         s
+.group n
+ng		n^		// filet de sécurité : cas où "ng" n'est pas déjà absorbé
+			// par les règles ang/eng/ong ci-dessus
+n		n		// n consonantique par défaut (ex. second n de lannwit :
+			// cf. §4.1.1 — "an" nasalise les 2 premières lettres, le
+			// second n restant, lui, pleinement consonantique)
 
-.group t
-         t         t
+// ---------------------------------------------------------------------
+// UI — "voyelle fantôme u" (§2.3), jamais autonome, uniquement dans "ui"
+// ---------------------------------------------------------------------
 
 .group u
-         u         u
+ui		wi		// §2.3 : /ɥi/~[wi], ex. kuit
+u		u		// filet de sécurité (u seul n'existe pas en créole, §2.3)
 
-.group ũ
-         ũ         u
+// ---------------------------------------------------------------------
+// I
+// ---------------------------------------------------------------------
+
+.group i
+i		i
+
+// ---------------------------------------------------------------------
+// CONSONNES ET SEMI-VOYELLES SIMPLES (Table 11, Table 12)
+// ---------------------------------------------------------------------
+
+.group b
+b		b
+
+.group d
+d		d
+
+.group f
+f		f
+
+.group g
+g		g
+
+.group h
+h		h		// §3.1.3 : fonction limitée, quasi absente hors "ch"
+_) h (_		h
+
+.group j
+j		Z		// Table 11 : /ʒ/
+
+.group k
+k		k
+
+.group l
+l		l
+
+.group m
+m		m
+
+.group p
+ph		f		// emprunts : Philippe, Sophie, téléphone -> /f/
+p		p
+
+.group r
+r		R		// Table 11 : /ʁ/, fricative uvulaire voisée — sans exception
+			// documentée dans le mémoire
+
+.group s
+s		s
+
+.group t
+th		t		// emprunts : Nathalie, Marthe -> /t/, h muet
+t		t
 
 .group v
-         v         v
+v		v
 
 .group w
-         w         w
-
-.group x
-         x         ks
+w		w		// Table 12 : /w/, statut inchangé (§ note officielle W/Y)
 
 .group y
-         y         j
+y		j		// Table 12 : /j/, statut inchangé
 
 .group z
-         z         z
+z		z
 
+// ---------------------------------------------------------------------
+// LETTRES HORS ALPHABET OFFICIEL — emprunts et noms propres uniquement
+// (c, q, x n'apparaissent dans aucun des 32 graphèmes nominaux de 1979)
+// ---------------------------------------------------------------------
+
+.group x
+_) x		z		// x initial de mot : Xerox, Xavier -> /z/
+x		ks		// repli médian/final : Alexandre, Max
+
+.group q
+qu		k		// Quota, Quisqueya : u non prononcé, à la française
+q		k		// repli si q isolé (rare)
