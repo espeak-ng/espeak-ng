@@ -241,7 +241,7 @@ public class SpeechSynthesis {
     }
 
     /** Speech rate. */
-    public final Parameter Rate = new Parameter(1, 80, 449, UnitType.WordsPerMinute);
+    public final Parameter Rate = new Parameter(1, 80, 450, UnitType.WordsPerMinute);
 
     /** Audio volume. */
     public final Parameter Volume = new Parameter(2, 0, 200, UnitType.Percentage);
@@ -272,6 +272,14 @@ public class SpeechSynthesis {
         } else {
             mCallback.onSynthDataReady(audioData);
         }
+    }
+
+    @SuppressWarnings("unused") // called from eSpeakService.c
+    private void nativeSynthWordCallback(int textPosition, int textLength, int markerInFrames) {
+        if (mCallback == null)
+            return;
+
+        mCallback.onSynthWordBoundary(textPosition, textLength, markerInFrames);
     }
 
     private void attemptInit() {
@@ -333,6 +341,19 @@ public class SpeechSynthesis {
         void onSynthDataReady(byte[] audioData);
 
         void onSynthDataComplete();
+
+        /**
+         * Reports the start of a spoken word.
+         *
+         * @param textPosition 1-based index of the word in the synthesized text,
+         *                     counted in Unicode code points (not UTF-16 units).
+         * @param textLength Word length in code points. eSpeak packs this into a
+         *                   single byte, so words longer than 255 report a
+         *                   truncated length.
+         * @param markerInFrames Absolute frame offset of the word within the audio
+         *                       generated for this request.
+         */
+        void onSynthWordBoundary(int textPosition, int textLength, int markerInFrames);
     }
 
     public static String getIanaLanguageCode(String code) {

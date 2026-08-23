@@ -70,6 +70,7 @@ test_phon de "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s
 h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung." "Latn"
 test_phon el "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία." "Grek"
 test_phon en "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog" "Latn"
+test_phon en "b,i:dZ,eIp'i: (ml)jum'a:jul.l.a(en)" "BJPയുമായുള്ള" "script change splits a glued token"
 test_phon en "h'i@3rIN m'i: b'oU
 DI2; 'aZ3 Tr'VS k'O:z
 'e@ j'O@ dZ'OIf@l 'A@ri:;@
@@ -153,8 +154,46 @@ test_phon kok ",VnUk'a:*c@h'Vl@-nt'@2c#e:k'a:*d 'e:k:1
 s,@:0b#@ik'a:r m,@nUk'a:rs.@h'Vl@-nt'@2jo:k'a:rshIr'Vw'ind'u k,@o:k'a:r g,@O:k'a:rr@2w,@ 'O:r ,Vd#Ik'a:*k@a:k'a:rr@2o:k'a:rshIr'Vw'ind'u k,@e:k'a:r m,@a:k'a:rm@le:k'a:r m,@e:k'a:rshIr'Vw'ind'u J,@3n@h'Vl@-nt'@2m@Ja:k'a:*t s@:0h'Vl@-nt'@2w:0@t,@n@h'Vl@-nt'@2t@h'Vl@-nt'@2*@ta:k'a:r 'O:r s,@:0m@a:k'a:rn@ta:k'a:r p@h'Vl@-nt'@2ra:k'a:*p@h'Vl@-nt'@2t H,@E:k'a:r
 ,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b,@Uk'a:*d@h'Vl@-nt'@2d#Ik'a:r 'O:r ,Vn@h'Vl@-nt'@2t@ra:k'a:*t@h'Vl@-nt'@2ma:k'a:r k,@ik'a:r d,@e:k'a:rn p@h'Vl@-nt'@2ra:k'a:*p@h'Vl@-nt'@2t H,@E:k'a:r 'O:r p,@r@2s@:0h'Vl@-nt'@2p@r ,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b#,@a:k'a:*ica:k'a:rr@2e:k'a:r k,@e:k'a:r b#,@a:k'a:rw@ s,@:0e:k'a:r b,@r@2h'Vl@-nt'@2ta:k'a:rw@ k,@r@2na:k'a:r c,@a:k'a:rH@Ik'a:*e:" "अनुच्छेद १. सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है । उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए ।" "Deva"
 test_phon ko "kh'isu-,u-j g'ojudZ;,oq@n,u-n 'ips-uLq-,i*im'annaj,a h'aqo th'u-qp-j@Lh,an g'isu*,u-n ph'i*jotSh,i; 'antha" "키스의 고유조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다." "Hang"
-test_phon ku  "hEm'u mI*'ov az'ad_:_: u_! dI wEq'aR_:_: u m'afan dE# wEkh'Ev t'en dInj'aje
-'eU xw8d'i h'IS_:_: u SU'uR 'In_:_: u d'Ive l'I hEmb'ER h'Ev bI z,IhnIj,EtEk'E# bRat'Ije b,IlIv'In" "Hemû mirov azad û di weqar û mafan de wekhev tên dinyayê. Ew xwedî hiş û şuûr in û divê li hember hev bi zihniyeteke bratiyê bilivin." "Latn"
+test_phon ku  "hEm'u mI*'ov az'ad_:_: u_! dI wEq'aR_:_: u maf'an dE# wEkh'Ev t'en dInj'aje
+eU xw8d'i h'IS_:_: u SU'uR 'In_:_: u d'Ive l'I hEmb'ER h'Ev bI z,IhnIj,EtEk'E# bRat'Ije b,IlIv'In" "Hemû mirov azad û di weqar û mafan de wekhev tên dinyayê. Ew xwedî hiş û şuûr in û divê li hember hev bi zihniyeteke bratiyê bilivin." "Latn"
+test_phon ku "maf'an" "mafan"
+test_phon ku "m'alen" "malên"
+// Kurmanji word stress: oblique plural, verb-prefix stress, pronoun cliticization
+test_phon ku "b'un" "bûn"
+test_phon ku "kI*'In" "kirin"
+test_phon ku "tS'un" "çûn"
+test_phon ku "hat'In" "hatin"
+test_phon ku "c'i" "kî"
+test_phon ku "tS'I" "çi"
+test_phon ku "kEnJ'i" "kengî"
+test_phon ku "tS'Ima" "çima"
+test_phon ku "tS'awa" "çawa"
+test_phon ku "n'axwaz,E#" "naxwaze"
+test_phon ku "n'abin,Im" "nabînim"
+test_phon ku "n'Izan,Im" "nizanim"
+test_phon ku "n'abeZ,Im" "nabêjim"
+test_phon ku "m'EkE#" "meke"
+test_phon ku "m'Exw8" "mexwe"
+test_phon ku "b'IkE#" "bike"
+test_phon ku "b'Ixw8" "bixwe"
+test_phon ku "b'Ixwin,Im" "bixwînim"
+test_phon ku "dIk'Im" "dikim"
+test_phon ku "d,IbeZ'Im" "dibêjim"
+test_phon ku "v'EkI*,In" "vekirin"
+test_phon ku "v'EkE#" "veke"
+test_phon ku "R'abun" "rabûn"
+test_phon ku "R'adIb,Im" "radibim"
+test_phon ku "R'adIb,E#" "radibe"
+test_phon ku "h'IlbIZ,aRtIn" "hilbijartin"
+test_phon ku "h'IldIb,IZe*,Im" "hildibijêrim"
+test_phon ku "d'akEt,In" "daketin"
+test_phon ku "d'akEv,E#" "dakeve"
+test_phon ku "d'ERkEt,In" "derketin"
+test_phon ku "d'ERkEt" "derket"
+test_phon ku "tU kURd'i d,Izan'i" "tu kurdî dizanî."
+test_phon ku "t'U" "tu"
+test_phon ku "Em kURd'i d,Izan'In" "em kurdî dizanin."
+test_phon ku "hun kURd'i d,Izan'In" "hûn kurdî dizanin."
 test_phon la  "s'Ik_ f'UgI;Ens_
 d'Uks_
 zElOt'ypOs_
@@ -215,12 +254,12 @@ naN ta d'ota k'u Ras'oN_:_: i k'u kons'enSi_:_: i naN mest'eR komp'oRta naN deN 
 test_phon pl "m'E~Zny b'On^ts;
 xR'On^ p'uwk tf'uj_! i S'ES;ts; fl'ak
 z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć flag. Zażółć gęślą jaźń." "Latn"
-test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: bR&s'o~js#
+test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: b@-*&s'oI~S
 f'E
 S'a
 'OksidU
-p'or-
-z'&~Ng&U~_:_: ,E*&U~ p,&l'avR&Z dU p,u*@-tug'es#" "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português." "Latn"
+p'o*
+z'&~Ng&U~_:_: ,E*&U~ p,&l'av@-*&Z dU p,u*@-tug'eS" "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português." "Latn"
 test_phon qya ",aInul'Indal,E ald'INga aNk'alIm,a and'u:RIl at'akwE k,alak'IRja k,uIvI;'e:nEn ,EaR'EndIl El'EndIl ,ElEnt'a:RI; El'EssaR 'ENkwI;,E E'OnwE ER'EssE,a h,ElkaR'aksE w#'Esta C'aRmEn Is'IlduR l'ap:a m'axtan nam'a:RI;,E n'at:IR,a n,u:mEn'o:RE 'OROm,E Ot'OkwE pEl'Ek:O pEl'o:RI s'aUROn tan'IkwEt,Il t,Elum'ECtaR t'ulkas tuR'ambaR und'o:mI;,El ut'umnO" "Ainulindalë aldinga ancalima Andúril ataquë Calacirya Cuiviénen Eärendil Elendil Elentári Elessar enquië Eönwe Eressëa Helcaraxë hwesta Hyarmen Isildur lappa Mahtan Namárië nattira Númenórë Orome otoquë pelecco Pelóri Sauron Taniquetil Telumehtar Tulkas Turambar Undómiel Utumno" "Quenya"
 test_phon ro "m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila
 p@-*'ets f'iks" "Muzicologă în bej vând whisky și tequila, preț fix." "Latn"
@@ -228,7 +267,8 @@ test_phon ru "Syr'okVja E#l;ikt@-r;if;ik'Atsyja 'juZnyx gub;'ern;ij d'Ast m'oS;n
 test_phon sd "s'Indhi b'o:li; 'Ind.o: jo:R'Vpi xa:nd'a:n s'a~: t[a:l'Vq R,@k#@nd'Vr. a:Rj'a:i b'o:li; ,a:he:
 J'Vnhn t['e: ,aRb'i: bo:l'i:;a J'o: b'I t[@m'a:m v'Vd.o: as'VR ,a:he:
 h'Ina v'aqt s'Indhi b'o:li s'Indh J'e: m'Vk# b'o:li_! 'ae~ d,@f@t['VRi z@b'a:n ,a:he:" "سنڌي ٻولي انڊو يورپي خاندان سان تعلق رکندڙ آريائي ٻولي آھي، جنھن تي عربي ٻوليءَ جو بہ تمام وڏو اثر آهي. هن وقت سنڌي ٻولي سنڌ جي مک ٻولي ۽ دفتري زبان آھي." "Arab"
-test_phon si "t'aw@t st#'a:n@ k'i:p@j,@kin w'a:rta: w'u: s'ul.u p'ipiri:m s'ah@ d'e:s@p,a:l@n@ p'akS@ k r'ija:k,a:ri:n 'at@r@ '&tiwu: g'&t.um h'e:tuwen 'ek 'ajeku m'ij@gos k'i:p@ d'eneku t'uwa:l@ l'aba: t'ibe:" "තවත් ස්ථාන කීපයකින් වාර්තා වූ සුළු පිපිරීම් සහ දේශපාලන පක්ෂ ක්‍රියාකාරීන් අතර ඇතිවූ ගැටුම් හේතුවෙන් එක් අයෙකු මියගොස් කීප දෙනෙකු තුවාල ලබා තිබේ." "Sinh"
+test_phon si "t'aw@t st#'a:n@ k'i:p@j,@kin w'a:rta: w'u: s'ul.u p'ipiri:m s'ah@ d'e:s@p,a:l@n@ p'akS@ kr'ija:k,a:ri:n 'at@r@ '&tiwu: g'&t.um h'e:tuwen 'ek 'ajeku m'ij@gos k'i:p@ d'eneku t'uwa:l@ l'aba: t'ibe:" "තවත් ස්ථාන කීපයකින් වාර්තා වූ සුළු පිපිරීම් සහ දේශපාලන පක්ෂ ක්‍රියාකාරීන් අතර ඇතිවූ ගැටුම් හේතුවෙන් එක් අයෙකු මියගොස් කීප දෙනෙකු තුවාල ලබා තිබේ." "Sinh"
+test_phon si "h'aj@ h'at@" "6 7" "Sinhala digits 6 and 7"
 test_phon sjn "'alf 'aman 'amaRT 'amOn 'aRag,ORn aRn'OIdI;,ad 'aRvEd,uI bEl'ERI;,and b'OROm,IR bRag'OllaX bR'ETIl bRIT'OmbaR bR'uInEn k'aIR kaR'aDRas k,ElEbR'i:an kRIss'aEgRIm d'EnET,OR dR'ENgIst d'u::n EkT'ElI;,On 'Emyn ER'I;ad,OR f'Ean,OR fInd'uIlas f'INgOn fINg'OlfIn fIn'aRfIn f'OROX,El g'alaD,On gal'adRI;,El gR'Ond gw'aIhIR w#'and j'aRwaIn 'ImladR,Is j'ORET IT'IlI;,En l#'u::n lOTl'O:RI;,En m'EnEgR,OT mIT'EITEl mITR'andIR mOR'annOn m'ORI;,a n'aRgOTR,Ond OR'OffIn Osg'IlI;,aT pal'anti:R p,alant'i:RI pEl'EnnOR p,ERI;'annaT hR'u::n sIl'IvREn TOR'OndOR" "alph Aman Amarth Amon Aragorn Arnoediad Arvedui Beleriand Boromir Bragollach Brethil Brithombar Bruinen Cair Caradhras Celebrían Crissaegrim Denethor Drengist dûn Ecthelion Emyn Eriador Fëanor Finduilas Fingon Fingolfin Finarfin Forochel Galadhon Galadriel Grond Gwaihir hwand Iarwain Imladris Ioreth Ithilien lhûn Lothlórien Menegroth Mitheithel Mithrandir Morannon Moria Nargothrond Orophin Osgiliath Palantír Palantíri Pelennor Periannath rhûn Silivren Thorondor" "Sindarin"
 test_phon sk "k'r:d;el^ St;'astni:Q d;'atl^ow 'utSi: pR'i;u:st;i: v'a:hu m'l:kveho k'on^a 'ophRi:zat; k'uoRu_:_: a ZR'at; tS'eRstve: m'eso
 p'et;ti:Zdn^,ove: v'l:tSata: n'eRvo:zn^e St;'ekaju: n'amu,ojho d;'atl^a_! v_ t'r:n^i:" "Kŕdeľ šťastných ďatľov učí pri ústí Váhu mĺkveho koňa obhrýzať kôru a žrať čerstvé mäso. Päťtýždňové vĺčatá nervózne štekajú na môjho ďatľa v tŕní." "Latn"

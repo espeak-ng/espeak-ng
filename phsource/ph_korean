@@ -103,8 +103,13 @@ phoneme q-
   import_phoneme base1/q        // temporary
 endphoneme
 
-phoneme tS;-
-  import_phoneme base1/tS;      // temporary
+phoneme tS;-  //  /ㅉ/
+  vls alp sib afr
+  voicingswitch dZ;
+  ipa tɕ-
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  WAV(ustop/ts_pzd)
 endphoneme
 
 phoneme d-

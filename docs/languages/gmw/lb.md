@@ -279,25 +279,9 @@ For convenience I moved the symbols from the `lb_list` file to the `lb_emoji` fi
 ## Integration
 In the last step the four luxembourgish files are embedded into the source code of the eSpeak-NG project. The following source files are modified :
 
-* [Makefile.am](https://github.com/mbarnig/espeak-ng-lb/blob/master/Makefile.am)
 * [phsource/phonemes](https://github.com/mbarnig/espeak-ng-lb/blob/master/phsource/phonemes)
 * [docs/languages.md](https://github.com/mbarnig/espeak-ng-lb/blob/master/docs/languages.md)
 
-In the `Makefile.am` file I added the following lines :
-
-in position 392 :
-```
-phsource/ph_luxembourgish \
-```
-in position 570 :
-```  
-espeak-ng-data/lb_dict \
-```   
-in position 792 :
-```
-lb: espeak-ng-data/lb_dict
-espeak-ng-data/lb_dict: dictsource/lb_list dictsource/lb_rules dictsource/lb_emoji
-```   
 In the `phsource/phonemes` file I added these lines at position 1763 :
 ```  
 phonemetable lb base1
@@ -331,11 +315,10 @@ When building the project the first time, an additional file `lb_dict` is create
 ## Build and use the project
 Now the forked eSpeak-NG source code is ready for compilation, hopefully without problems. Compilation is easy if you have a personal computer with a well configured development environment and all required tools for C-compilation. On my Ubuntu 20.04 system this is the case and I build and install the project with 4 commands :
 
-```   
-./autogen.sh
-./configure
-make
-sudo make install
+```
+cmake -Bbuild
+cmake --build build
+sudo cmake --install build
 ```
 
 ![build espeak-ng-lb](https://github.com/mbarnig/espeak-ng-lb/blob/l%C3%ABtzebuergesch/_layouts/espeak-ng-lb.png)

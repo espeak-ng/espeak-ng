@@ -188,14 +188,14 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 	char *string1 = (char *)string;
 
 	flags[0] = flags[1] = 0;
-	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL)) {
+	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL, 0)) {
 		DecodeWithPhonemeMode(text_out, phonemes, tr, NULL, flags);
 		return text_out;
 	}
 	return NULL;
 }
 
-static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only)
+static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only)
 {
 	// Find the phoneme string (in ascii) to speak the name of character c
 	// Used for punctuation characters and symbols
@@ -217,15 +217,15 @@ static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only
 
 	if (only == true) {
 		string = &single_letter[2];
-		LookupDictList(tr, &string, phonemes, flags, 0, NULL);
+		LookupDictList(tr, &string, phonemes, flags, 0, NULL, 0);
 	}
 
 	if (only == false) {
 		string = &single_letter[1];
-		if (LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0) {
+		if (LookupDictList(tr, &string, phonemes, flags, 0, NULL, 0) == 0) {
 			// try _* then *
 			string = &single_letter[2];
-			if (LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0) {
+			if (LookupDictList(tr, &string, phonemes, flags, 0, NULL, 0) == 0) {
 				// now try the rules
 				single_letter[1] = ' ';
 				TranslateRules(tr, &single_letter[2], phonemes, sizeof(phonemes), NULL, 0, NULL);
@@ -237,9 +237,9 @@ static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only
     		SetTranslator2(ESPEAKNG_DEFAULT_VOICE);
     		string = &single_letter[1];
     		single_letter[1] = '_';
-    		if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL) == 0) {
+			if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL, 0) == 0) {
     			string = &single_letter[2];
-    			LookupDictList(translator2, &string, phonemes, flags, 0, NULL);
+				LookupDictList(translator2, &string, phonemes, flags, 0, NULL, 0);
     		}
     		if (phonemes[0])
     			lang_name = ESPEAKNG_DEFAULT_VOICE;
@@ -277,7 +277,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int bufix1;
 	char buf[200];
 	char ph_buf[30];
-	char cn_buf[60];
+	char cn_buf[74];
 
 	c2 = *c2_ptr;
 	buf[0] = 0;
@@ -705,6 +705,15 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				if (c2 == 0x200d)
 					c1 = 0xd4e; // use this unofficial code for chillu-virama
 			}
+
+			if (c1 == 0xdca && c2 == 0x200d && !Eof()) {
+				// Sinhala virama followed by Zero-width-joiner: the ZWJ only
+				// selects a touching-conjunct glyph (e.g. ක්‍ර) and has no effect
+				// on pronunciation, so drop it and let the cluster be read as one
+				// conjunct. (Emoji ZWJ sequences are unaffected: there the joiner
+				// follows an emoji, not the virama.)
+				c2 = GetC();
+			}
 		}
 
 		if (iswupper(c1)) {
@@ -829,7 +838,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				char *p2;
 
 				p2 = &buf[ix];
-				char cn_buf[60];
+				char cn_buf[74];
 				sprintf(p2, "%s", LookupCharName(cn_buf, tr, c1, true));
 				if (p2[0] != 0) {
 					ix += strlen(p2);

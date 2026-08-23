@@ -1,0 +1,17 @@
+name Pashto (Northwestern)
+language ps-x-northwest
+language ps 5
+maintainer Hanif Rahman <hanifkhan@gmail.com>
+status testing
+speed 90
+
+// Northwestern / central Pashto (central Ghilji area), following the
+// dialect columns of Wikipedia Help:IPA/Pashto. Relative to the
+// southwestern (Kandahari) base ps voice:
+//   ښ [ʂ] → [ç]     ږ [ʐ] → [ʝ]
+//   څ [t͡s] → [s]    ځ [d͡z] → [z]
+// ژ stays [ʒ]. C and J^ are the palatal fricatives from the base1 table.
+replace 00 S. C
+replace 00 Z. J^
+replace 00 ts s
+replace 00 dz z

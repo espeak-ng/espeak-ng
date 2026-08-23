@@ -1,0 +1,211 @@
+language ab
+name abkhazian
+
+.group а
+а       a
+
+.group б
+б       b
+
+.group в
+в       v
+
+.group г
+г	g 
+
+.group гь
+гь     gj 
+
+.group гә
+гә   gw
+ 
+.group ӷ
+ӷ       R
+
+.group ҕ
+ҕ       R 
+
+
+
+.group ӷь
+ӷь     Rj 
+
+
+.group ҕь
+ҕь      Rj @
+ҕь      Rj
+
+.group ӷә
+ӷә      Rw
+
+.group ҕә
+ҕә      Rw
+
+.group д
+д       d 
+
+.group дә
+дә       dw
+
+.group е
+е       e
+
+.group ж
+ж       Z 
+жы      Z@
+жа	Za 
+
+.group жь
+жь     Zj 
+
+.group жә
+жә     Zw 
+жәы    Zw@
+жәа    Zwa
+.group з
+з        z 
+
+.group ӡ
+ӡ        dz 
+
+.group ӡә
+ӡә        dzw 
+ӡәы       dzw@
+ӡәа	  dzwa
+
+.group и
+и        i
+
+.group к
+к        k_
+
+.group кь
+кь      k_j
+
+.group кә
+кә      k_w
+
+.group қ
+қ        k
+
+.group қь
+қь      kj
+
+.group қә
+қә      kw
+
+.group ҟ
+ҟ        q
+
+.group ҟь
+ҟь      qj
+
+.group ҟә
+ҟә      qw
+
+.group л
+л      l
+
+.group м
+м      m
+
+.group н
+н       n
+
+.group о
+о       o
+
+.group п
+п        p_
+
+.group ԥ
+ԥ        p
+
+.group ҧ
+ҧ        p
+
+.group р
+р        r
+
+.group с
+с        s
+
+.group т
+т        t_
+
+.group тә
+тә        t_w
+
+.group ҭ
+ҭ        t
+
+.group ҭә
+ҭә        tw
+
+.group у
+у        u
+
+.group ф
+ф        f
+
+.group х
+х        x
+
+.group хj
+хь        xj
+
+.group хә
+хә        xw
+
+.group ҳ
+ҳ        h
+
+.group ҳә
+ҳә        hw
+
+.group ц
+ц        c
+
+.group цә
+цә      cw
+
+.group ҵ
+ҵ        c_
+
+.group ҵә
+ҵә     c_w
+
+.group ч
+ч        C
+
+.group ҷ
+ҷ        C_
+
+.group ҽ
+ҽ        E
+
+.group ҿ
+ҿ        E_
+
+
+.group ш
+ш        S
+
+.group шь
+шь        Sj
+
+.group шә
+шә        Sw
+
+.group ы
+ы       @
+
+.group ҩ
+ҩ       Uw
+
+.group џ
+џ        J @
+џ        J
+
+.group џь
+џь     Jj

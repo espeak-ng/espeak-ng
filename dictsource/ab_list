@@ -1,0 +1,143 @@
+//Numbers
+
+_0	an'ol       
+_1	'ak_@
+_2	'Uwba
+_3	xp'a
+_4	pSjb'a
+_5	xwb'a
+_6	fb'a
+_7	b'@Zjba
+_8	a'aba
+_9	Zwb'a
+_10	Zw'aba
+_11	Zwe'iza
+_12	Zwa'Uwa
+_13	Zw'axa
+_14	Zw'ipSj
+_15	Zw'oxw
+_16	Zw'af
+_17	Zw'ibZj
+_18	Zw'aa
+_19	z'eiZw
+_20	Uw'aZwa
+_21	Uw'aZwi 'ak_@
+_30	Uw'aZwi Zw'aba
+_40	,Uw@nUw'aZwa
+_50	,Uw@nUw'aZwi Zw'aba
+_60	x,@nUw'aZwa
+_70	x,@nUw'aZwi Zw'aba
+_80	pSj,@nUw'aZwa
+_90	pSj,@nUw'aZwi Zw'aba
+
+//Hundred
+_0C 	Swk_'@ 	
+_0C0	Swk_'@ 	
+_2C	'Uw@Sw
+_3C	x'@Sw
+_4C	pSj'@Sw
+_5C	xw'@Sw
+_6C	f'@Sw
+_7C	b'@ZjSw@
+_8C	a'aSw@
+_9C	ZwSw'@
+
+// Thousand
+_1000	zkj'@
+_2000	'Uwn'@zkj
+_0M1	,amill'ion
+_0M2	,amill'iard
+
+// Symbols
+.	'ak_wap
+,	aE_'arc_wi
+?	,azc_a'arat_w d'@rga
+!	,abZj@tg'arat_w d'@rga
+:	'Uwk_w'apk_
+;	ak_w'api ,aE_arc_w'ii
+-	ac_w'aRwaC_
+"	'arc_wi
+'	,aiqw@tx'aga
+(	,ax@cgj'eZjkwa
+)	,ax@cgj'eZjkwa
+[	,ak_wak_jx'@ckwa
+]	,ak_wak_jx'@ckwa
+{	apS'@nra x'@ckwa
+}	apS'@nra x'@ckwa
+@	,ak_am'@rSSa
+$	ad'ollar
+%	ap_r'ocent_
+&	amp_'ersand
+*	,ai'ec_wa
++	acc_'aga
+=	,eiqar'oup_
+<	,eic_'oup_
+>	,eih'aup_
+
+//Abkhazian letter
+а      a
+б      b
+в      v
+г      g
+гь    gj
+гә    gw
+ӷ     R
+ҕ     R
+ӷь    Rj
+ҕь    Rj
+ӷә    Rw
+ҕә    Rw
+д     d
+дә    dw
+е     e
+ж     Z
+жь    Zj
+жә    Zw
+з     z
+ӡ     dz
+ӡә    dzw
+и     i
+к     k_
+кь    k_j
+кә    k_w
+қ     k
+қь    kj
+қә    kj
+ҟ     q
+ҟь    qj
+ҟә    qw
+л     l
+м     m
+н     n
+о     o
+п     p_
+ԥ     p
+ҧ     p
+р     r
+с     s
+т     t_
+тә    t_w
+ҭ     t
+ҭә    tw
+у     u
+ф     f
+х     x
+хь    xj
+хә    xw
+ҳ     h
+ҳә    hw
+ц     c
+цә    cw
+ҵ     c_
+ҵә    c_w
+ч     C
+ҷ     C_
+ҽ     E
+ҿ     E_
+ш     S
+шь    Sj
+шә    Sw
+ы     @
+ҩ     Uw
+џ     J
+џь    Jj

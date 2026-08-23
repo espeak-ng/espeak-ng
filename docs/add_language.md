@@ -5,7 +5,6 @@
   - [Language Family](#language-family)
   - [Accent (optional)](#accent-optional)
 - [Configuration Files](#configuration-files)
-  - [Makefile.am file](#makefileam-file)
   - [Phonemes file](#phonemes-file)
   - [Language File](#language-file)
   - [Phoneme Definition File](#phoneme-definition-file)
@@ -101,7 +100,6 @@ To add new language, you have to create or edit following files:
 
 |path/file                     |action                       |
 |------------------------------|-----------------------------|
-| Makefile.am                  |[edit](#makefileam-file)     |
 | espeak-ng-data/lang/roa/fr   |[create](#language-file)     |
 | phsource/phonemes            |[edit](#phonemes-file)       |
 | phsource/ph_french           |[create](#phoneme-definition-file) (optional) |
@@ -115,28 +113,6 @@ where:
 * __fr__ is the code of this language
 * __roa__ is the family of this language
 
-
-### Makefile.am File
-
-`Makefile.am` is build configuration file. It should be edited if you add
-new language text-to-phoneme translation rules or set of sounds (phonemes).
-Usually you have to add necessary entries for new language, but may not need if
-you add new dialect for existing language.
-
-Search for configuration of existing languages (e.g. English)
-and add similar lines for your language in following sections.
-E.g. for French:
-
-	dictionaries: \
-	...
-	espeak-ng-data/fr_dict \
-	...
-
-	fr: espeak-ng-data/fr_dict
-	espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
-	...
-
-Note, that you don't need to add `fr_extra` or `fr_emoji` reference in the last group, if your language doesn't have this file.
 
 ### Language File
 
@@ -230,9 +206,9 @@ To build the phoneme files, run:
 
 	espeak-ng --compile-phonemes
 
-or:
+or rebuild all data via CMake (which includes phoneme compilation):
 
-	make phsource/phonemes.stamp
+	cmake --build build --target data
 
 For many languages, the consonant phonemes which are already available
 in eSpeak, together with the available vowel files which can be used to
@@ -274,16 +250,16 @@ the `fr_rules` and `fr_list` sources by the command:
 
 	espeak-ng --compile=fr
 
-or by:
+or rebuild all data via CMake (which includes dictionary compilation):
 
-	make fr
+	cmake --build build --target data
 
 ### Adding tests
 
 All languages require automated tests to make sure accidental changes 
 in program code don't change how the languages sound. 
 
-Tests are run with `make check`. It will print an error if a language
+Tests are run with `ctest --test-dir build --output-on-failure`. It will print an error if a language
 is missing tests.
 
 Most tests are bash scripts in tests/ and follow the syntax:
@@ -297,7 +273,7 @@ To add a test:
 Example line in tests/language-phonemes.test:
 test_phwav fi this_should_fail "ma na Na pa ba ta da"
 
-2. run `make check` to see expected and actual results:
+2. run `ctest --test-dir build --output-on-failure` to see expected and actual results:
 testing fi
 1c1
 < this_should_fail

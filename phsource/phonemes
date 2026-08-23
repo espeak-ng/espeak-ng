@@ -1674,6 +1674,9 @@ include ph_consonants
 phonemetable base2 base1
 include ph_base2
 
+phonemetable ab base
+include ph_abkhaz
+
 phonemetable am base1
 include ph_amhari
 
@@ -1859,6 +1862,9 @@ include ph_italian
 
 phonemetable ku base2
 include ph_kurdish
+
+phonemetable lij base2
+include ph_ligurian
 
 phonemetable mi base2
 include ph_maori
@@ -2081,3 +2087,6 @@ include ph_karakalpak
 
 phonemetable ps base1
 include ph_pashto
+
+phonemetable ab base
+include ph_abkhaz

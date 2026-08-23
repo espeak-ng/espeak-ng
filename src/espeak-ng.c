@@ -774,9 +774,13 @@ int main(int argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 
-		fread(p_text, 1, filesize, f_text);
-		p_text[filesize] = 0;
-		espeak_Synth(p_text, filesize+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
+		size_t n_read = fread(p_text, 1, filesize, f_text);
+		if (n_read != (size_t)filesize) {
+			fprintf(stderr, "Warning: expected %d bytes from input file, got %zu\n",
+			        filesize, n_read);
+		}
+		p_text[n_read] = 0;
+		espeak_Synth(p_text, n_read+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 		fclose(f_text);
 
 		free(p_text);

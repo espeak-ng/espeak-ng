@@ -16,16 +16,21 @@
 
 package com.reecedunn.espeak.test;
 
-import android.test.AndroidTestCase;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.VoiceVariant;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class VoiceVariantTest extends AndroidTestCase
+@RunWith(AndroidJUnit4.class)
+public class VoiceVariantTest
 {
+    @Test
     public void testMaleVoiceVariant()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("male");
@@ -35,6 +40,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("male"));
     }
 
+    @Test
     public void testFemaleVoiceVariant()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("female");
@@ -44,6 +50,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("female"));
     }
 
+    @Test
     public void testNamedVoiceVariant()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("klatt1");
@@ -53,6 +60,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("klatt1"));
     }
 
+    @Test
     public void testMaleVoiceVariantYoung()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("male-young");
@@ -62,6 +70,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("male-young"));
     }
 
+    @Test
     public void testFemaleVoiceVariantYoung()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("female-young");
@@ -71,6 +80,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("female-young"));
     }
 
+    @Test
     public void testNamedVoiceVariantYoung()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("klatt2-young");
@@ -80,6 +90,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("klatt2-young"));
     }
 
+    @Test
     public void testMaleVoiceVariantOld()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("male-old");
@@ -89,6 +100,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("male-old"));
     }
 
+    @Test
     public void testFemaleVoiceVariantOld()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("female-old");
@@ -98,6 +110,7 @@ public class VoiceVariantTest extends AndroidTestCase
         assertThat(variant.toString(), is("female-old"));
     }
 
+    @Test
     public void testNamedVoiceVariantOld()
     {
         VoiceVariant variant = VoiceVariant.parseVoiceVariant("klatt3-old");

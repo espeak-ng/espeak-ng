@@ -63,7 +63,7 @@
 // When these diphtonges are after a consonant folllowing e, e is not mute
 .L10 ia ie io ua ue ui uo
 .L11 b p t
-.L12 é è aï al ib ie iq l om on ym ré
+.L12 é è ê aï al ib ia ie il io iq l om on ré rè uy yl ym
 
 // Words ending "son" pust sound english if preceded by L13
 .L13 d g k l p er hn
@@ -437,6 +437,7 @@ _appar) en (t_     A~        // apparent
 Vxcell) ent (_     t2        // excellent
 
   iCam) en (t_     A~
+testam) en (t_     A~
     mm) en (t_     A~
     em) en (t_     A~        // lentement
    mom) en (t_     A~        // moment
@@ -1268,11 +1269,51 @@ L13)	ston (_		_^_en
    VCi) t (_       t2
         t (_
   peti) t (_       t2
-      th (L12++         t
-      th (ArA++         t
-      th (oCA         t
-or)      th (++         t
-     _) th (erm         t
+
+        th (L12++       t
+        th (ArA++       t
+        th (oCA         t
+        th (All         t
+        th (æ           t
+
+   éCA) th (++          t
+  éCAC) th (++          t
+ éCACA) th (++          t
+
+    an) th              t
+    ar) th              t
+   ari) th              t
+    au) th              t
+    ca) th              t
+     e) th (n           t
+     e) th (m           t
+     é) th              t
+     è) th              t
+    en) th              t
+  gori) th              t
+   gna) th              t
+     ï) th              t
+    in) th              t
+    li) th              t
+    ma) th              t
+   mal) th              t
+    mi) th (r           t
+    or) th              t
+    my) th              t
+  opis) th              t
+  orni) th              t
+    pa) th              t
+    py) th              t
+    ry) th              t
+    yn) th              t
+
+        th (erm         t
+        th (ros         t
+        th (rit         t
+        th (rom         t
+        th (ana         t
+        th (aum         t
+
         ts (_S1    z2        // silent at end of word unless next word starts with a vowel
      C) t (_       t         // compost watt soft script malttact abrupt
     ki) t (_       t         // kit
@@ -1362,8 +1403,8 @@ or)      th (++         t
 _transA) t (_      t
 
 // group t: English section
-      th (A      _^_en     // this
-      th (K      _^_en     // month
+        th (A      _^_en     // this
+        th (K      _^_en     // month
      _) time       _^_en
         tle (_     _^_en
         too        _^_en

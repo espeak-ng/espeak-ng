@@ -10,8 +10,38 @@ test_crash() {
 		$VALGRIND src/espeak-ng -f "$(dirname $0)/crash_vectors/${TEST_NAME}.txt" -w /dev/null || exit 1
 }
 
+test_crash_vector() {
+	TEST_NAME=$1
+	shift
+
+	echo "testing ${TEST_NAME}"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng "$@" -f "$(dirname $0)/crash_vectors/${TEST_NAME}.txt" -w /dev/null || exit 1
+}
+
 test_crash cve-2023-49990
 test_crash cve-2023-49991
 test_crash cve-2023-49992
 test_crash cve-2023-49993
 test_crash cve-2023-49994
+
+test_crash_vector dotted-abbrev-stack-oob -v en
+test_crash_vector dotted-abbrev-skipwords-oob -v en
+test_crash_vector lookupdict-boundary -v hu
+test_crash_vector phoneme-table-switch-nextvowel -v ru
+test_crash_vector phoneme-table-switch-stress -v ar
+test_crash_vector phoneme-table-switch-condition -v ab
+test_crash_vector phoneme-table-switch-condition -v he
+test_crash_vector phoneme-table-switch-condition -v quc
+test_crash_vector phoneme-table-switch-condition -v sw
+test_crash_vector phoneme-table-switch-otherlang -v fr
+test_crash_vector phoneme-table-switch-otherlang -v pt
+test_crash_vector phoneme-table-switch-latin -v fa
+test_crash_vector phoneme-table-switch-latin -v he
+test_crash_vector phoneme-table-switch-latin -v uk
+test_crash_vector phoneme-table-switch-appendvowel -v de
+test_crash_vector phoneme-table-switch-appendvowel -v ru
+test_crash_vector phoneme-table-switch-appendvowel -v ar
+test_crash_vector phoneme-table-switch-appendvowel -v el
+test_crash_vector phoneme-table-switch-appendvowel -v ja
+test_crash_vector suffix-chain-end-phonemes-oob -v en

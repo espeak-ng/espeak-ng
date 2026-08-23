@@ -38,7 +38,7 @@
 #define ESPEAK_API
 #endif
 
-#define ESPEAK_API_REVISION  12
+#define ESPEAK_API_REVISION  13
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()

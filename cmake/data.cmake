@@ -1,26 +1,27 @@
 list(APPEND _dict_compile_list
-  af am an ar as az
+  ab af am an ar as az
   ba be bg bn bpy bs
   ca chr cmn crh cs cv cy
   da de
   el en eo es et eu
-  fa fi fr
+  fa fi fo fr
   ga gd gn grc gu
   hak haw he hi hr ht hu hy
   ia id io is it
   ja jbo
-  ka kk kl kn kok ko ku ky
-  la lb lfn lt lv
+  ka kaa kk kl kn kok ko ku ky
+  la lb lfn lij lt lv
   mi mk ml mn mr ms mto mt my
   nci ne nl nog no
   om or
-  pap pa piqd pl pt py
+  pap pa piqd pl ps pt py
   qdb quc qu qya
   ro ru rup
   sd shn si sjn sk sl smj sq sr sv sw
   ta te ti th tk tn tr tt
   ug uk ur uz
   vi
+  xex
   yue
 )
 
@@ -64,8 +65,10 @@ set(ESPEAK_RUN_ENV ${CMAKE_COMMAND} -E env "ESPEAK_DATA_PATH=${DATA_DIST_ROOT}")
 # if building with CMAKE_CROSSCOMPILING use the NativeBuild of espeak-ng
 if(NATIVEBUILD)
   set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "${NATIVEBUILD}")
+  set(ESPEAK_BIN_DEP "")
 else()
   set(ESPEAK_RUN_CMD ${ESPEAK_RUN_ENV} $ENV{VALGRIND} "$<TARGET_FILE:espeak-ng-bin>")
+  set(ESPEAK_BIN_DEP "$<TARGET_FILE:espeak-ng-bin>")
 endif()
 
 add_custom_command(
@@ -74,7 +77,7 @@ add_custom_command(
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile intonations"
   DEPENDS
-    "$<TARGET_FILE:espeak-ng-bin>"
+    ${ESPEAK_BIN_DEP}
     "${PHONEME_SRC_DIR}/intonation"
 )
 
@@ -105,7 +108,7 @@ add_custom_command(
   COMMENT "Compile phonemes"
   DEPENDS
     "${DATA_DIST_DIR}/intonations"
-    "$<TARGET_FILE:espeak-ng-bin>"
+    ${ESPEAK_BIN_DEP}
     ${_phon_deps}
 )
 
@@ -141,14 +144,14 @@ foreach(_dict_name ${_dict_compile_list})
     COMMAND ${ESPEAK_RUN_CMD} --compile=${_dict_name}
     WORKING_DIRECTORY "${DICT_TMP_DIR}"
     DEPENDS
-      "$<TARGET_FILE:espeak-ng-bin>"
+      ${ESPEAK_BIN_DEP}
       "${DATA_DIST_DIR}/phondata"
       "${DATA_DIST_DIR}/intonations"
       ${_dict_deps}
   )
 endforeach()
 
-if (HAVE_MBROLA AND USE_MBROLA)
+if (USE_MBROLA)
   file(COPY "${DATA_SRC_DIR}/voices/mb" DESTINATION "${DATA_DIST_DIR}/voices")
   file(MAKE_DIRECTORY "${DATA_DIST_DIR}/mbrola_ph")
   foreach(_mbl ${_mbrola_lang_list})
@@ -158,7 +161,7 @@ if (HAVE_MBROLA AND USE_MBROLA)
     add_custom_command(
       OUTPUT "${_mbl_out}"
       COMMAND ${ESPEAK_RUN_CMD} --compile-mbrola="${_mbl_src}"
-      DEPENDS "$<TARGET_FILE:espeak-ng-bin>" "${_mbl_src}"
+      DEPENDS ${ESPEAK_BIN_DEP} "${_mbl_src}"
     )
   endforeach(_mbl)
 endif()

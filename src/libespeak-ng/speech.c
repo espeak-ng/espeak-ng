@@ -85,7 +85,7 @@ static espeak_ng_STATUS err = ENS_OK;
 
 static t_espeak_callback *synth_callback = NULL;
 
-char path_home[N_PATH_HOME]; // this is the espeak-ng-data directory
+char path_home[N_PATH_BUF]; // this is the espeak-ng-data directory
 extern int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
 
 void cancel_audio(void)
@@ -128,7 +128,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 #if USE_LIBPCAUDIO
 				int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 				if (error != 0) {
-					fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+					fprintf(stderr, "audio reopen error: %s\n", audio_object_strerror(my_audio, error));
 					err = ENS_AUDIO_ERROR;
 					return -1;
 				}
@@ -145,7 +145,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		if (out_samplerate == 0) {
 			int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 			if (error != 0) {
-				fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+				fprintf(stderr, "audio open error: %s\n", audio_object_strerror(my_audio, error));
 				err = ENS_AUDIO_ERROR;
 				return -1;
 			}
@@ -157,7 +157,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		if (outbuf && length && a_wave_can_be_played) {
 			int error = audio_object_write(my_audio, (char *)outbuf, 2*length);
 			if (error != 0)
-				fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+				fprintf(stderr, "audio write error: %s\n", audio_object_strerror(my_audio, error));
 		}
 #endif
 
@@ -575,7 +575,9 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 		          ? audio_object_flush(my_audio)
 		          : audio_object_drain(my_audio);
 		if (error != 0)
-			fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+			fprintf(stderr, "audio %s error: %s\n",
+				(aStatus == ENS_SPEECH_STOPPED) ? "flush" : "drain",
+				audio_object_strerror(my_audio, error));
 	}
 #endif
 
