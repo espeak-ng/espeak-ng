@@ -1,6 +1,10 @@
 // This file is UTF8 encoded
 // Spelling-to-phoneme rules for Chuvash
 
+.L02 е ӗ и ӳ э // front vowels
+.L03 а ӑ у // back vowels
+.L04 ю я // diphthongs
+
 .group а
         а        a
 
@@ -43,6 +47,14 @@
 
 .group к
         к        k
+		L02) к (L02	g
+		L02_) к (L02	g
+		L02) к (_L02	g
+		L03) к (L03	Q
+		L03_) к (L03	Q
+		L03) к (_L03	Q
+		L04) к (L02	g
+		L04) к (L03	Q
 
 .group л
         л        l
@@ -58,12 +70,28 @@
 
 .group п
         п        p
+		L02) п (L02	b
+		L02_) п (L02	b
+		L02) п (_L02	b
+		L03) п (L03	b
+		L03_) п (L03	b
+		L03) п (_L03	b
+		L04) п (L02	b
+		L04) п (L03	b
 
 .group р
         р        R
 
 .group с
         с        s
+		L02) с (L02	z
+		L02_) с (L02	z
+		L02) с (_L02	z
+		L03) с (L03	z
+		L03_) с (L03	z
+		L03) с (_L03	z
+		L04) с (L02	z
+		L04) с (L03	z
 
 .group ҫ
         ҫ        C
@@ -71,6 +99,14 @@
 .group т
         т        t
         ть        t;
+		L02) т (L02	d
+		L02_) т (L02	d
+		L02) т (_L02	d
+		L03) т (L03	d
+		L03_) т (L03	d
+		L03) т (_L03	d
+		L04) т (L02	d
+		L04) т (L03	d
 
 .group у
         у        u
@@ -89,9 +125,25 @@
 
 .group ч
         ч        tS
+		L02) ч (L02	dZ
+		L02_) ч (L02	dZ
+		L02) ч (_L02	dZ
+		L03) ч (L03	dZ
+		L03_) ч (L03	dZ
+		L03) ч (_L03	dZ
+		L04) ч (L02	dZ
+		L04) ч (L03	dZ
 
 .group ш
         ш        S
+		L02) ш (L02	Z
+		L02_) ш (L02	Z
+		L02) ш (_L02	Z
+		L03) ш (L03	Z
+		L03_) ш (L03	Z
+		L03) ш (_L03	Z
+		L04) ш (L02	Z
+		L04) ш (L03	Z
 
 .group щ
         щ        C:

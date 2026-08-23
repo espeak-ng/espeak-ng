@@ -1,0 +1,128 @@
+// translation rules for Gagauz
+// This file is UTF-8 encoded
+
+.L01 a ê ı o u
+.L02 ä e i ö ü
+
+.group a
+a	a
+aa	a:
+
+.group ä
+ä	ia
+ää	ia:
+
+.group b
+b	b
+
+.group c
+c	dZ
+
+.group ç
+ç	tS
+
+.group d
+d	d
+
+.group e
+e	e
+_) e	je
+ee	e:
+
+.group ê
+ê	@
+êê	@:
+_) ê	e
+
+.group f
+f	f
+
+.group g
+g (L01	g
+g (L02	J
+L01) g (C	g
+L02) g (C	J
+L01) g (_	g
+L02 g (_	J
+
+.group h
+h	h
+
+.group ı
+ı	y
+_) ı	jy
+ıı	y:
+
+.group i
+i	i
+ii	i:
+
+.group j
+j	Z
+
+.group k
+k (L01	k
+k (L02	c
+L01) k (C	k
+L02) k (C	c
+L01) k (_	k
+L02 k (_	c
+
+.group l
+l (L01	L
+l (L02	l
+L01) l (C	L
+L02) l (C	l
+L01) l (_	L
+L02 l (_	l
+
+.group m
+m	m
+
+.group n
+n	n
+
+.group o
+o	o
+_) o	wo
+oo	o:
+
+.group ö
+ö	jo
+öö	jo:
+
+.group p
+p	p
+
+.group r
+r	r
+
+.group s
+s	s
+
+.group ş
+ş	S
+
+.group t
+t	t
+
+.group ţ
+ţ	ts
+
+.group u
+u	u
+uu	u:
+
+.group ü
+ü	iU
+_) ü	jiU
+üü	iU:
+
+.group v
+v	v
+
+.group y
+y	j
+
+.group z
+z	z
