@@ -26,6 +26,7 @@ updated languages:
 *  he (Hebrew) -- Eyal Cohen
 *  hu (Hungarian) -- Attila Hammer
 *  ko (Korean) -- harmlessman
+*  ku (Kurdish) -- austek
 *  pt (Portuguese) -- Fabio Lima
 *  ru (Russian) -- Alexander Epaneshnikov, AlexanderKhalmaktanov, Danstiv, kirill-jjj, mitrokun
 *  sv (Swedish) -- Daniel Nylander
@@ -55,6 +56,7 @@ bug fixes:
 *  fixed Sinhala ZWJ conjunct clusters being read as separate letters instead of one conjunct -- Ramees Muhammed
 *  fixed Arabic text being spelled letter-by-letter under non-Arabic voices -- Ramees Muhammed
 *  fixed Russian decimal fractions to use feminine unit forms and numerators (e.g. "одна сотая", "две тысячных") -- Danil Kostenkov
+*  fixed Kurdish (ku) word stress for the oblique plural suffix and for negated/imperative/preverb-prefixed verbs and subject pronouns -- austek
 *  fixed flag emoji written without whitespace being spelled out codepoint by codepoint instead of read as country names -- Alexander Epaneshnikov
 *  fixed subdivision flag emoji (England, Scotland, Wales) being read as "black flag" -- Alexander Epaneshnikov
 *  fixed the first letter of emoji descriptions being dropped when it is a non-ASCII capital ("Казахстан" was read as "азахстан") -- Alexander Epaneshnikov
