@@ -67,3 +67,7 @@ test_ipa la "ˈɡrae̯.ka" "graeca" "Latin Syllabification: @-* should not be tr
 
 test_ipa la "ˈnae̯.ʊs" "Gnaeus" "Latin Syllabification: g in gn should be silent at the start of a word during the Classical Period"
 test_ipa la "ˈkɔŋ.nɪ.tʊs" "cognitus" "Latin Syllabification: g (/ŋ/) should be the coda of the vowel o before it"
+
+# Latin intervocalic i/j: compound word exception
+test_ipa la "deːˈjɛk.tʊs" "dēiectus" "Latin IPA"
+test_ipa la "deːˈjɛk.tʊs" "dējectus" "Latin IPA"
