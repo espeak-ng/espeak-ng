@@ -58,6 +58,14 @@ find_mbrola_voice() {
         return 1
 }
 
+compile_mbrola_voice() {
+    TEST_LANG=$1
+
+    echo "compiling ${TEST_LANG}"
+	ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+	$VALGRIND src/espeak-ng --compile-mbrola=${TEST_LANG}
+}
+
 # Check processed text by phonetic representation of the output
 test_phon() {
     TEST_LANG="$1"
@@ -84,8 +92,8 @@ test_phon() {
 
     echo "testing ${TEST_LANG} $MESSAGE"
     RESULT=$(
-        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -x ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
+		ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        $VALGRIND src/espeak-ng ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
     )
     EXIT_CODE=0
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
@@ -133,7 +141,7 @@ test_wav () {
 
     echo "testing ${VOICE} ${MESSAGE}"
     RESULT=$(
-        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" | $sha1sum | awk '{ print $1 }' || exit 1
     )
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
@@ -154,7 +162,7 @@ test_wav_grep () {
     MESSAGE=$4
     echo "testing ${VOICE} ${MESSAGE}"
     $()
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+    ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
             $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
             > actual.txt || exit 1
     < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
@@ -185,7 +193,7 @@ test_replace() {
 
     echo "testing ${TEST_LANG}"
     RESULT=$(
-        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" 2>&1 | \
         grep -a -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' || exit 1
     )
