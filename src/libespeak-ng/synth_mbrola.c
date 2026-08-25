@@ -459,18 +459,20 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 				len += 50; // lengthen vowels before a pause
 			len = (len * p->length)/256;
 
-			if (name2 == 0) {
+			if (name2 == 0 || len_percent > 100) {
+				len = (len * (len_percent ? len_percent : 100)) / 100;
 				char *pitch = WritePitch(p->env, p->pitch1, p->pitch2, 0, 0);
 				ptr += sprintf(ptr, "%d\t%s", len, pitch);
 			} else {
 				char *pitch;
 
 				pitch = WritePitch(p->env, p->pitch1, p->pitch2, len_percent, 0);
-				len1 = (len * len_percent)/100;
+				len1 = (len * len_percent) / 100;
 				ptr += sprintf(ptr, "%d\t%s", len1, pitch);
+				len -= len1;
 
 				pitch = WritePitch(p->env, p->pitch1, p->pitch2, -len_percent, 0);
-				ptr += sprintf(ptr, "%s\t%d\t%s", WordToString(phbuf, name2), len-len1, pitch);
+				ptr += sprintf(ptr, "%s\t%d\t%s", WordToString(phbuf, name2), len, pitch);
 			}
 			done = true;
 			break;
@@ -520,7 +522,11 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 		}
 
 		if (!done) {
-			if (name2 != 0) {
+			if (len_percent > 100) {
+				// HACK: treat len_percent as a direct length multiplier
+				len = (len * len_percent) / 100;
+			} else if (name2 != 0) {
+				// standard split behaviour
 				len1 = (len * len_percent)/100;
 				ptr += sprintf(ptr, "%d\n%s\t", len1, WordToString(phbuf, name2));
 				len -= len1;

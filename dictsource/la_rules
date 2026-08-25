@@ -30,6 +30,8 @@
 
 .L01 ae au eu oe ui a e i o u yy y ā ē ī ō ū ë ü é æ
 .L02 ng qu pr tr cr chr br dr gr pl cl bl gl ph th ch 
+// prefixs
+.L03 ab ad ante circum con contra dē ex in inter ob per post prae pro re se sub super trans
 
 .group a
              a            a
@@ -117,6 +119,8 @@
     // Cases in which 'i' is pronounced as the semi-vowel /j/
           _) i (A         j
           A) i (A+        j:
+    // Exceptions: compound formations
+        L03) i (A+        j
     // Exceptions where u is a consonant
          qu) i (L01X++    =I
          qu) i (A++        I
@@ -133,6 +137,14 @@
 
 .group ī
              ī            i:
+
+.group j
+             j            j
+             jj           j:
+    // Intervocalic gemination between vowels, e.g., dejectus -> dej-jectus
+          A) j (A+        j:
+    // Exceptions: compound formations
+        L03) j (A+        j
 
 
 .group k
@@ -256,5 +268,4 @@
 
 
 .group
-             j            j
              w            w

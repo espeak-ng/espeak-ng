@@ -637,7 +637,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		if (plist->newword & PHLIST_START_OF_WORD && !(plist->newword & (PHLIST_START_OF_SENTENCE | PHLIST_START_OF_CLAUSE)))
 			*buf++ = ' ';
 
-		if ((!plist->newword) || (separate_phonemes == ' ')) {
+		if (!plist->newword || (separate_phonemes == ' ')) {
 			if ((separate_phonemes != 0) && (ix > 1)) {
 				int phoneme_start;
 				utf8_in(&phoneme_start, phon_buf2);

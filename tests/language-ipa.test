@@ -64,3 +64,7 @@ test_ipa la "ˈfa.ki.oː" "faciō" "f -> /f/"
 # FIXME: test_ipa la "g" "g" "g -> /g/"
 
 test_ipa la "ˈɡrae̯.ka" "graeca" "Latin IPA"
+
+# Latin intervocalic i/j: compound word exception
+test_ipa la "deːˈjɛk.tʊs" "dēiectus" "Latin IPA"
+test_ipa la "deːˈjɛk.tʊs" "dējectus" "Latin IPA"
