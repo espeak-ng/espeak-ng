@@ -1,15 +1,4 @@
-0  r/  NULL  0  r
-0  w/  NULL  0  w
-0  ;   NULL  0  NULL
-0  @-  NULL  0  NULL
-0  *   NULL  0  r
-1  R   *     0  r:
-0  R   NULL  0  r
-
-1  p   <h>   0  p_h
-1  t   <h>   0  t_h
-1  k   <h>   0  k_h
-
+// geminate/lengthened stops
 0  p   :     0  p:
 0  b   :     0  b:
 0  t   :     0  t:
@@ -17,18 +6,37 @@
 0  k   :     0  k:
 0  g   :     0  g:
 
+// continuants and nasals
 9  f   f     0  f:
 9  s   s     0  s:
 9  z   z     0  z:
 9  m   m     0  m:
 9  n   n     0  n:
 
+// liquids and glides
 9  j/  j     0  j:
 0  j/  NULL  0  j
 0  l/  NULL  0  l
 9  l/2 l     0  l:
 0  l/2 NULL  0  l
 
+// diphthongs
 0  E_U  NULL  60 E U
 0  U_I  NULL  50 u I
 0  O_U  NULL  50 O U
+
+// approximants, markers and vowel/syllable adjustments
+0  r/  NULL  0  r
+0  w/  NULL  0  w
+0  ;   NULL  0  NULL
+0  @-  NULL  0  NULL
+0  *   NULL  0  r
+
+// rhotic / r-colouring rules
+1  R   *     0  r:
+0  R   NULL  0  r
+
+// aspirated-stop consonants
+1  p   <h>   0  p_h
+1  t   <h>   0  t_h
+1  k   <h>   0  k_h
