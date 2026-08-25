@@ -424,3 +424,32 @@ s	140
 _	301
 _	1" \
     "dējectus" "Latn"
+
+# Macronised vowels after 's' are not dropped
+# transition s-a: is missing from mb-la1 -> substitute a: with a-a
+test_mbrola_phon mb-la1 "k'aUsa:
+k	112
+aU	97	 0 105 80 81 100 81
+s	100
+a	52	 0 84 100 78
+a	52	 80 78 100 78
+_	301
+_	1" \
+    "causā" "Latn"
+
+# transition s-a: is missing from mb-la1 -> substitute a: with a-a
+test_mbrola_phon mb-la1 "mEns'a:RUm
+m	65
+E	26	 0 94 20 95 40 96 59 97 80 99 100 99
+n	60	100 91
+
+s	100
+a	50	 0 105 100 81
+a	51	 80 81 100 81
+r	65
+U	43	 0 84 80 78 100 78
+m	134	100 73
+
+_	301
+_	1" \
+    "mensārum" "Latn"
