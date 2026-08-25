@@ -72,6 +72,9 @@
 0  k   s     0  k _
 0  g   s     0  g _
 
+// fricatives-to-vowels
+2  a:  s     50 a a
+
 // palatal glide cluster safety rule (missing j-j diphone)
 0  j   j     200 j
 2  j   j     0   NULL
