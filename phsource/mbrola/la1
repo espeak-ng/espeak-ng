@@ -1,3 +1,77 @@
+// latin phonemes
+
+// latin consonants
+
+// latin plosives
+// simple plosives: p b t d k g
+// double plosives: p: b: t: d: k: g:
+
+// latin fricatives
+// simple fricatives: f s h
+// double fricatives: f: s:
+
+// latin nasals
+// simple nasals: m n N
+// double nasals: m: n:
+
+// latin liquids
+// simple liquids: l r
+// double liquids: l: r:
+
+// latin semivowels
+// simple semivowels: w j
+// double semivowels: j:
+
+// latin vowels
+// short vowels: a E I O U
+// intermediate vowels: 1
+// long vowels: a: e: i: o: u:
+// diphthongs: aE aU OE
+
+// greek phonemes
+
+// greek consonants
+
+// greek plosives
+// simple aspirated voiceless plosives: p_h t_h k_h
+// double aspirated plosives: p_h: t_h: k_h:
+
+// greek fricatives
+// simple fricatives: z
+// double fricatives: z:
+
+// greek vowels
+// short vowels: y
+// long vowels: t:
+
+// boundary: _
+
+// plosives-to-plosives
+// impossible: p -> b
+0  p   b     0  p _
+0  p   d     0  p _
+0  p   g     0  p _
+// impossible: b -> {p, b}
+0  b   t     0  b _
+0  b   k     0  b _
+// impossible: t -> t
+0  d   p     0  d _
+// impossible: d -> {t, d}
+0  d   k     0  d _
+// impossible: k -> k
+0  g   p     0  g _
+0  g   b     0  g _
+0  g   t     0  g _
+// impossible: g -> {k, g}
+
+// plosives-to-fricatives: mbrola does not have recordings of these
+0  b   s     0  b _
+0  p   s     0  p _
+0  t   s     0  t _
+0  d   s     0  d _
+0  k   s     0  k _
+0  g   s     0  g _
+
 // palatal glide cluster safety rule (missing j-j diphone)
 0  j   j     200 j
 2  j   j     0   NULL

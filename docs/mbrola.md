@@ -302,7 +302,7 @@ Each line in the mbrola phoneme translation file contains:
 
 * `<mbrola ph2>` \
   The second mbrola phoneme. This field is only used if the \<percent\>
-  field is not zero.
+  field is not zero or if the value is '_' when the percent is 0.
 
 The list is searched from start to finish, until a match is found.
 Therefore, a line with more specific match condition should appear
