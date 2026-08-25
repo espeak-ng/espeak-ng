@@ -439,7 +439,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 
 		ptr += sprintf(ptr, "%s\t", WordToString(phbuf, name));
 
-		if (name2 == '_') {
+		if (name2 == '_' && len_percent > 0) {
 			// add a pause after this phoneme
 			pause = len_percent;
 			name2 = 0;
@@ -525,13 +525,18 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 			if (len_percent > 100) {
 				// HACK: treat len_percent as a direct length multiplier
 				len = (len * len_percent) / 100;
-			} else if (name2 != 0) {
+			} else if (name2 != 0 && name2 != '_') {
 				// standard split behaviour
 				len1 = (len * len_percent)/100;
 				ptr += sprintf(ptr, "%d\n%s\t", len1, WordToString(phbuf, name2));
 				len -= len1;
 			}
 			ptr += sprintf(ptr, "%d%s\n", len, final_pitch);
+
+			if (name2 == '_' && len_percent == 0) {
+				// primary phoneme keeps full len, _ gets 0
+				ptr += sprintf(ptr, "_\t0\n");
+			}
 		}
 
 		if (pause) {

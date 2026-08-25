@@ -339,6 +339,62 @@ test_phon en-US "k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:
 
 ##### Latin Language Regression Tests (GitHub Issue #303)
 
+# Consonant clusters: ensuring a consonant following another consonant is not dropped
+test_mbrola_phon mb-la1 "'ObsIdEs
+O	61	 0 105 80 81 100 81
+b	65
+_	0
+s	100
+I	28	 0 84 80 81 100 81
+d	65
+E	30	 0 81 80 78 100 78
+s	140
+_	301
+_	1" \
+    "obsides" "Latn"
+
+test_mbrola_phon mb-la1 "sUbs'IdI;Um
+s	100
+U	30	 0 94 20 95 40 96 59 97 80 99 100 99
+b	65
+_	0
+s	100
+I	55	 0 105 80 81 100 81
+d	65
+I	25	 0 84 80 81 100 81
+U	33	 0 81 80 78 100 78
+m	126	100 73
+
+_	301
+_	1" \
+    "subsidium" "Latn"
+
+test_mbrola_phon mb-la1 "s'UbsEkwI
+s	100
+U	61	 0 105 80 81 100 81
+b	65
+_	0
+s	100
+E	29	 0 84 80 81 100 81
+k	102
+w	65
+I	81	 0 81 80 78 100 78
+_	301
+_	1" \
+    "subsequi" "Latn"
+
+test_mbrola_phon mb-la1 "'adsUm
+a	66	 0 105 80 81 100 81
+d	65
+_	0
+s	100
+U	43	 0 84 80 78 100 78
+m	134	100 73
+
+_	301
+_	1" \
+    "adsum" "Latn"
+
 # Consonant i: ensuring intervocalic 'i' behaves like 'j'
 test_phon mb-la1 "de:j'EktUs" "dēiectus" "Latn"
 test_mbrola_phon mb-la1 "de:j'EktUs
