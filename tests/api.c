@@ -58,7 +58,7 @@ test_espeak_initialize()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -81,7 +81,7 @@ test_espeak_synth()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -114,7 +114,7 @@ test_espeak_synth_no_voices(const char *path)
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, path, espeakINITIALIZE_DONT_EXIT) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, path, espeakINITIALIZE_DONT_EXIT) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -151,7 +151,7 @@ test_espeak_ng_synthesize()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -184,7 +184,7 @@ test_espeak_ng_synthesize_no_voices(const char *path)
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, path, espeakINITIALIZE_DONT_EXIT) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, path, espeakINITIALIZE_DONT_EXIT) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -221,7 +221,7 @@ test_espeak_set_voice_by_name_null_voice()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -258,7 +258,7 @@ test_espeak_set_voice_by_name_blank_voice()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -295,7 +295,7 @@ test_espeak_set_voice_by_name_valid_voice()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -333,7 +333,7 @@ test_espeak_set_voice_by_name_invalid_voice()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -370,7 +370,7 @@ test_espeak_set_voice_by_name_language_variant_intonation_parameter()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -411,7 +411,7 @@ test_espeak_set_voice_by_properties_empty()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -452,7 +452,7 @@ test_espeak_set_voice_by_properties_blank_language()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -494,7 +494,7 @@ test_espeak_set_voice_by_properties_with_valid_language()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
@@ -536,7 +536,7 @@ test_espeak_set_voice_by_properties_with_invalid_language()
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 	TEST_ASSERT(event_list != NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);

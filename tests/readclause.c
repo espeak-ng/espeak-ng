@@ -517,7 +517,7 @@ main(int argc, char **argv)
 	(void)argc; // unused parameter
 	(void)argv; // unused parameter
 
-	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == ESPEAKNG_DEFAULT_SAMPLE_RATE);
 
 	test_latin();
 	test_latin_sentence();

@@ -35,7 +35,7 @@ extern "C"
 #define N_PHONEME_LIST 1000 // enough for source[N_TR_SOURCE] full of text, else it will truncate
 
 #define N_SEQ_FRAMES  25 // max frames in a spectrum sequence (real max is ablut 8)
-#define STEPSIZE      64 // 2.9mS at 22 kHz sample rate
+#define STEPSIZE      128 // 2.9mS at the 44.1 kHz default sample rate
 
 // flags set for frames within a spectrum sequence
 #define FRFLAG_KLATT           0x01 // this frame includes extra data for Klatt synthesizer
@@ -430,7 +430,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 extern unsigned char *wavefile_data;
 extern int samplerate;
 
-#define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
+#define N_ECHO_BUF 11025  // max of 250mS at 44100 Hz
 extern int echo_head;
 extern int echo_tail;
 extern int echo_amp;

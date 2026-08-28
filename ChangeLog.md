@@ -64,6 +64,7 @@ bug fixes:
 *  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
 
 features:
+*  added native 44.1 kHz synthesis with windowed-sinc sample conversion, rate-aware buffers, glottal energy compensation, phase-aligned transitions and de-click cross-fading -- uyt3ar
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov
 *  added skin tone emoji support: sequences are spoken as the base name plus the modifier names -- Alexander Epaneshnikov
 *  updated emoji and symbol data from CLDR 33.1 to CLDR 48.2 (Unicode Emoji 12..16) for 66 languages, with a new additive tools/update-emoji updater -- Alexander Epaneshnikov

@@ -93,7 +93,7 @@ typedef struct {
 	long original_f0; /* original value of f0 not modified by flutter */
 
 	int fadein;
-	int fadeout;       // set to 64 to cause fadeout over 64 samples
+	int fadeout;       // set to STEPSIZE to fade over one synthesis step
 	int scale_wav;     // depends on the voicing source
 
 #define N_RSN 20

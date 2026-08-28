@@ -1,12 +1,13 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 #include "sPlayer.h"
+#include "wavegen.h"
 
 extern unsigned char *out_ptr;
 extern unsigned char *out_end;
 
 static speechPlayer_handle_t speechPlayerHandle=NULL;
-static const unsigned int minFadeLength=110;
+static const unsigned int minFadeLength=ESPEAKNG_DEFAULT_SAMPLE_RATE/200; // 5 ms
 
 static int MIN(int a, int b) { return((a) < (b) ? a : b); }
 
@@ -94,7 +95,7 @@ static void fillSpeechPlayerFrame(WGEN_DATA *wdata, voice_t *wvoice, frame_t * e
 }
 
 void KlattInitSP(void) {
-	speechPlayerHandle=speechPlayer_initialize(22050);
+	speechPlayerHandle=speechPlayer_initialize(samplerate);
 }
 
 void KlattFiniSP(void) {
@@ -142,7 +143,16 @@ int Wavegen_KlattSP(WGEN_DATA *wdata, voice_t *wvoice, int length, int resume, f
 	}
 	unsigned int maxLength=(out_end-out_ptr)/sizeof(sample);
 	unsigned int outLength=speechPlayer_synthesize(speechPlayerHandle,maxLength,(sample*)out_ptr);
-	mixWaveFile(wdata, outLength,(sample*)out_ptr);
+	sample *samples=(sample*)out_ptr;
+	for (unsigned int ix=0; ix<outLength; ix++) {
+		int gained=WavegenApplyVoiceGain(samples[ix].value);
+		if (gained > 32767) gained=32767;
+		if (gained < -32768) gained=-32768;
+		samples[ix].value=(sampleVal)gained;
+	}
+	mixWaveFile(wdata, outLength,samples);
+	for (unsigned int ix=0; ix<outLength; ix++)
+		samples[ix].value=(sampleVal)WavegenSmoothSample(samples[ix].value);
 	out_ptr=out_ptr+(sizeof(sample)*outLength);
 	if(out_ptr>=out_end) return 1;
 	return 0;

@@ -24,6 +24,7 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1079,94 +1080,114 @@ static espeak_ng_STATUS LoadSpect(CompileContext *ctx, const char *path, int con
 	return ENS_OK;
 }
 
+#define RESAMPLE_HALF_TAPS 8
+
+static double Sinc(double x)
+{
+	if (fabs(x) < 1e-12)
+		return 1.0;
+	const double pi = 3.14159265358979323846;
+	return sin(pi * x) / (pi * x);
+}
+
+static int InterpolateHalfSample(const short *samples, int count, int left)
+{
+	// 16-tap windowed-sinc interpolation preserves the original high-frequency
+	// energy much better than averaging adjacent samples.
+	double sum = 0.0;
+	double weight_sum = 0.0;
+	for (int ix = left - RESAMPLE_HALF_TAPS + 1;
+			ix <= left + RESAMPLE_HALF_TAPS; ix++) {
+		if ((ix < 0) || (ix >= count))
+			continue;
+		double distance = (left + 0.5) - ix;
+		double weight = Sinc(distance) * Sinc(distance / RESAMPLE_HALF_TAPS);
+		sum += samples[ix] * weight;
+		weight_sum += weight;
+	}
+	if (fabs(weight_sum) > 1e-12)
+		sum /= weight_sum;
+	if (sum > 32767.0) sum = 32767.0;
+	if (sum < -32768.0) sum = -32768.0;
+	return (int)lrint(sum);
+}
+
+static void WriteWaveSample(FILE *output, int sample, int scale_factor)
+{
+	int sample8 = (int)lrint((double)sample / scale_factor);
+	if (sample8 > 127) sample8 = 127;
+	if (sample8 < -128) sample8 = -128;
+	fputc(sample8, output);
+}
+
 static int LoadWavefile(CompileContext *ctx, FILE *f, const char *fname)
 {
 	int displ;
-	unsigned char c1;
-	int sample;
-	int sample2;
-	float x;
-	int max = 0;
 	int length;
 	int sr1, sr2;
-	int scale_factor = 0;
+	int max = 0;
+	int scale_factor;
+	int resample_factor;
 
 	fseek(f, 24, SEEK_SET);
 	sr1 = Read4Bytes(f);
 	sr2 = Read4Bytes(f);
 	fseek(f, 40, SEEK_SET);
 
-	if ((sr1 != samplerate) || (sr2 != sr1*2)) {
-		if (sr1 != samplerate)
-			error(ctx, "Can't resample (%d to %d): %s", sr1, samplerate, fname);
-		else
-			error(ctx, "WAV file is not mono: %s", fname);
+	if (sr2 != sr1 * 2) {
+		error(ctx, "WAV file is not mono: %s", fname);
+		return 0;
+	}
+	if (sr1 == samplerate)
+		resample_factor = 1;
+	else if (samplerate == sr1 * 2)
+		resample_factor = 2;
+	else {
+		error(ctx, "Can't resample (%d to %d): %s", sr1, samplerate, fname);
 		return 0;
 	}
 
 	displ = ftell(ctx->f_phdata);
-
-	// data contains:  4 bytes of length (n_samples * 2), followed by 2-byte samples (lsb byte first)
 	length = Read4Bytes(f);
+	int sample_count = length / 2;
+	short *samples = malloc(sample_count * sizeof(*samples));
+	if (samples == NULL) {
+		error(ctx, "Out of memory reading WAV file: %s", fname);
+		return 0;
+	}
 
-	while (true) {
-		int c;
-
-		if ((c = fgetc(f)) == EOF)
+	for (int ix = 0; ix < sample_count; ix++) {
+		int low = fgetc(f);
+		int high = fgetc(f);
+		if ((low == EOF) || (high == EOF)) {
+			sample_count = ix;
 			break;
-		c1 = (unsigned char)c;
-
-		if ((c = fgetc(f)) == EOF)
-			break;
-
-		sample = CalculateSample((unsigned char) c, c1);
-
-		if (sample > max)
-			max = sample;
-		else if (sample < -max)
-			max = -sample;
+		}
+		samples[ix] = CalculateSample((unsigned char)high, (unsigned char)low);
+		if (samples[ix] > max) max = samples[ix];
+		else if (samples[ix] < -max) max = -samples[ix];
 	}
 
 	scale_factor = (max / 127) + 1;
+	Write4Bytes(ctx->f_phdata,
+		(sample_count * resample_factor) + (scale_factor << 16));
 
-	#define MIN_FACTOR   -1 // was 6, disable use of 16 bit samples
-	if (scale_factor > MIN_FACTOR) {
-		length = length/2 + (scale_factor << 16);
-	}
-
-	Write4Bytes(ctx->f_phdata, length);
-	fseek(f, 44, SEEK_SET);
-
-	while (!feof(f)) {
-		c1 = fgetc(f);
-		unsigned char c3 = fgetc(f);
-
-		sample = CalculateSample(c3, c1);
-
-		if (feof(f)) break;
-
-		if (scale_factor <= MIN_FACTOR) {
-			fputc(sample & 0xff, ctx->f_phdata);
-			fputc(sample >> 8, ctx->f_phdata);
-		} else {
-			x = ((float)sample / scale_factor) + 0.5;
-			sample2 = (int)x;
-			if (sample2 > 127)
-				sample2 = 127;
-			if (sample2 < -128)
-				sample2 = -128;
-			fputc(sample2, ctx->f_phdata);
+	for (int ix = 0; ix < sample_count; ix++) {
+		WriteWaveSample(ctx->f_phdata, samples[ix], scale_factor);
+		if (resample_factor == 2) {
+			int interpolated = ix + 1 < sample_count
+				? InterpolateHalfSample(samples, sample_count, ix) : samples[ix];
+			WriteWaveSample(ctx->f_phdata, interpolated, scale_factor);
 		}
 	}
+	free(samples);
 
 	length = ftell(ctx->f_phdata);
 	while ((length & 3) != 0) {
-		// pad to a multiple of 4 bytes
 		fputc(0, ctx->f_phdata);
 		length++;
 	}
-
-	return displ | 0x800000; // set bit 23 to indicate a wave file rather than a spectrum
+	return displ | 0x800000;
 }
 
 static espeak_ng_STATUS LoadEnvelope(CompileContext *ctx, FILE *f, int *displ)
