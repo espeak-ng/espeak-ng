@@ -231,3 +231,5 @@ espeak-ng-data/mbrola_ph/*_phtrans
 
 # coverage
 *.profraw
+
+.venv/

@@ -5,7 +5,12 @@
 is_hash
 is_mbrola
 
-test_mb () {
+if [ ${SKIP_MBROLA:-0} -eq 1 ]; then
+	echo "Skip MBROLA tests when TSAN is enabled..."
+	exit 0
+fi
+
+test_mb() {
         MBVOICE=$1
         EXPECTED=$2
         TEST_TEXT=$3

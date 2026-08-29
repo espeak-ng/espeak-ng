@@ -75,6 +75,7 @@ jobs:
 
           - config: "tsan"
             config_cflags: "-fsanitize=thread"
+            runenv: "SKIP_MBROLA=1"
 
           - config: "ubsan"
             config_cflags: "-fsanitize=undefined"
@@ -190,7 +191,7 @@ jobs:
       run: |
         [ 'x${{ matrix.cross }}' == 'xno' ] && sudo dpkg --add-architecture ${{ matrix.arch }}
         sudo apt-get update
-        sudo apt-get install ronn kramdown python3
+        sudo apt-get install ronn kramdown python3 mbrola mbrola-*
     - name: apt-arch-deps
       if: matrix.os == 'ubuntu' && matrix.cross == 'no'
       run: "sudo apt-get install cmake valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libc6-dbg:${{ matrix.arch }} libgcc-s1:${{ matrix.arch }}"
@@ -204,13 +205,36 @@ jobs:
     # MacOS - dependencies
     - name: brew-deps
       if: matrix.os == 'macos'
-      run: brew install cmake ronn OJFord/homebrew-formulae/kramdown
+      run: |
+        brew install cmake ronn OJFord/homebrew-formulae/kramdown
+
+        # install mbrola with voice files
+        brew tap justinokamoto/espeak-ng
+        brew install --HEAD --with-voices justinokamoto/espeak-ng/mbrola
+
     - name: brew-compile-deps
       if: matrix.os == 'macos' && matrix.compiler == 'gcc'
       run: brew install gcc@12
 
     # Checkout code
     - uses: actions/checkout@v7
+
+    - name: Test MBROLA
+      run: |
+        set -e
+
+        . tests/common
+
+        mbrola -h
+
+        test_mbrola() {
+          voice=${1?}
+
+          python tools/validate_riff.py WAVE < <(printf '_\t0\n' | mbrola "$(find_mbrola_voice "$voice")" - -.wav)
+        }
+        # test la1
+        test_mbrola en1
+        test_mbrola la1
 
     # Configure
     - name: configure
