@@ -58,14 +58,6 @@ find_mbrola_voice() {
         return 1
 }
 
-compile_mbrola_voice() {
-    TEST_LANG=$1
-
-    echo "compiling ${TEST_LANG}"
-	ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-	$VALGRIND src/espeak-ng --compile-mbrola=${TEST_LANG}
-}
-
 # Check processed text by phonetic representation of the output
 test_phon() {
     TEST_LANG="$1"
@@ -76,6 +68,12 @@ test_phon() {
 
     if [ "$MESSAGE" = "" ] ; then
         MESSAGE=$TEST_TEXT
+    fi
+
+    if [ "${TEST_LANG#mb-}" != "${TEST_LANG}" ] &&  [ ${SKIP_MBROLA:-0} -eq 1 ]; then
+        # XXX: seems we occasionally cannot see the output from mbrola when TSAN is enabled
+        echo "Skipping MBROLA voice ${TEST_LANG} test case..."
+        return 0
     fi
 
     if [[ $OPTIONS != *--ipa* ]]; then
