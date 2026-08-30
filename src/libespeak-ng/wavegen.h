@@ -64,6 +64,8 @@ void WavegenFini(void);
 
 
 int WavegenFill(void);
+int WavegenApplyVoiceGain(int sample);
+int WavegenSmoothSample(int sample);
 void WavegenSetVoice(voice_t *v);
 int WcmdqFree(void);
 void WcmdqStop(void);

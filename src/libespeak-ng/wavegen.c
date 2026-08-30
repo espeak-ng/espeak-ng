@@ -109,6 +109,24 @@ static double two_pi_t;
 unsigned char *out_ptr;
 unsigned char *out_end;
 
+// 44.1 kHz voicing compensation and de-click state. The transition fade is
+// intentionally short (4 ms): long enough to remove a discontinuity, but too
+// short to blur consonant attacks.
+static int formant_gain = 256;
+static int output_source = 0;
+static int transition_samples = 0;
+static int transition_position = 0;
+static int transition_from = 0;
+static int last_output_sample = 0;
+
+enum {
+	OUTPUT_SOURCE_NONE,
+	OUTPUT_SOURCE_SILENCE,
+	OUTPUT_SOURCE_WAVE,
+	OUTPUT_SOURCE_FORMANT,
+	OUTPUT_SOURCE_KLATT
+};
+
 espeak_ng_OUTPUT_HOOKS* output_hooks = NULL;
 static int const_f0 = 0;
 
@@ -199,7 +217,7 @@ static const unsigned char Flutter_tab[N_FLUTTER] = {
 };
 
 // waveform shape table for HF peaks, formants 6,7,8
-#define N_WAVEMULT 128
+#define N_WAVEMULT 256
 static int wavemult_offset = 0;
 static int wavemult_max = 0;
 
@@ -238,6 +256,11 @@ void WcmdqStop(void)
 {
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
+	output_source = OUTPUT_SOURCE_NONE;
+	transition_samples = 0;
+	transition_position = 0;
+	transition_from = 0;
+	last_output_sample = 0;
 
 #if USE_LIBSONIC
 	if (sonicSpeedupStream != NULL) {
@@ -263,6 +286,61 @@ int WcmdqFree(void)
 int WcmdqUsed(void)
 {
 	return N_WCMDQ - WcmdqFree();
+}
+
+static void BeginOutputTransition(int source, bool force)
+{
+	if (!force && (source == output_source))
+		return;
+
+	output_source = source;
+	transition_samples = samplerate / 250; // 4 ms
+	if (transition_samples < 1)
+		transition_samples = 1;
+	transition_position = 0;
+	transition_from = last_output_sample;
+
+	// Start a newly voiced section at the oscillator's quiet crossing. The
+	// raised-cosine blend below then joins it to the preceding sampled sound.
+	if (source == OUTPUT_SOURCE_FORMANT)
+		wavephase = 0x7fffffff;
+}
+
+int WavegenApplyVoiceGain(int sample)
+{
+	return (sample * formant_gain) / 256;
+}
+
+static int SoftLimitSample(int sample)
+{
+	// Leave normal programme level untouched. Above the 85% knee, approach
+	// full scale asymptotically instead of hard-clipping the waveform.
+	const int threshold = 27852;
+	const int ceiling = 32767;
+	int64_t magnitude = sample < 0 ? -(int64_t)sample : sample;
+	if (magnitude > threshold) {
+		int64_t over = magnitude - threshold;
+		int64_t range = ceiling - threshold;
+		magnitude = threshold + (over * range) / (over + range);
+	}
+	if (magnitude > ceiling)
+		magnitude = ceiling;
+	return sample < 0 ? -(int)magnitude : (int)magnitude;
+}
+
+int WavegenSmoothSample(int sample)
+{
+	if (transition_position < transition_samples) {
+		double phase = (double)(transition_position + 1) / transition_samples;
+		double weight = 0.5 - 0.5 * cos(M_PI * phase);
+		sample = (int)lrint(transition_from * (1.0 - weight) + sample * weight);
+		transition_position++;
+	}
+	sample = SoftLimitSample(sample);
+	if (sample > 32767) sample = 32767;
+	if (sample < -32768) sample = -32768;
+	last_output_sample = sample;
+	return sample;
 }
 
 void WcmdqInc(void)
@@ -332,6 +410,18 @@ void WavegenInit(int rate, int wavemult_fact)
 
 	wvoice = NULL;
 	samplerate = rate;
+	// Restore a small amount of perceived glottal/formant energy when the
+	// 22.05 kHz presets are rendered at the 44.1 kHz default rate.
+	formant_gain = 256;
+	if (samplerate > 22050)
+		formant_gain += ((samplerate - 22050) * 32) / 22050;
+	if (formant_gain > 320)
+		formant_gain = 320;
+	output_source = OUTPUT_SOURCE_NONE;
+	transition_samples = 0;
+	transition_position = 0;
+	transition_from = 0;
+	last_output_sample = 0;
 	PHASE_INC_FACTOR = 0x8000000 / samplerate; // assumes pitch is Hz*32
 	Flutter_inc = (64 * samplerate)/rate;
 	samplecount = 0;
@@ -536,7 +626,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 
 static void AdvanceParameters(void)
 {
-	// Called every 64 samples to increment the formant freq, height, and widths
+	// Called once per synthesis step to increment formant frequency, height, and width.
 	if (wvoice == NULL)
 		return;
 
@@ -715,8 +805,8 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 		if ((end_wave == 0) && (samplecount == nsamples))
 			return 0;
 
-		if ((samplecount & 0x3f) == 0) {
-			// every 64 samples, adjust the parameters
+		if ((samplecount & (STEPSIZE-1)) == 0) {
+			// once per synthesis step, adjust the parameters
 			if (samplecount == 0) {
 				hswitch = 0;
 				harmspect = hspect[0];
@@ -741,7 +831,7 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 			maxh2 = PeaksToHarmspect(peaks, wdata.pitch<<4, hspect[hswitch], 1);
 
 			SetBreath();
-		} else if ((samplecount & 0x07) == 0) {
+		} else if ((samplecount & ((STEPSIZE/8)-1)) == 0) {
 			for (h = 1; h < N_LOWHARM && h <= maxh2 && h <= maxh; h++)
 				harmspect[h] += harm_inc[h];
 
@@ -871,7 +961,8 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 				wdata.mix_wavefile_offset -= (wdata.mix_wavefile_max*3)/4;
 		}
 
-		z1 = z2 + (((total>>8) * amplitude2) >> 13);
+		int formant_sample = (((total>>8) * amplitude2) >> 13);
+		z1 = z2 + WavegenApplyVoiceGain(formant_sample);
 
 		echo = (echo_buf[echo_tail++] * echo_amp);
 		z1 += echo >> 8;
@@ -890,6 +981,7 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 			if (ov < agc) agc = ov;
 			z = (z1 * agc) >> 8;
 		}
+		z = WavegenSmoothSample(z);
 		*out_ptr++ = z;
 		*out_ptr++ = z >> 8;
 		if(output_hooks && output_hooks->outputVoiced) output_hooks->outputVoiced(z);
@@ -924,6 +1016,7 @@ static int PlaySilence(int length, bool resume)
 		if (echo_tail >= N_ECHO_BUF)
 			echo_tail = 0;
 
+		value = WavegenSmoothSample(value);
 		*out_ptr++ = value;
 		*out_ptr++ = value >> 8;
 		if(output_hooks && output_hooks->outputSilence) output_hooks->outputSilence(value);
@@ -977,6 +1070,7 @@ static int PlayWave(int length, bool resume, unsigned char *data, int scale, int
 		if (echo_tail >= N_ECHO_BUF)
 			echo_tail = 0;
 
+		value = WavegenSmoothSample(value);
 		out_ptr[0] = value;
 		out_ptr[1] = value >> 8;
 		if(output_hooks && output_hooks->outputUnvoiced) output_hooks->outputUnvoiced(value);
@@ -1199,7 +1293,7 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	}
 
 	// round the length to a multiple of the stepsize
-	length2 = (length + STEPSIZE/2) & ~0x3f;
+	length2 = (length + STEPSIZE/2) & ~(STEPSIZE-1);
 	if (length2 == 0)
 		length2 = STEPSIZE;
 
@@ -1272,6 +1366,8 @@ static int WavegenFill2(void)
 		if (WcmdqUsed() <= 0) {
 			if (echo_complete > 0) {
 				// continue to play silence until echo is completed
+				if (!resume)
+					BeginOutputTransition(OUTPUT_SOURCE_SILENCE, false);
 				resume = PlaySilence(echo_complete, resume);
 				if (resume == true)
 					return 0; // not yet finished
@@ -1296,8 +1392,10 @@ static int WavegenFill2(void)
 		}
 			break;
 		case WCMD_PAUSE:
-			if (resume == false)
+			if (resume == false) {
 				echo_complete -= length;
+				BeginOutputTransition(OUTPUT_SOURCE_SILENCE, false);
+			}
 			wdata.n_mix_wavefile = 0;
 			wdata.amplitude_fmt = 100;
 #if USE_KLATT
@@ -1307,6 +1405,8 @@ static int WavegenFill2(void)
 			break;
 		case WCMD_WAVE:
 			echo_complete = echo_length;
+			if (!resume)
+				BeginOutputTransition(OUTPUT_SOURCE_WAVE, true);
 			wdata.n_mix_wavefile = 0;
 #if USE_KLATT
 			KlattReset(1);
@@ -1331,6 +1431,8 @@ static int WavegenFill2(void)
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
 			echo_complete = echo_length;
+			if (!resume)
+				BeginOutputTransition(OUTPUT_SOURCE_FORMANT, false);
 			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
 			break;
 #if USE_KLATT
@@ -1338,6 +1440,8 @@ static int WavegenFill2(void)
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_KLATT:
 			echo_complete = echo_length;
+			if (!resume)
+				BeginOutputTransition(OUTPUT_SOURCE_KLATT, false);
 			result = Wavegen_Klatt(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3], &wdata, wvoice);
 			break;
 #endif
@@ -1408,7 +1512,7 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 
 	if (length_in > 0) {
 		if (sonicSpeedupStream == NULL)
-			sonicSpeedupStream = sonicCreateStream(22050, 1);
+			sonicSpeedupStream = sonicCreateStream(samplerate, 1);
 		if (sonicGetSpeed(sonicSpeedupStream) != sonicSpeed)
 			sonicSetSpeed(sonicSpeedupStream, sonicSpeed);
 

@@ -33,7 +33,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <Log.h>
 
-#define BUFFER_SIZE_IN_MILLISECONDS 300
+#define BUFFER_SIZE_IN_MILLISECONDS 600
 
 /* These are helpers for converting a jstring to wchar_t*.
  *

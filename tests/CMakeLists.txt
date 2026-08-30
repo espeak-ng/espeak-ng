@@ -31,6 +31,7 @@ macro(compiled_test _test_name)
 endmacro(compiled_test)
 
 find_program(SHELL bash)
+find_package(Python3 QUIET COMPONENTS Interpreter)
 
 macro(shell_test _test_name)
   add_test(
@@ -62,6 +63,15 @@ shell_test(translate)
 shell_test(variants)
 shell_test(voices)
 shell_test(crash)
+
+if (Python3_Interpreter_FOUND)
+  add_test(
+    NAME audio-quality
+    COMMAND ${ESPEAK_RUN_ENV} ESPEAK_BIN=$<TARGET_FILE:espeak-ng-bin>
+            ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/audio-quality.py
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/..
+  )
+endif()
 
 # shell_test(windows-data)
 # shell_test(windows-installer)

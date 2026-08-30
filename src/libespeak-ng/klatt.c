@@ -37,6 +37,7 @@
 #include "klatt.h"
 #include "common.h"      // for espeak_rand
 #include "synthesize.h"  // for frame_t, WGEN_DATA, STEPSIZE, N_KLATTP, echo...
+#include "wavegen.h"     // for transition smoothing and voice gain
 #include "voice.h"       // for voice_t, N_PEAKS
 #if USE_SPEECHPLAYER
 #include "sPlayer.h"
@@ -395,20 +396,21 @@ static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 				wdata->mix_wavefile_offset -= (wdata->mix_wavefile_max*3)/4;
 		}
 
-		if (kt_globals.fadein < 64) {
-			temp = (temp * kt_globals.fadein) / 64;
+		if (kt_globals.fadein < STEPSIZE) {
+			temp = (temp * kt_globals.fadein) / STEPSIZE;
 			++kt_globals.fadein;
 		}
 
-		// if fadeout is set, fade to zero over 64 samples, to avoid clicks at end of synthesis
+		// if fadeout is set, fade to zero over one synthesis step, to avoid clicks at end of synthesis
 		if (kt_globals.fadeout > 0) {
 			kt_globals.fadeout--;
-			temp = (temp * kt_globals.fadeout) / 64;
+			temp = (temp * kt_globals.fadeout) / STEPSIZE;
 			if (kt_globals.fadeout == 0)
 				kt_globals.fadein = 0;
 		}
 
-		value = (int)temp + ((echo_buf[echo_tail++]*echo_amp) >> 8);
+		value = WavegenApplyVoiceGain((int)temp)
+			+ ((echo_buf[echo_tail++]*echo_amp) >> 8);
 		if (echo_tail >= N_ECHO_BUF)
 			echo_tail = 0;
 
@@ -418,6 +420,7 @@ static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 		if (value > 32767)
 			value =  32767;
 
+		value = WavegenSmoothSample(value);
 		*out_ptr++ = value;
 		*out_ptr++ = value >> 8;
 
@@ -943,7 +946,7 @@ int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA 
 	}
 
 	if (end_wave > 0) {
-		fade = 64; // not followed by formant synthesis
+		fade = STEPSIZE; // not followed by formant synthesis
 
 		// fade out to avoid a click
 		kt_globals.fadeout = fade;
@@ -1088,7 +1091,7 @@ void KlattInit(void)
 	sample_count = 0;
 
 	kt_globals.synthesis_model = CASCADE_PARALLEL;
-	kt_globals.samrate = 22050;
+	kt_globals.samrate = samplerate;
 
 	kt_globals.glsource = IMPULSIVE;
 	kt_globals.scale_wav = scale_wav_tab[kt_globals.glsource];

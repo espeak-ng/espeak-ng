@@ -64,7 +64,7 @@
 // character ranges must be listed in ascending unicode order
 static const ALPHABET alphabets[] = {
 	{ "_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e', 'l'), AL_DONT_NAME | AL_NOT_LETTERS | AL_WORDS },
-	{ "_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0 },
+	{ "_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  L('r', 'u'), AL_WORDS },
 	{ "_hy",    OFFSET_ARMENIAN, 0x530, 0x58f,  L('h', 'y'), AL_WORDS },
 	{ "_he",    OFFSET_HEBREW,   0x590, 0x5ff,  L('h', 'e'), 0 },
 	{ "_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  L('a', 'r'), AL_WORDS },

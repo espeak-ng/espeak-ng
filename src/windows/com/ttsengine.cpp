@@ -224,7 +224,7 @@ TtsEngine::GetOutputFormat(const GUID *targetFormatId,
 	(*format)->wFormatTag = WAVE_FORMAT_PCM;
 	(*format)->nChannels = 1;
 	(*format)->nBlockAlign = 2;
-	(*format)->nSamplesPerSec = 22050;
+	(*format)->nSamplesPerSec = ESPEAKNG_DEFAULT_SAMPLE_RATE;
 	(*format)->wBitsPerSample = 16;
 	(*format)->nAvgBytesPerSec = (*format)->nSamplesPerSec * (*format)->nBlockAlign;
 	(*format)->cbSize = 0;

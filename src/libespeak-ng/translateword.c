@@ -258,10 +258,16 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 	spell_word = 0;
 
 	if ((word_length == 1) && (wflags & FLAG_TRANSLATOR2)) {
-		// retranslating a 1-character word using a different language, say its name
-		utf8_in(&c_temp, wordx+1); // the next character
-		if (!IsAlpha(c_temp) || (AlphabetFromChar(last_char) != AlphabetFromChar(c_temp)))
-			spell_word = 1;
+		// A one-character token is normally spoken as a letter name after a
+		// language switch. Some scripts, however, nominate a translator for
+		// whole words and have valid one-letter words (Russian с, в, к, я).
+		// Let those tokens reach the alternate language dictionary instead.
+		const ALPHABET *alphabet = AlphabetFromChar(first_char);
+		if ((alphabet == NULL) || !(alphabet->flags & AL_WORDS)) {
+			utf8_in(&c_temp, wordx+1); // the next character
+			if (!IsAlpha(c_temp) || (AlphabetFromChar(last_char) != AlphabetFromChar(c_temp)))
+				spell_word = 1;
+		}
 	}
 
 	if (option_sayas == SAYAS_KEY) {

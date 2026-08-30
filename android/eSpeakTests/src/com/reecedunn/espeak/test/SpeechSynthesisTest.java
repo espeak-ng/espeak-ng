@@ -177,7 +177,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
     public void testConstruction()
     {
         final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-        assertThat(synth.getSampleRate(), is(22050));
+        assertThat(synth.getSampleRate(), is(44100));
         assertThat(synth.getChannelCount(), is(1));
         assertThat(synth.getAudioFormat(), is(AudioFormat.ENCODING_PCM_16BIT));
     }

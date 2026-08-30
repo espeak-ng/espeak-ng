@@ -60,6 +60,11 @@ public class TtsService extends TextToSpeechService {
     private static final String TAG = TtsService.class.getSimpleName();
     private static Context storageContext;
     private static final boolean DEBUG = BuildConfig.DEBUG;
+    // Keep each framework write bounded even when a vendor reports a very
+    // large maximum. At 44.1 kHz this is about 186 ms of mono PCM, providing
+    // useful queue depth while yielding regularly to Android's audio mixer.
+    private static final int MAX_AUDIO_CHUNK_BYTES = 16 * 1024;
+    private static final int PCM16_MONO_FRAME_BYTES = 2;
 
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
@@ -502,23 +507,38 @@ public class TtsService extends TextToSpeechService {
                 return;
             }
 
-            final int maxBytesToCopy = mCallback.getMaxBufferSize();
+            final SynthesisCallback callback = mCallback;
+            if (callback == null) {
+                mEngine.stop();
+                return;
+            }
+
+            int maxBytesToCopy = Math.min(callback.getMaxBufferSize(),
+                    MAX_AUDIO_CHUNK_BYTES);
+            // Never split a signed 16-bit PCM frame between framework writes.
+            maxBytesToCopy -= maxBytesToCopy % PCM16_MONO_FRAME_BYTES;
+            if (maxBytesToCopy < PCM16_MONO_FRAME_BYTES) {
+                mEngine.stop();
+                return;
+            }
 
             int offset = 0;
-
             while (offset < audioData.length) {
-                final int bytesToWrite = Math.min(maxBytesToCopy, (audioData.length - offset));
-                if (mCallback.audioAvailable(audioData, offset, bytesToWrite)
+                int bytesToWrite = Math.min(maxBytesToCopy,
+                        audioData.length - offset);
+                bytesToWrite -= bytesToWrite % PCM16_MONO_FRAME_BYTES;
+                if (bytesToWrite == 0
+                        || callback.audioAvailable(audioData, offset, bytesToWrite)
                         != TextToSpeech.SUCCESS) {
                     // The framework has stopped accepting audio for this
                     // request, so the rest of the buffer has nowhere to go.
-                    // A stop normally reaches the engine through onStop();
-                    // stopping here as well covers a failure that arrives
-                    // without one.
                     mEngine.stop();
                     return;
                 }
                 offset += bytesToWrite;
+                if (offset < audioData.length) {
+                    Thread.yield();
+                }
             }
         }
 

@@ -37,6 +37,7 @@ extern "C"
 #endif
 
 #define ESPEAKNG_DEFAULT_VOICE "en"
+#define ESPEAKNG_DEFAULT_SAMPLE_RATE 44100
 
 typedef enum {
 	ENS_GROUP_MASK               = 0x70000000,

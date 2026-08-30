@@ -79,7 +79,7 @@ static unsigned int my_unique_identifier = 0;
 static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
-static int voice_samplerate = 22050;
+static int voice_samplerate = ESPEAKNG_DEFAULT_SAMPLE_RATE;
 static const int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
@@ -360,7 +360,7 @@ const int param_defaults[N_SPEECH_PARAM] = {
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *context)
 {
 	int param;
-	int srate = 22050; // default sample rate 22050 Hz
+	int srate = ESPEAKNG_DEFAULT_SAMPLE_RATE;
 
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
