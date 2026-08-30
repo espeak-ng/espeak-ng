@@ -10,6 +10,11 @@ test_ssml_audio() {
 	TEST_TEXT=$3
 	OPTS=$4
 
+	if ! wav_hash_is_reproducible ; then
+		echo "skipping ${TEST_NAME} (WAV hashes are not reproducible on this target)"
+		return 0
+	fi
+
 	echo "testing ${TEST_NAME}"
 	RESULT=$(
 		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
