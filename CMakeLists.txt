@@ -64,6 +64,7 @@ message(STATUS "  libpcaudio: ${USE_LIBPCAUDIO} (${PCAUDIO_LIB} ${PCAUDIO_INC})"
 message(STATUS "  klatt: ${USE_KLATT}")
 message(STATUS "  speech-player: ${USE_SPEECHPLAYER}")
 message(STATUS "  async: ${USE_ASYNC}")
+message(STATUS "  excess floating point precision: ${ESPEAK_EXCESS_FP_PRECISION} (1 skips the WAV hash tests)")
 
 install(
   DIRECTORY vim/ftdetect vim/syntax DESTINATION share/vim/vimfiles
