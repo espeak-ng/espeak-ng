@@ -33,6 +33,31 @@ is_mbrola() {
     fi
 }
 
+platform_data_dirs() {
+    platform_data_dirs="/usr/share:/usr/local/share"
+    if command -v brew 2>&1 > /dev/null; then
+        platform_data_dirs="$(brew --prefix)/share:${platform_data_dirs}"
+    fi
+    echo "$platform_data_dirs"
+}
+
+find_mbrola_voice() {
+        voice=${1#mb-} # remove mb- prefix
+        voice=${voice%+*} # remove variant suffix
+
+        for data_dir in $(echo ${XDG_DATA_DIRS:-$(platform_data_dirs)} | tr ':' '\n'); do
+                for path in mbrola/$voice mbrola/$voice/$voice mbrola/voices/$voice; do
+                        if [ -f "$data_dir/$path" ]; then
+                                echo "$data_dir/$path"
+                                return 0
+                        fi
+                done
+        done
+
+        echo "cannot find MBROLA voice: $voice" 1>&2
+        return 1
+}
+
 # Check processed text by phonetic representation of the output
 test_phon() {
     TEST_LANG="$1"
