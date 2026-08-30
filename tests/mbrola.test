@@ -5,25 +5,12 @@
 is_hash
 is_mbrola
 
-check_voice_folder() {
-        voice_file=${1#mb-} # remove mb- prefix
-        voice_file=${voice_file%+*} # remove variant suffix
-        if [ -f "/usr/share/mbrola/$voice_file" ]; then
-                voice_file="/usr/share/mbrola/$voice_file"
-        elif [ -f "/usr/share/mbrola/$voice_file/$voice_file" ]; then
-                voice_file="/usr/share/mbrola/$voice_file/$voice_file"
-        elif [ -f "/usr/share/mbrola/voices/$voice_file" ]; then
-                voice_file="/usr/share/mbrola/voices/$voice_file"
-        else
-                voice_file=""
-        fi
-}
-
 test_mb () {
         MBVOICE=$1
         EXPECTED=$2
         TEST_TEXT=$3
-        check_voice_folder $MBVOICE
+
+        voice_file=$(find_mbrola_voice $MBVOICE)
         if [ "$voice_file" != "" ]; then
                 test_wav $MBVOICE $EXPECTED $TEST_TEXT $TEST_TEXT
         else
