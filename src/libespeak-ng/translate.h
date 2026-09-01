@@ -282,6 +282,7 @@ typedef struct {
 #define AL_WORDS        0x04 // use the language to speak words
 #define AL_NOT_CODE     0x08 // don't speak the character code
 #define AL_NO_SYMBOL    0x10 // don't repeat "symbol" or "character"
+#define AL_IDEOGRAPHS   0x20 // split this alphabet into individual dictionary words
 
 #define N_LOPTS       18
 #define LOPT_DIERESES  0

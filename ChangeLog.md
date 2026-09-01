@@ -34,6 +34,7 @@ updated languages:
 *  tlh (Klingon) -- fionnlagh
 
 bug fixes:
+*  fixed Han ideographs under the Arabic voice being spelled as "Chinese letter" instead of read with the Mandarin translator -- uyt3ar
 *  numerous buffer-overflow, out-of-bounds and memory-safety hardening fixes across number, clause, dictionary, letter-lookup, Roman-numeral, klatt and mbrola code (fuzzing-driven) -- Samuel Thibault, Rudi Heitbaum, Jiami Lin, Erik Chan
 *  fixed infinite loop in rule matching with UTF-8 input -- Samuel Thibault
 *  fixed loss of final input byte from stdin -- Samuel Thibault
