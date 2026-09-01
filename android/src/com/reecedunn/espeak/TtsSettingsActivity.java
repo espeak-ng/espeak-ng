@@ -27,6 +27,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
@@ -176,6 +177,16 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
         pref.setVoiceSettings(settings);
+        return pref;
+    }
+
+    private static Preference createUnicodeNormalizationPreference(Context context) {
+        final CheckBoxPreference pref = new CheckBoxPreference(context);
+        pref.setTitle(R.string.setting_unicode_normalization);
+        pref.setSummary(R.string.setting_unicode_normalization_summary);
+        pref.setKey(VoiceSettings.PREF_UNICODE_NORMALIZATION);
+        pref.setDefaultValue(true);
+        pref.setPersistent(true);
         return pref;
     }
 
@@ -477,6 +488,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         }
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
+        group.addPreference(createUnicodeNormalizationPreference(context));
 
         if (isWatch) {
             // One parameter per dialog on Wear. The rotating crown only

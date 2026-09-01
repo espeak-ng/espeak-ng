@@ -68,6 +68,11 @@ public class TtsService extends TextToSpeechService {
     private String mSynthText;
     /** Where {@link #mSynthText} starts within the text the caller supplied. */
     private int mSynthTextOffset;
+    /**
+     * Offset map back to the caller's text when {@link #mSynthText} is a
+     * normalized copy of it, or null when they are the same string.
+     */
+    private UnicodeNormalization.Result mSynthNormalization;
     /** Number of code points in {@link #mSynthText}. */
     private int mSynthTextCodePoints;
     /** Anchor for incremental code point to UTF-16 index conversion. */
@@ -443,8 +448,21 @@ public class TtsService extends TextToSpeechService {
             }
         }
 
+        final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), mEngine);
+
+        UnicodeNormalization.Result normalization = null;
+        if (settings.isUnicodeNormalizationEnabled()) {
+            // NFKC leaves ASCII untouched, so SSML markup passes through
+            // unchanged and the "<speak" sniff below still works.
+            normalization = UnicodeNormalization.normalize(text);
+            if (normalization != null) {
+                text = normalization.text;
+            }
+        }
+
         mSynthText = text;
         mSynthTextOffset = textOffset;
+        mSynthNormalization = normalization;
         mSynthTextCodePoints = text.codePointCount(0, text.length());
         mAnchorCodePoint = 0;
         mAnchorOffset = 0;
@@ -452,7 +470,6 @@ public class TtsService extends TextToSpeechService {
         mCallback = callback;
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount());
 
-        final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), mEngine);
         mEngine.setVoice(voice, settings.getVoiceVariant());
 
         int rate = settings.getRate();
@@ -538,8 +555,14 @@ public class TtsService extends TextToSpeechService {
             // eSpeak counts code points from 1, rangeStart() wants 0-based UTF-16
             // indices into the text the caller supplied.
             final int wordStart = textPosition - 1;
-            final int start = codePointToOffset(wordStart);
-            final int end = codePointToOffset(wordStart + Math.max(textLength, 0));
+            int start = codePointToOffset(wordStart);
+            int end = codePointToOffset(wordStart + Math.max(textLength, 0));
+            if (mSynthNormalization != null) {
+                // The engine spoke normalized text; report the range against
+                // the original so highlighting tracks the caller's string.
+                start = mSynthNormalization.toOriginalOffset(start);
+                end = mSynthNormalization.toOriginalOffset(end);
+            }
             if (end <= start) {
                 return;
             }
