@@ -59,6 +59,7 @@
 #define OFFSET_GEORGIAN 0x10a0
 #define OFFSET_KOREAN   0x1100
 #define OFFSET_ETHIOPIC 0x1200
+#define OFFSET_CJK      0x3100
 #define OFFSET_SHAVIAN  0x10450
 
 // character ranges must be listed in ascending unicode order
@@ -88,7 +89,7 @@ static const ALPHABET alphabets[] = {
 	{ "_eth",   OFFSET_ETHIOPIC, 0x1200, 0x139f, 0, 0 },
 	{ "_braille", 0x2800,        0x2800, 0x28ff, 0, AL_NO_SYMBOL },
 	{ "_ja",    0x3040,          0x3040, 0x30ff, 0, AL_NOT_CODE },
-	{ "_zh",    0x3100,          0x3100, 0x9fff, 0, AL_NOT_CODE },
+	{ "_zh",    OFFSET_CJK,      0x3100, 0x9fff, 0, AL_NOT_CODE | AL_IDEOGRAPHS },
 	{ "_ko",    0xa700,          0xa700, 0xd7ff, L('k', 'o'), AL_NOT_CODE | AL_WORDS },
 	{ "_shaw",  OFFSET_SHAVIAN,  0x10450, 0x1047F, L('e', 'n'), 0 },
 	{ NULL, 0, 0, 0, 0, 0 }
@@ -537,6 +538,10 @@ Translator *SelectTranslator(const char *name)
 		tr->letter_bits_offset = OFFSET_ARABIC;
 		tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
+		// Read Han ideographs with the Mandarin translator instead of spelling
+		// every codepoint as "Chinese letter" through the English fallback.
+		tr->langopts.alt_alphabet = OFFSET_CJK;
+		tr->langopts.alt_alphabet_lang = L3('c', 'm', 'n');
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
 		SetArabicLetters(tr);
 		break;

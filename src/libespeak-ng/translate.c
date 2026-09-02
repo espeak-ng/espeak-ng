@@ -142,6 +142,27 @@ char *strchr_w(const char *s, int c)
 	return strchr((char *)s, c); // (char *) is needed for Borland compiler
 }
 
+static bool ShouldSplitIdeographs(Translator *tr, int c, int prev)
+{
+	if (tr->langopts.ideographs && ((c > 0x3040) || (prev > 0x3040)))
+		return true;
+
+	// A non-ideographic base language may nominate an ideographic alternate
+	// translator (Arabic uses Mandarin for Han characters). Split that run in
+	// the same way as the alternate translator would, so every Han character
+	// reaches its dictionary entry instead of one long foreign-script token.
+	if (tr->langopts.alt_alphabet != 0) {
+		const ALPHABET *alpha_c = AlphabetFromChar(c);
+		const ALPHABET *alpha_prev = AlphabetFromChar(prev);
+		if (((alpha_c != NULL) && (alpha_c->offset == tr->langopts.alt_alphabet)
+				&& (alpha_c->flags & AL_IDEOGRAPHS))
+				|| ((alpha_prev != NULL) && (alpha_prev->offset == tr->langopts.alt_alphabet)
+				&& (alpha_prev->flags & AL_IDEOGRAPHS)))
+			return true;
+	}
+	return false;
+}
+
 static void SegmentReplacement(Translator *tr, const char *text, char *out, int out_size)
 {
 	// Apply the word-splitting rules of the clause tokenizer (TranslateClause)
@@ -166,7 +187,7 @@ static void SegmentReplacement(Translator *tr, const char *text, char *out, int 
 
 		if (IsAlpha(prev)) {
 			if (IsAlpha(c)) {
-				if (tr->langopts.ideographs && ((c > 0x3040) || (prev > 0x3040)))
+				if (ShouldSplitIdeographs(tr, c, prev))
 					insert_space = true; // each ideograph is a separate word
 			} else if (c == '-') {
 				int next;
@@ -1369,7 +1390,7 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				bool prev_foreign = (alpha_prev != NULL) && (alpha_prev->offset != tr->letter_bits_offset);
 				if (emoji_join) {
 					// continuation of a ZWJ emoji sequence: not a word boundary
-				} else if (emoji_break || !IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))) || (IsEmoji(c) != IsEmoji(prev_out)) || (c_foreign != prev_foreign)) {
+				} else if (emoji_break || !IsAlpha(prev_out) || ShouldSplitIdeographs(tr, c, prev_out) || (IsEmoji(c) != IsEmoji(prev_out)) || (c_foreign != prev_foreign)) {
 					if (wcschr(tr->punct_within_word, prev_out) == 0)
 						letter_count = 0; // don't reset count for an apostrophy within a word
 

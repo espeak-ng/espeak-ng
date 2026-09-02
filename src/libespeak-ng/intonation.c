@@ -1079,10 +1079,12 @@ void CalcPitches(Translator *tr, int clause_type)
 			}
 
 			if (p->tone_ph) {
-				ph = phoneme_tab[p->tone_ph];
-				x = (p->pitch1 + p->pitch2)/2;
-				p->pitch2 = x + ph->end_type;
-				p->pitch1 = x + ph->start_type;
+				ph = TonePhoneme(p);
+				if (ph != NULL) {
+					x = (p->pitch1 + p->pitch2)/2;
+					p->pitch2 = x + ph->end_type;
+					p->pitch1 = x + ph->start_type;
+				}
 			}
 
 			if (syl->flags & SYL_EMPHASIS)

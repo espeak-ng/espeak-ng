@@ -658,8 +658,11 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 				// syllablic consonant
 				buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], plist, use_ipa, NULL);
 			}
-			if (plist->tone_ph > 0)
-				buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], plist, use_ipa, NULL);
+			if (plist->tone_ph > 0) {
+				PHONEME_TAB *tone_ph = TonePhoneme(plist);
+				if (tone_ph != NULL)
+					buf = WritePhMnemonic(buf, tone_ph, plist, use_ipa, NULL);
+			}
 		}
 
 		len = buf - phon_buf;

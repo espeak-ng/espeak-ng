@@ -448,6 +448,9 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 			phlist[ix].stresslevel = plist3->stresslevel & 0xf;
 			phlist[ix].wordstress = plist3->wordstress;
 			phlist[ix].tone_ph = plist3->tone_ph;
+			phlist[ix].tone_ph_data = (plist3->tone_ph != 0
+					&& (plist3->synthflags & SFLAG_SWITCHED_LANG))
+				? phoneme_tab[plist3->tone_ph] : NULL;
 			phlist[ix].sourceix = 0;
 			phlist[ix].phcode = ph->code;
 
