@@ -91,11 +91,18 @@ test_phon() {
 	fi
 
     echo "testing ${TEST_LANG} $MESSAGE"
+    STDERR_FILE=$(mktemp)
     RESULT=$(
-		ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
+        ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        $VALGRIND src/espeak-ng ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" 2> >(tee "$STDERR_FILE" 1>&2) || exit 1
     )
     EXIT_CODE=0
+    if [ "${CATCH_MBROLA_MISSING_TRANSITIONS:-1}" = 1 ] && grep -q -P 'Warning: [^- ]+-[^- ]+ unknown, replaced with _-_' < "$STDERR_FILE"; then
+        echo "Found missing MBROLA voice transition(s)..."
+        echo "$(ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} $VALGRIND src/espeak-ng -q ${OPTIONS} -X --pho -v ${TEST_LANG} "${TEST_TEXT}")"
+        EXIT_CODE=1
+    fi
+
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
 		case "$EXPECTED" in
 		*' '* | *$'\n'*)
