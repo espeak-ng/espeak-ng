@@ -453,3 +453,44 @@ m	134	100 73
 _	301
 _	1" \
     "mensārum" "Latn"
+
+# cross-word boundary tests for missing transitions
+test_mbrola_phon mb-la1 "fl'u:mEn n'OwUm
+f	104
+l	65
+u:	61	 0 117 80 109 100 109
+m	65
+E	34	 0 110 80 106 100 106
+n	65	100 98
+
+_	0
+n	65
+O	55	 0 105 80 81 100 81
+w	65
+U	43	 0 84 80 78 100 78
+m	134	100 73
+
+_	301
+_	1" \
+    "flūmen novum" "Latn"
+
+# cross-word boundary tests for missing transitions
+test_mbrola_phon mb-la1 "fl'u:mEn_ n'OwUm_
+f	104
+l	65
+u:	61	 0 117 80 109 100 109
+m	65
+E	39	 0 110 80 106 100 106
+n	119	100 98
+
+_	31
+n	65
+O	55	 0 105 80 81 100 81
+w	65
+U	43	 0 84 80 78 100 78
+m	134	100 73
+
+_	31
+_	301
+_	1" \
+    "flūmen novum" "Latn" "-g 3"
