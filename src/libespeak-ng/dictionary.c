@@ -438,7 +438,7 @@ static const unsigned short ipa1[96] = {
 static char *phon_out_buf = NULL;   // passes the result of GetTranslatedPhonemeString()
 static unsigned int phon_out_size = 0;
 
-char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)
+char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, int *flags)
 {
 	int c;
 	int mnem;
@@ -524,7 +524,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 }
 
 //// Extension: write phone mnemonic with stress
-char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags) {
+char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, int *flags) {
 	if (plist->synthflags & SFLAG_SYLLABLE) {
 		unsigned char stress = plist->stresslevel;
 
@@ -578,7 +578,6 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	char *buf;
 	int count;
 	int flags;
-	int use_ipa;
 	int use_tie;
 	int separate_phonemes;
 	char phon_buf[30];
@@ -595,7 +594,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		}
 	}
 
-	use_ipa = phoneme_mode & espeakPHONEMES_IPA;
+	bool use_ipa = phoneme_mode & espeakPHONEMES_IPA;
 	if (phoneme_mode & espeakPHONEMES_TIE) {
 		use_tie = phoneme_mode >> 8;
 		separate_phonemes = 0;
