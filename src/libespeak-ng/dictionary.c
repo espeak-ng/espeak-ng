@@ -523,34 +523,36 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool
 	return phon_out;
 }
 
+#define IPA_PRIMARY_STRESS  	0x02c8
+#define IPA_SECONDARY_STRESS 	0x02cc
+
+#define MIN(a, b) ((a) > (b) ? (b) : (a))
+
+static inline unsigned int stress_character(uint8_t stress_level, bool use_ipa)
+{
+	if (use_ipa) {
+		return stress_level > STRESS_IS_SECONDARY ? IPA_PRIMARY_STRESS : IPA_SECONDARY_STRESS;
+	}
+
+	const char stress_chars[] = "==,,''";
+	return stress_chars[stress_level];
+}
+
+static inline int write_stress(uint8_t stress_level, bool use_ipa, char *buf)
+{
+	if (stress_level > 1) {
+		unsigned int c = stress_character(MIN(stress_level, STRESS_IS_PRIORITY), use_ipa);
+		if (c != 0) {
+			return utf8_out(c, buf);
+		}
+	}
+	return 0;
+}
+
 //// Extension: write phone mnemonic with stress
 char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, int *flags) {
 	if (plist->synthflags & SFLAG_SYLLABLE) {
-		unsigned char stress = plist->stresslevel;
-
-		if (stress > 1) {
-			int c = 0;
-
-			if (stress > STRESS_IS_PRIORITY) {
-				stress = STRESS_IS_PRIORITY;
-			}
-
-			if (use_ipa) {
-				c = 0x2cc; // ipa, secondary stress
-
-				if (stress > STRESS_IS_SECONDARY) {
-					c = 0x02c8; // ipa, primary stress
-				}
-			} else {
-				const char stress_chars[] = "==,,''";
-
-				c = stress_chars[stress];
-			}
-
-			if (c != 0) {
-				phon_out += utf8_out(c, phon_out);
-			}
-		}
+		phon_out += write_stress(plist->stresslevel, use_ipa, phon_out);
 	}
 
 	return WritePhMnemonic(phon_out, ph, plist, use_ipa, flags);
@@ -572,7 +574,6 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	int ix;
 	unsigned int len;
 	int phon_out_ix = 0;
-	int stress;
 	int c;
 	char *p;
 	char *buf;
@@ -583,8 +584,6 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	char phon_buf[30];
 	char phon_buf2[30];
 	PHONEME_LIST *plist;
-
-	static const char stress_chars[] = "==,,''";
 
 	if (phon_out_buf == NULL) {
 		phon_out_size = N_PHON_OUT;
@@ -621,20 +620,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		}
 
 		if (plist->synthflags & SFLAG_SYLLABLE) {
-			if ((stress = plist->stresslevel) > 1) {
-				c = 0;
-				if (stress > STRESS_IS_PRIORITY) stress = STRESS_IS_PRIORITY;
-
-				if (use_ipa) {
-					c = 0x2cc; // ipa, secondary stress
-					if (stress > STRESS_IS_SECONDARY)
-						c = 0x02c8; // ipa, primary stress
-				} else
-					c = stress_chars[stress];
-
-				if (c != 0)
-					buf += utf8_out(c, buf);
-			}
+			buf += write_stress(plist->stresslevel, use_ipa, buf);
 		}
 
 		flags = 0;
