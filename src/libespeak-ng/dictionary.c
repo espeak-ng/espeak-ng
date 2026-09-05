@@ -509,7 +509,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool
 			if (!first && IsDigit09(c))
 				continue;
 
-			if ((c >= 0x20) && (c < 128))
+			if (isprint(c))
 				c = ipa1[c-0x20];
 
 			ix += utf8_out(c, &phon_out[ix]);
@@ -613,8 +613,9 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 		if ((!plist->newword) || (separate_phonemes == ' ')) {
 			if ((separate_phonemes != 0) && (ix > 1)) {
-				utf8_in(&c, phon_buf2);
-				if ((c < 0x2b0) || (c > 0x36f)) // not if the phoneme starts with a superscript letter
+				int phoneme_start;
+				utf8_in(&phoneme_start, phon_buf2);
+				if (!utf8_is_diacritic(phoneme_start))
 					buf += utf8_out(separate_phonemes, buf);
 			}
 		}
@@ -629,7 +630,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 			p += utf8_in(&c, p);
 			if (use_tie != 0) {
 				// look for non-initial alphabetic character, but not diacritic, superscript etc.
-				if ((count > 0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha(c))
+				if ((count > 0) && !(flags & (1 << (count-1))) && !utf8_is_diacritic(c) && iswalpha(c))
 					buf += utf8_out(use_tie, buf);
 			}
 			buf += utf8_out(c, buf);
@@ -2259,7 +2260,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 				}
 
 				if (match1.points == 0) {
-					if ((wc >= 0x300) && (wc <= 0x36f)) {
+					if (utf8_is_combining_diacritical_mark(wc)) {
 						// combining accent inside a word, ignore
 					} else if (IsAlpha(wc)) {
 						if ((any_alpha > 1) || (p[wc_bytes-1] > ' ')) {
