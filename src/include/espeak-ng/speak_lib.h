@@ -491,11 +491,11 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist);
 	   EE_INTERNAL_ERROR.
 */
 
-#define espeakPHONEMES_SHOW    0x01
-#define espeakPHONEMES_IPA     0x02
-#define espeakPHONEMES_TRACE   0x08
-#define espeakPHONEMES_MBROLA  0x10
-#define espeakPHONEMES_TIE     0x80
+#define espeakPHONEMES_SHOW    (1 << 0)
+#define espeakPHONEMES_IPA     (1 << 1)
+#define espeakPHONEMES_TRACE   (1 << 3)
+#define espeakPHONEMES_MBROLA  (1 << 4)
+#define espeakPHONEMES_TIE     (1 << 7)
 
 #ifdef __cplusplus
 extern "C"
