@@ -109,6 +109,7 @@ tests/*.test
 tests/*.check
 !tests/language-phonemes.test
 !tests/language-pronunciation.test
+!tests/language-ipa.test
 !tests/language-numbers-cardinal.test
 !tests/language-numbers-ordinal.test
 !tests/language-replace.test

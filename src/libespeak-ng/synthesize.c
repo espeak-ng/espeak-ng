@@ -1145,6 +1145,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	static WORD_PH_DATA worddata;
 
 	bool use_ipa = option_phoneme_events & espeakINITIALIZE_PHONEME_IPA;
+	bool write_ipa_syllable_separator = option_phoneme_events & espeakINITIALIZE_PHONEME_IPA_SBR;
 
 #if USE_MBROLA
 	if (mbrola_name[0] != 0)
@@ -1175,7 +1176,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			char buf[30];
 			int dummy=0;
 			//WritePhMnemonic(buf, p->ph, p, 0, &dummy);
-			WritePhMnemonicWithStress(buf, p->ph, p, 0, &dummy);
+			WritePhMnemonicWithSeparator(buf, p->ph, p, false, false, &dummy);
 
 			DoPhonemeAlignment(strdup(buf),p->type);
 		}
@@ -1227,7 +1228,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 				// For vowels following a liquid or nasal, do the phoneme event after the vowel-start
 			} else {
 				//WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
-				WritePhMnemonicWithStress(phoneme_name, p->ph, p, use_ipa, NULL);
+				WritePhMnemonicWithSeparator(phoneme_name, p->ph, p, use_ipa, write_ipa_syllable_separator, NULL);
 
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 				done_phoneme_marker = true;
@@ -1493,7 +1494,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 			if ((option_phoneme_events) && (done_phoneme_marker == false)) {
 				//WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
-				WritePhMnemonicWithStress(phoneme_name, p->ph, p, use_ipa, NULL);
+				WritePhMnemonicWithSeparator(phoneme_name, p->ph, p, use_ipa, write_ipa_syllable_separator, NULL);
 
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 			}

@@ -38,7 +38,7 @@ int HashDictionary(const char *string);
 const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);
 void DecodePhonemes(const char *inptr, char *outptr);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, int *flags);
-char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, int *flags);
+char *WritePhMnemonicWithSeparator(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, bool write_ipa_syllable_separator, int *flags);
 const char *GetTranslatedPhonemeString(int phoneme_mode);
 int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int *vowel_count, int *stressed_syllable, int control);
 int IsVowel(Translator *tr, int letter);

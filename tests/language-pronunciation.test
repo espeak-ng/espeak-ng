@@ -197,7 +197,7 @@ test_phon ku "Em kURd'i d,Izan'In" "em kurdî dizanin."
 test_phon ku "hun kURd'i d,Izan'In" "hûn kurdî dizanin."
 test_phon la  "s'Ik_ f'UgI;Ens_
 d'Uks_
-zElOt'ypOs_
+zELOt'ypOs_
 kwam_ k'aRUs_ h'abERIs_" "Sic fugiens, dux, zelotypos, quam Karus haberis." "Latn"
 test_phon lfn "t'ota um'anes n'ase l'ib**e e eg'al en d'inja e di**'etos
 los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un spi**'ito de f**'ati;,a" "Тота уманес насе либре е егал ен диниа е диретос. Лос ес донада разона е консиенса е дебе ата ла ун а ла отра ен ун спирито де фратиа." "Cyrl"
