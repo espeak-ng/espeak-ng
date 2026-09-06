@@ -74,6 +74,9 @@ Revision 11 (espeak-ng)
 Revision 12 (espeak-ng)
   Exposed espeak_SetPhonemeCallback. This is available in eSpeak, but was not exposed in this header.
 
+Revision 13 (espeak-ng)
+  Added espeakINITIALIZE_PHONEME_IPA_SBR option for espeak_Initialize() to report phonemes as IPA names with syllable separator.
+
 */
          /********************/
          /*  Initialization  */
@@ -188,9 +191,10 @@ typedef enum {
 	EE_NOT_FOUND=2
 } espeak_ERROR;
 
-#define espeakINITIALIZE_PHONEME_EVENTS 0x0001
-#define espeakINITIALIZE_PHONEME_IPA   0x0002
-#define espeakINITIALIZE_DONT_EXIT     0x8000
+#define espeakINITIALIZE_PHONEME_EVENTS         (1 <<  0)
+#define espeakINITIALIZE_PHONEME_IPA            espeakPHONEMES_IPA
+#define espeakINITIALIZE_PHONEME_IPA_SBR        espeakPHONEMES_IPA_SBR
+#define espeakINITIALIZE_DONT_EXIT              (1 << 15)
 
 #ifdef __cplusplus
 extern "C"
@@ -493,6 +497,7 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist);
 
 #define espeakPHONEMES_SHOW    (1 << 0)
 #define espeakPHONEMES_IPA     (1 << 1)
+#define espeakPHONEMES_IPA_SBR (1 << 2)
 #define espeakPHONEMES_TRACE   (1 << 3)
 #define espeakPHONEMES_MBROLA  (1 << 4)
 #define espeakPHONEMES_TIE     (1 << 7)

@@ -100,6 +100,7 @@ static const char *help_text =
     "--compile-phonemes=<phsource-dir>\n"
     "\t   Compile the phoneme data using <phsource-dir> or the default phsource directory\n"
     "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
+    "--ipa-sbr  Separate IPA syllables with separator\n"
     "--path=\"<path>\"\n"
     "\t   Specifies the directory containing the espeak-ng-data directory\n"
     "--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
@@ -334,6 +335,7 @@ int main(int argc, char **argv)
 		{ "compile-phonemes", optional_argument, 0, 0x110 },
 		{ "load",    no_argument,       0, 0x111 },
 		{ "ssml-break", required_argument, 0, 0x112 },
+		{ "ipa-sbr", optional_argument, 0, 0x113 },
 		{ 0, 0, 0, 0 }
 	};
 
@@ -592,6 +594,9 @@ int main(int argc, char **argv)
 			break;
 		case 0x112: // --ssml-break
 			ssml_break = atoi(optarg2);
+			break;
+		case 0x113: // --ipa-sbr
+			phoneme_options |= espeakPHONEMES_IPA_SBR;
 			break;
 		default:
 			exit(0);

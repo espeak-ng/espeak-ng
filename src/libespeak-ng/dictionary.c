@@ -523,8 +523,8 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool
 	return phon_out;
 }
 
-#define IPA_PRIMARY_STRESS  	0x02c8
-#define IPA_SECONDARY_STRESS 	0x02cc
+#define IPA_PRIMARY_STRESS  	ipa1['\'' - ' ']
+#define IPA_SECONDARY_STRESS 	ipa1[','  - ' ']
 
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
 
@@ -538,21 +538,33 @@ static inline unsigned int stress_character(uint8_t stress_level, bool use_ipa)
 	return stress_chars[stress_level];
 }
 
-static inline int write_stress(uint8_t stress_level, bool use_ipa, char *buf)
+static inline bool should_write_separator(PHONEME_LIST *plist, bool use_ipa)
 {
-	if (stress_level > 1) {
-		unsigned int c = stress_character(MIN(stress_level, STRESS_IS_PRIORITY), use_ipa);
+	if (use_ipa) {
+		return plist->starts_syllable;
+	}
+	return plist->synthflags & SFLAG_SYLLABLE;
+}
+
+static inline int write_separator(PHONEME_LIST *plist, bool use_ipa, bool write_ipa_syllable_separator, char *buf)
+{
+	if (plist->stresslevel > 1) {
+		unsigned int c = stress_character(MIN(plist->stresslevel, STRESS_IS_PRIORITY), use_ipa);
 		if (c != 0) {
 			return utf8_out(c, buf);
 		}
+	}
+
+	if (use_ipa && write_ipa_syllable_separator && !(plist->newword & PHLIST_START_OF_WORD)) {
+		return utf8_out('.', buf);
 	}
 	return 0;
 }
 
 //// Extension: write phone mnemonic with stress
-char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, int *flags) {
-	if (plist->synthflags & SFLAG_SYLLABLE) {
-		phon_out += write_stress(plist->stresslevel, use_ipa, phon_out);
+char *WritePhMnemonicWithSeparator(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool use_ipa, bool write_ipa_syllable_separator, int *flags) {
+	if (should_write_separator(plist, use_ipa)) {
+		phon_out += write_separator(plist, use_ipa, write_ipa_syllable_separator, phon_out);
 	}
 
 	return WritePhMnemonic(phon_out, ph, plist, use_ipa, flags);
@@ -566,6 +578,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 	   phoneme_mode
 	                 bit  1:   use IPA phoneme names
+			 bit  2:   insert IPA syllable separator
 	                 bit  7:   use tie between letters in multi-character phoneme names
 	                 bits 8-23 tie or separator character
 
@@ -594,6 +607,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	}
 
 	bool use_ipa = phoneme_mode & espeakPHONEMES_IPA;
+	bool write_ipa_syllable_separator = phoneme_mode & espeakPHONEMES_IPA_SBR;
 	if (phoneme_mode & espeakPHONEMES_TIE) {
 		use_tie = phoneme_mode >> 8;
 		separate_phonemes = 0;
@@ -620,8 +634,8 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 			}
 		}
 
-		if (plist->synthflags & SFLAG_SYLLABLE) {
-			buf += write_stress(plist->stresslevel, use_ipa, buf);
+		if (should_write_separator(plist, use_ipa)) {
+			buf += write_separator(plist, use_ipa, write_ipa_syllable_separator, buf);
 		}
 
 		flags = 0;
@@ -981,10 +995,10 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 	// any stress position marked in the xx_list dictionary ?
 	bool unstressed_word = false;
-	stressed_syllable = dflags & 0x7;
-	if (dflags & 0x8) {
+	stressed_syllable = dflags & MASK_STRESSED_SYLLABLES;
+	if (dflags & FLAG_NO_PRIMARY_STRESS) {
 		// this indicates a word without a primary stress
-		stressed_syllable = dflags & 0x3;
+		stressed_syllable = dflags & MASK_STRESSED_SYLLABLES_WITHOUT_PRIMARY;
 		unstressed_word = true;
 	}
 
@@ -2052,7 +2066,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					if (group_length > 1)
 						pts += 35; // to account for an extra letter matching
 					DecodePhonemes(match.phonemes, decoded_phonemes);
-					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags, output), decoded_phonemes);
+					fprintf(stderr, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags, output), decoded_phonemes);
 				}
 			}
 		}
@@ -2121,9 +2135,9 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 			wordbuf[ix] = c;
 		wordbuf[ix] = 0;
 		if (word_flags & FLAG_UNPRON_TEST)
-			fprintf(f_trans, "Unpronouncable? '%s'\n", wordbuf);
+			fprintf(stderr, "Unpronouncable? '%s'\n", wordbuf);
 		else
-			fprintf(f_trans, "Translate '%s'\n", wordbuf);
+			fprintf(stderr, "Translate '%s'\n", wordbuf);
 	}
 
 	p = p_start;
@@ -2297,7 +2311,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 			}
 
 			if ((option_phonemes & espeakPHONEMES_TRACE) && ((word_flags & FLAG_NO_TRACE) == 0))
-				fprintf(f_trans, "\n");
+				fprintf(stderr, "\n");
 
 			match1.end_type &= ~SUFX_UNPRON;
 
@@ -2544,7 +2558,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				word_end = word2 + n_chars;
 			} else if (flag > 64) {
 				// stressed syllable information, put in bits 0-3
-				dictionary_flags = (dictionary_flags & ~0xf) | (flag & 0xf);
+				dictionary_flags = (dictionary_flags & ~MASK_STRESS) | (flag & MASK_STRESS);
 				if ((flag & 0xc) == 0xc)
 					dictionary_flags |= FLAG_STRESS_END;
 			} else if (flag >= 32)
@@ -2650,7 +2664,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		if (phoneme_len == 0) {
 			if (option_phonemes & espeakPHONEMES_TRACE) {
 				print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
-				fprintf(f_trans, "Flags:  %s  %s\n", word1, dict_flags_buf);
+				fprintf(stderr, "Flags:  %s  %s\n", word1, dict_flags_buf);
 			}
 			return 0; // no phoneme translation found here, only flags. So use rules
 		}
@@ -2676,11 +2690,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 					// (check for wtab prevents showing RULE_SPELLING byte when speaking individual letters)
 					memcpy(word_buf, word2, word_end-word2);
 					word_buf[word_end-word2-1] = 0;
-					fprintf(f_trans, "Found: '%s %s\n", word1, word_buf);
+					fprintf(stderr, "Found: '%s %s\n", word1, word_buf);
 				} else
-					fprintf(f_trans, "Found: '%s", word1);
+					fprintf(stderr, "Found: '%s", word1);
 				print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
-				fprintf(f_trans, "' [%s]  %s\n", ph_decoded, dict_flags_buf);
+				fprintf(stderr, "' [%s]  %s\n", ph_decoded, dict_flags_buf);
 			}
 		}
 
@@ -2832,7 +2846,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 					len = found - word1;
 					memcpy(word, word1, len); // include multiple matching words
 					word[len] = 0;
-					fprintf(f_trans, "Replace: %s  %s\n", word, *wordptr);
+					fprintf(stderr, "Replace: %s  %s\n", word, *wordptr);
 				}
 			}
 
@@ -3003,7 +3017,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			utf8_out(tr->langopts.suffix_add_e, &word_end[1]);
 
 			if (option_phonemes & espeakPHONEMES_TRACE)
-				fprintf(f_trans, "add e\n");
+				fprintf(stderr, "add e\n");
 		}
 	}
 

@@ -15,6 +15,9 @@ endphoneme
 phoneme E
   vwl starttype #e endtype #e
   length 170
+  IF nextPhW(isVowel) THEN
+    ipa e
+  ENDIF
   FMT(vowel/ee_1)
 endphoneme
 
@@ -23,6 +26,9 @@ phoneme I
   vwl starttype #i endtype #i
   length 150
   IfNextVowelAppend(;)
+  IF nextPhW(isVowel) THEN
+    ipa i
+  ENDIF
   FMT(vowel/ii_5)
 endphoneme
 
@@ -30,6 +36,9 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 160
+  IF nextPhW(isVowel) THEN
+    ipa o
+  ENDIF
   FMT(vowel/o)
 endphoneme
 
@@ -37,6 +46,9 @@ endphoneme
 phoneme U
   vwl starttype #u endtype #u
   length 160
+  IF nextPhW(isVowel) THEN
+    ipa u
+  ENDIF
   FMT(vowel/u)
 endphoneme
 
@@ -79,6 +91,7 @@ endphoneme
 phoneme y
   vwl starttype #i endtype #i
   length 150
+  ipa ʏ
   FMT(vowel/y)
 endphoneme
 
@@ -90,9 +103,18 @@ endphoneme
 
 
 
+phoneme aE
+  vwl starttype #a endtype #i
+  length 270
+  ipa ae̯
+  FMT(vdiph/ae)
+endphoneme
+
+
 phoneme aU
   vwl starttype #a endtype #u
   length 270
+  ipa au̯
   FMT(vdiph/aau_2)
 endphoneme
 
@@ -114,7 +136,16 @@ endphoneme
 phoneme EU
   vwl starttype #e endtype #u
   length 270
+  ipa eu̯
   FMT(vdiph/eeu_2)
+endphoneme
+
+
+phoneme OE
+  vwl starttype #o endtype #e
+  length 250
+  ipa oe̯
+  FMT(vowel/oe)
 endphoneme
 
 
@@ -124,6 +155,12 @@ phoneme OI
   FMT(vdiph/oi)
 endphoneme
 
+phoneme uI
+  vwl starttype #u endtype #i
+  length 250
+  ipa ui̯
+  FMT(vdiph/ui)
+endphoneme
 
 //===========
 // CONSONANTS
@@ -163,7 +200,8 @@ endphoneme
 // Allen, Vox Latina, Chapter 1, Section v
 // Use 'dark' l (l/2) at the end of a word or another consonant
 
-phoneme l
+phoneme L
   import_phoneme en/l
+  ipa ɫ
 endphoneme
 

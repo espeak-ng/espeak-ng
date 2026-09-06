@@ -49,55 +49,61 @@ extern "C"
 
 // dictionary flags, word 1
 // bits 0-3  stressed syllable,  bit 6=unstressed
-#define FLAG_SKIPWORDS        0x80
-#define FLAG_PREPAUSE        0x100
+#define MASK_STRESSED_SYLLABLES_WITHOUT_PRIMARY 0x03
+#define MASK_STRESSED_SYLLABLES                 0x07
+#define MASK_STRESS                             0x0f
 
-#define FLAG_STRESS_END      0x200 // full stress if at end of clause
-#define FLAG_STRESS_END2     0x400 // full stress if at end of clause, or only followed by unstressed
-#define FLAG_UNSTRESS_END    0x800 // reduce stress at end of clause
-#define FLAG_SPELLWORD      0x1000 // re-translate the word as individual letters, separated by spaces
-#define FLAG_ACCENT_BEFORE  0x1000 // say this accent name before the letter name
-#define FLAG_ABBREV         0x2000 // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
-#define FLAG_DOUBLING       0x4000 // doubles the following consonant
+#define FLAG_NO_PRIMARY_STRESS  (1 <<  3)
+#define FLAG_UNSTRESSED         (1 <<  6)
+#define FLAG_SKIPWORDS          (1 <<  7)
+#define FLAG_PREPAUSE           (1 <<  8)
 
-#define BITNUM_FLAG_ALT         14 // bit number of FLAG_ALT_TRANS - 1
-#define FLAG_ALT_TRANS      0x8000 // language specific
-#define FLAG_ALT2_TRANS    0x10000 // language specific
-#define FLAG_ALT3_TRANS    0x20000 // language specific
-#define FLAG_ALT7_TRANS   0x200000 // language specific
+#define FLAG_STRESS_END         (1 <<  9) // full stress if at end of clause
+#define FLAG_STRESS_END2        (1 << 10) // full stress if at end of clause, or only followed by unstressed
+#define FLAG_UNSTRESS_END       (1 << 11) // reduce stress at end of clause
+#define FLAG_SPELLWORD          (1 << 12) // re-translate the word as individual letters, separated by spaces
+#define FLAG_ACCENT_BEFORE      (1 << 12) // say this accent name before the letter name
+#define FLAG_ABBREV             (1 << 13) // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
+#define FLAG_DOUBLING           (1 << 14) // doubles the following consonant
 
-#define FLAG_COMBINE      0x800000 // combine with the next word
-#define FLAG_ALLOW_DOT  0x01000000 // ignore '.' after word (abbreviation)
-#define FLAG_NEEDS_DOT  0x02000000 // only if the word is followed by a dot
-#define FLAG_WAS_UNPRONOUNCABLE  0x04000000  // the unpronounceable routine was used
-#define FLAG_MAX3       0x08000000 // limit to 3 repeats
-#define FLAG_PAUSE1     0x10000000 // shorter prepause
-#define FLAG_TEXTMODE   0x20000000 // word translates to replacement text, not phonemes
+#define BITNUM_FLAG_ALT         14        // bit number of FLAG_ALT_TRANS - 1
+#define FLAG_ALT_TRANS          (1 << 15) // language specific
+#define FLAG_ALT2_TRANS         (1 << 16) // language specific
+#define FLAG_ALT3_TRANS         (1 << 17) // language specific
+#define FLAG_ALT7_TRANS         (1 << 21) // language specific
+
+#define FLAG_COMBINE            (1 << 23) // combine with the next word
+#define FLAG_ALLOW_DOT          (1 << 24) // ignore '.' after word (abbreviation)
+#define FLAG_NEEDS_DOT          (1 << 25) // only if the word is followed by a dot
+#define FLAG_WAS_UNPRONOUNCABLE (1 << 26) // the unpronounceable routine was used
+#define FLAG_MAX3               (1 << 27) // limit to 3 repeats
+#define FLAG_PAUSE1             (1 << 28) // shorter prepause
+#define FLAG_TEXTMODE           (1 << 29) // word translates to replacement text, not phonemes
 #define BITNUM_FLAG_TEXTMODE    29
 
-#define FLAG_FOUND_ATTRIBUTES 0x40000000 // word was found in the dictionary list (has attributes)
-#define FLAG_FOUND            0x80000000 // pronunciation was found in the dictionary list
+#define FLAG_FOUND_ATTRIBUTES   (1 << 30) // word was found in the dictionary list (has attributes)
+#define FLAG_FOUND              (1 << 31) // pronunciation was found in the dictionary list
 
 // dictionary flags, word 2
-#define FLAG_VERBF             0x1 // verb follows
-#define FLAG_VERBSF            0x2 // verb follows, may have -s suffix
-#define FLAG_NOUNF             0x4 // noun follows
-#define FLAG_PASTF             0x8 // past tense follows
-#define FLAG_VERB             0x10 // pronunciation for verb
-#define FLAG_NOUN             0x20 // pronunciation for noun
-#define FLAG_PAST             0x40 // pronunciation for past tense
-#define FLAG_VERB_EXT        0x100 // extend the 'verb follows'
-#define FLAG_CAPITAL         0x200 // pronunciation if initial letter is upper case
-#define FLAG_ALLCAPS         0x400 // only if the word is all capitals
-#define FLAG_ACCENT          0x800 // character name is base-character name + accent name
-#define FLAG_SENTENCE       0x2000 // only if the clause is a sentence
-#define FLAG_ONLY           0x4000
-#define FLAG_ONLY_S         0x8000
-#define FLAG_STEM          0x10000 // must have a suffix
-#define FLAG_ATEND         0x20000 // use this pronunciation if at end of clause
-#define FLAG_ATSTART       0x40000 // use this pronunciation if at start of clause
-#define FLAG_NATIVE        0x80000 // not if we've switched translators
-#define FLAG_LOOKUP_SYMBOL 0x40000000 // to indicate called from Lookup()
+#define FLAG_VERBF              (1 <<  0) // verb follows
+#define FLAG_VERBSF             (1 <<  1) // verb follows, may have -s suffix
+#define FLAG_NOUNF              (1 <<  2) // noun follows
+#define FLAG_PASTF              (1 <<  3) // past tense follows
+#define FLAG_VERB               (1 <<  4) // pronunciation for verb
+#define FLAG_NOUN               (1 <<  5) // pronunciation for noun
+#define FLAG_PAST               (1 <<  6) // pronunciation for past tense
+#define FLAG_VERB_EXT           (1 <<  8) // extend the 'verb follows'
+#define FLAG_CAPITAL            (1 <<  9) // pronunciation if initial letter is upper case
+#define FLAG_ALLCAPS            (1 << 10) // only if the word is all capitals
+#define FLAG_ACCENT             (1 << 11) // character name is base-character name + accent name
+#define FLAG_SENTENCE           (1 << 13) // only if the clause is a sentence
+#define FLAG_ONLY               (1 << 14)
+#define FLAG_ONLY_S             (1 << 15)
+#define FLAG_STEM               (1 << 16) // must have a suffix
+#define FLAG_ATEND              (1 << 17) // use this pronunciation if at end of clause
+#define FLAG_ATSTART            (1 << 18) // use this pronunciation if at start of clause
+#define FLAG_NATIVE             (1 << 19) // not if we've switched translators
+#define FLAG_LOOKUP_SYMBOL      (1 << 30) // to indicate called from Lookup()
 
 #define BITNUM_FLAG_ALLCAPS    0x2a
 #define BITNUM_FLAG_HYPHENATED 0x2c

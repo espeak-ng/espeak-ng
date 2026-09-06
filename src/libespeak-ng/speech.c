@@ -879,10 +879,11 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetPunctuationList(const wchar_t *punct
 ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
 {
 	/* phonememode:  Controls the output of phoneme symbols for the text
-	      bits 0-2:
+	      bits 0-1:
 	         value=0  No phoneme output (default)
 	         value=1  Output the translated phoneme symbols for the text
 	         value=2  as (1), but produces IPA phoneme names rather than ascii
+	      bit 2:   when outputting IPA, output with IPA syllable separator
 	      bit 3:   output a trace of how the translation was done (showing the matching rules and list entries)
 	      bit 4:   produce pho data for mbrola
 	      bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
@@ -892,6 +893,8 @@ ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
 	*/
 
 	option_phonemes = phonememode;
+	option_phoneme_events = option_phoneme_events | (phonememode & (espeakPHONEMES_IPA | espeakPHONEMES_IPA_SBR));
+
 	f_trans = stream;
 	if (stream == NULL)
 		f_trans = stderr;
