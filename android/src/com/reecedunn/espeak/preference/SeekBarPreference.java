@@ -158,8 +158,6 @@ public class SeekBarPreference extends DialogPreference
         parameter.mValueText = (TextView) section.findViewById(R.id.valueText);
         parameter.mRateBoost = (CheckBox) section.findViewById(R.id.rateBoost);
 
-        ((TextView) section.findViewById(R.id.parameterTitle)).setText(parameter.title);
-
         final Button reset = (Button) section.findViewById(R.id.resetToDefault);
         // Every section carries an identically labelled button, so name the
         // parameter for anyone who reaches it with a screen reader.
@@ -326,7 +324,7 @@ public class SeekBarPreference extends DialogPreference
     private void updateValueText(Parameter parameter)
     {
         String text = String.format(parameter.formatter, Integer.toString(getDisplayValue(parameter)));
-        parameter.mValueText.setText(text);
+        parameter.mValueText.setText(parameter.title + ", " + text);
         // A bare "50%" is ambiguous once pitch and pitch variation share a
         // dialog, so the announcement carries the parameter name too. This
         // replaces the percentage of the slider's range that a SeekBar would
