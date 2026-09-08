@@ -36,6 +36,7 @@
   <string name="resetToDefault">Set to default</string>
   <string name="espeak_pitch_range">Pitch variation</string>
   <string name="espeak_variant">Voice variant</string>
+  <string name="espeak_voice_settings">Voice settings</string>
   <string name="espeak_supported_languages">Supported languages</string>
   <string name="espeak_supported_languages_all">All installed languages are reported to Android.</string>
   <string name="espeak_supported_languages_summary">%1$d of %2$d languages reported to Android.</string>
