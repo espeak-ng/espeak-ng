@@ -64,6 +64,8 @@
 	bacia (L07_	b'atSa
 	_) bagna (L07_	b'an^a
 	a) bbraccia (L07_	b:@-*'atS:a
+	_) bell' (P5t	bEl:  // bello/bella + elision before vowel
+	_) buon' (P5t	bwOn  // buono/buona + elision before vowel
 
 .group c
 	c	k
@@ -74,6 +76,7 @@
 	c (Y	tS
 	cc (Y	tS:
 	ch (Y	k
+	_) ch' (P3t	k  // che + elision before vowel (e.g. ch'io, ch'essi)
 	cch (Y	k:
 	s) ch (A	k
 	ch (a	tS
@@ -122,6 +125,7 @@
 	n) dere (_	=deRe
 	_) dall' (P5t	dall
 	_) dell' (P5t	dell
+	_) dov' (P4t	dOv  // dove + elision before vowel
 	_) d' (P2t	d
 	donat (Y_	don'at
 	dona (L07_	d'ona  // Pron.s verbs
@@ -237,6 +241,8 @@
 .group g
 	g	g
 	gg	g:
+	_) gliel' (P6t	l^El  // glielo/gliela + elision before vowel
+	_) grand' (P6t	g@-*and  // grande + elision before vowel
 	gh	g
 	gu (A	gw
 	g (Y	dZ
@@ -402,7 +408,7 @@
 	A) mila (_	m'ila/
 	_) m' (P2t	m
 	_) mezz' (P5t	mEdz:
-	metter (L04_	m'ette@-* // Pron.s Verbs
+	metter (L04_	m'et:e@-* // Pron.s Verbs
 	metti (L04_	m'e:t:i
 	mmetter (L04_	m:'et:e@-*
 	manda (L05_	m'anda
@@ -550,6 +556,7 @@
 	_) quell' (P6t	kwell
 	_) quest' (P6t	kwest
 	_) quant' (P6t	kwant
+	_) qualcos' (P8t	kwalkOs  // qualcosa + elision before vowel
 	_) quel 	kwel
 	_)quest (A_	kwest
 
@@ -661,6 +668,7 @@
 	tira (L07_	t'iRa
 	telefona (L07_	tel'Ef,ona
 	L02) tre (_	t@-*'e
+	_) tant' (P5t	tant  // tanto/tanta + elision before vowel
 	_) tutt' (P5t	tut:
 
 .group u
