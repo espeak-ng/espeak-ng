@@ -96,6 +96,8 @@ build:
 *  restored the fo (Faroese), kaa (Karakalpak) and xex dictionary builds under CMake -- Alexander Epaneshnikov
 
 android:
+*  fixed voice settings not being applied live when a slider is changed by a TalkBack gesture -- Amir Mahdi Fard
+*  combined the voice parameter sliders into one dialog, keeping one dialog per parameter on Wear -- Amir Mahdi Fard, Alexander Epaneshnikov
 *  added fallback to available voice when requested language is filtered out -- Alexander Epaneshnikov
 *  implemented Wear rotary crown support for numeric preferences -- Alexander Epaneshnikov
 *  removed ActionBar and tailored settings UI for Wear OS -- Alexander Epaneshnikov
