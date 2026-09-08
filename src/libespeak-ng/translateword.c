@@ -533,8 +533,11 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 						prefix_phonemes[0] = 0;
 						SpeakIndividualLetters(tr, wordpf, prefix_phonemes, 1, current_alphabet, word_phonemes);
 					}
-				} else
-					strcat(prefix_phonemes, end_phonemes);
+				} else {
+					// this loop runs up to 50 times, so truncate rather than
+					// overflow prefix_phonemes
+					strncat(prefix_phonemes, end_phonemes, N_WORD_PHONEMES - strlen(prefix_phonemes) - 1);
+				}
 				end_phonemes[0] = 0;
 
 				end_type = 0;
@@ -617,7 +620,10 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 								// allow more suffixes before this suffix
 								strcpy(end_phonemes2, end_phonemes);
 								end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags, dictionary_flags);
-								strcat(end_phonemes, end_phonemes2); // add the phonemes for the previous suffixes after this one
+								// add the phonemes for the previous suffixes after this one.
+								// A word can carry any number of suffixes (e.g. "s's's'..."), so
+								// truncate rather than overflow end_phonemes.
+								strncat(end_phonemes, end_phonemes2, N_WORD_PHONEMES - strlen(end_phonemes) - 1);
 
 								if ((end_type != 0) && !(end_type & SUFX_P)) {
 									// there is another suffix

@@ -40,6 +40,11 @@ void InterpretPhoneme(Translator *tr,
 
 void InterpretPhoneme2(int phcode,
 		PHONEME_DATA *phdata);
+void InterpretPhoneme2WithData(int phcode,
+		PHONEME_TAB *ph,
+		PHONEME_DATA *phdata);
+
+PHONEME_TAB *TonePhoneme(const PHONEME_LIST *plist);
 
 void FreePhData(void);
 const unsigned char *GetEnvelope(int index);

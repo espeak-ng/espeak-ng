@@ -1456,7 +1456,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			pitch_env = envelope_data[p->env];
 			amp_env = NULL;
 			if (p->tone_ph != 0) {
-				InterpretPhoneme2(p->tone_ph, &phdata_tone);
+				InterpretPhoneme2WithData(p->tone_ph, TonePhoneme(p), &phdata_tone);
 				pitch_env = GetEnvelope(phdata_tone.pitch_env);
 				if (phdata_tone.amp_env > 0)
 					amp_env = GetEnvelope(phdata_tone.amp_env);

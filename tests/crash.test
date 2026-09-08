@@ -44,3 +44,4 @@ test_crash_vector phoneme-table-switch-appendvowel -v ru
 test_crash_vector phoneme-table-switch-appendvowel -v ar
 test_crash_vector phoneme-table-switch-appendvowel -v el
 test_crash_vector phoneme-table-switch-appendvowel -v ja
+test_crash_vector suffix-chain-end-phonemes-oob -v en
