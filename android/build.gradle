@@ -30,7 +30,7 @@ dependencies {
 }
 
 android {
-    compileSdk = 34
+    compileSdk = 36
     ndkVersion = "29.0.14206865"
     namespace = "com.reecedunn.espeak"
 
@@ -40,7 +40,7 @@ android {
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 36
         versionCode = 23
         versionName = "1.53.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
