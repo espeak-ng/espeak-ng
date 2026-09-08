@@ -195,6 +195,10 @@ typedef struct {
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
 
 	PHONEME_TAB *ph;
+	// Resolved while the word's phoneme table is active. tone_ph is only a
+	// table-local code and cannot safely be looked up after switching back to
+	// the base language later in the clause.
+	PHONEME_TAB *tone_ph_data;
 	unsigned int length;  // length_mod
 	unsigned char env;    // pitch envelope number
 	unsigned char type;

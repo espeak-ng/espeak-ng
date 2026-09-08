@@ -60,6 +60,15 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
     private static Context storageContext;
     private static final String TAG = TtsSettingsActivity.class.getSimpleName();
+
+    /**
+     * Identifies the combined voice-parameters preference. Nothing is stored
+     * under it -- the preference writes the individual VoiceSettings keys --
+     * but a Preference without a key cannot save its instance state, so its
+     * dialog would not survive a rotation.
+     */
+    private static final String PREF_VOICE_PARAMETERS = "espeak_voice_parameters";
+
     private static final java.util.HashMap<String, LangInfo> sLangInfo = new java.util.HashMap<String, LangInfo>();
 
     @Override
@@ -173,45 +182,79 @@ public class TtsSettingsActivity extends PreferenceActivity {
         return pref;
     }
 
-    private static Preference createSeekBarPreference(Context context, SpeechSynthesis.Parameter parameter, String key, int titleRes) {
-        final String title = context.getString(titleRes);
-        final int defaultValue = parameter.getDefaultValue();
-
-        final SeekBarPreference pref = new SeekBarPreference(context);
-        pref.setTitle(title);
-        pref.setDialogTitle(title);
-        pref.setKey(key);
-        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
-        pref.setPersistent(true);
-
-        if (VoiceSettings.PREF_RATE.equals(key)) {
-            pref.enableRateBoost(VoiceSettings.PREF_RATE_BOOST);
-        }
-
+    /**
+     * Describes one voice parameter to {@link SeekBarPreference}: where its
+     * value lives, what it is called and how it reads.
+     */
+    private static SeekBarPreference.Parameter voiceParameter(Context context,
+                                                              SpeechSynthesis.Parameter parameter,
+                                                              String key, int titleRes) {
+        final String formatter;
         switch (parameter.getUnitType())
         {
             case Percentage:
-                pref.setFormatter(context.getString(R.string.formatter_percentage));
+                formatter = context.getString(R.string.formatter_percentage);
                 break;
             case WordsPerMinute:
-                pref.setFormatter(context.getString(R.string.formatter_wpm));
+                formatter = context.getString(R.string.formatter_wpm);
                 break;
             default:
                 throw new IllegalStateException("Unsupported unit type for the parameter.");
         }
 
-        pref.setMin(parameter.getMinValue());
-        pref.setMax(parameter.getMaxValue());
-        pref.setDefaultValue(defaultValue);
-
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(storageContext);
-        final String prefString = prefs.getString(key, null);
-        if (prefString == null) {
-            pref.setProgress(defaultValue);
-        } else {
-            pref.setProgress(Integer.parseInt(prefString));
+        final String value = prefs.getString(key, null);
+        final int current = (value == null) ? parameter.getDefaultValue() : Integer.parseInt(value);
+
+        final SeekBarPreference.Parameter voiceParam = new SeekBarPreference.Parameter(
+                key,
+                context.getString(titleRes),
+                parameter.getMinValue(),
+                parameter.getMaxValue(),
+                parameter.getDefaultValue(),
+                current,
+                formatter);
+
+        if (VoiceSettings.PREF_RATE.equals(key)) {
+            voiceParam.enableRateBoost(prefs.getBoolean(VoiceSettings.PREF_RATE_BOOST, false));
         }
 
+        return voiceParam;
+    }
+
+    private static SeekBarPreference newSeekBarPreference(Context context, String key, String title) {
+        final SeekBarPreference pref = new SeekBarPreference(context);
+        pref.setTitle(title);
+        pref.setDialogTitle(title);
+        // Without a key, Preference.dispatchSaveInstanceState() skips the
+        // preference and an open dialog does not survive a rotation.
+        pref.setKey(key);
+        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
+        pref.setPersistent(true);
+        return pref;
+    }
+
+    /** A single voice parameter, edited in a dialog of its own. */
+    private static Preference createSeekBarPreference(Context context,
+                                                      SpeechSynthesis.Parameter parameter,
+                                                      String key, int titleRes) {
+        final SeekBarPreference pref = newSeekBarPreference(context, key, context.getString(titleRes));
+        pref.addParameter(voiceParameter(context, parameter, key, titleRes));
+        pref.setSummary(pref.buildSummary());
+        return pref;
+    }
+
+    /** All four voice parameters, edited together in one dialog. */
+    private static Preference createVoiceParamsPreference(Context context,
+                                                          SpeechSynthesis engine,
+                                                          int titleRes) {
+        final SeekBarPreference pref = newSeekBarPreference(context, PREF_VOICE_PARAMETERS,
+                context.getString(titleRes));
+        pref.addParameter(voiceParameter(context, engine.Rate, VoiceSettings.PREF_RATE, R.string.setting_default_rate));
+        pref.addParameter(voiceParameter(context, engine.Pitch, VoiceSettings.PREF_PITCH, R.string.setting_default_pitch));
+        pref.addParameter(voiceParameter(context, engine.PitchRange, VoiceSettings.PREF_PITCH_RANGE, R.string.espeak_pitch_range));
+        pref.addParameter(voiceParameter(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
+        pref.setSummary(pref.buildSummary());
         return pref;
     }
 
@@ -436,10 +479,19 @@ public class TtsSettingsActivity extends PreferenceActivity {
         }
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
-        group.addPreference(createSeekBarPreference(context, engine.Rate, VoiceSettings.PREF_RATE, R.string.setting_default_rate));
-        group.addPreference(createSeekBarPreference(context, engine.Pitch, VoiceSettings.PREF_PITCH, R.string.setting_default_pitch));
-        group.addPreference(createSeekBarPreference(context, engine.PitchRange, VoiceSettings.PREF_PITCH_RANGE, R.string.espeak_pitch_range));
-        group.addPreference(createSeekBarPreference(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
+
+        if (isWatch) {
+            // One parameter per dialog on Wear. The rotating crown only
+            // delivers scroll events to the focused view and the watch has no
+            // way to move focus between sliders, so a combined dialog would
+            // leave every slider but one unreachable by the crown.
+            group.addPreference(createSeekBarPreference(context, engine.Rate, VoiceSettings.PREF_RATE, R.string.setting_default_rate));
+            group.addPreference(createSeekBarPreference(context, engine.Pitch, VoiceSettings.PREF_PITCH, R.string.setting_default_pitch));
+            group.addPreference(createSeekBarPreference(context, engine.PitchRange, VoiceSettings.PREF_PITCH_RANGE, R.string.espeak_pitch_range));
+            group.addPreference(createSeekBarPreference(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
+        } else {
+            group.addPreference(createVoiceParamsPreference(context, engine, R.string.espeak_voice_settings));
+        }
     }
 
     private static final OnPreferenceChangeListener mOnPreferenceChanged =
@@ -456,10 +508,6 @@ public class TtsSettingsActivity extends PreferenceActivity {
                             if (index >= 0 && index < entries.length) {
                                 summary = entries[index].toString();
                             }
-                        } else if (preference instanceof SeekBarPreference) {
-                            final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
-                            String formatter = seekBarPreference.getFormatter();
-                            summary = String.format(formatter, (String)newValue);
                         } else {
                             summary = (String)newValue;
                         }

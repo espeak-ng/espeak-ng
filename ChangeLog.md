@@ -34,7 +34,7 @@ updated languages:
 *  tlh (Klingon) -- fionnlagh
 
 bug fixes:
-*  replaced the Android 11-incompatible external-storage dictionary workflow with a private word-replacement lexicon -- uyt3ar
+*  fixed Han ideographs under the Arabic voice being spelled as "Chinese letter" instead of read with the Mandarin translator -- uyt3ar
 *  numerous buffer-overflow, out-of-bounds and memory-safety hardening fixes across number, clause, dictionary, letter-lookup, Roman-numeral, klatt and mbrola code (fuzzing-driven) -- Samuel Thibault, Rudi Heitbaum, Jiami Lin, Erik Chan
 *  fixed infinite loop in rule matching with UTF-8 input -- Samuel Thibault
 *  fixed loss of final input byte from stdin -- Samuel Thibault
@@ -64,7 +64,6 @@ bug fixes:
 *  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
 
 features:
-*  added fast, language-scoped Android word replacements without native dictionary compilation -- uyt3ar
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov
 *  added skin tone emoji support: sequences are spoken as the base name plus the modifier names -- Alexander Epaneshnikov
 *  updated emoji and symbol data from CLDR 33.1 to CLDR 48.2 (Unicode Emoji 12..16) for 66 languages, with a new additive tools/update-emoji updater -- Alexander Epaneshnikov
@@ -97,6 +96,8 @@ build:
 *  restored the fo (Faroese), kaa (Karakalpak) and xex dictionary builds under CMake -- Alexander Epaneshnikov
 
 android:
+*  fixed voice settings not being applied live when a slider is changed by a TalkBack gesture -- Amir Mahdi Fard
+*  combined the voice parameter sliders into one dialog, keeping one dialog per parameter on Wear -- Amir Mahdi Fard, Alexander Epaneshnikov
 *  added fallback to available voice when requested language is filtered out -- Alexander Epaneshnikov
 *  implemented Wear rotary crown support for numeric preferences -- Alexander Epaneshnikov
 *  removed ActionBar and tailored settings UI for Wear OS -- Alexander Epaneshnikov
