@@ -62,6 +62,7 @@ bug fixes:
 *  fixed subdivision flag emoji (England, Scotland, Wales) being read as "black flag" -- Alexander Epaneshnikov
 *  fixed the first letter of emoji descriptions being dropped when it is a non-ASCII capital ("Казахстан" was read as "азахстан") -- Alexander Epaneshnikov
 *  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
+*  fixed formant_factor being computed against the old default pitch base of 82 instead of the current default of 80, which shifted formant frequencies for every voice with an explicit pitch setting -- Ishan Ajwani
 
 features:
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov
