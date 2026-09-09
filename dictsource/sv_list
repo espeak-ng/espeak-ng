@@ -1,6 +1,15 @@
 
 // This file in UTF8 encoded
 
+// Accent 1
+
+// Accent 2
+anden       'andEn2      // “anden” = anden, andningen
+tomten      t'OmtEn2     // tomten, jultomten
+vardagsrum  v'A:dA:gsR8m2
+badrum      b'A:dR8m2
+sovrum      s'u:vR8m2
+
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
@@ -435,10 +444,10 @@ ljud        ju-d
 ljuv        ju-v
 ljuga       ju-ga
 hjälm       jElm
-hjärta      jE:ta
+hjärta      j'E:t.a
 hjärna      jE:n.a
-hjord       ju:d
-gärna       jE:n.a
+hjord       j'u:d.
+gärna       j'E:n.a
 göra        jY:Ra
 ge          je:
 gick        jIk
@@ -464,7 +473,7 @@ sjö         sx'Y:
 sjön        sx'Y:n
 sjöar       sx'Y:aR
 sjöman      sx'Y:man
-skjorta     sx'u:ta
+skjorta     sx'u:t.a
 skjuta      sx'u-ta
 skjuts      sx8ts
 stjärna     sx'E:n.a

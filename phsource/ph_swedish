@@ -145,6 +145,16 @@ phoneme u:
   FMT(vowel/u_bck)
 endphoneme
 
+// Swedish lexical pitch accents
+phoneme 1
+  stress
+  Tone(55, 30, envelope/sv_accent1, NULL)
+endphoneme
+
+phoneme 2
+  stress
+  Tone(45, 75, envelope/sv_accent2, NULL)
+endphoneme
 
 //===================================================
 
