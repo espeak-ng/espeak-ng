@@ -53,6 +53,7 @@ Android TTS Framework
 - **EspeakApp** — `Application` subclass; owns the device-protected storage context and the Wear launcher alias state (see below)
 - **TtsService** — Android TTS engine service; handles `onSynthesizeText()`, voice selection, parameter setup
 - **SpeechSynthesis** — JNI wrapper; loads `libttsespeak.so`, exposes native functions as Java API
+- **UnicodeNormalization** — NFKC normalization of synthesis input (stylized Unicode → plain text) with a normalized→original offset map for `rangeStart()` word boundaries
 - **VoiceSettings** — SharedPreferences wrapper for rate, pitch, volume, punctuation, variant
 - **LanguageSettings** — Filters available voices by user-selected languages
 - **CheckVoiceData** — Intent handler that verifies voice data files exist on device

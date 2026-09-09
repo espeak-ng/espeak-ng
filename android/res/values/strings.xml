@@ -44,6 +44,17 @@
   <string name="espeak_deselect_all_languages">Deselect all languages</string>
   <string name="espeak_supported_languages_guard">Select at least one language.</string>
   <string name="espeak_speak_punctuation">Speak punctuation</string>
+  <!--
+        Source: Checkbox label.
+        Description: When enabled, stylized Unicode text is converted to plain
+        letters (Unicode NFKC normalization) before being spoken.
+    -->
+  <string name="setting_unicode_normalization">Unicode normalization</string>
+  <!--
+        Source: Checkbox summary.
+        Description: Explains the Unicode normalization setting.
+    -->
+  <string name="setting_unicode_normalization_summary">Read stylized Unicode text, such as fancy fonts used on social media, as normal words</string>
   <string name="punctuation_all">All</string>
   <string name="punctuation_custom">Custom</string>
   <string name="punctuation_custom_fmt">Custom: %s</string>
