@@ -1,0 +1,35 @@
+name: Lint
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  clang-tidy-diff:
+    runs-on: ubuntu-22.04
+    name: clang-tidy (changed lines)
+
+    steps:
+    - name: apt-deps
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ronn kramdown python3 clang-tidy
+
+    - uses: actions/checkout@v7
+      with:
+        fetch-depth: 0
+
+    - name: configure
+      run: cmake -Bbuild -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DUSE_ASYNC:BOOL=OFF
+
+    - name: make-data
+      run: cmake --build build --target data
+
+    - name: clang-tidy-diff
+      run: |
+        git diff -U0 "origin/${{ github.base_ref }}...HEAD" -- 'src/libespeak-ng/*.c' 'src/libespeak-ng/*.h' \
+          | clang-tidy-diff \
+              -clang-tidy-binary clang-tidy \
+              -path build \
+              -j "$(nproc)" \
+              -p1
