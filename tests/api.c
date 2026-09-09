@@ -626,6 +626,66 @@ test_espeak_ng_phoneme_events(int enabled, int ipa) {
 
 // endregion
 
+// region word event positions
+
+static long _test_word_event_frames;
+static int _test_word_event_out_of_range;
+
+static int
+_test_word_event_positions_cb(short *samples, int num_samples, espeak_EVENT *events) {
+	if (samples == NULL)
+		return 0;
+
+	for (espeak_EVENT *e = events; e->type != espeakEVENT_LIST_TERMINATED; e++) {
+		if (e->type != espeakEVENT_WORD)
+			continue;
+		// A word must lie within the audio its own buffer produced.
+		if ((e->sample < _test_word_event_frames) ||
+		    (e->sample > _test_word_event_frames + num_samples))
+			_test_word_event_out_of_range++;
+	}
+
+	if (num_samples > 0)
+		_test_word_event_frames += num_samples;
+	return 0;
+}
+
+static void
+test_word_event_positions(int rate) {
+	printf("testing word event positions at rate=%d\n", rate);
+
+	TEST_ASSERT(event_list == NULL);
+	TEST_ASSERT(translator == NULL);
+	TEST_ASSERT(p_decoder == NULL);
+
+	espeak_ng_InitializePath(NULL);
+	espeak_ng_ERROR_CONTEXT context = NULL;
+	TEST_ASSERT(espeak_ng_Initialize(&context) == ENS_OK);
+	TEST_ASSERT(espeak_ng_InitializeOutput(0, 0, NULL) == ENS_OK);
+	espeak_SetSynthCallback(_test_word_event_positions_cb);
+	TEST_ASSERT(espeak_ng_SetParameter(espeakRATE, rate, 0) == ENS_OK);
+
+	_test_word_event_frames = 0;
+	_test_word_event_out_of_range = 0;
+
+	const char *test = "The quick brown fox jumps over the lazy dog.";
+	TEST_ASSERT(espeak_ng_Synthesize(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == ENS_OK);
+	TEST_ASSERT(espeak_ng_Synchronize() == ENS_OK);
+
+	// Above espeakRATE_MAXIMUM libsonic compresses each buffer after the events
+	// have been recorded against the uncompressed audio, so without rescaling
+	// the positions run past the audio that was handed to this callback.
+	TEST_ASSERT(_test_word_event_frames > 0);
+	TEST_ASSERT(_test_word_event_out_of_range == 0);
+
+	TEST_ASSERT(espeak_Terminate() == EE_OK);
+	TEST_ASSERT(event_list == NULL);
+	TEST_ASSERT(translator == NULL);
+	TEST_ASSERT(p_decoder == NULL);
+}
+
+// endregion
+
 int
 main(int argc, char **argv)
 {
@@ -665,6 +725,9 @@ main(int argc, char **argv)
 	test_espeak_ng_phoneme_events(0, 0);
 	test_espeak_ng_phoneme_events(1, 0);
 	test_espeak_ng_phoneme_events(1, 1);
+
+	test_word_event_positions(espeakRATE_NORMAL); // libsonic idle
+	test_word_event_positions(900);               // libsonic compressing
 
 	free(progdir);
 

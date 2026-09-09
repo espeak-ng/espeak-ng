@@ -539,6 +539,51 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 		ep->id.number = value;
 }
 
+#if USE_LIBSONIC
+void RescaleEventSamples(int length_pre, int length_post)
+{
+	// MarkerEvent() records positions while the buffer is being filled, which
+	// happens before libsonic compresses it, so the positions refer to audio
+	// that is longer than what is handed to the caller.  Map them onto the
+	// audio actually produced, keeping ep->sample and ep->audio_position
+	// consistent with the buffer passed to the synth callback.
+	//
+	// libsonic is a stream and can carry samples over between calls, so this
+	// linear mapping is an approximation; what it guarantees is that an event
+	// never points past the audio its buffer produced.
+
+#if !USE_MBROLA
+	static const int mbrola_delay = 0;
+#endif
+	int base;
+
+	if ((event_list == NULL) || (length_pre <= 0) || (length_pre == length_post))
+		return;
+
+	// count_samples is not advanced for this buffer until WavegenFill() has
+	// returned, so it still holds the total emitted by preceding buffers --
+	// the same base MarkerEvent() used.
+	base = count_samples + mbrola_delay;
+
+	for (int ix = 0; ix < event_list_ix; ix++) {
+		espeak_EVENT *ep = &event_list[ix];
+		int offset = ep->sample - base;
+
+		if (offset <= 0)
+			continue;
+		if (offset > length_pre)
+			offset = length_pre;
+		// Both factors are bounded by the buffer length, so the product can
+		// exceed 32 bits for buffers over about two seconds.  long is 32-bit on
+		// Windows, so widen explicitly rather than relying on it.
+		offset = (int)(((int64_t)offset * length_post) / length_pre);
+
+		ep->sample = base + offset;
+		ep->audio_position = (int)(((double)ep->sample * 1000.0) / samplerate);
+	}
+}
+#endif
+
 espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *text,
                                    unsigned int position, espeak_POSITION_TYPE position_type,
                                    unsigned int end_position, unsigned int flags, void *user_data)
