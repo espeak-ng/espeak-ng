@@ -40,3 +40,11 @@ test_phon en "t'u:h'VndrI2d@n tw'Enti" "220" "_0and"
 test_phon af "(fr)avinj'O~(en) b'0st@n(af) S'ina" "avignon boston china" "_^_"
 test_phon en "s'VtS _a#z" "such as" "(multiple  words)"
 test_phon cmn "s.,i.35_|@r51_| t'iE35n_|_| tS;iou214_|" "12.9" "_dpt"
+
+##### Phoneme literal input ([[ ]])
+# An unrecognised phoneme mnemonic inside [[ ]] must not truncate the rest
+# of the word's phonemes: EncodePhonemes() should skip just the one bad
+# mnemonic (however many bytes it is) and keep encoding what follows,
+# rather than stopping dead at the first byte it can't match.
+test_phon en-us "mbackgro'und" "[[m9background]]" "\$badmnemonic_ascii"
+test_phon en-us "mbackgro'und" "[[mʊbackground]]" "\$badmnemonic_utf8"
