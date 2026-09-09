@@ -450,10 +450,14 @@ public class TtsService extends TextToSpeechService {
 
         final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), mEngine);
 
+        // Detect SSML before normalizing. Real markup is ASCII, which NFKC
+        // leaves untouched, but normalization can turn lookalikes such as a
+        // fullwidth "＜ｓｐｅａｋ" into "<speak", and plain text must not
+        // switch into SSML parsing because of that.
+        final boolean isSsml = text.startsWith("<speak");
+
         UnicodeNormalization.Result normalization = null;
         if (settings.isUnicodeNormalizationEnabled()) {
-            // NFKC leaves ASCII untouched, so SSML markup passes through
-            // unchanged and the "<speak" sniff below still works.
             normalization = UnicodeNormalization.normalize(text);
             if (normalization != null) {
                 text = normalization.text;
@@ -484,7 +488,7 @@ public class TtsService extends TextToSpeechService {
         mEngine.Volume.setValue(settings.getVolume());
         mEngine.Punctuation.setValue(settings.getPunctuationLevel());
         mEngine.setPunctuationCharacters(settings.getPunctuationCharacters());
-        mEngine.synthesize(text, text.startsWith("<speak"));
+        mEngine.synthesize(text, isSsml);
     }
 
     protected void rebuildAvailableVoices() {
