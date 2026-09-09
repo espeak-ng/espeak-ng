@@ -1,0 +1,126 @@
+// Sicilian dictionary list
+// This file is UTF-8 encoded
+
+// letter names
+_a	a
+b	bi
+c	tSi
+d	di
+_e	E
+f	Ef:E
+g	dZi
+h	'ak:a
+_i	i
+j	i:||lONga
+k	k'ap:a
+l	EllE
+m	EmmE
+n	EnnE
+_o	O
+p	pi
+q	ku
+r	ERE
+s	EssE
+t	ti
+_u	u
+v	vu
+w	dOp:ja||vu
+x	ic:Is
+y	ip:IsIlOn
+z	tsEta
+
+_à	$accent
+_á	$accent
+_â	$accent
+_é	$accent
+_è	$accent
+_ê	$accent
+_í	$accent
+_ì	$accent
+_î	$accent
+_ó	$accent
+_ò	$accent
+_ô	$accent
+_ù	$accent
+_ú	$accent
+_û	$accent
+
+// common words and forms
+e	E	$u
+è	'E
+a	a	$u
+diu	d'i;U
+dui	d'uI
+ma	ma	$u
+mia	m'i;a
+maria	ma*'i;a
+un	un	$u
+na	na	$u
+lu	lu	$u
+la	la	$u
+li	li	$u
+di	di	$u
+da	da	$u
+pi	pi	$u
+cu	ku	$u
+chi	ki	$u
+ca	ka	$u
+
+// numbers
+_0	ts'E*U
+_1	'unU
+_2	d'uI
+_3	t.r.'i
+_4	kw'at:*U
+_5	S'inkU
+_6	s'Ei
+_7	s'Et:I
+_8	'Ot:U
+_9	n'OvI
+_10	d'ESI
+_11	'unniS,I
+_12	d'u*iS,I
+_13	t.r.i*'iSI
+_14	kwat:'O*diS,I
+_15	kwinn'iSI
+_16	sid.:'iSI
+_17	d,iCas'Et:I
+_18	d,iCa*'Ot:U
+_19	d,iCann'OvI
+_2X	v'intI
+_20	v'intI
+_3X	t.r.'Enta
+_4X	kwa*'anta
+_5X	SiNkw'anta
+_6X	sis:'anta
+_7X	sit:'anta
+_8X	Ot:'anta
+_9X	nUv'anta
+_0C	S'EntU
+_1C	S'EntU
+_0M1	m'il:I
+_0M2	milj'unI
+_1M2	un||milj'unI
+
+_0and	E
+_dpt	vi*g'ula
+
+// punctuation names
+_.	puntU	$max3
+_,	vi*g'ula
+_:	d'uI||puntI
+_;	puntU||E||vi*g'ula
+_!	puntU||,Esklamat'ivU
+_?	p'untU||,intER,Ugat'ivU
+_"	virgolette
+_'	ap'Os.:r.Uf,U
+_(	pa*'Entis,I||ap'E*ta
+_)	pa*'Entis,I||c'usa
+*	,astE*'iskU $max3
+%	pI||tS:'EntU $max3
+=	Ugw'alI $max3
++	c0c'u $max3
+/	b'aRa $max3
+&	E
+@	lUm'aka
+#	kantS'Ed.:U
