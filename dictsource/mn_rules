@@ -24,191 +24,780 @@
 //  Cyrillic alphabet: а б в г д е ё ж з и й к л м н о ө п р
 //                     с т у ү ф х ц ч ш щ ъ ы ь э ю я
 //
-//  Vowel harmony: back {а,о,у} vs front {э,ө,ү}; и is neutral.
+//  Four phenomena drive nearly every rule in this file:
 //
-//  Key phonological rules:
-//    1. Doubled vowels = long vowels
-//    2. й after vowel = diphthong (ай, ой, эй, уй/үй)
-//    3. н before г/к/х/word-end = velar nasal [ŋ]
-//    4. ь (soft sign) palatalizes preceding consonant + creates
-//       glide before iotated vowels
-//    5. е,ё,ю,я = j+vowel after pause, vowel, or ь
-//    6. ы = [i] (archaic, same as и in modern Khalkha)
+//  1. VOWEL HARMONY. Roots are back {а о у ы я ё ю} or front
+//     {э ө ү е}; и is neutral and transparent. Harmony is already
+//     spelled out in the vowel letters themselves, so it needs no
+//     re-deriving for them -- but it also selects the CONSONANT
+//     allophones of г and х, which the spelling does NOT show. That
+//     is what the harmony pre-contexts below are for: they make
+//     цагийн come out uvular [tsʰaʁiːŋ] while гэрийн stays velar
+//     [keriːŋ], from spellings that look alike.
+//
+//  2. UNSTABLE VOWELS (гээгдэх эгшиг). Short vowels outside the
+//     first syllable delete or reduce. See the block comment above
+//     the vowel groups for the guards.
+//
+//  3. ASPIRATION, NOT VOICING. б д г are unaspirated /p t k/,
+//     п т к are aspirated /pʰ tʰ kʰ/, з ц are /ts tsʰ/ and
+//     ж ч are /tʃ tʃʰ/. Nothing in native Khalkha is voiced.
+//
+//  4. PALATALISATION. ь palatalises the preceding consonant and is
+//     itself silent. Coronals take a dedicated palatalised phoneme;
+//     labials and velars take a following [j].
+//
+//
+//  A NOTE ON PRE-CONTEXTS -- why they are spelled out longhand
+//
+//  Several rules here need to know "what was the nearest vowel to
+//  the left, and was it back or front?". The obvious tool is the
+//  `J` skip (`L01J)`), and it does work -- but `J` scans past the
+//  start of the word into the PREVIOUS word. That silently made
+//  `нуруу олон` reduce the initial о of олон, because it found the
+//  final у of нуруу. So every lookback below is written out as an
+//  explicit ladder instead:
+//
+//      L01)            vowel immediately before
+//      L01L05)         vowel, then one consonant
+//      L01L05L05)      vowel, then two consonants
+//      L01L05L05L05)   vowel, then three consonants
+//
+//  The reduction ladder runs one rung further, to four, because ь
+//  and ъ are counted as letters even though they are silent:
+//  амьдрах has only three consonant SOUNDS between its two vowels
+//  but four consonant LETTERS.
+//
+//  Three intervening consonants is the phonotactic maximum in
+//  Mongolian, so the ladder is exhaustive, and it cannot leak
+//  across a word boundary. Longer ladder entries score higher than
+//  shorter ones and give the same answer, so the overlap is safe.
 // ============================================================
+
+
+// ============================================================
+//  LETTER GROUPS
+// ============================================================
+
+.L01 а о у ы я ё ю              // back (masculine) vowel letters
+.L02 э ө ү е                    // front (feminine) vowel letters
+.L03 и                          // neutral, harmonically transparent
+.L04 а о у ы э ө ү и е ё ю я    // any vowel letter
+.L05 б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь   // any consonant letter
+//   ъ and ь are silent but they are still letters, so the lookback
+//   ladders must be able to step over them: in амьдрах the а of the
+//   final syllable is four letters away from the а of the first.
+.L06 п т к х ц ч ш с ф щ        // voiceless consonants
+.L07 м н л р в                  // sonorant consonants
+.L08 я ё ю е и                  // vowels that carry their own /j/
+.L09 б в г д ж з к л м н п р с т ф х ц ч ш щ ъ ь   // consonants EXCEPT й
+//   L09 exists so that vowel reduction never eats the first half of a
+//   diphthong: in зайтай the final ай must stay [aI], not become [@j].
+.L10 б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь и   // L05 + и
+.L11 a e i o u y                // LATIN vowel letters (Latin fallback only)
+//   L10 is L05 plus и, and is used for the GAP positions in the г and х
+//   harmony ladders only. и is harmonically transparent (.L03) -- it belongs to
+//   neither class and does not interrupt harmony -- so the lookback has to be
+//   able to step over it just as it steps over a consonant. With only L05 in
+//   the gaps the ladder stopped dead at the first и, and back-harmony words
+//   took the front allophone: унших came out with velar [x] and голиг with
+//   velar [k]. Right contexts stay L05: "х before a consonant" must not start
+//   matching и, which has its own rules.
 
 
 // ============================================================
 //  VOWELS
+//
+//  UNSTABLE-VOWEL DELETION (гээгдэх эгшиг)
+//
+//  A short а э о ө у ү outside the first syllable is deleted. The
+//  rule is guarded so that it cannot produce output no speaker
+//  could say:
+//
+//  G1  Non-initial only. Every deletion and reduction rule requires
+//      a vowel earlier in the SAME word (the `L04L05…)` ladder), so
+//      the first syllable is never touched.
+//
+//  G2  Short only. Long vowels (аа, ээ, …) and diphthongs (ай, ой,
+//      үй, …) are two-letter matches and carry `+++`, so they beat
+//      every one-letter deletion rule.
+//
+//  G3  Word-final vowels reduce rather than vanish. бага is
+//      [paʁə], never [paʁ].
+//
+//      Reduction is HARMONY-PRESERVING: each vowel reduces to its own
+//      short counterpart (а -> a#, ө -> 8#, у -> U#, ...), not to one
+//      central schwa. Khalkha reduced vowels keep their harmony class;
+//      collapsing them all to @ merges contrasts the language keeps, and
+//      measured worse in the ASR round-trip (57.4% vs 58.5% CER).
+//      The @ phoneme remains defined for genuinely epenthetic vowels --
+//      ones with no letter in the spelling -- which is what it is for.
+//
+//  G4  Deletion must leave a legal cluster. Full deletion is
+//      licensed only when the vowel sits between single consonants
+//      and the following one is a sonorant: багана -> [paʁnə].
+//      Before an obstruent the vowel becomes @ instead (хотод ->
+//      [xɔtət], нутаг -> [nʊtʰəɢ]). Before a two-consonant cluster
+//      nothing happens at all -- нэмэлт stays [nemeɬt], because
+//      [nmlt] is not sayable.
+//
+//  G5  A word-final -ан/-эн/-ал/-ам/-… REDUCES; it does not delete.
+//      There is no syllabic-sonorant rule: болон is [pɔɬɔ̆ŋ], эзэн
+//      [et͡sə̆ŋ], төрөл [tʰɵrɵ̆ɬ], handled by the ordinary (L09_
+//      reduction above, the same path that already gave боловсрол
+//      [pɔɬɔwsrəɬ].
+//
+//      An earlier version emitted syllabic [ŋ̩ m̩ ɮ̩] here. Measured
+//      against mbspeech over the 184 native words affected, reducing
+//      instead was closer to the speaker on MCD (-0.54, CI [-0.73,
+//      -0.35]) and on F1 distance (-3.7, CI [-6.0, -1.6]), with F2
+//      unchanged. Segment durations were identical between the two,
+//      so the MCD gain is not silence dilution. Note this makes
+//      оюутан [ɔjʊːtʰə̆ŋ]; the syllabic [ɔjʊːtʰŋ̩] cited for the
+//      -тан/-тэн suffix is attested, but that class is too rare in
+//      the corpus (11 tokens) to test separately.
+//
+//  и and ы are exempt throughout. They are the vowels of the
+//  genitive and accusative suffixes (-ын, -ийн, -ыг, -ийг), and
+//  deleting them would destroy the case system.
 // ============================================================
 
 .group а
-        аай     a:j
-        аа      a:
-        ай      aI
-        а       a
+        аай (+++            a:j
+        аа (+++             a:
+        ай (+++             aI
+
+        // G4 used to DELETE here, and багана was the one example the rule was
+        // written for: it produced p'aQ"na#, [paʁna]. A native speaker says that
+        // is wrong -- the vowel is reduced, not lost. Reducing instead makes this
+        // consistent with the pre-obstruent case, which already reduces (хотод ->
+        // X'OthO#t). Only `а` ever had a deletion rule, so this is the whole of it.
+        L04L05) а (L07L04+      a#          // G4 reduce
+
+        L04L05) а (L09_          a#
+        L04L05L05) а (L09_       a#
+        L04L05L05L05) а (L09_    a#
+        L04L05L05L05L05) а (L09_    a#
+        L04L05) а (L09L04        a#
+        L04L05L05) а (L09L04     a#
+        L04L05L05L05) а (L09L04  a#
+        L04L05L05L05L05) а (L09L04  a#
+        L04L05) а (_             a#
+        L04L05L05) а (_          a#
+        L04L05L05L05) а (_       a#
+        L04L05L05L05L05) а (_       a#
+
+        а                   a
 
 .group э
-        ээй     e:j
-        ээ      e:
-        эй      eI
-        э       e
+        ээй (+++            e:j
+        ээ (+++             e:
+        эй (+++             eI
 
-.group и
-        ий      i:
-        ии      i:
-        и       i
+        L04L05) э (L07L04+
+
+        L04L05) э (L09_          e#
+        L04L05L05) э (L09_       e#
+        L04L05L05L05) э (L09_    e#
+        L04L05L05L05L05) э (L09_    e#
+        L04L05) э (L09L04        e#
+        L04L05L05) э (L09L04     e#
+        L04L05L05L05) э (L09L04  e#
+        L04L05L05L05L05) э (L09L04  e#
+        L04L05) э (_             e#
+        L04L05L05) э (_          e#
+        L04L05L05L05) э (_       e#
+        L04L05L05L05L05) э (_       e#
+
+        э                   e
 
 .group о
-        оой     O:j
-        оо      O:
-        ой      OI
-        о       O
+        оой (+++            O:j
+        оо (+++             O:
+        ой (+++             OI
+
+        L04L05) о (L07L04+
+
+        L04L05) о (L09_          O#
+        L04L05L05) о (L09_       O#
+        L04L05L05L05) о (L09_    O#
+        L04L05L05L05L05) о (L09_    O#
+        L04L05) о (L09L04        O#
+        L04L05L05) о (L09L04     O#
+        L04L05L05L05) о (L09L04  O#
+        L04L05L05L05L05) о (L09L04  O#
+        L04L05) о (_             O#
+        L04L05L05) о (_          O#
+        L04L05L05L05) о (_       O#
+        L04L05L05L05L05) о (_       O#
+
+        о                   O
 
 .group ө
-        өөй     8:j
-        өө      8:
-        ө       8
+        өөй (+++            8:j
+        өө (+++             8:
+        өй (+++             8I
+
+        L04L05) ө (L07L04+
+
+        L04L05) ө (L09_          8#
+        L04L05L05) ө (L09_       8#
+        L04L05L05L05) ө (L09_    8#
+        L04L05L05L05L05) ө (L09_    8#
+        L04L05) ө (L09L04        8#
+        L04L05L05) ө (L09L04     8#
+        L04L05L05L05) ө (L09L04  8#
+        L04L05L05L05L05) ө (L09L04  8#
+        L04L05) ө (_             8#
+        L04L05L05) ө (_          8#
+        L04L05L05L05) ө (_       8#
+        L04L05L05L05L05) ө (_       8#
+
+        ө                   8
 
 .group у
-        ууй     U:j
-        уу      U:
-        уй      UI
-        у       U
+        ууй (+++            U:j
+        уу (+++             U:
+        уй (+++             UI
+
+        L04L05) у (L07L04+
+
+        L04L05) у (L09_          U#
+        L04L05L05) у (L09_       U#
+        L04L05L05L05) у (L09_    U#
+        L04L05L05L05L05) у (L09_    U#
+        L04L05) у (L09L04        U#
+        L04L05L05) у (L09L04     U#
+        L04L05L05L05) у (L09L04  U#
+        L04L05L05L05L05) у (L09L04  U#
+        L04L05) у (_             U#
+        L04L05L05) у (_          U#
+        L04L05L05L05) у (_       U#
+        L04L05L05L05L05) у (_       U#
+
+        у                   U
 
 .group ү
-        үүй     y:j
-        үү      y:
-        үй      UI
-        ү       y
+        үүй (+++            y:j
+        үү (+++             y:
+        үй (+++             yI
+
+        L04L05) ү (L07L04+
+
+        L04L05) ү (L09_          y#
+        L04L05L05) ү (L09_       y#
+        L04L05L05L05) ү (L09_    y#
+        L04L05L05L05L05) ү (L09_    y#
+        L04L05) ү (L09L04        y#
+        L04L05L05) ү (L09L04     y#
+        L04L05L05L05) ү (L09L04  y#
+        L04L05L05L05L05) ү (L09L04  y#
+        L04L05) ү (_             y#
+        L04L05L05) ү (_          y#
+        L04L05L05L05) ү (_       y#
+        L04L05L05L05L05) ү (_       y#
+
+        ү                   y
+
+// -- Neutral vowels: exempt from deletion (case-suffix vowels) --
+
+.group и
+        ий (+++             i:
+        ии (+++             i:
+        и                   i
+
+.group ы
+        ый (+++             i:
+        ы                   i
 
 
-// -- Iotated vowels: е, ё, ю, я ----------------------------
-// Word-initial or after vowel/ь: j + vowel
-// After consonant: just the vowel
-
-.group е
-        _) еэ       je:
-        A) еэ       je:
-        ь) еэ       e:
-        еэ          e:
-        _) е        je
-        A) е        je
-        ь) е        e
-        е           e
-
-.group ё
-        _) ё        jO
-        A) ё        jO
-        ь) ё        O
-        ё           O
-
-.group ю
-        _) ю        jU
-        A) ю        jU
-        ь) ю        U
-        ю           U
+// -- Iotated vowels: я, ё, ю, е ---------------------------------
+//
+// Mongolian я ё ю always carry their glide, unlike Russian, where
+// after a consonant they merely palatalise it. Writing them as j+V
+// is also what realises palatalisation on labials and velars, since
+// [mʲa] and [mja] are the same percept.
+//
+// е is the exception: /je/ word-initially and after a vowel or ь,
+// but plain /e/ after a consonant (mostly Russian loanwords).
 
 .group я
-        _) яа       ja:
-        A) яа       ja:
-        ь) яа       a:
-        яа          a:
-        _) я        ja
-        A) я        ja
-        ь) я        a
-        я           a
+        яа (+++             ja:
+        я                   ja
 
-// -- ы (same as и in modern Khalkha) -----------------------
-.group ы
-        ы       i
+.group ё
+        ёо (+++             jO:
+        ё                   jO
+
+.group ю
+        юү (+++             jy:
+        юу (+++             jU:
+        ю                   jU
+
+.group е
+        // ъ is the hard sign, and marking this glide is the whole reason it is
+        // written. There was a rule for ь but none for ъ, so е fell through to
+        // the plain catch-all and объект came out [ɔpekt] with no /j/ at all.
+        // ё, ю and я keep theirs only because they emit /j/ unconditionally.
+        ъ) е                je
+        ь) е                je
+        _) еэ               je:
+        A) еэ               je:
+        еэ                  e:
+        _) ее               je:
+        _) е                je
+        A) е                je
+        е                   e
 
 
 // ============================================================
 //  CONSONANTS
+//
+//  Each consonant that can be palatalised carries two ь rules:
+//
+//      C (ьL08    <plain>      // ья/ье/ьё/ью/ьи -- the vowel
+//                              // supplies the glide, so the
+//                              // consonant must NOT add a second
+//                              // one (ярья is [jarja])
+//      C (ь       <palatal>    // ь at a syllable coda (морь)
 // ============================================================
 
+// -- Unaspirated stops: б д г -----------------------------------
+
 .group б
-        б       b
-
-.group в
-        в       v
-
-.group г
-        г (т    x
-        г       g
+        б (ьL08     p
+        б (ь        pj
+        б           p
 
 .group д
-        д       d
+        д (ьL08     t
+        д (ь        t;
+        д           t
 
-.group ж
-        ж       dZ
+// г has two surface forms, chosen by the harmony class of the
+// WORD rather than by the neighbouring letter alone:
+//   k   velar stop  - front-harmony words
+//   q   uvular stop - back-harmony words
+//
+// There used to be a third, Q" (uvular fricative [ʁ]), for the
+// intervocalic position: бага was [paʁa]. A native speaker could not
+// understand that word, nor байгууллага or сургууль -- the three
+// "didn't understand" items that contained a uvular. Offered a choice
+// between the fricative, a uvular stop, and no uvular at all, he chose
+// the STOP. So the harmony-driven uvular allophone is right and only its
+// fricative realisation was wrong: г is a stop in every position.
+// The -гт- cluster lenites to a fricative in both classes
+// (цагт [tsʰaχt], эгшиг [ekʃik]).
+.group г
+        // ь + an iotated vowel: palatalised, but the vowel brings its
+        // own /j/ so this must NOT add one. Needs the full harmony ladder
+        // because the `(ь` rules below outrank a bare `(ьL08` guard and
+        // would otherwise double the glide (өгье -> [ɵkjje]).
+        L01L10L10L10) г (ьL08	q
+        L01L10L10) г (ьL08	q
+        L01L10) г (ьL08	q
+        L01) г (ьL08	q
+        L02L10L10L10) г (ьL08	k
+        L02L10L10) г (ьL08	k
+        L02L10) г (ьL08	k
+        L02) г (ьL08	k
 
-.group з
-        з       z
+        // Same as х above: .L05 contains ь, so the `L01) г (L05` ladder was
+        // eating г before ь and the palatalisation never fired (баг and багь
+        // were identical). Harmony still applies through the ь.
+        L01L10L10L10) г (ь     qj
+        L01L10L10) г (ь     qj
+        L01L10) г (ь        qj
+        L01) г (ь           qj
+        L02L10L10L10) г (ь     kj
+        L02L10L10) г (ь     kj
+        L02L10) г (ь        kj
+        L02) г (ь           kj
+        г (ь                kj
 
-.group й
-        й       j
+        L02L10L10L10) г (т     x
+        L02L10L10) г (т     x
+        L02L10) г (т        x
+        L02) г (т           x
+        L01L10L10L10) г (т     X
+        L01L10L10) г (т     X
+        L01L10) г (т        X
+        L01) г (т           X
+        г (т                X
 
-.group к
-        к       k
+        L01) г (L04+        q       // intervocalic, back-harmony word
 
-.group л
-        л       l
+        L01L10L10L10) г (и     q       // и is transparent to harmony
+        L01L10L10) г (и     q       // и is transparent to harmony
+        L01L10) г (и        q
+        L01) г (и           q       // zero-gap rung: the ladder was missing
+        L01L10L10L10) г (й     q
+        L01L10L10) г (й     q
+        L01L10) г (й        q
+        L01) г (й           q
+        L02L10L10L10) г (и     k
+        L02L10L10) г (и     k
+        L02L10) г (и        k
+        L02) г (и           k
 
-.group м
-        м       m
+        г (L01              q
+        г (L02              k
+        г (и                k
 
-// н: velar nasal [N] before velars and at word end
-.group н
-        н (г    N
-        н (к    N
-        н (х    N
-        н (_    N
-        нг (_   N
-        н       n
+        L01L10L10L10) г (_     q
+        L01L10L10) г (_     q
+        L01L10) г (_        q
+        L01) г (_           q
+        L02L10L10L10) г (_     k
+        L02L10L10) г (_     k
+        L02L10) г (_        k
+        L02) г (_           k
+        L01L10L10L10) г (L05   q
+        L01L10L10) г (L05   q
+        L01L10) г (L05      q
+        L01) г (L05         q
+        L02L10L10L10) г (L05   k
+        L02L10L10) г (L05   k
+        L02L10) г (L05      k
+        L02) г (L05         k
+
+        г                   k
+
+
+// -- Aspirated stops: п т к -------------------------------------
 
 .group п
-        п       p
-
-.group р
-        р       r
-
-.group с
-        с       s
+        п (ьL08     ph
+        п (ь        phj
+        п           ph
 
 .group т
-        т       t
+        т (ьL08     th
+        т (ь        th;
+        тт          tth        // geminate: one closure, one aspirated release
+        т           th
 
-.group ф
-        ф       f
+.group к
+        к (ьL08     kh
+        к (ь        khj
+        к           kh
 
-.group х
-        х       x
+
+// -- Affricates: з ц ж ч ----------------------------------------
+
+.group з
+        з (ьL08     ts
+        з (ь        ts;
+        з           ts
 
 .group ц
-        ц       ts
+        ц (ьL08     tsh
+        ц (ь        tsh;
+        ц           tsh
+
+.group ж
+        ж (ьL08     tS
+        ж (ь        tS;
+        ж           tS
 
 .group ч
-        ч       tS
+        ч (ьL08     tSh
+        ч (ь        tShj
+        ч           tSh
+
+
+// -- Fricatives -------------------------------------------------
+
+// х is uvular [χ] in back-harmony words, velar [x] in front ones.
+// This is the clearest single audible cue to a word's harmony class.
+.group х
+        // ь + an iotated vowel: palatalised, but the vowel brings its
+        // own /j/ so this must NOT add one. Needs the full harmony ladder
+        // because the `(ь` rules below outrank a bare `(ьL08` guard and
+        // would otherwise double the glide (өгье -> [ɵkjje]).
+        L01L10L10L10) х (ьL08	X
+        L01L10L10) х (ьL08	X
+        L01L10) х (ьL08	X
+        L01) х (ьL08	X
+        L02L10L10L10) х (ьL08	x
+        L02L10L10) х (ьL08	x
+        L02L10) х (ьL08	x
+        L02) х (ьL08	x
+
+        // ь palatalises х, and harmony still decides velar vs uvular.
+        // These need the harmony context spelled out because .L05 includes
+        // ь, so the plain `L01) х (L05 -> X` ladder below was matching х
+        // before ь and winning on context length. The effect was that дах
+        // and дахь synthesised to byte-identical audio (both t'aX), and the
+        // same for нөх/нөхь, баг/багь, ах/ахь -- different words, same sound.
+        L01L10L10L10) х (ь     Xj
+        L01L10L10) х (ь     Xj
+        L01L10) х (ь        Xj
+        L01) х (ь           Xj
+        L02L10L10L10) х (ь     xj
+        L02L10L10) х (ь     xj
+        L02L10) х (ь        xj
+        L02) х (ь           xj
+        х (ь                xj
+
+        х (L01              X
+        х (L02              x
+
+        // и is harmonically TRANSPARENT (.L03), so х before и must take the
+        // harmony class of the vowel further back, not default to velar.
+        // The г group below already does this and says so in a comment; х
+        // was left with a bare `х (и -> x`, which gave back-harmony words the
+        // front allophone: борхи, тохир, унших and ногоохи all came out with
+        // velar [x] where Khalkha has uvular [χ].
+        L01L10L10L10) х (и     X
+        L01L10L10) х (и     X
+        L01L10) х (и        X
+        L01) х (и           X
+        L02L10L10L10) х (и     x
+        L02L10L10) х (и     x
+        L02L10) х (и        x
+        L02) х (и           x
+        х (и                x
+
+        L01L10L10L10) х (_     X
+        L01L10L10) х (_     X
+        L01L10) х (_        X
+        L01) х (_           X
+        L02L10L10L10) х (_     x
+        L02L10L10) х (_     x
+        L02L10) х (_        x
+        L02) х (_           x
+        L01L10L10L10) х (L05   X
+        L01L10L10) х (L05   X
+        L01L10) х (L05      X
+        L01) х (L05         X
+        L02L10L10L10) х (L05   x
+        L02L10L10) х (L05   x
+        L02L10) х (L05      x
+        L02) х (L05         x
+
+        х                   x
+
+.group с
+        с (ьL08     s
+        с (ь        s;
+        с           s
 
 .group ш
-        ш       S
+        ш           S
 
 .group щ
-        щ       S
+        щ           S
 
-// -- Hard sign / soft sign ---------------------------------
-.group ъ
-        ъ (я    j
-        ъ (ё    j
-        ъ (ю    j
-        ъ (е    j
-        ъ
+.group ф
+        ф           f
+
+// в is /w/ in native words. Loanwords needing [v] are listed in
+// mn_list with an explicit v.
+.group в
+        в (ьL08     w
+        в (ь        w;
+        в           w
+
+
+// -- Nasals -----------------------------------------------------
+
+.group м
+        м (ьL08     m
+        м (ь        m;
+        м           m
+
+// н is [ŋ] before a velar/uvular and word-finally, [n] elsewhere.
+// In word-final -ан/-эн/-… the vowel reduces (see G5) and the н is
+// reached here as an ordinary word-final consonant, giving [ŋ].
+.group н
+        н (ьL08     n
+        н (ь        n^
+        н (г        N
+        н (к        N
+        н (х        N
+        // Word-final н is a PLAIN n. It used to be the velar N [ŋ], which is
+        // what the reference describes, but a native speaker chose n on a
+        // straight A/B (хүн, ном, сайн, эрдэмтэн). Assimilation before a velar
+        // is unaffected -- н (г, н (к, н (х above all keep N.
+        н (_        n
+        н           n
+
+
+// -- Liquids ----------------------------------------------------
+
+// л is a lateral FRICATIVE. It is voiceless [ɬ] at word edges and
+// next to a voiceless consonant, voiced [ɮ] only between vowels.
+.group л
+        // ь + an iotated vowel is a fully VOICED environment -- the vowel before
+        // it and the /j/ after it are both voiced -- so л takes the voiced
+        // lateral, the same as the `L04) л (L04` rule below. This read l#
+        // (voiceless) and gave алье [aɬje] against алаа [aɮaː], which is the
+        // same group contradicting its own voicing rule.
+        L04) л (ьL08    l
+        л (ьL08         l#
+        // Word-final ль surfaces as a GLIDE BEFORE the lateral, not as a
+        // palatalised lateral after it: сургууль is [surɢuːi̯ɬ], "сургуйл",
+        // not [surɢuːʎ] which a native speaker heard as "сургуули".
+        // The lateral itself stays voiceless, exactly as in сургуул.
+        л (ь_           jl#
+        л (ь            l;
+        _) л            l#
+        л (_            l#
+        л (L06          l#
+        L06) л          l#
+        // An intervocalic GEMINATE is just as voiced as a single intervocalic
+        // л, but the rule below needs a vowel on both sides and a doubled
+        // letter puts a consonant on one, so both halves fell through to the
+        // voiceless l# -- байгууллага [pai̯quːɬɬaqa], долларын [tɔɬɬariŋ].
+        // Khalkha л is /ɮ/, devoicing only next to a voiceless segment or at a
+        // word edge; a geminate between two vowels has neither. Both halves
+        // take the voiced lateral, matching алаа below.
+        L04) л (лL04    l       // first half:  V _ л V
+        L04л) л (L04    l       // second half: V л _ V
+        L04) л (L04     l
+        л               l#
+
+.group р
+        р (ьL08     r
+        р (ь        r;
+        р           r
+
+.group й
+        й           j
+
+
+// -- Signs ------------------------------------------------------
+//
+// ь and ъ are both silent. ь does its work through the `(ь`
+// post-context rules in the consonant groups above; ъ merely blocks
+// palatalisation, and the following я/ё/ю/е supplies its own glide.
 
 .group ь
-        ь (я    j
-        ь (ё    j
-        ь (ю    j
-        ь (е    j
-        ь (и    j
         ь
+
+.group ъ
+        ъ
+
+
+// ============================================================
+//  LATIN-SCRIPT FALLBACK
+//
+//  Untransliterated loanwords (product names, URLs, email
+//  addresses) are read with Mongolian phonology rather than spelled
+//  out letter by letter.
+// ============================================================
+
+.group a
+        a       a
+.group b
+        b (L11	p
+        L11) b	p
+        b		p@
+.group c
+        ch      tSh
+        c (L11	kh
+        L11) c	kh
+        c		kh@
+.group d
+        d (L11	t
+        L11) d	t
+        d		t@
+.group e
+        e       e
+.group f
+        f (L11	f
+        L11) f	f
+        f		f@
+.group g
+        g (L11	k
+        L11) g	k
+        g		k@
+.group h
+        h (L11	x
+        L11) h	x
+        h		x@
+.group i
+        i       i
+.group j
+        j (L11	tS
+        L11) j	tS
+        j		tS@
+.group k
+        k (L11	kh
+        L11) k	kh
+        k		kh@
+.group l
+        l (L11	l#
+        L11) l	l#
+        l		l#@
+.group m
+        m (L11	m
+        L11) m	m
+        m		m@
+.group n
+        n (L11	n
+        L11) n	n
+        n		n@
+.group o
+        o       O
+.group p
+        ph      f
+        p (L11	ph
+        L11) p	ph
+        p		ph@
+.group q
+        q (L11	kh
+        L11) q	kh
+        q		kh@
+.group r
+        r (L11	r
+        L11) r	r
+        r		r@
+.group s
+        sh      S
+        s (L11	s
+        L11) s	s
+        s		s@
+.group t
+        th      th
+        t (L11	th
+        L11) t	th
+        t		th@
+.group u
+        u       U
+.group v
+        v (L11	w
+        L11) v	w
+        v		w@
+.group w
+        w (L11	w
+        L11) w	w
+        w		w@
+.group x
+        x (L11	khs
+        L11) x	khs
+        x		khs@
+.group y
+        y (L11	j
+        L11) y	j
+        y		j@
+.group z
+        z (L11	ts
+        L11) z	ts
+        z		ts@
+// ============================================================
+//  SIGNS BEFORE A NUMBER
+//
+//  A hyphen at the start of a word and directly before a digit is a
+//  minus sign, not a hyphen: -30 хэм is "хасах гучин хэм". Without
+//  this the sign is silently dropped and -30 reads as 30, which in
+//  Mongolian weather text inverts the meaning. The other two cases
+//  match en_rules: a digit on both sides is a dash (2010-2020), and
+//  anything else before a digit is left silent.
+// ============================================================
+
+.group -
+    __) - (_D      Xasa#X
+    D_) - (_D      tsUra:s
+     _) - (_D      _

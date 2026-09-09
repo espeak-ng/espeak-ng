@@ -32,6 +32,10 @@ is_mbrola() {
 }
 
 # Check processed text by phonetic representation of the output
+# The test text is passed as an argv argument, so a text that begins with "-"
+# is parsed as an option: `test_phon mn "..." "-5"` failed with
+# "invalid option -- '5'". Every helper below therefore passes "--" first,
+# which ends option parsing (getopt_long) and leaves the text positional.
 test_phon() {
     TEST_LANG=$1
     EXPECTED=$2
@@ -46,7 +50,7 @@ test_phon() {
     echo "testing ${TEST_LANG} $MESSAGE"
     RESULT=$(
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
+        $VALGRIND src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} -- "${TEST_TEXT}" || exit 1
     )
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
         echo "$RESULT != $EXPECTED"
@@ -68,7 +72,7 @@ test_wav () {
     echo "testing ${VOICE} ${MESSAGE}"
     RESULT=$(
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" | $sha1sum | awk '{ print $1 }' || exit 1
+        $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} -- "${TEST_TEXT}" | $sha1sum | awk '{ print $1 }' || exit 1
     )
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
         echo "$RESULT != $EXPECTED"
@@ -89,7 +93,7 @@ test_wav_grep () {
     echo "testing ${VOICE} ${MESSAGE}"
     $()
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-            $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
+            $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} -- "${TEST_TEXT}" \
             > actual.txt || exit 1
     < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
     if [ "$MESSAGE" = "Ignore" ] ; then
@@ -120,7 +124,7 @@ test_replace() {
     echo "testing ${TEST_LANG}"
     RESULT=$(
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | \
+        $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} -- "${TEST_TEXT}" | \
         grep -a -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' || exit 1
     )
     if [ "x$RESULT" != "x$EXPECTED" ] ; then

@@ -19,11 +19,58 @@
 // ***************************************************************************/
 
 // ============================================================
-//  Khalkha Mongolian Vowel System
+//  Khalkha Mongolian phoneme inventory
 //
-//  7 short vowels, 7 long vowels, 4 diphthongs.
-//  Vowel harmony: back {a, O, U} vs front {e, 8, y}; i neutral.
-//  Unstressed short vowels reduce significantly in natural speech.
+//  Vowels: 7 short, 7 long, 6 diphthongs, 1 epenthetic schwa.
+//  Vowel harmony is pharyngeal: RTR {a, O, U} vs ATR {e, 8, y};
+//  i is neutral. The contrast is carried by F1, not by backness.
+//
+//  Consonants: Khalkha contrasts ASPIRATION, not voicing.
+//    б /p/   п /pʰ/    д /t/   т /tʰ/    г /k~ɢ/  к /kʰ/
+//    з /ts/  ц /tsʰ/   ж /tʃ/  ч /tʃʰ/
+//  The voiced series (b d g dZ z v) is retained for loanwords
+//  only -- native Khalkha words never use it.
+//
+//  Reference: Svantesson, Tsendina, Karlsson & Franzen,
+//  "The Phonology of Mongolian", OUP 2005.
+//
+//  ON THE VOWEL DATA IN phsource/mongolian/
+//
+//  These files are NOT independently extracted recordings, despite what
+//  earlier comments here claimed. All 19 of them share the same three
+//  peak-amplitude signatures byte for byte -- an onset ramp, a steady
+//  state and an offset ramp -- and differ only in peak FREQUENCIES.
+//  That is a formant template with per-vowel values filled in, which no
+//  set of real per-vowel Praat extractions could produce.
+//
+//  F1 and F2 are now MEASURED from real Mongolian speech: word-initial
+//  (hence stressed and unreduced) vowels in the mbspeech corpus, 3,270
+//  utterances, thousands of tokens per vowel. The ATR/RTR pattern below
+//  was independently replicated on multi-speaker fleurs-mn.
+//
+//  Khalkha harmony is PHARYNGEAL (ATR/RTR), not front/back. The ATR
+//  member of each pair is marked by LOWER F1; F2 rises only for the
+//  unrounded pair and actually FALLS slightly for the rounded ones.
+//  Measured, mbspeech / fleurs-mn:
+//
+//      а -> э   F1 -171 / -258      F2  +526 / +433
+//      о -> ө   F1  -98 / -166      F2    -7 /  -75
+//      у -> ү   F1  -19 /  -85      F2  -190 /  -73
+//
+//  An earlier revision of this file assumed harmony was front/back and
+//  raised F2 for ө and ү to "separate" them from о and у. That was the
+//  wrong model: the corpus shows ө sits at or just below о in F2, and ү
+//  well below у. Those values have been replaced by the measured ones.
+//
+//  F3 is NOT measured. Adopting measured F3 scored significantly worse
+//  against human speech than leaving it alone (F2 distance 480.9 -> 455.1
+//  when F3 was left at its previous values, CI [-33.2, -18.3], better on
+//  67 of 80 utterances), so only F1 and F2 come from the corpus.
+// ============================================================
+
+
+// ============================================================
+//  VOWELS
 // ============================================================
 
 // -- SHORT VOWELS -------------------------------------------------
@@ -39,10 +86,12 @@ endphoneme
 
 // Reduced a in unstressed positions (same quality, just shorter)
 phoneme a#
+  // Reduction lowers F1 only -- F2, F3 and every amplitude are byte-identical
+  // to the full vowel, and the pairs move together. See mn.md section 10h.
   ipa a
   vwl starttype #a endtype #a
   length 100
-  FMT(mongolian/a)
+  FMT(mongolian/a_red)
 endphoneme
 
 // e /e/ - front mid unrounded
@@ -56,10 +105,12 @@ endphoneme
 
 // Reduced e (same quality, just shorter)
 phoneme e#
+  // Reduction lowers F1 only -- F2, F3 and every amplitude are byte-identical
+  // to the full vowel, and the pairs move together. See mn.md section 10h.
   ipa e
   vwl starttype #e endtype #e
   length 100
-  FMT(mongolian/e)
+  FMT(mongolian/e_red)
 endphoneme
 
 // i /i/ - front close unrounded (vowel-harmony neutral)
@@ -71,7 +122,9 @@ phoneme i
   FMT(mongolian/i)
 endphoneme
 
-// Reduced i (same quality, just shorter)
+// Reduced i -- centralized, not merely shorter. The speaker moves и from
+// F2 2062 to 1871 when unstressed; keeping the full-vowel target here made
+// every unstressed syllable fully articulated, which reads as robotic.
 phoneme i#
   ipa i
   vwl starttype #i endtype #i
@@ -79,7 +132,7 @@ phoneme i#
   FMT(mongolian/i)
 endphoneme
 
-// O /O/ - back mid-open rounded
+// O /ɔ/ - back mid rounded, RTR. Measured F1 424, F2 1089.
 phoneme O
   ipa O
   vwl starttype #o endtype #o
@@ -90,13 +143,17 @@ endphoneme
 
 // Reduced O (same quality, just shorter)
 phoneme O#
+  // Reduction lowers F1 only -- F2, F3 and every amplitude are byte-identical
+  // to the full vowel, and the pairs move together. See mn.md section 10h.
   ipa O
   vwl starttype #o endtype #o
   length 100
-  FMT(mongolian/O)
+  FMT(mongolian/O_red)
 endphoneme
 
-// 8 /8/ - front mid rounded (+ATR), Khalkha /ɵ/
+// 8 /o/ - mid rounded, ATR partner of о. Measured F1 327, F2 1082.
+// ATR shows as lower F1, NOT as a higher F2: ө sits at essentially
+// the same F2 as о (1082 vs 1089).
 phoneme 8
   ipa 8
   vwl starttype #o endtype #o
@@ -107,13 +164,15 @@ endphoneme
 
 // Reduced 8 (same quality, just shorter)
 phoneme 8#
+  // Reduction lowers F1 only -- F2, F3 and every amplitude are byte-identical
+  // to the full vowel, and the pairs move together. See mn.md section 10h.
   ipa 8
   vwl starttype #o endtype #o
   length 100
-  FMT(mongolian/oe)
+  FMT(mongolian/oe_red)
 endphoneme
 
-// U /U/ - back near-close rounded (-ATR)
+// U /ʊ/ - near-close rounded, RTR. Measured F1 302, F2 990.
 phoneme U
   ipa U
   vwl starttype #u endtype #u
@@ -122,7 +181,10 @@ phoneme U
   FMT(mongolian/u)
 endphoneme
 
-// Reduced U (same quality, just shorter)
+// Reduced U -- centralized. This one is measured on only 13 tokens, so the
+// magnitude is weak, but pointing it at the full vowel is now definitely wrong:
+// full у was lowered to F2 843 to restore the у/ү contrast, and reduced у moves
+// the other way (the speaker centralizes it to 1034).
 phoneme U#
   ipa U
   vwl starttype #u endtype #u
@@ -130,7 +192,8 @@ phoneme U#
   FMT(mongolian/u)
 endphoneme
 
-// y /u/ - front close rounded (+ATR) (Mongolian u with umlaut)
+// y /u/ - close rounded, ATR partner of у. Measured F1 283, F2 800.
+// Again ATR lowers F1; ү is BELOW у in F2, not above it.
 phoneme y
   ipa u
   vwl starttype #u endtype #u
@@ -147,63 +210,95 @@ phoneme y#
   FMT(mongolian/y)
 endphoneme
 
+// @ /ə/ - central reduced vowel.
+//
+// CURRENTLY UNREACHABLE from mn_rules, and that is deliberate. It used to be
+// the target for reduced non-initial vowels, but reduction is now
+// harmony-preserving (а -> a#, ө -> 8# and so on, see mn_rules G3/G4), so a
+// written vowel keeps its own quality instead of collapsing to a schwa. Nothing
+// in Khalkha inserts a vowel that has no letter, so nothing emits this.
+//
+// It is kept defined rather than deleted for two reasons: base1 would otherwise
+// supply its own @, which is an ENGLISH schwa, and the phoneme is referenced by
+// the mn entry in tests/language-phonemes.test. Its formants are the centroid of
+// the seven measured Mongolian vowels (F1 347, F2 1327), so if anything ever does
+// reach it, it lands inside the Mongolian vowel space rather than an English one.
+phoneme @
+  ipa ə
+  vwl starttype #@ endtype #@
+  length 75
+  FMT(mongolian/schwa)
+endphoneme
+
 
 // -- LONG VOWELS --------------------------------------------------
-// Approximately 2.2x short vowel duration.
+// Uniformly ~2.2x the corresponding short vowel.
 
 phoneme a:
   ipa a:
   vwl starttype #a endtype #a
-  length 270
+  length 330
   FMT(mongolian/a_long)
 endphoneme
 
 phoneme e:
   ipa e:
   vwl starttype #e endtype #e
-  length 260
+  length 330
   FMT(mongolian/e_long)
 endphoneme
 
 phoneme i:
   ipa i:
   vwl starttype #i endtype #i
-  length 250
+  length 310
   FMT(mongolian/i_long)
 endphoneme
 
 phoneme O:
   ipa O:
   vwl starttype #o endtype #o
-  length 270
+  length 330
   FMT(mongolian/O_long)
 endphoneme
 
 phoneme 8:
   ipa 8:
   vwl starttype #o endtype #o
-  length 260
+  length 330
   FMT(mongolian/oe_long)
 endphoneme
 
 phoneme U:
   ipa U:
   vwl starttype #u endtype #u
-  length 270
+  length 330
   FMT(mongolian/u_long)
 endphoneme
 
 phoneme y:
   ipa u:
   vwl starttype #u endtype #u
-  length 250
+  length 310
   FMT(mongolian/y_long)
 endphoneme
 
 
 // -- DIPHTHONGS ---------------------------------------------------
+// All Khalkha diphthongs are falling and end in a close front offglide.
+// The spect files are binary, so the design they encode is recorded here:
+//
+//   * NUCLEUS = the monophthong's own F1/F2, so уй starts where у is.
+//   * OFFGLIDE F2/F3 are shared (2150 / 2700) -- every -й targets [j].
+//   * OFFGLIDE F1 is NOT shared: it drops a fixed 45 Hz from the nucleus
+//     rather than converging, because F1 is the ATR/RTR harmony cue and
+//     harmony belongs to the whole syllable. Converging it erased у/ү
+//     across half the diphthong.
+//
+// Shape is eSpeak's two-target model: nucleus held for frames 0-2, offglide
+// in frames 3-4, slight ease at frame 5. History and measurements: mn.md 16.
 
-// ai /ai/
+// ai /ai/  -- ай
 phoneme aI
   ipa ai
   vwl starttype #a endtype #i
@@ -211,7 +306,7 @@ phoneme aI
   FMT(mongolian/ai)
 endphoneme
 
-// ei /ei/
+// ei /ei/  -- эй
 phoneme eI
   ipa ei
   vwl starttype #e endtype #i
@@ -219,7 +314,7 @@ phoneme eI
   FMT(mongolian/ei)
 endphoneme
 
-// Oi /Oi/
+// Oi /ɔi/  -- ой
 phoneme OI
   ipa Oi
   vwl starttype #o endtype #i
@@ -227,7 +322,7 @@ phoneme OI
   FMT(mongolian/oi)
 endphoneme
 
-// Ui /Ui/
+// Ui /ʊi/  -- уй
 phoneme UI
   ipa Ui
   vwl starttype #u endtype #i
@@ -235,41 +330,435 @@ phoneme UI
   FMT(mongolian/ui)
 endphoneme
 
+// yi /ui/  -- үй (front). Uses the mongolian/yi set, which was present in
+// phsource/mongolian but unreferenced before.
+phoneme yI
+  ipa ui
+  vwl starttype #u endtype #i
+  length 230
+  FMT(mongolian/yi)
+endphoneme
+
+// 8i /ɵi/  -- өй. Derived from the ой set by shifting the onset to the ө
+// target and tapering the shift to zero at the /i/ offglide, which the two
+// diphthongs share. See mongolian/oei.
+phoneme 8I
+  ipa 8i
+  vwl starttype #o endtype #i
+  length 230
+  FMT(mongolian/oei)
+endphoneme
+
 
 // ============================================================
-//  Consonants
+//  CONSONANTS
 //
-//  base1 inherited: b, d, p, t, k, m, n, N, s, z, S, f, v,
-//                   j, tS, dZ
+//  Inherited unchanged from base1:
+//    m n N  m- n- N- l-  j w  s S  f v  z Z  b d g dZ  T D
+//    n^ l^ s; S; z; tS; dZ;  q  Q  Q"
 //
-//  Mongolian-specific overrides below:
-//    g - softer velar stop with prevoicing support
-//    l - voiced lateral fricative /lateralFric/ (Khalkha feature)
-//    r - apical alveolar trill
-//    x - voiceless velar fricative (very frequent)
-//    ts - voiceless alveolar affricate (imported)
+//  Overridden or added below.
 // ============================================================
 
-// g - voiced velar stop, softer release
-phoneme g
+// -- STOPS --------------------------------------------------------
+//
+// Declared in full rather than with `import_phoneme`, because
+// `import_phoneme X` followed by `ipa Y` EMITS NO SOUND: `ipa` compiles to a
+// program instruction, so it starts a fresh program buffer and at endphoneme
+// that new program -- an IPA name and no WAV -- replaces the imported one.
+// All six oral stops were silent this way, with 0 compiler errors. `ipa` is
+// safe here because these programs also contain WAV instructions.
+//
+// Copied from consonants/{p-,t-,k-,ph,kh} and base1/t, with `voicingswitch`
+// omitted and two amplitudes corrected. Measurements: mn.md 16.
+
+// p  <- б   /p/ unaspirated lenis bilabial
+phoneme p
+  vls blb stp
+  ipa p
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  IF nextPh(l) THEN
+    WAV(ustop/pl, 100)
+  ELIF nextPh(isRhotic) THEN
+    WAV(ustop/pr, 100)
+  ELIF nextPh(isPause2) THEN
+    WAV(ustop/p_unasp_, 80)
+  ENDIF
+  WAV(ustop/p_unasp, 100)
+endphoneme
+
+// t  <- д   /t/ unaspirated lenis alveolar
+phoneme t
+  vls alv stp
+  ipa t
+  lengthmod 2
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_, 170)
+  ENDIF
+  WAV(ustop/t_short, 170)
+endphoneme
+
+// k  <- г   /k/ unaspirated lenis velar (front-harmony words)
+phoneme k
   vcd vel stp
-  voicingswitch k
-  lengthmod 5
-  Vowelin f1=2  f2=2300 200 300  f3=-300 80
-  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  ipa g
+  lengthmod 5   // voiced-stop category, as base g. With the brk below, the
+                // low-band dip through g on "ага" goes 41.3 -> 33.2 dB, which
+                // is where this voice's own voiced consonants sit (ана 33.0,
+                // ама 34.9, ала 35.7). Do not compare against another voice:
+                // the measure is strongly pitch-dependent. See mn.md 24.
+  Vowelin  f1=0  f2=2300 200 300  f3=-150 80
+  // brk, as base g: keep the release out of the following vowel.
+  Vowelout f1=0  f2=2300 300 400  f3=-150 80  rms=20 brk
+  // Was a fully voiceless stop (WAV(ustop/k_unasp)). A native listener heard
+  // it as к in every position. Khalkha's stop contrast is aspiration, not
+  // voicing, which is why the whole plain series was written vls -- but the
+  // plain series is lenis and voiced intervocalically, and a fully devoiced
+  // unaspirated stop just is a [k]. Voiced stop chosen in a blind A/B/C
+  // against voiceless and against a voiced continuant. See mn.md 23.
 
   IF PreVoicing THEN
     FMT(g/xg)
   ENDIF
   IF nextPh(isPause2) THEN
-    FMT(g/g_) addWav(x/g_)
+    FMT(g/g_) addWav(x/g_, 150)
   ENDIF
-  FMT(g/g) addWav(x/g2, 100)
+  FMT(g/g) addWav(x/g2, 150)
 endphoneme
 
-// l - voiced lateral fricative (characteristic of Khalkha)
+
+// -- STOPS: aspirated (writes п т к) ------------------------------
+
+// ph <- п   /pʰ/
+phoneme ph
+  vls blb stp
+  ipa ph
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_, 120)
+  ELIF nextPh(l) THEN
+    WAV(ustop/pl, 120)
+  ENDIF
+  WAV(ustop/p_asp, 120)
+endphoneme
+
+// th <- т   /tʰ/
+phoneme th
+  vls alv stp
+  ipa th
+  lengthmod 2
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_, 120)
+  ELIF nextPh(r) THEN
+    WAV(ustop/tr, 120)
+  ENDIF
+  WAV(ustop/t, 120)
+endphoneme
+
+// kh <- к   /kʰ/
+phoneme kh
+  vls vel stp
+  ipa kh
+  lengthmod 2
+  Vowelin  f1=0  f2=2300 200 300  f3=-150 80
+  Vowelout f1=0  f2=2300 300 400  f3=-150 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_asp, 100)
+  ELIF nextPh(l) THEN
+    WAV(ustop/kl, 120)
+  ENDIF
+  WAV(ustop/k_asp, 120)
+endphoneme
+
+
+// -- г in back-harmony words: uvular ------------------------------
+//
+// Khalkha г has three surface forms, chosen by mn_rules (.group г), not by
+// context tests here:
+//   k   velar stop       - front-harmony words, and onsets before и
+//   q   uvular stop      - back-harmony words, all positions
+//
+// Both are voiced; see the note on each. Q" below is no longer an allophone of
+// г -- a native listener chose the stop in every position -- and survives only
+// as the voiced counterpart X switches to.
+//
+// q is lenited relative to base1's Arabic/Turkic qaf -- shorter closure and a
+// lower F2 locus (~1300) -- which is what distinguishes Khalkha [ɢ] from a
+// true [q]. WAV(ustop/q) made газар sound like [qaʦar]. See mn.md 16.
+phoneme q
+  vcd uvl stp
+  ipa ɢ
+  lengthmod 5   // voiced-stop category, as base g. With the brk below, the
+                // low-band dip through g on "ага" goes 41.3 -> 33.2 dB, which
+                // is where this voice's own voiced consonants sit (ана 33.0,
+                // ама 34.9, ала 35.7). Do not compare against another voice:
+                // the measure is strongly pitch-dependent. See mn.md 24.
+  // Source changed from ustop/k_unasp to ustop/k_unasp_. Measured against
+  // mbspeech, q's spectral centroid was 3134 Hz against the speaker's
+  // 1838 -- a velar burst standing in for a uvular, far too bright.
+  // k_unasp_ measures 1935 Hz and is the same unaspirated series.
+  // f1=0, not 1/2. That field is a MODE, not a frequency: AdjustFormants
+  // reads 1 as "lower the following vowel's F1 by 60-100 Hz" and 2 as
+  // "lower it by 150-300 and drag peak 0 down too". q had 1 and Q" had 2
+  // while X and every velar had 0 -- inconsistent inside one series.
+  // These are the BACK-harmony allophones, and Khalkha marks RTR with a
+  // HIGHER F1, so lowering it pushed a back vowel toward its front partner
+  // exactly where the listener reads the harmony class. Measured against
+  // the speaker: q before а -49 Hz where he is at -1 (n=81), Q" -162
+  // where he is at -31. Every f1=0 consonant already measured ~0.
+  Vowelin  f1=0  f2=1300 -50 0  f3=-200 80 f4 rms=24
+  // brk, as base g: keep the release out of the following vowel.
+  Vowelout f1=0  f2=1300 -100 0  f3=-200 80 f4 rms=28 brk
+
+  // Was a fully voiceless stop (WAV(ustop/k_unasp_)). A native listener heard
+  // it as к in every position. Khalkha's stop contrast is aspiration, not
+  // voicing, which is why the whole plain series was written vls -- but the
+  // plain series is lenis and voiced intervocalically, and a fully devoiced
+  // unaspirated stop just is a [k]. Voiced stop chosen in a blind A/B/C
+  // against voiceless and against a voiced continuant. See mn.md 23.
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_, 150)
+  ENDIF
+  FMT(g/g) addWav(x/g2, 150)
+endphoneme
+
+// Q" - voiced uvular fricative [ʁ]. NOT used for г any more: it was the
+// intervocalic back-harmony allophone until a native listener chose the uvular
+// stop there instead, and again later when it was retested against a voiced
+// stop. It is still referenced as X's `voicingswitch`, so it must stay defined.
+// Softer than the base1 definition: Khalkha [ʁ] is a weak approximant-like
+// fricative, not a scrape.
+phoneme Q"
+  vcd uvl frc
+  ipa ʁ
+  lengthmod 6
+  Vowelin  f1=0  f2=1400 -200 0  f3=-200 80
+  Vowelout f1=0  f2=1400 -200 0  f3=-200 80
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/Q_ulv, 255) addWav(ufric/xx, 223)
+  ENDIF
+  FMT(voc/Q_ulv, 255) addWav(ufric/xx, 255)
+endphoneme
+
+
+// -- AFFRICATES: aspiration contrast ------------------------------
+
+// ts  <- з   /ts/ unaspirated
+phoneme ts
+  vls alv afr sib
+  ipa ts
+  lengthmod 2
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  // з and ц were indistinguishable by ear. Amplitude is NOT the cause -- that
+  // was measured and reverted (see mn.md 10d). The cause is duration: ts_unasp
+  // is 98.1 ms and ts is 120.0 ms, a ratio of 1.22, while every audible
+  // aspiration pair here is 1.4-3.5x (p 1.58, k 1.45, t 3.50, ch 1.31). Both
+  // files are also rising frication ramps with no burst, so neither reads as a
+  // stop release. ts2 is 55.6 ms, the same alveolar sibilant family (centroid
+  // 6227 Hz against ts_unasp's 5659), and is what Armenian, Georgian and
+  // Latvian use for plain [ts]. Ratio becomes 2.16x.
+  // Amplitude retuned so the RENDERED level is unchanged: ts2 peaks 3 dB above
+  // ts_unasp, so 151 -> 76 and 119 -> 60, set by measuring the rendered
+  // onset. Never compare WAV() amplitudes across different source files;
+  // compare the output.
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts2, 60)
+  ENDIF
+  WAV(ustop/ts2, 76)
+endphoneme
+
+// tsh <- ц   /tsʰ/ aspirated
+// Do NOT "fix" the apparent inversion here by comparing amplitude numbers.
+// з (ts) is written 119/151 and ц (tsh) 81/104, which looks like the aspirated
+// member sitting below the unaspirated one -- the defect that was real for the
+// oral stops. It is not real here: the two use DIFFERENT source waveforms
+// (ustop/ts_unasp vs ustop/ts), so the amplitude parameter is not comparable
+// between them. Measured output against the speaker, з is -10.7 dB against his
+// -10.0 and ц -9.5 against his -9.2; ц is already the louder of the two, exactly
+// as he produces them. Raising ц to 140/180 was tried and measured +4.5 dB
+// HOTTER than the speaker, so it was reverted.
+phoneme tsh
+  vls alv afr sib
+  ipa tsh
+  lengthmod 2
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_, 81)
+  ENDIF
+  WAV(ustop/ts, 104)
+endphoneme
+
+// tS  <- ж   /tʃ/ unaspirated (laminal post-alveolar in Khalkha)
+phoneme tS
+  vls pla afr sib
+  ipa tS
+  lengthmod 2
+  Vowelin  f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0  f2=2300 200 400  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_unasp, 81)
+  ENDIF
+  WAV(ustop/tsh_unasp, 104)
+endphoneme
+
+// tSh <- ч   /tʃʰ/ aspirated
+phoneme tSh
+  vls pla afr sib
+  ipa tSh
+  lengthmod 2
+  Vowelin  f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0  f2=2300 200 400  f3=-100 80  rms=20
+  // Measured 4.3 dB (5.3 SE) quieter than the human speaker's ч, relative to
+  // utterance level, over 131 DTW-aligned tokens. Raised by the 1.64x that
+  // deficit implies.
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_, 103)
+  ENDIF
+  WAV(ustop/tsh, 141)
+endphoneme
+
+
+// -- FRICATIVES ---------------------------------------------------
+
+// x - voiceless velar fricative, х before front vowels
+phoneme x
+  ipa x
+  vls vel frc
+  lengthmod 3
+  Vowelin  f1=0 f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  // Level raised from 15/23. Those were the German/Luxembourgish setting for
+  // the same waveform, but German [x] is a weak sound while Mongolian х is a
+  // core consonant. Croatian, the loudest user of x_hr, sets 45. Measured
+  // against the reference, х was the quietest consonant in the whole
+  // inventory at -27.7/-29.1 dB relative to its neighbouring vowel.
+  IF nextPh(isPause) THEN
+    WAV(ufric/x_hr, 30)
+  ENDIF
+  WAV(ufric/x_hr, 45)
+endphoneme
+
+// X - voiceless uvular fricative, х before back vowels (хот, хаана).
+// Lower F2 locus than x; this is the single clearest cue that a word
+// belongs to the back-harmony class.
+phoneme X
+  ipa X
+  vls uvl frc
+  voicingswitch Q"
+  lengthmod 3
+  // MEASURED: х DOES back strongly in RTR words -- onset-minus-mid F2 is
+  // -81 in RTR against +194 in ATR, a 275 Hz swing, four times the effect
+  // seen for г. So a uvular fricative is right here. Locus set to the
+  // measured RTR onset of ~1500 Hz.
+  Vowelin  f1=0 f2=1500 -200 0  f3=-200 80
+  Vowelout f1=0 f2=1500 -200 0  f3=-200 80  rms=20
+
+  // Level raised from 40/52. Every other language using this waveform sets it
+  // far higher -- Arabic 70, Klingon 70, Kyrgyz 70/80 -- and Kyrgyz is the
+  // closest typological match. Measured against the reference, X was the
+  // quietest consonant of all at -33.5/-28.7 dB relative to its vowel.
+  IF nextPh(isPause) THEN
+    WAV(ufric/xx, 250)
+  ENDIF
+  WAV(ufric/xx, 255)
+endphoneme
+
+
+// s and S are declared locally only to raise their level. Both were measured
+// quieter than the speaker, relative to utterance level, over DTW-aligned
+// tokens: с by 1.7 dB (4.2 SE, n=340) and ш by 2.7 dB (5.5 SE, n=75). The base
+// definitions leave WAV at its default amplitude of 100, so the deficits are
+// recoverable here without touching the shared tables every other language uses.
+// Everything else is copied verbatim from phsource/phonemes.
+
+// `s` is NOT declared locally any more. It was overridden here purely to raise
+// its amplitude to 122, back when consonant level was being chased one phoneme
+// at a time. The voice file now sets `consonants 115` globally, and the two
+// stacked: с measured +3.0 dB HOTTER than the speaker. Removing the override
+// lets it inherit base1 and lands it within ~1.4 dB. `S` keeps its override --
+// checked, and it is within 0.5 dB of the speaker with it.
+
+phoneme S
+  vls pla frc sib
+  voicingswitch Z
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/sh_, 136)
+  ENDIF
+  WAV(ufric/sh, 136)
+endphoneme
+
+
+// -- LATERALS -----------------------------------------------------
+//
+// Khalkha л is a lateral FRICATIVE /ɮ/, not a liquid. It surfaces
+// voiceless [ɬ] word-initially, word-finally, and adjacent to a
+// voiceless consonant; voiced [ɮ] between vowels. The rules
+// (mn_rules .group л) pick between l# and l.
+//
+// Note on formants: [ɬ] and [ɮ] are fricatives. Their identity lies in
+// the turbulence spectrum, which eSpeak models with WAV() noise, not in
+// F1/F2/F3 targets -- a vls frc phoneme has no formant track to set.
+// What does shape the percept is the Vowelin/Vowelout locus, tuned here
+// to F2 ~ 1600 (the alveolar lateral locus) with a raised F3, which is
+// what separates lateral friction from a plain [s] or an English [l].
+
+// l# - voiceless alveolar lateral fricative [ɬ]
+phoneme l#
+  // Khalkha л is a PLAIN lateral, not the lateral fricative the reference
+  // describes. The fricative source was at WAV(ufric/l#, 88); a native speaker
+  // could not understand улаан or долларын, and chose "mostly plain, a little
+  // friction left" over both the full fricative and a fully plain lateral.
+  // Only the noise amplitude changed -- the lateral itself is untouched.
+  ipa ɬ
+  vls alv frc
+  lengthmod 3
+  Vowelin  f1=0 f2=1600 -100 300  f3=200 80
+  Vowelout f1=0 f2=1600 -100 300  f3=200 80  rms=20
+
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la)
+    VowelStart(l/le)
+    VowelStart(l/li, -10)
+    VowelStart(l/lo)
+    VowelStart(l/lu)
+  EndSwitch
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/l#, 18)
+  ENDIF
+  WAV(ufric/l#, 22)
+endphoneme
+
+// l - voiced alveolar lateral fricative [ɮ], intervocalic only.
+// A lateral formant track with lateral friction mixed in on top; the
+// frication is what keeps it from sounding like an English [l].
 phoneme l
-  ipa l
+  ipa ɮ
   liquid
   lengthmod 7
 
@@ -282,43 +771,265 @@ phoneme l
     VowelStart(l/lu)
   EndSwitch
 
-  IF prevPh(isPause) THEN
-    FMT(l/_l)
-  ELIF nextPh(isNotVowel) THEN
-    FMT(l/l_)
+  IF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
   ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l) addWav(ufric/l#, 22)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(l/l_) addWav(ufric/l#, 22)
+  ENDIF
+  FMT(l/l@) addWav(ufric/l#, 25)
 endphoneme
 
-// r - alveolar trill (strong onset, lighter between vowels)
+// l- - syllabic lateral. No rule emits this any more: word-final -ал/-эл
+// reduce rather than delete (see G5 in mn_rules), so төрөл is [tʰɵrɵ̆ɬ] and
+// not [tʰɵrɬ̩]. Kept as a declaration only, so that a dictionary entry can
+// still ask for a syllabic lateral explicitly if a word ever needs one.
+phoneme l-
+  vwl starttype #@ endtype #@
+  ipa ɮ,
+  length 130
+  CALL l
+endphoneme
+
+
+// -- RHOTIC -------------------------------------------------------
+
+// r - apical alveolar trill (strong onset, lighter between vowels)
 phoneme r
   ipa r
   liquid rhotic trl
   lengthmod 7
   length 60
 
+  // NO addWav, deliberately. It had been pinned at 255 -- 4.25x the maximum any
+  // other language uses for this waveform -- to fix a level deficit that
+  // `consonants 115` in the voice file later fixed globally. The compensation
+  // was never rolled back, and because addWav adds noise while FMT does not,
+  // stacking it skewed the noise-to-formant ratio rather than the level: р
+  // measured +14.7 dB HF/LF against the speaker's +4.5.
+  //
+  // The level is recovered from the FORMANT instead. mongolian/r_trill and
+  // mongolian/r_ are local copies of the r3/ files with every peak height
+  // scaled 1.428x, shape and frequencies untouched; FMT(..., 255) was already
+  // at the parameter ceiling but the spect file had 9.9x of headroom.
+  // Result: level error -0.66 dB, brightness +6.2. See mn.md 10i.
   IF nextPh(isVowel) THEN
-    FMT(r3/r_trill) addWav(r3/r_trill, 40)
+    FMT(mongolian/r_trill, 255)
   ELIF prevPh(isVowel) AND nextPh(isNotVowel) THEN
-    FMT(r3/r_) addWav(r3/r_trill, 30)
+    FMT(mongolian/r_, 255)
   ENDIF
-  FMT(r3/r_trill) addWav(r3/r_trill, 35)
+  FMT(mongolian/r_trill, 255)
 endphoneme
 
-// x - voiceless velar fricative (most frequent Mongolian consonant)
-phoneme x
-  ipa x
-  vls vel frc
+
+// -- PALATALISED SERIES (ь) ---------------------------------------
+//
+// Palatalisation is phonemic in Khalkha: мор /mɔr/ 'trace' vs
+// морь /mɔrʲ/ 'horse'. It is strongest on the coronals, which get
+// dedicated phonemes here. Labials and velars take a following [j]
+// glide instead (handled in mn_rules), which is how the contrast is
+// realised acoustically in those places of articulation.
+
+// t; <- дь  /tʲ/ unaspirated palatalised alveolar
+phoneme t;
+  vls alv stp pzd
+  ipa tʲ
+  lengthmod 2
+  Vowelin  f1=0 f2=2700 400 600  f3=300 80
+  Vowelout f1=0 f2=2700 400 600  f3=300 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_pzd_, 60)
+  ENDIF
+  WAV(ustop/t_pzd, 70)
+endphoneme
+
+// th; <- ть /tʰʲ/ aspirated palatalised alveolar
+phoneme th;
+  vls alv stp pzd
+  ipa tʰʲ
+  lengthmod 2
+  Vowelin  f1=0 f2=2700 400 600  f3=300 80
+  Vowelout f1=0 f2=2700 400 600  f3=300 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_pzd_, 70)
+  ENDIF
+  WAV(ustop/ts_pzd, 80)
+endphoneme
+
+// ts; <- зь /tsʲ/ unaspirated palatalised affricate
+phoneme ts;
+  vls alv afr sib pzd
+  ipa tsʲ
+  lengthmod 2
+  Vowelin  f1=0 f2=2700 400 600  f3=300 80
+  Vowelout f1=0 f2=2700 400 600  f3=300 80  rms=20
+  WAV(ustop/tsh_pzd_unasp, 70)
+endphoneme
+
+// tsh; <- ць /tsʰʲ/ aspirated palatalised affricate
+phoneme tsh;
+  vls alv afr sib pzd
+  ipa tsʰʲ
+  lengthmod 2
+  Vowelin  f1=0 f2=2700 400 600  f3=300 80
+  Vowelout f1=0 f2=2700 400 600  f3=300 80  rms=20
+  WAV(ustop/tsh_pzd, 75)
+endphoneme
+
+// l; <- ль  palatalised lateral fricative
+// Word-final ь is PALATALISATION of the consonant, not a [j] segment. A native
+// speaker: "ь at the end shouldn't be pronounced at all". Five consonants
+// already had a palatalised phoneme (t; th; ts; tsh; l;) and the rest fell back
+// to consonant + j, so морь came out [mɔrj] with an audible glide.
+//
+// Same shape as l; -- the pzd feature, a high F2 locus so the transition out of
+// the preceding vowel carries the palatalisation, and CALL to the base phoneme.
+phoneme r;
+  ipa rʲ
+  liquid rhotic trl pzd
+  lengthmod 7
+  Vowelin  f1=0 f2=2500 300 500  f3=300 80
+  Vowelout f1=0 f2=2500 300 500  f3=300 80
+  CALL r
+endphoneme
+
+phoneme m;
+  ipa mʲ
+  vcd blb nas pzd
+  lengthmod 4
+  Vowelout f1=2 f2=2200 200 400  f3=200 80
+  CALL m
+endphoneme
+
+phoneme s;
+  ipa sʲ
+  vls alv frc sib pzd
   lengthmod 3
-  Vowelin f1=0  f2=2300 200 400  f3=-100 80
-  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/x_hr, 15)
-  ENDIF
-  WAV(ufric/x_hr, 23)
+  Vowelin  f1=0 f2=2500 300 500  f3=300 80
+  Vowelout f1=0 f2=2500 300 500  f3=300 80
+  CALL s
 endphoneme
 
-// ts - voiceless alveolar affricate
-phoneme ts
-  import_phoneme consonants/ts
+phoneme w;
+  ipa wʲ
+  vcd lbd frc pzd
+  lengthmod 3
+  Vowelout f1=0 f2=2400 300 500  f3=300 80
+  CALL w
+endphoneme
+
+phoneme l;
+  ipa ɮʲ
+  liquid pzd
+  lengthmod 7
+  Vowelin  f1=0 f2=2500 300 500  f3=300 80
+  CALL l^
+endphoneme
+
+// -- NASALS -------------------------------------------------------
+//
+// Declared locally only to raise their level. Measured against mbspeech, the
+// inherited nasals sit well below the speaker's: N -7.7 dB, n -3.7, m -4.6
+// relative to the utterance RMS. N matters most -- it is the word-final nasal
+// and one of the most frequent phonemes in the language. The bodies are the
+// base definitions with an amplitude on each FMT; nothing else is changed.
+
+phoneme N
+  vcd vel nas
+  Vowelout f1=2 f2=1900 0 300  f3=400 80  len=50 rms=15 brk
+  lengthmod 7
+
+  NextVowelStarts
+    VowelStart(nn/nn@)
+    VowelStart(nn/nna)
+    VowelStart(nn/nne)
+    VowelStart(nn/nni)
+    VowelStart(nn/nno)
+    VowelStart(nn/nnu)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(nn/_nn, 242)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(nn/nn2_, 242)
+  ENDIF
+endphoneme
+
+phoneme m
+  vcd blb nas
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+
+  NextVowelStarts
+    VowelStart(m/m@)
+    VowelStart(m/ma)
+    VowelStart(m/me)
+    VowelStart(m/mi)
+    VowelStart(m/mo)
+    VowelStart(m/mu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(m/mj, 235)
+  ELIF prevPh(isPause) THEN
+    FMT(m/_m, 235)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(m/m_, 235)
+  ENDIF
+endphoneme
+
+phoneme n
+  vcd alv nas
+  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
+  lengthmod 4
+
+  NextVowelStarts
+    VowelStart(n/n@)
+    VowelStart(n/na)
+    VowelStart(n/ne)
+    VowelStart(n/ni)
+    VowelStart(n/no)
+    VowelStart(n/nu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(n/nj, 240)
+  ELIF prevPh(isPause) OR prevPh(n) THEN
+    FMT(n/_n, 240)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(n/n_, 240)
+  ENDIF
+endphoneme
+
+// n^ - palatalised н, written нь. Declared locally ONLY to bring its level into
+// line with the other nasals: N, m and n were each given raised FMT amplitudes
+// (242 / 235 / 240) in an earlier pass and n^ was left on the base table's
+// default of 100. Measured against the speaker on aligned corpus tokens, that
+// left it 7.7 dB down -- eSpeak -6.4 dB against his +1.3, where the other three
+// nasals sit within 0.3-2.8 dB of him. нь, минь, чинь, хонь and every possessive
+// in -нь run through this phoneme, so it is not a rare sound.
+// Everything else is copied verbatim from phsource/phonemes.
+phoneme n^
+  vcd pal nas pzd
+  ipa ɲ
+  Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
+  lengthmod 4
+
+  NextVowelStarts
+    VowelStart(n^/n^@)
+    VowelStart(n^/n^a)
+    VowelStart(n^/n^e)
+    VowelStart(n^/n^i)
+    VowelStart(n^/n^o)
+    VowelStart(n^/n^u)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(n^/_n^, 240)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(n^/n^_, 240)
+  ENDIF
 endphoneme

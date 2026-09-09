@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">eSpeak TTS тохиргоо</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Дууны өнгө</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Ярианы хурд</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Дууны өгөгдлийг суулгаж байна…</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">%s хэл дээрх жишээ текстийг уншиж байна</string>
+  <string name="espeak_volume">Дууны түвшин</string>
+  <string name="formatter_wpm">Минутанд %s үг</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Анхдагч утгад сэргээх</string>
+  <string name="espeak_pitch_range">Өнгөний хэлбэлзэл</string>
+  <string name="espeak_variant">Дууны хувилбар</string>
+</resources>
