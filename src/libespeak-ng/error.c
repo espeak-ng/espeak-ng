@@ -136,6 +136,9 @@ espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status,
 	case ENS_UNKNOWN_TEXT_ENCODING:
 		strncpy0(buffer, "The text encoding is not supported", length);
 		break;
+	case ENS_UNEXPECTED_EOF:
+		strncpy0(buffer, "The file ended before all of the expected data was read", length);
+		break;
 	default:
 		if ((status & ENS_GROUP_MASK) == ENS_GROUP_ERRNO)
 			strerror_r(status, buffer, length);
