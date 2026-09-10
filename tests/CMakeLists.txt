@@ -24,7 +24,7 @@ macro(compiled_test _test_name)
   add_dependencies(test_${_test_name} data)
   add_test(
     NAME ${_test_name}
-    COMMAND ${ESPEAK_RUN_ENV} $<TARGET_FILE:test_${_test_name}>
+    COMMAND ${ESPEAK_RUN_ENV} ASAN_OPTIONS=symbolize=1 $<TARGET_FILE:test_${_test_name}>
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/..
   )
   list(APPEND _binary_tests test_${_test_name})
@@ -35,7 +35,7 @@ find_program(SHELL bash)
 macro(shell_test _test_name)
   add_test(
     NAME ${_test_name}
-    COMMAND ${ESPEAK_RUN_ENV} ESPEAK_BIN=$<TARGET_FILE:espeak-ng-bin> ${SHELL} ${CMAKE_CURRENT_SOURCE_DIR}/${_test_name}.test
+    COMMAND ${ESPEAK_RUN_ENV} ASAN_OPTIONS=symbolize=1 ESPEAK_BIN=$<TARGET_FILE:espeak-ng-bin> ${SHELL} ${CMAKE_CURRENT_SOURCE_DIR}/${_test_name}.test
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/..
   )
 endmacro(shell_test)

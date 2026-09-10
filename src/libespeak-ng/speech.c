@@ -409,9 +409,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetPhonemeEvents(int enable, int ipa) {
 	option_phoneme_events = 0;
 	if (enable) {
 		option_phoneme_events |= espeakINITIALIZE_PHONEME_EVENTS;
-		if (ipa) {
-			option_phoneme_events |= espeakINITIALIZE_PHONEME_IPA;
-		}
+		option_phoneme_events |= ipa & (espeakINITIALIZE_PHONEME_IPA | espeakINITIALIZE_PHONEME_IPA_SBR);
 	}
 	return ENS_OK;
 }

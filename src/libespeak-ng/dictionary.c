@@ -510,11 +510,12 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool
 				continue;
 
 			if (isprint(c))
-				c = ipa1[c-0x20];
+				c = ipa1[c - 0x20];
 
 			ix += utf8_out(c, &phon_out[ix]);
-		} else
+		} else {
 			phon_out[ix++] = c;
+		}
 		first = false;
 	}
 
@@ -523,8 +524,8 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, bool
 	return phon_out;
 }
 
-#define IPA_PRIMARY_STRESS  	ipa1['\'' - ' ']
-#define IPA_SECONDARY_STRESS 	ipa1[','  - ' ']
+#define IPA_PRIMARY_STRESS  	ipa1['\'' - 0x20]
+#define IPA_SECONDARY_STRESS 	ipa1[','  - 0x20]
 
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
 
@@ -538,6 +539,16 @@ static inline unsigned int stress_character(uint8_t stress_level, bool use_ipa)
 	return stress_chars[stress_level];
 }
 
+static inline uint8_t phoneme_stresslevel(PHONEME_LIST *plist, bool use_ipa)
+{
+	if (use_ipa) {
+		while (!(plist->synthflags & SFLAG_SYLLABLE) || (plist->ph->phflags & phNONSYLLABIC))
+			plist++;
+	}
+
+	return plist->stresslevel;
+}
+
 static inline bool should_write_separator(PHONEME_LIST *plist, bool use_ipa)
 {
 	if (use_ipa) {
@@ -548,8 +559,9 @@ static inline bool should_write_separator(PHONEME_LIST *plist, bool use_ipa)
 
 static inline int write_separator(PHONEME_LIST *plist, bool use_ipa, bool write_ipa_syllable_separator, char *buf)
 {
-	if (plist->stresslevel > 1) {
-		unsigned int c = stress_character(MIN(plist->stresslevel, STRESS_IS_PRIORITY), use_ipa);
+	uint8_t stresslevel = phoneme_stresslevel(plist, use_ipa);
+	if (stresslevel > 1) {
+		unsigned int c = stress_character(MIN(stresslevel, STRESS_IS_PRIORITY), use_ipa);
 		if (c != 0) {
 			return utf8_out(c, buf);
 		}

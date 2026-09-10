@@ -40,6 +40,32 @@
 #include "translate.h"
 #include "speech.h"
 
+#include <libgen.h>
+#define ENUM(value) [value] = #value
+
+static const char *PHONEME_TYPES[phINVALID + 1] = {
+	ENUM(phPAUSE),
+	ENUM(phSTRESS),
+	ENUM(phVOWEL),
+	ENUM(phLIQUID),
+	ENUM(phSTOP),
+	ENUM(phVSTOP),
+	ENUM(phFRICATIVE),
+	ENUM(phNASAL),
+	ENUM(phVIRTUAL),
+	ENUM(phDELETED),
+	ENUM(phINVALID),
+};
+
+#if defined(__clang__)
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+    #pragma clang diagnostic ignored "-Wgnu-conditional-omitted-operand"
+#elif defined(__GNUC__)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wvariadic-macros"
+#endif
+
 static void SetRegressiveVoicing(int regression, PHONEME_LIST2 *plist2, PHONEME_TAB *ph, Translator *tr);
 static void ReInterpretPhoneme(PHONEME_TAB *ph, PHONEME_TAB *ph2, PHONEME_LIST *plist3, PHONEME_LIST *plist3_start, Translator *tr, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
 
@@ -130,7 +156,7 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 	return n_plist_out;
 }
 
-static int PHONEME_SONORITIES[] = {
+static int PHONEME_SONORITIES[phINVALID + 1] = {
 	[phSTOP] = 1,
 	[phVSTOP] = 1,
 	[phFRICATIVE] = 2,
@@ -140,9 +166,17 @@ static int PHONEME_SONORITIES[] = {
 	[phVOWEL] = 5,
 };
 
+static inline int phoneme_sonority(PHONEME_LIST *phlist)
+{
+	if (phlist->type == phVOWEL && phlist->ph && phlist->ph->phflags & phNONSYLLABIC) {
+		return 0;
+	}
+	return PHONEME_SONORITIES[phlist->type];
+}
+
 static inline bool is_nucleus(PHONEME_LIST *phlist)
 {
-	return phlist->type == phVOWEL;
+	return phlist->type == phVOWEL && phlist->ph && !(phlist->ph->phflags & phNONSYLLABIC);
 }
 
 static inline bool is_legal_onset_cluster(PHONEME_LIST *start, PHONEME_LIST *end)
@@ -480,7 +514,6 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 			if (plist3->sourceix != 0) {
 				phlist[ix].sourceix = plist3->sourceix;
 				phlist[ix].newword = PHLIST_START_OF_WORD;
-				phlist[ix].starts_syllable = true;
 
 				if (start_sentence) {
 					phlist[ix].newword |= PHLIST_START_OF_SENTENCE;
@@ -514,28 +547,61 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	}
 
 	// determine syllable boundaries
-	for (j = ix - 1; j > 0; j--) {
+	for (j = ix - 1; j >= 0; j--) {
 		if (is_nucleus(&phlist[j])) {
 			int boundary_index = j;
+			int last_valid_index = j;
+
 			while (boundary_index > 0) {
-				if (is_nucleus(&phlist[boundary_index - 1]))
+				int previous_index = boundary_index - 1;
+
+				// skip non-syllabic
+				if (phlist[previous_index].ph == NULL || (phlist[previous_index].ph->phflags & phNONSYLLABIC)) {
+					boundary_index--;
+					continue;
+				}
+
+				if (is_nucleus(&phlist[previous_index])) {
+					break;
+				}
+
+				int type_start = phlist[previous_index].type;
+				int type_end = phlist[last_valid_index].type;
+
+				if (type_start == phPAUSE) {
+					break;
+				}
+
+				int sonority_start = PHONEME_SONORITIES[type_start];
+				int sonority_end = PHONEME_SONORITIES[type_end];
+
+				char start[32] = {0};
+				if (phlist[previous_index].ph) {
+					WordToString(start, phlist[previous_index].ph->mnemonic);
+				}
+				char end[32];
+				if (phlist[last_valid_index].ph) {
+					WordToString(end, phlist[last_valid_index].ph->mnemonic);
+				}
+
+				if ((last_valid_index - previous_index) == 1 && sonority_start == PHONEME_SONORITIES[phSTOP] && sonority_end == PHONEME_SONORITIES[phSTOP])
 					break;
 
-				int sonority_start = PHONEME_SONORITIES[phlist[boundary_index - 1].ph->type];
-				int sonority_end = PHONEME_SONORITIES[phlist[boundary_index].ph->type];
-
-				if (sonority_start == PHONEME_SONORITIES[phSTOP] && sonority_end == PHONEME_SONORITIES[phSTOP])
+				if (sonority_start > sonority_end) {
 					break;
+				}
 
-				if (sonority_start > sonority_end)
-					break;
-
-				if (!is_legal_onset_cluster(&phlist[boundary_index - 1], &phlist[boundary_index]))
+				if (!is_legal_onset_cluster(&phlist[previous_index], &phlist[last_valid_index]))
 					break;
 				
+				last_valid_index = previous_index;
 				boundary_index--;
 			}
 			phlist[boundary_index].starts_syllable = true;
+		}
+
+		if (phlist[j].newword & PHLIST_START_OF_WORD) {
+			phlist[j].starts_syllable = true;
 		}
 	}
 

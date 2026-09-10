@@ -8,6 +8,7 @@
 phoneme a
   vwl starttype #a endtype #a
   length 170
+  ipa a
   FMT(vowel/a_5)
 endphoneme
 
@@ -15,6 +16,7 @@ endphoneme
 phoneme E
   vwl starttype #e endtype #e
   length 170
+  ipa ɛ
   IF nextPhW(isVowel) THEN
     ipa e
   ENDIF
@@ -26,7 +28,9 @@ phoneme I
   vwl starttype #i endtype #i
   length 150
   IfNextVowelAppend(;)
-  IF nextPhW(isVowel) THEN
+  ipa ɪ
+  // if it is a vowel, there will be a ; in between
+  IF next2PhW(isVowel) THEN
     ipa i
   ENDIF
   FMT(vowel/ii_5)
@@ -36,6 +40,7 @@ endphoneme
 phoneme O
   vwl starttype #o endtype #o
   length 160
+  ipa ɔ
   IF nextPhW(isVowel) THEN
     ipa o
   ENDIF
@@ -46,6 +51,7 @@ endphoneme
 phoneme U
   vwl starttype #u endtype #u
   length 160
+  ipa ʊ
   IF nextPhW(isVowel) THEN
     ipa u
   ENDIF
@@ -56,6 +62,7 @@ endphoneme
 phoneme a:
   vwl starttype #a endtype #a
   length 270
+  ipa aː
   FMT(vowel/a_3)
 endphoneme
 
@@ -63,6 +70,7 @@ endphoneme
 phoneme e:
   vwl starttype #e endtype #e
   length 260
+  ipa eː
   FMT(vowel/e)
 endphoneme
 
@@ -70,6 +78,7 @@ endphoneme
 phoneme i:
   vwl starttype #i endtype #i
   length 240
+  ipa iː
   FMT(vowel/i_2)
 endphoneme
 
@@ -77,6 +86,7 @@ endphoneme
 phoneme o:
   vwl starttype #o endtype #o
   length 250
+  ipa oː
   FMT(vowel/o_2)
 endphoneme
 
@@ -84,6 +94,7 @@ endphoneme
 phoneme u:
   vwl starttype #u endtype #u
   length 250
+  ipa uː
   FMT(vowel/u_bck2)
 endphoneme
 
@@ -102,6 +113,8 @@ phoneme y:
 endphoneme
 
 
+// Diphthongs
+
 
 phoneme aE
   vwl starttype #a endtype #i
@@ -119,25 +132,11 @@ phoneme aU
 endphoneme
 
 
-phoneme aI
-  vwl starttype #a endtype #i
-  length 270
-  FMT(vdiph/ae)
-endphoneme
-
-
 phoneme eI
   vwl starttype #e endtype #i
   length 270
+  ipa ei̯
   FMT(vdiph/ei)
-endphoneme
-
-
-phoneme EU
-  vwl starttype #e endtype #u
-  length 270
-  ipa eu̯
-  FMT(vdiph/eeu_2)
 endphoneme
 
 
@@ -149,13 +148,33 @@ phoneme OE
 endphoneme
 
 
-phoneme OI
-  vwl starttype #o endtype #i
-  length 250
-  FMT(vdiph/oi)
+// Rare Diphthongs
+
+// Per Allen 2003, p. 63
+// confined to the forms neu, ceu, seu, the interjections heu and heus, and
+// Greek proper names and borrowings such as Orpheus, Europa, euge, eunuchus.
+phoneme E_U
+  vwl starttype #e endtype #u
+  length 270
+  ipa ɛu̯
+  FMT(vdiph/eeu_2)
 endphoneme
 
-phoneme uI
+
+// Per Allen 2003, p. 63
+// found only in the contracted form prout
+// combination of short o and u
+phoneme O_U
+  vwl starttype #o endtype #u
+  length 250
+  ipa ou̯
+  FMT(vdiph/ou)
+endphoneme
+
+// Per Allen 2003 p. 62-63
+// short u with an i
+// only in huius, cuius, huic, cui, hui
+phoneme U_I
   vwl starttype #u endtype #i
   length 250
   ipa ui̯
@@ -200,8 +219,12 @@ endphoneme
 // Allen, Vox Latina, Chapter 1, Section v
 // Use 'dark' l (l/2) at the end of a word or another consonant
 
-phoneme L
-  import_phoneme en/l
-  ipa ɫ
+phoneme l
+  ipa l
+  import_phoneme base1/l
 endphoneme
 
+phoneme l/2
+  ipa ɫ
+  import_phoneme base1/l/2
+endphoneme

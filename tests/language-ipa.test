@@ -6,8 +6,6 @@
 test_ipa en "ˈtɛst" "test" ""
 
 # Latin vowels
-# TRACE=1
-IGNORE=1
 test_ipa la "ˈab" "ab" "a -> /a/"
 test_ipa la "ˈaː" "ā" "ā -> /aː/"
 test_ipa la "ˈɛt" "et" "e -> /ɛ/"
@@ -18,19 +16,51 @@ test_ipa la "ˈɔp.toː" "optō" "o -> /ɔ/"
 test_ipa la "ˈoː.roː" "ōrō" "ō -> /oː/"
 test_ipa la "ˈʊ.bɪ" "ubi" "u -> /ʊ/"
 test_ipa la "ˈuː.nʊs" "ūnus" "ū -> /uː/"
-test_ipa la "lʏˈkiː.um" "lycīum" "y  -> /ʏ/"
+test_ipa la "lʏˈkiː.ʊm" "lycīum" "y  -> /ʏ/"
 test_ipa la "ˈlyː.di.a" "lȳdia" "ȳ -> /yː/"
 test_ipa la "ˈkae̯.sar" "caesar" "ae -> /ae̯/"
 test_ipa la "ˈnau̯.ta" "nauta" "au -> /au̯/"
-test_ipa la "ˈseu̯" "seu" "eu -> /eu̯/ (rare)"
 test_ipa la "ˈpoe̯.na" "poena" "oe -> /oe̯/"
-# only in huius, cuius, huic, cui, hui.
+
+# rare diphthongs
+
+# eu: only the followings
+test_ipa la "ˈnɛu̯" "neu" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ˈkɛu̯" "ceu" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ˈsɛu̯" "seu" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ˈsɛu̯" "seu" "eu -> /ɛu̯/ (rare)"
+
+test_ipa la "ˈɔr.pʰɛu̯s" "Orpheus" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ˈɔr.pʰɛu̯" "Orpheu" "eu -> /ɛu̯/ (rare)"
+
+test_ipa la "ɛu̯ˈroː.pa" "Eurōpa" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈroː.pae̯" "Eurōpae" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈroː.pam" "Eurōpam" "eu -> /ɛu̯/ (rare)"
+
+test_ipa la "ˈɛu̯.ɡɛ" "euge" "eu -> /ɛu̯/ (rare)"
+
+test_ipa la "ɛu̯ˈnuː.kʰʊs" "eunūchus" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈnuː.kʰiː" "eunūchī" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈnuː.kʰoː" "eunūchō" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈnuː.kʰʊm" "eunūchum" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈnuː.kʰɛ" "eunūche" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯.nuːˈkʰoː.rʊm" "eunūchōrum" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈnuː.kʰiːs" "eunūchīs" "eu -> /ɛu̯/ (rare)"
+test_ipa la "ɛu̯ˈnuː.kʰoːs" "eunūchōs" "eu -> /ɛu̯/ (rare)"
+
+# ui: only in huius, cuius, huic, cui, hui
+test_ipa la "ˈhui̯.ʊs" "huius" "ui -> /ui̯/ (rare)"
+test_ipa la "ˈkui̯.ʊs" "cuius" "ui -> /ui̯/ (rare)"
 test_ipa la "ˈkui̯" "cui" "ui -> /ui̯/ (rare)"
+
+# ou: only in prout
+test_ipa la "ˈprou̯t" "prout" "ou -> /ou̯/ (rare)"
 
 # Latin consonants
 # test_ipa la "bɪ.bli.ɔˈtʰeː.ka" "bibliothēca" "Latin Consonant b -> /b/"
 test_ipa la "ˈbɛ.nɛ" "bene" "b -> /b/"
 test_ipa la "ˈdoː" "dō" "d -> /d/"
-{ TRACE=1 test_ipa la "ˈfa.ki.oː" "faciō" "f -> /f/"; }
+test_ipa la "ˈfa.ki.oː" "faciō" "f -> /f/"
 # FIXME: test_ipa la "g" "g" "g -> /g/"
-exit 1
+
+test_ipa la "ˈɡrae̯.ka" "graeca" "Latin IPA"
