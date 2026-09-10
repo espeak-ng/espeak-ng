@@ -474,6 +474,7 @@ public class TtsService extends TextToSpeechService {
         mCallback = callback;
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount());
 
+        final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), mEngine);
         mEngine.setVoice(voice, settings.getVoiceVariant());
 
         int rate = settings.getRate();
