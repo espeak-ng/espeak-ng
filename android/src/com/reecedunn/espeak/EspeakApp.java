@@ -34,6 +34,7 @@ public class EspeakApp extends Application {
         Context appContext = getApplicationContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             EspeakApp.storageContext = appContext.createDeviceProtectedStorageContext();
+            EspeakApp.storageContext.moveSharedPreferencesFrom(appContext, appContext.getPackageName() + "_preferences");
         }
         else {
             EspeakApp.storageContext = appContext;
