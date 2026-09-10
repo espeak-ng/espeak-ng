@@ -94,6 +94,8 @@
              g            g
              gg           g:
              g (n         N
+    // classical latin drops the g sound at the beginning of the word if followed by n
+          _) g (n
              ggu (A       g:w // Does this ever occur?
              gu (A        gw //g<w>
 
@@ -141,7 +143,7 @@
 
 
 .group l
-             l            L
+             l            l/2
              ll           l:
              l (i         l
              l (y         l

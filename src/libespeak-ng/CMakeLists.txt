@@ -64,6 +64,9 @@ if (NOT MSVC)
     "-Wimplicit"
     "-Wmisleading-indentation"
 
+    # make sure formatting errors are compile-time errors
+    "-Werror=format"
+
     # All path buffers are sized to the platform path limit (PATH_MAX /
     # MAX_PATH) and written with snprintf. Truncation on a near-limit path
     # is therefore safe and deliberate. -Wformat-truncation fires whenever

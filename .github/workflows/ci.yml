@@ -60,12 +60,10 @@ jobs:
             cross: yes
 
           - config: "asan"
-            config_cflags: "-fsanitize=address"
-            config_env: "ASAN_OPTIONS=detect_leaks=0"
+            config_cmakeflags: "-DWITH_ASAN=ON"
 
           - config: "lsan"
-            config_cflags: "-fsanitize=leak"
-            config_env: "LSAN_OPTIONS=fast_unwind_on_malloc=0"
+            config_cmakeflags: "-DWITH_LSAN=ON"
 
           - config: "msan"
             configenv: "CC=clang CXX=clang++"
@@ -222,7 +220,7 @@ jobs:
         [ 'x${{ matrix.cross }}' = 'xyes' ] && export LD="${{ matrix.ccarch }}-${{ matrix.sys }}-ld"
         export CFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.compiler_flags }} ${{ matrix.config_cflags }} ${{ matrix.archcflags }}"
         export CXXFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.compiler_flags }} ${{ matrix.config_cflags }} ${{ matrix.archcflags }}"
-        cmake -Bbuild ${{ matrix.settings }} -DCMAKE_SYSTEM_PROCESSOR=${{ matrix.arch }} -DUSE_ASYNC:BOOL=OFF
+        cmake -Bbuild ${{ matrix.settings }} -DCMAKE_SYSTEM_PROCESSOR=${{ matrix.arch }} -DUSE_ASYNC:BOOL=OFF {{ matrix.config_cmakeflags }}
 
     - name: config-failed-upload
       if: ${{ failure() }}

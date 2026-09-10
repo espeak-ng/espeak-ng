@@ -53,10 +53,14 @@ test_phon() {
 		OPTIONS="${OPTIONS} -X"
 	fi
 
+	if [ "${QUIET:-1}" = 1 ]; then
+		OPTIONS="${OPTIONS} -q"
+	fi
+
     echo "testing ${TEST_LANG} $MESSAGE"
     RESULT=$(
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
+        $VALGRIND src/espeak-ng -x ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
     )
     EXIT_CODE=0
     if [ "x$RESULT" != "x$EXPECTED" ] ; then

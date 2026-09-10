@@ -1570,7 +1570,7 @@ int SpeakNextClause(int control)
 	if ((option_phonemes & 0xf) || (phoneme_callback != NULL)) {
 		const char *phon_out;
 		phon_out = GetTranslatedPhonemeString(option_phonemes);
-		if (option_phonemes & 0xf)
+		if (f_trans && (option_phonemes & 0xf))
 			fprintf(f_trans, "%s\n", phon_out);
 		if (phoneme_callback != NULL)
 			phoneme_callback(phon_out);

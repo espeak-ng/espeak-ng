@@ -29,5 +29,6 @@
 9  l/2 l     0  l:
 0  l/2 NULL  0  l
 
-0  EU   NULL  60 E U
-0  uI   NULL  60 u I
+0  E_U  NULL  60 E U
+0  U_I  NULL  50 u I
+0  O_U  NULL  50 O U
