@@ -448,8 +448,6 @@ public class TtsService extends TextToSpeechService {
             }
         }
 
-        final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), mEngine);
-
         // Detect SSML before normalizing. Real markup is ASCII, which NFKC
         // leaves untouched, but normalization can turn lookalikes such as a
         // fullwidth "＜ｓｐｅａｋ" into "<speak", and plain text must not
