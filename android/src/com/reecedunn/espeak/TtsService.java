@@ -59,6 +59,7 @@ import java.util.Set;
 public class TtsService extends TextToSpeechService {
     private static final String TAG = TtsService.class.getSimpleName();
     private static Context storageContext;
+    private static boolean sMigratedPreferences = false;
     private static final boolean DEBUG = BuildConfig.DEBUG;
 
     private SpeechSynthesis mEngine;
@@ -97,8 +98,10 @@ public class TtsService extends TextToSpeechService {
     @Override
     public void onCreate() {
         storageContext = EspeakApp.getStorageContext();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !sMigratedPreferences) {
             storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
+            sMigratedPreferences = true;
+        }
         mPreferences = PreferenceManager.getDefaultSharedPreferences(storageContext);
         mPreferences.registerOnSharedPreferenceChangeListener(mOnPreferencesChanged);
         if (!CheckVoiceData.hasBaseResources(storageContext)
