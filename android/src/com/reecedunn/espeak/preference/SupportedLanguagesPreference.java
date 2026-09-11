@@ -29,7 +29,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.reecedunn.espeak.EspeakApp;
 import com.reecedunn.espeak.LanguageSettings;
 import com.reecedunn.espeak.R;
 
@@ -156,16 +155,15 @@ public class SupportedLanguagesPreference extends MultiSelectListPreference {
         }
     }
 
-    // Persist using device-protected storage to stay in sync with TtsService.
+    // "All languages" is stored as the absence of the key, so that TtsService
+    // exposes every voice, including ones added by a later update.
     @Override
     public boolean persistStringSet(Set<String> values) {
         if (!shouldPersist()) return false;
         int total = mEntryCount > 0 ? mEntryCount :
                 (getEntryValues() != null ? getEntryValues().length : 0);
 
-        android.content.SharedPreferences.Editor editor = android.preference.PreferenceManager
-                .getDefaultSharedPreferences(EspeakApp.getStorageContext())
-                .edit();
+        android.content.SharedPreferences.Editor editor = getSharedPreferences().edit();
 
         if (values == null || (total > 0 && values.size() >= total)) {
             // Treat as "all": remove the preference key so TtsService exposes everything.
@@ -183,9 +181,7 @@ public class SupportedLanguagesPreference extends MultiSelectListPreference {
     @Override
     public Set<String> getPersistedStringSet(Set<String> defaultReturnValue) {
         if (!shouldPersist()) return defaultReturnValue;
-        Set<String> stored = android.preference.PreferenceManager
-                .getDefaultSharedPreferences(EspeakApp.getStorageContext())
-                .getStringSet(getKey(), defaultReturnValue);
+        Set<String> stored = getSharedPreferences().getStringSet(getKey(), defaultReturnValue);
         return (stored == null) ? defaultReturnValue : new HashSet<String>(stored);
     }
 }
