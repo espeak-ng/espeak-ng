@@ -19,6 +19,7 @@ package com.reecedunn.espeak.test;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
 import androidx.test.core.app.ActivityScenario;
@@ -33,6 +34,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -86,15 +89,38 @@ public class PreferenceStorageTest extends TextToSpeechTestCase
         return mStorageContext.getSharedPreferences(mName, Context.MODE_PRIVATE);
     }
 
+    /**
+     * The settings screen loads the engine's voices on a worker thread and
+     * adds its preferences afterwards, so wait until the one under test is
+     * attached before looking at what it persisted.
+     */
+    private static void waitForPreference(ActivityScenario<TtsSettingsActivity> scenario,
+                                          final String key) throws InterruptedException
+    {
+        final AtomicBoolean attached = new AtomicBoolean();
+        for (int i = 0; i < 100 && !attached.get(); ++i) {
+            scenario.onActivity(activity -> {
+                final PreferenceFragment fragment = (PreferenceFragment)
+                        activity.getFragmentManager().findFragmentById(android.R.id.content);
+                attached.set(fragment != null && fragment.findPreference(key) != null);
+            });
+            if (!attached.get()) {
+                Thread.sleep(100);
+            }
+        }
+        assertThat("preference " + key + " attached within 10 s", attached.get(), is(true));
+    }
+
     @Test
-    public void settingsScreenWritesOnlyToDeviceProtectedStorage()
+    public void settingsScreenWritesOnlyToDeviceProtectedStorage() throws InterruptedException
     {
         mAppContext.deleteSharedPreferences(mName);
 
         // Attaching the preferences persists their defaults; that is how
         // #2536 created the stray file without the user touching anything.
-        try (ActivityScenario<TtsSettingsActivity> ignored =
+        try (ActivityScenario<TtsSettingsActivity> scenario =
                 ActivityScenario.launch(TtsSettingsActivity.class)) {
+            waitForPreference(scenario, VoiceSettings.PREF_UNICODE_NORMALIZATION);
             assertThat(credentialEncrypted().getAll().keySet(), is(empty()));
             assertThat(deviceProtected().contains(VoiceSettings.PREF_UNICODE_NORMALIZATION), is(true));
         }
@@ -112,6 +138,26 @@ public class PreferenceStorageTest extends TextToSpeechTestCase
         EspeakApp.migrateLegacyPreferences(mAppContext, mStorageContext);
 
         assertThat(deviceProtected().getString(VoiceSettings.PREF_RATE, null), is("123"));
+        assertThat(deviceProtected().getBoolean(EspeakApp.PREF_PREFERENCES_MIGRATED, false), is(true));
+        assertThat(credentialEncrypted().getAll().keySet(), is(empty()));
+    }
+
+    @Test
+    public void firstStartMarksDeviceProtectedStorageAsLive()
+    {
+        // A fresh install: neither file exists. The first unlocked start must
+        // still leave a mark, so that a credential-encrypted file appearing
+        // before the user ever opens the settings is discarded, not adopted.
+        deviceProtected().edit().clear().commit();
+        mAppContext.deleteSharedPreferences(mName);
+
+        EspeakApp.migrateLegacyPreferences(mAppContext, mStorageContext);
+        assertThat(deviceProtected().getBoolean(EspeakApp.PREF_PREFERENCES_MIGRATED, false), is(true));
+
+        credentialEncrypted().edit().putString(VoiceSettings.PREF_RATE, "123").commit();
+        EspeakApp.migrateLegacyPreferences(mAppContext, mStorageContext);
+
+        assertThat(deviceProtected().contains(VoiceSettings.PREF_RATE), is(false));
         assertThat(credentialEncrypted().getAll().keySet(), is(empty()));
     }
 
