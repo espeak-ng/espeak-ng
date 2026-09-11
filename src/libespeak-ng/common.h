@@ -23,6 +23,11 @@
 #include "espeak-ng/espeak_ng.h"
 #include "translate.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 
@@ -52,4 +57,4 @@ int utf8_out(unsigned int c, char *buf);
 }
 #endif
 
-#endif // SPEECH_H
+#endif // ESPEAK_NG_COMMON_H

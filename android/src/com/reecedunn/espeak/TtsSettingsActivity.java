@@ -28,6 +28,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
@@ -76,11 +77,6 @@ public class TtsSettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-        {
-            PreferenceManager preferenceManager = getPreferenceManager();
-            preferenceManager.setStorageDeviceProtected ();
-        }
         // Migrate old eyes-free settings to the new settings:
 
         storageContext = EspeakApp.getStorageContext();
@@ -121,17 +117,9 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         editor.commit();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-        {
-            getFragmentManager().beginTransaction().replace(
-                    android.R.id.content,
-                    new PrefsEspeakFragment()).commit();
-        }
-        else
-        {
-            addPreferencesFromResource(R.xml.preferences);
-            createPreferences(TtsSettingsActivity.this, getPreferenceScreen());
-        }
+        getFragmentManager().beginTransaction().replace(
+                android.R.id.content,
+                new PrefsEspeakFragment()).commit();
     }
 
     public static class PrefsEspeakFragment extends PreferenceFragment {
@@ -139,6 +127,15 @@ public class TtsSettingsActivity extends PreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
+            // The fragment has its own PreferenceManager, separate from the
+            // activity's. Everything on this screen persists through it, so it
+            // must use the device-protected file that TtsService reads. A
+            // Preference left on the default credential-encrypted storage has
+            // no effect on speech, and its stray file is what #2536 copied
+            // over the real settings on every screen reader restart.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                getPreferenceManager().setStorageDeviceProtected();
+            }
             addPreferencesFromResource(R.xml.preferences);
             createPreferences(getActivity(), getPreferenceScreen());
         }
@@ -179,6 +176,16 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
         pref.setVoiceSettings(settings);
+        return pref;
+    }
+
+    private static Preference createUnicodeNormalizationPreference(Context context) {
+        final CheckBoxPreference pref = new CheckBoxPreference(context);
+        pref.setTitle(R.string.setting_unicode_normalization);
+        pref.setSummary(R.string.setting_unicode_normalization_summary);
+        pref.setKey(VoiceSettings.PREF_UNICODE_NORMALIZATION);
+        pref.setDefaultValue(true);
+        pref.setPersistent(true);
         return pref;
     }
 
@@ -479,6 +486,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         }
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
+        group.addPreference(createUnicodeNormalizationPreference(context));
 
         if (isWatch) {
             // One parameter per dialog on Wear. The rotating crown only
