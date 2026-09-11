@@ -16,11 +16,14 @@
 
 package com.reecedunn.espeak;
 
+import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class EspeakApp extends Application {
@@ -34,12 +37,37 @@ public class EspeakApp extends Application {
         Context appContext = getApplicationContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             EspeakApp.storageContext = appContext.createDeviceProtectedStorageContext();
-            EspeakApp.storageContext.moveSharedPreferencesFrom(appContext, appContext.getPackageName() + "_preferences");
+            migrateLegacyPreferences(appContext, EspeakApp.storageContext);
         }
         else {
             EspeakApp.storageContext = appContext;
         }
         syncWearLauncherState();
+    }
+
+    /**
+     * Adopts the preferences of an install that predates device-protected
+     * storage (f7f66429, 2022) and still keeps them in the credential-encrypted
+     * file. Runs once per process, before any component reads the settings.
+     *
+     * Everything in this app reads and writes the device-protected file, so
+     * once it holds anything it is the source of truth and there is nothing
+     * left to migrate. A credential-encrypted file that shows up after that
+     * point can only be a stray write through a plain Context, and
+     * moveSharedPreferencesFrom() would copy it over the user's settings: that
+     * is how #2536 wiped every setting on each screen reader restart. Such a
+     * file is discarded instead, which turns that class of bug into a setting
+     * that does not take effect -- visible, and harmless.
+     */
+    @TargetApi(Build.VERSION_CODES.N)
+    public static void migrateLegacyPreferences(Context appContext, Context storageContext) {
+        final String name = PreferenceManager.getDefaultSharedPreferencesName(appContext);
+        final SharedPreferences settings = storageContext.getSharedPreferences(name, Context.MODE_PRIVATE);
+        if (settings.getAll().isEmpty()) {
+            storageContext.moveSharedPreferencesFrom(appContext, name);
+        } else {
+            appContext.deleteSharedPreferences(name);
+        }
     }
 
     /**
