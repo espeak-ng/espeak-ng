@@ -34,7 +34,6 @@ endphoneme
 phoneme E
   vwl starttype #e endtype #e
   length 180
-  ChangeIfUnstressed(y)
   FMT(vowel/e_mid)
 endphoneme
 
@@ -55,6 +54,7 @@ phoneme I/           // hiding the very short [i] used for epenthesis
 endphoneme
 
 phoneme y            // old unstressed /i/ kept for backward compatibility
+  vwl starttype #@ endtype #@
   CALL pt/i"
 endphoneme
 
@@ -128,9 +128,22 @@ phoneme w
 endphoneme
 
 
+// Lateral Consonants
+
+phoneme l/2          // substitutes "en/l" in the case of 'dark' /l/
+  liquid
+  lengthmod 7
+  CALL base1/l/2
+  IF NOT nextPhW(isVowel) AND NOT nextPhW(j) AND NOT nextPhW(w) THEN
+    ipa ɫ            // when the next phoneme in word is a consonant
+  ENDIF
+endphoneme
+
+
 // Rhotic Consonants
 
 phoneme x            // old strong /R/ kept for backward compatibility
+//vcd uvl frc rhotic
   liquid trl
   ipa ʁ
   lengthmod 7
@@ -142,39 +155,70 @@ phoneme x            // old strong /R/ kept for backward compatibility
 endphoneme
 
 
-// Special Consonants for Dialectal Variation
+// Vowel Aliases for Dialectal Variation
 
-phoneme l#           // special phoneme for /l/ or /w/ in coda
-  virtual
-  ChangePhoneme(l)
+phoneme a#           // alias for /&/ in unstressed syllable
+  vwl starttype #@ endtype #@
+  ChangePhoneme(&)
 endphoneme
 
-phoneme s#           // special phoneme for /S/ or /Z/ in coda
-  virtual
+phoneme e#           // alias for /y/ in unstressed syllable
+  vwl starttype #@ endtype #@
+  ChangePhoneme(y)
+endphoneme
+
+phoneme o#           // alias for /u/ in unstressed syllable
+  vwl starttype #u endtype #u
+  ChangePhoneme(u)
+endphoneme
+
+
+// Consonant Aliases for Dialectal Variation
+
+phoneme l#           // alias for /l/ in coda
+  liquid
+  ChangePhoneme(l/2)
+endphoneme
+
+phoneme s#           // alias for /S/, /Z/ or /z/ in coda
+  vls pla frc sib
   IF nextPh(isVowel) THEN
     ChangePhoneme(z)
-  ELIF nextPh(isVoiced) THEN
+  ELIF nextPh(isVoiced) OR nextPh(d#) THEN
     ChangePhoneme(Z)
   ENDIF
   ChangePhoneme(S)
 endphoneme
 
-phoneme R#           // special phoneme for strong /R/ in onset
-  virtual
+phoneme R#           // alias for strong /R/ in onset
+//vcd uvl frc rhotic
+  liquid trl
   ChangePhoneme(x)
 endphoneme
 
-phoneme r#           // special phoneme for weak /r/ in coda
-  virtual
+phoneme r#           // alias for weak /r/ in coda
+  vcd alv flp rhotic
+  IF thisPh(isWordStart) THEN
+    ChangePhoneme(x)
+  ENDIF
   ChangePhoneme(*)
 endphoneme
 
-phoneme d#           // special phoneme for /d/ or /dZ/
-  virtual
+phoneme d#           // alias for /d/
+  vcd alv stp
   ChangePhoneme(d)
 endphoneme
 
-phoneme t#           // special phoneme for /t/ or /tS/
-  virtual
+phoneme t#           // alias for /t/
+  vls alv stp
   ChangePhoneme(t)
 endphoneme
+
+
+// Other Aliases for Dialectal Variation
+
+phoneme 3#           // alias for /@/ in English words ended with /er/
+  vwl starttype #@ endtype #@
+  ChangePhoneme(&)
+endphoneme
+

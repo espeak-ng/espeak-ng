@@ -1374,12 +1374,16 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_INITIAL_2 | S_PRIORITY_STRESS;
-		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN_CAPITALS;
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN_CAPITALS;
 		tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS | NUM2_ORDINAL_NO_AND;
 		tr->langopts.max_roman = 5000;
+
 		SetLetterVowel(tr, 'y');
-		ResetLetterBits(tr, 0x2);
-		SetLetterBits(tr, 1, "bcdfgjkmnpqstvxz"); // B  hard consonants, excluding h,l,r,w,y
+		ResetLetterBits(tr, (1L << LETTERGP_B));
+		ResetLetterBits(tr, (1L << LETTERGP_H));
+		SetLetterBits(tr, LETTERGP_B, "bcdfgjkmnpqstvxz"); // B: a consonant, except h l r w y (excludes the second letter in consonant clusters and semivowels)
+		SetLetterBits(tr, LETTERGP_H, "bcdfghjkpqtvxz");   // H: a consonant, except l m n r s w y (excludes common letters in syllable coda and semivowels)
+
 		tr->langopts.param[LOPT_ALT] = 2; // call ApplySpecialAttributes2() if a word has $alt or $alt2
 		tr->langopts.accents = 2; // 'capital' after letter name
 	}
