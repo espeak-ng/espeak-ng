@@ -262,6 +262,63 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 	return mnem;
 }
 
+
+#define MBROLA_VOWEL_BASE_ADD_MS 35
+#define MBROLA_CONSONANT_PERCENT 110
+#define MBROLA_VSTOP_PERCENT 90
+
+static int MbrolaReducedLengthFactor(int length, int reduce)
+{
+	return (length * (256 - reduce) + 256 * reduce) / 256;
+}
+
+static int MbrolaVowelLengthFactor(const PHONEME_LIST *p)
+{
+	int length = p->length;
+	int lenmod;
+	int lenmod2;
+
+	if (length == 0)
+		length = 256;
+
+	lenmod = MbrolaReducedLengthFactor(length, speed.lenmod_factor);
+	lenmod2 = MbrolaReducedLengthFactor(length, speed.lenmod2_factor);
+
+	return (6 * length + lenmod + lenmod2) / 8;
+}
+
+static int MbrolaVowelLength(const PHONEME_LIST *p, const PHONEME_TAB *ph)
+{
+	int len;
+
+	len = ph->std_length * 2 + MBROLA_VOWEL_BASE_ADD_MS;
+
+	if (p->synthflags & SFLAG_LENGTHEN)
+		len += phoneme_tab[phonLENGTHEN]->std_length * 2;
+
+	return (len * MbrolaVowelLengthFactor(p)) / 256;
+}
+
+static int MbrolaAdjustConsonantLength(const PHONEME_LIST *p, int len)
+{
+	if (p->synthflags & SFLAG_SYLLABLE)
+		return len;
+
+	switch (p->ph->type) {
+	case phVSTOP:
+		return (len * MBROLA_VSTOP_PERCENT) / 100;
+
+	case phLIQUID:
+	case phSTOP:
+	case phFRICATIVE:
+	case phVFRICATIVE:
+	case phNASAL:
+		return (len * MBROLA_CONSONANT_PERCENT) / 100;
+	}
+
+	return len;
+}
+
 static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 {
 	// final=1:  only give the final pitch value.
@@ -275,7 +332,7 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	int min = 999;
 	int y_max = 0;
 	int y_min = 0;
-	int env100 = 80; // apply the pitch change only over this proportion of the mbrola phoneme(s)
+	int env100 = 100; // apply the pitch change over the complete mbrola phoneme(s)
 	int y2;
 	int y[4];
 	int env_split;
@@ -449,13 +506,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 		switch (ph->type)
 		{
 		case phVOWEL:
-			len = ph->std_length;
-			if (p->synthflags & SFLAG_LENGTHEN)
-				len += phoneme_tab[phonLENGTHEN]->std_length; // phoneme was followed by an extra : symbol
-
-			if (ph_next->type == phPAUSE)
-				len += 50; // lengthen vowels before a pause
-			len = (len * p->length)/256;
+			len = MbrolaVowelLength(p, ph);
 
 			if (name2 == 0) {
 				char *pitch = WritePitch(p->env, p->pitch1, p->pitch2, 0, 0);
@@ -498,6 +549,10 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 			len = (len * 1000)/samplerate; // convert to mS
 			break;
 		case phNASAL:
+			if (p->synthflags & SFLAG_SYLLABLE) {
+				len = MbrolaVowelLength(p, ph);
+				break;
+			}
 			if (next->type != phVOWEL) {
 				memset(&fmtp, 0, sizeof(fmtp));
 				InterpretPhoneme(NULL, 0, p, plist, &phdata, NULL);
@@ -510,12 +565,19 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 			}
 			break;
 		case phLIQUID:
+			if (p->synthflags & SFLAG_SYLLABLE) {
+				len = MbrolaVowelLength(p, ph);
+				break;
+			}
 			if (next->type == phPAUSE) {
 				len += 50;
 				final_pitch = WritePitch(p->env, p->pitch1, p->pitch2, 0, 1);
 			}
 			break;
 		}
+
+		if (!done)
+			len = MbrolaAdjustConsonantLength(p, len);
 
 		if (!done) {
 			if (name2 != 0) {
