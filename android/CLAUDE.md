@@ -50,7 +50,7 @@ Android TTS Framework
 
 ### Key Classes (`src/com/reecedunn/espeak/`)
 
-- **EspeakApp** — `Application` subclass; owns the device-protected storage context and the Wear launcher alias state (see below)
+- **EspeakApp** — `Application` subclass; owns the device-protected storage context, the one-time migration of pre-2022 preferences into it, and the Wear launcher alias state (see below)
 - **TtsService** — Android TTS engine service; handles `onSynthesizeText()`, voice selection, parameter setup
 - **SpeechSynthesis** — JNI wrapper; loads `libttsespeak.so`, exposes native functions as Java API
 - **UnicodeNormalization** — NFKC normalization of synthesis input (stylized Unicode → plain text) with a normalized→original offset map for `rangeStart()` word boundaries
@@ -122,3 +122,14 @@ Voice data comes from the parent project's `dictsource/` and `phsource/`. The Gr
 1. Add preference key constant in `VoiceSettings.java`
 2. Add preference XML in `res/xml/` or programmatically in `TtsSettingsActivity.java`
 3. Wire it through `TtsService.onSynthesizeText()` to the appropriate `SpeechSynthesis` parameter
+
+Settings live in device-protected storage so that `TtsService` can read them
+before the device is unlocked. Two things keep every writer on that one file:
+`PrefsEspeakFragment` switches its `PreferenceManager` to device-protected
+storage, so a `Preference` on the settings screen (and `getSharedPreferences()`
+or `getEditor()` inside one) is already right; code outside the Preference
+framework goes through `EspeakApp.getStorageContext()`. Never call
+`PreferenceManager.getDefaultSharedPreferences()` on a plain `Context`: the
+value lands in a credential-encrypted file that `EspeakApp` discards at the
+next process start, so the setting silently does nothing (#2536).
+`PreferenceStorageTest` fails if opening the settings screen creates that file.

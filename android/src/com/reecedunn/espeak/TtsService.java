@@ -97,8 +97,6 @@ public class TtsService extends TextToSpeechService {
     @Override
     public void onCreate() {
         storageContext = EspeakApp.getStorageContext();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            storageContext.moveSharedPreferencesFrom(this, this.getPackageName() + "_preferences");
         mPreferences = PreferenceManager.getDefaultSharedPreferences(storageContext);
         mPreferences.registerOnSharedPreferenceChangeListener(mOnPreferencesChanged);
         if (!CheckVoiceData.hasBaseResources(storageContext)
@@ -250,7 +248,14 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected Set<String> onGetFeaturesForLanguage(String lang, String country, String variant) {
-        return new HashSet<String>();
+        // eSpeak synthesizes on the device for every language it offers, and never
+        // needs a network connection. Clients read this set -- directly, or through
+        // the features of the voices built in onGetVoices() -- to decide whether a
+        // language can be spoken offline; leaving it empty makes eSpeak look like an
+        // engine that cannot answer the question.
+        final Set<String> features = new HashSet<String>();
+        features.add(TextToSpeech.Engine.KEY_FEATURE_EMBEDDED_SYNTHESIS);
+        return features;
     }
 
     @Override
