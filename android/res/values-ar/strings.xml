@@ -15,4 +15,18 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">هذه عينة من النص الذي تم نطقه في %s</string>
+
+  <string name="dictionary_manager_title">استبدالات الكلمات المخصصة</string>
+  <string name="dictionary_manager_description">تصحيح الكلمات باستبدالات نصية سريعة ومخصصة لكل لغة.</string>
+  <string name="lexicon_target_label">الكلمة الخاطئة أو المستهدفة</string>
+  <string name="lexicon_target_hint">الكلمة المطلوب استبدالها</string>
+  <string name="lexicon_replacement_label">البديل أو النطق الصحيح</string>
+  <string name="lexicon_replacement_hint">النص البديل</string>
+  <string name="lexicon_language_label">اللغة</string>
+  <string name="lexicon_save_button">حفظ الاستبدال</string>
+  <string name="lexicon_help">تُطبق الاستبدالات قبل النطق دون تجميع القاموس.</string>
+  <string name="lexicon_no_languages">لا توجد لغات متاحة.</string>
+  <string name="lexicon_saved">تم حفظ الاستبدال. إجمالي الإدخالات: %1$d.</string>
+  <string name="lexicon_save_failed">تعذر حفظ الاستبدال: %1$s</string>
+  <string name="lexicon_entry_count">الاستبدالات المحفوظة: %1$d.</string>
 </resources>

@@ -77,6 +77,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DictionaryManagerActivity"
+            android:label="@string/dictionary_manager_title"
+            android:exported="false" />
         <activity-alias
             android:name=".WearLauncher"
             android:targetActivity=".TtsSettingsActivity"
