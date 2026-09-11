@@ -391,6 +391,8 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 		word_count = 0;
 	}
 
+	bool use_ipa = option_phoneme_events & espeakINITIALIZE_PHONEME_IPA;
+
 	while (phix < n_phonemes) {
 		if (WcmdqFree() < MIN_WCMDQ)
 			return 1;
@@ -431,13 +433,13 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 
 		if (ph->code != phonEND_WORD) {
 			char phoneme_name[16];
-			WritePhMnemonic(phoneme_name, p->ph, p, option_phoneme_events & espeakINITIALIZE_PHONEME_IPA, NULL);
+			WritePhMnemonic(phoneme_name, p->ph, p, use_ipa , NULL);
 			DoPhonemeMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, phoneme_name);
 		}
 
 		ptr += sprintf(ptr, "%s\t", WordToString(phbuf, name));
 
-		if (name2 == '_') {
+		if (name2 == '_' && len_percent > 0) {
 			// add a pause after this phoneme
 			pause = len_percent;
 			name2 = 0;
@@ -457,18 +459,20 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 				len += 50; // lengthen vowels before a pause
 			len = (len * p->length)/256;
 
-			if (name2 == 0) {
+			if (name2 == 0 || len_percent > 100) {
+				len = (len * (len_percent ? len_percent : 100)) / 100;
 				char *pitch = WritePitch(p->env, p->pitch1, p->pitch2, 0, 0);
 				ptr += sprintf(ptr, "%d\t%s", len, pitch);
 			} else {
 				char *pitch;
 
 				pitch = WritePitch(p->env, p->pitch1, p->pitch2, len_percent, 0);
-				len1 = (len * len_percent)/100;
+				len1 = (len * len_percent) / 100;
 				ptr += sprintf(ptr, "%d\t%s", len1, pitch);
+				len -= len1;
 
 				pitch = WritePitch(p->env, p->pitch1, p->pitch2, -len_percent, 0);
-				ptr += sprintf(ptr, "%s\t%d\t%s", WordToString(phbuf, name2), len-len1, pitch);
+				ptr += sprintf(ptr, "%s\t%d\t%s", WordToString(phbuf, name2), len, pitch);
 			}
 			done = true;
 			break;
@@ -518,12 +522,21 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 		}
 
 		if (!done) {
-			if (name2 != 0) {
+			if (len_percent > 100) {
+				// HACK: treat len_percent as a direct length multiplier
+				len = (len * len_percent) / 100;
+			} else if (name2 != 0 && name2 != '_') {
+				// standard split behaviour
 				len1 = (len * len_percent)/100;
 				ptr += sprintf(ptr, "%d\n%s\t", len1, WordToString(phbuf, name2));
 				len -= len1;
 			}
 			ptr += sprintf(ptr, "%d%s\n", len, final_pitch);
+
+			if (name2 == '_' && len_percent == 0) {
+				// primary phoneme keeps full len, _ gets 0
+				ptr += sprintf(ptr, "_\t0\n");
+			}
 		}
 
 		if (pause) {

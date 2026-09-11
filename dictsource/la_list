@@ -35,7 +35,7 @@ u	u:
 v	u: // same as u
 //w
 x	Eks
-y	i: 'graIka
+y	i: 'graEka
 z	'ze:ta
 
 // ABBREVIATIONS
@@ -56,7 +56,7 @@ Idq          i:d'EmkwE //īdemque
 
 // adverbs
 
-non
+nōn
 
 // Pronouns:
 // Relative pronouns. These should probably be unstressed most of the time, hence the $u markers.
@@ -199,7 +199,7 @@ namque $pause
 nec $pause
 nisi $pause
 propterea $pause
-prout $pause
+prout 'pRO_Ut $pause
 quamdiu $pause
 quamquam $pause
 quando $pause
@@ -301,3 +301,40 @@ _8X	Okto:g'Inta:
 _9X	no:na:g'Inta:
 _0C	k'EntUm
 _0M1	m'IllE
+
+// rare diphthongs
+
+// eu
+neu 'nE_U
+ceu 'kE_U
+seu 'sE_U
+heu 'hE_U
+heus 'hE_Us
+
+orpheus 'ORp<h>E_Us
+orpheu 'ORp<h>E_U
+
+eurōpa E_U'Ro:pa
+eurōpae E_U'Ro:paE
+eurōpam E_U'Ro:pam
+eurōpā E_U'Ro:pa:
+
+euge 'E_UgE_
+
+eunūchus E_U'nu:k<h>Us_
+eunūchī E_Un'u:k<h>i:_
+eunūchō E_Un'u:k<h>o:_
+eunūchum E_Un'u:k<h>Um_
+eunūche E_Un'u:k<h>E_
+eunūchōrum E_Unu:k<h>'o:RUm_
+eunūchīs E_Un'u:k<h>i:s_
+eunūchōs E_Un'u:k<h>o:s_
+
+// ui: only in huius, cuius, huic, cui, hui
+huius 'hU_IUs
+cuius 'kU_IUs
+cui 'kU_I
+huic 'hUI_k
+hui 'hU_I
+
+// ui: only in prout (above)

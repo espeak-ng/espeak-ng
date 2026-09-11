@@ -154,6 +154,7 @@ phoneme @-   //  very short schwa
   ipa ə
   IF nextPhW(*) OR nextPhW(r) THEN
     ipa NULL   // @-* is used to make 'r'
+    nsy
   ENDIF
   length 50
   FMT(vowel/@-)

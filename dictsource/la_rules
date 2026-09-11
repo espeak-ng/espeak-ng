@@ -10,9 +10,14 @@
 // used. I and V were used for both the vowels /i/ and /u/, and the semivowels /j/ and
 // /w/. Here the distinction between U and the V for /u/ and /w/ is assumed, as is the
 // case in most modern texts. Also long vowels are indicated with macrons. Diaresis is
-// used to prevent a diphtong being formed. Y with macron has to be replaced by 'yy', 
+// used to prevent a diphthong being formed. Y with macron has to be replaced by 'yy', 
 // since this character is incompatible with older unicode versions.
 
+
+// OPTIONS (accents)
+// This version of espeak takes into acceount 2 varients of latin:
+//      ?1  Classical Pronunciation
+//      ?2  Ecclesiastical (Modern Italianate) Pronunciation
 
 .replace
 â	ā
@@ -23,8 +28,10 @@
 ŷ	yy
 
 
-.L01 ae au eu oe a e i o u yy y ā ē ī ō ū ë ü é æ
+.L01 ae au eu oe ui a e i o u yy y ā ē ī ō ū ë ü é æ
 .L02 ng qu pr tr cr chr br dr gr pl cl bl gl ph th ch 
+// prefixs
+.L03 ab ad ante circum con contra dē ex in inter ob per post prae pro re se sub super trans
 
 .group a
              a            a
@@ -34,8 +41,8 @@
              a (L02L01X   =a
              a (guL01X    =a
              a (x+        a
-    // Diphtongs
-             ae (+++      aI
+    // Diphthongs
+             ae (+++      aE
              au (+++      aU
 
 
@@ -44,7 +51,7 @@
 
 
 .group æ
-             æ            aI
+             æ            aE
 
 .group b
              b            b
@@ -71,7 +78,7 @@
              e (L02L01X   =E
              e (guL01X    =E
              e (x+        E
-    // Diphtongs
+    // Diphthongs
              eu (+++      EU
 
 
@@ -112,6 +119,8 @@
     // Cases in which 'i' is pronounced as the semi-vowel /j/
           _) i (A         j
           A) i (A+        j:
+    // Exceptions: compound formations
+        L03) i (A+        j
     // Exceptions where u is a consonant
          qu) i (L01X++    =I
          qu) i (A++        I
@@ -129,6 +138,14 @@
 .group ī
              ī            i:
 
+.group j
+             j            j
+             jj           j:
+    // Intervocalic gemination between vowels, e.g., dejectus -> dej-jectus
+          A) j (A+        j:
+    // Exceptions: compound formations
+        L03) j (A+        j
+
 
 .group k
              k            k
@@ -136,8 +153,12 @@
 
 
 .group l
-             l            l
+             l            l/2
              ll           l:
+             l (i         l
+             l (y         l
+             l (ȳ         l
+             l (yy        l
 
 
 .group m
@@ -163,8 +184,8 @@
              o (L02L01X   =O
              o (guL01X    =O
              o (x+        O
-    // Diphtongs
-             oe (+++      OI
+    // Diphthongs
+             oe (+++      OE
 
 
 .group ō
@@ -213,6 +234,8 @@
     // Cases in which 'u' is pronounced as the semi-vowel /w/
           A) u (A++       w
           _) u (A+        w
+    // Diphthongs
+             ui (+++      uI
 
 
 .group ū
@@ -234,6 +257,9 @@
              y            y  // Kirshenbaum I.
              yy           y: // Should be y with macron, which is not present in older Unicode versions
 
+.group ȳ
+             ȳ            y:
+
 
 .group z
              z            z
@@ -242,5 +268,4 @@
 
 
 .group
-             j            j
              w            w

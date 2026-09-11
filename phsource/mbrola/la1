@@ -1,35 +1,125 @@
-0  r/  NULL  0  r
-0  w/  NULL  0  w
-0  ;   NULL  0  NULL
-0  @-  NULL  0  NULL
-0  *   NULL  0  r
-1  R   *     0  r:
-0  R   NULL  0  r
+// latin phonemes
 
-1  p   <h>   0  p_h
-1  t   <h>   0  t_h
-1  k   <h>   0  k_h
+// latin consonants
 
+// latin plosives
+// simple plosives: p b t d k g
+// double plosives: p: b: t: d: k: g:
+
+// latin fricatives
+// simple fricatives: f s h
+// double fricatives: f: s:
+
+// latin nasals
+// simple nasals: m n N
+// double nasals: m: n:
+
+// latin liquids
+// simple liquids: l r
+// double liquids: l: r:
+
+// latin semivowels
+// simple semivowels: w j
+// double semivowels: j:
+
+// latin vowels
+// short vowels: a E I O U
+// intermediate vowels: 1
+// long vowels: a: e: i: o: u:
+// diphthongs: aE aU OE
+
+// greek phonemes
+
+// greek consonants
+
+// greek plosives
+// simple aspirated voiceless plosives: p_h t_h k_h
+// double aspirated plosives: p_h: t_h: k_h:
+
+// greek fricatives
+// simple fricatives: z
+// double fricatives: z:
+
+// greek vowels
+// short vowels: y
+// long vowels: t:
+
+// boundary: _
+
+// plosives-to-plosives
+// impossible: p -> b
+0  p   b     0  p _
+0  p   d     0  p _
+0  p   g     0  p _
+// impossible: b -> {p, b}
+0  b   t     0  b _
+0  b   k     0  b _
+// impossible: t -> t
+0  d   p     0  d _
+// impossible: d -> {t, d}
+0  d   k     0  d _
+// impossible: k -> k
+0  g   p     0  g _
+0  g   b     0  g _
+0  g   t     0  g _
+// impossible: g -> {k, g}
+
+// plosives-to-fricatives: mbrola does not have recordings of these
+0  b   s     0  b _
+0  p   s     0  p _
+0  t   s     0  t _
+0  d   s     0  d _
+0  k   s     0  k _
+0  g   s     0  g _
+
+// fricatives-to-vowels
+2  a:  s     50 a a
+
+// palatal glide cluster safety rule (missing j-j diphone)
+0  j   j     200 j
+2  j   j     0   NULL
+
+// geminated/lengthened stops
 0  p   :     0  p:
 0  b   :     0  b:
 0  t   :     0  t:
 0  d   :     0  d:
 0  k   :     0  k:
 0  g   :     0  g:
+0  j   :     0  j:
 
+// continuants and nasals
 9  f   f     0  f:
 9  s   s     0  s:
 9  z   z     0  z:
 9  m   m     0  m:
 9  n   n     0  n:
+0  n   n     0  n _
 
+// liquids and glides
 9  j/  j     0  j:
 0  j/  NULL  0  j
 0  l/  NULL  0  l
 9  l/2 l     0  l:
 0  l/2 NULL  0  l
 
-0  aI   NULL  0  aE
-0  aU   NULL  0  aU
-0  oI   NULL  0  oE
-0  EU   NULL  60 E U
+// diphthongs
+0  E_U  NULL  60 E U
+0  U_I  NULL  50 u I
+0  O_U  NULL  50 O U
+
+// approximants, markers and vowel/syllable adjustments
+0  r/  NULL  0  r
+0  w/  NULL  0  w
+0  ;   NULL  0  NULL
+0  @-  NULL  0  NULL
+0  *   NULL  0  r
+
+// rhotic / r-colouring rules
+1  R   *     0  r:
+0  R   NULL  0  r
+
+// aspirated-stop consonants
+1  p   <h>   0  p_h
+1  t   <h>   0  t_h
+1  k   <h>   0  k_h

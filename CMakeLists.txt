@@ -12,10 +12,15 @@ option(ENABLE_TESTS "Enable tests" ON)
 option(WITH_COVERAGE "Enable clang source-based coverage instrumentation" OFF)
 option(WITH_FUZZER "Build libFuzzer targets (requires Clang)" OFF)
 
+if(APPLE)
+  # Required to expose standard POSIX/BSD APIs needed for compilation
+  add_compile_definitions(_DARWIN_C_SOURCE)
+endif()
+
 include(CTest)
 
 if (WITH_COVERAGE OR WITH_FUZZER)
-  if (NOT CMAKE_C_COMPILER_ID STREQUAL "Clang")
+  if (NOT CMAKE_C_COMPILER_ID MATCHES "^(Apple)?Clang$")
     message(FATAL_ERROR "WITH_COVERAGE and WITH_FUZZER require Clang")
   endif()
 endif()

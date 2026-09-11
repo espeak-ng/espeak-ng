@@ -291,8 +291,9 @@ Each line in the mbrola phoneme translation file contains:
   matches any Vowel phoneme.
 
 * `<percent>` \
-  If this field is zero then only one mbrola phoneme is used. If this
-  field is non-zero, then two mbrola phonemes are used, and this value
+  If this field is zero, then only one mbrola phoneme is used.
+  If this field is above 100, then only one mbrola phoneme is used and this value is a direct percentage multiplier.
+  If this field is above zero but on or less than 100, then two mbrola phonemes are used, and this value
   gives the percentage length of the first mbrola phoneme.
 
 * `<mbrola ph1>` \
@@ -301,7 +302,7 @@ Each line in the mbrola phoneme translation file contains:
 
 * `<mbrola ph2>` \
   The second mbrola phoneme. This field is only used if the \<percent\>
-  field is not zero.
+  field is not zero or if the value is '_' when the percent is 0.
 
 The list is searched from start to finish, until a match is found.
 Therefore, a line with more specific match condition should appear

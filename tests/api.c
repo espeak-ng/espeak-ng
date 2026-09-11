@@ -610,7 +610,7 @@ test_espeak_ng_phoneme_events(int enabled, int ipa) {
 	TEST_ASSERT(espeak_ng_Synchronize() == ENS_OK);
 	if (enabled) {
 		if (ipa) {
-			TEST_ASSERT(strncmp(phoneme_events, "t ˈɛ s t  ", sizeof(phoneme_events)) == 0);
+			TEST_ASSERT(strncmp(phoneme_events, "ˈt ˈɛ ˈs ˈt ˈ ˈ", sizeof(phoneme_events)) == 0);
 		} else {
 			TEST_ASSERT(strncmp(phoneme_events, "t 'E s t _: _", sizeof(phoneme_events)) == 0);
 		}
@@ -724,7 +724,7 @@ main(int argc, char **argv)
 
 	test_espeak_ng_phoneme_events(0, 0);
 	test_espeak_ng_phoneme_events(1, 0);
-	test_espeak_ng_phoneme_events(1, 1);
+	test_espeak_ng_phoneme_events(1, espeakINITIALIZE_PHONEME_IPA /* | espeakINITIALIZE_PHONEME_IPA_SBR */);
 
 	test_word_event_positions(espeakRATE_NORMAL); // libsonic idle
 	test_word_event_positions(900);               // libsonic compressing

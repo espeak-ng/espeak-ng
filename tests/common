@@ -1,4 +1,6 @@
 #!/bin/sh
+set -f
+
 # Test a command for presence and ability to output the sha1 hash of a file
 is_hash() {
     echo -n "checking for SHA1 hashing command ... "
@@ -31,31 +33,108 @@ is_mbrola() {
     fi
 }
 
+platform_data_dirs() {
+    platform_data_dirs="/usr/share:/usr/local/share"
+    if command -v brew 2>&1 > /dev/null; then
+        platform_data_dirs="$(brew --prefix)/share:${platform_data_dirs}"
+    fi
+    echo "$platform_data_dirs"
+}
+
+find_mbrola_voice() {
+        voice=${1#mb-} # remove mb- prefix
+        voice=${voice%+*} # remove variant suffix
+
+        for data_dir in $(echo ${XDG_DATA_DIRS:-$(platform_data_dirs)} | tr ':' '\n'); do
+                for path in mbrola/$voice mbrola/$voice/$voice mbrola/voices/$voice; do
+                        if [ -f "$data_dir/$path" ]; then
+                                echo "$data_dir/$path"
+                                return 0
+                        fi
+                done
+        done
+
+        echo "cannot find MBROLA voice: $voice" 1>&2
+        return 1
+}
+
 # Check processed text by phonetic representation of the output
 test_phon() {
-    TEST_LANG=$1
-    EXPECTED=$2
-    TEST_TEXT=$3
-    MESSAGE=$4
+    TEST_LANG="$1"
+    EXPECTED="$2"
+    TEST_TEXT="$3"
+    MESSAGE="$4"
     OPTIONS=$5
 
     if [ "$MESSAGE" = "" ] ; then
         MESSAGE=$TEST_TEXT
     fi
 
+    if [ "${TEST_LANG#mb-}" != "${TEST_LANG}" ] &&  [ ${SKIP_MBROLA:-0} -eq 1 ]; then
+        # XXX: seems we occasionally cannot see the output from mbrola when TSAN is enabled
+        echo "Skipping MBROLA voice ${TEST_LANG} test case..."
+        return 0
+    fi
+
+    if [[ $OPTIONS != *--ipa* ]]; then
+        OPTIONS="${OPTIONS} -x"
+    fi
+
+	if [ "${TRACE:-0}" = 1 ]; then
+		OPTIONS="${OPTIONS} -X"
+	fi
+
+	if [ "${QUIET:-1}" = 1 ]; then
+		OPTIONS="${OPTIONS} -q"
+	fi
+
     echo "testing ${TEST_LANG} $MESSAGE"
+    STDERR_FILE=$(mktemp)
     RESULT=$(
-        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -xq ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" || exit 1
+        ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        $VALGRIND src/espeak-ng ${OPTIONS} -v ${TEST_LANG} "${TEST_TEXT}" 2> >(tee "$STDERR_FILE" 1>&2) || exit 1
     )
+    EXIT_CODE=0
+    if [ "${CATCH_MBROLA_MISSING_TRANSITIONS:-1}" = 1 ] && grep -q -P 'Warning: [^- ]+-[^- ]+ unknown, replaced with _-_' < "$STDERR_FILE"; then
+        echo "Found missing MBROLA voice transition(s)..."
+        echo "$(ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} $VALGRIND src/espeak-ng -q ${OPTIONS} -X --pho -v ${TEST_LANG} "${TEST_TEXT}")"
+        EXIT_CODE=1
+    fi
+
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
-        echo "$RESULT != $EXPECTED"
-        if [ "$MESSAGE" = "Ignore" ] ; then
+		case "$EXPECTED" in
+		*' '* | *$'\n'*)
+			case "$TEST_TEXT" in
+			*$'\n'*)
+				echo "$TEST_LANG: $TEST_TEXT"
+				;;
+			esac
+            diff -U64 <(echo "$EXPECTED") <(echo "$RESULT")
+			;;
+		*)
+            echo "$RESULT != $EXPECTED"
+			;;
+		esac
+        if [ "$MESSAGE" = "Ignore" ] || [ "${IGNORE:-0}" = 1 ]; then
             echo "... ignoring error"
         else
-            exit 1
+            EXIT_CODE=1
         fi
     fi
+    rm -f "$STDERR_FILE"
+    if [ $EXIT_CODE -ne 0 ]; then
+        exit $EXIT_CODE
+    fi
+}
+
+test_ipa() {
+    test_phon "${1}" "${2}" "${3}" "${4} ${3}" "${5} --ipa --ipa-sbr"
+}
+
+test_mbrola_phon() {
+    test_phon "${1}" "${2}" "${3}" "${4} ${3}" "${5} --pho"
+    INTERNAL_REPRESENTATION="${2%%$'\n'*}"
+    test_phon "${1}" "$INTERNAL_REPRESENTATION" "${3}" "${4} ${3}" "${5}"
 }
 
 # Check generated wav file from processed text
@@ -67,7 +146,7 @@ test_wav () {
 
     echo "testing ${VOICE} ${MESSAGE}"
     RESULT=$(
-        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
         $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" | $sha1sum | awk '{ print $1 }' || exit 1
     )
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
@@ -88,7 +167,7 @@ test_wav_grep () {
     MESSAGE=$4
     echo "testing ${VOICE} ${MESSAGE}"
     $()
-    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+    ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
             $VALGRIND src/espeak-ng -D --stdout -v ${VOICE} "${TEST_TEXT}" \
             > actual.txt || exit 1
     < actual.txt $sha1sum | awk '{ print $1 }' > sum.txt
@@ -119,12 +198,24 @@ test_replace() {
 
     echo "testing ${TEST_LANG}"
     RESULT=$(
-        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-        $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | \
+        ESPEAK_DATA_PATH=`pwd` XDG_DATA_DIRS=`pwd`:${XDG_DATA_DIRS:-$(platform_data_dirs)} LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        $VALGRIND src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" 2>&1 | \
         grep -a -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' || exit 1
     )
     if [ "x$RESULT" != "x$EXPECTED" ] ; then
-        echo "$RESULT != $EXPECTED"
+		case "$EXPECTED" in
+		*' '* | *$'\n'*)
+			case "$TEST_TEXT" in
+			*$'\n'*)
+				echo "$TEST_LANG: $TEST_TEXT"
+				;;
+			esac
+            diff -U64 <(echo "$EXPECTED") <(echo "$RESULT")
+			;;
+		*)
+            echo "$RESULT != $EXPECTED"
+			;;
+		esac
         if [ "$MESSAGE" = "Ignore" ] ; then
             echo "... ignoring error"
         else

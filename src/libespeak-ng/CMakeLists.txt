@@ -89,6 +89,9 @@ endif(USE_ASYNC)
 
 if (USE_MBROLA)
   target_sources(espeak-ng PRIVATE
+    platform.apple.c
+    platform.unixlike.c
+    platform.c
     mbrowrap.c
     compilembrola.c
     synth_mbrola.c
