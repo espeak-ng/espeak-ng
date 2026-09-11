@@ -30,8 +30,6 @@ extern "C"
 #include <espeak-ng/espeak_ng.h>
 #include "phoneme.h"              // for PHONEME_TAB, N_PHONEME_TAB
 
-#define espeakINITIALIZE_PHONEME_IPA 0x0002 // move this to speak_lib.h, after eSpeak version 1.46.02
-
 #define N_PHONEME_LIST 1000 // enough for source[N_TR_SOURCE] full of text, else it will truncate
 
 #define N_SEQ_FRAMES  25 // max frames in a spectrum sequence (real max is ablut 8)
@@ -210,6 +208,8 @@ typedef struct {
 	unsigned char std_length;
 	unsigned int phontab_addr;
 	int sound_param;
+
+	bool starts_syllable;
 } PHONEME_LIST;
 
 #define pd_FMT    0

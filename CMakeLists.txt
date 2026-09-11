@@ -15,7 +15,7 @@ option(WITH_FUZZER "Build libFuzzer targets (requires Clang)" OFF)
 include(CTest)
 
 if (WITH_COVERAGE OR WITH_FUZZER)
-  if (NOT CMAKE_C_COMPILER_ID STREQUAL "Clang")
+  if (NOT CMAKE_C_COMPILER_ID MATCHES "^(Apple)?Clang$")
     message(FATAL_ERROR "WITH_COVERAGE and WITH_FUZZER require Clang")
   endif()
 endif()

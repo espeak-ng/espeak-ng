@@ -76,7 +76,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 		break;
 	}
 
-	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
+	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA | espeakINITIALIZE_PHONEME_IPA_SBR));
 
 	return espeak_ng_GetSampleRate();
 }
