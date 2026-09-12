@@ -388,6 +388,8 @@ ar) c (csop ts
 ar) c (seb ts
 pia) c (sta ts
 extrémala) cs (on tS
+ba) cch (á hh
+falé) c (so ts
 
 .group C
 C ts
@@ -1307,6 +1309,20 @@ bár) ds (or d|S
 bőrön) d (s d
 apró) d (jel d
 dtj (á c:
+tren) d (szí d
+bolon) d (járt d
+harma) d (sa d
+harma) d (sá d
+harma) d (st d
+harma) d (szé d
+harma) d (szö d
+negye) d (st d
+negye) d (sa d
+negye) d (sá d
+negye) d (se d
+negye) d (sé d
+negye) d (szek d
+negye) d (szí d
 
 .group dz
   fogó) dz (kod    ts
@@ -1784,6 +1800,8 @@ meetin) g (gy g
 méltósá) g (gy g
 tanulsá) g (gy g
 na) gy (sűr J
+höl) gy (spor J
+sávszélessé) g (gy g
 
 .group gy
         gy         J
@@ -3974,6 +3992,21 @@ ha) s (szakér S
 pajtá) s (sz S
 adjuván) s (sz S
 makogá) s (sz S
+csipá) s (sz S
+hú) s (szörnnye S
+ki) s (-szamo S
+szalmá) s (sz S
+hú) s (szalon S
+üzemelteté) s (sz S
+csapá) s (sz S
+kritiku) s (zab S
+iskolá) s (sz S
+sa) s (szaké S
+teme) s (-szige S
+sara) s (-sz S
+marhahú) s (sz S
+porlasztá) s (sz S
+fo) s (szuka S
 
 .group ss
         ssz        ss2
@@ -5167,7 +5200,7 @@ robo) t (ci t
 beté) t (s t
 integrál) t (játsz t
 robo) t (s t
-sej) t (sü t
+sej) t (sülly t
 érle) t (s t
 éle) t (ci t
 éle) t (cé t
@@ -5650,7 +5683,15 @@ antan) t (se t
 jelene) t (s t
 nyilatkoza) t (jav t
 robo) t (játé t
-sej) t (s t
+sej) ts tS
+sej) tsora t|SoR2A
+sej) ts (or t|S
+sej) t (stá t
+sej) t (stim t
+sej) t (seb t
+sej) t (só t
+sej) t (str t
+sej) t (su t
 képle) t (sáv t
 kür) t (játé t
 pilo) t (jel t
@@ -5717,6 +5758,14 @@ tes) t (jeg t
 látsza) t (jázmi t
 tuca) t (sor t
 defek) t (ja t
+kimene) t (jut t
+folyama) t (jut t
+laka) t (jel t
+nagyköve) t (seg t
+tesz) t (jó t
+vállala) t (s t
+falaza) t (sü t
+nemze) t (sa t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -6465,6 +6514,7 @@ vá) z (sor z
 í) z (sorn z
 í) z (sorre z
 matró) z (s z
+kené) z (sé z
 
 .group
         $          dolla:R2
