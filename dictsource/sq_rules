@@ -1,5 +1,67 @@
 // translation rules for Albanian
 // This file is UTF-8 encoded
+//
+// Phonemes are defined in phsource/ph_albanian.
+// Stress and number options are in src/libespeak-ng/tr_languages.c, case L('s','q').
+//
+// Albanian spelling is nearly phonemic.  The alphabet has 36 letters, nine of
+// which are digraphs (dh gj ll nj rr sh th xh zh); a digraph rule outscores the
+// rule for its first letter, so both live in the same .group.
+//
+// Stress is placed by tr_languages.c on the last syllable, or on the
+// penultimate one when the word ends in a vowel.  Inflectional endings which
+// must not take the stress are listed here with '=' (put the primary stress on
+// the preceding syllable); endings which must take it carry an explicit '.
+
+.replace
+// Letters from other alphabets, and characters used instead of ë and ç.
+	ǝ	ë
+	ə	ë
+	ê	e	// long/open e of older and Gheg spelling
+	ć	ç
+	č	ç
+	ĉ	ç
+	à	a
+	á	a
+	â	a
+	ã	a
+	ä	a
+	å	a
+	è	e
+	é	e
+	ě	e
+	ì	i
+	í	i
+	î	i
+	ï	i
+	ı	i
+	ò	o
+	ó	o
+	ô	o
+	õ	o
+	ö	o
+	ø	o
+	ù	u
+	ú	u
+	û	u
+	ü	y
+	ý	y
+	ÿ	y
+	ğ	g
+	ř	r
+	ń	nj
+	ñ	nj
+	ś	sh
+	š	sh
+	ș	sh
+	ź	zh
+	ž	zh
+	ż	zh
+	đ	dh
+	ð	dh
+	þ	th
+	ł	ll
+	ß	ss
 
 .L02 b d g gj xh
 .L03 dh gj ll nj rr sh th xh zh   // 2-letter consonants
@@ -7,13 +69,15 @@
 .group a
         a        a
         aj       aI
-        a (_     A   // if stressed
+     @) ai (_    'aI      // vëllai, ai
+        ai (_    aI
+        a (_     A
         a (rK    A
 
-     @) at (_    =at
-     @) ave (_   =avE
-     @) arëve (_ =aR@vE
-     @) ani (q_  =ani
+     @) at (_    =at      // librat, fushat
+     @) ash (_   =aS      // librash
+     @) ave (_   =avE     // librave
+     @) ani (q_  'ani     // -aniq (Slavic surnames)
 
 .group b
         b        b
@@ -31,7 +95,6 @@
 .group e
         e        E
      j) e        e
-    n^) e        e
      q) e        e
      l) e        e
     ll) e        E
@@ -41,29 +104,40 @@
         e (sh    e
         e (sj    e
 
+     @) em (_    =Em      // lahem, ulem
      @) en (_    =En
-     @) es (_    =Es
-     @) et (_    =Et
-     @) eve (_   =EvE
-     @) evi (q_  =Evi
+     @) es (_    =Es      // mësues
+     @) esh (_   =ES      // lahesh, vendesh
+     @) et (_    =Et      // vendet, punimet
+     @) eve (_   =EvE     // vendeve
+     @) evi (q_  'Evi     // -eviq (Slavic surnames)
 
 .group ë
         ë        V
-    n^) ë        I#
-    AC) ë (_     @/    // silent
-   Aht) ë (_     @/    // silent
-   Ast) ë (_     @/    // silent
-   AjC) ë (_     @/    // silent
-   ArC) ë (_     @/    // silent
-  AL03) ë (_     @/    // silent
-     @) ë (X     %V
+    AC) ë (_     @/    // reduced word-final schwa: dritë, plotë
+   ACC) ë (_     @/    // ... after a cluster: ftohtë, mbushët
+  ACCC) ë (_     @/    // ... after a longer cluster
+     @) ë (X     %V    // unstressed in a final closed syllable: i dobishëm
+     @) ë (CA    %V    // unstressed between syllables: njerëzit, punëtor
+     @) ë (CCA   %V    // ... ëmbëlsirë, përkëdhel
+     @) ë (Cve   =@    // njerëzve, shpirtërve
+     @) ë (CCCA  =%@   // qumështi, qumështit
 
-     @) ëse (_   =@sE
-     @) ësi (_   =@si
+     @) ëra (_   =@Ra     // ujëra
+     @) ërat (_  =@Rat
+     @) ërash (_ =@RaS
+     @) ërave (_ =@RavE
+     @) ëse (_   =@sE     // larëse
+     @) ësh (_   =@S      // gjuhësh
+     @) ësi (_   =@si     // çelësi, nxënësi (abstract nouns in -ësi are in sq_list)
+     @) ësia (_  @s'ia
+     @) ësin (_  =@sIn
+     @) ësit (_  =@sIt    // nxënësit
+     @) ësve (_  =@svE    // nxënësve
+     @) ësisht (_ @s'ISt  // miqësisht
      @) ëta (_   =@ta
-     @) ëve (_   =@vE
-     @) ëvi (_   =@vi
-     @) ësisht (_ =sISt
+     @) ëve (_   =@vE     // gjuhëve
+     @) ëvi (q_  =@vi
 
 .group f
         f        f
@@ -74,19 +148,18 @@
 
 .group h
         h        h
-        h (K     hh
+        h (_     hh
 
 .group i
         i        i
         ie       je
-        ij (K    i:
 
    @ic) i (_     'i
-   @ër) i (_     'i
-     @) im (_    =im
-     @) in (_    =In
-     @) i (q_    =i
-     @) i (t_    =I
+   @ër) i (_     'i       // shoqëri, mjeshtëri
+     @) in (_    =In      // librin, punimin
+     @) i (q_    =i       // -iq (Slavic surnames)
+     @) i (t_    =I       // librit, vendit
+     @) i (sh_   'i       // shtëpish, fotografish: the -i base is end-stressed
         i (un_   'i
 
 .group j
@@ -105,12 +178,15 @@
 .group n
         n        n
         nj       n^
+        n (g     N        // këngë, ngjyrë
+        n (k     N
 
 .group o
         o        O
         oj (K    OI
         oi (l_   OI
-        ovi(q_  =Ovi
+        ovi (q_  'Ovi     // -oviq (Slavic surnames)
+     @) ove (_   =OvE
 
 .group p
         p        p
@@ -122,10 +198,6 @@
         r        R
         r (K     R
         rr       RR2
-     _) rr       @R2
-
-     _) rre (gulla @R2'e
-
 
 .group s
         s        s
@@ -141,14 +213,23 @@
         u        u
         ua       wA   // diphthong ??
         u (ajK   w
-     t) u (an_   'u
-        u (ar_   'u
-//        ue       we
-
-        u (ara_  'u
+        u (an_   'u       // punuan
+        u (ar_   'u       // punuar
+        u (ara_  'u       // të punuara
         u (esve_ 'u
-     @) u (n_    =u
-     @) u (r_    =u
+     @) u (n_    =u       // vëllaun
+     @) u (r_    =u       // hapur, flutur
+     @) ura (_   =uRa     // të hapura
+     @) uve (_   =uvE
+     @) ull (_   =ull     // popull, shembull, rregull, titull
+     @) ulla (_  =ulla    // rregulla
+     @) ullash (_ =ullaS
+     @) ullat (_ =ullat
+     @) ullave (_ =ullavE
+     @) ulli (_  =ulli    // populli, kapitulli
+     @) ullin (_ =ullin
+     @) ullit (_ =ullit
+     @) ullve (_ =ullvE
 
 .group v
         v        v
@@ -171,4 +252,4 @@
 
 
 .group
-	$	dOllari
+	$	dOll'aR

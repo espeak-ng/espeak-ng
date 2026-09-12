@@ -1,7 +1,13 @@
 // translation exceptions for Albanian
 // This file is UTF-8 encoded
+//
+// The list is searched from the bottom upwards, so a later entry overrides an
+// earlier one.  Entries which give only a flag ($1..$4, $u+, ...) keep the
+// pronunciation produced by sq_rules and change just the stress or the
+// prosody.
  
 // alphabet
+// Albanian letter names are the consonant followed by 'ë'.
 _a	a
 b	b@
 c	ts@
@@ -9,6 +15,7 @@ c	ts@
 d	d@
 dh	D@
 _e	e
+ë	V
 f	f@
 g	g@
 gj	dZ;@
@@ -42,7 +49,7 @@ zh	Z@
 
 // numbers
 _0	z'E**O
-_1	n^'I#
+_1	n^'V
 _2	d'y
 _3	tR'E
 _4	k'at@R
@@ -52,7 +59,7 @@ _7	St'at@/
 _8	t'Et@/
 _9	n'Vnt@/
 _10	Dj'Et@/
-_11	n^'I#mb@/Djet@/
+_11	n^'Vmb@/Djet@/
 _12	d'ymb@/Djet@/
 _13	tR'Emb@/Djet@/
 _14	k'at@rmb@/Djet@/
@@ -62,7 +69,7 @@ _17	St'at@mb@/Djet@/
 _18	t'Et@mb@/Djet@/
 _19	n'Vnt@mb@/Djet@/
 
-_2X	n^'I#zEt
+_2X	n^'VzEt
 _3X	tR'iDjet%@/
 _4X	d'yzEt
 _5X	p'Es@/Djet%@/
@@ -75,77 +82,115 @@ _0C	c,ind
 _0M1	m,ij@/
 _0M2	miLi'On
 _0M3	miLi'ard
+_0M4	biLi'On
+_0M5	biLi'ard
+_0M6	tRiLi'On
 _0and	%E
-_dpt	_pR'esja
+_dpt	_pR'EsjE
 
 
 // symbols
-_#9	tab  // ??
-_#32	speIs
-_??	SkR'On^a
+_#9	tab
+_#32	hap@/s'iR@/
+_??	SkR'On^@/
 _cap	_Em'aDE
 
-*	ylli  $max3	// ylli
-+	pllus  $max3	// pllus
-.	pik  $max3	// pikë
-=	baRab'aRt	// barabart
-!	piktSud'itsE  $max3	// pikëuditëse
-%	p@tSindja  $max3 // pëçindja
-@	manki		// manki
+*	'ylli  $max3	// ylli
++	pL'us  $max3	// plus
+.	p'ik@/  $max3	// pikë
+=	baRab'aRt@/	// barabartë
+!	pik@/tSud'it@/sE  $max3	// pikëçuditëse
+%	p@/Rc'ind  $max3 // përqind
+@	'at		// at
 &	_DE		// dhe
-/	pj'Estim	// pjestim
-€	EuRO		// euro
-#	haS		// ??
-~	tilda/		// ??
-^	s'iRkumfllEks	// ??
+/	pjEs@/t'im	// pjesëtim
+€	'EuRO		// euro
+£	st'ERLin@/	// sterlinë
+#	haS		// hash
+~	t'ilda		// tilda
+^	siRkumfL'Eks	// sirkumfleks
+°	gR'ad@/		// gradë
+§	p,aRagR'af	// paragraf
 
 
-_,	pResja/		// presja
+_,	pR'EsjE		// presje
 _-	m'inus		// minus
-_:	dy||pika/	// dy pika
-_;	pikpResja/	// pikëpresja
-_<	m'@E||v,OgEl	// më e vogel
-_>	m'@Em'aDE	// më e madhe
-_?	pikpytjE	// pikëpytje
-__	n,Vn||v'iz	// nën vizë
-_"	apOstROf	// apostrof
-_(	kll'apaE||v'Og@l  // kllapa e vogël (e majtë)
-_)	kll'apaE||v'Og@lE||dj'aTt // kllapa e vogël (e djathtë)
+_.	p'ik@/		// pikë
+_:	d'y||p'ika	// dy pika
+_;	pik@/pR'EsjE	// pikëpresje
+_<	m'@/E||v'Og@/L	// më e vogël
+_>	m'@/E||m'aDE	// më e madhe
+_?	pik@/py'EtjE	// pikëpyetje
+__	n@/n||v'iz@/	// nën vizë
+_'	apOstR'Of	// apostrof
+_"	TOn^'Vza	// thonjëza
+_(	kll'apaE||v'Og@/L  // kllapa e vogël (e majtë)
+_)	kll'apaE||v'Og@/LE||dj'aTt@/ // kllapa e vogël (e djathtë)
 _[	kll'apaE||m'aDE	// kllapa e madhe
-_]	kll'apaE||m'aDEE||dj'aTt
+_]	kll'apaE||m'aDEE||dj'aTt@/
 _{	kll'apaE||m'EsmE
-_}	kll'apaE||m'EsmEE||dj'aTt
-_\	vizEmaItT'yEsE
+_}	kll'apaE||m'EsmEE||dj'aTt@/
+_\	v'iz@/||maIT'yEsE
+_|	v'iz@/||vERtik'aLE
 
 // unstressed words
 i	$u+
 u	$u+
+ia	$u+
+iu	$u+
+ua	$u+
+na	$u+
+ma	$u+
+ta	$u+
 
-e	$u+ $brk
+e	$u+
 e	e	$atend   // name of letter 'e'
-dhe	$u+ $pause   // and
-ose	$u+ $pause   // or
-mirëpo	$u+ $pause   // but
-nëse	$u+ $pause   // if
-cili	$u+ $pause   // which
-(i cili)	i_ts'iLi
-cila	$u+ $pause   // which
-sikur	$u+ $pause   // as
-si	$u+ $pause   // as 
 
 më	$u+
 në	$u+
+mbi	$u+
+nën	$u+
+me	$u+
+pa	$u+
+për	$u+
+nga	$u+
+prej	$u+
+te	$u+
+tek	$u+
 që	$u+
 së	$u+
 të	$u+
-
-për	$u+
-me	$u+
 se	$u+
-nga	$u+
-ka	$u+
+si	$u+
+as	$u+
+mos	$u+
+nuk	$u+
+do	$u+
+po	$u+       // progressive particle; keeps full stress as "yes" at clause end
 
+ka	$u+
+kam	$u+
+kanë	$u+
 janë	$u+
+
+// conjunctions: keep a short break before them
+dhe	$u+ $pause   // and
+edhe	$u+          // also, even
+ose	$u+ $pause   // or
+apo	$u+ $pause   // or
+por	$u+ $pause   // but
+mirëpo	$u+ $pause   // but
+ndërsa	$pause       // whereas
+kurse	$pause       // whereas
+nëse	$u+ $pause   // if
+sikur	$u+ $pause   // as if
+prandaj	$pause       // therefore
+megjithatë	$pause   // nevertheless
+cili	$u+ $pause   // which
+(i cili)	i_ts'iLi
+cila	$u+ $pause   // which
+cilët	$u+ $pause
+cilat	$u+ $pause
 
 
 // pronunciation exceptions
@@ -154,5 +199,231 @@ muaji	m'uaI;i
 tuaj    tuaI
 
 (sa më)	samm
-kështu	$2
 
+// stress exceptions: pronouns, adverbs and particles with final stress
+ajo	$2
+ata	$2
+ato	$2
+këta	$2
+këto	$2
+atje	$2
+aty	$2
+këtu	$2
+ashtu	$2
+kështu	$2
+asnjë	$2
+asgjë	$2
+ndonjë	$2
+diçka	$2
+gjithçka	$2
+sepse	$2
+tashmë	$2
+pastaj	$2
+gjithashtu	$3
+kudo	$2
+diku	$2
+ndërkaq	$3
+gjithsesi	$3
+gjithnjë	$2
+sidomos	$2
+tani	$2
+mëngjes	$2
+mirëmëngjes	$4
+sërish	$2
+përsëri	$3
+faleminderit	$5
+
+// numerals written out: stressed on the first syllable, as for the digits above
+njëmbëdhjetë	$1
+dymbëdhjetë	$1
+trembëdhjetë	$1
+katërmbëdhjetë	$1
+pesëmbëdhjetë	$1
+gjashtëmbëdhjetë	$1
+shtatëmbëdhjetë	$1
+tetëmbëdhjetë	$1
+nëntëmbëdhjetë	$1
+
+// stress exceptions: nouns
+qytet	$2
+vëlla	$2
+baba	$2
+// "para" is end-stressed, so the -ash and -ave rules (which assume a
+// penultimate-stressed stem, as in librash and librave) do not apply
+para	$2
+parash	$2
+parave	$2
+përpara	$3
+njeri	$2
+njerëz	$1
+shtëpi	$2
+kafe	$2
+ide	$2
+taksi	$2
+byro	$2
+depo	$2
+palto	$2
+ushtri	$2
+liri	$2
+veri	$2
+dituri	$3
+dashuri	$3
+bukuri	$3
+industri	$3
+letërsi	$3
+mirësi	$3
+urtësi	$3
+drejtësi	$3
+gjerësi	$3
+lartësi	$3
+thellësi	$3
+gjatësi	$3
+shpejtësi	$3
+saktësi	$3
+afërsi	$3
+miqësi	$3
+bujarësi	$4
+vështirësi	$4
+teori	$3
+energji	$3
+kompani	$3
+ekonomi	$4
+gjeografi	$4
+filozofi	$4
+biologji	$4
+psikologji	$4
+teknologji	$4
+sociologji	$4
+arkeologji	$4
+kirurgji	$3
+demokraci	$4
+diplomaci	$4
+farmaci	$3
+
+// stress exceptions: loanwords ending in -at, -et, -es, -em, -it
+aparat	$3
+kandidat	$3
+avokat	$3
+delegat	$3
+diplomat	$3
+demokrat	$3
+burokrat	$3
+rezultat	$3
+referat	$3
+atentat	$3
+kombinat	$3
+delikat	$3
+automat	$3
+mandat	$2
+senat	$2
+format	$2
+traktat	$2
+sekretariat	$5
+komisariat	$5
+universitet	$5
+komitet	$3
+kabinet	$3
+alfabet	$3
+banket	$2
+kuartet	$3
+internet	$3
+planet	$2
+dekret	$2
+sekret	$2
+sonet	$2
+proces	$2
+sukses	$2
+kongres	$2
+progres	$2
+interes	$3
+ekspres	$2
+problem	$2
+sistem	$2
+ekstrem	$2
+totem	$2
+bandit	$2
+granit	$2
+profit	$2
+kredit	$2
+apetit	$3
+deficit	$3
+
+
+// abbreviations
+etj	'E||t@/||tj'ERa	$hasdot	// etj. = e të tjera
+dmth	d'O||mE||T'Vn@/		// d.m.th. = do me thënë
+nr	n'umRi		$hasdot	// nr. = numri
+rr	RR2'uga		$hasdot	// rr. = rruga
+z	z'Oti		$hasdot	// z. = zoti
+znj	z'On^a		$hasdot	// znj. = zonja
+zj	zOn^'uSa	$hasdot	// zj. = zonjusha
+dr	dOkt'OR		$hasdot	// dr. = doktor
+prof	pROfEs'OR	$hasdot	// prof. = profesor
+ing	indZinj'ER	$hasdot	// ing. = inxhinier
+shek	SEk'ulli	$hasdot	// shek. = shekulli
+faq	f'acja		$hasdot	// faq. = faqja
+p	p@/R		$hasdot	// p.sh. = për shembull
+sh	SEmb'ull	$hasdot	// ...
+
+// units
+km	kiLOm'EtRa
+kg	kiLOgR'am@/
+cm	tsEntim'EtRa
+mm	miLim'EtRa
+mg	miLigR'am@/
+ml	miLiL'itRa
+kw	kiLOv'at
+kwh	kiLOvat'OR@/
+gb	dZigab'aIt
+mb	mEgab'aIt
+kb	kiLOb'aIt
+
+// country and region names: the indefinite form in -i is stressed on the last
+// syllable (the definite form in -ia is already handled by the rules)
+Rusi	$2
+Turqi	$2
+Greqi	$2
+Serbi	$2
+Angli	$2
+Skoci	$2
+Kini	$2
+Indi	$2
+Siri	$2
+Libi	$2
+Azi	$2
+Çeki	$2
+Persi	$2
+Austri	$3
+Itali	$3
+Gjermani	$3
+Suedi	$3
+Norvegji	$3
+Poloni	$3
+Hungari	$3
+Rumani	$3
+Bullgari	$3
+Slloveni	$3
+Sllovaki	$3
+Estoni	$3
+Letoni	$3
+Kroaci	$3
+Japoni	$3
+Somali	$3
+Mongoli	$3
+Nigeri	$3
+Algjeri	$3
+Tunizi	$3
+Malajzi	$3
+Tanzani	$3
+Arabi	$3
+Iliri	$3
+Dardani	$3
+Siberi	$3
+Makedoni	$4
+Lituani	$4
+Etiopi	$4
+Indonezi	$4
+Portugali	$4
+Australi	$4
+Anatoli	$4
+Skandinavi	$4
