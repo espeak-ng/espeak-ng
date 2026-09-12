@@ -521,6 +521,9 @@ each language. The number fragments are given in the `*_list` file.
 | `_0and`       | Word for `and` when speaking numbers (e.g. `two hundred and twenty`). |
 | `_dpt`        | Word spoken for the decimal point/comma. |
 | `_dpt2`       | Word spoken (if any) at the end of all the digits after a decimal point. |
+| `_time_hour0`, `_time_hour1`, `_time_hour2` | Russian hour forms: часов, час, часа. Used for two-digit `HH:MM` times with hours 00–24 and minutes 00–59. |
+| `_time_minute0`, `_time_minute1`, `_time_minute2` | Russian minute forms: минут, минута, минуты. Minute numbers use the existing feminine forms `_1f` and `_2f`. |
+| `_time_exact` | Russian ровно, used instead of minutes when `MM` is 00. |
 
 
 **notes about ordinal numbers**

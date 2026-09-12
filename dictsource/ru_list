@@ -98,6 +98,15 @@ _0Z11s  _stV#m;,IlI;'ardnV#ja
 _0Z12   _tr;,IlI;'onnYx
 _0Z12s  _tr;,IlI;'onnV#ja
 
+// Time (HH:MM): plural, singular, and paucal forms.
+_time_hour0    tS;is'of
+_time_hour1    tS;'as
+_time_hour2    tS;is'a
+_time_minute0  m;in'ut
+_time_minute1  m;in'utV
+_time_minute2  m;in'uty
+_time_exact    r'ovnV
+
 // symbols (названия символов)
 _`      akts'Ent
 &       amp;irs'and
