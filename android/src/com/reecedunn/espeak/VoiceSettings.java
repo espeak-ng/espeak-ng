@@ -37,6 +37,7 @@ public class VoiceSettings {
     public static final String PREF_PUNCTUATION_CHARACTERS = "espeak_punctuation_characters";
     public static final String PREF_RATE_BOOST = "espeak_rate_boost";
     public static final String PREF_UNICODE_NORMALIZATION = "espeak_unicode_normalization";
+    public static final String PREF_SPEAK_DIGITS = "espeak_speak_digits";
     public static final int RATE_BOOST_MULTIPLIER = 3;
 
     public static final String PRESET_VARIANT = "variant";
@@ -181,5 +182,16 @@ public class VoiceSettings {
      */
     public boolean isUnicodeNormalizationEnabled() {
         return mPreferences.getBoolean(PREF_UNICODE_NORMALIZATION, true);
+    }
+
+    /**
+     * Whether to read numbers digit-by-digit instead of as whole numbers.
+     * When enabled, "123" is spoken as "one two three" (or equivalent in
+     * the active language) by inserting spaces between digits. Off by
+     * default so that numbers like "123" are read as "one hundred twenty
+     * three".
+     */
+    public boolean isSpeakDigitsEnabled() {
+        return mPreferences.getBoolean(PREF_SPEAK_DIGITS, false);
     }
 }
