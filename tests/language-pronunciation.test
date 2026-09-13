@@ -274,12 +274,16 @@ test_phon sjn "'alf 'aman 'amaRT 'amOn 'aRag,ORn aRn'OIdI;,ad 'aRvEd,uI bEl'ERI;
 test_phon sk "k'r:d;el^ St;'astni:Q d;'atl^ow 'utSi: pR'i;u:st;i: v'a:hu m'l:kveho k'on^a 'ophRi:zat; k'uoRu_:_: a ZR'at; tS'eRstve: m'eso
 p'et;ti:Zdn^,ove: v'l:tSata: n'eRvo:zn^e St;'ekaju: n'amu,ojho d;'atl^a_! v_ t'r:n^i:" "Kŕdeľ šťastných ďatľov učí pri ústí Váhu mĺkveho koňa obhrýzať kôru a žrať čerstvé mäso. Päťtýždňové vĺčatá nervózne štekajú na môjho ďatľa v tŕní." "Latn"
 test_phon sl "xiSn'i:tSin bR'a:tEts uzg'a:ja p'o:wZE p'o:t fik'u:sOm" "Hišničin bratec vzgaja polže pod fikusom." "Latn"
-test_phon sq "Zd'O n^eR'i k'an L'e tL'iR_:_: mE n^'aIIt din^'itEt ,EDE dR'EtA
-at'A j'an t@ paI'isun mE m'En^e ,EDE v'Etd'ije ,EDE d'uh@n t@ vEpR'OIn kA n^'anitj'etRIn mE n^'i Sp'iRt vllazn'imIt" "Zhdo njeri kan le t'lir mê njãjit dinjitêt edhê dreta. Ata jan të pajisun mê mênjê edhê vet-dijê edhê duhën të veprôjn ka njãni-tjetrin mê nji shpirt vllâznimit." "Latn"
-test_phon sq "t@ dZ;'iT@ n^'eR@zIt L'indIn t@ L'iR@_:_: DE t@ b,aRab'ARt@ n@ din^'itEt_:_: DE n@ t@ dR'eItA" "Të gjithë njerëzit lindin të lirë dhe të barabartë në dinjitet dhe në të drejta." "Albanian, standard spelling"
+test_phon sq "Zd'O n^eR'i k'an L'e tL'iR_:_: mE n^'ajIt d,in^it'Et ,EDE dR'EtA
+at'A j'an t@ paj'isun mE m'En^e ,EDE v'Etd'ije ,EDE d'uh@n t@ vEpR'OIn kA n^'anitj'etRIn mE n^'i Sp'iRt vllazn'imIt" "Zhdo njeri kan le t'lir mê njãjit dinjitêt edhê dreta. Ata jan të pajisun mê mênjê edhê vet-dijê edhê duhën të veprôjn ka njãni-tjetrin mê nji shpirt vllâznimit." "Latn"
+test_phon sq "t@ dZ;'iT@ n^'eR@zIt L'indIn t@ L'iR@_:_: DE t@ b,aRab'ARt@ n@ d,in^it'Et_:_: DE n@ t@ dR'eItA" "Të gjithë njerëzit lindin të lirë dhe të barabartë në dinjitet dhe në të drejta." "Albanian, standard spelling"
 test_phon sq "p'Opulli i kOs'Ov@s kREmt'Oi n^'VzEt E p'Es@ vjet'ORIn E p,avaR@s'is@
 mE S'um@ f'EstA n'Vp@R cyt'EtE" "Populli i Kosovës kremtoi njëzet e pesë vjetorin e pavarësisë, me shumë festa nëpër qytete." "Albanian, stress on inflected words"
-test_phon sq "'aI bL'eu n^'V m,ij@_! d'yc,indE p'Es@Dj,et@ k,iLOgR'am@ c'um@St p@R tR'E _pR'EsjE St'at@Dj,et@Ep'Es@ E'uRO n@ p'Es@mb,@Djet@ dyc'anE" "Ai bleu 1.250 kg qumësht për 3,75 euro në 15 dyqane." "Albanian, numbers and units"
+test_phon sq "'aI bL'eu n^'V m,ij@_! d'yc,indE p'Es@Dj,et@ k,iLOgR'am c'um@St p@R tR'E _pR'EsjE St'at@Dj,et@Ep'Es@ E'uRO n@ p'Es@mb,@Djet@ dyc'anE" "Ai bleu 1.250 kg qumësht për 3,75 euro në 15 dyqane." "Albanian, numbers and units"
+test_phon sq "min'istRi pRiv'at vOt'Oi budZ'EtIn kONkR'Et sip'as ,aud'itIt t@ f,avORiz'uAR" "Ministri privat votoi buxhetin konkret sipas auditit të favorizuar." "Albanian, stress on loanwords"
+test_phon sq "'aI D'A dEt'aje p@R SmaNg'iEn" "Ai dha detaje për shmangien." "Albanian, -aje and -ie"
+test_phon sq "pRiSt'inA t'ikEt c'ekIn mE R'Ehati" "PrishtinaTicket check-in me rehati." "Albanian, English loans"
+test_phon sq "nuk 'VSt@ im'un nd'aI ,imunit'EtIt" "Nuk është imun ndaj imunitetit." "Albanian, -un and -itet"
 test_phon sr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
 test_phon sr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
 test_phon sv "fl'y:gandE- b,Ek:as'i:nE-R s'Y:ka hv'i:la po: mj'u-ka t'u-vu:R

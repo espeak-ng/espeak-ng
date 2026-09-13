@@ -225,6 +225,7 @@ diku	$2
 ndërkaq	$3
 gjithsesi	$3
 gjithnjë	$2
+njejta	n^'Vjta	 // common spelling of njëjta
 sidomos	$2
 tani	$2
 mëngjes	$2
@@ -318,6 +319,17 @@ mandat	$2
 senat	$2
 format	$2
 traktat	$2
+privat	$2
+plakat	$2
+citat	$2
+sulfat	$2
+debat	$2
+kuadrat	$3
+akurat	$3
+moderat	$3
+agregat	$3
+karbonat	$3
+laureat	$4
 sekretariat	$5
 komisariat	$5
 universitet	$5
@@ -331,6 +343,11 @@ planet	$2
 dekret	$2
 sekret	$2
 sonet	$2
+konkret	$2
+diskret	$2
+komplet	$2
+buxhet	$2
+kadet	$2
 proces	$2
 sukses	$2
 kongres	$2
@@ -345,9 +362,33 @@ bandit	$2
 granit	$2
 profit	$2
 kredit	$2
+tranzit	$2
 apetit	$3
 deficit	$3
+depozit	$3
+kompozit	$3
+monolit	$3
+satelit	$3
+favorit	$3
+audit	$3
+meteorit	$4
 
+// loanwords in -un: the "-un" rule assumes vëllaun and Gheg pajisun
+imun	$2
+sapun	$2
+kanun	$2
+tribun	$2
+Neptun	$2
+
+// English loans as Albanians say them
+ticket	t'ikEt
+check	c'Ek
+checkin	c'ekIn
+(check-in)	c'ekIn
+(check in)	c'ekIn
+falas	$1
+rehati	$1
+rehat	$1
 
 // abbreviations
 etj	'E||t@/||tj'ERa	$hasdot	// etj. = e të tjera
@@ -367,7 +408,7 @@ sh	SEmb'ull	$hasdot	// ...
 
 // units
 km	kiLOm'EtRa
-kg	kiLOgR'am@/
+kg	kiLOgR'am
 cm	tsEntim'EtRa
 mm	miLim'EtRa
 mg	miLigR'am@/

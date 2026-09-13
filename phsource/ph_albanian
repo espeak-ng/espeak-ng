@@ -14,6 +14,7 @@ endphoneme
 
 phoneme V
   vwl   starttype #@  endtype #@
+  ipa ə
   length 170
   ChangeIfUnstressed(@)
   IF nextPh(h) THEN
@@ -96,6 +97,7 @@ endphoneme
 phoneme I
   vwl  starttype #i  endtype #i
   length 140
+  ChangeIfStressed(i)   // reduced only in unstressed endings: vendit, librit
   FMT(vowel/ii_6)
 endphoneme
 

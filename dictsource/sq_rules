@@ -68,10 +68,11 @@
 
 .group a
         a        a
-        aj       aI
+        aj (_    aI      // ndaj, maj, vaj
+        aj (K    aI
      @) ai (_    'aI      // vëllai, ai
         ai (_    aI
-        a (_     A
+        a (_     A   // if stressed
         a (rK    A
 
      @) at (_    =at      // librat, fushat
@@ -84,6 +85,10 @@
 
 .group c
         c        ts
+        c (C     k        // Albanian never spells "c"+consonant: Cristiano, klub, credit
+        ch       c        // English "ch" → q: check, check-in
+        ch (C    k        // ... but "ch"+consonant is Greek/Latin: Christian, chrom
+        ck       k        // English "ck" → k: ticket, check
 
 .group ç
         ç        tS
@@ -152,7 +157,12 @@
 
 .group i
         i        i
-        ie       je
+        ie (_    iE      // shmangie, rënie, shtie
+        ie (n_   'iE     // shmangien
+        ie (s_   'iE     // shmangies
+        ie (sh_  'iE     // shmangiesh
+        ie (ve_  'iE     // shmangieve
+        ie       je      // diell, miell, klient
 
    @ic) i (_     'i
    @ër) i (_     'i       // shoqëri, mjeshtëri
@@ -161,6 +171,13 @@
      @) i (t_    =I       // librit, vendit
      @) i (sh_   'i       // shtëpish, fotografish: the -i base is end-stressed
         i (un_   'i
+
+     @) itet (_    it'Et    // -itet is always end-stressed: imunitet, identitet
+     @) iteti (_   it'Eti
+     @) itetin (_  it'Etin
+     @) itetit (_  it'EtIt
+     @) itetet (_  it'EtEt
+     @) iteteve (_ it'EtEvE
 
 .group j
         j        j
