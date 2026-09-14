@@ -71,6 +71,14 @@ test_phon de "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s
 h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung." "Latn"
 test_phon el "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία." "Grek"
 test_phon en "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog" "Latn"
+test_phon en "z,Edz'Edm@kb'VgIN" "zzmcbugging" "spelled letters with a prefix and suffix retain the stem"
+test_phon en ",Ef'Efm@kw'O:kIN" "ffmcwalking" "different spelled letters retain another stem"
+test_phon en "z,Edz,Edz'Edm@kb'VgIN" "zzzmcbugging" "doubled spelled letters do not match as the stem"
+test_phon en ",Ef'Efm'Iskri@nts" "ffmiscreants" "spelled letters preserve a dictionary match including the prefix"
+test_phon en "z,Edz'Edm@kb'Vg" "zzmcbug" "spelled letters with a prefix only"
+test_phon en "z,Edz'Edb'VgIN" "zzbugging" "spelled letters with a suffix only"
+test_phon en "m@kb'VgIN" "mcbugging" "a prefix and suffix without spelled letters"
+test_phon en "m'Iskri@nts" "miscreants" "a dictionary match including the prefix without spelled letters"
 test_phon en "b,i:dZ,eIp'i: (ml)jum'a:jul.l.a(en)" "BJPയുമായുള്ള" "script change splits a glued token"
 test_phon en "h'i@3rIN m'i: b'oU
 DI2; 'aZ3 Tr'VS k'O:z
