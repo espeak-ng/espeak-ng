@@ -1,0 +1,17 @@
+// Changes to af_list:
+// Added to people names:
+justin      _^_EN
+kerneels    k@rne@ls
+lindeque    lInd@ky
+madlanga    _^_TN
+malema      mal'E:ma
+ramaphosa   ramap'O:sa
+rebecca     r@bEka
+
+// Added to place names:
+jerigo      j'e@rix2u
+
+// Added to main word list:
+             bo (stuk     b'o@ // o in bostuk/-kie
+             cool          _^_EN
+             facebook     f'eIsbuk // facebook/-vriende, etc.
