@@ -17,6 +17,12 @@ test_phon lv \
 test_phon en "d'eIbju:tI2d" "débuted"
 test_phon en-US "d'eIbju:t#I#d" "débuted"
 
+# one-letter words repeated more than three times in a row keep every repeat
+# (only symbols such as ~ are limited to three, see $max3 in docs/dictionary.md)
+test_phon en "b'i: b'i: b'i: b'i: b'i: b'i:" "b b b b b b"
+test_phon en "aI; aI; aI; aI; aI; 'aI" "I I I I I I"
+test_phon en "t'Ild@ t'Ild@ t'Ild@" "~ ~ ~ ~ ~ ~"
+
 # s at the end of abbreviations
 # https://github.com/espeak-ng/espeak-ng/issues/706
 test_phon en ",aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eItS s,i:;,i:;'Es ,aIt,i:;'Eks ,aIb,i:;'Emz ,Em,aIt'i:z ,eIp,i:;'eItSIz s,i:;,i:;'EsIz ,aIt,i:;'EksIz" "ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs"

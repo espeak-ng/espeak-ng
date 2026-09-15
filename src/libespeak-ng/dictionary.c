@@ -2698,8 +2698,8 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			}
 		}
 
-		ix = utf8_in(&c, word);
-		if (flags != NULL && (word[ix] == 0) && !IsAlpha(c))
+		ix = utf8_in(&c, word1);
+		if (flags != NULL && (word1[ix] == 0) && !IsAlpha(c))
 			flags[0] |= FLAG_MAX3;
 		return word_end;
 
