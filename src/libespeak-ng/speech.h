@@ -102,6 +102,12 @@ extern "C"
 
 void cancel_audio(void);
 
+#if USE_LIBSONIC
+// Maps event positions recorded against the uncompressed buffer onto the
+// audio libsonic produced from it.  Called by WavegenFill() after SpeedUp().
+void RescaleEventSamples(int length_pre, int length_post);
+#endif
+
 extern char path_home[N_PATH_BUF];    // this is the espeak-ng-data directory
 
 #ifdef __cplusplus
