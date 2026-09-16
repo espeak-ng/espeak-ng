@@ -4890,6 +4890,9 @@ degre) ssz s:
 
 .group sz
         sz         s
+ti) szts (o s|t|S
+ti) szts (éf s|t|S
+ti) szts (egg s|t|S
 kere) szts (í s|t|S
 kere) szts (od s|t|S
 kere) szts (tr s|t|S
@@ -5842,6 +5845,38 @@ példáza) t (s t
 pillana) t (s t
 profi) t (s t
 pul) t (so t
+rendele) t (s t
+részvé) t (s t
+segédle) t (s t
+spenó) t (s t
+star) t (s t
+szemé) t (so t
+szemé) t (sa t
+szemé) t (sá t
+szemé) t (se t
+szemé) t (sö t
+szemé) t (su t
+szemé) t (szo t
+szemé) t (sző t
+szorza) t (s t
+szvi) t (s t
+tagoza) t (s t
+talála) t (s t
+tapasztala) t (s t
+ú) t (sor t
+ú) tsz (ő t|s
+ú) ts (é t|S
+ú) tsz (o t|s
+üzle) t (s t
+vázla) t (s t
+vere) t (so t
+vér) t (so t
+vizsgála) t (sz t
+vol) t (se t
+vol) t (so t
+vol) t (sz t
+vol) t (szó t
+csillagásza) t (s t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
