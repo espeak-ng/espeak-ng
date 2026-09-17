@@ -1,0 +1,108 @@
+//====================================================
+//  English (India) — Indian English phoneme adjustments
+//====================================================
+// Based on ph_english_wi (syllable-timed, monophthongal) plus
+// retroflex stops from ph_hindi, adapted to the en table.
+//
+// Community-grounded features (Wells 1982; Sailaja 2009; Gargesh 2008;
+// OED World Englishes Indian English model; Sirsa & Redford 2013):
+//   - alveolar t/d -> retroflex [ʈ ɖ] (t./d.)
+//   - FACE /eI/ -> [eː], GOAT /oU/ -> [oː] (monophthongization)
+//   - clear [l] everywhere (no dark ɫ)
+//   - dental fricatives, v/w merger (-> [ʋ] v#) and rhotic colouring for
+//     spelled r/r- are handled via `replace` rules in
+//     espeak-ng-data/lang/gmw/en-in, since base1 already provides t[, d[,
+//     r. and v#.
+//
+// This file defines phonemes that do NOT exist in base1/en (retroflex
+// stops t./d.), plus overrides for the unstressed/stressed r-coloured
+// schwa (3, 3:) used by spelled -er/-or/-ir/-ur endings (water, teacher,
+// bird...). base1's 3/3: are plain, non-rhotic schwa (CALL @) — correct
+// for RP but wrong for IndE, which is fully rhotic (Wells 1982; Sailaja
+// 2009; OED IndE). Unlike en-US, which gets rhoticity for free from an
+// r-coloured vowel formant, IndE realises rhoticity as vowel + a real
+// consonantal retroflex approximant (Sailaja 2009), so these append r.
+// rather than relying on formant colouring. Everything else is
+// inherited from en.
+
+// Monophthongal FACE: day -> [deː] (Sailaja 2009; OED IndE)
+phoneme eI
+  vwl  starttype #e  endtype #e
+  length 210
+  FMT(vowel/e)
+endphoneme
+
+
+// Monophthongal GOAT: go -> [goː] (Sailaja 2009; OED IndE)
+phoneme oU
+  vwl  starttype #o  endtype #o
+  length 220
+  FMT(vowel/o)
+endphoneme
+
+
+// Clear [l] everywhere — no dark-ɫ (IndE uses clear l in milk/leaf)
+phoneme l
+  import_phoneme base1/l   // use clear [l] before not-vowel
+endphoneme
+
+
+// Rhotic unstressed schwa: water/teacher/river -> [...ər], not [...ə]
+// (base1's `3` is CALL @, i.e. plain non-rhotic schwa). IndE is rhotic
+// regardless of what follows (no RP-style vowel-only linking-r), so
+// append retroflex r. unconditionally rather than gating on next-vowel.
+phoneme 3
+  vwl  starttype #@  endtype #@
+  unstressed
+  length 140
+  IF NOT nextPh(r) AND NOT nextPh(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
+
+// Rhotic stressed schwa: bird/her/fur -> [b..ərd] etc, retroflex not
+// American r-colouring (base1's `3:` has no r at all for word-final).
+phoneme 3:
+  vwl  starttype #@  endtype #@
+  length 210
+  IF NOT nextPh(r) AND NOT nextPh(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/3_en)
+endphoneme
+
+
+// Retroflex stops [ʈ ɖ]: time->[ʈaɪm], water->[ʋaːʈər]
+// (Gargesh 2008; Sailaja 2009; OED IndE; Sirsa & Redford 2013)
+// Formant/model data mirrors ph_hindi t./d. (WAV/FMT names exist in base data).
+phoneme t.
+  vls rfx stp
+  lengthmod 2
+  ipa ʈ
+  voicingswitch d.
+  Vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+  WAV(ustop/t_short)
+endphoneme
+
+
+phoneme d.
+  vcd rfx stp
+  lengthmod 5
+  ipa ɖ
+  voicingswitch t.
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1  f2=1800 -300 300  f3=-400 80 colr=2
+
+  IF PreVoicing THEN
+    FMT(d/xdr)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ENDIF
+
+  FMT(d/dr) addWav(x/d)
+endphoneme

@@ -2751,9 +2751,10 @@ _it_separ) ate (_  @t
     er) er (_S2    3
     ll) er (_S2    %3
      &) er (_      %3
-?8   &) er (_      a#        // (temporary because [3] -> [a#] is only for word-final
+?11  &) er (_      a#        // (temporary because [3] -> [a#] is only for word-final
+                              // ?11 not ?8: GB-only non-rhotic weak vowel; en-in stays rhotic via the %3 default above
     ll) ers (_S3   %3z
-?8  %C) ers (_S4   a#z
+?11 %C) ers (_S4   a#z
     ss) er (_S2    3
    all) er (_      3
     mb) er (_      3
@@ -3441,7 +3442,7 @@ _it_separ) ate (_  @t
      &) ians (_NS2 nz
 
      C) iar        aI3
-?8   C) iar        aIa#
+?11  C) iar        aIa#        // GB-only non-rhotic; en-in stays rhotic via the aI3 default above
         iar (iC    i@3
         iar (ity   iar
      &) iary       =j@ri
@@ -3527,7 +3528,7 @@ _it_separ) ate (_  @t
     sc) ie (nc     aI@
         ie (ntiC   aI@
    _sc) ie (n      aI@
-?8 _sc) ie (n      aIa#
+?11 _sc) ie (n      aIa#       // GB-only non-rhotic; en-in stays rhotic via the aI@ default above
         ie (nCiA   I'E
         ie (nda_   I'E
     fr) ie (nd     E
@@ -3951,7 +3952,7 @@ hiccup) ing (_S3   %IN
  consp) ira (t     Ir@
         ire        aI3
         ir (ee     aI3
-?8      ire        aIa#
+?11     ire        aIa#        // GB-only non-rhotic; en-in stays rhotic via the aI3 default above
      c) ire (n     aIr@
      d) ir (ect    %aIr
 ?3   d) ir (ect    %I#r
@@ -4960,8 +4961,8 @@ multip) ly         laI
      &) or (ate    3r
      &) or (ative  @-r
      &) or (_      %3
-?8  @@) or (_S2d   o@        // suffix
-?8   &) or (_      o@
+?11 @@) or (_S2d   o@        // suffix; GB-only non-rhotic, en-in stays rhotic via %3 default above
+?11  &) or (_      o@        // GB-only non-rhotic; en-in stays rhotic via %3 default above
     _c) or (@      O@
      c) or (k      O@
      c) or (e_     o@
