@@ -669,7 +669,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 						while (!Eof() && !iswspace(c2) && (j < N_PUNCTLIST-1)) {
 							option_punctlist[j++] = c2;
 							c2 = GetC();
-							buf[ix++] = ' ';
+							// the placeholder space goes into buf; keep it inside
+							// the clause buffer even for a long punctuation list
+							if (ix < n_buf-1)
+								buf[ix++] = ' ';
 						}
 						option_punctlist[j] = 0; // terminate punctuation list
 						option_punctuation = 2;
