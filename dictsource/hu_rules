@@ -5881,6 +5881,11 @@ vol) t (sz t
 vol) t (szó t
 csillagásza) t (s t
 fedeze) t (ja t
+csapa) t (járm t
+csapa) t (járg t
+csapa) t (járő t
+csapa) t (játszm t
+üzene) t (jeg t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
@@ -6630,6 +6635,7 @@ vá) z (sor z
 í) z (sorre z
 matró) z (s z
 kené) z (sé z
+gá) z (sta z
 
 .group
         $          dolla:R2
