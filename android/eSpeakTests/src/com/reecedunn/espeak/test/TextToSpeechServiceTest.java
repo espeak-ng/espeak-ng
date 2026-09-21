@@ -290,7 +290,8 @@ public class TextToSpeechServiceTest
 
                 Set<String> features = mService.onGetFeaturesForLanguage(data.javaLanguage, data.javaCountry, data.variant);
                 assertThat(features, is(notNullValue()));
-                assertThat(features.size(), is(0));
+                assertThat(features, hasItem(TextToSpeech.Engine.KEY_FEATURE_EMBEDDED_SYNTHESIS));
+                assertThat(features.size(), is(1));
             }
         }
     }
