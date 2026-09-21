@@ -20,9 +20,7 @@ package com.reecedunn.espeak.preference;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.preference.DialogPreference;
-import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.HapticFeedbackConstants;
 import android.view.InputDevice;
@@ -350,7 +348,7 @@ public class SeekBarPreference extends DialogPreference
             return;
         }
 
-        SharedPreferences.Editor editor = getDeviceProtectedPreferences().edit();
+        SharedPreferences.Editor editor = getSharedPreferences().edit();
         editor.putString(parameter.key, Integer.toString(parameter.current));
         if (parameter.hasRateBoost) {
             editor.putBoolean(VoiceSettings.PREF_RATE_BOOST, parameter.boost);
@@ -417,14 +415,5 @@ public class SeekBarPreference extends DialogPreference
             summary.append(String.format(parameter.formatter, Integer.toString(getDisplayValue(parameter))));
         }
         return summary.toString();
-    }
-
-    private SharedPreferences getDeviceProtectedPreferences()
-    {
-        Context context = getContext();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            context = context.createDeviceProtectedStorageContext();
-        }
-        return PreferenceManager.getDefaultSharedPreferences(context);
     }
 }
