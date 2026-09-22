@@ -2,3 +2,5 @@ LIBRARY
 EXPORTS
 	DllCanUnloadNow          PRIVATE
 	DllGetClassObject        PRIVATE
+	espeak_TextToWordPhonemePairsWithTerminator
+	espeak_FreeWordPhonemePairs
