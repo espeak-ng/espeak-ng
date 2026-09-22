@@ -1,0 +1,51 @@
+#!/bin/sh
+# include common script
+. "`dirname $0`/common"
+
+# A zero-length phoneme data file left the destination pointer NULL while
+# ReadPhFile still reported success, so LoadPhData dereferenced NULL and the
+# process died with SIGSEGV instead of reporting the broken file.
+
+test_truncated_data() {
+	DATA_FILE=$1
+
+	echo "testing zero-length ${DATA_FILE}"
+
+	TMP_DIR=`mktemp -d` || exit 1
+	cp -r espeak-ng-data "${TMP_DIR}/espeak-ng-data" || exit 1
+	: > "${TMP_DIR}/espeak-ng-data/${DATA_FILE}" || exit 1
+
+	OUTPUT=$(
+		ESPEAK_DATA_PATH="${TMP_DIR}" LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+			src/espeak-ng -q -v en "test" 2>&1
+	)
+	STATUS=$?
+
+	rm -rf "${TMP_DIR}"
+
+	# A status of 128+N means the process was killed by signal N, e.g. 139
+	# for SIGSEGV. Under a sanitizer build the crash is reported and the
+	# status is 1 instead, so the error message is checked as well.
+	if [ ${STATUS} -ge 128 ] ; then
+		echo "died with signal `expr ${STATUS} - 128` on a zero-length ${DATA_FILE}"
+		exit 1
+	fi
+
+	# It must report the failure rather than carry on without the data.
+	if [ ${STATUS} -eq 0 ] ; then
+		echo "reported success for a zero-length ${DATA_FILE}"
+		exit 1
+	fi
+
+	# The failure has to be espeak-ng's own diagnostic naming the file, not a
+	# crash report from a sanitizer or the shell.
+	echo "${OUTPUT}" | grep -q "${DATA_FILE}" || {
+		echo "did not report ${DATA_FILE}: ${OUTPUT}"
+		exit 1
+	}
+}
+
+test_truncated_data phontab
+test_truncated_data phonindex
+test_truncated_data phondata
+test_truncated_data intonations
