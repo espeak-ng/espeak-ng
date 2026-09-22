@@ -23,6 +23,18 @@
 #include "espeak-ng/espeak_ng.h"
 #include "translate.h"
 
+// Marks an intentional fall-through between switch cases. gcc also accepts a
+// "// fallthrough" comment, but clang honours only the attribute, so the
+// attribute is the form that works across both CI compilers.
+#if defined(__has_attribute)
+#if __has_attribute(fallthrough)
+#define ESPEAKNG_FALLTHROUGH __attribute__((fallthrough))
+#endif
+#endif
+#ifndef ESPEAKNG_FALLTHROUGH
+#define ESPEAKNG_FALLTHROUGH ((void)0)
+#endif
+
 #ifdef __cplusplus
 extern "C"
 {
