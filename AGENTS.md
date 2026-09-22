@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This file provides guidance to Codex and other coding agents when working with code in this repository.
+This file provides guidance to coding agents when working with code in this repository.
 
 For work under `android/`, also follow [android/AGENTS.md](android/AGENTS.md).
 

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This file supplements the repository root's [AGENTS.md](../AGENTS.md) with guidance for Codex and other coding agents working on the Android app.
+This file supplements the repository root's [AGENTS.md](../AGENTS.md) with guidance for coding agents working on the Android app.
 
 ## Build Commands
 
