@@ -9,6 +9,11 @@
   <!--Source: Preference title.
         Description: Title for the preference that controls default speech rate.-->
   <string name="setting_default_rate">Скорость речи</string>
+    <!--
+        Source: Checkbox label.
+        Description: When enabled, triples the selected speech rate.
+    -->
+  <string name="setting_rate_boost">Дополнительное ускорение (в 3 раза)</string>
   <!--Source: Dialog text.
         Description: Status message shown when installing voice data.-->
   <string name="installing_voice_data">Установка голосовых данных...</string>
@@ -16,11 +21,17 @@
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Так синтезатор речи озвучивает %s текст</string>
   <string name="espeak_volume">Громкость</string>
-  <string name="formatter_wpm">%s СВМ</string>
-  <string name="formatter_percentage">%s%%</string>
+  <string name="formatter_wpm">%s слов в минуту</string>
+  <string name="formatter_percentage">%s% процентов</string>
   <string name="resetToDefault">Сброс</string>
   <string name="espeak_pitch_range">Интонация</string>
   <string name="espeak_variant">Вариант голоса</string>
+    <string name="espeak_supported_languages">Поддерживаемые языки</string>
+  <string name="espeak_supported_languages_all">Системе Android известно обо всех установленных языках.</string>
+  <string name="espeak_supported_languages_summary">Системе Android известно о следующем количестве установленных языков: %1$d из %2$d.</string>
+  <string name="espeak_select_all_languages">Выбрать все языки</string>
+  <string name="espeak_deselect_all_languages">Отменить выбор всех языков</string>
+  <string name="espeak_supported_languages_guard">Выберите хотя бы один язык.</string>
   <string name="espeak_speak_punctuation">Читать пунктуацию</string>
   <string name="punctuation_all">Всю</string>
   <string name="punctuation_custom">Пользовательскую</string>
