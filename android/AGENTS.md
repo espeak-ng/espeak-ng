@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with the Android app in this directory.
+This file supplements the repository root's [AGENTS.md](../AGENTS.md) with guidance for coding agents working on the Android app.
 
 ## Build Commands
 
