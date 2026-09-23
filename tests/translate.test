@@ -296,3 +296,6 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# pa: ਹ after a vowel is a tone, not [h]
+test_phon pa "n'i~ s'on.a" "ਨੀਂਹ ਸੋਹਣਾ"
