@@ -296,3 +296,6 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# uk: в is [ʋ]/[w]/[u̯], a sonorant; я ю є soften a preceding consonant
+test_phon uk "w'oda pR'awda mol'It[v#a sv#;'at[o pSEn'Its;u jabl'uko" "вода правда молитва свято пшеницю яблуко"
