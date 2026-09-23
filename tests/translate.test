@@ -296,3 +296,6 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# ml: ഴ is [ɻ]; a word-final virama is a short vowel
+test_phon ml "v'il.impy p'a:t.:y v'a:z.a" "വിളിമ്പ് പാട്ട് വാഴ"
