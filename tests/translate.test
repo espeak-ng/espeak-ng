@@ -296,3 +296,6 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# ta: ழ is [ɻ]; ட் is voiceless before a voiceless stop
+test_phon ta "'a:jUt.k,a:lVm t'Vmiz." "ஆயுட்காலம் தமிழ்"
