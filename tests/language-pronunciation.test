@@ -114,9 +114,9 @@ test_phon hy "k@rn'am ,apak'i ut'el j'ev ints'i ,anhang'ist tS#@n'er" "Կրնա�
 test_phon hyw "g@rn'am ,abag'i ud'el j'ev indz'i ,anhank#'isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
 test_phon hr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
 test_phon hr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
-test_phon ht "tou'ut mou'un f'et l'ib
-eg'al eg'o pou'u dijit'e kou'u w'e dw'a
-nou,u g'en l'a hez'on 'ak l'a konsj'ans ep'i nou,u f'et pou'u nou,u aj'i jou'un 'ak l'ot 'ak j'on lesph'i fwatenit'e" "Tout moun fèt lib, egal ego pou diyite kou wè dwa. Nou gen la rezon ak la konsyans epi nou fèt pou nou aji youn ak lot ak yon lespri fwatènite." "Latn"
+test_phon ht "t'ut mun f'Et l'ib
+eg'al eg'o pu dijit'e k'u w'E dw'a
+nu g'E~ la Rez'O~ ak la kO~sj'A~s ep'i nu f'Et pu nu aZ'i j'un ak l'ot ak jon lespR'i fwatEnit'e" "Tout moun fèt lib, egal ego pou diyite kou wè dwa. Nou gen la rezon ak la konsyans epi nou fèt pou nou aji youn ak lot ak yon lespri fwatènite." "Latn"
 test_phon hu "j'o: f'oksim _|,e:S d'on kv'ijotE h'u:svAt:oS l'a:mpa:na:l _!'ylvE _!'EJ p'a:R2 b'y:vYS ts'ipY:t k,e:si:t
 _!'a:R2vi:zty:R2Y: t'ykYR2fu:R2o:ge:p" "Jó foxim és don Quijote húszwattos lámpánál ülve egy pár bűvös cipőt készít. Árvíztűrő tükörfúrógép." "Latn"
 test_phon ia "t'ote le es'eRes hum'an n'astse l'ibeRe_! e ekw'al 'in d,ignit'ate_! e 'in deR'ektos
