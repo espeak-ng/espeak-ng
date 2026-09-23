@@ -28,6 +28,7 @@
 
 .group ക
         ക്          k
+        ക് (_       ky      // final virama is a short [ɨ]
    L01) ക          ka
    L01) ക (B       k
         ക          ga
@@ -73,6 +74,7 @@
 
 .group ട
         ട്          t.
+        ട് (_       t.y      // final virama is a short [ɨ]
    L01) ട          t.a
    L01) ട (B       t.
         ട          d.a
@@ -98,6 +100,7 @@
 
 .group ത
         ത്          t
+        ത് (_       ty      // final virama is a short [ɨ]
    L01) ത          ta
    L01) ത (B       t
         ത          da
@@ -123,6 +126,7 @@
 
 .group പ
         പ്          p
+        പ് (_       py      // final virama is a short [ɨ]
    L01) പ          pa
    L01) പ (B       p
         പ          ba
@@ -171,9 +175,9 @@
         ള          l.a
         ള (B       l.
 
-.group ഴ    // retroflex [r.] ?
-        ഴ          r.a
-        ഴ (B       r.
+.group ഴ    // retroflex approximant [ɻ]
+        ഴ          z.a
+        ഴ (B       z.
 
 .group വ
         വ          va
