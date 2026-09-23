@@ -296,3 +296,14 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# en-in (OED Indian English model): no intrusive r (samosa idli, idea, science) and r only
+# where spelled (fire); -ed is [ɖ]; sing ends in [ŋɡ]; -le is [əl]; wh is [ʋ]; plurals end
+# in [s]; to keeps its full vowel; Hindi names keep dental t/d (Delhi, Gandhi).
+test_phon en-in "s,Vm'o:s@ 'Id.li" "samosa idli"
+test_phon en-in "v#'O:kd. pl'e:d. s'INg" "walked played sing"
+test_phon en-in "s'Imp@l p'i:p@l v#'ItS" "simple people which"
+test_phon en-in "d['Eli g'A:nd[i: r.A:dZ'e:S g'Ur.u:" "Delhi Gandhi Rajesh guru"
+test_phon en-in "aId.'i@ s'aI@ns f'aI3r. h'i:r.o: v#'0nt.I2d." "idea science fire hero wanted"
+test_phon en-in "d.'0gs k'IsI2s h'0t." "dogs kisses hot"
+test_phon en-in "aI v#'0nt. t.u: g'o:" "I want to go"

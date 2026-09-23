@@ -5792,3 +5792,143 @@ _𐑿	j'u:l
 𐑕𐑳𐑥	,sVm	$nounf $unstressend $only
 𐑚𐑳𐑑	,bVt	$pause $only
 𐑢𐑦𐑗	,wItS	$pause $strend2 $only $verbf
+
+// Indian English (en-in only: condition 12 is set by lang/gmw/en-in alone).
+// Kept at the end so these override the general entries above for en-in,
+// while every other English voice reads exactly as upstream/NVDA.
+?12 rs	r'u:pi:z	$dot	// "Rs. 500"
+?12 re	r'u:pi:	$dot	// Indian rupee singular ("Re. 1")
+?12 pnr	p,i:En'A@	$allcaps	// Indian Railways PNR
+?12 aadhaar		'A:d[,A:r
+?12 aadhar		'A:d[,A:r
+?12 lakh		l'A:k
+?12 lakhs		l'A:ks
+?12 lac		l'A:k
+?12 lacs		l'A:ks
+?12 crore		kr'o:r
+?12 crores		kr'o:rz
+?12 crorepati		kr,o:rp'Vt[I
+?12 lakhpati		l,A:kp'Vt[I
+?12 prepone		pri:p'oUn
+?12 preponed	pri:p'oUnd
+?12 preponing	pri:p'oUnIN
+?12 preponement	pri:p'oUnm@nt
+?12 namaste		n,Vm'Vst[eI
+?12 namaskar	n,Vm'VskA:r
+?12 pranam		pr.'VnA:m
+?12 dhanyawad		d[,VnjVv'A:d[
+?12 shukriya	S,Ukr'IjA:
+?12 challan		tS,Vl'A:n
+?12 chalan		tS,Vl'A:n
+?12 jugaad		dZ,Ug'A:d
+?12 paisa		p'aIsA:
+?12 paise		p'aIseI
+?12 bhai		baI
+?12 bhaiya		b'aIj@
+?12 didi		d['i:d[i
+?12 desi		d['e:si:
+?12 videsi		v,id['e:si
+?12 sabzi		s'Vbzi
+?12 biryani		b,Irj'A:ni:
+?12 samosa		s,Vm'o:s@
+?12 paneer		pan'i@
+?12 roti		r'o:ti:
+?12 chai		tS'aI
+?12 masala		m@s'A:l@
+?12 dosa		d['o:s@
+?12 idli		'Idli
+?12 yojana		j'o:dZ@nA:
+?12 panchayat		pVntS'A:j@t[
+?12 sarpanch	s,Vrp'VntS
+?12 swachh		sw'VtStS
+?12 bharat		b'A:r@t[
+?12 hindustan		h,Ind[Ust['A:n
+?12 upi	$abbrev $allcaps
+?12 otp	$abbrev $allcaps
+?12 ifsc	$abbrev $allcaps
+?12 kyc	$abbrev $allcaps
+?12 emi	$abbrev $allcaps
+?12 neft	$abbrev $allcaps
+?12 imps	$abbrev $allcaps
+?12 irctc	$abbrev $allcaps
+?12 lic	$abbrev $allcaps
+?12 upsc	$abbrev $allcaps
+?12 iit	$abbrev $allcaps
+?12 icici	$abbrev $allcaps
+?12 ncert	$abbrev $allcaps
+?12 pan	p'an	$allcaps	// PAN card is said as a word, not spelled
+?12 dhanyavad		d[,VnjVv'A:d[
+?12 chappal	tS'Vpp@l
+?12 chappals	tS'Vpp@lz
+?12 rickshaw	r'IkSO:
+?12 rickshaws	r'IkSO:z
+?12 dal		d['A:l
+?12 thali	t['A:li:
+// Indian names, places and words. Hindi dental t/d are written t[ d[ so
+// the blanket t->t. d->d. of en-in doesn't make them retroflex.
+?12 ji	dZi:
+?12 guru	g'Uru:
+?12 gurus	g'Uru:z
+?12 achha	'VtSA:
+?12 accha	'VtSA:
+?12 acha	'VtSA:
+?12 theek	t'i:k
+?12 delhi	d['Eli
+?12 diwali	d[Iv'A:li:
+?12 deepawali	d[,i:pA:v'A:li:
+?12 dussehra	d[VS'eIrA:
+?12 navratri	n,Vvr'A:t[ri:
+?12 durga	d['UrgA:
+?12 shiva	S'Iv@
+?12 vishnu	v'ISnu:
+?12 hanuman	h'VnUm,A:n
+?12 sita	s'i:t[A:
+?12 gandhi	g'A:nd[i:
+?12 modi	m'o:d[i:
+?12 dhoni	d['o:ni:
+?12 kohli	k'o:hli:
+?12 virat	v'IrVt
+?12 sachin	s'VtSIn
+?12 rahul	r'A:hUl
+?12 rohit	r'o:hIt[
+?12 deepak	d['i:pVk
+?12 amit	Vm'It[
+?12 aditya	'A:d[It[j@
+?12 sunita	sUn'i:t[A:
+?12 anita	Vn'i:t[A:
+?12 kavita	k'VvIt[A:
+?12 neha	n'eIhA:
+?12 pooja	p'u:dZA:
+?12 puja	p'u:dZA:
+?12 rajesh	rA:dZ'eIS
+?12 ganesh	gVn'eIS
+?12 ramesh	rVm'eIS
+?12 suresh	sUr'eIS
+?12 mahesh	mVh'eIS
+?12 dinesh	d[In'eIS
+?12 naresh	nVr'eIS
+?12 mukesh	mUk'eIS
+?12 rakesh	rA:k'eIS
+?12 iyer	'aIj@r
+?12 hyderabad	h'aId[@rA:b,A:d[
+?12 ahmedabad	'Vhm@d[A:b,A:d[
+?12 dehradun	d[,eIhrA:d['u:n
+?12 infosys	'InfoUsIs
+?12 isro	'IsroU
+?12 aiims	'eIms
+?12 neet	n'i:t
+?12 ipl	$abbrev $allcaps
+?12 sbi	$abbrev $allcaps
+?12 hdfc	$abbrev $allcaps
+?12 gst	$abbrev $allcaps
+?12 rbi	$abbrev $allcaps
+?12 cbse	$abbrev $allcaps
+?12 jee	$abbrev $allcaps
+// Indian English doesn't reduce these to weak forms (OED IndE).
+?12 to		tu:		$u $verbf
+?12 for		fO@		$u $only $strend2
+?12 of		0f		$u $only
+?12 at		at		$u $nounf $only
+?12 an		an		$u $nounf $only
+?12 than	Dan		$u $only
+?12 has		haz		$pastf $only

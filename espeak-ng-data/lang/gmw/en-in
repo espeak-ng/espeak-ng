@@ -9,7 +9,10 @@ status mature
 // Phoneme table en-in (ph_english_in) adds retroflex stops t./d.,
 // monophthongal eI/oU and clear l on top of the base en table.
 phonemes en-in
-dictrules 1 2 8
+// 12 = Indian English. It carries its own copy of the ?8 full-vowel rules
+// (-ment, -ness, -less, -al...), minus the -ed one: the OED model has no
+// full vowel in a separate-syllable -ed (wanted [ʋɔnʈɪɖ], not [-ɛɖ]).
+dictrules 12
 
 stressLength 160 160  180 180  200 200  240 260
 stressAmp    18 18   19 19   19 19   20 20
@@ -28,8 +31,10 @@ replace 00 D d[
 // t./d. are defined in ph_english_in (mirrors ph_hindi).
 // tS/dZ are single phonemes so affricates are unaffected.
 // t2 is the non-reducing [t] variant emitted by en_rules (time, top,
-// type...); t#/d# are the American flap allophones that can surface via
-// shared en_list entries — IndE uses retroflex stops there, not flaps.
+// type...); t# is the American flap allophone that can surface via shared
+// en_list entries - IndE uses retroflex stops there, not flaps. d# is the
+// -ed suffix, which IndE says as [ɖ] whatever comes before: missed [mɪsɖ]
+// (OED IndE, after Gargesh 2008 and Sailaja 2009).
 // r- is the linking-r allophone; IndE is fully rhotic by spelling.
 replace 00 t t.
 replace 00 t2 t.
@@ -49,6 +54,8 @@ replace 00 Z dZ
 // aI/aU/OI stay diphthongal per literature.
 replace 00 eI e:
 replace 00 oU o:
+// BATH/PALM is long [ɑː]: bath [bɑːt̪], dance [ɖɑːns] (OED IndE).
+replace 00 aa A:
 
 formant 1 100 100 100
 formant 2 100 100 100
