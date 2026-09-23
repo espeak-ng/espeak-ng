@@ -9,7 +9,12 @@
        б     b
 
 .group в
-       в     B
+       в     v#     // [ʋ] before a vowel: вода. A sonorant, so it never voices
+                    // the consonant before it (молитва [mɔlɪtʋa], not [-dβa])
+       в (C  w      // [u̯] before a consonant: правда [prau̯da], вчора
+       в (_  w      // and at the end of a word: обійшов [ɔbʲiɪ̯ʃɔu̯], в хаті
+       в (о  w      // rounded before о, у: вода [wɔda]
+       в (у  w
 
 .group г
        г     h  // вимовляється як середнє між г та х
@@ -26,6 +31,7 @@
 
 .group є
        є     jE
+    C) є     ;E      // after a consonant it softens it: синє [sɪnʲɛ]
 
 .group ж
        ж     Z
@@ -110,9 +116,11 @@
 
 .group ю
        ю     ju
+    C) ю     ;u      // after a consonant it softens it: пшеницю [pʃenɪtsʲu]
 
 .group я
        я     ja
+    C) я     ;a      // after a consonant it softens it: свято [sʋʲato]
 
 .group ʼ
        ʼ     |
