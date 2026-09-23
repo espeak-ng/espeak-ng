@@ -18,6 +18,10 @@
 ౮	8
 ౯	9
 
+.L01 క ఖ గ ఘ ఙ   // velar
+.L02 చ ఛ జ ఝ ఞ   // palatal
+.L03 ట ఠ డ ఢ ణ   // retroflex
+.L04 త థ ద ధ న   // dental
 
 .group క
 	క	ka
@@ -227,7 +231,11 @@
 
 .	ఁ 	n       // candrabindu
 
-	ం	n	// anusvara (this should nasalize the vowel)
+	ం(L01	N	// anusvara takes the place of the next consonant
+	ం(L02	n^
+	ం(L03	n.
+	ం(L04	n
+	ం	m
 
 	ః	h	// visarga
 

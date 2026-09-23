@@ -296,3 +296,6 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# te: anusvara takes the place of the next consonant
+test_phon te "'aNkam p'an^ca m'an.t.a" "అంకం పంచ మంట"
