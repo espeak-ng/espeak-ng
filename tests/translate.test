@@ -296,3 +296,6 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# gu: weight-based stress lets medial schwa go; ળ is [ɭ]
+test_phon gu "d'e:k#v,u~ m'a:ml,o: k'a:l.o:" "દેખવું મામલો કાળો"

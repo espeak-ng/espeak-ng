@@ -266,9 +266,9 @@ C)        ૣ          l-:
         જ્ઞ          gn.V
         જ્ઞ (B       gn.
 
-.group ઝ  // According to chart this is jha ( ઝ 0A9D)but it is told that it looks like za ( જ઼ 0A9C + 0ABC) 
-        ઝ          zV
-        ઝ (B       z
+.group ઝ
+        ઝ          J#V
+        ઝ (B       J#
 
 .group ઞ
         ઞ          n^V
@@ -400,16 +400,14 @@ C)        ૣ          l-:
         લ (B       l
      ્) લ (_       l@
 
-.group ળ    // According to chart this is lla ( ળ 0AB3)but it is told that it looks like adda ( ડ઼ 0AA1 + 0ABC) 
-        ળ          r.V
-        ળ (B       r.
-     ્) ળ (_       r.@
+.group ળ    // retroflex lateral [ɭ], as ळ in Marathi
+        ળ          l.V
+        ળ (B       l.
+     ્) ળ (_       l.@
 
 .group વ
         વ          vV
         વ (B       v
-     _) વ          wV
-     _) વ (B       w
      _) વ (્       v         // +virma
 
 
