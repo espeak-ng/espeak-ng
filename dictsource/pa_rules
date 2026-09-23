@@ -10,6 +10,8 @@
 
 
 
+.L01 ਾ ਿ ੀ ੁ ੂ ੇ ੈ ੋ ੌ ਂ ੰ   // vowel signs and nasal signs
+
 .replace
  ੦	0
  ੧	1
@@ -428,6 +430,11 @@ C)        ੌੰ         O~
         ਹ          HV
         ਹ (B       H
      @) ਹ (_       H
+// After a vowel, ਹ is a tone rather than an [h]: ਨੀਂਹ, ਸੋਹਣਾ, ਇਹਦਾ.
+   L01) ਹ (_
+     A) ਹ (_
+   L01) ਹ (C
+     A) ਹ (C
 
 .group ਖ਼
         ਖ਼          xV
