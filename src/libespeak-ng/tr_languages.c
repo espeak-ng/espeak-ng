@@ -1498,6 +1498,9 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1R;
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_FINAL_VOWEL_UNSTRESSED;
 		SetLetterVowel(tr, 'y');
+		SetLetterBitsUTF8(tr, LETTERGP_A, "ë", 0);      // 'ë' is a vowel for A, K, X and syllable counting
+		SetLetterBitsUTF8(tr, LETTERGP_VOWEL2, "ë", 0);
+		SetLetterBitsUTF8(tr, LETTERGP_C, "ç", 0);      // 'ç' is a consonant for C
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_4;
 		tr->langopts.accents = 2; // "capital" after letter name
 	}

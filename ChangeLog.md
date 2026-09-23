@@ -29,6 +29,7 @@ updated languages:
 *  ku (Kurdish) -- austek
 *  pt (Portuguese) -- Fabio Lima
 *  ru (Russian) -- Alexander Epaneshnikov, AlexanderKhalmaktanov, Danstiv, kirill-jjj, mitrokun
+*  sq (Albanian) -- Edon Sekiraqa
 *  sv (Swedish) -- Daniel Nylander
 *  th (Thai) -- Samuel Thibault
 *  tlh (Klingon) -- fionnlagh
@@ -59,6 +60,8 @@ bug fixes:
 *  fixed Russian decimal fractions to use feminine unit forms and numerators (e.g. "одна сотая", "две тысячных") -- Danil Kostenkov
 *  fixed Kurdish (ku) word stress for the oblique plural suffix and for negated/imperative/preverb-prefixed verbs and subject pronouns -- austek
 *  fixed flag emoji written without whitespace being spelled out codepoint by codepoint instead of read as country names -- Alexander Epaneshnikov
+*  fixed Albanian (sq) word stress for inflected and derived forms, loanwords ending in "-at", "-et" and "-it" (privat, konkret, favorit), "ë" and "ç" not counting as a vowel and a consonant in letter groups, and function words carrying full stress -- Edon Sekiraqa
+*  fixed Albanian (sq) "rr" being transcribed identically to "r" in IPA output, stressed "ë" printing as ʌ instead of ə, "aj"+"vowel" and final "-ie" turned into diphthongs, English "ticket"/"check-in" spelled out, and the word-final "ë" being too short to hear -- Edon Sekiraqa
 *  fixed subdivision flag emoji (England, Scotland, Wales) being read as "black flag" -- Alexander Epaneshnikov
 *  fixed the first letter of emoji descriptions being dropped when it is a non-ASCII capital ("Казахстан" was read as "азахстан") -- Alexander Epaneshnikov
 *  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
