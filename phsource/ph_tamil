@@ -159,9 +159,9 @@ phoneme #    // a NULL phoneme for 'virama'
   ChangePhoneme(NULL)
 endphoneme
 
-phoneme z.
-  CALL base1/z.
-  ipa U+027B
+phoneme z.   // ழ, the retroflex approximant [ɻ], not a fricative
+  import_phoneme base1/r.
+  ipa ɻ
 endphoneme
 
 phoneme r
