@@ -1467,8 +1467,8 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 					}
 				} else {
 					if ((all_upper_case) && (letter_count > 2)) {
-						// Flag as plural only English
-						if (tr->translator_name == L('e', 'n') && (c == 's') && (next_in == ' ')) {
+						// Flag as plural only English and Portuguese
+						if ((tr->translator_name == L('e', 'n') || tr->translator_name == L('p', 't')) && (c == 's') && (next_in == ' ')) {
 							c = ' ';
 							all_upper_case |= FLAG_HAS_PLURAL;
 

@@ -86,7 +86,7 @@ $textmode
 // 2100..214F : Letterlike Symbols
 
 //№	numero								// [2116] other (no translation)
-℗	símbolo de direitos autorais de fonograma		// [2117]
+℗	símbolo de direitos autorais de fonograma			// [2117]
 //℞	prescription							// [211E] other (no translation)
 ™	símbolo de marca registrada					// [2122] text|emoji
 ℹ	informações							// [2139] text|emoji
@@ -211,7 +211,7 @@ $textmode
 ∘	operador de anel					// [2218]
 ∙	operador de marca de lista				// [2219]
 √	raiz quadrada						// [221A]
-//∛	cube root							// [221B] other (no translation)
+∛	raiz cúbica						// [221B]
 ∝	proporcional a						// [221D]
 ∞	sinal de infinito					// [221E]
 ∟	ângulo direito						// [221F]
@@ -546,8 +546,8 @@ $textmode
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	ideográfico circular parabéns”					// [3297] text|emoji
-㊙	ideográfico circular segredo”					// [3299] text|emoji
+㊗	ideográfico circular parabéns					// [3297] text|emoji
+㊙	ideográfico circular segredo					// [3299] text|emoji
 ﷼	rial							// [FDFC]
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
@@ -571,21 +571,21 @@ $textmode
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	botão japonês de aqui”						// [1F201]
-🈂	letra sa” em katakana						// [1F202] text|emoji
+🈁	botão japonês de aqui						// [1F201]
+🈂	letra sa em katakana						// [1F202] text|emoji
 🈚	ideograma quadrado não possuir					// [1F21A]
-🈯	ideograma quadrado dedo”					// [1F22F]
+🈯	ideograma quadrado dedo						// [1F22F]
 🈲	ideograma quadrado proibido					// [1F232]
 🈳	ideograma quadrado vaga						// [1F233]
 🈴	ideograma quadrado acordo					// [1F234]
 🈵	ideograma quadrado completo					// [1F235]
 🈶	ideograma quadrado possuir					// [1F236]
-🈷	ideográfico quadrado lua”					// [1F237] text|emoji
-🈸	ideograma quadrado aplicar”					// [1F238]
+🈷	ideográfico quadrado lua					// [1F237] text|emoji
+🈸	ideograma quadrado aplicar					// [1F238]
 🈹	ideograma quadrado desconto					// [1F239]
 🈺	ideograma quadrado trabalho					// [1F23A]
-🉐	ideograma circular vantagem”					// [1F250]
-🉑	ideograma circular aceitar”					// [1F251]
+🉐	ideograma circular vantagem					// [1F250]
+🉑	ideograma circular aceitar					// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -1074,7 +1074,7 @@ $textmode
 📤	bandeja de saída						// [1F4E4]
 📥	bandeja de entrada						// [1F4E5]
 📦	pacote								// [1F4E6]
-📧	e-mail								// [1F4E7]
+📧	email								// [1F4E7]
 📨	envelope chegando						// [1F4E8]
 📩	envelope com seta						// [1F4E9]
 📪	caixa de correio fechada com bandeira abaixada			// [1F4EA]
@@ -1123,18 +1123,18 @@ $textmode
 🔖	marcador de página						// [1F516]
 🔗	link								// [1F517]
 🔘	botão de opção							// [1F518]
-🔙	seta BACK							// [1F519]
-🔚	seta END							// [1F51A]
-🔛	seta ON!							// [1F51B]
-🔜	seta SOON							// [1F51C]
-🔝	seta TOP							// [1F51D]
+🔙	seta back							// [1F519]
+🔚	seta back end							// [1F51A]
+🔛	seta on								// [1F51B]
+🔜	seta soon							// [1F51C]
+🔝	seta top							// [1F51D]
 🔞	proibido para menores de 18 anos				// [1F51E]
-🔟	tecla: 10							// [1F51F]
-🔠	letras latinas maiúsculas					// [1F520]
-🔡	letras latinas minúsculas					// [1F521]
+🔟	tecla 10							// [1F51F]
+🔠	letras maiúsculas						// [1F520]
+🔡	letras minúsculas						// [1F521]
 🔢	números								// [1F522]
 🔣	símbolos							// [1F523]
-🔤	letras latinas							// [1F524]
+🔤	letras								// [1F524]
 🔥	fogo								// [1F525]
 🔦	lanterna							// [1F526]
 🔧	chave inglesa							// [1F527]
@@ -1160,9 +1160,9 @@ $textmode
 🔻	triângulo vermelho para baixo					// [1F53B]
 🔼	botão apontando para cima					// [1F53C]
 🔽	botão apontando para baixo					// [1F53D]
-🕉	om								// [1F549] text|emoji
+🕉	simbolo do om							// [1F549] text|emoji
 🕊	pomba branca							// [1F54A] text|emoji
-🕋	caaba islã							// [1F54B]
+🕋	caaba do islã							// [1F54B]
 🕌	mesquita							// [1F54C]
 🕍	sinagoga							// [1F54D]
 🕎	menorá								// [1F54E]
@@ -1306,8 +1306,8 @@ $textmode
 🙂	rosto levemente sorridente					// [1F642]
 🙃	rosto de cabeça para baixo					// [1F643]
 🙄	rosto com olhos revirados					// [1F644]
-🙅	gesto para não é bom”						// [1F645]
-🙆	gesto para OK”							// [1F646]
+🙅	gesto para não é bom						// [1F645]
+🙆	gesto para ok							// [1F646]
 🙇	perdão								// [1F647]
 🙈	macaco que não vê nada						// [1F648]
 🙉	macaco que não ouve nada					// [1F649]
@@ -1405,7 +1405,7 @@ $textmode
 🛝	escorregador						// [1F6DD]
 🛞	roda							// [1F6DE]
 🛟	boia							// [1F6DF]
-🛠	martelo e chave-inglesa						// [1F6E0] text|emoji
+🛠	martelo e chave inglesa						// [1F6E0] text|emoji
 🛡	escudo								// [1F6E1] text|emoji
 🛢	lata de óleo							// [1F6E2] text|emoji
 🛣	estrada								// [1F6E3] text|emoji
@@ -1662,7 +1662,7 @@ $textmode
 🧦	meias								// [1F9E6]
 🧧	envelope vermelho						// [1F9E7]
 🧨	bombinha							// [1F9E8]
-🧩	quebra-cabeça							// [1F9E9]
+🧩	quebra cabeça							// [1F9E9]
 🧪	tubo de ensaio							// [1F9EA]
 🧫	placa de Petri							// [1F9EB]
 🧬	dna								// [1F9EC]
@@ -1688,285 +1688,285 @@ $textmode
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	bandeira: Ilha de Ascensão					// [1F1E6 1F1E8] AC
-🇦🇩	bandeira: Andorra						// [1F1E6 1F1E9] AD
-🇦🇪	bandeira: Emirados Árabes Unidos				// [1F1E6 1F1EA] AE
-🇦🇫	bandeira: Afeganistão						// [1F1E6 1F1EB] AF
-🇦🇬	bandeira: Antígua e Barbuda					// [1F1E6 1F1EC] AG
-🇦🇮	bandeira: Anguilla						// [1F1E6 1F1EE] AI
-🇦🇱	bandeira: Albânia						// [1F1E6 1F1F1] AL
-🇦🇲	bandeira: Armênia						// [1F1E6 1F1F2] AM
-🇦🇴	bandeira: Angola						// [1F1E6 1F1F4] AO
-🇦🇶	bandeira: Antártida						// [1F1E6 1F1F6] AQ
-🇦🇷	bandeira: Argentina						// [1F1E6 1F1F7] AR
-🇦🇸	bandeira: Samoa Americana					// [1F1E6 1F1F8] AS
-🇦🇹	bandeira: Áustria						// [1F1E6 1F1F9] AT
-🇦🇺	bandeira: Austrália						// [1F1E6 1F1FA] AU
-🇦🇼	bandeira: Aruba							// [1F1E6 1F1FC] AW
-🇦🇽	bandeira: Ilhas Aland						// [1F1E6 1F1FD] AX
-🇦🇿	bandeira: Azerbaijão						// [1F1E6 1F1FF] AZ
-🇧🇦	bandeira: Bósnia e Herzegovina					// [1F1E7 1F1E6] BA
-🇧🇧	bandeira: Barbados						// [1F1E7 1F1E7] BB
-🇧🇩	bandeira: Bangladesh						// [1F1E7 1F1E9] BD
-🇧🇪	bandeira: Bélgica						// [1F1E7 1F1EA] BE
-🇧🇫	bandeira: Burquina Faso						// [1F1E7 1F1EB] BF
-🇧🇬	bandeira: Bulgária						// [1F1E7 1F1EC] BG
-🇧🇭	bandeira: Bahrein						// [1F1E7 1F1ED] BH
-🇧🇮	bandeira: Burundi						// [1F1E7 1F1EE] BI
-🇧🇯	bandeira: Benin							// [1F1E7 1F1EF] BJ
-🇧🇱	bandeira: São Bartolomeu					// [1F1E7 1F1F1] BL
-🇧🇲	bandeira: Bermudas						// [1F1E7 1F1F2] BM
-🇧🇳	bandeira: Brunei						// [1F1E7 1F1F3] BN
-🇧🇴	bandeira: Bolívia						// [1F1E7 1F1F4] BO
-🇧🇶	bandeira: Países Baixos Caribenhos				// [1F1E7 1F1F6] BQ
-🇧🇷	bandeira: Brasil						// [1F1E7 1F1F7] BR
-🇧🇸	bandeira: Bahamas						// [1F1E7 1F1F8] BS
-🇧🇹	bandeira: Butão							// [1F1E7 1F1F9] BT
-🇧🇻	bandeira: Ilha Bouvet						// [1F1E7 1F1FB] BV
-🇧🇼	bandeira: Botsuana						// [1F1E7 1F1FC] BW
-🇧🇾	bandeira: Bielorrússia						// [1F1E7 1F1FE] BY
-🇧🇿	bandeira: Belize						// [1F1E7 1F1FF] BZ
-🇨🇦	bandeira: Canadá						// [1F1E8 1F1E6] CA
-🇨🇨	bandeira: Ilhas Cocos (Keeling)					// [1F1E8 1F1E8] CC
-🇨🇩	bandeira: Congo - Kinshasa					// [1F1E8 1F1E9] CD
-🇨🇫	bandeira: República Centro-Africana				// [1F1E8 1F1EB] CF
-🇨🇬	bandeira: Congo - Brazzaville					// [1F1E8 1F1EC] CG
-🇨🇭	bandeira: Suíça							// [1F1E8 1F1ED] CH
-🇨🇮	bandeira: Costa do Marfim					// [1F1E8 1F1EE] CI
-🇨🇰	bandeira: Ilhas Cook						// [1F1E8 1F1F0] CK
-🇨🇱	bandeira: Chile							// [1F1E8 1F1F1] CL
-🇨🇲	bandeira: Camarões						// [1F1E8 1F1F2] CM
-🇨🇳	bandeira: China							// [1F1E8 1F1F3] CN
-🇨🇴	bandeira: Colômbia						// [1F1E8 1F1F4] CO
-🇨🇵	bandeira: Ilha de Clipperton					// [1F1E8 1F1F5] CP
-🇨🇷	bandeira: Costa Rica						// [1F1E8 1F1F7] CR
-🇨🇺	bandeira: Cuba							// [1F1E8 1F1FA] CU
-🇨🇻	bandeira: Cabo Verde						// [1F1E8 1F1FB] CV
-🇨🇼	bandeira: Curaçao						// [1F1E8 1F1FC] CW
-🇨🇽	bandeira: Ilha Christmas					// [1F1E8 1F1FD] CX
-🇨🇾	bandeira: Chipre						// [1F1E8 1F1FE] CY
-🇨🇿	bandeira: Tchéquia						// [1F1E8 1F1FF] CZ
-🇩🇪	bandeira: Alemanha						// [1F1E9 1F1EA] DE
-🇩🇬	bandeira: Diego Garcia						// [1F1E9 1F1EC] DG
-🇩🇯	bandeira: Djibuti						// [1F1E9 1F1EF] DJ
-🇩🇰	bandeira: Dinamarca						// [1F1E9 1F1F0] DK
-🇩🇲	bandeira: Dominica						// [1F1E9 1F1F2] DM
-🇩🇴	bandeira: República Dominicana					// [1F1E9 1F1F4] DO
-🇩🇿	bandeira: Argélia						// [1F1E9 1F1FF] DZ
-🇪🇦	bandeira: Ceuta e Melilha					// [1F1EA 1F1E6] EA
-🇪🇨	bandeira: Equador						// [1F1EA 1F1E8] EC
-🇪🇪	bandeira: Estônia						// [1F1EA 1F1EA] EE
-🇪🇬	bandeira: Egito							// [1F1EA 1F1EC] EG
-🇪🇭	bandeira: Saara Ocidental					// [1F1EA 1F1ED] EH
-🇪🇷	bandeira: Eritreia						// [1F1EA 1F1F7] ER
-🇪🇸	bandeira: Espanha						// [1F1EA 1F1F8] ES
-🇪🇹	bandeira: Etiópia						// [1F1EA 1F1F9] ET
-🇪🇺	bandeira: União Europeia					// [1F1EA 1F1FA] EU
-🇫🇮	bandeira: Finlândia						// [1F1EB 1F1EE] FI
-🇫🇯	bandeira: Fiji							// [1F1EB 1F1EF] FJ
-🇫🇰	bandeira: Ilhas Malvinas					// [1F1EB 1F1F0] FI
-🇫🇲	bandeira: Micronésia						// [1F1EB 1F1F2] FM
-🇫🇴	bandeira: Ilhas Faroe						// [1F1EB 1F1F4] FO
-🇫🇷	bandeira: França						// [1F1EB 1F1F7] FR
-🇬🇦	bandeira: Gabão							// [1F1EC 1F1E6] GA
-🇬🇧	bandeira: Reino Unido						// [1F1EC 1F1E7] GB
-🇬🇩	bandeira: Granada						// [1F1EC 1F1E9] GD
-🇬🇪	bandeira: Geórgia						// [1F1EC 1F1EA] GE
-🇬🇫	bandeira: Guiana Francesa					// [1F1EC 1F1EB] GF
-🇬🇬	bandeira: Guernsey						// [1F1EC 1F1EC] GG
-🇬🇭	bandeira: Gana							// [1F1EC 1F1ED] GH
-🇬🇮	bandeira: Gibraltar						// [1F1EC 1F1EE] GI
-🇬🇱	bandeira: Groenlândia						// [1F1EC 1F1F1] GL
-🇬🇲	bandeira: Gâmbia						// [1F1EC 1F1F2] GM
-🇬🇳	bandeira: Guiné							// [1F1EC 1F1F3] GN
-🇬🇵	bandeira: Guadalupe						// [1F1EC 1F1F5] GP
-🇬🇶	bandeira: Guiné Equatorial					// [1F1EC 1F1F6] GQ
-🇬🇷	bandeira: Grécia						// [1F1EC 1F1F7] GR
-🇬🇸	bandeira: Ilhas Geórgia do Sul e Sandwich do Sul		// [1F1EC 1F1F8] GS
-🇬🇹	bandeira: Guatemala						// [1F1EC 1F1F9] GT
-🇬🇺	bandeira: Guam							// [1F1EC 1F1FA] GU
-🇬🇼	bandeira: Guiné-Bissau						// [1F1EC 1F1FC] GW
-🇬🇾	bandeira: Guiana						// [1F1EC 1F1FE] GY
-🇭🇰	bandeira: Hong Kong, RAE da China				// [1F1ED 1F1F0] HK
-🇭🇲	bandeira: Ilhas Heard e McDonald				// [1F1ED 1F1F2] HM
-🇭🇳	bandeira: Honduras						// [1F1ED 1F1F3] HN
-🇭🇷	bandeira: Croácia						// [1F1ED 1F1F7] HR
-🇭🇹	bandeira: Haiti							// [1F1ED 1F1F9] HT
-🇭🇺	bandeira: Hungria						// [1F1ED 1F1FA] HU
-🇮🇨	bandeira: Ilhas Canárias					// [1F1EE 1F1E8] IC
-🇮🇩	bandeira: Indonésia						// [1F1EE 1F1E9] ID
-🇮🇪	bandeira: Irlanda						// [1F1EE 1F1EA] IE
-🇮🇱	bandeira: Israel						// [1F1EE 1F1F1] IL
-🇮🇲	bandeira: Ilha de Man						// [1F1EE 1F1F2] IM
-🇮🇳	bandeira: Índia							// [1F1EE 1F1F3] IN
-🇮🇴	bandeira: Território Britânico do Oceano Índico			// [1F1EE 1F1F4] IO
-🇮🇶	bandeira: Iraque						// [1F1EE 1F1F6] IQ
-🇮🇷	bandeira: Irã							// [1F1EE 1F1F7] IR
-🇮🇸	bandeira: Islândia						// [1F1EE 1F1F8] IS
-🇮🇹	bandeira: Itália						// [1F1EE 1F1F9] IT
-🇯🇪	bandeira: Jersey						// [1F1EF 1F1EA] JE
-🇯🇲	bandeira: Jamaica						// [1F1EF 1F1F2] JM
-🇯🇴	bandeira: Jordânia						// [1F1EF 1F1F4] JO
-🇯🇵	bandeira: Japão							// [1F1EF 1F1F5] JP
-🇰🇪	bandeira: Quênia						// [1F1F0 1F1EA] KE
-🇰🇬	bandeira: Quirguistão						// [1F1F0 1F1EC] KG
-🇰🇭	bandeira: Camboja						// [1F1F0 1F1ED] KH
-🇰🇮	bandeira: Quiribati						// [1F1F0 1F1EE] KI
-🇰🇲	bandeira: Comores						// [1F1F0 1F1F2] KM
-🇰🇳	bandeira: São Cristóvão e Névis					// [1F1F0 1F1F3] KN
-🇰🇵	bandeira: Coreia do Norte					// [1F1F0 1F1F5] KP
-🇰🇷	bandeira: Coreia do Sul						// [1F1F0 1F1F7] KR
-🇰🇼	bandeira: Kuwait						// [1F1F0 1F1FC] KW
-🇰🇾	bandeira: Ilhas Cayman						// [1F1F0 1F1FE] KY
-🇰🇿	bandeira: Cazaquistão						// [1F1F0 1F1FF] KZ
-🇱🇦	bandeira: Laos							// [1F1F1 1F1E6] LA
-🇱🇧	bandeira: Líbano						// [1F1F1 1F1E7] LB
-🇱🇨	bandeira: Santa Lúcia						// [1F1F1 1F1E8] LC
-🇱🇮	bandeira: Liechtenstein						// [1F1F1 1F1EE] LI
-🇱🇰	bandeira: Sri Lanka						// [1F1F1 1F1F0] LK
-🇱🇷	bandeira: Libéria						// [1F1F1 1F1F7] LR
-🇱🇸	bandeira: Lesoto						// [1F1F1 1F1F8] LS
-🇱🇹	bandeira: Lituânia						// [1F1F1 1F1F9] LT
-🇱🇺	bandeira: Luxemburgo						// [1F1F1 1F1FA] LU
-🇱🇻	bandeira: Letônia						// [1F1F1 1F1FB] LV
-🇱🇾	bandeira: Líbia							// [1F1F1 1F1FE] LY
-🇲🇦	bandeira: Marrocos						// [1F1F2 1F1E6] MA
-🇲🇨	bandeira: Mônaco						// [1F1F2 1F1E8] MC
-🇲🇩	bandeira: Moldávia						// [1F1F2 1F1E9] MD
-🇲🇪	bandeira: Montenegro						// [1F1F2 1F1EA] ME
-🇲🇫	bandeira: São Martinho						// [1F1F2 1F1EB] MF
-🇲🇬	bandeira: Madagascar						// [1F1F2 1F1EC] MG
-🇲🇭	bandeira: Ilhas Marshall					// [1F1F2 1F1ED] MH
-🇲🇰	bandeira: Macedônia						// [1F1F2 1F1F0] MK
-🇲🇱	bandeira: Mali							// [1F1F2 1F1F1] ML
-🇲🇲	bandeira: Mianmar (Birmânia)					// [1F1F2 1F1F2] MM
-🇲🇳	bandeira: Mongólia						// [1F1F2 1F1F3] MN
-🇲🇴	bandeira: Macau, RAE da China					// [1F1F2 1F1F4] MO
-🇲🇵	bandeira: Ilhas Marianas do Norte				// [1F1F2 1F1F5] MP
-🇲🇶	bandeira: Martinica						// [1F1F2 1F1F6] MQ
-🇲🇷	bandeira: Mauritânia						// [1F1F2 1F1F7] MR
-🇲🇸	bandeira: Montserrat						// [1F1F2 1F1F8] MS
-🇲🇹	bandeira: Malta							// [1F1F2 1F1F9] MT
-🇲🇺	bandeira: Maurício						// [1F1F2 1F1FA] MU
-🇲🇻	bandeira: Maldivas						// [1F1F2 1F1FB] MV
-🇲🇼	bandeira: Malaui						// [1F1F2 1F1FC] MW
-🇲🇽	bandeira: México						// [1F1F2 1F1FD] MX
-🇲🇾	bandeira: Malásia						// [1F1F2 1F1FE] MY
-🇲🇿	bandeira: Moçambique						// [1F1F2 1F1FF] MZ
-🇳🇦	bandeira: Namíbia						// [1F1F3 1F1E6] NA
-🇳🇨	bandeira: Nova Caledônia					// [1F1F3 1F1E8] NC
-🇳🇪	bandeira: Níger							// [1F1F3 1F1EA] NE
-🇳🇫	bandeira: Ilha Norfolk						// [1F1F3 1F1EB] NF
-🇳🇬	bandeira: Nigéria						// [1F1F3 1F1EC] NG
-🇳🇮	bandeira: Nicarágua						// [1F1F3 1F1EE] NI
-🇳🇱	bandeira: Holanda						// [1F1F3 1F1F1] NL
-🇳🇴	bandeira: Noruega						// [1F1F3 1F1F4] NO
-🇳🇵	bandeira: Nepal							// [1F1F3 1F1F5] NP
-🇳🇷	bandeira: Nauru							// [1F1F3 1F1F7] NR
-🇳🇺	bandeira: Niue							// [1F1F3 1F1FA] NU
-🇳🇿	bandeira: Nova Zelândia						// [1F1F3 1F1FF] NZ
-🇴🇲	bandeira: Omã							// [1F1F4 1F1F2] OM
-🇵🇦	bandeira: Panamá						// [1F1F5 1F1E6] PA
-🇵🇪	bandeira: Peru							// [1F1F5 1F1EA] PE
-🇵🇫	bandeira: Polinésia Francesa					// [1F1F5 1F1EB] PF
-🇵🇬	bandeira: Papua-Nova Guiné					// [1F1F5 1F1EC] PG
-🇵🇭	bandeira: Filipinas						// [1F1F5 1F1ED] PH
-🇵🇰	bandeira: Paquistão						// [1F1F5 1F1F0] PK
-🇵🇱	bandeira: Polônia						// [1F1F5 1F1F1] PL
-🇵🇲	bandeira: São Pedro e Miquelão					// [1F1F5 1F1F2] PM
-🇵🇳	bandeira: Ilhas Pitcairn					// [1F1F5 1F1F3] PN
-🇵🇷	bandeira: Porto Rico						// [1F1F5 1F1F7] PR
-🇵🇸	bandeira: Territórios palestinos				// [1F1F5 1F1F8] PS
-🇵🇹	bandeira: Portugal						// [1F1F5 1F1F9] PT
-🇵🇼	bandeira: Palau							// [1F1F5 1F1FC] PW
-🇵🇾	bandeira: Paraguai						// [1F1F5 1F1FE] PY
-🇶🇦	bandeira: Catar							// [1F1F6 1F1E6] QA
-🇷🇪	bandeira: Reunião						// [1F1F7 1F1EA] RE
-🇷🇴	bandeira: Romênia						// [1F1F7 1F1F4] RO
-🇷🇸	bandeira: Sérvia						// [1F1F7 1F1F8] RS
-🇷🇺	bandeira: Rússia						// [1F1F7 1F1FA] RU
-🇷🇼	bandeira: Ruanda						// [1F1F7 1F1FC] RW
-🇸🇦	bandeira: Arábia Saudita					// [1F1F8 1F1E6] SA
-🇸🇧	bandeira: Ilhas Salomão						// [1F1F8 1F1E7] SB
-🇸🇨	bandeira: Seicheles						// [1F1F8 1F1E8] SC
-🇸🇩	bandeira: Sudão							// [1F1F8 1F1E9] SD
-🇸🇪	bandeira: Suécia						// [1F1F8 1F1EA] SE
-🇸🇬	bandeira: Singapura						// [1F1F8 1F1EC] SG
-🇸🇭	bandeira: Santa Helena						// [1F1F8 1F1ED] SH
-🇸🇮	bandeira: Eslovênia						// [1F1F8 1F1EE] SI
-🇸🇯	bandeira: Svalbard e Jan Mayen					// [1F1F8 1F1EF] SJ
-🇸🇰	bandeira: Eslováquia						// [1F1F8 1F1F0] SK
-🇸🇱	bandeira: Serra Leoa						// [1F1F8 1F1F1] SL
-🇸🇲	bandeira: San Marino						// [1F1F8 1F1F2] SM
-🇸🇳	bandeira: Senegal						// [1F1F8 1F1F3] SN
-🇸🇴	bandeira: Somália						// [1F1F8 1F1F4] SO
-🇸🇷	bandeira: Suriname						// [1F1F8 1F1F7] SR
-🇸🇸	bandeira: Sudão do Sul						// [1F1F8 1F1F8] SS
-🇸🇹	bandeira: São Tomé e Príncipe					// [1F1F8 1F1F9] ST
-🇸🇻	bandeira: El Salvador						// [1F1F8 1F1FB] SV
-🇸🇽	bandeira: Sint Maarten						// [1F1F8 1F1FD] SX
-🇸🇾	bandeira: Síria							// [1F1F8 1F1FE] SY
-🇸🇿	bandeira: Suazilândia						// [1F1F8 1F1FF] SZ
-🇹🇦	bandeira: Tristão da Cunha					// [1F1F9 1F1E6] TA
-🇹🇨	bandeira: Ilhas Turks e Caicos					// [1F1F9 1F1E8] TC
-🇹🇩	bandeira: Chade							// [1F1F9 1F1E9] TD
-🇹🇫	bandeira: Territórios Franceses do Sul				// [1F1F9 1F1EB] TF
-🇹🇬	bandeira: Togo							// [1F1F9 1F1EC] TG
-🇹🇭	bandeira: Tailândia						// [1F1F9 1F1ED] TH
-🇹🇯	bandeira: Tadjiquistão						// [1F1F9 1F1EF] TJ
-🇹🇰	bandeira: Tokelau						// [1F1F9 1F1F0] TK
-🇹🇱	bandeira: Timor-Leste						// [1F1F9 1F1F1] TL
-🇹🇲	bandeira: Turcomenistão						// [1F1F9 1F1F2] TM
-🇹🇳	bandeira: Tunísia						// [1F1F9 1F1F3] TN
-🇹🇴	bandeira: Tonga							// [1F1F9 1F1F4] TO
-🇹🇷	bandeira: Turquia						// [1F1F9 1F1F7] TR
-🇹🇹	bandeira: Trinidad e Tobago					// [1F1F9 1F1F9] TT
-🇹🇻	bandeira: Tuvalu						// [1F1F9 1F1FB] TV
-🇹🇼	bandeira: Taiwan						// [1F1F9 1F1FC] TW
-🇹🇿	bandeira: Tanzânia						// [1F1F9 1F1FF] TZ
-🇺🇦	bandeira: Ucrânia						// [1F1FA 1F1E6] UA
-🇺🇬	bandeira: Uganda						// [1F1FA 1F1EC] UG
-🇺🇲	bandeira: Ilhas Menores Distantes dos EUA			// [1F1FA 1F1F2] UM
-🇺🇳	bandeira: Nações Unidas						// [1F1FA 1F1F3] UN
-🇺🇸	bandeira: Estados Unidos					// [1F1FA 1F1F8] US
-🇺🇾	bandeira: Uruguai						// [1F1FA 1F1FE] UY
-🇺🇿	bandeira: Uzbequistão						// [1F1FA 1F1FF] UZ
-🇻🇦	bandeira: Cidade do Vaticano					// [1F1FB 1F1E6] VA
-🇻🇨	bandeira: São Vicente e Granadinas				// [1F1FB 1F1E8] VC
-🇻🇪	bandeira: Venezuela						// [1F1FB 1F1EA] VE
-🇻🇬	bandeira: Ilhas Virgens Britânicas				// [1F1FB 1F1EC] VG
-🇻🇮	bandeira: Ilhas Virgens Americanas				// [1F1FB 1F1EE] VI
-🇻🇳	bandeira: Vietnã						// [1F1FB 1F1F3] VN
-🇻🇺	bandeira: Vanuatu						// [1F1FB 1F1FA] VU
-🇼🇫	bandeira: Wallis e Futuna					// [1F1FC 1F1EB] WF
-🇼🇸	bandeira: Samoa							// [1F1FC 1F1F8] WS
-🇽🇰	bandeira: Kosovo						// [1F1FD 1F1F0] XK
-🇾🇪	bandeira: Iêmen							// [1F1FE 1F1EA] YE
-🇾🇹	bandeira: Mayotte						// [1F1FE 1F1F9] YT
-🇿🇦	bandeira: África do Sul						// [1F1FF 1F1E6] ZA
-🇿🇲	bandeira: Zâmbia						// [1F1FF 1F1F2] ZM
-🇿🇼	bandeira: Zimbábue						// [1F1FF 1F1FC] ZW
+🇦🇨	bandeira da Ilha de Ascensão					// [1F1E6 1F1E8] AC
+🇦🇩	bandeira de Andorra						// [1F1E6 1F1E9] AD
+🇦🇪	bandeira dos Emirados árabes Unidos				// [1F1E6 1F1EA] AE
+🇦🇫	bandeira do Afeganistão						// [1F1E6 1F1EB] AF
+🇦🇬	bandeira de Antígua e Barbuda					// [1F1E6 1F1EC] AG
+🇦🇮	bandeira de Anguilla						// [1F1E6 1F1EE] AI
+🇦🇱	bandeira da Albânia						// [1F1E6 1F1F1] AL
+🇦🇲	bandeira da Armênia						// [1F1E6 1F1F2] AM
+🇦🇴	bandeira da Angola						// [1F1E6 1F1F4] AO
+🇦🇶	bandeira da Antártida						// [1F1E6 1F1F6] AQ
+🇦🇷	bandeira da Argentina						// [1F1E6 1F1F7] AR
+🇦🇸	bandeira da Samoa Americana					// [1F1E6 1F1F8] AS
+🇦🇹	bandeira da Áustria						// [1F1E6 1F1F9] AT
+🇦🇺	bandeira da Austrália						// [1F1E6 1F1FA] AU
+🇦🇼	bandeira de Aruba						// [1F1E6 1F1FC] AW
+🇦🇽	bandeira das Ilhas Aland					// [1F1E6 1F1FD] AX
+🇦🇿	bandeira do Azerbaijão						// [1F1E6 1F1FF] AZ
+🇧🇦	bandeira da Bósnia e Herzegovina				// [1F1E7 1F1E6] BA
+🇧🇧	bandeira de Barbados						// [1F1E7 1F1E7] BB
+🇧🇩	bandeira de Bangladesh						// [1F1E7 1F1E9] BD
+🇧🇪	bandeira da Bélgica						// [1F1E7 1F1EA] BE
+🇧🇫	bandeira de Burquina Faso					// [1F1E7 1F1EB] BF
+🇧🇬	bandeira da Bulgária						// [1F1E7 1F1EC] BG
+🇧🇭	bandeira do Bahrein						// [1F1E7 1F1ED] BH
+🇧🇮	bandeira de Burundi						// [1F1E7 1F1EE] BI
+🇧🇯	bandeira de Benin						// [1F1E7 1F1EF] BJ
+🇧🇱	bandeira de São Bartolomeu					// [1F1E7 1F1F1] BL
+🇧🇲	bandeira de Bermudas						// [1F1E7 1F1F2] BM
+🇧🇳	bandeira de Brunei						// [1F1E7 1F1F3] BN
+🇧🇴	bandeira da Bolívia						// [1F1E7 1F1F4] BO
+🇧🇶	bandeira dos Países Baixos Caribenhos				// [1F1E7 1F1F6] BQ
+🇧🇷	bandeira do Brasil						// [1F1E7 1F1F7] BR
+🇧🇸	bandeira das Bahamas						// [1F1E7 1F1F8] BS
+🇧🇹	bandeira do Butão						// [1F1E7 1F1F9] BT
+🇧🇻	bandeira da Ilha Bouvet						// [1F1E7 1F1FB] BV
+🇧🇼	bandeira da Botsuana						// [1F1E7 1F1FC] BW
+🇧🇾	bandeira da Bielorrússia					// [1F1E7 1F1FE] BY
+🇧🇿	bandeira de Belize						// [1F1E7 1F1FF] BZ
+🇨🇦	bandeira do Canadá						// [1F1E8 1F1E6] CA
+🇨🇨	bandeira das Ilhas Cocos					// [1F1E8 1F1E8] CC
+🇨🇩	bandeira do Congo Kinshasa					// [1F1E8 1F1E9] CD
+🇨🇫	bandeira da República Centro Africana				// [1F1E8 1F1EB] CF
+🇨🇬	bandeira do Congo Brazzaville					// [1F1E8 1F1EC] CG
+🇨🇭	bandeira da Suíça						// [1F1E8 1F1ED] CH
+🇨🇮	bandeira da Costa do Marfim					// [1F1E8 1F1EE] CI
+🇨🇰	bandeira das Ilhas Cook						// [1F1E8 1F1F0] CK
+🇨🇱	bandeira do Chile						// [1F1E8 1F1F1] CL
+🇨🇲	bandeira de Camarões						// [1F1E8 1F1F2] CM
+🇨🇳	bandeira da China						// [1F1E8 1F1F3] CN
+🇨🇴	bandeira da Colômbia						// [1F1E8 1F1F4] CO
+🇨🇵	bandeira da Ilha de Clipperton					// [1F1E8 1F1F5] CP
+🇨🇷	bandeira de Costa Rica						// [1F1E8 1F1F7] CR
+🇨🇺	bandeira de Cuba						// [1F1E8 1F1FA] CU
+🇨🇻	bandeira de Cabo Verde						// [1F1E8 1F1FB] CV
+🇨🇼	bandeira de Curaçao						// [1F1E8 1F1FC] CW
+🇨🇽	bandeira das Ilha Christmas					// [1F1E8 1F1FD] CX
+🇨🇾	bandeira do Chipre						// [1F1E8 1F1FE] CY
+🇨🇿	bandeira da Tchéquia						// [1F1E8 1F1FF] CZ
+🇩🇪	bandeira da Alemanha						// [1F1E9 1F1EA] DE
+🇩🇬	bandeira de Diego Garcia					// [1F1E9 1F1EC] DG
+🇩🇯	bandeira de Djibuti						// [1F1E9 1F1EF] DJ
+🇩🇰	bandeira da Dinamarca						// [1F1E9 1F1F0] DK
+🇩🇲	bandeira da Dominica						// [1F1E9 1F1F2] DM
+🇩🇴	bandeira da República Dominicana				// [1F1E9 1F1F4] DO
+🇩🇿	bandeira da Argélia						// [1F1E9 1F1FF] DZ
+🇪🇦	bandeira de Ceuta e Melilha					// [1F1EA 1F1E6] EA
+🇪🇨	bandeira do Equador						// [1F1EA 1F1E8] EC
+🇪🇪	bandeira da Estônia						// [1F1EA 1F1EA] EE
+🇪🇬	bandeira do Egito						// [1F1EA 1F1EC] EG
+🇪🇭	bandeira do Saara Ocidental					// [1F1EA 1F1ED] EH
+🇪🇷	bandeira da Eritreia						// [1F1EA 1F1F7] ER
+🇪🇸	bandeira da Espanha						// [1F1EA 1F1F8] ES
+🇪🇹	bandeira da Etiópia						// [1F1EA 1F1F9] ET
+🇪🇺	bandeira da União Europeia					// [1F1EA 1F1FA] EU
+🇫🇮	bandeira da Finlândia						// [1F1EB 1F1EE] FI
+🇫🇯	bandeira de Fiji						// [1F1EB 1F1EF] FJ
+🇫🇰	bandeira das Ilhas Malvinas					// [1F1EB 1F1F0] FI
+🇫🇲	bandeira da Micronésia						// [1F1EB 1F1F2] FM
+🇫🇴	bandeira das Ilhas Faroe					// [1F1EB 1F1F4] FO
+🇫🇷	bandeira da França						// [1F1EB 1F1F7] FR
+🇬🇦	bandeira do Gabão						// [1F1EC 1F1E6] GA
+🇬🇧	bandeira do Reino Unido						// [1F1EC 1F1E7] GB
+🇬🇩	bandeira de Granada						// [1F1EC 1F1E9] GD
+🇬🇪	bandeira da Geórgia						// [1F1EC 1F1EA] GE
+🇬🇫	bandeira da Guiana Francesa					// [1F1EC 1F1EB] GF
+🇬🇬	bandeira de Guernsey						// [1F1EC 1F1EC] GG
+🇬🇭	bandeira de Gana						// [1F1EC 1F1ED] GH
+🇬🇮	bandeira de Gibraltar						// [1F1EC 1F1EE] GI
+🇬🇱	bandeira da Groenlândia						// [1F1EC 1F1F1] GL
+🇬🇲	bandeira da Gâmbia						// [1F1EC 1F1F2] GM
+🇬🇳	bandeira de Guiné						// [1F1EC 1F1F3] GN
+🇬🇵	bandeira de Guadalupe						// [1F1EC 1F1F5] GP
+🇬🇶	bandeira de Guiné Equatorial					// [1F1EC 1F1F6] GQ
+🇬🇷	bandeira da Grécia						// [1F1EC 1F1F7] GR
+🇬🇸	bandeira das Ilhas Geórgia do Sul e Sandwich do Sul		// [1F1EC 1F1F8] GS
+🇬🇹	bandeira da Guatemala						// [1F1EC 1F1F9] GT
+🇬🇺	bandeira de Guam						// [1F1EC 1F1FA] GU
+🇬🇼	bandeira de Guiné Bissau					// [1F1EC 1F1FC] GW
+🇬🇾	bandeira da Guiana						// [1F1EC 1F1FE] GY
+🇭🇰	bandeira de Hong Kong						// [1F1ED 1F1F0] HK
+🇭🇲	bandeira das Ilhas Heard e McDonald				// [1F1ED 1F1F2] HM
+🇭🇳	bandeira de Honduras						// [1F1ED 1F1F3] HN
+🇭🇷	bandeira da Croácia						// [1F1ED 1F1F7] HR
+🇭🇹	bandeira do Haiti						// [1F1ED 1F1F9] HT
+🇭🇺	bandeira da Hungria						// [1F1ED 1F1FA] HU
+🇮🇨	bandeira das Ilhas Canárias					// [1F1EE 1F1E8] IC
+🇮🇩	bandeira da Indonésia						// [1F1EE 1F1E9] ID
+🇮🇪	bandeira da Irlanda						// [1F1EE 1F1EA] IE
+🇮🇱	bandeira de Israel						// [1F1EE 1F1F1] IL
+🇮🇲	bandeira da Ilha de Man						// [1F1EE 1F1F2] IM
+🇮🇳	bandeira da Índia						// [1F1EE 1F1F3] IN
+🇮🇴	bandeira do Território Britânico do Oceano Índico		// [1F1EE 1F1F4] IO
+🇮🇶	bandeira do Iraque						// [1F1EE 1F1F6] IQ
+🇮🇷	bandeira do Irã							// [1F1EE 1F1F7] IR
+🇮🇸	bandeira da Islândia						// [1F1EE 1F1F8] IS
+🇮🇹	bandeira da Itália						// [1F1EE 1F1F9] IT
+🇯🇪	bandeira de Jersey						// [1F1EF 1F1EA] JE
+🇯🇲	bandeira da Jamaica						// [1F1EF 1F1F2] JM
+🇯🇴	bandeira da Jordânia						// [1F1EF 1F1F4] JO
+🇯🇵	bandeira do Japão						// [1F1EF 1F1F5] JP
+🇰🇪	bandeira do Quênia						// [1F1F0 1F1EA] KE
+🇰🇬	bandeira do Quirguistão						// [1F1F0 1F1EC] KG
+🇰🇭	bandeira do Camboja						// [1F1F0 1F1ED] KH
+🇰🇮	bandeira de Quiribati						// [1F1F0 1F1EE] KI
+🇰🇲	bandeira de Comores						// [1F1F0 1F1F2] KM
+🇰🇳	bandeira de São Cristóvão e Névis				// [1F1F0 1F1F3] KN
+🇰🇵	bandeira da Coreia do Norte					// [1F1F0 1F1F5] KP
+🇰🇷	bandeira da Coreia do Sul					// [1F1F0 1F1F7] KR
+🇰🇼	bandeira do Kuwait						// [1F1F0 1F1FC] KW
+🇰🇾	bandeira das Ilhas Cayman					// [1F1F0 1F1FE] KY
+🇰🇿	bandeira do Cazaquistão						// [1F1F0 1F1FF] KZ
+🇱🇦	bandeira do Laos						// [1F1F1 1F1E6] LA
+🇱🇧	bandeira do Líbano						// [1F1F1 1F1E7] LB
+🇱🇨	bandeira de Santa Lúcia						// [1F1F1 1F1E8] LC
+🇱🇮	bandeira de Liechtenstein					// [1F1F1 1F1EE] LI
+🇱🇰	bandeira do Sri Lanka						// [1F1F1 1F1F0] LK
+🇱🇷	bandeira da Libéria						// [1F1F1 1F1F7] LR
+🇱🇸	bandeira de Lesoto						// [1F1F1 1F1F8] LS
+🇱🇹	bandeira da Lituânia						// [1F1F1 1F1F9] LT
+🇱🇺	bandeira de Luxemburgo						// [1F1F1 1F1FA] LU
+🇱🇻	bandeira da Letônia						// [1F1F1 1F1FB] LV
+🇱🇾	bandeira da Líbia						// [1F1F1 1F1FE] LY
+🇲🇦	bandeira de Marrocos						// [1F1F2 1F1E6] MA
+🇲🇨	bandeira de Mônaco						// [1F1F2 1F1E8] MC
+🇲🇩	bandeira da Moldávia						// [1F1F2 1F1E9] MD
+🇲🇪	bandeira de Montenegro						// [1F1F2 1F1EA] ME
+🇲🇫	bandeira de São Martinho					// [1F1F2 1F1EB] MF
+🇲🇬	bandeira de Madagascar						// [1F1F2 1F1EC] MG
+🇲🇭	bandeira das Ilhas Marshall					// [1F1F2 1F1ED] MH
+🇲🇰	bandeira da Macedônia						// [1F1F2 1F1F0] MK
+🇲🇱	bandeira de Mali						// [1F1F2 1F1F1] ML
+🇲🇲	bandeira de Mianmar						// [1F1F2 1F1F2] MM
+🇲🇳	bandeira da Mongólia						// [1F1F2 1F1F3] MN
+🇲🇴	bandeira de Macau						// [1F1F2 1F1F4] MO
+🇲🇵	bandeira das Ilhas Marianas do Norte				// [1F1F2 1F1F5] MP
+🇲🇶	bandeira da Martinica						// [1F1F2 1F1F6] MQ
+🇲🇷	bandeira da Mauritânia						// [1F1F2 1F1F7] MR
+🇲🇸	bandeira de Montserrat						// [1F1F2 1F1F8] MS
+🇲🇹	bandeira de Malta						// [1F1F2 1F1F9] MT
+🇲🇺	bandeira de Maurício						// [1F1F2 1F1FA] MU
+🇲🇻	bandeira das Maldivas						// [1F1F2 1F1FB] MV
+🇲🇼	bandeira de Malaui						// [1F1F2 1F1FC] MW
+🇲🇽	bandeira do México						// [1F1F2 1F1FD] MX
+🇲🇾	bandeira da Malásia						// [1F1F2 1F1FE] MY
+🇲🇿	bandeira de Moçambique						// [1F1F2 1F1FF] MZ
+🇳🇦	bandeira da Namíbia						// [1F1F3 1F1E6] NA
+🇳🇨	bandeira da Nova Caledônia					// [1F1F3 1F1E8] NC
+🇳🇪	bandeira do Níger						// [1F1F3 1F1EA] NE
+🇳🇫	bandeira da Ilha Norfolk					// [1F1F3 1F1EB] NF
+🇳🇬	bandeira da Nigéria						// [1F1F3 1F1EC] NG
+🇳🇮	bandeira da Nicarágua						// [1F1F3 1F1EE] NI
+🇳🇱	bandeira da Holanda						// [1F1F3 1F1F1] NL
+🇳🇴	bandeira da Noruega						// [1F1F3 1F1F4] NO
+🇳🇵	bandeira do Nepal						// [1F1F3 1F1F5] NP
+🇳🇷	bandeira de Nauru						// [1F1F3 1F1F7] NR
+🇳🇺	bandeira de Niue						// [1F1F3 1F1FA] NU
+🇳🇿	bandeira da Nova Zelândia					// [1F1F3 1F1FF] NZ
+🇴🇲	bandeira de Omã							// [1F1F4 1F1F2] OM
+🇵🇦	bandeira do Panamá						// [1F1F5 1F1E6] PA
+🇵🇪	bandeira do Peru						// [1F1F5 1F1EA] PE
+🇵🇫	bandeira da Polinésia Francesa					// [1F1F5 1F1EB] PF
+🇵🇬	bandeira de Papua Nova Guiné					// [1F1F5 1F1EC] PG
+🇵🇭	bandeira das Filipinas						// [1F1F5 1F1ED] PH
+🇵🇰	bandeira do Paquistão						// [1F1F5 1F1F0] PK
+🇵🇱	bandeira da Polônia						// [1F1F5 1F1F1] PL
+🇵🇲	bandeira de São Pedro e Miquelão				// [1F1F5 1F1F2] PM
+🇵🇳	bandeira das Ilhas Pitcairn					// [1F1F5 1F1F3] PN
+🇵🇷	bandeira do Porto Rico						// [1F1F5 1F1F7] PR
+🇵🇸	bandeira da Palestina						// [1F1F5 1F1F8] PS
+🇵🇹	bandeira de Portugal						// [1F1F5 1F1F9] PT
+🇵🇼	bandeira de Palau						// [1F1F5 1F1FC] PW
+🇵🇾	bandeira do Paraguai						// [1F1F5 1F1FE] PY
+🇶🇦	bandeira do Catar						// [1F1F6 1F1E6] QA
+🇷🇪	bandeira de Reunião						// [1F1F7 1F1EA] RE
+🇷🇴	bandeira da Romênia						// [1F1F7 1F1F4] RO
+🇷🇸	bandeira da Sérvia						// [1F1F7 1F1F8] RS
+🇷🇺	bandeira da Rússia						// [1F1F7 1F1FA] RU
+🇷🇼	bandeira de Ruanda						// [1F1F7 1F1FC] RW
+🇸🇦	bandeira da Arábia Saudita					// [1F1F8 1F1E6] SA
+🇸🇧	bandeira das Ilhas Salomão					// [1F1F8 1F1E7] SB
+🇸🇨	bandeira de Seicheles						// [1F1F8 1F1E8] SC
+🇸🇩	bandeira do Sudão						// [1F1F8 1F1E9] SD
+🇸🇪	bandeira da Suécia						// [1F1F8 1F1EA] SE
+🇸🇬	bandeira de Singapura						// [1F1F8 1F1EC] SG
+🇸🇭	bandeira de Santa Helena					// [1F1F8 1F1ED] SH
+🇸🇮	bandeira da Eslovênia						// [1F1F8 1F1EE] SI
+🇸🇯	bandeira de Svalbard e Jan Mayen				// [1F1F8 1F1EF] SJ
+🇸🇰	bandeira da Eslováquia						// [1F1F8 1F1F0] SK
+🇸🇱	bandeira de Serra Leoa						// [1F1F8 1F1F1] SL
+🇸🇲	bandeira de San Marino						// [1F1F8 1F1F2] SM
+🇸🇳	bandeira de Senegal						// [1F1F8 1F1F3] SN
+🇸🇴	bandeira da Somália						// [1F1F8 1F1F4] SO
+🇸🇷	bandeira de Suriname						// [1F1F8 1F1F7] SR
+🇸🇸	bandeira do Sudão do Sul					// [1F1F8 1F1F8] SS
+🇸🇹	bandeira de São Tomé e Príncipe					// [1F1F8 1F1F9] ST
+🇸🇻	bandeira de El Salvador						// [1F1F8 1F1FB] SV
+🇸🇽	bandeira de Sint Maarten					// [1F1F8 1F1FD] SX
+🇸🇾	bandeira da Síria						// [1F1F8 1F1FE] SY
+🇸🇿	bandeira da Suazilândia						// [1F1F8 1F1FF] SZ
+🇹🇦	bandeira de Tristão da Cunha					// [1F1F9 1F1E6] TA
+🇹🇨	bandeira das Ilhas Turks e Caicos				// [1F1F9 1F1E8] TC
+🇹🇩	bandeira de Chade						// [1F1F9 1F1E9] TD
+🇹🇫	bandeira dos Territórios Franceses do Sul			// [1F1F9 1F1EB] TF
+🇹🇬	bandeira de Togo						// [1F1F9 1F1EC] TG
+🇹🇭	bandeira da Tailândia						// [1F1F9 1F1ED] TH
+🇹🇯	bandeira do Tadjiquistão					// [1F1F9 1F1EF] TJ
+🇹🇰	bandeira de Tokelau						// [1F1F9 1F1F0] TK
+🇹🇱	bandeira de Timor Leste						// [1F1F9 1F1F1] TL
+🇹🇲	bandeira do Turcomenistão					// [1F1F9 1F1F2] TM
+🇹🇳	bandeira da Tunísia						// [1F1F9 1F1F3] TN
+🇹🇴	bandeira de Tonga						// [1F1F9 1F1F4] TO
+🇹🇷	bandeira da Turquia						// [1F1F9 1F1F7] TR
+🇹🇹	bandeira de Trinidad e Tobago					// [1F1F9 1F1F9] TT
+🇹🇻	bandeira de Tuvalu						// [1F1F9 1F1FB] TV
+🇹🇼	bandeira de Taiwan						// [1F1F9 1F1FC] TW
+🇹🇿	bandeira da Tanzânia						// [1F1F9 1F1FF] TZ
+🇺🇦	bandeira da Ucrânia						// [1F1FA 1F1E6] UA
+🇺🇬	bandeira de Uganda						// [1F1FA 1F1EC] UG
+🇺🇲	bandeira das Ilhas Menores Distantes dos EUA			// [1F1FA 1F1F2] UM
+🇺🇳	bandeira das Nações Unidas					// [1F1FA 1F1F3] UN
+🇺🇸	bandeira dos Estados Unidos					// [1F1FA 1F1F8] US
+🇺🇾	bandeira do Uruguai						// [1F1FA 1F1FE] UY
+🇺🇿	bandeira do Uzbequistão						// [1F1FA 1F1FF] UZ
+🇻🇦	bandeira da Cidade do Vaticano					// [1F1FB 1F1E6] VA
+🇻🇨	bandeira de São Vicente e Granadinas				// [1F1FB 1F1E8] VC
+🇻🇪	bandeira da Venezuela						// [1F1FB 1F1EA] VE
+🇻🇬	bandeira das Ilhas Virgens Britânicas				// [1F1FB 1F1EC] VG
+🇻🇮	bandeira das Ilhas Virgens Americanas				// [1F1FB 1F1EE] VI
+🇻🇳	bandeira do Vietnã						// [1F1FB 1F1F3] VN
+🇻🇺	bandeira de Vanuatu						// [1F1FB 1F1FA] VU
+🇼🇫	bandeira de Wallis e Futuna					// [1F1FC 1F1EB] WF
+🇼🇸	bandeira de Samoa						// [1F1FC 1F1F8] WS
+🇽🇰	bandeira de Kosovo						// [1F1FD 1F1F0] XK
+🇾🇪	bandeira do Iêmen						// [1F1FE 1F1EA] YE
+🇾🇹	bandeira de Mayotte						// [1F1FE 1F1F9] YT
+🇿🇦	bandeira da África do Sul					// [1F1FF 1F1E6] ZA
+🇿🇲	bandeira da Zâmbia						// [1F1FF 1F1F2] ZM
+🇿🇼	bandeira de Zimbábue						// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	bandeira: Inglaterra					// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	bandeira: Escócia					// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandeira: País de Gales					// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	bandeira da Inglaterra						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	bandeira da Escócia						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandeira do País de Gales					// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	tecla: #							// [0023 FE0F 20E3]
-*️⃣	tecla: *							// [002A FE0F 20E3]
-0️⃣	tecla: 0							// [0030 FE0F 20E3]
-1️⃣	tecla: 1							// [0031 FE0F 20E3]
-2️⃣	tecla: 2							// [0032 FE0F 20E3]
-3️⃣	tecla: 3							// [0033 FE0F 20E3]
-4️⃣	tecla: 4							// [0034 FE0F 20E3]
-5️⃣	tecla: 5							// [0035 FE0F 20E3]
-6️⃣	tecla: 6							// [0036 FE0F 20E3]
-7️⃣	tecla: 7							// [0037 FE0F 20E3]
-8️⃣	tecla: 8							// [0038 FE0F 20E3]
-9️⃣	tecla: 9							// [0039 FE0F 20E3]
+#️⃣	tecla cerquilha							// [0023 FE0F 20E3]
+*️⃣	tecla asterisco							// [002A FE0F 20E3]
+0️⃣	tecla 0								// [0030 FE0F 20E3]
+1️⃣	tecla 1								// [0031 FE0F 20E3]
+2️⃣	tecla 2								// [0032 FE0F 20E3]
+3️⃣	tecla 3								// [0033 FE0F 20E3]
+4️⃣	tecla 4								// [0034 FE0F 20E3]
+5️⃣	tecla 5								// [0035 FE0F 20E3]
+6️⃣	tecla 6								// [0036 FE0F 20E3]
+7️⃣	tecla 7								// [0037 FE0F 20E3]
+8️⃣	tecla 8								// [0038 FE0F 20E3]
+9️⃣	tecla 9								// [0039 FE0F 20E3]
 
 // 1FA70..1FAFF : Symbols and Pictographs Extended-A
 🩰	sapatilha de balé					// [1FA70]
@@ -2111,38 +2111,38 @@ $textmode
 👨‍🦼‍➡	homem em cadeira de rodas motorizada de frente para a direita	// [1F468 200D 1F9BC 200D 27A1]
 👨‍🦽	homem em cadeira de rodas manual			// [1F468 200D 1F9BD]
 👨‍🦽‍➡	homem em cadeira de rodas manual de frente para a direita	// [1F468 200D 1F9BD 200D 27A1]
-👩‍❤‍💋‍👨	beijo: mulher e homem			// [1F469 200D 2764 200D 1F48B 200D 1F468]
-👨‍❤‍💋‍👨	beijo: homem e homem			// [1F468 200D 2764 200D 1F48B 200D 1F468]
-👩‍❤‍💋‍👩	beijo: mulher e mulher			// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	casal apaixonado: mulher e homem		// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	casal apaixonado: homem e homem			// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	casal apaixonado: mulher e mulher		// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	família: homem, mulher e menino			// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	família: homem, mulher e menina			// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	família: homem, mulher, menina e menino	// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	família: homem, mulher, menino e menino	// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	família: homem, mulher, menina e menina	// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	família: homem, homem e menino			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	família: homem, homem e menina			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	família: homem, homem, menina e menino	// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	família: homem, homem, menino e menino	// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	família: homem, homem, menina e menina	// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍🍼	mulher alimentando bebê					// [1F469 200D 1F37C]
-👩‍👩‍👦	família: mulher, mulher e menino		// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	família: mulher, mulher e menina		// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	família: mulher, mulher, menina e menino// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	família: mulher, mulher, menino e menino// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	família: mulher, mulher, menina e menina// [1F469 200D 1F469 200D 1F467 200D 1F467]
-👨‍👦	família: homem e menino					// [1F468 200D 1F466]
-👨‍👦‍👦	família: homem, menino e menino			// [1F468 200D 1F466 200D 1F466]
-👨‍👧	família: homem e menina					// [1F468 200D 1F467]
-👨‍👧‍👦	família: homem, menina e menino			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	família: homem, menina e menina			// [1F468 200D 1F467 200D 1F467]
-👩‍👦	família: mulher e menino				// [1F469 200D 1F466]
-👩‍👦‍👦	família: mulher, menino e menino		// [1F469 200D 1F466 200D 1F466]
-👩‍👧	família: mulher e menina				// [1F469 200D 1F467]
-👩‍👧‍👦	família: mulher, menina e menino		// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	família: mulher, menina e menina		// [1F469 200D 1F467 200D 1F467]
+👩‍❤‍💋‍👨	beijo mulher e homem				// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	beijo homem e homem				// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	beijo mulher e mulher				// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	casal apaixonado mulher e homem			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	casal apaixonado homem e homem			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	casal apaixonado mulher e mulher		// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	família homem mulher e menino			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	família homem mulher e menina			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	família homem mulher menina e menino		// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	família homem mulher menino e menino		// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	família homem mulher menina e menina		// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	família homem homem e menino			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	família homem homem e menina			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	família homem homem menina e menino		// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	família homem homem menino e menino		// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	família homem homem menina e menina		// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍🍼	mulher alimentando bebê				// [1F469 200D 1F37C]
+👩‍👩‍👦	família mulher mulher e menino			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	família mulher mulher e menina			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	família mulher mulher menina e menino		// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	família mulher mulher menino e menino		// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	família mulher mulher menina e menina		// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	família homem e menino				// [1F468 200D 1F466]
+👨‍👦‍👦	família homem menino e menino			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	família homem e menina				// [1F468 200D 1F467]
+👨‍👧‍👦	família homem menina e menino			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	família homem menina e menina			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	família mulher e menino				// [1F469 200D 1F466]
+👩‍👦‍👦	família mulher menino e menino			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	família mulher e menina				// [1F469 200D 1F467]
+👩‍👧‍👦	família mulher menina e menino			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	família mulher menina e menina			// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -2328,10 +2328,10 @@ $textmode
 
 💁‍♀	mulher dando uma dica					// [1F481 200D 2640]
 💁‍♂	homem dando uma dica					// [1F481 200D 2642]
-🙅‍♀	mulher dizendo não”					// [1F645 200D 2640]
-🙅‍♂	homem dizendo não”					// [1F645 200D 2642]
-🙆‍♀	mulher dizendo ok”					// [1F646 200D 2640]
-🙆‍♂	homem dizendo ok”					// [1F646 200D 2642]
+🙅‍♀	mulher dizendo não					// [1F645 200D 2640]
+🙅‍♂	homem dizendo não					// [1F645 200D 2642]
+🙆‍♀	mulher dizendo ok					// [1F646 200D 2640]
+🙆‍♂	homem dizendo ok					// [1F646 200D 2642]
 🙇‍♀	mulher pedindo desculpas				// [1F647 200D 2640]
 🙇‍♂	homem pedindo desculpas					// [1F647 200D 2642]
 🙋‍♀	mulher levantando a mão					// [1F64B 200D 2640]
