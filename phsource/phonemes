@@ -1916,6 +1916,9 @@ include ph_english_wi
 phonemetable en-wm en
 include ph_english_wm
 
+phonemetable en-in en
+include ph_english_in
+
 // *** Hidden dependencies ***
 // Tables which include/import phonemes from other (in comment) tables
 // TODO these may be needed to redesign

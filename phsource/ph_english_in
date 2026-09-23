@@ -1,0 +1,311 @@
+//====================================================
+//  English (India) — Indian English phoneme adjustments
+//====================================================
+// Based on ph_english_wi (syllable-timed, monophthongal) plus
+// retroflex stops from ph_hindi, adapted to the en table.
+//
+// Community-grounded features (Wells 1982; Sailaja 2009; Gargesh 2008;
+// OED World Englishes Indian English model; Sirsa & Redford 2013):
+//   - alveolar t/d -> retroflex [ʈ ɖ] (t./d.)
+//   - FACE /eI/ -> [eː], GOAT /oU/ -> [oː] (monophthongization)
+//   - clear [l] everywhere (no dark ɫ)
+//   - dental fricatives, v/w merger (-> [ʋ] v#) and rhotic colouring for
+//     spelled r/r- are handled via `replace` rules in
+//     espeak-ng-data/lang/gmw/en-in, since base1 already provides t[, d[,
+//     r. and v#.
+//
+// This file defines phonemes that do NOT exist in base1/en (retroflex
+// stops t./d.), plus overrides for the unstressed/stressed r-coloured
+// schwa (3, 3:) used by spelled -er/-or/-ir/-ur endings (water, teacher,
+// bird...). base1's 3/3: are plain, non-rhotic schwa (CALL @) — correct
+// for RP but wrong for IndE, which is fully rhotic (Wells 1982; Sailaja
+// 2009; OED IndE). Unlike en-US, which gets rhoticity for free from an
+// r-coloured vowel formant, IndE realises rhoticity as vowel + a real
+// consonantal retroflex approximant (Sailaja 2009), so these append r.
+// rather than relying on formant colouring. Everything else is
+// inherited from en.
+
+// one/won/once -> [ʋʌn], as in en-us; the base en table maps 02 to the RP [ɒ].
+phoneme 02
+  vwl  starttype #o  endtype #o
+  length 140
+  ChangePhoneme(V)
+endphoneme
+
+// Monophthongal FACE: day -> [deː] (Sailaja 2009; OED IndE)
+phoneme eI
+  vwl  starttype #e  endtype #e
+  length 210
+  FMT(vowel/e)
+endphoneme
+
+
+// Monophthongal GOAT: go -> [goː] (Sailaja 2009; OED IndE)
+phoneme oU
+  vwl  starttype #o  endtype #o
+  length 220
+  FMT(vowel/o)
+endphoneme
+
+
+// Clear [l] everywhere — no dark-ɫ (IndE uses clear l in milk/leaf)
+phoneme l
+  import_phoneme base1/l   // use clear [l] before not-vowel
+endphoneme
+
+
+// Rhotic unstressed schwa: water/teacher/river -> [...ər], not [...ə]
+// (base1's `3` is CALL @, i.e. plain non-rhotic schwa). IndE is rhotic
+// regardless of what follows (no RP-style vowel-only linking-r), so
+// append retroflex r. unconditionally rather than gating on next-vowel.
+phoneme 3
+  vwl  starttype #@  endtype #@
+  unstressed
+  length 140
+  // nextPhW (word-scoped), not nextPh: the guard exists only to avoid a
+  // redundant double-r when the word's OWN spelling already places an r
+  // right after (within the same word) - it must not suppress this word's
+  // own trailing r just because the NEXT WORD happens to start with one
+  // (e.g. "teacher river" was losing teacher's own r entirely - a real,
+  // audible bug, not cosmetic - found via direct --ipa testing).
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
+
+// Rhotic stressed schwa: bird/her/fur -> [b..ərd] etc, retroflex not
+// American r-colouring (base1's `3:` has no r at all for word-final).
+phoneme 3:
+  vwl  starttype #@  endtype #@
+  length 210
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/3_en)
+endphoneme
+
+
+// Post-vocalic rhotic vowels: IndE realizes post-vocalic r as retroflex r.
+// (Wells 1982; Sailaja 2009; OED IndE). base1 drops r unless followed by vowel.
+phoneme A@
+  vwl  starttype #a  endtype #a
+  ipa ɑː
+  length 230
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme O@
+  vwl  starttype #o  endtype #o
+  ipa ɔː
+  length 240
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/oo_en)
+endphoneme
+
+
+phoneme o@
+  vwl  starttype #o  endtype #o
+  ipa oː
+  length 240
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/oo_en)
+endphoneme
+
+
+phoneme e@
+  vwl  starttype #e  endtype #@
+  ipa eː
+  length 230
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vowel/ee_1)
+endphoneme
+
+
+// i@ is also the r-less vowel of idea, various, calcium, really; NEAR words
+// spelled with r use i@3 (below), so i@ must not add an r.
+phoneme i@
+  vwl  starttype #i  endtype #@
+  ipa iːə
+  length 240
+  IF nextPh(r.) OR nextPh(r) THEN
+    ChangePhoneme(i:)    // hero, zero, period: [iː] before r (OED IndE)
+  ENDIF
+  FMT(vdiph2/ii@)
+endphoneme
+
+
+phoneme i@3
+  vwl  starttype #i  endtype #@
+  ipa iː
+  length 240
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vdiph2/ii@)
+endphoneme
+
+
+phoneme U@
+  vwl  starttype #u  endtype #@
+  ipa uː
+  length 200
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vdiph2/uu@)
+endphoneme
+
+
+// aI@ is the r-less vowel of science, quiet, diet, lion; fire, hire and
+// -ier words use aI3, which gets the r.
+phoneme aI@
+  vwl  starttype #a  endtype #@
+  length 260
+  FMT(vwl_en/aI@)
+endphoneme
+
+phoneme aI3
+  vwl  starttype #a  endtype #@
+  ipa aɪə
+  length 260
+  IF NOT nextPhW(r) AND NOT nextPhW(r.) THEN
+    AppendPhoneme(r.)
+  ENDIF
+  FMT(vwl_en/aI@)
+endphoneme
+
+
+// Retroflex stops [ʈ ɖ]: time->[ʈaɪm], water->[ʋaːʈər]
+// (Gargesh 2008; Sailaja 2009; OED IndE; Sirsa & Redford 2013)
+// Formant/model data mirrors ph_hindi t./d. (WAV/FMT names exist in base data).
+phoneme t.
+  vls rfx stp
+  lengthmod 2
+  ipa ʈ
+  voicingswitch d.
+  Vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+  WAV(ustop/t_short)
+endphoneme
+
+
+phoneme d.
+  vcd rfx stp
+  lengthmod 5
+  ipa ɖ
+  voicingswitch t.
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1  f2=1800 -300 300  f3=-400 80 colr=2
+
+  IF PreVoicing THEN
+    FMT(d/xdr)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ENDIF
+
+  FMT(d/dr) addWav(x/d)
+endphoneme
+
+
+// Plain schwa without the RP linking/intrusive r: the base @ appends r-
+// before a following vowel, so "samosa idli" and "Priya Arjun" came out
+// with an r that Indian English doesn't have. Words spelled with r get
+// their r from 3/A@/O@ above, so nothing real is lost.
+phoneme @
+  vwl   starttype #@  endtype #@
+  unstressed
+  length 140
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6, 90)
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
+
+
+// Voiceless stops are unaspirated in Indian English: pen [pen], cat [kaʈ],
+// not English [pʰ kʰ] (Wells 1982; Sailaja 2009). Same stops as Hindi's
+// p and k. The retroflex t. above is already unaspirated.
+phoneme p
+  import_phoneme consonants/p-
+endphoneme
+
+phoneme k
+  import_phoneme consonants/k-
+  voicingswitch g
+endphoneme
+
+
+// Vowels per the OED Indian English model (Gargesh 2008; Sailaja 2009;
+// Wiltshire 2020): TRAP is [æ], STRUT is [ə].
+phoneme a
+  vwl  starttype #e  endtype #@
+  ipa æ
+  length 170
+  ChangeIfDiminished(a#)
+  FMT(vwl_en_us/a)
+endphoneme
+
+phoneme V
+  vwl  starttype #@  endtype #@
+  ipa ə
+  length 140
+  FMT(vowel/@)
+endphoneme
+
+// "sing" always ends in [ŋɡ] (OED IndE): sing [sɪŋɡ], singer [sɪŋɡər].
+phoneme N
+  vcd vel nas
+  lengthmod 8
+  IF nextPh(g) OR nextPh(k) THEN
+  ELSE
+    AppendPhoneme(g)
+  ENDIF
+  CALL base1/N
+endphoneme
+
+// [ɑː] without the RP linking r: "Pooja is" had an r (OED IndE: never
+// intrusive r). Words spelled with r use A@, which keeps its real r.
+phoneme A:
+  vwl  starttype #a  endtype #a
+  length 230
+  FMT(vowel/aa_2)
+endphoneme
+
+// LOT/CLOTH is [ɔ] (OED IndE): hot [hɔʈ], dog [ɖɔɡ].
+phoneme 0
+  vwl  starttype #o  endtype #o
+  ipa ɔ
+  length 150
+  ChangeIfDiminished(@)
+  FMT(vowel/oo)
+endphoneme
+
+// -es plural ends in [s] too: kisses [kɪsɪs], roses [roːzɪs] (OED IndE).
+// Word-final I2z is that suffix (and 3rd-person -es); "is" uses plain I.
+phoneme z
+  IF prevPh(I2) AND thisPh(isWordEnd) THEN
+    ChangePhoneme(s)
+  ENDIF
+  CALL base1/z
+endphoneme
+
+// Retroflex approximant for spelled r (replace r -> r. in the voice file).
+phoneme r.
+  import_phoneme base1/r.
+  ipa ɻ
+endphoneme

@@ -1,6 +1,6 @@
 # Languages
 
-Development version of eSpeak NG supports 127 languages and accents,
+Development version of eSpeak NG supports 128 languages and accents,
 which are listed in table below.
 
 To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
@@ -38,6 +38,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `gmw`       | `en-us`           | West Germanic         | English                     | American               |
 | `gmw`       | `en`              | West Germanic         | English                     | British                |
 | `gmw`       | `en-029`          | West Germanic         | English                     | Caribbean              |
+| `gmw`       | `en-in`           | West Germanic         | English                     | Indian                 |
 | `gmw`       | `en-gb-x-gbclan`  | West Germanic         | English                     | Lancastrian            |
 | `gmw`       | `en-gb-x-rp`      | West Germanic         | English                     | Received Pronunciation |
 | `gmw`       | `en-gb-scotland`  | West Germanic         | English                     | Scottish               |

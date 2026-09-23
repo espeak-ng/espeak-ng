@@ -686,6 +686,7 @@
         alz        alt|s
      &) al (_      @L
 ?8   &) al (_      a#l
+?12   &) al (_      a#l
      @) ally (_S2  %i
   @@ic) ally (_S4  l%i
     ac) ally (_    l%i
@@ -860,6 +861,7 @@
      &) an (ize    @n
      &) an (_$w_alt1+ an
 ?8   &) an (_      a#n
+?12   &) an (_      a#n
     @u) an (_S1    n
     @i) an (_S1    n
     Cc) an (_      an
@@ -869,8 +871,10 @@
    &Cl) an (_      @n
     &m) an (_      @n
 ?8  &m) an (_      a#n
+?12  &m) an (_      a#n
     &m) ann (_     @n
 ?8  &m) ann (_     a#n
+?12  &m) ann (_     a#n
     an) an (_S1    n
      p) an (_      an
     tr) an (_      an
@@ -888,11 +892,13 @@
      &) an (t_$w_alt1 an
 ?3   &) an (t_$w_alt1 A:n
 ?8   &) an (t_     a#n
+?12   &) an (t_     a#n
     _f) an (at     a#n
         an (tee_   @n'
      &) an (ce_    @n
      &) an (ce_$w_alt1 an
 ?8   &) an (ce_    a#n
+?12   &) an (ce_    a#n
    fin) an (c      'an
      h) an (ce_    aan
      &) an (cy     @n
@@ -1612,6 +1618,7 @@ _it_separ) ate (_  @t
         cia (ry    S=@
         cien       S@n
 ?8      cien       SEn
+?12      cien       SEn
         cion       S@n
         ceous      S=@s
         cious      S=@s
@@ -1621,6 +1628,7 @@ _it_separ) ate (_  @t
         c (ellL03_ tS'
      &) cia (X     =S@
 ?8   &) cia (X     =Sa#
+?12   &) cia (X     =Sa#
      &) cial       S@L
      &) cian       Si@n
         cius (_    S@s
@@ -2493,7 +2501,9 @@ _it_separ) ate (_  @t
  couns) el (@      @l
      &) el (s_     @L
 ?8   &) el (_      El
+?12   &) el (_      El
 ?8   &) el (s_     El
+?12   &) el (s_     El
         ela (_     'El@
      _) el (iot    El
         ella (_    'El@
@@ -2690,6 +2700,7 @@ _it_separ) ate (_  @t
         en (tsi    En
      &) en (t_     @n
 ?8   &) en (t_     En
+?12   &) en (t_     En
      @) en (tal    'En
         en (ti     En
         en (tial+  'En
@@ -2709,6 +2720,7 @@ _it_separ) ate (_  @t
      &) en (ty_    @n
      &) en (ce_    @n
 ?8   &) en (ce_    En
+?12   &) en (ce_    En
      f) en (ce_    En
      _) en (ough   I2n
      b) en (z      E2n
@@ -2751,9 +2763,10 @@ _it_separ) ate (_  @t
     er) er (_S2    3
     ll) er (_S2    %3
      &) er (_      %3
-?8   &) er (_      a#        // (temporary because [3] -> [a#] is only for word-final
+?11  &) er (_      a#        // (temporary because [3] -> [a#] is only for word-final
+                              // ?11 not ?8: GB-only non-rhotic weak vowel; en-in stays rhotic via the %3 default above
     ll) ers (_S3   %3z
-?8  %C) ers (_S4   a#z
+?11 %C) ers (_S4   a#z
     ss) er (_S2    3
    all) er (_      3
     mb) er (_      3
@@ -3441,7 +3454,7 @@ _it_separ) ate (_  @t
      &) ians (_NS2 nz
 
      C) iar        aI3
-?8   C) iar        aIa#
+?11  C) iar        aIa#        // GB-only non-rhotic; en-in stays rhotic via the aI3 default above
         iar (iC    i@3
         iar (ity   iar
      &) iary       =j@ri
@@ -3527,7 +3540,7 @@ _it_separ) ate (_  @t
     sc) ie (nc     aI@
         ie (ntiC   aI@
    _sc) ie (n      aI@
-?8 _sc) ie (n      aIa#
+?11 _sc) ie (n      aIa#       // GB-only non-rhotic; en-in stays rhotic via the aI@ default above
         ie (nCiA   I'E
         ie (nda_   I'E
     fr) ie (nd     E
@@ -3916,6 +3929,7 @@ hiccup) ing (_S3   %IN
    _or) ion        'aI@n
      &) ion (_     =i@n
 ?8   &) ion (_     =IVn
+?12   &) ion (_     =IVn
     ll) ion        i@n
     ll) ion (_     =i@n
      n) ion        =i@n
@@ -3951,7 +3965,7 @@ hiccup) ing (_S3   %IN
  consp) ira (t     Ir@
         ire        aI3
         ir (ee     aI3
-?8      ire        aIa#
+?11     ire        aIa#        // GB-only non-rhotic; en-in stays rhotic via the aI3 default above
      c) ire (n     aIr@
      d) ir (ect    %aIr
 ?3   d) ir (ect    %I#r
@@ -4250,6 +4264,22 @@ multip) ly         laI
      &) le (_      l
     &C) le (_      @L
 ?8  &C) le (_      El
+// Indian English: [əl] (little, people, simple), not the full [ɛl] of ?8.
+// Named letters, so these outscore the ?8 rule's consonant class.
+?12 &b) le (_      @l
+?12 &c) le (_      @l
+?12 &d) le (_      @l
+?12 &f) le (_      @l
+?12 &g) le (_      @l
+?12 &k) le (_      @l
+?12 &m) le (_      @l
+?12 &n) le (_      @l
+?12 &p) le (_      @l
+?12 &s) le (_      @l
+?12 &t) le (_      @l
+?12 &v) le (_      @l
+?12 &x) le (_      @l
+?12 &z) le (_      @l
     %C) le         @L
     %C) le (y_     l
     &r) le (_      l
@@ -4274,8 +4304,11 @@ multip) ly         laI
      @) lessly (_S6i l@sl%i
      @) lessness (_S8i l@sn@s
 ?8   @) less (_S4i lEs
+?12   @) less (_S4i lEs
 ?8   @) lessly (_S6i lEsl%i
+?12   @) lessly (_S6i lEsl%i
 ?8   @) lessness (_S8i lEsnEs
+?12   @) lessness (_S8i lEsnEs
         le (vel+   lE
      c) leve (l    li:v
 
@@ -4323,7 +4356,9 @@ multip) ly         laI
      &) ments (_S5 m@nt|s
      &) ment's (_S6 m@nt|s
 ?8   &) ment (_S4  mEnt
+?12   &) ment (_S4  mEnt
 ?8   &) ments (_S5 mEnt|s
+?12   &) ments (_S5 mEnt|s
         mEnt (_    m@nt
    tor) me (nt+    m'E
      C) mented     m'EntId
@@ -4401,6 +4436,7 @@ multip) ly         laI
         necessit   n@sEsIt
      &) ness (_S4im n@s
 ?8   &) ness (_S4im nEs
+?12   &) ness (_S4im nEs
      @) n (ch      n
     2_) nd (_ 
     &B) ne (_      n%I
@@ -4787,6 +4823,7 @@ multip) ly         laI
      @) on (_$w_alt2 @n
         on (_$w_alt1+ 0n
 ?8   @) on (_++    0n
+?12   @) on (_++    0n
    &%C) on (_      @n
     &b) on (_      @n
     &c) on (_      @n
@@ -4960,8 +4997,8 @@ multip) ly         laI
      &) or (ate    3r
      &) or (ative  @-r
      &) or (_      %3
-?8  @@) or (_S2d   o@        // suffix
-?8   &) or (_      o@
+?11 @@) or (_S2d   o@        // suffix; GB-only non-rhotic, en-in stays rhotic via %3 default above
+?11  &) or (_      o@        // GB-only non-rhotic; en-in stays rhotic via %3 default above
     _c) or (@      O@
      c) or (k      O@
      c) or (e_     o@
@@ -5960,7 +5997,9 @@ multip) ly         laI
 ?3  er) sion       Z@n
      A) sion       Z@n
 ?8   C) sion       SVn
+?12   C) sion       SVn
 ?8   A) sion       ZVn
+?12   A) sion       ZVn
     ai) sin (_     z@n
      u) sin (_     z@n
      A) s (itiv    z
@@ -5980,6 +6019,7 @@ multip) ly         laI
         ss (hood_  s
         ssion      =S@n
 ?8      ssion (_   =SVn
+?12      ssion (_   =SVn
     1_) st (_ 
      _) st (_      s@nt
         stein      staIn
@@ -5994,7 +6034,9 @@ multip) ly         laI
     ea) s (y       z
     Ai) s (y       z
         s (_N      z
+?12     s (_N      s         // Indian English plurals are [s]: dogs [ɖɔɡs] (OED IndE)
      @) s (_NS1m   z
+?12  @) s (_NS1m   s
      @) s (_$w_alt1 s
    _BA) s (_N      s
    &se) s (_S1     I#z
@@ -6229,7 +6271,9 @@ multip) ly         laI
      &) tion       S=@n
     &s) tion       tS@n
 ?8   &) tion       S=Vn
+?12   &) tion       S=Vn
 ?8  &s) tion       tSVn
+?12  &s) tion       tSVn
         tion (al_  S=@-n
         tion (al   S@-n
         tion (ality S@n
@@ -6359,6 +6403,7 @@ contin) u          ju:
      _) u (lA      u:
     &f) ul (_      @L
 ?8  &f) ul (_      Vl
+?12  &f) ul (_      Vl
     &s) ul (_      @L
      @) u (la_     =jU
      @) u (lar     =jU
@@ -6377,6 +6422,7 @@ contin) u          ju:
      f) u (lcr     V
     &f) ully (_    @li
 ?8  &f) ully (_    Vli
+?12  &f) ully (_    Vli
      &) u (lous_   =jU
      b) ul (r      Ul
         ul (se#    Vl
@@ -6888,6 +6934,7 @@ contin) u          ju:
 
         El (_      @L
 ?8      El (_      El
+?12      El (_      El
         Ele (_     @L
         Ell (+     @L
         Ella (_    'El@
@@ -6901,12 +6948,14 @@ contin) u          ju:
         Ensk (_    'Ensk
         En (_      @n
 ?8      En (_      En
+?12      En (_      En
         En (atA    @n
         En (dA_    'En
         E (ndous   E
         Ener (_    @n@
         Ening (_   @nI2N
 ?8      Ening (_   EnI2N
+?12      Ening (_   EnI2N
         Ene (_     i:n
         Ened (_S2  d
         En (g      @n
