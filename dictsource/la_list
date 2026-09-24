@@ -56,7 +56,7 @@ Idq          i:d'EmkwE //īdemque
 
 // adverbs
 
-non
+nōn
 
 // Pronouns:
 // Relative pronouns. These should probably be unstressed most of the time, hence the $u markers.
@@ -301,3 +301,18 @@ _8X	Okto:g'Inta:
 _9X	no:na:g'Inta:
 _0C	k'EntUm
 _0M1	m'IllE
+
+// rare diphthongs
+
+// eu
+seu 'sEU
+neu 'nEU
+ceu 'cEU
+
+// ui: only in huius, cuius, huic, cui, hui
+huius 'huIUs
+cuius 'kuIUs
+cui 'kuI
+huic 'huIk
+hui 'huI
+

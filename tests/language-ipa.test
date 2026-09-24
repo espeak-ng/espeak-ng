@@ -1,0 +1,36 @@
+#!/bin/sh
+# include common script
+. "`dirname $0`/common"
+
+# English
+test_ipa en "ˈtɛst" "test" ""
+
+# Latin vowels
+# TRACE=1
+IGNORE=1
+test_ipa la "ˈab" "ab" "a -> /a/"
+test_ipa la "ˈaː" "ā" "ā -> /aː/"
+test_ipa la "ˈɛt" "et" "e -> /ɛ/"
+test_ipa la "ˈeː" "ē" "ē -> /eː/"
+test_ipa la "ˈɪm.pɫe.oː" "impleō" "i -> /ɪ/"
+test_ipa la "ˈiːn.sʊ.ɫa" "īnsula" "ī -> /iː/"
+test_ipa la "ˈɔp.toː" "optō" "o -> /ɔ/"
+test_ipa la "ˈoː.roː" "ōrō" "ō -> /oː/"
+test_ipa la "ˈʊ.bɪ" "ubi" "u -> /ʊ/"
+test_ipa la "ˈuː.nʊs" "ūnus" "ū -> /uː/"
+test_ipa la "lʏˈkiː.um" "lycīum" "y  -> /ʏ/"
+test_ipa la "ˈlyː.di.a" "lȳdia" "ȳ -> /yː/"
+test_ipa la "ˈkae̯.sar" "caesar" "ae -> /ae̯/"
+test_ipa la "ˈnau̯.ta" "nauta" "au -> /au̯/"
+test_ipa la "ˈseu̯" "seu" "eu -> /eu̯/ (rare)"
+test_ipa la "ˈpoe̯.na" "poena" "oe -> /oe̯/"
+# only in huius, cuius, huic, cui, hui.
+test_ipa la "ˈkui̯" "cui" "ui -> /ui̯/ (rare)"
+
+# Latin consonants
+# test_ipa la "bɪ.bli.ɔˈtʰeː.ka" "bibliothēca" "Latin Consonant b -> /b/"
+test_ipa la "ˈbɛ.nɛ" "bene" "b -> /b/"
+test_ipa la "ˈdoː" "dō" "d -> /d/"
+{ TRACE=1 test_ipa la "ˈfa.ki.oː" "faciō" "f -> /f/"; }
+# FIXME: test_ipa la "g" "g" "g -> /g/"
+exit 1
