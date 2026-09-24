@@ -1,0 +1,94 @@
+
+//====================================================
+//  Bété (bof) — Daloa dialect
+//  Kru language family, Côte d'Ivoire
+//  ISO 639-3: bof
+//====================================================
+
+// Vowels (a, e, i, o, u, E, O, U from base2; we add I)
+
+phoneme I
+  vwl starttype #i endtype #i
+  ipa ɪ
+  length 170
+  FMT(vowel/ii_2)
+endphoneme
+
+
+// Consonants — labiovelars (discriminant phones)
+
+phoneme kp
+  vls blb stp
+  ipa kp
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p, 60)
+endphoneme
+
+phoneme gb
+  vcd blb stp
+  ipa ɡb
+  lengthmod 5
+  Vowelin  f1=2  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=2  f2=1000 -500 -350  f3=-300 80
+  FMT(g/g) addWav(x/g2, 40)
+endphoneme
+
+// Implosive bilabial
+
+phoneme b_
+  vcd blb stp
+  ipa ɓ
+  lengthmod 5
+  Vowelin  f1=2  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=2  f2=1000 -500 -350  f3=-300 80 brk
+
+  IF PreVoicing THEN
+    FMT(b/xb)
+  ENDIF
+
+  FMT(b/b) addWav(x/b, 50)
+endphoneme
+
+// Fricative vélaire
+
+phoneme Q
+  vcd vel frc
+  ipa ɣ
+  lengthmod 6
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  FMT(g/g) addWav(x/g2, 30)
+endphoneme
+
+// Nasals
+
+phoneme n^
+  vcd pal nas pzd
+  ipa ɲ
+  lengthmod 4
+  Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
+
+  NextVowelStarts
+    VowelStart(n^/n^@)
+    VowelStart(n^/n^a)
+    VowelStart(n^/n^e)
+    VowelStart(n^/n^i)
+    VowelStart(n^/n^o)
+    VowelStart(n^/n^u)
+  EndSwitch
+
+  FMT(n^/n^_)
+endphoneme
+
+// Affricates
+
+phoneme dZ
+  import_phoneme base1/dZ
+endphoneme
+
+phoneme tS
+  import_phoneme base1/tS
+endphoneme
