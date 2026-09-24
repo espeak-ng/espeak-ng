@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- A watch dialog hands its content the full width of the display, and on
+         a round watch that width runs under the bezel: at 384x384 the visible
+         chord starts around 5px alongside the label, so text laid out from
+         x=0 loses its first character and the slider track its ends.
+
+         Only the label and the slider are inset. The row below them is
+         already tight enough on a watch that the checkbox wraps, and taking
+         another 32px from it breaks the wrap outright. -->
+    <dimen name="parameter_bezel_inset">16dp</dimen>
+
+</resources>
