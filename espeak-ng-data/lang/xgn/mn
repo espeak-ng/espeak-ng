@@ -1,15 +1,62 @@
 name Mongolian
 language mn
 
+// BASE and RANGE, not min and max. Raising the second number lifts the median
+// pitch as well as the range, so it cannot be used to reach the speaker's F0
+// range: `pitch 60 340` measures a median of 362 Hz, nothing like a male voice.
+//
+// The first number ALSO sets formant_factor (voices.c), which scales the
+// consonant->vowel F2 transition locus -- the primary place-of-articulation
+// cue. It must stay near 1.0. A previous revision used `pitch 55 145` to buy
+// 0.8 st of pitch range; that put formant_factor at 0.914, the most extreme of
+// any shipped voice, shifting every consonant's place cue by -8.6%, and a
+// native speaker reported consonants as mushy. Keep the base in 69..95
+// (formant_factor 0.96..1.04).
+//
+// Measured against the mbspeech speaker (median F0 131 Hz): this gives 131 Hz
+// exactly, with formant_factor 0.994. It also has the flattest declination of
+// the candidates tested. Its F0 range (3.85 st against the speaker's 8.85) is
+// the lowest of them -- accepted deliberately, because absolute pitch and
+// consonant clarity are far more audible than range.
+//
+// Any edit here needs `cmake -Bbuild` (configure), not just `--target data`:
+// cmake/data.cmake stages this file with file(COPY), which runs at configure
+// time. An earlier revision's `pitch 60 200` sat in this file while every test
+// and measurement ran against the previous value.
 pitch 80 140
 
 speed 85
+
+// Unvoiced consonant amplitude. espeak's default is 90 -- deliberately reduced
+// from 100 in v1.47 (voices.c) -- and Mongolian had never set it, so every
+// unvoiced consonant was attenuated 10%. The original native-speaker report was
+// that consonants sounded weak; three rounds went into raising individual WAV()
+// amplitudes phoneme by phoneme, hitting the 255 ceiling on r and X, while this
+// global knob sat unset.
+//
+// Measured consonant-to-vowel level, from DTW-aligned corpus tokens: the speaker
+// is at -7.0 dB. eSpeak was at -8.2. Swept 100 -> -7.4, 115 -> -7.0, 130 -> -6.5,
+// so 115 lands on the speaker's value. 130 is available if consonants still read
+// as weak; it overshoots the measured target deliberately.
+consonants 115
 
 formant 0 100 100 100
 formant 1 96 100 100
 formant 2 100 100 100
 
+// breath: TESTED AND KEPT. Mongolian and mn-f are the only two voices in all of
+// espeak-ng that set it, and it injects noise resonated at each formant frequency
+// (wavegen.c: `value += resonator(&rbreath[ix], noise) * amp`) -- noise placed
+// exactly where vowel identity lives, which looked like a clarity defect.
+//
+// It is not. Removing it moved vowel HNR from 18.2 dB to 18.4 dB, i.e. nothing.
+// The reason is in the parser: `breath[0] = Read8Numbers(p, &breath[1])` stores
+// the COUNT in [0], so the actual per-formant amplitudes are just 2/3/1/1/1/1 --
+// negligible against the formant amplitudes. The 18.2 dB figure has some other
+// cause. Do not remove this again expecting a gain.
 breath 2  3  1  1  1  1
 breathw 100 100 100 100 100 100
 
-intonation 1
+// Khalkha-specific contours; see phsource/intonation.
+// Statement / comma / question / exclamation.
+tunes mn_s mn_c mn_q mn_e

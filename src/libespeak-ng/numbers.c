@@ -1646,6 +1646,54 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 			number_control |= 1; // use _1e variant of number
 	}
 
+	if (tr->langopts.numbers2 & NUM2_ATTRIBUTIVE) {
+		// A numeral that modifies a following noun takes a different form from the
+		// one used in isolation: Mongolian counts "тав" but says "таван километр".
+		// Only the FINAL unit changes, which is what the `control & 2` test at the
+		// _%de lookup already restricts it to -- the tens are attributive in the
+		// dictionary already (хорин, not хорь).
+		//
+		// The trigger is a following WORD, not a following number: "0 1 2 3" is a
+		// count and "2010-2020" a range, and both keep the isolated form. So skip
+		// the separator and require the next character not to be a digit.
+		//
+		// A following conjunction, clitic or particle is not a noun either --
+		// "5 юм" is тав юм, not таван юм -- and those are a closed class, so
+		// langopts.attributive_stop_words lists them.
+		// NOT extended to the decimal point. "3.14" ought to be гурван бүхэл, but
+		// number_control is set once for the whole number, so triggering on the
+		// separator also made the FRACTION's last unit attributive ("1.75" became
+		// далан таван). That trades a known error for an unvalidated one in a
+		// rare construction; the integer part stays гурав until the flag can be
+		// scoped to it alone.
+		if (wtab_remaining > 1) {
+			const char *p_next = &word[n_digits];
+			while ((*p_next == ' ') || (*p_next == '-'))
+				p_next++;
+			// A LETTER, not merely "not a digit": end-of-buffer and punctuation
+			// both passed that weaker test, so a bare "10000" came out мянган.
+			// Cyrillic is multi-byte UTF-8, hence the >= 0x80 arm.
+			unsigned char c_next = (unsigned char)*p_next;
+			if ((c_next >= 0x80) || isalpha(c_next)) {
+				int len = 0;
+				while ((p_next[len] != 0) && (p_next[len] != ' '))
+					len++;
+
+				bool attributive = true;
+				if (tr->langopts.attributive_stop_words != NULL) {
+					for (const char * const *w = tr->langopts.attributive_stop_words; *w != NULL; w++) {
+						if (((int)strlen(*w) == len) && (memcmp(p_next, *w, len) == 0)) {
+							attributive = false;
+							break;
+						}
+					}
+				}
+				if (attributive)
+					number_control |= 1;
+			}
+		}
+	}
+
 	if ((word[n_digits] == tr->langopts.decimal_sep) && IsDigit09(word[n_digits+1])) {
 		// this "word" ends with a decimal point
 		Lookup(tr, "_dpt", ph_append);

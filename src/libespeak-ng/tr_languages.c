@@ -207,6 +207,7 @@ static const unsigned short chars_ignore_zwnj_hyphen[] = {
 };
 
 static const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
+static const unsigned char utf8_mn_ordinal[] = { 0xd1, 0x80, 0 }; // Cyrillic ER, the Mongolian ordinal marker
 static const unsigned char utf8_null[] = { 0 }; // null string, UTF-8
 
 static Translator *NewTranslator(void)
@@ -383,6 +384,18 @@ static const unsigned char ru_vowels[] = { // (also kazakh) offset by 0x420 -- �
 };
 static const unsigned char ru_consonants[] = { // б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь қ ң һ
 	0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2c, 0x73, 0x7b, 0x83, 0x9b, 0
+};
+
+// Mongolian Cyrillic, offset by 0x420. The Russian lists above do cover every
+// Mongolian letter, but they also carry letters Mongolian never uses -- the
+// Kazakh ә ұ і and қ ң һ -- so they describe the wrong alphabet. Spelling the
+// Mongolian one out keeps LETTERGP_A/LETTERGP_C meaning exactly the 12 vowels
+// and 23 consonants the rules in mn_rules reason about.
+static const unsigned char mn_vowels[] = { // а е ё и о ө у ү ы э ю я
+	0x10, 0x15, 0x31, 0x18, 0x1e, 0xc9, 0x23, 0x8f, 0x2b, 0x2d, 0x2e, 0x2f, 0
+};
+static const unsigned char mn_consonants[] = { // б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь
+	0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2c, 0
 };
 
 static void SetArabicLetters(Translator *tr)
@@ -1164,7 +1177,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.lengthen_tonic = 0;
 		tr->langopts.param[LOPT_SUFFIX] = 1;
 
-		tr->langopts.numbers =  NUM_OMIT_1_HUNDRED | NUM_DFRACTION_6;
+		tr->langopts.numbers =  NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2;
 		tr->langopts.max_initial_consonants = 2;
 		SetLengthMods(tr, 3); // all equal
 	}
@@ -1277,25 +1290,90 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('m', 'n'): // Mongolian (Khalkha)
 	{
-		static const unsigned char stress_amps_mn[8] = { 16, 16, 17, 17, 20, 20, 22, 18 };
-		static const short stress_lengths_mn[8] = { 190, 180, 220, 220, 0, 0, 260, 240 };
+		// Every value here is measured; docs/languages/xgn/mn.md section 15 has
+		// the sweeps and the reasoning.
+
+		// Flat, deliberately. The speaker's stressed-to-unstressed vowel level
+		// gap is -0.2 dB, and Khalkha stress is fixed initial so it is never
+		// contrastive -- while the grammar lives in unstressed suffixes.
+		static const unsigned char stress_amps_mn[8] = { 22, 22, 22, 22, 22, 22, 22, 22 };
+
+		// Unstressed syllables lengthened: they were rendering at 0.47 of a full
+		// vowel against the speaker's 0.61, too short to carry the suffixes.
+		static const short stress_lengths_mn[8] = { 245, 240, 235, 235, 0, 0, 260, 250 };
 
 		tr->letter_bits_offset = OFFSET_CYRILLIC;
 		memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
-		SetLetterBits(tr, LETTERGP_A, (char *)ru_vowels);
-		SetLetterBits(tr, LETTERGP_C, (char *)ru_consonants);
-		SetLetterBits(tr, LETTERGP_VOWEL2, (char *)ru_vowels);
+		SetLetterBits(tr, LETTERGP_A, (char *)mn_vowels);
+		SetLetterBits(tr, LETTERGP_C, (char *)mn_consonants);
+		SetLetterBits(tr, LETTERGP_VOWEL2, (char *)mn_vowels);
 
 		SetupTranslator(tr, stress_lengths_mn, stress_amps_mn);
 
 		tr->langopts.stress_rule = STRESSPOSN_1L; // first syllable stress
-		tr->langopts.stress_flags = S_NO_AUTO_2 | S_NO_EOC_LENGTHEN;
-		tr->langopts.lengthen_tonic = 0;
+		tr->langopts.stress_flags = S_NO_AUTO_2;
+
+		// S_NO_EOC_LENGTHEN removed and lengthen_tonic raised from 0: both were
+		// suppressing final lengthening, where the speaker's clause-final vowel
+		// is 1.60x a non-final one and eSpeak was at 1.04. 35 is above espeak's
+		// default of 20 and no other language sets it.
+		tr->langopts.lengthen_tonic = 35;
+
 		tr->langopts.param[LOPT_SUFFIX] = 1;
-		tr->langopts.word_gap = 1; // natural word gap
+
+		// Juncture WITHOUT an inserted pause: the low bits are deliberately 0.
+		// word_gap=2 matched the speaker's mean gap but not his distribution,
+		// and a native speaker heard the result as staccato.
+		tr->langopts.word_gap = 0x20;
+
 		tr->langopts.vowel_pause = 1;
-		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_6;
-		tr->langopts.max_initial_consonants = 3;
+
+		// Roman numerals are ORDINAL in Mongolian: "XXI зуун" is the twenty-first
+		// century and "III бүлэг" the third chapter, so they reuse the _1o.._90o
+		// entries added for the N-р form. Restricted to all-caps because a lone
+		// lower-case "i" or "x" in mixed text is not a numeral. No risk from
+		// Cyrillic: TranslateRoman matches "ixcmvld", Latin only, and Cyrillic х
+		// (U+0445) is not Latin x (U+0078).
+		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2
+		                     | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;
+
+		// The ordinal marker. TranslateRoman rebuilds the value as "21 р" and
+		// re-parses it, so the suffix arrives space-separated rather than
+		// hyphenated; mn_list carries both `_#-р` and `_#р` for that reason.
+		tr->langopts.roman_suffix = utf8_mn_ordinal;
+
+		// A numeral modifying a noun takes the attributive form: тав is five,
+		// but "5 км" is таван километр. Only the final unit changes; the tens
+		// are already attributive in mn_list (хорин, not хорь).
+		//
+		// The words below are the exception: a conjunction, clitic or particle
+		// after the numeral is not a counted noun, so "5 юм" stays тав юм. They
+		// are the same closed class already listed as particles in mn_list.
+		static const char * const attributive_stop_mn[] = {
+			"ба", "буюу", "болон", "эсвэл",       // conjunctions
+			"нь", "юм", "бол", "л", "ч", "мөн",   // clitics and topic markers
+			"гэж", "гэсэн", "гэдэг", "гэх",       // quotatives
+			"шүү", "даа", "дээ", "аа", "биз",     // sentence-final particles
+			NULL
+		};
+		tr->langopts.numbers2 |= NUM2_ATTRIBUTIVE;
+		tr->langopts.attributive_stop_words = attributive_stop_mn;
+
+		// Unstable-vowel deletion produces clusters the spelling does not show
+		// (ажилтан is four consonants deep), so the syllabifier needs the room.
+		tr->langopts.max_initial_consonants = 4;
+
+		// An abbreviation takes its case suffix in lowercase, written solid --
+		// МОНГОЛын. eSpeak's CamelCase splitter made that two stressed words.
+		tr->langopts.caps_keep_suffix = true;
+
+		// Yes/no questions are marked by a clause-final clitic, not punctuation:
+		// "Та Монгол хүн үү" is a question and is written without "?".
+		static const char * const question_particles_mn[] = {
+			"уу", "үү", "юу", "юү", "вэ", "бэ", NULL
+		};
+		tr->langopts.question_particles = question_particles_mn;
+
 		SetLengthMods(tr, 3);
 	}
 		break;
