@@ -72,4 +72,18 @@
   <string name="variant_whisper">Whisper</string>
   <string name="import_voice_title">Import eSpeak dictionary</string>
   <string name="import_voice_description">Import an eSpeak voice dictionary file from the SD card.</string>
+
+  <string name="dictionary_manager_title">Custom word replacements</string>
+  <string name="dictionary_manager_description">Correct words with fast, language-specific text replacements.</string>
+  <string name="lexicon_target_label">Incorrect or target word</string>
+  <string name="lexicon_target_hint">Word to replace</string>
+  <string name="lexicon_replacement_label">Correct replacement or pronunciation</string>
+  <string name="lexicon_replacement_hint">Replacement text</string>
+  <string name="lexicon_language_label">Language</string>
+  <string name="lexicon_save_button">Save replacement</string>
+  <string name="lexicon_help">Replacements are applied before synthesis. No dictionary compilation is needed.</string>
+  <string name="lexicon_no_languages">No languages are available.</string>
+  <string name="lexicon_saved">Replacement saved. Total entries: %1$d.</string>
+  <string name="lexicon_save_failed">Could not save replacement: %1$s</string>
+  <string name="lexicon_entry_count">Saved replacements: %1$d.</string>
 </resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/lexicon_target"
+        android:text="@string/lexicon_target_label" />
+
+    <EditText
+        android:id="@+id/lexicon_target"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lexicon_target_hint"
+        android:inputType="text|textNoSuggestions"
+        android:maxLength="128"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:labelFor="@id/lexicon_replacement"
+        android:text="@string/lexicon_replacement_label" />
+
+    <EditText
+        android:id="@+id/lexicon_replacement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lexicon_replacement_hint"
+        android:inputType="text|textNoSuggestions"
+        android:maxLength="512"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:labelFor="@id/lexicon_language"
+        android:text="@string/lexicon_language_label" />
+
+    <Spinner
+        android:id="@+id/lexicon_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/lexicon_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/lexicon_save_button" />
+
+    <TextView
+        android:id="@+id/lexicon_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:accessibilityLiveRegion="polite"
+        android:text="@string/lexicon_help" />
+
+</LinearLayout>
