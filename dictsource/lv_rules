@@ -1079,6 +1079,7 @@ L46L45L45) o (<<           uo
         m) ol (u           ol
         n) ol (ik          uol
            ol (eo          ol
+        _) olal            olal      // olallā
         _) ol (gL04_       ol        // Olga
            ol (ig          ol
            ol (imp         ol
@@ -1168,7 +1169,13 @@ L46L45L45) o (<<           uo
         n) om (L05_        o:m       // ..nome
         n) omod            uomuod
            om (ār          om
+        _) omb             omb       // ombutsmens
+        _) omeg            omeg      // omega
+        _) oml             oml       // omlete
+        _) omul            omul      // omulīgs
         _) om (L05_        o:m       // ome
+        _) omīt (L05_      o:mi:t    // omīte
+        _) omamm (L04_     o:mamm    // omamma
            om (nib         om
            omot (o         omot
         _) om (s           o:m
@@ -1348,6 +1355,7 @@ L46L45L45) o (<<           uo
         n) opo (st         uopuo
            op (c           op
            op (en          op
+        _) opā             opa:      // opā
         _) op (erL04_++++  o:p       // opera
            op (er++++      op
            op (iā          op
@@ -1384,6 +1392,7 @@ L46L45L45) o (<<           uo
        _t) op              uo`p      // top with short uo because of ambiguity
        tr) op              o:p
        ut) op (i           o:p
+        _) opus            opus
 
 .group or
        ab) or              oR
@@ -1696,6 +1705,9 @@ L46L45L45) o (<<           uo
         _) pus (astoņ      p%us
         _) pus (deviņ      p%us
         _) pus (desmit     p%us
+
+.group pr
+        _) pro             pro
 
 .group q
            q (A            kv
