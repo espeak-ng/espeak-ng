@@ -1,0 +1,13 @@
+#!/bin/sh
+# include common script
+. "`dirname $0`/common"
+
+##### Bété (Bété de Daloa) - ISO 639-3: bof
+# Testing Bible verse Psalm 150:1
+
+# Test: "A ghlimanɩ -Lagɔ, na kpö yi -Lagɔ ghlimanɩ!"
+# IPA: [a ʔɣlimanɩ -laɡɔ, na ʔkpö ji -laɡɔ ʔɣlimanɩ!]
+# Meaning: Praise the Lord! Praise the Lord, O my soul!
+# Translation FR: Louez l'Éternel ! Mon âme, loue l'Éternel !
+
+test_phon bof "a ʔɣlimanɩ laɡɔ na ʔkpö ji laɡɔ ʔɣlimanɩ" "A ghlimanɩ -Lagɔ, na kpö yi -Lagɔ ghlimanɩ!" "Latn"
