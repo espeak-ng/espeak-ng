@@ -77,7 +77,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 		if ((p = strstr(buf, "//")) != NULL)
 			*p = 0; // truncate line at comment
 
-               if (strncmp(buf, "volume", 6) == 0) {
+		if (strncmp(buf, "volume", 6) == 0) {
 			mbrola_ctrl = atoi(&buf[6]);
 			continue;
 		}
@@ -97,7 +97,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 			data[count].control = control;
 			if (strcmp(name1, "NULL") != 0)
 				data[count].mbr_name = StringToWord(name1);
-			if (n == 6)
+			if (n == 6 && strcmp(name2, "NULL") != 0)
 				data[count].mbr_name2 = StringToWord(name2);
 
 			count++;

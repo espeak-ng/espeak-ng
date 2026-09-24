@@ -49,3 +49,13 @@ phoneme iu
   lng
   FMT(vdiph2/iu_2)
 endphoneme
+
+phoneme OI
+  vwl starttype #o endtype #i
+  length 250
+  FMT(vdiph/oi)
+endphoneme
+
+phoneme l
+  import_phoneme en/l
+endphoneme

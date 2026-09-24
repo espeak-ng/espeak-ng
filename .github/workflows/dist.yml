@@ -8,7 +8,8 @@ on:
     branches: [ master ]
 
 env:
-  deps: cmake libpcaudio-dev libsonic-dev ronn kramdown python3
+  deps: cmake libpcaudio-dev libsonic-dev ronn kramdown python3 mbrola mbrola-*
+  SKIP_MBROLA: 1
 
 jobs:
 

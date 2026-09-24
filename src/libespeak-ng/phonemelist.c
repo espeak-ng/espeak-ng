@@ -40,6 +40,42 @@
 #include "translate.h"
 #include "speech.h"
 
+#ifdef __APPLE__
+#include <libgen.h>
+#endif // __APPLE__
+
+static const char *PHONEME_TYPES[phINVALID + 1] = {
+#define ENUM(value) [value] = #value
+	ENUM(phPAUSE),
+	ENUM(phSTRESS),
+	ENUM(phVOWEL),
+	ENUM(phLIQUID),
+	ENUM(phSTOP),
+	ENUM(phVSTOP),
+	ENUM(phFRICATIVE),
+	ENUM(phNASAL),
+	ENUM(phVIRTUAL),
+	ENUM(phDELETED),
+	ENUM(phINVALID),
+#undef ENUM
+};
+
+#if defined(__clang__)
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+    #pragma clang diagnostic ignored "-Wgnu-conditional-omitted-operand"
+#elif defined(__GNUC__)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wvariadic-macros"
+#endif
+
+#define TRACE(fmt, ...) \
+	do { \
+		if (option_phonemes & espeakPHONEMES_TRACE) { \
+			fprintf(stderr, "[TRACE] (%s:%u:%s) " fmt "\n", basename(__FILE__), __LINE__, __func__, ##__VA_ARGS__); \
+		} \
+	} while (0)
+
 static void SetRegressiveVoicing(int regression, PHONEME_LIST2 *plist2, PHONEME_TAB *ph, Translator *tr);
 static void ReInterpretPhoneme(PHONEME_TAB *ph, PHONEME_TAB *ph2, PHONEME_LIST *plist3, PHONEME_LIST *plist3_start, Translator *tr, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
 
@@ -129,6 +165,36 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 	}
 	return n_plist_out;
 }
+
+static int PHONEME_SONORITIES[phINVALID + 1] = {
+	[phSTOP] = 1,
+	[phVSTOP] = 1,
+	[phFRICATIVE] = 2,
+	[phVFRICATIVE] = 2,
+	[phNASAL] = 3,
+	[phLIQUID] = 4,
+	[phVOWEL] = 5,
+};
+
+static inline bool is_nucleus(PHONEME_LIST *phlist)
+{
+	return phlist->type == phVOWEL && phlist->ph && !(phlist->ph->phflags & phNONSYLLABIC);
+}
+
+static inline bool is_language_specific_legal_onset_cluster(Translator *tr, PHONEME_LIST *start, PHONEME_LIST *end)
+{
+	// Latin
+	if (strncmp(tr->dictionary_name, "la", sizeof(tr->dictionary_name)) == 0) {
+		if (!(start->newword & PHLIST_START_OF_WORD)) {
+			if (PHONEME_SONORITIES[start->type] == PHONEME_SONORITIES[end->type]) {
+				return false;
+			}
+		}
+	}
+	// fallback: legal unless forbidden
+	return true;
+}
+
 
 void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 {
@@ -453,6 +519,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 				? phoneme_tab[plist3->tone_ph] : NULL;
 			phlist[ix].sourceix = 0;
 			phlist[ix].phcode = ph->code;
+			phlist[ix].starts_syllable = false;
 
 			if (plist3->sourceix != 0) {
 				phlist[ix].sourceix = plist3->sourceix;
@@ -489,6 +556,106 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 	}
 
+	// determine syllable boundaries
+	if (option_phonemes & espeakPHONEMES_TRACE) {
+		char sonority_buf[2048] = {0};
+		char type_buf[2048] = {0};
+		char phoneme_buf[2048] = {0};
+		char index_buf[2048] = {0};
+		char *sonorities = sonority_buf;
+		char *types = type_buf;
+		char *phonemes = phoneme_buf;
+		char *indices = index_buf;
+		for (int k = 0; k < ix; k++) {
+			char phoneme[32] = {0};
+
+			char *delimiter = k > 0 ? "\t" : "";
+			int type = phlist[k].type;
+			sonorities += snprintf(sonorities, sizeof(sonority_buf) - (sonorities - sonority_buf), "%s%d", delimiter, PHONEME_SONORITIES[type]);
+			types += snprintf(types, sizeof(type_buf) - (types - type_buf), "%s%d", delimiter, type);
+			phonemes += snprintf(phonemes, sizeof(phoneme_buf) - (phonemes - phoneme_buf), "%s%s", delimiter, phlist[k].ph ? WordToString(phoneme, phlist[k].ph->mnemonic) : "(null)");
+			indices += snprintf(indices, sizeof(index_buf) - (indices - index_buf), "%s%d", delimiter, k);
+		}
+		TRACE("determining syllable boundaries");
+		TRACE("sonorities:\t%s", sonority_buf);
+		TRACE("types:\t%s", type_buf);
+		TRACE("phonemes:\t%s", phoneme_buf);
+		TRACE("indices:\t%s", index_buf);
+	}
+	for (j = ix - 1; j >= 0; j--) {
+		if (is_nucleus(&phlist[j])) {
+			int boundary_index = j;
+			int last_valid_index = j;
+
+			while (boundary_index > 0) {
+				int previous_index = boundary_index - 1;
+
+				// skip non-syllabic
+				if (phlist[previous_index].ph == NULL || (phlist[previous_index].ph->phflags & phNONSYLLABIC)) {
+					TRACE("skip non-syllabic");
+					boundary_index--;
+					continue;
+				}
+
+				// if (phlist[previous_index].ph->phflags & phBRKAFTER) {
+				// 	TRACE("phlist[previous_index: %d].ph->phflags & phBRKAFTER", previous_index);
+				// 	break;
+				// }
+
+				if (is_nucleus(&phlist[previous_index])) {
+					TRACE("is_nucleus(&phlist[previous_index: %d])", previous_index);
+					break;
+				}
+
+				int type_start = phlist[previous_index].type;
+				int type_end = phlist[last_valid_index].type;
+
+				if (type_start == phPAUSE) {
+					TRACE("type_start == phPAUSE");
+					break;
+				}
+
+				int sonority_start = PHONEME_SONORITIES[type_start];
+				int sonority_end = PHONEME_SONORITIES[type_end];
+
+				char start[32] = {0};
+				if (phlist[previous_index].ph) {
+					WordToString(start, phlist[previous_index].ph->mnemonic);
+				}
+				char end[32] = {0};
+				if (phlist[last_valid_index].ph) {
+					WordToString(end, phlist[last_valid_index].ph->mnemonic);
+				}
+				TRACE("start: %s (previous_index: %d, type: %s %d, sonority: %d), end: %s (last_valid_index: %d, type: %s %d, sonority: %d)", start, previous_index, PHONEME_TYPES[type_start], type_start, sonority_start, end, last_valid_index, PHONEME_TYPES[type_end], type_end, sonority_end);
+
+				if ((last_valid_index - previous_index) == 1 && sonority_start == PHONEME_SONORITIES[phSTOP] && sonority_end == PHONEME_SONORITIES[phSTOP]) {
+					TRACE("(last_valid_index: %d - previous_index: %d) == 1 && sonority_start: %d == PHONEME_SONORITIES[phSTOP] && sonority_end: %d == PHONEME_SONORITIES[phSTOP]", last_valid_index, previous_index, sonority_start, sonority_end);
+					break;
+				}
+
+				if (sonority_start > sonority_end) {
+					TRACE("sonority_start: %d > sonority_end: %d", sonority_start, sonority_end);
+					break;
+				}
+
+				if (!is_language_specific_legal_onset_cluster(tr, &phlist[previous_index], &phlist[last_valid_index])) {
+					TRACE("!is_language_specific_legal_onset_cluster(&phlist[previous_index: %d], &phlist[last_valid_index: %d])", previous_index, last_valid_index);
+					break;
+				}
+
+				last_valid_index = previous_index;
+				boundary_index--;
+			}
+			TRACE("phlist[boundary_index: %d].starts_syllable = true", boundary_index);
+			phlist[boundary_index].starts_syllable = true;
+		}
+
+		if (phlist[j].newword & PHLIST_START_OF_WORD) {
+			TRACE("phlist[j: %d].newword & PHLIST_START_OF_WORD, phlist[j].starts_syllable = true", j);
+			phlist[j].starts_syllable = true;
+		}
+	}
+
 	phlist[ix].newword = PHLIST_END_OF_CLAUSE;
 
 	phlist[ix].phcode = phonPAUSE;
@@ -515,93 +682,93 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 }
 
 static void SetRegressiveVoicing(int regression, PHONEME_LIST2 *plist2, PHONEME_TAB *ph, Translator *tr) {
-		// set consonant clusters to all voiced or all unvoiced
-		// Regressive
-		int type;
-		bool stop_propagation = false;
-		int voicing = 0;
+	// set consonant clusters to all voiced or all unvoiced
+	// Regressive
+	int type;
+	bool stop_propagation = false;
+	int voicing = 0;
 
-		for (int j = n_ph_list2-1; j >= 0; j--) {
-			if (plist2[j].phcode == phonSWITCH) {
-				/* Find previous phonSWITCH to determine language we're switching back to */
-				int k;
-				for (k = j-1; k >= 0; k--)
-					if (plist2[k].phcode == phonSWITCH)
-						break;
-				if (k >= 0)
-					SelectPhonemeTable(plist2[k].tone_ph);
-				else
-					SelectPhonemeTable(tr->phoneme_tab_ix);
+	for (int j = n_ph_list2-1; j >= 0; j--) {
+		if (plist2[j].phcode == phonSWITCH) {
+			/* Find previous phonSWITCH to determine language we're switching back to */
+			int k;
+			for (k = j-1; k >= 0; k--)
+				if (plist2[k].phcode == phonSWITCH)
+					break;
+			if (k >= 0)
+				SelectPhonemeTable(plist2[k].tone_ph);
+			else
+				SelectPhonemeTable(tr->phoneme_tab_ix);
+		}
+		ph = phoneme_tab[plist2[j].phcode];
+		if (ph == NULL)
+			continue;
+
+		if (plist2[j].synthflags & SFLAG_SWITCHED_LANG) {
+			stop_propagation = false;
+			voicing = 0;
+			if (regression & 0x100)
+				voicing = 1; // word-end devoicing
+			continue;
+		}
+
+		type = ph->type;
+
+		if (regression & 0x2) {
+			// [v] amd [v;] don't cause regression, or [R^]
+			if (((ph->mnemonic & 0xff) == 'v') || ((ph->mnemonic & 0xff) == 'R')) {
+				stop_propagation = true;
+				if (regression & 0x10)
+					voicing = 0;
 			}
-			ph = phoneme_tab[plist2[j].phcode];
-			if (ph == NULL)
-				continue;
+		}
 
-			if (plist2[j].synthflags & SFLAG_SWITCHED_LANG) {
-				stop_propagation = false;
+		if ((type == phSTOP) || type == (phFRICATIVE)) {
+			if ((voicing == 0) && (regression & 0xf))
+				voicing = 1;
+			else if ((voicing == 2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
+				plist2[j].phcode = ph->end_type; // change to voiced equivalent
+		} else if ((type == phVSTOP) || type == (phVFRICATIVE)) {
+			if ((voicing == 0) && (regression & 0xf))
+				voicing = 2;
+			else if ((voicing == 1) && (ph->end_type != 0))
+				plist2[j].phcode = ph->end_type; // change to unvoiced equivalent
+		} else {
+			if (regression & 0x8) {
+				// LANG=Polish, propagate through liquids and nasals
+				if ((type == phPAUSE) || (type == phVOWEL))
+					voicing = 0;
+			} else
 				voicing = 0;
-				if (regression & 0x100)
-					voicing = 1; // word-end devoicing
-				continue;
+		}
+		if (stop_propagation) {
+			voicing = 0;
+			stop_propagation = false;
+		}
+
+		if (plist2[j].sourceix) {
+			if (regression & 0x04) {
+				// stop propagation at a word boundary
+				voicing = 0;
 			}
-
-			type = ph->type;
-
-			if (regression & 0x2) {
-				// [v] amd [v;] don't cause regression, or [R^]
-				if (((ph->mnemonic & 0xff) == 'v') || ((ph->mnemonic & 0xff) == 'R')) {
-					stop_propagation = true;
-					if (regression & 0x10)
-						voicing = 0;
-				}
-			}
-
-			if ((type == phSTOP) || type == (phFRICATIVE)) {
-				if ((voicing == 0) && (regression & 0xf))
+			if (regression & 0x100) {
+				// devoice word-final consonants, unless propagating voiced
+				if (voicing == 0)
 					voicing = 1;
-				else if ((voicing == 2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
-					plist2[j].phcode = ph->end_type; // change to voiced equivalent
-			} else if ((type == phVSTOP) || type == (phVFRICATIVE)) {
-				if ((voicing == 0) && (regression & 0xf))
-					voicing = 2;
-				else if ((voicing == 1) && (ph->end_type != 0))
-					plist2[j].phcode = ph->end_type; // change to unvoiced equivalent
-			} else {
-				if (regression & 0x8) {
-					// LANG=Polish, propagate through liquids and nasals
-					if ((type == phPAUSE) || (type == phVOWEL))
-						voicing = 0;
-				} else
-					voicing = 0;
-			}
-			if (stop_propagation) {
-				voicing = 0;
-				stop_propagation = false;
-			}
-
-			if (plist2[j].sourceix) {
-				if (regression & 0x04) {
-					// stop propagation at a word boundary
-					voicing = 0;
-				}
-				if (regression & 0x100) {
-					// devoice word-final consonants, unless propagating voiced
-					if (voicing == 0)
-						voicing = 1;
-				}
 			}
 		}
 	}
+}
 
 static void ReInterpretPhoneme(PHONEME_TAB *ph, PHONEME_TAB *ph2, PHONEME_LIST *plist3, PHONEME_LIST *plist3_start, Translator *tr, PHONEME_DATA *phdata, WORD_PH_DATA *worddata) {
-if (ph->type == phVOWEL) {
-				plist3->synthflags |= SFLAG_SYLLABLE;
-				if (ph2->type != phVOWEL)
-					plist3->stresslevel = 0; // change from non-vowel to vowel, make sure it's unstressed
-			} else
-				plist3->synthflags &= ~SFLAG_SYLLABLE;
+	if (ph->type == phVOWEL) {
+		plist3->synthflags |= SFLAG_SYLLABLE;
+		if (ph2->type != phVOWEL)
+			plist3->stresslevel = 0; // change from non-vowel to vowel, make sure it's unstressed
+	} else
+		plist3->synthflags &= ~SFLAG_SYLLABLE;
 
-			// re-interpret the changed phoneme
-			// But it doesn't obey a second ChangePhoneme()
-			InterpretPhoneme(tr, 0x100, plist3, plist3_start, phdata, worddata);
+	// re-interpret the changed phoneme
+	// But it doesn't obey a second ChangePhoneme()
+	InterpretPhoneme(tr, 0x100, plist3, plist3_start, phdata, worddata);
 }
