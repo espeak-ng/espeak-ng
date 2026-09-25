@@ -65,14 +65,19 @@ test_ssml_audio_nocrash() {
 }
 
 # A file whose format does not match is replaced by an empty temporary file,
-# so the loader ends up with nothing to read the WAV header from.
+# so the loader ends up with nothing to read the WAV header from. The file is
+# created here: the tests run from the build directory, which holds no text
+# file from the source tree to point at.
+SOUNDICON_NOTWAV="${TMPDIR:-/tmp}/espeak-ng-not-a-wav.txt"
+echo "This is plain text, not a WAV sound file." > "$SOUNDICON_NOTWAV"
 test_ssml_audio_nocrash "<audio> file that is not a WAV" \
-	"<speak><audio src=\"$PWD/ChangeLog.md\"></audio>x</speak>"
+	"<speak><audio src=\"$SOUNDICON_NOTWAV\"></audio>x</speak>"
 
 # The same file again after the first load was rejected: the table entry must
 # not still point at the buffer that was released.
 test_ssml_audio_nocrash "<audio> rejected file loaded twice" \
-	"<speak><audio src=\"$PWD/ChangeLog.md\"></audio>a<audio src=\"$PWD/ChangeLog.md\"></audio>b</speak>"
+	"<speak><audio src=\"$SOUNDICON_NOTWAV\"></audio>a<audio src=\"$SOUNDICON_NOTWAV\"></audio>b</speak>"
+rm -f "$SOUNDICON_NOTWAV"
 
 # A truncated icon: the header still announces the full data chunk, but only a
 # few bytes of it are present.
