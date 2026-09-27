@@ -941,7 +941,6 @@ Translator *SelectTranslator(const char *name)
 			SetupTranslator(tr, stress_lengths_equal, stress_amps_equal);
 			tr->langopts.break_numbers = BREAK_LAKH;
 			tr->langopts.max_digits = 22;
-			tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
 		} else if (name2 == L('o', 'r'))
 			tr->letter_bits_offset = OFFSET_ORIYA;
 		SetIndicLetters(tr);
