@@ -5012,6 +5012,7 @@ kontra) sztsz s|t|s
 azbe) szts s|t|S
 para) szts (pec s|t|S
 kere) szts (t s|t|S
+
 .group t
         t          t
         t (-ty     c:
@@ -5892,6 +5893,10 @@ csapa) t (járő t
 csapa) t (játszm t
 üzene) t (jeg t
 sebésze) t (sz t
+mére) t (sab t
+mére) t (seg t
+mére) t (sk t
+testalka) t (sz t
 
 .group tj
 ú) tj (árá t|j	For example keresztútjárásnál word
