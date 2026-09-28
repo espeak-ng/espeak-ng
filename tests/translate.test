@@ -83,6 +83,12 @@ test_phon en "'e@ri:z r'eInboU" "♈ 🌈"
 test_phon en "f'IS tr'0pIk@L f'IS" "fish🐠"
 test_phon ru "d'ymu t@-rVp;'itS;iskVja @-r'yba#" "дыму🐠"
 
+# emoji entries whose key had been lost and replaced by a digit took over the
+# reading of that digit, e.g. "5" was read as the name of 🥕 (carrot)
+# bug: https://github.com/espeak-ng/espeak-ng/issues/2437
+test_phon ps "c'@lor p'@ndz@ 'at@" "4 5 8"
+test_phon ps "g'a:zra" "🥕"
+
 # multi-word emoji
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
