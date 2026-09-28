@@ -1,0 +1,357 @@
+// Pennsylvania Dutch (Pennsylvania German, Deitsch) spelling to phoneme rules
+//
+// The rules follow the Buffington-Barba spelling system, as used by
+// Hiwwe wie Driwwe, pdc.wikipedia.org and most published literature:
+//  - vowels are long when doubled, when followed by h, at the end of a
+//    word and before a single consonant followed by a vowel, and short
+//    before two consonants or ck, ch, tz, ng, nk, sch, x
+//  - a single i is always short, a single a is short unless before r
+//  - ww is [v], v is [f], z is [ts], y is [j], sch is [ʃ]
+//  - r after a vowel is vocalised (see the centring diphthongs in
+//    phsource/ph_pennsylvania_german)
+//  - g between vowels is [j] after a front vowel and [ɣ] after a back vowel
+//
+// Conditional rules:
+//  1  Midwest (pdc-x-midwest)
+//  2  Lehigh (pdc-x-lehigh)
+
+// front vowels (g -> [j], ch -> [ç] after them)
+.L01 e i ae ee eh ie ei ä
+
+// back vowels (g -> [ɣ], ch -> [x] after them)
+.L02 a o u aa oo uu uh oh ah au
+
+// the vowel before these is short
+.L03 ck ch tz ng nk sch x
+
+
+.group a
+        a          a
+        aa         O:
+        aah        O:
+        aar (K     O@
+        aahr (K    O@
+        a (rA      A:
+        a (rrA     A:
+        ar (K      A@
+        arr (K     A@
+        ah         O:
+        ae         &:
+        ae (C%     &
+        ae (nC     &
+        ae (L03    &
+        ae (tsch   &
+        aeh        &:
+        aer (K     &@
+        aehr (K    &@
+        ai         aI
+        au         aU
+        auer (_    aU3
+        ay         aI
+
+     // stressed separable prefixes
+     _) aa (C@@P2  'O:
+     _) ab (C@P2   'ap
+     _) abb        ab
+     _) aus (C@P3  'aUs
+
+
+.group b
+        b          b
+        bb         b
+        b (_       p
+        b (s       p
+        b (t       p
+        b (sch     p
+        b (k       p
+     _) bh         p
+
+     // unstressed prefix be-
+     _) be (C@P2   b@
+     _) be (C%     bE
+     _) be (ch     bE
+     _) bei        baI
+     _) bei (C@P3  b'aI
+     _) beiss      baIs
+
+
+.group c
+        c          k
+        c (e       s
+        c (i       s
+        ch         C
+   L02) ch         x
+        chs        ks
+        ch (sch    C
+   L02) ch (sch    x
+        ck         k
+     _) ch (l      k
+     _) ch (r      k
+     _) ch         tS
+
+
+.group d
+        d          d
+        dd         d
+        d (_       t
+        d (s_      t
+        d (t       t
+        dt         t
+        dsch       tS
+
+
+.group e
+        e          E
+        e (CA      e:
+        e (xA      E
+        e (g_      e:
+        e (d_      e:
+        e (b_      e:
+
+     // unstressed e after the first syllable
+     @) e (_       @
+     @) e (CA      @
+     @) e (l_      @
+     @) e (ls_     @
+     @) e (s_      @
+     @) e (m_      @
+     @) e (n_      @
+     @) e (ns_     @
+     @) e (t_      @
+     @) e (d_      @
+     @) e (nd_     @
+     @) e (schd    @
+     @) e (scht_   @
+     @) er (_      3
+     @) er (s_     3
+     @) er (n_     3
+     @) er (K      3
+     @) err (A     @r
+     @) erei (_    @r'aI
+
+        ee         e:
+        eeh        e:
+        eh         e:
+        ei         aI
+        eu         aI
+        ey         aI
+
+        er (K      E@
+        err (K     E@
+        eer (K     e@
+        ehr (K     e@
+        eeh (r     e:
+
+     // unstressed prefixes
+     _) er (C@P2   3
+     _) ent (C@P3  %Ent
+     _) emp (C@P3  %Emp
+
+
+.group f
+        f          f
+        ff         f
+
+     // unstressed prefix fer-
+     _) fer (C@P3  f3
+
+
+.group g
+        g          g
+        gg         g
+        g (_       k
+        g (s       k
+        g (sch     k
+        g (t       k
+        g (f       k
+        g (k       k
+     _) gh         k
+   L01) g (A       j
+   L01) gg (A      j
+   L02) g (A       Q
+   L02) gg (A      Q
+     r) g (A       j
+     l) g (A       j
+
+     // unstressed prefix ge-
+     _) ge (C@P2   g@
+     _) ge (C%     gE
+     _) geh (C     ge:
+
+
+.group h
+        h          h
+      A) h         // lengthens the vowel before it
+
+
+.group i
+        i          I
+        ie         i:
+        ieh        i:
+        ih         i:
+        ier (K     i@
+        iehr (K    i@
+        ihr (K     i@
+        ir (K      i@
+        irr (K     i@
+     @) i (_       i
+     @) i (s_      i
+
+
+.group j
+        j          j
+
+
+.group k
+        k          k
+        kk         k
+
+
+.group l
+        l          l
+        ll         l
+
+
+.group m
+        m          m
+        mm         m
+
+     _) mit (C@P3  m'It
+
+
+.group n
+        n          n
+        nn         n
+        ng         N
+        n (k       N
+
+     _) naus (C@P4 n'aUs
+
+
+.group o
+        o          V
+        o (CA      o:
+        o (xA      V
+        o (C_      o:
+        o (_       o:
+        oo         o:
+        ooh        o:
+        oh         o:
+        oor (K     o@
+        ohr (K     o@
+        or (K      o@
+        orr (K     o@
+        oi         OI
+        oy         OI
+
+
+.group p
+        p          p
+        pp         p
+        ph         f
+        pf         p
+
+
+.group q
+        qu         kw
+
+
+.group r
+        r          r
+        rr         r
+
+
+.group s
+        s          s
+        ss         s
+        sch        S
+     _) s (p       S
+     _) s (t       S
+
+
+.group t
+        t          t
+        tt         t
+        tz         ts
+        tsch       tS
+     _) th         t
+
+
+.group u
+        u          U
+        u (CA      u:
+        u (t_      u:
+        u (f_      u:
+        u (g_      u:
+        u (l_      u:
+        u (b_      u:
+        u (_       u:
+        uh         u:
+        uu         u:
+        uhr (K     u@
+        uur (K     u@
+        ur (K      u@
+        urr (K     u@
+
+     _) uff (C@P3  'Uf
+
+
+.group v
+        v          f
+
+     // unstressed prefix ver-
+     _) ver (C@P3  f3
+
+
+.group w
+        w          w
+        ww         v
+     A) w (A       v
+
+     _) weck (C@P4 v'Ek
+
+
+.group x
+        x          ks
+
+
+.group y
+        y          j
+        y (K       I
+     @) y (_       i
+
+
+.group z
+        z          ts
+        zz         ts
+
+     _) zamme (C@P5 ts'am@
+     _) zu (C@P2   ts'u:
+     _) zuck       tsUk
+     _) zer (C@P3  ts3
+
+
+.group ä
+        ä          E
+        ä (CA      &:
+        äh         &:
+
+
+.group ö
+        ö          E
+        ö (CA      e:
+        öh         e:
+
+
+.group ü
+        ü          I
+        ü (CA      i:
+        üh         i:
+
+
+.group ß
+        ß          s
+
+
+.group
+        ’          //  apostrophe

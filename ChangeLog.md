@@ -14,6 +14,7 @@ new languages:
 *  crh (Crimean Tatar) -- Andyvladescu73
 *  lij (Ligurian) -- Jean Maillard
 *  mn (Mongolian) -- Battseren Badral
+*  pdc (Pennsylvania Dutch: Lancaster, Lehigh and Midwest) -- Josh Kennedy
 *  ps (Pashto) -- Hanif Rahman
 *  rup (Aromanian) -- Andy Vladescu
 

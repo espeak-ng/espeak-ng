@@ -252,6 +252,18 @@ p'a+*@t vIc r'aS@t.,@*@p,@ti di c'on. s'Id#i l'oka~ dU'a*a n'VHi~ k'iti J'a~di
 r'aS@t.,@*@p,@ti di c'on. 'Vpr@t,@k# t@*'ike n'al k'iti J'a~di HE" "ਭਾਰਤੀ ਸੰਵਿਧਾਨ ਦੇ ਆਰਟੀਕਲ 54 ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਬਾਰੇ ਲਿਖਿਆ ਹੋਇਆ ਹੈ। ਭਾਰਤ ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਸਿੱਧੀ ਲੋਕਾਂ ਦੁਆਰਾ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਅਪ੍ਰਤੱਖ ਤਰੀਕੇ ਨਾਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।" "Guru"
 test_phon pap "t'uR s'eR hum'ano ta n'ase lib'eR_:_: i; igw'al deN dignid'ad_:_: i deN deR'etSo
 naN ta d'ota k'u Ras'oN_:_: i k'u kons'enSi_:_: i naN mest'eR komp'oRta naN deN spiR'ito di fRateRnid'ad p'a k'u 'otRo" "Tur ser humano ta nace liber y igual den dignidad y den derecho. Nan ta dota cu rason y cu consenshi y nan mester comporta nan den spirito di fraternidad pa cu otro." "Latn"
+test_phon pdc "m3 Sw'Ets@ n'Vx di m'Ud3Spr,o:x _|Un di k'In3 l'an@ d'aItS _|In d3 S'u:l" "Mer schwetze noch die Mudderschprooch un die Kinner lanne Deitsch in der Schul" "Mother tongue"
+test_phon pdc "dr'aI w'aIsi w'aIpslaIt" "drei weissi Weibsleit" "ei"
+test_phon pdc-x-midwest "d*'aI w'aIsi w'aIpslaIt" "drei weissi Weibsleit" "ei"
+test_phon pdc-x-lehigh "dr'aI w'aIsi w'aIpslaIt" "drei weissi Weibsleit" "ei"
+test_phon pdc "_|IC hap maI _!'o:r@ f3fr'o:r@ _|am f'O:r@" "Ich hab mei Ohre verfrore am faahre" "r"
+test_phon pdc-x-midwest "_|IC hap maI _!'o:*@ f3f*'o:*@ _|am f'O:*@" "Ich hab mei Ohre verfrore am faahre" "r"
+test_phon pdc-x-lehigh "_|IC hap maI _!'o:r@ f3fr'o:r@ _|am f'O:r@" "Ich hab mei Ohre verfrore am faahre" "r"
+test_phon pdc "w'E@ h'Vt _|@s gr'o:s h'aUs _|In l'EN@Sd3 k'aUndi" "wer hot es grooss Haus in Lengeschder Kaundi" "au"
+test_phon pdc-x-midwest "w'E@ h'Vt _|@s g*'o:s h'aUs _|In l'EN@Sd3 k'aUndi" "wer hot es grooss Haus in Lengeschder Kaundi" "au"
+test_phon pdc-x-lehigh "w'E@ h'Vt _|@s gr'o:s h'aUs _|In l'EN@Sd3 k'aUndi" "wer hot es grooss Haus in Lengeschder Kaundi" "au"
+test_phon pdc "kSw'aI Spr'o:x ts'e:@ r'Ej@ s'O:Q@ gl'O:v@ g'Ev@ d'A:rIC" "Gschwei Schprooch zehe Regge saage glaawe gewwe darich" "consonants"
+test_phon pdc-x-midwest "kSw'aI Sp*'o:x ts'e:@ r2'Ej@ s'O:Q@ gl'O:v@ g'Ev@ d'E:C" "Gschwei Schprooch zehe Regge saage glaawe gewwe darich" "consonants"
 test_phon pl "m'E~Zny b'On^ts;
 xR'On^ p'uwk tf'uj_! i S'ES;ts; fl'ak
 z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć flag. Zażółć gęślą jaźń." "Latn"
