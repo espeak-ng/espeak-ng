@@ -685,6 +685,25 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 2; // use de_rules for unpronouncable rules
 	}
 		break;
+	case L3('p', 'd', 'c'): // Pennsylvania Dutch (Pennsylvania German)
+	{
+		static const short stress_lengths_pdc[8] = { 150, 130, 200, 200,  0, 0, 270, 270 };
+		static const unsigned char stress_amps_pdc[] = { 20, 20, 20, 20, 20, 22, 22, 20 };
+		SetupTranslator(tr, stress_lengths_pdc, stress_amps_pdc);
+		tr->langopts.stress_rule = STRESSPOSN_1L;
+		tr->langopts.word_gap = 0x8; // don't use linking phonemes
+		tr->langopts.vowel_pause = 0x30;
+		tr->langopts.param[LOPT_PREFIXES] = 1;
+		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x100; // devoice at end of word
+		tr->langopts.param[LOPT_LONG_VOWEL_THRESHOLD] = 175/2;
+		tr->langopts.max_initial_consonants = 6; // "sch" is written out: Schprooch, Gschwei
+
+		// American conventions: "." is the decimal point, "," groups thousands,
+		// and the short scale is used (Billyon = 10^9)
+		tr->langopts.numbers = NUM_SWAP_TENS | NUM_HUNDRED_AND_DIGIT | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_1900 | NUM_ORDINAL_DOT | NUM_ROMAN;
+		tr->langopts.max_digits = 18; // up to Kwadrillyone
+	}
+		break;
 	case L('e', 'n'):
 	{
 		static const short stress_lengths_en[8] = { 182, 140, 220, 220, 0, 0, 248, 275 };

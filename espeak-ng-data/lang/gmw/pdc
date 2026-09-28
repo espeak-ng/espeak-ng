@@ -1,0 +1,11 @@
+name Pennsylvania Dutch (Lancaster)
+language pdc
+language pdc-x-lancaster 2
+
+status testing
+
+// Lancaster County (Amish and Old Order Mennonite) speech, the variety
+// most published Pennsylvania Dutch material assumes. Text is expected
+// in the Buffington-Barba spelling system.
+
+tunes s4 c1 q4 e1

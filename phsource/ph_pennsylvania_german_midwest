@@ -1,0 +1,67 @@
+
+//=========================================================
+// Pennsylvania Dutch: Midwest (Amish of Ohio, Indiana, Iowa, Illinois ...)
+//
+// Differences from the Lancaster table:
+//  - ei is monophthongised to [ɛː], except directly before an
+//    unstressed vowel (Feier, heiere)
+//  - r is a tap, except at the start of a word where it is [ɹ]
+//  - l is clear in all positions
+//  - front vowels are not lowered before a vocalised r
+//=========================================================
+
+
+phoneme aI  // ei
+  vwl starttype #e endtype #e
+  ipa ɛː
+  length 200
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(aI2)
+  ENDIF
+  FMT(vowel/e_8)
+endphoneme
+
+
+phoneme e@  // eer, ehr
+  vwl starttype #e endtype #@
+  ipa eːɐ̯
+  length 240
+  FMT(vdiph2/e@)
+endphoneme
+
+
+phoneme E@  // er
+  vwl starttype #e endtype #@
+  ipa eɐ̯
+  length 220
+  FMT(vdiph2/e@)
+endphoneme
+
+
+phoneme &@  // aer
+  vwl starttype #e endtype #@
+  ipa ɛɐ̯
+  length 230
+  FMT(vdiph2/ea)
+endphoneme
+
+
+phoneme r   // [ɹ] at the start of a word, otherwise a tap
+  liquid alv rhotic
+  ipa ɾ
+  lengthmod 3
+  IF thisPh(isWordStart) THEN
+    ChangePhoneme(r2)
+  ENDIF
+  ChangePhoneme(*)
+endphoneme
+
+
+phoneme r2  // American approximant
+  import_phoneme base1/r
+endphoneme
+
+
+phoneme l/  // clear l
+  import_phoneme base1/l/
+endphoneme
