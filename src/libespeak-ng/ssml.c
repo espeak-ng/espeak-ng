@@ -303,7 +303,7 @@ static const wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 	while (*pw != 0) {
 		if (iswspace(pw[-1])) {
 			ix = 0;
-			while (*pw == name[ix]) {
+			while (name[ix] != 0 && *pw == name[ix]) {
 				pw++;
 				ix++;
 			}
