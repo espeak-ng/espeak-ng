@@ -148,7 +148,7 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 		}
             case V_TUNES: {
 				char names[6][40] = { {0}, {0}, {0}, {0}, {0}, {0} };
-                n = sscanf(keyValue, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
+                n = sscanf(keyValue, "%39s %39s %39s %39s %39s %39s", names[0], names[1], names[2], names[3], names[4], names[5]);
                 translator->langopts.intonation_group = 0;
 
                 int value;
@@ -196,7 +196,7 @@ void LoadConfig(void) {
 		if (memcmp(buf, "tone", 4) == 0)
 			ReadTonePoints(&buf[5], tone_points);
 		else if (memcmp(buf, "soundicon", 9) == 0) {
-			ix = sscanf(&buf[10], "_%c %s", &c1, string);
+			ix = sscanf(&buf[10], "_%c %199s", &c1, string);
 			if (ix == 2) {
 				// add sound file information to soundicon array
 				// the file will be loaded to memory by LoadSoundFile2()
