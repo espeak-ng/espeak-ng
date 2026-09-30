@@ -110,6 +110,33 @@ test_latin_sentence()
 }
 
 static void
+test_embedded_command_punctuation_list()
+{
+	printf("testing embedded punctuation list ... buffer bound\n");
+
+	// Near-full clause followed by an embedded "\001B" punctuation-list command
+	// whose list is longer than the space left in the clause buffer. ReadClause
+	// must stop writing the placeholder spaces at n_buf instead of running off
+	// the end of source[].
+	char text[N_TR_SOURCE + 128];
+	int i = 0;
+	while (i < N_TR_SOURCE - 10)
+		text[i++] = 'a';
+	text[i++] = 0x01; // CTRL_EMBEDDED
+	text[i++] = 'B';
+	for (int n = 0; n < N_PUNCTLIST + 8; n++)
+		text[i++] = '.';
+	text[i++] = ' ';
+	text[i] = 0;
+
+	TEST_ASSERT(set_text(text, "en") == ENS_OK);
+
+	charix_top = 0;
+	ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name);
+	TEST_ASSERT(charix_top < N_TR_SOURCE);
+}
+
+static void
 test_greek()
 {
 	printf("testing Greek (Grek)\n");
@@ -521,6 +548,7 @@ main(int argc, char **argv)
 
 	test_latin();
 	test_latin_sentence();
+	test_embedded_command_punctuation_list();
 
 	test_greek();
 	test_armenian();
