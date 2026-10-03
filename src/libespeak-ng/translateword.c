@@ -536,7 +536,8 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 				} else {
 					// this loop runs up to 50 times, so truncate rather than
 					// overflow prefix_phonemes
-					strncat(prefix_phonemes, end_phonemes, N_WORD_PHONEMES - strlen(prefix_phonemes) - 1);
+					size_t len = strlen(prefix_phonemes);
+					snprintf(prefix_phonemes + len, sizeof(prefix_phonemes) - len, "%s", end_phonemes);
 				}
 				end_phonemes[0] = 0;
 
