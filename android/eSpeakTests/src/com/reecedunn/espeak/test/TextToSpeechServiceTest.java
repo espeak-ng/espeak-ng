@@ -372,4 +372,5 @@ public class TextToSpeechServiceTest
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, startsWith("en-gb"));
     }
+
 }
