@@ -30,5 +30,17 @@ test_phon lv "d'esmit d'ivdesmit tR'i:sdesmit tS'etRdesmit p'ietsd,esmit s'eSdes
 test_phon lv "s'imts s'imts v'iens d'ivi s'imti d'ivi tR'i:s s'imti s'eSdesmit p'ietsi" "100 101 202 365" "hundreds"
 test_phon lv "s'imts t'u:kstuo:tis m'iljo:ns m'iljaRds tR'iljons kv'adRiljo:ns kv'intiljo:ns s'ekstiljo:ns s'eptiljo:ns 'oktiljo:ns n'oniljo:ns" "100 1000 1000000 1000000000 1000000000000 1000000000000000 1000000000000000000 1000000000000000000000 1000000000000000000000000 1000000000000000000000000000 1000000000000000000000000000000" "large" # 10^2 10^3 10^6 10^9 10^12 10^15 10^18 10^21 10^24 10^27 10^30
 test_phon lv "p'ietsi s'eSdesmit tS'etRi s'imts d'ivdesmit tR'i:s tS'etRi t'u:kstuo:Si tR'i:s s'imti p'ietsd,esmit s'eptin^i tS'etRpadsmit t'u:kstuo:Si_! s'eSi s'imti_ 'astuon^desmit tR'i:s s'eptin^i s'imti tS'etRdesmit d'ivi t'u:kstuo:Si_! tR'i:s s'imti p'ietsd,esmit d'evin^i s'eSi m'iljo:ni_! tS'etRi s'imti s'eptin^desmit p'ietsi t'u:kstuo:Si_! tR'i:s s'imti d'ivdesmit 'astuon^i" "5 64 123 4357 14683 742359 6475328" "mixed"
+
+echo "... dv (Dhivehi)" # short scale
+
+test_phon dv "s'ume? ?'eke? d'e:? t'ine? h'ata*e? f'ahe? h'ae? h'ate? ?'as.e? n'uv#ae?" "0 1 2 3 4 5 6 7 8 9" "units"
+test_phon dv "d'ihae? ?'ega:*a b'a:*a t'e:*a s'a:da f'ana*a s'o:l.a s'ata:*a ?'as.a:*a n'av#a:*a" "10 11 12 13 14 15 16 17 18 19" "teens"
+test_phon dv "v#'ihi ?'eka:v#i:s b'a:v#i:s t'e:v#i:s s'a:v#i:s f'ansav#i:s s'abbi:s h'ata:v#i:s ?'as.a:v#i:s n'av#a:v#i:s" "20 21 22 23 24 25 26 27 28 29" "twenties"
+test_phon dv "t'i*i:s s'a:l.i:s f'ansa:s f'asdol.as h'addiha ?'ad.d.iha n'uv#adiha" "30 40 50 60 70 80 90" "tens"
+test_phon dv "t'i*i:s ?'eke? s'a:l.i:s f'ahe? n'uv#adiha n'uv#ae?" "31 45 99" "tens and units"
+test_phon dv "s'ate:ka s'ate:ka ?'eke? d'uisatta t'iN s'ate:ka s'a:l.i:s f'ahe? n'uv#a s'ate:ka n'uv#adiha n'uv#ae?" "100 101 200 345 999" "hundreds"
+test_phon dv "?'e? h'a:s d'e h'a:s d'e h'a:s f'ansav#i:s f'ansav#i:s h'a:s ?'e? m'iliaN" "1000 2000 2025 25000 1000000" "thousands"
+test_phon dv "t'ine? p'oint. ?'eke? h'ata*e?" "3.14" "decimal"
+
 test_phon it "dz'E*o_| 'items" "0 items" "NUM_SINGLE_VOWEL"
 test_phon sk "dv'ana:st; t;'isi:ts_! t@-*'ist'o St'i*itsat;p'&t;" "12345" "mixed"

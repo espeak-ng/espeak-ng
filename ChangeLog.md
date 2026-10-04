@@ -12,6 +12,7 @@ The espeak-ng project is a fork of the espeak project.
 new languages:
 *  ab (Abkhaz) -- Marat Ionov
 *  crh (Crimean Tatar) -- Andyvladescu73
+*  dv (Dhivehi) -- yaambe
 *  lij (Ligurian) -- Jean Maillard
 *  mn (Mongolian) -- Battseren Badral
 *  ps (Pashto) -- Hanif Rahman

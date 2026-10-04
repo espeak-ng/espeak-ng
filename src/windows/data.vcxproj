@@ -146,6 +146,9 @@
   <Target Name="de" Inputs="$(ProjectDir)..\..\dictsource\de_rules;$(ProjectDir)..\..\dictsource\de_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\de_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=de" />
   </Target>
+  <Target Name="dv" Inputs="$(ProjectDir)..\..\dictsource\dv_rules;$(ProjectDir)..\..\dictsource\dv_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\dv_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=dv" />
+  </Target>
   <Target Name="el" Inputs="$(ProjectDir)..\..\dictsource\el_rules;$(ProjectDir)..\..\dictsource\el_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\el_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=el" />
   </Target>
@@ -443,6 +446,6 @@
   <Target Name="yue" Inputs="$(ProjectDir)..\..\dictsource\yue_rules;$(ProjectDir)..\..\dictsource\yue_list;$(ProjectDir)..\..\dictsource\yue_listx" Outputs="$(ProjectDir)..\..\espeak-ng-data\yue_dict" DependsOnTargets="Phonemes;Extdict">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=yue" />
   </Target>
-  <Target Name="Dictionaries" DependsOnTargets="af;am;an;ar;as;az;ba;be;bg;bn;bpy;bs;ca;chr;cmn;cs;cv;cy;da;de;el;en;eo;es;et;eu;fa;fi;fo;fr;ga;gd;gn;grc;gu;hak;haw;he;hi;hr;ht;hu;hy;ia;id;io;is;it;ja;jbo;ka;kk;kl;kn;ko;kok;ku;ky;la;lb;lfn;lt;lv;mi;mk;ml;mr;ms;mt;my;nci;ne;nl;no;nog;om;or;pa;pap;piqd;pl;pt;py;qdb;quc;qu;qya;ro;ru;sd;shn;si;sjn;sk;sl;smj;sq;sr;sv;sw;ta;te;th;tk;tn;tr;tt;ug;uk;ur;uz;vi;xex;yue" />
+  <Target Name="Dictionaries" DependsOnTargets="af;am;an;ar;as;az;ba;be;bg;bn;bpy;bs;ca;chr;cmn;cs;cv;cy;da;de;dv;el;en;eo;es;et;eu;fa;fi;fo;fr;ga;gd;gn;grc;gu;hak;haw;he;hi;hr;ht;hu;hy;ia;id;io;is;it;ja;jbo;ka;kk;kl;kn;ko;kok;ku;ky;la;lb;lfn;lt;lv;mi;mk;ml;mr;ms;mt;my;nci;ne;nl;no;nog;om;or;pa;pap;piqd;pl;pt;py;qdb;quc;qu;qya;ro;ru;sd;shn;si;sjn;sk;sl;smj;sq;sr;sv;sw;ta;te;th;tk;tn;tr;tt;ug;uk;ur;uz;vi;xex;yue" />
 
 </Project>

@@ -1,0 +1,102 @@
+// Phonemes for Dhivehi (Maldivian)
+// This inherits from ph_hindi_base.
+// Dhivehi has five short vowels and five long vowels.
+// Short and long vowels differ only in length, and unstressed vowels are not reduced.
+
+
+phoneme a
+  vwl  starttype #a  endtype #a
+  length 150
+  FMT(vowel/a#_2)
+endphoneme
+
+phoneme a:
+  vwl  starttype #a  endtype #a
+  length 300
+  FMT(vowel/a_3)
+endphoneme
+
+phoneme e
+  vwl  starttype #e  endtype #e
+  length 150
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme e:
+  vwl  starttype #e  endtype #e
+  length 300
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl  starttype #i  endtype #i
+  length 150
+  FMT(vowel/i_6)
+endphoneme
+
+phoneme i:
+  vwl  starttype #i  endtype #i
+  length 300
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl  starttype #o  endtype #o
+  length 150
+  FMT(vowel/oo_1)
+endphoneme
+
+phoneme o:
+  vwl  starttype #o  endtype #o
+  length 300
+  FMT(vowel/oo_1)
+endphoneme
+
+phoneme u
+  vwl  starttype #u  endtype #u
+  length 150
+  FMT(vowel/u_6)
+endphoneme
+
+phoneme u:
+  vwl  starttype #u  endtype #u
+  length 300
+  FMT(vowel/u_6)
+endphoneme
+
+
+// Dental t
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+
+// The diphthong written ައި, said as a long [æː] in Malé speech
+phoneme &:
+  vwl  starttype #a  endtype #a
+  length 300
+  FMT(vowel/&)
+endphoneme
+
+// Prenasalized stops. These are written as the nasal phoneme followed by the stop,
+// e.g. [m#b], so they print as one IPA symbol pair (ᵐb).
+phoneme m#
+  ipa U+1D50
+  CALL base1/m
+endphoneme
+
+phoneme n#
+  ipa U+207F
+  CALL base1/n
+endphoneme
+
+// ipa comes after the CALL here: base1/n. sets its own ipa, and the last one wins.
+phoneme n.#
+  CALL base1/n.
+  ipa U+1DAF
+endphoneme
+
+phoneme N#
+  ipa U+1D51
+  CALL base1/N
+endphoneme

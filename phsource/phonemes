@@ -2013,6 +2013,9 @@ include ph_telugu
 phonemetable si hi_base
 include ph_sinhala
 
+phonemetable dv hi_base
+include ph_dhivehi
+
 phonemetable bn hi_base
 include ph_bengali
 

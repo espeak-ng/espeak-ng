@@ -34,6 +34,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `zls`       | `hr`              | South Slavic          | Croatian<sup>\[1,2\]</sup>  |                        |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
+| `inc`       | `dv`              | Indic                 | Dhivehi                     |                        |
 | `gmw`       | `nl`              | West Germanic         | Dutch                       |                        |
 | `gmw`       | `en-us`           | West Germanic         | English                     | American               |
 | `gmw`       | `en`              | West Germanic         | English                     | British                |

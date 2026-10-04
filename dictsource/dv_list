@@ -1,0 +1,68 @@
+// Dhivehi (Maldivian)
+// This file is UTF-8 encoded.
+
+
+// ***** numbers *****
+
+// counting forms, said on their own and as the units of a larger number
+_0	s'ume?		// ސުމެއް
+_1	?'eke?		// އެކެއް
+_2	d'e:?		// ދޭއް
+_3	t'ine?		// ތިނެއް
+_4	h'ata*e?	// ހަތަރެއް
+_5	f'ahe?		// ފަހެއް
+_6	h'ae?		// ހައެއް
+_7	h'ate?		// ހަތެއް
+_8	?'as.e?		// އަށެއް
+_9	n'uv#ae?	// ނުވައެއް
+_10	d'ihae?		// ދިހައެއް
+
+// short forms, said before hundreds and thousands: ހަތަރު ސަތޭކަ, ދެ ހާސް
+_1a	?'e?||	// އެއް
+_2a	d'e||	// ދެ
+_3a	t'iN||	// ތިން
+_4a	h'ata*u||	// ހަތަރު
+_5a	f'as||	// ފަސް
+_6a	h'a||	// ހަ
+_7a	h'ai?||	// ހަތް
+_8a	?'a?||	// އަށް
+_9a	n'uv#a||	// ނުވަ
+_10a	d'iha||	// ދިހަ
+
+_11	?'ega:*a	// އެގާރަ
+_12	b'a:*a		// ބާރަ
+_13	t'e:*a		// ތޭރަ
+_14	s'a:da		// ސާދަ
+_15	f'ana*a		// ފަނަރަ
+_16	s'o:l.a		// ސޯޅަ
+_17	s'ata:*a	// ސަތާރަ
+_18	?'as.a:*a	// އަށާރަ
+_19	n'av#a:*a	// ނަވާރަ
+_20	v#'ihi		// ވިހި
+_21	?'eka:v#i:s	// އެކާވީސް
+_22	b'a:v#i:s	// ބާވީސް
+_23	t'e:v#i:s	// ތޭވީސް
+_24	s'a:v#i:s	// ސައުވީސް
+_25	f'ansav#i:s	// ފަންސަވީސް
+_26	s'abbi:s	// ސައްބީސް
+_27	h'ata:v#i:s	// ހަތާވީސް
+_28	?'as.a:v#i:s	// އަށާވީސް
+_29	n'av#a:v#i:s	// ނަވާވީސް
+
+// tens from 30 on are followed by the counting form: ތިރީސް އެކެއް
+_3X	t'i*i:s||		// ތިރީސް
+_4X	s'a:l.i:s||	// ސާޅީސް
+_5X	f'ansa:s||	// ފަންސާސް
+_6X	f'asdol.as||	// ފަސްދޮޅަސް
+_7X	h'addiha||	// ހައްދިހަ
+_8X	?'ad.d.iha||	// އައްޑިހަ
+_9X	n'uv#adiha||	// ނުވަދިހަ
+
+_0C	s'ate:ka	// ސަތޭކަ
+_1C	s'ate:ka	// ސަތޭކަ
+_2C	d'uisatta	// ދުއިސައްތަ
+_0M1	h'a:s		// ހާސް
+_0M2	m'iliaN		// މިލިއަން
+_0M3	b'iliaN		// ބިލިއަން
+
+_dpt	p'oint.		// ޕޮއިންޓް
