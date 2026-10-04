@@ -1457,6 +1457,51 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 	return 0;
 }
 
+static bool LookupDecimal(Translator *tr, const char *digits, int count, char *ph_out, size_t size)
+{
+	// Translate the numerator in groups without overflowing an integer.
+	int group_len = (count - 1) % 3 + 1;
+	int group = (count - 1) / 3;
+	int control = (tr->langopts.numbers2 & NUM2_FRACTION_FEMININE) ? 0x400 : 0;
+	size_t used = 0;
+	char number[N_WORD_PHONEMES];
+	char scale[N_WORD_PHONEMES];
+
+	ph_out[0] = 0;
+	if (group > 10)
+		return false; // beyond the supported thousandplex names
+	while (count > 0) {
+		int value = 0;
+		for (int ix = 0; ix < group_len; ix++)
+			value = value * 10 + *digits++ - '0';
+		count -= group_len;
+		if ((value != 0) || ((group == 0) && (used == 0))) {
+			scale[0] = 0;
+			bool exact = group > 0 && LookupThousands(tr, value, group, 0, scale);
+			number[0] = 0;
+			if (!exact)
+				LookupNum3(tr, value, number, false, group, control);
+			size_t len = strlen(number) + strlen(scale) + (group > 0 ? (exact ? 1 : 2) : 0);
+			if (used + len + 1 > size)
+				return false;
+			if (group > 0) {
+				if (exact)
+					sprintf(ph_out + used, "%s%c", scale, phonEND_WORD);
+				else if (tr->langopts.numbers2 & NUM2_SWAP_THOUSANDS)
+					sprintf(ph_out + used, "%s%c%s%c", scale, phonEND_WORD, number, phonEND_WORD);
+				else
+					sprintf(ph_out + used, "%s%c%s%c", number, phonEND_WORD, scale, phonEND_WORD);
+			} else
+				strcpy(ph_out + used, number);
+			used += len;
+			control |= 1;
+		}
+		group--;
+		group_len = 3;
+	}
+	return true;
+}
+
 static bool CheckThousandsGroup(char *word, int group_len)
 {
 	// Is this a group of 3 digits which looks like a thousands group?
@@ -1760,9 +1805,15 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		case NUM_DFRACTION_1: // italian, say "hundredths" if leading zero
 		case NUM_DFRACTION_5: // hungarian, always say "tenths" etc.
 		case NUM_DFRACTION_6: // kazakh, always say "tenths" etc, before the decimal fraction
-			value = atoi(&word[n_digits]);
-			LookupNum3(tr, value, ph_buf, false, 0,
-			           (tr->langopts.numbers2 & NUM2_FRACTION_FEMININE) ? 0x400 : 0);
+			// Only the final two digits determine the fraction suffix.
+			value = word[n_digits + decimal_count - 1] - '0';
+			if (decimal_count > 1)
+				value += 10 * (word[n_digits + decimal_count - 2] - '0');
+			if (decimal_count <= 5)
+				LookupNum3(tr, atoi(&word[n_digits]), ph_buf, false, 0,
+				           (tr->langopts.numbers2 & NUM2_FRACTION_FEMININE) ? 0x400 : 0);
+			else if (!LookupDecimal(tr, &word[n_digits], decimal_count, ph_buf, sizeof(ph_buf)))
+				break; // revert to speaking single digits
 			if ((word[n_digits] == '0') || (decimal_mode != NUM_DFRACTION_1)) {
 				// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
 				if ((tr->langopts.numbers2 & NUM2_FRACTION_FEMININE)
@@ -1785,8 +1836,11 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 						goto stop;
 					strcpy(ph_cur, buf1);
 					ph_cur += len;
-				} else
+				} else {
+					if (strlen(ph_buf) + strlen(buf1) + 1 > sizeof(ph_buf))
+						break; // revert to speaking single digits
 					strcat(ph_buf, buf1);
+				}
 				fraction_suffix = true;
 			}
 
