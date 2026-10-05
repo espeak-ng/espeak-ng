@@ -365,6 +365,7 @@ typedef struct {
 #define STRESSPOSN_GREENLANDIC 12
 #define STRESSPOSN_1SL 13 // 1st syllable, unless 1st vowel is short and 2nd is long
 #define STRESSPOSN_EU 15 // If more than 2 syllables: primary stress in second syllable and secondary on last.
+#define STRESSPOSN_2RH 16 // penultimate if heavy, else antepenultimate, or the heavy syllable just before a light antepenultimate
 
 typedef struct {
 // bits0-2  separate words with (1=pause_vshort, 2=pause_short, 3=pause, 4=pause_long 5=[?] phonemme)

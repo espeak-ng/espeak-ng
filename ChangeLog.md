@@ -14,6 +14,7 @@ new languages:
 *  crh (Crimean Tatar) -- Andyvladescu73
 *  lij (Ligurian) -- Jean Maillard
 *  mn (Mongolian) -- Battseren Badral
+*  pi (Pali) -- Dhamma.Gift
 *  ps (Pashto) -- Hanif Rahman
 *  rup (Aromanian) -- Andy Vladescu
 

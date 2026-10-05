@@ -1,0 +1,39 @@
+// Pali (pi): the Hindi phonemes, except that the short a is always sounded.
+// Pali spelling is phonemic: no schwa deletion (Hindi's V drops at word end and between consonants).
+
+phoneme V
+  vwl flag1 starttype #@  endtype #@
+  length 140
+  IF thisPh(isNotStressed) THEN
+    length 120
+  ENDIF
+  FMT(vowel/V_3)
+endphoneme
+
+phoneme i:        // Hindi shortens an unstressed ī; Pali keeps every long vowel long
+  vwl lng starttype #i endtype #i
+  length 230
+  IfNextVowelAppend(;)
+  FMT(vowel/i_fnt)
+endphoneme
+
+// Sounds only (CALL, not import_phoneme: an ipa line after an import silences the phoneme), the IPA stays Hindi's (Piper voices trained on Hindi know these symbols):
+phoneme J         // j: Hindi's palatal stop sounded odd, use the affricate of "judge"
+  CALL base1/dZ
+  ipa ɟ
+endphoneme
+
+phoneme v         // v: Hindi's approximant came out close to m after a nasal (samaṇena vā); listening round: Russian v
+  CALL ru/v
+  ipa ʋ
+endphoneme
+
+phoneme N2        // the second half of a word-final ṁ: a long ŋ, written ŋː
+  CALL base1/N
+  ipa ː
+endphoneme
+
+phoneme *         // r: Hindi's tap sounded foreign to listeners; the Russian r won the listening round (no "bad" votes)
+  CALL ru/r
+  ipa ɾ
+endphoneme

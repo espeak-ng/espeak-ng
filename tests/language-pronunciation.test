@@ -250,6 +250,8 @@ p#'ulO_! o p'OtO*,O'owsOd#,i 'aha*,O b#'O*i b'OntSe" "ଶାଠ କହେ ଋତ
 test_phon pa "p'a+*@t,i s,@nvId#'an de ,a*@t.'ik@l cUR'VnJa vIc r'aS@t.,@*@p,@ti di c'on. b'a*e l'Ik#I;,a H'oI;,a HE
 p'a+*@t vIc r'aS@t.,@*@p,@ti di c'on. s'Id#i l'oka~ dU'a*a n'VHi~ k'iti J'a~di
 r'aS@t.,@*@p,@ti di c'on. 'Vpr@t,@k# t@*'ike n'al k'iti J'a~di HE" "ਭਾਰਤੀ ਸੰਵਿਧਾਨ ਦੇ ਆਰਟੀਕਲ 54 ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਬਾਰੇ ਲਿਖਿਆ ਹੋਇਆ ਹੈ। ਭਾਰਤ ਵਿੱਚ ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਸਿੱਧੀ ਲੋਕਾਂ ਦੁਆਰਾ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਰਾਸ਼ਟਰਪਤੀ ਦੀ ਚੋਣ ਅਪ੍ਰਤੱਖ ਤਰੀਕੇ ਨਾਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।" "Guru"
+test_phon pi "'e:vVNN2 m'e: s'UtVNN2 'e:kVNN2 s'VmVjVNN2 b#'VgVva: ba:*'a:n.VsIjVNN2 vIH'V*VtI; IsIp'VtVne: mIgVd'a:je:" "Evaṁ me sutaṁ ekaṁ samayaṁ bhagavā bārāṇasiyaṁ viharati isipatane migadāye"
+test_phon pi "p'i:tIsUk#VNN2 b@-*VHmVc'V*IjVNN2 dUkk#VnI*o:d#Vg'a:mIni: pVt.'IpVda: s'ott#I" "pītisukhaṁ brahmacariyaṁ dukkhanirodhagāminī paṭipadā sotthi" "stress: penultimate if heavy, else antepenultimate"
 test_phon pap "t'uR s'eR hum'ano ta n'ase lib'eR_:_: i; igw'al deN dignid'ad_:_: i deN deR'etSo
 naN ta d'ota k'u Ras'oN_:_: i k'u kons'enSi_:_: i naN mest'eR komp'oRta naN deN spiR'ito di fRateRnid'ad p'a k'u 'otRo" "Tur ser humano ta nace liber y igual den dignidad y den derecho. Nan ta dota cu rason y cu consenshi y nan mester comporta nan den spirito di fraternidad pa cu otro." "Latn"
 test_phon pl "m'E~Zny b'On^ts;

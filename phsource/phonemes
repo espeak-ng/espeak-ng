@@ -1976,6 +1976,9 @@ include ph_haitian
 phonemetable hi hi_base
 include ph_hindi
 
+phonemetable pi hi_base
+include ph_pali
+
 phonemetable gd base1 // hidden dependency, imports from hi
 include ph_s_gaelic
 
