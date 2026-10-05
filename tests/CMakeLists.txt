@@ -96,4 +96,22 @@ if (WITH_FUZZER AND UNIX)
   target_compile_options(synth_fuzzer PRIVATE "-fsanitize=fuzzer" "-fno-omit-frame-pointer")
   set_property(TARGET synth_fuzzer APPEND_STRING PROPERTY LINK_FLAGS " -fsanitize=fuzzer")
   add_dependencies(synth_fuzzer data)
+
+  add_executable(dict_fuzzer dict-fuzzer.c)
+  target_link_libraries(dict_fuzzer PRIVATE
+    espeak-ng
+    espeak-ng-config
+    espeak-include
+  )
+  target_include_directories(
+    dict_fuzzer PRIVATE
+    $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>
+    $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>/include/compat
+    $<TARGET_PROPERTY:espeak-ng,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:espeak-ng-config,INTERFACE_INCLUDE_DIRECTORIES>
+  )
+  target_compile_definitions(dict_fuzzer PRIVATE LIBESPEAK_NG_EXPORT=1)
+  target_compile_options(dict_fuzzer PRIVATE "-fsanitize=fuzzer" "-fno-omit-frame-pointer")
+  set_property(TARGET dict_fuzzer APPEND_STRING PROPERTY LINK_FLAGS " -fsanitize=fuzzer")
+  add_dependencies(dict_fuzzer data)
 endif()
