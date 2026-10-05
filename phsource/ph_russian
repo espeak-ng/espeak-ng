@@ -534,3 +534,41 @@ phoneme R4
   FMT(r3/r_ru2) addWav(r3/r_ru, 50)
 endphoneme
 
+
+
+// Palatalization mark after a consonant (боль, день, кровь, только). The base ";" vanishes
+// before anything but a vowel, so word-final and pre-consonant soft consonants came out hard.
+phoneme ;
+  liquid pzd
+  lengthmod 0
+
+  IF prevPh(#i) THEN
+    ipa NULL
+  ENDIF
+
+  IF nextPh(isNotVowel) AND prevPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF nextPh(isNotVowel) THEN
+    ipa ʲ
+    FMT(j2/xj2)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(j2/j2@)
+    VowelStart(j2/j2a)
+    VowelStart(j2/j2e)
+    VowelStart(j2/j2i)
+    VowelStart(j2/j2o)
+    VowelStart(j2/j2u)
+  EndSwitch
+
+  IF prevPh(#i) THEN
+    VowelEnding(j2/xj2, -40)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(j2/_j2)
+  ENDIF
+endphoneme
