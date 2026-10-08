@@ -17,6 +17,7 @@ w'azudZ: h'ammka fi: baQd'a:d mnTml'a:" "اُصْبُرْ عَلَى حِفْظ�
 test_phon ar "?'iDa: (cmn)z.u35k'uo214 n'i35n j'i55n w'ei51 f'a55n j'i51(ar) ?ann'as[s[" "إذا 如果您因为翻译 النص" "Arabic switches Han ideographs to Mandarin"
 test_phon as "X'@kOl,o m'anuh,e S'ad#in,Ob#aw,Oe X'@man m'O*&d,a 'a*u 'od#ik,a*e J'OnmOgr,OhOn k'O*e
 X'ihO~t,Or b'ibek 'a*u b'udd#i 'atS#e 'a*u X'ihO~t,e p'OrOXp,Or b#atr'itbO*,e 'atSOr,On k'o*ib l'age" "সকলো মানুহে স্বাধীনভাৱে সমান মৰ্যদা আৰু অধিকাৰে জন্মগ্ৰহণ কৰে । সিহঁতৰ বিবেক আৰু বুদ্ধি আছে আৰু সিহঁতে পৰস্পৰ ভাতৃত্বৰে আচৰণ কৰিব লাগে ।" "Beng"
+test_phon as "p'Or.a 'ahr.O 'OX@m,ia" "পড়া আঢ় অসমীয়া" "consonant + nukta keeps the following vowel sign"
 test_phon az "byts'yn insanL'aR l&jag'&t v& hygugLa*@n'a J'W*& az'ad b&*ab'&R do:uLuRL'aR
 ona*'@n Syu*aLR'@ v& vidZdanLa*'@ v'aR v& b'iRbiRl&*'in& mynasib'&td& gaRdaSL'@x Runhund'a davRanmaL@d@RL'aR" "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar. Onarın şüuralrı və vicdanları var və bir-birlərinə münasibətdə qardaşlıq runhunda davranmalıdırlar." "Latn"
 test_phon ba "m'in h'in 'uL b'eD h'eD 'uLAr b'VL t'eQe" "мин һин ул беҙ һеҙ улар был теге." "Cyrl"
@@ -52,9 +53,11 @@ s'upras;l;sk;i s;m;'Es.na z;m;'ilavats:a s;n;'Edats; z;n;'uxani\" 'as;p;Ekt r'as
 супрасльскі смешна змілавацца снедаць знюханы аспект расселіна вусце змёрзціся" "Cyrl"
 test_phon bg "'ax tS'udna b@Lg'arska z'em;o
 pol'uSvaj ts@ft;'aSti: Z'ita" "Ах чудна българска земьо, полюшвай цъфтящи жита." "Cyrl"
-test_phon bn "m'alOS,ij 'Obojd#,O Sr'omik,Oder b'i*udd#,e tS'OlOm,an_:_: m'egat#r'i_:_: 'ob#idZ,ane Se d'eSe S'Oto S'Oto 'ob#ib,aSik,e 'at.Ok k'O*etS#,e Se d'eSer 'imigr,eSOn p'uliS
-dZ'ader 'at.Ok k'O*a h'OtS#e
+test_phon bn "m'alO,eSi,aj 'Obojd#,O Sr'omik,Oder b'i*udd#,e tS'OlOm,an_:_: m'egat#r'i_:_: 'ob#idZ,ane Se d'eSe S'Oto S'Oto 'ob#ib,aSik,e 'at.Ok k'O*etS#,e Se d'eSer 'imigr,eSOn p'uliS
+dZ'ader 'at.Ok k'O*a h'OetS#,e
 t,ader pr'aj 'O*d#ek,Oi b'aNlad,eSi n'agO*,ik" "মালয়েশিয়ায় অবৈধ শ্রমিকদের বিরুদ্ধে চলমান 'মেগা-থ্রি' অভিযানে সে দেশে শত শত অভিবাসীকে আটক করেছে সে দেশের ইমিগ্রেশন পুলিশ। যাদের আটক করা হয়েছে, তাদের প্রায় অর্ধেকই বাংলাদেশী নাগরিক।" "Beng"
+test_phon bn "p'Or.a b'ar.i h'OetS#,e" "পড়া বাড়ি হয়েছে" "consonant + nukta keeps the following vowel sign"
+test_phon bpy "p'Or.a pr'ij@,a" "পড়া প্রিয়া" "consonant + nukta keeps the following vowel sign"
 test_phon bs "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
 test_phon bs "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
 test_phon ca "d'on@ @m'oR k@ s@**'as f@l'is
