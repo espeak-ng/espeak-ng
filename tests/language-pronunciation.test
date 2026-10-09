@@ -151,9 +151,11 @@ test_phon kl  "inu'itS; tam'armik in,uNN'orput nammin,E:rs,inn,a:ssusEq'arl#utsi
 silaq,assus'Ermik t,arn'il#u nal,uNN'issusianik pil'ErsuQ,a:p:ut
 ,imm,inn'ul#u ili,orfiQEqatsiQ,i:t:ariaqaralu'arput qat'aNNutsiQ,i:t:ut pEqatsiQ'i:nnErup an'Ers,a:vani" "Inuit tamarmik inunngorput nammineersinnaassuseqarlutik assigiimmillu ataqqinassuseqarlutillu pisinnaatitaaffeqarlutik. Silaqassusermik tarnillu nalunngissusianik pilersugaapput, imminnullu iliorfigeqatigiittariaqaraluarput qatanngutigiittut peqatigiinnerup anersaavani." "Latn"
 test_phon kn "'onde: b#'a:s.e s'a:lalla 'at#ava: s'a:lo:d,illa" "ಒಂದೇ ಭಾಷೆ ಸಾಲಲ್ಲ ಅಥವಾ ಸಾಲೋದಿಲ್ಲ" "Knda"
-test_phon kok ",VnUk'a:*c@h'Vl@-nt'@2c#e:k'a:*d 'e:k:1
-s,@:0b#@ik'a:r m,@nUk'a:rs.@h'Vl@-nt'@2jo:k'a:rshIr'Vw'ind'u k,@o:k'a:r g,@O:k'a:rr@2w,@ 'O:r ,Vd#Ik'a:*k@a:k'a:rr@2o:k'a:rshIr'Vw'ind'u k,@e:k'a:r m,@a:k'a:rm@le:k'a:r m,@e:k'a:rshIr'Vw'ind'u J,@3n@h'Vl@-nt'@2m@Ja:k'a:*t s@:0h'Vl@-nt'@2w:0@t,@n@h'Vl@-nt'@2t@h'Vl@-nt'@2*@ta:k'a:r 'O:r s,@:0m@a:k'a:rn@ta:k'a:r p@h'Vl@-nt'@2ra:k'a:*p@h'Vl@-nt'@2t H,@E:k'a:r
-,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b,@Uk'a:*d@h'Vl@-nt'@2d#Ik'a:r 'O:r ,Vn@h'Vl@-nt'@2t@ra:k'a:*t@h'Vl@-nt'@2ma:k'a:r k,@ik'a:r d,@e:k'a:rn p@h'Vl@-nt'@2ra:k'a:*p@h'Vl@-nt'@2t H,@E:k'a:r 'O:r p,@r@2s@:0h'Vl@-nt'@2p@r ,Un@h'Vl@-nt'@2H@e:k'a:rshIr'Vw'ind'u b#,@a:k'a:*ica:k'a:rr@2e:k'a:r k,@e:k'a:r b#,@a:k'a:rw@ s,@:0e:k'a:r b,@r@2h'Vl@-nt'@2ta:k'a:rw@ k,@r@2na:k'a:r c,@a:k'a:rH@Ik'a:*e:" "अनुच्छेद १. सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है । उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए ।" "Deva"
+test_phon kok ",VnUcc#'e:d 'e:k:1
+s@:0b#'i::0 m@n'Us.jo~ k'o::0 g'O:r@2w,@ 'O:r ,Vd#Ik'a:*o~ k'e::0 m,a:ml'e::0 m'e~:1n J,@3nm@J'a:t sw:0@t'Vntr@2t,a: 'O:r s@:0m'a:nt,a: pr'a:pt H'E::0
+UnH'e~:1n b'Udd#I:0 'O:r ,Vnt@*'a:tma: k'i::0 d'e:n pr'a:pt H'E::0 'O:r p@r'Vsp@r UnH'e~:1n b#,a:ica:*'e::0 k'e::0 b#'a:w@- s'e::0 b@*t'a:w@- k'Vrn,a: c'a:HI;,e:" "अनुच्छेद १. सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है । उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए ।" "Deva"
+test_phon kok "k,o~kn.'i::0 b#'a:s@:0
+H'a~nw@- go~j'a~nt r'a:wt,a:" "कोंकणी भास. हांव गोंयांत रावता." "Konkani uses the Devanagari letter groups"
 test_phon ko "kh'isu-,u-j g'ojudZ;,oq@n,u-n 'ips-uLq-,i*im'annaj,a h'aqo th'u-qp-j@Lh,an g'isu*,u-n ph'i*jotSh,i; 'antha" "키스의 고유조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다." "Hang"
 test_phon ku  "hEm'u mI*'ov az'ad_:_: u_! dI wEq'aR_:_: u maf'an dE# wEkh'Ev t'en dInj'aje
 eU xw8d'i h'IS_:_: u SU'uR 'In_:_: u d'Ive l'I hEmb'ER h'Ev bI z,IhnIj,EtEk'E# bRat'Ije b,IlIv'In" "Hemû mirov azad û di weqar û mafan de wekhev tên dinyayê. Ew xwedî hiş û şuûr in û divê li hember hev bi zihniyeteke bratiyê bilivin." "Latn"
