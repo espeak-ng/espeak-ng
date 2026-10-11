@@ -29,6 +29,7 @@ updated languages:
 *  ku (Kurdish) -- austek
 *  pt (Portuguese) -- Fabio Lima
 *  ru (Russian) -- Alexander Epaneshnikov, AlexanderKhalmaktanov, Danstiv, kirill-jjj, mitrokun
+*  rup (Aromanian) -- Andy Vladescu
 *  sv (Swedish) -- Daniel Nylander
 *  th (Thai) -- Samuel Thibault
 *  tlh (Klingon) -- fionnlagh
