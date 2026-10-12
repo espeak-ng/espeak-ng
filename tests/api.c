@@ -31,6 +31,7 @@
 #include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "wavegen.h"
 
 // region espeak_Initialize
 
@@ -322,6 +323,27 @@ test_espeak_set_voice_by_name_valid_voice()
 	TEST_ASSERT(event_list == NULL);
 	TEST_ASSERT(translator == NULL);
 	TEST_ASSERT(p_decoder == NULL);
+}
+
+static void
+test_espeak_set_voice_by_name_repeatedly_before_synthesis()
+{
+	printf("testing espeak_SetVoiceByName(\"en\") repeatedly before synthesis\n");
+
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+
+	// Voice changes are only consumed by synthesis. Until then they must not pile up
+	// in the wave command queue, or the queued voice copies leak.
+	for (int i = 0; i < 4 * N_WCMDQ; ++i)
+		TEST_ASSERT(espeak_SetVoiceByName("en") == EE_OK);
+	TEST_ASSERT(WcmdqUsed() <= 2);
+
+	const char *test = "One two three.";
+	TEST_ASSERT(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	TEST_ASSERT(espeak_Synchronize() == EE_OK);
+
+	TEST_ASSERT(espeak_Terminate() == EE_OK);
+	TEST_ASSERT(WcmdqUsed() == 0);
 }
 
 static void
@@ -714,6 +736,7 @@ main(int argc, char **argv)
 	test_espeak_set_voice_by_name_null_voice();
 	test_espeak_set_voice_by_name_blank_voice();
 	test_espeak_set_voice_by_name_valid_voice();
+	test_espeak_set_voice_by_name_repeatedly_before_synthesis();
 	test_espeak_set_voice_by_name_invalid_voice();
 	test_espeak_set_voice_by_name_language_variant_intonation_parameter();
 

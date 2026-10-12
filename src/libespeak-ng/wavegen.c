@@ -234,8 +234,36 @@ static const unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	242, 246, 249, 252, 254, 255
 };
 
+// Free the voice copies of WCMD_VOICE commands that were queued but never consumed by
+// WavegenFill(), e.g. when only espeak_TextToPhonemes() is used after setting a voice.
+static void WcmdqFreePendingVoices(void)
+{
+	int i;
+	for (i = wcmdq_head; i != wcmdq_tail; i = (i + 1) % N_WCMDQ) {
+		if ((wcmdq[i][0] & 0xff) == WCMD_VOICE) {
+			free((voice_t *)wcmdq[i][2]);
+			wcmdq[i][2] = 0;
+		}
+	}
+}
+
+// Consecutive unconsumed voice changes collapse into the newest one, so a program that
+// never synthesizes cannot fill the queue. The entry at the head may be in use by
+// WavegenFill(), so it is never replaced. Takes ownership of v on success.
+bool WcmdqReplaceLastVoice(voice_t *v)
+{
+	int last = (wcmdq_tail + N_WCMDQ - 1) % N_WCMDQ;
+
+	if (WcmdqUsed() == 0 || last == wcmdq_head || (wcmdq[last][0] & 0xff) != WCMD_VOICE)
+		return false;
+	free((voice_t *)wcmdq[last][2]);
+	wcmdq[last][2] = (intptr_t)v;
+	return true;
+}
+
 void WcmdqStop(void)
 {
+	WcmdqFreePendingVoices();
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
 
@@ -369,6 +397,9 @@ void WavegenInit(int rate, int wavemult_fact)
 
 void WavegenFini(void)
 {
+	WcmdqFreePendingVoices();
+	wcmdq_head = 0;
+	wcmdq_tail = 0;
 #if USE_KLATT
 	KlattFini();
 #endif
