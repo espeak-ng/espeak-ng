@@ -280,6 +280,7 @@ test_phon sr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE
 test_phon sr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
 test_phon sv "fl'y:gandE- b,Ek:as'i:nE-R s'Y:ka hv'i:la po: mj'u-ka t'u-vu:R
 RE:ksm'WRgo:s" "Flygande bäckasiner söka hwila på mjuka tuvor. Räksmörgås." "Latn"
+test_phon sv "sx'Ema sx'yst sx'ak sx'u:t.a j'E:t.a j'u:d. j'E:n.a" "schema schysst sjack skjorta hjärta hjord gärna" "Latn"
 test_phon sw "w'atu w'ote w,amezal'iwa h'uRu
 h'aDi na h'aki z'ao ni s'awa
 w'ote w,ameJal'iwa_| ak'ili_:_: na Dam'iRi
