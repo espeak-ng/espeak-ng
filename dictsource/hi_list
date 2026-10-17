@@ -396,3 +396,17 @@ $	dOl@r
 मतदान	mat'da:n
 मतदाता	mat'da:ta:
 लखनऊ	 l'Vk#n'@u
+
+// Vowel signs (matras) read on their own, for example while typing
+// or moving letter by letter: named, so they don't sound like full vowels.
+ा	आ की मात्रा	$text
+ि	छोटी इ की मात्रा	$text
+ी	बड़ी ई की मात्रा	$text
+ु	छोटा उ की मात्रा	$text
+ू	बड़ा ऊ की मात्रा	$text
+ृ	ऋ की मात्रा	$text
+े	ए की मात्रा	$text
+ै	ऐ की मात्रा	$text
+ो	ओ की मात्रा	$text
+ौ	औ की मात्रा	$text
+ॉ	ऑ की मात्रा	$text
