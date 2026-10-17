@@ -306,6 +306,32 @@ test_phon uz "o:zb'ektS&
 test_phon vi "t['@3t[_| k'a:4_| m,O6j_| N'y@2j_| s'i1n^_| z'a:1_| d_'e2w_| d_,y@6c_| t['y6_| z'O1_| v,a:2_| _b'i2n^_| d_'a4N_| v'e2_| n^'@1n_| f'@4m_| v,a:2_| kw'iE2n_| l'@:6j_|
 m,O6j_| k,O1n_| N'y@2j_| d_'e2w_| d_,y@6c_| t['a:6w_| hw'a:3_| _b'a:1n_| tS,O1_| l'i3_| tS'i3_| v,a:2_| l'y@1N_| t['@1m_| v,a:2_| k'@2n_| f,a:4j_| d_'o3j_| s'y4_| v,@:3j_| n^'a1w_| tS'O#1N_| t['i2n^_| 'e-1n^_| 'E7m_|" "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền lợi. Mọi con người đều được tạo hóa ban cho lý trí và lương tâm và cần phải đối xử với nhau trong tình anh em." "Latn"
 
+##### Devanagari vowel signs (matras) read on their own, for example while typing.
+
+test_phon hi "'a: ki m'a:tra:" "ा" "hi vowel sign aa"
+test_phon hi "c#'o:t.i; 'I ki m'a:tra:" "ि" "hi vowel sign i"
+test_phon hi "b'Vr.i; 'i ki m'a:tra:" "ी" "hi vowel sign ii"
+test_phon hi "c#'o:t.a: 'U ki m'a:tra:" "ु" "hi vowel sign u"
+test_phon hi "b'Vr.a: 'u ki m'a:tra:" "ू" "hi vowel sign uu"
+test_phon hi "r'I ki m'a:tra:" "ृ" "hi vowel sign r"
+test_phon hi "'e: ki m'a:tra:" "े" "hi vowel sign e"
+test_phon hi "'E: ki m'a:tra:" "ै" "hi vowel sign ai"
+test_phon hi "'o: ki m'a:tra:" "ो" "hi vowel sign o"
+test_phon hi "'O: ki m'a:tra:" "ौ" "hi vowel sign au"
+test_phon hi "'O ki m'a:tra:" "ॉ" "hi vowel sign oo"
+
+test_phon mr "k'a:na:" "ा" "mr vowel sign aa"
+test_phon mr "p'VHIl,i ve:l'a~t.i" "ि" "mr vowel sign i"
+test_phon mr "d'Usr,i ve:l'a~t.i" "ी" "mr vowel sign ii"
+test_phon mr "p'VHIl,a: Uk'a:r" "ु" "mr vowel sign u"
+test_phon mr "d'Usr,a: Uk'a:r" "ू" "mr vowel sign uu"
+test_phon mr "rUk'a:r" "ृ" "mr vowel sign r"
+test_phon mr "'e: c'i m'a:tra:" "े" "mr vowel sign e"
+test_phon mr "'aI c'i m'a:tra:" "ै" "mr vowel sign ai"
+test_phon mr "'o: c'i m'a:tra:" "ो" "mr vowel sign o"
+test_phon mr "'aU c'i m'a:tra:" "ौ" "mr vowel sign au"
+test_phon mr "'O c'i m'a:tra:" "ॉ" "mr vowel sign oo"
+
 ##### Fallback to other languages in different scripts (language switch).
 
 test_phon bg "(en)f'Ut str'Vt(bg)" "foot strut" "Latn as English"
