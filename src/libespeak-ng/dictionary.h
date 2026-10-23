@@ -21,6 +21,7 @@
 #ifndef ESPEAK_NG_DICTIONARY_H
 #define ESPEAK_NG_DICTIONARY_H
 
+#include <stddef.h>                    // for size_t
 #include "espeak-ng/espeak_ng.h"       // for ESPEAK_NG_API
 #include "phoneme.h"                   // for PHONEME_TAB
 #include "synthesize.h"                // for PHONEME_LIST
@@ -36,6 +37,7 @@ extern const char stress_phonemes[];
 int LoadDictionary(Translator *tr, const char *name, int no_error);
 int HashDictionary(const char *string);
 const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);
+size_t CopyBoundedPhoneticString(char *dest, size_t dest_size, const char *src);
 void DecodePhonemes(const char *inptr, char *outptr);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);

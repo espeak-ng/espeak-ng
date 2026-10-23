@@ -41,6 +41,7 @@ macro(shell_test _test_name)
 endmacro(shell_test)
 
 compiled_test(api)
+compiled_test(dictionary_bounds)
 compiled_test(encoding)
 compiled_test(ieee80)
 compiled_test(readclause)

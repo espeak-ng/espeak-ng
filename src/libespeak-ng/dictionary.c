@@ -287,6 +287,24 @@ int HashDictionary(const char *string)
 	return (hash+chars) & 0x3ff; // a 10 bit hash code
 }
 
+/* Copy a NUL-terminated phonetic string into a fixed-size buffer, truncating
+   rather than overflowing it if the source is too long for dest.
+   Returns the source string's real length (its strlen), not the number of
+   bytes actually copied, so a caller that needs to skip past the source
+   string in a surrounding buffer does so correctly even when truncation
+   happened.
+ */
+size_t CopyBoundedPhoneticString(char *dest, size_t dest_size, const char *src)
+{
+	size_t src_len = strlen(src);
+	size_t copy_len = src_len;
+	if (copy_len >= dest_size)
+		copy_len = dest_size - 1;
+	memcpy(dest, src, copy_len);
+	dest[copy_len] = 0;
+	return src_len;
+}
+
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
    from 'p' up to next blank .
    Returns advanced 'p'
@@ -2507,9 +2525,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			phonetic[0] = 0;
 			phoneme_len = 0;
 		} else {
-			phoneme_len = strlen(p);
-			assert(phoneme_len < N_PHONEME_BYTES);
-			strcpy(phonetic, p);
+			phoneme_len = CopyBoundedPhoneticString(phonetic, N_PHONEME_BYTES, p);
 			p += (phoneme_len + 1);
 		}
 
