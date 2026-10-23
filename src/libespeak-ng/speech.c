@@ -22,6 +22,7 @@
 #include <assert.h>
 #include <ctype.h>
 #include <errno.h>
+#include <limits.h>
 #include <locale.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -280,6 +281,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	// Don't allow buffer be smaller than safe minimum
 	if (buffer_length < min_buffer_length)
 		buffer_length = min_buffer_length;
+
+	if ((samplerate > 0) && (buffer_length > (INT_MAX - 1000) / samplerate))
+		return EINVAL; // buffer_length * samplerate would overflow
 
 	// allocate 2 bytes per sample
 	// Always round up to the nearest sample and the nearest byte.
