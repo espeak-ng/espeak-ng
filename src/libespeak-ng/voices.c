@@ -229,6 +229,8 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, int is_languag
 		return NULL; // no language lines in the voice file
 
 	p = (char *)calloc(sizeof(espeak_VOICE) + langix + strlen(fname) + strlen(vname) + 3, 1);
+	if (p == NULL)
+		return NULL;
 	voice_data = (espeak_VOICE *)p;
 	p = &p[sizeof(espeak_VOICE)];
 
@@ -523,7 +525,10 @@ voice_t *LoadVoice(const char *vname, int control)
 		key = LookupMnem(langopts_tab, buf);
 
         if (key != 0) {
-            LoadLanguageOptions(translator, key, p);
+            if (translator == NULL)
+                fprintf(stderr, "Voice attribute '%s' must follow the language attribute\n", buf);
+            else
+                LoadLanguageOptions(translator, key, p);
         } else {
             key = LookupMnem(keyword_tab, buf);
             switch (key)
@@ -555,6 +560,8 @@ voice_t *LoadVoice(const char *vname, int control)
                 // only act on the first language line
                 if (language_set == false) {
                     language_type = strtok(language_name, "-");
+                    if (language_type == NULL)
+                        language_type = ""; // language name was empty or only '-'
                     language_set = true;
                     strcpy(translator_name, language_type);
                     strcpy(new_dictionary, language_type);
