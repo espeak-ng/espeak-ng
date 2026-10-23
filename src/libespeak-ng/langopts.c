@@ -196,8 +196,8 @@ void LoadConfig(void) {
 		if (memcmp(buf, "tone", 4) == 0)
 			ReadTonePoints(&buf[5], tone_points);
 		else if (memcmp(buf, "soundicon", 9) == 0) {
-			ix = sscanf(&buf[10], "_%c %s", &c1, string);
-			if (ix == 2) {
+			ix = sscanf(&buf[10], "_%c %199s", &c1, string);
+			if ((ix == 2) && (n_soundicon_tab < N_SOUNDICON_TAB)) {
 				// add sound file information to soundicon array
 				// the file will be loaded to memory by LoadSoundFile2()
 				soundicon_tab[n_soundicon_tab].name = c1;
