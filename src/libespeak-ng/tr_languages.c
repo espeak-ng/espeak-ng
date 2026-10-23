@@ -101,8 +101,8 @@ const ALPHABET *AlphabetFromChar(int c)
 	const ALPHABET *alphabet = alphabets;
 
 	while (alphabet->name != NULL) {
-		if (c <= alphabet->range_max) {
-			if (c >= alphabet->range_min)
+		if ((unsigned int)c <= alphabet->range_max) {
+			if ((unsigned int)c >= alphabet->range_min)
 				return alphabet;
 			else
 				break;

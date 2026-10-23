@@ -255,7 +255,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	size = fread(tr->data_dictlist, 1, size, f);
 	fclose(f);
 
-	if (size <= (N_HASH_DICT + sizeof(int)*2)) {
+	if ((size_t)size <= (N_HASH_DICT + sizeof(int)*2)) {
 		fprintf(stderr, "Empty _dict file: '%s\n", fname);
 		free(tr->data_dictlist);
 		tr->data_dictlist = NULL;
@@ -294,7 +294,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 		p++; // skip over the zero which terminates the list for this hash value
 	}
 
-	if ((tr->dict_min_size > 0) && (size < (unsigned int)tr->dict_min_size))
+	if ((tr->dict_min_size > 0) && ((unsigned int)size < (unsigned int)tr->dict_min_size))
 		fprintf(stderr, "Full dictionary is not installed for '%s'\n", name);
 
 	return 0;
@@ -368,13 +368,14 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 			// used to separate phoneme mnemonics if needed, to prevent characters being treated
 			// as a multi-letter mnemonic
 
-			if ((c = p[1]) == '|') {
-				// treat double || as a word-break symbol, drop through
-				// to the default case with c = '|'
-			} else {
+			if (p[1] != '|') {
 				p++;
 				break;
 			}
+			// treat double || as a word-break symbol, drop through
+			// to the default case with c = '|'
+			c = '|';
+			// fall through
 		default:
 			// lookup the phoneme mnemonic, find the phoneme with the highest number of
 			// matching characters
@@ -438,16 +439,25 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 	return p;
 }
 
-void DecodePhonemes(const char *inptr, char *outptr)
+static void DecodePut(char *out, size_t outsize, size_t *pos, char c)
+{
+	if (*pos + 1 < outsize)
+		out[(*pos)++] = c;
+}
+
+void DecodePhonemes(const char *inptr, char *outptr, size_t outsize)
 {
 	// Translate from internal phoneme codes into phoneme mnemonics
 	unsigned char phcode;
 	unsigned char c;
 	unsigned int mnem;
 	PHONEME_TAB *ph;
+	size_t pos = 0;
 	static const char stress_chars[] = "==,,'*  ";
 
-	sprintf(outptr, "* ");
+	if (outsize == 0)
+		return;
+
 	while ((phcode = *inptr++) > 0) {
 		if (phcode == 255)
 			continue; // indicates unrecognised phoneme
@@ -456,21 +466,21 @@ void DecodePhonemes(const char *inptr, char *outptr)
 
 		if ((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->program == 0)) {
 			if (ph->std_length > 1)
-				*outptr++ = stress_chars[ph->std_length];
+				DecodePut(outptr, outsize, &pos, stress_chars[ph->std_length]);
 		} else {
 			mnem = ph->mnemonic;
 
 			while ((c = (mnem & 0xff)) != 0) {
-				*outptr++ = c;
+				DecodePut(outptr, outsize, &pos, c);
 				mnem = mnem >> 8;
 			}
 			if (phcode == phonSWITCH) {
 				while (isalpha(*inptr))
-					*outptr++ = *inptr++;
+					DecodePut(outptr, outsize, &pos, *inptr++);
 			}
 		}
 	}
-	*outptr = 0; // string terminator
+	outptr[pos] = 0; // string terminator
 }
 
 // using Kirschenbaum to IPA translation, ascii 0x20 to 0x7f
@@ -1676,11 +1686,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 					if (condition_num >= 32) {
 						// allow the rule only if the condition number is NOT set
-						if ((tr->dict_condition & (1L << (condition_num-32))) != 0)
+						if (((unsigned int)tr->dict_condition & (1u << (condition_num-32))) != 0)
 							failed = 1;
 					} else {
 						// allow the rule only if the condition number is set
-						if ((tr->dict_condition & (1L << condition_num)) == 0)
+						if (((unsigned int)tr->dict_condition & (1u << condition_num)) == 0)
 							failed = 1;
 					}
 
@@ -2114,7 +2124,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					pts = match.points;
 					if (group_length > 1)
 						pts += 35; // to account for an extra letter matching
-					DecodePhonemes(match.phonemes, decoded_phonemes);
+					DecodePhonemes(match.phonemes, decoded_phonemes, sizeof(decoded_phonemes));
 					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags, output), decoded_phonemes);
 				}
 			}
@@ -2568,11 +2578,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				// conditional rule
 				if (flag >= 132) {
 					// fail if this condition is set
-					if ((tr->dict_condition & (1 << (flag-132))) != 0)
+					if (((unsigned int)tr->dict_condition & (1u << (flag-132))) != 0)
 						condition_failed = true;
 				} else {
 					// allow only if this condition is set
-					if ((tr->dict_condition & (1 << (flag-100))) == 0)
+					if (((unsigned int)tr->dict_condition & (1u << (flag-100))) == 0)
 						condition_failed = true;
 				}
 			} else if (flag > 80) {
@@ -2609,9 +2619,9 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				if ((flag & 0xc) == 0xc)
 					dictionary_flags |= FLAG_STRESS_END;
 			} else if (flag >= 32)
-				dictionary_flags2 |= (1L << (flag-32));
+				dictionary_flags2 |= (1u << (flag-32));
 			else
-				dictionary_flags |= (1L << flag);
+				dictionary_flags |= (1u << flag);
 		}
 
 		if (condition_failed) {
@@ -2723,7 +2733,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			char ph_decoded[N_WORD_PHONEMES];
 			bool textmode;
 
-			DecodePhonemes(phonetic, ph_decoded);
+			DecodePhonemes(phonetic, ph_decoded, sizeof(ph_decoded));
 
 			if ((dictionary_flags & FLAG_TEXTMODE) == 0)
 				textmode = false;
@@ -2809,7 +2819,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		nbytes = 0;
 		while (((c = word2[nbytes]) != 0) && (c != ' '))
 			nbytes++;
-		if (length + nbytes + 1 <= sizeof(word)) {
+		if ((size_t)(length + nbytes + 1) <= sizeof(word)) {
 			memcpy(&word[length], word2, nbytes);
 			word[length+nbytes] = 0;
 			found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab, wtab_remaining);

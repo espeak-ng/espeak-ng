@@ -74,18 +74,22 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 		case V_NUMBERS: {
 			// expect a list of numbers
 			while (*keyValue != 0) {
-				while (isspace(*keyValue)) keyValue++;
+				const char *token;
+				while (isspace((unsigned char)*keyValue)) keyValue++;
+				token = keyValue;
 				if ((n = atoi(keyValue)) > 0) {
 					keyValue++;
 					if (n < 32) {
-							translator->langopts.numbers |= (1 << n);
+							translator->langopts.numbers |= (1u << n);
 					} else {
 						if (n < 64)
-							translator->langopts.numbers2 |= (1 << (n-32));
+							translator->langopts.numbers2 |= (1u << (n-32));
 						else
 							fprintf(stderr, "numbers: Bad option number %d\n", n);					}
 				}
-				while (isalnum(*keyValue)) keyValue++;
+				while (isalnum((unsigned char)*keyValue)) keyValue++;
+				if (keyValue == token && *keyValue != 0)
+					keyValue++; // skip a token that is neither a number nor alphanumeric
 			}
 			ProcessLanguageOptions(&(translator->langopts));
 

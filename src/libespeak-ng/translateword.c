@@ -476,7 +476,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 							strcpy(phonemes, phonemes2);
 							strcpy(end_phonemes, end_phonemes2);
 							if (option_phonemes & espeakPHONEMES_TRACE) {
-								DecodePhonemes(end_phonemes, end_phonemes2);
+								DecodePhonemes(end_phonemes, end_phonemes2, sizeof(end_phonemes2));
 								fprintf(f_trans, "  suffix [%s]\n\n", end_phonemes2);
 							}
 						}
@@ -1141,9 +1141,9 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 	len = strlen(phonemes);
 
 	if (tr->langopts.accents & 2)  // 'capital' before or after the word ?
-		sprintf(ph_buf2, "%c%s%s%s", 0xff, ph_alphabet, ph_buf, capital);
+		snprintf(ph_buf2, sizeof(ph_buf2), "%c%s%s%s", 0xff, ph_alphabet, ph_buf, capital);
 	else
-		sprintf(ph_buf2, "%c%s%s%s", 0xff, ph_alphabet, capital, ph_buf); // the 0xff marker will be removed or replaced in SetSpellingStress()
+		snprintf(ph_buf2, sizeof(ph_buf2), "%c%s%s%s", 0xff, ph_alphabet, capital, ph_buf); // the 0xff marker will be removed or replaced in SetSpellingStress()
 	if ((len + strlen(ph_buf2)) < N_WORD_PHONEMES)
 		strcpy(&phonemes[len], ph_buf2);
 	return n_bytes;

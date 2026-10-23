@@ -374,25 +374,26 @@ int AddNameData(const char *name, int wide)
 
 	int ix;
 	int len;
+	int start = namedata_ix;
 
 	if (wide) {
 		len = (wcslen((const wchar_t *)name)+1)*sizeof(wchar_t);
-		n_namedata = (n_namedata + sizeof(wchar_t) - 1) % sizeof(wchar_t);  // round to wchar_t boundary
+		start = (namedata_ix + sizeof(wchar_t) - 1) / sizeof(wchar_t) * sizeof(wchar_t);  // round up to wchar_t boundary
 	} else
 		len = strlen(name)+1;
 
-	if (namedata_ix+len >= n_namedata) {
+	if (start+len > n_namedata) {
 		// allocate more space for marker names
 		void *vp;
-		if ((vp = realloc(namedata, namedata_ix+len + 1000)) == NULL)
+		if ((vp = realloc(namedata, start+len + 1000)) == NULL)
 			return -1;  // failed to allocate, original data is unchanged but ignore this new name
 		// !!! Bug?? If the allocated data shifts position, then pointers given to user application will be invalid
 
 		namedata = (char *)vp;
-		n_namedata = namedata_ix+len + 1000;
+		n_namedata = start+len + 1000;
 	}
-	memcpy(&namedata[ix = namedata_ix], name, len);
-	namedata_ix += len;
+	memcpy(&namedata[ix = start], name, len);
+	namedata_ix = start + len;
 	return ix;
 }
 
@@ -1024,11 +1025,11 @@ static void DecodeWithPhonemeMode(char *buf, size_t buf_size, char *phonemes, Tr
 	char phonemes2[N_PHONEME_BYTES*4 + 3]; // a mnemonic is up to 4 bytes, plus the "* " prefix
 	if (tr2 == NULL) {
 		SetWordStress(tr, phonemes, flags, -1, 0);
-		DecodePhonemes(phonemes, phonemes2);
+		DecodePhonemes(phonemes, phonemes2, sizeof(phonemes2));
 		snprintf(buf, buf_size, "[\002%s]]", phonemes2);
 	} else {
 		SetWordStress(tr2, phonemes, flags, -1, 0);
-	    DecodePhonemes(phonemes, phonemes2);
+	    DecodePhonemes(phonemes, phonemes2, sizeof(phonemes2));
 			char wbuf[5];
 	    snprintf(buf, buf_size, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
     }
