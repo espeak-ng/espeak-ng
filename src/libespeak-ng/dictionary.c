@@ -2209,7 +2209,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 			string[0] = '_';
 			memcpy(&string[1], p, wc_bytes);
 			string[1+wc_bytes] = 0;
-			Lookup(tr, string, buf);
+			Lookup(tr, string, buf, sizeof(buf));
 			if (++digit_count >= 2) {
 				strcat(buf, str_pause);
 				digit_count = 0;
@@ -2334,7 +2334,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 							break;
 						}
 					} else {
-						LookupLetter(tr, wc, -1, ph_buf, 0);
+						LookupLetter(tr, wc, -1, ph_buf, sizeof(ph_buf), 0);
 						if (ph_buf[0]) {
 							match1.phonemes = ph_buf;
 							match1.points = 1;
@@ -2852,7 +2852,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		word2 = word;
 		if (*word2 == '_') word2++;
 		len = utf8_in(&letter, word2);
-		LookupAccentedLetter(tr, letter, ph_out);
+		LookupAccentedLetter(tr, letter, ph_out, N_PHONEME_BYTES);
 		found = word2 + len;
 	}
 
@@ -2912,18 +2912,22 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 
 extern char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 
-int Lookup(Translator *tr, const char *word, char *ph_out)
+int Lookup(Translator *tr, const char *word, char *ph_out, size_t ph_out_size)
 {
 	// Look up in *_list, returns dictionary flags[0] and phonemes
 
 	int flags0;
 	unsigned int flags[2];
 	char *word1 = (char *)word;
+	char ph_buf[N_WORD_PHONEMES];
 
+	ph_buf[0] = 0;
 	flags[0] = 0;
 	flags[1] = FLAG_LOOKUP_SYMBOL;
-	if ((flags0 = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL, 0)) != 0)
+	if ((flags0 = LookupDictList(tr, &word1, ph_buf, flags, FLAG_ALLOW_TEXTMODE, NULL, 0)) != 0)
 		flags0 = flags[0];
+	if (ph_out_size > 0)
+		CopyBoundedPhoneticString(ph_out, ph_out_size, ph_buf);
 
 	if (flags[0] & FLAG_TEXTMODE) {
 		int say_as = option_sayas;
@@ -2938,7 +2942,8 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		text[2] = ' ';
 		strncpy0(text+3, word1, sizeof(text)-3);
 		flags0 = TranslateWord(tr, text+3, NULL, NULL);
-		strcpy(ph_out, word_phonemes);
+		if (ph_out_size > 0)
+			CopyBoundedPhoneticString(ph_out, ph_out_size, word_phonemes);
 		option_sayas = say_as;
 	}
 	return flags0;
