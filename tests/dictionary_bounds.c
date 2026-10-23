@@ -19,10 +19,17 @@
 #include "config.h"
 #include "test_assert.h"
 
+#include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef _WIN32
+#include <unistd.h>
+#endif
 
 #include "dictionary.h"
+#include "speech.h"
+#include "translate.h"
 
 // A phoneme string that fits comfortably within the destination buffer
 // must round-trip unchanged, and the returned length must be its real
@@ -63,6 +70,75 @@ test_copy_exact_fit(void)
 	TEST_ASSERT(!strcmp(dest, "abc"));
 }
 
+// Write a "<name>_dict" file into a temporary espeak-ng-data directory and
+// load it, returning LoadDictionary's result.
+static int load_dict_bytes(const unsigned char *data, size_t size, Translator *tr)
+{
+	char dir[] = "dictionary_bounds_XXXXXX";
+	char fname[N_PATH_BUF + 16];
+	FILE *f;
+	int result;
+
+	TEST_ASSERT(mkdtemp(dir) != NULL);
+	snprintf(path_home, sizeof(path_home), "%s", dir);
+	snprintf(fname, sizeof(fname), "%s/xx_dict", dir);
+	f = fopen(fname, "wb");
+	TEST_ASSERT(f != NULL);
+	TEST_ASSERT(fwrite(data, 1, size, f) == size);
+	fclose(f);
+
+	memset(tr, 0, sizeof(*tr));
+	result = LoadDictionary(tr, "xx", 1);
+
+	remove(fname);
+	rmdir(dir);
+	return result;
+}
+
+static void test_dict_rules_offset_beyond_file(void)
+{
+	static unsigned char data[2048];
+	Translator tr;
+	uint32_t hash_size = N_HASH_DICT;
+	uint32_t rules_offset = 0x100000;
+
+	memset(data, 0, sizeof(data));
+	memcpy(data, &hash_size, 4);
+	memcpy(data + 4, &rules_offset, 4);
+	TEST_ASSERT(load_dict_bytes(data, sizeof(data), &tr) == 2);
+	TEST_ASSERT(tr.data_dictlist == NULL);
+}
+
+static void test_dict_truncated_hash_chain(void)
+{
+	static unsigned char data[2048];
+	Translator tr;
+	uint32_t hash_size = N_HASH_DICT;
+	uint32_t rules_offset = 2000;
+
+	memset(data, 0xff, sizeof(data));
+	memcpy(data, &hash_size, 4);
+	memcpy(data + 4, &rules_offset, 4);
+	TEST_ASSERT(load_dict_bytes(data, sizeof(data), &tr) == 2);
+	TEST_ASSERT(tr.data_dictlist == NULL);
+}
+
+static void test_dict_unterminated_rules(void)
+{
+	static unsigned char data[2048];
+	Translator tr;
+	uint32_t hash_size = N_HASH_DICT;
+	uint32_t rules_offset = 1100;
+
+	memset(data, 0, sizeof(data));
+	memcpy(data, &hash_size, 4);
+	memcpy(data + 4, &rules_offset, 4);
+	data[rules_offset] = 6; // RULE_GROUP_START
+	memset(data + rules_offset + 1, 'a', sizeof(data) - rules_offset - 1);
+	TEST_ASSERT(load_dict_bytes(data, sizeof(data), &tr) == 0);
+	free(tr.data_dictlist);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -72,6 +148,10 @@ main(int argc, char **argv)
 	test_copy_within_bounds();
 	test_copy_overlong_is_truncated_not_overflowed();
 	test_copy_exact_fit();
-
+#ifndef _WIN32
+	test_dict_rules_offset_beyond_file();
+	test_dict_truncated_hash_chain();
+	test_dict_unterminated_rules();
+#endif
 	return EXIT_SUCCESS;
 }

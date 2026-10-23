@@ -111,14 +111,16 @@ static int Reverse4Bytes(int word)
 #endif
 }
 
-static void InitGroups(Translator *tr)
+static void InitGroups(Translator *tr, const char *end)
 {
 	// Called after dictionary 1 is loaded, to set up table of entry points for translation rule chains
-	// for single-letters and two-letter combinations
+	// for single-letters and two-letter combinations.
+	// 'end' is the end of the rules data, which stops a malformed file running off the buffer.
 
 	int ix;
 	char *p;
 	char *p_name;
+	char *p_end;
 	unsigned char c, c2;
 	int len;
 
@@ -135,22 +137,26 @@ static void InitGroups(Translator *tr)
 	// If there are no rules in the dictionary, compile_dictrules will not
 	// write a RULE_GROUP_START (written in the for loop), but will write
 	// a RULE_GROUP_END.
-	if (*p != RULE_GROUP_END) while (*p != 0) {
+	if ((p < end) && (*p != RULE_GROUP_END)) while ((p < end) && (*p != 0)) {
 		if (*p != RULE_GROUP_START) {
 			fprintf(stderr, "Bad rules data in '%s_dict' at 0x%x (%c)\n", dictionary_name, (unsigned int)(p - tr->data_dictrules), *p);
 			break;
 		}
 		p++;
+		if (p + 2 > end)
+			break;
 
 		if (p[0] == RULE_REPLACEMENTS) {
 			p = (char *)(((intptr_t)p+4) & ~3); // advance to next word boundary
+			if (p + 4 > end)
+				break;
 			tr->langopts.replace_chars = (unsigned char *)p;
 
-			while ( !is_str_totally_null(p, 4) ) {
+			while ((p + 4 <= end) && !is_str_totally_null(p, 4)) {
 				p++;
 			}
 
-			while (*p != RULE_GROUP_END) p++;
+			while ((p < end) && (*p != RULE_GROUP_END)) p++;
 			p++;
 			continue;
 		}
@@ -163,7 +169,10 @@ static void InitGroups(Translator *tr)
 			if ((ix >= 0) && (ix < N_LETTER_GROUPS))
 				tr->letterGroups[ix] = p;
 		} else {
-			len = strlen(p);
+			p_end = memchr(p, 0, end - p);
+			if (p_end == NULL)
+				break;
+			len = p_end - p;
 			p_name = p;
 			c = p_name[0];
 			c2 = p_name[1];
@@ -175,8 +184,12 @@ static void InitGroups(Translator *tr)
 				tr->groups1[0] = p;
 			else if (c == 1) {
 				// index by offset from letter base
+				if ((c2 < 1) || (c2 > sizeof(tr->groups3)/sizeof(tr->groups3[0])))
+					break;
 				tr->groups3[c2 - 1] = p;
 			} else {
+				if (tr->n_groups2 >= N_RULE_GROUP2)
+					break;
 				if (tr->groups2_start[c] == 255)
 					tr->groups2_start[c] = tr->n_groups2;
 
@@ -187,8 +200,14 @@ static void InitGroups(Translator *tr)
 		}
 
 		// skip over all the rules in this group
-		while (*p != RULE_GROUP_END)
-			p += (strlen(p) + 1);
+		while ((p < end) && (*p != RULE_GROUP_END)) {
+			p_end = memchr(p, 0, end - p);
+			if (p_end == NULL) {
+				p = (char *)end;
+				break;
+			}
+			p = p_end + 1;
+		}
 		p++;
 	}
 }
@@ -197,6 +216,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 {
 	int hash;
 	char *p;
+	char *end;
 	int *pw;
 	int length;
 	FILE *f;
@@ -235,31 +255,42 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	size = fread(tr->data_dictlist, 1, size, f);
 	fclose(f);
 
+	if (size <= (N_HASH_DICT + sizeof(int)*2)) {
+		fprintf(stderr, "Empty _dict file: '%s\n", fname);
+		free(tr->data_dictlist);
+		tr->data_dictlist = NULL;
+		return 2;
+	}
+
 	pw = (int *)(tr->data_dictlist);
 	length = Reverse4Bytes(pw[1]);
 
-	if (size <= (N_HASH_DICT + sizeof(int)*2)) {
-		fprintf(stderr, "Empty _dict file: '%s\n", fname);
-		return 2;
-	}
-
 	if ((Reverse4Bytes(pw[0]) != N_HASH_DICT) ||
-	    (length <= 0) || (length > 0x8000000)) {
+	    (length <= 0) || (length > 0x8000000) || (length >= size)) {
 		fprintf(stderr, "Bad data: '%s' (%x length=%x)\n", fname, Reverse4Bytes(pw[0]), length);
+		free(tr->data_dictlist);
+		tr->data_dictlist = NULL;
 		return 2;
 	}
+	end = tr->data_dictlist + size;
 	tr->data_dictrules = &(tr->data_dictlist[length]);
 
 	// set up indices into data_dictrules
-	InitGroups(tr);
+	InitGroups(tr, end);
 
 	// set up hash table for data_dictlist
 	p = &(tr->data_dictlist[8]);
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
 		tr->dict_hashtab[hash] = p;
-		while ((length = *(uint8_t *)p) != 0)
+		while ((p < end) && ((length = *(uint8_t *)p) != 0))
 			p += length;
+		if (p >= end) {
+			fprintf(stderr, "Bad data: '%s' (truncated word list)\n", fname);
+			free(tr->data_dictlist);
+			tr->data_dictlist = NULL;
+			return 2;
+		}
 		p++; // skip over the zero which terminates the list for this hash value
 	}
 
