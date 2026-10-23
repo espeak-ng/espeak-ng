@@ -123,7 +123,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 		fclose(f);
 		return ENOMEM;
 	}
-	if (fread(p, 1, length, f) != length) {
+	if (fread(p, 1, length, f) != (size_t)length) {
 		int error = errno;
 		fclose(f);
 		if (fname_temp[0])

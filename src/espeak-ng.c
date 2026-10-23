@@ -747,7 +747,7 @@ int main(int argc, char **argv)
 				if ((c = fgetc(stdin)) == EOF)
 					break;
 				p_text[ix++] = (char)c;
-				if (ix >= (max-1)) {
+				if ((size_t)ix >= (max-1)) {
 					char *new_text = NULL;
 					if (max <= SIZE_MAX - 1000) {
 						max += 1000;

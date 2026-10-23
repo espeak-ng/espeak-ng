@@ -1211,7 +1211,7 @@ static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 	float env_x[20];
 	float env_y[20];
 	int env_lin[20];
-	unsigned char env[ENV_LEN];
+	unsigned char env[ENV_LEN] = { 0 };
 
 	n_points = 0;
 	if (fgets(line_buf, sizeof(line_buf), f) != NULL) { ; // skip first line, then loop
@@ -2033,7 +2033,7 @@ static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 				break;
 			case kWAV:
 				ctx->if_stack[ctx->if_level].returned = true;
-				// fallthrough:
+				// fallthrough
 			case kVOWELSTART:
 			case kVOWELENDING:
 			case kANDWAV:
@@ -2062,8 +2062,8 @@ static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 				break;
 			case kINCLUDE:
 			case kPHONEMETABLE:
-				error(ctx, "Missing 'endphoneme' before '%s'", ctx->item_string);  // drop through to endphoneme
-				// fallthrough:
+				error(ctx, "Missing 'endphoneme' before '%s'", ctx->item_string);
+				// fallthrough - continues as endphoneme
 			case kENDPHONEME:
 			case kENDPROCEDURE:
 				endphoneme = 1;
@@ -2203,7 +2203,7 @@ static void StartPhonemeTable(CompileContext *ctx, const char *name)
 		error(ctx, "Too many phonemetables");
 		return;
 	}
-	p = (PHONEME_TAB *)calloc(sizeof(PHONEME_TAB), N_PHONEME_TAB);
+	p = (PHONEME_TAB *)calloc(N_PHONEME_TAB, sizeof(PHONEME_TAB));
 
 	if (p == NULL) {
 		error(ctx, "Out of memory");

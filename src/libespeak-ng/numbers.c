@@ -1397,7 +1397,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 			}
 		}
 
-		sprintf(buf1, "%s%s%s%s", ph_thousands, ph_thousand_and, ph_digits, ph_100);
+		snprintf(buf1, sizeof(buf1), "%s%s%s%s", ph_thousands, ph_thousand_and, ph_digits, ph_100);
 	}
 
 	ph_hundred_and[0] = 0;
@@ -1580,7 +1580,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 					ordinal = 2;
 					flags[0] |= FLAG_SKIPWORDS;
 					skipwords = 1;
-					sprintf(string, "_x#%s", suffix);
+					snprintf(string, sizeof(string), "_x#%s", suffix);
 					Lookup(tr, string, ph_ordinal2x); // is there an alternate pronunciation?
 				}
 			}
@@ -1734,7 +1734,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		{
 		case NUM_DFRACTION_4:
 			max_decimal_count = 5;
-			// fallthrough:
+			// fallthrough
 		case NUM_DFRACTION_2:
 			// French/Polish decimal fraction
 			while (word[n_digits] == '0') {

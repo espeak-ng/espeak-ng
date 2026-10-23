@@ -85,6 +85,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	}
 	
 	if (length == 0) {
+		fclose(f_in);
 		*ptr = NULL;
 		return 0;
 	}
@@ -93,7 +94,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 		fclose(f_in);
 		return ENOMEM;
 	}
-	if (fread(*ptr, 1, length, f_in) != length) {
+	if (fread(*ptr, 1, length, f_in) != (size_t)length) {
 		int error = errno;
 		fclose(f_in);
 		free(*ptr);
