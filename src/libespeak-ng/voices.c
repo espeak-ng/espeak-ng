@@ -784,7 +784,7 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
 				variant_num = atoi(p); // variant number
 			else {
 				// voice variant name, not number
-				sprintf(variant_name, "%s%s", variant_prefix, p);
+				snprintf(variant_name, sizeof(variant_name), "%s%s", variant_prefix, p);
 			}
 		}
 	}
@@ -981,6 +981,9 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 			if ((language[ix] = tolower(voice_select->languages[ix])) == '-')
 				n_parts++;
 		}
+		language[sizeof(language)-1] = 0;
+		if (lang_len > (int)sizeof(language)-3)
+			lang_len = sizeof(language)-3; // leave room to append PATHSEP below
 	}
 
 	if ((n_parts == 1) && (control & 1)) {
@@ -1058,7 +1061,7 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 			id = voices[ix]->identifier;
 			if (strcasecmp(name, id) == 0)
 				match_fname = ix; // matching identifier, use this if no matching name
-			else if (strcasecmp(last_part, &id[strlen(id)-last_part_len]) == 0)
+			else if ((strlen(id) >= (size_t)last_part_len) && (strcasecmp(last_part, &id[strlen(id)-last_part_len]) == 0))
 				match_fname2 = ix;
 		}
 	}
@@ -1124,7 +1127,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 			if ((voice_select2.gender == ENGENDER_UNKNOWN) && (voice_select2.age == 0) && (voice_select2.variant == 0)) {
 				if (variant_name[0] != 0) {
-					sprintf(voice_id, "%s+%s", vp->identifier, variant_name);
+					snprintf(voice_id, sizeof(voice_id), "%s+%s", vp->identifier, variant_name);
 					return voice_id;
 				}
 
@@ -1202,7 +1205,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 	if (vp->variant != 0) {
 		variant_name = ExtractVoiceVariantName(NULL, vp->variant, 0);
-		sprintf(voice_id, "%s+%s", vp->identifier, variant_name);
+		snprintf(voice_id, sizeof(voice_id), "%s+%s", vp->identifier, variant_name);
 		return voice_id;
 	}
 
@@ -1253,7 +1256,7 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 		if (ent->d_name[0] == '.')
 			continue;
 
-			 sprintf(fname, "%s%c%s", path, PATHSEP, ent->d_name);
+			 snprintf(fname, sizeof(fname), "%s%c%s", path, PATHSEP, ent->d_name);
 			if (AddToVoicesList(fname, len_path_voices, is_language_file) != 0) {
 				continue;
 			}

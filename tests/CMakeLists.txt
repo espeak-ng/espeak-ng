@@ -47,6 +47,7 @@ compiled_test(espeak_command_bounds)
 compiled_test(ieee80)
 compiled_test(readclause)
 compiled_test(soundicon_bounds)
+compiled_test(voices_bounds)
 
 if (SHELL AND UNIX)
 
