@@ -433,6 +433,12 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	while (c != '\n' && c != '\0') {
 		c = *p;
 
+		if (n_flag_codes >= sizeof(flag_codes) - 10) { // leave room for the flags added after this loop
+			fprintf(ctx->f_log, "%5d: Too many flags\n", ctx->linenum);
+			ctx->error_count++;
+			break;
+		}
+
 		if ((c == '?') && (step == 0)) {
 			// conditional rule, allow only if the numbered condition is set for the voice
 			flag_offset = 100;
@@ -671,6 +677,15 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 			dict_line[1] |= 0x80;
 			length = len_word + 2;
 		}
+	}
+
+	ix = n_flag_codes;
+	if ((multiple_string != NULL) && (multiple_words > 0))
+		ix += (multiple_string_end - multiple_string) + 2;
+	if (length + ix >= n_dict_line) {
+		fprintf(ctx->f_log, "%5d: Dictionary line length would overflow the data buffer: %d\n", ctx->linenum, length + ix);
+		ctx->error_count++;
+		return 0;
 	}
 
 	for (ix = 0; ix < n_flag_codes; ix++)
