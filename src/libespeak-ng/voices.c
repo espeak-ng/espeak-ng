@@ -201,7 +201,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, int is_languag
 			priority = DEFAULT_LANGUAGE_PRIORITY;
 			vlanguage[0] = 0;
 
-			sscanf(p, "%s %d", vlanguage, &priority);
+			sscanf(p, "%79s %d", vlanguage, &priority);
 			len = strlen(vlanguage) + 2;
 			// check for space in languages[]
 			if (len < (sizeof(languages)-langix-1)) {
@@ -213,7 +213,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, int is_languag
 			}
 			break;
 		case V_GENDER:
-			sscanf(p, "%s %d", vgender, &age);
+			sscanf(p, "%79s %d", vgender, &age);
 			if (is_language_file)
 				fprintf(stderr, "Error (%s): gender attribute specified on a language file\n", fname);
 			break;
@@ -363,7 +363,7 @@ static void PhonemeReplacement(char *p)
 	char phon_string2[12];
 
 	strcpy(phon_string2, "NULL");
-	n = sscanf(p, "%d %s %s", &flags, phon_string1, phon_string2);
+	n = sscanf(p, "%d %11s %11s", &flags, phon_string1, phon_string2);
 	if ((n < 2) || (n_replace_phonemes >= N_REPLACE_PHONEMES))
 		return;
 
@@ -539,7 +539,7 @@ voice_t *LoadVoice(const char *vname, int control)
                 priority = DEFAULT_LANGUAGE_PRIORITY;
                 language_name[0] = 0;
 
-                sscanf(p, "%s %d", language_name, &priority);
+                sscanf(p, "%39s %d", language_name, &priority);
                 if (strcmp(language_name, "variant") == 0)
                     break;
 
@@ -576,16 +576,17 @@ voice_t *LoadVoice(const char *vname, int control)
             {
                 int age = 0;
                 char vgender[80];
-                sscanf(p, "%s %d", vgender, &age);
+                vgender[0] = 0;
+                sscanf(p, "%79s %d", vgender, &age);
                 current_voice_selected.gender = LookupMnem(genders, vgender);
                 current_voice_selected.age = age;
             }
                 break;
             case V_DICTIONARY: // dictionary
-                sscanf(p, "%s", new_dictionary);
+                sscanf(p, "%39s", new_dictionary);
                 break;
             case V_PHONEMES: // phoneme table
-                sscanf(p, "%s", phonemes_name);
+                sscanf(p, "%39s", phonemes_name);
                 break;
             case V_FORMANT:
                 VoiceFormant(p);
@@ -670,7 +671,8 @@ voice_t *LoadVoice(const char *vname, int control)
                 int srate = 16000;
 
                 name2[0] = 0;
-                sscanf(p, "%s %s %d", name1, name2, &srate);
+                name1[0] = 0;
+                sscanf(p, "%39s %79s %d", name1, name2, &srate);
                 espeak_ng_STATUS status = LoadMbrolaTable(name1, name2, &srate);
                 if (status != ENS_OK) {
                     espeak_ng_PrintStatusCodeMessage(status, stderr, NULL);
