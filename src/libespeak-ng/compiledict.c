@@ -220,7 +220,7 @@ void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
 	}
 
 	for (ix = 8; ix < 64; ix++) {
-		if (((ix < 30) && (flags[0] & (1 << ix))) || ((ix >= 0x20) && (flags[1] & (1 << (ix-0x20))))) {
+		if (((ix < 30) && (flags[0] & (1u << ix))) || ((ix >= 0x20) && (flags[1] & (1u << (ix-0x20))))) {
 			name = LookupMnemName(mnem_flags, ix);
 			len = strlen(name) + 1;
 			total += len;
@@ -1246,6 +1246,14 @@ static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 	return a->index - b->index;
 }
 
+static char *grow_buffer(char *buf, size_t size)
+{
+	char *tmp = realloc(buf, size);
+	if (tmp == NULL)
+		free(buf);
+	return tmp;
+}
+
 static void* output_rule_group(int n_rules, char **rules, char *name, size_t *outsize)
 {
 	int ix;
@@ -1282,19 +1290,25 @@ static void* output_rule_group(int n_rules, char **rules, char *name, size_t *ou
 		outpos = outlen;
 		if ((common[0] != 0) && (strcmp(p, common) == 0)) {
 			outlen += len2 + 1;
-			outptr = realloc(outptr, outlen);
+			outptr = grow_buffer(outptr, outlen);
+			if (outptr == NULL)
+				goto fail;
 			memmove(outptr + outpos, p2, len2);
 			outptr[outlen-1] = 0;
 		} else {
 			if ((ix < n_rules-1) && (strcmp(p, rules[ix+1]) == 0)) {
 				outlen ++;
-				outptr = realloc(outptr, outlen);
+				outptr = grow_buffer(outptr, outlen);
+				if (outptr == NULL)
+					goto fail;
 				common = rules[ix]; // phoneme string is same as next, set as common
 				outptr[outpos++] = RULE_PH_COMMON;
 			}
 
 			outlen += len2 + 1 + len1;
-			outptr = realloc(outptr, outlen);
+			outptr = grow_buffer(outptr, outlen);
+			if (outptr == NULL)
+				goto fail;
 			memmove(outptr + outpos, p2, len2);
 			outpos += len2;
 			outptr[outpos++] = RULE_PHONEMES;
@@ -1303,6 +1317,10 @@ static void* output_rule_group(int n_rules, char **rules, char *name, size_t *ou
 	}
 	if (outsize) *outsize = outlen;
 	return outptr;
+
+fail:
+	if (outsize) *outsize = 0;
+	return NULL;
 }
 
 static int compile_lettergroup(CompileContext *ctx, char *input, FILE *f_out)

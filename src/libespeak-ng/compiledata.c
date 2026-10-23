@@ -2467,7 +2467,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 		fclose(ctx->f_errors);
 
 	espeak_ng_STATUS status = ReadPhondataManifest(ctx, context);
-	int res = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	espeak_ng_STATUS res = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 	clean_context(ctx);
 	return (status != ENS_OK) ? status : res;
 }
