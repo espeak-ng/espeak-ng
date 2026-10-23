@@ -1864,12 +1864,12 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 stop:
 	if ((ph_out[0] != 0) && (ph_out[0] != phonSWITCH)) {
 		int next_char;
-		char *p;
-		p = &word[n_digits+1];
+		char *next_ptr;
+		next_ptr = &word[n_digits+1];
 
-		p += utf8_in(&next_char, p);
+		next_ptr += utf8_in(&next_char, next_ptr);
 		if ((tr->langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
-			utf8_in(&next_char, p);
+			utf8_in(&next_char, next_ptr);
 
 		if (!iswalpha(next_char) && (thousands_exact == 0))
 		{

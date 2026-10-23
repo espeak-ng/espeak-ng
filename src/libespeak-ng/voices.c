@@ -113,7 +113,7 @@ static char *fgets_strip(char *buf, int size, FILE *f_in)
 	return buf;
 }
 
-static void SetToneAdjust(voice_t *voice, int *tone_pts)
+static void SetToneAdjust(voice_t *v, int *tone_pts)
 {
 	int ix;
 	int pt;
@@ -137,7 +137,7 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 				y = height1 + (int)((ix-freq1) * (height2-height1) / (freq2-freq1));
 				if (y > 255)
 					y = 255;
-				voice->tone_adjust[ix] = y;
+				v->tone_adjust[ix] = y;
 			}
 		}
 		freq1 = freq2;
@@ -385,7 +385,7 @@ int Read8Numbers(char *data_in, int data[8])
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
 
-void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab, int key) {
+void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *mnem_tab, int key) {
 	// read a list of numbers from string p
 	// store them as flags in *flags
 	// the meaning of the  numbers is bit ordinals, not integer values
@@ -398,7 +398,7 @@ void ReadNumbers(char *p, int *flags, int maxValue,  const MNEM_TAB *keyword_tab
 			if (n < maxValue) {
 				*flags |= (1 << n);
 			} else {
-				fprintf(stderr, "%s: Bad option number %d\n", LookupMnemName(keyword_tab, key), n);
+				fprintf(stderr, "%s: Bad option number %d\n", LookupMnemName(mnem_tab, key), n);
 			}
 		}
 	while (isalnum(*p)) p++;
@@ -843,17 +843,17 @@ static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 	return strcmp(v1->name, v2->name);
 }
 
-static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
+static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int spec_n_parts, int spec_lang_len, espeak_VOICE *candidate)
 {
 	const char *p;
 	int score = 0;
 	int x;
 
-	p = voice->languages; // list of languages+dialects for which this voice is suitable
+	p = candidate->languages; // list of languages+dialects for which this voice is suitable
 
 	if (spec_n_parts < 0) {
 		// match on the subdirectory
-		if (memcmp(voice->identifier, spec_language, spec_lang_len) == 0)
+		if (memcmp(candidate->identifier, spec_language, spec_lang_len) == 0)
 			return 100;
 		return 0;
 	}
@@ -919,25 +919,25 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 		return 0;
 
 	if (voice_spec->name != NULL) {
-		if (strcmp(voice_spec->name, voice->name) == 0) {
+		if (strcmp(voice_spec->name, candidate->name) == 0) {
 			// match on voice name
 			score += 500;
-		} else if (strcmp(voice_spec->name, voice->identifier) == 0)
+		} else if (strcmp(voice_spec->name, candidate->identifier) == 0)
 			score += 400;
 	}
 
 	if (((voice_spec->gender == ENGENDER_MALE) || (voice_spec->gender == ENGENDER_FEMALE)) &&
-	    ((voice->gender == ENGENDER_MALE) || (voice->gender == ENGENDER_FEMALE))) {
-		if (voice_spec->gender == voice->gender)
+	    ((candidate->gender == ENGENDER_MALE) || (candidate->gender == ENGENDER_FEMALE))) {
+		if (voice_spec->gender == candidate->gender)
 			score += 50;
 		else
 			score -= 50;
 	}
 
-	if ((voice_spec->age <= 12) && (voice->gender == ENGENDER_FEMALE) && (voice->age > 12))
+	if ((voice_spec->age <= 12) && (candidate->gender == ENGENDER_FEMALE) && (candidate->age > 12))
 		score += 5; // give some preference for non-child female voice if a child is requested
 
-	if (voice->age != 0) {
+	if (candidate->age != 0) {
 		int required_age;
 		if (voice_spec->age == 0)
 			required_age = 30;
@@ -945,7 +945,7 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 			required_age = voice_spec->age;
 
 		int ratio;
-		ratio = (required_age*100)/voice->age;
+		ratio = (required_age*100)/candidate->age;
 		if (ratio < 100)
 			ratio = 10000/ratio;
 		ratio = (ratio - 100)/10; // 0=exact match, 10=out by factor of 2

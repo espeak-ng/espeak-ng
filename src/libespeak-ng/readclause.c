@@ -454,8 +454,8 @@ static bool IgnoreOrReplaceChar(Translator *tr, int *c1) {
     return false;
 }
 
-static int CheckPhonemeMode(int option_phoneme_input, int phoneme_mode, int c1, int c2) {
-		if (option_phoneme_input) {
+static int CheckPhonemeMode(int phoneme_input, int phoneme_mode, int c1, int c2) {
+		if (phoneme_input) {
 			if (phoneme_mode > 0)
 				phoneme_mode--;
 			else if ((c1 == '[') && (c2 == '['))

@@ -460,11 +460,11 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 				// loopcount guards against an endless loop
 				if (confirm_prefix && !(end_type & SUFX_B)) {
 					int end2;
-					char end_phonemes2[N_WORD_PHONEMES];
+					char suffix_phonemes[N_WORD_PHONEMES];
 
 					// remove any standard suffix and confirm that the prefix is still recognised
 					phonemes2[0] = 0;
-					end2 = TranslateRules(tr, wordx, phonemes2, N_WORD_PHONEMES, end_phonemes2, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags);
+					end2 = TranslateRules(tr, wordx, phonemes2, N_WORD_PHONEMES, suffix_phonemes, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags);
 					if (end2) {
 						RemoveEnding(tr, wordx, end2, word_copy);
 						end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags|FLAG_NO_TRACE, dictionary_flags);
@@ -474,10 +474,10 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 							// Keep the suffix, but don't use the prefix
 							end_type = end2;
 							strcpy(phonemes, phonemes2);
-							strcpy(end_phonemes, end_phonemes2);
+							strcpy(end_phonemes, suffix_phonemes);
 							if (option_phonemes & espeakPHONEMES_TRACE) {
-								DecodePhonemes(end_phonemes, end_phonemes2, sizeof(end_phonemes2));
-								fprintf(f_trans, "  suffix [%s]\n\n", end_phonemes2);
+								DecodePhonemes(end_phonemes, suffix_phonemes, sizeof(suffix_phonemes));
+								fprintf(f_trans, "  suffix [%s]\n\n", suffix_phonemes);
 							}
 						}
 						confirm_prefix = false;
@@ -676,18 +676,18 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 	}
 	if (prefix_flags || (prefix_stress != 0)) {
 		if ((tr->langopts.param[LOPT_PREFIXES]) || (prefix_type & SUFX_T)) {
-			char *p;
+			char *ph_ptr;
 			// German, keep a secondary stress on the stem
 			SetWordStress(tr, phonemes, dictionary_flags, 3, 0);
 
 			// reduce all but the first primary stress
 			ix = 0;
-			for (p = prefix_phonemes; *p != 0; p++) {
-				if (*p == phonSTRESS_P) {
+			for (ph_ptr = prefix_phonemes; *ph_ptr != 0; ph_ptr++) {
+				if (*ph_ptr == phonSTRESS_P) {
 					if (ix == 0)
 						ix = 1;
 					else
-						*p = phonSTRESS_3;
+						*ph_ptr = phonSTRESS_3;
 				}
 			}
 			snprintf(word_phonemes, size_word_phonemes, "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);

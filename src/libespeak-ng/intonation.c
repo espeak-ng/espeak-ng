@@ -366,7 +366,7 @@ static int count_increments(SYLLABLE *syllable_tab, int ix, int end_ix, int min_
 }
 
 // Set the pitch of a vowel in syllable_tab
-static void set_pitch(SYLLABLE *syl, int base, int drop)
+static void set_pitch(SYLLABLE *syllable, int base, int drop)
 {
 	int pitch1, pitch2;
 	int flags = 0;
@@ -387,9 +387,9 @@ static void set_pitch(SYLLABLE *syl, int base, int drop)
 	if (pitch1 > 254) pitch1 = 254;
 	if (pitch2 > 254) pitch2 = 254;
 
-	syl->pitch1 = pitch1;
-	syl->pitch2 = pitch2;
-	syl->flags |= flags;
+	syllable->pitch1 = pitch1;
+	syllable->pitch2 = pitch2;
+	syllable->flags |= flags;
 }
 
 static int CountUnstressed(SYLLABLE *syllable_tab, int start, int end, int limit)
@@ -406,7 +406,7 @@ static int CountUnstressed(SYLLABLE *syllable_tab, int start, int end, int limit
 static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int end_ix)
 {
 	int stress;
-	SYLLABLE *syl;
+	SYLLABLE *cur_syl;
 	int ix;
 	int pitch = 0;
 	int increment = 0;
@@ -444,8 +444,8 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 	}
 
 	while (syl_ix < end_ix) {
-		syl = &syllable_tab[syl_ix];
-		stress = syl->stress;
+		cur_syl = &syllable_tab[syl_ix];
+		stress = cur_syl->stress;
 
 		if (initial || (stress >= 4)) {
 			// a primary stress
@@ -496,20 +496,20 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 		if (stress >= PRIMARY) {
 			n_unstressed = CountUnstressed(syllable_tab, syl_ix+1, end_ix, secondary);
 			unstressed_ix = 0;
-			syl->stress = PRIMARY_STRESSED;
-			syl->env = tune->stressed_env;
-			set_pitch(syl, (pitch / 256), tune->stressed_drop);
+			cur_syl->stress = PRIMARY_STRESSED;
+			cur_syl->env = tune->stressed_env;
+			set_pitch(cur_syl, (pitch / 256), tune->stressed_drop);
 		} else if (stress >= secondary) {
 			n_unstressed = CountUnstressed(syllable_tab, syl_ix+1, end_ix, secondary);
 			unstressed_ix = 0;
-			set_pitch(syl, (pitch / 256), drops[stress]);
+			set_pitch(cur_syl, (pitch / 256), drops[stress]);
 		} else {
 			if (n_unstressed > 1)
 				unstressed_inc = (tune->unstr_end[stage] - tune->unstr_start[stage]) / (n_unstressed - 1);
 			else
 				unstressed_inc = 0;
 
-			set_pitch(syl, (pitch / 256) + tune->unstr_start[stage] + (unstressed_inc * unstressed_ix), drops[stress]);
+			set_pitch(cur_syl, (pitch / 256) + tune->unstr_start[stage] + (unstressed_inc * unstressed_ix), drops[stress]);
 			unstressed_ix++;
 		}
 
@@ -535,7 +535,7 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, const 
 	int pitch_range_abs;
 	const int *drops;
 	const signed char *overflow_tab;
-	SYLLABLE *syl;
+	SYLLABLE *cur_syl;
 
 	static const signed char continue_tab[5] = { -26, 32, 20, 8, 0 };
 
@@ -556,8 +556,8 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, const 
 	}
 
 	while (ix < end_ix) {
-		syl = &syllable_tab[ix];
-		stress = syl->stress;
+		cur_syl = &syllable_tab[ix];
+		stress = cur_syl->stress;
 
 		if (initial || (stress >= min_stress)) {
 			// a primary stress
@@ -596,16 +596,16 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, const 
 		}
 
 		if (stress >= PRIMARY) {
-			syl->stress = PRIMARY_STRESSED;
-			set_pitch(syl, (pitch / 256), drops[stress]);
+			cur_syl->stress = PRIMARY_STRESSED;
+			set_pitch(cur_syl, (pitch / 256), drops[stress]);
 		} else if (stress >= SECONDARY)
-			set_pitch(syl, (pitch / 256), drops[stress]);
+			set_pitch(cur_syl, (pitch / 256), drops[stress]);
 		else {
 			// unstressed, drop pitch if preceded by PRIMARY
 			if ((syllable_tab[ix-1].stress & 0x3f) >= SECONDARY)
-				set_pitch(syl, (pitch / 256) - th->body_lower_u, drops[stress]);
+				set_pitch(cur_syl, (pitch / 256) - th->body_lower_u, drops[stress]);
 			else
-				set_pitch(syl, (pitch / 256), drops[stress]);
+				set_pitch(cur_syl, (pitch / 256), drops[stress]);
 		}
 
 		ix++;
@@ -624,7 +624,7 @@ static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, i
 	int increment;
 	int n_increments;
 	int drop;
-	SYLLABLE *syl;
+	SYLLABLE *cur_syl;
 
 	increment = (end_pitch - start_pitch) * 256;
 	n_increments = end_ix - start_ix;
@@ -638,11 +638,11 @@ static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, i
 	pitch = start_pitch * 256;
 
 	for (ix = start_ix; ix < end_ix; ix++) {
-		syl = &syllable_tab[ix];
-		stress = syl->stress;
+		cur_syl = &syllable_tab[ix];
+		stress = cur_syl->stress;
 
 		if (increment > 0) {
-			set_pitch(syl, (pitch / 256), -(increment / 256));
+			set_pitch(cur_syl,(pitch / 256), -(increment / 256));
 			pitch += increment;
 		} else {
 			drop = -(increment / 256);
@@ -653,7 +653,7 @@ static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, i
 
 			if (drop > 18)
 				drop = 18;
-			set_pitch(syl, (pitch / 256), drop);
+			set_pitch(cur_syl, (pitch / 256), drop);
 		}
 	}
 }
@@ -916,7 +916,7 @@ void CalcPitches(Translator *tr, int clause_type)
 	// clause_type: 0=. 1=, 2=?, 3=! 4=none
 
 	PHONEME_LIST *p;
-	SYLLABLE *syl;
+	SYLLABLE *cur_syl;
 	int ix;
 	int x;
 	int st_ix;
@@ -979,12 +979,12 @@ void CalcPitches(Translator *tr, int clause_type)
 	st_start = 0;
 	count_primary = 0;
 	for (st_ix = 0; st_ix < n_st; st_ix++) {
-		syl = &syllable_tab[st_ix];
+		cur_syl = &syllable_tab[st_ix];
 
-		if (syl->stress >= 4)
+		if (cur_syl->stress >= 4)
 			count_primary++;
 
-		if (syl->stress == 6) {
+		if (cur_syl->stress == 6) {
 			// reduce the stress of the previous stressed syllable (review only the previous few syllables)
 			for (ix = st_ix-1; ix >= st_start && ix >= (st_ix-3); ix--) {
 				if (syllable_tab[ix].stress == 6)
@@ -1002,13 +1002,13 @@ void CalcPitches(Translator *tr, int clause_type)
 				if (syllable_tab[ix].stress == 6) {
 					// emphasize this syllable, but don't end the current tone group
 					syllable_tab[st_ix].flags = SYL_EMPHASIS;
-					syl->stress = 5;
+					cur_syl->stress = 5;
 					break;
 				}
 			}
 		}
 
-		if (syl->stress == 6) {
+		if (cur_syl->stress == 6) {
 			// an emphasized syllable, end the tone group after the next primary stress
 			syllable_tab[st_ix].flags = SYL_EMPHASIS;
 
@@ -1039,7 +1039,7 @@ void CalcPitches(Translator *tr, int clause_type)
 
 			st_start = ix;
 		}
-		if ((st_start < st_ix) && (syl->flags & SYL_END_CLAUSE)) {
+		if ((st_start < st_ix) && (cur_syl->flags & SYL_END_CLAUSE)) {
 			// end of clause after this syllable, indicated by a phonPAUSE_CLAUSE phoneme
 			st_clause_end = st_ix+1;
 			count_pitch_vowels(syllable_tab, st_start, st_clause_end, st_clause_end);
@@ -1060,16 +1060,16 @@ void CalcPitches(Translator *tr, int clause_type)
 		p->stresslevel = syllable_tab[st_ix].stress;
 
 		if (p->synthflags & SFLAG_SYLLABLE) {
-			syl = &syllable_tab[st_ix];
+			cur_syl = &syllable_tab[st_ix];
 
-			p->pitch1 = syl->pitch1;
-			p->pitch2 = syl->pitch2;
+			p->pitch1 = cur_syl->pitch1;
+			p->pitch2 = cur_syl->pitch2;
 
 			p->env = PITCHfall;
-			if (syl->flags & SYL_RISE)
+			if (cur_syl->flags & SYL_RISE)
 				p->env = PITCHrise;
 			else if (p->stresslevel > 5)
-				p->env = syl->env;
+				p->env = cur_syl->env;
 
 			if (p->pitch1 > p->pitch2) {
 				// swap so that pitch2 is the higher
@@ -1087,7 +1087,7 @@ void CalcPitches(Translator *tr, int clause_type)
 				}
 			}
 
-			if (syl->flags & SYL_EMPHASIS)
+			if (cur_syl->flags & SYL_EMPHASIS)
 				p->stresslevel |= 8; // emphasized
 
 			st_ix++;
