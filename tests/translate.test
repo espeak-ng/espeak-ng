@@ -296,3 +296,11 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# Emoji replacement text must receive the same .replace rules as ordinary text.
+# Check the nonempty kana pronunciations first, so silence cannot pass both sides.
+# https://github.com/espeak-ng/espeak-ng/issues/2464
+test_phon ja "kur\`'o:ba:" "クローバー"
+test_phon ja "kur\`'o:ba:" "☘"
+test_phon ja "h'a:to" "ハート"
+test_phon ja "h'a:to" "♥"
