@@ -238,7 +238,7 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 		if ((sp->voice_name[0] != 0) && ((v = SelectVoiceByName(NULL, sp->voice_name)) != NULL)) {
 			voice_name_specified = 1;
 			strcpy(voice_name, sp->voice_name);
-			strcpy(identifier, v->identifier);
+			strncpy0(identifier, v->identifier, sizeof(identifier));
 			language[0] = 0;
 			voice_select.gender = ENGENDER_UNKNOWN;
 			voice_select.age = 0;
@@ -252,7 +252,7 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 			while (*p++ != 0) {
 				if (strcmp(p, language) == 0) {
 					// yes, change the language to the main language of the base voice
-					strcpy(language, &base_voice->languages[1]);
+					strncpy0(language, &base_voice->languages[1], sizeof(language));
 					break;
 				}
 				p += (strlen(p) + 1);
@@ -390,7 +390,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SS
 	new_voice_id = VoiceFromStack(ssml_stack, n_ssml_stack, base_voice, base_voice_variant_name);
 	if (strcmp(new_voice_id, current_voice_id) != 0) {
 		// add an embedded command to change the voice
-		strcpy(current_voice_id, new_voice_id);
+		strncpy0(current_voice_id, new_voice_id, 40);
 		return CLAUSE_TYPE_VOICE_CHANGE;
 	}
 

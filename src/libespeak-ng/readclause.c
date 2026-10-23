@@ -406,7 +406,7 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 		return;
 	}
 	if (v->languages != NULL)
-		strcpy(sp->language, v->languages);
+		strncpy0(sp->language, v->languages, sizeof(sp->language));
 	if (v->name != NULL)
 		strncpy0(sp->voice_name, v->name, sizeof(sp->voice_name));
 	sp->voice_variant_number = v->variant;
@@ -613,7 +613,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					c2 = ' ';
 
 					if (base_voice.identifier)
-						strcpy(current_voice_id, base_voice.identifier);
+						strncpy0(current_voice_id, base_voice.identifier, sizeof(current_voice_id));
 					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
 
 					if (terminator != 0) {
