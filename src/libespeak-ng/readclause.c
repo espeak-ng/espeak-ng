@@ -50,7 +50,7 @@
 
 #define N_XML_BUF   500
 
-static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
+static void DecodeWithPhonemeMode(char *buf, size_t buf_size, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
 static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc);
 
 static const char *xmlbase = ""; // base URL from <speak>
@@ -181,15 +181,15 @@ const char *WordToString2(char buf[5], unsigned int word)
 	return buf;
 }
 
-static const char *LookupSpecial(Translator *tr, const char *string, char *text_out)
+static const char *LookupSpecial(Translator *tr, const char *string, char *text_out, size_t text_out_size)
 {
 	unsigned int flags[2];
-	char phonemes[55];
+	char phonemes[N_PHONEME_BYTES];
 	char *string1 = (char *)string;
 
 	flags[0] = flags[1] = 0;
 	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL, 0)) {
-		DecodeWithPhonemeMode(text_out, phonemes, tr, NULL, flags);
+		DecodeWithPhonemeMode(text_out, text_out_size, phonemes, tr, NULL, flags);
 		return text_out;
 	}
 	return NULL;
@@ -203,7 +203,7 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 	int ix;
 	unsigned int flags[2];
 	char single_letter[24];
-	char phonemes[60];
+	char phonemes[N_PHONEME_BYTES];
 	const char *lang_name = NULL;
 	char *string;
 
@@ -250,10 +250,10 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 
 	if (phonemes[0]) {
 		if (lang_name) {
-			DecodeWithPhonemeMode(buf, phonemes, tr, translator2, flags);
+			DecodeWithPhonemeMode(buf, 74, phonemes, tr, translator2, flags);
 			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 		} else {
-			DecodeWithPhonemeMode(buf, phonemes, tr, NULL, flags);
+			DecodeWithPhonemeMode(buf, 74, phonemes, tr, NULL, flags);
 		}
 	} else if (only == false)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
@@ -261,7 +261,7 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 	return buf;
 }
 
-static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
+static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int n_buf, int end_clause)
 {
 	// announce punctuation names
 	// c1:  the punctuation character
@@ -275,7 +275,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int c2;
 	int len;
 	int bufix1;
-	char buf[200];
+	char buf[256]; // up to three punctuation names of 74 bytes, plus the speed commands
 	char ph_buf[30];
 	char cn_buf[74];
 
@@ -288,7 +288,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		UngetC(c2);
 	} else {
 		if ((c1 == '.') && (end_clause) && (c2 != '.')) {
-			if (LookupSpecial(tr, "_.p", ph_buf))
+			if (LookupSpecial(tr, "_.p", ph_buf, sizeof(ph_buf)))
 				punctname = ph_buf; // use word for 'period' instead of 'dot'
 		}
 		if (punctname == NULL)
@@ -337,7 +337,10 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 	bufix1 = *bufix;
 	len = strlen(buf);
-	strcpy(&output[*bufix], buf);
+	if (len >= (n_buf - *bufix))
+		len = n_buf - *bufix - 1; // truncate the announcement to fit the clause buffer
+	memcpy(&output[*bufix], buf, len);
+	output[*bufix + len] = 0;
 	*bufix += len;
 
 	if (end_clause == 0)
@@ -721,7 +724,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 			if ((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev)) {
 				char text_buf[30];
-				if (LookupSpecial(tr, "_cap", text_buf) != NULL) {
+				if (LookupSpecial(tr, "_cap", text_buf, sizeof(text_buf)) != NULL) {
 					j = strlen(text_buf);
 					if ((ix + j) < n_buf) {
 						strcpy(&buf[ix], text_buf);
@@ -827,7 +830,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				// if a list of allowed punctuation has been set up, check whether the character is in it
 				if ((option_punctuation == 1) || (wcschr(option_punctlist, c1) != NULL)) {
 					tr->phonemes_repeat_count = 0;
-					if ((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, is_end_clause)) >= 0)
+					if ((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, n_buf, is_end_clause)) >= 0)
 						return terminator;
 					announced_punctuation = c1;
 				}
@@ -839,7 +842,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 				p2 = &buf[ix];
 				char cn_buf[74];
-				sprintf(p2, "%s", LookupCharName(cn_buf, tr, c1, true));
+				snprintf(p2, n_buf - ix, "%s", LookupCharName(cn_buf, tr, c1, true));
 				if (p2[0] != 0) {
 					ix += strlen(p2);
 					announced_punctuation = c1;
@@ -1017,16 +1020,16 @@ static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
 	}
 }
 
-static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
-	char phonemes2[55];
+static void DecodeWithPhonemeMode(char *buf, size_t buf_size, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
+	char phonemes2[N_PHONEME_BYTES*4 + 3]; // a mnemonic is up to 4 bytes, plus the "* " prefix
 	if (tr2 == NULL) {
 		SetWordStress(tr, phonemes, flags, -1, 0);
 		DecodePhonemes(phonemes, phonemes2);
-		sprintf(buf, "[\002%s]]", phonemes2);
+		snprintf(buf, buf_size, "[\002%s]]", phonemes2);
 	} else {
 		SetWordStress(tr2, phonemes, flags, -1, 0);
 	    DecodePhonemes(phonemes, phonemes2);
 			char wbuf[5];
-	    sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
+	    snprintf(buf, buf_size, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
     }
 }
