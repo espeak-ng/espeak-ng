@@ -2884,13 +2884,15 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 				// only use replacement text if this is the original word, not if a prefix or suffix has been removed
 				word_replacement[0] = 0;
 				word_replacement[1] = ' ';
-				sprintf(&word_replacement[2], "%s ", ph_out); // replacement word, preceded by zerochar and space
+				snprintf(&word_replacement[2], sizeof(word_replacement) - 2, "%s ", ph_out); // replacement word, preceded by zerochar and space
 
 				word1 = *wordptr;
 				*wordptr = &word_replacement[2];
 
 				if (option_phonemes & espeakPHONEMES_TRACE) {
 					len = found - word1;
+					if (len > (int)sizeof(word) - 1)
+						len = sizeof(word) - 1;
 					memcpy(word, word1, len); // include multiple matching words
 					word[len] = 0;
 					fprintf(f_trans, "Replace: %s  %s\n", word, *wordptr);
