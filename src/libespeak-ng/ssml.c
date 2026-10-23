@@ -837,7 +837,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			if (uri_callback == NULL) {
 				if ((xmlbase != NULL) && (buf[0] != '/')) {
 					char fname[256];
-					sprintf(fname, "%s/%s", xmlbase, buf);
+					snprintf(fname, sizeof(fname), "%s/%s", xmlbase, buf);
 					index = LoadSoundFile2(fname);
 				} else
 					index = LoadSoundFile2(buf);
