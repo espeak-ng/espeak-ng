@@ -45,6 +45,7 @@ compiled_test(dictionary_bounds)
 compiled_test(encoding)
 compiled_test(ieee80)
 compiled_test(readclause)
+compiled_test(soundicon_bounds)
 
 if (SHELL AND UNIX)
 
