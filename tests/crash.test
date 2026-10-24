@@ -2,6 +2,17 @@
 # include common script
 . "`dirname $0`/common"
 
+test_crash_stdin() {
+	TEST_NAME=$1
+	INPUT=$2
+	shift 2
+
+	echo "testing ${TEST_NAME}"
+	printf '%b' "$INPUT" | \
+		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng "$@" --stdin || exit 1
+}
+
 test_crash() {
 	TEST_NAME=$1
 
@@ -11,6 +22,7 @@ test_crash() {
 }
 
 test_crash cve-2023-49990
+test_crash_stdin lookupdict-string-end '\340\062\360\237\227\221\056\010' -D -b 1 -m -q -z
 test_crash cve-2023-49991
 test_crash cve-2023-49992
 test_crash cve-2023-49993
