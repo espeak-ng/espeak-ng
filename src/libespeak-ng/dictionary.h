@@ -21,6 +21,7 @@
 #ifndef ESPEAK_NG_DICTIONARY_H
 #define ESPEAK_NG_DICTIONARY_H
 
+#include <stddef.h>                    // for size_t
 #include "espeak-ng/espeak_ng.h"       // for ESPEAK_NG_API
 #include "phoneme.h"                   // for PHONEME_TAB
 #include "synthesize.h"                // for PHONEME_LIST
@@ -36,7 +37,8 @@ extern const char stress_phonemes[];
 int LoadDictionary(Translator *tr, const char *name, int no_error);
 int HashDictionary(const char *string);
 const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);
-void DecodePhonemes(const char *inptr, char *outptr);
+size_t CopyBoundedPhoneticString(char *dest, size_t dest_size, const char *src);
+void DecodePhonemes(const char *inptr, char *outptr, size_t outsize);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 char *WritePhMnemonicWithStress(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 const char *GetTranslatedPhonemeString(int phoneme_mode);
@@ -46,7 +48,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, unsigned int *dict_flags);
 int TransposeAlphabet(Translator *tr, char *text);
-int Lookup(Translator *tr, const char *word, char *ph_out);
+int Lookup(Translator *tr, const char *word, char *ph_out, size_t ph_out_size);
 int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab, int wtab_remaining);
 int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 

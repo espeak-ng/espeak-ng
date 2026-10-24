@@ -238,7 +238,7 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 		if ((sp->voice_name[0] != 0) && ((v = SelectVoiceByName(NULL, sp->voice_name)) != NULL)) {
 			voice_name_specified = 1;
 			strcpy(voice_name, sp->voice_name);
-			strcpy(identifier, v->identifier);
+			strncpy0(identifier, v->identifier, sizeof(identifier));
 			language[0] = 0;
 			voice_select.gender = ENGENDER_UNKNOWN;
 			voice_select.age = 0;
@@ -252,7 +252,7 @@ static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espe
 			while (*p++ != 0) {
 				if (strcmp(p, language) == 0) {
 					// yes, change the language to the main language of the base voice
-					strcpy(language, &base_voice->languages[1]);
+					strncpy0(language, &base_voice->languages[1], sizeof(language));
 					break;
 				}
 				p += (strlen(p) + 1);
@@ -390,14 +390,14 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SS
 	new_voice_id = VoiceFromStack(ssml_stack, n_ssml_stack, base_voice, base_voice_variant_name);
 	if (strcmp(new_voice_id, current_voice_id) != 0) {
 		// add an embedded command to change the voice
-		strcpy(current_voice_id, new_voice_id);
+		strncpy0(current_voice_id, new_voice_id, 40);
 		return CLAUSE_TYPE_VOICE_CHANGE;
 	}
 
 	return 0;
 }
 
-static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
+static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK *stack, int *speech_parameters)
 {
 	// Set the speech parameters from the parameter stack
 	int param;
@@ -411,8 +411,8 @@ static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM
 
 	for (ix = 0; ix < n_param_stack; ix++) {
 		for (param = 0; param < N_SPEECH_PARAM; param++) {
-			if (param_stack[ix].parameter[param] >= 0)
-				new_parameters[param] = param_stack[ix].parameter[param];
+			if (stack[ix].parameter[param] >= 0)
+				new_parameters[param] = stack[ix].parameter[param];
 		}
 	}
 
@@ -445,12 +445,12 @@ static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM
 	}
 }
 
-static PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param_stack)
+static PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *stack)
 {
 	int ix;
 	PARAM_STACK *sp;
 
-	sp = &param_stack[*n_param_stack];
+	sp = &stack[*n_param_stack];
 	if (*n_param_stack < (N_PARAM_STACK-1))
 		(*n_param_stack)++;
 
@@ -460,7 +460,7 @@ static PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK
 	return sp;
 }
 
-static void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
+static void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, PARAM_STACK *stack, int *speech_parameters)
 {
 	// unwind the stack up to and including the previous tag of this type
 	int ix;
@@ -470,12 +470,12 @@ static void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_s
 		tag_type -= SSML_CLOSE;
 
 	for (ix = 0; ix < *n_param_stack; ix++) {
-		if (param_stack[ix].type == tag_type)
+		if (stack[ix].type == tag_type)
 			top = ix;
 	}
 	if (top > 0)
 		*n_param_stack = top;
-	ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
+	ProcessParamStack(outbuf, outix, *n_param_stack, stack, speech_parameters);
 }
 
 static int ReplaceKeyName(char *outbuf, int index, int *outix)
@@ -503,7 +503,7 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 	return 0;
 }
 
-static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *param_stack, int *speech_parameters)
+static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *stack, int *speech_parameters)
 {
 	int value;
 
@@ -555,7 +555,7 @@ static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STAC
 
 	if ((value = attrlookup(attr1, mnem_tabs[param_type])) >= 0) {
 		// mnemonic specifies a value as a percentage of the base pitch/range/rate/volume
-		sp->parameter[param_type] = (param_stack[0].parameter[param_type] * value)/100;
+		sp->parameter[param_type] = (stack[0].parameter[param_type] * value)/100;
 	} else {
 		int sign = attr_prosody_value(param_type, attr1, &value);
 
@@ -837,7 +837,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			if (uri_callback == NULL) {
 				if ((xmlbase != NULL) && (buf[0] != '/')) {
 					char fname[256];
-					sprintf(fname, "%s/%s", xmlbase, buf);
+					snprintf(fname, sizeof(fname), "%s/%s", xmlbase, buf);
 					index = LoadSoundFile2(fname);
 				} else
 					index = LoadSoundFile2(buf);

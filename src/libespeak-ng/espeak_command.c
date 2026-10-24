@@ -49,6 +49,7 @@ t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int
 		return NULL;
 	}
 	memcpy(a_text, text, size);
+	((char *)a_text)[size] = 0; // callers may pass the length without the terminator
 
 	a_command->type = ET_TEXT;
 	a_command->state = CS_UNDEFINED;
@@ -93,14 +94,20 @@ t_espeak_command *create_espeak_mark(const void *text, size_t size, const char *
 	if (!a_command)
 		return NULL;
 
-	a_text = malloc(size);
+	a_text = malloc(size+1);
 	if (!a_text) {
 		free(a_command);
 		return NULL;
 	}
 	memcpy(a_text, text, size);
+	((char *)a_text)[size] = 0;
 
 	a_index_mark = strdup(index_mark);
+	if (!a_index_mark) {
+		free(a_text);
+		free(a_command);
+		return NULL;
+	}
 
 	a_command->type = ET_MARK;
 	a_command->state = CS_UNDEFINED;

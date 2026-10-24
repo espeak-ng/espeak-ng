@@ -657,11 +657,11 @@ int main(int argc, char **argv)
 
 	if (flag_compile) {
 		// This must be done after the voice is set
-		espeak_ng_ERROR_CONTEXT context = NULL;
-		espeak_ng_STATUS result = espeak_ng_CompileDictionary("", NULL, stderr, flag_compile & 0x1, &context);
-		if (result != ENS_OK) {
-			espeak_ng_PrintStatusCodeMessage(result, stderr, context);
-			espeak_ng_ClearErrorContext(&context);
+		espeak_ng_ERROR_CONTEXT compile_context = NULL;
+		espeak_ng_STATUS compile_result = espeak_ng_CompileDictionary("", NULL, stderr, flag_compile & 0x1, &compile_context);
+		if (compile_result != ENS_OK) {
+			espeak_ng_PrintStatusCodeMessage(compile_result, stderr, compile_context);
+			espeak_ng_ClearErrorContext(&compile_context);
 			return EXIT_FAILURE;
 		}
 		return EXIT_SUCCESS;
@@ -747,7 +747,7 @@ int main(int argc, char **argv)
 				if ((c = fgetc(stdin)) == EOF)
 					break;
 				p_text[ix++] = (char)c;
-				if (ix >= (max-1)) {
+				if ((size_t)ix >= (max-1)) {
 					char *new_text = NULL;
 					if (max <= SIZE_MAX - 1000) {
 						max += 1000;

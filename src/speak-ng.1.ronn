@@ -76,7 +76,7 @@ words are provided then text is spoken from stdin a line at a time.
 
   * `-X`:
     Write phonemes mnemonics and translation trace to stdout. If rules files
-    have been built with --compile=debug, line numbers will also be displayed.
+    have been built with --compile-debug, line numbers will also be displayed.
 
   * `-z`:
     No final sentence pause at the end of the text.

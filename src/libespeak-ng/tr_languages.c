@@ -101,8 +101,8 @@ const ALPHABET *AlphabetFromChar(int c)
 	const ALPHABET *alphabet = alphabets;
 
 	while (alphabet->name != NULL) {
-		if (c <= alphabet->range_max) {
-			if (c >= alphabet->range_min)
+		if ((unsigned int)c <= alphabet->range_max) {
+			if ((unsigned int)c >= alphabet->range_min)
 				return alphabet;
 			else
 				break;
@@ -846,7 +846,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('e', 't'): // Estonian
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
-		// fallthrough:
+		// fallthrough
 	case L('f', 'i'): // Finnish
 	{
 		tr->langopts.long_stop = 130;

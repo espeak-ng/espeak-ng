@@ -63,9 +63,9 @@ int phoneme_tab_number = 0;
 
 int seq_len_adjust;
 
-static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
+static espeak_ng_STATUS ReadPhFile(void **data, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
 {
-	if (!ptr) return EINVAL;
+	if (!data) return EINVAL;
 
 	FILE *f_in;
 	int length;
@@ -79,25 +79,26 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	if ((f_in = fopen(buf, "rb")) == NULL)
 		return create_file_error_context(context, errno, buf);
 
-	if (*ptr != NULL) {
-		free(*ptr);
-		*ptr = NULL;
+	if (*data != NULL) {
+		free(*data);
+		*data = NULL;
 	}
-	
+
 	if (length == 0) {
-		*ptr = NULL;
+		fclose(f_in);
+		*data = NULL;
 		return 0;
 	}
 
-	if ((*ptr = malloc(length)) == NULL) {
+	if ((*data = malloc(length)) == NULL) {
 		fclose(f_in);
 		return ENOMEM;
 	}
-	if (fread(*ptr, 1, length, f_in) != length) {
+	if (fread(*data, 1, length, f_in) != (size_t)length) {
 		int error = errno;
 		fclose(f_in);
-		free(*ptr);
-		*ptr = NULL;
+		free(*data);
+		*data = NULL;
 		return create_file_error_context(context, error, buf);
 	}
 
@@ -112,15 +113,18 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 	int ix;
 	int version;
 	int length = 0;
+	int phontab_size = 0;
+	int phondata_size = 0;
 	int rate;
 	unsigned char *p;
+	unsigned char *p_end;
 
 	espeak_ng_STATUS status;
-	if ((status = ReadPhFile((void **)&phoneme_tab_data, "phontab", NULL, context)) != ENS_OK)
+	if ((status = ReadPhFile((void **)&phoneme_tab_data, "phontab", &phontab_size, context)) != ENS_OK)
 		return status;
 	if ((status = ReadPhFile((void **)&phoneme_index, "phonindex", NULL, context)) != ENS_OK)
 		return status;
-	if ((status = ReadPhFile((void **)&phondata_ptr, "phondata", NULL, context)) != ENS_OK)
+	if ((status = ReadPhFile((void **)&phondata_ptr, "phondata", &phondata_size, context)) != ENS_OK)
 		return status;
 	if ((status = ReadPhFile((void **)&tunes, "intonations", &length, context)) != ENS_OK)
 		return status;
@@ -130,7 +134,7 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 	// read the version number and sample rate from the first 8 bytes of phondata
 	version = 0; // bytes 0-3, version number
 	rate = 0;    // bytes 4-7, sample rate
-	if (wavefile_data) {
+	if (wavefile_data && (phondata_size >= 8)) {
 		for (ix = 0; ix < 4; ix++) {
 			version += (wavefile_data[ix] << (ix*8));
 			rate += (wavefile_data[ix+4] << (ix*8));
@@ -141,12 +145,22 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 		return create_version_mismatch_error_context(context, path_home, version, version_phdata);
 
 	// set up phoneme tables
+	if ((phoneme_tab_data == NULL) || (phontab_size < 4))
+		return ENS_UNSUPPORTED_PHON_FORMAT;
 	p = phoneme_tab_data;
+	p_end = p + phontab_size;
 	n_phoneme_tables = p[0];
+	if (n_phoneme_tables > N_PHONEME_TABS)
+		return ENS_UNSUPPORTED_PHON_FORMAT;
 	p += 4;
 
 	for (ix = 0; ix < n_phoneme_tables; ix++) {
-		int n_phonemes = p[0];
+		int n_phonemes;
+		if (p + 4 + N_PHONEME_TAB_NAME > p_end)
+			return ENS_UNSUPPORTED_PHON_FORMAT;
+		n_phonemes = p[0];
+		if (p + 4 + N_PHONEME_TAB_NAME + (n_phonemes * sizeof(PHONEME_TAB)) > p_end)
+			return ENS_UNSUPPORTED_PHON_FORMAT;
 		phoneme_tab_list[ix].n_phonemes = p[0];
 		phoneme_tab_list[ix].includes = p[1];
 		p += 4;
