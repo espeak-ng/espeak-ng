@@ -119,7 +119,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 		fclose(f);
 		return create_file_error_context(context, error, fname);
 	}
-	if (length < 44) { // too short to hold a WAV header
+	if (length < 44) {
 		fclose(f);
 		if (fname_temp[0])
 			remove(fname_temp);
@@ -145,7 +145,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 
 	int data_length = p[40] | (p[41] << 8) | (p[42] << 16) | ((unsigned int)p[43] << 24);
 	if ((data_length < 0) || (data_length > length - 44))
-		data_length = length - 44; // the header claims more data than the file holds
+		data_length = length - 44;
 	free(soundicon_tab[index].data);
 	soundicon_tab[index].length = data_length / 2; // length in samples
 	soundicon_tab[index].data = (char *) p;
@@ -189,7 +189,7 @@ int LoadSoundFile2(const char *fname)
 	}
 
 	if (n_soundicon_tab >= N_SOUNDICON_TAB)
-		return -1; // no free slot
+		return -1;
 
 	// load the file into the current slot and increase index
 	if (LoadSoundFile(fname, n_soundicon_tab, NULL) != ENS_OK)

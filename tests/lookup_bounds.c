@@ -50,7 +50,6 @@ static int guard_intact(const GuardedBuf *g)
 	return 1;
 }
 
-// Install a single dictionary entry "a" -> LONG_PHONEMES 'k' phonemes.
 static void install_long_entry(Translator *tr, unsigned char *entry)
 {
 	memset(entry, 0, 2 + 1 + LONG_PHONEMES + 1 + 1);
@@ -62,8 +61,6 @@ static void install_long_entry(Translator *tr, unsigned char *entry)
 	tr->dict_hashtab[HashDictionary("a")] = (char *)entry;
 }
 
-// A dictionary entry longer than the destination must be truncated and
-// NUL-terminated without writing past the destination.
 static void test_long_entry_truncated(void)
 {
 	unsigned char entry[2 + 1 + LONG_PHONEMES + 1 + 1];
@@ -78,7 +75,6 @@ static void test_long_entry_truncated(void)
 	TEST_ASSERT(guard_intact(&g));
 }
 
-// A destination of one byte holds only the terminator.
 static void test_single_byte_destination(void)
 {
 	unsigned char entry[2 + 1 + LONG_PHONEMES + 1 + 1];
@@ -93,7 +89,6 @@ static void test_single_byte_destination(void)
 	TEST_ASSERT(guard_intact(&g));
 }
 
-// A zero-sized destination is never written.
 static void test_zero_size_destination(void)
 {
 	unsigned char entry[2 + 1 + LONG_PHONEMES + 1 + 1];
@@ -109,7 +104,6 @@ static void test_zero_size_destination(void)
 	TEST_ASSERT(guard_intact(&g));
 }
 
-// A destination large enough for the entry receives it in full.
 static void test_large_destination_untruncated(void)
 {
 	unsigned char entry[2 + 1 + LONG_PHONEMES + 1 + 1];

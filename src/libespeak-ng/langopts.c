@@ -89,7 +89,7 @@ if (CheckTranslator(tr,langopts_tab, key) != 0) {
 				}
 				while (isalnum((unsigned char)*keyValue)) keyValue++;
 				if (keyValue == token && *keyValue != 0)
-					keyValue++; // skip a token that is neither a number nor alphanumeric
+					keyValue++;
 			}
 			ProcessLanguageOptions(&(tr->langopts));
 

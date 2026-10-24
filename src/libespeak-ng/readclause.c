@@ -338,7 +338,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	bufix1 = *bufix;
 	len = strlen(buf);
 	if (len >= (n_buf - *bufix))
-		len = n_buf - *bufix - 1; // truncate the announcement to fit the clause buffer
+		len = n_buf - *bufix - 1;
 	memcpy(&output[*bufix], buf, len);
 	output[*bufix + len] = 0;
 	*bufix += len;
@@ -378,7 +378,7 @@ int AddNameData(const char *name, int wide)
 
 	if (wide) {
 		len = (wcslen((const wchar_t *)name)+1)*sizeof(wchar_t);
-		start = (namedata_ix + sizeof(wchar_t) - 1) / sizeof(wchar_t) * sizeof(wchar_t);  // round up to wchar_t boundary
+		start = (namedata_ix + sizeof(wchar_t) - 1) / sizeof(wchar_t) * sizeof(wchar_t);
 	} else
 		len = strlen(name)+1;
 
@@ -1022,7 +1022,7 @@ static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
 }
 
 static void DecodeWithPhonemeMode(char *buf, size_t buf_size, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
-	char phonemes2[N_PHONEME_BYTES*4 + 3]; // a mnemonic is up to 4 bytes, plus the "* " prefix
+	char phonemes2[N_PHONEME_BYTES*4 + 3]; // a mnemonic is up to 4 bytes
 	if (tr2 == NULL) {
 		SetWordStress(tr, phonemes, flags, -1, 0);
 		DecodePhonemes(phonemes, phonemes2, sizeof(phonemes2));

@@ -70,8 +70,6 @@ test_copy_exact_fit(void)
 	TEST_ASSERT(!strcmp(dest, "abc"));
 }
 
-// Write a "<name>_dict" file into a temporary espeak-ng-data directory and
-// load it, returning LoadDictionary's result.
 static int load_dict_bytes(const unsigned char *data, size_t size, Translator *tr)
 {
 	char dir[] = "dictionary_bounds_XXXXXX";

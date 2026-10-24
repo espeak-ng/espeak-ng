@@ -283,7 +283,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 		buffer_length = min_buffer_length;
 
 	if ((samplerate > 0) && (buffer_length > (INT_MAX - 1000) / samplerate))
-		return EINVAL; // buffer_length * samplerate would overflow
+		return EINVAL;
 
 	// allocate 2 bytes per sample
 	// Always round up to the nearest sample and the nearest byte.

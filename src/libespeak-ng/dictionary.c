@@ -115,7 +115,6 @@ static void InitGroups(Translator *tr, const char *end)
 {
 	// Called after dictionary 1 is loaded, to set up table of entry points for translation rule chains
 	// for single-letters and two-letter combinations.
-	// 'end' is the end of the rules data, which stops a malformed file running off the buffer.
 
 	int ix;
 	char *p;
@@ -480,7 +479,7 @@ void DecodePhonemes(const char *inptr, char *outptr, size_t outsize)
 			}
 		}
 	}
-	outptr[pos] = 0; // string terminator
+	outptr[pos] = 0;
 }
 
 // using Kirschenbaum to IPA translation, ascii 0x20 to 0x7f
