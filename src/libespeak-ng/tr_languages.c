@@ -1008,6 +1008,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('h', 'y'): // Armenian
+	case L3('h', 'y', 'w'): // West Armenian
 	{
 		static const short stress_lengths_hy[8] = { 250, 200,  250, 250,  0, 0,  250, 250 };
 		static const char hy_vowels[] = { 0x31, 0x35, 0x37, 0x38, 0x3b, 0x48, 0x55, 0 };

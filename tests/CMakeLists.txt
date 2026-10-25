@@ -52,6 +52,7 @@ shell_test(non-executable-files-with-executable-bit)
 
 shell_test(cmd_options)
 shell_test(dictionary)
+shell_test(dictionary-compile-hyw)
 shell_test(language-numbers-cardinal)
 shell_test(language-numbers-ordinal)
 shell_test(language-phonemes)

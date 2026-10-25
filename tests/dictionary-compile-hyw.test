@@ -1,0 +1,31 @@
+#!/bin/sh
+# Compiling the Armenian dictionary through the West Armenian voice must give the same speech as the shipped dictionary.
+ESPEAK_BIN="`cd \`dirname "${ESPEAK_BIN:-src/espeak-ng}"\` && pwd`/`basename "${ESPEAK_BIN:-src/espeak-ng}"`"
+DATA_ROOT="${ESPEAK_DATA_PATH:-.}"
+
+WORK=`mktemp -d "${TMPDIR:-/tmp}/espeak-dict-hyw.XXXXXX"` || exit 1
+trap 'rm -rf "$WORK"' EXIT
+
+mkdir -p "$WORK/data/espeak-ng-data" "$WORK/src" || exit 1
+for f in phontab phonindex phondata intonations; do
+    cp "$DATA_ROOT/espeak-ng-data/$f" "$WORK/data/espeak-ng-data/" || exit 1
+done
+cp -R "$DATA_ROOT/espeak-ng-data/lang" "$DATA_ROOT/espeak-ng-data/voices" "$WORK/data/espeak-ng-data/" || exit 1
+cp dictsource/hy_rules dictsource/hy_list dictsource/hy_emoji "$WORK/src/" || exit 1
+
+check() {
+    echo -n "checking '$1' after $2 ... "
+    RESULT=`ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" -q -x -v hyw "$1" 2>&1`
+    if [ "$RESULT" = "$3" ]; then
+        echo "passed"
+    else
+        echo "failed (expected '$3', got '$RESULT')"
+        exit 1
+    fi
+}
+
+(cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=hyw >/dev/null 2>&1) || { echo "compile failed"; exit 1; }
+check "Կրնամ" "--compile=hyw" "g@rn'am"
+
+(cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile-debug=hyw >/dev/null 2>&1) || { echo "debug compile failed"; exit 1; }
+check "Կրնամ" "--compile-debug=hyw" "g@rn'am"
