@@ -52,6 +52,7 @@ shell_test(non-executable-files-with-executable-bit)
 
 shell_test(cmd_options)
 shell_test(truncated-data)
+shell_test(cli-exit-codes)
 shell_test(dictionary)
 shell_test(language-numbers-cardinal)
 shell_test(language-numbers-ordinal)

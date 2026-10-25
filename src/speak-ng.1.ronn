@@ -76,7 +76,7 @@ words are provided then text is spoken from stdin a line at a time.
 
   * `-X`:
     Write phonemes mnemonics and translation trace to stdout. If rules files
-    have been built with --compile=debug, line numbers will also be displayed.
+    have been built with --compile-debug, line numbers will also be displayed.
 
   * `-z`:
     No final sentence pause at the end of the text.
@@ -86,15 +86,15 @@ words are provided then text is spoken from stdin a line at a time.
 
   * `--compile=voicename`:
     Compile the pronunciation rules and dictionary in the current directory.
-    =&lt;voicename&lt; is optional and specifies which language is compiled.
+    =&lt;voicename&gt; is required and specifies which language is compiled.
 
   * `--compile-debug=voicename`:
     Compile the pronunciation rules and dictionary in the current directory as
     above, but include line numbers, that get shown when -X is used.
 
   * `--ipa`:
-    Write phonemes to stdout using International Phonetic Alphabet. --ipa=1 Use
-    ties, --ipa=2 Use ZWJ, --ipa=3 Separate with _.
+    Write phonemes to stdout using International Phonetic Alphabet. --ipa=1
+    Separate with _, --ipa=2 Use ties, --ipa=3 Use ZWJ.
 
   * `--tie=<character>`:
     The character to use to join multi-letter phonemes in -x and --ipa output.
