@@ -22,6 +22,7 @@
 #include <assert.h>
 #include <ctype.h>
 #include <errno.h>
+#include <limits.h>
 #include <locale.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -97,7 +98,7 @@ void cancel_audio(void)
 #endif
 }
 
-static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
+static int dispatch_audio(short *samples, int length, espeak_EVENT *event)
 {
 	int a_wave_can_be_played = 1;
 #if USE_ASYNC
@@ -154,8 +155,8 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 #endif
 
 #if USE_LIBPCAUDIO
-		if (outbuf && length && a_wave_can_be_played) {
-			int error = audio_object_write(my_audio, (char *)outbuf, 2*length);
+		if (samples && length && a_wave_can_be_played) {
+			int error = audio_object_write(my_audio, (char *)samples, 2*length);
 			if (error != 0)
 				fprintf(stderr, "audio write error: %s\n", audio_object_strerror(my_audio, error));
 		}
@@ -184,14 +185,14 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		break;
 	case 0:
 		if (synth_callback)
-			synth_callback(outbuf, length, event);
+			synth_callback(samples, length, event);
 		break;
 	}
 
 	return a_wave_can_be_played == 0; // 1 = stop synthesis, -1 = error
 }
 
-static int create_events(short *outbuf, int length, espeak_EVENT *event_list)
+static int create_events(short *samples, int length, espeak_EVENT *events)
 {
 	int finished;
 	int i = 0;
@@ -207,8 +208,8 @@ static int create_events(short *outbuf, int length, espeak_EVENT *event_list)
 		if (event_list_ix == 0)
 			event = NULL;
 		else
-			event = event_list + i;
-		finished = dispatch_audio((short *)outbuf, length, event);
+			event = events + i;
+		finished = dispatch_audio((short *)samples, length, event);
 		length = 0; // the wave data are played once.
 		i++;
 	} while ((i < event_list_ix) && !finished);
@@ -281,6 +282,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	if (buffer_length < min_buffer_length)
 		buffer_length = min_buffer_length;
 
+	if ((samplerate > 0) && (buffer_length > (INT_MAX - 1000) / samplerate))
+		return EINVAL;
+
 	// allocate 2 bytes per sample
 	// Always round up to the nearest sample and the nearest byte.
 	int millisamples = buffer_length * samplerate;
@@ -317,13 +321,14 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	if (check_data_path(getenv("ESPEAK_DATA_PATH"), 1))
 		return;
 
-	buf[0] = 0;
-	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\eSpeak NG", 0, KEY_READ, &RegKey);
-	if (RegKey == NULL)
-		RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\WOW6432Node\\eSpeak NG", 0, KEY_READ, &RegKey);
-	size = sizeof(buf);
+	memset(buf, 0, sizeof(buf));
+	if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\eSpeak NG", 0, KEY_READ, &RegKey) != ERROR_SUCCESS &&
+	    RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\WOW6432Node\\eSpeak NG", 0, KEY_READ, &RegKey) != ERROR_SUCCESS)
+		RegKey = NULL;
+	size = sizeof(buf) - 1;
 	var_type = REG_SZ;
-	RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
+	if (RegKey != NULL)
+		RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
 
 	if (check_data_path(buf, 1))
 		return;
@@ -504,7 +509,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	}
 }
 
-void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
+void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *marker_ptr)
 {
 	// type: 1=word, 2=sentence, 3=named mark, 4=play audio, 5=end, 7=phoneme
 	espeak_EVENT *ep;
@@ -520,13 +525,15 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	ep->text_position = char_position & 0xffffff;
 	ep->length = char_position >> 24;
 
-#if !USE_MBROLA
-	static const int mbrola_delay = 0;
+#if USE_MBROLA
+	const int sample_delay = mbrola_delay;
+#else
+	const int sample_delay = 0;
 #endif
 
-	time = ((double)(count_samples + mbrola_delay + (out_ptr - out_start)/2)*1000.0)/samplerate;
+	time = ((double)(count_samples + sample_delay + (marker_ptr - out_start)/2)*1000.0)/samplerate;
 	ep->audio_position = (int)time;
-	ep->sample = (count_samples + mbrola_delay + (out_ptr - out_start)/2);
+	ep->sample = (count_samples + sample_delay + (marker_ptr - out_start)/2);
 
 	if ((type == espeakEVENT_MARK) || (type == espeakEVENT_PLAY))
 		ep->id.name = &namedata[value];
@@ -552,8 +559,10 @@ void RescaleEventSamples(int length_pre, int length_post)
 	// linear mapping is an approximation; what it guarantees is that an event
 	// never points past the audio its buffer produced.
 
-#if !USE_MBROLA
-	static const int mbrola_delay = 0;
+#if USE_MBROLA
+	const int sample_delay = mbrola_delay;
+#else
+	const int sample_delay = 0;
 #endif
 	int base;
 
@@ -563,7 +572,7 @@ void RescaleEventSamples(int length_pre, int length_post)
 	// count_samples is not advanced for this buffer until WavegenFill() has
 	// returned, so it still holds the total emitted by preceding buffers --
 	// the same base MarkerEvent() used.
-	base = count_samples + mbrola_delay;
+	base = count_samples + sample_delay;
 
 	for (int ix = 0; ix < event_list_ix; ix++) {
 		espeak_EVENT *ep = &event_list[ix];
@@ -833,6 +842,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakCharacter(wchar_t character)
 ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 {
 	// current: 0=default value, 1=current value
+	if (parameter < 0 || parameter >= N_SPEECH_PARAM)
+		return -1;
 	if (current)
 		return param_stack[0].parameter[parameter];
 	return param_defaults[parameter];
@@ -904,6 +915,9 @@ ESPEAK_API const char* espeak_TextToPhonemesWithTerminator(const void** textptr,
 	    bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
 	    bits 8-23:  separator character, between phoneme names
 	 */
+
+	if (translator == NULL && espeak_ng_SetVoiceByName(ESPEAKNG_DEFAULT_VOICE) != ENS_OK)
+		return NULL;
 
 	if (p_decoder == NULL)
 		p_decoder = create_text_decoder();
@@ -989,6 +1003,11 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 
 	DeleteTranslator(translator);
 	translator = NULL;
+	DeleteTranslator(translator2);
+	translator2 = NULL;
+	DeleteTranslator(translator3);
+	translator3 = NULL;
+	InitNamedata();
 
 	if (p_decoder != NULL) {
 		destroy_text_decoder(p_decoder);
@@ -1001,10 +1020,10 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 }
 
 static const char version_string[] = PACKAGE_VERSION;
-ESPEAK_API const char *espeak_Info(const char **ptr)
+ESPEAK_API const char *espeak_Info(const char **path_data)
 {
-	if (ptr != NULL)
-		*ptr = path_home;
+	if (path_data != NULL)
+		*path_data = path_home;
 	return version_string;
 }
 

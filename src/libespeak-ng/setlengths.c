@@ -227,12 +227,12 @@ static void SetSpeedMultiplier(int *x, int *wpm) {
 		*x = 6;
 }
 
-static void SetSpeedFactors(voice_t *voice, int x, int speeds[3]) {
+static void SetSpeedFactors(voice_t *v, int x, int speeds[3]) {
 	// set speed factors for different syllable positions within a word
 	// these are used in CalcLengths()
-	speeds[0] = (x * voice->speedf1)/256;
-	speeds[1] = (x * voice->speedf2)/256;
-	speeds[2] = (x * voice->speedf3)/256;
+	speeds[0] = (x * v->speedf1)/256;
+	speeds[1] = (x * v->speedf2)/256;
+	speeds[2] = (x * v->speedf3)/256;
 
 	if (x <= 7) {
 		speeds[0] = x;
@@ -240,50 +240,50 @@ static void SetSpeedFactors(voice_t *voice, int x, int speeds[3]) {
 	}
 }
 
-static void SetSpeedMods(SPEED_FACTORS *speed, int voiceSpeedF1, int wpm, int x) {
+static void SetSpeedMods(SPEED_FACTORS *factors, int voiceSpeedF1, int wpm, int x) {
 	// these are used in synthesis file
 
 	if (wpm > 350) {
-		speed->lenmod_factor = 85 - (wpm - 350) / 3;
-		speed->lenmod2_factor = 60 - (wpm - 350) / 8;
+		factors->lenmod_factor = 85 - (wpm - 350) / 3;
+		factors->lenmod2_factor = 60 - (wpm - 350) / 8;
 	} else if (wpm > 250) {
-		speed->lenmod_factor = 110 - (wpm - 250)/4;
-		speed->lenmod2_factor = 110 - (wpm - 250)/2;
+		factors->lenmod_factor = 110 - (wpm - 250)/4;
+		factors->lenmod2_factor = 110 - (wpm - 250)/2;
 	}
 
 
 	int s1 = (x * voiceSpeedF1)/256;
 
 	if (wpm >= 170)
-		speed->wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
+		factors->wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
 	else
-		speed->wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
+		factors->wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
 
 	if (wpm >= 350)
-		speed->wav_factor = wav_factor_350[wpm-350];
+		factors->wav_factor = wav_factor_350[wpm-350];
 
 	if (wpm >= 390) {
-		speed->min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
+		factors->min_sample_len = espeakRATE_MAXIMUM - (wpm - 400)/2;
 		if (wpm > 440)
-			speed->min_sample_len = 420 - (wpm - 440);
+			factors->min_sample_len = 420 - (wpm - 440);
 	}
 
-	speed->pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
-	speed->clause_pause_factor = 0;
+	factors->pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
+	factors->clause_pause_factor = 0;
 
 	if (wpm > 430)
-		speed->pause_factor = 12;
+		factors->pause_factor = 12;
 	else if (wpm > 400)
-		speed->pause_factor = 13;
+		factors->pause_factor = 13;
 	else if (wpm > 374)
-		speed->pause_factor = 14;
+		factors->pause_factor = 14;
 	else if (wpm > 350)
-		speed->pause_factor = pause_factor_350[wpm - 350];
+		factors->pause_factor = pause_factor_350[wpm - 350];
 
-	if (speed->clause_pause_factor == 0) {
+	if (factors->clause_pause_factor == 0) {
 		// restrict the reduction of pauses between clauses
-		if ((speed->clause_pause_factor = speed->pause_factor) < 16)
-			speed->clause_pause_factor = 16;
+		if ((factors->clause_pause_factor = factors->pause_factor) < 16)
+			factors->clause_pause_factor = 16;
 	}
 }
 
@@ -294,6 +294,9 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 
 	int new_value = value;
 	extern const int param_defaults[N_SPEECH_PARAM];
+
+	if (parameter < 0 || parameter >= N_SPEECH_PARAM)
+		return EINVAL;
 
 	if (relative) {
 		if (parameter < 5) {
@@ -332,7 +335,7 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 		option_wordgap = new_value;
 		break;
 	case espeakINTONATION:
-		if ((new_value & 0xff) != 0)
+		if (translator != NULL && (new_value & 0xff) != 0)
 			translator->langopts.intonation_group = new_value & 0xff;
 		option_tone_flags = new_value;
 		break;

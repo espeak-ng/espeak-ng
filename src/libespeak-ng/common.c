@@ -345,14 +345,14 @@ int Read4Bytes(FILE *f)
 {
 	// Read 4 bytes (least significant first) into a word
 	int ix;
-	int acc = 0;
+	uint32_t acc = 0;
 
 	for (ix = 0; ix < 4; ix++) {
 		unsigned char c;
 		c = fgetc(f) & 0xff;
-		acc += (c << (ix*8));
+		acc += ((uint32_t)c << (ix*8));
 	}
-	return acc;
+	return (int)acc;
 }
 
 unsigned int StringToWord(const char *string)
@@ -369,15 +369,15 @@ unsigned int StringToWord(const char *string)
 	for (ix = 0; ix < 4; ix++) {
 		if (string[ix] == 0) break;
 		c = string[ix];
-		word |= (c << (ix*8));
+		word |= ((unsigned int)c << (ix*8));
 	}
 	return word;
 }
 
-int towlower2(unsigned int c, Translator *translator)
+int towlower2(unsigned int c, Translator *tr)
 {
 	// check for non-standard upper to lower case conversions
-	if (c == 'I' && translator->langopts.dotless_i)
+	if (c == 'I' && tr->langopts.dotless_i)
 		return 0x131; // I -> ı
 
 	return ucd_tolower(c);

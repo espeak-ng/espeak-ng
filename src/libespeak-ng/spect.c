@@ -355,7 +355,7 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	READ_S16(spect->max_y,    stream);
 	READ_S16(temp,            stream); // unused
 
-	if (n == 0) {
+	if (n <= 0) {
 		fclose(stream);
 		return ENS_NO_SPECT_FRAMES;
 	}
@@ -368,8 +368,12 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 		free(spect->frames);
 	}
 	spect->frames = calloc(n, sizeof(SpectFrame *));
-
 	spect->numframes = 0;
+	if (spect->frames == NULL) {
+		fclose(stream);
+		return ENOMEM;
+	}
+
 	spect->max_x = 3000;
 	if (spect->max_y == 0) {
 		set_max_y = 1;

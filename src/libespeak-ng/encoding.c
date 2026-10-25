@@ -549,14 +549,14 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		return 0xFFFD;
 	// 2-byte UTF-8 sequence
 	case 0xC0: case 0xD0:
-		if (decoder->current + 1 >= decoder->end) goto eof;
+		if (decoder->current + 1 > decoder->end) goto eof;
 		ret = c & 0x1F;
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
 		return ret;
 	// 3-byte UTF-8 sequence
 	case 0xE0:
-		if (decoder->current + 2 >= decoder->end) goto eof;
+		if (decoder->current + 2 > decoder->end) goto eof;
 		ret = c & 0x0F;
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
@@ -567,7 +567,7 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		return ret;
 	// 4-byte UTF-8 sequence
 	case 0xF0:
-		if (decoder->current + 3 >= decoder->end) goto eof;
+		if (decoder->current + 3 > decoder->end) goto eof;
 		ret = c & 0x0F;
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);

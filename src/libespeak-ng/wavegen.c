@@ -236,6 +236,16 @@ static const unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 
 void WcmdqStop(void)
 {
+	for (int qix = wcmdq_head; qix != wcmdq_tail; qix = (qix + 1) % N_WCMDQ) {
+		switch (wcmdq[qix][0] & 0xff) {
+		case WCMD_PHONEME_ALIGNMENT:
+			free((char *)wcmdq[qix][1]);
+			break;
+		case WCMD_VOICE:
+			free((voice_t *)wcmdq[qix][2]);
+			break;
+		}
+	}
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
 
@@ -398,11 +408,6 @@ static void WavegenSetEcho(void)
 	delay = wvoice->echo_delay;
 	amp = wvoice->echo_amp;
 
-	if (delay >= N_ECHO_BUF)
-		delay = N_ECHO_BUF-1;
-	if (amp > 100)
-		amp = 100;
-
 	memset(echo_buf, 0, sizeof(echo_buf));
 	echo_tail = 0;
 
@@ -411,6 +416,15 @@ static void WavegenSetEcho(void)
 		amp = embedded_value[EMBED_H];
 		delay = 130;
 	}
+
+	if (delay < 0)
+		delay = 0;
+	if (amp < 0)
+		amp = 0;
+	if (amp > 100)
+		amp = 100;
+	if (samplerate > 0 && delay > ((N_ECHO_BUF-1) * 1000) / samplerate)
+		delay = ((N_ECHO_BUF-1) * 1000) / samplerate;
 
 	if (delay == 0)
 		amp = 0;
@@ -429,7 +443,7 @@ static void WavegenSetEcho(void)
 	general_amplitude = ((general_amplitude * (500-amp))/500);
 }
 
-int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
+int PeaksToHarmspect(wavegen_peaks_t *peak_tab,int pitch, int *htab, int control)
 {
 	if (wvoice == NULL)
 		return 1;
@@ -453,7 +467,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	int h1;
 
 	// initialise as much of *out as we will need
-	hmax = (peaks[wvoice->n_harmonic_peaks].freq + peaks[wvoice->n_harmonic_peaks].right)/pitch;
+	hmax = (peak_tab[wvoice->n_harmonic_peaks].freq + peak_tab[wvoice->n_harmonic_peaks].right)/pitch;
 	if (hmax >= MAX_HARMONIC)
 		hmax = MAX_HARMONIC-1;
 
@@ -467,7 +481,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		htab[h] = 0;
 
 	for (pk = 0; pk <= wvoice->n_harmonic_peaks; pk++) {
-		p = &peaks[pk];
+		p = &peak_tab[pk];
 		if ((p->height == 0) || (fp = p->freq) == 0)
 			continue;
 
@@ -484,7 +498,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	int y;
 	int h2;
 	// increase bass
-	y = peaks[1].height * 10; // addition as a multiple of 1/256s
+	y = peak_tab[1].height * 10; // addition as a multiple of 1/256s
 	h2 = (1000<<16)/pitch; // decrease until 1000Hz
 	if (h2 > 0) {
 		x = y/h2;
@@ -497,13 +511,13 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 
 	// find the nearest harmonic for HF peaks where we don't use shape
 	for (; pk < N_PEAKS; pk++) {
-		x = peaks[pk].height >> 14;
+		x = peak_tab[pk].height >> 14;
 		peak_height[pk] = (x * x * 5)/2;
 
 		// find the nearest harmonic for HF peaks where we don't use shape
 		if (control == 0) {
 			// set this initially, but make changes only at the quiet point
-			peak_harmonic[pk] = peaks[pk].freq / pitch;
+			peak_harmonic[pk] = peak_tab[pk].freq / pitch;
 		}
 		// only use harmonics up to half the samplerate
 		if (peak_harmonic[pk] >= hmax_samplerate)
@@ -681,12 +695,12 @@ static int ApplyBreath(void)
 	return value;
 }
 
-static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2, voice_t *wvoice)
+static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2, voice_t *wv)
 {
 	if (resume == false)
-		SetSynth(length, modulation, fr1, fr2, wvoice);
+		SetSynth(length, modulation, fr1, fr2, wv);
 
-	if (wvoice == NULL)
+	if (wv == NULL)
 		return 0;
 
 	unsigned short waveph;
@@ -761,7 +775,7 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 
 				cycle_count++;
 
-				for (pk = wvoice->n_harmonic_peaks+1; pk < N_PEAKS; pk++) {
+				for (pk = wv->n_harmonic_peaks+1; pk < N_PEAKS; pk++) {
 					// find the nearest harmonic for HF peaks where we don't use shape
 					peak_harmonic[pk] = ((peaks[pk].freq / (wdata.pitch*8)) + 1) / 2;
 				}
@@ -795,7 +809,7 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 
 				// introduce roughness into the sound by reducing the amplitude of
 				modn_period = 0;
-				if (voice->roughness < N_ROUGHNESS) {
+				if (voice->roughness >= 0 && voice->roughness < N_ROUGHNESS) {
 					modn_period = modulation_tab[voice->roughness][modulation_type];
 					modn_amp = modn_period & 0xf;
 					modn_period = modn_period >> 4;
@@ -824,7 +838,7 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 		// higher frequence harmonics.
 		cbytes++;
 		if (cbytes >= 0 && cbytes < wavemult_max) {
-			for (pk = wvoice->n_harmonic_peaks+1; pk < N_PEAKS; pk++) {
+			for (pk = wv->n_harmonic_peaks+1; pk < N_PEAKS; pk++) {
 				theta = peak_harmonic[pk] * waveph;
 				total += (long)sin_tab[theta >> 5] * peak_height[pk];
 			}
@@ -849,7 +863,7 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 		if (voicing != 64)
 			total = (total >> 6) * voicing;
 
-		if (wvoice->breath[0])
+		if (wv->breath[0])
 			total +=  ApplyBreath();
 
 		// mix with sampled wave if required
@@ -1050,7 +1064,8 @@ void SetEmbedded(int control, int value)
 	switch (command)
 	{
 	case EMBED_T:
-		WavegenSetEcho(); // and drop through to case P
+		WavegenSetEcho();
+		// fallthrough - continues as case P
 	case EMBED_P:
 		SetPitchFormants();
 		break;
@@ -1105,7 +1120,7 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 	amplitude_env = amp_env;
 }
 
-void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range)
+void SetPitch2(voice_t *v, int pitch1, int pitch2, int *pitch_base, int *pitch_range)
 {
 	int base;
 	int range;
@@ -1124,11 +1139,11 @@ void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pit
 	if (pitch_value < 0)
 		pitch_value = 0;
 
-	base = (voice->pitch_base * pitch_adjust_tab[pitch_value])/128;
-	range =  (voice->pitch_range * embedded_value[EMBED_R])/50;
+	base = (v->pitch_base * pitch_adjust_tab[pitch_value])/128;
+	range =  (v->pitch_range *embedded_value[EMBED_R])/50;
 
 	// compensate for change in pitch when the range is narrowed or widened
-	base -= (range - voice->pitch_range)*18;
+	base -= (range - v->pitch_range)*18;
 
 	*pitch_base = base + (pitch1 * range)/2;
 	*pitch_range = base + (pitch2 * range)/2 - *pitch_base;
@@ -1153,6 +1168,8 @@ static void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	SetPitch2(wvoice, pitch1, pitch2, &wdata.pitch_base, &wdata.pitch_range);
 	// set initial pitch
 	wdata.pitch = ((wdata.pitch_env[0] * wdata.pitch_range) >>8) + wdata.pitch_base; // Hz << 12
+	if (wdata.pitch < 102400)
+		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
 	flutter_amp = wvoice->flutter;
 }
@@ -1328,14 +1345,16 @@ static int WavegenFill2(void)
 			wdata.mix_wavefile = (unsigned char *)q[2];
 			break;
 		case WCMD_SPECT2: // as WCMD_SPECT but stop any concurrent wave file
-			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
+			wdata.n_mix_wavefile = 0;
+			// fallthrough - continues as WCMD_SPECT
 		case WCMD_SPECT:
 			echo_complete = echo_length;
 			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
 			break;
 #if USE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
-			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
+			wdata.n_mix_wavefile = 0;
+			// fallthrough - continues as WCMD_KLATT
 		case WCMD_KLATT:
 			echo_complete = echo_length;
 			result = Wavegen_Klatt(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3], &wdata, wvoice);

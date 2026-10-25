@@ -357,7 +357,7 @@ typedef struct CompileContext {
 	#define N_PROCS 50
 	int n_procs;
 	int proc_addr[N_PROCS];
-	char proc_names[N_ITEM_STRING+1][N_PROCS];
+	char proc_names[N_PROCS][N_ITEM_STRING+1];
 
 	#define MAX_PROG_BUF 2000
 	unsigned short *prog_out;
@@ -468,6 +468,7 @@ static espeak_ng_STATUS ReadPhondataManifest(CompileContext *ctx, espeak_ng_ERRO
 	if (ctx->manifest != NULL) {
 		for (int ix = 0; ix < ctx->n_manifest; ix++)
 			free(ctx->manifest[ix].name);
+		ctx->n_manifest = 0;
 	}
 
 	if (n_lines == 0) {
@@ -479,6 +480,7 @@ static espeak_ng_STATUS ReadPhondataManifest(CompileContext *ctx, espeak_ng_ERRO
 	if (new_manifest == NULL) {
 		fclose(f);
 		free(ctx->manifest);
+		ctx->manifest = NULL;
 		return ENOMEM;
 	} else
 		ctx->manifest = new_manifest;
@@ -488,7 +490,7 @@ static espeak_ng_STATUS ReadPhondataManifest(CompileContext *ctx, espeak_ng_ERRO
 		if (!isalpha(buf[0]))
 			continue;
 
-		if (sscanf(&buf[2], "%x %s", &value, name) == 2) {
+		if (sscanf(&buf[2], "%x %119s", &value, name) == 2) {
 			if ((p = (char *)malloc(strlen(name)+1)) != NULL) {
 				strcpy(p, name);
 				ctx->manifest[ctx->n_manifest].value = value;
@@ -937,6 +939,15 @@ static espeak_ng_STATUS LoadSpect(CompileContext *ctx, const char *path, int con
 		}
 	}
 
+	n_frames = 0;
+	for (frame = 0; frame < spectseq->numframes; frame++)
+		n_frames += spectseq->frames[frame]->keyframe != 0;
+	if (n_frames > N_SEQ_FRAMES) {
+		error(ctx, "Too many keyframes in '%s'", path);
+		SpectSeqDestroy(spectseq);
+		return ENS_COMPILE_ERROR;
+	}
+
 	*addr = ftell(ctx->f_phdata);
 
 	seq_out.n_frames = 0;
@@ -1179,8 +1190,8 @@ static espeak_ng_STATUS LoadEnvelope(CompileContext *ctx, FILE *f, int *displ)
 	if (fseek(f, 12, SEEK_SET) == -1)
 		return errno;
 
-	if (fread(buf, 128, 1, f) != 128)
-		return errno;
+	if (fread(buf, 128, 1, f) != 1)
+		return errno ? errno : EIO;
 	fwrite(buf, 128, 1, ctx->f_phdata);
 
 	return ENS_OK;
@@ -1211,7 +1222,7 @@ static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 	float env_x[20];
 	float env_y[20];
 	int env_lin[20];
-	unsigned char env[ENV_LEN];
+	unsigned char env[ENV_LEN] = { 0 };
 
 	n_points = 0;
 	if (fgets(line_buf, sizeof(line_buf), f) != NULL) { ; // skip first line, then loop
@@ -1224,6 +1235,8 @@ static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 			if (n >= 2) {
 				env_x[n_points] *= (float)1.28; // convert range 0-100 to 0-128
 				n_points++;
+				if (n_points == 19) // one slot is kept for the repeated end point
+					break;
 			}
 		}
 	}
@@ -1235,9 +1248,9 @@ static int LoadEnvelope2(CompileContext *ctx, FILE *f)
 		int ix = 0;
     	int ix2 = 0;
 		for (int x = 0; x < ENV_LEN; x++) {
-		if (n_points > 3 && x > env_x[ix+3])
+		if (n_points > 3 && ix + 3 < n_points && x > env_x[ix+3])
 			ix++;
-		if (n_points > 2 && x >= env_x[ix2+1])
+		if (n_points > 2 && ix2 + 1 < n_points && x >= env_x[ix2+1])
 			ix2++;
 
 		int y;
@@ -1530,6 +1543,10 @@ static int CompileIf(CompileContext *ctx, int elif)
 	}
 
 	if (elif == 0) {
+		if (ctx->if_level + 1 >= N_IF_STACK) {
+			error(ctx, "IF statements nested too deeply");
+			return 0;
+		}
 		ctx->if_level++;
 		ctx->if_stack[ctx->if_level].p_else = NULL;
 	}
@@ -1679,13 +1696,17 @@ static PHONEME_TAB *FindPhoneme(CompileContext *ctx, const char *string)
 		return &ctx->phoneme_tab2[ix];
 
 	// no, treat the name as phonemetable/phoneme
-	strcpy(buf, string);
+	snprintf(buf, sizeof(buf), "%s", string);
 	if ((phname = strchr(buf, '/')) != 0)
 		*phname++ = 0;
 
 	phtab = FindPhonemeTable(ctx, buf);
 	if (phtab == NULL)
 		return NULL; // phoneme table not found
+	if (phname == NULL) {
+		error(ctx, "Phoneme reference not found: '%s'", string);
+		return NULL;
+	}
 
 	mnem = StringToWord(phname);
 	for (ix = 1; ix < 256; ix++) {
@@ -2033,7 +2054,7 @@ static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 				break;
 			case kWAV:
 				ctx->if_stack[ctx->if_level].returned = true;
-				// fallthrough:
+				// fallthrough
 			case kVOWELSTART:
 			case kVOWELENDING:
 			case kANDWAV:
@@ -2062,8 +2083,8 @@ static int CompilePhoneme(CompileContext *ctx, int compile_phoneme)
 				break;
 			case kINCLUDE:
 			case kPHONEMETABLE:
-				error(ctx, "Missing 'endphoneme' before '%s'", ctx->item_string);  // drop through to endphoneme
-				// fallthrough:
+				error(ctx, "Missing 'endphoneme' before '%s'", ctx->item_string);
+				// fallthrough - continues as endphoneme
 			case kENDPHONEME:
 			case kENDPROCEDURE:
 				endphoneme = 1;
@@ -2203,7 +2224,7 @@ static void StartPhonemeTable(CompileContext *ctx, const char *name)
 		error(ctx, "Too many phonemetables");
 		return;
 	}
-	p = (PHONEME_TAB *)calloc(sizeof(PHONEME_TAB), N_PHONEME_TAB);
+	p = (PHONEME_TAB *)calloc(N_PHONEME_TAB, sizeof(PHONEME_TAB));
 
 	if (p == NULL) {
 		error(ctx, "Out of memory");
@@ -2339,15 +2360,15 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	if (!ctx) return ENOMEM;
 
 	if (source_path) {
-		sprintf(ctx->phsrc, "%s", source_path);
+		snprintf(ctx->phsrc, sizeof(ctx->phsrc), "%s", source_path);
 	} else {
 		snprintf(ctx->phsrc, sizeof(ctx->phsrc), "%s/../phsource", path_home);
 	}
 
 	if (destination_path) {
-		sprintf(phdst, "%s", destination_path);
+		snprintf(phdst, sizeof(phdst), "%s", destination_path);
 	} else {
-		sprintf(phdst, "%s", path_home);
+		snprintf(phdst, sizeof(phdst), "%s", path_home);
 	}
 
 	samplerate = rate;
@@ -2467,7 +2488,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 		fclose(ctx->f_errors);
 
 	espeak_ng_STATUS status = ReadPhondataManifest(ctx, context);
-	int res = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	espeak_ng_STATUS res = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 	clean_context(ctx);
 	return (status != ENS_OK) ? status : res;
 }

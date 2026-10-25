@@ -241,6 +241,7 @@ static int start_mbrola(const char *voice_path)
 	    fcntl(p_stderr[0], F_SETFL, O_NONBLOCK) == -1) {
 		error = errno;
 		close_pipes(p_stdin, p_stdout, p_stderr);
+		close(mbr_proc_stat);
 		waitpid(mbr_pid, NULL, 0);
 		mbr_pid = 0;
 		err("fcntl(): %s", strerror(error));
@@ -369,6 +370,8 @@ static int mbrola_has_errors(void)
 			}
 		}
 
+		if (result >= (int)sizeof(buffer) - 1)
+			result = 0; // overlong line without newline, drop it so the next read has room
 		memmove(buffer, buf_ptr, result);
 		buf_ptr = buffer + result;
 	}
@@ -383,7 +386,7 @@ static int send_to_mbrola(const char *cmd)
 		return -1;
 
 	len = strlen(cmd);
-	result = write(mbr_cmd_fd, cmd, len);
+	result = mbr_pending_data_head ? 0 : write(mbr_cmd_fd, cmd, len);
 
 	if (result == -1) {
 		int error = errno;
@@ -411,7 +414,8 @@ static int send_to_mbrola(const char *cmd)
 			else
 				mbr_pending_data_tail->next = data;
 			mbr_pending_data_tail = data;
-		}
+		} else
+			return -1;
 	}
 
 	return result;
@@ -581,12 +585,17 @@ static int init_mbrola(char *voice_path)
 		return -1;
 	}
 	mbr_samplerate = wavhdr[24] + (wavhdr[25]<<8) +
-	                 (wavhdr[26]<<16) + (wavhdr[27]<<24);
+	                 (wavhdr[26]<<16) + ((unsigned int)wavhdr[27]<<24);
 
 	// remember the voice path for setVolumeRatio_MBR()
 	if (mbr_voice_path != voice_path) {
 		free(mbr_voice_path);
 		mbr_voice_path = strdup(voice_path);
+		if (mbr_voice_path == NULL) {
+			err("strdup(): %s", strerror(errno));
+			stop_mbrola();
+			return -1;
+		}
 	}
 
 	return 0;

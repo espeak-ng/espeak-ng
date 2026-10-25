@@ -43,6 +43,7 @@ typedef struct {
 } SSML_STACK;
 
 #define N_PARAM_STACK  20
+#define N_SSML_STACK  20
 
 #define SSML_SPEAK        1
 #define SSML_VOICE        2
@@ -66,7 +67,7 @@ int ProcessSsmlTag(wchar_t *xml_buf,
                    char *outbuf,
                    int *outix,
                    int n_outbuf,
-                   const char *xmlbase,
+                   const char **xmlbase,
                    bool *audio_text,
                    char *current_voice_id,
                    espeak_VOICE *base_voice,
