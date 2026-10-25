@@ -71,7 +71,13 @@ static wchar_t *unicode_string(JNIEnv *env, jstring str)
   if (str == NULL) return NULL;
 
   const char *utf8 = (*env)->GetStringUTFChars(env, str, NULL);
+  if (utf8 == NULL) return NULL;
+
   wchar_t *utf32 = (wchar_t *)malloc((strlen(utf8) + 1) * sizeof(wchar_t));
+  if (utf32 == NULL) {
+    (*env)->ReleaseStringUTFChars(env, str, utf8);
+    return NULL;
+  }
 
   const char *utf8_current = utf8;
   wchar_t *utf32_current = utf32;
@@ -265,12 +271,13 @@ JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByName(
     JNIEnv *env, jobject object, jstring name) {
   const char *c_name = name ? (*env)->GetStringUTFChars(env, name, NULL) : NULL;
+  if (c_name == NULL) return JNI_FALSE;
 
   if (DEBUG) LOGV("%s(name=%s)", __FUNCTION__, c_name);
 
   const espeak_ERROR result = espeak_SetVoiceByName(c_name);
 
-  if (c_name) (*env)->ReleaseStringUTFChars(env, name, c_name);
+  (*env)->ReleaseStringUTFChars(env, name, c_name);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
@@ -355,6 +362,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     JNIEnv *env, jobject object, jstring text, jboolean isSsml) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const char *c_text = text ? (*env)->GetStringUTFChars(env, text, NULL) : NULL;
+  if (c_text == NULL) return JNI_FALSE;
   unsigned int unique_identifier;
 
   espeak_SetSynthCallback(SynthCallback);
@@ -367,7 +375,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
                &unique_identifier, object);
   espeak_Synchronize();
 
-  if (c_text) (*env)->ReleaseStringUTFChars(env, text, c_text);
+  (*env)->ReleaseStringUTFChars(env, text, c_text);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
@@ -376,7 +384,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     case EE_NOT_FOUND:      LOGE("espeak_Synth: not found."); break;
   }
 
-  return JNI_TRUE;
+  return JNI_FALSE;
 }
 
 JNIEXPORT jboolean

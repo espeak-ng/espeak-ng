@@ -26,6 +26,8 @@
 
 #include <new>
 #include <errno.h>
+#include <stdlib.h>
+#include <string.h>
 
 extern "C" ULONG ObjectCount;
 
@@ -79,6 +81,7 @@ struct TtsEngine
 	int OnEvent(short *data, int samples, espeak_EVENT *events);
 private:
 	HRESULT GetStringValue(LPCWSTR key, char *&value);
+	HRESULT SpeakFragment(const SPVTEXTFRAG *fragment);
 
 	ULONG refCount;
 	ISpObjectToken *objectToken;
@@ -169,13 +172,19 @@ HRESULT __stdcall TtsEngine::SetObjectToken(ISpObjectToken *token)
 	if (status == ENS_OK)
 		status = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 100, NULL);
 
-	espeak_SetSynthCallback(espeak_callback);
+	if (status == ENS_OK) {
+		espeak_SetSynthCallback(espeak_callback);
 
-	char *voiceName = NULL;
-	if (SUCCEEDED(GetStringValue(L"VoiceName", voiceName))) {
-		if (status == ENS_OK)
+		char *voiceName = NULL;
+		if (SUCCEEDED(GetStringValue(L"VoiceName", voiceName))) {
 			status = espeak_ng_SetVoiceByName(voiceName);
-		free(voiceName);
+			free(voiceName);
+		}
+	}
+
+	if (status != ENS_OK) {
+		objectToken->Release();
+		objectToken = NULL;
 	}
 
 	return espeak_status_to_hresult(status);
@@ -192,24 +201,37 @@ TtsEngine::Speak(DWORD flags,
 		return E_INVALIDARG;
 
 	this->site = site;
+	HRESULT result = S_OK;
 
-	while (textFragList != NULL)
+	while (textFragList != NULL && SUCCEEDED(result))
 	{
 		DWORD actions = site->GetActions();
 		if (actions & SPVES_ABORT)
-			return S_OK;
-
-		switch (textFragList->State.eAction)
-		{
-		case SPVA_Speak:
-			espeak_ng_Synthesize(textFragList->pTextStart, 0, 0, POS_CHARACTER, 0, espeakCHARS_WCHAR, NULL, this);
 			break;
-		}
+
+		if (textFragList->State.eAction == SPVA_Speak && textFragList->ulTextLen > 0)
+			result = SpeakFragment(textFragList);
 
 		textFragList = textFragList->pNext;
 	}
 
-	return E_NOTIMPL;
+	this->site = NULL;
+	return result;
+}
+
+HRESULT TtsEngine::SpeakFragment(const SPVTEXTFRAG *fragment)
+{
+	size_t len = fragment->ulTextLen;
+	WCHAR *text = new (std::nothrow) WCHAR[len + 1];
+	if (!text)
+		return E_OUTOFMEMORY;
+
+	memcpy(text, fragment->pTextStart, len * sizeof(WCHAR));
+	text[len] = 0;
+
+	espeak_ng_STATUS status = espeak_ng_Synthesize(text, (len + 1) * sizeof(WCHAR), 0, POS_CHARACTER, 0, espeakCHARS_WCHAR, NULL, this);
+	delete[] text;
+	return espeak_status_to_hresult(status);
 }
 
 HRESULT __stdcall
@@ -235,6 +257,9 @@ TtsEngine::GetOutputFormat(const GUID *targetFormatId,
 int
 TtsEngine::OnEvent(short *data, int samples, espeak_EVENT *events)
 {
+	if (!site)
+		return 1;
+
 	DWORD actions = site->GetActions();
 	if (actions & SPVES_ABORT)
 		return 1;
@@ -254,14 +279,19 @@ HRESULT TtsEngine::GetStringValue(LPCWSTR key, char *&value)
 	if (FAILED(hr))
 		return hr;
 
-	size_t len = wcslen(wvalue);
-	value = (char *)malloc(len + 1);
+	int size = WideCharToMultiByte(CP_UTF8, 0, wvalue, -1, NULL, 0, NULL, NULL);
+	value = size > 0 ? (char *)malloc(size) : NULL;
 	if (!value) {
 		CoTaskMemFree(wvalue);
 		return E_OUTOFMEMORY;
 	}
 
-	wcstombs(value, wvalue, len + 1);
+	if (WideCharToMultiByte(CP_UTF8, 0, wvalue, -1, value, size, NULL, NULL) <= 0) {
+		free(value);
+		value = NULL;
+		CoTaskMemFree(wvalue);
+		return E_FAIL;
+	}
 	CoTaskMemFree(wvalue);
 
 	return S_OK;

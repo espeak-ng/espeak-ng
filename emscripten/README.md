@@ -85,59 +85,50 @@ repository.
    [installed and activated](http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html),
    and configured in your shell.
 
-2. Clone the repository, enter the `espeak-ng` directory, and initialize it:
+2. Clone the repository and enter the `espeak-ng` directory:
 
     ```bash
     $ git clone https://github.com/espeak-ng/espeak-ng
     $ cd espeak-ng
-    $ ./autogen.sh
     ```
 
-3. Compile `espeak-ng`:
+3. Build the data files with a native (non-emscripten) CMake build.
+   The build compiles the phonemes and dictionaries by running `espeak-ng`,
+   so it cannot be done with the emscripten toolchain:
 
     ```bash
-    $ ./configure --prefix=/usr --without-async --without-mbrola --without-sonic
-    $ make
+    $ cmake -S . -B build
+    $ cmake --build build
     ```
 
-    Instead, if you just want a subset of languages of your choice,
-    run `make XX` for each of them, where `XX` is the language code.
-    For example:
+    The data ends up in `build/espeak-ng-data`.
+
+4. Build the `espeak-ng` static libraries with `emcmake`.
+   Asynchronous synthesis must be disabled, and the optional native
+   audio and speech libraries are not available:
 
     ```bash
-    $ # build English only
-    $ make en
-    $
-    $ # build English, Italian, and German
-    $ make en && make it && make de
+    $ emcmake cmake -S . -B build-em \
+        -DBUILD_SHARED_LIBS=OFF -DUSE_ASYNC=OFF -DUSE_MBROLA=OFF \
+        -DUSE_LIBSONIC=OFF -DUSE_LIBPCAUDIO=OFF -DENABLE_TESTS=OFF
+    $ cmake --build build-em --target espeak-ng
     ```
 
-4. Enter the `src/ucd-tools` directory, `make clean` it, and compile with `emconfigure` and `emmake`:
+    This produces `build-em/src/libespeak-ng/libespeak-ng.a`,
+    `build-em/src/ucd-tools/libucd.a`, and `build-em/src/speechPlayer/libspeechPlayer.a`.
 
-    ```bash
-    $ cd src/ucd-tools
-    $ ./autogen.sh
-    $ make clean
-    $ emconfigure ./configure
-    $ emmake make
-    $ cd ../..
-    ```
-
-5. Recompile the `espeak-ng` library with `emconfigure` and `emmake`:
-
-    ```bash
-    $ emconfigure ./configure --prefix=/usr --without-async --without-mbrola --without-sonic
-    $ emmake make src/libespeak-ng.la
-    ```
-
-6. Enter the `emscripten` directory and compile the JS worker with `emmake`:
+5. Enter the `emscripten` directory and compile the JS worker with `emmake`:
 
     ```bash
     $ cd emscripten
     $ emmake make
     ```
 
-7. The `js/` directory should contain the output JS files:
+    The Makefile reads the libraries from `EM_BUILD_DIR` (default `../build-em`)
+    and the data from `EM_DATA_DIR` (default `../build/espeak-ng-data`).
+    Override them on the command line if you used other build directories.
+
+6. The `js/` directory should contain the output JS files:
 
     * `espeakng.js`,
     * `espeakng.worker.js`, and
@@ -145,16 +136,15 @@ repository.
 
 ### Notes
 
-* Even if you build only a subset of languages,
-  the `list_voices()` function will still list all the available voices.
-  However, if you try using language that has not been built,
-  you will get a runtime error.
-  (TODO: fix this issue.)
+* To package fewer languages, point `EM_DATA_DIR` at a copy of
+  `espeak-ng-data` containing only the dictionaries you need.
+  The `list_voices()` function still lists every voice, and using a language
+  whose dictionary is missing gives a runtime error.
 * The `-O3` optimization flag is passed to `emscripten` by default,
   achieving a considerable reduction of the size of the generated JS worker.
   If you want to omit it, for example for debug purposes,
   just export the `EM_DEBUG` environment variable with value `1`
-  (i.e., `$ export EM_DEBUG=1`) before step 3.
+  (i.e., `$ export EM_DEBUG=1`) before step 5.
 * To remove intermediate files compiled by emscripten,
   run `$ emmake clean-intermediate`.
   This command will keep the output JS files, if any.
