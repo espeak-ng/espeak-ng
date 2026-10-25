@@ -7,6 +7,13 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}-${{ matrix.osver }}
@@ -59,7 +66,10 @@ jobs:
             runenv: 'LD_LIBRARY_PATH=/usr/riscv64-linux-gnu/lib:$LD_LIBRARY_PATH'
             cross: yes
 
+          - async: "OFF"
+
           - config: "asan"
+            async: "ON"
             config_cflags: "-fsanitize=address"
             config_env: "ASAN_OPTIONS=detect_leaks=0"
 
@@ -190,16 +200,16 @@ jobs:
       run: |
         [ 'x${{ matrix.cross }}' == 'xno' ] && sudo dpkg --add-architecture ${{ matrix.arch }}
         sudo apt-get update
-        sudo apt-get install ronn kramdown python3
+        sudo apt-get install -y ronn kramdown python3
     - name: apt-arch-deps
       if: matrix.os == 'ubuntu' && matrix.cross == 'no'
-      run: "sudo apt-get install cmake valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libc6-dbg:${{ matrix.arch }} libgcc-s1:${{ matrix.arch }}"
+      run: "sudo apt-get install -y cmake valgrind g++-12-multilib linux-libc-dev:${{ matrix.arch }} libpcaudio-dev:${{ matrix.arch }} libsonic-dev:${{ matrix.arch }} libc6-dbg:${{ matrix.arch }} libgcc-s1:${{ matrix.arch }}"
     - name: apt-cross-deps
       if: matrix.cross == 'yes'
-      run: sudo apt-get install qemu-user g++-12-${{ matrix.arch }}-${{ matrix.sys }}
+      run: sudo apt-get install -y qemu-user g++-12-${{ matrix.arch }}-${{ matrix.sys }}
     - name: apt-compile-clang
       if: matrix.os == 'ubuntu' && matrix.compiler == 'clang'
-      run: sudo apt-get install clang
+      run: sudo apt-get install -y clang
 
     # MacOS - dependencies
     - name: brew-deps
@@ -222,7 +232,7 @@ jobs:
         [ 'x${{ matrix.cross }}' = 'xyes' ] && export LD="${{ matrix.ccarch }}-${{ matrix.sys }}-ld"
         export CFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.compiler_flags }} ${{ matrix.config_cflags }} ${{ matrix.archcflags }}"
         export CXXFLAGS="-g -Og -fno-omit-frame-pointer ${{ matrix.compiler_flags }} ${{ matrix.config_cflags }} ${{ matrix.archcflags }}"
-        cmake -Bbuild ${{ matrix.settings }} -DCMAKE_SYSTEM_PROCESSOR=${{ matrix.arch }} -DUSE_ASYNC:BOOL=OFF
+        cmake -Bbuild ${{ matrix.settings }} -DCMAKE_SYSTEM_PROCESSOR=${{ matrix.arch }} -DUSE_ASYNC:BOOL=${{ matrix.async }}
 
     - name: config-failed-upload
       if: ${{ failure() }}
@@ -230,6 +240,8 @@ jobs:
       with:
         name: cmake-${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.compiler }}-${{ matrix.config }}-builddir
         path: build
+        retention-days: 5
+        if-no-files-found: ignore
 
     # Build and test
     - name: make-binary

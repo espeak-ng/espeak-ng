@@ -1,0 +1,36 @@
+#!/bin/sh
+# Compile a tiny dictionary with the dictionary compiler and check the lookup result.
+ESPEAK_BIN="`cd \`dirname "${ESPEAK_BIN:-src/espeak-ng}"\` && pwd`/`basename "${ESPEAK_BIN:-src/espeak-ng}"`"
+DATA_ROOT="${ESPEAK_DATA_PATH:-.}"
+
+WORK=`mktemp -d "${TMPDIR:-/tmp}/espeak-dict-compile.XXXXXX"` || exit 1
+trap 'rm -rf "$WORK"' EXIT
+
+mkdir -p "$WORK/data/espeak-ng-data" "$WORK/src" || exit 1
+for f in phontab phonindex phondata intonations; do
+    cp "$DATA_ROOT/espeak-ng-data/$f" "$WORK/data/espeak-ng-data/" || exit 1
+done
+cp -R "$DATA_ROOT/espeak-ng-data/lang" "$DATA_ROOT/espeak-ng-data/voices" "$WORK/data/espeak-ng-data/" || exit 1
+
+printf '.group a\n\ta  a\n.group z\n\tz  z\n' > "$WORK/src/en_rules"
+printf 'zazaz  z@z\n' > "$WORK/src/en_list"
+
+echo -n "compiling en dictionary ... "
+(cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=en >/dev/null 2>&1) || { echo "failed"; exit 1; }
+echo "done"
+
+check() {
+    echo -n "checking '$1' ... "
+    RESULT=`ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" -q -x -v en "$1" 2>&1`
+    if [ "$RESULT" = "$2" ]; then
+        echo "passed"
+    else
+        echo "failed (expected '$2', got '$RESULT')"
+        exit 1
+    fi
+}
+
+# Dictionary list entry overrides the letter rules.
+check zazaz "z'@z"
+# Word not in the list falls back to the compiled letter rules.
+check zaz "z'az"
