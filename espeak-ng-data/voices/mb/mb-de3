@@ -5,4 +5,6 @@ voicing 80
 pitch 140 220
 
 mbrola de3 de2_phtrans
+replace 00 _!  _
+replace 00 _|  _
 
