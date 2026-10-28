@@ -195,6 +195,7 @@ test_phon ku "tU kURd'i d,Izan'i" "tu kurdî dizanî."
 test_phon ku "t'U" "tu"
 test_phon ku "Em kURd'i d,Izan'In" "em kurdî dizanin."
 test_phon ku "hun kURd'i d,Izan'In" "hûn kurdî dizanin."
+test_phon ku "s'e _behn'ok j'Ek p'endZ" "3.15"
 test_phon la  "s'Ik_ f'UgI;Ens_
 d'Uks_
 zElOt'ypOs_
