@@ -58,6 +58,7 @@ bug fixes:
 *  fixed Arabic text being spelled letter-by-letter under non-Arabic voices -- Ramees Muhammed
 *  fixed Russian decimal fractions to use feminine unit forms and numerators (e.g. "одна сотая", "две тысячных") -- Danil Kostenkov
 *  fixed Kurdish (ku) word stress for the oblique plural suffix and for negated/imperative/preverb-prefixed verbs and subject pronouns -- austek
+*  fixed Kurdish (ku) numbers written with a dot as thousands separator and a comma as decimal separator ("1.502", "2,5"), which were read as decimals and as two separate numbers -- austek
 *  fixed flag emoji written without whitespace being spelled out codepoint by codepoint instead of read as country names -- Alexander Epaneshnikov
 *  fixed subdivision flag emoji (England, Scotland, Wales) being read as "black flag" -- Alexander Epaneshnikov
 *  fixed the first letter of emoji descriptions being dropped when it is a non-ASCII capital ("Казахстан" was read as "азахстан") -- Alexander Epaneshnikov
