@@ -228,6 +228,10 @@ test_phon ku "s'e c,ilogR'am" "3 kg"
 test_phon ku "h'EjSt s,antimEtR'E#" "8 cm"
 test_phon ku "dokt'oR al'I" "Dr Ali"
 test_phon ku "pR,ofEs'oR bERf'in" "Prof Berfîn"
+# Kurmanji numerals follow the Turkish convention: dot groups thousands, comma is the decimal separator
+test_phon ku "mIlj'on" "1.000.000"
+test_phon ku "hEz'ar_! _up'endZs'Ed_u d'U" "1.502"
+test_phon ku "d'U _xal p'endZ" "2,5"
 test_phon la  "s'Ik_ f'UgI;Ens_
 d'Uks_
 zElOt'ypOs_
