@@ -195,6 +195,14 @@ test_phon ku "tU kURd'i d,Izan'i" "tu kurdî dizanî."
 test_phon ku "t'U" "tu"
 test_phon ku "Em kURd'i d,Izan'In" "em kurdî dizanin."
 test_phon ku "hun kURd'i d,Izan'In" "hûn kurdî dizanin."
+test_phon ku "p'endZ ,EU*'o" "5 €"
+test_phon ku "stERl'in s'e" "£3"
+test_phon ku "p'endZ li*'E#" "5 TL"
+test_phon ku "danzd'E# c,ilomEtR'E#" "12 km"
+test_phon ku "s'e c,ilogR'am" "3 kg"
+test_phon ku "h'EjSt s,antimEtR'E#" "8 cm"
+test_phon ku "dokt'oR al'I" "Dr Ali"
+test_phon ku "pR,ofEs'oR bERf'in" "Prof Berfîn"
 test_phon la  "s'Ik_ f'UgI;Ens_
 d'Uks_
 zElOt'ypOs_
