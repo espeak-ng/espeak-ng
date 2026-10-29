@@ -1416,6 +1416,10 @@ tervezte	$unstressend
 parancsnokhelyettese	$unstressend
 grafikát	$unstressend
 bátorság	$unstressend
+munkaszüneti	$alt3
+munkaszünet	$unstressend
+pihenőnap	$alt3
+amely	$alt3 $unstressend
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
