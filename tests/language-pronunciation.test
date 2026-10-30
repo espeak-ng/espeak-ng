@@ -306,6 +306,13 @@ test_phon pl "tSydz;'ES;ts;i" "30"
 test_phon pl "tStERdz;'ES;ts;i" "40"
 test_phon pl "dv;'ES;ts;E" "200"
 
+# Read qu as q+u; preserve written kw and dictionary exceptions.
+test_phon pl "ku'antum_" "quantum"
+test_phon pl "ku'Ota#_" "quota"
+test_phon pl "kf'antum_" "kwantum"
+test_phon pl "kf'Ota#_" "kwota"
+test_phon pl "k'iS" "quiche"
+
 test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: b@-*&s'oI~S
 f'E
 S'a
