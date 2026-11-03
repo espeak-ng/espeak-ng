@@ -1049,7 +1049,7 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 			id = voices[ix]->identifier;
 			if (strcasecmp(name, id) == 0)
 				match_fname = ix; // matching identifier, use this if no matching name
-			else if (strcasecmp(last_part, &id[strlen(id)-last_part_len]) == 0)
+			else if (strlen(id) >= (size_t)last_part_len && strcasecmp(last_part, &id[strlen(id)-last_part_len]) == 0)
 				match_fname2 = ix;
 		}
 	}
