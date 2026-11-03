@@ -727,8 +727,10 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	case SSML_EMPHASIS:
 		sp = PushParamStack(tag_type, n_param_stack, (PARAM_STACK *) param_stack);
 		value = 3; // default is "moderate"
-		if ((attr1 = GetSsmlAttribute(px, "level")) != NULL)
+		if ((attr1 = GetSsmlAttribute(px, "level")) != NULL) {
 			value = attrlookup(attr1, mnem_emphasis);
+			if (value < 0) value = 3;
+		}
 
 		if (translator->langopts.tone_language == 1) {
 			static const unsigned char emphasis_to_pitch_range[] = { 50, 50, 40, 70, 90, 100 };
