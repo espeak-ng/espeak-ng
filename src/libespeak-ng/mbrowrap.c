@@ -85,6 +85,12 @@ void unload_MBR()
 #include <sys/wait.h>
 #include <unistd.h>
 
+#if defined(__APPLE__)
+/* macOS has no procfs; process state comes from libproc instead. */
+#include <libproc.h>
+#include <sys/proc_info.h>
+#endif
+
 #include <espeak-ng/espeak_ng.h>
 
 /*
@@ -107,6 +113,9 @@ static pid_t mbr_pid;
 static int mbr_samplerate;
 static float mbr_volume = 1.0;
 static char mbr_errorbuf[160];
+#if defined(__APPLE__)
+static int mbr_seen_output; /* see mbrola_is_idle() */
+#endif
 
 struct datablock {
 	struct datablock *next;
@@ -219,6 +228,11 @@ static int start_mbrola(const char *voice_path)
 		_exit(1);
 	}
 
+#if defined(__APPLE__)
+	/* No procfs on macOS; mbrola_is_idle() queries libproc by pid. */
+	mbr_proc_stat = -1;
+	mbr_seen_output = 0;
+#else
 #if defined(__sun) && defined(__SVR4)
 	snprintf(charbuf, sizeof(charbuf), "/proc/%d/psinfo", mbr_pid);
 #else
@@ -233,6 +247,7 @@ static int start_mbrola(const char *voice_path)
 		err("/proc is unaccessible: %s", strerror(error));
 		return -1;
 	}
+#endif
 
 	signal(SIGPIPE, SIG_IGN);
 
@@ -262,7 +277,8 @@ static void stop_mbrola(void)
 {
 	if (mbr_state == MBR_INACTIVE)
 		return;
-	close(mbr_proc_stat);
+	if (mbr_proc_stat != -1)
+		close(mbr_proc_stat);
 	close(mbr_cmd_fd);
 	close(mbr_audio_fd);
 	close(mbr_error_fd);
@@ -417,7 +433,56 @@ static int send_to_mbrola(const char *cmd)
 	return result;
 }
 
-#if defined(__sun) && defined(__SVR4) /* Solaris */
+#if defined(__APPLE__) /* macOS */
+static int mbrola_is_idle(void)
+{
+	uint64_t tids[16];
+	int size, count, i;
+
+	/*
+	 * Until mbrola has produced its first byte we cannot distinguish
+	 * "blocked having finished" from "blocked while still starting up"
+	 * (dyld, faulting in the voice database). Both look like a thread in
+	 * a wait. Reporting idle in that window truncates the .wav header, so
+	 * treat a process that has not spoken yet as busy; the caller's own
+	 * escalating poll timeout still catches a genuinely stalled mbrola.
+	 */
+	if (!mbr_seen_output)
+		return 0;
+
+	/*
+	 * macOS has no procfs, so the process state has to come from libproc.
+	 * Two plausible-looking sources are wrong here:
+	 *
+	 *   - proc_bsdinfo.pbi_status stays at SRUN even while the process is
+	 *     blocked (XNU tracks run state per thread), so it never reports
+	 *     SSLEEP and this would always say "busy".
+	 *   - proc_taskinfo.pti_numrunning counts threads currently on a CPU,
+	 *     so it reads 0 for a process that is merely descheduled, or one
+	 *     blocked in disk I/O while loading its voice database. That says
+	 *     "idle" too early and truncates the stream.
+	 *
+	 * Match what the Linux path means by 'S' instead: every thread parked
+	 * in an interruptible wait. TH_STATE_UNINTERRUPTIBLE (Linux 'D', i.e.
+	 * mbrola blocked reading its database) is deliberately not idle.
+	 */
+	size = proc_pidinfo(mbr_pid, PROC_PIDLISTTHREADS, 0, tids, sizeof(tids));
+	if (size <= 0)
+		return 0;
+
+	count = size / sizeof(uint64_t);
+	for (i = 0; i < count; i++) {
+		struct proc_threadinfo th;
+		if (proc_pidinfo(mbr_pid, PROC_PIDTHREADINFO, tids[i],
+		                 &th, sizeof(th)) != sizeof(th))
+			return 0;
+		if (th.pth_run_state != TH_STATE_WAITING)
+			return 0;
+	}
+
+	return 1;
+}
+#elif defined(__sun) && defined(__SVR4) /* Solaris */
 #include <procfs.h>
 static int mbrola_is_idle(void)
 {
@@ -533,6 +598,10 @@ static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
 				return -1;
 			}
 			cursize += obtained;
+#if defined(__APPLE__)
+			if (obtained > 0)
+				mbr_seen_output = 1;
+#endif
 			mbr_state = MBR_AUDIO;
 		}
 	} while (cursize < bufsize);
