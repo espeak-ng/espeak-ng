@@ -85,8 +85,11 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	}
 	
 	if (length == 0) {
-		*ptr = NULL;
-		return 0;
+		// A zero-length file leaves *ptr NULL. Every caller dereferences it
+		// without a NULL check, so returning success here segfaults later
+		// rather than reporting the broken file.
+		fclose(f_in);
+		return create_file_error_context(context, ENS_UNEXPECTED_EOF, buf);
 	}
 
 	if ((*ptr = malloc(length)) == NULL) {
