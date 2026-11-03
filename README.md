@@ -52,13 +52,13 @@ various releases and with the eSpeak NG project.
 
 The following platforms are supported:
 
-| Platform    | Minimum Version | Status |
-|-------------|-----------------|--------|
-| Linux       |                 | ![CI](https://github.com/espeak-ng/espeak-ng/actions/workflows/ci.yml/badge.svg) |
-| BSD         |                 |        |
-| Android     | 4.0             |        |
-| Windows     | Windows 8       |        |
-| Mac         |                 |        |
+| Platform | Minimum Version                                    | Status                                                                           |
+| -------- | -------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Linux    |                                                    | ![CI](https://github.com/espeak-ng/espeak-ng/actions/workflows/ci.yml/badge.svg) |
+| BSD      |                                                    |                                                                                  |
+| Android  | v1.51.0 -> Android 4.0<br />v1.52.0 -> Android 5.0 |                                                                                  |
+| Windows  | Windows 8                                          |                                                                                  |
+| Mac      |                                                    |                                                                                  |
 
 ## Documentation
 
