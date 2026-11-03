@@ -239,7 +239,7 @@ windows		_^_EN
 //   LIEPA corpus annotation, Vilnius University
 //     https://huggingface.co/datasets/meldynamics/liepa-tts
 //   g2p-lt-lexicon, Arunas Smaliukas
-//     https://github.com/svogunas/g2p-lt-lexicon
+//     https://huggingface.co/datasets/svogunas/g2p-lt-lexicon
 abariaus $2
 abariumi $2
 abarius $2
