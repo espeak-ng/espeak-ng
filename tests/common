@@ -20,6 +20,27 @@ check_hash() {
     # Test some common commands to find the correct one for the system being tested on.
 }
 
+# The WAV checks below compare an exact sha1 of the synthesized audio against
+# hashes generated on targets that evaluate float and double at the precision of
+# the type. A target that keeps excess intermediate precision -- in practice the
+# x87 FPU without SSE math, where FLT_EVAL_METHOD is 2 -- rounds differently, so
+# every one of those hashes differs even though synthesis is correct (#1270).
+# ESPEAK_EXCESS_FP_PRECISION is set by the build, see cmake/config.cmake.
+wav_hash_is_reproducible() {
+    [ "$ESPEAK_EXCESS_FP_PRECISION" != "1" ]
+}
+
+# Skip the whole test file, for files that contain nothing but WAV hash checks
+is_wav_hash() {
+    echo -n "checking if exact WAV hashes are reproducible on this target ... "
+    if wav_hash_is_reproducible; then
+        echo "yes"
+    else
+        echo "no (excess floating point precision, FLT_EVAL_METHOD is 2)"
+        exit 77
+    fi
+}
+
 # test if MBROLA synthesizer is installed
 is_mbrola() {
     echo -n "checking if MBROLA is installed ... "
@@ -65,6 +86,11 @@ test_wav () {
     TEST_TEXT=$3
     MESSAGE=$4
 
+    if ! wav_hash_is_reproducible ; then
+        echo "skipping ${VOICE} ${MESSAGE} (WAV hashes are not reproducible on this target)"
+        return 0
+    fi
+
     echo "testing ${VOICE} ${MESSAGE}"
     RESULT=$(
         ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
@@ -86,6 +112,12 @@ test_wav_grep () {
     EXPECTED=$2
     TEST_TEXT=$3
     MESSAGE=$4
+
+    if ! wav_hash_is_reproducible ; then
+        echo "skipping ${VOICE} ${MESSAGE} (WAV hashes are not reproducible on this target)"
+        return 0
+    fi
+
     echo "testing ${VOICE} ${MESSAGE}"
     $()
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \

@@ -3,6 +3,7 @@
 . "`dirname $0`/common"
 # and run needed checks before
 is_hash
+is_wav_hash
 
 test_wav "en" 029983e9084e04384af8a0816fb667e5c5e06389 "Testing variants"
 # variant doesn't exist, should be equal to en:
