@@ -1,0 +1,16 @@
+name Pennsylvania Dutch (Midwest)
+language pdc-x-midwest
+language pdc 5
+
+status testing
+
+// Midwestern Amish speech (Holmes County OH, Elkhart-LaGrange IN,
+// Kalona IA, Arthur IL). Relative to the Lancaster pdc voice:
+//   ei [aɪ] -> [ɛː], except before an unstressed vowel (Feier)
+//   r is a tap, except at the start of a word
+//   l is clear, and e is not lowered to [æː] before r
+//   darich -> deich, schtarick -> schteich
+phonemes pdc-mw
+dictrules 1
+
+tunes s4 c1 q4 e1

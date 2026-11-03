@@ -1,0 +1,50 @@
+
+//=========================================================
+// Pennsylvania Dutch: Lehigh (eastern nonsectarian speech of Lehigh,
+// Northampton and Berks counties)
+//
+// Differences from the Lancaster table:
+//  - au is the diphthong [aʊ]
+//  - r is a tap in all positions
+//  - l is clear in all positions
+//  - front vowels before a vocalised r are [eː], not lowered
+//=========================================================
+
+
+phoneme aU  // au
+  import_phoneme de/aU
+endphoneme
+
+
+phoneme e@  // eer, ehr
+  vwl starttype #e endtype #@
+  ipa eːɐ̯
+  length 240
+  FMT(vdiph2/e@)
+endphoneme
+
+
+phoneme E@  // er
+  vwl starttype #e endtype #@
+  ipa eːɐ̯
+  length 240
+  FMT(vdiph2/e@)
+endphoneme
+
+
+phoneme &@  // aer
+  vwl starttype #e endtype #@
+  ipa eːɐ̯
+  length 240
+  FMT(vdiph2/e@)
+endphoneme
+
+
+phoneme r   // tapped r
+  import_phoneme base1/*
+endphoneme
+
+
+phoneme l/  // clear l
+  import_phoneme base1/l/
+endphoneme

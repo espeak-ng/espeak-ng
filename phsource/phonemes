@@ -1926,6 +1926,15 @@ include ph_afrikaans
 phonemetable de base1 // from en-us
 include ph_german
 
+phonemetable pdc de
+include ph_pennsylvania_german
+
+phonemetable pdc-mw pdc
+include ph_pennsylvania_german_midwest
+
+phonemetable pdc-lh pdc
+include ph_pennsylvania_german_lehigh
+
 phonemetable kk base1 // from sq
 include ph_kazakh
 

@@ -1,0 +1,207 @@
+
+//=========================================================
+// Pennsylvania Dutch (Pennsylvania German, Deitsch)
+//
+// This is the Lancaster (sectarian) variety, which is also the base
+// for the Midwest and Lehigh tables that follow it.
+//
+// Based on the German phoneme table. Differences from German:
+//  - no front rounded vowels
+//  - short "a" is back [ɑ], short "o" is [ʌ]
+//  - "aa" is [ɔː], "ae" is [æː], "au" is [aː]
+//  - r after a vowel is vocalised to [ɐ̯], giving the centring
+//    diphthongs below; "-er" is [ɐ]
+//  - onset r is the American approximant [ɹ]
+//  - l after a vowel is velarised
+//  - front vowels are lowered to [æː] before a vocalised r
+//=========================================================
+
+
+// VOWELS
+//=======
+
+phoneme @   // schwa
+  vwl starttype #@ endtype #@
+  unstressed
+  length 50
+  IF thisPh(isWordEnd) THEN
+    length 100
+  ENDIF
+  FMT(vowel/@_4)
+endphoneme
+
+
+phoneme 3   // unstressed -er
+  vwl starttype #@ endtype #@
+  ipa ɐ
+  unstressed
+  length 130
+  FMT(vowel/a#_3)
+endphoneme
+
+
+phoneme a   // short a
+  vwl starttype #a endtype #a
+  ipa ɑ
+  length 120
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme A:  // a before r
+  vwl starttype #a endtype #a
+  ipa ɑː
+  length 220
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme O:  // aa
+  vwl starttype #o endtype #o
+  ipa ɔː
+  length 220
+  FMT(vowel/oo_en)
+endphoneme
+
+
+phoneme V   // short o
+  vwl starttype #a endtype #@
+  ipa ʌ
+  length 120
+  FMT(vowel/V_6)
+endphoneme
+
+
+phoneme &:  // long ae
+  vwl starttype #e endtype #e
+  ipa æː
+  length 210
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme &   // short ae (mostly English loanwords)
+  vwl starttype #e endtype #e
+  ipa æ
+  length 130
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme i   // unstressed final -i
+  vwl starttype #i endtype #i
+  unstressed
+  length 110
+  FMT(vowel/i_2)
+endphoneme
+
+
+phoneme aU  // au: a long monophthong in present-day sectarian speech
+  vwl starttype #a endtype #a
+  ipa aː
+  length 210
+  FMT(vowel/a)
+endphoneme
+
+
+phoneme OI  // oi
+  vwl starttype #o endtype #i
+  ipa ɔɪ
+  length 220
+  FMT(vdiph/oi)
+endphoneme
+
+
+phoneme aI2 // ei that stays a diphthong in all dialects (English loanwords)
+  import_phoneme de/aI
+endphoneme
+
+
+// Long vowels followed by a vocalised r
+
+phoneme i@  // ier, ihr, ir
+  vwl starttype #i endtype #@
+  ipa iːɐ̯
+  length 240
+  FMT(vdiph2/i@_3)
+endphoneme
+
+
+phoneme e@  // eer, ehr: lowered in Lancaster
+  vwl starttype #e endtype #@
+  ipa æːɐ̯
+  length 230
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme E@  // er: lowered in Lancaster
+  vwl starttype #e endtype #@
+  ipa æːɐ̯
+  length 230
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme &@  // aer
+  vwl starttype #e endtype #@
+  ipa æːɐ̯
+  length 230
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme A@  // ar
+  vwl starttype #a endtype #a
+  ipa ɑːɐ̯
+  length 230
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme O@  // aar
+  vwl starttype #o endtype #@
+  ipa ɔːɐ̯
+  length 240
+  FMT(vdiph2/oa)
+endphoneme
+
+
+phoneme o@  // oor, ohr, or
+  vwl starttype #o endtype #@
+  ipa oːɐ̯
+  length 240
+  FMT(vdiph2/o@)
+endphoneme
+
+
+phoneme u@  // uur, uhr, ur
+  vwl starttype #u endtype #@
+  ipa uːɐ̯
+  length 240
+  FMT(vwl_de/uu_@)
+endphoneme
+
+
+
+// CONSONANTS
+//===========
+
+phoneme r   // onset r: American approximant
+  import_phoneme base1/r
+endphoneme
+
+
+phoneme l/  // l when not before a vowel: velarised
+  import_phoneme base1/l/2
+endphoneme
+
+
+phoneme w   // w: labiodental approximant
+  import_phoneme base1/v#
+endphoneme
+
+
+phoneme Q   // g between back vowels: a weak [ɣ]
+  import_phoneme base1/Q
+endphoneme

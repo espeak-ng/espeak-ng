@@ -1,0 +1,15 @@
+name Pennsylvania Dutch (Lehigh)
+language pdc-x-lehigh
+language pdc 5
+
+status testing
+
+// Eastern nonsectarian ("church people") speech of Lehigh, Northampton
+// and Berks counties. Relative to the Lancaster pdc voice:
+//   au is the diphthong [aʊ], not [aː]
+//   r is tapped in all positions, l is clear
+//   e before r is [eː], not lowered to [æː]
+phonemes pdc-lh
+dictrules 2
+
+tunes s4 c1 q4 e1

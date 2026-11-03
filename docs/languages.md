@@ -1,6 +1,6 @@
 # Languages
 
-Development version of eSpeak NG supports 127 languages and accents,
+Development version of eSpeak NG supports 130 languages and accents,
 which are listed in table below.
 
 To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
@@ -95,6 +95,9 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
+| `gmw`       | `pdc`             | West Germanic         | Pennsylvania Dutch          | Lancaster              |
+| `gmw`       | `pdc-x-lehigh`    | West Germanic         | Pennsylvania Dutch          | Lehigh                 |
+| `gmw`       | `pdc-x-midwest`   | West Germanic         | Pennsylvania Dutch          | Midwest                |
 | `art`       | `py`              | Constructed           | Pyash                       |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
 | `art`       | `qdb`             | Constructed           | Lang Belta                  |                        |
