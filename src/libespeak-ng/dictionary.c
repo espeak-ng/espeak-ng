@@ -1237,6 +1237,22 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		}
 		break;
 
+	case STRESSPOSN_2RH: // LANG=pi
+		// penultimate if heavy, else antepenultimate; a light antepenultimate yields to a heavy syllable just before it
+		if (stressed_syllable == 0) {
+			stressed_syllable = 1;
+			if (vowel_count > 3) {
+				stressed_syllable = vowel_count - 2;
+				if (syllable_weight[stressed_syllable] == 0) {
+					stressed_syllable--;
+					if ((stressed_syllable > 1) && (syllable_weight[stressed_syllable] == 0) && (syllable_weight[stressed_syllable - 1] > 0))
+						stressed_syllable--;
+				}
+			}
+			vowel_stress[stressed_syllable] = STRESS_IS_PRIMARY;
+			max_stress = STRESS_IS_PRIMARY;
+		}
+		break;
 	case STRESSPOSN_EU: // LANG=eu. If more than 2 syllables: primary stress in second syllable and secondary on last.
 		if ((stressed_syllable == 0) && (vowel_count > 2)) {
 			for (ix = 1; ix < vowel_count; ix++) {

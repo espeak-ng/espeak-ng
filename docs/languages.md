@@ -94,6 +94,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `trk`       | `nog`             | Turkic                | Nogai                       |                        |
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
+| `inc`       | `pi`              | Indic                 | Pali                        | Roman (IAST)           |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
 | `art`       | `py`              | Constructed           | Pyash                       |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |

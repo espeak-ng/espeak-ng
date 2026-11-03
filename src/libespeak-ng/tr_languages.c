@@ -1346,6 +1346,9 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 	}
 		break;
+	case L('p', 'i'): // Pali
+		SetLengthMods(tr, 3); // all equal: a vowel is long or short by its spelling, not by the consonant after it
+		break;
 	case L('p', 'l'): // Polish
 	{
 		static const short stress_lengths_pl[8] = { 160, 190,  175, 175,  0, 0,  200, 210 };
