@@ -1,0 +1,734 @@
+// Dhivehi (Maldivian), written in Thaana script.
+// This file is UTF-8 encoded.
+//
+// In Thaana every consonant letter carries one mark: a vowel sign (fili)
+// or the sukun (no vowel). So the rule for a consonant letter gives only
+// the consonant, and the rule for the mark after it gives the vowel.
+// The special cases (some letters with sukun, a bare noonu, ai and au,
+// and alifu at the start of a word) are commented where they appear.
+//
+// letter groups (set in tr_languages.c):
+// A - vowel signs (fili): U+07A6 to U+07AF
+// B - vowel signs and sukun: U+07A6 to U+07B0
+// C - consonants: U+0780 to U+07A5, U+07B1
+
+
+// ***** vowel signs (fili) *****
+
+.group ަ	// abafili
+	ަ	a
+	ައި	&:	// the diphthong ai is said [æː]
+	ައު	a:	// the diphthong au is said [aː]
+
+.group ާ	// aabaafili
+	ާ	a:
+
+.group ި	// ibifili
+	ި	i
+
+.group ީ	// eebeefili
+	ީ	i:
+
+.group ު	// ubufili
+	ު	u
+
+.group ޫ	// ooboofili
+	ޫ	u:
+
+.group ެ	// ebefili
+	ެ	e
+
+.group ޭ	// eybeyfili
+	ޭ	e:
+
+.group ޮ	// obofili
+	ޮ	o
+
+.group ޯ	// oaboafili
+	ޯ	o:
+
+.group ް	// sukun: no vowel
+	ް	
+
+
+// ***** consonants *****
+
+.group ހ	// haa
+	ހ	h
+
+.group ށ	// shaviyani
+	ށ	s.
+
+	// shaviyani + sukun: glottal stop at the end of a word,
+	// and doubles the next consonant
+	ށް (_	?
+	ށް (ހ	h
+	ށް (ށ	s.
+	ށް (ނ	n
+	ށް (ރ	*
+	ށް (ބ	b
+	ށް (ޅ	l.
+	ށް (ކ	k
+	ށް (ވ	v#
+	ށް (މ	m
+	ށް (ފ	f
+	ށް (ދ	d
+	ށް (ތ	t
+	ށް (ލ	l
+	ށް (ގ	g
+	ށް (ޏ	n^
+	ށް (ސ	s
+	ށް (ޑ	d.
+	ށް (ޒ	z
+	ށް (ޓ	t.
+	ށް (ޔ	j
+	ށް (ޕ	p
+	ށް (ޖ	dZ
+	ށް (ޗ	tS
+	ށް (ޘ	s
+	ށް (ޙ	h
+	ށް (ޚ	h
+	ށް (ޛ	z
+	ށް (ޜ	s
+	ށް (ޝ	S
+	ށް (ޞ	s
+	ށް (ޟ	l
+	ށް (ޠ	t
+	ށް (ޡ	z
+	ށް (ޣ	g
+	ށް (ޤ	g
+	ށް (ޥ	v#
+	ށް (ޱ	n
+
+	// at the end of a word, before a word that starts with a consonant,
+	// it also doubles that consonant
+	ށް (_ހ	h
+	ށް (_ށ	s.
+	ށް (_ނ	n
+	ށް (_ރ	*
+	ށް (_ބ	b
+	ށް (_ޅ	l.
+	ށް (_ކ	k
+	ށް (_ވ	v#
+	ށް (_މ	m
+	ށް (_ފ	f
+	ށް (_ދ	d
+	ށް (_ތ	t
+	ށް (_ލ	l
+	ށް (_ގ	g
+	ށް (_ޏ	n^
+	ށް (_ސ	s
+	ށް (_ޑ	d.
+	ށް (_ޒ	z
+	ށް (_ޓ	t.
+	ށް (_ޔ	j
+	ށް (_ޕ	p
+	ށް (_ޖ	dZ
+	ށް (_ޗ	tS
+	ށް (_ޘ	s
+	ށް (_ޙ	h
+	ށް (_ޚ	h
+	ށް (_ޛ	z
+	ށް (_ޜ	s
+	ށް (_ޝ	S
+	ށް (_ޞ	s
+	ށް (_ޟ	l
+	ށް (_ޠ	t
+	ށް (_ޡ	z
+	ށް (_ޣ	g
+	ށް (_ޤ	g
+	ށް (_ޥ	v#
+	ށް (_ޱ	n
+
+.group ނ	// noonu
+	ނ	n
+
+	// A noonu with no mark before b, d, ḍ or g makes a prenasalized stop
+	ނ (ބ	m#
+	ނ (ދ	n#
+	ނ (ޑ	n.#
+	ނ (ގ	N#
+
+	// noonu + sukun: [ŋ] at the end of a word, and takes the place of the next consonant
+	ން (_	N
+	ން (ކ	N
+	ން (ގ	N
+	ން (ބ	m
+	ން (ޕ	m
+	ން (މ	m
+
+.group ރ	// raa
+	ރ	*
+
+.group ބ	// baa
+	ބ	b
+
+.group ޅ	// lhaviyani
+	ޅ	l.
+
+.group ކ	// kaafu
+	ކ	k
+
+.group ވ	// vaavu
+	ވ	v#
+
+.group މ	// meemu
+	މ	m
+
+.group ފ	// faafu
+	ފ	f
+
+.group ދ	// dhaalu
+	ދ	d
+
+.group ތ	// thaa
+	ތ	t
+
+	// thaa + sukun: [iʔ] at the end of a word, but only [ʔ] after e or i,
+	// and [i] + the next consonant doubled, or only the doubled consonant after e or i
+	ތް (_	i?
+	ެ) ތް (_	?
+	ޭ) ތް (_	?
+	ި) ތް (_	?
+	ީ) ތް (_	?
+	ތް (ހ	ih
+	ތް (ށ	is.
+	ތް (ނ	in
+	ތް (ރ	i*
+	ތް (ބ	ib
+	ތް (ޅ	il.
+	ތް (ކ	ik
+	ތް (ވ	iv#
+	ތް (މ	im
+	ތް (ފ	if
+	ތް (ދ	id
+	ތް (ތ	it
+	ތް (ލ	il
+	ތް (ގ	ig
+	ތް (ޏ	in^
+	ތް (ސ	is
+	ތް (ޑ	id.
+	ތް (ޒ	iz
+	ތް (ޓ	it.
+	ތް (ޔ	ij
+	ތް (ޕ	ip
+	ތް (ޖ	idZ
+	ތް (ޗ	itS
+	ތް (ޘ	is
+	ތް (ޙ	ih
+	ތް (ޚ	ih
+	ތް (ޛ	iz
+	ތް (ޜ	is
+	ތް (ޝ	iS
+	ތް (ޞ	is
+	ތް (ޟ	il
+	ތް (ޠ	it
+	ތް (ޡ	iz
+	ތް (ޣ	ig
+	ތް (ޤ	ig
+	ތް (ޥ	iv#
+	ތް (ޱ	in
+	ި) ތް (ހ	h
+	ެ) ތް (ހ	h
+	ޭ) ތް (ހ	h
+	ީ) ތް (ހ	h
+	ި) ތް (ށ	s.
+	ެ) ތް (ށ	s.
+	ޭ) ތް (ށ	s.
+	ީ) ތް (ށ	s.
+	ި) ތް (ނ	n
+	ެ) ތް (ނ	n
+	ޭ) ތް (ނ	n
+	ީ) ތް (ނ	n
+	ި) ތް (ރ	*
+	ެ) ތް (ރ	*
+	ޭ) ތް (ރ	*
+	ީ) ތް (ރ	*
+	ި) ތް (ބ	b
+	ެ) ތް (ބ	b
+	ޭ) ތް (ބ	b
+	ީ) ތް (ބ	b
+	ި) ތް (ޅ	l.
+	ެ) ތް (ޅ	l.
+	ޭ) ތް (ޅ	l.
+	ީ) ތް (ޅ	l.
+	ި) ތް (ކ	k
+	ެ) ތް (ކ	k
+	ޭ) ތް (ކ	k
+	ީ) ތް (ކ	k
+	ި) ތް (ވ	v#
+	ެ) ތް (ވ	v#
+	ޭ) ތް (ވ	v#
+	ީ) ތް (ވ	v#
+	ި) ތް (މ	m
+	ެ) ތް (މ	m
+	ޭ) ތް (މ	m
+	ީ) ތް (މ	m
+	ި) ތް (ފ	f
+	ެ) ތް (ފ	f
+	ޭ) ތް (ފ	f
+	ީ) ތް (ފ	f
+	ި) ތް (ދ	d
+	ެ) ތް (ދ	d
+	ޭ) ތް (ދ	d
+	ީ) ތް (ދ	d
+	ި) ތް (ތ	t
+	ެ) ތް (ތ	t
+	ޭ) ތް (ތ	t
+	ީ) ތް (ތ	t
+	ި) ތް (ލ	l
+	ެ) ތް (ލ	l
+	ޭ) ތް (ލ	l
+	ީ) ތް (ލ	l
+	ި) ތް (ގ	g
+	ެ) ތް (ގ	g
+	ޭ) ތް (ގ	g
+	ީ) ތް (ގ	g
+	ި) ތް (ޏ	n^
+	ެ) ތް (ޏ	n^
+	ޭ) ތް (ޏ	n^
+	ީ) ތް (ޏ	n^
+	ި) ތް (ސ	s
+	ެ) ތް (ސ	s
+	ޭ) ތް (ސ	s
+	ީ) ތް (ސ	s
+	ި) ތް (ޑ	d.
+	ެ) ތް (ޑ	d.
+	ޭ) ތް (ޑ	d.
+	ީ) ތް (ޑ	d.
+	ި) ތް (ޒ	z
+	ެ) ތް (ޒ	z
+	ޭ) ތް (ޒ	z
+	ީ) ތް (ޒ	z
+	ި) ތް (ޓ	t.
+	ެ) ތް (ޓ	t.
+	ޭ) ތް (ޓ	t.
+	ީ) ތް (ޓ	t.
+	ި) ތް (ޔ	j
+	ެ) ތް (ޔ	j
+	ޭ) ތް (ޔ	j
+	ީ) ތް (ޔ	j
+	ި) ތް (ޕ	p
+	ެ) ތް (ޕ	p
+	ޭ) ތް (ޕ	p
+	ީ) ތް (ޕ	p
+	ި) ތް (ޖ	dZ
+	ެ) ތް (ޖ	dZ
+	ޭ) ތް (ޖ	dZ
+	ީ) ތް (ޖ	dZ
+	ި) ތް (ޗ	tS
+	ެ) ތް (ޗ	tS
+	ޭ) ތް (ޗ	tS
+	ީ) ތް (ޗ	tS
+	ި) ތް (ޘ	s
+	ެ) ތް (ޘ	s
+	ޭ) ތް (ޘ	s
+	ީ) ތް (ޘ	s
+	ި) ތް (ޙ	h
+	ެ) ތް (ޙ	h
+	ޭ) ތް (ޙ	h
+	ީ) ތް (ޙ	h
+	ި) ތް (ޚ	h
+	ެ) ތް (ޚ	h
+	ޭ) ތް (ޚ	h
+	ީ) ތް (ޚ	h
+	ި) ތް (ޛ	z
+	ެ) ތް (ޛ	z
+	ޭ) ތް (ޛ	z
+	ީ) ތް (ޛ	z
+	ި) ތް (ޜ	s
+	ެ) ތް (ޜ	s
+	ޭ) ތް (ޜ	s
+	ީ) ތް (ޜ	s
+	ި) ތް (ޝ	S
+	ެ) ތް (ޝ	S
+	ޭ) ތް (ޝ	S
+	ީ) ތް (ޝ	S
+	ި) ތް (ޞ	s
+	ެ) ތް (ޞ	s
+	ޭ) ތް (ޞ	s
+	ީ) ތް (ޞ	s
+	ި) ތް (ޟ	l
+	ެ) ތް (ޟ	l
+	ޭ) ތް (ޟ	l
+	ީ) ތް (ޟ	l
+	ި) ތް (ޠ	t
+	ެ) ތް (ޠ	t
+	ޭ) ތް (ޠ	t
+	ީ) ތް (ޠ	t
+	ި) ތް (ޡ	z
+	ެ) ތް (ޡ	z
+	ޭ) ތް (ޡ	z
+	ީ) ތް (ޡ	z
+	ި) ތް (ޣ	g
+	ެ) ތް (ޣ	g
+	ޭ) ތް (ޣ	g
+	ީ) ތް (ޣ	g
+	ި) ތް (ޤ	g
+	ެ) ތް (ޤ	g
+	ޭ) ތް (ޤ	g
+	ީ) ތް (ޤ	g
+	ި) ތް (ޥ	v#
+	ެ) ތް (ޥ	v#
+	ޭ) ތް (ޥ	v#
+	ީ) ތް (ޥ	v#
+	ި) ތް (ޱ	n
+	ެ) ތް (ޱ	n
+	ޭ) ތް (ޱ	n
+	ީ) ތް (ޱ	n
+
+	// at the end of a word, before a word that starts with a consonant:
+	// [i] + that consonant doubled, or only the doubled consonant after e or i
+	ތް (_ހ	ih
+	ެ) ތް (_ހ	h
+	ޭ) ތް (_ހ	h
+	ި) ތް (_ހ	h
+	ީ) ތް (_ހ	h
+	ތް (_ށ	is.
+	ެ) ތް (_ށ	s.
+	ޭ) ތް (_ށ	s.
+	ި) ތް (_ށ	s.
+	ީ) ތް (_ށ	s.
+	ތް (_ނ	in
+	ެ) ތް (_ނ	n
+	ޭ) ތް (_ނ	n
+	ި) ތް (_ނ	n
+	ީ) ތް (_ނ	n
+	ތް (_ރ	i*
+	ެ) ތް (_ރ	*
+	ޭ) ތް (_ރ	*
+	ި) ތް (_ރ	*
+	ީ) ތް (_ރ	*
+	ތް (_ބ	ib
+	ެ) ތް (_ބ	b
+	ޭ) ތް (_ބ	b
+	ި) ތް (_ބ	b
+	ީ) ތް (_ބ	b
+	ތް (_ޅ	il.
+	ެ) ތް (_ޅ	l.
+	ޭ) ތް (_ޅ	l.
+	ި) ތް (_ޅ	l.
+	ީ) ތް (_ޅ	l.
+	ތް (_ކ	ik
+	ެ) ތް (_ކ	k
+	ޭ) ތް (_ކ	k
+	ި) ތް (_ކ	k
+	ީ) ތް (_ކ	k
+	ތް (_ވ	iv#
+	ެ) ތް (_ވ	v#
+	ޭ) ތް (_ވ	v#
+	ި) ތް (_ވ	v#
+	ީ) ތް (_ވ	v#
+	ތް (_މ	im
+	ެ) ތް (_މ	m
+	ޭ) ތް (_މ	m
+	ި) ތް (_މ	m
+	ީ) ތް (_މ	m
+	ތް (_ފ	if
+	ެ) ތް (_ފ	f
+	ޭ) ތް (_ފ	f
+	ި) ތް (_ފ	f
+	ީ) ތް (_ފ	f
+	ތް (_ދ	id
+	ެ) ތް (_ދ	d
+	ޭ) ތް (_ދ	d
+	ި) ތް (_ދ	d
+	ީ) ތް (_ދ	d
+	ތް (_ތ	it
+	ެ) ތް (_ތ	t
+	ޭ) ތް (_ތ	t
+	ި) ތް (_ތ	t
+	ީ) ތް (_ތ	t
+	ތް (_ލ	il
+	ެ) ތް (_ލ	l
+	ޭ) ތް (_ލ	l
+	ި) ތް (_ލ	l
+	ީ) ތް (_ލ	l
+	ތް (_ގ	ig
+	ެ) ތް (_ގ	g
+	ޭ) ތް (_ގ	g
+	ި) ތް (_ގ	g
+	ީ) ތް (_ގ	g
+	ތް (_ޏ	in^
+	ެ) ތް (_ޏ	n^
+	ޭ) ތް (_ޏ	n^
+	ި) ތް (_ޏ	n^
+	ީ) ތް (_ޏ	n^
+	ތް (_ސ	is
+	ެ) ތް (_ސ	s
+	ޭ) ތް (_ސ	s
+	ި) ތް (_ސ	s
+	ީ) ތް (_ސ	s
+	ތް (_ޑ	id.
+	ެ) ތް (_ޑ	d.
+	ޭ) ތް (_ޑ	d.
+	ި) ތް (_ޑ	d.
+	ީ) ތް (_ޑ	d.
+	ތް (_ޒ	iz
+	ެ) ތް (_ޒ	z
+	ޭ) ތް (_ޒ	z
+	ި) ތް (_ޒ	z
+	ީ) ތް (_ޒ	z
+	ތް (_ޓ	it.
+	ެ) ތް (_ޓ	t.
+	ޭ) ތް (_ޓ	t.
+	ި) ތް (_ޓ	t.
+	ީ) ތް (_ޓ	t.
+	ތް (_ޔ	ij
+	ެ) ތް (_ޔ	j
+	ޭ) ތް (_ޔ	j
+	ި) ތް (_ޔ	j
+	ީ) ތް (_ޔ	j
+	ތް (_ޕ	ip
+	ެ) ތް (_ޕ	p
+	ޭ) ތް (_ޕ	p
+	ި) ތް (_ޕ	p
+	ީ) ތް (_ޕ	p
+	ތް (_ޖ	idZ
+	ެ) ތް (_ޖ	dZ
+	ޭ) ތް (_ޖ	dZ
+	ި) ތް (_ޖ	dZ
+	ީ) ތް (_ޖ	dZ
+	ތް (_ޗ	itS
+	ެ) ތް (_ޗ	tS
+	ޭ) ތް (_ޗ	tS
+	ި) ތް (_ޗ	tS
+	ީ) ތް (_ޗ	tS
+	ތް (_ޘ	is
+	ެ) ތް (_ޘ	s
+	ޭ) ތް (_ޘ	s
+	ި) ތް (_ޘ	s
+	ީ) ތް (_ޘ	s
+	ތް (_ޙ	ih
+	ެ) ތް (_ޙ	h
+	ޭ) ތް (_ޙ	h
+	ި) ތް (_ޙ	h
+	ީ) ތް (_ޙ	h
+	ތް (_ޚ	ih
+	ެ) ތް (_ޚ	h
+	ޭ) ތް (_ޚ	h
+	ި) ތް (_ޚ	h
+	ީ) ތް (_ޚ	h
+	ތް (_ޛ	iz
+	ެ) ތް (_ޛ	z
+	ޭ) ތް (_ޛ	z
+	ި) ތް (_ޛ	z
+	ީ) ތް (_ޛ	z
+	ތް (_ޜ	is
+	ެ) ތް (_ޜ	s
+	ޭ) ތް (_ޜ	s
+	ި) ތް (_ޜ	s
+	ީ) ތް (_ޜ	s
+	ތް (_ޝ	iS
+	ެ) ތް (_ޝ	S
+	ޭ) ތް (_ޝ	S
+	ި) ތް (_ޝ	S
+	ީ) ތް (_ޝ	S
+	ތް (_ޞ	is
+	ެ) ތް (_ޞ	s
+	ޭ) ތް (_ޞ	s
+	ި) ތް (_ޞ	s
+	ީ) ތް (_ޞ	s
+	ތް (_ޟ	il
+	ެ) ތް (_ޟ	l
+	ޭ) ތް (_ޟ	l
+	ި) ތް (_ޟ	l
+	ީ) ތް (_ޟ	l
+	ތް (_ޠ	it
+	ެ) ތް (_ޠ	t
+	ޭ) ތް (_ޠ	t
+	ި) ތް (_ޠ	t
+	ީ) ތް (_ޠ	t
+	ތް (_ޡ	iz
+	ެ) ތް (_ޡ	z
+	ޭ) ތް (_ޡ	z
+	ި) ތް (_ޡ	z
+	ީ) ތް (_ޡ	z
+	ތް (_ޣ	ig
+	ެ) ތް (_ޣ	g
+	ޭ) ތް (_ޣ	g
+	ި) ތް (_ޣ	g
+	ީ) ތް (_ޣ	g
+	ތް (_ޤ	ig
+	ެ) ތް (_ޤ	g
+	ޭ) ތް (_ޤ	g
+	ި) ތް (_ޤ	g
+	ީ) ތް (_ޤ	g
+	ތް (_ޥ	iv#
+	ެ) ތް (_ޥ	v#
+	ޭ) ތް (_ޥ	v#
+	ި) ތް (_ޥ	v#
+	ީ) ތް (_ޥ	v#
+	ތް (_ޱ	in
+	ެ) ތް (_ޱ	n
+	ޭ) ތް (_ޱ	n
+	ި) ތް (_ޱ	n
+	ީ) ތް (_ޱ	n
+
+.group ލ	// laamu
+	ލ	l
+
+.group ގ	// gaafu
+	ގ	g
+
+.group ޏ	// gnaviyani
+	ޏ	n^
+
+.group ސ	// seenu
+	ސ	s
+
+.group ޑ	// daviyani
+	ޑ	d.
+
+.group ޒ	// zaviyani
+	ޒ	z
+
+.group ޓ	// taviyani
+	ޓ	t.
+
+.group ޔ	// yaa
+	ޔ	j
+
+.group ޕ	// paviyani
+	ޕ	p
+
+.group ޖ	// javiyani
+	ޖ	dZ
+
+.group ޗ	// chaviyani
+	ޗ	tS
+
+.group ޘ	// thaa (dotted)
+	ޘ	s
+
+.group ޙ	// haa (dotted)
+	ޙ	h
+
+.group ޚ	// khaa
+	ޚ	h
+
+.group ޛ	// thaalu
+	ޛ	z
+
+.group ޜ	// zhaa
+	ޜ	s
+
+.group ޝ	// sheenu
+	ޝ	S
+
+.group ޞ	// saadhu
+	ޞ	s
+
+.group ޟ	// daadhu
+	ޟ	l
+
+.group ޠ	// to
+	ޠ	t
+
+.group ޡ	// zo
+	ޡ	z
+
+.group ޣ	// ghainu
+	ޣ	g
+
+.group ޤ	// qaafu
+	ޤ	g
+
+.group ޥ	// waavu
+	ޥ	v#
+
+.group ޱ	// naa (old retroflex n)
+	ޱ	n
+
+
+// ***** alifu and ainu *****
+
+.group އ	// alifu
+	// alifu with a vowel sign is only a carrier for the vowel
+	އ	
+	_) އ	?	// a glottal stop at the start of a word
+
+	// alifu + sukun: glottal stop at the end of a word, and doubles the next consonant
+	އް (_	?
+	އް (ހ	h
+	އް (ށ	s.
+	އް (ނ	n
+	އް (ރ	*
+	އް (ބ	b
+	އް (ޅ	l.
+	އް (ކ	k
+	އް (ވ	v#
+	އް (މ	m
+	އް (ފ	f
+	އް (ދ	d
+	އް (ތ	t
+	އް (ލ	l
+	އް (ގ	g
+	އް (ޏ	n^
+	އް (ސ	s
+	އް (ޑ	d.
+	އް (ޒ	z
+	އް (ޓ	t.
+	އް (ޔ	j
+	އް (ޕ	p
+	އް (ޖ	dZ
+	އް (ޗ	tS
+	އް (ޘ	s
+	އް (ޙ	h
+	އް (ޚ	h
+	އް (ޛ	z
+	އް (ޜ	s
+	އް (ޝ	S
+	އް (ޞ	s
+	އް (ޟ	l
+	އް (ޠ	t
+	އް (ޡ	z
+	އް (ޣ	g
+	އް (ޤ	g
+	އް (ޥ	v#
+	އް (ޱ	n
+
+	// at the end of a word, before a word that starts with a consonant,
+	// it also doubles that consonant
+	އް (_ހ	h
+	އް (_ށ	s.
+	އް (_ނ	n
+	އް (_ރ	*
+	އް (_ބ	b
+	އް (_ޅ	l.
+	އް (_ކ	k
+	އް (_ވ	v#
+	އް (_މ	m
+	އް (_ފ	f
+	އް (_ދ	d
+	އް (_ތ	t
+	އް (_ލ	l
+	އް (_ގ	g
+	އް (_ޏ	n^
+	އް (_ސ	s
+	އް (_ޑ	d.
+	އް (_ޒ	z
+	އް (_ޓ	t.
+	އް (_ޔ	j
+	އް (_ޕ	p
+	އް (_ޖ	dZ
+	އް (_ޗ	tS
+	އް (_ޘ	s
+	އް (_ޙ	h
+	އް (_ޚ	h
+	އް (_ޛ	z
+	އް (_ޜ	s
+	އް (_ޝ	S
+	އް (_ޞ	s
+	އް (_ޟ	l
+	އް (_ޠ	t
+	އް (_ޡ	z
+	އް (_ޣ	g
+	އް (_ޤ	g
+	އް (_ޥ	v#
+	އް (_ޱ	n
+
+.group ޢ	// ainu (dotted letter for Arabic loanwords)
+	ޢ	
+	_) ޢ	?
+	ޢް	?

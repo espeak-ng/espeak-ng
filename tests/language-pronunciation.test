@@ -69,6 +69,10 @@ m'?Ens s'?i3-k?uskl,?0wn@-n w'Olth?V_! sp'?el@-D@-_! p?O s,?yl?of'?on
 '?ER?W,?Ol" "Quizdeltagerne spiste jordbær med fløde, mens cirkusklovnen Walther spillede på xylofon. Ærøål." "Latn"
 test_phon de "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s@n z'ylt3 d'aIC
 h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung." "Latn"
+test_phon dv "h'u*iha: ?'insa:nuN v#'es ?'ufanv#ani:
+d'a*adZa ?'a:i h'aggu t'akug&: m'iniv#aNkama:i h'amahamakaN l'ibigenv#a: b'aegge g'otugaev#e
+?'emi:hunnah h'ejo v#'isnuma:i h'ejo b'uddi:ge b'a:*u l'ibigeN v#'eev#e
+?'adi ?'emi:huN ?'ekaku ?'anekaka: m'edu m'ua:mala:ik k'u*anv#a:ni: ?'uhuv#v#aitte*i k'amuge *'u:heg g'aev#e" "ހުރިހާ އިންސާނުން ވެސް އުފަންވަނީ، ދަރަޖަ އާއި ޙައްޤު ތަކުގައި މިނިވަންކަމާއި ހަމަހަމަކަން ލިބިގެންވާ ބައެއްގެ ގޮތުގައެވެ. އެމީހުންނަށް ހެޔޮ ވިސްނުމާއި ހެޔޮ ބުއްދީގެ ބާރު ލިބިގެން ވެއެވެ. އަދި އެމީހުން އެކަކު އަނެކަކާ މެދު މުއާމަލާތް ކުރަންވާނީ އުޚުއްވަތްތެރި ކަމުގެ ރޫހެއް ގައެވެ." "Thaa"
 test_phon el "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία." "Grek"
 test_phon en "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog" "Latn"
 test_phon en "b,i:dZ,eIp'i: (ml)jum'a:jul.l.a(en)" "BJPയുമായുള്ള" "script change splits a glued token"
