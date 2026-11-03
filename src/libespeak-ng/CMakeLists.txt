@@ -64,6 +64,13 @@ if (NOT MSVC)
     "-Wimplicit"
     "-Wmisleading-indentation"
 
+    # SelectTranslator() in tr_languages.c is a ~1000-line switch, one case
+    # per language. A missing break silently gives one language another's
+    # langopts, and the language tests assert a hash of synthesised audio, so
+    # the failure reads as "wrong hash" rather than as a fall-through.
+    # Intentional fall-throughs are marked with ESPEAKNG_FALLTHROUGH.
+    "-Wimplicit-fallthrough"
+
     # All path buffers are sized to the platform path limit (PATH_MAX /
     # MAX_PATH) and written with snprintf. Truncation on a near-limit path
     # is therefore safe and deliberate. -Wformat-truncation fires whenever

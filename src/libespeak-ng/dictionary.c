@@ -326,6 +326,7 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 				p++;
 				break;
 			}
+			ESPEAKNG_FALLTHROUGH;
 		default:
 			// lookup the phoneme mnemonic, find the phoneme with the highest number of
 			// matching characters
@@ -1039,7 +1040,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		// stress on first syllable, unless it is a light syllable followed by a heavy syllable
 		if ((syllable_weight[1] > 0) || (syllable_weight[2] == 0))
 			break;
-		// fallthrough:
+		ESPEAKNG_FALLTHROUGH;
 	case STRESSPOSN_2L:
 		// stress on second syllable
 		if ((stressed_syllable == 0) && (vowel_count > 2)) {
