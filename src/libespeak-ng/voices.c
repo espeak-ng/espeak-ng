@@ -1026,6 +1026,7 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 	int match_fname2 = -1;
 	int match_name = -1;
 	const char *id; // this is the filename within espeak-ng-data/voices
+	int id_len;
 	int last_part_len;
 	char last_part[41];
 	char name[40];
@@ -1047,9 +1048,10 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 			break;
 		} else {
 			id = voices[ix]->identifier;
+			id_len = strlen(id);
 			if (strcasecmp(name, id) == 0)
 				match_fname = ix; // matching identifier, use this if no matching name
-			else if (strcasecmp(last_part, &id[strlen(id)-last_part_len]) == 0)
+			else if ((id_len >= last_part_len) && (strcasecmp(last_part, &id[id_len-last_part_len]) == 0))
 				match_fname2 = ix;
 		}
 	}
