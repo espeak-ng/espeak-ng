@@ -15,4 +15,10 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">هذه عينة من النص الذي تم نطقه في %s</string>
+  <!--Source: Checkbox label.
+        Description: When enabled, numbers are read digit by digit instead of as whole numbers.-->
+  <string name="setting_speak_digits">قراءة الأرقام رقماً تلو الآخر</string>
+  <!--Source: Checkbox summary.
+        Description: Explains the digit-by-digit reading setting.-->
+  <string name="setting_speak_digits_summary">نطق كل رقم على حدة، مثلاً قراءة "123" كـ "واحد اثنان ثلاثة" بدلاً من "مئة وثلاثة وعشرون"</string>
 </resources>
