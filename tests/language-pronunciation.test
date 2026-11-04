@@ -134,6 +134,8 @@ test_phon it "(en)sp'eIsbA@(it)" "spacebar" "Latn"
 test_phon it "(en)sp'eIskraaft(it)" "spacecraft" "Latn"
 test_phon it "(en)w'3:kspeIs(it)" "workspace" "Latn"
 test_phon it "k'O:l" "call" "Latn"
+test_phon it "k'allo" "callo" "Latn"
+test_phon it "k'allI" "calli" "Latn"
 test_phon it "r'i:dIN" "reading" "Latn"
 test_phon it ",a:,Effek'ap:a" "afk" "Latn"
 test_phon ja ",ir\`oh,anihoh'eto
