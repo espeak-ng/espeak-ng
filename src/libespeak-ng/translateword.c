@@ -424,6 +424,9 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 
 		// anything left ?
 		if (*wordx != ' ') {
+			// Exclude spelled letters when looking up the stem with its prefixes.
+			char *word_with_prefix = wordx;
+
 			if ((unpron_phonemes[0] != 0) && (wordx[0] != '\'')) {
 				// letters which have been spoken individually from affecting the pronunciation of the pronuncable part
 				wordx[-1] = ' ';
@@ -574,7 +577,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 					if (prefix_phonemes[0] != 0) {
 						// lookup the stem without the prefix removed
 						wordx[-1] = c_temp;
-						found = LookupDictList(tr, &word1, phonemes, dictionary_flags2, end_flags, wtab, wtab_remaining);  // include prefix, but not suffix
+						found = LookupDictList(tr, &word_with_prefix, phonemes, dictionary_flags2, end_flags, wtab, wtab_remaining);  // include prefix, but not suffix
 						wordx[-1] = ' ';
 						if (phonemes[0] == phonSWITCH) {
 							// change to another language in order to translate this word
