@@ -46,7 +46,7 @@ phoneme i
   vwl starttype #i endtype #i
   length 160
 
-  FMT(vowel/i)
+  FMT(vowel/i_6)
 endphoneme
 
 phoneme i~
@@ -78,7 +78,7 @@ phoneme e
   ipa e̞
   length 160
 
-  FMT(vowel/e_8)
+  FMT(vowel/e)
 endphoneme
 
 phoneme o
@@ -220,7 +220,7 @@ phoneme t
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
 
-  WAV(ustop/t, 90)
+  WAV(ustop/t_unasp, 70)
 endphoneme
 
 phoneme d
@@ -240,7 +240,7 @@ phoneme k
   Vowelin  f1=0  f2=2300 200 300  f3=-200 80
   Vowelout f1=0  f2=2300 300 400  f3=-200 80  rms=20
 
-  WAV(ustop/k)
+  WAV(ustop/k_unasp, 70)
 endphoneme
 
 phoneme g
@@ -378,13 +378,29 @@ endphoneme
 // Flap or Tap
 
 phoneme r`
-  liquid rfx
-  ipa ɽ
-  lengthmod 3
-  Vowelout f1=3 f2=1400 -400 300  f3=-400 80 rms=35 len=15 colr=2
-  Vowelin  f1=2 f2=1400 -400 300  f3=-400 80 len=20
+  // Japanese ら行: a voiced alveolar tap [ɾ], with a recorded Japanese release
+  // burst (x/r_ja) over the tap spectra r3/tap_ja and r3/x_tap_ja.
+  // NOTE: the feature line below reads `stp` rather than `flp` (tap/flap) because
+  // eSpeak maps `flp` to phVSTOP, a different synthesis branch that audibly changes
+  // this phoneme; no lengthmod value recovers the intended sound. See the FIXME at
+  // src/libespeak-ng/phoneme.c:55, which questions the same mapping upstream.
+  vcd alv stp
+  ipa ɾ
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
 
-  FMT(r3/@tap_rfx)
+  IF KlattSynth THEN
+    IF PreVoicing THEN
+      FMT(klatt/x_tap)
+    ENDIF
+    FMT(klatt/tap2) addWav(x/r_ja, 12)
+  ENDIF
+
+  IF PreVoicing THEN
+    FMT(r3/x_tap_ja)
+  ENDIF
+  FMT(r3/tap_ja) addWav(x/r_ja, 18)
 endphoneme
 
 // Coarticulated
