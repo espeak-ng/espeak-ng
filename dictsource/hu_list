@@ -1420,6 +1420,9 @@ munkaszüneti	$alt3
 munkaszünet	$unstressend
 pihenőnap	$alt3
 amely	$alt3 $unstressend
+ugyanolyan	$alt3 $unstressend
+csakhogy	$alt3 $unstressend
+már	$alt3 $unstressend
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
