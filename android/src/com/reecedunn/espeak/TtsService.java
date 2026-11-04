@@ -477,7 +477,16 @@ public class TtsService extends TextToSpeechService {
         mAnchorOffset = 0;
 
         mCallback = callback;
-        mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount());
+        if (mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount())
+                != TextToSpeech.SUCCESS) {
+            // The audio system rejected playback, most likely because another app holds
+            // exclusive audio focus (e.g. the speech recogniser). Signal an empty
+            // synthesis response so the framework marks the request complete rather
+            // than treating it as still in-flight, which would block the audio session
+            // and prevent the speech recogniser from recording.
+            mCallback.done();
+            return;
+        }
 
         mEngine.setVoice(voice, settings.getVoiceVariant());
 
