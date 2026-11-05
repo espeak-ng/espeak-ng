@@ -61,3 +61,7 @@ test_crash_vector suffix-chain-end-phonemes-oob -v en
 test_crash_vector ssml-attribute-scan-oob -m -v en
 test_crash_vector ssml-emphasis-level-oob -m -v en
 test_crash_vector ssml-voice-name-suffix-oob -v en -m
+test_crash_vector punctuation-name-overflow -v te --punct
+test_crash_vector punctuation-name-overflow -v mr --punct
+test_crash_vector punctuation-name-overflow -v ml --punct
+test_crash_vector punctuation-name-overflow -v ka --punct
