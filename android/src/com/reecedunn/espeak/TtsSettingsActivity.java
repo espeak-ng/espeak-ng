@@ -20,6 +20,7 @@ package com.reecedunn.espeak;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.util.Log;
@@ -38,7 +39,6 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 
 import com.reecedunn.espeak.BuildConfig;
-import com.reecedunn.espeak.preference.ImportVoicePreference;
 import com.reecedunn.espeak.preference.SeekBarPreference;
 import com.reecedunn.espeak.preference.SpeakPunctuationPreference;
 import com.reecedunn.espeak.preference.SupportedLanguagesPreference;
@@ -141,14 +141,17 @@ public class TtsSettingsActivity extends PreferenceActivity {
         }
     }
 
-    private static Preference createImportVoicePreference(Context context) {
-        final String title = context.getString(R.string.import_voice_title);
-
-        final ImportVoicePreference pref = new ImportVoicePreference(context);
-        pref.setTitle(title);
-        pref.setDialogTitle(title);
-        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
-        pref.setDescription(R.string.import_voice_description);
+    private static Preference createDictionaryManagerPreference(final Context context) {
+        final Preference pref = new Preference(context);
+        pref.setTitle(R.string.dictionary_manager_title);
+        pref.setSummary(R.string.dictionary_manager_description);
+        pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                context.startActivity(new Intent(context, DictionaryManagerActivity.class));
+                return true;
+            }
+        });
         return pref;
     }
 
@@ -475,12 +478,11 @@ public class TtsSettingsActivity extends PreferenceActivity {
                                        boolean isWatch) {
         VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(storageContext), engine);
 
-        // The supported-languages multi-select and the file-picker-driven
-        // voice import don't fit on a watch screen and have no meaningful
-        // input affordance there, so omit them on Wear.
+        // The supported-languages multi-select and word-replacement editor do
+        // not fit on a watch screen, so omit them on Wear.
         if (!isWatch) {
             group.addPreference(createSupportedLanguagesPreference(context, voices));
-            group.addPreference(createImportVoicePreference(context));
+            group.addPreference(createDictionaryManagerPreference(context));
         }
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));

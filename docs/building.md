@@ -303,6 +303,21 @@ Now, you can install the APK using the `adb` tool:
 After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
 own data directory to set up the available voices.
 
+### Custom word replacements on Android
+
+Open the eSpeak engine settings and select **Custom word replacements**. Enter
+the incorrect or target word, the replacement text that should be spoken, and
+the language to which the mapping belongs. The mapping is saved in a small JSON
+file in the application's private storage and is applied once, immediately
+before text is passed to the synthesis engine.
+
+The replacement is an exact, case-sensitive whole-word or whole-phrase match;
+it does not replace text embedded inside a longer word. Language variants fall
+back to their base language mapping when no exact variant mapping exists.
+Explicit SSML is left unchanged so element and attribute names cannot be
+corrupted. No external-storage permission, dictionary sources, native compiler,
+or engine-state change is involved.
+
 To enable eSpeak, you need to:
 
 1.  go into the Android `Text-to-Speech settings` UI;
