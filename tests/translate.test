@@ -109,6 +109,11 @@ test_phon en "p'INk h'A@t" "🩷"
 test_phon en "bl'ak k'at" "🐈‍⬛" # U+2B1B in a ZWJ sequence
 test_phon en "h'Ed S'eIkIN v'3:tIkli" "🙂‍↕️" # U+2195 in a ZWJ sequence
 test_phon de "Sv'arts@ k'ats@" "🐈‍⬛"
+# an emoji with no name in the language is read by its English name; the
+# words after it are read once (an entry with no replacement text repeated
+# them, and overflowed the word buffer in a long clause)
+test_phon qu "_:(en)'aks(qu) w'asi" "🪓 wasi"
+test_phon ti "_:(en)'0m(ti) s'@lam" "🕉 ሰላም"
 
 # ED-7/ED-14 - emoji flag sequence: a flag is exactly two regional indicator
 # symbols (U+1F1E6..U+1F1FF). A run of flags written without whitespace must be

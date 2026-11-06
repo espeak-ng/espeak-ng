@@ -202,7 +202,12 @@ def update_file(filename, lang, cldr_path, en_keys):
     for cp, name in annotations.items():
         cp = cp.replace(VS16, "")
         if wanted(cp):
-            names[cp] = normalize(name, cp)
+            name = normalize(name, cp)
+            # a name may normalize to nothing: CLDR's inheritance marker
+            # "↑↑↑" is made of symbols. An entry with no replacement text
+            # repeats the rest of the clause, so treat it as untranslated.
+            if name:
+                names[cp] = name
 
     if os.path.exists(filename):
         with open(filename, encoding="utf-8") as f:
