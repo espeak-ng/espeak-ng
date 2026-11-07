@@ -39,6 +39,7 @@ test_phon nl "v#'Asta:f@l" "wastafel"
 test_phon nl "Q@n'e:smId@l" "geneesmiddel"
 test_phon nl "v#'Ebv#INk@l" "webwinkel"
 test_phon nl "kOmpj'ut@rsp,El" "computerspel"
+test_phon nl "v'O:rstEl" "voorstel"
 test_phon nl "ho:t'El" "hotel"
 test_phon nl "dy'El" "duel"
 
