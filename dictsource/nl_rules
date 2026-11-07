@@ -473,6 +473,14 @@
              ie           i
              ieuw         iw
              iee          ie:
+          @) iee (r_          i'I   // kopieer, varieer: stress on -eer (nl-ieer)
+          @) iee (rt_         i'I   // kopieert (nl-ieer)
+          @) iee (rd_         i'I   // gekopieerd (nl-ieer)
+          @) iee (rde_        i'I   // kopieerde (nl-ieer)
+          @) iee (rden_       i'I   // kopieerden (nl-ieer)
+          @) iee (r           i'I:   // kopieerbaar, kopieerapparaat (nl-ieer)
+          @) iee (l_          i'e:   // industrieel, officieel: stress on -eel (nl-ieer)
+          @) iee (ls_         i'e:   // materieels (nl-ieer)
              ii           i
 
           d) ie (_        'i
@@ -828,6 +836,7 @@
           _) stads (@P5   st'Ats
           _) stage (@P5   st'a:Z@
           _) standaard (@P9 st'Anda:rt
+          _) standaard (is  stAnda:rd   // standaardiseren, standaardisatie: not a compound (nl-ieer)
           _) start (@P5   st'Art
           @) straat (_S6 stra:t
        _vre) s (e         s
