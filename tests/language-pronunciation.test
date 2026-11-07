@@ -112,6 +112,7 @@ test_phon hi "r'Is.Ij,o~ ko: s@t'a:ne: v'a:le: d'Us.t. r'a:kS@s,o~ ke: r'a:Ja: r
 Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषियों को सताने वाले दुष्ट राक्षसों के राजा रावण का सर्वनाश करने वाले विष्णुवतार भगवान श्रीराम, अयोध्या के महाराज दशरथ के बड़े सपुत्र थे।" "Deva"
 test_phon hi "n'e:tr@2H,i:n" "नेत्रहीन" "hi netraheen"
 test_phon hi "n'e:tr@2d,a:n" "नेत्रदान" "hi netradaan"
+test_phon hi ",VnUsv'a:r" "ं" "hi anusvara name"
 test_phon hy "k@rn'am ,apak'i ut'el j'ev ints'i ,anhang'ist tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
 test_phon hyw "g@rn'am ,abag'i ud'el j'ev indz'i ,anhank#'isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
 test_phon hr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
