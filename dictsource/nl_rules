@@ -236,6 +236,21 @@
           @) el (_        'El
         app) el (_         @l
           &) eld (_       @ld
+          // veld, geld and held as the last part of a compound keep [E]: invoerveld, zakgeld (nl-eld)
+          v) eld (_       Eld
+        hev) eld (_       @ld   // overgeheveld: participle of hevelen
+         uv) eld (_       @ld   // gesneuveld
+         Cg) eld (_       Eld
+         ng) eld (_       @ld   // omsingeld, verstrengeld
+       eing) eld (_       Eld   // kleingeld
+       zeng) eld (_       Eld   // prijzengeld
+       teng) eld (_       Eld   // smartengeld
+       merg) eld (_       @ld   // uitgemergeld
+        geg) eld (_       Eld   // collegegeld
+       tieg) eld (_       Eld   // statiegeld
+       dieg) eld (_       Eld   // subsidiegeld
+          h) eld (_       Eld   // volksheld
+         ch) eld (_       @ld   // gebocheld, ontgoocheld
           &) ele (_       'e:l@
 
           &) el (_$p_alt   =@l
