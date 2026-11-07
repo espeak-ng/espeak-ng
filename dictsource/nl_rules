@@ -8,6 +8,11 @@
 
 
 .group a
+          _) achter (volgP6       ,Axt@r   // inseparable, stress after achter (nl-prefix-verbs)
+          _) achter (haalP6       ,Axt@r   // inseparable, stress after achter (nl-prefix-verbs)
+          _) achter (halP6        ,Axt@r   // inseparable, stress after achter (nl-prefix-verbs)
+          _) achter (C@P6 'Axt@r   // separable verb or noun, stress on achter (nl-prefix-verbs)
+          _) achter (lijk   'Axt@r    // achterlijk: not a prefix split (nl-prefix-verbs)
              a            a:
              a (CK        A
              a (x         A
@@ -180,6 +185,30 @@
 
 
 .group d
+          _) door (zoekP4       ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (zochtP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (grondP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (kruisP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (staanP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (staatP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (stondP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (breekP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (brekP4       ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (brokP4       ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (drenkP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (drongP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (dringP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (C@P4   d'O:r    // separable verb or noun, stress on door (nl-prefix-verbs)
+          _) door (n       d'O:r    // doorn, doornen: not a prefix (nl-prefix-verbs)
+          _) door (dachtP4      ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (tastP4       ,dO:r    // inseparable, stress after door (nl-prefix-verbs)
+          _) door (brookP4      ,dO:r    // inseparable, stem after -en removal doubles the vowel (nl-prefix-verbs)
+          _) door (luchtP4   ,dO:r  // doorluchtig: suffix -ig is removed before this match (nl-prefix-verbs)
+          _) door (r@P4    d'O:     // door-rijden: r not doubled (nl-prefix-verbs)
+          _) door (zienP4 ,dO:r   // doorzien: inseparable (nl-prefix-verbs)
+          _) door (zietP4 ,dO:r   // doorzien: inseparable (nl-prefix-verbs)
+          _) door (zie_P4 ,dO:r   // doorzien: inseparable (nl-prefix-verbs)
+          _) door (zagP4 ,dO:r   // doorzien: inseparable (nl-prefix-verbs)
              d            d     // auto-devoice at end-of-word
           d) d
              dt           t
@@ -600,6 +629,8 @@
 
 
 .group m
+          _) mis (bruikeP3     ,mIs     // inseparable verb, stress after mis (nl-prefix-verbs)
+          _) mis (bruiktP3     ,mIs     // inseparable verb, stress after mis (nl-prefix-verbs)
              m            m
           m) m
 
@@ -664,6 +695,62 @@
 
 
 .group o
+          _) over (ge@P4        'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (stapP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (neemP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (nemP4        'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (nam_P4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (nameP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (gaaP4        'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (gingP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (brengP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (brachtP4     'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (maakP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (makP4        'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (schakelP4    'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (slaa_P4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (slagP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (sloegP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (sla_P4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (naam_P4      'o:v@r   // separable, stem after -en removal doubles the vowel (nl-prefix-verbs)
+          _) over (zetP4        'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (dragP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (draagP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (droegP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (drachtP4     'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (laatP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (latP4        'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (lietP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (houdP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (hieldP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (blijfP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (blijvP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (bleefP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (plaatsP4     'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (zichtP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (zichte_P4    ,o:v@r   // overzichtelijk: suffix -lijk is removed before this match (nl-prefix-verbs)
+          _) over (gevoelP4     ,o:v@r   // adjective in -ig: stress on the stem (nl-prefix-verbs)
+          _) over (kantP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (lastP4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (vloedP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (wichtP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (schotP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (tochtP4      'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) over (weg_P4       'o:v@r   // separable verb or noun, stress on over (nl-prefix-verbs)
+          _) om (vatP2        ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (schrijfP2    ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (schrijvP2    ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (schreefP2    ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (ringP2       ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (armP2        ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (singelP2     ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (helsP2       ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (helzP2       ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (zeilP2       ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (standigP2    ,Om      // inseparable, stress after om (nl-prefix-verbs)
+          _) om (gaaP2        'Om      // separable verb, stress on om (nl-prefix-verbs)
+          _) om (gingP2       'Om      // separable verb, stress on om (nl-prefix-verbs)
+          _) om (gegaaP2      'Om      // separable verb, stress on om (nl-prefix-verbs)
              o            o:
              o (CK        O
              o (x         O
@@ -714,6 +801,43 @@
 
 
 .group on
+          _) onder (steunP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (neemP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (nemP5        ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (namP5        ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (tekenP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (breekP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (brakP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (brokP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (brekP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (drukkP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (druktP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (handelP5     ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (schatP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (vindP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (vondP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (wijzP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (wezP5        ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (streepP5     ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (strepP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (mijnP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (vraagP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (vragP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (schepP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (kennP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (kentP5       ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (bouwdP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (bouweP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (bouwiP5      ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (scheid_P5    ,Ond@r   // inseparable verb, stem left after removing a suffix (nl-prefix-verbs)
+          _) onder (naamP5       ,Ond@r   // inseparable verb, stem after -en removal doubles the vowel (nl-prefix-verbs)
+          _) onder (braakP5      ,Ond@r   // inseparable verb, stem after -en removal doubles the vowel (nl-prefix-verbs)
+          _) onder (brookP5      ,Ond@r   // inseparable verb, stem after -en removal doubles the vowel (nl-prefix-verbs)
+          _) onder (weezP5       ,Ond@r   // inseparable verb, stem after -en removal doubles the vowel (nl-prefix-verbs)
+          _) onder (scheideP5    ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (scheidiP5    ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (scheidtP5    ,Ond@r   // inseparable verb, stress on the stem (nl-prefix-verbs)
+          _) onder (nemer    'Ond@r    // noun, stressed on onder (nl-prefix-verbs)
           _) on (@P2      %On
           _) onaan (@P5   On'a:n
           _) onder (@P5   'Ond@r
@@ -910,6 +1034,21 @@
 
 
 .group v
+          _) voor (spelP4       ,vO:r    // inseparable, stress after voor (nl-prefix-verbs)
+          _) voor (zienP4       ,vO:r    // inseparable, stress after voor (nl-prefix-verbs)
+          _) voor (zietP4       ,vO:r    // inseparable, stress after voor (nl-prefix-verbs)
+          _) voor (zagP4        ,vO:r    // inseparable, stress after voor (nl-prefix-verbs)
+          _) voor (zie_P4       ,vO:r    // inseparable, stress after voor (nl-prefix-verbs)
+          _) voor (zieninP4     ,vO:r    // inseparable, stress after voor (nl-prefix-verbs)
+          _) voor (zichtP4      ,vO:r    // inseparable, stress after voor (nl-prefix-verbs)
+          _) voor (zaagP4       ,vO:r    // inseparable, stem after -en removal doubles the vowel (nl-prefix-verbs)
+          _) vol (brengP3      ,vOl     // inseparable, stress after vol (nl-prefix-verbs)
+          _) vol (brachtP3     ,vOl     // inseparable, stress after vol (nl-prefix-verbs)
+          _) vol (tooiP3       ,vOl     // inseparable, stress after vol (nl-prefix-verbs)
+          _) vol (doeP3        ,vOl     // inseparable, stress after vol (nl-prefix-verbs)
+          _) vol (doenP3       ,vOl     // inseparable, stress after vol (nl-prefix-verbs)
+          _) vol (deedP3       ,vOl     // inseparable, stress after vol (nl-prefix-verbs)
+          _) vol (daanP3       ,vOl     // inseparable, stress after vol (nl-prefix-verbs)
              v            v
           s) v            f
 
