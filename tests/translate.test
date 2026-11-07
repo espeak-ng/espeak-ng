@@ -147,6 +147,10 @@ test_phon en "p'aIr@t fl'ag" "🏴‍☠️"
 # input is a full tag sequence, as the codepoints show.
 test_phon en "bl'ak fl'ag" "🏴󠁵󠁳󠁴󠁸󠁿"    # 1F3F4 E0075 E0073 E0074 E0078 E007F  ustx (Texas)
 
+# Dutch letter name of w: [v#e:], not [ve:]
+test_phon nl "b,e:t,e:v#'e:" "btw"
+test_phon nl "v#,e:s'e:" "WC"
+
 # a replacement whose first letter is a non-ASCII capital must be lower cased
 # with towlower2(), not tolower(): the latter dropped the letter entirely
 # (Казахстан was read as "азахстан")
