@@ -292,7 +292,10 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 
 		if (dictionary_flags[0] & FLAG_TEXTMODE) {
 			if (word_out != NULL)
-				strcpy(word_out, word1);
+				// an abbreviation match (a.b.c) leaves word1 pointing at the
+				// whole joined span, so bound the copy to word_out, which is
+				// &word_replaced[2] in a word_replaced[N_WORD_BYTES+1] buffer
+				strncpy0(word_out, word1, N_WORD_BYTES-1);
 
 			return dictionary_flags[0];
 		} else if ((found == false) && (dictionary_flags[0] & FLAG_SKIPWORDS) && !(dictionary_flags[0] & FLAG_ABBREV)) {
