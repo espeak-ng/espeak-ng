@@ -288,7 +288,7 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 
 			// skip to the next word in a multi-word replacement. Always skip at least one word.
 			for (dictionary_skipwords++; dictionary_skipwords > 0; dictionary_skipwords--) {
-				while (!isspace(*word_out)) ++word_out;
+				while (*word_out && !isspace(*word_out)) ++word_out;
 				while (isspace(*word_out))  ++word_out;
 			}
 			dictionary_skipwords = skipwords;
@@ -1804,11 +1804,11 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 		if (dict_flags & FLAG_SKIPWORDS) {
 			// dictionary indicates skip next word(s)
 			while (dictionary_skipwords > 0) {
-				if (dictionary_skipwords >= word_count - ix) {
-					dictionary_skipwords = 0;
-					break;
-				}
-				words[ix+dictionary_skipwords].flags |= FLAG_DELETE_WORD;
+				// Mark only words that exist in this clause. Cancelling the whole
+				// skip when it runs past the end also un-skips the words that do
+				// exist, so Arabic "د.ج" was read with an extra "jim".
+				if (ix + dictionary_skipwords < word_count)
+					words[ix+dictionary_skipwords].flags |= FLAG_DELETE_WORD;
 				dictionary_skipwords--;
 			}
 		}

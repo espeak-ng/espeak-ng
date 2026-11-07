@@ -174,6 +174,7 @@ void FreePhData(void)
 	phoneme_index = NULL;
 	phondata_ptr = NULL;
 	tunes = NULL;
+	n_tunes = 0;
 	current_phoneme_table = -1;
 }
 
