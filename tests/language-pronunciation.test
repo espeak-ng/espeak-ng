@@ -261,6 +261,7 @@ v Og'ulE
 v'Emn^;E" "w domu, w ogóle, we mnie"
 test_phon pl "dzvˈɔn
 dʑvʲˈɛŋk" "dzwon, dźwięk" "" "--ipa"
+test_phon pl "t,EmpERat'uRa#_ m'inus tS'y" "temperatura -3"
 test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: b@-*&s'oI~S
 f'E
 S'a
