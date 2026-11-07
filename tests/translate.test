@@ -35,7 +35,7 @@ test_phon hi "ka:n'u:n" "कानून"
 
 # Dutch: final -el is unstressed [@l] (tafel, also in compounds), except
 # in compounds ending in a one-syllable word and in final-stressed loans
-test_phon nl "v#'Asta:f@l" "wastafel"
+test_phon nl "_!'VUtOsp,iQ@l" "autospiegel"
 test_phon nl "Q@n'e:smId@l" "geneesmiddel"
 test_phon nl "v#'Ebv#INk@l" "webwinkel"
 test_phon nl "kOmpj'ut@rsp,El" "computerspel"
