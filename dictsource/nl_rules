@@ -196,6 +196,8 @@
           _) dj           dZ
           _) download (C@P8 d'VUnlo:t // English first part: downloadlink (nl-loanwords)
           @) download      d,VUnlo:d // English last part: softwaredownload
+          @) download (_S8 d,VUnlo:d // ... at the end as a suffix, so the first part keeps its own stress
+          @) downloads (_S9 d,VUnlo:ts
              dj           tj
 
          _) doel (@P4     d'ul
@@ -217,6 +219,8 @@
              eu           Y:
        @war) e (upd                // software update: the e of -ware is silent (nl-loanwords)
        @war) e (upl
+      ftwar) e (_                  // software, hardware: also when -update is split off as a suffix
+      rdwar) e (_
 
          &C) e (_S1qd     @
         KAC) e (_S1e      @   // remove 'e' and double the vowel
@@ -918,8 +922,12 @@
              us (_        8s
           _) update (C@P6 '8pde:t    // English first part: updatemelding (nl-loanwords)
           @) update       ,8pde:t    // English last part: systeemupdate
+          @) update (_S6  _|,8pde:t  // ... at the end as a suffix, so the first part keeps its own stress
+          @) updates (_S7 _|,8pde:ts
           _) upload (C@P6 '8plo:t
           @) upload       ,8plo:d
+          @) upload (_S6  _|,8plo:d
+          @) uploads (_S7 _|,8plo:ts
              u (sie_      'y
           @) ute (_       'yt
              uu (r_       'y
