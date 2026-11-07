@@ -113,6 +113,8 @@ Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषिय�
 test_phon hi "n'e:tr@2H,i:n" "नेत्रहीन" "hi netraheen"
 test_phon hi "n'e:tr@2d,a:n" "नेत्रदान" "hi netradaan"
 test_phon hi ",VnUsv'a:r" "ं" "hi anusvara name"
+test_phon hi "'Ena:" "ॲना" "hi candra a"
+test_phon hi "'EsId.,It.i" "ॲसिडिटी" "hi candra a"
 test_phon hy "k@rn'am ,apak'i ut'el j'ev ints'i ,anhang'ist tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
 test_phon hyw "g@rn'am ,abag'i ud'el j'ev indz'i ,anhank#'isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
 test_phon hr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
@@ -235,6 +237,8 @@ n'Vvi m'u~b,i
 t.#'a:n.e:
 r'a:j@3g,@d.
 p'a:l@g#,@r@2s,@H sa:t'a:*a: b'Vnd@c,i H'a:k d'Ili; 'a:He:" "आरक्षणासाठी आक्रमक झालेल्या मराठा क्रांती मोर्चाने आज मुंबई, नवी मुंबई, ठाणे, रायगड, पालघरसह सातारा बंदची हाक दिली आहे." "Deva"
+test_phon mr "'Ena:" "ॲना" "mr candra a"
+test_phon mr "'EsId.,It.i" "ॲसिडिटी" "mr candra a"
 test_phon ms "s@m'u@ m,anus'i@ d,ilah'irkan b'Ebas_:_: dan s,amaR'at@ d,aRi s'@gi k@m,uli'a_|an_:_: dan h'a?h'a?
 m@R'Ek@ m@mp'un^aI p@mik'iRan_:_: dan p@Ras'a_|an h'ati_:_: dan h@nd'aklah b@Rt'inda? di _|ant'aR@ s'atu s'am@ l'aIn d'@Nan s@m'aNat p@*rs,aUdaR'a_|an" "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak. Mereka mempunyai pemikiran dan perasaan hati dan hendaklah bertindak di antara satu sama lain dengan semangat persaudaraan." "Latn"
 test_phon mt  "'Ilbned'emIn c'ollla ,iuIt,ui:ld'eu h'i:lsa 'u ,ugu'alI f'Ided,eIniu'Ita 'u d'eed,erIt:I;'iui:t

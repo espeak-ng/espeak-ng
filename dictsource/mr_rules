@@ -73,6 +73,9 @@
 .group ऍ
         ऍ          E         // candra e
 
+.group ॲ
+        ॲ          E         // candra a (Marathi ॲसिडिटी, ॲना): as ऍ
+
 .group ऎ
         ऎ          e
         ऎं          e~
