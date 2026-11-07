@@ -46,6 +46,13 @@ test_phon en-GB-x-gbcwmd "aI 'av" "I have"
 # A deleted phonSWITCH should preserve the sourceix property of the deleted phoneme.
 test_phon hyw "'a g@rn'am" "A Կրնամ"
 
+# Dutch verbs in -ieer and adjectives in -ieel: stress on the last syllable
+test_phon nl "k,o:pi'Irt" "kopieert"
+test_phon nl "Q@v,a:ri'Irt" "gevarieerd"
+test_phon nl "m,a:tI:ri'e:l" "materieel"
+test_phon nl "st,Anda:rdiz'I:r@n" "standaardiseren"
+test_phon nl "st'Anda:rt" "standaard"
+
 test_phon en "'eI
 b'i: s'i:
 d'i:
