@@ -49,6 +49,7 @@ test_phon nl "d'VUnlo:t" "download"
 test_phon nl "br'VUz@r" "browser"
 test_phon nl "_!'Ep" "app"
 test_phon nl "skr'o:l@n" "scrollen"
+test_phon nl "v#'Ets,Ep" "WhatsApp"
 # ... without changing Dutch words built on the same letters
 test_phon nl "t'uS@" "touche"
 
