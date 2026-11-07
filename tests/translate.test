@@ -200,6 +200,15 @@ test_phon fr "profEs'Wr" "PR"
 # https://github.com/espeak-ng/espeak-ng/pull/1148
 test_phon fr "dY mil v'E~" "2020"
 
+# Dutch numbers: unstressed "en" in 21 to 99, [Q] in negentig, schwa in
+# duizend, stress on the second syllable of miljoen and miljard
+test_phon nl "z'Es@nt,Axt@x" "86"
+test_phon nl "n'e:Q@nt@x" "90"
+test_phon nl "tv#'e: d,Wyz@nt z,Es@ntv#,Int@x" "2026"
+test_phon nl "_! 'e:n mIlj,un" "1.000.000"
+test_phon nl "h'Ond@rd@n" "honderden"
+test_phon nl "mIlj'Ard@n" "miljarden"
+
 # https://github.com/espeak-ng/espeak-ng/issues/1271
 test_phon en "f'u:" "foo.."
 
