@@ -50,6 +50,8 @@ test_phon nl "br'VUz@r" "browser"
 test_phon nl "_!'Ep" "app"
 test_phon nl "skr'o:l@n" "scrollen"
 test_phon nl "v#'Ets,Ep" "WhatsApp"
+test_phon nl "f'e:sbuk" "Facebook"
+test_phon nl "s'8rv@r" "server"
 # ... without changing Dutch words built on the same letters
 test_phon nl "t'uS@" "touche"
 

@@ -390,7 +390,6 @@ gedownload	Q@d'VUnlo:t
 driver	dr'Ajv@r
 drivers	dr'Ajv@rs
 edge	EtS
-facebook	f'e:sbuk
 feedback	f'idbEk
 headset	h'Ets,Et
 highlight	h'Ajl,Ajt
@@ -422,6 +421,8 @@ screenreaders	skr'inrid@rs
 scroll	skro:l
 scrollen	skr'o:l@n
 scrollbalk	skr'o:lbAlk
+server	s'8rv@r
+servers	s'8rv@rs
 smartphone	sm'A:rtfo:n
 smartphones	sm'A:rtfo:ns
 source	sO:rs
@@ -431,7 +432,6 @@ speakers	sp'ik@rs
 speech	spitS
 spotify	sp'Otif,Aj
 store	stO:r
-stream	strim
 streamen	str'im@n
 streaming	str'imIN
 thread	trEt
@@ -1987,7 +1987,7 @@ Nys		nEIsd'WyzEnt
 
 //Trademarks
 Belga		bElQa:
-Facebook        fEisbuk
+Facebook	f'e:sbuk
 Ubuntu		u:'bu:ntu:
 Wikipedia	$3
 google          gu:g@l
