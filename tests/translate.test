@@ -30,7 +30,7 @@ test_phon nl "b'a:na:n@nsx,Il" "bananenschil"
 test_phon nl "m'Ens@nr,Ext@n" "mensenrechten"
 test_phon nl "d'ir@nt,Wyn" "dierentuin"
 test_phon nl "t'o:r@nt;@" "torentje"
-test_phon nl "z,e:z@nt'Axt@x" "zesentachtig"
+test_phon nl "z,Es@nt'Axt@x" "zesentachtig"
 # ... but a stressed stem stays [E]
 test_phon nl "n'a:dENk@n" "nadenken"
 test_phon nl "d'ia:l,o:QvEnst@r" "dialoogvenster"
