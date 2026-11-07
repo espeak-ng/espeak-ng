@@ -8,6 +8,7 @@
 
 
 .group a
+               _) a (rre        %A         // arrest, arresteren (nl-rr)
              a            a:
              a (CK        A
              a (x         A
@@ -195,6 +196,8 @@
 
 
 .group e
+              _t) e (rra        %E         // terras: unstressed first syllable (nl-rr)
+             _t) e (rrei        %E         // terrein (nl-rr)
              e            e#  // [e:] but change to [@] in unstressed syllables
           X) e            e:  // first syllable in a word
 
@@ -400,6 +403,7 @@
 
 
 .group g
+             arran) g (e        Z          // arrangement, arrangeren: French ange (nl-rr)
              g            Q    // ph_dutch changes to [x] before unvoiced, NULL after [x]
              gg           Q
           s) g            x
@@ -453,6 +457,8 @@
           C) hand (_S4    h'Ant
           _) handicap     hEndikEp
           _) her (@P3     hEr
+          _) her (r@P3    hE       // herrijzen, herroepen: r not doubled (nl-rr)
+          _) her (rie     hE       // herrie: not a prefix (nl-rr)
           _) her (der     hEr
           _) her (ds      hEr
           _) her (en      hI:r
@@ -626,6 +632,7 @@
          _) muziek (@P6   myz'ik
 
 .group n
+             arra) n (ge        n          // arrangement, arrangeren: French ange (nl-rr)
              n            n
           n) n
              ng           N
@@ -664,6 +671,8 @@
 
 
 .group o
+              _c) o (rre        %O         // correct, correctie (nl-rr)
+              _c) o (rru        %O         // corrupt, corruptie (nl-rr)
              o            o:
              o (CK        O
              o (x         O
