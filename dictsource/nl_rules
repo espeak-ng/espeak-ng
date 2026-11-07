@@ -41,6 +41,9 @@
           _) adres (@P5   a:dr'Es
           _) af (C@P2     'Af
           _) affich       %AfiS
+          _) account (C@P7 @k'VUnt   // English first part: accountnaam (nl-loanwords)
+          @) account (_    @k,VUnt   // English last part: gebruikersaccount
+          @) account (s_   @k,VUnt
           _) af (rika     a:f
              age (_       'a:Z@
              ages (_S1    s
@@ -88,6 +91,8 @@
           _) boek (je     b'uk
           _) boven (P5    b'o:v@n
           _) braille (@P7 br'Aj@
+          _) browser (C@P7 br'VUz@r  // English first part: browservenster (nl-loanwords)
+          @) browser       br,VUz@r  // English last part: webbrowser
           _) brand        br'And
           _) buiten (P6   b'Wyt@n
           _) buurt (@@P5  b'yrt   // buurtbewoner
@@ -189,6 +194,8 @@
           _) de (geen     d@    // degene, degenen
           _) de (zelf     d@
           _) dj           dZ
+          _) download (C@P8 d'VUnlo:t // English first part: downloadlink (nl-loanwords)
+          @) download      d,VUnlo:d // English last part: softwaredownload
              dj           tj
 
          _) doel (@P4     d'ul
@@ -208,6 +215,8 @@
              ee           e:
              eeuw         eU
              eu           Y:
+       @war) e (upd                // software update: the e of -ware is silent (nl-loanwords)
+       @war) e (upl
 
          &C) e (_S1qd     @
         KAC) e (_S1e      @   // remove 'e' and double the vowel
@@ -812,6 +821,9 @@
 
           _) samen(@P5    s'a:m@n
           _) scan (L02    skEn
+          _) server (C@P6 s'8rv@r    // English first part: serverfout (nl-loanwords)
+          @) server (_    s,8rv@r    // English last part: mailserver (not reserveren)
+          @) server (s_   s,8rv@r
              science      saI@ns
              sc (oop      sk
              sc (opi      sk
@@ -904,6 +916,10 @@
           _) uit (@P3      'Wyt
              uul (_       'yl  // from -ule
              us (_        8s
+          _) update (C@P6 '8pde:t    // English first part: updatemelding (nl-loanwords)
+          @) update       ,8pde:t    // English last part: systeemupdate
+          _) upload (C@P6 '8plo:t
+          @) upload       ,8plo:d
              u (sie_      'y
           @) ute (_       'yt
              uu (r_       'y
