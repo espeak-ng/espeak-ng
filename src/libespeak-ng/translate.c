@@ -49,6 +49,7 @@ static int CalcWordLength(int source_index, int charix_top, short int *charix, W
 static void CombineFlag(Translator *tr, WORD_TAB *wtab, int wtab_remaining, char *word, int *flags, unsigned char *p, char *word_phonemes);
 static void SwitchLanguage(char *word, char *word_phonemes);
 static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_remaining, char *word_out, int depth);
+static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, const char *next, int *insert, int *wordflags, int *ignore_next_n);
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -178,11 +179,28 @@ static void SegmentReplacement(Translator *tr, const char *text, char *out, int 
 	// Other ASCII characters are kept in-word, so that Latin-script
 	// replacement text such as "cai3hong2" stays a single word.
 	int ix = 0, out_ix = 0;
-	int c = 0;
+	int c = 0, inserted = 0, ignore_next_n = 0, wordflags = 0;
 
-	while (text[ix] != 0) {
-		int prev = c;
-		int nbytes = utf8_in(&c, &text[ix]);
+	while ((text[ix] != 0) || inserted) {
+		int prev = c, next;
+		char encoded[8];
+		if (inserted) {
+			c = inserted;
+			inserted = 0;
+		} else
+			ix += utf8_in(&c, &text[ix]);
+		utf8_in(&next, &text[ix]);
+		// Replacement text bypasses TranslateClause, but still needs the
+		// language's .replace rules (eg. Japanese katakana to hiragana).
+		// Keep multi-character matching state separate from the source clause.
+		c = SubstituteChar(tr, c, next, &text[ix], &inserted, &wordflags, &ignore_next_n);
+		if (c == 8) {
+			c = prev; // a consumed match character does not change the output context
+			continue;
+		}
+		if (inserted)
+			next = inserted;
+		int nbytes = utf8_out(c, encoded);
 		bool insert_space = false;
 
 		if (IsAlpha(prev)) {
@@ -190,16 +208,12 @@ static void SegmentReplacement(Translator *tr, const char *text, char *out, int 
 				if (ShouldSplitIdeographs(tr, c, prev))
 					insert_space = true; // each ideograph is a separate word
 			} else if (c == '-') {
-				int next;
-
-				utf8_in(&next, &text[ix + nbytes]);
 				if (IsAlpha(next)) {
 					// hyphen between two letters: the clause tokenizer turns it
 					// into a word break, so do the same and drop the hyphen
 					if (out_ix + 2 > out_size)
 						break;
 					out[out_ix++] = ' ';
-					ix += nbytes;
 					c = ' ';
 					continue;
 				}
@@ -212,9 +226,8 @@ static void SegmentReplacement(Translator *tr, const char *text, char *out, int 
 			break;
 		if (insert_space)
 			out[out_ix++] = ' ';
-		memcpy(&out[out_ix], &text[ix], nbytes);
+		memcpy(&out[out_ix], encoded, nbytes);
 		out_ix += nbytes;
-		ix += nbytes;
 	}
 	out[out_ix] = 0;
 }
@@ -886,14 +899,13 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 }
 
 // handle .replace rule in xx_rules file
-static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, const char *next, int *insert, int *wordflags)
+static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, const char *next, int *insert, int *wordflags, int *ignore_next_n)
 {
 	unsigned int new_c, c2 = ' ', c_lower;
 	int upper_case = 0;
 
-	static int ignore_next_n = 0;
-	if (ignore_next_n > 0) {
-		ignore_next_n--;
+	if (*ignore_next_n > 0) {
+		(*ignore_next_n)--;
 		return 8;
 	}
 
@@ -910,7 +922,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		upper_case = 1;
 	}
 
-	const char *to = FindReplacementChars(tr, &from, c_lower, next, &ignore_next_n);
+	const char *to = FindReplacementChars(tr, &from, c_lower, next, ignore_next_n);
 	if (to == NULL)
 		return c; // no substitution
 
@@ -998,7 +1010,8 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		break;
 	}
 	// handle .replace rule in xx_rules file
-	return SubstituteChar(tr, c, next_in, ptr, insert, wordflags);
+	static int ignore_next_n = 0;
+	return SubstituteChar(tr, c, next_in, ptr, insert, wordflags, &ignore_next_n);
 }
 
 static const char *const UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
