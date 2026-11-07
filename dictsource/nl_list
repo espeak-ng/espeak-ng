@@ -363,6 +363,103 @@ werd	$u
 // some common adjectives and adverbs
 
 
+// English loanwords, pronounced the way Dutch speakers say them
+account	@k'VUnt
+accounts	@k'VUnts
+app	Ep
+apps	Eps
+backspace	b'Ekspe:s
+backup	b'Ek8p
+backups	b'Ek8ps
+browser	br'VUz@r
+browsers	br'VUz@rs
+caps	kEps
+capslock	k'EpslOk
+cookie	k'uki
+cookies	k'ukis
+deadline	d'Etl,Ajn
+deadlines	d'Etl,Ajns
+design	d@z'Ajn
+designer	d@z'Ajn@r
+display	dIspl'e:
+displays	dIspl'e:s
+download	d'VUnlo:t
+downloads	d'VUnlo:ts
+downloaden	d'VUnlo:d@n
+gedownload	Q@d'VUnlo:t
+geüpdatet	Q@'8pde:t@t
+geupdatet	Q@'8pde:t@t
+geüpload	Q@'8plo:t
+geupload	Q@'8plo:t
+driver	dr'Ajv@r
+drivers	dr'Ajv@rs
+edge	EtS
+feedback	f'idbEk
+headset	h'Ets,Et
+highlight	h'Ajl,Ajt
+highlights	h'Ajl,Ajts
+insert	'Ins8rt
+iphone	'Ajfo:n
+(i phone)	'Ajfo:n
+keyboard	k'ibO:rt
+layout	le:j'VUt
+login	l'OQIn
+mail	me:l
+mails	me:ls
+mailen	m'e:l@n
+gemaild	Q@m'e:lt
+meeting	m'itIN
+meetings	m'itINs
+microsoft	m'Ajkro:sOft
+outlook	'VUtluk
+playlist	pl'e:lIst
+playlists	pl'e:lIsts
+privacy	pr'Ajv@si
+reset	r'isEt
+resetten	r'isEt@n
+scannen	sk'En@n
+scanner	sk'En@r
+screen	skrin
+screenreader	skr'inrid@r
+screenreaders	skr'inrid@rs
+scroll	skro:l
+scrollen	skr'o:l@n
+scrollbalk	skr'o:lbAlk
+server	s'8rv@r
+servers	s'8rv@rs
+smartphone	sm'A:rtfo:n
+smartphones	sm'A:rtfo:ns
+source	sO:rs
+spam	spEm
+speaker	sp'ik@r
+speakers	sp'ik@rs
+speech	spitS
+spotify	sp'Otif,Aj
+store	stO:r
+streamen	str'im@n
+streaming	str'imIN
+thread	trEt
+threads	trEts
+tool	tul
+tools	tuls
+toolbar	t'ulbA:r
+touch	t8tS
+touche	tuS@
+touches	tuS@s
+touchscreen	t'8tSskrin
+update	'8pde:t
+updates	'8pde:ts
+updaten	'8pde:t@n
+upgrade	'8pQre:t
+upload	'8plo:t
+uploaden	'8plo:d@n
+whatsapp	v#'Ets,Ep
+(whats app)	v#'Ets,Ep
+windows	v#'Indo:s
+youtube	j'utjub
+(you tube)	j'utjub
+bluetooth	_^_EN
+
 // Pronounce as English
 
 android  _^_EN
@@ -1894,7 +1991,7 @@ Nys		nEIsd'WyzEnt
 
 //Trademarks
 Belga		bElQa:
-Facebook        fEisbuk
+Facebook	f'e:sbuk
 Ubuntu		u:'bu:ntu:
 Wikipedia	$3
 google          gu:g@l
