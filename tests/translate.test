@@ -64,6 +64,14 @@ and l'Eft" "He said : 'Hello, I am back.' and left."
 # Hawaiian okina to apostrophe
 test_phon en "h@w'aIi:" "Hawaiʻi"
 
+# Dutch abbreviations with a dot
+test_phon nl "_|Ik Q'a: bEIv'o:rbe:lt v#'Ex" "Ik ga bijv. weg."
+test_phon nl "pr'EIs _|,Inkly:z'if b,e:t,e:v'e:" "Prijs incl. btw"
+test_phon nl "m'a:ndAx j'ONstle:d@n" "maandag jl."
+test_phon nl "s'Irka: t'in" "ca. tien"
+# ... but not without the dot
+test_phon nl "b'EIf" "bijv"
+
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
 # ED-3 - emoji_character
