@@ -69,6 +69,16 @@
            b)a (by          e:
 
 
+// second parts of a compound that start with be-, ge-, ver- (nl-begever)
+.L05  drijf drijv stand strijd richt scherm weging lasting heer stendig schrijving woner vel perking zit leid drag drog drieg steding grip stuur sparing roep schikking zorg lang wust
+.L06  middel dreig wolking legg rekening dien volking raad reik sluit trokken taling veiliging handel geleid oordel stelling stemming vestiging zoek wijs waking
+.L07  bruik drag richt bonden vecht bouw maakt schiedenis zind bracht steente steld stelde vaar meenschap stuurd nomen schenk bergte noot noten schut roepen vonden vangen wicht plaatst
+.L08  stoord brek weld kleed lijkheid schreven meente komen vraagd draaid slacht kleurd dreven klikt keken stoken boren dwongen zondheid voel luid sprek heugen volg loof tuige beurtenis
+.L09  eniging klaring gadering zekering vanger schil andering band bod lies kiezing mogen slaafd hoging lof branding duistering bruik slag want zuim werking keer dieping dediging
+.L10  plaatsing deling goeding koper giftiging drag binding trouwen taling dachte houding valsing gelijking huizing blijf schuiving volging traging melding zorg gunning ordening zameling
+.L11  spilling bond wijzing lenging antwoordelijk slaving lichting groting krachting laging haal voer koop bijstering huur betering wachting nieuwing zending sterking plichting warming
+.L12  ontreiniging tegenwoordiging
+
 .group b
              b            b     // auto-devoice at end-of-word
           b) b
@@ -77,6 +87,8 @@
              baan         ba:n
           &) baar (_S4    =ba:r
           &) bare (_S4    =ba:r@
+          @) be (L05      b@    // be- inside a compound: autobedrijf, natuurbescherming (nl-begever)
+          @) be (L06      b@
           _) bedrijfs (@P8 b@dr'EIfs
           _) belasting (@P9 b@l'AstIN
           _) beleids (@P7 b@l'EIts
@@ -271,6 +283,8 @@
           @) eur (_       'Y:r
 
           &) e (nB@       E2
+          &) e (nbeL05++  @     // linking -en- before be- of the second part: personenbelasting (nl-begever)
+          &) e (nbeL06++  @
           &) e (ntig      @
          _p) e (nibel     e:
          id) e (nt        E
@@ -423,6 +437,10 @@
 .group ge
           _) ge (@P2      Q@
              ge (bied     Q@
+          @) ge (L07      Q@    // ge- inside a compound: taalgebruik, klantgericht (nl-begever)
+         @s) ge (L07      x@
+          @) ge (L08      Q@
+         @s) ge (L08      x@
           _) gebruikers (@P10 Q@br'Wyk@rs
           _) gee          Qe:
           _) gei          QEI
@@ -912,6 +930,14 @@
 .group v
              v            v
           s) v            f
+          @) ver (L09     v@r   // ver- inside a compound: autoverzekering, voetbalvereniging (nl-begever)
+         @s) ver (L09     f@r
+          @) ver (L10     v@r
+         @s) ver (L10     f@r
+          @) ver (L11     v@r
+         @s) ver (L11     f@r
+          @) ver (L12     v@r
+         @s) ver (L12     f@r
 
           _) vakantie (@P8 va:k'Antsi
           _) van (@P3     v%An

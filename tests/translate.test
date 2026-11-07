@@ -190,6 +190,17 @@ test_phon cmn "n'y21_| z.'@35n_| ts.ong55t'@21N_| f'u55_| s'o-51_|" "👩🏽"
 # but the sequence must not fall back to codepoint spelling or silence
 test_phon th "ch'u:2ni2 w'o2p nga5kh'ue2 n" "👍🏻"
 
+# Dutch: be-, ge- and ver- at the start of the second part of a compound are [b@], [Q@], [v@r]
+test_phon nl "t'a:lQ@br,Wyk" "taalgebruik"
+test_phon nl "dr'8xsx@br,Wyk" "drugsgebruik"
+test_phon nl "_!'VUto:b@dr,EIf" "autobedrijf"
+test_phon nl "na:t'yrb@sx,E2rmIN" "natuurbescherming"
+test_phon nl "p'Erzb@r,Ixt" "persbericht"
+test_phon nl "kl'AntQ@r,Ixt" "klantgericht"
+# ... but not where be belongs to another word
+test_phon nl "v'O:rbe:lt" "voorbeeld"
+test_phon nl "v#'I:r@ltb,e:k@r" "wereldbeker"
+
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phon sk "sm'eju:tsa s'a tv'a:R" "☺"
 test_phon sk "bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
