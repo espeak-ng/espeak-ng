@@ -1705,7 +1705,7 @@ check		tSEk
 chiffon		Sif'On
 cohesie		$2
 contour		ko:nt'ur
-controle	$2
+controle	kOntr'o:l@   // phonemes, not $2: the flag would set the stress of a whole compound (nl-compound-stress)
 coureur		ku:r'Y:r
 crèches		krES@s
 damascering     damA;s'e:rIN
@@ -1817,7 +1817,7 @@ periferie	pI:rifI:r'i
 perron		$2
 pistache	pist'AS
 portefeuille	pOrt@f'@j@
-premie		$1
+premie		pr'e:mi   // phonemes, not $1: the flag would set the stress of a whole compound (nl-compound-stress)
 privilege	privil'e:Z@ $alt2
 proces		$2
 projectielen    $3
