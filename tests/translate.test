@@ -16,12 +16,16 @@ test_phon nl "l'8xth,a:v@n" "luchthaven"
 test_phon nl "b'a:zIsx,o:l" "basisschool"
 test_phon nl "h'And,uk" "handdoek"
 test_phon nl "h'o:ft,e:l@f,o:n" "hoofdtelefoon"
+test_phon nl "t'EItsxr,Ift" "tijdschrift"
+test_phon nl "zv#'Emb,At" "zwembad"
 # ... but not inflections, diminutives or right-stressed exceptions
 test_phon nl "sn'El@r" "sneller"
 test_phon nl "p'8ntj@s" "puntjes"
 test_phon nl "st'a:t8s@n" "statussen"
 test_phon nl "rExtstr'e:ks" "rechtstreeks"
 test_phon nl "st,a:tsEkr@t'a:rIs" "staatssecretaris"
+test_phon nl "v'Ak@n" "vakken"
+test_phon nl "rExtsb'o:v@n" "rechtsboven"
 
 # suffix rules
 test_phon lv \
