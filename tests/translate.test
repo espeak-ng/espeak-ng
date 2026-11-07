@@ -19,7 +19,7 @@ test_phon en-US "d'eIbju:t#I#d" "débuted"
 
 # Dutch -tie before the second part of a compound
 test_phon nl "se:l'Eksiv,Akj@" "selectievakje"
-test_phon nl "k,OnfiQyr'a:tsib,EstAnt" "configuratiebestand"
+test_phon nl "k,OnfiQyr'a:tsisx,Erm" "configuratiescherm"
 test_phon nl "lis'E2ntsi,o:vI:r,e:NkOmst" "licentieovereenkomst"
 # ... but not -tief, -tiek, -tiem, -tiest or the number tien
 test_phon nl "r,EspEkt'iv@l@k" "respectievelijk"
