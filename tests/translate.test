@@ -43,6 +43,15 @@ dv'A (en)s'i:(ru) v'os;im; t'otS;ka# vOs;Ims'ot dv'A_:tsat;d;'evI3t; t'ys;itS;_!
 # A deleted phoneme at the start of a word should preserve the sourceix property.
 test_phon en-GB-x-gbcwmd "aI 'av" "I have"
 
+# Dutch: English loanwords pronounced the way Dutch speakers say them
+test_phon nl "_!'8pde:t" "update"
+test_phon nl "d'VUnlo:t" "download"
+test_phon nl "br'VUz@r" "browser"
+test_phon nl "_!'Ep" "app"
+test_phon nl "skr'o:l@n" "scrollen"
+# ... without changing Dutch words built on the same letters
+test_phon nl "t'uS@" "touche"
+
 # A deleted phonSWITCH should preserve the sourceix property of the deleted phoneme.
 test_phon hyw "'a g@rn'am" "A Կրնամ"
 
