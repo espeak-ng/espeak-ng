@@ -1571,9 +1571,12 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 		*p = 0;
 
 		if (suffix[0] != 0) {
-			if ((tr->langopts.ordinal_indicator != NULL) && (strcmp(suffix, tr->langopts.ordinal_indicator) == 0))
+			if ((tr->langopts.ordinal_indicator != NULL) && (strcmp(suffix, tr->langopts.ordinal_indicator) == 0)) {
+				// the indicator is part of the ordinal (Dutch 21e: eenentwintigste), don't speak it as a word
 				ordinal = 2;
-			else if (!IsDigit09(suffix[0])) { // not _#9 (tab)
+				flags[0] |= FLAG_SKIPWORDS;
+				skipwords = 1;
+			} else if (!IsDigit09(suffix[0])) { // not _#9 (tab)
 				sprintf(string, "_#%s", suffix);
 				if (Lookup(tr, string, ph_ordinal2)) {
 					// this is an ordinal suffix
