@@ -265,6 +265,57 @@ test_phon qya ",aInul'Indal,E ald'INga aNk'alIm,a and'u:RIl at'akwE k,alak'IRja 
 test_phon ro "m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila
 p@-*'ets f'iks" "Muzicologă în bej vând whisky și tequila, preț fix." "Latn"
 test_phon ru "Syr'okVja E#l;ikt@-r;if;ik'Atsyja 'juZnyx gub;'ern;ij d'Ast m'oS;nyj tVltS;'ok pVdj'8mu s;'elskVvV xVz;'Ajstva#" "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства." "Cyrl"
+test_phon sc "t'ot:u zOz 'EssErEz um'anOR n'askEn#E l'ib:ErOz E2 uQu'alEz in dinniD'aDE E2 in dEr'Et:OzO
+'issOs t'EnEn#E rEz'OnE E2 k:uss'entsia E2 d:'Ep:En# Op:Er'arE z'unu Qun s'at:eru Qun isp'irit:u dE vrat:eRniD'aDE" "Totu sos èsseres umanos naschent lìberos e uguales in dinnidade e in deretos. Issos tenent resone e cussèntzia e depent operare s'unu cun s'àteru cun ispìritu de fraternidade." "Latn"
+test_phon sc "b'ellu
+b'Ella
+b'onu
+b'Ona
+m'oRtu
+m'ORta
+ni'ed.:u
+ni'Ed.:a
+t'empuzu
+t'EmpOzO" "bellu, bella; bonu, bona; mortu, morta; nieddu, niedda; tempus, tempos" "Sardinian metaphony"
+test_phon sc "sa B'ira
+a2 p:'ira
+sa D'ERa
+a2 t:'ERa
+su Q'anE
+E2s su Q'anE
+sa d'OmO
+a2 d:'OmO
+sa t#ts'ia
+sa ddz'Ona
+sa ddZ'EntE" "sa pira, a pira; sa terra, a terra; su cane, e su cane; sa domo, a domo; sa tzia, sa zona, sa gente" "Sardinian lenition and doubling"
+test_phon sc "sOz am'iQOs s'un# in d'OmO
+saR f'eminas k'antan#a
+'ER b'onu
+'ab b'iDu zOs k'anEzE" "Sos amigos sunt in domo. Sas fèminas cantant. Est bonu. At bidu sos canes." "Sardinian final consonants"
+test_phon sc "n.d.'ab b'iDu
+d.'an nar'aDu
+s'at:eru
+b'aDa
+m'an nar'aDu
+l'amuR b'iDu" "nd'at bidu; dd'at naradu; s'àteru; b'at; m'at naradu; l'amus bidu" "Sardinian elision"
+test_phon sc "sa b,i2b,i2tS'i2 E2s sa D,i2v'u2" "sa BBC e sa TV" "Sardinian abbreviations"
+test_phon sc "su Br'imu
+sa Br'ima
+su zeQ'un.d.u
+sa zeQ'un.d.a" "su 1º, sa 1ª, su 2º, sa 2ª" "Sardinian ordinal numbers"
+test_phon sc "su dE Dr'EzE
+sa dE Dr'EzE
+su dE bintitr'EzE
+sa dE nOr,antan'OE
+su dE Q'entu" "su 3º, sa 3ª, su 23º, sa 99ª, su 100º" "Sardinian ordinal numbers from 3 (su de tres)"
+test_phon sc "dZu'annE bintitr'EzE
+su z'ek:ulu b'inti" "Giuanne XXIII, su sèculu XX" "Sardinian Roman numbers"
+test_phon sc "sp'ORt2O
+zm'aRt2a" "sport, smart" "Sardinian final -rt"
+test_phon sc "'ap:O b'iDu ,unu BrOQr'amma dE za r'ai 'eriz a2s s'ErO" "Apo bidu unu programma de sa RAI eris a sero" "Sardinian acronyms read as words"
+test_phon sc "su B'il dE zOz 'uza E2s sOR d'at:OR dE z'unitS:Ef" "Su PIL de sos USA e sos datos de s'UNICEF" "Sardinian acronyms read as words, also after an elided article"
+test_phon sc "su didZ:'ei 'as sOn'aDu in sa v'Esta dE zu DERmk'at2a" "Su DJ at sonadu in sa festa de su TERMCAT" "Sardinian acronyms read as words: DJ, TERMCAT"
+test_phon sc "su Q'oDiQE ,i2,EssEb,i2'EnnE dE zu l'ib:ru E2s s,i2,EssE,EssE'EnnE dE za riv'ista" "Su còdighe ISBN de su libru e s'ISSN de sa rivista" "Sardinian acronyms spelled letter by letter"
 test_phon sd "s'Indhi b'o:li; 'Ind.o: jo:R'Vpi xa:nd'a:n s'a~: t[a:l'Vq R,@k#@nd'Vr. a:Rj'a:i b'o:li; ,a:he:
 J'Vnhn t['e: ,aRb'i: bo:l'i:;a J'o: b'I t[@m'a:m v'Vd.o: as'VR ,a:he:
 h'Ina v'aqt s'Indhi b'o:li s'Indh J'e: m'Vk# b'o:li_! 'ae~ d,@f@t['VRi z@b'a:n ,a:he:" "سنڌي ٻولي انڊو يورپي خاندان سان تعلق رکندڙ آريائي ٻولي آھي، جنھن تي عربي ٻوليءَ جو بہ تمام وڏو اثر آهي. هن وقت سنڌي ٻولي سنڌ جي مک ٻولي ۽ دفتري زبان آھي." "Arab"
