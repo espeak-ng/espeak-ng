@@ -899,6 +899,34 @@
           p) tie (_       =si
           s) tie (_       =ti
         cra) tie (_       ts'i
+        @) tien (C      tin     // the number: achttiende, veertienjarige  (nl-tie-compound)
+       @t) tien (C      in      // acht-tien: the t is already spoken  (nl-tie-compound)
+        @) tie (C@      =tsi    // -tie before the second part of a compound: configuratiebestand  (nl-tie-compound)
+       @c) tie (C@      =si      // (nl-tie-compound)
+       @k) tie (C@      =si      // (nl-tie-compound)
+       @p) tie (C@      =si      // (nl-tie-compound)
+        @) tie (o@      =tsi    // licentieovereenkomst, applicatieondersteuning  (nl-tie-compound)
+        @) tie (a@      =tsi      // (nl-tie-compound)
+        @) tie (u@      =tsi      // (nl-tie-compound)
+        @) tie (ei      =tsi      // (nl-tie-compound)
+       @c) tie (o@      =si      // (nl-tie-compound)
+       @c) tie (a@      =si      // (nl-tie-compound)
+       @c) tie (u@      =si      // (nl-tie-compound)
+       @c) tie (ei      =si      // (nl-tie-compound)
+        @) tie (ve     t'i      // not -tie: actieve, respectievelijk, motieven  (nl-tie-compound)
+       @c) tie (ve     t'i      // (nl-tie-compound)
+       @c) tie (st     t'i      // (nl-tie-compound)
+       @c) tie (ke_    t'i      // (nl-tie-compound)
+       @c) tie (ken_   t'i      // (nl-tie-compound)
+       @c) tie (ker    t'i      // (nl-tie-compound)
+       @c) tie (me_    t'i      // (nl-tie-compound)
+       @c) tie (mer    t'i      // (nl-tie-compound)
+        @) tie (st     t'i      // artiest  (nl-tie-compound)
+        @) tie (ke_    t'i      // politieke, antieke  (nl-tie-compound)
+        @) tie (ken_   t'i      // (nl-tie-compound)
+        @) tie (ker    t'i      // (nl-tie-compound)
+        @) tie (me_    t'i      // intieme  (nl-tie-compound)
+        @) tie (mer    t'i      // (nl-tie-compound)
              tiee (l_     S'e:
              tië (le_     S'e:
           @) ti (a        S
