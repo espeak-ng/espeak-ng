@@ -44,7 +44,7 @@ test_phon nl "ho:t'El" "hotel"
 test_phon nl "dy'El" "duel"
 test_phon nl "_|,a:rdAp@lpyr'e:" "aardappelpuree"
 test_phon nl "h'e:m@lb,Et" "hemelbed"
-test_phon nl "S'o:ko:l,a:d@m,Elk" "chocolademelk"
+test_phon nl "k'Arn@m,Elk" "karnemelk"
 
 # pull request: MatchRule: Do not overflow the text https://github.com/espeak-ng/espeak-ng/pull/1126
 test_phon en "k'apIt@Lz" "capitals"
