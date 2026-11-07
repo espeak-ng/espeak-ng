@@ -91,7 +91,7 @@ test_phon ps "g'a:zra" "🥕"
 
 # Dutch: n + g after a long vowel or a linking -en- is [nQ], not [N]
 test_phon nl "ste:nQ'ut" "steengoed"
-test_phon nl "kl'EInQ@lt" "kleingeld"
+test_phon nl "v#'EInQa:rt" "wijngaard"
 test_phon nl "m,EId@nQr'up" "meidengroep"
 # ... but real ng stays [N]
 test_phon nl "br'EN@n" "brengen"
