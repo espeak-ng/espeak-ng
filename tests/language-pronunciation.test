@@ -218,6 +218,8 @@ test_phon ku "d'U mIlj'ar" "2000000000"
 test_phon ku "p'endZ mIlj'ar" "5000000000"
 test_phon ku "trIlj'on" "1000000000000"
 test_phon ku "s'e trIlj'on" "3000000000000"
+# Kurmanji four is çar (tS), not car (dZ)
+test_phon ku "tS'ar" "4"
 test_phon la  "s'Ik_ f'UgI;Ens_
 d'Uks_
 zElOt'ypOs_
