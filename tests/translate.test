@@ -23,6 +23,19 @@ test_phon en ",aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eIt
 test_phon lv "'ibm m'it 'ibm-s m'its 'ibm m'it 'aph ts'Es 'it_ks 'ibm-s m'its 'aphs ts'Ess 'it_kss 'a>_:,ess_! ,a:_:,ess_!v'e:_:_:_: s'i:a:_ 'u>_:t,e:_:t,e:_:" "ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs AS ASV SIA utt"
 test_phon ru "'Ibm (en),aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eItS s,i:;,i:;'Es ,aIt,i:;'Eks 'Ib@mz m'Its 'afz s'EI2zI2z 'ItEksz(ru) sE#SE#'A" "ИБМ ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs США"
 
+# Dutch: the linking -en- between the parts of a compound is [@n], not [En]
+test_phon nl "z'ik@nh,Wys" "ziekenhuis"
+test_phon nl "b'uk@Nk,Ast" "boekenkast"
+test_phon nl "b'a:na:n@nsx,Il" "bananenschil"
+test_phon nl "m'Ens@nr,Ext@n" "mensenrechten"
+test_phon nl "d'ir@nt,Wyn" "dierentuin"
+test_phon nl "t'o:r@nt;@" "torentje"
+test_phon nl "z,e:z@nt'Axt@x" "zesentachtig"
+# ... but a stressed stem stays [E]
+test_phon nl "n'a:dENk@n" "nadenken"
+test_phon nl "d'ia:l,o:QvEnst@r" "dialoogvenster"
+test_phon nl "Q@l'8kv#Ens@n" "gelukwensen"
+
 # bug: https://github.com/nvaccess/nvda/issues/7740
 test_phon ta "'il." "ள்"
 test_phon my "kon'i" "7"
