@@ -78,6 +78,8 @@
           _) advies (ci@P6   Adv'i          // compound, final consonant not doubled (nl-compound-stress exc)
           _) amateur (C@P7  ,a:ma:t'Y:r  // compound first element, stressed (nl-compound-stress)
           _) amateur (r@P7    ,a:ma:t'Y:     // compound, final consonant not doubled (nl-compound-stress exc)
+          _) asiel (C@P5  a:z'il         // compound first element, stressed (nl-compound-stress manual)
+          _) asiel (aanP5   a:z'il         // asielaanvraag (nl-compound-stress manual)
 
 
 .group b

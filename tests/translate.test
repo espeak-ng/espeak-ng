@@ -21,6 +21,7 @@ test_phon nl "zv#'Emb,At" "zwembad"
 test_phon nl "v#'Ast,a:f@l" "wastafel"
 test_phon nl "styd'Ent@nQr,up" "studentengroep"
 test_phon nl "to:n'e:lst,8k" "toneelstuk"
+test_phon nl "_|a:z'ilz,uk@r" "asielzoeker"
 # ... but not inflections, diminutives or right-stressed exceptions
 test_phon nl "sn'El@r" "sneller"
 test_phon nl "p'8ntj@s" "puntjes"
