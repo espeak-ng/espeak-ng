@@ -169,11 +169,6 @@ _8o	'Axtst@
 _0Co	h'OndErtst@
 
 
-// doubled r with stress on the first syllable (nl-rr)
-herrie	h'Eri
-kerrie	k'Eri
-merrie	m'Eri
-
 // abbreviations
 be	$abbrev   // used as domain abbrev for Belgium and in a lot of other names
 ca	ka: $hasdot
@@ -1765,6 +1760,9 @@ januari		$3
 jury		Zyri
 kadaster	$2
 kleinzerig	klEInz'e:r@Q
+herrie	h'Eri   // doubled r, stress on the first syllable (nl-rr)
+kerrie	k'Eri
+merrie	m'Eri
 kredietwaardig	$3
 le		l@	$only
 leesregel	le:sre:Q@l

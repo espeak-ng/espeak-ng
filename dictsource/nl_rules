@@ -8,7 +8,6 @@
 
 
 .group a
-               _) a (rre        %A         // arrest, arresteren (nl-rr)
              a            a:
              a (CK        A
              a (x         A
@@ -20,6 +19,7 @@
              auw          VU
              aauw         VU
              ay           a:j
+               _) a (rre        %A         // arrest, arresteren (nl-rr)
 
         @@C) a (_         =a:
           _) aan (@P3     'a:n
@@ -632,7 +632,6 @@
          _) muziek (@P6   myz'ik
 
 .group n
-             arra) n (ge        n          // arrangement, arrangeren: French ange (nl-rr)
              n            n
           n) n
              ng           N
@@ -640,6 +639,7 @@
              n (k         N
              n (g$w_alt3  n
              n (k$w_alt3  n
+             arra) n (ge        n          // arrangement, arrangeren: French ange (nl-rr)
 
           _) na (C@@P2    n'a:
           _) na (C@N      n'a:
@@ -671,8 +671,6 @@
 
 
 .group o
-              _c) o (rre        %O         // correct, correctie (nl-rr)
-              _c) o (rru        %O         // corrupt, corruptie (nl-rr)
              o            o:
              o (CK        O
              o (x         O
@@ -684,6 +682,8 @@
              oei          uj
              ou           VU
              ouw          VU
+              _c) o (rre        %O         // correct, correctie (nl-rr)
+              _c) o (rru        %O         // corrupt, corruptie (nl-rr)
              ou (rage     u
 
         @@C) o (_         =o:
