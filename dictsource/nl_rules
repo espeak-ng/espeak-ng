@@ -72,6 +72,12 @@
           _) avond (t@P5    'a:vOn         // compound, final consonant not doubled (nl-compound-stress exc)
           _) avond (je_     'a:vOnt        // diminutive, not a compound (nl-compound-stress exc)
           _) avond (jes_    'a:vOnt        // diminutive, not a compound (nl-compound-stress exc)
+          _) advies (C@P6  Adv'is       // compound first element, stressed (nl-compound-stress)
+          _) advies (s@P6    Adv'i          // compound, final consonant not doubled (nl-compound-stress exc)
+          _) advies (ce@P6   Adv'i          // compound, final consonant not doubled (nl-compound-stress exc)
+          _) advies (ci@P6   Adv'i          // compound, final consonant not doubled (nl-compound-stress exc)
+          _) amateur (C@P7  ,a:ma:t'Y:r  // compound first element, stressed (nl-compound-stress)
+          _) amateur (r@P7    ,a:ma:t'Y:     // compound, final consonant not doubled (nl-compound-stress exc)
 
 
 .group b
@@ -145,6 +151,17 @@
           _) bestanden (n@P9    b@st'And@      // compound, final consonant not doubled (nl-compound-stress exc)
           _) berg (C@P4  b'Erx          // compound first element, stressed (nl-compound-stress)
           _) berg (g@P4    b'Er           // compound, final consonant not doubled (nl-compound-stress exc)
+          _) bestuurs (C@P8  b@st'yrs       // compound first element, stressed (nl-compound-stress)
+          _) bestuurs (s@P8    b@st'yr        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) bestuurs (ce@P8   b@st'yr        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) bestuurs (ci@P8   b@st'yr        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) bestuurs (ter     b@st'yrs       // bestuurster: suffix -ster, not a compound (nl-compound-stress manual)
+          _) beroeps (C@P7  b@r'ups        // compound first element, stressed (nl-compound-stress)
+          _) beroeps (s@P7    b@r'up         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) beroeps (ce@P7   b@r'up         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) beroeps (ci@P7   b@r'up         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) belangen (C@P8  b@l'AN@n       // compound first element, stressed (nl-compound-stress)
+          _) belangen (n@P8    b@l'AN@        // compound, final consonant not doubled (nl-compound-stress exc)
 
 
 .group c
@@ -169,6 +186,9 @@
              co (ncert    k%O
           _) context (C@P7  k'OntEkst      // compound first element, stressed (nl-compound-stress)
           _) context (t@P7    k'OntEks       // compound, final consonant not doubled (nl-compound-stress exc)
+          _) cultuur (C@P7  k8lt'yr        // compound first element, stressed (nl-compound-stress)
+          _) cultuur (r@P7    k8lt'y         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) cultuur (hist    k8ltyr         // cultuurhistorisch: adjective stressed on the second part (nl-compound-stress manual)
 
 
 .group ch
@@ -204,6 +224,7 @@
         mar) ch           S
         _po) ch (e        S
       revan) ch (e        S
+          _) chocolade (C@P9  S,o:ko:l'a:d@  // compound first element, stressed (nl-compound-stress)
 
 
 .group d
@@ -342,6 +363,10 @@
           _) eind (t@P4    'EIn           // compound, final consonant not doubled (nl-compound-stress exc)
           _) eind (je_     'EInt          // diminutive, not a compound (nl-compound-stress exc)
           _) eind (jes_    'EInt          // diminutive, not a compound (nl-compound-stress exc)
+          _) elektriciteits (C@P14  ,e:lEktr,isit'EIts // compound first element, stressed (nl-compound-stress)
+          _) elektriciteits (s@P14   ,e:lEktr,isit'EIt // compound, final consonant not doubled (nl-compound-stress exc)
+          _) elektriciteits (ce@P14  ,e:lEktr,isit'EIt // compound, final consonant not doubled (nl-compound-stress exc)
+          _) elektriciteits (ci@P14  ,e:lEktr,isit'EIt // compound, final consonant not doubled (nl-compound-stress exc)
 
 .group en
           &) en (issen_   @n
@@ -523,6 +548,22 @@
           _) geld (C@P4  Q'Elt          // compound first element, stressed (nl-compound-stress)
           _) geld (d@P4    Q'El           // compound, final consonant not doubled (nl-compound-stress exc)
           _) geld (t@P4    Q'El           // compound, final consonant not doubled (nl-compound-stress exc)
+          _) geluids (C@P7  Q@l'Wyts       // compound first element, stressed (nl-compound-stress)
+          _) geluids (s@P7    Q@l'Wyt        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) geluids (ce@P7   Q@l'Wyt        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) geluids (ci@P7   Q@l'Wyt        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) gezondheids (C@P11  Q@z'OndhEIts   // compound first element, stressed (nl-compound-stress)
+          _) gezondheids (s@P11   Q@z'OndhEIt    // compound, final consonant not doubled (nl-compound-stress exc)
+          _) gezondheids (ce@P11  Q@z'OndhEIt    // compound, final consonant not doubled (nl-compound-stress exc)
+          _) gezondheids (ci@P11  Q@z'OndhEIt    // compound, final consonant not doubled (nl-compound-stress exc)
+          _) geslachts (C@P9  Q@sl'Axts      // compound first element, stressed (nl-compound-stress)
+          _) geslachts (s@P9    Q@sl'Axt       // compound, final consonant not doubled (nl-compound-stress exc)
+          _) geslachts (ce@P9   Q@sl'Axt       // compound, final consonant not doubled (nl-compound-stress exc)
+          _) geslachts (ci@P9   Q@sl'Axt       // compound, final consonant not doubled (nl-compound-stress exc)
+          _) gedrags (C@P7  Q@dr'Axs       // compound first element, stressed (nl-compound-stress)
+          _) gedrags (s@P7    Q@dr'Ax        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) gedrags (ce@P7   Q@dr'Ax        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) gedrags (ci@P7   Q@dr'Ax        // compound, final consonant not doubled (nl-compound-stress exc)
 
              
 
@@ -563,6 +604,9 @@
           _) hand (matig   hAnt           // handmatig: adjective in -ig, stressed on the stem before -ig (nl-compound-stress manual)
           _) help (C@P4  h'Elp          // compound first element, stressed (nl-compound-stress)
           _) help (p@P4    h'El           // compound, final consonant not doubled (nl-compound-stress exc)
+          _) hotel (C@P5  ho:t'El        // compound first element, stressed (nl-compound-stress)
+          _) hotel (le      ho:t'El        // not a compound (nl-compound-stress exc)
+          _) hotel (l@P5    ho:t'E         // compound, final consonant not doubled (nl-compound-stress exc)
 
 
 .group i
@@ -655,6 +699,10 @@
           _) ijs (ci@P3   'EI            // compound, final consonant not doubled (nl-compound-stress exc)
           _) ijs (je_     'EIs           // diminutive, not a compound (nl-compound-stress exc)
           _) ijs (jes_    'EIs           // diminutive, not a compound (nl-compound-stress exc)
+          _) identiteits (C@P11  ,idEntit'EIts // compound first element, stressed (nl-compound-stress)
+          _) identiteits (s@P11   ,idEntit'EIt   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) identiteits (ce@P11  ,idEntit'EIt   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) identiteits (ci@P11  ,idEntit'EIt   // compound, final consonant not doubled (nl-compound-stress exc)
 
 .group j
              j            j
@@ -662,6 +710,8 @@
           _) jaar (@P4    j'a:r
              jaar (lijk   ja:r
              jou (rna     Zu
+          _) jubileum (C@P8  j,ybil'e:8m    // compound first element, stressed (nl-compound-stress)
+          _) jubileum (m@P8    j,ybil'e:8     // compound, final consonant not doubled (nl-compound-stress exc)
 
 
 .group k
@@ -704,6 +754,18 @@
           _) kop (jes_    k'Op           // diminutive, not a compound (nl-compound-stress exc)
           _) kop (pig     k'Op           // koppig: not a compound (nl-compound-stress manual)
           _) kop (tisch   k'Op           // koptisch (Coptic): not a compound (nl-compound-stress manual)
+          _) klimaat (C@P7  klim'a:t       // compound first element, stressed (nl-compound-stress)
+          _) klimaat (to      klim'a:t       // not a compound (nl-compound-stress exc)
+          _) klimaat (t@P7    klim'a:        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) klimaat (neutr   klima:t        // klimaatneutraal: adjective stressed on the second part (nl-compound-stress manual)
+          _) kwaliteits (C@P10  kv#,a:lit'EIts // compound first element, stressed (nl-compound-stress)
+          _) kwaliteits (s@P10   kv#,a:lit'EIt  // compound, final consonant not doubled (nl-compound-stress exc)
+          _) kwaliteits (ce@P10  kv#,a:lit'EIt  // compound, final consonant not doubled (nl-compound-stress exc)
+          _) kwaliteits (ci@P10  kv#,a:lit'EIt  // compound, final consonant not doubled (nl-compound-stress exc)
+          _) kabinets (C@P8  k,a:bin'Ets    // compound first element, stressed (nl-compound-stress)
+          _) kabinets (s@P8    k,a:bin'Et     // compound, final consonant not doubled (nl-compound-stress exc)
+          _) kabinets (ce@P8   k,a:bin'Et     // compound, final consonant not doubled (nl-compound-stress exc)
+          _) kabinets (ci@P8   k,a:bin'Et     // compound, final consonant not doubled (nl-compound-stress exc)
 
 
 .group l
@@ -748,6 +810,10 @@
           _) levens (s@P6    l'e:v@n        // compound, final consonant not doubled (nl-compound-stress exc)
           _) levens (ce@P6   l'e:v@n        // compound, final consonant not doubled (nl-compound-stress exc)
           _) levens (ci@P6   l'e:v@n        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) lichaams (C@P8  lIx'a:ms       // compound first element, stressed (nl-compound-stress)
+          _) lichaams (s@P8    lIx'a:m        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) lichaams (ce@P8   lIx'a:m        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) lichaams (ci@P8   lIx'a:m        // compound, final consonant not doubled (nl-compound-stress exc)
 
 
 
@@ -787,6 +853,12 @@
           _) motor (C@P5  m'o:tOr        // compound first element, stressed (nl-compound-stress)
           _) motor (r@P5    m'o:tO         // compound, final consonant not doubled (nl-compound-stress exc)
           _) motor (tje_    m'o:tOr        // diminutive, not a compound (nl-compound-stress exc)
+          _) monumenten (C@P10  m,o:nym'Ent@n  // compound first element, stressed (nl-compound-stress)
+          _) monumenten (n@P10   m,o:nym'Ent@   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) marine (C@P6  ma:r'in@       // compound first element, stressed (nl-compound-stress)
+          _) menu (C@P4  m@n'y          // compound first element, stressed (nl-compound-stress)
+          _) machine (C@P7  ma:S'in@       // compound first element, stressed (nl-compound-stress)
+          _) machine (rie     ma:S'in@       // machinerie: not a compound (nl-compound-stress manual)
 
 .group n
              n            n
@@ -940,6 +1012,32 @@
           _) post (C@P4  p'Ost          // compound first element, stressed (nl-compound-stress)
           _) post (te      p'Ost          // not a compound (nl-compound-stress exc)
           _) post (t@P4    p'Os           // compound, final consonant not doubled (nl-compound-stress exc)
+          _) partij (C@P6  pArt'EI        // compound first element, stressed (nl-compound-stress)
+          _) partij (tje_    pArt'EI        // diminutive, not a compound (nl-compound-stress exc)
+          _) partij (tjes_   pArt'EI        // diminutive, not a compound (nl-compound-stress exc)
+          _) partij (dig     pArt'EI        // partijdig: not a compound (nl-compound-stress manual)
+          _) pensioen (C@P8  pEnS'un        // compound first element, stressed (nl-compound-stress)
+          _) pensioen (n@P8    pEnS'u         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) personeels (C@P10  p,Erso:n'e:ls  // compound first element, stressed (nl-compound-stress)
+          _) personeels (s@P10   p,Erso:n'e:l   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) personeels (ce@P10  p,Erso:n'e:l   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) personeels (ci@P10  p,Erso:n'e:l   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) parlements (C@P10  p,Arl@m'Ents   // compound first element, stressed (nl-compound-stress)
+          _) parlements (s@P10   p,Arl@m'Ent    // compound, final consonant not doubled (nl-compound-stress exc)
+          _) parlements (ce@P10  p,Arl@m'Ent    // compound, final consonant not doubled (nl-compound-stress exc)
+          _) parlements (ci@P10  p,Arl@m'Ent    // compound, final consonant not doubled (nl-compound-stress exc)
+          _) programma (C@P9  pro:Qr'Ama:    // compound first element, stressed (nl-compound-stress)
+          _) programma (tisch   pro:QrAma:     // programmatisch: not a compound (nl-compound-stress manual)
+          _) programma (tie     pro:QrAma:     // programmatie: not a compound (nl-compound-stress manual)
+          _) programma (tuur    pro:QrAma:     // programmatuur: not a compound (nl-compound-stress manual)
+          _) piano (C@P5  pi'a:no:       // compound first element, stressed (nl-compound-stress)
+          _) presidents (C@P10  pr,e:zid'Ents  // compound first element, stressed (nl-compound-stress)
+          _) presidents (s@P10   pr,e:zid'Ent   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) presidents (ce@P10  pr,e:zid'Ent   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) presidents (ci@P10  pr,e:zid'Ent   // compound, final consonant not doubled (nl-compound-stress exc)
+          _) papier (C@P6  pa:p'ir        // compound first element, stressed (nl-compound-stress)
+          _) papier (r@P6    pa:p'i         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) papier (tje_    pa:p'ir        // diminutive, not a compound (nl-compound-stress exc)
 
 
 
@@ -996,6 +1094,8 @@
           _) rechter (C@P7  r'Ext@r        // compound first element, stressed (nl-compound-stress)
           _) rechter (ri      r'Ext@         // not a compound (nl-compound-stress exc)
           _) rechter (r@P7    r'Ext@         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) reclame (C@P7  rEkl'a:m@      // compound first element, stressed (nl-compound-stress)
+          _) reclame (r       rEkl'a:m@      // reclameren: not a compound (nl-compound-stress manual)
 
 
 .group s
@@ -1081,6 +1181,21 @@
           _) sein (C@P4  s'EIn          // compound first element, stressed (nl-compound-stress)
           _) sein (n@P4    s'EI           // compound, final consonant not doubled (nl-compound-stress exc)
           _) sein (tje_    s'EIn          // diminutive, not a compound (nl-compound-stress exc)
+          _) studenten (C@P9  styd'Ent@n     // compound first element, stressed (nl-compound-stress)
+          _) studenten (n@P9    styd'Ent@      // compound, final consonant not doubled (nl-compound-stress exc)
+          _) student (C@P7  styd'Ent       // compound first element, stressed (nl-compound-stress)
+          _) student (t@P7    styd'En        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) stations (C@P8  sta:S'Ons      // compound first element, stressed (nl-compound-stress)
+          _) stations (s@P8    sta:S'On       // compound, final consonant not doubled (nl-compound-stress exc)
+          _) stations (ce@P8   sta:S'On       // compound, final consonant not doubled (nl-compound-stress exc)
+          _) stations (ci@P8   sta:S'On       // compound, final consonant not doubled (nl-compound-stress exc)
+          _) succes (C@P6  s8ks'Es        // compound first element, stressed (nl-compound-stress)
+          _) succes (se      s8ks'E         // not a compound (nl-compound-stress exc)
+          _) succes (si      s8ks'E         // not a compound (nl-compound-stress exc)
+          _) succes (s@P6    s8ks'E         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) succes (ce@P6   s8ks'E         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) succes (ci@P6   s8ks'E         // compound, final consonant not doubled (nl-compound-stress exc)
+          _) succes (je_     s8ks'Es        // diminutive, not a compound (nl-compound-stress exc)
 
 
 .group t
@@ -1147,6 +1262,11 @@
           _) top (je_     t'Op           // diminutive, not a compound (nl-compound-stress exc)
           _) top (jes_    t'Op           // diminutive, not a compound (nl-compound-stress exc)
           _) top (pe      t'Op           // toppen, topper: not a compound (nl-compound-stress manual)
+          _) toneel (C@P6  to:n'e:l       // compound first element, stressed (nl-compound-stress)
+          _) toneel (l@P6    to:n'e:        // compound, final consonant not doubled (nl-compound-stress exc)
+          _) tabel (C@P5  ta:b'El        // compound first element, stressed (nl-compound-stress)
+          _) tabel (le      ta:b'El        // not a compound (nl-compound-stress exc)
+          _) tabel (l@P5    ta:b'E         // compound, final consonant not doubled (nl-compound-stress exc)
 
 .group te
           _) tege (lijk   t@Q@
@@ -1248,6 +1368,14 @@
           _) vak (je_     v'Ak           // diminutive, not a compound (nl-compound-stress exc)
           _) vak (jes_    v'Ak           // diminutive, not a compound (nl-compound-stress exc)
           _) vak (ke      v'Ak           // vakken: plural, not a compound (nl-compound-stress manual)
+          _) verkiezings (C@P11  v@rk'izINs     // compound first element, stressed (nl-compound-stress)
+          _) verkiezings (s@P11   v@rk'izIN      // compound, final consonant not doubled (nl-compound-stress exc)
+          _) verkiezings (ce@P11  v@rk'izIN      // compound, final consonant not doubled (nl-compound-stress exc)
+          _) verkiezings (ci@P11  v@rk'izIN      // compound, final consonant not doubled (nl-compound-stress exc)
+          _) verzekerings (C@P12  v@rz'e:k@r,INs // compound first element, stressed (nl-compound-stress)
+          _) verzekerings (s@P12   v@rz'e:k@r,IN  // compound, final consonant not doubled (nl-compound-stress exc)
+          _) verzekerings (ce@P12  v@rz'e:k@r,IN  // compound, final consonant not doubled (nl-compound-stress exc)
+          _) verzekerings (ci@P12  v@rz'e:k@r,IN  // compound, final consonant not doubled (nl-compound-stress exc)
 
 
 .group w
