@@ -33,6 +33,15 @@ test_phon hi "r'UcI" "रुचि"
 test_phon hi "dUk'a:n" "दुकान"
 test_phon hi "ka:n'u:n" "कानून"
 
+# Dutch: final -el is unstressed [@l] (tafel, also in compounds), except
+# in compounds ending in a one-syllable word and in final-stressed loans
+test_phon nl "v#'Asta:f@l" "wastafel"
+test_phon nl "Q@n'e:smId@l" "geneesmiddel"
+test_phon nl "v#'Ebv#INk@l" "webwinkel"
+test_phon nl "kOmpj'ut@rsp,El" "computerspel"
+test_phon nl "ho:t'El" "hotel"
+test_phon nl "dy'El" "duel"
+
 # pull request: MatchRule: Do not overflow the text https://github.com/espeak-ng/espeak-ng/pull/1126
 test_phon en "k'apIt@Lz" "capitals"
 
