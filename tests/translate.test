@@ -8,6 +8,29 @@ test_phon en "h@l'oU" "hello"
 # correct word stress
 test_phon en "s'VmTIN Imp'o@t@nt" "something important"
 
+# Dutch compounds: primary stress on the first element
+test_phon nl "sn'Elt,uts" "sneltoets"
+test_phon nl "v#'O:rd@nb,uk" "woordenboek"
+test_phon nl "b@st'Antsn,a:m" "bestandsnaam"
+test_phon nl "l'8xth,a:v@n" "luchthaven"
+test_phon nl "b'a:zIsx,o:l" "basisschool"
+test_phon nl "h'And,uk" "handdoek"
+test_phon nl "h'o:ft,e:l@f,o:n" "hoofdtelefoon"
+test_phon nl "t'EItsxr,Ift" "tijdschrift"
+test_phon nl "zv#'Emb,At" "zwembad"
+test_phon nl "v#'Ast,a:f@l" "wastafel"
+test_phon nl "styd'Ent@nQr,up" "studentengroep"
+test_phon nl "to:n'e:lst,8k" "toneelstuk"
+test_phon nl "_|a:z'ilz,uk@r" "asielzoeker"
+# ... but not inflections, diminutives or right-stressed exceptions
+test_phon nl "sn'El@r" "sneller"
+test_phon nl "p'8ntj@s" "puntjes"
+test_phon nl "st'a:t8s@n" "statussen"
+test_phon nl "rExtstr'e:ks" "rechtstreeks"
+test_phon nl "st,a:tsEkr@t'a:rIs" "staatssecretaris"
+test_phon nl "v'Ak@n" "vakken"
+test_phon nl "rExtsb'o:v@n" "rechtsboven"
+
 # suffix rules
 test_phon lv \
 	"nev'ie:na nuo\`_ 'eiRo:pas v'alsti:m nek,ad nav p'a:Rga:jusi nuo\`_ 'univERsa:la:s_:_: nuo\` v'ispa:Re:jiem n'uoduok_|l^iem f'inanse:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" \

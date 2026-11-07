@@ -1705,7 +1705,7 @@ check		tSEk
 chiffon		Sif'On
 cohesie		$2
 contour		ko:nt'ur
-controle	$2
+controle	kOntr'o:l@   // phonemes, not $2: the flag would set the stress of a whole compound (nl-compound-stress)
 coureur		ku:r'Y:r
 crèches		krES@s
 damascering     damA;s'e:rIN
@@ -1817,7 +1817,7 @@ periferie	pI:rifI:r'i
 perron		$2
 pistache	pist'AS
 portefeuille	pOrt@f'@j@
-premie		$1
+premie		pr'e:mi   // phonemes, not $1: the flag would set the stress of a whole compound (nl-compound-stress)
 privilege	privil'e:Z@ $alt2
 proces		$2
 projectielen    $3
@@ -1927,3 +1927,52 @@ nasi		nAsi
 navoel		$2		// navoelbaar(/bare)
 navulbaar	$2
 
+// Exceptions to the compound first-element rules in nl_rules (nl-compound-stress)
+rechtstreeks	rExtstr'e:ks
+rechtstreekse	rExtstr'e:ks@
+staatssecretaris	st,a:tsEkr@t'a:rIs
+staatssecretarissen	st,a:tsEkr@t'a:rIs@n
+hoofdzakelijk	ho:fts'a:k@l@k
+hoofdzakelijke	ho:fts'a:k@l@k@
+levensgevaarlijk	le:v@nsx@v'a:rl@k
+levensgevaarlijke	le:v@nsx@v'a:rl@k@
+vastbesloten	v,AstbEsl'o:t@n
+vastberaden	vAstb@r'a:d@n
+vastberadenheid	vAstb@r'a:d@nhEIt
+kunstmatig	k8nstm'a:t@x
+kunstmatige	k8nstm'a:t@Q@
+zorgvuldig	zOrxf'8ld@x
+zorgvuldige	zOrxf'8ld@Q@
+zorgvuldigheid	zOrxf'8ld@xhEIt
+onzorgvuldig	OnzOrxf'8ld@x
+strafproces	str'Afpro:sEs
+strafprocessen	str'Afpro:sEs@n
+bloedverwant	bl'utf@rv#Ant
+bloedverwanten	bl'utf@rv#Ant@n
+oorkonde	'O:rkOnd@
+oorkonden	'O:rkOnd@n
+kunstzinnig	k8nsts'In@x
+kunstzinnige	k8nsts'In@Q@
+slagvaardig	slAxf'a:rd@x
+slagvaardigheid	slAxf'a:rd@xhEIt
+vakmatig	vAkm'a:t@x
+vakbekwaam	vAgb@kv#'a:m
+vakbekwaamheid	vAgb@kv#'a:mhEIt
+rechtsboven	rExtsb'o:v@n
+rechtsonder	rExts'Ond@r
+linksonder	lINks'Ond@r
+klaarblijkelijk	kla:rbl'EIk@l@k
+klaarlichte	kla:rl'Ixt@
+vierkant	virk'Ant
+vierkante	virk'Ant@
+vierkanten	virk'Ant@n
+handjevol	h'Antj@vOl
+meester	m'e:st@r
+statuscellen	st'a:t8sEl@n
+object	Obj'Ekt
+objecten	Obj'Ekt@n
+rechthoek	r'Exthuk
+rechthoeken	r'Exthuk@n
+rechthoekig	r'Exthuk@x
+achthoek	'Axthuk
+broncode	br'Onko:d@
