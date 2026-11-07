@@ -231,6 +231,50 @@ bila	$u
 bili	$u
 
 
+// abbreviations
+ach     $abbrev
+agrft   $abbrev
+amzs    $abbrev
+atp     $abbrev
+cpu     $abbrev
+dutb    $abbrev
+ecb     $abbrev
+ekg     $abbrev
+eu      $abbrev
+gso     $abbrev
+hdmi    $abbrev
+ikt     $abbrev
+it      $abbrev
+ip      $abbrev
+itm     $abbrev
+iq      $abbrev
+kpk     $abbrev
+mzi     $abbrev
+rk      $abbrev
+nlp     $abbrev
+nsi     $abbrev
+nvo     $abbrev
+oecd    $abbrev
+okm     $abbrev
+oks     $abbrev
+oš      $abbrev
+ozn     $abbrev
+otp     $abbrev
+rbg     $abbrev
+rtv     $abbrev
+sfrj    $abbrev
+sql     $abbrev
+trr     $abbrev
+ufc     $abbrev
+ui      $abbrev
+ukc     $abbrev
+url     $abbrev
+uv      $abbrev
+zda     $abbrev
+zrsz    $abbrev
+zssr    $abbrev
+
+
 // exceptions
 // (these are just a few example exceptions)
 

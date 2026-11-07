@@ -2744,7 +2744,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	length = 0;
 	word2 = word1 = *wordptr;
 
-	while ((word2[nbytes = utf8_nbytes(word2)] == ' ') && (word2[nbytes+1] == '.')) {
+	while ((*word2 != 0) && (word2[nbytes = utf8_nbytes(word2)] == ' ') && (word2[nbytes+1] == '.')) {
 		// look for an abbreviation of the form a.b.c
 		// try removing the spaces between the dots and looking for a match
 		if ((nbytes <= 0) || ((size_t)nbytes + 1 > sizeof(word) - (size_t)length)) {
