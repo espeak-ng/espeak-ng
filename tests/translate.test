@@ -26,7 +26,7 @@ test_phon ru "'Ibm (en),aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eI
 # Dutch: the linking -en- between the parts of a compound is [@n], not [En]
 test_phon nl "z'ik@nh,Wys" "ziekenhuis"
 test_phon nl "b'uk@Nk,Ast" "boekenkast"
-test_phon nl "b'a:na:n@nsx,Il" "bananenschil"
+test_phon nl "ba:n'a:n@nsx,Il" "bananenschil"
 test_phon nl "m'Ens@nr,Ext@n" "mensenrechten"
 test_phon nl "d'ir@nt,Wyn" "dierentuin"
 test_phon nl "t'o:r@nt;@" "torentje"
