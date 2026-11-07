@@ -30,10 +30,11 @@ test_phon nl "ba:n'a:n@nsx,Il" "bananenschil"
 test_phon nl "m'Ens@nr,Ext@n" "mensenrechten"
 test_phon nl "d'ir@nt,Wyn" "dierentuin"
 test_phon nl "t'o:r@nt;@" "torentje"
-test_phon nl "z,Es@nt'Axt@x" "zesentachtig"
+test_phon nl "z'Es@nt,Axt@x" "zesentachtig"
+test_phon nl "v'ir@nn,e:Q@nt@x" "vierennegentig"
 # ... but a stressed stem stays [E]
 test_phon nl "n'a:dENk@n" "nadenken"
-test_phon nl "d'ia:l,o:QvEnst@r" "dialoogvenster"
+test_phon nl "b@r'IxtvEnst@r" "berichtvenster"
 test_phon nl "Q@l'8kv#Ens@n" "gelukwensen"
 
 # bug: https://github.com/nvaccess/nvda/issues/7740

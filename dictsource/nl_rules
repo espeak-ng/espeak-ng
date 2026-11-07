@@ -191,6 +191,8 @@
              dt           t
              ds (_N       ts
              d (st        t
+        @en) dertig (_S6  d,Ert@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) dertigste (_S9 d,Ert@xst@
 //          _) de (CC@P2      d@  // Used a lot in family names
           _) de (geen     d@    // degene, degenen
           _) de (zelf     d@
@@ -692,6 +694,8 @@
           _) na (tion     na:
           _) nano (@P4    n'a:no:
           _) na (polA     n%a:
+        @en) negentig (_S8  n,e:Q@nt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) negentigste (_S11 n,e:Q@nt@xst@
              napoleon     n%a:po:l@jOn
           _) natuur       na:t'yr
              na (tur      n%a:
@@ -902,6 +906,10 @@
           @) ti (euz      S
           @) ti (ë        S
           @) ti (on       S
+        @en) twintig (_S7  tv#,Int@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) twintigste (_S10 tv#,Int@xst@
+        @en) tachtig (_S7  t,Axt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) tachtigste (_S10 t,Axt@xst@
           s) t (i++       t
              tj           t;
              tsj          tS
@@ -971,6 +979,10 @@
           _) vang         vAN
           _) ver (@P3     v@r
           _) ver (enK     vI:r  // veren(d)(de)
+        @en) veertig (_S7  f,e:rt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) veertigste (_S10 f,e:rt@xst@
+        @en) vijftig (_S7  v,EIft@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) vijftigste (_S10 v,EIft@xst@
           _) ver (sie_    vEr
           _) verder       vErd@r
           _) verkeers (@P8 v@rk'I:rs
@@ -1035,6 +1047,10 @@
           _) zeeuw        zeU
           _) zes (en      z'Es       // zesentwintig, zesentachtig: zes keeps [Es] (nl-linking-en)
              zele (_S4   ze:l@ // common suffix for cities.
+        @en) zestig (_S6  z,Est@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) zestigste (_S9 z,Est@xst@
+        @en) zeventig (_S8  z,e:v@nt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) zeventigste (_S11 z,e:v@nt@xst@
           @) zelf (_S4   s'Elf
           _) zoge (@P4    z,o:Q@
           _) zomer (@P5   z'o:m@r
