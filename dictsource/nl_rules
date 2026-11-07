@@ -466,6 +466,9 @@
 
 
 .group i
+         @C) i (ging      @    // unstressed -ig- of a verb before -ing: bevestiging, wijziging (nl-iging)
+         @C) i (gd        @    // ... and in the participle and past tense: bevestigd, bevestigde
+         @C) i (gt        @    // ... and in the present: wijzigt
              i            i
              ij (+        EI
              i (CK        I
