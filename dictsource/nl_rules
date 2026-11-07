@@ -1291,6 +1291,14 @@
           _) winkel (l@P6    v#'INk@        // compound, final consonant not doubled (nl-compound-stress exc)
           _) winkel (tje_    v#'INk@l       // diminutive, not a compound (nl-compound-stress exc)
           _) winkel (tjes_   v#'INk@l       // diminutive, not a compound (nl-compound-stress exc)
+          _) was (C@P3  v#'As          // compound first element, stressed (nl-compound-stress)
+          _) was (se      v#'A           // not a compound (nl-compound-stress exc)
+          _) was (s@P3    v#'A           // compound, final consonant not doubled (nl-compound-stress exc)
+          _) was (ce@P3   v#'A           // compound, final consonant not doubled (nl-compound-stress exc)
+          _) was (ci@P3   v#'A           // compound, final consonant not doubled (nl-compound-stress exc)
+          _) was (je_     v#'As          // diminutive, not a compound (nl-compound-stress exc)
+          _) was (hing   v#'As          // Washington: not a compound (nl-compound-stress manual)
+          _) was (serij  v#A            // wasserij: stressed on -rij, not a compound (nl-compound-stress manual)
 
 
 .group x

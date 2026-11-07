@@ -18,6 +18,7 @@ test_phon nl "h'And,uk" "handdoek"
 test_phon nl "h'o:ft,e:l@f,o:n" "hoofdtelefoon"
 test_phon nl "t'EItsxr,Ift" "tijdschrift"
 test_phon nl "zv#'Emb,At" "zwembad"
+test_phon nl "v#'Ast,a:f@l" "wastafel"
 # ... but not inflections, diminutives or right-stressed exceptions
 test_phon nl "sn'El@r" "sneller"
 test_phon nl "p'8ntj@s" "puntjes"
