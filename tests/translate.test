@@ -72,7 +72,7 @@ test_phon nl "s'Irka: t'in" "ca. tien"
 test_phon nl "m@vr'VU d@ vr'is" "mw. de Vries"
 # ... but not without the dot
 test_phon nl "b'EIf" "bijv"
-test_phon nl "v'EIfh,Ond@rt _!,Emv'e:" "500 MW"
+test_phon nl "v'EIfh,Ond@rt _!,Emv#'e:" "500 MW"
 
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
