@@ -30,6 +30,12 @@ test_phon nl "rExtstr'e:ks" "rechtstreeks"
 test_phon nl "st,a:tsEkr@t'a:rIs" "staatssecretaris"
 test_phon nl "v'Ak@n" "vakken"
 test_phon nl "rExtsb'o:v@n" "rechtsboven"
+# ... and a second part after a linking -en- does not take the stress from the first part
+test_phon nl "p'An@Nk,uk" "pannenkoek"
+test_phon nl "r'e:Q@nb,o:x" "regenboog"
+test_phon nl "n'o:t@nl,Ir" "notenleer"
+# ... while Latinate words keep their final stress
+test_phon nl "f,8nda:m@nt'e:l" "fundamenteel"
 
 # suffix rules
 test_phon lv \

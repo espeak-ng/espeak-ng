@@ -1,6 +1,8 @@
 // translation rules for Dutch
 // This file is UTF-8 encoded
 
+.L20  b d f g h j k l m n p r s v w z bl br dr fl fr gl gr kl kn kr pl pr sl sm sn sp st sw zw sch schr spr str  // onset of a second part after a linking -en- (not t: fundamenteel, departementaal)
+
 // Suffix rule: SUFX_E  eg. S2e  means double the vowel before the final consonant
 
 .L01  g k
@@ -26,6 +28,7 @@
           &) aard (_S4    a:rt
              aa (rd_      'a:
              aa (C_       'a:
+      @CenL20) aa (C_     a:   // second part after a linking -en- (korenmaat): no final stress, the first part keeps it (nl-compound-stress)
           z) aa (m_       a:
           t) a (bleau     a:
           @) abel (_      'a:b@l
@@ -294,6 +297,11 @@
 //             eau (_       'o:
           @) ee (_        'e:
           @) ee (X_       'e:
+      @CenL20) ee (X_     e:   // second part after a linking -en- (hagenpreek): no final stress (nl-compound-stress)
+      @CenL20) ee (r_     I    // notenleer
+      @CenL20) ee (rt_    I
+      @CenL20) ee (rd_    I
+      derdenL20) ee (X_  'e:   // honderdennegen, honderdenzeven: the number keeps its stress
           @) ee (r_       'I
           h) ee (r_       I:
           @) ee (rt_      'I
@@ -919,6 +927,8 @@
         @@C) o (_         =o:
              obsc (u      opsk
              oe (X_       'u
+      @CenL20) oe (X_     u    // second part after a linking -en- (pannenkoek, paddenstoel): no final stress (nl-compound-stress)
+      @CenL20) oo (C_     o:   // regenboog, boerenkool
              office       Of@s
              oir (_       'v#a:r
          pl) oi (t        v#A
