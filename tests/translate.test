@@ -83,6 +83,14 @@ test_phon en "'e@ri:z r'eInboU" "♈ 🌈"
 test_phon en "f'IS tr'0pIk@L f'IS" "fish🐠"
 test_phon ru "d'ymu t@-rVp;'itS;iskVja @-r'yba#" "дыму🐠"
 
+# Dutch: n + g after a long vowel or a linking -en- is [nQ], not [N]
+test_phon nl "ste:nQ'ut" "steengoed"
+test_phon nl "kl'EInQ@lt" "kleingeld"
+test_phon nl "st,yd@nt@nQr'up" "studentengroep"
+# ... but real ng stays [N]
+test_phon nl "br'EN@n" "brengen"
+test_phon nl "v@rstr'EN@lt" "verstrengeld"
+
 # multi-word emoji
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"

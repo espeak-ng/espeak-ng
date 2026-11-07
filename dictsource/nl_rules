@@ -628,6 +628,37 @@
 .group n
              n            n
           n) n
+               aa) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               ee) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               oe) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               oo) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               ij) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               ij) n (g_        n          // wijngaard: -aard is removed before this match (nl-ng)
+                stre) ng        N          // strengel: real ng (nl-ng)
+           stre) ng (eld        N          // verstrengeld: real ng (nl-ng)
+               ei) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               ui) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               uu) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+               ie) n (g@        n          // ng after a long vowel is n + g: steengoed, kleingeld, wijngaard (nl-ng)
+           @Ce) n (groep        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+          @Ce) n (gebied        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+            @Ce) n (goed        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+            @Ce) n (geld        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+          @Ce) n (gracht        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+          @Ce) n (gordel        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+          @Ce) n (gemeen        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+            @Ce) n (geur        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+          @Ce) n (gebouw        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+             @Ce) n (gif        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+           @Ce) n (groei        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+        @Ce) n (gebergte        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+          @Ce) n (genees        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+            @Ce) n (gaan        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+         @Ce) n (genomen        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+           @Ce) n (gezet        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+            @Ce) n (gids        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+           @Ce) n (grens        n          // linking -en- before a second part with g: studentengroep (nl-ng)
+            @Ce) n (gras        n          // linking -en- before a second part with g: studentengroep (nl-ng)
              ng           N
              nj           n^
              n (k         N
