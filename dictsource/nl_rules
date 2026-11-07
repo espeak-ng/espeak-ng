@@ -19,6 +19,7 @@
              auw          VU
              aauw         VU
              ay           a:j
+               _) a (rre        %A         // arrest, arresteren (nl-rr)
 
         @@C) a (_         =a:
           _) aan (@P3     'a:n
@@ -195,6 +196,8 @@
 
 
 .group e
+              _t) e (rra        %E         // terras: unstressed first syllable (nl-rr)
+             _t) e (rrei        %E         // terrein (nl-rr)
              e            e#  // [e:] but change to [@] in unstressed syllables
           X) e            e:  // first syllable in a word
 
@@ -400,6 +403,7 @@
 
 
 .group g
+             arran) g (e        Z          // arrangement, arrangeren: French ange (nl-rr)
              g            Q    // ph_dutch changes to [x] before unvoiced, NULL after [x]
              gg           Q
           s) g            x
@@ -453,6 +457,8 @@
           C) hand (_S4    h'Ant
           _) handicap     hEndikEp
           _) her (@P3     hEr
+          _) her (r@P3    hE       // herrijzen, herroepen: r not doubled (nl-rr)
+          _) her (rie     hE       // herrie: not a prefix (nl-rr)
           _) her (der     hEr
           _) her (ds      hEr
           _) her (en      hI:r
@@ -633,6 +639,7 @@
              n (k         N
              n (g$w_alt3  n
              n (k$w_alt3  n
+             arra) n (ge        n          // arrangement, arrangeren: French ange (nl-rr)
 
           _) na (C@@P2    n'a:
           _) na (C@N      n'a:
@@ -675,6 +682,8 @@
              oei          uj
              ou           VU
              ouw          VU
+              _c) o (rre        %O         // correct, correctie (nl-rr)
+              _c) o (rru        %O         // corrupt, corruptie (nl-rr)
              ou (rage     u
 
         @@C) o (_         =o:
@@ -765,7 +774,7 @@
              r            r
           A) r (A         r
           C) r (A         r
-             rr          *r
+             rr          r      // a doubled r is one r: terrein, carrière, sherry (nl-rr)
 
              route        rut@  // route(s)
 

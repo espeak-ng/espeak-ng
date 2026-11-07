@@ -52,6 +52,13 @@ d'i:
 'i:
 'Ef" "A. B C, D. E: F."
 
+# Dutch: a doubled r is one r
+test_phon nl "_|,Irit'Ant" "irritant"
+test_phon nl "S'Eri" "sherry"
+test_phon nl "tEr'As" "terras"
+test_phon nl "kOr'Ekt" "correct"
+test_phon nl "h'Eri" "herrie"
+
 # Handling of english acronym + genitive without breaking simple quote
 test_phon en "hi: s'Ed
 aI w0z b'O@n InD@ j,u:,Es'eI z_:_: and l'Eft" "He said : I was born in the u.s.a.'s and left."
