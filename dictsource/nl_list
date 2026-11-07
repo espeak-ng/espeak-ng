@@ -171,7 +171,7 @@ _0Co	h'OndErtst@
 
 // abbreviations
 be	$abbrev   // used as domain abbrev for Belgium and in a lot of other names
-ca	ka: $hasdot
+ca	s'Irka: $hasdot
 enz	Enzo:vo:rt
 bvb	bEIv'o:rbe:lt
 eu	e:_y: $abbrev
@@ -179,6 +179,18 @@ kmo     $abbrev
 KMI	$abbrev
 KNMI	$abbrev
 nr	n8m@r
+bijv	bEIv'o:rbe:lt $hasdot
+blz	bl'AtsEId@ $hasdot
+dhr	d@h'e:r $hasdot
+etc	Ets'e:t@ra: $hasdot
+evt	e:v@ntyw'e:l $hasdot
+excl	Ekskly:z'if $hasdot
+incl	Inkly:z'if $hasdot
+jl	j'ONstle:d@n $hasdot
+mevr	m@vr'VU $hasdot
+ong	ON@v'e:r $hasdot
+resp	rEspEkt'iv@l@k $hasdot
+vs	v'Ers8s
 nvda	$abbrev
 VMMa    $abbrev
 
