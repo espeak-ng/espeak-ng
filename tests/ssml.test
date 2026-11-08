@@ -28,17 +28,24 @@ test_ssml() {
 	then
 	PARAMETERS="--punct -x"
 	else
-	PARAMETERS="-v en-US --ipa=2"
+	PARAMETERS="-v en-US --ipa=2 --ipa-sbr"
 	fi
 
 	echo "testing ${INPUT}"
 	EXPECTED=$(cat $(dirname $INPUT)/$(basename ${INPUT%.*}).expected)
 	RESULT=$(
 		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		$VALGRIND src/espeak-ng -m -q $PARAMETERS -f ${INPUT} || exit 1
+		$VALGRIND src/espeak-ng -m -X -q $PARAMETERS -f ${INPUT} || exit 1
 	)
 	if [ "x$RESULT" != "x$EXPECTED" ] ; then
-		echo "$RESULT != $EXPECTED"
+		case "$EXPECTED" in
+		*' '* | *$'\n'*)
+            diff -U64 <(echo "$EXPECTED") <(echo "$RESULT")
+			;;
+		*)
+            echo "$RESULT != $EXPECTED"
+			;;
+		esac
 		exit 1
 	fi
 }

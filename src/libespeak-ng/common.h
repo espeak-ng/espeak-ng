@@ -53,6 +53,11 @@ ESPEAK_NG_API int utf8_in(int *c, const char *buf);
 int utf8_in2(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
 
+bool utf8_is_ipa_extension(unsigned int c);
+bool utf8_is_spacing_modifier_letter(unsigned int c);
+bool utf8_is_combining_diacritical_mark(unsigned int c);
+bool utf8_is_diacritic(unsigned int c);
+
 #ifdef __cplusplus
 }
 #endif

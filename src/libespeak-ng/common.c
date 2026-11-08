@@ -168,6 +168,25 @@ int utf8_in2(int *c, const char *buf, int backwards)
 	return n_bytes+1;
 }
 
+bool utf8_is_ipa_extension(unsigned int c)
+{
+	return c >= 0x0250 && c <= 0x02af;
+}
+
+bool utf8_is_spacing_modifier_letter(unsigned int c)
+{
+	return c >= 0x02b0 && c <= 0x02ff;
+}
+
+bool utf8_is_combining_diacritical_mark(unsigned int c)
+{
+	return c >= 0x0300 && c <= 0x036f;
+}
+
+bool utf8_is_diacritic(unsigned int c)
+{
+	return utf8_is_spacing_modifier_letter(c) || utf8_is_combining_diacritical_mark(c);
+}
 
 int IsAlpha(unsigned int c)
 {
