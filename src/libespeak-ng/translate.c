@@ -1026,6 +1026,8 @@ static int UpperCaseInWord(Translator *tr, char *word, int c)
 
 // Same as TranslateClause except we also get the clause terminator used (full stop, comma, etc.).
 // Used by espeak_TextToPhonemesWithTerminator.
+static bool ClauseEndsWithQuestionParticle(Translator *tr, const char *source);
+
 void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_change, int *terminator_out)
 {
 	int ix;
@@ -1095,9 +1097,16 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 	}
 
 	if (tone_out != NULL) {
-		if (tone == 0)
+		if (tone == 0) {
 			*tone_out = (terminator & CLAUSE_INTONATION_TYPE) >> 12; // tone type not overridden in ReadClause, use default
-		else
+
+			// A clause-final interrogative particle makes this a question
+			// even without a question mark. Only upgrade a plain full-stop
+			// clause, so an explicit "?" or "!" still wins.
+			if ((*tone_out == (CLAUSE_INTONATION_FULL_STOP >> 12)) &&
+			    ClauseEndsWithQuestionParticle(tr, (const char *)source))
+				*tone_out = CLAUSE_INTONATION_QUESTION >> 12;
+		} else
 			*tone_out = tone; // override tone type
 	}
 
@@ -1456,6 +1465,8 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 
 							if ((tr->translator_name == L('n', 'l')) && (letter_count == 2) && (c == 'j') && (prev_in == 'I')) {
 								// Dutch words may capitalise initial IJ, don't split
+							} else if (tr->langopts.caps_keep_suffix) {
+								// an ALL-CAPS stem carrying a lowercase suffix is one word
 							} else if ((prev_out != ' ') && IsAlpha(next2_in)) {
 								// changing from upper to lower case, start new word at the last uppercase, if 3 or more letters
 								c = ' ';
@@ -1854,6 +1865,50 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 		else
 			*voice_change = NULL;
 	}
+}
+
+
+// Does this clause end in one of the language's interrogative particles?
+//
+// Some languages mark a yes/no question with a clause-final clitic rather than
+// with a question mark: Mongolian "Та Монгол хүн үү" is a question, and writing
+// it without "?" is normal. eSpeak picks the intonation tune from punctuation
+// alone, so such a clause would otherwise get the statement contour.
+//
+// Returns false immediately unless the language defines the list, so languages
+// that do not set langopts.question_particles are unaffected.
+static bool ClauseEndsWithQuestionParticle(Translator *tr, const char *source)
+{
+	if (tr->langopts.question_particles == NULL)
+		return false;
+
+	int end = strlen(source);
+
+	// step back over trailing whitespace and punctuation
+	while (end > 0) {
+		unsigned char c = (unsigned char)source[end-1];
+		if (c > ' ' && !strchr(".,;:!?()[]{}\"'", c))
+			break;
+		end--;
+	}
+	if (end == 0)
+		return false;
+
+	// find the start of the final word
+	int start = end;
+	while (start > 0 && (unsigned char)source[start-1] > ' ')
+		start--;
+
+	int len = end - start;
+	if (len <= 0)
+		return false;
+
+	for (const char * const *p = tr->langopts.question_particles; *p != NULL; p++) {
+		int plen = strlen(*p);
+		if (plen == len && memcmp(source + start, *p, plen) == 0)
+			return true;
+	}
+	return false;
 }
 
 void TranslateClause(Translator *tr, int *tone_out, char **voice_change)

@@ -427,6 +427,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("mlt", "mt");
         mJavaToIanaLanguageCode.put("mri", "mi");
         mJavaToIanaLanguageCode.put("msa", "ms");
+        mJavaToIanaLanguageCode.put("mon", "mn");
         mJavaToIanaLanguageCode.put("mya", "my");
         mJavaToIanaLanguageCode.put("nep", "ne");
         mJavaToIanaLanguageCode.put("nld", "nl");

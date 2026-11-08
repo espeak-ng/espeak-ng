@@ -1,13 +1,70 @@
 name Ankhmaa
-language mn 4
+// Priority 6, NOT 4. This number is a language PRIORITY and LOWER wins, so at 4
+// this file outranked `mn` (no number, so it defaults to 5) for every client that
+// selects by language code rather than by filename. Measured through the API:
+//
+//   espeak_SetVoiceByProperties("mn")        -> Ankhmaa   xgn/mn-f
+//   espeak_SetVoiceByProperties("mn", MALE)  -> Ankhmaa   xgn/mn-f
+//   espeak_SetVoiceByName("mn")              -> Mongolian xgn/mn
+//
+// Only the by-name path reached the male voice, because it short-circuits on an
+// exact filename match before scoring runs -- and that is the CLI's `-v mn`,
+// which is the path every test and every acoustic measurement in this project
+// uses. So the tuning was all being validated on a voice that Android TTS, NVDA,
+// speech-dispatcher and the language bindings never selected.
+//
+// `mn` is the voice fitted against a real corpus (one male speaker, 1923
+// utterances). mn-f cannot be fitted at all, because no female Mongolian corpus
+// exists. The measured voice is the one that should answer to the bare language
+// code. mn-f stays fully reachable by name: `-v mn-f`, or SetVoiceByName.
+//
+// Note this file also cannot declare `gender` -- voices.c rejects a gender
+// attribute on a language file -- which is why even a FEMALE request matched it.
+language mn 6
 
+// Base/range, not min/max -- see the note in the `mn` voice. Left at the
+// original, tested value, deliberately: there is no female Mongolian corpus to
+// fit against (mbspeech and fleurs-mn are both male-only), so nothing here can
+// be measured, and an unmeasured change is not an improvement.
+//
+// Two alternatives were tried and reverted. `pitch 120 300` measures a median
+// of 287 Hz, far too high for a female voice. `pitch 110 215` widened the range
+// (3.22 -> 4.77 st) at 204 Hz, but it also drops formant_factor from 1.177 to
+// 1.085, and that factor is doing real work here: it scales the consonant
+// transition loci, and a female voice legitimately wants them raised. Lowering
+// it partly undoes the formant scaling below, on no evidence.
+//
+// So the 0.96..1.04 formant_factor rule stated in the `mn` voice does NOT apply
+// to this one -- a high base is correct for a female voice. Fitting this
+// properly needs a Mongolian corpus containing female speech.
 pitch 140 210
 
 speed 85
 
-// Mongolian-specific female formant scaling derived from
-// acoustic analysis of Ankhmaa recordings vs Ganbaa (male).
-// Ratios: F1=112%, F2=117%, F3=111%
+// Unvoiced consonant amplitude. `mn` sets 115; this file set nothing and so ran
+// on espeak's default of 90. A language file inherits nothing from another
+// language file -- LoadVoice resets and then applies only this file's lines --
+// so the consonant fix landed on `mn` never reached the female voice.
+//
+// Measured per-phoneme against `mn` over the same sentences, every one of the 14
+// WAV-driven unvoiced consonants sat 4.11 dB down (p, t, k, th, q, s, S, x, X,
+// ts, tsh, tS, tSh, l#), while voiced segments were within 1.5 dB. That is the
+// band carrying the s/sh/ts/ch/x place cues, on the voice most clients select.
+//
+// Swept against mn: 130 -> -0.98 dB, 145 -> -0.01 dB, 160 -> +0.85 dB.
+consonants 145
+
+// Female formant scaling. These ratios are consistent with the general
+// male-to-female scaling reported in the phonetics literature (~+15% on
+// F1-F3), but they are NOT measured from Mongolian: an earlier comment here
+// claimed they came from "acoustic analysis of Ankhmaa recordings vs Ganbaa",
+// and no such measurement is supported by anything in this repository.
+//
+// They could not be verified either. Both corpora available for Mongolian are
+// male-only: mbspeech is a single male speaker (median F0 102 Hz), and
+// fleurs-mn's test and validation splits measure 119-125 Hz median with no
+// clip above 180 Hz. Deriving real ratios needs a Mongolian corpus with
+// female speakers.
 formant 0 100 100 100
 formant 1 112 100 100
 formant 2 117 100 100
@@ -16,4 +73,6 @@ formant 3 111 100 100
 breath 2  3  1  1  1  1
 breathw 100 100 100 100 100 100
 
-intonation 1
+// Khalkha-specific contours; see phsource/intonation.
+// Statement / comma / question / exclamation.
+tunes mn_s mn_c mn_q mn_e

@@ -24,6 +24,7 @@
     - [Conlang X-SAMPA Transcription Scheme](phonemes/cxs.md)
   - Pronunciation Guides
     - [English](languages/gmw/en.md)
+    - [Mongolian](languages/xgn/mn.md)
 - Other Miscellanous Information
   - Notes on the [Cherokee](languages/iro/chr.md) implementation.  
 - [License](../COPYING)

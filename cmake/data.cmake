@@ -57,6 +57,13 @@ set(DICT_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dictsource)
 
 file(MAKE_DIRECTORY "${DATA_DIST_DIR}")
 file(MAKE_DIRECTORY "${DICT_TMP_DIR}")
+# NOTE: file(COPY) runs at CONFIGURE time, not build time. Editing a voice file
+# under espeak-ng-data/lang and running `cmake --build build --target data` does
+# NOT propagate the change -- the build keeps serving the previously staged copy,
+# silently and with no warning. Re-run `cmake -Bbuild` after editing anything
+# staged here. This has already invalidated a full round of voice tuning, where
+# a changed `pitch` line sat in lang/xgn/mn while every test and acoustic
+# measurement ran against the old value.
 file(COPY "${DATA_SRC_DIR}/lang" DESTINATION "${DATA_DIST_DIR}")
 file(COPY "${DATA_SRC_DIR}/voices/!v" DESTINATION "${DATA_DIST_DIR}/voices")
 file(COPY "${PHONEME_SRC_DIR}" DESTINATION "${DATA_DIST_ROOT}")
@@ -71,8 +78,16 @@ else()
   set(ESPEAK_BIN_DEP "$<TARGET_FILE:espeak-ng-bin>")
 endif()
 
+# Both --compile-intonations and --compile-phonemes resolve their source
+# directory from ESPEAK_DATA_PATH, i.e. PHONEME_TMP_DIR, and NOT from
+# WORKING_DIRECTORY. That directory is only populated by the file(COPY) above,
+# which runs at CONFIGURE time, so without refreshing it here an edit to
+# phsource/ re-triggers the rule but the compiler still reads the stale copy
+# and silently emits the previous data. Stage the sources first, the way the
+# dictionary rule below does.
 add_custom_command(
   OUTPUT "${DATA_DIST_DIR}/intonations"
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${PHONEME_SRC_DIR}" "${PHONEME_TMP_DIR}"
   COMMAND ${ESPEAK_RUN_CMD} --compile-intonations
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile intonations"
@@ -97,12 +112,22 @@ endfunction(check_phon_deps)
 
 check_phon_deps("phonemes")
 
+# check_phon_deps only follows `include` lines, so it lists the ph_* text files
+# and nothing else. The binary spectrum and wav data that FMT()/WAV() reference
+# is invisible to it, which means editing e.g. phsource/mongolian/oe would not
+# re-trigger the phoneme compile at all. Depend on those directories too.
+file(GLOB_RECURSE _phon_data_deps CONFIGURE_DEPENDS
+  "${PHONEME_SRC_DIR}/*/*")
+list(APPEND _phon_deps ${_phon_data_deps})
+
 add_custom_command(
   OUTPUT
     "${DATA_DIST_DIR}/phondata"
     "${DATA_DIST_DIR}/phondata-manifest"
     "${DATA_DIST_DIR}/phonindex"
     "${DATA_DIST_DIR}/phontab"
+  # Stage the sources first; see the note on the intonations rule above.
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${PHONEME_SRC_DIR}" "${PHONEME_TMP_DIR}"
   COMMAND ${ESPEAK_RUN_CMD} --compile-phonemes
   WORKING_DIRECTORY "${PHONEME_SRC_DIR}"
   COMMENT "Compile phonemes"

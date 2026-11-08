@@ -388,3 +388,73 @@ headextend 4 76 48 18 4
 nucleus  fall 84 16 32 18
 nucleus0 fall 76 8
 endtune
+
+// Mongolian (Khalkha) tunes
+//
+// Khalkha stresses the first syllable of every content word, so a clause
+// presents the intonation model with a long run of closely-spaced stressed
+// syllables rather than the sparse pattern English tunes are shaped around.
+// Two consequences drive these definitions:
+//
+//   * the head is given a gentle, monotone declination rather than the
+//     alternating peaks of s1 -- with an accent on nearly every word, large
+//     per-accent excursions read as sing-song rather than as emphasis;
+//   * headextend matters more than usual, because the head routinely runs
+//     past the step count. Its values descend smoothly so that a long
+//     clause drifts down instead of resetting on every word.
+//
+// Statement: gradual declination to a low final fall.
+// Widened 2026-08-28. Measured against 400 mbspeech utterances, eSpeak's
+// F0 interquartile range was 2.48 semitones against the speaker's 7.17
+// (both measured with a 75-250 Hz tracker bound, which suppresses the
+// octave errors that inflated an earlier 9.01 figure). Nearly monotone.
+// Widening the voice pitch range alone saturated at 4.4 st, and widening
+// the tunes alone at 4.6; together with pitch 60 200 they reach 6.47.
+// The contour SHAPE was already right -- declination and final fall both
+// matched the speaker to within 0.64 st -- so only the range changed.
+tune mn_s
+prehead   12 36
+headenv   fall 28
+head       5 98 45 -10 -6
+headextend 100 90 78 64 50 36 20 0
+nucleus  fall 96 4 34 4
+nucleus0 fall 94 2
+endtune
+
+// Comma / non-final clause: the head is the same, but the nucleus stays
+// mid and the tail does not drop, which is what marks the clause as
+// unfinished. Mongolian also uses this shape at the end of a verse line,
+// where the sense continues into the next line.
+tune mn_c
+prehead   14 38
+headenv   fall 24
+head       5 96 34 -10 -6
+headextend 100 90 80 68 56 44 32 20
+nucleus  fall-rise 92 18 56 66
+nucleus0 fall-rise 94 14
+endtune
+
+// Question. Mongolian yes/no questions are marked by the clitic уу/үү and
+// carry a final rise on that particle; wh-questions use вэ/бэ after an
+// interrogative word and are closer to a statement contour. eSpeak selects
+// this tune from the question mark alone and cannot see which particle is
+// present, so the contour here is a compromise: a rise, but a shallower one
+// than English q1, so that a вэ/бэ question does not sound over-marked.
+tune mn_q
+prehead   16 40
+headenv   rise 26
+head       5 94 34 -8 -4
+headextend 98 88 76 64 52 40 28 16
+nucleus  rise 40 98 28 12
+nucleus0 rise 44 100
+endtune
+
+// Exclamation: same declination, wider range and a steeper final fall.
+tune mn_e
+prehead   14 40
+headenv   fall 30
+head       5 100 38 -12 -6
+headextend 100 90 78 66 52 38 22 6
+nucleus  fall 100 8 32 14
+nucleus0 fall 96 4
+endtune
