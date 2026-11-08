@@ -122,6 +122,17 @@ d'Y
 tsv'aI
 Tr'i:"
 test_phon en "$NESTED_EXPECTED" '<speak xml:lang="en">one <voice name="de">eins <voice name="fr">deux</voice> zwei</voice> three</speak>' "nested <voice> restores the enclosing voice" "-m"
+# <tts:style field="punctuation" mode="none"> silences punctuation announced by --punct, and the setting is restored after the closing tag.
+STYLE_NONE_EXPECTED="h@l'oU
+k'0m@
+w'3:ld
+d'0t
+h'aI
+j'u:
+a#g'En
+k'0m@
+h'i@3"
+test_phon en "$STYLE_NONE_EXPECTED" 'Hello, world. <tts:style field="punctuation" mode="none">Hi, you.</tts:style> Again, here.' "tts:style punctuation none" "-m --punct"
 
 # Test break multiplier
 test_ssml_audio "<break 1000ms> mul=10" 9f3b0f34eb605fcecfc573fc215626f634b46756 "<speak>Break<break time=\"1000ms\"/>test</speak>" "--ssml-break=10"
