@@ -27,3 +27,16 @@ d'esmitais g'ads" "1. gads. 2. gads. 3. gads. 4. gads. 5. gads. 6. gads. 7. gads
 test_phon lv "s'imtais g'ads
 t'u:kstuo:Sais g'ads
 d'evin^i t'u:kstuo:Sais g'ads" "100. gads. 1000. gads. 9000. gads"
+
+echo "... pdc (Pennsylvania Dutch)"
+test_phon pdc "d3 _! 'E@St d'O:k" "der 1. daag" "1st"
+test_phon pdc "d3 tsw'Et d'O:k" "der 2. daag" "2nd"
+test_phon pdc "d3 dr'It d'O:k" "der 3. daag" "3rd"
+test_phon pdc "d3 f'i@t d'O:k" "der 4. daag" "4th"
+test_phon pdc "d3 s'Iv@t d'O:k" "der 7. daag" "7th"
+test_phon pdc "d3 _! 'axt d'O:k" "der 8. daag" "8th"
+test_phon pdc "d3 tsw'Elft d'O:k" "der 12. daag" "12th"
+test_phon pdc "d3 tsw'ansICSt d'O:k" "der 20. daag" "20th"
+test_phon pdc "d3 _! 'e:nUntsw,ansICSt d'O:k" "der 21. daag" "21st"
+test_phon pdc "d3 h'Un3tSt d'O:k" "der 100. daag" "100th"
+test_phon pdc "d3 h,Un3tUn 'E@St d'O:k" "der 101. daag" "101st"

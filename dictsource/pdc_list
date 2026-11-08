@@ -1,0 +1,314 @@
+// Pennsylvania Dutch (Pennsylvania German, Deitsch) pronunciation list
+// This file is UTF-8 encoded.
+//
+// Words are expected in the Buffington-Barba spelling system.
+//
+// Conditional entries:
+//  ?1  Midwest (pdc-x-midwest)
+//  ?2  Lehigh (pdc-x-lehigh)
+
+
+// Letters
+//========
+
+_a	O:
+_b	be:
+_c	tse:
+_d	de:
+_e	e:
+_f	Ef
+_g	ge:
+_h	hO:
+_i	i:
+_j	jVt
+_k	kO:
+_l	El
+_m	Em
+_n	En
+_o	o:
+_p	pe:
+_q	ku:
+_r	E@
+_s	Es
+_t	te:
+_u	u:
+_v	faU
+_w	we:
+_x	Iks
+_y	'IpsIlVn
+_z	tsEt
+_ä	&:
+_ö	e:
+_ü	i:
+_ß	Es
+
+
+// Symbols and punctuation
+//========================
+
+_.	pUNkt
+_,	k'Vma
+_:	d'Vb@lpUNkt
+_;	Str'ICpUNkt
+_!	'aUsru:f,tse:C@
+_?	fr'o:k,tse:C@
+_-	b'InStrIC@
+__	'Un3StrIC
+_'	apo:str'Of
+_"	tsi:t'O:t
+_/	StrIC
+_(	gl'am3||Uf
+_)	gl'am3||tsu:
+_[	'EkIC@||gl'am3||Uf
+_]	'EkIC@||gl'am3||tsu:
+_{	gSv'aIft@||gl'am3||Uf
+_}	gSv'aIft@||gl'am3||tsu:
+_<	gle:n3
+_>	gr'e:s3
+_&	Un
+_+	plUs
+_=	glaIC
+_%	p3s'Ent
+_$	d'O:l3
+_¢	sEnt
+_£	pUnt
+_€	'OIro:
+_°	grO:t
+_#	n'Um3
+_@	&t
+_*	StErn
+_|	StrIC
+_~	t'Ild@
+_^	tsIrkUmflEks
+_`	gr'O:v
+_\	b'akSl&S
+_«	'anfu:rUNstse:C@
+_»	'anfu:rUNstse:C@||tsu:
+
+_#32	le:rtse:C@
+_??	s'Imbo:l
+_cap	gro:s
+_roman	r'e:mIS
+
+
+// Numbers
+//========
+
+_0	nUl
+_1	e:ns
+_1a	e:n
+_2	tswe:
+_3	draI
+_4	fi@
+_5	fImf
+_6	sEks
+_7	sIv@
+_8	axt
+_9	naIn
+_10	tse:@
+_11	Elf
+_12	tswElf
+_13	draItse:
+_14	fatse:
+_15	fUftse:
+_16	sECtse:
+_17	sIv@tse:
+_18	axtse:
+_19	naIntse:
+_2X	tswansIC
+_3X	draIsIC
+_4X	fatsIC
+_5X	fUftsIC
+_6X	sECtsIC
+_7X	sIv@tsIC
+_8X	axtsIC
+_9X	naIntsIC
+_0C	hUn3t
+
+// American short scale: Billyon = 10^9, Trillyon = 10^12
+_0M1	daUs@nt
+_0M2	mIlj'o:n@
+_1M2	e:||mIlj'o:n
+_0M3	bIlj'o:n@
+_1M3	e:||bIlj'o:n
+_0M4	trIlj'o:n@
+_1M4	e:||trIlj'o:n
+_0M5	kwadrIlj'o:n@
+_1M5	e:||kwadrIlj'o:n
+
+_0and	Un
+_dpt	_pUNkt
+
+// Ordinals: -t for 2-19, -scht from 20
+_ord	t
+_ord20	St
+_1o	'E@St
+_2o	tswEt
+_3o	drIt
+_8o	axt
+_0Co	hUn3tSt
+_0M1o	daUs@ntSt
+
+
+// Unstressed function words
+//==========================
+
+// articles
+der	d3	$u
+die	di	$u
+es	@s	$u
+'s	s	$u
+en	@n	$u
+'n	n	$u
+e	@	$u
+em	@m	$u
+'m	m	$u
+de	d@	$u
+me	m@	$u
+re	r@	$u
+dem	dEm	$u
+den	dEn	$u
+des	dEs	$u
+
+// pronouns
+ich	IC	$u
+du	du:	$u
+er	E@	$u
+sie	si:	$u
+se	s@	$u
+mir	mi@	$u
+mer	m3	$u
+dihr	di@	$u
+ihr	i@	$u
+mich	mIC	$u
+dich	dIC	$u
+sich	sIC	$u
+ihn	i:n	$u
+ihm	i:m	$u
+uns	Uns	$u
+eich	aIC	$u
+mei	maI	$u
+dei	daI	$u
+sei	saI	$u+
+ihre	i:r@	$u
+
+// prepositions
+in	In	$u
+im	Im	$u
+uff	Uf	$u
+mit	mIt	$u
+vun	fUn	$u
+vum	fUm	$u
+zu	tsu:	$u
+zum	tsUm	$u
+fer	f3	$u
+bei	baI	$u
+an	an	$u
+am	am	$u
+aus	aUs	$u
+vor	fo@	$u
+um	Um	$u
+
+// conjunctions
+un	Un	$u
+unn	Un	$u
+odder	'Vd3	$u
+awwer	'av3	$u
+wann	van	$u
+wie	vi:	$u
+ass	as	$u
+weil	vaIl	$u
+eb	Ep	$u
+dann	dan	$u
+
+// auxiliaries
+iss	Is	$u
+is	Is	$u
+bin	bIn	$u
+bischt	bISt	$u
+hot	hVt	$u
+hoscht	hVSt	$u
+hen	hEn	$u
+hab	hap	$u
+sin	sIn	$u
+sinn	sIn	$u
+waar	vO@	$u
+watt	vat	$u
+kann	kan	$u
+will	vIl	$u
+sett	sEt	$u
+muss	mUs	$u
+dutt	dUt	$u
+
+
+// Exceptions
+//===========
+
+// stress not on the first syllable
+alleweil	al@v'aIl
+ebaut	@b'aUt
+emol	@m'o:l
+zerick	ts@r'Ik
+zurick	tsUr'Ik
+devun	d@f'Un
+dezu	d@ts'u:
+debei	d@b'aI
+demit	d@m'It
+degege	d@g'e:j@
+dattdriwwe	dat'drIv@
+wuhie	vuh'i:
+Nammidaag	namId'O:k
+hallo	hal'o:
+aha	ah'a
+Aabc	O:be:ts'e:
+Adye	ad'je:
+Aprill	apr'Il
+Aaguscht	O:g'USt
+September	sEpt'Emb3
+Sepdember	sEpt'Emb3
+Oktower	Vkt'o:v3
+Nowember	no:v'Emb3
+Dezember	de:ts'Emb3
+Diesember	di:s'Emb3
+Tschulei	tSu:l'aI2
+Maschien	maS'i:n
+Bapier	bap'i@
+Glavier	glav'i@
+Familye	fam'i:lj@
+Ambrel	am'brEl
+Amerikaa	am'e:rIkO:
+Amerika	am'e:rIka
+Pennsilfaani	pEnsIlf'O:ni
+Pennsilfaanisch	pEnsIlf'O:nIS
+Pennsylvaani	pEnsIlf'O:ni
+Pennsylvaanisch	pEnsIlf'O:nIS
+Filadelfi	fIlad'Elfi
+Eiropaa	aIro:p'O:
+Kanadaa	kanad'O:
+Franzeesisch	frants'e:sIS
+Millyon	mIlj'o:n
+Millyone	mIlj'o:n@
+Billyon	bIlj'o:n
+Billyone	bIlj'o:n@
+Trillyon	trIlj'o:n
+Trillyone	trIlj'o:n@
+
+// vowel length or quality not predicted by the rules
+hot	hVt
+gege	'ge:j@
+geschder	'gESd3
+bede	'be:d@
+Bese	'be:s@
+Besem	'be:s@m
+Bewi	'be:vi
+Lengeschder	'lEN@Sd3
+Lechaa	'lExO:
+
+// English loanwords keep [aɪ] in the Midwest
+Eidi	'aI2di
+Inschein	'InStSaI2n
+Intschein	'IntSaI2n
+
+// Midwest: r is lost before g and ch, leaving [ɛː]
+?1 darich	dE:C
+?1 schtarick	StE:k
