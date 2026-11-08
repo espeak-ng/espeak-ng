@@ -1,0 +1,522 @@
+// Spelling-to-phoneme rules for Sardinian (sardu, sc)
+// This file is UTF-8 encoded.
+//
+// The input is expected in the "Limba Sarda Comuna" (LSC) spelling
+// (Regione Autonoma della Sardegna, 2006).  The pronunciation is the
+// "sardo neutro" of the SINTESA project (Universita` di Cagliari,
+// 2013-2015): it follows the LSC spelling and no local dialect.
+// The rules were checked against the SINTESA lexicon (LGPL v3).
+//
+// Phonemes: see phsource/ph_sardinian.
+//   E O   open mid vowels [ɛ ɔ];  e o  closed allophones [e o]
+//   i#    <i> after c, g, sc before a vowel (spoken only if stressed)
+//   E-    final e of the infinitives in -ere (dropped before a word)
+//   n#    final n of -nt (the t is not spoken)
+//   B D Q d. n. N M n^ tS dZ ts dz S Z r R
+//   C:    long (geminate or semi-geminate) consonant
+//
+// Stress: on the penultimate vowel letter (as in LSC), unless the
+// word has a written accent (à è ì ò ù).
+//
+// Metaphony ("adeguamentu vocàlicu", SINTESA ch. 2.2): <e o> are
+// closed [e o] when the next deciding letter in the word is
+// i, u, j, x or gn; the letter a (or the end of the word) keeps them
+// open.  Consonants do not decide.  A closed e/o spreads the closing
+// to an earlier e/o only when it is stressed or after the stress
+// (fenòmenu [fe'nomenu], telèfonu [te'lef:onu]), not when it is
+// before the stress (elementu [Ele'mentu], renessia [rEnes:'ia]).
+
+
+// WORD-INITIAL CLUSTERS
+// The voice uses "l_unpronouncable 2": a word which starts with two
+// or more consonants is spelled (BBC, TV, LSC) unless a rule with
+// the pre-context _) below matches its start.  These rules give the
+// normal pronunciation, so they also allow the clitics nd', nch', dd'.
+
+// LETTER GROUPS
+.L01 i u ì ù í ú j x gn y        // close the mid vowels (metaphony)
+.L02 b c d f g h k l m n p q r s t v w z e o è ò é ó   // do not decide
+.L03 e i è ì é í                  // front vowels: c g sc are palatal
+.L04 à è ì ò ù á é í ó ú          // written accents
+.L05 b d g l m n r v              // voiced consonants: s is [z] before these
+.L06 a o u à ò ù á ó ú            // back vowels: c g are velar
+.L07 b c d f g h k l m n p q r s t v w z   // consonant letters
+.L08 e o                          // unaccented mid vowels
+.L09 è ò é ó                      // accented (stressed) mid vowels
+.L10 i u                          // unaccented close vowels
+.L11 j x gn                       // consonants which close the mid vowels
+.L12 f p t v                      // learned words in ind-: indiferente, indipendente
+.L13 r l ' h j w                  // second letter of a word-initial cluster (bratzu, b'at)
+.L14 c k p q t f h w              // voiceless consonants after a word-initial s (sport)
+
+
+.group a
+        a         a
+
+.group à
+        à         'a
+
+.group á
+        á         'a
+
+
+.group e
+        e         E
+        e ('     %E      // an elided word is unstressed
+        e (C'    %E
+        // closed if a closer follows after consonants only
+        e (L01                                   e
+        e (L07L01                                e
+        e (L07L07L01                             e
+        e (L07L07L07L01                          e
+        e (L07L07L07L07L01                       e
+        // or through the stressed vowel when it is closed: written accent ...
+        e (L09L01                             e
+        e (L09L07L01                          e
+        e (L09L07L07L01                       e
+        e (L09L07L07L07L01                    e
+        e (L07L09L01                          e
+        e (L07L09L07L01                       e
+        e (L07L09L07L07L01                    e
+        e (L07L09L07L07L07L01                 e
+        e (L07L07L09L01                       e
+        e (L07L07L09L07L01                    e
+        e (L07L07L09L07L07L01                 e
+        e (L07L07L09L07L07L07L01              e
+        e (L07L07L07L09L01                    e
+        e (L07L07L07L09L07L01                 e
+        e (L07L07L07L09L07L07L01              e
+        e (L07L07L07L09L07L07L07L01           e
+        e (L09L08L01                          e
+        e (L09L08L07L01                       e
+        e (L09L08L07L07L01                    e
+        e (L09L07L08L01                       e
+        e (L09L07L08L07L01                    e
+        e (L09L07L08L07L07L01                 e
+        e (L09L07L07L08L01                    e
+        e (L09L07L07L08L07L01                 e
+        e (L09L07L07L08L07L07L01              e
+        e (L07L09L08L01                       e
+        e (L07L09L08L07L01                    e
+        e (L07L09L08L07L07L01                 e
+        e (L07L09L07L08L01                    e
+        e (L07L09L07L08L07L01                 e
+        e (L07L09L07L08L07L07L01              e
+        e (L07L09L07L07L08L01                 e
+        e (L07L09L07L07L08L07L01              e
+        e (L07L09L07L07L08L07L07L01           e
+        e (L07L07L09L08L01                    e
+        e (L07L07L09L08L07L01                 e
+        e (L07L07L09L08L07L07L01              e
+        e (L07L07L09L07L08L01                 e
+        e (L07L07L09L07L08L07L01              e
+        e (L07L07L09L07L08L07L07L01           e
+        e (L07L07L09L07L07L08L01              e
+        e (L07L07L09L07L07L08L07L01           e
+        e (L07L07L09L07L07L08L07L07L01        e
+        // ... or the penultimate e/o (stressed) before a final i, u
+        e (L08L10X                            e
+        e (L08L07L10X                         e
+        e (L08L07L07L10X                      e
+        e (L08L07L07L07L10X                   e
+        e (L07L08L10X                         e
+        e (L07L08L07L10X                      e
+        e (L07L08L07L07L10X                   e
+        e (L07L08L07L07L07L10X                e
+        e (L07L07L08L10X                      e
+        e (L07L07L08L07L10X                   e
+        e (L07L07L08L07L07L10X                e
+        e (L07L07L08L07L07L07L10X             e
+        e (L07L07L07L08L10X                   e
+        e (L07L07L07L08L07L10X                e
+        e (L07L07L07L08L07L07L10X             e
+        e (L07L07L07L08L07L07L07L10X          e
+        e (L08L11AX                           e
+        e (L07L08L11AX                        e
+        e (L07L07L08L11AX                     e
+        e (L07L07L07L08L11AX                  e
+
+        // the infinitives in -ere (pòdere, èssere, fàghere, bènnere ...)
+        // lose the final vowel before another word
+     L04er) e (_     E-      // àere, crèere
+    L04Cer) e (_     E-
+   L04CCer) e (_     E-
+  L04CCCer) e (_     E-
+
+.group è
+        è         'E
+        è (L01                                    'e
+        è (L02L01                                 'e
+        è (L02L02L01                              'e
+        è (L02L02L02L01                           'e
+        è (L02L02L02L02L01                        'e
+        è (L02L02L02L02L02L01                     'e
+        è (L02L02L02L02L02L02L01                  'e
+        è (L02L02L02L02L02L02L02L01               'e
+
+.group é
+        é         'E
+        é (L01                                    'e
+        é (L02L01                                 'e
+        é (L02L02L01                              'e
+        é (L02L02L02L01                           'e
+        é (L02L02L02L02L01                        'e
+        é (L02L02L02L02L02L01                     'e
+        é (L02L02L02L02L02L02L01                  'e
+
+
+.group i
+        i         i
+        i ('     %i      // an elided word is unstressed
+        i (C'    %i      // it'est [it:'Est]
+     c) i (A      i#      // loanwords and names: Bèciu
+     g) i (A      i#      // giaja, fìgiu, mègius
+
+.group ì
+        ì         'i
+
+.group í
+        í         'i
+
+.group ï
+        ï         i
+
+
+.group o
+        o         O
+        o ('     %O      // an elided word is unstressed
+        o (C'    %O
+        // closed if a closer follows after consonants only
+        o (L01                                   o
+        o (L07L01                                o
+        o (L07L07L01                             o
+        o (L07L07L07L01                          o
+        o (L07L07L07L07L01                       o
+        // or through the stressed vowel when it is closed: written accent ...
+        o (L09L01                             o
+        o (L09L07L01                          o
+        o (L09L07L07L01                       o
+        o (L09L07L07L07L01                    o
+        o (L07L09L01                          o
+        o (L07L09L07L01                       o
+        o (L07L09L07L07L01                    o
+        o (L07L09L07L07L07L01                 o
+        o (L07L07L09L01                       o
+        o (L07L07L09L07L01                    o
+        o (L07L07L09L07L07L01                 o
+        o (L07L07L09L07L07L07L01              o
+        o (L07L07L07L09L01                    o
+        o (L07L07L07L09L07L01                 o
+        o (L07L07L07L09L07L07L01              o
+        o (L07L07L07L09L07L07L07L01           o
+        o (L09L08L01                          o
+        o (L09L08L07L01                       o
+        o (L09L08L07L07L01                    o
+        o (L09L07L08L01                       o
+        o (L09L07L08L07L01                    o
+        o (L09L07L08L07L07L01                 o
+        o (L09L07L07L08L01                    o
+        o (L09L07L07L08L07L01                 o
+        o (L09L07L07L08L07L07L01              o
+        o (L07L09L08L01                       o
+        o (L07L09L08L07L01                    o
+        o (L07L09L08L07L07L01                 o
+        o (L07L09L07L08L01                    o
+        o (L07L09L07L08L07L01                 o
+        o (L07L09L07L08L07L07L01              o
+        o (L07L09L07L07L08L01                 o
+        o (L07L09L07L07L08L07L01              o
+        o (L07L09L07L07L08L07L07L01           o
+        o (L07L07L09L08L01                    o
+        o (L07L07L09L08L07L01                 o
+        o (L07L07L09L08L07L07L01              o
+        o (L07L07L09L07L08L01                 o
+        o (L07L07L09L07L08L07L01              o
+        o (L07L07L09L07L08L07L07L01           o
+        o (L07L07L09L07L07L08L01              o
+        o (L07L07L09L07L07L08L07L01           o
+        o (L07L07L09L07L07L08L07L07L01        o
+        // ... or the penultimate e/o (stressed) before a final i, u
+        o (L08L10X                            o
+        o (L08L07L10X                         o
+        o (L08L07L07L10X                      o
+        o (L08L07L07L07L10X                   o
+        o (L07L08L10X                         o
+        o (L07L08L07L10X                      o
+        o (L07L08L07L07L10X                   o
+        o (L07L08L07L07L07L10X                o
+        o (L07L07L08L10X                      o
+        o (L07L07L08L07L10X                   o
+        o (L07L07L08L07L07L10X                o
+        o (L07L07L08L07L07L07L10X             o
+        o (L07L07L07L08L10X                   o
+        o (L07L07L07L08L07L10X                o
+        o (L07L07L07L08L07L07L10X             o
+        o (L07L07L07L08L07L07L07L10X          o
+        o (L08L11AX                           o
+        o (L07L08L11AX                        o
+        o (L07L07L08L11AX                     o
+        o (L07L07L07L08L11AX                  o
+
+.group ò
+        ò         'O
+        ò (L01                                    'o
+        ò (L02L01                                 'o
+        ò (L02L02L01                              'o
+        ò (L02L02L02L01                           'o
+        ò (L02L02L02L02L01                        'o
+        ò (L02L02L02L02L02L01                     'o
+        ò (L02L02L02L02L02L02L01                  'o
+        ò (L02L02L02L02L02L02L02L01               'o
+
+.group ó
+        ó         'O
+        ó (L01                                    'o
+        ó (L02L01                                 'o
+        ó (L02L02L01                              'o
+        ó (L02L02L02L01                           'o
+        ó (L02L02L02L02L01                        'o
+        ó (L02L02L02L02L02L01                     'o
+        ó (L02L02L02L02L02L02L01                  'o
+
+
+.group u
+        u         u
+        u ('     %u      // an elided word is unstressed
+        u (C'    %u
+
+.group ù
+        ù         'u
+
+.group ú
+        ú         'u
+
+.group ü
+        ü         u
+
+
+.group b
+        b         b
+    _) b (L13@   b       // bratzu, b'at
+        bb        b:
+     A) b (A      B       // sabore [sa'BOrE]
+     A) b (r      B       // cabra ['kaBra], subra
+     A) b (l      b:      // pùblicu ['pub:liku]
+     A) b (il     b:      // possìbile, mòbile, dèbile
+     A) b (ìl     b:      // mobìlia
+    _a) b (A+     b:      // abarrare, aberi, abile
+    _a) b (r+     b:      // abrile
+    'a) b (A+     b:      // s'aberiat
+    li) b (r      b:      // libru ['lib:ru]
+    lì) b (r      b:      // lìbru
+    fà) b (r      b:      // fàbrica
+    fa) b (r      b:
+   aca) b (A      b:      // acabare
+  arri) b (A      b:      // arribare
+  arrì) b (A      b:
+   tri) b (u      b:      // tribunale, atributu
+   tri) b (ù      b:
+  _ca) b (in      b:      // cabina
+  _ca) b (ìn      b:
+  cara) b (in     b:      // carabineri
+    ga) b (in     b:      // gabinete
+    la) b (or     b:      // laboratòriu, collaboratzione
+    li) b (er     b:      // lìberu, libertade
+    lì) b (er     b:
+   pro) b (o      b:      // probòscide
+   pro) b (ò      b:
+  proi) b (A      b:      // proibidu
+   _ro) b (a      b:      // roba
+   _rò) b (a      b:
+  scia) b (o      b:      // isciàbola, sciabola
+  scià) b (o      b:
+  _cia) b (A      b:      // ciabata
+  _cia) b (àt     b:
+    ta) b (ac     b:      // tabacu
+    ta) b (àc     b:
+   tra) b (all    b:      // traballu
+   tra) b (àll    b:
+   trà) b (all    b:
+   glo) b (al     b:      // globale
+   ple) b (A      b:      // plebiscitu
+  addo) b (A      b:      // addobiare
+  addò) b (A      b:
+
+.group c
+        c         k
+    _) c (L13@   k       // crae, clima
+    _) ch (@     k       // chi, chene, Christian
+        cc        k:
+     A) c (L06    k:      // semi-geminate: sicu ['sik:u]
+     A) c (r      k:
+     A) c (l      k:
+        c (L03    tS      // cena, cida
+        cc (L03   tS:
+     A) c (L03    tS:     // always long between vowels: bacinu
+        ch        k       // chena, chi
+     A) ch        k:      // fache ['fak:E]; after a consonant [k]: pische
+
+.group d
+        d         d
+    _) d (L13@   d       // dren, d'unu
+        dd        d.:     // casteddu
+     _) dd        d.      // ddu, dd'at: doubled after a vowel (phoneme rules)
+     'a) dd       d:      // s'addòbiu
+     _a) dd       d:      // add- words are dental: addobiare, adduradu
+     _a) dd (ae   d.:     // but addae
+     A) d (A      D       // ludu ['luDu]
+     A) d (r      D       // pedra ['pEDra]
+     n) d         d.      // andare [an.'d.arE]
+   _in) d (iL12   d       // indiferente, indipendente, inditare
+
+.group f
+        f         f
+    _) f (L13@   f       // frade, frore
+        ff        f:
+     A) f (A      f:      // telèfonu [te'lef:onu]
+   pro) f (ess    f       // professore, professione
+     A) f (r      f:      // afrontare, sufrire
+     A) f (l      f:
+
+.group g
+        g         g
+    _) g (L13@   g       // grogu, glòria
+    _) gh (@     g       // ghetare
+    _) gn (@     n^      // gnocu
+        gg        g:
+     A) g (L06    Q       // fogu ['foQu]
+    _a) g (rad    g:      // agradare
+    _a) g (uant   g:      // aguantare
+    _a) g (antz   g:      // agantzare
+    _a) g (arr    g:      // agarrare
+    'a) g (rad    g:      // m'agradat
+    _a) g (ràd    g:      // agràdat
+    'a) g (ràd    g:      // m'agràdat, l'agràdat
+     A) g (r      Q
+     A) g (l      Q
+        g (L03    dZ      // gente
+        gg (L03   dZ:
+     A) g (L03    dZ:     // agiudu [adZ:'uDu]
+        gh        g       // gherra
+     A) gh        Q       // fàghere
+        gn        n^      // gnocu
+     A) gn        n^:     // segnore [sen^:'OrE]
+
+.group h
+        h                 // silent
+
+.group j
+        j         j
+     A) j (A      j:      // eja ['ej:a]
+
+.group k
+        k         k
+    _) k (L13@   k
+     A) k (A      k:
+
+.group l
+        l         l
+    _) l ('@     l       // l'at
+        ll        l:
+
+.group m
+        m         m
+    _) m ('@     m       // m'at
+        mm        m:
+
+.group n
+        n         n
+    _) n ('@     n
+    _) n (d@     n.      // nde, nd'at
+    _) n (ch@    N       // nche, nch'est
+        nn        n:
+        n (d      n.      // andare
+    _i) n (diL12  n       // indiferente
+        n (t_     n#      // the verbs in -nt (fiant, sunt): the t is not spoken
+
+.group p
+        p         p
+    _) p (L13@   p       // prus, pratu
+    _) p (s@     p       // psicologia
+    _) p (n@     p       // pneumàticu
+    _) p (t@     p
+        pp        p:
+     A) p (A      p:      // capu ['kap:u]
+     A) p (r      p:
+     A) p (l      p:
+
+.group q
+        q         k
+        qu        ku
+
+.group r
+        r         r       // after a consonant: pratu
+    _) r ('@     R
+    _) r (h@     R
+     A) r (A      r       // caru
+        rr        R       // terra
+        r (C      R       // porcu, before a consonant
+        r (_      R       // final r, changed by the phoneme rules
+     _) r         R       // initial r (a tap after a vowel)
+
+.group s
+        s         s
+    _) s ('@     s       // s'àrbore
+    _) s (L14@   s       // sport, stress, shardanas
+    _) s (L05@   z       // smog, slogan
+        ss        s:
+     A) s (A      z       // rosa ['rOza]
+        s (L05    z       // isbàgliu, isméntigu
+        sc (L03   S       // iscena [iS:'Ena]
+     A) sc (L03   S:
+     A) sc (iA    S:
+
+.group t
+        t         t
+    _) t (L13@   t       // trinta, t'apo
+    _) tz (@     ts      // tzia
+    _) t (s@     t       // tsunami
+        tt        t:
+     A) t (A      t:      // sete ['sEt:E]
+     A) t ('A     t:      // it'est
+     A) t (r      t:
+     A) t (l      t:
+        tz        ts      // tzia
+     A) tz        ts:     // pitzinnu [pits:'in:u]
+     n) t (_      // see n (t_
+     r) t (_      t2      // sport, smart: the final t is kept
+     l) t (_      t2      // default
+
+.group v
+        v         v
+    _) v (L13@   v
+    _a) v (er     v:      // averiguare
+    _a) v (èr     v:      // avèrtere
+    _a) v (ol     v:      // avolotu
+    _a) v (ic     v:      // avicinare
+  isca) v (A      v:      // iscavare
+  isca) v (à      v:
+  iscri) v (an    v:      // iscrivania
+
+.group w
+        w         w
+    _) w (L13@   w       // whisky
+
+.group x
+        x         Z       // caxu ['kaZu]
+    _) x ('@     Z
+
+.group y
+        y         i
+
+.group z
+        z         dz      // zona
+    _) z ('@     dz
+        zz        dz:
+     A) z         dz:     // ozu ['odz:u]
+
+
+.group '
+        '                 // s'àrbore, nd'at, d'unu
+.group ’
+        ’

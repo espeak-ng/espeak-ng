@@ -1,0 +1,507 @@
+// Pronunciation list for Sardinian (sardu, sc)
+// This file is UTF-8 encoded.
+//
+// Spelling: Limba Sarda Comuna (LSC).  Pronunciation: "sardo neutro"
+// of the SINTESA project (Universita` di Cagliari, 2013-2015).
+// See sc_rules and phsource/ph_sardinian for the phonemes.
+//
+// $double   the word doubles the first consonant of the next word
+//           (cogeminazione: a, e, o, che, se, tra, re, do, fa)
+//           and its last vowel is a2 E2 O2 i2 u2, which stops the
+//           lenition of the next consonant (sa pira [sa'Bira] but
+//           a pira [ap:'ira]).
+// Function words (articles, prepositions, conjunctions, clitic
+// pronouns) are unstressed ($u), as described by SINTESA (ch. 5).
+
+
+// LETTERS
+//========
+// The consonant letters are not words: a single letter is spoken
+// by its name.  The vowels a e o are words, so their names have _
+_a	'a2
+b	b'i2
+c	tS'i2
+d	d'i2
+_e	'E2
+f	'Ef:E
+g	dZ'i2
+h	'ak:a
+_i	'i2
+j	'i||l'ONQa
+k	k'a
+l	'El:E
+m	'Em:E
+n	'En:E
+_o	'O2
+p	p'i2
+q	k'u2
+r	'ERE
+s	'Es:E
+t	t'i2
+_u	'u2
+v	v'u2
+w	v'u||d'Op:ia
+x	'iks
+y	'i||gr'EQa
+z	dz'Eta
+
+_à	$accent
+_á	$accent
+_è	$accent
+_é	$accent
+_ì	$accent
+_í	$accent
+_ò	$accent
+_ó	$accent
+_ù	$accent
+_ú	$accent
+
+// accent names
+_acu	atS:'Entu||ak'ut:u
+_grv	atS:'Entu||Qr'aE
+_dia	di'ErEzi
+_tld	t'ilDE
+_cir	tSirkuMfl'Es:u
+_cap	maj'usk:ula
+_??	s'imbulu
+_?A	l'it:Era
+
+
+// PUNCTUATION AND SYMBOLS
+//========================
+_.	p'untu	$max3
+_,	v'irQula
+_:	d'uOs||p'untOs
+_;	p'untu||E2||v'irQula
+_!	p'untu||Esklamat'ivu
+_?	p'untu||dE||dOm'anda
+_"	Qaz:'Ez:as
+_'	ap'OstrOfu
+_(	par'EntEzi||ab'ERta
+_)	par'EntEzi||sER:'aDa
+_[	kad:r'aDa||ab'ERta
+_]	kad:r'aDa||sER:'aDa
+_-	tr'at:u
+__	l'inEa||b'as:a
+_/	b'aRa
+_\	b'aRa||al||kontr'ariu
+_*	astEr'isk:u
+_&	'E2
+_#	kantsEl:'Ed.:u
+_%	prO||k'entu
+_‰	prO||m'il:i
+_+	pr'us
+_=	uQu'alE
+_<	min'ORE||dE
+_>	madZ:'ORE||dE
+_@	aROb:'a2
+_°	Qr'aDus
+_º	Qr'aDus
+_€	'Euru
+_£	l'iras
+_$	d'ol:arOs
+_¥	j'Ene
+_§	paraQr'af:u
+_¶	paraQr'af:u
+_©	k'Op:irait
+_®	marka||rEdZ:istr'aDa
+_™	marka
+_~	t'ilDE
+_|	b'aRa||vErtik'alE
+_^	atS:'Entu||tSirkuMfl'Es:u
+_·	p'untu||m'Ez:u
+
+// symbols which are spoken inside a text
+%	prO||k'entu	$max3
+‰	prO||m'il:i	$max3
+€	'Euru
+$	d'ol:arOs
+£	l'iras
+¥	j'Ene
+&	'E2
+#	kantsEl:'Ed.:u	$max3
+@	aROb:'a2
+*	astEr'isk:u	$max3
++	pr'us	$max3
+=	uQu'alE	$max3
+/	b'aRa	$max3
+\	b'aRa||al||kontr'ariu	$max3
+~	t'ilDE
+°	Qr'aDus
+§	paraQr'af:u
+©	k'Op:irait
+
+
+// NUMBERS
+//========
+// LSC norms (2006), "Numerales"
+
+_0	dz'eru
+_1	'unu
+_1f	'una
+_2	d'uOs
+_2f	d'uas
+_3	tr'Es
+_4	b'at:OR
+_5	k'imbE
+_6	s'Es
+_7	s'Et:E
+_8	'Ot:O
+_9	n'OE
+_10	d'EQE
+_11	'un.d.iQi
+_12	d'oiQi
+_13	tr'eiQi
+_14	bat:'oRdiQi
+_15	b'in.d.iQi
+_16	s'eiQi
+_17	dEQEs:'Et:E
+_18	dEQE'Ot:O
+_19	dEQEn:'OE
+_2X	b'inti
+_21	bint'unu
+_21f	bint'una
+_22	bintid'uOs
+_23	bintitr'Es
+_24	bintib'at:OR
+_25	bintiQ'imbE
+_26	bintis'Es
+_27	bintis'Et:E
+_28	bint'Ot:O
+_29	bintin'OE
+_3X	tr'inta
+_4X	bar'anta
+_5X	kimb'anta
+_6X	sEs:'anta
+_7X	sEt:'anta
+_8X	Ot:'anta
+_9X	nOr'anta
+// 35 ... 95 as in CROS: trintaghimbe, barantaghimbe ... norantaghimbe (like bintighimbe)
+_35	tr,intaQ'imbE
+_45	bar,antaQ'imbE
+_55	kimb,antaQ'imbE
+_65	sEs:,antaQ'imbE
+_75	sEt:,antaQ'imbE
+_85	Ot:,antaQ'imbE
+_95	nOr,antaQ'imbE
+
+_0C	k'entu
+_1C	k'entu
+_2C	duQ'EntOs
+_3C	trEQ'EntOs
+_4C	bat:ORg'EntOs
+_5C	kimbiQ'EntOs
+_6C	sEsk'EntOs
+_7C	sEt:iQ'EntOs
+_8C	Ot:iQ'EntOs
+_9C	noiQ'EntOs
+
+_0and	E2
+
+_0M1	m'idZ:a
+_1M1	m'il:i
+_2M1	duam'idZ:a
+_0M2	mil:i'OnEs
+_1M2	'unu||mil:i'OnE
+_0M3	mil:i'aRdOs
+_1M3	'unu||mil:i'aRdu
+
+_dpt	v'irQula
+
+// ordinal numbers (LSC): su 1º, sa 1ª = su primu, sa prima; su 2º, sa 2ª =
+// su segundu, sa segunda; from 3 on, de + the cardinal number:
+// su 3º, sa 3ª = su de tres, sa de tres; su 23º = su de bintitrès.
+// The suffix º ª adds nothing (%), _x#º _x#ª give the ending of primu, segundu.
+_#º	%
+_#ª	%
+_x#º	u
+_x#ª	a
+_1ox	pr'im
+_2ox	seQ'un.d.
+_3o	dE||tr'Es
+_4o	dE||b'at:OR
+_5o	dE||k'imbE
+_6o	dE||s'Es
+_7o	dE||s'Et:E
+_8o	dE||'Ot:O
+_9o	dE||n'OE
+_10o	dE||d'EQE
+_11o	dE||'un.d.iQi
+_12o	dE||d'oiQi
+_13o	dE||tr'eiQi
+_14o	dE||bat:'oRdiQi
+_15o	dE||b'in.d.iQi
+_16o	dE||s'eiQi
+_17o	dE||dEQEs:'Et:E
+_18o	dE||dEQE'Ot:O
+_19o	dE||dEQEn:'OE
+_20o	dE||b'inti
+_21o	dE||bint'unu
+_22o	dE||bintid'uOs
+_23o	dE||bintitr'Es
+_24o	dE||bintib'at:OR
+_25o	dE||bintiQ'imbE
+_26o	dE||bintis'Es
+_27o	dE||bintis'Et:E
+_28o	dE||bint'Ot:O
+_29o	dE||bintin'OE
+_30o	dE||tr'inta
+_31o	dE||tr,int'unu
+_32o	dE||tr,intad'uOs
+_33o	dE||tr,intatr'Es
+_34o	dE||tr,intab'at:OR
+_35o	dE||tr,intaQ'imbE
+_36o	dE||tr,intas'Es
+_37o	dE||tr,intas'Et:E
+_38o	dE||tr,int'Ot:O
+_39o	dE||tr,intan'OE
+_40o	dE||bar'anta
+_41o	dE||bar,ant'unu
+_42o	dE||bar,antad'uOs
+_43o	dE||bar,antatr'Es
+_44o	dE||bar,antab'at:OR
+_45o	dE||bar,antaQ'imbE
+_46o	dE||bar,antas'Es
+_47o	dE||bar,antas'Et:E
+_48o	dE||bar,ant'Ot:O
+_49o	dE||bar,antan'OE
+_50o	dE||kimb'anta
+_51o	dE||kimb,ant'unu
+_52o	dE||kimb,antad'uOs
+_53o	dE||kimb,antatr'Es
+_54o	dE||kimb,antab'at:OR
+_55o	dE||kimb,antaQ'imbE
+_56o	dE||kimb,antas'Es
+_57o	dE||kimb,antas'Et:E
+_58o	dE||kimb,ant'Ot:O
+_59o	dE||kimb,antan'OE
+_60o	dE||sEs:'anta
+_61o	dE||sEs:,ant'unu
+_62o	dE||sEs:,antad'uOs
+_63o	dE||sEs:,antatr'Es
+_64o	dE||sEs:,antab'at:OR
+_65o	dE||sEs:,antaQ'imbE
+_66o	dE||sEs:,antas'Es
+_67o	dE||sEs:,antas'Et:E
+_68o	dE||sEs:,ant'Ot:O
+_69o	dE||sEs:,antan'OE
+_70o	dE||sEt:'anta
+_71o	dE||sEt:,ant'unu
+_72o	dE||sEt:,antad'uOs
+_73o	dE||sEt:,antatr'Es
+_74o	dE||sEt:,antab'at:OR
+_75o	dE||sEt:,antaQ'imbE
+_76o	dE||sEt:,antas'Es
+_77o	dE||sEt:,antas'Et:E
+_78o	dE||sEt:,ant'Ot:O
+_79o	dE||sEt:,antan'OE
+_80o	dE||Ot:'anta
+_81o	dE||Ot:,ant'unu
+_82o	dE||Ot:,antad'uOs
+_83o	dE||Ot:,antatr'Es
+_84o	dE||Ot:,antab'at:OR
+_85o	dE||Ot:,antaQ'imbE
+_86o	dE||Ot:,antas'Es
+_87o	dE||Ot:,antas'Et:E
+_88o	dE||Ot:,ant'Ot:O
+_89o	dE||Ot:,antan'OE
+_90o	dE||nOr'anta
+_91o	dE||nOr,ant'unu
+_92o	dE||nOr,antad'uOs
+_93o	dE||nOr,antatr'Es
+_94o	dE||nOr,antab'at:OR
+_95o	dE||nOr,antaQ'imbE
+_96o	dE||nOr,antas'Es
+_97o	dE||nOr,antas'Et:E
+_98o	dE||nOr,ant'Ot:O
+_99o	dE||nOr,antan'OE
+// exact hundreds: su 100º = su de chentu, su 200º = su de dughentos
+_1Co	dE||k'entu
+_2Co	dE||duQ'EntOs
+_3Co	dE||trEQ'EntOs
+_4Co	dE||bat:ORg'EntOs
+_5Co	dE||kimbiQ'EntOs
+_6Co	dE||sEsk'EntOs
+_7Co	dE||sEt:iQ'EntOs
+_8Co	dE||Ot:iQ'EntOs
+_9Co	dE||noiQ'EntOs
+
+// 200.000 and 300.000 (LSC table: dughentamìgia, treghentamìgia), and in the
+// same way 400.000 to 900.000: batorghentamìgia ... noighentamìgia
+_200M1	duQ,Entam'idZ:a
+_300M1	trEQ,Entam'idZ:a
+_400M1	bat:ORg,Entam'idZ:a
+_500M1	kimbiQ,Entam'idZ:a
+_600M1	sEsk,Entam'idZ:a
+_700M1	sEt:iQ,Entam'idZ:a
+_800M1	Ot:iQ,Entam'idZ:a
+_900M1	noiQ,Entam'idZ:a
+
+
+// ACRONYMS READ AS WORDS (only when written in capitals)
+afi	'affi	$allcaps
+cai	k'ai	$allcaps
+cia	tS'ia	$allcaps
+cop	k'Op	$allcaps
+cup	k'up	$allcaps
+des	d'Es	$allcaps
+dj	didZ:'ei	$allcaps
+doc	d'Ok	$allcaps
+dop	d'Op	$allcaps
+eni	'eni	$allcaps
+eta	'Et:a	$allcaps
+fao	f'aO	$allcaps
+gnu	n^'u	$allcaps
+ipa	'ip:a	$allcaps
+ira	'ira	$allcaps
+iso	'izO	$allcaps
+iva	'iva	$allcaps
+led	l'Ed	$allcaps
+nor	n'Or	$allcaps
+onu	'Onu	$allcaps
+pen	p'En	$allcaps
+pib	p'ib	$allcaps
+pil	p'il	$allcaps
+rai	R'ai	$allcaps
+ram	R'am	$allcaps
+ras	R'as	$allcaps
+rom	R'Om	$allcaps
+sel	s'El	$allcaps
+tar	t'ar	$allcaps
+termcat	tERmk'at2	$allcaps
+ufo	'uffO	$allcaps
+uil	'uil	$allcaps
+unicef	'unitS:Ef	$allcaps
+usa	'uza	$allcaps
+vip	v'ip	$allcaps
+
+// ACRONYMS SPELLED LETTER BY LETTER (only when written in capitals)
+cgil	$abbrev $allcaps
+ipcc	$abbrev $allcaps
+isbn	$abbrev $allcaps
+issn	$abbrev $allcaps
+
+// with the elided article (s'UNICEF, s'ISBN), where the rules would read them wrongly
+s'unicef	s'unitS:Ef
+s'ipcc	s,i2p,i2tS,i2tS'i2
+s'isbn	s,i2,EssEb,i2'EnnE
+s'issn	s,i2,EssE,EssE'EnnE
+
+
+// FUNCTION WORDS
+//===============
+
+// articles
+su	$u
+sa	$u
+sos	$u
+sas	$u
+is	$u
+unu	$u+
+una	$u+
+unos	$u+
+unas	$u+
+
+// prepositions
+a	a2	$u $double
+de	$u
+dae	$u
+in	$u
+cun	$u
+cum	$u
+pro	$u
+tra	tra2	$u $double
+intre	$u
+sena	$u
+chene	$u
+peri	$u
+
+// conjunctions
+e	E2	$u $double
+o	O2	$u $double
+che	kE2	$u $double
+se	sE2	$u $double
+ma	$u
+ca	$u
+chi	$u
+si	$u
+nen	$u
+nimancu	$u
+comente	$u
+cando	$u
+mancari	$u
+
+// clitic and weak pronouns
+mi	$u
+ti	$u
+nos	$u
+bos	$u
+lu	$u
+la	$u
+los	$u
+las	$u
+li	$u
+lis	$u
+ddu	$u
+dda	$u
+ddos	$u
+ddas	$u
+ddi	$u
+ddis	$u
+nde	$u
+nche	$u
+bi	$u
+ndi	$u
+ne	$u
+
+// negation
+no	$u
+non	$u
+
+// words which double the next consonant
+re	R'E2	$double
+do	d'O2	$double
+fa	f'a2	$double
+
+// after a word which doubles the next consonant, the clitic
+// pronouns la lu li las los lis keep a single l (degeminazione)
+(a la)	a||la	$u
+(a lu)	a||lu	$u
+(a li)	a||li	$u
+(a las)	a||las	$u
+(a los)	a||los	$u
+(a lis)	a||lis	$u
+(e la)	E||la	$u
+(e lu)	E||lu	$u
+(e li)	E||li	$u
+(e las)	E||las	$u
+(e los)	E||los	$u
+(e lis)	E||lis	$u
+(o la)	O||la	$u
+(o lu)	O||lu	$u
+(o li)	O||li	$u
+(o las)	O||las	$u
+(o los)	O||los	$u
+(o lis)	O||lis	$u
+(che la)	kE||la	$u
+(che lu)	kE||lu	$u
+(che li)	kE||li	$u
+(che las)	kE||las	$u
+(che los)	kE||los	$u
+(che lis)	kE||lis	$u
+(se la)	sE||la	$u
+(se lu)	sE||lu	$u
+(se li)	sE||li	$u
+(se las)	sE||las	$u
+(se los)	sE||los	$u
+(se lis)	sE||lis	$u
+
+// cun/in + unu/una: euphonic [ɖ] (cun unu brincu [kun.d.,unuB'riNku])
+(cun unu)	kun.||d.,unu
+(cun una)	kun.||d.,una
+(cun unos)	kun.||d.,unOs
+(cun unas)	kun.||d.,unas
+(in unu)	in.||d.,unu
+(in una)	in.||d.,una
+(in unos)	in.||d.,unOs
+(in unas)	in.||d.,unas

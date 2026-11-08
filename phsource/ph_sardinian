@@ -1,0 +1,687 @@
+//====================================================
+//  Sardinian (sardu, sc)
+//
+//  Written text is expected in the "Limba Sarda Comuna" (LSC)
+//  spelling. The pronunciation follows the "sardo neutro" of the
+//  SINTESA project of the Universita` di Cagliari (R. Mura and
+//  M. Virdis (eds.), "Caratteri e strutture fonetiche, fonologiche e
+//  prosodiche della lingua sarda. Il sintetizzatore vocale SINTESA",
+//  Condaghes 2015), which is close to the LSC spelling and does not
+//  follow a local dialect.
+//
+//  Vowel formant targets: SINTESA, chapter 2 (male speaker,
+//  Scano di Montiferro), stressed (F1/F2):
+//    i 289/2092  e 357/2012  E 528/1813  a 735/1348
+//    O 541/969   o 394/936   u 336/863
+//  unstressed vowels are more central.
+//
+//  Phonology implemented here (the rest is in sc_rules/sc_list):
+//  - word-final consonants before a pause get an epithetic
+//    (paragogic) vowel which echoes the last vowel: [a/ E/ i/ O/ u/]
+//  - final -s, -n, -r, -t change according to the next word
+//  - word-initial p t k f s r are lenited after a word ending in a
+//    vowel, unless that word causes doubling (a2 E2 O2 i2 u2, $double)
+//  - word-initial ts dz tS dZ S j n^ d. are doubled after a vowel
+//====================================================
+
+
+phoneme :  // lengthen the previous phoneme (geminate consonants)
+  virtual
+  length 50
+endphoneme
+
+
+// VOWELS
+//=======
+// [e] and [o] are the closed allophones of /E/ and /O/
+// (metaphony, chosen by the spelling rules)
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 165
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/a#_3)
+  ENDIF
+  FMT(vowel/a#)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 160
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/e#)
+  ENDIF
+  FMT(vwl_it/e_open)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 155
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/ii#_3)
+  ENDIF
+  FMT(vowel/ii)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 155
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/i#)
+  ENDIF
+  FMT(vwl_it/i)
+endphoneme
+
+phoneme i#  // <i> after c, g, sc before a vowel: spoken only if stressed
+  vwl starttype #i endtype #i
+  length 155
+  IF thisPh(isNotStressed) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+  ChangePhoneme(i)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 160
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/8_2)
+  ENDIF
+  FMT(vowel/oo_5)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 160
+  FMT(vowel/uu_2)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 165
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/uu_3)
+  ENDIF
+  FMT(vowel/u)
+endphoneme
+
+
+// Final vowel of a word which doubles the first consonant of the
+// next word (a, e, o, che, se, tra, re, do, fa ...).  These are
+// marked with $double in sc_list.  flag1 stops the lenition of the
+// next consonant.
+
+phoneme a2
+  vwl starttype #a endtype #a
+  flag1
+  ipa a
+  length 165
+  CALL a
+endphoneme
+
+phoneme E2
+  vwl starttype #e endtype #e
+  flag1
+  ipa ɛ
+  length 160
+  CALL E
+endphoneme
+
+phoneme O2
+  vwl starttype #o endtype #o
+  flag1
+  ipa ɔ
+  length 160
+  CALL O
+endphoneme
+
+phoneme i2
+  vwl starttype #i endtype #i
+  flag1
+  ipa i
+  length 155
+  CALL i
+endphoneme
+
+phoneme u2
+  vwl starttype #u endtype #u
+  flag1
+  ipa u
+  length 165
+  CALL u
+endphoneme
+
+
+// Final /E/ of the infinitives in -ere (pòdere, èssere ...): it is
+// spoken only before a pause, otherwise the word ends in -er.
+
+phoneme E-
+  vwl starttype #e endtype #e
+  ipa ɛ
+  length 160
+  IF NOT nextPh(isPause) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+  CALL E
+endphoneme
+
+
+// Epithetic (paragogic) vowels: a short echo of the last vowel of a
+// word which ends in a consonant, before a pause:
+// fiat ['fiaDa/], podet ['pODEDE/], antis ['antizi/]
+
+phoneme a/
+  vwl starttype #a endtype #a
+  unstressed nsy
+  ipa ᵃ
+  length 70
+  FMT(vowel/a#_3, 75)
+endphoneme
+
+phoneme E/
+  vwl starttype #e endtype #e
+  unstressed nsy
+  ipa ᵋ
+  length 65
+  FMT(vowel/e#, 60)
+endphoneme
+
+phoneme i/
+  vwl starttype #i endtype #i
+  unstressed nsy
+  ipa ⁱ
+  length 60
+  FMT(vowel/i#, 45)
+endphoneme
+
+phoneme O/
+  vwl starttype #o endtype #o
+  unstressed nsy
+  ipa ᵓ
+  length 65
+  FMT(vowel/8_2, 60)
+endphoneme
+
+phoneme u/
+  vwl starttype #u endtype #u
+  unstressed nsy
+  ipa ᵘ
+  length 60
+  FMT(vowel/uu_3, 50)
+endphoneme
+
+
+// Diphthongs are sequences of vowels in LSC (biancu [bi'aNku]),
+// so no diphthong phonemes are needed.
+
+
+// CONSONANTS
+//===========
+
+// Procedure: append the epithetic vowel which echoes the last
+// vowel of the word.  Used by word-final consonants before a pause.
+
+procedure Epithetic
+  IF prevVowel(#a) THEN
+    AppendPhoneme(a/)
+  ELIF prevVowel(#e) THEN
+    AppendPhoneme(E/)
+  ELIF prevVowel(#i) THEN
+    AppendPhoneme(i/)
+  ELIF prevVowel(#o) THEN
+    AppendPhoneme(O/)
+  ELIF prevVowel(#u) THEN
+    AppendPhoneme(u/)
+  ENDIF
+endprocedure
+
+
+// Stops
+//------
+
+phoneme p
+  vls blb stp
+  voicingswitch b
+  lengthmod 2
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    IF nextPh(isVowel) OR nextPh(isLiquid) THEN
+      ChangePhoneme(B)  // sa pira [sa'Bira]
+    ENDIF
+  ENDIF
+  CALL base1/p
+endphoneme
+
+phoneme t
+  vls dnt stp
+  voicingswitch d
+  lengthmod 2
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    IF nextPh(isVowel) OR nextPh(isLiquid) THEN
+      ChangePhoneme(D)  // sa terra [sa'DERa]
+    ENDIF
+  ENDIF
+  IF thisPh(isWordEnd) AND prevPh(isSibilant) THEN
+    // est: [Est] before a vowel, [EstE/] before a pause,
+    // otherwise the t is not spoken (the s is changed by its own rule)
+    IF nextPh(isPause) THEN
+      CALL Epithetic
+    ELIF NOT nextPh(isVowel) THEN
+      ChangePhoneme(NULL)
+    ENDIF
+  ELIF thisPh(isWordEnd) AND prevPh(R) THEN
+    // -st after rotacism of the s: est bellu [ER 'bEl:u]
+    ChangePhoneme(NULL)
+  ELIF thisPh(isWordEnd) THEN
+    // final -t of verbs (fiat, podet, at)
+    IF nextPh(isVowel) OR nextPh(isPause) THEN
+      ChangePhoneme(D)  // diat andare ['diaD an.'d.arE], fiat ['fiaDa/]
+    // otherwise total assimilation to the next consonant: at leadu [al:E'aDu]
+    ELIF nextPh(p) THEN
+      ChangePhoneme(p)
+    ELIF nextPh(k) THEN
+      ChangePhoneme(k)
+    ELIF nextPh(b) THEN
+      ChangePhoneme(b)
+    ELIF nextPh(d) THEN
+      ChangePhoneme(d)
+    ELIF nextPh(g) THEN
+      ChangePhoneme(g)
+    ELIF nextPh(f) THEN
+      ChangePhoneme(f)
+    ELIF nextPh(v) THEN
+      ChangePhoneme(v)
+    ELIF nextPh(s) THEN
+      ChangePhoneme(s)
+    ELIF nextPh(z) THEN
+      ChangePhoneme(z)
+    ELIF nextPh(m) THEN
+      ChangePhoneme(m)
+    ELIF nextPh(n) THEN
+      ChangePhoneme(n)
+    ELIF nextPh(l) THEN
+      ChangePhoneme(l)
+    ELIF nextPh(R) THEN
+      ChangePhoneme(r)
+    ELIF nextPh(d.) THEN
+      ChangePhoneme(d.)
+    ELIF nextPh(dZ) THEN
+      ChangePhoneme(d)
+    ELIF nextPh(dz) THEN
+      ChangePhoneme(d)
+    ELIF nextPh(S) THEN
+      ChangePhoneme(S)
+    ELIF nextPh(Z) THEN
+      ChangePhoneme(Z)
+    ELIF nextPh(n^) THEN
+      ChangePhoneme(n^)
+    ELIF nextPh(j) THEN
+      ChangePhoneme(j)
+    ENDIF
+  ENDIF
+  CALL base2/t
+endphoneme
+
+phoneme k
+  vls vel stp
+  voicingswitch g
+  lengthmod 2
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    IF nextPh(isVowel) OR nextPh(isLiquid) THEN
+      ChangePhoneme(Q)  // sa cosa [sa'QOza]
+    ENDIF
+  ENDIF
+  CALL base1/k
+endphoneme
+
+phoneme b
+  vcd blb stp
+  voicingswitch p
+  lengthmod 5
+  CALL base1/b
+endphoneme
+
+phoneme d
+  vcd dnt stp
+  voicingswitch t
+  lengthmod 5
+  CALL base2/d
+endphoneme
+
+phoneme g
+  vcd vel stp
+  voicingswitch k
+  lengthmod 5
+  CALL base1/g
+endphoneme
+
+phoneme d.  // retroflex [ɖ]: <dd> (casteddu), <nd> (andare)
+  vcd rfx stp
+  lengthmod 5
+  ipa ɖ
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+
+  // the clitics ddu, dda, ddi, dd'at ... : [d.] after a pause, [d.d.] after a vowel
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(d.)
+  ENDIF
+
+  IF PreVoicing THEN
+    FMT(d/xdr)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ENDIF
+
+  FMT(d/dr) addWav(x/d)
+endphoneme
+
+
+// Approximants from lenition of /b d g/ inside words and of
+// word-initial /p t k/ after a vowel: [β ð ɣ]
+
+phoneme B
+  vcd blb frc
+  voicingswitch f
+  lengthmod 6
+  ipa β
+  CALL base1/B
+endphoneme
+
+phoneme D
+  vcd dnt frc
+  lengthmod 6
+  ipa ð
+  IF thisPh(isWordEnd) AND nextPh(isPause) THEN
+    CALL Epithetic  // fiat ['fiaDa/]
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh, 35)
+  ENDIF
+  FMT(voc/dh) addWav(vocw/dh, 60)
+endphoneme
+
+phoneme Q
+  vcd vel frc
+  lengthmod 6
+  ipa ɣ
+  CALL base1/Q
+endphoneme
+
+
+// Affricates
+//-----------
+
+// The closure of a doubled affricate at the start of a word
+// (sa tzia, sa cena): a silence, with no burst and no lenition.
+phoneme t#
+  vls dnt stp
+  ipa t
+  lengthmod 2
+endphoneme
+
+phoneme ts  // <tz>
+  vls alv afr sib
+  voicingswitch dz
+  lengthmod 2
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(t#)  // sa tzia [sat'tsia]
+  ENDIF
+  CALL base2/ts
+endphoneme
+
+phoneme dz  // <z>
+  vcd alv afr sib
+  voicingswitch ts
+  lengthmod 3
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(d)  // sa zona [sad'dzOna]
+  ENDIF
+  CALL consonants/dz
+endphoneme
+
+phoneme tS  // <c> before e, i
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(t#)  // sa cena [sat'tSEna]
+  ENDIF
+  CALL base1/tS
+endphoneme
+
+phoneme dZ  // <g> before e, i
+  vcd pla afr sib
+  voicingswitch tS
+  lengthmod 5
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(d)  // sa gente [sad'dZEntE]
+  ENDIF
+  CALL base1/dZ
+endphoneme
+
+
+// Fricatives
+//-----------
+
+phoneme f
+  vls lbd frc
+  voicingswitch v
+  lengthmod 3
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    IF nextPh(isVowel) OR nextPh(isLiquid) THEN
+      ChangePhoneme(v)  // sa funtzione [savuntsi'OnE]
+    ENDIF
+  ENDIF
+  CALL base1/f
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  voicingswitch f
+  lengthmod 6
+  CALL base1/v
+endphoneme
+
+phoneme s
+  vls alv frc sib
+  voicingswitch z
+  lengthmod 3
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    IF nextPh(isVowel) OR nextPh(isLiquid) THEN
+      ChangePhoneme(z)  // sa sustantzia [sazus'tantsia]
+    ENDIF
+  ENDIF
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVowel) OR nextPh(isPause) THEN
+      ChangePhoneme(z)  // sos amigos [sOza'miQOzO/]
+    ELIF NOT nextPh(p) AND NOT nextPh(t) AND NOT nextPh(k) AND NOT nextPh(s) AND NOT nextPh(S) THEN
+      // rotacism before voiced consonants, f, ts, dz ...: sos bratzos [sOR'bratsOzO/]
+      ChangePhoneme(R)
+    ENDIF
+  ENDIF
+  IF nextPh(t) AND nextPh(isWordEnd) AND NOT next2Ph(isVowel) AND NOT next2Ph(isPause) THEN
+    // est + consonant: [Es] before p t k s, [ER] before the other consonants
+    IF NOT next2Ph(p) AND NOT next2Ph(t) AND NOT next2Ph(k) AND NOT next2Ph(s) AND NOT next2Ph(S) THEN
+      ChangePhoneme(R)
+    ENDIF
+  ENDIF
+  CALL base1/s
+endphoneme
+
+phoneme z
+  vcd alv frc sib
+  voicingswitch s
+  lengthmod 6
+  IF thisPh(isWordEnd) AND nextPh(isPause) THEN
+    CALL Epithetic  // sos ['sOzO/]
+  ENDIF
+  CALL base1/z
+endphoneme
+
+phoneme S  // <sc> before e, i; always long between vowels
+  vls pla frc sib
+  voicingswitch Z
+  lengthmod 3
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(S)  // a word-initial [ʃ] (loanwords) is long after a vowel
+  ENDIF
+  CALL base1/S
+endphoneme
+
+phoneme Z  // <x>
+  vcd pla frc sib
+  voicingswitch S
+  lengthmod 6
+  CALL base1/Z
+endphoneme
+
+
+// Nasals
+//-------
+
+phoneme m
+  vcd blb nas
+  lengthmod 4
+  CALL base1/m
+endphoneme
+
+phoneme n
+  vcd alv nas
+  lengthmod 4
+  // assimilation, also across words (cun pane, in Casteddu)
+  IF nextPh(p) OR nextPh(b) OR nextPh(m) OR nextPh(B) THEN
+    ChangePhoneme(m)
+  ELIF nextPh(k) OR nextPh(g) OR nextPh(Q) THEN
+    ChangePhoneme(N)
+  ELIF nextPh(f) OR nextPh(v) THEN
+    ChangePhoneme(M)
+  ELIF nextPh(d.) THEN
+    ChangePhoneme(n.)
+  ELIF nextPh(n^) THEN
+    ChangePhoneme(n^)
+  ENDIF
+  IF thisPh(isWordEnd) AND nextPh(isPause) THEN
+    CALL Epithetic  // cun ['kunu/]
+  ENDIF
+  CALL base1/n
+endphoneme
+
+phoneme n#  // final <n> of the verb ending -nt (fiant, sunt): the t is not spoken
+  vcd alv nas
+  lengthmod 4
+  ipa n
+  IF nextPh(p) OR nextPh(b) OR nextPh(B) THEN
+    ChangePhoneme(m)
+  ELIF nextPh(k) OR nextPh(g) OR nextPh(Q) THEN
+    ChangePhoneme(N)
+  ELIF nextPh(f) OR nextPh(v) THEN
+    ChangePhoneme(M)
+  ELIF nextPh(d.) THEN
+    ChangePhoneme(n.)
+  ENDIF
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isPause) THEN
+      CALL Epithetic  // sunt ['sunu/]
+    ELIF nextPh(m) OR nextPh(n) OR nextPh(n^) OR nextPh(l) OR nextPh(R) OR nextPh(j) OR nextPh(Z) THEN
+      CALL Epithetic  // fiant meda ['fiana/ 'mEDa]
+    ENDIF
+  ENDIF
+  CALL base1/n
+endphoneme
+
+phoneme M  // [ɱ] before f, v
+  vcd lbd nas
+  lengthmod 4
+  ipa ɱ
+  CALL base1/m
+endphoneme
+
+phoneme N  // [ŋ] before k, g
+  vcd vel nas
+  lengthmod 4
+  CALL base1/N
+endphoneme
+
+phoneme n.  // [ɳ] before [ɖ]: andare
+  vcd rfx nas
+  lengthmod 4
+  CALL base1/n.
+endphoneme
+
+phoneme n^  // <gn> [ɲ], always long between vowels
+  vcd pal nas
+  lengthmod 4
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(n^)
+  ENDIF
+  CALL base1/n^
+endphoneme
+
+
+// Liquids and approximants
+//-------------------------
+
+phoneme l
+  liquid
+  lengthmod 7
+  CALL base1/l
+endphoneme
+
+phoneme r  // tap [ɾ]: between vowels (caru), after a consonant (pratu)
+  liquid alv rhotic
+  ipa ɾ
+  lengthmod 3
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isPause) THEN
+      CALL Epithetic  // semper ['sEmpErE/]
+    ELIF NOT nextPh(isVowel) THEN
+      ChangePhoneme(R)  // pòder fàghere
+    ENDIF
+  ENDIF
+  IF nextPh(E-) AND NOT next2Ph(isPause) AND NOT next2Ph(isVowel) THEN
+    ChangePhoneme(R)  // pòdere fàghere ['pODER 'faQErE]
+  ENDIF
+  CALL base1/**
+endphoneme
+
+phoneme R  // trill [r]: <rr>, before a consonant, at the start of a word
+  liquid trl
+  lengthmod 6
+  ipa r
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    ChangePhoneme(r)  // su re [su'rE]
+  ENDIF
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(isVowel) THEN
+      ChangePhoneme(r)  // semper est ['sEmpErEst]
+    ELIF nextPh(isPause) THEN
+      ChangePhoneme(r)  // semper ['sEmpErE/]
+    ENDIF
+  ENDIF
+  CALL base1/R
+endphoneme
+
+phoneme t2  // final t after r or l in loanwords: sport ['spOrtO/]; unlike the t of est, it is kept
+  vls dnt stp
+  voicingswitch d
+  lengthmod 2
+  IF thisPh(isWordEnd) AND nextPh(isPause) THEN
+    CALL Epithetic
+  ENDIF
+  CALL base2/t
+endphoneme
+
+phoneme j  // <j>, always long between vowels: eja ['ej:a]
+  liquid pal
+  lengthmod 7
+  IF thisPh(isWordStart) AND prevPh(isVowel) AND NOT prevPh(isFlag1) THEN
+    InsertPhoneme(j)
+  ENDIF
+  CALL base1/j
+endphoneme
+
+phoneme w
+  import_phoneme base1/w
+endphoneme

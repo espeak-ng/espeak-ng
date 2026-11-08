@@ -1887,6 +1887,9 @@ include ph_romanian
 phonemetable rup base2
 include ph_aromanian
 
+phonemetable sc base2
+include ph_sardinian
+
 phonemetable tk base2
 include ph_turkmen
 
