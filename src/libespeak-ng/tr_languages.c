@@ -917,6 +917,7 @@ Translator *SelectTranslator(const char *name)
 	case L('p', 'a'): // Punjabi
 	case L('g', 'u'): // Gujarati
 	case L('m', 'r'): // Marathi
+	case L3('k', 'o', 'k'): // Konkani
 	{
 		static const short stress_lengths_hi[8] = { 190, 190,  210, 210,  0, 0,  230, 250 };
 		static const unsigned char stress_amps_hi[8] = { 17, 14, 20, 19, 20, 22, 22, 21 };
