@@ -66,6 +66,8 @@ compile_bad "a letter group on an unterminated last line" '.group a\n\ta  a\n.L0
 # A long Cyrillic word is 70 UTF-8 bytes but packs below the 63-byte limit.
 printf '.group а\n\tа  a\n' > "$WORK/src/ru_rules"
 printf 'ааааааааааааааааааааааааааааааааааа  a\n' > "$WORK/src/ru_list"
+# 102 bytes packs to 38, and 38|0x40 == 102: the packed flag must not be inferred from the length.
+printf 'нажжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжж  a\n' >> "$WORK/src/ru_list"
 echo -n "compiling ru dictionary with a 35-letter word ... "
 (cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=ru >/dev/null 2>&1) || { echo "failed"; exit 1; }
 echo "done"

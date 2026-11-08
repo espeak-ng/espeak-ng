@@ -404,12 +404,12 @@ static int count_utf8_chars(const char *s)
 }
 
 /* Bytes the word occupies in the dictionary entry, or -1 if it does not fit.
-   transposed is the value returned by TransposeAlphabet(), which differs from
-   raw_len exactly when the word was packed to 6 bits per character.
+   transposed is the value returned by TransposeAlphabet(); packed is the flag
+   it reported for 6-bit packing.
  */
-static int packed_word_length(int raw_len, int n_chars, int transposed)
+static int packed_word_length(int raw_len, int n_chars, int transposed, bool packed)
 {
-	if (transposed == raw_len)
+	if (!packed)
 		return (raw_len <= MAX_DICT_WORD_BYTES) ? raw_len : -1;
 	return (n_chars <= MAX_PACKED_CHARS) ? (transposed & MAX_DICT_WORD_BYTES) : -1;
 }
@@ -679,12 +679,13 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	int raw_len = strlen(word);
 	int n_chars = count_utf8_chars(word);
 	len_word = raw_len;
+	bool packed = false;
 	if (translator->transpose_min > 0)
-		len_word = TransposeAlphabet(translator, word);
+		len_word = TransposeAlphabet(translator, word, &packed);
 
-	int packed_len = packed_word_length(raw_len, n_chars, len_word);
+	int packed_len = packed_word_length(raw_len, n_chars, len_word, packed);
 	if (packed_len < 0) {
-		fprintf(ctx->f_log, "%5d: Word is too long: %d bytes\n", ctx->linenum, raw_len);
+		fprintf(ctx->f_log, "%5d: Word is too long: %d bytes (%d packed)\n", ctx->linenum, raw_len, packed ? (len_word & MAX_DICT_WORD_BYTES) : raw_len);
 		ctx->error_count++;
 		return 0;
 	}
@@ -717,7 +718,7 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	ix = n_flag_codes;
 	if ((multiple_string != NULL) && (multiple_words > 0))
 		ix += (multiple_string_end - multiple_string) + 2;
-	if (length + ix >= n_dict_line) {
+	if (length + (int)ix >= n_dict_line) {
 		fprintf(ctx->f_log, "%5d: Dictionary line length would overflow the data buffer: %d\n", ctx->linenum, length + ix);
 		ctx->error_count++;
 		return 0;

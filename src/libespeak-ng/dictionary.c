@@ -2415,10 +2415,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	return 0;
 }
 
-int TransposeAlphabet(Translator *tr, char *text)
+int TransposeAlphabet(Translator *tr, char *text, bool *packed)
 {
 	// transpose cyrillic alphabet (for example) into ascii (single byte) character codes
 	// return: number of bytes, bit 6: 1=used compression
+	// packed: if not NULL, set to whether the text was compressed
 
 	int c;
 	int offset;
@@ -2462,6 +2463,9 @@ int TransposeAlphabet(Translator *tr, char *text)
 		}
 	} while ((c != 0) && (bufix < N_WORD_BYTES));
 	buf[bufix] = 0;
+
+	if (packed != NULL)
+		*packed = all_alpha;
 
 	if (all_alpha) {
 		// compress to 6 bits per character
@@ -2543,7 +2547,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	word1 = word;
 	if (tr->transpose_min > 0) {
 		strncpy0(word_buf, word, N_WORD_BYTES);
-		wlen = TransposeAlphabet(tr, word_buf); // bit 6 indicates compressed characters
+		wlen = TransposeAlphabet(tr, word_buf, NULL); // bit 6 indicates compressed characters
 		word = word_buf;
 	} else
 		wlen = strlen(word);
