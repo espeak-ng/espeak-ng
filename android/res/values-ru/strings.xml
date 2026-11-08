@@ -9,7 +9,7 @@
   <!--Source: Preference title.
         Description: Title for the preference that controls default speech rate.-->
   <string name="setting_default_rate">Скорость речи</string>
-    <!--
+  <!--
         Source: Checkbox label.
         Description: When enabled, triples the selected speech rate.
     -->
@@ -26,8 +26,8 @@
   <string name="resetToDefault">Сброс</string>
   <string name="espeak_pitch_range">Интонация</string>
   <string name="espeak_variant">Вариант голоса</string>
-    <string name="espeak_voice_settings">Настройки голоса</string>
-    <string name="espeak_supported_languages">Поддерживаемые языки</string>
+  <string name="espeak_voice_settings">Настройки голоса</string>
+  <string name="espeak_supported_languages">Поддерживаемые языки</string>
   <string name="espeak_supported_languages_all">Система Android распознала все установленные языки.</string>
   <string name="espeak_supported_languages_summary">Количество установленных языков, которые распознала система Android: %1$d из %2$d.</string>
   <string name="espeak_select_all_languages">Выбрать все языки</string>
