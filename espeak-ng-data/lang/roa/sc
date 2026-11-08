@@ -1,0 +1,12 @@
+name Sardinian
+language sc
+
+status testing
+
+stressRule 2
+stressOpt 1 2 5
+stressLength 160 140 150 150 0 0 225 300
+stressAmp 17 15 18 16 20 22 22 22
+tunes sc_s sc_c sc_q sc_e
+numbers 3 6 8 9 10 13 18 21 25 33
+l_unpronouncable 2

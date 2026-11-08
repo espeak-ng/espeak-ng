@@ -109,6 +109,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zle`       | `ru-lv`           | East Slavic           | Russian                     | Latvia                 |
 | `zle`       | `uk`              | East Slavic           | Ukrainian                   |                        |
+| `roa`       | `sc`              | Romance               | Sardinian                   |                        |
 | `art`       | `sjn`             | Constructed           | Sindarin                    |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian<sup>\[1,2\]</sup>   |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |

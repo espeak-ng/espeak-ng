@@ -388,3 +388,47 @@ headextend 4 76 48 18 4
 nucleus  fall 84 16 32 18
 nucleus0 fall 76 8
 endtune
+
+// Sardinian tunes, after the SINTESA project (Universita` di Cagliari,
+// 2015), chapter 5:
+//   statement     H* H* ... L* L-L%   (high head, low falling nucleus)
+//   continuation  H* H* ... H* H-     (high level end)
+//   question      %H H*+!H ... L* L-H%   (high start, downstep,
+//                 low nucleus and a rise on the post-tonic syllables)
+//   exclamation   %H ^H* ... L* L-L%  (like a statement, wider range)
+
+tune sc_s
+prehead   46 54
+headenv   fall 16
+head       4 78 58 -8 -6
+headextend 0 63 38 13 0
+nucleus0 fall 48 8
+nucleus  fall 42 16 16 8
+endtune
+
+tune sc_c
+prehead   46 54
+headenv   fall 16
+head       4 78 58 -8 -6
+headextend 0 63 38 13 0
+nucleus0 rise 56 72
+nucleus  fall 70 60 62 66
+endtune
+
+tune sc_q
+prehead   66 64
+headenv   fall 20
+head       4 82 52 -10 -6
+headextend 0 63 38 13 0
+nucleus0 rise 32 84
+nucleus  fall 38 28 42 84
+endtune
+
+tune sc_e
+prehead   56 62
+headenv   fall 22
+head       4 92 62 -9 -6
+headextend 0 63 38 13 0
+nucleus0 fall 54 6
+nucleus  fall 48 12 14 6
+endtune
