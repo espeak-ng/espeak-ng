@@ -234,15 +234,21 @@ static const unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	242, 246, 249, 252, 254, 255
 };
 
-// Free the voice copies of WCMD_VOICE commands that were queued but never consumed by
-// WavegenFill(), e.g. when only espeak_TextToPhonemes() is used after setting a voice.
+// Free the voice copies and phoneme-alignment buffers of commands that were queued but never
+// consumed by WavegenFill(), e.g. when only espeak_TextToPhonemes() is used after setting a voice.
 static void WcmdqFreePendingVoices(void)
 {
 	int i;
 	for (i = wcmdq_head; i != wcmdq_tail; i = (i + 1) % N_WCMDQ) {
-		if ((wcmdq[i][0] & 0xff) == WCMD_VOICE) {
+		switch (wcmdq[i][0] & 0xff) {
+		case WCMD_VOICE:
 			free((voice_t *)wcmdq[i][2]);
 			wcmdq[i][2] = 0;
+			break;
+		case WCMD_PHONEME_ALIGNMENT:
+			free((char *)wcmdq[i][1]);
+			wcmdq[i][1] = 0;
+			break;
 		}
 	}
 }
@@ -429,11 +435,6 @@ static void WavegenSetEcho(void)
 	delay = wvoice->echo_delay;
 	amp = wvoice->echo_amp;
 
-	if (delay >= N_ECHO_BUF)
-		delay = N_ECHO_BUF-1;
-	if (amp > 100)
-		amp = 100;
-
 	memset(echo_buf, 0, sizeof(echo_buf));
 	echo_tail = 0;
 
@@ -442,6 +443,15 @@ static void WavegenSetEcho(void)
 		amp = embedded_value[EMBED_H];
 		delay = 130;
 	}
+
+	if (delay < 0)
+		delay = 0;
+	if (amp < 0)
+		amp = 0;
+	if (amp > 100)
+		amp = 100;
+	if (samplerate > 0 && delay > ((N_ECHO_BUF-1) * 1000) / samplerate)
+		delay = ((N_ECHO_BUF-1) * 1000) / samplerate;
 
 	if (delay == 0)
 		amp = 0;
@@ -826,7 +836,7 @@ static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_
 
 				// introduce roughness into the sound by reducing the amplitude of
 				modn_period = 0;
-				if (voice->roughness < N_ROUGHNESS) {
+				if (voice->roughness >= 0 && voice->roughness < N_ROUGHNESS) {
 					modn_period = modulation_tab[voice->roughness][modulation_type];
 					modn_amp = modn_period & 0xf;
 					modn_period = modn_period >> 4;
@@ -1185,6 +1195,8 @@ static void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	SetPitch2(wvoice, pitch1, pitch2, &wdata.pitch_base, &wdata.pitch_range);
 	// set initial pitch
 	wdata.pitch = ((wdata.pitch_env[0] * wdata.pitch_range) >>8) + wdata.pitch_base; // Hz << 12
+	if (wdata.pitch < 102400)
+		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
 	flutter_amp = wvoice->flutter;
 }
@@ -1368,7 +1380,7 @@ static int WavegenFill2(void)
 			break;
 #if USE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
-			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
+			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_KLATT case
 			ESPEAK_FALLTHROUGH;
 		case WCMD_KLATT:
 			echo_complete = echo_length;
