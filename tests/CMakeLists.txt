@@ -47,6 +47,7 @@ compiled_test(encoding)
 compiled_test(ieee80)
 compiled_test(output_pho_symbol)
 compiled_test(readclause)
+compiled_test(voice_by_file)
 
 if (SHELL AND UNIX)
 
