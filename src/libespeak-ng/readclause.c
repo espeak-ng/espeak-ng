@@ -50,6 +50,14 @@
 
 #define N_XML_BUF   500
 
+// A character's or symbol's spoken name: dictionary phonemes (up to N_PHONEME_BYTES),
+// decoded into mnemonics (at most 4 characters each), then wrapped in brackets, with a
+// language switch when the name comes from English. Long names, such as emoji names in
+// Marathi, Telugu or Malayalam, overflowed the old 55- and 60-byte buffers when
+// punctuation was spoken.
+#define N_DECODED_PHONEMES (N_PHONEME_BYTES * 4 + 4)
+#define N_CHARNAME_BUF     (N_DECODED_PHONEMES + 40)
+
 static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
 static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc);
 
@@ -184,7 +192,7 @@ const char *WordToString2(char buf[5], unsigned int word)
 static const char *LookupSpecial(Translator *tr, const char *string, char *text_out)
 {
 	unsigned int flags[2];
-	char phonemes[55];
+	char phonemes[N_PHONEME_BYTES];
 	char *string1 = (char *)string;
 
 	flags[0] = flags[1] = 0;
@@ -195,7 +203,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 	return NULL;
 }
 
-static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only)
+static const char *LookupCharName(char buf[N_CHARNAME_BUF], Translator *tr, int c, bool only)
 {
 	// Find the phoneme string (in ascii) to speak the name of character c
 	// Used for punctuation characters and symbols
@@ -203,7 +211,7 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 	int ix;
 	unsigned int flags[2];
 	char single_letter[24];
-	char phonemes[60];
+	char phonemes[N_PHONEME_BYTES];
 	const char *lang_name = NULL;
 	char *string;
 
@@ -261,7 +269,7 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 	return buf;
 }
 
-static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
+static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int n_buf, int end_clause)
 {
 	// announce punctuation names
 	// c1:  the punctuation character
@@ -275,9 +283,9 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int c2;
 	int len;
 	int bufix1;
-	char buf[200];
-	char ph_buf[30];
-	char cn_buf[74];
+	char buf[3 * (N_CHARNAME_BUF + 1) + 40]; // up to three names and two speed commands
+	char ph_buf[N_CHARNAME_BUF];
+	char cn_buf[N_CHARNAME_BUF];
 
 	c2 = *c2_ptr;
 	buf[0] = 0;
@@ -315,7 +323,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				if (embedded_value[EMBED_S] < 300)
 					sprintf(buf, "\001+10S"); // Speak punctuation name faster, unless we are already speaking fast.  It would upset Sonic SpeedUp
 
-				char buf2[80];
+				char buf2[N_CHARNAME_BUF + 2];
 				while (punct_count-- > 0) {
 					sprintf(buf2, " %s", punctname);
 					strcat(buf, buf2);
@@ -337,6 +345,17 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 	bufix1 = *bufix;
 	len = strlen(buf);
+	if ((punctname != NULL) && (*bufix + len >= n_buf - 4)) {
+		// Repeated long names (emoji) don't fit in what is left of the clause:
+		// say the name once, or leave it out rather than write past the end
+		// of the clause buffer.
+		snprintf(buf, sizeof(buf), " %s", punctname);
+		len = strlen(buf);
+		if (*bufix + len >= n_buf - 4) {
+			buf[0] = 0;
+			len = 0;
+		}
+	}
 	strcpy(&output[*bufix], buf);
 	*bufix += len;
 
@@ -723,7 +742,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			tr->clause_upper_count++;
 
 			if ((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev)) {
-				char text_buf[30];
+				char text_buf[N_CHARNAME_BUF];
 				if (LookupSpecial(tr, "_cap", text_buf) != NULL) {
 					j = strlen(text_buf);
 					if ((ix + j) < n_buf) {
@@ -830,7 +849,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				// if a list of allowed punctuation has been set up, check whether the character is in it
 				if ((option_punctuation == 1) || (wcschr(option_punctlist, c1) != NULL)) {
 					tr->phonemes_repeat_count = 0;
-					if ((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, is_end_clause)) >= 0)
+					if ((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, n_buf, is_end_clause)) >= 0)
 						return terminator;
 					announced_punctuation = c1;
 				}
@@ -841,8 +860,11 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				char *p2;
 
 				p2 = &buf[ix];
-				char cn_buf[74];
-				sprintf(p2, "%s", LookupCharName(cn_buf, tr, c1, true));
+				char cn_buf[N_CHARNAME_BUF];
+				const char *name = LookupCharName(cn_buf, tr, c1, true);
+				p2[0] = 0;
+				if (ix + (int)strlen(name) < n_buf - 4) // only if it fits in the clause
+					strcpy(p2, name);
 				if (p2[0] != 0) {
 					ix += strlen(p2);
 					announced_punctuation = c1;
@@ -1021,15 +1043,15 @@ static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
 }
 
 static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
-	char phonemes2[55];
+	char phonemes2[N_DECODED_PHONEMES];
 	if (tr2 == NULL) {
 		SetWordStress(tr, phonemes, flags, -1, 0);
 		DecodePhonemes(phonemes, phonemes2);
-		sprintf(buf, "[\002%s]]", phonemes2);
+		snprintf(buf, N_CHARNAME_BUF, "[\002%s]]", phonemes2);
 	} else {
 		SetWordStress(tr2, phonemes, flags, -1, 0);
 	    DecodePhonemes(phonemes, phonemes2);
 			char wbuf[5];
-	    sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
+	    snprintf(buf, N_CHARNAME_BUF, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
     }
 }
