@@ -691,7 +691,16 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
 	if (enc->get == NULL)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
-	if (length < 0) length = string ? strlen(string) + 1 : 0;
+	if (length < 0) {
+		if (string && encoding == ESPEAKNG_ENCODING_ISO_10646_UCS_2) {
+			const char *end = string;
+			// A UCS-2 terminator is a zero code unit, not a zero byte.
+			while (end[0] || end[1]) end += 2;
+			length = end - string + 2;
+		} else {
+			length = string ? strlen(string) + 1 : 0;
+		}
+	}
 
 	decoder->get = string ? enc->get : null_decoder_getc;
 	decoder->codepage = enc->codepage;

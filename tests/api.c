@@ -686,6 +686,33 @@ test_word_event_positions(int rate) {
 
 // endregion
 
+static void
+test_espeak_text_to_phonemes_16bit()
+{
+	printf("testing espeak_TextToPhonemes with 16-bit input\n");
+
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_SetVoiceByName("en") == EE_OK);
+
+	const void *input = "One two three";
+	const char *phonemes = espeak_TextToPhonemes(&input, espeakCHARS_UTF8, 0);
+	TEST_ASSERT(phonemes != NULL);
+	TEST_ASSERT(phonemes[0] != 0);
+	TEST_ASSERT(input == NULL);
+	char *expected = strdup(phonemes);
+	TEST_ASSERT(expected != NULL);
+
+	const char text[] = "O\0n\0e\0 \0t\0w\0o\0 \0t\0h\0r\0e\0e\0\0";
+	input = text;
+	phonemes = espeak_TextToPhonemes(&input, espeakCHARS_16BIT, 0);
+	TEST_ASSERT(phonemes != NULL);
+	TEST_ASSERT(strcmp(phonemes, expected) == 0);
+	TEST_ASSERT(input == NULL);
+
+	free(expected);
+	TEST_ASSERT(espeak_Terminate() == EE_OK);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -700,6 +727,7 @@ main(int argc, char **argv)
 
 	test_espeak_terminate_without_initialize();
 	test_espeak_initialize();
+	test_espeak_text_to_phonemes_16bit();
 
 	test_espeak_synth();
 	test_espeak_synth(); // Check that this does not crash when run a second time.
