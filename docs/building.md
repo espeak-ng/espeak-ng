@@ -14,7 +14,7 @@
   - [Testing](#testing)
   - [Installing](#installing)
 - [Android](#android)
-  - [Dependencies](#dependencies-1)
+  - [Dependencies](#dependencies-2)
   - [Building with Gradle](#building-with-gradle)
   - [Signing the APK](#signing-the-apk)
   - [Opening project in Android Studio](#opening-project-in-android-studio)
@@ -178,6 +178,11 @@ The following CMake options control which eSpeak NG features are enabled:
 | `-DUSE_MBROLA`       | Enable MBROLA voice support.                 | ON (if available) |
 | `-DUSE_LIBSONIC`     | Use the sonic library to support higher WPM. | ON (if available) |
 | `-DUSE_ASYNC`        | Enable asynchronous commands.                | ON (if pthread available) |
+| `-DUSE_LIBPCAUDIO`   | Use libpcaudio for sound output.             | ON (if available) |
+| `-DCOMPILE_INTONATIONS` | Compile intonation data.                  | ON      |
+| `-DENABLE_TESTS`     | Build and register the tests.                | ON      |
+| `-DESPEAK_COMPAT`    | Install compat binary symlinks.              | ON      |
+| `-DWITH_COVERAGE`    | Enable clang source-based coverage instrumentation. | OFF |
 
 __NOTE:__ The `-DUSE_LIBSONIC` option requires that the sonic library and header
 is accessible on the system.
