@@ -115,5 +115,13 @@ test_ssml_audio "<prosody 200%><break 1000ms>" 64213dbaf593b139b0b21840ba938cf59
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 9849f0d27f5641db6da1a8aea82578e83656d323 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 32a9c2887ec5b7d9d33d5503518ac0d384e43448 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1
 
+# A nested <voice> must hand back to the enclosing voice when it closes.
+NESTED_EXPECTED="w,0n
+_|'aIns
+d'Y
+tsv'aI
+Tr'i:"
+test_phon en "$NESTED_EXPECTED" '<speak xml:lang="en">one <voice name="de">eins <voice name="fr">deux</voice> zwei</voice> three</speak>' "nested <voice> restores the enclosing voice" "-m"
+
 # Test break multiplier
 test_ssml_audio "<break 1000ms> mul=10" 9f3b0f34eb605fcecfc573fc215626f634b46756 "<speak>Break<break time=\"1000ms\"/>test</speak>" "--ssml-break=10"

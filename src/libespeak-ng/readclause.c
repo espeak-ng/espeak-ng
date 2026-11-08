@@ -78,7 +78,6 @@ int count_characters = 0;
 static int sayas_mode;
 static int sayas_start;
 
-#define N_SSML_STACK  20
 static int n_ssml_stack;
 static SSML_STACK ssml_stack[N_SSML_STACK];
 

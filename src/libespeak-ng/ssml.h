@@ -43,6 +43,7 @@ typedef struct {
 } SSML_STACK;
 
 #define N_PARAM_STACK  20
+#define N_SSML_STACK  20
 
 #define SSML_SPEAK        1
 #define SSML_VOICE        2
