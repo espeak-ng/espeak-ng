@@ -18,6 +18,7 @@ new languages:
 *  rup (Aromanian) -- Andy Vladescu
 
 updated languages:
+*  da (Danish) -- Peter Bjarkov
 *  de (German) -- Sur3
 *  en (English) -- Fabio Lima
 *  es (Spanish) -- Fabio Lima, Mateito

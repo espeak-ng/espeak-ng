@@ -73,6 +73,11 @@ procedure ShortVowelLength
 		length 180
 	ENDIF
 	
+// "sammen" - 140 is too long	TEST
+	IF next2PhW(@-) AND next3PhW(isVoiced) AND next3PhW(isNotVowel) THEN
+		length 100
+	ENDIF
+	
 // "forsøgte" stressed second vowel too long TEST
 	IF thisPh(isMaxStress) AND thisPh(isSecondVowel) THEN
 		IF nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN // NOT "papirer"
@@ -92,11 +97,8 @@ procedure ShortVowelLength
 					IF NOT nextPhW(r) AND NOT nextPhW(3-) THEN // NOT "moderne" - vowel + r/3-
 						IF thisPh(isStressed) THEN // NOT [W] in "f'indelønnen"
 							IF thisPh(isFirstVowel) THEN
-//								IF NOT nextPhW(@-) THEN // NOT "væbne"
-								IF NOT nextPhW(isNotVowel) AND NOT next2PhW(isNotVowel) THEN // NOT "væbne"
 									length 110 
 									RETURN
-								ENDIF
 							ENDIF
 						ENDIF
 					ENDIF
@@ -124,6 +126,11 @@ procedure ShortVowelLength
 	
 // "projektet"
 	IF prevPhW(S) AND nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN
+		length 100
+	ENDIF
+	
+// "manuspriptet" TEST
+	IF prevPhW(R) AND nextPhW(isNotVowel) THEN
 		length 100
 	ENDIF
 	
@@ -251,9 +258,9 @@ procedure LongVowelLength
 			IF NOT prevPhW(R) AND NOT prevPhW(r) AND NOT prevPhW(3-) THEN
 				length 180
 				RETURN
-			ELSE // [A] in "begravelse" - "r" adds extra length
-				length 120
-				RETURN
+//			ELSE // [A] in "begravelse" - "r" adds extra length
+//				length 120
+//				RETURN
 			ENDIF
 		ENDIF
 	ENDIF
@@ -361,8 +368,8 @@ procedure LongVowelLength
 			RETURN
 	ENDIF
 	
-// PB "enig", "enige", "evig", "stædig" - vowel+consolant+[i]
-	IF nextPhW(isNotVowel) AND next2PhW(i) THEN
+// PB "enig", "enige", "evig", "stædig", "stadig" - vowel+consolant+[?i]
+	IF nextPhW(isNotVowel) AND next2PhW(?i) THEN
 		length 225
 		RETURN
 	ENDIF
@@ -469,6 +476,18 @@ phoneme 3-    // used for 'r' after a vowel (to create a diphthong)
   liquid
   lengthmod 7
   ipa ɐ̯
+// "organismer" - delete final [3-]
+  IF prevPhW(V) OR prevPhW(?V) AND thisPh(isWordEnd) THEN
+		ChangePhoneme(NULL)
+  ENDIF
+  // "organismers" - delete [3-]
+  IF prevPhW(V) OR prevPhW(?V) AND nextPhW(isWordEnd) AND nextPhW(s) THEN
+		ChangePhoneme(NULL)
+  ENDIF
+    // "organismerne" - delete [3-]
+  IF prevPhW(V) OR prevPhW(?V) AND nextPhW(n) AND next2PhW(@-) THEN
+		ChangePhoneme(NULL)
+  ENDIF
     FMT(r/a_)
 endphoneme
 
