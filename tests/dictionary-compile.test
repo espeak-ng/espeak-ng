@@ -34,3 +34,31 @@ check() {
 check zazaz "z'@z"
 # Word not in the list falls back to the compiled letter rules.
 check zaz "z'az"
+
+# A rule whose match string is shorter than its group name used to make the
+# compiler read past the end of the rule (heap-buffer-overflow, found by
+# dict_fuzzer). The compiler has to reach its final message: under a
+# sanitizer build an overflow aborts before then.
+compile_bad() {
+    echo -n "compiling $1 ... "
+    printf "$2" > "$WORK/src/en_rules"
+    OUT=`cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=en 2>&1`
+    if echo "$OUT" | grep -q "$3"; then
+        echo "passed"
+    else
+        echo "failed (expected '$3' in output)"
+        echo "$OUT"
+        exit 1
+    fi
+}
+
+# Wrong initial letters: reported as a compile error, without overflowing.
+compile_bad "a rule shorter than its group name" '.group ab\n\ta  a\n' "Compile error"
+# Numeric groups accept any leading digit, so this one is not an error.
+compile_bad "a numeric rule shorter than its group name" '.group 9a\n\t5  f\n' "1 rules, 1 groups"
+# A letter group number too long for atoi() used to overflow to a negative
+# group, which passed the range check and then read past the end of the
+# line (stack-buffer-overflow, found by dict_fuzzer).
+compile_bad "an overlong letter group number" '.L55555555555555555555~' "lettergroup out of range"
+# A .L line ending the file without a newline must stop at the end of input.
+compile_bad "a letter group on an unterminated last line" '.group a\n\ta  a\n.L01 xy z' "1 rules, 1 groups"
