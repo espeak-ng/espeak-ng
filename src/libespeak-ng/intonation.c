@@ -445,7 +445,7 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 
 	while (syl_ix < end_ix) {
 		cur_syl = &syllable_tab[syl_ix];
-		stress = cur_syl->stress;
+		stress = (int)cur_syl->stress;
 
 		if (initial || (stress >= 4)) {
 			// a primary stress
@@ -557,7 +557,7 @@ static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, const 
 
 	while (ix < end_ix) {
 		cur_syl = &syllable_tab[ix];
-		stress = cur_syl->stress;
+		stress = (int)cur_syl->stress;
 
 		if (initial || (stress >= min_stress)) {
 			// a primary stress
@@ -639,7 +639,7 @@ static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, i
 
 	for (ix = start_ix; ix < end_ix; ix++) {
 		cur_syl = &syllable_tab[ix];
-		stress = cur_syl->stress;
+		stress = (int)cur_syl->stress;
 
 		if (increment > 0) {
 			set_pitch(cur_syl,(pitch / 256), -(increment / 256));
@@ -933,7 +933,7 @@ void CalcPitches(Translator *tr, int clause_type)
 	PHONEME_TAB *ph;
 	int ph_end = n_phoneme_list;
 
-	SYLLABLE syllable_tab[N_PHONEME_LIST];
+	SYLLABLE syllable_tab[N_PHONEME_LIST] = { 0 };
 	n_st = 0;
 	n_primary = 0;
 	for (ix = 0; ix < (n_phoneme_list-1); ix++) {

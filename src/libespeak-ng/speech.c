@@ -545,9 +545,10 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	const int sample_delay = 0;
 #endif
 
-	time =((double)(count_samples + sample_delay + (marker_ptr - out_start)/2)*1000.0)/samplerate;
+	const long marker_sample = count_samples + sample_delay + (marker_ptr - out_start)/2;
+	time = ((double)marker_sample*1000.0)/samplerate;
 	ep->audio_position = (int)time;
-	ep->sample = (count_samples + sample_delay + (marker_ptr - out_start)/2);
+	ep->sample = (int)marker_sample;
 
 	if ((type == espeakEVENT_MARK) || (type == espeakEVENT_PLAY))
 		ep->id.name = &namedata[value];
