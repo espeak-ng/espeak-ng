@@ -80,6 +80,8 @@ test_phon en "z,Edz'Edb'VgIN" "zzbugging" "spelled letters with a suffix only"
 test_phon en "m@kb'VgIN" "mcbugging" "a prefix and suffix without spelled letters"
 test_phon en "m'Iskri@nts" "miscreants" "a dictionary match including the prefix without spelled letters"
 test_phon en "b,i:dZ,eIp'i: (ml)jum'a:jul.l.a(en)" "BJPയുമായുള്ള" "script change splits a glued token"
+test_phon en "h@l'oU" "𝐇𝐞𝐥𝐥𝐨" "math-bold normalized to ASCII"
+test_phon en "h@l'oU" "ℍ𝕖𝕝𝕝𝕠" "double-struck normalized to ASCII"
 test_phon en "h'i@3rIN m'i: b'oU
 DI2; 'aZ3 Tr'VS k'O:z
 'e@ j'O@ dZ'OIf@l 'A@ri:;@
