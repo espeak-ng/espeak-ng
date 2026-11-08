@@ -44,6 +44,7 @@ compiled_test(api)
 compiled_test(encoding)
 compiled_test(ieee80)
 compiled_test(readclause)
+compiled_test(word_phonemes)
 
 if (SHELL AND UNIX)
 
