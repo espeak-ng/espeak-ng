@@ -25,11 +25,11 @@ jobs:
             osver: 22.04
             sys: linux-gnu
           - os: macos
-            osver: 14
-            sys: apple-darwin23
+            osver: 26
+            sys: apple-darwin25
           - os: macos
             compiler: clang
-            sys: apple-darwin23.6.0
+            sys: apple-darwin25
 
           - compiler: clang
             compiler_flags: "-fdebug-default-version=4"
@@ -204,7 +204,7 @@ jobs:
     # MacOS - dependencies
     - name: brew-deps
       if: matrix.os == 'macos'
-      run: brew install cmake ronn OJFord/homebrew-formulae/kramdown
+      run: brew install cmake ronn
     - name: brew-compile-deps
       if: matrix.os == 'macos' && matrix.compiler == 'gcc'
       run: brew install gcc@12
