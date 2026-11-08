@@ -1258,20 +1258,13 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByFile(const char *filename)
 {
-	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
-	char buf[60];
+	char buf[N_PATH_BUF];
 
 	strncpy0(buf, filename, sizeof(buf));
 
 	variant_name = ExtractVoiceVariantName(buf, 0, 1);
-
-	for (ix = 0;; ix++) {
-		// convert voice name to lower case  (ascii)
-		if ((buf[ix] = tolower(buf[ix])) == 0)
-			break;
-	}
 
 	memset(&voice_selector, 0, sizeof(voice_selector));
 	voice_selector.name = (char *)filename; // include variant name in voice stack ??

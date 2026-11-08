@@ -46,6 +46,7 @@ compiled_test(api)
 compiled_test(encoding)
 compiled_test(ieee80)
 compiled_test(readclause)
+compiled_test(voice_by_file)
 
 if (SHELL AND UNIX)
 
