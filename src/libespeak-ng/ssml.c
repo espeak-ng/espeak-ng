@@ -426,7 +426,7 @@ static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM
 			switch (param)
 			{
 			case espeakPUNCTUATION:
-				option_punctuation = value-1;
+				option_punctuation = value;
 				break;
 			case espeakCAPITALS:
 				option_capitals = value;
@@ -619,9 +619,9 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	};
 
 	static const MNEM_TAB mnem_punct[] = {
-		{ "none", 1 },
-		{ "all",  2 },
-		{ "some", 3 },
+		{ "none", 0 },
+		{ "all",  1 },
+		{ "some", 2 },
 		{ NULL,  -1 }
 	};
 

@@ -115,5 +115,17 @@ test_ssml_audio "<prosody 200%><break 1000ms>" 64213dbaf593b139b0b21840ba938cf59
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 9849f0d27f5641db6da1a8aea82578e83656d323 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 32a9c2887ec5b7d9d33d5503518ac0d384e43448 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1
 
+# <tts:style field="punctuation" mode="none"> silences punctuation announced by --punct, and the setting is restored after the closing tag.
+STYLE_NONE_EXPECTED="h@l'oU
+k'0m@
+w'3:ld
+d'0t
+h'aI
+j'u:
+a#g'En
+k'0m@
+h'i@3"
+test_phon en "$STYLE_NONE_EXPECTED" 'Hello, world. <tts:style field="punctuation" mode="none">Hi, you.</tts:style> Again, here.' "tts:style punctuation none" "-m --punct"
+
 # Test break multiplier
 test_ssml_audio "<break 1000ms> mul=10" 9f3b0f34eb605fcecfc573fc215626f634b46756 "<speak>Break<break time=\"1000ms\"/>test</speak>" "--ssml-break=10"
