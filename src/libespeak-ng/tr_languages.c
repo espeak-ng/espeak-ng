@@ -42,6 +42,7 @@
 #define OFFSET_HEBREW   0x590
 #define OFFSET_ARABIC   0x600
 #define OFFSET_SYRIAC   0x700
+#define OFFSET_THAANA   0x780
 #define OFFSET_DEVANAGARI  0x900
 #define OFFSET_BENGALI  0x980
 #define OFFSET_GURMUKHI 0xa00
@@ -70,6 +71,7 @@ static const ALPHABET alphabets[] = {
 	{ "_he",    OFFSET_HEBREW,   0x590, 0x5ff,  L('h', 'e'), 0 },
 	{ "_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  L('a', 'r'), AL_WORDS },
 	{ "_syc",   OFFSET_SYRIAC,   0x700, 0x74f,  0, 0 },
+	{ "_dv",    OFFSET_THAANA,   0x780, 0x7bf,  L('d', 'v'), AL_WORDS },
 	{ "_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f, L('h', 'i'), AL_WORDS },
 	{ "_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, L('b', 'n'), AL_WORDS },
 	{ "_gur",   OFFSET_GURMUKHI, 0xa00, 0xa7f,  L('p', 'a'), AL_WORDS },
@@ -683,6 +685,24 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_ALLOW_SPACE | NUM_ORDINAL_DOT | NUM_ROMAN;
 		SetLetterVowel(tr, 'y');
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 2; // use de_rules for unpronouncable rules
+	}
+		break;
+	case L('d', 'v'): // Dhivehi
+	{
+		SetupTranslator(tr, stress_lengths_ta, stress_amps_ta);
+		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
+
+		tr->langopts.stress_rule = STRESSPOSN_1L;
+		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
+
+		tr->letter_bits_offset = OFFSET_THAANA;
+		memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
+		SetLetterBitsRange(tr, LETTERGP_A, 0x26, 0x2f); // vowel signs (fili)
+		SetLetterBitsRange(tr, LETTERGP_B, 0x26, 0x30); // vowel signs and sukun
+		SetLetterBitsRange(tr, LETTERGP_C, 0x00, 0x25); // consonants, including alifu and the dotted letters
+		SetLetterBitsRange(tr, LETTERGP_C, 0x31, 0x31); // naa
+
+		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 	}
 		break;
 	case L('e', 'n'):
