@@ -408,7 +408,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 
 		if (p->newword & PHLIST_START_OF_SENTENCE)
 			DoMarker(espeakEVENT_SENTENCE, (p->sourceix & 0x7ff) + clause_start_char, 0, count_sentences);
-		if (p->newword & PHLIST_START_OF_SENTENCE)
+		if (p->newword & PHLIST_START_OF_WORD)
 			DoMarker(espeakEVENT_WORD, (p->sourceix & 0x7ff) + clause_start_char, p->sourceix >> 11, clause_start_word + word_count++);
 
 		name = GetMbrName(p, ph, ph_prev, ph_next, &name2, &len_percent, &control);
@@ -429,7 +429,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 		} else
 			len = (80 * speed.wav_factor)/256;
 
-		if (ph->code != phonEND_WORD) {
+		if (option_phoneme_events && (ph->code != phonEND_WORD)) {
 			char phoneme_name[16];
 			WritePhMnemonic(phoneme_name, p->ph, p, option_phoneme_events & espeakINITIALIZE_PHONEME_IPA, NULL);
 			DoPhonemeMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, phoneme_name);
