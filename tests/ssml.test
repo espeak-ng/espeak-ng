@@ -115,5 +115,28 @@ test_ssml_audio "<prosody 200%><break 1000ms>" 64213dbaf593b139b0b21840ba938cf59
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 9849f0d27f5641db6da1a8aea82578e83656d323 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 32a9c2887ec5b7d9d33d5503518ac0d384e43448 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1
 
+ssml_audio_sha1() {
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng --stdout -m "$1" | $sha1sum | awk '{ print $1 }'
+}
+
+# A relative <audio src> resolves against xml:base.
+echo "testing xml:base resolves a relative <audio> src"
+XMLBASE_ABS=$(ssml_audio_sha1 "<speak><audio src=\"$PWD/phsource/h/ha.wav\"></audio>x</speak>")
+XMLBASE_REL=$(ssml_audio_sha1 "<speak xml:base=\"$PWD/phsource/h\"><audio src=\"ha.wav\"></audio>x</speak>")
+if [ "x$XMLBASE_ABS" != "x$XMLBASE_REL" ] ; then
+	echo "$XMLBASE_REL != $XMLBASE_ABS"
+	exit 1
+fi
+
+# xml:base must survive namedata reallocation caused by many <mark> names.
+XMLBASE_MARKS="<speak xml:base=\"/nonexistent\">"
+XMLBASE_I=0
+while [ $XMLBASE_I -lt 60 ] ; do
+	XMLBASE_MARKS="${XMLBASE_MARKS}<mark name=\"mark_with_a_fairly_long_name_to_force_growth_${XMLBASE_I}_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"/>"
+	XMLBASE_I=$((XMLBASE_I+1))
+done
+test_ssml_audio_nocrash "xml:base after namedata growth" "${XMLBASE_MARKS}<audio src=\"rel.wav\"></audio></speak>"
+
 # Test break multiplier
 test_ssml_audio "<break 1000ms> mul=10" 9f3b0f34eb605fcecfc573fc215626f634b46756 "<speak>Break<break time=\"1000ms\"/>test</speak>" "--ssml-break=10"

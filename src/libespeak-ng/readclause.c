@@ -61,7 +61,7 @@
 static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
 static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc);
 
-static const char *xmlbase = ""; // base URL from <speak>
+static char xmlbase[N_XMLBASE] = ""; // base URL from <speak>; owned copy, empty when unset
 
 static int namedata_ix = 0;
 static int n_namedata = 0;
@@ -1030,7 +1030,7 @@ void InitText2(void)
 	count_characters = -1;
 	sayas_mode = 0;
 
-	xmlbase = NULL;
+	xmlbase[0] = 0;
 }
 
 static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
