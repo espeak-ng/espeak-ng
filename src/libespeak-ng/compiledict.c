@@ -1259,7 +1259,13 @@ static void* output_rule_group(int n_rules, char **rules, char *name, size_t *ou
 		p = rules[ix];
 		len1 = strlen(p) + 1; // phoneme string
 		p3 = &p[len1];
-		p2 = p3 + len_name; // remove group name from start of match string
+		// Remove the group name from the start of the match string. A rule
+		// whose match string doesn't start with the group name has already
+		// been reported by compile_rule(), and may be shorter than the name,
+		// so only strip the name when it is actually there.
+		p2 = p3;
+		if ((len_name > 0) && (strncmp(p3, name, len_name) == 0))
+			p2 += len_name;
 		len2 = strlen(p2);
 
 		nextchar_count[(unsigned char)(p2[0])]++; // the next byte after the group name
@@ -1311,14 +1317,19 @@ static int compile_lettergroup(CompileContext *ctx, char *input, FILE *f_out)
 		return 1;
 	}
 
-	group = atoi(&p[0]);
+	// strtol rather than atoi: a long run of digits overflows atoi, which
+	// can yield a negative group number that passes the range check below
+	long group_num = strtol(&p[0], NULL, 10);
+	group = (group_num < N_LETTER_GROUPS) ? (int)group_num : N_LETTER_GROUPS;
 	if (group >= N_LETTER_GROUPS) {
 		fprintf(ctx->f_log, "%5d: lettergroup out of range (01-%.2d)\n", ctx->linenum, N_LETTER_GROUPS-1);
 		ctx->error_count++;
 		return 1;
 	}
 
-	while (!isspace2(*p)) p++;
+	// isspace2() is false for the terminating NUL, so check for it too:
+	// the last line of the file may have no newline
+	while ((*p != 0) && !isspace2(*p)) p++;
 
 	fputc(RULE_GROUP_START, f_out);
 	fputc(RULE_LETTERGP2, f_out);
@@ -1340,11 +1351,14 @@ static int compile_lettergroup(CompileContext *ctx, char *input, FILE *f_out)
 			if (*p == '_') *p = ' '; // allow '_' for word break
 			p++;
 		}
+		bool at_end = (*p == 0);
 		*p++ = 0;
 		length = p - p_start;
 		if (length > max_length)
 			max_length = length;
 		item_length[n_items++] = length;
+		if (at_end)
+			break; // don't step past the end of the input
 	}
 
 	// write out the items, longest first
