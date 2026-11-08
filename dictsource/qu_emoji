@@ -2122,7 +2122,7 @@ $textmode
 🧿	nazar amuleto						// [1F9FF]
 
 // 1FA70..1FAFF : Symbols and Pictographs Extended-A
-🩰								// [1FA70]
+//🩰								// [1FA70] (no translation)
 🩱	naryaypaq pacha						// [1FA71]
 🩲	yakupaq pacha						// [1FA72]
 🩳	uchuy pantalon						// [1FA73]
@@ -2149,7 +2149,7 @@ $textmode
 🪐	anillukunawan planeta					// [1FA90]
 🪑	tiyana							// [1FA91]
 🪒	navajas							// [1FA92]
-🪓								// [1FA93]
+//🪓								// [1FA93] (no translation)
 🪔	diya lampara						// [1FA94]
 🪕	banjo							// [1FA95]
 🪖	militar casco nisqa					// [1FA96]
