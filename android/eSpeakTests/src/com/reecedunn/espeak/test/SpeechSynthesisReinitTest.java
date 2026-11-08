@@ -17,6 +17,7 @@
 package com.reecedunn.espeak.test;
 
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.Voice;
@@ -118,7 +119,7 @@ public class SpeechSynthesisReinitTest extends TextToSpeechTestCase
     }
 
     @Test
-    public void creatingAnotherInstanceDoesNotSilenceTheFirst()
+    public void creatingInstancesWhileSpeakingDoesNotDisturbTheService() throws InterruptedException
     {
         final SpeechSynthesis service = createSynth();
         // The first request after start-up differs slightly from the ones that
@@ -127,13 +128,40 @@ public class SpeechSynthesisReinitTest extends TextToSpeechTestCase
         final int before = speak(service);
         assertThat(before, is(greaterThan(0)));
 
-        // What opening a settings screen does while the service is running.
-        createSynth();
+        // What opening settings screens does while a screen reader is talking:
+        // other SpeechSynthesis instances are created on another thread while
+        // the service is in the middle of synthesizing. Initializing eSpeak
+        // again under a running synthesis used to crash the process (SIGSEGV)
+        // or leave requests with almost no audio. Creating them one after
+        // another, between requests, does not show the problem.
+        final AtomicBoolean done = new AtomicBoolean(false);
+        final Thread settings = new Thread(() -> {
+            while (!done.get()) {
+                new SpeechSynthesis(getContext(), null);
+                try {
+                    Thread.sleep(3);
+                } catch (InterruptedException e) {
+                    return;
+                }
+            }
+        });
+        settings.start();
 
-        // The same request must still produce about the same audio. Allow a
-        // little slack for state that is not part of what is being tested; the
-        // failure this guards against is audio that nearly disappears.
-        final int after = speak(service);
-        assertThat(after, is(greaterThan(before * 9 / 10)));
+        int shortRequests = 0;
+        try {
+            for (int i = 0; i < 30; i++) {
+                // Allow a little slack for state that is not part of what is
+                // being tested; the failure guarded against is audio that
+                // nearly disappears.
+                if (speak(service) <= before * 9 / 10) {
+                    shortRequests++;
+                }
+            }
+        } finally {
+            done.set(true);
+            settings.join();
+        }
+
+        assertThat(shortRequests, is(0));
     }
 }
