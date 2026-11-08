@@ -231,16 +231,16 @@ endtune
 // spanish
 tune s6
 prehead   46 57
-headenv   fall 16
+headenv   rise 16
 head       5 79 50 -7 -4
 headextend 0 63 38 13 0
 nucleus0 fall 66 7
-nucleus fall 72 25 16 9
+nucleus fall 66 25 16 9
 endtune
 
 tune c6
 prehead   45 55
-headenv   fall 16
+headenv   rise 16
 head       4 80 49 -8 -3
 headextend 0 63 38 13 0
 nucleus0 fall-rise 70 15
