@@ -317,7 +317,22 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	if (check_data_path(getenv("ESPEAK_DATA_PATH"), 1))
 		return;
 
+	// Look for espeak-ng-data next to the executable (portable use)
+	{
+		char exe_dir[MAX_PATH];
+		DWORD n = GetModuleFileNameA(NULL, exe_dir, sizeof(exe_dir));
+		if (n > 0 && n < sizeof(exe_dir)) {
+			char *sep = strrchr(exe_dir, '\\');
+			if (sep) {
+				*sep = 0;
+				if (check_data_path(exe_dir, 0))
+					return;
+			}
+		}
+	}
+
 	buf[0] = 0;
+	RegKey = NULL;
 	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\eSpeak NG", 0, KEY_READ, &RegKey);
 	if (RegKey == NULL)
 		RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\WOW6432Node\\eSpeak NG", 0, KEY_READ, &RegKey);
