@@ -80,10 +80,10 @@ if (CheckTranslator(tr,langopts_tab, key) != 0) {
 				if ((n = atoi(keyValue)) > 0) {
 					keyValue++;
 					if (n < 32) {
-							translator->langopts.numbers |= (1u << n);
+							tr->langopts.numbers |= (1u << n);
 					} else {
 						if (n < 64)
-							translator->langopts.numbers2 |= (1u << (n-32));
+							tr->langopts.numbers2 |= (1u << (n-32));
 						else
 							fprintf(stderr, "numbers: Bad option number %d\n", n);					}
 				}
@@ -153,7 +153,7 @@ if (CheckTranslator(tr,langopts_tab, key) != 0) {
             case V_TUNES: {
 				char names[6][40] = { {0}, {0}, {0}, {0}, {0}, {0} };
                 n = sscanf(keyValue, "%39s %39s %39s %39s %39s %39s", names[0], names[1], names[2], names[3], names[4], names[5]);
-                translator->langopts.intonation_group = 0;
+                tr->langopts.intonation_group = 0;
 
                 int value;
                 for (ix = 0; ix < n; ix++) {

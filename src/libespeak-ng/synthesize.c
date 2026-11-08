@@ -1172,7 +1172,7 @@ int Generate(PHONEME_LIST *ph_list,int *n_ph, bool resume)
 	}
 
 	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
-		p = &phoneme_list[ix];
+		p = &ph_list[ix];
 
 		if (p->type == phPAUSE)
 			free_min = 10;
