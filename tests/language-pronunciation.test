@@ -308,8 +308,15 @@ sa dE Dr'EzE
 su dE bintitr'EzE
 sa dE nOr,antan'OE
 su dE Q'entu" "su 3º, sa 3ª, su 23º, sa 99ª, su 100º" "Sardinian ordinal numbers from 3 (su de tres)"
-test_phon sc "dZu'annE bintitr'EzE
+test_phon sc "dZu'annE bintit:rez'ezimu
 su z'ek:ulu b'inti" "Giuanne XXIII, su sèculu XX" "Sardinian Roman numbers"
+test_phon sc "p'aulu z'estu
+elizaB'Et:a zeQ'un.d.a
+k'aralu Qu'intu
+izaB'Ella Br'ima
+su dE dEQEnn'OE z'ek:ulOzO
+kap:'it:ulu b'at:OrO
+su lE'OnE d'uOzO" "Pàulu VI, Elisabeta II, Càralu V, Isabella I, su de XIX sèculos, capìtulu IV, su leone II" "Sardinian Roman numbers after names"
 test_phon sc "sp'ORt2O
 zm'aRt2a" "sport, smart" "Sardinian final -rt"
 test_phon sc "'ap:O b'iDu ,unu BrOQr'amma dE za r'ai 'eriz a2s s'ErO" "Apo bidu unu programma de sa RAI eris a sero" "Sardinian acronyms read as words"

@@ -326,6 +326,116 @@ _7Co	dE||sEt:iQ'EntOs
 _8Co	dE||Ot:iQ'EntOs
 _9Co	dE||noiQ'EntOs
 
+// ROMAN NUMBERS AFTER A NAME
+// After a name (see NAMES BEFORE ROMAN NUMBERS at the end of this file) a
+// Roman number is a learned ordinal number: Giuanne XXIII = Giuanne
+// bintitresèsimu, Pàulu VI = Pàulu sestu, Elisabeta II = Elisabeta segunda.
+// Elsewhere it stays a cardinal number: su sèculu XX = su sèculu binti,
+// su de XIX sèculos = su de deghennoe sèculos, capìtulu IV = capìtulu bator.
+// $nounf on a masculine name selects the $noun entry of the next word,
+// $verbf on a feminine name selects the $verb entry (sc has no other use
+// of these attributes).  The ordinal is replaced by its spelling ($text),
+// so it is said like the written word.  These entries must stay after the
+// letter names v and x: the later entry of a word is tried first.
+i	primu	$text $noun $allcaps
+i	prima	$text $verb $allcaps
+ii	segundu	$text $noun $allcaps
+ii	segunda	$text $verb $allcaps
+iii	tertzu	$text $noun $allcaps
+iii	tertza	$text $verb $allcaps
+iv	cuartu	$text $noun $allcaps
+iv	cuarta	$text $verb $allcaps
+v	cuintu	$text $noun $allcaps
+v	cuinta	$text $verb $allcaps
+vi	sestu	$text $noun $allcaps
+vi	sesta	$text $verb $allcaps
+vii	sètimu	$text $noun $allcaps
+vii	sètima	$text $verb $allcaps
+viii	otavu	$text $noun $allcaps
+viii	otava	$text $verb $allcaps
+ix	nonu	$text $noun $allcaps
+ix	nona	$text $verb $allcaps
+x	dètzimu	$text $noun $allcaps
+x	dètzima	$text $verb $allcaps
+xi	undighèsimu	$text $noun $allcaps
+xi	undighèsima	$text $verb $allcaps
+xii	doighèsimu	$text $noun $allcaps
+xii	doighèsima	$text $verb $allcaps
+xiii	treighèsimu	$text $noun $allcaps
+xiii	treighèsima	$text $verb $allcaps
+xiv	batordighèsimu	$text $noun $allcaps
+xiv	batordighèsima	$text $verb $allcaps
+xv	bindighèsimu	$text $noun $allcaps
+xv	bindighèsima	$text $verb $allcaps
+xvi	seighèsimu	$text $noun $allcaps
+xvi	seighèsima	$text $verb $allcaps
+xvii	deghessetèsimu	$text $noun $allcaps
+xvii	deghessetèsima	$text $verb $allcaps
+xviii	degheotèsimu	$text $noun $allcaps
+xviii	degheotèsima	$text $verb $allcaps
+xix	deghennoèsimu	$text $noun $allcaps
+xix	deghennoèsima	$text $verb $allcaps
+xx	bintèsimu	$text $noun $allcaps
+xx	bintèsima	$text $verb $allcaps
+xxi	bintunèsimu	$text $noun $allcaps
+xxi	bintunèsima	$text $verb $allcaps
+xxii	bintiduosèsimu	$text $noun $allcaps
+xxii	bintiduosèsima	$text $verb $allcaps
+xxiii	bintitresèsimu	$text $noun $allcaps
+xxiii	bintitresèsima	$text $verb $allcaps
+xxiv	bintibatorèsimu	$text $noun $allcaps
+xxiv	bintibatorèsima	$text $verb $allcaps
+xxv	bintighimbèsimu	$text $noun $allcaps
+xxv	bintighimbèsima	$text $verb $allcaps
+xxvi	bintisesèsimu	$text $noun $allcaps
+xxvi	bintisesèsima	$text $verb $allcaps
+xxvii	bintisetèsimu	$text $noun $allcaps
+xxvii	bintisetèsima	$text $verb $allcaps
+xxviii	bintotèsimu	$text $noun $allcaps
+xxviii	bintotèsima	$text $verb $allcaps
+xxix	bintinoèsimu	$text $noun $allcaps
+xxix	bintinoèsima	$text $verb $allcaps
+xxx	trintèsimu	$text $noun $allcaps
+xxx	trintèsima	$text $verb $allcaps
+xxxi	trintunèsimu	$text $noun $allcaps
+xxxi	trintunèsima	$text $verb $allcaps
+xxxii	trintaduosèsimu	$text $noun $allcaps
+xxxii	trintaduosèsima	$text $verb $allcaps
+xxxiii	trintatresèsimu	$text $noun $allcaps
+xxxiii	trintatresèsima	$text $verb $allcaps
+xxxiv	trintabatorèsimu	$text $noun $allcaps
+xxxiv	trintabatorèsima	$text $verb $allcaps
+xxxv	trintaghimbèsimu	$text $noun $allcaps
+xxxv	trintaghimbèsima	$text $verb $allcaps
+xxxvi	trintasesèsimu	$text $noun $allcaps
+xxxvi	trintasesèsima	$text $verb $allcaps
+xxxvii	trintasetèsimu	$text $noun $allcaps
+xxxvii	trintasetèsima	$text $verb $allcaps
+xxxviii	trintotèsimu	$text $noun $allcaps
+xxxviii	trintotèsima	$text $verb $allcaps
+xxxix	trintanoèsimu	$text $noun $allcaps
+xxxix	trintanoèsima	$text $verb $allcaps
+xl	barantèsimu	$text $noun $allcaps
+xl	barantèsima	$text $verb $allcaps
+xli	barantunèsimu	$text $noun $allcaps
+xli	barantunèsima	$text $verb $allcaps
+xlii	barantaduosèsimu	$text $noun $allcaps
+xlii	barantaduosèsima	$text $verb $allcaps
+xliii	barantatresèsimu	$text $noun $allcaps
+xliii	barantatresèsima	$text $verb $allcaps
+xliv	barantabatorèsimu	$text $noun $allcaps
+xliv	barantabatorèsima	$text $verb $allcaps
+xlv	barantaghimbèsimu	$text $noun $allcaps
+xlv	barantaghimbèsima	$text $verb $allcaps
+xlvi	barantasesèsimu	$text $noun $allcaps
+xlvi	barantasesèsima	$text $verb $allcaps
+xlvii	barantasetèsimu	$text $noun $allcaps
+xlvii	barantasetèsima	$text $verb $allcaps
+xlviii	barantotèsimu	$text $noun $allcaps
+xlviii	barantotèsima	$text $verb $allcaps
+xlix	barantanoèsimu	$text $noun $allcaps
+xlix	barantanoèsima	$text $verb $allcaps
+
 // 200.000 and 300.000 (LSC table: dughentamìgia, treghentamìgia), and in the
 // same way 400.000 to 900.000: batorghentamìgia ... noighentamìgia
 _200M1	duQ,Entam'idZ:a
@@ -505,3 +615,271 @@ fa	f'a2	$double
 (in una)	in.||d.,una
 (in unos)	in.||d.,unOs
 (in unas)	in.||d.,unas
+
+
+// NAMES BEFORE ROMAN NUMBERS
+//===========================
+// A Roman number after these names is an ordinal number (see ROMAN NUMBERS
+// AFTER A NAME): $nounf for masculine names, $verbf for feminine names.
+// $capital: only when written with a capital letter (leone, urbanu and
+// clemente are also common words).  The pronunciation comes from sc_rules.
+
+// masculine: popes
+giuanne	$nounf $capital
+juanne	$nounf $capital
+giovanni	$nounf $capital
+pàulu	$nounf $capital
+pàule	$nounf $capital
+paolo	$nounf $capital
+benedetu	$nounf $capital
+beneitu	$nounf $capital
+beneditu	$nounf $capital
+benedetto	$nounf $capital
+pio	$nounf $capital
+piu	$nounf $capital
+leone	$nounf $capital
+lione	$nounf $capital
+gregòriu	$nounf $capital
+gregorio	$nounf $capital
+innotzèntziu	$nounf $capital
+innotzente	$nounf $capital
+innocenzo	$nounf $capital
+bonifàtziu	$nounf $capital
+bonifacio	$nounf $capital
+urbanu	$nounf $capital
+urbano	$nounf $capital
+clemente	$nounf $capital
+alessandru	$nounf $capital
+lisandru	$nounf $capital
+alessandro	$nounf $capital
+sistu	$nounf $capital
+sisto	$nounf $capital
+martinu	$nounf $capital
+martino	$nounf $capital
+callistu	$nounf $capital
+callisto	$nounf $capital
+adrianu	$nounf $capital
+adriano	$nounf $capital
+onòriu	$nounf $capital
+onorio	$nounf $capital
+celestinu	$nounf $capital
+tzelestinu	$nounf $capital
+celestino	$nounf $capital
+eugèniu	$nounf $capital
+eugenio	$nounf $capital
+lùtziu	$nounf $capital
+pascale	$nounf $capital
+nigola	$nounf $capital
+niccolò	$nounf $capital
+nicolò	$nounf $capital
+giulio	$nounf $capital
+gregori	$nounf $capital
+gregorius	$nounf $capital
+bonifacius	$nounf $capital
+bonifatzu	$nounf $capital
+bonifaci	$nounf $capital
+lioni	$nounf $capital
+paulo	$nounf $capital
+johannes	$nounf $capital
+
+// masculine: kings, emperors, judges of Sardinia
+carlu	$nounf $capital
+càralu	$nounf $capital
+càrolu	$nounf $capital
+càrulu	$nounf $capital
+carlo	$nounf $capital
+vitòriu	$nounf $capital
+vittorio	$nounf $capital
+emanuele	$nounf $capital
+manuelle	$nounf $capital
+amedeu	$nounf $capital
+amedeo	$nounf $capital
+umbertu	$nounf $capital
+umberto	$nounf $capital
+filipu	$nounf $capital
+tilipu	$nounf $capital
+filippo	$nounf $capital
+ferdinandu	$nounf $capital
+ferrandu	$nounf $capital
+ferdinando	$nounf $capital
+ferrante	$nounf $capital
+frantziscu	$nounf $capital
+francesco	$nounf $capital
+federicu	$nounf $capital
+federigu	$nounf $capital
+federico	$nounf $capital
+luisi	$nounf $capital
+luisu	$nounf $capital
+luigi	$nounf $capital
+enricu	$nounf $capital
+erricu	$nounf $capital
+errigu	$nounf $capital
+enrico	$nounf $capital
+giorgi	$nounf $capital
+giorghi	$nounf $capital
+giorgio	$nounf $capital
+alfonsu	$nounf $capital
+arfonsu	$nounf $capital
+alfonso	$nounf $capital
+pedru	$nounf $capital
+perdu	$nounf $capital
+pietro	$nounf $capital
+giàime	$nounf $capital
+giaime	$nounf $capital
+giagu	$nounf $capital
+jacu	$nounf $capital
+giacomu	$nounf $capital
+giacomo	$nounf $capital
+guglielmu	$nounf $capital
+gulliermu	$nounf $capital
+gullielmu	$nounf $capital
+guillermu	$nounf $capital
+guglielmo	$nounf $capital
+napoleone	$nounf $capital
+otone	$nounf $capital
+ottone	$nounf $capital
+corradu	$nounf $capital
+corrado	$nounf $capital
+costantinu	$nounf $capital
+costantine	$nounf $capital
+gantine	$nounf $capital
+costantino	$nounf $capital
+giustinianu	$nounf $capital
+teodòsiu	$nounf $capital
+leopoldu	$nounf $capital
+leopoldo	$nounf $capital
+massimilianu	$nounf $capital
+maurìtziu	$nounf $capital
+ricardu	$nounf $capital
+riccardo	$nounf $capital
+rugeri	$nounf $capital
+ruggero	$nounf $capital
+edoardu	$nounf $capital
+edoardo	$nounf $capital
+ludovicu	$nounf $capital
+ludovico	$nounf $capital
+giuseppe	$nounf $capital
+cosimo	$nounf $capital
+lenardu	$nounf $capital
+dàriu	$nounf $capital
+giùliu	$nounf $capital
+marianu	$nounf $capital
+mariano	$nounf $capital
+ugone	$nounf $capital
+ugo	$nounf $capital
+barisone	$nounf $capital
+gonàriu	$nounf $capital
+gonare	$nounf $capital
+gonario	$nounf $capital
+gonnario	$nounf $capital
+comita	$nounf $capital
+torchitòriu	$nounf $capital
+orzocco	$nounf $capital
+orzocor	$nounf $capital
+antoni	$nounf $capital
+ramsete	$nounf $capital
+juba	$nounf $capital
+martine	$nounf $capital
+rodolf	$nounf $capital
+rudolf	$nounf $capital
+berengàriu	$nounf $capital
+albert	$nounf $capital
+alberto	$nounf $capital
+boleslau	$nounf $capital
+carolu	$nounf $capital
+còrolu	$nounf $capital
+casimiru	$nounf $capital
+clotàriu	$nounf $capital
+cristianu	$nounf $capital
+dagobertu	$nounf $capital
+eràcliu	$nounf $capital
+filipe	$nounf $capital
+gastone	$nounf $capital
+gustau	$nounf $capital
+gustavu	$nounf $capital
+harald	$nounf $capital
+istèvene	$nounf $capital
+justinianu	$nounf $capital
+iustinianus	$nounf $capital
+lotàriu	$nounf $capital
+otto	$nounf $capital
+ottokar	$nounf $capital
+salùsiu	$nounf $capital
+sigebertu	$nounf $capital
+teodoricu	$nounf $capital
+tiberiu	$nounf $capital
+constantinu	$nounf $capital
+ferrando	$nounf $capital
+dionisi	$nounf $capital
+seleuco	$nounf $capital
+aymeri	$nounf $capital
+aymeric	$nounf $capital
+gugliemu	$nounf $capital
+guglièlmu	$nounf $capital
+guillelm	$nounf $capital
+
+// masculine: names in other languages
+louis	$nounf $capital
+henri	$nounf $capital
+charles	$nounf $capital
+george	$nounf $capital
+henry	$nounf $capital
+juan	$nounf $capital
+carlos	$nounf $capital
+felipe	$nounf $capital
+fernando	$nounf $capital
+jaume	$nounf $capital
+jaime	$nounf $capital
+pere	$nounf $capital
+alfons	$nounf $capital
+benet	$nounf $capital
+benedict	$nounf $capital
+peter	$nounf $capital
+paul	$nounf $capital
+pau	$nounf $capital
+luis	$nounf $capital
+aleksandr	$nounf $capital
+nikolaj	$nounf $capital
+berenguer	$nounf $capital
+guillem	$nounf $capital
+ramiro	$nounf $capital
+frederick	$nounf $capital
+richard	$nounf $capital
+roger	$nounf $capital
+james	$nounf $capital
+jacques	$nounf $capital
+guillaume	$nounf $capital
+fedor	$nounf $capital
+lleonard	$nounf $capital
+ferran	$nounf $capital
+arslan	$nounf $capital
+hakam	$nounf $capital
+maoma	$nounf $capital
+murad	$nounf $capital
+osman	$nounf $capital
+menelik	$nounf $capital
+sélassié	$nounf $capital
+jayavarman	$nounf $capital
+kamehameha	$nounf $capital
+radama	$nounf $capital
+nabucodonosor	$nounf $capital
+gennadios	$nounf $capital
+aryabhata	$nounf $capital
+
+// feminine
+elisabeta	$verbf $capital
+elisabetta	$verbf $capital
+elizabeth	$verbf $capital
+isabella	$verbf $capital
+isabel	$verbf $capital
+maria	$verbf $capital
+mary	$verbf $capital
+caterina	$verbf $capital
+cadalina	$verbf $capital
+caderina	$verbf $capital
+giuana	$verbf $capital
+giovanna	$verbf $capital
+juana	$verbf $capital
+margarita	$verbf $capital
+margherita	$verbf $capital
+violante	$verbf $capital
