@@ -221,6 +221,16 @@ You can run the test suite with:
 
     ctest --test-dir build -j$(nproc) --output-on-failure
 
+Some of the tests compare an exact sha1 of the synthesized audio against a
+hash recorded in the test file. Those hashes were generated on targets that
+evaluate `float` and `double` at the precision of the type, so they only hold
+where `FLT_EVAL_METHOD` is 0. A build that keeps excess intermediate precision
+-- in practice the x87 FPU without SSE math, as on 32-bit x86 built with
+`-mfpmath=387` -- rounds differently and produces a different hash for correct
+audio. The build detects this and those checks report as skipped rather than
+failed; configuring such a build with `-mfpmath=sse -msse2` makes them run
+again.
+
 ### Installing
 
 You can install eSpeak NG by running the following command:

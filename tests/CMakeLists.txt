@@ -35,9 +35,11 @@ find_program(SHELL bash)
 macro(shell_test _test_name)
   add_test(
     NAME ${_test_name}
-    COMMAND ${ESPEAK_RUN_ENV} ESPEAK_BIN=$<TARGET_FILE:espeak-ng-bin> ${SHELL} ${CMAKE_CURRENT_SOURCE_DIR}/${_test_name}.test
+    COMMAND ${ESPEAK_RUN_ENV} ESPEAK_BIN=$<TARGET_FILE:espeak-ng-bin> ESPEAK_EXCESS_FP_PRECISION=${ESPEAK_EXCESS_FP_PRECISION} ${SHELL} ${CMAKE_CURRENT_SOURCE_DIR}/${_test_name}.test
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/..
   )
+  # tests/common exits with 77 when a check cannot run on this target.
+  set_tests_properties(${_test_name} PROPERTIES SKIP_RETURN_CODE 77)
 endmacro(shell_test)
 
 compiled_test(api)
