@@ -1535,16 +1535,24 @@ static int RussianTimeForm(int value)
 
 static bool TranslateRussianTime(Translator *tr, char *word, char *ph_out, char *ph_out_end, unsigned int *flags, WORD_TAB *wtab, int wtab_remaining)
 {
-	// Tokenization turns HH:MM into "HH : MM". Require adjacent source
-	// tokens so that spaced colons and longer numeric expressions stay numbers.
-	if ((tr->translator_name != L('r', 'u')) || (wtab_remaining < 3) ||
-	    (wtab[1].start - wtab[0].start != 3) ||
-	    (wtab[2].start - wtab[0].start != 5) ||
-	    (wtab[1].sourceix != wtab[0].sourceix + 2) ||
-	    (wtab[2].sourceix != wtab[0].sourceix + 3) ||
-	    !IsDigit09(word[0]) || !IsDigit09(word[1]) || (word[2] != ' ') ||
-	    (word[3] != ':') || (word[4] != ' ') ||
-	    !IsDigit09(word[5]) || !IsDigit09(word[6]) || (word[7] != ' '))
+	// Tokenization turns H:MM or HH:MM into "H : MM" or "HH : MM".
+	// Require adjacent source tokens so that spaced colons stay numbers.
+	if ((tr->translator_name != L('r', 'u')) || (wtab_remaining < 3))
+		return false;
+
+	int hour_digits = wtab[1].start - wtab[0].start - 1;
+	if (((hour_digits != 1) && (hour_digits != 2)) ||
+	    (wtab[2].start - wtab[1].start != 2) ||
+	    (wtab[1].sourceix != wtab[0].sourceix + hour_digits) ||
+	    (wtab[2].sourceix != wtab[1].sourceix + 1) ||
+	    !IsDigit09(word[0]) || ((hour_digits == 2) && !IsDigit09(word[1])) ||
+	    (word[hour_digits] != ' '))
+		return false;
+
+	char *colon = word + hour_digits + 1;
+	char *minute = colon + 2;
+	if ((colon[0] != ':') || (colon[1] != ' ') ||
+	    !IsDigit09(minute[0]) || !IsDigit09(minute[1]) || (minute[2] != ' '))
 		return false;
 
 	int previous;
@@ -1552,15 +1560,17 @@ static bool TranslateRussianTime(Translator *tr, char *word, char *ph_out, char 
 	if (IsAlpha(previous) || (previous == ':') ||
 	    (wtab[0].flags & FLAG_NOSPACE))
 		return false;
-	if ((wtab_remaining > 3) && (wtab[3].sourceix == wtab[0].sourceix + 5)) {
+	if ((wtab_remaining > 3) && (wtab[3].sourceix == wtab[2].sourceix + 2)) {
 		int next;
 		utf8_in(&next, word + wtab[3].start - wtab[0].start);
 		if (IsAlpha(next) || IsDigit09(next) || (next == ':') || (next == '.') || (next == ','))
 			return false;
 	}
 
-	int hours = (word[0] - '0') * 10 + word[1] - '0';
-	int minutes = (word[5] - '0') * 10 + word[6] - '0';
+	int hours = word[0] - '0';
+	if (hour_digits == 2)
+		hours = hours * 10 + word[1] - '0';
+	int minutes = (minute[0] - '0') * 10 + minute[1] - '0';
 	if ((hours > 24) || (minutes > 59))
 		return false;
 
