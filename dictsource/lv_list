@@ -129,6 +129,83 @@ _1M10   n'oniljo:ns
 _0M10   n'oniljo:ni
 _dpt    k'omats_
 
+// inflected cardinal forms — agreement (case/gender) with the counted noun.
+// The number engine (numbers.c, lang=lv) replaces the default (nom. masc.) form with
+// _<n>k<bucket>, where the bucket is chosen from the counted noun's ending.
+// bucket: 2=nom.f.sg 3=nom/acc.f.pl(gen.f.sg) 4=dat.m.sg 5=dat.f.sg 6=acc.sg/gen.pl
+//         7=loc.sg 9=dat.m.pl 10=dat.f.pl 11=loc.f.pl 12=loc.m.pl 13=acc.m.pl
+_1k2    v'iena      // viena (diena)
+_1k3    v'ienas     // vienas (dienas)
+_1k4    v'ienam     // vienam (vīrietim)
+_1k5    v'ienai     // vienai (sievietei)
+_1k6    v'ienu      // vienu (dienu)
+_1k7    v'iena:     // vienā (dienā)
+_2k3    d'ivas
+_2k6    d'ivu
+_2k9    d'iviem
+_2k10   d'iva:m
+_2k11   d'iva:s
+_2k12   d'ivuos
+_2k13   d'ivus
+_4k3    tS'etRas
+_4k6    tS'etRu
+_4k9    tS'etRiem
+_4k10   tS'etRa:m
+_4k11   tS'etRa:s
+_4k12   tS'etRuos
+_4k13   tS'etRus
+_5k3    p'ietsas    // piecas (minūtes)
+_5k6    p'ietsu     // piecu (minūšu)
+_5k9    p'ietsiem
+_5k10   p'ietsa:m   // piecām (minūtēm)
+_5k11   p'ietsa:s   // piecās (minūtēs)
+_5k12   p'ietsuos   // piecos (gados)
+_5k13   p'ietsus    // piecus (metrus)
+_6k3    s'eSas
+_6k6    s'eSu
+_6k9    s'eSiem
+_6k10   s'eSa:m
+_6k11   s'eSa:s
+_6k12   s'eSuos
+_6k13   s'eSus
+_7k3    s'eptin^as
+_7k6    s'eptin^u
+_7k9    s'eptin^iem
+_7k10   s'eptin^a:m
+_7k11   s'eptin^a:s
+_7k12   s'eptin^uos
+_7k13   s'eptin^us
+_8k3    'astuon^as
+_8k6    'astuon^u
+_8k9    'astuon^iem
+_8k10   'astuon^a:m
+_8k11   'astuon^a:s
+_8k12   'astuon^uos
+_8k13   'astuon^us
+_9k3    d'evin^as
+_9k6    d'evin^u
+_9k9    d'evin^iem
+_9k10   d'evin^a:m
+_9k11   d'evin^a:s
+_9k12   d'evin^uos
+_9k13   d'evin^us
+
+// inflected ordinal endings — agreement (case/gender/number) with the following word
+// The number engine (numbers.c, lang=lv) strips the nominative "-ais" of an ordinal
+// and appends one of these endings, chosen from the following word's ending.
+_oe2    aja:    // locative sg            (1. maijā  -> pirmajā)
+_oe3    a:      // gen masc sg / nom fem sg  (1. vieta -> pirmā)
+_oe4    ajam    // dat masc sg
+_oe5    uo      // acc sg / instr sg / gen pl
+_oe6    ajai    // dat fem sg
+_oe7    a:s     // gen fem sg / nom+acc fem pl
+_oe8    ie      // nom masc pl
+_oe9    ajiem   // dat masc pl
+_oe10   uos     // acc masc pl
+_oe11   ajuos   // loc masc pl
+_oe12   aja:m   // dat fem pl
+_oe13   aja:s   // loc fem pl
+
 // ordinal numbers
 _1o     p'iRmais
 _2o     'otRais
