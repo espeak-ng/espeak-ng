@@ -575,7 +575,7 @@ static void SetProsodyParameter(int param_type, const wchar_t *attr1, PARAM_STAC
 	}
 }
 
-int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters)
+int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters)
 {
 	// xml_buf is the tag and attributes with a zero terminator in place of the original '>'
 	// returns a clause terminator value.
@@ -841,9 +841,9 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 			attrcopy_utf8(buf, attr1, sizeof(buf));
 
 			if (uri_callback == NULL) {
-				if ((xmlbase != NULL) && (buf[0] != '/')) {
+				if ((xmlbase[0] != 0) && (buf[0] != '/')) {
 					char fname[256];
-					sprintf(fname, "%s/%s", xmlbase, buf);
+					snprintf(fname, sizeof(fname), "%s/%s", xmlbase, buf);
 					index = LoadSoundFile2(fname);
 				} else
 					index = LoadSoundFile2(buf);
@@ -857,7 +857,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 				if ((index = AddNameData(buf, 0)) >= 0) {
 					char *uri;
 					uri = &namedata[index];
-					if (uri_callback(1, uri, xmlbase) == 0) {
+					if (uri_callback(1, uri, xmlbase[0] ? xmlbase : NULL) == 0) {
 						sprintf(buf, "%c%dU", CTRL_EMBEDDED, index);
 						strcpy(&outbuf[*outix], buf);
 						*outix += strlen(buf);
@@ -932,8 +932,7 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	case SSML_SPEAK:
 		if ((attr1 = GetSsmlAttribute(px, "xml:base")) != NULL) {
 			attrcopy_utf8(buf, attr1, sizeof(buf));
-			if ((index = AddNameData(buf, 0)) >= 0)
-				xmlbase = &namedata[index];
+			snprintf(xmlbase, N_XMLBASE, "%s", buf);
 		}
 		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name) == 0)
 			return 0; // no voice change

@@ -63,11 +63,13 @@ typedef struct {
 #define HTML_NOSPACE     16   // don't insert a space for this element, so it doesn't break a word
 #define SSML_CLOSE       0x20 // for a closing tag, OR this with the tag type
 
+#define N_XMLBASE 256 // capacity of the xml:base buffer, including the terminating NUL
+
 int ProcessSsmlTag(wchar_t *xml_buf,
                    char *outbuf,
                    int *outix,
                    int n_outbuf,
-                   const char *xmlbase,
+                   char *xmlbase,
                    bool *audio_text,
                    char *current_voice_id,
                    espeak_VOICE *base_voice,
