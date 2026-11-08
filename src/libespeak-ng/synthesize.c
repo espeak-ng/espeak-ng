@@ -1057,6 +1057,8 @@ espeak_ng_STATUS DoVoiceChange(voice_t *v)
 	if ((v2 = (voice_t *)malloc(sizeof(voice_t))) == NULL)
 		return ENOMEM;
 	memcpy(v2, v, sizeof(voice_t));
+	if (WcmdqReplaceLastVoice(v2))
+		return ENS_OK;
 	wcmdq[wcmdq_tail][0] = WCMD_VOICE;
 	wcmdq[wcmdq_tail][2] = (intptr_t)v2;
 	WcmdqInc();
