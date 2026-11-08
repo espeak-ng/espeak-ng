@@ -1575,16 +1575,18 @@ static bool TranslateRussianTime(Translator *tr, char *word, char *ph_out, char 
 		return false;
 
 	char key[20];
-	char hour_number[N_WORD_PHONEMES], hour_unit[N_WORD_PHONEMES];
-	char minute_number[N_WORD_PHONEMES], minute_unit[N_WORD_PHONEMES];
+	char hour_number[N_WORD_PHONEMES];
+	char hour_unit[N_WORD_PHONEMES];
+	char minute_number[N_WORD_PHONEMES];
+	char minute_unit[N_WORD_PHONEMES];
 	sprintf(key, "_time_hour%d", RussianTimeForm(hours));
-	if (!Lookup(tr, key, hour_unit))
+	if (!Lookup(tr, key, hour_unit, sizeof(hour_unit)))
 		return false;
 	if (minutes == 0)
 		strcpy(key, "_time_exact");
 	else
 		sprintf(key, "_time_minute%d", RussianTimeForm(minutes));
-	if (!Lookup(tr, key, minute_unit))
+	if (!Lookup(tr, key, minute_unit, sizeof(minute_unit)))
 		return false;
 
 	LookupNum2(tr, hours, 0, 2, hour_number);
