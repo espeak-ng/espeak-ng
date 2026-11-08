@@ -5,18 +5,41 @@
 is_hash
 is_mbrola
 
+# Mirror the voice lookup done by LoadMbrolaTable() in
+# src/libespeak-ng/synth_mbrola.c: the espeak-ng-data directory first, then
+# each XDG data directory. Keep the two in step, otherwise voices that
+# espeak-ng can load are reported here as untested.
 check_voice_folder() {
-        voice_file=${1#mb-} # remove mb- prefix
-        voice_file=${voice_file%+*} # remove variant suffix
-        if [ -f "/usr/share/mbrola/$voice_file" ]; then
-                voice_file="/usr/share/mbrola/$voice_file"
-        elif [ -f "/usr/share/mbrola/$voice_file/$voice_file" ]; then
-                voice_file="/usr/share/mbrola/$voice_file/$voice_file"
-        elif [ -f "/usr/share/mbrola/voices/$voice_file" ]; then
-                voice_file="/usr/share/mbrola/voices/$voice_file"
-        else
-                voice_file=""
-        fi
+        voice_name=${1#mb-} # remove mb- prefix
+        voice_name=${voice_name%+*} # remove variant suffix
+        voice_file=""
+
+        data_path="${ESPEAK_DATA_PATH:-`pwd`}"
+        for candidate in \
+                "$data_path/espeak-ng-data/mbrola/$voice_name" \
+                "$data_path/mbrola/$voice_name" ; do
+                if [ -f "$candidate" ] ; then
+                        voice_file="$candidate"
+                        return
+                fi
+        done
+
+        # Split the colon-separated dir list without losing paths with spaces.
+        old_ifs=$IFS
+        IFS=:
+        set -- ${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
+        IFS=$old_ifs
+        for dir in "$@" ; do
+                for candidate in \
+                        "$dir/mbrola/$voice_name" \
+                        "$dir/mbrola/$voice_name/$voice_name" \
+                        "$dir/mbrola/voices/$voice_name" ; do
+                        if [ -f "$candidate" ] ; then
+                                voice_file="$candidate"
+                                return
+                        fi
+                done
+        done
 }
 
 test_mb () {
