@@ -591,11 +591,11 @@ voice_t *LoadVoice(const char *vname, int control)
                 VoiceFormant(p);
                 break;
             case V_PITCH:
-                // default is  pitch 82 118
+                // default is  pitch 80 118
                 if (sscanf(p, "%d %d", &pitch1, &pitch2) == 2) {
                     voice->pitch_base = (pitch1 - 9) << 12;
                     voice->pitch_range = (pitch2 - pitch1) * 108;
-                    double factor = (double)(pitch1 - 82)/82;
+                    double factor = (double)(pitch1 - 80)/80;
                     voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
                 }
                 break;

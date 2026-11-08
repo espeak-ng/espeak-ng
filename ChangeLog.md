@@ -67,6 +67,7 @@ bug fixes:
 *  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
 *  fixed word and phoneme event positions drifting past the audio they belong to at speech rates where libsonic compresses the output, which broke word-boundary highlighting for API callers -- Alexander Epaneshnikov
 *  fixed out-of-bounds accesses when loading sound icon files referenced by SSML <audio src> -- Nexory
+*  fixed formant_factor being computed against the old default pitch base of 82 instead of the current default of 80, which shifted formant frequencies for every voice with an explicit pitch setting -- Ishan Ajwani
 
 features:
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov
