@@ -220,7 +220,7 @@ void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
 	}
 
 	for (ix = 8; ix < 64; ix++) {
-		if (((ix < 30) && (flags[0] & (1 << ix))) || ((ix >= 0x20) && (flags[1] & (1 << (ix-0x20))))) {
+		if (((ix < 30) && (flags[0] & (1u << ix))) || ((ix >= 0x20) && (flags[1] & (1u << (ix-0x20))))) {
 			name = LookupMnemName(mnem_flags, ix);
 			len = strlen(name) + 1;
 			total += len;
@@ -391,6 +391,29 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	return output;
 }
 
+enum { MAX_DICT_WORD_BYTES = 0x3f, MAX_PACKED_CHARS = MAX_DICT_WORD_BYTES * 8 / 6 };
+
+static int count_utf8_chars(const char *s)
+{
+	int n = 0;
+
+	for (; *s != 0; s++)
+		if ((*s & 0xc0) != 0x80)
+			n++;
+	return n;
+}
+
+/* Bytes the word occupies in the dictionary entry, or -1 if it does not fit.
+   transposed is the value returned by TransposeAlphabet(); packed is the flag
+   it reported for 6-bit packing.
+ */
+static int packed_word_length(int raw_len, int n_chars, int transposed, bool packed)
+{
+	if (!packed)
+		return (raw_len <= MAX_DICT_WORD_BYTES) ? raw_len : -1;
+	return (n_chars <= MAX_PACKED_CHARS) ? (transposed & MAX_DICT_WORD_BYTES) : -1;
+}
+
 static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int n_dict_line, int *hash)
 {
 	// Compile a line in the language_list file
@@ -398,7 +421,7 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	char *p;
 	char *word;
 	char *phonetic;
-	char *phonetic_end;
+	char *phonetic_end = NULL;
 	unsigned int ix;
 	LINE_PARSER_STATES step;
 	unsigned int n_flag_codes = 0;
@@ -419,8 +442,9 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	char *mnemptr;
 	unsigned char flag_codes[100];
 	char encoded_ph[200];
-	char bad_phoneme_str[4];
+	char bad_phoneme_str[5];
 	int bad_phoneme;
+	char space_phonetic[] = " ";
 	static const char nullstring[] = { 0 };
 
 	phonetic = word = (char*)nullstring;
@@ -432,6 +456,12 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	c = *p;
 	while (c != '\n' && c != '\0') {
 		c = *p;
+
+		if (n_flag_codes >= sizeof(flag_codes) - 10) { // leave room for the flags added after this loop
+			fprintf(ctx->f_log, "%5d: Too many flags\n", ctx->linenum);
+			ctx->error_count++;
+			break;
+		}
 
 		if ((c == '?') && (step == 0)) {
 			// conditional rule, allow only if the numbered condition is set for the voice
@@ -460,7 +490,7 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 		if ((c == '$') && isalnum(p[1])) {
 			// read keyword parameter
 			mnemptr = p;
-			while (!isspace2(c = *p)) p++;
+			while (!isspace2(c = *p) && c != '\0') p++;
 			*p = 0;
 
 			flagnum = LookupMnem(mnem_flags, mnemptr);
@@ -562,7 +592,10 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	if (text_not_phonemes) {
 		if (word[0] == '_') {
 			// This is a special word, used by eSpeak.  Translate this into phonemes now
-			strcat(phonetic, " "); // need a space to indicate word-boundary
+			if (phonetic == nullstring)
+				phonetic = space_phonetic;
+			else
+				strcat(phonetic, " "); // need a space to indicate word-boundary
 
 			// PROBLEM  vowel reductions are not applied to the translated phonemes
 			// condition rules are not applied
@@ -643,10 +676,19 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 	if (word[0] == 0)
 		return 0; // the word contained only variation selectors
 
-	len_word = strlen(word);
-
+	int raw_len = strlen(word);
+	int n_chars = count_utf8_chars(word);
+	len_word = raw_len;
+	bool packed = false;
 	if (translator->transpose_min > 0)
-		len_word = TransposeAlphabet(translator, word);
+		len_word = TransposeAlphabet(translator, word, &packed);
+
+	int packed_len = packed_word_length(raw_len, n_chars, len_word, packed);
+	if (packed_len < 0) {
+		fprintf(ctx->f_log, "%5d: Word is too long: %d bytes (%d packed)\n", ctx->linenum, raw_len, packed ? (len_word & MAX_DICT_WORD_BYTES) : raw_len);
+		ctx->error_count++;
+		return 0;
+	}
 
 	*hash = HashDictionary(word);
 	len_phonetic = strlen(encoded_ph);
@@ -671,6 +713,15 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 			dict_line[1] |= 0x80;
 			length = len_word + 2;
 		}
+	}
+
+	ix = n_flag_codes;
+	if ((multiple_string != NULL) && (multiple_words > 0))
+		ix += (multiple_string_end - multiple_string) + 2;
+	if (length + (int)ix >= n_dict_line) {
+		fprintf(ctx->f_log, "%5d: Dictionary line length would overflow the data buffer: %d\n", ctx->linenum, length + ix);
+		ctx->error_count++;
+		return 0;
 	}
 
 	for (ix = 0; ix < n_flag_codes; ix++)
@@ -746,9 +797,9 @@ static int compile_dictlist_file(CompileContext *ctx, const char *path, const ch
 	ctx->text_mode = false;
 
 	// try with and without '.txt' extension
-	sprintf(fname, "%s%s.txt", path, filename);
+	snprintf(fname, sizeof(fname), "%s%s.txt", path, filename);
 	if ((f_in = fopen(fname, "r")) == NULL) {
-		sprintf(fname, "%s%s", path, filename);
+		snprintf(fname, sizeof(fname), "%s%s", path, filename);
 		if ((f_in = fopen(fname, "r")) == NULL)
 			return -1;
 	}
@@ -812,6 +863,8 @@ static int isHexDigit(int c)
 	return -1;
 }
 
+enum { RULE_STRING_MARGIN = 8 }; // worst-case bytes emitted for one input character
+
 static void copy_rule_string(CompileContext *ctx, char *string, int *state_out)
 {
 	// state 0: conditional, 1=pre, 2=match, 3=post, 4=phonemes
@@ -832,17 +885,33 @@ static void copy_rule_string(CompileContext *ctx, char *string, int *state_out)
 
 	if (string[0] == 0) return;
 
+	int capacity = sizeof(ctx->rule_cond);
+
 	output = outbuf[state];
 	if (state == 4) {
 		// append to any previous phoneme string, i.e. allow spaces in the phoneme string
 		len = strlen(ctx->rule_phonemes);
+		if (len + RULE_STRING_MARGIN >= capacity) {
+			// trailing commentary after the phonemes lands here; drop it rather than overflow rule_phonemes
+			*state_out = next_state[state];
+			return;
+		}
 		if (len > 0)
 			ctx->rule_phonemes[len++] = ' ';
 		output = &ctx->rule_phonemes[len];
+		capacity -= len;
 	}
 	sxflags = 0x808000; // to ensure non-zero bytes
 
 	for (p = string, ix = 0;;) {
+		if (ix + RULE_STRING_MARGIN >= capacity) {
+			if (state != 4) {
+				fprintf(ctx->f_log, "%5d: Rule string too long\n", ctx->linenum);
+				ctx->error_count++;
+			}
+			output[ix] = 0;
+			break;
+		}
 		literal = false;
 		c = *p++;
 		if ((c == '0') && (p[0] == 'x') && (isHexDigit(p[1]) >= 0) && (isHexDigit(p[2]) >= 0)) {
@@ -1067,10 +1136,11 @@ static char *compile_rule(CompileContext *ctx, char *input)
 	int start;
 	int state = 2;
 	bool finish = false;
+	bool token_too_long = false;
 	char buf[80];
-	char output[150];
+	char output[400];
 	int bad_phoneme;
-	char bad_phoneme_str[4];
+	char bad_phoneme_str[5];
 
 	buf[0] = 0;
 	ctx->rule_cond[0] = 0;
@@ -1117,13 +1187,24 @@ static char *compile_rule(CompileContext *ctx, char *input)
 		case '?':
 			if (state == 2)
 				state = 0;
-			else
+			else if (p < buf + sizeof(buf) - 1)
 				*p++ = c;
+			else
+				token_too_long = true;
 			break;
 		default:
-			*p++ = c;
+			if (p < buf + sizeof(buf) - 1)
+				*p++ = c;
+			else
+				token_too_long = true;
 			break;
 		}
+	}
+
+	if (token_too_long) {
+		fprintf(ctx->f_log, "%5d: Rule token too long\n", ctx->linenum);
+		ctx->error_count++;
+		return NULL;
 	}
 
 	if (strcmp(ctx->rule_match, "$group") == 0)
@@ -1231,6 +1312,14 @@ static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 	return a->index - b->index;
 }
 
+static char *grow_buffer(char *buf, size_t size)
+{
+	char *tmp = realloc(buf, size);
+	if (tmp == NULL)
+		free(buf);
+	return tmp;
+}
+
 static void* output_rule_group(int n_rules, char **rules, char *name, size_t *outsize)
 {
 	int ix;
@@ -1273,19 +1362,25 @@ static void* output_rule_group(int n_rules, char **rules, char *name, size_t *ou
 		outpos = outlen;
 		if ((common[0] != 0) && (strcmp(p, common) == 0)) {
 			outlen += len2 + 1;
-			outptr = realloc(outptr, outlen);
+			outptr = grow_buffer(outptr, outlen);
+			if (outptr == NULL)
+				goto fail;
 			memmove(outptr + outpos, p2, len2);
 			outptr[outlen-1] = 0;
 		} else {
 			if ((ix < n_rules-1) && (strcmp(p, rules[ix+1]) == 0)) {
 				outlen ++;
-				outptr = realloc(outptr, outlen);
+				outptr = grow_buffer(outptr, outlen);
+				if (outptr == NULL)
+					goto fail;
 				common = rules[ix]; // phoneme string is same as next, set as common
 				outptr[outpos++] = RULE_PH_COMMON;
 			}
 
 			outlen += len2 + 1 + len1;
-			outptr = realloc(outptr, outlen);
+			outptr = grow_buffer(outptr, outlen);
+			if (outptr == NULL)
+				goto fail;
 			memmove(outptr + outpos, p2, len2);
 			outpos += len2;
 			outptr[outpos++] = RULE_PHONEMES;
@@ -1294,6 +1389,10 @@ static void* output_rule_group(int n_rules, char **rules, char *name, size_t *ou
 	}
 	if (outsize) *outsize = outlen;
 	return outptr;
+
+fail:
+	if (outsize) *outsize = 0;
+	return NULL;
 }
 
 static int compile_lettergroup(CompileContext *ctx, char *input, FILE *f_out)
@@ -1422,6 +1521,12 @@ static espeak_ng_STATUS compile_dictrules(CompileContext *ctx, FILE *f_in, FILE 
 		if ((buf == NULL) || (buf[0] == '.')) {
 			// next .group or end of file, write out the previous group
 
+			if ((n_rules > 0) && (n_rgroups >= N_RULE_GROUP2)) {
+				fprintf(ctx->f_log, "%5d: Exceeded limit of rule groups (%d)\n", ctx->linenum, N_RULE_GROUP2);
+				ctx->error_count++;
+				free_rules(rules, n_rules);
+				n_rules = 0;
+			}
 			if (n_rules > 0) {
 				strcpy(rgroup[n_rgroups].name, ctx->group_name);
 				rgroup[n_rgroups].group3_ix = ctx->group3_ix;
@@ -1589,6 +1694,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	char path[N_PATH_BUF];
 
 	CompileContext *ctx = calloc(1, sizeof(CompileContext));
+	if (!ctx)
+		return ENOMEM;
 
 	ctx->error_count = 0;
 	ctx->error_need_dictionary = 0;
@@ -1658,9 +1765,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 		return status;
 	}
 
-	LoadDictionary(translator, dict_name, 0);
+	int load_result = LoadDictionary(translator, dict_name, 0);
 
-	status = ctx->error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
+	status = (ctx->error_count > 0 || load_result != 0) ? ENS_COMPILE_ERROR : ENS_OK;
 	clean_context(ctx);
 	return status;
 }

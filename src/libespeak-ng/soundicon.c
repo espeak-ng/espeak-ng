@@ -119,15 +119,19 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 		fclose(f);
 		return create_file_error_context(context, error, fname);
 	}
-	if ((p = realloc(soundicon_tab[index].data, length)) == NULL) {
+	if (length < 44) {
 		fclose(f);
+		if (fname_temp[0])
+			remove(fname_temp);
+		return EINVAL;
+	}
+	if ((p = malloc(length)) == NULL) {
+		fclose(f);
+		if (fname_temp[0])
+			remove(fname_temp);
 		return ENOMEM;
 	}
-	// realloc() has taken ownership of the previous buffer, so the table must
-	// not keep pointing at it if one of the error paths below is taken.
-	soundicon_tab[index].data = NULL;
-	soundicon_tab[index].length = 0;
-	if (fread(p, 1, length, f) != length) {
+	if (fread(p, 1, length, f) != (size_t)length) {
 		int error = errno;
 		fclose(f);
 		if (fname_temp[0])
@@ -139,21 +143,12 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	if (fname_temp[0])
 		remove(fname_temp);
 
-	if (length < 44) {
-		// Fewer bytes than the 44-byte WAV header. The buffer can even be
-		// empty, because a file whose format does not match is replaced by an
-		// empty temp file above. Reject it rather than reading past the end.
-		free(p);
-		return EINVAL;
-	}
-
-	// The data-size field in the header is not trustworthy, so bound it by the
-	// number of bytes actually read. Otherwise the wave player is handed a
-	// sample count that walks past the end of the buffer.
+	// The header's data-size field is untrusted, so bound it by the bytes read.
 	unsigned int data_size = (unsigned int)p[40] | ((unsigned int)p[41] << 8)
 	                       | ((unsigned int)p[42] << 16) | ((unsigned int)p[43] << 24);
 	if (data_size > (unsigned int)(length - 44))
 		data_size = length - 44;
+	free(soundicon_tab[index].data);
 	soundicon_tab[index].length = data_size / 2; // length in samples
 	soundicon_tab[index].data = (char *) p;
 	return ENS_OK;
@@ -195,13 +190,17 @@ int LoadSoundFile2(const char *fname)
 		}
 	}
 
-	// load the file into the current slot and increase index
 	if (n_soundicon_tab >= N_SOUNDICON_TAB)
 		return -1; // soundicon table is full
+
+	// load the file into the current slot and increase index
 	if (LoadSoundFile(fname, n_soundicon_tab, NULL) != ENS_OK)
 		return -1;
 
-	soundicon_tab[n_soundicon_tab].filename = (char *)realloc(soundicon_tab[n_soundicon_tab].filename, strlen(fname)+1);
+	char *filename = (char *)realloc(soundicon_tab[n_soundicon_tab].filename, strlen(fname)+1);
+	if (filename == NULL)
+		return -1;
+	soundicon_tab[n_soundicon_tab].filename = filename;
 	strcpy(soundicon_tab[n_soundicon_tab].filename, fname);
 	n_soundicon_tab++;
 	return n_soundicon_tab - 1;

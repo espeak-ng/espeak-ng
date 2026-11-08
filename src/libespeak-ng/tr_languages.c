@@ -101,8 +101,8 @@ const ALPHABET *AlphabetFromChar(int c)
 	const ALPHABET *alphabet = alphabets;
 
 	while (alphabet->name != NULL) {
-		if (c <= alphabet->range_max) {
-			if (c >= alphabet->range_min)
+		if ((unsigned int)c <= alphabet->range_max) {
+			if ((unsigned int)c >= alphabet->range_min)
 				return alphabet;
 			else
 				break;
@@ -1648,7 +1648,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L3('x', 'e', 'x'): // Xextan
 	{
-		static const wchar_t xex_punct_within_word[] = { '\'' };
+		static const wchar_t xex_punct_within_word[] = { '\'', 0 };
 		tr->langopts.numbers = 0; 
 		tr->langopts.lowercase_sentence = true;
 		tr->punct_within_word = xex_punct_within_word;

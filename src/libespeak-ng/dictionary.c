@@ -111,14 +111,15 @@ static int Reverse4Bytes(int word)
 #endif
 }
 
-static void InitGroups(Translator *tr)
+static bool InitGroups(Translator *tr, const char *end)
 {
 	// Called after dictionary 1 is loaded, to set up table of entry points for translation rule chains
-	// for single-letters and two-letter combinations
+	// for single-letters and two-letter combinations.
 
 	int ix;
 	char *p;
 	char *p_name;
+	char *p_end;
 	unsigned char c, c2;
 	int len;
 
@@ -135,22 +136,26 @@ static void InitGroups(Translator *tr)
 	// If there are no rules in the dictionary, compile_dictrules will not
 	// write a RULE_GROUP_START (written in the for loop), but will write
 	// a RULE_GROUP_END.
-	if (*p != RULE_GROUP_END) while (*p != 0) {
+	if ((p < end) && (*p != RULE_GROUP_END)) while ((p < end) && (*p != 0)) {
 		if (*p != RULE_GROUP_START) {
 			fprintf(stderr, "Bad rules data in '%s_dict' at 0x%x (%c)\n", dictionary_name, (unsigned int)(p - tr->data_dictrules), *p);
-			break;
+			return false;
 		}
 		p++;
+		if (p + 2 > end)
+			return false;
 
 		if (p[0] == RULE_REPLACEMENTS) {
 			p = (char *)(((intptr_t)p+4) & ~3); // advance to next word boundary
+			if (p + 4 > end)
+				return false;
 			tr->langopts.replace_chars = (unsigned char *)p;
 
-			while ( !is_str_totally_null(p, 4) ) {
+			while ((p + 4 <= end) && !is_str_totally_null(p, 4)) {
 				p++;
 			}
 
-			while (*p != RULE_GROUP_END) p++;
+			while ((p < end) && (*p != RULE_GROUP_END)) p++;
 			p++;
 			continue;
 		}
@@ -163,10 +168,13 @@ static void InitGroups(Translator *tr)
 			if ((ix >= 0) && (ix < N_LETTER_GROUPS))
 				tr->letterGroups[ix] = p;
 		} else {
-			len = strlen(p);
+			p_end = memchr(p, 0, end - p);
+			if (p_end == NULL)
+				return false;
+			len = p_end - p;
 			p_name = p;
 			c = p_name[0];
-			c2 = p_name[1];
+			c2 = (len > 0) ? p_name[1] : 0;
 
 			p += (len+1);
 			if (len == 1)
@@ -175,8 +183,12 @@ static void InitGroups(Translator *tr)
 				tr->groups1[0] = p;
 			else if (c == 1) {
 				// index by offset from letter base
+				if ((c2 < 1) || (c2 > sizeof(tr->groups3)/sizeof(tr->groups3[0])))
+					return false;
 				tr->groups3[c2 - 1] = p;
 			} else {
+				if (tr->n_groups2 >= N_RULE_GROUP2)
+					return false;
 				if (tr->groups2_start[c] == 255)
 					tr->groups2_start[c] = tr->n_groups2;
 
@@ -187,16 +199,37 @@ static void InitGroups(Translator *tr)
 		}
 
 		// skip over all the rules in this group
-		while (*p != RULE_GROUP_END)
-			p += (strlen(p) + 1);
+		while ((p < end) && (*p != RULE_GROUP_END)) {
+			p_end = memchr(p, 0, end - p);
+			if (p_end == NULL) {
+				p = (char *)end;
+				break;
+			}
+			p = p_end + 1;
+		}
 		p++;
 	}
+	return true;
+}
+
+static void release_dictionary(Translator *tr)
+{
+	free(tr->data_dictlist);
+	tr->data_dictlist = NULL;
+	tr->data_dictrules = NULL;
+	tr->langopts.replace_chars = NULL;
+	memset(tr->dict_hashtab, 0, sizeof(tr->dict_hashtab));
+	memset(tr->letterGroups, 0, sizeof(tr->letterGroups));
+	memset(tr->groups1, 0, sizeof(tr->groups1));
+	memset(tr->groups3, 0, sizeof(tr->groups3));
+	tr->n_groups2 = 0;
 }
 
 int LoadDictionary(Translator *tr, const char *name, int no_error)
 {
 	int hash;
 	char *p;
+	char *end;
 	int *pw;
 	int length;
 	FILE *f;
@@ -214,10 +247,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	snprintf(fname, sizeof(fname), "%s%c%s_dict", path_home, PATHSEP, name);
 	size = GetFileLength(fname);
 
-	if (tr->data_dictlist != NULL) {
-		free(tr->data_dictlist);
-		tr->data_dictlist = NULL;
-	}
+	release_dictionary(tr);
 
 	f = fopen(fname, "rb");
 	if ((f == NULL) || (size <= 0)) {
@@ -235,35 +265,47 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	size = fread(tr->data_dictlist, 1, size, f);
 	fclose(f);
 
+	if ((size_t)size <= (N_HASH_DICT + sizeof(int)*2)) {
+		fprintf(stderr, "Empty _dict file: '%s\n", fname);
+		release_dictionary(tr);
+		return 2;
+	}
+
 	pw = (int *)(tr->data_dictlist);
 	length = Reverse4Bytes(pw[1]);
 
-	if (size <= (N_HASH_DICT + sizeof(int)*2)) {
-		fprintf(stderr, "Empty _dict file: '%s\n", fname);
-		return 2;
-	}
-
 	if ((Reverse4Bytes(pw[0]) != N_HASH_DICT) ||
-	    (length <= 0) || (length > 0x8000000)) {
+	    (length <= 0) || (length > 0x8000000) || (length >= size)) {
 		fprintf(stderr, "Bad data: '%s' (%x length=%x)\n", fname, Reverse4Bytes(pw[0]), length);
+		release_dictionary(tr);
 		return 2;
 	}
+	end = tr->data_dictlist + size;
 	tr->data_dictrules = &(tr->data_dictlist[length]);
 
 	// set up indices into data_dictrules
-	InitGroups(tr);
+	if (!InitGroups(tr, end)) {
+		fprintf(stderr, "Bad data: '%s' (invalid rule groups)\n", fname);
+		release_dictionary(tr);
+		return 2;
+	}
 
 	// set up hash table for data_dictlist
 	p = &(tr->data_dictlist[8]);
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
 		tr->dict_hashtab[hash] = p;
-		while ((length = *(uint8_t *)p) != 0)
+		while ((p < end) && ((length = *(uint8_t *)p) != 0))
 			p += length;
+		if (p >= end) {
+			fprintf(stderr, "Bad data: '%s' (truncated word list)\n", fname);
+			release_dictionary(tr);
+			return 2;
+		}
 		p++; // skip over the zero which terminates the list for this hash value
 	}
 
-	if ((tr->dict_min_size > 0) && (size < (unsigned int)tr->dict_min_size))
+	if ((tr->dict_min_size > 0) && ((unsigned int)size < (unsigned int)tr->dict_min_size))
 		fprintf(stderr, "Full dictionary is not installed for '%s'\n", name);
 
 	return 0;
@@ -285,6 +327,24 @@ int HashDictionary(const char *string)
 	}
 
 	return (hash+chars) & 0x3ff; // a 10 bit hash code
+}
+
+/* Copy a NUL-terminated phonetic string into a fixed-size buffer, truncating
+   rather than overflowing it if the source is too long for dest.
+   Returns the source string's real length (its strlen), not the number of
+   bytes actually copied, so a caller that needs to skip past the source
+   string in a surrounding buffer does so correctly even when truncation
+   happened.
+ */
+size_t CopyBoundedPhoneticString(char *dest, size_t dest_size, const char *src)
+{
+	size_t src_len = strlen(src);
+	size_t copy_len = src_len;
+	if (copy_len >= dest_size)
+		copy_len = dest_size - 1;
+	memcpy(dest, src, copy_len);
+	dest[copy_len] = 0;
+	return src_len;
 }
 
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
@@ -319,14 +379,14 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 			// used to separate phoneme mnemonics if needed, to prevent characters being treated
 			// as a multi-letter mnemonic
 
-			if ((c = p[1]) == '|') {
-				// treat double || as a word-break symbol, drop through
-				// to the default case with c = '|'
-				ESPEAK_FALLTHROUGH;
-			} else {
+			if (p[1] != '|') {
 				p++;
 				break;
 			}
+			// treat double || as a word-break symbol, drop through
+			// to the default case with c = '|'
+			c = '|';
+			ESPEAK_FALLTHROUGH;
 		default:
 			// lookup the phoneme mnemonic, find the phoneme with the highest number of
 			// matching characters
@@ -393,16 +453,25 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 	return p;
 }
 
-void DecodePhonemes(const char *inptr, char *outptr)
+static void DecodePut(char *out, size_t outsize, size_t *pos, char c)
+{
+	if (*pos + 1 < outsize)
+		out[(*pos)++] = c;
+}
+
+void DecodePhonemes(const char *inptr, char *outptr, size_t outsize)
 {
 	// Translate from internal phoneme codes into phoneme mnemonics
 	unsigned char phcode;
 	unsigned char c;
 	unsigned int mnem;
 	PHONEME_TAB *ph;
+	size_t pos = 0;
 	static const char stress_chars[] = "==,,'*  ";
 
-	sprintf(outptr, "* ");
+	if (outsize == 0)
+		return;
+
 	while ((phcode = *inptr++) > 0) {
 		if (phcode == 255)
 			continue; // indicates unrecognised phoneme
@@ -411,21 +480,21 @@ void DecodePhonemes(const char *inptr, char *outptr)
 
 		if ((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->program == 0)) {
 			if (ph->std_length > 1)
-				*outptr++ = stress_chars[ph->std_length];
+				DecodePut(outptr, outsize, &pos, stress_chars[ph->std_length]);
 		} else {
 			mnem = ph->mnemonic;
 
 			while ((c = (mnem & 0xff)) != 0) {
-				*outptr++ = c;
+				DecodePut(outptr, outsize, &pos, c);
 				mnem = mnem >> 8;
 			}
 			if (phcode == phonSWITCH) {
 				while (isalpha(*inptr))
-					*outptr++ = *inptr++;
+					DecodePut(outptr, outsize, &pos, *inptr++);
 			}
 		}
 	}
-	*outptr = 0; // string terminator
+	outptr[pos] = 0;
 }
 
 // using Kirschenbaum to IPA translation, ascii 0x20 to 0x7f
@@ -1633,11 +1702,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 					if (condition_num >= 32) {
 						// allow the rule only if the condition number is NOT set
-						if ((tr->dict_condition & (1L << (condition_num-32))) != 0)
+						if (((unsigned int)tr->dict_condition & (1u << (condition_num-32))) != 0)
 							failed = 1;
 					} else {
 						// allow the rule only if the condition number is set
-						if ((tr->dict_condition & (1L << condition_num)) == 0)
+						if (((unsigned int)tr->dict_condition & (1u << condition_num)) == 0)
 							failed = 1;
 					}
 
@@ -2071,7 +2140,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					pts = match.points;
 					if (group_length > 1)
 						pts += 35; // to account for an extra letter matching
-					DecodePhonemes(match.phonemes, decoded_phonemes);
+					DecodePhonemes(match.phonemes, decoded_phonemes, sizeof(decoded_phonemes));
 					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags, output), decoded_phonemes);
 				}
 			}
@@ -2166,7 +2235,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 			string[0] = '_';
 			memcpy(&string[1], p, wc_bytes);
 			string[1+wc_bytes] = 0;
-			Lookup(tr, string, buf);
+			Lookup(tr, string, buf, sizeof(buf));
 			if (++digit_count >= 2) {
 				strcat(buf, str_pause);
 				digit_count = 0;
@@ -2291,7 +2360,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 							break;
 						}
 					} else {
-						LookupLetter(tr, wc, -1, ph_buf, 0);
+						LookupLetter(tr, wc, -1, ph_buf, sizeof(ph_buf), 0);
 						if (ph_buf[0]) {
 							match1.phonemes = ph_buf;
 							match1.points = 1;
@@ -2346,10 +2415,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	return 0;
 }
 
-int TransposeAlphabet(Translator *tr, char *text)
+int TransposeAlphabet(Translator *tr, char *text, bool *packed)
 {
 	// transpose cyrillic alphabet (for example) into ascii (single byte) character codes
 	// return: number of bytes, bit 6: 1=used compression
+	// packed: if not NULL, set to whether the text was compressed
 
 	int c;
 	int offset;
@@ -2393,6 +2463,9 @@ int TransposeAlphabet(Translator *tr, char *text)
 		}
 	} while ((c != 0) && (bufix < N_WORD_BYTES));
 	buf[bufix] = 0;
+
+	if (packed != NULL)
+		*packed = all_alpha;
 
 	if (all_alpha) {
 		// compress to 6 bits per character
@@ -2474,7 +2547,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	word1 = word;
 	if (tr->transpose_min > 0) {
 		strncpy0(word_buf, word, N_WORD_BYTES);
-		wlen = TransposeAlphabet(tr, word_buf); // bit 6 indicates compressed characters
+		wlen = TransposeAlphabet(tr, word_buf, NULL); // bit 6 indicates compressed characters
 		word = word_buf;
 	} else
 		wlen = strlen(word);
@@ -2513,9 +2586,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			phonetic[0] = 0;
 			phoneme_len = 0;
 		} else {
-			phoneme_len = strlen(p);
-			assert(phoneme_len < N_PHONEME_BYTES);
-			strcpy(phonetic, p);
+			phoneme_len = CopyBoundedPhoneticString(phonetic, N_PHONEME_BYTES, p);
 			p += (phoneme_len + 1);
 		}
 
@@ -2527,11 +2598,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				// conditional rule
 				if (flag >= 132) {
 					// fail if this condition is set
-					if ((tr->dict_condition & (1 << (flag-132))) != 0)
+					if (((unsigned int)tr->dict_condition & (1u << (flag-132))) != 0)
 						condition_failed = true;
 				} else {
 					// allow only if this condition is set
-					if ((tr->dict_condition & (1 << (flag-100))) == 0)
+					if (((unsigned int)tr->dict_condition & (1u << (flag-100))) == 0)
 						condition_failed = true;
 				}
 			} else if (flag > 80) {
@@ -2568,9 +2639,9 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				if ((flag & 0xc) == 0xc)
 					dictionary_flags |= FLAG_STRESS_END;
 			} else if (flag >= 32)
-				dictionary_flags2 |= (1L << (flag-32));
+				dictionary_flags2 |= (1u << (flag-32));
 			else
-				dictionary_flags |= (1L << flag);
+				dictionary_flags |= (1u << flag);
 		}
 
 		if (condition_failed) {
@@ -2682,7 +2753,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			char ph_decoded[N_WORD_PHONEMES];
 			bool textmode;
 
-			DecodePhonemes(phonetic, ph_decoded);
+			DecodePhonemes(phonetic, ph_decoded, sizeof(ph_decoded));
 
 			if ((dictionary_flags & FLAG_TEXTMODE) == 0)
 				textmode = false;
@@ -2768,7 +2839,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		nbytes = 0;
 		while (((c = word2[nbytes]) != 0) && (c != ' '))
 			nbytes++;
-		if (length + nbytes + 1 <= sizeof(word)) {
+		if ((size_t)(length + nbytes + 1) <= sizeof(word)) {
 			memcpy(&word[length], word2, nbytes);
 			word[length+nbytes] = 0;
 			found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab, wtab_remaining);
@@ -2811,7 +2882,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		word2 = word;
 		if (*word2 == '_') word2++;
 		len = utf8_in(&letter, word2);
-		LookupAccentedLetter(tr, letter, ph_out);
+		LookupAccentedLetter(tr, letter, ph_out, N_PHONEME_BYTES);
 		found = word2 + len;
 	}
 
@@ -2843,13 +2914,15 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 				// only use replacement text if this is the original word, not if a prefix or suffix has been removed
 				word_replacement[0] = 0;
 				word_replacement[1] = ' ';
-				sprintf(&word_replacement[2], "%s ", ph_out); // replacement word, preceded by zerochar and space
+				snprintf(&word_replacement[2], sizeof(word_replacement) - 2, "%s ", ph_out); // replacement word, preceded by zerochar and space
 
 				word1 = *wordptr;
 				*wordptr = &word_replacement[2];
 
 				if (option_phonemes & espeakPHONEMES_TRACE) {
 					len = found - word1;
+					if (len > (int)sizeof(word) - 1)
+						len = sizeof(word) - 1;
 					memcpy(word, word1, len); // include multiple matching words
 					word[len] = 0;
 					fprintf(f_trans, "Replace: %s  %s\n", word, *wordptr);
@@ -2869,18 +2942,22 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 
 extern char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
 
-int Lookup(Translator *tr, const char *word, char *ph_out)
+int Lookup(Translator *tr, const char *word, char *ph_out, size_t ph_out_size)
 {
 	// Look up in *_list, returns dictionary flags[0] and phonemes
 
 	int flags0;
 	unsigned int flags[2];
 	char *word1 = (char *)word;
+	char ph_buf[N_WORD_PHONEMES];
 
+	ph_buf[0] = 0;
 	flags[0] = 0;
 	flags[1] = FLAG_LOOKUP_SYMBOL;
-	if ((flags0 = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL, 0)) != 0)
+	if ((flags0 = LookupDictList(tr, &word1, ph_buf, flags, FLAG_ALLOW_TEXTMODE, NULL, 0)) != 0)
 		flags0 = flags[0];
+	if (ph_out_size > 0)
+		CopyBoundedPhoneticString(ph_out, ph_out_size, ph_buf);
 
 	if (flags[0] & FLAG_TEXTMODE) {
 		int say_as = option_sayas;
@@ -2895,7 +2972,8 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		text[2] = ' ';
 		strncpy0(text+3, word1, sizeof(text)-3);
 		flags0 = TranslateWord(tr, text+3, NULL, NULL);
-		strcpy(ph_out, word_phonemes);
+		if (ph_out_size > 0)
+			CopyBoundedPhoneticString(ph_out, ph_out_size, word_phonemes);
 		option_sayas = say_as;
 	}
 	return flags0;

@@ -62,3 +62,12 @@ compile_bad "a numeric rule shorter than its group name" '.group 9a\n\t5  f\n' "
 compile_bad "an overlong letter group number" '.L55555555555555555555~' "lettergroup out of range"
 # A .L line ending the file without a newline must stop at the end of input.
 compile_bad "a letter group on an unterminated last line" '.group a\n\ta  a\n.L01 xy z' "1 rules, 1 groups"
+
+# A long Cyrillic word is 70 UTF-8 bytes but packs below the 63-byte limit.
+printf '.group а\n\tа  a\n' > "$WORK/src/ru_rules"
+printf 'ааааааааааааааааааааааааааааааааааа  a\n' > "$WORK/src/ru_list"
+# 102 bytes packs to 38, and 38|0x40 == 102: the packed flag must not be inferred from the length.
+printf 'нажжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжж  a\n' >> "$WORK/src/ru_list"
+echo -n "compiling ru dictionary with a 35-letter word ... "
+(cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=ru >/dev/null 2>&1) || { echo "failed"; exit 1; }
+echo "done"

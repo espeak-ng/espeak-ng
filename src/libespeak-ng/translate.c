@@ -2002,7 +2002,8 @@ static void SwitchLanguage(char *word, char *word_phonemes) {
 		c1 = *word++;
 		if ((c1 == ' ') || (c1 == 0))
 			break;
-		lang_name[ix++] = tolower(c1);
+		if (ix < (int)sizeof(lang_name) - 1)
+			lang_name[ix++] = tolower((unsigned char)c1);
 	}
 	lang_name[ix] = 0;
 
