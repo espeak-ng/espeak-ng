@@ -5,6 +5,8 @@
 
 .L01  g k
 .L02  _ t_ d_ de_ den_  nen_ // verb endings ('nen' for 'scannen')
+.L03  b h j l m p r v w
+.L04  dag daags daal dam dienst dijk doos dorp draai duel tafel tas tehuis terrein thee tijd toren trein trip tuig tuin tumor twintig dertig zestig zeventig tachtig negentig zaak zak zang zee zijde zone zorg gebied geld gif goed gracht graat groep naam nest net_ // second parts after linking -en-
 
 
 .group a
@@ -36,8 +38,10 @@
           @) achtig (_S6   Axt@Q   // not -ig sufix
          Km) acht (ig+     Axt  // not -achtig
          kr) acht (ig+     Axt
+        ent) acht (ig+     Axt  // eenentachtig: the number, not -achtig (nl-linking-en)
           
           _) a (dress+++    a:
+          _) adress (en      a:dr'Es    // linking -en-: adressenlijst
           _) adres (@P5   a:dr'Es
           _) af (C@P2     'Af
           _) affich       %AfiS
@@ -84,6 +88,8 @@
              bij (zond    b%i
           _) bijeen       bEI'e:n
           _) binnen (P6   b'In@n
+          _) banan (en    ba:n'a:n   // linking -en-: bananenschil keeps the stress of banaan
+          _) boek (en     b'uk       // linking -en-: not split before it
           _) boek (@P4    b'uk
           _) boek (je     b'uk
           _) boven (P5    b'o:v@n
@@ -185,12 +191,15 @@
              dt           t
              ds (_N       ts
              d (st        t
+        @en) dertig (_S6  d,Ert@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) dertigste (_S9 d,Ert@xst@
 //          _) de (CC@P2      d@  // Used a lot in family names
           _) de (geen     d@    // degene, degenen
           _) de (zelf     d@
           _) dj           dZ
              dj           tj
 
+          _) doel (en     d'ul       // linking -en-: not split before it
          _) doel (@P4     d'ul
 
 
@@ -275,6 +284,45 @@
          _p) e (nibel     e:
          id) e (nt        E
        pres) e (nt        E
+          // unstressed linking -en- between the parts of a compound: [@n], not [En] (nl-linking-en)
+          &) e (nL03@+    @    // linking -en- in compounds: dierenwinkel, apenrots, alpenhoorn
+          &) e (nbe+      E2   // not before be- (vrouwenbeweging): that needs mid-word be- first
+          &) e (nk@       @    // boekenkast, but not denken, schenken
+         md) e (nk        E
+         jd) e (nk        E
+         kd) e (nk        E
+         td) e (nk        E
+         sd) e (nk        E
+         gd) e (nk        E
+         ld) e (nk        E
+        nad) e (nk        E
+     _doord) e (nk        E
+       terd) e (nk        E
+          &) e (nko_      E    // -enko names
+        sch) e (nk        E
+          &) e (ns@       @    // bananenschil, but not -ensie, mens, wens, grens, renster
+          &) e (nsi       E
+         Cm) e (ns        E
+         mm) e (ns        @
+        dem) e (ns        E
+         Cw) e (ns@       E
+        iem) e (ns        E
+       tend) e (ns        E
+          v) e (nster     E
+         gr) e (ns        E
+         lr) e (nst       E
+          &) e (ndom      @    // vorstendom, eigendom
+         @C) e (nL04      @    // dierentuin, ouderenzorg, prijzengeld, zesentachtig
+        ing) e (nC@       @    // inlichtingendienst, leerlingenraad
+        ing) e (nbe+      E2
+         @k) e (ntje      @    // diminutive of -en nouns: dekentje, torentje, haventje
+         @r) e (ntje      @
+         @v) e (ntje      @
+         @z) e (ntje      @
+        @ug) e (ntje      @
+        @ng) e (ntje      @
+        @ol) e (ntje      @
+        @et) e (ntje      @
 
           i) eus (_       'Y:s
           i) euze (_      'Y:z@
@@ -565,6 +613,7 @@
          _) kale (nde     ka:l'E
          _) kantoor (@P7  kAnt'o:r
          _) keuze (@P5    k'Y:z@
+          _) kinder (en   k'Ind@r    // linking -en-: not split before it
          _) kinder (@P6   k'Ind@r
             kokkerel      kOk@r'El 
          _) koning        k'o:nIN  // in compounds
@@ -645,6 +694,8 @@
           _) na (tion     na:
           _) nano (@P4    n'a:no:
           _) na (polA     n%a:
+        @en) negentig (_S8  n,e:Q@nt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) negentigste (_S11 n,e:Q@nt@xst@
              napoleon     n%a:po:l@jOn
           _) natuur       na:t'yr
              na (tur      n%a:
@@ -659,6 +710,7 @@
           _) nieuws (@P6  n'iws
          @@) nis (_S3    nIs
          @@) nisen (_S5  nIs@n
+          _) noord (en    no:rd      // linking -en-: not split before it
           _) noord (@P5   no:rd
           _) notitie (@P7 no:t'itsi
 
@@ -691,6 +743,8 @@
              oo (X        'o:
              oon          'o:n  // in compounds, eg. telefoongesprek
              oo (C_       'o:
+          _) oosten (d    o:st'En    // Oostende
+          _) oost (en     o:st       // linking -en-: not split before it
           _) oost (@P4    o:st
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
@@ -824,11 +878,13 @@
           @) ssi (o       S
         CAr) sie (_       =zi
 
+          _) sport (en    sp'Ort     // linking -en-: not split before it
           _) sport (@P5   sp'Ort
           _) stads (@P5   st'Ats
           _) stage (@P5   st'a:Z@
           _) standaard (@P9 st'Anda:rt
           _) start (@P5   st'Art
+          _) start (en    st'Art     // linking -en-: not split before it
           @) straat (_S6 stra:t
        _vre) s (e         s
 
@@ -850,6 +906,10 @@
           @) ti (euz      S
           @) ti (ë        S
           @) ti (on       S
+        @en) twintig (_S7  tv#,Int@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) twintigste (_S10 tv#,Int@xst@
+        @en) tachtig (_S7  t,Axt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) tachtigste (_S10 t,Axt@xst@
           s) t (i++       t
              tj           t;
              tsj          tS
@@ -919,6 +979,10 @@
           _) vang         vAN
           _) ver (@P3     v@r
           _) ver (enK     vI:r  // veren(d)(de)
+        @en) veertig (_S7  f,e:rt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) veertigste (_S10 f,e:rt@xst@
+        @en) vijftig (_S7  v,EIft@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) vijftigste (_S10 v,EIft@xst@
           _) ver (sie_    vEr
           _) verder       vErd@r
           _) verkeers (@P8 v@rk'I:rs
@@ -951,9 +1015,11 @@
           _) weg (e_      v#e:Q  // bewegelijk
           _) weg (ing     v#e:Q  // bewegingen
           _) wereld (@P6  v#'I:r@lt
+          _) werk (en     v#'Erk     // linking -en-: not split before it
           _) werk (@P4    v#'Erk
           _) werk (el     v#'Erk
           _) werk (ing    v#'Erk
+          _) west (en     v#Est      // linking -en-: not split before it
           _) west (@P4    v#Est
           _) wets (@P4    v#'Ets
           _) winter (@P6  v#'Int@r
@@ -979,10 +1045,16 @@
 
           _) zee (@P3     z'e:
           _) zeeuw        zeU
+          _) zes (en      z'Es       // zesentwintig, zesentachtig: zes keeps [Es] (nl-linking-en)
              zele (_S4   ze:l@ // common suffix for cities.
+        @en) zestig (_S6  z,Est@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) zestigste (_S9 z,Est@xst@
+        @en) zeventig (_S8  z,e:v@nt@x   // tens after a linking -en-: the unit keeps the stress, as in zesentachtig (nl-linking-en)
+        @en) zeventigste (_S11 z,e:v@nt@xst@
           @) zelf (_S4   s'Elf
           _) zoge (@P4    z,o:Q@
           _) zomer (@P5   z'o:m@r
+          _) zuid (en     zWyt       // linking -en-: not split before it
           _) zuid (@P4    zWyt
 
 
