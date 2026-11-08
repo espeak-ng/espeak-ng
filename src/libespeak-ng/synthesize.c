@@ -1174,16 +1174,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
 		p = &phoneme_list[ix];
 
-		if(output_hooks && output_hooks->outputPhoSymbol)
-		{
-			char buf[30];
-			int dummy=0;
-			//WritePhMnemonic(buf, p->ph, p, 0, &dummy);
-			WritePhMnemonicWithStress(buf, p->ph, p, 0, &dummy);
-
-			DoPhonemeAlignment(strdup(buf),p->type);
-		}
-
 		if (p->type == phPAUSE)
 			free_min = 10;
 		else if (p->type != phVOWEL)
@@ -1193,6 +1183,15 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 		if (WcmdqFree() <= free_min)
 			return 1; // wait
+
+		if(output_hooks && output_hooks->outputPhoSymbol)
+		{
+			char buf[30];
+			int dummy=0;
+			WritePhMnemonicWithStress(buf, p->ph, p, 0, &dummy);
+
+			DoPhonemeAlignment(strdup(buf),p->type);
+		}
 
 		PHONEME_LIST *prev;
 		PHONEME_LIST *next;

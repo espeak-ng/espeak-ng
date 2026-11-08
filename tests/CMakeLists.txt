@@ -45,6 +45,7 @@ endmacro(shell_test)
 compiled_test(api)
 compiled_test(encoding)
 compiled_test(ieee80)
+compiled_test(output_pho_symbol)
 compiled_test(readclause)
 
 if (SHELL AND UNIX)
