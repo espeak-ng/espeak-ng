@@ -885,15 +885,18 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 	return NULL;
 }
 
+// Characters still to skip after a .replace match of more than one character.
+// TranslateClause clears it when it reads a character again.
+static int replace_skip_n = 0;
+
 // handle .replace rule in xx_rules file
 static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, const char *next, int *insert, int *wordflags)
 {
 	unsigned int new_c, c2 = ' ', c_lower;
 	int upper_case = 0;
 
-	static int ignore_next_n = 0;
-	if (ignore_next_n > 0) {
-		ignore_next_n--;
+	if (replace_skip_n > 0) {
+		replace_skip_n--;
 		return 8;
 	}
 
@@ -910,7 +913,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		upper_case = 1;
 	}
 
-	const char *to = FindReplacementChars(tr, &from, c_lower, next, &ignore_next_n);
+	const char *to = FindReplacementChars(tr, &from, c_lower, next, &replace_skip_n);
 	if (to == NULL)
 		return c; // no substitution
 
@@ -1677,6 +1680,9 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 			if (space_inserted) {
 				source_index = prev_source_index; // rewind to the previous character
 				char_inserted = 0;
+				// it is read again, so a .replace match starting there must be found
+				// again rather than skipped ("৩য়" with য + nukta lost the য)
+				replace_skip_n = 0;
 				space_inserted = false;
 			}
 		} else {
