@@ -21,6 +21,7 @@
 #ifndef ESPEAK_NG_WAVEGEN_H
 #define ESPEAK_NG_WAVEGEN_H
 
+#include <stdbool.h>
 #include "voice.h"
 
 #ifdef __cplusplus
@@ -67,6 +68,7 @@ int WavegenFill(void);
 void WavegenSetVoice(voice_t *v);
 int WcmdqFree(void);
 void WcmdqStop(void);
+bool WcmdqReplaceLastVoice(voice_t *v);
 int WcmdqUsed(void);
 void WcmdqInc(void);
 

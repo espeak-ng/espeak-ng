@@ -71,7 +71,17 @@ test_phon de "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s
 h'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung." "Latn"
 test_phon el "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία." "Grek"
 test_phon en "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog" "Latn"
+test_phon en "z,Edz'Edm@kb'VgIN" "zzmcbugging" "spelled letters with a prefix and suffix retain the stem"
+test_phon en ",Ef'Efm@kw'O:kIN" "ffmcwalking" "different spelled letters retain another stem"
+test_phon en "z,Edz,Edz'Edm@kb'VgIN" "zzzmcbugging" "doubled spelled letters do not match as the stem"
+test_phon en ",Ef'Efm'Iskri@nts" "ffmiscreants" "spelled letters preserve a dictionary match including the prefix"
+test_phon en "z,Edz'Edm@kb'Vg" "zzmcbug" "spelled letters with a prefix only"
+test_phon en "z,Edz'Edb'VgIN" "zzbugging" "spelled letters with a suffix only"
+test_phon en "m@kb'VgIN" "mcbugging" "a prefix and suffix without spelled letters"
+test_phon en "m'Iskri@nts" "miscreants" "a dictionary match including the prefix without spelled letters"
 test_phon en "b,i:dZ,eIp'i: (ml)jum'a:jul.l.a(en)" "BJPയുമായുള്ള" "script change splits a glued token"
+test_phon en "h@l'oU" "𝐇𝐞𝐥𝐥𝐨" "math-bold normalized to ASCII"
+test_phon en "h@l'oU" "ℍ𝕖𝕝𝕝𝕠" "double-struck normalized to ASCII"
 test_phon en "h'i@3rIN m'i: b'oU
 DI2; 'aZ3 Tr'VS k'O:z
 'e@ j'O@ dZ'OIf@l 'A@ri:;@
@@ -110,6 +120,11 @@ pr,a:t#m'Ik SIkS'Vn. p#,@*JIj'a:t r@2H'e:Se:
 wIS'e:s. w,Ig#a:v,Is.@j'@k 'Vne: vj,@vs'a:ji SIkS'Vn. s,a:ma:nj'@t@H ,Up@l'Vbd# r@2H'e:Se: 'Vne: j,o:gj@t'a:na: d#o:r'Vn. p'Vr 'Uc: SIkS'Vn. pr'a:pt k,@rv'a:no: s@rv'Vne: s@m'a:n Vd#'Ika:r r@2H'e:Se:" "દરેક વ્યક્તિને શિક્ષણનો અધિકાર છે. ઓછામાં ઓછું પ્રાથમિક અને પાયાના તબક્કાઓમાં શિક્ષણ મફત રહેશે. પ્રાથમિક શિક્ષણ ફરજિયાત રહેશે. વિશેષ વિઘાવિષયક અને વ્યવસાયી શિક્ષણ સામાન્યતઃ ઉપલબ્ધ રહેશે અને યોગ્યતાના ધોરણ પર ઉચ્ચ શિક્ષણ પ્રાપ્ત કરવાનો સર્વને સમાન અધિકાર રહેશે." "Gujr"
 test_phon hi "r'Is.Ij,o~ ko: s@t'a:ne: v'a:le: d'Us.t. r'a:kS@s,o~ ke: r'a:Ja: r'a:v@n. ka: s,@rv@n'a:S k'Vrn,e: v'a:le: v,Is.n.Uvt'a:r b#,@gv'a:n Sri*'a:m
 Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषियों को सताने वाले दुष्ट राक्षसों के राजा रावण का सर्वनाश करने वाले विष्णुवतार भगवान श्रीराम, अयोध्या के महाराज दशरथ के बड़े सपुत्र थे।" "Deva"
+test_phon hi "n'e:tr@2H,i:n" "नेत्रहीन" "hi netraheen"
+test_phon hi "n'e:tr@2d,a:n" "नेत्रदान" "hi netradaan"
+test_phon hi ",VnUsv'a:r" "ं" "hi anusvara name"
+test_phon hi "'Ena:" "ॲना" "hi candra a"
+test_phon hi "'EsId.,It.i" "ॲसिडिटी" "hi candra a"
 test_phon hy "k@rn'am ,apak'i ut'el j'ev ints'i ,anhang'ist tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
 test_phon hyw "g@rn'am ,abag'i ud'el j'ev indz'i ,anhank#'isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։" "Armn"
 test_phon hr "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
@@ -127,6 +142,17 @@ test_phon is "c'aI:mI n'i:; 'WksI hj'E:_|R
 'I:JIsd Tj'oU:vym n'u: b'aI:DI v'i:l#_:_: O:x 'aUd@-RE:ba
 s'aI:vW_|R g@-Rj'E:d 'aU:Dan_:_: Tvi:; 'ulban va:_|R 'oU:nid" "Kæmi ný öxi hér, ykist þjófum nú bæði víl og ádrepa. Sævör grét áðan því úlpan var ónýt." "Latn"
 test_phon it "kwel f'Ets zg'embo k'Op@-*e dav'antI" "Quel fez sghembo copre davanti" "Latn"
+# English loanwords and acronyms
+test_phon it "sp'eIs" "space" "Latn"
+test_phon it "sp'eIsIz" "spaces" "Latn"
+test_phon it "(en)sp'eIsbA@(it)" "spacebar" "Latn"
+test_phon it "(en)sp'eIskraaft(it)" "spacecraft" "Latn"
+test_phon it "(en)w'3:kspeIs(it)" "workspace" "Latn"
+test_phon it "k'O:l" "call" "Latn"
+test_phon it "k'allo" "callo" "Latn"
+test_phon it "k'allI" "calli" "Latn"
+test_phon it "r'i:dIN" "reading" "Latn"
+test_phon it ",a:,Effek'ap:a" "afk" "Latn"
 test_phon ja ",ir\`oh,anihoh'eto
 t_s\\,ir\`inur\`'uo
 w,akaj,otar\`'eso
@@ -195,6 +221,27 @@ test_phon ku "tU kURd'i d,Izan'i" "tu kurdî dizanî."
 test_phon ku "t'U" "tu"
 test_phon ku "Em kURd'i d,Izan'In" "em kurdî dizanin."
 test_phon ku "hun kURd'i d,Izan'In" "hûn kurdî dizanin."
+# Kurmanji large numbers: milyar (10^9) and trilyon (10^12)
+test_phon ku "mIlj'on" "1000000"
+test_phon ku "mIlj'ar" "1000000000"
+test_phon ku "d'U mIlj'ar" "2000000000"
+test_phon ku "p'endZ mIlj'ar" "5000000000"
+test_phon ku "trIlj'on" "1000000000000"
+test_phon ku "s'e trIlj'on" "3000000000000"
+# Kurmanji four is çar (tS), not car (dZ)
+test_phon ku "tS'ar" "4"
+test_phon ku "p'endZ ,EU*'o" "5 €"
+test_phon ku "stERl'in s'e" "£3"
+test_phon ku "p'endZ li*'E#" "5 TL"
+test_phon ku "danzd'E# c,ilomEtR'E#" "12 km"
+test_phon ku "s'e c,ilogR'am" "3 kg"
+test_phon ku "h'EjSt s,antimEtR'E#" "8 cm"
+test_phon ku "dokt'oR al'I" "Dr Ali"
+test_phon ku "pR,ofEs'oR bERf'in" "Prof Berfîn"
+# Kurmanji numerals follow the Turkish convention: dot groups thousands, comma is the decimal separator
+test_phon ku "mIlj'on" "1.000.000"
+test_phon ku "hEz'ar_! _up'endZs'Ed_u d'U" "1.502"
+test_phon ku "d'U _xal p'endZ" "2,5"
 test_phon la  "s'Ik_ f'UgI;Ens_
 d'Uks_
 zElOt'ypOs_
@@ -221,6 +268,8 @@ n'Vvi m'u~b,i
 t.#'a:n.e:
 r'a:j@3g,@d.
 p'a:l@g#,@r@2s,@H sa:t'a:*a: b'Vnd@c,i H'a:k d'Ili; 'a:He:" "आरक्षणासाठी आक्रमक झालेल्या मराठा क्रांती मोर्चाने आज मुंबई, नवी मुंबई, ठाणे, रायगड, पालघरसह सातारा बंदची हाक दिली आहे." "Deva"
+test_phon mr "'Ena:" "ॲना" "mr candra a"
+test_phon mr "'EsId.,It.i" "ॲसिडिटी" "mr candra a"
 test_phon ms "s@m'u@ m,anus'i@ d,ilah'irkan b'Ebas_:_: dan s,amaR'at@ d,aRi s'@gi k@m,uli'a_|an_:_: dan h'a?h'a?
 m@R'Ek@ m@mp'un^aI p@mik'iRan_:_: dan p@Ras'a_|an h'ati_:_: dan h@nd'aklah b@Rt'inda? di _|ant'aR@ s'atu s'am@ l'aIn d'@Nan s@m'aNat p@*rs,aUdaR'a_|an" "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak. Mereka mempunyai pemikiran dan perasaan hati dan hendaklah bertindak di antara satu sama lain dengan semangat persaudaraan." "Latn"
 test_phon mt  "'Ilbned'emIn c'ollla ,iuIt,ui:ld'eu h'i:lsa 'u ,ugu'alI f'Ided,eIniu'Ita 'u d'eed,erIt:I;'iui:t
@@ -255,12 +304,18 @@ naN ta d'ota k'u Ras'oN_:_: i k'u kons'enSi_:_: i naN mest'eR komp'oRta naN deN 
 test_phon pl "m'E~Zny b'On^ts;
 xR'On^ p'uwk tf'uj_! i S'ES;ts; fl'ak
 z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć flag. Zażółć gęślą jaźń." "Latn"
-test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: b@-*&s'oI~S
+test_phon pl "v d'Omu
+v Og'ulE
+v'Emn^;E" "w domu, w ogóle, we mnie"
+test_phon pl "dzvˈɔn
+dʑvʲˈɛŋk" "dzwon, dźwięk" "" "--ipa"
+test_phon pl "t,EmpERat'uRa#_ m'inus tS'y" "temperatura -3"
+test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: bR&s'o~js#
 f'E
 S'a
 'OksidU
-p'o*
-z'&~Ng&U~_:_: ,E*&U~ p,&l'av@-*&Z dU p,u*@-tug'eS" "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português." "Latn"
+p'or-
+z'&~Ng&U~_:_: ,E*&U~ p,&l'avR&Z dU p,u*@-tug'es#" "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português." "Latn"
 test_phon qya ",aInul'Indal,E ald'INga aNk'alIm,a and'u:RIl at'akwE k,alak'IRja k,uIvI;'e:nEn ,EaR'EndIl El'EndIl ,ElEnt'a:RI; El'EssaR 'ENkwI;,E E'OnwE ER'EssE,a h,ElkaR'aksE w#'Esta C'aRmEn Is'IlduR l'ap:a m'axtan nam'a:RI;,E n'at:IR,a n,u:mEn'o:RE 'OROm,E Ot'OkwE pEl'Ek:O pEl'o:RI s'aUROn tan'IkwEt,Il t,Elum'ECtaR t'ulkas tuR'ambaR und'o:mI;,El ut'umnO" "Ainulindalë aldinga ancalima Andúril ataquë Calacirya Cuiviénen Eärendil Elendil Elentári Elessar enquië Eönwe Eressëa Helcaraxë hwesta Hyarmen Isildur lappa Mahtan Namárië nattira Númenórë Orome otoquë pelecco Pelóri Sauron Taniquetil Telumehtar Tulkas Turambar Undómiel Utumno" "Quenya"
 test_phon ro "m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila
 p@-*'ets f'iks" "Muzicologă în bej vând whisky și tequila, preț fix." "Latn"

@@ -7,6 +7,9 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  contents: read
+
 env:
   deps: cmake libpcaudio-dev libsonic-dev ronn kramdown python3
 
@@ -32,7 +35,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-      - uses: firebuild/apt-eatmydata-action@v1
+      - uses: firebuild/apt-eatmydata-action@1ffc51fd041ed87dcc2ef405913baec405763640 # v1
       - name: enable 32bit architecture
         run: sudo dpkg --add-architecture i386
         if: matrix.arch == 'x86-32'
@@ -47,11 +50,11 @@ jobs:
     name: Run distcheck
     steps:
       - uses: actions/checkout@v7
-      - uses: firebuild/apt-eatmydata-action@v1
+      - uses: firebuild/apt-eatmydata-action@1ffc51fd041ed87dcc2ef405913baec405763640 # v1
       - name: dependencies
         run: sudo apt-get update && sudo apt-get install ${{ env.deps }}
       - name: configure
-        run: cmake -Bbuild -DUSE_ASYNC:BOOL=OFF
+        run: cmake -Bbuild
       - name: make
         run: cmake --build build
       - name: make check
@@ -63,7 +66,7 @@ jobs:
         run: mkdir unpack && tar -C unpack -xf build/espeak-ng-*-Source.tar.bz2
 
       - name: re-configure
-        run: cd unpack/espeak-ng-* && cmake -Bbuild -DUSE_ASYNC:BOOL=OFF
+        run: cd unpack/espeak-ng-* && cmake -Bbuild
       - name: re-make
         run: cd unpack/espeak-ng-* && cmake --build build
       - name: re-make check

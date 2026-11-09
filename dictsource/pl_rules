@@ -834,14 +834,14 @@ _anasta) si (L03_  sj
   L02r) w (A       f
 
      _) w (_c      f
-     _) w (_f      wE
+     _) w (_f      vE
      _) w (_h      f
      _) w (_k      f
      _) w (_p      f
      _) w (_s      f
      _) w (_t      f
-     _) w (_mn     wE        // 'w' should be written 'we' before 'mn', but not always
-     _) w (_       w
+     _) w (_mn     vE        // 'w' should be written 'we' before 'mn', but not always
+     _) w (_       v         // the preposition is [v]; phoneme 'w' is the sound of 'ł'
 
      _) wice (@P4t vitsE
      _) window     wyndOw
@@ -1008,6 +1008,7 @@ _prakt) y (L01_    =y
 
 .group
 	~              // ? ignore ~
+        __) - (_D      m'inus  // -3
         å          O
         æ          E
         ä          E

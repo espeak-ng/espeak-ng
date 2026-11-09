@@ -295,6 +295,9 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 	int new_value = value;
 	extern const int param_defaults[N_SPEECH_PARAM];
 
+	if (parameter < 0 || parameter >= N_SPEECH_PARAM)
+		return EINVAL;
+
 	if (relative) {
 		if (parameter < 5) {
 			int default_value;
@@ -332,7 +335,7 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 		option_wordgap = new_value;
 		break;
 	case espeakINTONATION:
-		if ((new_value & 0xff) != 0)
+		if (translator != NULL && (new_value & 0xff) != 0)
 			translator->langopts.intonation_group = new_value & 0xff;
 		option_tone_flags = new_value;
 		break;
