@@ -477,7 +477,14 @@ public class TtsService extends TextToSpeechService {
         mAnchorOffset = 0;
 
         mCallback = callback;
-        mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount());
+        if (mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount())
+                != TextToSpeech.SUCCESS) {
+            // start() fails if the request was already stopped or the audio
+            // parameters were rejected. Nothing will be played, so finish the
+            // request now instead of running synthesis for it.
+            mCallback.done();
+            return;
+        }
 
         mEngine.setVoice(voice, settings.getVoiceVariant());
 
