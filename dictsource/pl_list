@@ -232,6 +232,7 @@ $	d'OlaR
 // screenreadery
 
 nvda $abbrev
+orca ORka
 jaws dZ'Ews
 
 // komputery, komputery
@@ -241,10 +242,16 @@ home	xOwm
 pageup		pEjdZ'ap
 (page down)	pEjdZd'awn
 pagedown	pEjdZd'awn
+(caps lock)	kapslOk
+(num lock)	numlOk
+escape		Esk'Ejp
+backspace	b'EkspEjs
 evolution	EvOl'uSyn
 load		lOwd
 office		Ofis
 play		plEj
+scane		skan
+(screen reader) skRinR'idEr
 (sound juicer)	sawnd||dZ'usER
 thunderbird	$1
 view		v;u
@@ -258,17 +265,21 @@ view		v;u
 (e mailowego)	imEjlOvEgO
 (e mailowe)	imEjlOvE
 delete		dil'Ejt
+eject		iZ'Ekt
 forward		fORwERd
+backward	bEkwERd
 device		div'ajs
 devices		divajsis
 usb		$abbrev
 url		$abbrev
 drive		drajv
+scsi		sk'azi
 hda		$abbrev
 sda		$abbrev
 dvd		divid'i
 sh		$abbrev
 //ascii		'askEj
+ctrl		k'OntROl
 right		Rajt
 
 // nazwy własne akcentowanie - wymowa w regułkach
@@ -298,6 +309,7 @@ microsoft $1
 
 andrew	Endrju	// nieodmienne
 chihuahua	tSiwawa
+francisco	fRansiskO
 josé	hOz'E
 jose	hOz'E
 jake	dZEjk
@@ -307,7 +319,10 @@ miami	maj'ami
 janet	dZanEt	// żeńskie nie kończące się na a
 jane	dZEjn
 alice	Elis
+circe	kiRkE
 maureen	mOR'in
+jackie	dZEki
+jacqueline Zakl'in
 janice	dZEn^is
 jeanette	Zan'Et
 
@@ -320,6 +335,7 @@ jerry	dZERy	$only
 
 
 // some exceptions - dawać więcej!
+arcus		arkus
 jebut		$2
 babach		$2
 cv		siv'i
@@ -536,8 +552,12 @@ mln		miljOnuf
 mld		miljaRduf
 
 //popularne zagraniczniaki nieodmienne (no, prawie)
+(ad hoc) adh'Ok
 adieu	adj'E
+(ad oculos) ad'OkulOs
+angelica	angElika $2
 
+(carte blanche) kaRtbl'anS
 challenge	tSElEndZ
 chanson		SansO~	$2
 (chargé d'affaires) SaRZEdafER	$4
@@ -550,14 +570,37 @@ chippendale	tSipEndEjl
 chippendale	tSipEndEjl $1 $only
 (chow chow)	tSawtSau	$2
 ciao	tSjaw
+(cicer cum caule)	ts,itsERkumk'awlE
 (ci devant)	sidEv'aN
 cinquecento	tSinkwEtSEntO
+circa		tsiRka
 (cis dur)	tsisd'uR
 (cis moll)	tsism'Ol
 cito		tsitO
 city		tsity
+cliché		kliS'E
+cliche		kliS'E
+clou	klu
+collage		kOl'aZ
+college		kOlEdZ		//en
+collège		kOlEZ	$2	//fr
+comte	kO~t
+comtesse	kO~t'Es
+con	kOn
+concierge	kOnsj'ERZ
+cool		kul
+copyright	k'OpyRajt
+(cosa nostra)	k,Ozan'OstRa
+cottage		kOtydZ
+coupé		kup'E
+coupe		kup'E
+country		kantRy
+cubiculum	kub'ikulum
+culpa		kulpa
+curriculum	kuR'ikulum
 
 d'amour		damuR	$2
+(de facto)	dEfaktO
 (de iure)	dEjuRE
 (déjà vu)	dEZav'i
 (déjà vue)	dEZav'i
@@ -572,6 +615,7 @@ faciendi	fasjEndi
 foyer	fuaj'E
 
 gentleman $1
+graecas	gREkas
 
 
 monsieur mEsj'E
@@ -590,6 +634,7 @@ out	awt
 poirot	puwaR'O // odmieniony w regułkach
 
 (qui pro quo) kvipROkvO $3
+rock		rOk
 
 sir	sER
 sire	siR
@@ -613,11 +658,26 @@ voodoo		vudu
 fondue	fO~d'i
 beaujolais	bOZOl'E
 boeuf	bEf
+cabernet	kabERn'E
+camembert	kamEmb'ER
+café		kafE $2
+cafe		kafE $2
 chablis		Sabli $2
 chantilly	Santiji	$3
+chianti		kjanti
 chili		tSili
 chilli		tSili
+(chili con carne) tS,ilikOnk'arnE
 (chop suey)	tSOpsui
+coca		kOka
+cola		kOla
+coleslaw	kOlEslOw
+croissant	kRuas'aN
+cumberland	k'ambERlEnd
+(cura çao)	kiRasaO
+curaçao		kiRasaO
+curacao		kiRasaO
+curry		kaRy
 (de la maison)	dElamEz'O~
 (de volaille)	dEvOl'aj
 (a la)		al'a

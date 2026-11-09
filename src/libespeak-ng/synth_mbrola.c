@@ -127,6 +127,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	} else {
 		found = true;
 	}
+	free(data_dirs);
 	// Show error message
 	if (!found) {
 		fprintf(stderr, "Cannot find MBROLA voice file '%s' in neither of paths:\n"
@@ -152,21 +153,27 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	// read eSpeak's mbrola phoneme translation data, eg. en1_phtrans
 	snprintf(path, sizeof(path), "%s/mbrola_ph/%s", path_home, phtrans);
 	size = GetFileLength(path);
-	if (size < 0) // size == -errno
+	if (size < 0) { // size == -errno
+		close_MBR();
 		return -size;
+	}
 	if ((f_in = fopen(path, "rb")) == NULL) {
 		int error = errno;
 		close_MBR();
 		return error;
 	}
 
-	MBROLA_TAB *new_mbrola_tab = (MBROLA_TAB *)realloc(mbrola_tab, size);
+	// round the size up to whole words, and add a zero entry that stops the
+	// search in GetMbrName() if the file lacks its own terminator
+	size_t alloc_size = (((size_t)size + 3) & ~(size_t)3) + sizeof(MBROLA_TAB);
+	MBROLA_TAB *new_mbrola_tab = (MBROLA_TAB *)realloc(mbrola_tab, alloc_size);
 	if (new_mbrola_tab == NULL) {
 		fclose(f_in);
 		close_MBR();
 		return ENOMEM;
 	}
 	mbrola_tab = new_mbrola_tab;
+	memset(mbrola_tab, 0, alloc_size);
 
 	mbrola_control = Read4Bytes(f_in);
 	pw = (int *)mbrola_tab;
@@ -180,7 +187,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 		SetParameter(espeakVOICETYPE, 0, 0);
 	else
 		SetParameter(espeakVOICETYPE, 1, 0);
-	strcpy(mbrola_name, mbrola_voice);
+	strncpy0(mbrola_name, mbrola_voice, sizeof(mbrola_name));
 	mbrola_delay = 1000; // improve synchronization of events
 	return ENS_OK;
 }
@@ -408,7 +415,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 
 		if (p->newword & PHLIST_START_OF_SENTENCE)
 			DoMarker(espeakEVENT_SENTENCE, (p->sourceix & 0x7ff) + clause_start_char, 0, count_sentences);
-		if (p->newword & PHLIST_START_OF_SENTENCE)
+		if (p->newword & PHLIST_START_OF_WORD)
 			DoMarker(espeakEVENT_WORD, (p->sourceix & 0x7ff) + clause_start_char, p->sourceix >> 11, clause_start_word + word_count++);
 
 		name = GetMbrName(p, ph, ph_prev, ph_next, &name2, &len_percent, &control);
@@ -429,7 +436,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 		} else
 			len = (80 * speed.wav_factor)/256;
 
-		if (ph->code != phonEND_WORD) {
+		if (option_phoneme_events && (ph->code != phonEND_WORD)) {
 			char phoneme_name[16];
 			WritePhMnemonic(phoneme_name, p->ph, p, option_phoneme_events & espeakINITIALIZE_PHONEME_IPA, NULL);
 			DoPhonemeMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, phoneme_name);

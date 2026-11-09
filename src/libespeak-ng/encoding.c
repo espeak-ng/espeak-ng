@@ -549,14 +549,14 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		return 0xFFFD;
 	// 2-byte UTF-8 sequence
 	case 0xC0: case 0xD0:
-		if (decoder->current + 1 >= decoder->end) goto eof;
+		if (decoder->current + 1 > decoder->end) goto eof;
 		ret = c & 0x1F;
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
 		return ret;
 	// 3-byte UTF-8 sequence
 	case 0xE0:
-		if (decoder->current + 2 >= decoder->end) goto eof;
+		if (decoder->current + 2 > decoder->end) goto eof;
 		ret = c & 0x0F;
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
@@ -567,7 +567,7 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		return ret;
 	// 4-byte UTF-8 sequence
 	case 0xF0:
-		if (decoder->current + 3 >= decoder->end) goto eof;
+		if (decoder->current + 3 > decoder->end) goto eof;
 		ret = c & 0x0F;
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
@@ -691,7 +691,16 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
 	if (enc->get == NULL)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
-	if (length < 0) length = string ? strlen(string) + 1 : 0;
+	if (length < 0) {
+		if (string && encoding == ESPEAKNG_ENCODING_ISO_10646_UCS_2) {
+			const char *end = string;
+			// A UCS-2 terminator is a zero code unit, not a zero byte.
+			while (end[0] || end[1]) end += 2;
+			length = end - string + 2;
+		} else {
+			length = string ? strlen(string) + 1 : 0;
+		}
+	}
 
 	decoder->get = string ? enc->get : null_decoder_getc;
 	decoder->codepage = enc->codepage;

@@ -8,82 +8,97 @@
 //  tone: low level
 phoneme 11
   stress
+  ipa ˩˩
   Tone(12, 9, envelope/i_risefall, NULL)
 endphoneme
 
 phoneme 5
   stress
+  ipa ˩˩
   Tone(12, 9, envelope/i_risefall, NULL)
 endphoneme
 
 
 phoneme 21   //  tone: low fall
   stress
+  ipa ˨˩
   Tone(20, 10, envelope/p_fall, NULL)
 endphoneme
 
 //  tone: fall rise
 phoneme 214
   stress
+  ipa ˨˩˦
   Tone(18, 42, envelope/p_214, NULL)
 endphoneme
 
 phoneme 3
   stress
+  ipa ˨˩˦
   Tone(18, 42, envelope/p_214, NULL)
 endphoneme
 
 
 phoneme 22   //  tone: mid-low level
   stress
+  ipa ˨˨
   Tone(22, 20, envelope/p_fall, NULL)
 endphoneme
 
 phoneme 33   //  tone: mid level
   stress
+  ipa ˧˧
   Tone(32, 30, envelope/p_fall, NULL)
 endphoneme
 
 //  tone: mid rise
 phoneme 35   
   stress
+  ipa ˧˥
   Tone(30, 50, envelope/p_rise, NULL)
 endphoneme
 
 phoneme 2
   stress
+  ipa ˧˥
   Tone(30, 50, envelope/p_rise, NULL)
 endphoneme
 
 phoneme 44   //  tone: mid-high level
   stress
+  ipa ˦˦
   Tone(38, 41, envelope/p_rise, NULL)
 endphoneme
 
 //  tone: high fall
 phoneme 51
   stress
+  ipa ˥˩
   Tone(50, 10, envelope/p_fall, NULL)
 endphoneme
 
 phoneme 4
   stress
+  ipa ˥˩
   Tone(50, 10, envelope/p_fall, NULL)
 endphoneme
 
 phoneme 53   //  tone: high fall
   stress
+  ipa ˥˧
   Tone(50, 30, envelope/p_fall, NULL)
 endphoneme
 
 //  tone: high level
 phoneme 55   
   stress
+  ipa ˥˥
   Tone(55, 50, envelope/p_level, NULL)
 endphoneme
 
 phoneme 1
   stress
+  ipa ˥˥
   Tone(55, 50, envelope/p_level, NULL)
 endphoneme
 

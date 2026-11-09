@@ -20,8 +20,12 @@
     _h) al (l      O
      h) allowee (n_ 'alOwy
      h) allowee (n alOwy
+     C) ai (r      E
   _alt) ai (r      ai
     _k) ai (r      ai
+     _) archie     ERtSi
+     _) archie (C  ERtS|;E
+        acku (p    Eka
      _) arcy (@P4t aRtsy
 
     @ł) a (by_     =a
@@ -64,6 +68,31 @@
 
 .group	 c
         c          ts
+    vA) c          k
+     _) c (abernet k
+   _ar) c (adia_   k
+   _ar) c (adii_   k
+   _ar) c (adio_   k
+   _ar) c (adią_   k
+   _ar) c (adię_   k
+     _) c (alend   k
+        caly (ps   kali
+  cose) c (ans     k
+     _) c (arv     k
+        casc       kask
+        c (atami_  k
+        c (atem_   k
+        c (ato_    k
+        c (atom_   k
+   _mo) cc (A      k
+        cc (acie_  k
+        cc (atA    k
+        cc (at_    k
+        cc (ata_   k
+        cc (atami_ k
+        cc (atem_  k
+        cc (ato_   k
+        cc (atom_  k
         cc (i_     tS
         cc (ia_    tS
         cc (ich_   tS
@@ -90,20 +119,61 @@
         ch (i      C
         chi (A     xj
    psy) chi (a     xj
+     _) chic (agA  Sik
      _) chie (f    tSi
      _) ch (ip     tS
      _) chippendal (A tSipEndEjl
      _) chopi (n   SOpE
      _) chow (der  tSaw
+     _) ch (risto  k
         c (i       ts;
         ci (A      ts;
+    ar) ci (L03_   sij
+    li) ci (L03_   sj
      _) cic (eron  tSitS
      _) c (iner    s
      _) c (ir      ts
+    vA) ck         k
+   _de) ck         k
+   _ro) ck (A      k
+    lo) ck (_      k
+    lo) ck (a_     k
+    lo) ck (iem_   k
+    lo) ck (u_     k
+     _) c (lA      k
+     _) clea (C    kli
+        c (lip     k
+     _) cloch (ard klOS
+     _) clois (o   kluaz
+     _) clow (n    klaw
+  _dis) c (o       k
+     _) coach      kOwtS
+     _) cock       kOk
+  _lin) c (oln     k
+     _) c (om      k
      _) c (omber   ts
      _) c (ombrA   ts
      _) c (omies   ts
      _) c (ominu   ts
+     _) c (onC     k
+     _) conc (ert  kOntS
+     _) copywri (t kOpyRaj
+   _de) c (or      k
+     _) c (orC     k
+        c (osecans k
+        c (osin    k
+        c (otang   k
+     _) c (owbo    k
+     _) c (r       k
+        crack      kRak
+    _s) creenrea (d kRinRi
+        cresc (end kREStS
+     _) croiss     kRruas
+        c (s       k
+    di) c (tA      k
+     _) c (umul    k
+     _) curie      kiRi
+     _) cu (rli    kE
         cz         tS
 
 
@@ -123,7 +193,7 @@
         dz (_      ts
         dz (i      dz;
 
-// Polish fixes v5: separate d+z at prefix boundaries (RHVoice Polish).
+// Separate d+z at Polish prefix boundaries.
     _o) dz         d|z
  _nieo) dz         d|z
     _o) dz (i      dz;
@@ -140,14 +210,14 @@
     po) dz (wr     d|z
     po) dz (e      d|z
 
-// Polish fixes v6: pod-zbior family; the checked RHVoice g2p also misses it.
+// The pod-zbior family also has separate d+z.
     po) dz (bió    d|z
     po) dz (bio    d|z
         dzi (A     dz;
    _na) dzi (em    d|Z;
    _po) dzi (em    d|Z;
 
-// Polish fixes v8: Polish prefix boundaries, reviewed against RHVoice g2p.
+// Preserve prefix boundaries in derived and negated forms.
 _niena) dzi (em    d|Z;
 _niepo) dzi (em    d|Z;
    _po) dzi (ęb    d|Z;
@@ -156,7 +226,7 @@ _niepo) dzi (ęb    d|Z;
  _nieo) dzi (om    d|Z;
     na) dz (ero    d|z
 
-// Polish fixes v9: od-zip and ponad-ziem, not affricated dzi.
+// Separate d+zi in od-zip and ponad-ziem.
     _o) dzi (p     d|Z;i
  _nieo) dzi (p     d|Z;i
  _pona) dzi (em    d|Z;
@@ -166,7 +236,7 @@ _niepona) dzi (em  d|Z;
         dż         dZ
         dż (_      tS
 
-// Polish fixes v5: bud-zet family, not the affricate in dzem (RHVoice/WSJP).
+// Separate d+ż in the budżet family, unlike dżem.
     bu) dż (e      d|Z
 
     _o) dż         d|Z
@@ -174,7 +244,7 @@ _niepona) dzi (em  d|Z;
    _na) dż         d|Z
  _pona) dż         d|Z
 
-// Polish fixes v9: negative and compound Polish prefix boundaries.
+// Negative and compound Polish prefix boundaries.
  _nieo) dż         d|Z
 _niepo) dż         d|Z
 _niena) dż (ar     d|Z
@@ -215,10 +285,19 @@ _niepoo) dg        dg
         e (_A      E_
         ee (n      i
     _C) ee (_      i
+    _C) ea (_      i
+    sp) ea (k      i
+     d) ea (ler    i
+     l) eas (in    iz
+    _l) ea (d      i
      h) eavy (K    Evi
     _h) ea (d      E
+    _h) ea (le     i
      r) ea (gan    E
+     r) eality (_  i'Elity
      t) ea (tr     Ea
+  prot) ea (z      Ea
+     t) ea         i
         eu (tsch   Oj
 
      _) email      imEjl
@@ -277,6 +356,7 @@ _niepoo) dg        dg
    rak) ii (_      iji
     _f) ire (fox_  'ajER
     _f) ire (fo    ajER
+    _m) ic (ro     ajk
 
      C) ie (_      ;E#
     _t) ime        ajm
@@ -405,8 +485,14 @@ tekton) i (kach_   =i
      _) johni (e   dZOn^;
      _) j (im      dZ
      _) j (imen    h
+     _) jack (_    dZEk
+     _) jack (s    dZEk
+     _) jacky (_   dZEki
+     _) jack (y    dZEk
+        jea (ns    dZi
      _) jeff       dZEf
      _) jonath     dZOnat
+     _) jacques    Zak
 
 .group	 k
         k          k
@@ -436,6 +522,7 @@ tekton) i (kach_   =i
      A) mi (A      mj
   _zie) mi (A      m;
      _) mj (rA     majO
+     _) mc (P2t    mEk
 
 .group	 n
     @A) nton (_S4t ntOn
@@ -446,6 +533,7 @@ tekton) i (kach_   =i
         ni (A      n^;
         n (k       N
         n (g       N
+    _a) ng (el     ndZ
         n (ć       n^
         n (ci      n^
         n (dź      n^
@@ -499,6 +587,7 @@ _fotoko) pi (A     pj
 
 .group	 q
         q          k
+        qu (A      kv
 
 .group	 r
         r          R
@@ -523,7 +612,7 @@ _fotoko) pi (A     pj
         rz (_      S
         rz (and    Rts
 
-// Polish fixes v3: exceptions to separate r+z after ma (RHVoice reference).
+// Retain rz in umarzać, Marzanna and marzana (the plant).
    uma) rz (a      Z
     ma) rz (ann    Z
     ma) rz (ank    Z
@@ -531,7 +620,7 @@ _fotoko) pi (A     pj
 kałama) rz (a      Z
 karczma) rz (a     Z
  krama) rz (a      Z
-    ma) rz (ano    Z
+   _ma) rz (an     Z
   koma) rz (a      Z
   ryma) rz (a      Z
     _e) rz (ac     Rz
@@ -615,6 +704,7 @@ _salce) son (_++   =sOn
         sch (edA   sx
         sch (ed_   sx
         sch (emat  sx
+        scherz     skERts
      _) sch (ety   sx
      _) sch (etyn  sx
         sch (izmA  sx
@@ -714,6 +804,7 @@ _anasta) si (L03_  sj
      _) si (m      si
   _mak) si (m      si
    _ka) si (m      si
+     s) si (m      si
      s) si (ma_    =i
      s) si (mem_   =i
      s) si (mie_   =i
@@ -730,14 +821,13 @@ _anasta) si (L03_  sj
 
 
 
-// Polish fixes v2: narrow hard s+i contexts; reference: RHVoice Polish g2p and userdict.
+// Retain hard s+i in these contexts.
         si (nolo   si
         si (zal    si
      p) si (l      si
   _pep) si         si
    _ak) si (s      si
 _anasta) si (s     si
-     _) si (tar    si
      _) si (est    sj
      _) si (esick  sj
 
@@ -774,16 +864,20 @@ _anasta) si (s     si
      e) u          w
     na) u (k       u
     na) u (cz      u
-// Polish fixes v5: preserve syllabic u in nausznik/nauszny and negation.
+// Preserve syllabic u in nausznik/nauszny and negation.
    _na) u (sz      u
 _niena) u (sz      u
-// Polish fixes v9: syllabic u in native na-ub..., na-um..., na-urag..., na-uzy... .
+// Syllabic u in native na-ub..., na-umaw..., na-urąg..., na-uży... .
    _na) u (b       u
-   _na) u (m       u
+   _na) u (maw     u
+   _na) u (mów     u
+   _na) u (myś     u
    _na) u (rąg     u
    _na) u (ży      u
 _niena) u (b       u
-_niena) u (m       u
+_niena) u (maw     u
+_niena) u (mów     u
+_niena) u (myś     u
 _niena) u (rąg     u
 _niena) u (ży      u
    _za) u (to      w
@@ -799,6 +893,9 @@ _niena) u (ży      u
      @) u (łby_    =u
    _bl) uetooth    utuf
 
+    _m) usic (al_  j'uzik
+    _m) usic (al   juzik
+    _b) uick       wik
     _l) unch       antS
 
 .group	 v
@@ -827,8 +924,7 @@ _niena) u (ży      u
      _) w (_p      f
      _) w (_s      f
      _) w (_t      f
-// Polish fixes v12: standalone Polish w is v, not the phoneme for ł.
-     _) w (_       v
+     _) w (_       v         // the preposition is [v]; phoneme 'w' is the sound of 'ł'
 
      _) wice (@P4t vitsE
      _) window     wyndOw
@@ -943,11 +1039,13 @@ _prakt) y (L01_    =y
      _) zi (m_     Z;i
      _) zi (mA     Z;i
      _) zi (mn     Z;i
+     _) zi (mbab   Z;i
+     _) zi (mroz   Z;i
      _) zi (C      z_i
         zi (C      Z;i
 
-// Polish fixes v3: hard z+i exceptions, reviewed against RHVoice Polish.
-// Preserve z- + i... in negative forms of ziścić/ziszczać (WSJP reference).
+// Retain hard z+i in these contexts.
+// Preserve z- + i... in negative forms of ziścić/ziszczać.
   _nie) zi (śc     z_i
   _nie) zi (ść     z_i
   _nie) zi (szcz   z_i
@@ -969,6 +1067,9 @@ _niebe) zi (k      Z;i
   _nie) zi (n      zi
 _niero) z (iC      z
      n) zi (b      zi
+   kwa) zi (C      zi
+   fan) zi (n      zi
+  neme) zi (s      zi
 
      _) z (_c      s
      _) z (_f      s
@@ -1019,6 +1120,7 @@ _niero) z (iC      z
 
 .group
 	~              // ? ignore ~
+        __) - (_D      m'inus  // -3
         å          O
         æ          E
         ä          E

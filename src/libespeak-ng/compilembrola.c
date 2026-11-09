@@ -84,6 +84,10 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 
 		n = sscanf(buf, "%d %s %s %d %s %s", &control, phoneme, phoneme2, &percent, name1, name2);
 		if (n >= 5) {
+			if (count >= N_PHONEME_TAB - 1) {
+				fclose(f_in);
+				return ENS_COMPILE_ERROR;
+			}
 			data[count].name = StringToWord(phoneme);
 			if (strcmp(phoneme2, "NULL") == 0)
 				data[count].next_phoneme = 0;
@@ -105,7 +109,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 	}
 	fclose(f_in);
 
-	strcpy(mbrola_voice, basename(filepath));
+	snprintf(mbrola_voice, sizeof(mbrola_voice), "%s", basename(filepath));
 	snprintf(buf, sizeof(buf), "%s/mbrola_ph/%s_phtrans", path_home, mbrola_voice);
 	if ((f_out = fopen(buf, "wb")) == NULL)
 		return create_file_error_context(context, errno, buf);

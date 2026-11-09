@@ -204,7 +204,8 @@ class SpeechWaveGeneratorImpl: public SpeechWaveGenerator {
 				double fric=fricGenerator.getNext()*0.3*frame->fricationAmplitude;
 				double parallelOut=parallel.getNext(frame,fric*frame->preFormantGain);
 				double out=(cascadeOut+parallelOut)*frame->outputGain;
-				sampleBuf[i].value=(int)MAX(MIN(out*4000,32000),-32000);
+				double scaled=std::isnan(out)?0.0:out*4000;
+				sampleBuf[i].value=(int)MAX(MIN(scaled,32000.0),-32000.0);
 			} else {
 				return i;
 			}

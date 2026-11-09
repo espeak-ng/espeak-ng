@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- How far a voice parameter's label and slider stay clear of the edge of
+         the display. Zero here: the dialog a phone puts them in already
+         indents its content. See values-watch. -->
+    <dimen name="parameter_bezel_inset">0dp</dimen>
+
+</resources>

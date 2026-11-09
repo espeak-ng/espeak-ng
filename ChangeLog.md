@@ -58,11 +58,16 @@ bug fixes:
 *  fixed Arabic text being spelled letter-by-letter under non-Arabic voices -- Ramees Muhammed
 *  fixed Russian decimal fractions to use feminine unit forms and numerators (e.g. "одна сотая", "две тысячных") -- Danil Kostenkov
 *  fixed Kurdish (ku) word stress for the oblique plural suffix and for negated/imperative/preverb-prefixed verbs and subject pronouns -- austek
+*  fixed Kurdish (ku) numbers from one billion up being read as "thousand million"; they now use milyar (10^9) and trilyon (10^12) -- austek
+*  fixed the Kurdish (ku) number four being read "car" (dZ) instead of "çar" (tS) -- austek
+*  fixed Kurdish (ku) numbers written with a dot as thousands separator and a comma as decimal separator ("1.502", "2,5"), which were read as decimals and as two separate numbers -- austek
 *  fixed flag emoji written without whitespace being spelled out codepoint by codepoint instead of read as country names -- Alexander Epaneshnikov
 *  fixed subdivision flag emoji (England, Scotland, Wales) being read as "black flag" -- Alexander Epaneshnikov
 *  fixed the first letter of emoji descriptions being dropped when it is a non-ASCII capital ("Казахстан" was read as "азахстан") -- Alexander Epaneshnikov
 *  fixed hyphenated emoji descriptions losing everything from the hyphen on, which left flags such as 🇧🇫 silent in 84 languages -- Alexander Epaneshnikov
 *  fixed word and phoneme event positions drifting past the audio they belong to at speech rates where libsonic compresses the output, which broke word-boundary highlighting for API callers -- Alexander Epaneshnikov
+*  fixed out-of-bounds accesses when loading sound icon files referenced by SSML <audio src> -- Nexory
+*  fixed formant_factor being computed against the old default pitch base of 82 instead of the current default of 80, which shifted formant frequencies for every voice with an explicit pitch setting -- Ishan Ajwani
 
 features:
 *  matched ZWJ emoji sequences against multi-codepoint dictionary entries -- Alexander Epaneshnikov
@@ -108,7 +113,7 @@ android:
 *  added selectable supported languages in Android -- Alexander Epaneshnikov
 *  fixed Android max speech rate -- Danstiv
 *  removed compatibility fallback -- Ricardo Snoek-Valkenburg
-*  updated Russian localization in Android app -- AlexanderKhalmaktanov
+*  updated Russian localization in Android app and added some missing localization translations (e.g. for the language selector) -- AlexanderKhalmaktanov
 
 documentation:
 *  updated documentation to replace autotools references with CMake -- Alexander Epaneshnikov

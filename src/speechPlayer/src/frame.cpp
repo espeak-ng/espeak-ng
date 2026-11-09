@@ -95,7 +95,7 @@ class FrameManagerImpl: public FrameManager {
 		if(frame) {
 			frameRequest->NULLFrame=false;
 			memcpy(&(frameRequest->frame),frame,sizeof(speechPlayer_frame_t));
-			frameRequest->voicePitchInc=(frame->endVoicePitch-frame->voicePitch)/frameRequest->minNumSamples;
+			frameRequest->voicePitchInc=frameRequest->minNumSamples?(frame->endVoicePitch-frame->voicePitch)/frameRequest->minNumSamples:0;
 		} else {
 			frameRequest->NULLFrame=true;
 		}

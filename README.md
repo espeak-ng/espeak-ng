@@ -38,10 +38,11 @@ eSpeak NG is available as:
    and also HTML.
 *  Compact size.  The program and its data, including many languages,
    totals about few Mbytes.
-*  Can be used as a front-end to [MBROLA diphone voices](docs/mbrola.md).
+*  Can be used as a front-end (Grapheme-To-Phoneme) for back-ends
+   (Phoneme-To-Sound) like [MBROLA diphone voices](docs/mbrola.md).
    eSpeak NG converts text to phonemes with pitch and length information.
 *  Can translate text into phoneme codes, so it could be adapted as a
-   front end for another speech synthesis engine.
+   front-end for another speech synthesis engine.
 *  Potential for other languages. Several are included in varying stages
    of progress. Help from native speakers for these or other languages is
    welcome.
@@ -52,21 +53,21 @@ various releases and with the eSpeak NG project.
 
 The following platforms are supported:
 
-| Platform    | Minimum Version | Status |
-|-------------|-----------------|--------|
-| Linux       |                 | ![CI](https://github.com/espeak-ng/espeak-ng/actions/workflows/ci.yml/badge.svg) |
-| BSD         |                 |        |
-| Android     | 4.0             |        |
-| Windows     | Windows 8       |        |
-| Mac         |                 |        |
+| Platform | Minimum Version                                    | Status                                                                           |
+| -------- | -------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Linux    |                                                    | ![CI](https://github.com/espeak-ng/espeak-ng/actions/workflows/ci.yml/badge.svg) |
+| BSD      |                                                    |                                                                                  |
+| Android  | v1.51.0 -> Android 4.0<br />v1.52.0 -> Android 5.0 |                                                                                  |
+| Windows  | Windows 8                                          |                                                                                  |
+| Mac      |                                                    |                                                                                  |
 
 ## Documentation
 
 1. [User guide](docs/guide.md) explains how to set up and use eSpeak NG from command line or as a library.
 2. [Building guide](docs/building.md) provides info how to compile and build eSpeak NG from the source.
-4. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.
-5. Look at [contribution guide](docs/contributing.md) to start your contribution.
-6. Look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap) to participate in development of eSpeak NG.
+3. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.
+4. Look at [contribution guide](docs/contributing.md) to start your contribution.
+5. Look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap) to participate in development of eSpeak NG.
 
 ## eSpeak Compatibility
 

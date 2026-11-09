@@ -22,6 +22,7 @@
  * API Version:     14
  */
 
+#include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -71,7 +72,13 @@ static wchar_t *unicode_string(JNIEnv *env, jstring str)
   if (str == NULL) return NULL;
 
   const char *utf8 = (*env)->GetStringUTFChars(env, str, NULL);
+  if (utf8 == NULL) return NULL;
+
   wchar_t *utf32 = (wchar_t *)malloc((strlen(utf8) + 1) * sizeof(wchar_t));
+  if (utf32 == NULL) {
+    (*env)->ReleaseStringUTFChars(env, str, utf8);
+    return NULL;
+  }
 
   const char *utf8_current = utf8;
   wchar_t *utf32_current = utf32;
@@ -111,6 +118,11 @@ static int frames_delivered = 0;
  * one early.  Without it a stop has to wait for the whole utterance to be
  * synthesized, which is silence for as long as the text the user just left. */
 static atomic_int stop_requested;
+
+/* Sample rate espeak_Initialize returned, or 0 while not initialized.
+ * Guarded by init_lock. */
+static int initialized_sample_rate = 0;
+static pthread_mutex_t init_lock = PTHREAD_MUTEX_INITIALIZER;
 
 static JNIEnv *getJniEnv() {
   JNIEnv *env = NULL;
@@ -202,8 +214,19 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
 
   const char *c_path = path ? (*env)->GetStringUTFChars(env, path, NULL) : NULL;
 
-  if (DEBUG) LOGV("Initializing with path %s", c_path);
-  int sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, BUFFER_SIZE_IN_MILLISECONDS, c_path, 0);
+  /* espeak keeps its state in process-wide globals, and every SpeechSynthesis
+   * in the process -- the TtsService engine, plus the ones the settings screens
+   * and CheckVoiceData create to list voices -- shares them. Initializing again
+   * while the service is synthesizing resets that state under it: requests then
+   * come back with almost no audio, and the process can die. Initialize once
+   * and hand the same sample rate to every later caller. */
+  pthread_mutex_lock(&init_lock);
+  if (initialized_sample_rate == 0) {
+    if (DEBUG) LOGV("Initializing with path %s", c_path);
+    initialized_sample_rate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, BUFFER_SIZE_IN_MILLISECONDS, c_path, 0);
+  }
+  const int sampleRate = initialized_sample_rate;
+  pthread_mutex_unlock(&init_lock);
 
   if (c_path) (*env)->ReleaseStringUTFChars(env, path, c_path);
 
@@ -265,12 +288,13 @@ JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByName(
     JNIEnv *env, jobject object, jstring name) {
   const char *c_name = name ? (*env)->GetStringUTFChars(env, name, NULL) : NULL;
+  if (c_name == NULL) return JNI_FALSE;
 
   if (DEBUG) LOGV("%s(name=%s)", __FUNCTION__, c_name);
 
   const espeak_ERROR result = espeak_SetVoiceByName(c_name);
 
-  if (c_name) (*env)->ReleaseStringUTFChars(env, name, c_name);
+  (*env)->ReleaseStringUTFChars(env, name, c_name);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
@@ -286,6 +310,7 @@ JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
     JNIEnv *env, jobject object, jstring language, jint gender, jint age) {
   const char *c_language = language ? (*env)->GetStringUTFChars(env, language, NULL) : NULL;
+  if (language && c_language == NULL) return JNI_FALSE;
 
   if (DEBUG) LOGV("%s(language=%s, gender=%d, age=%d)", __FUNCTION__, c_language, gender, age);
 
@@ -355,6 +380,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     JNIEnv *env, jobject object, jstring text, jboolean isSsml) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const char *c_text = text ? (*env)->GetStringUTFChars(env, text, NULL) : NULL;
+  if (c_text == NULL) return JNI_FALSE;
   unsigned int unique_identifier;
 
   espeak_SetSynthCallback(SynthCallback);
@@ -367,7 +393,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
                &unique_identifier, object);
   espeak_Synchronize();
 
-  if (c_text) (*env)->ReleaseStringUTFChars(env, text, c_text);
+  (*env)->ReleaseStringUTFChars(env, text, c_text);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
@@ -376,7 +402,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     case EE_NOT_FOUND:      LOGE("espeak_Synth: not found."); break;
   }
 
-  return JNI_TRUE;
+  return JNI_FALSE;
 }
 
 JNIEXPORT jboolean
