@@ -307,6 +307,7 @@ z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć fla
 test_phon pl "v d'Omu
 v Og'ulE
 v'Emn^;E" "w domu, w ogóle, we mnie"
+test_phon pl "Ok'Ej t'aRzan" "okej Tarzan"
 test_phon pl "dzvˈɔn
 dʑvʲˈɛŋk" "dzwon, dźwięk" "" "--ipa"
 test_phon pl "t,EmpERat'uRa#_ m'inus tS'y" "temperatura -3"
