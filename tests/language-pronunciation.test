@@ -310,6 +310,11 @@ v'Emn^;E" "w domu, w ogóle, we mnie"
 test_phon pl "dzvˈɔn
 dʑvʲˈɛŋk" "dzwon, dźwięk" "" "--ipa"
 test_phon pl "t,EmpERat'uRa#_ m'inus tS'y" "temperatura -3"
+test_phon pl "ul'itsa
+kf;at'Ova#_
+tEl'EfOn dOm'Ovy
+n'umER p;'En^ts;
+Ok'Ej j'utRO" "ul. Kwiatowa, tel. domowy, nr pięć, ok jutro"
 test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: bR&s'o~js#
 f'E
 S'a
