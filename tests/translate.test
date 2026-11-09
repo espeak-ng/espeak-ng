@@ -267,6 +267,17 @@ test_phon cmn-latn-pinyin "ni35X'Au35_| m'A35_| n'i35_| X'Au35_| m'A214_|" "你�
 
 test_phon cmn "thiE55nt'i51_|" "天地"
 
+# Dutch: veld, geld and held as the last part of a compound keep [E]
+test_phon nl "_!'Inv,urvElt" "invoerveld"
+test_phon nl "Qr'AsfElt" "grasveld"
+test_phon nl "z'AkQElt" "zakgeld"
+test_phon nl "sp'a:rQElt" "spaargeld"
+test_phon nl "s'yp@rh,Elt" "superheld"
+# ... while -eld after the -el of a verb stays [@]
+test_phon nl "Q@r'e:Q@lt" "geregeld"
+test_phon nl "v@rz'a:m@lt" "verzameld"
+test_phon nl "v#'I:r@lt" "wereld"
+
 # https://github.com/espeak-ng/espeak-ng/issues/1507
 test_phon ml "k'a
 t'a
