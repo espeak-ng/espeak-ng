@@ -1,0 +1,6 @@
+name Pali
+language pi
+stressRule 16      // penultimate if heavy, else antepenultimate
+stressOpt 5        // no automatic secondary stress
+stressLength 200 200 200 200 0 0 210 220   // vowel length comes from the spelling: stress barely lengthens
+intonation 3       // a comma does not raise the pitch (me, sā, bho read level)
