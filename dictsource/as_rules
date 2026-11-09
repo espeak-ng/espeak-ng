@@ -19,6 +19,12 @@
  ৮	8
  ৯	9
 
+// consonant + nukta: use the precomposed letters, so the rules (and the
+// vowel-sign rules that follow a consonant) see one consonant
+ ড়	ড়
+ ঢ়	ঢ়
+ য়	য়
+
 // Vowels
 
 .group অ
@@ -306,13 +312,13 @@
         ক্ষ		k#k#V   // or [k#:] ?
         ক্ষ (B	k#k#
 
-.group ড়
-       ড়		r.V     //  can be ড plus nukta
-       ড় (B	r.
+.group ড়         // precomposed RRA (also ড + nukta, via .replace)
+       ড়		r.V     //  can be ড plus nukta
+       ড় (B	r.
 
-.group ঢ়
-        ঢ়		hr.V	// can be ঢ plus nukta
-        ঢ় (B	hr.
+.group ঢ়         // precomposed RHA (also ঢ + nukta, via .replace)
+        ঢ়		hr.V	// can be ঢ plus nukta
+        ঢ় (B	hr.
 
 .group য়
         য়		jV
