@@ -1,0 +1,15 @@
+#!/bin/sh
+# Invalid command-line usage must exit with a failure status.
+ESPEAK_BIN="${ESPEAK_BIN:-src/espeak-ng}"
+
+expect_failure() {
+    echo -n "checking that $1 fails ... "
+    if "$ESPEAK_BIN" $2 >/dev/null 2>&1; then
+        echo "failed (exit status 0)"
+        exit 1
+    fi
+    echo "passed"
+}
+
+expect_failure "an unknown option" "--no-such-option"
+expect_failure "an unwritable --phonout file" "-q --phonout=/nonexistent-dir/phonemes.txt hello"

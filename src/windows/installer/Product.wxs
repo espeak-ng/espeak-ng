@@ -57,11 +57,11 @@
             </RegistryKey>
           </Component>
 					<Component Id="AddToEnv" Guid="EBBBAC5D-22BA-41EB-A30A-EF1A04FEBA08" KeyPath="yes">
-						<Environment Id="PATH" Name="PATH" Value="[INSTALLDIR]" Permanent="yes" Part="last" Action="set" System="yes"/>
+						<Environment Id="PATH" Name="PATH" Value="[INSTALLDIR]" Permanent="no" Part="last" Action="set" System="yes"/>
 					</Component>
                   <Directory Id="espeak_ng_data" Name="espeak-ng-data">
                 <Component Id="af_dict" Guid="96E3E35D-F41E-4BD7-BEDD-AA063E8CD2D3">
-                    <File Id="af_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\af_dict  " />
+                    <File Id="af_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\af_dict" />
                 </Component>
                 <Component Id="am_dict" Guid="D213585E-DE66-452E-90D6-44B73F7AD2C6">
                     <File Id="am_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\am_dict" />
@@ -414,7 +414,55 @@
                 <Component Id="yue_dict" Guid="2C041C10-226A-404A-AB22-C771ACB9C00B">
                     <File Id="yue_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\yue_dict" />
                 </Component>
+                <Component Id="ab_dict" Guid="002459A3-15D8-4489-A5E0-D5F1AA1211F3">
+                    <File Id="ab_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\ab_dict" />
+                </Component>
+                <Component Id="crh_dict" Guid="AF00A980-FDB0-46B6-BB23-A13AD2476959">
+                    <File Id="crh_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\crh_dict" />
+                </Component>
+                <Component Id="kaa_dict" Guid="F09DC766-C023-42E8-A190-3AC972329E41">
+                    <File Id="kaa_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\kaa_dict" />
+                </Component>
+                <Component Id="lij_dict" Guid="6E0D99C4-E1A0-4A25-A9D8-CCFE7FEE60B5">
+                    <File Id="lij_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lij_dict" />
+                </Component>
+                <Component Id="mn_dict" Guid="785E137E-BB32-4B3A-8A63-17901BBEEE2C">
+                    <File Id="mn_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\mn_dict" />
+                </Component>
+                <Component Id="mto_dict" Guid="EE48F69C-3CD8-4BBE-A4A3-8D0E84C77489">
+                    <File Id="mto_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\mto_dict" />
+                </Component>
+                <Component Id="ps_dict" Guid="05036B2B-8DFD-49AC-9993-CBF020875D20">
+                    <File Id="ps_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\ps_dict" />
+                </Component>
+                <Component Id="rup_dict" Guid="7E33F660-6252-4836-AED0-E37F256FCD04">
+                    <File Id="rup_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\rup_dict" />
+                </Component>
+                <Component Id="ti_dict" Guid="06D990A8-D709-4A8E-8B81-3FC3C0F3365B">
+                    <File Id="ti_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\ti_dict" />
+                </Component>
+                <Component Id="xex_dict" Guid="38DE08EB-1916-4BC9-858F-8B81A6BB4A26">
+                    <File Id="xex_dict" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\xex_dict" />
+                </Component>
                 <Directory Id="lang" Name="lang">
+                    <Directory Id="cau" Name="cau">
+                        <Component Id="lang_cau_ab" Guid="BABA6939-20B9-4ECD-B674-9188E36A3B24">
+                            <File Id="lang_cau_ab" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\cau\ab" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="miz" Name="miz">
+                        <Component Id="lang_miz_mto" Guid="6ED417D9-D1C0-409B-9F4A-170CDD254100">
+                            <File Id="lang_miz_mto" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\miz\mto" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="xgn" Name="xgn">
+                        <Component Id="lang_xgn_mn" Guid="7D58C896-CA06-42E1-8542-50F08D8A7892">
+                            <File Id="lang_xgn_mn" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\xgn\mn" />
+                        </Component>
+                        <Component Id="lang_xgn_mn_f" Guid="10FF9EA2-FCD0-411C-BADB-CDDA825DEE8A">
+                            <File Id="lang_xgn_mn_f" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\xgn\mn-f" />
+                        </Component>
+                    </Directory>
                     <Component Id="eu" Guid="8CF0DE06-B30B-448A-A51A-A6078A0C8687">
                         <File Id="eu" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\eu" />
                     </Component>
@@ -436,6 +484,9 @@
                         </Component>
                     </Directory>
                     <Directory Id="art" Name="art">
+                        <Component Id="lang_art_xex" Guid="151E4418-6599-4591-8B8F-6894AFBCDDB8">
+                            <File Id="lang_art_xex" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\art\xex" />
+                        </Component>
                         <Component Id="eo" Guid="C94420E1-4665-41E7-9DD7-104BDE1BDCB0">
                             <File Id="eo" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\art\eo" />
                         </Component>
@@ -549,6 +600,9 @@
                         </Component>
                     </Directory>
                     <Directory Id="gmw" Name="gmw">
+                        <Component Id="lang_gmw_en_Shaw" Guid="8C503478-28AC-4CED-8D24-C071AB9F7473">
+                            <File Id="lang_gmw_en_Shaw" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\gmw\en-Shaw" />
+                        </Component>
                         <Component Id="af" Guid="3437CBE5-6E0F-4C67-A54F-DC622B6E5B80">
                             <File Id="af" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\gmw\af" />
                         </Component>
@@ -647,6 +701,18 @@
                         </Component>
                     </Directory>
                     <Directory Id="ira" Name="ira">
+                        <Component Id="lang_ira_ps" Guid="CAD8AFF9-763D-478C-A5C2-048A3080A3A8">
+                            <File Id="lang_ira_ps" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\ira\ps" />
+                        </Component>
+                        <Component Id="lang_ira_ps_x_northwest" Guid="7206697F-BC1C-42E9-8E79-B1EB0324633F">
+                            <File Id="lang_ira_ps_x_northwest" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\ira\ps-x-northwest" />
+                        </Component>
+                        <Component Id="lang_ira_ps_x_southeast" Guid="2594AC31-0A94-4549-A148-5317076F9EFF">
+                            <File Id="lang_ira_ps_x_southeast" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\ira\ps-x-southeast" />
+                        </Component>
+                        <Component Id="lang_ira_ps_x_yusufzai" Guid="93BCCD6A-A505-4E2A-9298-819EF68C3FC3">
+                            <File Id="lang_ira_ps_x_yusufzai" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\ira\ps-x-yusufzai" />
+                        </Component>
                         <Component Id="fa" Guid="D890839B-B666-48FE-B64A-6E823531AB27">
                             <File Id="fa" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\ira\fa" />
                         </Component>
@@ -694,6 +760,21 @@
                         </Component>
                     </Directory>
                     <Directory Id="roa" Name="roa">
+                        <Component Id="lang_roa_ca_ba" Guid="1AC9950F-9300-425D-AF37-6FB8B39EF760">
+                            <File Id="lang_roa_ca_ba" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\roa\ca-ba" />
+                        </Component>
+                        <Component Id="lang_roa_ca_nw" Guid="3745F674-4C52-4D8A-80A0-AF3AFEB6CE37">
+                            <File Id="lang_roa_ca_nw" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\roa\ca-nw" />
+                        </Component>
+                        <Component Id="lang_roa_ca_va" Guid="B70BC02A-FA32-48E1-9EF2-6E216A2BADAD">
+                            <File Id="lang_roa_ca_va" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\roa\ca-va" />
+                        </Component>
+                        <Component Id="lang_roa_lij" Guid="C3ADE06B-7A89-4BB9-AF62-F2FA7D46BCE8">
+                            <File Id="lang_roa_lij" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\roa\lij" />
+                        </Component>
+                        <Component Id="lang_roa_rup" Guid="F5532D10-B779-4DD2-B978-CFDD2AF62AEB">
+                            <File Id="lang_roa_rup" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\roa\rup" />
+                        </Component>
                         <Component Id="an" Guid="42AC8747-DD2B-4920-A67E-9DBDA5D2EF33">
                             <File Id="an" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\roa\an" />
                         </Component>
@@ -740,6 +821,9 @@
                         </Component>
                     </Directory>
                     <Directory Id="sem" Name="sem">
+                        <Component Id="lang_sem_ti" Guid="CAE09404-121F-45F8-BB2D-4D824819B841">
+                            <File Id="lang_sem_ti" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\sem\ti" />
+                        </Component>
                         <Component Id="am" Guid="6DC9AEC3-4C3F-4C46-B10A-765AEDFD95BE">
                             <File Id="am" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\sem\am" />
                         </Component>
@@ -782,6 +866,12 @@
                         </Component>
                     </Directory>
                     <Directory Id="trk" Name="trk">
+                        <Component Id="lang_trk_crh" Guid="7AC4587A-20CF-4706-9344-25C6E9AC288B">
+                            <File Id="lang_trk_crh" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\trk\crh" />
+                        </Component>
+                        <Component Id="lang_trk_kaa" Guid="26454E7F-7A97-459A-B13B-391EF0B4E5F6">
+                            <File Id="lang_trk_kaa" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\trk\kaa" />
+                        </Component>
                         <Component Id="az" Guid="31AAD787-65CE-478B-B289-5D444E78DC53">
                             <File Id="az" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\trk\az" />
                         </Component>
@@ -831,6 +921,9 @@
                         </Component>
                     </Directory>
                     <Directory Id="zle" Name="zle">
+                        <Component Id="lang_zle_ru_cl" Guid="42C7A3BC-0ACA-4EF1-A9C7-43F7F01F9B85">
+                            <File Id="lang_zle_ru_cl" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\zle\ru-cl" />
+                        </Component>
                         <Component Id="be" Guid="3C273A69-CE1F-4B41-A3B9-ED0D664C8F8C">
                             <File Id="be" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\lang\zle\be" />
                         </Component>
@@ -877,7 +970,24 @@
                     </Directory>
                 </Directory>
                 <Directory Id="voices" Name="voices">
+                    <Component Id="voice_ps" Guid="E5D1F354-E687-482C-A95B-1EC46D3154CB">
+                        <File Id="voice_ps" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\ps" />
+                    </Component>
+                    <Directory Id="asia" Name="asia">
+                        <Component Id="voice_asia_ps" Guid="DD47A88B-409F-49CD-955D-6533980ADA3D">
+                            <File Id="voice_asia_ps" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\asia\ps" />
+                        </Component>
+                    </Directory>
                     <Directory Id="__v" Name="!v">
+                        <Component Id="voice_v_Reed" Guid="A51BAAB5-6045-4AE6-822B-7CA022D3C308">
+                            <File Id="voice_v_Reed" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\!v\Reed" />
+                        </Component>
+                        <Component Id="voice_v_ian" Guid="97E76A2A-CC7C-4A85-A49B-3B9273E197D4">
+                            <File Id="voice_v_ian" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\!v\ian" />
+                        </Component>
+                        <Component Id="voice_v_mike2" Guid="10469F8E-761F-4C7C-947A-6DB17F8E2FCE">
+                            <File Id="voice_v_mike2" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\!v\mike2" />
+                        </Component>
                         <Component Id="adam" Guid="5117D3E3-7541-454B-A0BE-34DAF16C35B7">
                             <File Id="adam" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\!v\adam" />
                         </Component>
@@ -1183,6 +1293,18 @@
                         </Component>
                     </Directory>
                     <Directory Id="mb" Name="mb">
+                        <Component Id="voice_mb_mb_br1_xex" Guid="7F98F69C-1B8B-4E84-916C-0C4DA0F6E43F">
+                            <File Id="voice_mb_mb_br1_xex" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\mb\mb-br1-xex" />
+                        </Component>
+                        <Component Id="voice_mb_mb_br2_xex" Guid="9F6AE8B7-EA12-4D7B-BC9B-C280654AE4B8">
+                            <File Id="voice_mb_mb_br2_xex" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\mb\mb-br2-xex" />
+                        </Component>
+                        <Component Id="voice_mb_mb_br3_xex" Guid="B3B1E3F8-D823-4913-BB5C-18D23EEB7546">
+                            <File Id="voice_mb_mb_br3_xex" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\mb\mb-br3-xex" />
+                        </Component>
+                        <Component Id="voice_mb_mb_br4_xex" Guid="54AD6CA5-E329-4CC3-B90A-0A6450B3EA27">
+                            <File Id="voice_mb_mb_br4_xex" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\mb\mb-br4-xex" />
+                        </Component>
                         <Component Id="mb_af1" Guid="EB86CF9F-2704-464A-B3BB-BB25DD3D1E03">
                             <File Id="mb_af1" KeyPath="yes" Source="$(var.ProjectDir)\..\..\..\espeak-ng-data\voices\mb\mb-af1" />
                         </Component>
@@ -1468,6 +1590,44 @@
 			<ComponentRef Id="AddToEnv"/>
     </ComponentGroup>
     <ComponentGroup Id="Data">
+      <ComponentRef Id="ab_dict" />
+      <ComponentRef Id="crh_dict" />
+      <ComponentRef Id="kaa_dict" />
+      <ComponentRef Id="lij_dict" />
+      <ComponentRef Id="mn_dict" />
+      <ComponentRef Id="mto_dict" />
+      <ComponentRef Id="ps_dict" />
+      <ComponentRef Id="rup_dict" />
+      <ComponentRef Id="ti_dict" />
+      <ComponentRef Id="xex_dict" />
+      <ComponentRef Id="lang_art_xex" />
+      <ComponentRef Id="lang_cau_ab" />
+      <ComponentRef Id="lang_gmw_en_Shaw" />
+      <ComponentRef Id="lang_ira_ps" />
+      <ComponentRef Id="lang_ira_ps_x_northwest" />
+      <ComponentRef Id="lang_ira_ps_x_southeast" />
+      <ComponentRef Id="lang_ira_ps_x_yusufzai" />
+      <ComponentRef Id="lang_miz_mto" />
+      <ComponentRef Id="lang_roa_ca_ba" />
+      <ComponentRef Id="lang_roa_ca_nw" />
+      <ComponentRef Id="lang_roa_ca_va" />
+      <ComponentRef Id="lang_roa_lij" />
+      <ComponentRef Id="lang_roa_rup" />
+      <ComponentRef Id="lang_sem_ti" />
+      <ComponentRef Id="lang_trk_crh" />
+      <ComponentRef Id="lang_trk_kaa" />
+      <ComponentRef Id="lang_xgn_mn" />
+      <ComponentRef Id="lang_xgn_mn_f" />
+      <ComponentRef Id="lang_zle_ru_cl" />
+      <ComponentRef Id="voice_ps" />
+      <ComponentRef Id="voice_asia_ps" />
+      <ComponentRef Id="voice_v_Reed" />
+      <ComponentRef Id="voice_v_ian" />
+      <ComponentRef Id="voice_v_mike2" />
+      <ComponentRef Id="voice_mb_mb_br1_xex" />
+      <ComponentRef Id="voice_mb_mb_br2_xex" />
+      <ComponentRef Id="voice_mb_mb_br3_xex" />
+      <ComponentRef Id="voice_mb_mb_br4_xex" />
       <ComponentRef Id="af_dict" />
       <ComponentRef Id="am_dict" />
       <ComponentRef Id="an_dict" />

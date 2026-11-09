@@ -124,6 +124,7 @@ tests/*.check
 !tests/windows-data.test
 !tests/windows-installer.test
 !tests/voices.test
+!tests/truncated-data.test
 
 espeak-ng.pc
 

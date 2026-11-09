@@ -1,12 +1,13 @@
 # Languages
 
-Development version of eSpeak NG supports 127 languages and accents,
+Development version of eSpeak NG supports 136 languages and accents,
 which are listed in table below.
 
 To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
+| `cau`       | `ab`              | Caucasian             | Abkhaz                      |                        |
 | `gmw`       | `af`              | West Germanic         | Afrikaans                   |                        |
 | `ine`       | `sq`              | Indo-European         | Albanian                    |                        |
 | `sem`       | `am`              | Semitic               | Amharic                     |                        |
@@ -28,9 +29,10 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `roa`       | `ca`              | Romance               | Catalan                     |                        |
 | `iro`       | `chr`             | Iroquoian             | Cherokee <sup>\[1,6\]</sup> | Western/C.E.D.         |
 | `sit`       | `yue`             | Sino-Tibetan          | Chinese                     | Cantonese              |
-| `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka                  |
+| `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka\[8\]             |
 | `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
+| `trk`       | `crh`             | Turkic                | Crimean Tatar               |                        |
 | `zls`       | `hr`              | South Slavic          | Croatian<sup>\[1,2\]</sup>  |                        |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
@@ -46,6 +48,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
 | `ira`       | `fa`              | Iranian               | Persian                     |                        |
 | `ira`       | `fa-latn`         | Iranian               | Persian<sup>\[1,5\]</sup>   |                        |
+| `gmq`       | `fo`              | North Germanic        | Faroese                     |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
 | `roa`       | `fr-be`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
@@ -73,6 +76,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
 | `ira`       | `ku`              | Iranian               | Kurdish                     |                        |
+| `trk`       | `kaa`             | Turkic                | Karakalpak                  |                        |
 | `trk`       | `kk`              | Turkic                | Kazakh                      |                        |
 | `trk`       | `ky`              | Turkic                | Kyrgyz                      |                        |
 | `itc`       | `la`              | Italic                | Latin                       |                        |
@@ -80,6 +84,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `bat`       | `ltg`             | Baltic                | Latgalian                   |                        |
 | `bat`       | `lv`              | Baltic                | Latvian                     |                        |
 | `art`       | `lfn`             | Constructed           | Lingua Franca Nova<sup>\[1,2\]</sup> |               |
+| `roa`       | `lij`             | Romance               | Ligurian                    |                        |
 | `bat`       | `lt`              | Baltic                | Lithuanian                  |                        |
 | `art`       | `jbo`             | Constructed           | Lojban                      |                        |
 | `poz`       | `mi`              | Malayo-Polynesian     | Māori                       |                        |
@@ -88,7 +93,9 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `dra`       | `ml`              | Dravidian             | Malayalam                   |                        |
 | `sem`       | `mt`              | Semitic               | Maltese                     |                        |
 | `inc`       | `mr`              | Indic                 | Marathi                     |                        |
+| `miz`       | `mto`             | Mixe-Zoquean          | Totontepec Mixe             |                        |
 | `azc`       | `nci`             | Uto-Aztecan           | Nahuatl                     | Classical              |
+| `xgn`       | `mn`              | Mongolic              | Mongolian                   |                        |
 | `inc`       | `ne`              | Indic                 | Nepali                      |                        |
 | `gmq`       | `nb`              | North Germanic        | Norwegian Bokmål            |                        |
 | `trk`       | `nog`             | Turkic                | Nogai                       |                        |
@@ -97,16 +104,18 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `inc`       | `pi`              | Indic                 | Pali                        | Roman (IAST)           |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
 | `art`       | `py`              | Constructed           | Pyash                       |                        |
+| `ira`       | `ps`              | Iranian               | Pashto                      |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
+| `roa`       | `pt-br`           | Romance               | Portuguese                  | Brazillian             |
 | `art`       | `qdb`             | Constructed           | Lang Belta                  |                        |
 |             | `qu`              |                       | Quechua                     |                        |
 | `myn`       | `quc`             | Mayan                 | K'iche'                     |                        |
 | `art`       | `qya`             | Constructed           | Quenya                      |                        |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
-| `roa`       | `pt-br`           | Romance               | Portuguese                  | Brazil                 |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `art`       | `piqd`            | Constructed           | Klingon                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
+| `roa`       | `rup`             | Romance               | Aromanian                   |                        |
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zle`       | `ru-lv`           | East Slavic           | Russian                     | Latvia                 |
 | `zle`       | `uk`              | East Slavic           | Ukrainian                   |                        |
@@ -124,6 +133,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `bnt`       | `sw`              | Bantu                 | Swahili                     |                        |
 | `gmq`       | `sv`              | North Germanic        | Swedish                     |                        |
 | `dra`       | `ta`              | Dravidian             | Tamil                       |                        |
+| `sem`       | `ti`              | Semitic               | Tigrinya                    |                        |
 | `tai`       | `th`              | Tai                   | Thai                        |                        |
 | `trk`       | `tk`              | Turkic                | Turkmen<sup>\[1\]</sup>     |                        |
 | `trk`       | `tt`              | Turkic                | Tatar                       |                        |
@@ -135,6 +145,7 @@ To check, what languages are supported by distributed version, run `espeak-ng --
 | `aav`       | `vi-vn-x-central` | Austroasiatic         | Vietnamese                  | Central Vietnam        |
 | `aav`       | `vi`              | Austroasiatic         | Vietnamese                  | Northern Vietnam       |
 | `aav`       | `vi-vn-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
+| `art`       | `xex`             | Constructed           | Xextan (test voice)         |                        |
 | `cel`       | `cy`              | Celtic                | Welsh                       |                        |
 
 The languages in espeak-ng are grouped by their
@@ -159,4 +170,4 @@ have been used.
 
 \[7\] Only fully diacritized Arabic.
 
-
+\[8\] Only Pha̍k-fa-sṳ romanization, in Sixian (Miaoli) accent

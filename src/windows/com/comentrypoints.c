@@ -40,6 +40,9 @@ static ULONG __stdcall ClassFactory_Release(IClassFactory *iface)
 
 static HRESULT __stdcall ClassFactory_QueryInterface(IClassFactory *iface, REFIID iid, void **object)
 {
+	if (!object)
+		return E_POINTER;
+
 	if (IsEqualGUID(iid, &IID_IUnknown) || IsEqualGUID(iid, &IID_IClassFactory)) {
 		*object = iface;
 		iface->lpVtbl->AddRef(iface);
@@ -70,6 +73,9 @@ static IClassFactory TtsEngine_ClassFactory = { &TtsEngine_ClassFactoryVtbl };
 
 HRESULT __stdcall DllGetClassObject(REFCLSID classId, REFIID iid, void **object)
 {
+	if (!object)
+		return E_POINTER;
+
 	if (IsEqualCLSID(classId, &CLSID_TtsEngine))
 		return ClassFactory_QueryInterface(&TtsEngine_ClassFactory, iid, object);
 

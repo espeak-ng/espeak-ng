@@ -17,11 +17,31 @@ test_phon lv \
 test_phon en "d'eIbju:tI2d" "débuted"
 test_phon en-US "d'eIbju:t#I#d" "débuted"
 
+# one-letter words repeated more than three times in a row keep every repeat
+# (only symbols such as ~ are limited to three, see $max3 in docs/dictionary.md)
+test_phon en "b'i: b'i: b'i: b'i: b'i: b'i:" "b b b b b b"
+test_phon en "aI; aI; aI; aI; aI; 'aI" "I I I I I I"
+test_phon en "t'Ild@ t'Ild@ t'Ild@" "~ ~ ~ ~ ~ ~"
+
 # s at the end of abbreviations
 # https://github.com/espeak-ng/espeak-ng/issues/706
 test_phon en ",aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eItS s,i:;,i:;'Es ,aIt,i:;'Eks ,aIb,i:;'Emz ,Em,aIt'i:z ,eIp,i:;'eItSIz s,i:;,i:;'EsIz ,aIt,i:;'EksIz" "ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs"
 test_phon lv "'ibm m'it 'ibm-s m'its 'ibm m'it 'aph ts'Es 'it_ks 'ibm-s m'its 'aphs ts'Ess 'it_kss 'a>_:,ess_! ,a:_:,ess_!v'e:_:_:_: s'i:a:_ 'u>_:t,e:_:t,e:_:" "ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs AS ASV SIA utt"
 test_phon ru "'Ibm (en),aIb,i:;'Em m'It 'Ib@mz m'Its ,aIb,i:;'Em ,Em,aIt'i:; ,eIp,i:;'eItS s,i:;,i:;'Es ,aIt,i:;'Eks 'Ib@mz m'Its 'afz s'EI2zI2z 'ItEksz(ru) sE#SE#'A" "ИБМ ibm mit ibms mits IBM MIT APH CES ITX IBMs MIT's APHs CES's ITXs США"
+
+# Dutch: the linking -en- between the parts of a compound is [@n], not [En]
+test_phon nl "z'ik@nh,Wys" "ziekenhuis"
+test_phon nl "b'uk@Nk,Ast" "boekenkast"
+test_phon nl "ba:n'a:n@nsx,Il" "bananenschil"
+test_phon nl "m'Ens@nr,Ext@n" "mensenrechten"
+test_phon nl "d'ir@nt,Wyn" "dierentuin"
+test_phon nl "t'o:r@nt;@" "torentje"
+test_phon nl "z'Es@nt,Axt@x" "zesentachtig"
+test_phon nl "v'ir@nn,e:Q@nt@x" "vierennegentig"
+# ... but a stressed stem stays [E]
+test_phon nl "n'a:dENk@n" "nadenken"
+test_phon nl "b@r'IxtvEnst@r" "berichtvenster"
+test_phon nl "Q@l'8kv#Ens@n" "gelukwensen"
 
 # bug: https://github.com/nvaccess/nvda/issues/7740
 test_phon ta "'il." "ள்"
@@ -64,6 +84,16 @@ and l'Eft" "He said : 'Hello, I am back.' and left."
 # Hawaiian okina to apostrophe
 test_phon en "h@w'aIi:" "Hawaiʻi"
 
+# Dutch abbreviations with a dot
+test_phon nl "_|Ik Q'a: bEIv'o:rbe:lt v#'Ex" "Ik ga bijv. weg."
+test_phon nl "pr'EIs _|,Inkly:z'if v@rz'EndIN" "Prijs incl. verzending"
+test_phon nl "m'a:ndAx j'ONstle:d@n" "maandag jl."
+test_phon nl "s'Irka: t'in" "ca. tien"
+test_phon nl "m@vr'VU d@ vr'is" "mw. de Vries"
+# ... but not without the dot
+test_phon nl "b'EIf" "bijv"
+test_phon nl "v'EIfh,Ond@rt _!,Emv#'e:" "500 MW"
+
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
 # ED-3 - emoji_character
@@ -82,6 +112,12 @@ test_phon en "'e@ri:z r'eInboU" "♈ 🌈"
 # emoji and falls back to spelling the alphabetic part letter-by-letter.
 test_phon en "f'IS tr'0pIk@L f'IS" "fish🐠"
 test_phon ru "d'ymu t@-rVp;'itS;iskVja @-r'yba#" "дыму🐠"
+
+# emoji entries whose key had been lost and replaced by a digit took over the
+# reading of that digit, e.g. "5" was read as the name of 🥕 (carrot)
+# bug: https://github.com/espeak-ng/espeak-ng/issues/2437
+test_phon ps "c'@lor p'@ndz@ 'at@" "4 5 8"
+test_phon ps "g'a:zra" "🥕"
 
 # multi-word emoji
 test_phon en "Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
@@ -109,6 +145,11 @@ test_phon en "p'INk h'A@t" "🩷"
 test_phon en "bl'ak k'at" "🐈‍⬛" # U+2B1B in a ZWJ sequence
 test_phon en "h'Ed S'eIkIN v'3:tIkli" "🙂‍↕️" # U+2195 in a ZWJ sequence
 test_phon de "Sv'arts@ k'ats@" "🐈‍⬛"
+# an emoji with no name in the language is read by its English name; the
+# words after it are read once (an entry with no replacement text repeated
+# them, and overflowed the word buffer in a long clause)
+test_phon qu "_:(en)'aks(qu) w'asi" "🪓 wasi"
+test_phon ti "_:(en)'0m(ti) s'@lam" "🕉 ሰላም"
 
 # ED-7/ED-14 - emoji flag sequence: a flag is exactly two regional indicator
 # symbols (U+1F1E6..U+1F1FF). A run of flags written without whitespace must be
@@ -146,6 +187,10 @@ test_phon en "p'aIr@t fl'ag" "🏴‍☠️"
 # 🏴 case above: that is the fallback being asserted, not a copy of it. The
 # input is a full tag sequence, as the codepoints show.
 test_phon en "bl'ak fl'ag" "🏴󠁵󠁳󠁴󠁸󠁿"    # 1F3F4 E0075 E0073 E0074 E0078 E007F  ustx (Texas)
+
+# Dutch letter name of w: [v#e:], not [ve:]
+test_phon nl "b,e:t,e:v#'e:" "btw"
+test_phon nl "v#,e:s'e:" "WC"
 
 # a replacement whose first letter is a non-ASCII capital must be lower cased
 # with towlower2(), not tolower(): the latter dropped the letter entirely
@@ -207,6 +252,12 @@ test_phon en "f'u:" "foo.."
 test_phon en "Ign'o@rINg,u: pl'Vs 'ad" "Ignoring­u+ad"
 # note 0x200c between 1 and 1
 test_phon fa "j'ek j'ek" "1‌1"
+
+# Dutch ordinal indicator: 3e is "derde", the e is not spoken as a letter
+test_phon nl "d'Erd@" "3e"
+test_phon nl "t'ind@" "10e"
+test_phon nl "d@ d'Erd@ d'Ax" "de 3e dag"
+test_phon nl "tv#'e:d@kl'As" "2e-klas"
 
 # Mandarin and Cantonese Chinese with different Latin character fallback
 test_phon yue "n'ei5_| h'ou2_| m'aa5_| (en)h@1l'oU1_| D'e@1(yue)_|" "你好馬 hello there"
@@ -296,3 +347,8 @@ test_phon ab "ap'@Swa" "аԥышәа"
 test_phon ab "'abZa" "абжа"                     
 test_phon ab "'af" "аф"                     
 test_phon ab ",avan'@za" "аваныза"                     
+
+# a dictionary entry that covers the last words of a clause skips them,
+# and the letter names are not read again
+test_phon ar "d,i:na:r dZaz'a:?ir,ij" "د.ج" "Arabic abbreviation د.ج at the end of a clause"
+test_phon ar "r,ija:l s'a:u:d,i:" "ر.س" "Arabic abbreviation ر.س at the end of a clause"

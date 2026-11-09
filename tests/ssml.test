@@ -10,6 +10,11 @@ test_ssml_audio() {
 	TEST_TEXT=$3
 	OPTS=$4
 
+	if ! wav_hash_is_reproducible ; then
+		echo "skipping ${TEST_NAME} (WAV hashes are not reproducible on this target)"
+		return 0
+	fi
+
 	echo "testing ${TEST_NAME}"
 	RESULT=$(
 		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
@@ -52,6 +57,52 @@ test_ssml_audio "<prosody>" 88fccb35536158f25f4ae44a03fb005fef95c99b "<speak><pr
 test_ssml_audio "<prosody> bug #410" 8d3bace9548ae73c4770a73c88c6f65e848b45cf "<speak><prosody rate=\"x-slow\" pitch=\"low\"> Slow and low. </prosody><prosody rate=\"x-fast\" pitch=\"x-high\"> Fast and high.</prosody></speak>"
 test_ssml_audio "<audio>" 5134c1db757b2d6b8d1f3f2416124462e401b4c6 "<speak>ha: <audio src=\"$PWD/phsource/h/ha.wav\"></audio></speak>"
 
+# The sound icon loader must stay inside the buffer it read, whatever the
+# <audio> file turns out to contain. Each of these accessed memory out of
+# bounds before LoadSoundFile()/LoadSoundFile2() were given bounds checks.
+test_ssml_audio_nocrash() {
+	TEST_NAME=$1
+	TEST_TEXT=$2
+
+	echo "testing ${TEST_NAME}"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng --stdout -m "${TEST_TEXT}" > /dev/null || exit 1
+}
+
+# A file whose format does not match is replaced by an empty temporary file,
+# so the loader ends up with nothing to read the WAV header from. The file is
+# created here: the tests run from the build directory, which holds no text
+# file from the source tree to point at.
+SOUNDICON_NOTWAV="${TMPDIR:-/tmp}/espeak-ng-not-a-wav.txt"
+echo "This is plain text, not a WAV sound file." > "$SOUNDICON_NOTWAV"
+test_ssml_audio_nocrash "<audio> file that is not a WAV" \
+	"<speak><audio src=\"$SOUNDICON_NOTWAV\"></audio>x</speak>"
+
+# The same file again after the first load was rejected: the table entry must
+# not still point at the buffer that was released.
+test_ssml_audio_nocrash "<audio> rejected file loaded twice" \
+	"<speak><audio src=\"$SOUNDICON_NOTWAV\"></audio>a<audio src=\"$SOUNDICON_NOTWAV\"></audio>b</speak>"
+rm -f "$SOUNDICON_NOTWAV"
+
+# A truncated icon: the header still announces the full data chunk, but only a
+# few bytes of it are present.
+SOUNDICON_TRUNCATED="${TMPDIR:-/tmp}/espeak-ng-truncated-icon.wav"
+head -c 60 "$PWD/phsource/h/ha.wav" > "$SOUNDICON_TRUNCATED"
+test_ssml_audio_nocrash "<audio> truncated WAV" \
+	"<speak><audio src=\"$SOUNDICON_TRUNCATED\"></audio>x</speak>"
+rm -f "$SOUNDICON_TRUNCATED"
+
+# More distinct icon paths than the table has room for.
+SOUNDICON_MANY="<speak>"
+SOUNDICON_SLASHES=""
+SOUNDICON_I=0
+while [ $SOUNDICON_I -lt 85 ] ; do
+	SOUNDICON_MANY="${SOUNDICON_MANY}<audio src=\"$PWD${SOUNDICON_SLASHES}/phsource/h/ha.wav\"></audio>"
+	SOUNDICON_SLASHES="${SOUNDICON_SLASHES}/"
+	SOUNDICON_I=$((SOUNDICON_I+1))
+done
+test_ssml_audio_nocrash "<audio> more icons than the table holds" "${SOUNDICON_MANY}</speak>"
+
 test_ssml_audio "<break> at start" 949ad49d180108b30c1f0f16bef6ca2f3b6199cd "<speak><break time=\"1000ms\"/>test</speak>"
 
 # Test SSML breaks inside prosody (#1512)
@@ -63,6 +114,47 @@ test_ssml_audio "<prosody 200%><break 1000ms>" 64213dbaf593b139b0b21840ba938cf59
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 4b4e30a2cfff1889972f013e514e81c1108283a4 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 9849f0d27f5641db6da1a8aea82578e83656d323 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || \
 ( test_ssml_audio "<prosody 260%><break 1000ms>" 32a9c2887ec5b7d9d33d5503518ac0d384e43448 "<speak><prosody rate=\"260%\">Break<break time=\"1000ms\"/>test</prosody></speak>" ) || exit 1
+
+# A nested <voice> must hand back to the enclosing voice when it closes.
+NESTED_EXPECTED="w,0n
+_|'aIns
+d'Y
+tsv'aI
+Tr'i:"
+test_phon en "$NESTED_EXPECTED" '<speak xml:lang="en">one <voice name="de">eins <voice name="fr">deux</voice> zwei</voice> three</speak>' "nested <voice> restores the enclosing voice" "-m"
+# <tts:style field="punctuation" mode="none"> silences punctuation announced by --punct, and the setting is restored after the closing tag.
+STYLE_NONE_EXPECTED="h@l'oU
+k'0m@
+w'3:ld
+d'0t
+h'aI
+j'u:
+a#g'En
+k'0m@
+h'i@3"
+test_phon en "$STYLE_NONE_EXPECTED" 'Hello, world. <tts:style field="punctuation" mode="none">Hi, you.</tts:style> Again, here.' "tts:style punctuation none" "-m --punct"
+ssml_audio_sha1() {
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		$VALGRIND src/espeak-ng --stdout -m "$1" | $sha1sum | awk '{ print $1 }'
+}
+
+# A relative <audio src> resolves against xml:base.
+echo "testing xml:base resolves a relative <audio> src"
+XMLBASE_ABS=$(ssml_audio_sha1 "<speak><audio src=\"$PWD/phsource/h/ha.wav\"></audio>x</speak>")
+XMLBASE_REL=$(ssml_audio_sha1 "<speak xml:base=\"$PWD/phsource/h\"><audio src=\"ha.wav\"></audio>x</speak>")
+if [ "x$XMLBASE_ABS" != "x$XMLBASE_REL" ] ; then
+	echo "$XMLBASE_REL != $XMLBASE_ABS"
+	exit 1
+fi
+
+# xml:base must survive namedata reallocation caused by many <mark> names.
+XMLBASE_MARKS="<speak xml:base=\"/nonexistent\">"
+XMLBASE_I=0
+while [ $XMLBASE_I -lt 60 ] ; do
+	XMLBASE_MARKS="${XMLBASE_MARKS}<mark name=\"mark_with_a_fairly_long_name_to_force_growth_${XMLBASE_I}_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"/>"
+	XMLBASE_I=$((XMLBASE_I+1))
+done
+test_ssml_audio_nocrash "xml:base after namedata growth" "${XMLBASE_MARKS}<audio src=\"rel.wav\"></audio></speak>"
 
 # Test break multiplier
 test_ssml_audio "<break 1000ms> mul=10" 9f3b0f34eb605fcecfc573fc215626f634b46756 "<speak>Break<break time=\"1000ms\"/>test</speak>" "--ssml-break=10"

@@ -25,6 +25,7 @@
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/encoding.h>
+#include <espeak-ng/speak_lib.h>
 
 static void
 test_unbound_text_decoder()
@@ -755,6 +756,53 @@ test_char_decoder()
 }
 
 static void
+test_ucs_2_decoder()
+{
+	printf("testing null-terminated UCS-2 decoder\n");
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+	const char text[] = { 'a', 0, 0, 1, 0x22, 0x21, 0, 0, 'x', 0 };
+	const char empty[] = { 0, 0 };
+	const char unterminated[] = { 'a', 0, 0, 1 };
+
+	TEST_ASSERT(text_decoder_decode_string(decoder, NULL, -1, ESPEAKNG_ENCODING_ISO_10646_UCS_2) == ENS_OK);
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0);
+
+	TEST_ASSERT(text_decoder_decode_string(decoder, empty, -1, ESPEAKNG_ENCODING_ISO_10646_UCS_2) == ENS_OK);
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0);
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+
+	// Adjacent zero bytes across code-unit boundaries are not a terminator.
+	TEST_ASSERT(text_decoder_decode_string(decoder, text, -1, ESPEAKNG_ENCODING_ISO_10646_UCS_2) == ENS_OK);
+	TEST_ASSERT(text_decoder_getc(decoder) == 'a');
+	TEST_ASSERT(text_decoder_getc(decoder) == 0x100);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0x2122);
+	TEST_ASSERT(text_decoder_get_buffer(decoder) == text + 6);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0);
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+	TEST_ASSERT(text_decoder_get_buffer(decoder) == NULL);
+
+	TEST_ASSERT(text_decoder_decode_string_multibyte(decoder, text, ESPEAKNG_ENCODING_UTF_8, espeakCHARS_16BIT) == ENS_OK);
+	TEST_ASSERT(text_decoder_getc(decoder) == 'a');
+	TEST_ASSERT(text_decoder_getc(decoder) == 0x100);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0x2122);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0);
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+
+	// Explicit lengths remain byte counts and do not require a terminator.
+	TEST_ASSERT(text_decoder_decode_string(decoder, unterminated, sizeof(unterminated), ESPEAKNG_ENCODING_ISO_10646_UCS_2) == ENS_OK);
+	TEST_ASSERT(text_decoder_getc(decoder) == 'a');
+	TEST_ASSERT(text_decoder_getc(decoder) == 0x100);
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+	TEST_ASSERT(text_decoder_decode_string(decoder, unterminated, 0, ESPEAKNG_ENCODING_ISO_10646_UCS_2) == ENS_OK);
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
+static void
 test_wchar_decoder()
 {
 	printf("testing wchar_t decoder\n");
@@ -907,6 +955,7 @@ main(int argc, char **argv)
 	test_iso_10646_ucs_2_encoding();
 
 	test_char_decoder();
+	test_ucs_2_decoder();
 	test_wchar_decoder();
 	test_auto_decoder();
 
