@@ -1048,7 +1048,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 		if ((language != tr->translator_name) || (language == L('k', 'o'))) {
 			char *p3;
 			//int initial, code;
-			char hangul_buf[12];
+			char hangul_buf[13];
 
 			// speak in the language for this alphabet (or English)
 			char word_buf[5];
@@ -1060,8 +1060,9 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 					// Special case for Korean letters.
 					// break a syllable hangul into 2 or 3 individual jamo
 
-					hangul_buf[0] = ' ';
-					p3 = &hangul_buf[1];
+					hangul_buf[0] = 0;
+					hangul_buf[1] = ' ';
+					p3 = &hangul_buf[2];
 					int initial;
 					if ((initial = (code/28)/21) != 11) {
 						p3 += utf8_out(initial + 0x1100, p3);
@@ -1071,7 +1072,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 					p3[6] = ' ';
 					p3[7] = 0;
 					ph_buf[3] = 0;
-					TranslateRules(translator3, &hangul_buf[1], &ph_buf[3], sizeof(ph_buf)-3, NULL, 0, NULL);
+					TranslateRules(translator3, &hangul_buf[2], &ph_buf[3], sizeof(ph_buf)-3, NULL, 0, NULL);
 					SetWordStress(translator3, &ph_buf[3], NULL, -1, 0);
 				} else
 					LookupLetter(translator3, letter, word[n_bytes], &ph_buf[3], sizeof(ph_buf) - 3, control & 1);
