@@ -309,6 +309,11 @@ v Og'ulE
 v'Emn^;E" "w domu, w ogóle, we mnie"
 test_phon pl "dzvˈɔn
 dʑvʲˈɛŋk" "dzwon, dźwięk" "" "--ipa"
+test_phon pl ",agj,Ed'E
+,ERt,Ef'aw
+,Es,Em'Es
+,Em,Em'Es
+p,Ek,ap'E" "AGD, RTV, SMS, MMS, PKP"
 test_phon pl "t,EmpERat'uRa#_ m'inus tS'y" "temperatura -3"
 test_phon pt "lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: bR&s'o~js#
 f'E
