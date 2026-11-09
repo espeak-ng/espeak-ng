@@ -304,6 +304,80 @@ naN ta d'ota k'u Ras'oN_:_: i k'u kons'enSi_:_: i naN mest'eR komp'oRta naN deN 
 test_phon pl "m'E~Zny b'On^ts;
 xR'On^ p'uwk tf'uj_! i S'ES;ts; fl'ak
 z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć flag. Zażółć gęślą jaźń." "Latn"
+# Polish spelling and contextual consonants.
+test_phon pl "p,OlEts'ats;E#" "polecacie"
+test_phon pl "z,alEts'ats;E#" "zalecacie"
+test_phon pl "zlEts'ats;E#" "zlecacie"
+test_phon pl "b'ydgOStS" "Bydgoszcz"
+test_phon pl ",EvaNg'Elja#_" "ewangelia"
+test_phon pl "dRuts;'ana#_" "druciana"
+test_phon pl "psyxj'atRa#_" "psychiatra"
+
+# Soft consonants and retained hard s+i / z+i contexts.
+test_phon pl "pROS;'imy" "prosimy"
+test_phon pl "m'aksim,um_" "maksimum"
+test_phon pl "g'uZ;ik" "guzik"
+test_phon pl "b,Ezimj'Enny" "bezimienny"
+
+# Prefix boundaries; preserve affricates where appropriate.
+# Separate phoneme names to distinguish d+z / d+Z from dz / dZ.
+test_phon pl "'O|d|z|E|f" "odzew" "" "--sep=|"
+test_phon pl "O|d|z|n|'a|k|a#|_" "odznaka" "" "--sep=|"
+test_phon pl "p|'O|d|z|b|j|u|R" "podzbiór" "" "--sep=|"
+test_phon pl "n|'a|d|z|b|j|u|R" "nadzbiór" "" "--sep=|"
+test_phon pl "b|'u|d|Z|E|t" "budżet" "" "--sep=|"
+test_phon pl "dZ|'E|m|_" "dżem" "" "--sep=|"
+test_phon pl "p|O|d|Z;|'E|m|b|;|i|ts;" "podziębić" "" "--sep=|"
+test_phon pl "p|,O|dz;|E|N|k|'O|v|a#|ts;" "podziękować" "" "--sep=|"
+test_phon pl "R|O|z|m|'a|R|z|a#|ts;" "rozmarzać" "" "--sep=|"
+test_phon pl "u|m|'a|Z|a#|ts;" "umarzać" "" "--sep=|"
+
+# Syllabic vowels in Polish words and names.
+test_phon pl "n,auSn^'iki" "nauszniki"
+test_phon pl "n,aubl'iZa#ts;" "naubliżać"
+test_phon pl "pR,OtE'aza#_" "proteaza"
+
+# Ordinary words must not expand to military ranks.
+test_phon pl "pwts;'i" "płci"
+test_phon pl "pwts;'Ovy" "płciowy"
+
+# Preposition w: voiceless, voiced and mn contexts; explicit we.
+test_phon pl "f f,ORmul'aZu znajd'ujE S;E p'OlE vyb'ORu pwts;'i" "W formularzu znajduje się pole wyboru płci."
+test_phon pl "v d'Omu" "w domu"
+test_phon pl "v mn'ustf;E#" "w mnóstwie"
+test_phon pl "v'Emn^;E" "we mnie"
+
+# Palatal affricates in number names.
+test_phon pl "tSydz;'ES;ts;i" "30"
+test_phon pl "tStERdz;'ES;ts;i" "40"
+test_phon pl "dv;'ES;ts;E" "200"
+
+# Regressions reported during review: native boundaries and retained loanwords.
+test_phon pl "ˌandʒɛlˈika" "Angelika" "" "--ipa"
+test_phon pl "ˌandʒɛlˈikɔ̃" "Angeliką" "" "--ipa"
+test_phon pl "nˈawmjɛts" "Naumiec" "" "--ipa"
+test_phon pl "nɛmˈɛzis" "Nemezis" "" "--ipa"
+test_phon pl "ɕˈitaʃ" "Sitarz" "" "--ipa"
+test_phon pl "ʑˈimrɔs" "Zimroz" "" "--ipa"
+test_phon pl "fˈanzin" "fanzin" "" "--ipa"
+test_phon pl "ɡˌɛnɛrˌalissˈimus" "generalissimus" "" "--ipa"
+test_phon pl "kfˌazitʃˈɔ̃stka" "kwazicząstka" "" "--ipa"
+test_phon pl "kfˌazitʃˈɔ̃sttsɛ" "kwazicząstce" "" "--ipa"
+test_phon pl "kfˌazitʃˈɔ̃stɛk" "kwazicząstek" "" "--ipa"
+test_phon pl "maʒˈana" "marzana" "" "--ipa"
+# Here zamarzano means freezing: r and z are separate sounds.
+test_phon pl "zˌamarzˈanɔ" "zamarzano" "" "--ipa"
+test_phon pl "ʑˌimbabvˈɛjski" "zimbabwejski" "" "--ipa"
+test_phon pl "ʑˌimbabvˈɛɲski" "zimbabweński" "" "--ipa"
+test_phon pl "mˈajkrɔsˌɔft" "Microsoft" "" "--ipa"
+test_phon pl "dʲˈiskɔ" "disco" "" "--ipa"
+test_phon pl "tˈim" "team" "" "--ipa"
+test_phon pl "lˈiziŋk" "leasing" "" "--ipa"
+test_phon pl "kɔsˈinus" "cosinus" "" "--ipa"
+test_phon pl "krˈɛdɔ" "credo" "" "--ipa"
+test_phon pl "vundˈɛrtim" "wunderteam" "" "--ipa"
+
+
 test_phon pl "v d'Omu
 v Og'ulE
 v'Emn^;E" "w domu, w ogóle, we mnie"

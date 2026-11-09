@@ -70,7 +70,6 @@
         c          ts
     vA) c          k
      _) c (abernet k
-        c (acie_   k
    _ar) c (adia_   k
    _ar) c (adii_   k
    _ar) c (adio_   k
@@ -118,8 +117,8 @@
         ch (err    S
         ch (ev     S
         ch (i      C
-        chi (A     hj
-   psy) chi (a     hi
+        chi (A     xj
+   psy) chi (a     xj
      _) chic (agA  Sik
      _) chie (f    tSi
      _) ch (ip     tS
@@ -131,11 +130,6 @@
         ci (A      ts;
     ar) ci (L03_   sij
     li) ci (L03_   sj
-     A) ci (ana_   sj
-     A) ci (anem_  sj
-     A) ci (anie_  sj
-     A) ci (ano_   sj
-     A) ci (anowi_ sj
      _) cic (eron  tSitS
      _) c (iner    s
      _) c (ir      ts
@@ -198,18 +192,65 @@
         dz         dz
         dz (_      ts
         dz (i      dz;
+
+// Separate d+z at Polish prefix boundaries.
+    _o) dz         d|z
+ _nieo) dz         d|z
+    _o) dz (i      dz;
+ _nieo) dz (i      dz;
+    _o) dzi (A     dz;
+ _nieo) dzi (A     dz;
+    na) dz         d|z
+    na) dz (e      dz
+    na) dz (i      dz;
+    na) dzi (A     dz;
+    na) dz (y      dz
+    po) dz (ak     d|z
+    po) dz (am     d|z
+    po) dz (wr     d|z
+    po) dz (e      d|z
+
+// The pod-zbior family also has separate d+z.
+    po) dz (bió    d|z
+    po) dz (bio    d|z
         dzi (A     dz;
    _na) dzi (em    d|Z;
    _po) dzi (em    d|Z;
+
+// Preserve prefix boundaries in derived and negated forms.
+_niena) dzi (em    d|Z;
+_niepo) dzi (em    d|Z;
+   _po) dzi (ęb    d|Z;
+_niepo) dzi (ęb    d|Z;
+    _o) dzi (om    d|Z;
+ _nieo) dzi (om    d|Z;
+    na) dz (ero    d|z
+
+// Separate d+zi in od-zip and ponad-ziem.
+    _o) dzi (p     d|Z;i
+ _nieo) dzi (p     d|Z;i
+ _pona) dzi (em    d|Z;
+_niepona) dzi (em  d|Z;
         dź         dz;
         dź (_      ts;
         dż         dZ
         dż (_      tS
 
+// Separate d+ż in the budżet family, unlike dżem.
+    bu) dż (e      d|Z
+
     _o) dż         d|Z
    _po) dż         d|Z
    _na) dż         d|Z
  _pona) dż         d|Z
+
+// Negative and compound Polish prefix boundaries.
+ _nieo) dż         d|Z
+_niepo) dż         d|Z
+_niena) dż (ar     d|Z
+_niena) dż (er     d|Z
+_współo) dż       d|Z
+_niewspóło) dż    d|Z
 
 
 .group	dg
@@ -227,7 +268,7 @@ _niepona) dg       dg
 _niepopo) dg       dg
 _niepoo) dg        dg
         dge (_     dZ
-        dg         dZ
+        dg         dg
 
 
 .group	 e
@@ -255,6 +296,7 @@ _niepoo) dg        dg
      r) ea (gan    E
      r) eality (_  i'Elity
      t) ea (tr     Ea
+  prot) ea (z      Ea
      t) ea         i
         eu (tsch   Oj
 
@@ -491,7 +533,7 @@ tekton) i (kach_   =i
         ni (A      n^;
         n (k       N
         n (g       N
-     a) ng (el     ndZ
+    _a) ng (el     ndZ
         n (ć       n^
         n (ci      n^
         n (dź      n^
@@ -542,10 +584,6 @@ tekton) i (kach_   =i
    _ko) pi (A      pj
 _fotoko) pi (A     pj
 
-     _) ppł (k     pOtpuwkOvni
-     _) ppł (c     pOtpuwkOvni
-     _) pł (k      puwkOvni
-     _) pł (c      puwkOvni
 
 .group	 q
         q          k
@@ -560,10 +598,11 @@ _fotoko) pi (A     pj
         r (zi      R
      A) r (zł      R
     ma) r (zn      R
-    ma) r (zlin    R
- _zama) r (za      R
-  _zma) r (za      R
-  odma) r (za      R
+    ma) r (zl      R
+    ma) r (za      R
+  supe) r (z       R
+  hipe) r (z       R
+  cybe) r (z       R
    _bo) r (zoj     R
 
         ry' (e     R
@@ -572,6 +611,20 @@ _fotoko) pi (A     pj
         rz         Z
         rz (_      S
         rz (and    Rts
+
+// Retain rz in umarzać, Marzanna and marzana (the plant).
+   uma) rz (a      Z
+    ma) rz (ann    Z
+    ma) rz (ank    Z
+  dyma) rz (a      Z
+kałama) rz (a      Z
+karczma) rz (a     Z
+ krama) rz (a      Z
+   _ma) rz (an     Z
+  koma) rz (a      Z
+  ryma) rz (a      Z
+    _e) rz (ac     Rz
+    _e) rz (atz    Rz
    _mu) rz (asichl Rz
    _mu) rz (o_+++  Rz
    _mu) rz (owie_+++ Rz
@@ -738,14 +791,20 @@ _anasta) si (L03_  sj
         si (dl_    S;i
         si (dł     S;i
         si (f      si
-        si (g      si
+        si (gl     si
+        si (gm     si
+        si (gn     si
     du) si (gr     S;i
         si (h      si
-        si (liko   si
+        si (lik    si
+        si (lic    si
         si (ll     si
         si (los    si
         si (lv     si
-        si (m      si
+     _) si (m      si
+  _mak) si (m      si
+   _ka) si (m      si
+     s) si (m      si
      s) si (ma_    =i
      s) si (mem_   =i
      s) si (mie_   =i
@@ -754,13 +813,23 @@ _anasta) si (L03_  sj
         si (nus    si
         si (q      si
         si (r      si
-        si (t      si
      _) si (tA     S;i
      _) si (t_     S;i
      _) si (tk     S;i
         si (v      si
         si (x      si
 
+
+
+// Retain hard s+i in these contexts.
+        si (nolo   si
+        si (zal    si
+     p) si (l      si
+  _pep) si         si
+   _ak) si (s      si
+_anasta) si (s     si
+     _) si (est    sj
+     _) si (esick  sj
 
 .group	 ś
         ś          S;
@@ -795,6 +864,22 @@ _anasta) si (L03_  sj
      e) u          w
     na) u (k       u
     na) u (cz      u
+// Preserve syllabic u in nausznik/nauszny and negation.
+   _na) u (sz      u
+_niena) u (sz      u
+// Syllabic u in native na-ub..., na-umaw..., na-urąg..., na-uży... .
+   _na) u (b       u
+   _na) u (maw     u
+   _na) u (mów     u
+   _na) u (myś     u
+   _na) u (rąg     u
+   _na) u (ży      u
+_niena) u (b       u
+_niena) u (maw     u
+_niena) u (mów     u
+_niena) u (myś     u
+_niena) u (rąg     u
+_niena) u (ży      u
    _za) u (to      w
    _za) u          u
   para) u          u
@@ -834,13 +919,11 @@ _anasta) si (L03_  sj
   L02r) w (A       f
 
      _) w (_c      f
-     _) w (_f      vE
      _) w (_h      f
      _) w (_k      f
      _) w (_p      f
      _) w (_s      f
      _) w (_t      f
-     _) w (_mn     vE        // 'w' should be written 'we' before 'mn', but not always
      _) w (_       v         // the preposition is [v]; phoneme 'w' is the sound of 'ł'
 
      _) wice (@P4t vitsE
@@ -953,10 +1036,40 @@ _prakt) y (L01_    =y
         z (i       Z;
         zi (A      Z;
      _) zi (p      Z;i
-        zi (m+     Z;i
+     _) zi (m_     Z;i
+     _) zi (mA     Z;i
+     _) zi (mn     Z;i
+     _) zi (mbab   Z;i
+     _) zi (mroz   Z;i
      _) zi (C      z_i
-  _nie) zi (C      z_i
-        zi (C      zi
+        zi (C      Z;i
+
+// Retain hard z+i in these contexts.
+// Preserve z- + i... in negative forms of ziścić/ziszczać.
+  _nie) zi (śc     z_i
+  _nie) zi (ść     z_i
+  _nie) zi (szcz   z_i
+   _be) zi         zi
+_niebe) zi         zi
+  _ube) zi         zi
+   _be) zi (k      Z;i
+_niebe) zi (k      Z;i
+  _ube) zi (k      Z;i
+    de) zi         zi
+    de) zi (e      Z;
+     a) zi (r      zi
+    ka) zi (r      Z;i
+        zi (ll     zi
+   mue) zi (n      zi
+  muez) zi (n      zi
+  _nie) zi (d      zi
+  _nie) zi (l      zi
+  _nie) zi (n      zi
+_niero) z (iC      z
+     n) zi (b      zi
+   kwa) zi (C      zi
+   fan) zi (n      zi
+  neme) zi (s      zi
 
      _) z (_c      s
      _) z (_f      s
@@ -968,7 +1081,6 @@ _prakt) y (L01_    =y
      _) z (_mn     zE        // 'z' should be written 'ze' before 'mn', but not always
      _) z (_       z
 
-    mo) zi (ll     zi
    _ro) z (iC      z
      _) zuri (ch   tsuRy
         z (inL04_   ts

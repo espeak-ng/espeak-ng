@@ -31,8 +31,8 @@ _17		S;EdEmn'aS;ts;E
 _18		OS;Emn'aS;ts;E
 _19		dz;Ev;Etn'aS;ts;E
 _2X		dvadz;'ES;ts;a
-_3X		t|Sydz;'ES;c;i
-_4X		tStERdz;'ES;c;i
+_3X		t|Sydz;'ES;ts;i
+_4X		tStERdz;'ES;ts;i
 _5X		p;En^dz;'ES;Ont
 _6X		SEZ;dz;'ES;Ont
 _7X		S;EdEmdz;'ES;Ont
@@ -40,7 +40,7 @@ _8X		OS;Emdz;'ES;Ont
 _9X		dz;Ev;En^dz;'ES;Ont
 
 _1C		st'O
-_2C		dv;'ES;c;E
+_2C		dv;'ES;ts;E
 _3C		t|S'ysta
 _4C		tSt'ERysta
 _5C		p;'En^ts;sEt
@@ -516,7 +516,7 @@ dr		d'OktOR		$dot
 mgr		mag'istER	$dot
 doc		d'OtsEnt	$dot
 prof		pROf'EsOR	$dot
-hab		habilitOv'any $dot
+hab		xabilitOv'any $dot
 inż		inZ'yn^ER $dot
 mec		mEtsEnas	$dot
 //ks		kS;Onts	$dot
@@ -525,8 +525,6 @@ mec		mEtsEnas	$dot
 //hr		hRab;ja	$dot
 
 //gen		gEnERaw	$dot
-płk		puwk'Ovnik $dot	// declinated forms in pl_rules
-ppłk		pOtpuwk'Ovnik $dot
 mjr		m'ajOR	$dot
 kpt		kap'itan	$dot
 //por		pOR'utSn^ik $dot
@@ -705,26 +703,26 @@ winegret	$3
 (o tą) 		 'OtO~
 (o te)	 	 'OtE
 (o to) 		 'OtO
-(o tych) 	 'Otyh
+(o tych) 	 'Otyx
 (o tym) 	 'Otym_
 (o was) 	 'Ovas
 (na mnie) 	 n'amn^;E
 (na nas) 	 n'anas
 (na niej) 	 n'an^;Ej
 (na nim) 	 n'an^im
-(na nich) 	 n'an^ih
+(na nich) 	 n'an^ix
 (na nie) 	 n'an^;E
 (na nią) 	 n'an^;O~
 (na tą) 	 n'atO~
 (na te) 	 n'atE
 (na to) 	 n'atO
-(na tych) 	 n'atyh
+(na tych) 	 n'atyx
 (na tym) 	 n'atym_
 (na was) 	 n'avas
 (nad nas) 	 n'adnas
 (nad nią) 	 n'adn^;O~
 (nad nim) 	 n'adn^im
-(nad nich) 	 n'adn^ih
+(nad nich) 	 n'adn^ix
 (nad nie) 	 n'adn^;E
 (nad tą) 	 n'attO~
 (nad te) 	 n'attE
@@ -737,7 +735,7 @@ winegret	$3
 (po nas) 	 p'Onas
 (po niej) 	 p'On^;Ej
 (po nim) 	 p'On^im
-(po nich) 	 p'On^ih
+(po nich) 	 p'On^ix
 (po nie) 	 p'On^;E
 (po tą) 	 p'OtO~
 (po te) 	 p'OtE
@@ -747,7 +745,7 @@ winegret	$3
 (pod nas) 	 p'Odnas
 (pod nią) 	 p'Odn^;O~
 (pod nim) 	 p'Odn^im
-(pod nich) 	 p'Odn^ih
+(pod nich) 	 p'Odn^ix
 (pod nie) 	 p'Odn^;E
 (pod tą) 	 p'OttO~
 (pod te) 	 p'OttE
@@ -765,10 +763,10 @@ winegret	$3
 (przed tą) 	 pS'EttO~
 (przed te) 	 pS'EttE
 (przed to) 	 pS'EttO
-(przed tych) 	 pS'Ettyh
+(przed tych) 	 pS'Ettyx
 (przed tym) 	 pS'Ettym
 (przed was) 	 pS'Edvas
-(przed nich) 	 pS'Edn^ih
+(przed nich) 	 pS'Edn^ix
 (przed nie) 	 pS'Edn^;E
 (przede mną) 	 pSEd'EmnO~
 (przede mnie) 	 pSEd'Emn^;E
@@ -777,18 +775,18 @@ winegret	$3
 (przez tą) 	 pS'EstO~
 (przez te) 	 pS'EstE
 (przez to) 	 pS'EstO
-(przez tych) 	 pS'Estyh
+(przez tych) 	 pS'Estyx
 (przez was) 	 pS'Ezvas
-(przez nich) 	 pS'Ezn^ih
+(przez nich) 	 pS'Ezn^ix
 (przez nie) 	 pS'Ezn^;E
 (przeze mnie) 	 pSEz'Emn^;E
 (przy mnie) 	 pS'ymn^;E
 (przy nas) 	 pS'ynas
-(przy nich) 	 pS'yn^ih
+(przy nich) 	 pS'yn^ix
 (przy niej) 	 pS'yn^;Ej
 (przy nim) 	 pS'yn^im
 (przy tej) 	 pS'ytEj
-(przy tych) 	 pS'ytyh
+(przy tych) 	 pS'ytyx
 (przy tym) 	 pS'ytym
 (przy was) 	 pS'yvas
 (we mnie)	 v'Emn^;E
@@ -801,7 +799,7 @@ winegret	$3
 (za to) 	 z'atO
 (za tym) 	 z'atym
 (za was) 	 z'avas
-(za nich) 	 z'an^ih
+(za nich) 	 z'an^ix
 (za nie) 	 z'an^;E
 (ze mnie) 	 z'Emn^;E
 (ze mną) 	 z'EmnO~
@@ -3073,7 +3071,7 @@ zżyłby		$alt
 schlibyśmy	$alt
 schlibyście	$alt
 schłybyśmy	$alt
-shłybyście	$alt
+schłybyście	$alt
 szlibyśmy	$alt
 szlibyście	$alt
 szłybyśmy	$alt
