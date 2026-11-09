@@ -73,6 +73,11 @@ public class TtsService extends TextToSpeechService {
      * normalized copy of it, or null when they are the same string.
      */
     private UnicodeNormalization.Result mSynthNormalization;
+    /**
+     * Offset map back to the pre-digit-spacing text when {@link #mSynthText}
+     * has spaces inserted between digits, or null otherwise.
+     */
+    private DigitSpacing.Result mSynthDigitSpacing;
     /** Number of code points in {@link #mSynthText}. */
     private int mSynthTextCodePoints;
     /** Anchor for incremental code point to UTF-16 index conversion. */
@@ -461,45 +466,34 @@ public class TtsService extends TextToSpeechService {
         // switch into SSML parsing because of that.
         final boolean isSsml = text.startsWith("<speak");
 
-        // Apply speak-digits BEFORE normalization so that any fullwidth /
-        // stylized digits (e.g. １２３) are NFKC-folded to ASCII and then
-        // spaced correctly by a second pass, and so that the normalization
-        // offset map remains valid for word-boundary highlighting.
-        // Skip the transform for SSML: inserting spaces inside XML tags or
-        // attribute values would corrupt the markup the engine parses.
-        final boolean speakDigits = settings.isSpeakDigitsEnabled() && !isSsml;
-        if (speakDigits) {
-            // When "speak digits" is on, space-separate every digit so the
-            // engine reads each digit individually instead of as whole numbers.
-            // Supports all Unicode digit ranges; decimal points and thousand
-            // separators inside a digit run are preserved.
-            text = spaceSeparateDigits(text);
-        }
-
+        // Unicode normalization runs first: it may fold fullwidth or stylized
+        // digits (e.g. １２３) into ASCII digits, which the digit separator
+        // below has to see. Running it first also keeps its offset map valid
+        // for word-boundary highlighting.
         UnicodeNormalization.Result normalization = null;
         if (settings.isUnicodeNormalizationEnabled()) {
             normalization = UnicodeNormalization.normalize(text);
             if (normalization != null) {
                 text = normalization.text;
-                if (speakDigits) {
-                    // Normalization may have folded fullwidth digits (e.g. １ -> 1)
-                    // together; run the digit separator again on the normalized
-                    // text so those also get spaced apart.
-                    text = spaceSeparateDigits(text);
-                    // We inserted spaces after the normalization map was built,
-                    // so the map no longer lines up. Drop it; word-boundary
-                    // offsets will be against the synth text directly. Since we
-                    // only insert spaces and never delete or change non-space
-                    // characters, visual highlighting stays approximately
-                    // correct for accessibility use cases.
-                    normalization = null;
-                }
             }
+        }
+
+        // Then the digit separator, which inserts spaces between digits and
+        // around separators inside digit runs. Skipped for SSML: inserting
+        // spaces inside XML tags or attribute values would corrupt the markup
+        // the engine parses. Its offset map is composed with the
+        // normalization map when reporting word boundaries.
+        final boolean speakDigits = settings.isSpeakDigitsEnabled() && !isSsml;
+        DigitSpacing.Result digitSpacing = null;
+        if (speakDigits) {
+            digitSpacing = DigitSpacing.separate(text);
+            text = digitSpacing.text;
         }
 
         mSynthText = text;
         mSynthTextOffset = textOffset;
         mSynthNormalization = normalization;
+        mSynthDigitSpacing = digitSpacing;
         mSynthTextCodePoints = text.codePointCount(0, text.length());
         mAnchorCodePoint = 0;
         mAnchorOffset = 0;
@@ -543,45 +537,6 @@ public class TtsService extends TextToSpeechService {
                 mMatchingVoice = null;
             }
         }
-    }
-
-    /**
-     * Inserts spaces between adjacent digits so that eSpeak reads each digit
-     * individually (e.g. "123" becomes "1 2 3").
-     *
-     * <p>Supports all Unicode decimal digit ranges (ASCII 0-9, Arabic-Indic
-     * ٠-٩, Extended Arabic-Indic ۰-۹, Devanagari ०-९, etc.) as classified by
-     * {@link Character#isDigit(int)}. Decimal points and thousand/grouping
-     * separators (., comma, Arabic ٬ and ٫) that sit inside a digit run are
-     * preserved; only digits are separated. Punctuation and word boundaries
-     * outside digit runs are untouched.
-     *
-     * <p>Word-boundary reporting against the original caller text is best
-     * effort: we only insert spaces (never remove or substitute characters)
-     * so code-point offsets stay aligned for every non-space character.
-     */
-    static String spaceSeparateDigits(String text) {
-        if (text == null || text.isEmpty()) {
-            return text;
-        }
-        final int len = text.length();
-        // Worst case: every digit gets a space after it -> up to 2*len chars.
-        StringBuilder out = new StringBuilder(len * 2);
-        boolean prevWasDigit = false;
-        for (int i = 0; i < len; ) {
-            final int c = text.codePointAt(i);
-            final int charCount = Character.charCount(c);
-            final boolean isDigit = Character.isDigit(c);
-            if (isDigit && prevWasDigit) {
-                // Insert a space between two consecutive digits so eSpeak
-                // treats them as separate tokens and reads each one by name.
-                out.append(' ');
-            }
-            out.appendCodePoint(c);
-            prevWasDigit = isDigit;
-            i += charCount;
-        }
-        return out.toString();
     }
 
     /**
@@ -633,9 +588,15 @@ public class TtsService extends TextToSpeechService {
             final int wordStart = textPosition - 1;
             int start = codePointToOffset(wordStart);
             int end = codePointToOffset(wordStart + Math.max(textLength, 0));
+            if (mSynthDigitSpacing != null) {
+                // The engine spoke digit-spaced text; map the range back to the
+                // text the separator transformed...
+                start = mSynthDigitSpacing.toOriginalOffset(start);
+                end = mSynthDigitSpacing.toOriginalOffset(end);
+            }
             if (mSynthNormalization != null) {
-                // The engine spoke normalized text; report the range against
-                // the original so highlighting tracks the caller's string.
+                // ...and then through normalization to the caller's text, so
+                // highlighting tracks the string the caller supplied.
                 start = mSynthNormalization.toOriginalOffset(start);
                 end = mSynthNormalization.toOriginalOffset(end);
             }

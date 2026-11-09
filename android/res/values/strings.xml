@@ -82,5 +82,5 @@
         Source: Checkbox summary.
         Description: Explains the digit-by-digit reading setting.
     -->
-  <string name="setting_speak_digits_summary">Speak each digit separately, for example reading "123" as "one two three" instead of "one hundred twenty three"</string>
+  <string name="setting_speak_digits_summary">Speak each digit separately, for example reading "123" as "one two three" instead of "one hundred twenty three". Not applied to SSML input.</string>
 </resources>

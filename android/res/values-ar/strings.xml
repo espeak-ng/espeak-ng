@@ -20,5 +20,5 @@
   <string name="setting_speak_digits">قراءة الأرقام رقماً تلو الآخر</string>
   <!--Source: Checkbox summary.
         Description: Explains the digit-by-digit reading setting.-->
-  <string name="setting_speak_digits_summary">نطق كل رقم على حدة، مثلاً قراءة "123" كـ "واحد اثنان ثلاثة" بدلاً من "مئة وثلاثة وعشرون"</string>
+  <string name="setting_speak_digits_summary">نطق كل رقم على حدة، مثلاً قراءة "123" كـ "واحد اثنان ثلاثة" بدلاً من "مئة وثلاثة وعشرون". لا يُطبَّق على نصوص SSML.</string>
 </resources>
