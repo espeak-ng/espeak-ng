@@ -186,6 +186,16 @@ public class TtsSettingsActivity extends PreferenceActivity {
         return pref;
     }
 
+    private static Preference createSpeakDigitsPreference(Context context) {
+        final CheckBoxPreference pref = new CheckBoxPreference(context);
+        pref.setTitle(R.string.setting_speak_digits);
+        pref.setSummary(R.string.setting_speak_digits_summary);
+        pref.setKey(VoiceSettings.PREF_SPEAK_DIGITS);
+        pref.setDefaultValue(false);
+        pref.setPersistent(true);
+        return pref;
+    }
+
     /**
      * Describes one voice parameter to {@link SeekBarPreference}: where its
      * value lives, what it is called and how it reads.
@@ -485,6 +495,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
         group.addPreference(createUnicodeNormalizationPreference(context));
+        group.addPreference(createSpeakDigitsPreference(context));
 
         if (isWatch) {
             // One parameter per dialog on Wear. The rotating crown only
