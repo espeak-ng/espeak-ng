@@ -276,6 +276,16 @@ t'a:m@ra
 p'o:le" "ക: ത: പ: കേരളം: താമര: പോലെ:"
 
 
+# Dutch: the unstressed -ig- of a verb is [@] before -ing, -d and -t
+test_phon nl "b@v'Est@Q,IN" "bevestiging"
+test_phon nl "v#'EIz@Q,IN" "wijziging"
+test_phon nl "b@v'EIl@Q,IN" "beveiliging"
+test_phon nl "_!'Wytn,o:d@Q,IN" "uitnodiging"
+test_phon nl "b@v'Est@xt" "bevestigd"
+test_phon nl "v#'EIz@xt" "wijzigt"
+# ... but not in a stressed syllable
+test_phon nl "l'Ixt" "ligt"
+
 # https://github.com/espeak-ng/espeak-ng/pull/1743
 test_phon ru "k'oS(en)k'A:(ru)" "кошKa"
 test_phon ru "'ju(en)m'Vni(ru)" "юMoney"
