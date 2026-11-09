@@ -48,6 +48,18 @@ test_phon ta "'il." "ள்"
 test_phon my "kon'i" "7"
 test_phon ka "s'ami Sv'idi" "3 7"
 
+# Dutch verbs with a prefix: inseparable verbs are stressed on the stem, separable ones on the prefix
+test_phon nl ",Ond@rst'Y:n@n" "ondersteunen"
+test_phon nl "v,O:rsp'Elt" "voorspeld"
+test_phon nl ",Omv'At@n" "omvatten"
+test_phon nl "d,O:rz'uk@n" "doorzoeken"
+test_phon nl "_!'o:v@rQ@n,o:m@n" "overgenomen"
+test_phon nl "d'O:rQ,a:n" "doorgaan"
+test_phon nl "_!'Axt@rl,a:t@n" "achterlaten"
+# ... nouns keep the stress on the prefix
+test_phon nl "_!'o:v@rz,Ixt" "overzicht"
+test_phon nl "_!'Ond@rz,uk" "onderzoek"
+
 # bug: https://github.com/nvaccess/nvda/issues/7805
 test_phon hi "r'UcI" "रुचि"
 test_phon hi "dUk'a:n" "दुकान"
