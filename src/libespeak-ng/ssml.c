@@ -919,6 +919,8 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, cha
 				terminator = CLAUSE_NONE;
 		}
 		if (terminator) {
+			if (value < 0)
+				value = 0; // a time too long for the int arithmetic above wraps negative
 			if (value > 0xfff) {
 				// scale down the value and set a scaling indicator bit
 				value = value / 32;
