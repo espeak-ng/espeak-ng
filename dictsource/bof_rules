@@ -1,0 +1,55 @@
+
+// Bété translation rules
+// This file is UTF-8 encoded
+// Bété (Bété de Daloa) - ISO 639-3: bof
+// Testing phonetic transcription support
+
+.group a
+        a        a
+
+.group b
+        b        b
+        
+.group c
+        c        k
+
+.group d
+        d        d
+
+.group e
+        e        e
+
+.group g
+        g        g
+        gh       ɣ
+
+.group i
+        i        i
+
+.group j
+        j        dZ
+
+.group k
+        k        k
+        kp       k p
+
+.group l
+        l        l
+
+.group n
+        n        n
+
+.group o
+        o        o
+
+.group p
+        p        p
+
+.group y
+        y        j
+
+.group -
+        -        _-
+
+.group '
+        '        ʔ
