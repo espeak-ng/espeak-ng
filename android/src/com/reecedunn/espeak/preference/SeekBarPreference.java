@@ -316,6 +316,9 @@ public class SeekBarPreference extends DialogPreference
                 value = boostedMax;
             }
         }
+        if (VoiceSettings.PREF_WORD_GAP.equals(parameter.key)) {
+            value = value * 10;
+        }
         return value;
     }
 
