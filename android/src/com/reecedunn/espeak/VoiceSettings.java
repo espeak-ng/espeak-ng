@@ -33,6 +33,7 @@ public class VoiceSettings {
     public static final String PREF_PITCH = "espeak_pitch";
     public static final String PREF_PITCH_RANGE = "espeak_pitch_range";
     public static final String PREF_VOLUME = "espeak_volume";
+    public static final String PREF_WORD_GAP = "espeak_word_gap";
     public static final String PREF_PUNCTUATION_LEVEL = "espeak_punctuation_level";
     public static final String PREF_PUNCTUATION_CHARACTERS = "espeak_punctuation_characters";
     public static final String PREF_RATE_BOOST = "espeak_rate_boost";
@@ -89,6 +90,15 @@ public class VoiceSettings {
 
         if (rate < min) rate = min;
         return rate;
+    }
+
+    public int getWordGap() {
+        int min = mEngine.WordGap.getMinValue();
+        int max = mEngine.WordGap.getMaxValue();
+        int gap = getPreferenceValue(PREF_WORD_GAP, mEngine.WordGap.getDefaultValue());
+        if (gap > max) gap = max;
+        if (gap < min) gap = min;
+        return gap;
     }
 
     public int getPitch() {
