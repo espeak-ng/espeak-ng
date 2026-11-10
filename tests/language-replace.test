@@ -2,6 +2,19 @@
 # include common script
 . "`dirname $0`/common"
 
+##### ar: Arabic
+
+# A vowel before shadda is reordered to shadda + vowel (two characters replaced by two):
+# the vowel must stay, not a second shadda.
+test_replace ar "مُحَمَّدٌ رَسُولُ اللَّهِ. إِنَّ الْمُتَّقِينَ" "Translate 'مُحَمَّدٌ'
+Translate 'مُحَمَّد'
+Translate 'رَسُولُ'
+Translate 'اللَّهِ'
+Translate 'لَّهِ'
+Translate 'إِنَّ'
+Translate 'الْمُتَّقِينَ'
+Translate 'ْمُتَّقِينَ'"
+
 ##### bs: Bosnian
 
 # Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
@@ -23,6 +36,13 @@ Translate 'oeconomy'
 Found: 'phoenix'
 Found: 'lost'
 Translate 'history'"
+
+##### hak: Hakka
+
+# A letter + combining circumflex is replaced by the letter + tone 1 (two characters by two).
+test_replace hak "m̂ n̂ n̂g" "Translate 'm1'
+Translate 'n1'
+Translate 'n1g'"
 
 ##### hr: Croatian
 
