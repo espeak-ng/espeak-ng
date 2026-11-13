@@ -612,7 +612,7 @@ static int compile_line(CompileContext *ctx, char *linebuf, char *dict_line, int
 			// this is replacement text, so don't encode as phonemes. Restrict the length of the replacement word
 			strncpy0(encoded_ph, phonetic, N_WORD_BYTES-4);
 	} else {
-		EncodePhonemes(phonetic, encoded_ph, &bad_phoneme);
+		EncodePhonemes(phonetic, encoded_ph, sizeof(encoded_ph), &bad_phoneme);
 		if (strchr(encoded_ph, phonSWITCH) != 0)
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;  // don't match on suffixes (except 's') when switching languages
 
@@ -1218,7 +1218,7 @@ static char *compile_rule(CompileContext *ctx, char *input)
 		return NULL;
 	}
 
-	EncodePhonemes(ctx->rule_phonemes, buf, &bad_phoneme);
+	EncodePhonemes(ctx->rule_phonemes, buf, sizeof(buf), &bad_phoneme);
 	if (bad_phoneme != 0) {
 		bad_phoneme_str[utf8_out(bad_phoneme, bad_phoneme_str)] = 0;
 		fprintf(ctx->f_log, "%5d: Bad phoneme [%s] (U+%x) in: %s\n", ctx->linenum, bad_phoneme_str, bad_phoneme, input);
