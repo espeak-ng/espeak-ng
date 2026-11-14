@@ -1,0 +1,1 @@
+<speak><say-as interpret-as="characters">가</say-as></speak>
