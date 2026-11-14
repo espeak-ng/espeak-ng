@@ -494,7 +494,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int wtab_r
 		if (memcmp(word, "_^_", 3) == 0) {
 			SwitchLanguage(word, word_phonemes);
 		} else {
-			EncodePhonemes(word, word_phonemes, &bad_phoneme);
+			EncodePhonemes(word, word_phonemes, sizeof(word_phonemes), &bad_phoneme);
 		}
 
 		flags = FLAG_FOUND;
