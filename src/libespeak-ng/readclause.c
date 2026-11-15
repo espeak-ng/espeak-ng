@@ -642,6 +642,11 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 							strcpy(voice_change, current_voice_id);
 						return terminator;
 					}
+					if (ix > (n_buf - 20)) {
+						// the tag's output filled the buffer, end the clause here
+						TerminateBufWithSpaceAndZero(buf, ix, NULL);
+						return CLAUSE_NONE;
+					}
 					c1 = ' ';
 					if (!Eof()) {
 						c2 = GetC();

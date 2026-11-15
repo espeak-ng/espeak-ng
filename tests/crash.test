@@ -66,3 +66,5 @@ test_crash_vector punctuation-name-overflow -v te --punct
 test_crash_vector punctuation-name-overflow -v mr --punct
 test_crash_vector punctuation-name-overflow -v ml --punct
 test_crash_vector punctuation-name-overflow -v ka --punct
+test_crash_vector ssml-phoneme-clause-overrun -m -v en
+test_crash_vector ssml-prosody-clause-overrun -m -v en
