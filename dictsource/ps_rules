@@ -1,10 +1,22 @@
 // This ps_rules file is created by Hanif Rahman for Pashto language support in espeak-ng
-// This file is UTF8 encoded 
+// This file is UTF8 encoded
 // Phoneme rules for Pashto
+// Updated July 2026: added .group rules for sukun, shadda, tanwin, bare
+// hamza, and taa marbuta (previously unhandled, so any diacritized word
+// using one fell back to reading each letter's name instead of the word);
+// folded code-switched Arabic/Urdu/Farsi letter variants (e.g. Urdu ٹ ڈ ڑ,
+// Farsi گ) onto their Pashto equivalents in .replace. Also removed 117
+// "_) <consonant> (<fatha|kasra|damma> -> <consonant>@" rules: these fired
+// only when a real vowel diacritic followed a word-initial consonant, and
+// inserted a generic schwa instead of using that vowel, producing a
+// doubled vowel once the vowel diacritic's own .group rule also fired
+// (e.g. بَخْت "bakht" came out as "bəaxt"). They never affected ordinary
+// (undiacritized) Pashto lookups -- the diacritized dictionary entries in
+// ps_list resolve by direct lookup before the letter rules ever run.
 // Updated May 2025: Comprehensive revision to ensure full alignment with ph_pashto phoneme definitions
 // Improved context-sensitive rules and expanded coverage of phoneme combinations
 // Previous updates:
-// - April 2025: Comprehensive overhaul with improved context-sensitive rules, stress patterns, 
+// - April 2025: Comprehensive overhaul with improved context-sensitive rules, stress patterns,
 // - March 2025: Fixed to use only defined phonemes with correct notation
 
 // Letter group - l01: Vowels
@@ -23,11 +35,43 @@
 ي	ی
 آ	ا
 
+// Code-switched Arabic/Urdu/Farsi letters: Pashto text is heavily
+// code-switched with Arabic (religious/legal vocabulary), Urdu, and Dari
+// (Afghan Farsi). These letters are visually similar or identical in
+// sound to a native Pashto letter but use a different Unicode codepoint,
+// so without folding them here they match no .group rule and fall back
+// to spelling out the letter's name (or, for the Urdu-only codepoints
+// below, its raw Unicode character name in English) instead of the
+// correct Pashto sound. Fold to the Pashto letter with the same
+// pronunciation before dictionary/rule lookup, exactly like the
+// existing ي->ی and آ->ا folds above.
+ك	ک       // Arabic kaf -> Pashto/Dari keheh (same /k/)
+گ	ګ       // Dari/Urdu gaf -> Pashto kaf-with-ring (same /g/)
+ٹ	ټ       // Urdu tteh -> Pashto teh-with-ring (same retroflex /ʈ/)
+ڈ	ډ       // Urdu ddal -> Pashto dal-with-ring (same retroflex /ɖ/)
+ڑ	ړ       // Urdu rreh -> Pashto reh-with-ring (same retroflex /ɽ/)
+ہ	ه       // Urdu heh goal -> plain heh (same /h/)
+ۀ	ه       // Urdu heh with yeh above -> plain heh
+ۂ	ه       // Urdu heh goal with hamza above -> plain heh
+ے	ې       // Urdu yeh barree -> Pashto long e (same word-final vowel)
+ۓ	ی       // Urdu yeh barree with hamza above -> Pashto farsi yeh
+ۃ	ة       // Urdu teh marbuta goal -> Arabic teh marbuta
+أ	ا       // alef with hamza above -> plain alef (hamza not phonemic here)
+إ	ا       // alef with hamza below -> plain alef
+ؤ	و       // waw with hamza above -> plain waw
+ﺅ	و       // waw with hamza above, isolated presentation form -> plain waw
+ـ	        // tatweel (decorative justification stretch) -> deleted
+
 // vowel signs, alif acts as consonants at start of word if these follow
 .L01  َ ِ ُ و ی ع ا ې ۍ ی ګ ڼ ړ ډ ټ څ ځ ښ ږ ٰ ٗ
 
-// Consonants
-.L02  ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه ئ
+// Consonants. Sukun (ْ) is included for lookahead purposes only (it is
+// never itself a phoneme; see .group ْ below): a vocalized closed
+// syllable is usually spelled consonant+vowel+consonant+sukun+consonant
+// (e.g. بَخْت), and without sukun counting as an L02 member here the
+// existing closed-syllable vowel rules below don't recognize the
+// following consonant cluster, since the sukun sits between them.
+.L02  ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ غ ف ق ک ګ ل م ن ڼ ه ئ ْ
 
 // Letter group - L03 (all letters)
 .L03  ا ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ و ې ۍ ی ه ئ ٰ
@@ -93,6 +137,47 @@
 	_) ٰ	'a:     // Stress on initial long vowel
 	L02) ٰ	a:      // Long vowel in medial position
 
+// Remaining Arabic diacritics (harakat). َ ِ ُ ٗ ٰ above already handle
+// fatha/kasra/damma/zami/superscript-alef; sukun and shadda were entirely
+// unhandled, so any diacritized word carrying either one (very common in
+// Quran/hadith quotations, poetry, and primers) failed dictionary lookup
+// and the rule engine, then fell back to reading each letter's name from
+// the ps_list letter-names section instead of the word itself -- e.g.
+// بَخْت (bakht) read as "be zabar khe sukun te". Adding these completes
+// the same mapping pashto_g2p.core.DIACRITIC_IPA already uses in the g2p
+// tool, so raw vocalized text and the g2p's own predictions agree.
+.group ْ
+	ْ	        // sukun: explicitly no vowel; consumed silently
+
+.group ّ
+	ّ	:       // shadda: gemination, lengthens the preceding consonant
+
+.group ً
+	ً	an      // fathatan (tanwin): common in Arabic-derived adverbs
+	_) ً	'an     //   borrowed wholesale into Pashto (مثلاً masalan,
+	L02) ً	an      //   تقریباً taqriban, اصلاً aslan, ...)
+
+.group ٌ
+	ٌ	un      // dammatan (tanwin)
+
+.group ٍ
+	ٍ	in      // kasratan (tanwin)
+
+.group ٔ
+	ٔ	        // combining hamza above (standalone): silent, matches
+	                //   pashto_g2p.core.PASHTO_DIACRITICS
+
+.group ٕ
+	ٕ	        // combining hamza below (standalone): silent
+
+.group ء
+	ء	?       // hamza: glottal stop (سؤال, مسئله, شيء)
+	_) ء	'?
+
+.group ة
+	ة	a       // taa marbuta: Arabic feminine ending, read as -a
+	                //   (matches pashto_g2p.core word-final "ة" -> "a")
+
 .group ا
 	ا	a:
 	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
@@ -144,9 +229,6 @@
 .group ب
 	ب	b
 	ب (_	b
-	_) ب (َ	b@      // Initial with fatha
-	_) ب (ِ	b@      // Initial with kasra
-	_) ب (ُ	b@      // Initial with damma
 	ب (L02L02	b@      // Before consonant cluster
 	ب (ب	b:      // Geminated
 	_) بادام	ba:'da:m  // Almond
@@ -167,9 +249,6 @@
 	پ	p
 	پ (_	p
 	پھ	p
-	_) پ (َ	p@      // Initial with fatha
-	_) پ (ِ	p@      // Initial with kasra
-	_) پ (ُ	p@      // Initial with damma
 	پ (L02L02	p@      // Before consonant cluster
 	پ (پ	p:      // Geminated
 	_) پلار	p@'la:r  // Father
@@ -189,9 +268,6 @@
 	تھ	t
 	ت (ان	ta:n    // Common suffix
 	ت (ا	ta:     // Common sequence
-	_) ت (َ	t@      // Initial with fatha
-	_) ت (ِ	t@      // Initial with kasra
-	_) ت (ُ	t@      // Initial with damma
 	ت (L02L02	t@      // Before consonant cluster
 	ت (ت	t:      // Geminated
 	ت (و	tw      // Before waw
@@ -210,9 +286,6 @@
 	ټ	t.
 	ټ (_	t.
 	ټھ	t.
-	_) ټ (َ	t.@     // Initial with fatha
-	_) ټ (ِ	t.@     // Initial with kasra
-	_) ټ (ُ	t.@     // Initial with damma
 	ټ (L02L02	t.@     // Before consonant cluster
 	ټ (ټ	t.:     // Geminated
 	_) ټوپ	t.op     // Jump
@@ -230,9 +303,6 @@
 	ث	s
 	ث (_	s
 	ث (ث	s:      // Geminated
-	_) ث (َ	s@      // Initial with fatha
-	_) ث (ِ	s@      // Initial with kasra
-	_) ث (ُ	s@      // Initial with damma
 	_) ثابت	sa:'bit   // Stable/fixed
 	_) ثواب	sa'wa:b   // Reward/virtue
 	_) ثروت	sar'wat   // Wealth
@@ -246,9 +316,6 @@
 	ج	dZ      // Updated to match ph_pashto
 	ج (_	dZ      // Updated to match ph_pashto
 	جھ	dZ      // Updated to match ph_pashto
-	_) ج (َ	dZ@     // Initial with fatha
-	_) ج (ِ	dZ@     // Initial with kasra
-	_) ج (ُ	dZ@     // Initial with damma
 	ج (L02L02	dZ@     // Before consonant cluster
 	ج (ج	dZ:     // Geminated
 	_) جنګ	dZ@nQ    // War
@@ -265,9 +332,6 @@
 .group ځ
 	ځ	dz
 	ځ (_	dz
-	_) ځ (َ	dz@     // Initial with fatha
-	_) ځ (ِ	dz@     // Initial with kasra
-	_) ځ (ُ	dz@     // Initial with damma
 	ځ (L02L02	dz@     // Before consonant cluster
 	ځ (ځ	dz:     // Geminated
 	_) ځان	dza:n    // Self
@@ -295,9 +359,6 @@
 	چ	tS      // Updated to match ph_pashto
 	چ (_	tS      // Updated to match ph_pashto
 	چھ	tS      // Updated to match ph_pashto
-	_) چ (َ	tS@     // Initial with fatha
-	_) چ (ِ	tS@     // Initial with kasra
-	_) چ (ُ	tS@     // Initial with damma
 	چ (L02L02	tS@     // Before consonant cluster
 	چ (چ	tS:     // Geminated
 	_) چا	tSa:     // Who
@@ -320,9 +381,6 @@
 .group څ
 	څ	ts
 	څ (_	ts
-	_) څ (َ	ts@     // Initial with fatha
-	_) څ (ِ	ts@     // Initial with kasra
-	_) څ (ُ	ts@     // Initial with damma
 	څ (L02L02	ts@     // Before consonant cluster
 	څ (څ	ts:     // Geminated
 	_) څوک	tsok    // Who
@@ -345,9 +403,6 @@
 .group ح
 	ح	h
 	ح (_	h
-	_) ح (َ	h@      // Initial with fatha
-	_) ح (ِ	h@      // Initial with kasra
-	_) ح (ُ	h@      // Initial with damma
 	ح (L02L02	h@      // Before consonant cluster
 	ح (ح	h:      // Geminated
 	_) حق	h@q     // Right/truth
@@ -369,9 +424,6 @@
 .group خ
 	خ	X       // Updated to match ph_pashto
 	خ (_	X       // Updated to match ph_pashto
-	_) خ (َ	X@      // Initial with fatha
-	_) خ (ِ	X@      // Initial with kasra
-	_) خ (ُ	X@      // Initial with damma
 	خ (L02L02	X@      // Before consonant cluster
 	خ (خ	X:      // Geminated
 	_) خبر	X@'b@r   // News
@@ -394,9 +446,6 @@
 	د	d
 	د (_	d
 	دھ	d
-	_) د (َ	d@      // Initial with fatha
-	_) د (ِ	d@      // Initial with kasra
-	_) د (ُ	d@      // Initial with damma
 	د (L02L02	d@      // Before consonant cluster
 	د (د	d:      // Geminated
 	د (ر	dr      // Common cluster
@@ -420,9 +469,6 @@
 	ډ	d.
 	ډ (_	d.
 	ډھ	d.
-	_) ډ (َ	d.@     // Initial with fatha
-	_) ډ (ِ	d.@     // Initial with kasra
-	_) ډ (ُ	d.@     // Initial with damma
 	ډ (L02L02	d.@     // Before consonant cluster
 	ډ (ډ	d.:     // Geminated
 	ډ (ر	d.r     // Common cluster
@@ -445,9 +491,6 @@
 .group ذ
 	ذ	z
 	ذ (_	z
-	_) ذ (َ	z@      // Initial with fatha
-	_) ذ (ِ	z@      // Initial with kasra
-	_) ذ (ُ	z@      // Initial with damma
 	ذ (L02L02	z@      // Before consonant cluster
 	ذ (ذ	z:      // Geminated
 	_) ذکر	z@kr    // Mention/remembrance
@@ -466,9 +509,6 @@
 .group ر
 	ر	r
 	ر (_	r
-	_) ر (َ	r@      // Initial with fatha
-	_) ر (ِ	r@      // Initial with kasra
-	_) ر (ُ	r@      // Initial with damma
 	ر (L02L02	r@      // Before consonant cluster
 	ر (ر	r:      // Geminated
 	L02) ر (L02	@r      // Epenthetic schwa between consonants
@@ -490,9 +530,6 @@
 .group ړ
 	ړ	r.
 	ړ (_	r.
-	_) ړ (َ	r.@     // Initial with fatha
-	_) ړ (ِ	r.@     // Initial with kasra
-	_) ړ (ُ	r.@     // Initial with damma
 	ړ (L02L02	r.@     // Before consonant cluster
 	ړ (ړ	r.:     // Geminated
 	L02) ړ (L02	@r.     // Epenthetic schwa between consonants
@@ -510,9 +547,6 @@
 .group ز
 	ز	z
 	ز (_	z
-	_) ز (َ	z@      // Initial with fatha
-	_) ز (ِ	z@      // Initial with kasra
-	_) ز (ُ	z@      // Initial with damma
 	ز (L02L02	z@      // Before consonant cluster
 	ز (ز	z:      // Geminated
 	ز (د	zd      // Common cluster
@@ -535,9 +569,6 @@
 .group ژ
 	ژ	Z       // Updated to match ph_pashto
 	ژ (_	Z       // Updated to match ph_pashto
-	_) ژ (َ	Z@      // Initial with fatha
-	_) ژ (ِ	Z@      // Initial with kasra
-	_) ژ (ُ	Z@      // Initial with damma
 	ژ (L02L02	Z@      // Before consonant cluster
 	ژ (ژ	Z:      // Geminated
 	L02) ژ (L02	@Z      // Epenthetic schwa between consonants
@@ -556,9 +587,6 @@
 .group ږ
 	ږ	Z.      // Updated to match ph_pashto (Z. for retroflex version)
 	ږ (_	Z.      // Updated to match ph_pashto
-	_) ږ (َ	Z.@     // Updated to match ph_pashto
-	_) ږ (ِ	Z.@     // Updated to match ph_pashto
-	_) ږ (ُ	Z.@     // Updated to match ph_pashto
 	ږ (L02L02	Z.@     // Updated to match ph_pashto
 	ږ (ږ	Z.:     // Updated to match ph_pashto
 	ږ (م	Z.m     // Updated to match ph_pashto
@@ -578,9 +606,6 @@
 .group س
 	س	s
 	س (_	s
-	_) س (َ	s@      // Initial with fatha
-	_) س (ِ	s@      // Initial with kasra
-	_) س (ُ	s@      // Initial with damma
 	س (L02L02	s@      // Before consonant cluster
 	س (س	s:      // Geminated
 	س (ت	s@'t    // Common sequence
@@ -617,9 +642,6 @@
 .group ش
 	ش	S
 	ش (_	S
-	_) ش (َ	S@      // Initial with fatha
-	_) ش (ِ	S@      // Initial with kasra
-	_) ش (ُ	S@      // Initial with damma
 	ش (L02L02	S@      // Before consonant cluster
 	ش (ش	S:      // Geminated
 	ش (ت	St      // Common cluster
@@ -653,9 +675,6 @@
 .group ښ
 	ښ	S.      // Updated to match ph_pashto
 	ښ (_	S.      // Updated to match ph_pashto
-	_) ښ (َ	S.@     // Updated to match ph_pashto
-	_) ښ (ِ	S.@     // Updated to match ph_pashto
-	_) ښ (ُ	S.@     // Updated to match ph_pashto
 	ښ (L02L02	S.@     // Updated to match ph_pashto
 	ښ (ښ	S.:     // Updated to match ph_pashto
 	ښ (ت	S.t     // Updated to match ph_pashto
@@ -689,9 +708,6 @@
 .group ص
 	ص	s
 	ص (_	s
-	_) ص (َ	s@      // Initial with fatha
-	_) ص (ِ	s@      // Initial with kasra
-	_) ص (ُ	s@      // Initial with damma
 	ص (L02L02	s@      // Before consonant cluster
 	ص (ص	s:      // Geminated
 	ص (ا	sa:     // Common combinations
@@ -725,9 +741,6 @@
 .group ض
 	ض	z
 	ض (_	z
-	_) ض (َ	z@      // Initial with fatha
-	_) ض (ِ	z@      // Initial with kasra
-	_) ض (ُ	z@      // Initial with damma
 	ض (L02L02	z@      // Before consonant cluster
 	ض (ض	z:      // Geminated
 	ض (ا	za:     // Common combinations
@@ -758,9 +771,6 @@
 .group ط
 	ط	t
 	ط (_	t
-	_) ط (َ	t@      // Initial with fatha
-	_) ط (ِ	t@      // Initial with kasra
-	_) ط (ُ	t@      // Initial with damma
 	ط (L02L02	t@      // Before consonant cluster
 	ط (ط	t:      // Geminated
 	ط (ا	ta:     // Common combinations
@@ -793,9 +803,6 @@
 .group ظ
 	ظ	z
 	ظ (_	z
-	_) ظ (َ	z@      // Initial with fatha
-	_) ظ (ِ	z@      // Initial with kasra
-	_) ظ (ُ	z@      // Initial with damma
 	ظ (L02L02	z@      // Before consonant cluster
 	ظ (ظ	z:      // Geminated
 	ظ (ا	za:     // Common combinations
@@ -826,9 +833,6 @@
 .group ع
 	ع	?       // Updated to glottal stop (?) which is more accurate than Q
 	ع (_	?       // Updated to glottal stop
-	_) ع (َ	?@      // Initial with fatha
-	_) ع (ِ	?@      // Initial with kasra
-	_) ع (ُ	?@      // Initial with damma
 	ع (L02L02	?@      // Before consonant cluster
 	ع (ع	?:      // Geminated
 	ع (ا	?a:     // Common combinations
@@ -862,9 +866,6 @@
 .group غ
 	غ	Q       // Updated to match ph_pashto
 	غ (_	Q
-	_) غ (َ	Q@      // Initial with fatha
-	_) غ (ِ	Q@      // Initial with kasra
-	_) غ (ُ	Q@      // Initial with damma
 	غ (L02L02	Q@      // Before consonant cluster
 	غ (غ	Q:      // Geminated
 	غان	Qa:n    // Common ending
@@ -903,9 +904,6 @@
 .group ف
 	ف	f
 	ف (_	f
-	_) ف (َ	f@      // Initial with fatha
-	_) ف (ِ	f@      // Initial with kasra
-	_) ف (ُ	f@      // Initial with damma
 	ف (L02L02	f@      // Before consonant cluster
 	ف (ف	f:      // Geminated
 	ف (غ	f@'Qa:  // Updated to match ph_pashto
@@ -945,9 +943,6 @@
 .group ق
 	ق	q
 	ق (_	q
-	_) ق (َ	q@      // Initial with fatha
-	_) ق (ِ	q@      // Initial with kasra
-	_) ق (ُ	q@      // Initial with damma
 	ق (L02L02	q@      // Before consonant cluster
 	ق (ق	q:      // Geminated
 	ق (ر	qr      // Common cluster
@@ -986,9 +981,6 @@
 	ک	k
 	ک (_	k
 	کھ	k
-	_) ک (َ	k@      // Initial with fatha
-	_) ک (ِ	k@      // Initial with kasra
-	_) ک (ُ	k@      // Initial with damma
 	ک (L02L02	k@      // Before consonant cluster
 	ک (ک	k:      // Geminated
 	ک (ت	k@'t    // Common sequence
@@ -1029,9 +1021,6 @@
 	ګ	g
 	ګ (_	g
 	ګھ	g
-	_) ګ (َ	g@      // Initial with fatha
-	_) ګ (ِ	g@      // Initial with kasra
-	_) ګ (ُ	g@      // Initial with damma
 	ګ (L02L02	g@      // Before consonant cluster
 	ګ (ګ	g:      // Geminated
 	ګ (ر	g@'r    // Common sequence
@@ -1067,9 +1056,6 @@
 .group ل
 	ل	l
 	ل (_	l
-	_) ل (َ	l@      // Initial with fatha
-	_) ل (ِ	l@      // Initial with kasra
-	_) ل (ُ	l@      // Initial with damma
 	ل (L02L02	l@      // Before consonant cluster
 	ل (ل	l:      // Geminated
 	ل (م	l@'m    // Common sequence
@@ -1105,9 +1091,6 @@
 .group م
 	م	m
 	م (_	m
-	_) م (َ	m@      // Initial with fatha
-	_) م (ِ	m@      // Initial with kasra
-	_) م (ُ	m@      // Initial with damma
 	م (L02L02	m@      // Before consonant cluster
 	م (م	m:      // Geminated
 	م (س	m@'s    // Common sequence
@@ -1144,9 +1127,6 @@
 .group ن
 	ن	n
 	ن (_	n
-	_) ن (َ	n@      // Initial with fatha
-	_) ن (ِ	n@      // Initial with kasra
-	_) ن (ُ	n@      // Initial with damma
 	ن (L02L02	n@      // Before consonant cluster
 	ن (ن	n:      // Geminated
 	ن (س	n@s     // Common sequence
@@ -1185,9 +1165,6 @@
 .group ڼ
 	ڼ	n.
 	ڼ (_	n.
-	_) ڼ (َ	n.@     // Initial with fatha
-	_) ڼ (ِ	n.@     // Initial with kasra
-	_) ڼ (ُ	n.@     // Initial with damma
 	ڼ (L02L02	n.@     // Before consonant cluster
 	ڼ (ڼ	n.:     // Geminated
 	ڼ (ی	n.@j    // Common ending
@@ -1231,9 +1208,6 @@
 	وی	wi:
 	وَ	wa
 	و (ن	u:n
-	_) و (َ	w@      // Initial with fatha
-	_) و (ِ	w@      // Initial with kasra
-	_) و (ُ	w@      // Initial with damma
 	L02) و (L02	w      // Medial between consonants
 	L02) و (_	u:     // Final after consonant
 	و (ل	wl      // Common cluster
@@ -1277,9 +1251,6 @@
 	هُو	hu:
 	ه (ن	h@n
 	ه (تون	h@n'tu:n
-	_) ه (َ	h@      // Initial with fatha
-	_) ه (ِ	h@      // Initial with kasra
-	_) ه (ُ	h@      // Initial with damma
 	L02) ه (L02	h@     // Medial between consonants
 	L02) ه (_	@h     // Final after consonant
 	ه (ی	h@j     // Common ending
@@ -1318,9 +1289,6 @@
 	ی (_	i:
 	یٰ	a:
 	یک	j@k    // For compound words ending with کی
-	_) ی (َ	j@      // Initial with fatha
-	_) ی (ِ	j@      // Initial with kasra
-	_) ی (ُ	j@      // Initial with damma
 	L02) ی (L02	j      // Medial between consonants
 	L02) ی (_	i:     // Final after consonant
 	ی (ی	j:      // Geminated
