@@ -553,6 +553,28 @@ tys		tyS;E~tsy $dot
 mln		miljOnuf
 mld		miljaRduf
 
+// popularne marki z angielskiego, z najczęstszymi formami;
+// iPhone, iPad, YouTube są dzielone na dwa słowa przez wielką literę w środku
+(i phone)	ajf'On
+(i phone'a)	ajf'Ona
+(i phone'em)	ajf'OnEm
+(i phonie)	ajf'On^E
+(i pad)		aj'pat
+(i pada)	ajp'ada
+(i padzie)	ajp'adz;E
+(you tube)	j'utup
+(you tube'a)	jut'uba
+(you tubie)	jut'ub;E
+iphone		ajf'On
+ipad		aj'pat
+youtube		j'utup
+google		g'ugl
+google'a	g'ugla
+googlem		g'uglEm
+facebook	f'Ejzbuk
+facebooka	fEjzb'uka
+facebooku	fEjzb'uku
+
 //popularne zagraniczniaki nieodmienne (no, prawie)
 (ad hoc) adh'Ok
 adieu	adj'E
