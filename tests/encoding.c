@@ -700,6 +700,22 @@ test_utf_8_encoding()
 	TEST_ASSERT(text_decoder_getc(decoder) == 0xFFFD);
 	TEST_ASSERT(text_decoder_eof(decoder) == 1);
 
+	// overlong forms and UTF-16 surrogates
+	TEST_ASSERT(text_decoder_decode_string(decoder, "\xC0\xBC\xC1\xBE\xE0\x80\xBC\xF0\x80\x80\xBC\xED\xA0\x80\xED\xBF\xBF", 17, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xFFFD); // \xC0\xBC is an overlong '<'
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xFFFD); // \xC1\xBE is an overlong '>'
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xFFFD); // \xE0\x80\xBC is an overlong '<'
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xFFFD); // \xF0\x80\x80\xBC is an overlong '<'
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xFFFD); // U+D800 surrogate
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xFFFD); // U+DFFF surrogate
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+
 	destroy_text_decoder(decoder);
 }
 
@@ -879,6 +895,14 @@ test_auto_decoder()
 	TEST_ASSERT(text_decoder_getc(decoder) == 0xA0);
 	TEST_ASSERT(text_decoder_eof(decoder) == 0);
 	TEST_ASSERT(text_decoder_getc(decoder) == 'f');
+	TEST_ASSERT(text_decoder_eof(decoder) == 1);
+
+	// overlong UTF-8 falls back to the codepage
+	TEST_ASSERT(text_decoder_decode_string_auto(decoder, "\xC0\xBC", 2, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xC0);
+	TEST_ASSERT(text_decoder_eof(decoder) == 0);
+	TEST_ASSERT(text_decoder_getc(decoder) == 0xBC);
 	TEST_ASSERT(text_decoder_eof(decoder) == 1);
 
 	// string length
