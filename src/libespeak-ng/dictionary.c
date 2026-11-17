@@ -656,8 +656,10 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	int use_ipa;
 	int use_tie;
 	int separate_phonemes;
-	char phon_buf[30];
 	char phon_buf2[30];
+	// phon_buf2 with a tie (up to 4 bytes) after each byte, plus the word space,
+	// separator, stress mark and the length, syllabic and tone mnemonics
+	char phon_buf[sizeof(phon_buf2) * 5 + 64];
 	PHONEME_LIST *plist;
 
 	static const char stress_chars[] = "==,,''";
