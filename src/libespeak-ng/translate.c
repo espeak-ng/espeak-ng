@@ -288,8 +288,8 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 
 			// skip to the next word in a multi-word replacement. Always skip at least one word.
 			for (dictionary_skipwords++; dictionary_skipwords > 0; dictionary_skipwords--) {
-				while (*word_out && !isspace(*word_out)) ++word_out;
-				while (isspace(*word_out))  ++word_out;
+				while (*word_out && !isspace2((unsigned char)*word_out)) ++word_out;
+				while (isspace2((unsigned char)*word_out))  ++word_out;
 			}
 			dictionary_skipwords = skipwords;
 		}
