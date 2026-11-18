@@ -1,0 +1,4 @@
+espeak-ng -v la -s 120 "Nihil permanet, Antinoe. Urbes cadunt, fama evanescit."
+-v la → Latin voice
+
+-s 120 → speed (120 = slower, more solemn)
