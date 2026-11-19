@@ -118,8 +118,8 @@ Text between the following tags is ignored:
 
 ### SSML
 
-1. [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
-   W3C Recommendation, 3 March 2009. W3C.
+1. [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
+   W3C Recommendation, 7 September 2004. W3C.
 1. [Speech Synthesis Markup Language (SSML) Version 1.1](http://www.w3.org/TR/2010/REC-speech-synthesis11-20100907/).
    W3C Recommendation, 7 September 2010. W3C.
 1. [SSML 1.0 say-as attribute values](http://www.w3.org/TR/2005/NOTE-ssml-sayas-20050526).
