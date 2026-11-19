@@ -66,3 +66,4 @@ test_crash_vector punctuation-name-overflow -v te --punct
 test_crash_vector punctuation-name-overflow -v mr --punct
 test_crash_vector punctuation-name-overflow -v ml --punct
 test_crash_vector punctuation-name-overflow -v ka --punct
+test_crash_vector phoneme-tie-switch-overflow -v en-us-nyc -x --tie=z
