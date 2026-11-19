@@ -1,0 +1,1 @@
+<speak>hello <break time="99999999999"/> world <break time="2000000s"/> again</speak>
