@@ -35,6 +35,7 @@
 #include "translate.h"
 #include "common.h"
 #include "dictionary.h"           // for TranslateRules, LookupDictList, Cha...
+#include "numbers.h"              // for LookupLetter
 #include "phoneme.h"              // for phonSWITCH, PHONEME_TAB, phonPAUSE_...
 #include "phonemelist.h"          // for MakePhonemeList
 #include "readclause.h"           // for towlower2, Eof, ReadClause, is_str_...
@@ -219,6 +220,222 @@ static void SegmentReplacement(Translator *tr, const char *text, char *out, int 
 	out[out_ix] = 0;
 }
 
+static bool ReplacementIsOneWord(const char *word, bool first_word)
+{
+	// true if word is the whole replacement text (nothing after it)
+	if (!first_word)
+		return false;
+	while (*word && !isspace((unsigned char)*word)) word++;
+	while (isspace((unsigned char)*word)) word++;
+	return *word == 0;
+}
+
+static const char *CountClauseLetters(const char *p, int *upper_count, int *lower_count)
+{
+	// Count the letters from p to the end of its clause, as ReadClause counts
+	// a clause: clause punctuation followed by a space, or at the end, ends it.
+	// Returns where the next clause starts.
+	int c;
+	int c_next;
+	int type;
+
+	*upper_count = 0;
+	*lower_count = 0;
+	while (*p != 0) {
+		p += utf8_in(&c, p);
+		if (iswupper(c))
+			(*upper_count)++;
+		else if (iswalpha(c))
+			(*lower_count)++;
+		else if ((type = clause_type_from_codepoint(c)) != CLAUSE_NONE) {
+			utf8_in(&c_next, p);
+			if ((c_next == 0) || iswspace(c_next) || (type & CLAUSE_OPTIONAL_SPACE_AFTER))
+				break;
+		}
+	}
+	return p;
+}
+
+static void SwitchReplacementWord(Translator *tr, const char *word, WORD_TAB *wtab, int wtab_remaining, bool first_word, int upper_count, int lower_count)
+{
+	// A word of a replacement text (eg. an emoji name) is in another language,
+	// such as "ATM" in a Hindi or Marathi emoji name, so word_phonemes holds a
+	// language switch: phonSWITCH and the language's name. That form works for
+	// a whole word (TranslateWord2 translates the word again in that language),
+	// but in a replacement the next words' phonemes follow the name and corrupt
+	// it. At the start of the replacement the switch failed and nothing was
+	// said; later on, the next byte was taken as a phoneme table number and the
+	// rest of the clause used the wrong phonemes. Say the word in that language
+	// within a phoneme table switch instead, as for alphabet names.
+	char lang[20];
+	char ph3[N_WORD_PHONEMES];
+	char word3[N_WORD_BYTES+3];
+	char old_dictionary_name[40];
+	int tab3;
+	int ix;
+	int c;
+	int n_letters = 0;
+	int letter = 0;
+	bool all_upper = (wtab->flags & FLAG_FIRST_UPPER) != 0;
+	unsigned int old_flags = wtab->flags;
+	bool old_any_stressed_words = any_stressed_words;
+	char old_phonemes[N_WORD_PHONEMES];
+	bool spell = false;
+
+	strcpy(old_phonemes, word_phonemes);
+
+	// The word ends at a space, found as in the loop below. In typed text,
+	// clause punctuation at the end of a word ("UP!") ends the clause and is
+	// not said, so leave it out.
+	const char *end = word;
+	while (*end != 0) {
+		int n = utf8_in(&c, end);
+		if (iswspace(c))
+			break;
+		end += n;
+	}
+	const char *word_end = end;
+	while (end > word) {
+		const char *p = end - 1;
+		while ((p > word) && ((*p & 0xc0) == 0x80))
+			p--; // the start of the last character
+		utf8_in(&c, p);
+		if (clause_type_from_codepoint(c) == CLAUSE_NONE)
+			break;
+		end = p;
+	}
+	if (end == word)
+		end = word_end; // only punctuation: keep the word as it was
+
+	// A word of two or three capitals ("AB", "SOS") in a mostly lower case
+	// clause is spelled in typed text (see TranslateWord3). Here the clause is
+	// the emoji, which has no letters, so translate the word again as typed
+	// text would, with the letter counts of its clause in the replacement
+	// text. If its letters are in another language, TranslateWord3 returns
+	// FLAG_SPELLWORD (TranslateWord2 then says each letter as a word in that
+	// language).
+	{
+		int n_chars = 0;
+		bool caps = (wtab->flags & FLAG_FIRST_UPPER) != 0;
+		const char *p;
+		for (p = word; p < end; n_chars++) {
+			p += utf8_in(&c, p);
+			if (!iswalpha(c) || ((n_chars > 0) && !iswupper(c))) // the first letter is already lower case
+				caps = false;
+		}
+		if (caps && (n_chars >= 2) && (n_chars <= 3)) {
+			char word_tr[N_WORD_BYTES+3];
+			int old_upper_count = tr->clause_upper_count;
+			int old_lower_count = tr->clause_lower_count;
+			int skipwords = dictionary_skipwords;
+
+			word_tr[0] = 0;
+			word_tr[1] = ' ';
+			for (p = word, ix = 2; p < end; ) {
+				p += utf8_in(&c, p);
+				ix += utf8_out(towlower2(c, tr), &word_tr[ix]);
+			}
+			word_tr[ix++] = ' ';
+			word_tr[ix] = 0;
+
+			strcpy(old_dictionary_name, dictionary_name);
+			tr->clause_upper_count = upper_count;
+			tr->clause_lower_count = lower_count;
+			wtab->flags |= FLAG_ALL_UPPER;
+			ph3[0] = 0;
+			spell = (TranslateWord3(tr, &word_tr[2], wtab, wtab_remaining, NULL, &any_stressed_words, current_alphabet, ph3, sizeof(ph3)) & FLAG_SPELLWORD) != 0;
+			tr->clause_upper_count = old_upper_count;
+			tr->clause_lower_count = old_lower_count;
+			wtab->flags = old_flags;
+			dictionary_skipwords = skipwords;
+			SelectPhonemeTable(tr->phoneme_tab_ix);
+			strcpy(dictionary_name, old_dictionary_name);
+
+			if (!spell && (ph3[0] != 0) && ((unsigned char)ph3[0] != phonSWITCH) && (strlen(ph3) < sizeof(word_phonemes))) {
+				strcpy(word_phonemes, ph3); // as in typed text, eg. a Roman number
+				return;
+			}
+			any_stressed_words = old_any_stressed_words;
+		}
+	}
+
+	// as in TranslateWord2: no name means the default language
+	snprintf(lang, sizeof(lang), "%s", (word_phonemes[1] != 0) ? &word_phonemes[1] : ESPEAKNG_DEFAULT_VOICE);
+	word_phonemes[0] = 0;
+
+	strcpy(old_dictionary_name, dictionary_name);
+	ph3[0] = 0;
+	tab3 = SetTranslator3(lang);
+	if ((tab3 > 0) && (translator3 != NULL)) {
+		// A lower case copy, as for text: the replacement loop lowers only the
+		// first letter, and the other language can't read "aTM".
+		word3[0] = 0;
+		word3[1] = ' ';
+		for (ix = 2; (word < end) && (ix < (int)sizeof(word3)-5); ) {
+			int n = utf8_in(&c, word);
+			if (iswspace(c))
+				break;
+			if (iswalpha(c) && !iswupper(c) && (ix > 2))
+				all_upper = false;
+			letter = towlower2(c, translator3);
+			n_letters++;
+			ix += utf8_out(letter, &word3[ix]);
+			word += n;
+		}
+		word3[ix++] = ' ';
+		word3[ix] = 0;
+		if (all_upper && (ix > 4)) // two or more capital letters, as for text
+			wtab->flags |= FLAG_ALL_UPPER;
+
+		if (spell) {
+			// each letter with its name, as for typed text
+			const char *w = &word3[2];
+			int len = 0;
+			while ((*w != ' ') && (*w != 0)) {
+				char ph_letter[N_WORD_PHONEMES];
+				w += utf8_in(&c, w);
+				ph_letter[0] = 0;
+				LookupLetter(translator3, c, ' ', ph_letter, sizeof(ph_letter), 0);
+				if ((ph_letter[0] == 0) || ((unsigned char)ph_letter[0] == phonSWITCH) || (len + (int)strlen(ph_letter) + 2 >= (int)sizeof(ph3))) {
+					len = 0; // can't be said this way
+					break;
+				}
+				if (len > 0)
+					ph3[len++] = phonEND_WORD;
+				strcpy(&ph3[len], ph_letter);
+				len += strlen(ph_letter);
+			}
+			ph3[len] = 0;
+		}
+
+		if (ph3[0] == 0) {
+			if ((n_letters == 1) && iswalpha(letter)) {
+				// one letter, as in "A बटण": its name, as for typed text
+				LookupLetter(translator3, letter, ' ', ph3, sizeof(ph3), 0);
+			} else
+				TranslateWord3(translator3, &word3[2], wtab, wtab_remaining, NULL, &any_stressed_words, current_alphabet, ph3, sizeof(ph3));
+		}
+	}
+	SelectPhonemeTable(tr->phoneme_tab_ix);
+	strcpy(dictionary_name, old_dictionary_name);
+	wtab->flags = old_flags;
+
+	// Both table numbers must be above 0: a 0 byte would end the phonemes early
+	// and leave the rest of the clause in the other table. If the word can't be
+	// said this way, everything is left as it was.
+	if ((ph3[0] == 0) || ((unsigned char)ph3[0] == phonSWITCH) || (tr->phoneme_tab_ix <= 0) || (strlen(ph3) + 6 >= sizeof(word_phonemes))) {
+		strcpy(word_phonemes, old_phonemes);
+		any_stressed_words = old_any_stressed_words;
+	} else {
+		// At the start of a word, a phonSWITCH would be taken as a language name
+		// (see TranslateWord2), so a very short pause comes first.
+		if (first_word)
+			snprintf(word_phonemes, sizeof(word_phonemes), "%c%c%c%s%c%c", phonPAUSE_VSHORT, phonSWITCH, tab3, ph3, phonSWITCH, tr->phoneme_tab_ix);
+		else
+			snprintf(word_phonemes, sizeof(word_phonemes), "%c%c%s%c%c", phonSWITCH, tab3, ph3, phonSWITCH, tr->phoneme_tab_ix);
+	}
+}
+
 static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_remaining, char *word_out, int depth)
 {
 	char words_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
@@ -237,10 +454,17 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 		SegmentReplacement(tr, word_out, word+2, sizeof(word)-2);
 		word_out = word+2;
 
+		// letters of each clause of the replacement text, as for typed text
+		int upper_count = 0;
+		int lower_count = 0;
+		const char *clause_end = word_out;
+
 			bool first_word = true;
 			int available = N_WORD_PHONEMES;
 		while (*word_out && available > 1) {
 			int c;
+			if (word_out >= clause_end)
+				clause_end = CountClauseLetters(word_out, &upper_count, &lower_count);
 			int nbytes = utf8_in(&c, word_out);
 			if (iswupper(c)) {
 				char lower_buf[8];
@@ -274,6 +498,8 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 				TranslateWordWithBounds(tr, word_out, wtab, wtab_remaining, word_replacement2, depth+1);
 			} else
 				TranslateWord3(tr, word_out, wtab, wtab_remaining, NULL, &any_stressed_words, current_alphabet, word_phonemes, sizeof(word_phonemes));
+			if (((unsigned char)word_phonemes[0] == phonSWITCH) && !ReplacementIsOneWord(word_out, first_word))
+				SwitchReplacementWord(tr, word_out, wtab, wtab_remaining, first_word, upper_count, lower_count);
 
 			int n;
 			if (first_word) {

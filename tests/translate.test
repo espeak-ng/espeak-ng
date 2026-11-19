@@ -150,6 +150,19 @@ test_phon de "Sv'arts@ k'ats@" "🐈‍⬛"
 # them, and overflowed the word buffer in a long clause)
 test_phon qu "_:(en)'aks(qu) w'asi" "🪓 wasi"
 test_phon ti "_:(en)'0m(ti) s'@lam" "🕉 ሰላም"
+# a word in another language within an emoji name ("ATM" in Marathi and Hindi)
+# is said in that language: the name was silent when it started with such a
+# word, and later in a name the rest of the clause used the wrong phonemes
+test_phon mr "_|(en)'eI t'i:; 'Em(mr) c'InH" "🏧"
+test_phon hi "_|(en)'eI t'i:; 'Em(hi) ka: pr@2t'i:k" "🏧"
+test_phon hi "cO:k'o:r me~:(en) 'Es 'oU 'Es(hi) c'IHn b@c'a:o: m'Vd@d k'V*o:" "🆘 मदद करो"
+test_phon mr "_|(en)'eI(mr) b'Vt.@n." "🅰" # one letter: its name, as in text
+test_phon ur "_|(en)'En 'A@ri(ur) J'o:r." "∑"
+test_phon fr "viz'aZ d@-(en) g'i:k(fr)" "🤓"
+# two or three capitals are spelled, as in typed text ("AB IV", not "ab" and a
+# Roman number), and a "!" ending a word is not said
+test_phon uk "kn'opka(en) 'eI b'i:; 'aI v'i:(uk) hR'upa kR'oBi:" "🆎"
+test_phon el "kub'i(en) j'u: p'i:(el)" "🆙"
 
 # ED-7/ED-14 - emoji flag sequence: a flag is exactly two regional indicator
 # symbols (U+1F1E6..U+1F1FF). A run of flags written without whitespace must be
