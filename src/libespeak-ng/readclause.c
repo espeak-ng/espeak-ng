@@ -642,6 +642,12 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 							strcpy(voice_change, current_voice_id);
 						return terminator;
 					}
+					if (ix >= (n_buf - 4)) {
+						// the tag's embedded commands can be longer than the room checked
+						// for above (eg. <prosody> with large values), end the clause here
+						TerminateBufWithSpaceAndZero(buf, ix, NULL);
+						return CLAUSE_NONE;
+					}
 					c1 = ' ';
 					if (!Eof()) {
 						c2 = GetC();
