@@ -14,7 +14,7 @@ list(APPEND _dict_compile_list
   mi mk ml mn mr ms mto mt my
   nci ne nl nog no
   om or
-  pap pa piqd pl ps pt py
+  pap pa pi piqd pl ps pt py
   qdb quc qu qya
   ro ru rup
   sd shn si sjn sk sl smj sq sr sv sw

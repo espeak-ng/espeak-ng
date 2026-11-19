@@ -1,0 +1,137 @@
+// Pali (pi): romanised Pali (IAST, as in the Mahāsaṅgīti / SuttaCentral editions).
+// Pali spelling is phonemic, so these rules are letter -> sound, left to right, every vowel sounded.
+// Phonemes from the Hindi table (hi_base): V a: I i: U u: e: e o: o, aspirates with #,
+// retroflexes with a dot (t. d. n. l.), n^ = ñ, N = ṅ.
+
+.L01 k g c j ṭ ḍ t d p b ṅ ñ ṇ n m y r l ḷ v s h   // consonant letters
+.L02 k g c j ṭ ḍ t d p b   // stops that have an aspirate (kh ... bh: one consonant)
+
+.group a
+       a        V
+
+.group ā
+       ā        a:
+
+.group i
+       i        I
+
+.group ī
+       ī        i:
+
+.group u
+       u        U
+
+.group ū
+       ū        u:
+
+.group e
+       e        e:
+       e (L01L01  e        // short before two consonants: metta, seṭṭha
+       e (L02h    e:       // but an aspirate is one: bhāvetha
+
+.group o
+       o        o:
+       o (L01L01  o        // sotthi, ottappa
+       o (L02h    o:       // nirodha
+
+.group k
+       k        k
+       kh       k#
+
+.group g
+       g        g
+       gh       g#
+
+.group ṅ
+       ṅ        N
+
+.group c
+       c        c
+       ch       c#
+
+.group j
+       j        J
+       jh       J#
+
+.group ñ
+       ñ        n^
+
+.group ṭ
+       ṭ        t.
+       ṭh       t.#
+
+.group ḍ
+       ḍ        d.
+       ḍh       d.#
+
+.group ṇ
+       ṇ        n.
+
+.group t
+       t        t
+       th       t#
+
+.group d
+       d        d
+       dh       d#
+
+.group n
+       n        n
+
+.group p
+       p        p
+       ph       p#
+
+.group b
+       b        b
+       bh       b#
+
+.group m
+       m        m
+
+.group y
+       y        j
+
+.group r
+       r        *       // always the tap: Hindi r turned into an English-like r at word ends and before consonants
+
+.group l
+       l        l
+
+.group ḷ
+       ḷ        l.
+       ḷh       l.H       // no aspirated ḷ in the table: ḷ + h
+
+.group v
+       v        v
+
+.group s
+       s        s
+
+.group h
+       h        H
+
+// niggahita: the nasal of the following consonant's place, ŋ elsewhere
+.group ṃ
+       ṃ        N
+       ṃ (_     NN2     // word end: a long hum (es3: a short ŋ sounded like н)
+       ṃ (c     n^
+       ṃ (j     n^
+       ṃ (ṭ     n.
+       ṃ (ḍ     n.
+       ṃ (t     n
+       ṃ (d     n
+       ṃ (p     m
+       ṃ (b     m
+
+.group ṁ
+       ṁ        N
+       ṁ (_     NN2     // word end: a long hum (es3: a short ŋ sounded like н)
+       ṁ (c     n^
+       ṁ (j     n^
+       ṁ (ṭ     n.
+       ṁ (ḍ     n.
+       ṁ (t     n
+       ṁ (d     n
+       ṁ (p     m
+       ṁ (b     m
