@@ -36,7 +36,7 @@ extern const char stress_phonemes[];
 
 int LoadDictionary(Translator *tr, const char *name, int no_error);
 int HashDictionary(const char *string);
-const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);
+const char *EncodePhonemes(const char *p, char *outptr, size_t outsize, int *bad_phoneme);
 size_t CopyBoundedPhoneticString(char *dest, size_t dest_size, const char *src);
 void DecodePhonemes(const char *inptr, char *outptr, size_t outsize);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);

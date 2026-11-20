@@ -350,10 +350,11 @@ size_t CopyBoundedPhoneticString(char *dest, size_t dest_size, const char *src)
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
    from 'p' up to next blank .
    Returns advanced 'p'
-   outptr contains encoded phonemes, unrecognized phoneme stops the encoding
+   outptr contains encoded phonemes, unrecognized phoneme stops the encoding,
+   at most outsize bytes are written including the terminator
    bad_phoneme must point to char array of length 2 of more
  */
-const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
+const char *EncodePhonemes(const char *p, char *outptr, size_t outsize, int *bad_phoneme)
 {
 	int ix;
 	unsigned char c;
@@ -362,15 +363,20 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 	int max_ph;    // corresponding phoneme with highest matching
 	int consumed;
 	unsigned int mnemonic_word;
+	char *out_end;
 
 	if (bad_phoneme != NULL)
 		*bad_phoneme = 0;
+
+	if (outsize == 0)
+		return p;
+	out_end = outptr + outsize - 1; // leave room for the terminator
 
 	// skip initial blanks
 	while ((uint8_t)*p < 0x80 && isspace(*p))
 		p++;
 
-	while (((c = *p) != 0) && !isspace(c)) {
+	while (((c = *p) != 0) && !isspace(c) && (outptr < out_end)) {
 		consumed = 0;
 
 		switch (c)
@@ -432,7 +438,7 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 			if (max_ph == phonSWITCH) {
 				// Switch Language: this phoneme is followed by a text string
 				char *p_lang = outptr;
-				while (!isspace(c = *p) && (c != 0)) {
+				while (!isspace(c = *p) && (c != 0) && (outptr < out_end)) {
 					p++;
 					*outptr++ = tolower(c);
 				}
@@ -442,7 +448,7 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 						*p_lang = 0; // don't need ESPEAKNG_DEFAULT_VOICE, it's assumed by default
 						return p;
 					}
-				} else
+				} else if (outptr < out_end)
 					*outptr++ = '|'; // more phonemes follow, terminate language string with separator
 			}
 			break;

@@ -1107,7 +1107,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 				Lookup(translator, "_??", ph_buf, sizeof(ph_buf));
 
 			if (ph_buf[0] == 0)
-				EncodePhonemes("l'et@", ph_buf, NULL);
+				EncodePhonemes("l'et@", ph_buf, sizeof(ph_buf), NULL);
 		}
 
 		if (!(control & 4) && (al_flags & AL_NOT_CODE)) {
@@ -1138,7 +1138,7 @@ static int TranslateLetter(Translator *tr, char *word, char *phonemes, int contr
 				LookupLetter(translator, *p2, 0, pbuf, sizeof(ph_buf) - (pbuf - ph_buf), 1);
 				if (((pbuf[0] == 0) || (pbuf[0] == phonSWITCH)) && (*p2 >= 'a')) {
 					// This language has no translation for 'a' to 'f', speak English names using base phonemes
-					EncodePhonemes(hex_letters[*p2 - 'a'], pbuf, NULL);
+					EncodePhonemes(hex_letters[*p2 - 'a'], pbuf, sizeof(ph_buf) - (pbuf - ph_buf), NULL);
 				}
 			}
 			strcat(pbuf, pause_string);
