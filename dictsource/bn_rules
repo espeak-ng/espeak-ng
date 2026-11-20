@@ -148,8 +148,12 @@
         ক        kV
         ক (B     k
 
-        ক্ষ        k#k#V   // or [k#:] ?
+        ক্ষ        k#k#V   // medial: শিক্ষা [ʃikkʰa], লক্ষ
         ক্ষ (B     k#k#
+     _) ক্ষ        k#V     // word-initial: ক্ষমা [kʰɔma], ক্ষতি
+     _) ক্ষ (B     k#
+        ক্ষ্ম      k#k#V   // the ম of ক্ষ্ম is silent: লক্ষ্মী [lɔkkʰi]
+        ক্ষ্ম (B   k#k#
 
 
 .group খ
@@ -190,6 +194,10 @@
         জ্ব (B     J
         জ্ঞ        ggo~
         জ্ঞ (B     gg
+        জ্ঞা       gg&     // বিজ্ঞান [biggæn]
+     _) জ্ঞ        go~
+     _) জ্ঞ (B     g
+     _) জ্ঞা       g&      // জ্ঞান [gæn]
 
 
 .group ঝ
@@ -274,6 +282,25 @@
         ব        bV
         ব (B     b
 
+        // ব-ফলা (virama + ব) is not pronounced as [b]; it doubles the
+        // previous consonant: বিশ্ব [biʃʃo], বিদ্বান [biddan]
+     ্) ব        :V
+     ্) ব (_     :O      // word-final keeps the vowel, as for য-ফলা
+     ্) ব (B     :
+    _C্) ব        V       // word-initial cluster: no doubling, দ্বার [dar], ধ্বনি
+    _C্) ব (B
+   ্C্) ব        V       // after a doubled consonant: তত্ত্ব [tɔtto]
+   ্C্) ব (B
+     ম্) ব        bV      // pronounced after ম: সম্বল [ʃɔmbol]
+     ম্) ব (_     bO
+     ম্) ব (B     b
+     র্) ব        bV      // র্ব is reph + ব, not ব-ফলা: সর্ব
+     র্) ব (_     bO
+     র্) ব (B     b
+     হ্) ব        bV      // আহ্বান
+     হ্) ব (_     bO
+     হ্) ব (B     b
+
         
 .group ভ
         ভ        b#V
@@ -283,6 +310,46 @@
 .group ম
         ম        mV
         ম (B     m
+
+        // ম-ফলা (virama + ম) usually doubles the previous consonant:
+        // পদ্ম [pɔddo], আত্মা [atta]
+     ্) ম        :V
+     ্) ম (_     :O      // word-final keeps the vowel, as for য-ফলা
+     ্) ম (B     :
+    _C্) ম        V       // word-initial cluster: স্মরণ
+    _C্) ম (B
+        // ...but it is pronounced after ক গ ঙ ট ণ ন ম ল র হ:
+        // রুক্মিণী, বাগ্মী, জন্ম, গুল্ম, কর্ম, ব্রাহ্মণ
+     ক্) ম        mV
+     ক্) ম (_     mO
+     ক্) ম (B     m
+     গ্) ম        mV
+     গ্) ম (_     mO
+     গ্) ম (B     m
+     ঙ্) ম        mV
+     ঙ্) ম (_     mO
+     ঙ্) ম (B     m
+     ট্) ম        mV
+     ট্) ম (_     mO
+     ট্) ম (B     m
+     ণ্) ম        mV
+     ণ্) ম (_     mO
+     ণ্) ম (B     m
+     ন্) ম        mV
+     ন্) ম (_     mO
+     ন্) ম (B     m
+     ম্) ম        mV
+     ম্) ম (_     mO
+     ম্) ম (B     m
+     ল্) ম        mV
+     ল্) ম (_     mO
+     ল্) ম (B     m
+     র্) ম        mV
+     র্) ম (_     mO
+     র্) ম (B     m
+     হ্) ম        mV
+     হ্) ম (_     mO
+     হ্) ম (B     m
 
         
 .group য়

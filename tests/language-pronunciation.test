@@ -55,6 +55,7 @@ pol'uSvaj ts@ft;'aSti: Z'ita" "Ах чудна българска земьо, п
 test_phon bn "m'alOS,ij 'Obojd#,O Sr'omik,Oder b'i*udd#,e tS'OlOm,an_:_: m'egat#r'i_:_: 'ob#idZ,ane Se d'eSe S'Oto S'Oto 'ob#ib,aSik,e 'at.Ok k'O*etS#,e Se d'eSer 'imigr,eSOn p'uliS
 dZ'ader 'at.Ok k'O*a h'OtS#e
 t,ader pr'aj 'O*d#ek,Oi b'aNlad,eSi n'agO*,ik" "মালয়েশিয়ায় অবৈধ শ্রমিকদের বিরুদ্ধে চলমান 'মেগা-থ্রি' অভিযানে সে দেশে শত শত অভিবাসীকে আটক করেছে সে দেশের ইমিগ্রেশন পুলিশ। যাদের আটক করা হয়েছে, তাদের প্রায় অর্ধেকই বাংলাদেশী নাগরিক।" "Beng"
+test_phon bn "p'Od:O 'at:a b'iSSO 'OSSO b'id:an d'ar k#'Oma S'ik#k#a g'&n b'igg&n l'ok#k#i J'OnmO k'OrmO S'OmbOl" "পদ্ম আত্মা বিশ্ব অশ্ব বিদ্বান দ্বার ক্ষমা শিক্ষা জ্ঞান বিজ্ঞান লক্ষ্মী জন্ম কর্ম সম্বল" "Bengali conjuncts: ব-ফলা and ম-ফলা doubling, initial ক্ষ, জ্ঞ"
 test_phon bs "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." "Cyrl"
 test_phon bs "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos." "Latn"
 test_phon ca "d'on@ @m'oR k@ s@**'as f@l'is
