@@ -102,6 +102,9 @@ test_phon en "'e@ri:z" "♈"
 # so the Burmese asat mark now ends a word as it does in normal text
 test_phon my "pru3'a2nke3DN _|_| mj@k _| lu3'a2mj@2tsnh,a2N _|_| nm _| n'e3DN _|_| mj@k _| nh'ats" "😙"
 test_phon ka "k'ots#nis g'amomx,atveli s'axe m'omQim,are t#v'alebit#" "😙"
+# UTF-8 bytes inside replacement words must not be treated as whitespace;
+# the following word must also survive advancing past the replacement.
+test_phon ka "k'ots#nis g'amomx,atveli s'axe m'omQim,are t#v'alebit# s'axe" "😙 სახე"
 test_phon ka "'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "😥"
 # Adjacent emoji without whitespace now correctly separated (IsAlpha emoji fix).
 test_phon en "'e@ri:z r'eInboU" "♈🌈"
