@@ -553,7 +553,7 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		ret = c & 0x1F;
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
-		return ret;
+		return (ret >= 0x80) ? ret : 0xFFFD; // reject overlong forms
 	// 3-byte UTF-8 sequence
 	case 0xE0:
 		if (decoder->current + 2 > decoder->end) goto eof;
@@ -562,6 +562,8 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		ret = (ret << 6) + (c & 0x3F);
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
+		// reject overlong forms and UTF-16 surrogates
+		if ((ret < 0x800) || ((ret >= 0xD800) && (ret <= 0xDFFF))) return 0xFFFD;
 		// fix the "I umlaut a half" bug
 		if (ret == 0xFFFD) return 0x001A;
 		return ret;
@@ -575,7 +577,7 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 		ret = (ret << 6) + (c & 0x3F);
 		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
-		return (ret <= 0x10FFFF) ? ret : 0xFFFD;
+		return ((ret >= 0x10000) && (ret <= 0x10FFFF)) ? ret : 0xFFFD;
 	}
 error:
 	--decoder->current;
