@@ -596,7 +596,13 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				} else {
 					c2 = GetC();
 				}
-				swprintf(ungot_string, N_XML_BUF2+4, L"%s%lc%lc", &xml_buf2[0], (wint_t)c1, (wint_t)c2);
+				// xml_buf2 holds only ASCII, so widen it directly; swprintf's %s
+				// expects a wchar_t string on Windows, not a char string
+				for (j = 0; j < n_xml_buf; j++)
+					ungot_string[j] = (unsigned char)xml_buf2[j];
+				ungot_string[j++] = c1;
+				ungot_string[j++] = c2;
+				ungot_string[j] = 0;
 
 				int found = -1;
 				if (c1 == ';') {
