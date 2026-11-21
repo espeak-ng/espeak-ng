@@ -194,6 +194,7 @@ public class SpeechSynthesis {
     public enum UnitType {
         Percentage,
         WordsPerMinute,
+        Milliseconds,
         /** One of the PUNCT_* constants. */
         Punctuation,
     }
@@ -242,6 +243,9 @@ public class SpeechSynthesis {
 
     /** Speech rate. */
     public final Parameter Rate = new Parameter(1, 80, 450, UnitType.WordsPerMinute);
+
+    /** Pause between words, in units of 10 ms. */
+    public final Parameter WordGap = new Parameter(7, 0, 200, UnitType.Milliseconds);
 
     /** Audio volume. */
     public final Parameter Volume = new Parameter(2, 0, 200, UnitType.Percentage);

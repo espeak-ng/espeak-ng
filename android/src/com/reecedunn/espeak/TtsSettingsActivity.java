@@ -199,6 +199,9 @@ public class TtsSettingsActivity extends PreferenceActivity {
             case Percentage:
                 formatter = context.getString(R.string.formatter_percentage);
                 break;
+            case Milliseconds:
+                formatter = context.getString(R.string.formatter_ms);
+                break;
             case WordsPerMinute:
                 formatter = context.getString(R.string.formatter_wpm);
                 break;
@@ -258,6 +261,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.addParameter(voiceParameter(context, engine.Pitch, VoiceSettings.PREF_PITCH, R.string.setting_default_pitch));
         pref.addParameter(voiceParameter(context, engine.PitchRange, VoiceSettings.PREF_PITCH_RANGE, R.string.espeak_pitch_range));
         pref.addParameter(voiceParameter(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
+        pref.addParameter(voiceParameter(context, engine.WordGap, VoiceSettings.PREF_WORD_GAP, R.string.espeak_word_gap));
         pref.setSummary(pref.buildSummary());
         return pref;
     }
@@ -495,6 +499,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
             group.addPreference(createSeekBarPreference(context, engine.Pitch, VoiceSettings.PREF_PITCH, R.string.setting_default_pitch));
             group.addPreference(createSeekBarPreference(context, engine.PitchRange, VoiceSettings.PREF_PITCH_RANGE, R.string.espeak_pitch_range));
             group.addPreference(createSeekBarPreference(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
+            group.addPreference(createSeekBarPreference(context, engine.WordGap, VoiceSettings.PREF_WORD_GAP, R.string.espeak_word_gap));
         } else {
             group.addPreference(createVoiceParamsPreference(context, engine, R.string.espeak_voice_settings));
         }
