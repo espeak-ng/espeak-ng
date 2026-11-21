@@ -2,6 +2,26 @@
 # include common script
 . "`dirname $0`/common"
 
+##### as: Assamese
+
+# consonant + nukta (U+09BC) is replaced by the precomposed letter
+test_replace as "পড়া আঢ় অসমীয়া" "Translate 'পড়া'
+Translate 'আঢ়'
+Translate 'অসমীয়া'"
+
+##### bn: Bengali
+
+# consonant + nukta (U+09BC) is replaced by the precomposed letter
+test_replace bn "পড়া বাড়ি হয়েছে" "Translate 'পড়া'
+Translate 'বাড়ি'
+Translate 'হয়েছে'"
+
+##### bpy: Bishnupriya Manipuri
+
+# consonant + nukta (U+09BC) is replaced by the precomposed letter
+test_replace bpy "পড়া প্রিয়া" "Translate 'পড়া'
+Translate 'প্রিয়া'"
+
 ##### bs: Bosnian
 
 # Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.

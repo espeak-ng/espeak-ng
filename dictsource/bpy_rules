@@ -21,6 +21,12 @@
  ৮	8
  ৯	9
 
+// consonant + nukta: use the precomposed letters, so the rules (and the
+// vowel-sign rules that follow a consonant) see one consonant
+ ড়	ড়
+ ঢ়	ঢ়
+ য়	য়
+
 
 // Vowels
 
@@ -372,10 +378,10 @@
         ঢ় (B	hr.
         ঢ় (_	hr.o
 
-.group য়
-        য়	j@
-  _)য়(B		j@
-       য়(B		j@
+.group য়         // precomposed YYA (also য + nukta, via .replace)
+        য়	j@
+  _)য়(B		j@
+       য়(B		j@
 
 
 .group ং
