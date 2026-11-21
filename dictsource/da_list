@@ -1,4 +1,4 @@
-// PB = Peter Bjarkov - pbj1234@hotmail.com
+// Comments or questiens to: Peter Bjarkov - pbj1234@hotmail.com
 
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Danish
@@ -59,16 +59,16 @@ _#32	blank
 @	sn,&b@-l'&:
 /	sgRVsdrAj	$max3
 \	'VmvEndsgr,VsdRai $max3
-_,	k'oma:
-_;	semiko:lVn
-_:	k'o:lVn
-_.	pONtOm                  // PN u => O
-_?	spWrsmOlstAjn
-_!	udRVbstAjn
-_-	bin@-sdrAi
+_,	k'?Vm?&
+_;	s?emiko:l?Vn
+_:	k'ol?Vn
+_.	p?ONt?Om                  // PN u => O
+_?	sp?Wrsm?OlstAjn
+_!	?udR?Obst?Ajn
+_-	b?en@-sdrAi
 __	b'OnsdrAi
 &	_Vw
-£	pun?
+£	p?un
 €	euro
 © kVpirAjt
 ÷ divid'eRVD||mED 
@@ -110,13 +110,13 @@ _17	s'?Wd@-n
 _18	'?&d@-n  
 _19	n'?ed@-n
 _2X	t'y:?u
-_3X	t*'?&#Dv@              
+_3X	t*'?&#Dv@-              
 _4X	 f'?W_|V             
 _5X	h?&l't*?Es             
 _6X	t*'Es                
 _7X	h?&lfj'?Ers
 _8X	f'irs
-_9X	h&lf'Ems // PB a changed to &
+_9X	h&lf'Ems
 _0C	h'unRVD
 _1C  ed||h'unRV:D 
 _0M1	t'?us@-n
@@ -176,7 +176,7 @@ mens		$pause	// while
 for	
 fordi	f?Vd'?i $pause	// because
 når	nVr		$pause	// while
-der	d?Er	$u+ $u    // PB changed from [dA]
+der	d?Er	$u+ $u
 hvor	v'O	// where
 hvorfor	vOf'?V	// why - final r deleted
 
@@ -215,7 +215,7 @@ jer	$u
 denne	$u+	// this
 dette	$u+
 disse	$u+	// these
-hvis ves   $u+  // PB - whose
+hvis ves   $u+  // whose
 
 // possessive pronouns
 min	min	$u
@@ -260,7 +260,7 @@ f	Ef
 g	ge
 h	hO:
 _i	i:
-j	jVD // PB changed from [o]
+j	jVD
 k	kO:
 l	El
 m	Em
@@ -279,7 +279,7 @@ y	y
 z	sEt
 ø   W
 
-// PB English words
+// English words
 bondage      _^_EN
 dj          _^_EN
 deadline    _^_EN
@@ -318,7 +318,6 @@ management  _^_EN
 message		_^_EN
 (new age)   _^_EN
 offline		_^_EN
-ok		_^_EN  // jsd
 okay		_^_EN
 online		_^_EN
 out		    _^_EN
@@ -375,61 +374,520 @@ oregon      _^_EN
 piccadilly  _^_EN
 reynolds    _^_EN
 white       _^_EN
-Churchill  tSW:S?il
-Cambridge  kEjmbRIdZ
+		Adele		&d'El
+		Anders ?An?Vs
+        ayatollah  aI?&t'?Vl?&
+        alfie      ?&lf?i
+        auggie     O:gI
+        astaire    ?&sd'E:r
+        albuquerque ?&l/2b3kWk?i
+        aubrey     O:br/?i
+        audrey     O:dr/?i
+        agency     EjdZ@ns?i
+        ambrose    ?&mbr/Ous
+		ahab       Ejh?&b
+		allie      ?&l?i
+		aldous 	   Old@-s
+		anderson   ?&nd?Vs?Vn
+		angie      ?&ndZ?i
+	    aldetha    ?&ld'iT?&
+        andrea     ?&ndr'?E?&
+        andrew     ?&ndr/u
+        athen      ?&t'?en
+        andrews    ?&ndr/u:s
+		amager     ?Am?Ar
+	    amy        Ejm?i
+        agnew      ?&gnju
+        angeles    ?&ndZ3l?Es
+		angels     ?EjndZ@-ls // Hells Angels
+        arrow      ?&r/ou
+		artie At?i
+        abilene    &b?ili:n
+        alejandro  _^_es
+        arkansas   Ak@nsO:
+        abby       ?&b?i
+        avery      ?Ejvr/?i
+		bach        b?Ax	
+		Bacall		b?&k'0l
+		bogie		b?0wg?i
+		brady        br/?Ejd?i
+		bay        bEj        // Thunder Bay	
+		bangladesh   b?ANl?&d'?ES	
+		bradbury     br/?&db@-r?e
+		brando       br/?&ndOw     // Marlon Brando
+		barry       b?&r/I 
+        babylon    b?&b?yl?Vn
+        babylonsk b?&b?yl'?onsg
+		baldwin   bOldw?en
+        babyloner b?&b?yl'?on?V // babylonerne - stressed
+		Baudelaire b?odl'Er
+        brown      _^_EN
+		Baker		b?Ejk?V
+        birmingham bWm?iN@m
+        bingham    b?eN3m
+        bellevue   b?El@-v'?y
+		atlantis    ?&tl'?&nt?is
+		bastogne    b?&st'?VNj@-   // French
+		bayreuth    baIR'?Vjt   // German town
+        beaujolais b?oSj?ol'?E  // wine, district
+        bourgogne  b?urg'?Vnj@-
+        beach      bi:tS     // Beach Boys
+		bissau     b?is'A:w      // Guinea-Bissau		
+		blake      bl?Ejk
+        beatrice   b?e?&tr'is@-
+		backgammon b?&g'?&m@-n
+		buic       bju?ik     // car brand	
+		blanc 	   bl'?AN  // Cheval Blanc
+		bruce      br/u:s
+		bryce 	   br/aIs
+		butte      bju:t     // city in Montana		
+		bligh      blaI:
+        burton     bWt?Vn
+        beagle     bi:g@-l    // beagle - dog
+        braille    braI:
+		Brad		br/?&d
+		brenda     br/?End?&
+        byron      baIr/?Vn	
+        bugsy      b?Vgs?i
+		budapest      b?ud?&p'?Esd
+        baltimore  bOlt?imO:
+        bernie     bWn?i
+        beverly    b?Ev?Vl?i
+        burgess    bWdZ?Es
+        buffalo    b?Vf3lOw
+        barbie     bArb?i
+        billie     b?il/2?i
+		brody      br/0wd?i
+		brooke     br/uk
+		burns      bW:ns
+		bond       b?Vnd       // Bond Street
+		bolognese     b?ol?oN'Es@-
+        bovary     b?ov?Ar'?i
+        beijing    b?EjdZ'?eN
+		bruxelles  br?ys'El
+		buddy      b?Vd?i
+		barney         bAn?i
+		boone      bun
+		Caldwell kOlw?el/2
+	    cannes     k&:n:
+		campbell k?&mb@-l
+		cumberland k?Vmb?Vl@-nd
+		Churchill  tSW:S?il
+		colorado        k?ol?or'Ado      // US state		
+		Cambridge  kEjmbRIdZ
+		casablanca   k?&s?&bl'?ANk?&
+		chardonnay	SArd?on'?E
+		clarence   kl?&R@-ns
+		capone     k?&p'Own
+        chaplin    tS?&pl?in
+        challenge  tS?&l?EndZ
+        chelsea    tS?Els?i
+        cheyenne   SaI'?En
+        cheyenner  SaI'?En?V
         clementine kl?EmIntaIn
+        chicago    S?ik'AgOw
+        chopin     S?opEN
+        chaucer    tSO:s?V
+        ceylon     saIl/2Vn
+        charlie    tSAl?i
+        charles    tSA:ls
+        cynthia    s?enT?i?&
+        cypern      k?yp?Vn 
+        cordelia   kOd'i:l?i-?&
+        chianti    kj'?&nt?i
+		custer     k?Vst?V
         canterbury k?&nt?Vbri
         connecticut k?Vn'?et?ik?Vd
         carlisle   kAlaIl
+		cartagena  kAt?&g'en?& 
         china      tjaIn?&
-     _) cape (_town k?Ejp
-     _) chuck      tS?Vk
+        cape       k?Ejp
+		claire     klE:r
+		claude     klO:d
+        claudette  kl?Od'?Et
+        conrad   k?Vnr/?&d
+		Cree	kRi:
+		Deacon	dik@-n
+		dorset     dO:s?Et
+		drysdale   dr/aIsdEjl
+        dreyfus    dr?Ef'?ys
+		Durand	d?yr'AN
+		colosseum     k?ol?os'E?Om
+        chuck      tS?Vk
         cleveland  kli:vl?&n
-     _) cartier    k?Artj'?e
+        cartier    k?Artj'?e
         chagall    S?&g'?&l
-        connie     k?Vni
+        connie     k?Vn?i
+		cochise    kOwS'i:s
+		cunningham k?VnINh@-m
         chablis    S?&bl'?i	
-        coleridge  kOwlr?idZ
+        coleridge  kOwlr/?idZ
         cincinnati sensin'&ti
         chihuahua  tSiw'awa
         connor     k?Vn?V
-        creasy     kris?i
-		        cutler     k?Vtl?V
+        creasy     kr/is?i
+		cutler     k?Vtl?V
         courtney   kOtn?i
-     _) cathy      k?&T?i
-     _) cagney     k?&gn?i
-	         cheryl     S?Er?el/2
+		canaveral  k?&n'?&v3r/3l   // Cape Canaveral
+        cathy      k?&T?i
+        cagney     k?&gn?i
+	    cheryl     S?Er?el/2
         cohen      kOu@-n
-     _) cardin     kArd'?&N   // name
+        cardin     kAd'?&N
         cézanne    s?es'&n    // Cézanne
         cézannen   s?es'&n@-n // Cézannen
         cockney    kVknI
-        clerk      klA:k     // Clerkenwell
+        clerk      klA:k
         carmine    kA:maIn
+		cabernet k?&b?Ern'?E
+		cheval SjWv'?&l
+		dawkins   dO:k?ens
+		debussy d?ebys'?i
+		downing   d?Awn?eng        // Downing Street
+		Dixie	  d?eks?e
+		degas     d?eg'?&
+        dawson     dV:s?Vn
+		deidre     di:dr/@
+        dwight     dwaIt
+		doreen     d0r'in
+        daumier    _^_fr
+        dodge      d?VdZ      // city
+		Dodgers    d?VdZ?Vs
+        daiquiri   d?&k@-r?i // drink
+		duke       dZu:k
+		dundee 	   d?Vnd,i:
+		dean       di:n
+		disney         d?isn?i
+        dubois     d?ybw'A
+        dorothy    _^_en
+        debbie     d?Eb?i
+        detroit    d?etr'?Vjt
+        driscol     _^_en
+		dry 		_^_en // Dry Lake
+        dutch      d?VtS
+        darlene    dAl'in
+		darjeeling dAdZ'il?eN
+		davie 	   d?Ejv?i
+        doubtfire  dAwdfaI?V
+        dickie     d?ek?i
+        dicky      d?ek?i
+        dewey      dju?i
+        daryl      d?&r3l/2
+		Drew 		dRu:
+		esmeralda  ?Esm@-r'?Ald?&
+		eldorado   ?Eldor'Ado
+        eagle      i:g@-l
+        espeak     ?ispi:k
+        eindhoven  Ajnh'o:f@-n
+        einstein   ?Ajnst?Ajn
+        eisenhower aIs@-nhAu?V
+		edie     id?i
+		eddie      ?Ed?i
+        eileen     aIl'i:n
+        ebay       ibEj
+        ecstacy    ?Est?&s?i
+		earl       W:l/2
+		earp       W:b
+        eiger      aIg?V      // Eiger mountain
+		ecstasy    ?Est?&s?i
+		ethan 	   iT3n
+        eugene     judZ'i:n
+		fabergé     f?&b?ErS'?e
+		freddie      fr/?Edi
+		fowler      fAwl?V
+		Faulkner 	fOkn?V
+		freddy       fr/?Edi
+		gascogne    g?&sk'?VNj@-   // French
+		goebbels    gWb@-ls
+		google      gug@-l
+		grey		gr/Ej
+		gray		gr/Ej
+		gauguin     g?og'&N
+		gladstone   gl?&dst0wn
+		harvey      hAv?i
+		hilda       hIld?&
+		howie       h?Aw?i
+		hasting    h?Ejst?eN
+        hawaii     h?&w'Aj?i
+		Heinrich   haInr?iS
+		holmes     houms
+		heidi      haId?i
+		humphrey    h?Vmfr?i
+		huxley 		h'?Vksl?i
+		hood        hud       // Robin Hood
+		imelda      ?im'?Eld?&
+		Irene ?ir'En@- // Danish proninciation
+		ike ajk
+		ikes ajks
+		ellie ?El?i
+		goethe      gWt@-
+		godfather   gVdfAD?V
+		jersey     dZWs?i    // New Jersey
+        jeep       dZib      // Jeep (American car)
+		jesse      dZ?Es?i
+        juan       S?u'?AN    // don juan
+        jeanot     S&n'o
+        jaubert    S?ob'Er
+        jehova     j?eh'ov?&
+        jack       dZ?&k
+		jarvis     dZAves
+		joão       dZ?A?o
+		joao       dZ?A?o
+        jitterbug  dZ?id?Vb?Vg
+        jingle     dZ?eng3l
+        jewel      dZu:l
+        jihad      dZ?ih'?&t
+        jenkins  dZ?Enk?ens
+        jennifer dZ?En?if?V
+        jenny      dZ?En?i
+        janey      dZEjn?i
+        jennie     dZ?Eni
+		josh       dZ?VS
+        jamal    dZ?&mAl
+        jerry      dZ?er?i
+        jekyll     dZ?Ek@-l  // dr. Jekyll
+        junction   dZ?VnkS@-n
+        jamie      dZEjm?i
+		jamboree dZ?Amb?oR'?E
+        jerome     S?er'om    // name - French version
+        jacques    Z?ak       // name - French version
+		jolene     dZOwl'in
+        joule      dZu:l
+		joseph     jos?Ef
+        jambalaya  dZ?Amb?&l'aI?&
+		jake       dZEjk
+		jakel      j?&k@-l    // mester Jakel
+		jill       dZIl
+        job      dZ?ob $capital
+        john       dZVn
+        johnny     dZ?Vn?i
+		johnson     dZ?Vns?Vn
+        joe        dZ0w
+		Joey		dZ0w?i
+        jackie     dZ?&k?i
+        jones      dZ0wns
+        junkie     dZ?Vnk?i
+		jim     dZIm
+        jimmy      dZIm?i
+        jimmie     dZIm?
+		karl     kArl
+		keefe       ki:f
+		kathleen    k?&Tl'in
+		Cathleen    k?&Tl'in
+		kairo       kaIr?o	
+		cairo       kaIr?o
+		Klein 		klaIn
+		Leather l?ED?V
+		eton       it@-n     // university
+		ferguson  f?Wg?us?Vn
+		heisenberg  haIs@-nb?Erg
+		keaton      ki:t?Vn
+	    lacrosse    l?&kr'?Vs  // game
+		lawrence    l?0r/@-ns
+		laurence    l?0r/@-ns
+		laurie      lOr/?i
+		laredo      l?Ar'Ed?o
+		league      li:g       // Champions League
+		lucienne    l?ysj'En
+		lewis     	lu?is
+		mildred     mIldr?Ed
+		manhattan   m?&nh'?&t@n
+	    maggiore    m?&dZ'o:R3e
+        magazine    m?&g?&s'i:n
+        maggie      m?&g?i
+		magdalena   m?Awd?&l'?en?& 
+		maureen     m?Or/'i:n
+		marokko     m?&r'?Vk?o
+		Merkur		m?Erk'?ur
+		meuse       mW:z       // French river
+		mead        mi:d       // Lake Mead
+		morecambe   mV:k?Vm
+		montevideo  m?Vnt@-v?id'?e?o
+		Montenegro m?Vnt@-n'?egr?o
+		moore       mV:
+		mojave      m?oh'Av?e
+		meyer     maI?V 
+		monroe		m?Vnr/'Ow
+		munroe		m?Vnr/'Ow
+		murdoch    mWd?Vk
+        melbourne  m?El/2bWn
+        matthew    m?&Tju
+        murphy     mWf?i
+        murray     m?Vr?i
+		Murtaugh   mW:t0
+        molyneux   m?Vl?inju:
+        michelle   m?iS'El
+        murphey    mWf?i
+        maurice    m?or'is
+        maupassant m?op?&s'AN
+        murph      mWf
+        marjorie   mAdZ?Or?i
+        montpellier _^_fr
+		nagasaki    n?Ag?&s'?Aki
+		nairobi   naIr'ob?i
+		napoleon    n?&p'?olj?Vn
+		neal        nil/2
+		nealy 		nil?i
+        Newton     nj'ut@-n		
+	    oonagh      un?&
+        oates      Owts
+		Oakhurst	OwkhWst
+		oman       ?om'?&n
+        osborne    ?Vsb,On
+        ottawa   ?Vt?&w?&
+		palm 		pA:m $capital	// Palm Springs
+		palermo     p?&l'Erm?o
+		peabody     pib?Vd?i
+		peacock     pik?Vk
+		pinocchio     p?i'?Vkj?o
+		palace      p?&l?&s    // Buckingham Palace
+		purple      pWp-@-l    // Purple Heart
+		purcell p?Ws'?El
+		providence  pR?Vv?id?Ens
+		paul      pOl
+		payne       pEjn
+		paulus    pAwl?s
+		pacino     p?&tS'in?o
+		     _) piggy      pigi      // Miss Piggy
+		pétain     p?et'&N
+		poitier    pwAtj'?e
+		poirot     pwAr'?o
+		piaf       pj?Af      // Edith Piaf
+		purvis     p'WvIs
+		peggy      p?Eg?i
+        peugeot    pWS'?o     // car
+		pearl      pW:l      // Pearl Harbor
+        pierre     pjE:r
+        perkins    pWkIns
+        Peru       p?er'?u $capital
+        pasadena   p?&s?&d'in?&
+        perth      pW:T		
+		perrier     p?er?i'?e  // brand name
+		peach       pi:tS
+		puccini      p?uS'in?i
+        percy      pWs?i
+		philadelphia   f?il?&d'Elfj?&
+		Prince 		pRens		
+		rafael       r?Af?&'?el
+		ralph        R'Alf
+		ray   r/Ej
+		randolph    r/?&nd?Vlf
+		roscoe      r/?Vsk?Ow
+		rodin 		r?od'?EN
+		randal    r/?&nd?Ol/2
+		randall   r/?&nd?Ol/2
+		rangoon     r?&ng'u:n
+		rusty       r/?Vst?i
+		rolls      r/Owls     // Rolls Royce
+		robin   r/?Vb?en        // Robin Hood
+		robyn   r/?Vb?en
+		reed     r/i:d
 		shaughnessy S?On?Es?i
+		sheela     Si:l?&
         sully      s?Vl?i
+		south      s?A?uT     // South Pacific
         spielberg  sp?ilbW:g
         sotheby    s?VD@-bi
+		sokrates    s?okr?At?Es
         shelagh    Si:l?&
-     _) shirley    SWl?i
+		soames     soums
+		sovjet     s?Owj'?Et
+        shirley    SWl?i
+		Schweitzer svaIts?V
 	    shaw       SO:
+		sally      s?&l?i
+		sarah      sAr?A
         schweiz    svaIts
+		sicilien   s?is'?ilj@-n
+		Signe		sin@-
+		scrooge    skr/u:dZ
+		sugar      S?ug?V     // Sugar Ray
+		sylvester  s?ylv'?Est?V
+		screwdriver skr/udraIv?V
+		stevie     stiv?i
+        sunday     s?Vnd?i     // Sunday Times
+        shirt      SWt       // T-shirt
+        shirten    SWt@n     // T-shirten
+        steak      stEjk
+		spago    spA:gow       // US restaurant		
+        smiley     smaIli
+        straight   sdrEjt
+		stonehenge sdOunh?EndZ
+        stealth    st?ElT
+        saint      s'?Ejnd    // Saint Louis
+        sainte     _^_fr     // Sainte-Mère-Eglise
+		sasha	   s?&S?&
+        sherman    SW:m?&n   // Sherman kampvogn
+        sioux      su:       // red indian
+        sweet      swit
 		sussex     s?Vs?Egs
         seamus     SEim@-s
-     _) steve      stiv
-     _) steven     stiv@-n
+		sophia      s?of'i?&
+        steve      stiv
+        steven     stiv@-n
+		stevens     stiv@-ns
         sheila     Si:l?&
-     _) stone      sdoun
+        stone      sdoun
+		sturgis    stWdZIs
         sonya      s?Vnj?&
         sophie     sOuf?i
+		spalding   spOld,?eN
         spitfire   sp?etfaI?V
         suffolk    s?Vf?Vk
-       solsjenitsyn s?Vlsj@n'?its?in
+        solsjenitsyn s?Vlsj@n'?its?in
         sloane     slOwn
         slovakiet  sl?ov?&k'?i@D
         swanee     sw?Vn?i   // Swanee River
         Sydney     s?idn?i
         Shakespeare S?Eiksb?ir
+        stephen    stiv@n
+        sullivan   s?Vliv3n
+		smythe     smA:jD
+        shepherd   S?Ep-Vd
+        smith      sm?et      // Danish version
+        season     sis@n     // Four Seasons
+        seymour    simO:
+        stacy      st?Ejs?i
+	    sean       SO:n
+		shaun      SO:n
+	    shawn      SO:n		
+        seattle    s?i'?&t@l
+        sunset     s?Vns?Et
+        sherlock   SWl?Vk
+        twostep    tu:st?Ep   // dance
+        third      TW:d      // Third Street
+		Throat 	   Tr/?Owt   // Deep Throat
+        thunder    T?Vnd?V
+        toastmaster t?Owstm,A:st?V
+		tucker      t?Vk?V
+        tracy      tr?Ejs?i
+        tracey     tr?Ejs?i
+        tombstone  tu:msdoun
+		turkey     tWk?i       // Wild Turkey
+        terry      t?Er/?i
+        tokyo      t?Vkj?o
+		thackery   T?&k@-rI
+        teach      ti:tS
+		Teague 	   ti:g
+        titanic    taIt'?&n?ik
+        timothy    tIm0T?i
+        trevor     tr/?Ev?V
+        tucson     tu:s?Vn
+        torquay    tO:k?i?
+        tudor      tjud?V
+        ulster     ?Vlst?V
+        united     j?un'aIt?ed
+        utah       'ju:tA
+		vegas       v?Ejg?&s     // Las Vegas
+        virginia   v@dZ'?iNj?&
+        viscount   vaIkAwnt
+		Vogel 	f?og@-l
+		wanda      w?Vnd?&
+		waco        wEjkow     // US city		
+		wimpole     w?empO:wl
+		whitehall waIt,hO:l/2
+		YouTube ju:tu:b
+		zaire s?&'ir
 // French words
 croquis     _^_FR
 crouton     _^_FR
@@ -563,7 +1021,7 @@ venerab $alt
 veritab $alt
 vulnerab $alt
 
-// PB adjectives and nouns with final -ant/ans - stressed a
+// adjectives and nouns with final -ant/ans - stressed a
 acceptant  $alt
 adjudant  $alt
 adoptant  $alt
@@ -1254,7 +1712,7 @@ veteran $alt2
 vulkan $alt2
 ætan $alt2
 
-// PB words with final -at - stressed a
+// words with final -at - stressed a
 acetat  $alt
 adressat  $alt
 advokat  $alt
@@ -1473,7 +1931,7 @@ undulat Vndul'&t  $alt
 vikariat  $alt
 vivat  $alt
 
-// PB final -ce - stress on previous syllable
+// final -ce - stress on previous syllable
 absence  $alt
 adhærence  $alt
 aktrice  $alt
@@ -1544,7 +2002,7 @@ tolerance  $alt
 usance  $alt
 vakance  $alt
 
-// PB words with final -ens - stressed e
+// words with final -ens - stressed e
 abstinens $alt
 adhærens $alt
 agens $alt
@@ -1584,6 +2042,7 @@ konferens $alt
 konfluens $alt
 kongruens $alt
 konsekvens $alt
+inkonsekvens $alt
 konsens $alt
 konsistens $alt
 kontingens $alt
@@ -1620,7 +2079,7 @@ valens $alt
 virulens $alt
 ækvivalens $alt
 
-// PB final -eret: stressed e ['er@D]
+// final -eret: stressed e ['er?VD]
 affekteret  $alt
 alkoholiseret  $alt
 altereret  $alt
@@ -1698,7 +2157,85 @@ taljeret  $alt
 tekstureret  $alt
 tempereret  $alt
 
-// PB words with final -ent - stressed e
+// final -erede: stressed e ['?er?VD@-]
+affekterede $alt
+alkoholiserede $alt
+altererede $alt
+antikverede $alt
+assorterede $alt
+avancerede $alt
+balancerede $alt
+beneficerede $alt
+blaserede $alt
+bomberede $alt
+civiliserede $alt
+deciderede $alt
+delegerede $alt
+demineraliserede $alt
+deprimerede $alt
+depriverede $alt
+deputerede $alt
+derangerede $alt
+detaljerede $alt
+determinerede $alt
+diplomerede $alt
+disseminerede $alt
+distingverede $alt
+distraherede $alt
+domicilerede $alt
+echaufferede $alt
+eksalterede $alt
+eloxerede $alt
+emanciperede $alt
+facetterede $alt
+faconnerede $alt
+fallerede $alt
+fashionerede $alt
+filipenserede $alt
+forcerede $alt
+hasarderede $alt
+indignerede $alt
+inkarnerede $alt
+interesserede $alt
+kommitterede $alt
+komplicerede $alt
+konfedererede $alt
+konfødererede $alt
+kongestionerede $alt
+konsternerede $alt
+korsetterede $alt
+krenelerede $alt
+kultiverede $alt
+kuperede $alt
+kæfererede $alt
+lamellerede $alt
+maniererede $alt
+manierede $alt
+markerede $alt
+melerede $alt
+outrerede $alt
+passionerede $alt
+perialiserede $alt
+pikerede $alt
+prostituerede $alt
+raffinerede $alt
+reflekterede $alt
+reglementerede $alt
+renommerede $alt
+reserverede $alt
+resignerede $alt
+retarderede $alt
+retsinerede $alt
+rutinerede $alt
+selvcentrerede $alt
+situerede $alt
+sofistikerede $alt
+sordinerede $alt
+taljerede $alt
+teksturerede $alt
+tempererede $alt
+
+// words with final -ent - stressed e
 abonnement  $alt
 abonnent  $alt
 abstinent  $alt
@@ -1837,7 +2374,7 @@ virulent  $alt
 visent  $alt
 ækvivalent  $alt
 
-// PB final -graf - stressed a
+// final -graf - stressed a
 agraf  $alt
 angiograf $alt
 autograf  $alt
@@ -1883,7 +2420,7 @@ topograf  $alt
 typograf  $alt
 xylograf  $alt
 
-// PB words with final -ner - stessed previous syllable
+// words with final -ner - stessed previous syllable
 // "er" has been removed in order to keep the stress
 // when "er" is replaced by "sk" e.g. itali'ener, itali'ensk
 // an Italian - en italiener, Italian food - italiensk mad
@@ -2059,7 +2596,7 @@ venezuelan  $alt
 victorian  $alt
 århusian  $alt
 
-// PB nouns with final -enser - next to last syllable is strtessed
+// Nouns with final -enser - next to last syllable is strtessed
 athenienser  $alt
 bergenser  $alt
 bogenser  $alt
@@ -2099,7 +2636,7 @@ viborgenser  $alt
 vordingborgenser  $alt
 ålborgenser  $alt
 
-// PB final -em: stressed e
+// final -em: stressed e
 problem       $alt
  bekvem       $alt
  diadem       $alt
@@ -2115,7 +2652,7 @@ myxødem       $alt
  teorem       $alt
    ødem       $alt
    
-// PB country names with final -ien - stress on previous syllable
+// country names with final -ien - stress on previous syllable
 abessinien  $alt
 abkhasien  $alt
 albanien  $alt
@@ -2160,7 +2697,7 @@ transsilvanien  $alt
 transsylvanien  $alt
 tunesien  $alt
 
-// PB words with final -ik - stressed i
+// words with final -ik - stressed i
 akrobatik  $alt
 akustik  $alt
 aleatorik  $alt
@@ -2321,7 +2858,7 @@ unik  $alt
 æstetik  $alt
 økumenik  $alt
 
-// PB words with final -il - stressed i
+// words with final -il - stressed i
 agil  $alt
 anglofil  $alt
 april  $alt
@@ -2397,7 +2934,7 @@ vegetabil  $alt
 ventil  $alt
 viril  $alt
 
-// PB final -inde - stressed i
+// final -inde - stressed i
 admiralinde  $alt
 bakkantinde  $alt
 bestyrerinde  $alt
@@ -2456,7 +2993,7 @@ vestalinde  $alt
 violinistinde  $alt
 værtinde  $alt
 
-// PB nouns with final -isme - stressed i
+// nouns with final -isme - stressed i
 absolutisme  $alt
 absurdisme  $alt
 aforisme  $alt
@@ -2807,7 +3344,7 @@ zionisme  $alt
 ækvilibrisme  $alt
 æsteticisme  $alt
 
-// PB words with final -ni - stressed i
+// words with final -ni - stressed i
 agoni  $alt
 androgyni  $alt
 antifoni  $alt
@@ -2872,7 +3409,7 @@ tyranni  $alt
 zucchini suk'ini  $alt
 økumeni  $alt
 
-// PB nouns with final -mi - stressed i
+// nouns with final -mi - stressed i
 agronomi  $alt
 akademi  $alt
 alkymi  $alt
@@ -3077,7 +3614,7 @@ violin  $alt
 vitamin  $alt
 zechin  $alt
 
-// PB nouns with final -ti - stressed i
+// nouns with final -ti (ri) - stressed i
 amnesti  $alt
 anakoluti  $alt
 apati  $alt
@@ -3098,6 +3635,7 @@ faresti  $alt
 fedesti  $alt
 garanti  $alt
 haiti h&'i:ti  $alt
+hieraki $alt
 homøopati  $alt
 idioti  $alt
 inerti  $alt
@@ -3116,6 +3654,7 @@ profeti  $alt
 provsti  $alt
 psykopati  $alt
 pæderasti  $alt
+renseri $alt
 sakristi  $alt
 supremati  $alt
 sympati  $alt
@@ -3249,7 +3788,7 @@ visit  $alt
 yemenit  $alt
 zeolit  $alt
 
-// PB nouns with final -ium - stress on previous syllable
+// nouns with final -ium - stress on previous syllable
 adverbium  $alt
 akvarium  $alt
 aluminium  $alt
@@ -3362,7 +3901,7 @@ vanadium  $alt
 vivarium  $alt
 vokabularium  $alt
 
-// PB nouns with final -um - stress on previous syllable
+// nouns with final -um - stress on previous syllable
 basilikum $alt
 curriculum $alt
 dekorum $alt
@@ -3408,7 +3947,7 @@ tedeum $alt
 ultimatum $alt
 vademecum $alt
 
-// PB nouns with final -ie - stress on previous syllable
+// nouns with final -ie - stress on previous syllable
 // unofficial suffix for the "ium" words above
 adverbie  $alt
 akvarie  $alt
@@ -3522,7 +4061,7 @@ vanadie  $alt
 vivarie  $alt
 vokabularie  $alt
 
-// PB words with final -ie - stress on the previous syllable
+// words with final -ie - stress on the previous syllable
 akacie  $alt
 aralie  $alt
 arterie  $alt
@@ -3562,7 +4101,7 @@ samarie  $alt
 scenarie  $alt
 valkyrie  $alt
 
-// PB nouns with final -esse - stressed last syllable
+// nouns with final -esse - stressed last syllable
 adresse  $alt
 akkuratesse  $alt
 baronesse  $alt
@@ -3600,7 +4139,7 @@ patogenese $alt
 protese $alt
 syntese $alt
 
-PB final -id - stressed i
+// final -id - stressed i
 adenoid $alt
 alkaloid $alt
 amid $alt
@@ -3658,7 +4197,7 @@ timid $alt
 tyfoid $alt
 valid $alt
 
-// PB final -iker: stressed previous syllable
+// final -iker: stressed previous syllable
 afatiker $alt
 agnostiker $alt
 akademiker $alt
@@ -3762,7 +4301,7 @@ typotekniker $alt
 æstetiker $alt
 økumeniker $alt
 
-//PB words with final -isk - stress on the previous syllable
+//words with final -isk - stress on the previous syllable
 abkhasisk  $alt
 absolutistisk  $alt
 absurdistisk  $alt
@@ -4450,6 +4989,7 @@ lingvistisk  $alt
 litografisk  $alt
 litotisk  $alt
 liturgisk  $alt
+libanesisk $alt
 logaritmisk  $alt
 logistisk  $alt
 logopædisk  $alt
@@ -4523,6 +5063,7 @@ minimalistisk  $alt
 minoisk  $alt
 misantropisk  $alt
 mistroisk  $alt
+metodisk  $alt
 mnemoteknisk  $alt
 mocambiquisk  $alt
 modernistisk  $alt
@@ -5015,7 +5556,7 @@ zoologisk  $alt
 økonomisk  $alt
 økumenisk  $alt
 
-// PB final -ol - stressed o
+// final -ol - stressed o
 aerosol  $alt
 alkohol  $alt
 anabol  $alt
@@ -5065,7 +5606,7 @@ viol  $alt
 vitriol  $alt
 ætanol  $alt
 
-// PB Words ending on -ig have stress on the previous syllable.
+// Words ending on -ig have stress on the previous syllable.
 // They keep the stress when a syllable is added after the word
 // e.g. agtv'ærdig - agtv'ærdighed
 // A 'u' can be placed before most of the words, and they'll still keep the stress
@@ -5126,7 +5667,7 @@ delagtig   $alt
 diskontinuerlig   $alt
 drikfældig   $alt
 drilagtig   $alt
-uduelig $alt // PB uduelig
+uduelig $alt // uduelig
 dumdristig   $alt
 dværgagtig   $alt
 dybsindig   $alt
@@ -5210,10 +5751,14 @@ gemytlig   $alt
 genanvendelig   $alt
 genbrugelig   $alt
 genkendelig   $alt
+ugenkendelig   $alt
 gennemførlig   $alt
+ugennemførlig   $alt
 gennemsigtig   $alt
+ugennemsigtig   $alt
 gennemskinnelig   $alt
 gennemskuelig   $alt
+ugennemskuelig   $alt
 gennemtrængelig   $alt
 genopladelig   $alt
 genstridig   $alt
@@ -5228,7 +5773,7 @@ godvillig   $alt
 grangivelig   $alt
 grinagtig   $alt
 guddommelig   $alt
-gudelig $alt // PB for "ugudelig" 
+gudelig $alt // for "ugudelig" 
 gudfrygtig   $alt
 gudsbespottelig   $alt
 gudsjammerlig   $alt
@@ -5389,7 +5934,7 @@ sammenfoldelig   $alt
 sammenklappelig   $alt
 sammenlignelig   $alt
 sammentrækkelig   $alt
-samvittig $alt  // PB not a real word - used for "samvittighed"
+samvittig $alt  // not a real word - used for "samvittighed"
 sandfærdig   $alt
 sandsynlig   $alt
 selskabelig   $alt
@@ -5789,7 +6334,7 @@ våseri   $alt
 øjentjeneri   $alt
 økonometri   $alt
 
-// PB verbs ending with -ere with stress on the next to last syllable
+// verbs ending with -ere with stress on the next to last syllable
 // In order to make this work when the "e" has been removed from -ere
 // the words are listed without the final "e".
 // In other words "abandonner" is actually the verb "abandonnere"
@@ -5907,6 +6452,7 @@ assister   $alt
 associer   $alt
 assurer   $alt
 astringer   $alt
+atelier    $alt
 atomiser   $alt
 atrofier   $alt
 attacher   $alt
@@ -6044,6 +6590,7 @@ demokratiser   $alt
 demoler   $alt
 demonstrer   $alt
 demonter   $alt
+afmonter   $alt
 denaturer   $alt
 denoter   $alt
 denuntier   $alt
@@ -6405,6 +6952,7 @@ infiltrer   $alt
 inflammer   $alt
 influer   $alt
 informer   $alt
+fejlinformer   $alt
 inhaler   $alt
 inhiber   $alt
 initialiser   $alt
@@ -6648,6 +7196,8 @@ kronologiser   $alt
 kropsvisiter   $alt
 krydsrevider   $alt
 kryptere   $alt
+dekryptere   $alt
+depletere   $alt
 kryptografer   $alt
 krystalliser   $alt
 kubere   $alt
@@ -6833,6 +7383,7 @@ optimer   $alt
 ordiner   $alt
 organiser   $alt
 orienter   $alt
+desorienter   $alt
 origamer   $alt
 orkere   $alt
 orkestrer   $alt
@@ -6882,11 +7433,11 @@ pendulere   $alt
 pensionere   $alt
 perciper   $alt
 perfektioner   $alt
-perforer   $alt
+perforere   $alt
 periodiser   $alt
 permitter   $alt
 permuter   $alt
-perseverer   $alt
+persever   $alt
 persifler   $alt
 persister   $alt
 personaliser   $alt
@@ -6936,6 +7487,7 @@ potensere   $alt
 pousser   $alt
 praktiser   $alt
 premier   $alt
+pressere $alt 
 primitiviser   $alt
 prioriter   $alt
 omprioriter   $alt
@@ -6953,6 +7505,7 @@ profilere   $alt
 profiter   $alt
 prognosticer   $alt
 programmere   $alt
+omprogrammere   $alt
 progreder   $alt
 progredier   $alt
 projektere   $alt
@@ -6989,6 +7542,7 @@ præsenter   $alt
 præserver   $alt
 præsider   $alt
 præstere   $alt
+underpræstere   $alt
 prætender   $alt
 psykologiser   $alt
 publicer   $alt
@@ -7010,6 +7564,8 @@ ramponer   $alt
 ranger   $alt
 rappeller   $alt
 rapportere   $alt
+radere $alt 
+udradere $alt 
 rasere   $alt
 ratificer   $alt
 ratihaber   $alt
@@ -7038,7 +7594,7 @@ refuser   $alt
 regaler   $alt
 regenerer   $alt
 reger   $alt
-ureger   $alt // PB uregerlig
+ureger   $alt // uregerlig
 regionaliser   $alt
 registrer   $alt
 regreder   $alt
@@ -7078,6 +7634,7 @@ reneger   $alt
 renoncer   $alt
 renover   $alt
 reorganiser   $alt
+velorganiser   $alt
 reparer   $alt
 repatrier   $alt
 repeter   $alt
@@ -7210,6 +7767,7 @@ spolere   $alt
 sponser   $alt
 sponsorere   $alt
 stabiliser   $alt
+destabiliser   $alt
 staffer   $alt
 stagner   $alt
 standardiser   $alt
@@ -7230,7 +7788,7 @@ stranguler   $alt
 stratificer   $alt
 strukturere   $alt
 omstrukturer   $alt
-studere   $alt
+studer   $alt
 indstudere   $alt
 subjektivere   $alt
 sublimer   $alt
@@ -7389,7 +7947,7 @@ xylografer   $alt
 æstetiser   $alt
 økonomiser   $alt
 
-// PB words with final -el - stressed e
+// words with final -el - stressed e
 akvarel  AkvAR'&#l $alt
 appel $alt
 appositionel  $alt
@@ -7421,7 +7979,7 @@ konstitutionel  $alt
 konventionel  $alt
 kornel  $alt
 kriminel  $alt
-kriminal  $alt // PB as in "kriminalroman"
+kriminal  $alt // as in "kriminalroman"
 kulturel $alt
 maskinel  $alt
 model $alt
@@ -7459,7 +8017,7 @@ sportel  $alt
 tarantel  $alt
 karamel  $alt
 
-// PB final -iel - stressed e
+// final -iel - stressed e
 adverbiel  $alt
 arteriel  $alt
 artificiel  $alt
@@ -7499,7 +8057,7 @@ territoriel  $alt
 triviel  $alt
 vektoriel  $alt
 
-// PB nouns ending with -ering - stressed e
+// nouns ending with -ering - stressed e
 abandonnering  $alt
 abdicering  $alt
 abonnering  $alt
@@ -8583,7 +9141,7 @@ vurdering  $alt
 æstetisering  $alt
 økonomisering  $alt
 
-// PB final -gram - stressed a
+// final -gram - stressed a
 aerogram $alt
 anagram $alt
 attogram $alt
@@ -8618,7 +9176,7 @@ stereogram $alt
 telegram $alt
 videogram $alt
 
-// PB nouns with final -itet - stressed e
+// nouns with final -itet - stressed e
 abnormitet  $alt
 absurditet  $alt
 acceptabilitet  $alt
@@ -8924,7 +9482,7 @@ vitalitet  $alt
 vivacitet  $alt
 vulgaritet  $alt
 
-// PB nouns ending with -ion with stress on the last syllable
+// nouns with final -ion with stress on the last syllable
 abbreviation   $alt
 abdikation   $alt
 aberration   $alt
@@ -9406,6 +9964,7 @@ oxidation   $alt
 participation   $alt
 pavillon $alt
 passion   $alt
+penetration $alt
 pension   $alt
 perception   $alt
 perfektion   $alt
@@ -9751,7 +10310,7 @@ ræson   REs'VN   $alt
 sæson    $alt
 unison   $alt
 
-// PB exceptions from the "be" rule in group "be"
+// exceptions from the "be" rule in group "be"
 // and a few foreign words with [_) be (]
 bearbejde   $3
 bearbejdelig   $3
@@ -9781,7 +10340,7 @@ bestialisering   $5
 bestialitet   $5
 bestyrerinde   $4
 
-// PB Nouns ending with -ist - stressed last syllable
+// Nouns ending with -ist - stressed last syllable
 absolutist   $alt
 absurdist   $alt
 adventist   $alt
@@ -10126,7 +10685,7 @@ xylofonist   $alt
 zionist   $alt
 ækvilibrist   $alt
 
-// PB words with final -let - stressed e
+// words with final -let - stressed e
 amulet  $alt
 atlet  $alt
 ballet  $alt
@@ -10162,7 +10721,7 @@ tavlet  $alt
 toilet  $alt
 violet  $alt
 
-// PB nouns ending with -ine - stressed last syllable
+// nouns ending with -ine - stressed last syllable
 abonnine   $alt
 barkentine   $alt
 blondine   $alt
@@ -10210,7 +10769,7 @@ vitrine   $alt
 vlieseline flis@l'i:n@  $alt
 zibeline   $alt
 
-// PB nouns with final -log - stressed last syllable
+// nouns with final -log - stressed last syllable
 alkolog  $alt
 allergolog  $alt
 analog  $alt
@@ -10303,7 +10862,7 @@ zoolog  $alt
 ægyptolog  $alt
 økolog  $alt
 
-// PB final -gi - stressed i (most of them -logi)
+// final -gi - stressed i (most of them -logi)
 // a lot of them are in the -log list without i
 // didn't bother to weed them out
 allergi  $alt
@@ -10497,7 +11056,7 @@ tuberkulose $alt
 viskose $alt
 zoonose $alt
 
-// PB final -si - stressed i
+// final -si - stressed i
 afasi $alt
 aleksi $alt
 amnesi $alt
@@ -10531,7 +11090,7 @@ poesi $alt
 synæstesi $alt
 taksi $alt
 
-// PB nouns ending with -ær - stressed last syllable
+// nouns ending with -ær - stressed last syllable
 aktionær  $alt
 alveolær  $alt
 arbitrær  $alt
@@ -10620,7 +11179,7 @@ veterinær  $alt
 visionær  $alt
 vulgær  $alt
 
-// PB nouns with final -tor - stress on previous syllable
+// nouns with final -tor - stress on previous syllable
 accelerator  $alt
 administrator  $alt
 agitator  $alt
@@ -10792,7 +11351,7 @@ sonor  $alt
 tenor  $alt
 tumor  $alt
 
-// PB Final -ut - stressed u
+// Final -ut - stressed u
 absolut $alt
 akut $alt
 attribut $alt
@@ -10821,7 +11380,8 @@ substitut $alt
 tribut $alt
 volut $alt
 
-// PB nouns ending with -ør - stressed last syllable
+// nouns ending with -ør - stressed last syllable
+abortør 		$alt
 akkompagnatør   $alt
 akkvisitør      $alt
   aktør         $alt
@@ -10972,7 +11532,7 @@ volontør        $alt
 voltigør        $alt
 vulkanisør      $alt
 
-// PB adjectives ending with -øs (French -eux) - stressed ø
+// adjectives ending with -øs (French -eux) - stressed ø
 albuminøs   $alt
 ambitiøs   $alt
 amourøs   $alt
@@ -11052,7 +11612,7 @@ vinøs   $alt
 viskøs   $alt
 voluminøs   $alt
 
-// PB final -tur - stressed
+// final -tur - stressed
 abbreviatur  $alt
 adjudantur  $alt
 adjunktur  $alt
@@ -11123,7 +11683,7 @@ titulatur  $alt
 tortur  $alt
 trubadur $alt
 
-// PB final -skop & -trop - stressed
+// final -skop & -trop - stressed
 biblioskop  $alt
 bronkoskop  $alt
 diaskop  $alt
@@ -11151,7 +11711,7 @@ stroboskop  $alt
 takistoskop  $alt
 teleskop  $alt
 
-// PB final -ure - French inheritance - stressed [y:V]
+// final -ure - French inheritance - stressed [y:V]
 bordure  $alt
 brochure  $alt
 embouchure  $alt
@@ -11177,40 +11737,40 @@ tournure  $alt
 // exceptions
 alene	?&l'?en@-	// alone
 egen _|Aj@-n
-mc m?Ak' $capital // PB McDonald
+mc m?Ak' $capital // McDonald
 egne	?Ajn@-
 enter	?Ent?V
 ide	?id'?e	// idea
 idé	?id'?e	// idea
-tune tun@- $capital // PB Tune lufthavn - not "tune a car" [tjune]
+tune tun@- $capital // Tune lufthavn - not "tune a car" [tjune]
 ny	ny	// new
 også	?Vs@-	// also
 idet	?id'?e	// in so far as
 (rub og stub)  R'?Ob||V||sd'?Ob
 tre	tr'?E	// the number 3
-rejicere r?Ej?is'?e?V          // PB should not be pronounced [raje]
-rejicerer r?Ej?is'?e?V         // PB
-rejiceres rejis'eVs        // PB
-rejicering rejis'eRiN      // PB
-nogle  n'o@-n             // PB English: 'some' - must be pronounced like the Danish word 'nogen'
-nogen  n'o@-n             // PB
-ligesom l?is?Vm              // PB
-bliver bl?ir                // PB
-konfirmand k?Vnf?irm'?&nd     // PB
-konfirmander k?Vnf?irm'?&nd?V  // PB
-konfirmanderne kVnferm'&nd3-n@  // PB
-konfirmandernes k?Vnf?irm'?&ndVn@-s  // PB
-jaloux sj?&'l?u              // PB jaloux
-aficionado ?&f?isj?o'nA:do    // PB
-squaredance  skw'EVd&:ns    // PB squaredance
-squaredancer  skw'EVd&:nsV  // PB squaredancer
-squaredancere  skw'EVd&:nsV3  // PB squaredancere
-squaredancen  skw'EVd&:ns@-n // PB squaredancen
-squaredancerne  skw'EVd&:nsV-n@ // PB squaredancerne
-squaredancernes  skw'EVd&:nsV-n@s // PB squaredancernes
+rejicere r?Ej?is'?e?V          // should not be pronounced [raje]
+rejicerer r?Ej?is'?e?V
+rejiceres rejis'eVs
+rejicering rejis'eRiN
+nogle  n'o@-n             // English: 'some' - must be pronounced like the Danish word 'nogen'
+nogen  n'o@-n
+ligesom l?is?Vm
+bliver bl?ir
+konfirmand k?Vnf?irm'?&nd
+konfirmander k?Vnf?irm'?&nd?V
+konfirmanderne kVnferm'&nd3-n@
+konfirmandernes k?Vnf?irm'?&ndVn@-s
+jaloux sj?&'l?u              // jaloux
+aficionado ?&f?isj?o'nA:do
+squaredance  skw'EVd&:ns    // squaredance
+squaredancer  skw'EVd&:nsV  // squaredancer
+squaredancere  skw'EVd&:nsV3  // squaredancere
+squaredancen  skw'EVd&:ns@-n // squaredancen
+squaredancerne  skw'EVd&:nsV-n@ // squaredancerne
+squaredancernes  skw'EVd&:nsV-n@s // squaredancernes
 baguette b?&'gEt // French word used in Danish
-jambore djAmboR'E             // PB English? word used in Danish - stressed e
-shampoo Sj?Amb?o                // PB Danish pronunciation
+jambore djAmboR'E             // English? word used in Danish - stressed e
+shampoo Sj?Amb?o                // Danish pronunciation
 (en face)  AN||f'as           // 'en face' - French used in Danish
 (en bloc) AN||'blVk           // 'en bloc' - French used in Danish
 (haute couture) %o:tk?u'ty:r   // french word
@@ -11224,37 +11784,38 @@ shampoo Sj?Amb?o                // PB Danish pronunciation
 (quiche lorraine) k?iS||l?or'E:n:
 (fait accompli) f?Et?&k?Vmpl'?i
 (salt lake city) s'Vlt||lEjk||s'iti
-wien     v'i:n                  // PB Wien - the town of Vienna
-calais   k&l'E                   // PB Calais - town in France 
-date dEjt                      // PB date - stævnemøde
-//siger sir                      // PB silent d
-(tids nok) tis||n'Vk             // PB silent d
-skateboardet  sk'EitbO:d@-D      // PB
-(hole in one) h'oulinw,0n      // PB English golf expression used in Danish
-(en passant) AN||p&s'AN
-(coney island) 'kouni||'ajl3nd    // PB
-(union station) junj3n||steisj@n  // PB
+wien     v'i:n                  // Wien - the town of Vienna
+calais   k&l'E                   // Calais - town in France 
+date dEjt                      // date - stævnemøde
+//siger sir                      // silent d
+(tids nok) tis||n'Vk             // silent d
+skateboardet  sk'EitbO:d@-D
+(hole in one) h'oul?inw,0n      // English golf expression used in Danish
+(en passant) ?AN||p?&s'AN
+(coney island) 'koun?i||'?Ajl3nd
+(union station) junj3n||steisj@n
 (secret service) sigred||s'Wvis
 (happy hour) h&pi||'AuV
 chevrolet sjEvrol'E
-saigon sAjgVn                   // PB Saigon
-managua m&n'&:gw&
+saigon sAjg?Vn                   // Saigon
+managua m?&n'&gw?&
 (deja-vu) deSja||'vy
-(il duce) il||d'u:tSj@ // PB Italian Fascist
+(il duce) il||d'u:tSj@ // Italian Fascist
 (idiot savant) idi'o||s&v'AN
 
 // Abbreviations
-pga   pO||gR'O?n||& $hasdot // PB short for 'på grund af'
-hr   h&r    $hasdot   // PB hr. - short for mister (Mr) in Danish
-mr mestV $hasdot // PB mister
-mrs meses $hasdot // PB Mrs.
-ca sirk& $hasdot // PB short for "cirka"
-fx fVegsemp@l // PB "fx" is short for 'for eksempel'
-(f.eks) fVegsemp@l $hasdot // PB "f.eks" is short for 'for eksempel'
-(dj'en) di:'dje:j3n // *PB dj'en - the dj 
-(dj'er) di:'dje:jV // *PB dj'er 
-(cd'en) se:de:3n // PB
-(cd'er) se:de:V // PB
+pga   pO||gR'O?n||& $hasdot // short for 'på grund af'
+hr   h&r    $hasdot   // hr. - short for mister (Mr) in Danish
+mr mestV $hasdot // mister
+mrs meses $hasdot // Mrs.
+dr   d?Vkt?V    $hasdot 
+ca sirk& $hasdot // short for "cirka"
+fx fVegsemp@l // "fx" is short for 'for eksempel'
+(f.eks) fVegsemp@l $hasdot // "f.eks" is short for 'for eksempel'
+(dj'en) di:'dje:j3n // dj'en - the dj 
+(dj'er) di:'dje:jV // dj'er 
+(cd'en) se:de:3n
+(cd'er) se:de:V
 emp $abbrev
 dna $abbrev
 dna's d?e?En'?&s
@@ -11263,12 +11824,12 @@ evt evEntu'El $abbrev $hasdot
 hbo $abbrev // TV station
 usa $abbrev
 kfum $abbrev
-who $abbrev $allcaps // PB World Health Organization
+who $abbrev $allcaps // World Health Organization
 ussr $abbrev $allcaps // Sovjet Union
 vsop $abbrev 
 eu $abbrev
 ekg $abbrev
-co   $abbrev $allcaps // PB for CO2-kvote
+co   $abbrev $allcaps // for CO2-kvote
 ngo $abbrev
 edb $abbrev
 mri $abbrev
@@ -11281,15 +11842,13 @@ wc v'ese // w is pronounces as v in Danish
 it $abbrev
 id $abbrev
 dna $abbrev
-sos  $abbrev  // PB the SOS signal
-pharm  fA:rm? $hasdot                // PB fx cand. pharm.
-phil  fil/3 $hasdot                // PB fx cand. phil.
+sos  $abbrev  // the SOS signal
+pharm  fA:rm? $hasdot                // fx cand. pharm.
+phil  fil/3 $hasdot                // fx cand. phil.
 bh $abbrev
 (bh'er)  b,e:h'O:V
 (l'chaim) l&kr'ajm
-scsi skVsi // PB
-ike ajk  // PB name
-ikes ajks // PB
+scsi skVsi
 
 // Try to catch errors
 
@@ -11303,11 +11862,13 @@ ikes ajks // PB
 (at have) ?&||h?&                
 (vil have) v?el||h'?& 
 (ville have) v?il3||h'& 
+(måske have) mOsk?e||h'& 
 (skulle have) sg'?ul@-||h'&
 (du have) du||h?&_!
 (må have)  mO:||h?&
 (man have) m?&n|h?&  
-(skal have)  sk?&||h&  
+(skal have)  sk?&||h& 
+(aldrig have) ?Aldr?i|h?& 
 (helst have) h'Elst||h&
 (gerne have) g'Ern3||h&
 (kan have) k?&n||h& 
@@ -11316,18 +11877,18 @@ ikes ajks // PB
 (måtte have) m'?Vt@-||h&
 (have været) h&||v'?E3-VD
 (have gjort) h&||gj'Ort
-// PB 'hav' = ocean - 'hav' = have (a nice day)
+// 'hav' = ocean - 'hav' = have (a nice day)
 (et hav) ed||hAu
 (stort hav) stord||hAu
 hav hAu $atend
 (et for) ed||'for              // for i jakke - lining
 (et for dig) ed||fV||dAj       // vælge et for dig
-// PB problem with 'sig' [si] = "say" and 'sig' = "himself/herself" [saj]
+// problem with 'sig' [si] = "say" and 'sig' = "himself/herself" [saj]
 (sig hvad) si||v&                // sig hvad du mener 
 sig $atend $sentence sAj        // end of a sentence - han vaskede sig.
 (gør sig til) g,Wr||sAj||t'el    
 (gav sig til) g&||sAj||tel       // han gav sig til at ... 
-// PB avoid [staj] as in "flæskesteg"
+// avoid [staj] as in "flæskesteg"
 (han steg) h&n||st'e
 (hun steg) hOn||st'e
 (vi steg) vi||st'e
@@ -11336,19 +11897,19 @@ sig $atend $sentence sAj        // end of a sentence - han vaskede sig.
 (vandet steg) v&n@D||st'e
 steg sdaj $atend $sentence
 //steget ste@d 
-// PB problem with noun "hav" = ocean and verb "hav(e)" = to have [hAu]/[h&v]
-(et hav) ed||h'Au              // PB "et hav" = an ocean - not "hav en god dag" - have a nice day
-// PB legende = legend/myth and = playing
+// problem with noun "hav" = ocean and verb "hav(e)" = to have [hAu]/[h&v]
+(et hav) ed||h'Au              // "et hav" = an ocean - not "hav en god dag" - have a nice day
+// legende = legend/myth and = playing
 (en legende) en||leg'End@-
 legenden leg'End@-n
 legender leg'EndV
 legenders leg'EndVs
 legenderne leg'EndVn@-
 legendernes leg'EndVn@-s
-// PB verb "forsyne" noun "forsyn" - stress problem
+// verb "forsyne" noun "forsyn" - stress problem
 (et forsyn) ed||f'Vrsyn
 (forsynet har) f'Vrsyn@d||hAr
-// PB så = "as" [sV]/ så = "saw" [sO:]
+// så = "as" [sV]/ så = "saw" [sO:]
 (lige så) li@||sV
 (en så) en||s'V
 (mig så) maj||sV
@@ -11374,11 +11935,11 @@ legendernes leg'EndVn@-s
 (virkede så)  v'irkeD@||sV
 (kom så) kVm||sV
 (koste med) kosd@||mED
-(lige koste) li@||kosd@ // PB "lige koste fejer bedst"
+(lige koste) li@||kosd@ // "lige koste fejer bedst"
 (en kanoner) en||k&non'er
-nå nV $atstart // PB Nå, der er du
+nå nV $atstart // Nå, der er du
 
-// PB stress in word combinations
+// stress in word combinations
 (dem her) d'Em||her
 (dem der) d'Em||der
 (den der) d'En||der
