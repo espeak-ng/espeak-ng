@@ -1,5 +1,5 @@
 // names of letters
-א   alef?
+א   ?alef?
 בּ   bet
 ב   vet
 ג   g'imel
@@ -50,53 +50,64 @@
 
 // Numbers
 _0 'efes
-_1 aX'at
+_1 ?aX'at
 _2 St'ajim
 _3 Sal'oS
-_4 aRb'a?
+_4 ?'aRba
 _5 Xam'eS
 _6 S'eS?
 _7 S'eva?
 _8 Sm'one
 _9 t'eSa
-_10 'eseR
-_11 'aXad?'a?saR
-_12 Sn'ejm?a?s'aR
-_13 Sl'osa?a?s'aR
-_14 'aRb?aa?s'aR
-_15 X'amiSa?a?s'aR
-_16 SiS'a?a?s'aR
-_17 Siv'a?a?s'aR
-_18 Smon'a?as'aR
-_19 tS?'a?as'aR
-_2X esR'im
+_10 ?'eseR
+_11 ?aX'atesRe
+_12 St'emesRe
+_13 Sl'oSesRe
+_14 ?aRb'aesRe
+_15 Xam'eSesRe
+_16 S'eSesRe
+_17 Sv'aesRe
+_18 Smon'aesRe
+_19 tS'aesRe
+_2X ?esR'im
 _3X SloS'im
-_4X aRba?'im
+_4X ?aRba?'im
 _5X XamiS'im
 _6X SiS'im
 _7X Siv?'im
 _8X Smon'im
 _9X tiS?'im
-_0C m'e?a
-_1C m'e?a
+_0C me?'a
+_1C me?'a
 _2C mat'ajim
-_3C Sl'oSme?'ot
-_4C aRb'ame?'ot
-_5C Xam'eSme?'ot
-_6C S'eSme?'ot
-_7C Sv'ame?'ot
-_8C Smon'eme?'ot
-_9C tS'ame?'ot
+_3C SloSme?'ot
+_4C ?aRbame?'ot
+_5C XameSme?'ot
+_6C SeSme?'ot
+_7C Svame?'ot
+_8C Smoneme?'ot
+_9C tSame?'ot
 _0M1 'elef
 _1M1 'elef
 _2M1 ?alp'ajim
+_3M1 Sl'oSetalafim
+_4M1 ?aRb'a?atalafim
+_5M1 Xam'eSetalafim
+_6M1 S'eSetalafim
+_7M1 Sv'a?talafim
+_8M1 Smon'atalafim
+_9M1 tS'atalafim
 _0M2 milj'on
 
 _dpt nekud'a
-_0and v,e
+_0and ||ve
+
+
+// Ordinal
+// _1o ?eX'ad
+
 
 // Symbols
-
-% aX'uz@
+% ?aX'uz@
 $ d'olaR
 ₪ Skal'im
