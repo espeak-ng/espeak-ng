@@ -731,11 +731,12 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					c1 = 0xd4e; // use this unofficial code for chillu-virama
 			}
 
-			if (c1 == 0xdca && c2 == 0x200d && !Eof()) {
-				// Sinhala virama followed by Zero-width-joiner: the ZWJ only
-				// selects a touching-conjunct glyph (e.g. ක්‍ර) and has no effect
-				// on pronunciation, so drop it and let the cluster be read as one
-				// conjunct. (Emoji ZWJ sequences are unaffected: there the joiner
+			if ((c1 == 0xdca || c1 == 0xccd) && c2 == 0x200d && !Eof()) {
+				// Sinhala or Kannada virama followed by Zero-width-joiner: the ZWJ
+				// only selects a glyph form (a Sinhala touching conjunct such as
+				// ක්‍ර, or the old-style Kannada arkavattu in ಕಾರ್‍ಯ) and has no
+				// effect on pronunciation, so drop it and let the cluster be read
+				// as one conjunct. (Emoji ZWJ sequences are unaffected: there the joiner
 				// follows an emoji, not the virama.)
 				c2 = GetC();
 			}

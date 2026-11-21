@@ -252,6 +252,8 @@ test_phon en "f'u:" "foo.."
 test_phon en "Ign'o@rINg,u: pl'Vs 'ad" "Ignoring­u+ad"
 # note 0x200c between 1 and 1
 test_phon fa "j'ek j'ek" "1‌1"
+# note 0x200d after the virama: Kannada ra + virama + ZWJ is the old-style arkavattu
+test_phon kn "k'a:rja s'u:rja" "ಕಾರ್‍ಯ ಸೂರ್‍ಯ"
 
 # Dutch ordinal indicator: 3e is "derde", the e is not spoken as a letter
 test_phon nl "d'Erd@" "3e"
