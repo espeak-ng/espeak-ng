@@ -14,36 +14,36 @@ $textmode
 
 // 0000..007F : C0 Controls and Basic Latin
 
-//+	plus								// [002B] other (no translation)
++	plus							// [002B] other
 
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
-//¢	cents								// [00A2] other (no translation)
-//£	pound								// [00A3] other (no translation)
-//¤	currency sign							// [00A4] other (no translation)
-//¥	yen								// [00A5] other (no translation)
-//§	section								// [00A7] other (no translation)
-//¨	double dot							// [00A8] other (no translation)
+¢	centë							// [00A2] other
+£	funtë							// [00A3] other
+¤	shenjë monedhe					// [00A4] other
+¥	jen							// [00A5] other
+§	paragraf						// [00A7] other
+¨	dy pika sipër						// [00A8] other
 ©	të drejtat e autorit						// [00A9] text|emoji
-//¬	not sign							// [00AC] other (no translation)
+¬	shenja e mohimit					// [00AC] other
 ®	i regjistruar							// [00AE] text|emoji
-//°	degrees								// [00B0] other (no translation)
-//±	plus or minus							// [00B1] other (no translation)
-//µ	micro								// [00B5] other (no translation)
-//¶	paragraph							// [00B6] other (no translation)
-//¼	a quarter							// [00BC] other (no translation)
-//½	a half								// [00BD] other (no translation)
-//¾	three quarters							// [00BE] other (no translation)
-//×	times								// [00D7] other (no translation)
-//÷	divided by							// [00F7] other (no translation)
+°	gradë							// [00B0] other
+±	plus ose minus					// [00B1] other
+µ	mikro							// [00B5] other
+¶	paragraf						// [00B6] other
+¼	një e katërta						// [00BC] other
+½	gjysmë						// [00BD] other
+¾	tri të katërtat					// [00BE] other
+×	shumëzuar me						// [00D7] other
+÷	pjesëtuar me						// [00F7] other
 
 // 02B0..02FF : Spacing Modifier Letters
 
-//˙	dot								// [02D9] other (no translation)
+˙	pikë sipër						// [02D9] other
 
 // 0900..097F : Devanagari
 
-//।	danda								// [0964] other (no translation)
+।	danda							// [0964] other
 
 // 2000..203C : General Punctuation
 
@@ -57,7 +57,7 @@ $textmode
 ₤	lirë							// [20A4]
 ₥	mill							// [20A5]
 ₦	Naira nigeriane						// [20A6]
-//₧								// [20A7] (no translation)
+₧	peseta spanjolle					// [20A7]
 
 // 20A0..20CF : Currency Symbols
 
@@ -85,16 +85,16 @@ $textmode
 
 // 2100..214F : Letterlike Symbols
 
-//№	numero								// [2116] other (no translation)
+№	numri							// [2116] other
 ℗	e drejta e autorit për regjistrim zanor			// [2117]
-//℞	prescription							// [211E] other (no translation)
+℞	recetë						// [211E] other
 ™	markë tregtare							// [2122] text|emoji
 ℹ	informacion							// [2139] text|emoji
 
 // 2150..218F : Number Forms
 
-//⅓	one third							// [2153] other (no translation)
-//⅔	two thirds							// [2154] other (no translation)
+⅓	një e treta						// [2153] other
+⅔	dy të tretat						// [2154] other
 
 // 2190..21FF : Arrows
 
@@ -211,7 +211,7 @@ $textmode
 ∘	operator rreth						// [2218]
 ∙	operator pikësim					// [2219]
 √	rrënja katrore						// [221A]
-//∛	cube root							// [221B] other (no translation)
+∛	rrënja kubike						// [221B] other
 ∝	përpjesëtimor						// [221D]
 ∞	shenja e infinitit					// [221E]
 ∟	kënd i djathtë						// [221F]
@@ -1949,9 +1949,9 @@ $textmode
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-//🏴󠁧󠁢󠁥󠁮󠁧󠁿	england							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F] (no translation)
-//🏴󠁧󠁢󠁳󠁣󠁴󠁿	scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F] (no translation)
-//🏴󠁧󠁢󠁷󠁬󠁳󠁿	wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F] (no translation)
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	Anglia						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	Skocia						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	Uellsi						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
