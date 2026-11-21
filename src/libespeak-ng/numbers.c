@@ -1521,6 +1521,93 @@ static bool CheckThousandsGroup(char *word, int group_len)
 	return true;
 }
 
+static int RussianTimeForm(int value)
+{
+	// Dictionary suffix: 0 = plural, 1 = singular, 2 = paucal.
+	if ((value % 100 >= 11) && (value % 100 <= 14))
+		return 0;
+	if (value % 10 == 1)
+		return 1;
+	if ((value % 10 >= 2) && (value % 10 <= 4))
+		return 2;
+	return 0;
+}
+
+static bool TranslateRussianTime(Translator *tr, char *word, char *ph_out, char *ph_out_end, unsigned int *flags, WORD_TAB *wtab, int wtab_remaining)
+{
+	// Tokenization turns H:MM or HH:MM into "H : MM" or "HH : MM".
+	// Require adjacent source tokens so that spaced colons stay numbers.
+	if ((tr->translator_name != L('r', 'u')) || (wtab_remaining < 3))
+		return false;
+
+	int hour_digits = wtab[1].start - wtab[0].start - 1;
+	if (((hour_digits != 1) && (hour_digits != 2)) ||
+	    (wtab[2].start - wtab[1].start != 2) ||
+	    (wtab[1].sourceix != wtab[0].sourceix + hour_digits) ||
+	    (wtab[2].sourceix != wtab[1].sourceix + 1) ||
+	    !IsDigit09(word[0]) || ((hour_digits == 2) && !IsDigit09(word[1])) ||
+	    (word[hour_digits] != ' '))
+		return false;
+
+	char *colon = word + hour_digits + 1;
+	char *minute = colon + 2;
+	if ((colon[0] != ':') || (colon[1] != ' ') ||
+	    !IsDigit09(minute[0]) || !IsDigit09(minute[1]) || (minute[2] != ' '))
+		return false;
+
+	int previous;
+	utf8_in2(&previous, word - 2, 1);
+	if (IsAlpha(previous) || (previous == ':') ||
+	    (wtab[0].flags & FLAG_NOSPACE))
+		return false;
+	if ((wtab_remaining > 3) && (wtab[3].sourceix == wtab[2].sourceix + 2)) {
+		int next;
+		utf8_in(&next, word + wtab[3].start - wtab[0].start);
+		if (IsAlpha(next) || IsDigit09(next) || (next == ':') || (next == '.') || (next == ','))
+			return false;
+	}
+
+	int hours = word[0] - '0';
+	if (hour_digits == 2)
+		hours = hours * 10 + word[1] - '0';
+	int minutes = (minute[0] - '0') * 10 + minute[1] - '0';
+	if ((hours > 24) || (minutes > 59))
+		return false;
+
+	char key[20];
+	char hour_number[N_WORD_PHONEMES];
+	char hour_unit[N_WORD_PHONEMES];
+	char minute_number[N_WORD_PHONEMES];
+	char minute_unit[N_WORD_PHONEMES];
+	sprintf(key, "_time_hour%d", RussianTimeForm(hours));
+	if (!Lookup(tr, key, hour_unit, sizeof(hour_unit)))
+		return false;
+	if (minutes == 0)
+		strcpy(key, "_time_exact");
+	else
+		sprintf(key, "_time_minute%d", RussianTimeForm(minutes));
+	if (!Lookup(tr, key, minute_unit, sizeof(minute_unit)))
+		return false;
+
+	LookupNum2(tr, hours, 0, 2, hour_number);
+	minute_number[0] = 0;
+	if (minutes != 0)
+		LookupNum2(tr, minutes, 0, 2 | 8, minute_number); // final number, feminine forms
+
+	size_t len = strlen(hour_number) + strlen(hour_unit) + strlen(minute_number) + strlen(minute_unit) + (minutes ? 3 : 2);
+	if (len + 1 > (size_t)(ph_out_end - ph_out))
+		return false;
+	if (minutes == 0)
+		sprintf(ph_out, "%s%c%s%c%s", hour_number, phonEND_WORD, hour_unit, phonEND_WORD, minute_unit);
+	else
+		sprintf(ph_out, "%s%c%s%c%s%c%s", hour_number, phonEND_WORD,
+		        hour_unit, phonEND_WORD, minute_number, phonEND_WORD, minute_unit);
+	*flags = FLAG_FOUND | FLAG_SKIPWORDS;
+	dictionary_skipwords = 2;
+	speak_missing_thousands = 0;
+	return true;
+}
+
 static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_out_end, unsigned int *flags, WORD_TAB *wtab, int wtab_remaining, int control)
 {
 	//  Number translation with various options
@@ -1568,6 +1655,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 	buf_digit_lookup[0] = 0;
 	digit_lookup = buf_digit_lookup;
 	number_control = control;
+
+	if (TranslateRussianTime(tr, word, ph_out, ph_out_end, flags, wtab, wtab_remaining))
+		return 1;
 
 	for (ix = 0; IsDigit09(word[ix]); ix++) ;
 	n_digits = ix;
