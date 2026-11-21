@@ -103,11 +103,6 @@ phoneme v
 endphoneme
 
 
-phoneme r
-  import_phoneme base1/r
-endphoneme
-
-
 phoneme d
   vcd dnt stp
   voicingswitch t[
