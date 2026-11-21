@@ -137,6 +137,22 @@ test_embedded_command_punctuation_list()
 }
 
 static void
+test_ssml_unterminated_entity()
+{
+	printf("testing SSML ... unterminated entity\n");
+
+	// "&pepper" has no ';', so ReadClause pushes the collected name back as
+	// plain text. The name must come back unchanged on every platform.
+	TEST_ASSERT(set_text("salt &pepper and", "en") == ENS_OK);
+
+	option_ssml = espeakSSML;
+	charix_top = 0;
+	ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name);
+	option_ssml = 0;
+	TEST_ASSERT(strstr(source, "pepper and") != NULL);
+}
+
+static void
 test_greek()
 {
 	printf("testing Greek (Grek)\n");
@@ -549,6 +565,7 @@ main(int argc, char **argv)
 	test_latin();
 	test_latin_sentence();
 	test_embedded_command_punctuation_list();
+	test_ssml_unterminated_entity();
 
 	test_greek();
 	test_armenian();
