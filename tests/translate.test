@@ -352,3 +352,8 @@ test_phon ab ",avan'@za" "аваныза"
 # and the letter names are not read again
 test_phon ar "d,i:na:r dZaz'a:?ir,ij" "د.ج" "Arabic abbreviation د.ج at the end of a clause"
 test_phon ar "r,ija:l s'a:u:d,i:" "ر.س" "Arabic abbreviation ر.س at the end of a clause"
+
+# kn: ೞ is read as ಳ, ೠ and ೄ as [ru:]
+test_phon kn "p'e:l.du b'a:l. r'u: kr'u:" "ಪೇೞ್ದು ಬಾೞ್ ೠ ಕೄ"
+# note: the vowel signs below are decomposed: U+0CC6 U+0CD6, U+0CC6 U+0CC2, U+0CC6 U+0CC2 U+0CD5
+test_phon kn "k'aI k'od.u h'o:gu" "ಕೈ ಕೊಡು ಹೋಗು" "kn decomposed vowel signs"
