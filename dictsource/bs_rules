@@ -123,6 +123,12 @@
         n (g     N
         n (k     N
 
+     _ko) nj (unk   nj    // kon+junktiv, kon+junktura: not the digraph nj
+     _ko) nj (ug    nj    // kon+jugacija, kon+jugirati
+     _i) nj (ek     nj    // in+jekcija, in+jektirati
+     _i) nj (ic     nj    // in+jicirati
+     _i) nj (unk    nj    // in+junkcija
+     _a) nj (on     nj    // an+jon (anjon, anjona, anjonski): not the digraph; kanjon keeps nj
         nj       n^
      _) nj (_    n^@
 
