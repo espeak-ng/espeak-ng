@@ -169,6 +169,10 @@ _8o	'Axtst@
 _0Co	h'OndErtst@
 
 
+// -el with schwa where a prefix rule splits the word (nl-schwa-el)
+bijbel	b'EIb@l
+bijbels	b'EIb@ls
+
 // abbreviations
 be	$abbrev   // used as domain abbrev for Belgium and in a lot of other names
 ca	s'Irka: $hasdot
