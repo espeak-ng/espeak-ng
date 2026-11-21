@@ -147,14 +147,25 @@ _5X	v'EIft@x
 _6X	z'Est@x
 _7X	z'e:v@nt@x
 _8X	t'Axt@x
-_9X	n'e:g@nt@x
+_9X	n'e:Q@nt@x
 _0C	h'Ond@rt
-_0M1	d'WyzEnt
-_0M2	m'iljun
-_0M3	m'iljArt
-_0M4	b'iljun
-_0and	En
+_0M1	d'Wyz@nt
+_0M2	mIlj'un
+_0M3	mIlj'Art
+_0M4	bIlj'un
+_0and	@n
 _dpt	_k'Oma:
+
+// number words that the rules get wrong
+honderd	h'Ond@rd
+honderdste	h'Ond@rtst@
+duizendste	d'Wyz@ntst@
+miljoen	mIlj'un
+miljoenste	mIlj'unst@
+miljard	mIlj'Ard
+miljardste	mIlj'Artst@
+biljoen	bIlj'un
+biljard	bIlj'Ard
 
 _ord	d@
 _ord20	st@
@@ -166,7 +177,10 @@ _5o	v'EIvd@
 _6o	z'Esd@
 _7o	z'e:v@nd@
 _8o	'Axtst@
-_0Co	h'OndErtst@
+_0Co	h'Ond@rtst@
+_0M1o	d'Wyz@ntst@
+_0M2o	mIlj'unst@
+_0M3o	mIlj'Artst@
 
 
 // abbreviations
