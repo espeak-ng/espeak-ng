@@ -537,6 +537,11 @@ kpr		kapRal	$dot
 
 ekg		Ekag;'E	$abbrev
 usg		u_Esg;'E	$abbrev
+agd		$abbrev
+rtv		$abbrev
+sms		$abbrev
+mms		$abbrev
+pkp		$abbrev
 
 tzn		tO||znatSy	$dot
 itd		i||tak||dalEj	$dot
