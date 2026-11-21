@@ -59,6 +59,7 @@ compiled_test(output_pho_symbol)
 compiled_test(readclause)
 compiled_test(soundicon_bounds)
 compiled_test(voice_by_file)
+compiled_test(voice_variant_only)
 compiled_test(voice_params_bounds)
 compiled_test(voices_bounds)
 

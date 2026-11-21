@@ -499,6 +499,9 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	strcpy(translator_name, language_type);
 	strcpy(new_dictionary, language_type);
+	// a voice file with no language line (e.g. a variant file) gets the
+	// default language, so it needs the matching default phoneme table too
+	strcpy(phonemes_name, language_type);
 
 	if (!tone_only) {
 		voice = &voicedata;
