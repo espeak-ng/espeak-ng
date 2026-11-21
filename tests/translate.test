@@ -352,3 +352,12 @@ test_phon ab ",avan'@za" "аваныза"
 # and the letter names are not read again
 test_phon ar "d,i:na:r dZaz'a:?ir,ij" "د.ج" "Arabic abbreviation د.ج at the end of a clause"
 test_phon ar "r,ija:l s'a:u:d,i:" "ر.س" "Arabic abbreviation ر.س at the end of a clause"
+
+# a word in another script followed by an English 's: each part is spoken in its own
+# language (the whole word used to be spelled letter by letter), with no pause after the 's
+test_phon hi "k,Uld'i:p (en)z st'o@ri(hi)" "कुलदीप's story" "Hindi name with 's in the Hindi voice"
+test_phon hi "k,Uld'i:p (en)z st'o@ri(hi)" "कुलदीप’s story" "Hindi name with ’s in the Hindi voice"
+test_phon en "(hi)k,Uld'i:p(en) z st'o@ri" "कुलदीप's story" "Hindi name with 's in the English voice"
+test_phon ta "m'Vn.i (en)z b'Uk(ta)" "மணி's book" "Tamil name with 's in the Tamil voice"
+# an apostrophe between letters of one script stays inside the word
+test_phon hi "k,Uld'i:p@s" "कुलदीप'स" "Hindi apostrophe within one script"

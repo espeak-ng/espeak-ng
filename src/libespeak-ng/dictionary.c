@@ -2305,7 +2305,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 							if (pre_pause < tr->langopts.param[LOPT_BRACKET_PAUSE_ANNOUNCED])
 								pre_pause = tr->langopts.param[LOPT_BRACKET_PAUSE_ANNOUNCED]; // a bracket, already spoken by AnnouncePunctuation()
 						}
-						if (IsBracket(letter)) {
+						// An apostrophe that starts a word split off from a word in another
+						// script (the 's of "कुलदीप's", FLAG_NOSPACE) is not a bracket:
+						// no pause before the next word.
+						if (IsBracket(letter) &&
+						    !((letter == '\'') && (p - 1 == p_start) && (word_flags & FLAG_NOSPACE))) {
 							if (pre_pause < tr->langopts.param[LOPT_BRACKET_PAUSE])
 								pre_pause = tr->langopts.param[LOPT_BRACKET_PAUSE];
 						}

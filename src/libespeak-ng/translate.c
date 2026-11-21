@@ -1073,6 +1073,16 @@ static int UpperCaseInWord(Translator *tr, char *word, int c)
 	return 0;
 }
 
+// The script of a letter: 0 for Latin (below U+0250), the alphabet's offset for a
+// script in the alphabet table, or -1 if not known.
+static int ScriptOfLetter(int c)
+{
+	if (c < 0x250)
+		return 0;
+	const ALPHABET *alphabet = AlphabetFromChar(c);
+	return (alphabet != NULL) ? alphabet->offset : -1;
+}
+
 // Same as TranslateClause except we also get the clause terminator used (full stop, comma, etc.).
 // Used by espeak_TextToPhonemesWithTerminator.
 void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_change, int *terminator_out)
@@ -1571,6 +1581,23 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 				if (((prev_in == '.' && next_in == 's') || iswalnum(prev_in)) && IsAlpha(next_in)) {
 					// between two letters, or in an abbreviation (eg. u.s.a.'s). Consider the apostrophe as part of the word
 					single_quoted = false;
+
+					// Letters of two different scripts around the apostrophe (a Hindi
+					// name with an English 's, "कुलदीप's"): start a new word at the
+					// apostrophe, as for adjacent letters of two scripts above, so that
+					// each part is spoken in its own language instead of the whole word
+					// being spelled out letter by letter. The letter count starts again,
+					// so that the 's is not taken as the plural of an all-capitals word
+					// (a script without capitals looks like one).
+					int script_prev_in = ScriptOfLetter(prev_in);
+					int script_next_in = ScriptOfLetter(next_in);
+					if (IsAlpha(prev_in) && (script_prev_in >= 0) && (script_next_in >= 0) &&
+					    (script_prev_in != script_next_in) && (prev_out != ' ')) {
+						c = ' ';
+						space_inserted = true;
+						letter_count = 0;
+						next_word_flags |= FLAG_NOSPACE;
+					}
 				} else if ((tr->langopts.param[LOPT_APOSTROPHE] & 1) && IsAlpha(next_in))
 					single_quoted = false; // apostrophe at start of word is part of the word
 				else if ((tr->langopts.param[LOPT_APOSTROPHE] & 2) && IsAlpha(prev_in))
