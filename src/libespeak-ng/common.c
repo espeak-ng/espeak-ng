@@ -374,10 +374,10 @@ unsigned int StringToWord(const char *string)
 	return word;
 }
 
-int towlower2(unsigned int c, Translator *translator)
+int towlower2(unsigned int c, Translator *tr)
 {
 	// check for non-standard upper to lower case conversions
-	if (c == 'I' && translator->langopts.dotless_i)
+	if (c == 'I' && tr->langopts.dotless_i)
 		return 0x131; // I -> ı
 
 	return ucd_tolower(c);

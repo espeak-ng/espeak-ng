@@ -63,9 +63,9 @@ int phoneme_tab_number = 0;
 
 int seq_len_adjust;
 
-static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
+static espeak_ng_STATUS ReadPhFile(void **data, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
 {
-	if (!ptr) return EINVAL;
+	if (!data) return EINVAL;
 
 	FILE *f_in;
 	int length;
@@ -79,9 +79,9 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	if ((f_in = fopen(buf, "rb")) == NULL)
 		return create_file_error_context(context, errno, buf);
 
-	if (*ptr != NULL) {
-		free(*ptr);
-		*ptr = NULL;
+	if (*data != NULL) {
+		free(*data);
+		*data = NULL;
 	}
 
 	if (length == 0) {
@@ -90,15 +90,15 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 		return create_file_error_context(context, ENS_UNEXPECTED_EOF, buf);
 	}
 
-	if ((*ptr = malloc(length)) == NULL) {
+	if ((*data = malloc(length)) == NULL) {
 		fclose(f_in);
 		return ENOMEM;
 	}
-	if (fread(*ptr, 1, length, f_in) != (size_t)length) {
+	if (fread(*data, 1, length, f_in) != (size_t)length) {
 		int error = errno;
 		fclose(f_in);
-		free(*ptr);
-		*ptr = NULL;
+		free(*data);
+		*data = NULL;
 		return create_file_error_context(context, error, buf);
 	}
 
