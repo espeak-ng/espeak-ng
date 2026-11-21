@@ -282,3 +282,17 @@ _"	'Udd#VrVn.
 जोगीया	 Jo:g'i:ja:
 जपान	 J@p'a:n
 जल	 J'Vl
+
+// Vowel signs (matras) read on their own, for example while
+// typing or moving letter by letter: named, so they don't sound like full vowels.
+ा	काना	$text
+ि	पहिली वेलांटी	$text
+ी	दुसरी वेलांटी	$text
+ु	पहिला उकार	$text
+ू	दुसरा उकार	$text
+ृ	ऋकार	$text
+े	ए ची मात्रा	$text
+ै	ऐ ची मात्रा	$text
+ो	ओ ची मात्रा	$text
+ौ	औ ची मात्रा	$text
+ॉ	ऑ ची मात्रा	$text
