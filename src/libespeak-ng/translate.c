@@ -892,6 +892,15 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 	int upper_case = 0;
 
 	static int ignore_next_n = 0;
+	// After a replacement of two or more characters by two (for example Arabic
+	// fatha + shadda > shadda + fatha), the second replacement character is
+	// inserted and comes through here before the source characters to skip:
+	// let it pass, then skip the source characters.
+	static bool pass_inserted = false;
+	if (pass_inserted) {
+		pass_inserted = false;
+		return c;
+	}
 	if (ignore_next_n > 0) {
 		ignore_next_n--;
 		return 8;
@@ -925,6 +934,8 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		if (upper_case && iswupper(next_in))
 			c2 = ucd_toupper(c2);
 		*insert = c2;
+		if (ignore_next_n > 0)
+			pass_inserted = true;
 	}
 
 	if (upper_case)
