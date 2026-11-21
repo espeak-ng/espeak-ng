@@ -1,0 +1,403 @@
+// This file is UTF-8 encoded
+// all words lower case
+
+// Uses of $alt:
+// 1.  Change ['i:] to [=I@] at end of word 
+// 2.  age_  is French [A:Z@]
+
+
+// Characters
+//===========
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+// Include a _ before a character if it's name should only be
+// spoken when "speak punctuation" option is on.
+
+_.	pUNkt
+_*	StErn	$max3
+%	pro:ts'Ent	$max3
++	plUs	$max3
+=	glaIC	$max3
+#	nUm3	$max3
+&	Unt
+@	'Et
+~	tIld@
+\ 	bEkslES
+€	OYro:
+°	grA:d
+_,	kOmA:
+_|	St'A:b
+_:	d'Op@lp,UNkt
+_;	Str'ICpUNkt
+__	,Unt3Str'IC
+_-	b'Ind@str,IC	
+−	mi:nUs
+_!	'aUs_|r,u:f@ts,aIC@n
+_?	fr'Ag@ts,aIC@n
+_'	,apo:str'Of
+_"	tsi:t'A:t
+_/	Sr'E:kStrIC
+_(	kl'am3||_|'aUf
+_)	kl'am3||ts'u:
+_{	g@Sv'aIft@kl'am3||_|'aUf
+_}	g@Sv'aIft@kl'am3||ts'u:
+_[	'EkIg@kl'am3||_|'aUf
+_]	'EkIg@kl'am3||ts'u:
+_<	klaIn3
+_>	grY:s3
+_«	'anfy:RUNsts,aIC@n
+_»	'anfy:RUNsts,aIC@n||ts'u:
+_„	l'INk@s_!,anfy:RUNsts,aIC@n
+_”	@-r'ECt@s_!,anfy:RUNsts,aIC@n
+_`	grA:v
+_^	tsIrkUmflEks
+_—	g@d'aNk@nStr,IC
+
+
+_#9	t,abu:l'A:to:3
+_#32	l'e:rts'aIC@n
+_??	zymb'o:l
+_?A	b'u:xStA:b@
+_cap	gr'o:s
+_sub	t'i:fg@StElt
+_sup	h'o:xg@stElt
+
+
+// accent names
+_lig	li:gat'u:r
+_acu	aksA~tEg'y:
+_ac2	d'Op@lak,u:t
+_brv	br'E:v@
+_ced	se:d'i:j
+_cir	ts'IrkUmflEks
+_dia	'UmlaUt
+_dot	p'UNkt
+_grv	gr'A:vIs
+_hac	h'atSEk
+_mcn	m'A:krOn
+_ogo	'o:gOn,Ek
+_rng	kr'o:wZEk
+_stk	Sr'E:kStrIC
+_tld	t'Ild@
+
+æ	$accent
+é	$accent
+ç	$accent
+č	$accent
+š	$accent
+ž	$accent
+
+// Not Roman numbers
+v	faU
+x	Iks
+
+// Alphabets
+
+
+
+// Numbers
+//========
+_0	'nUl
+_1	_'aIns
+_1a	_'aIn
+_2	'tsvaI
+_3	'draI
+_4	'fi:r
+_5	'fynf
+_6	'zEks
+_7	'zi:b@n
+_8	'_axt
+_9 	'nOYn
+_10	'tse:n
+_11	'_Elf
+_12	'tsvWlf
+_13	'draItse:n
+_14	'fIrtse:n
+_15	'fynftse:n
+_16	'zECtse:n
+_17	'zi:ptse:n
+_18	'_axtse:n
+_19	'nOYntse:n
+_2X	'tsvantsIg#
+_3X	'draIsIg#
+_4X	'fIrtsIg#
+_5X	'fynftsIg#
+_6X	'zECtsIg#
+_7X	'zi:ptsIg#
+_8X	'_axtsIg#
+_9X	'nOYntsIg#
+
+_0C	h'Und3t
+_0M1	t'aUz@nt
+_0M2	||mIlj'o:n@n
+_1M2	_'aIn@||mIlj'o:n
+_0M3    ||mIlj'ard@n
+_1M3    _'aIn@||mIlj'ard@
+_0M4    bIlj'o:n@n
+_1M4	'aIn@||bIlj'o:n
+_0M5	bIlj'ard@n
+_1M5	'aIn@||bIlj'ard@
+_0M6	trIlj'o:n@n
+_1M6	'aIn@||trIlj'o:n
+_0M7	trIlj'ard@n
+_1M7	'aIn@||trIlj'ard@
+_0M8	kvadrIlj'o:n@n
+_1M8	'aIn@||kvadrIlj'o:n
+_0M9	kvadrIlj'ard@n
+_1M9	'aIn@||kvadrIlj'ard@
+_0M10	kvIntIlj'o:n@n
+_1M10	'aIn@||kvIntIlj'o:n
+_0M11	kvIntIlj'ard@n
+_1M11	'aIn@||kvIntIlj'ard@
+_0M12	zEkstIlj'o:n@n
+_1M12	'aIn@||zEkstIlj'o:n
+_0M13	zEkstIlj'ard@n
+_1M13	'aIn@||zEkstIlj'ard@
+_0M14	zEptIlj'o:n@n
+_1M14	'aIn@||zEptIlj'o:n
+_0M15	zEptIlj'ard@n
+_1M15	'aIn@||zEptIlj'ard@
+_0M16	_OktIlj'o:n@n
+_1M16	'aIn@||OktIlj'o:n
+_0M17	_OktIlj'ard@n
+_1M17	'aIn@||OktIlj'ard@
+_0M18	n,o:nIlj'o:n@n
+_1M18	'aIn@||n,o:nIlj'o:n
+_0M19	n,o:nIlj'ard@n
+_1M19	'aIn@||n,o:nIlj'ard@
+_0M20	de:tsIlj'o:n@n
+_1M20	'aIn@||de:tsIlj'o:n
+_0and	||_|Unt
+_roman	rY:mIS
+_dpt	_kOmA:
+_#er	3
+_#ern	3n
+
+// ordinal numbers
+_ord	t@	// default ending
+_ord20	st@	// 20,30,etc
+_1o	_'e:rst@
+_3o	dr'It@
+_7o	z'i:bt@
+_8o	_'axt@
+_0Co	'hUnd3tst@
+
+// definite article
+
+
+// conjunctions
+
+
+// prepositions
+
+
+// misc
+
+
+// should these be in the Rules if they can be a prefix in a
+// compound verb ?
+
+
+// pronouns
+
+
+// abverbs
+
+
+
+// verbs
+
+
+
+
+
+// English words 
+//==============
+// de_rules includes the words ending in "-ing"
+access		_^_EN
+account		_^_EN
+aid		_^_EN
+aids	_^_EN
+america	_^_EN
+appeal		_^_EN
+apple		_^_EN
+association	_^_EN
+baseball	_^_EN
+bbc		_^_EN
+beat		_^_EN
+britain	_^_EN
+british	_^_EN
+browser         _^_EN
+byte		_^_EN
+bytes		_^_EN
+camcorder	_^_EN
+cancel	_^_EN
+certificate		_^_EN
+change		_^_EN
+chart		_^_EN
+chat		_^_EN
+chicken	_^_en
+chrome	_^_EN
+cleaner		_^_EN
+coach		_^_EN
+coke		_^_EN
+computer	kOmpj'u:t3
+cool		_^_EN
+copy		_^_EN
+couch		_^_EN
+cover	_^_EN
+cursor		_^_EN
+daisy	_^_EN
+date		_^_EN
+debugger	_^_EN
+dj		d'i:dZEI
+email		_^_EN
+empire	_^_EN
+enterprise	_^_EN
+escape	_^_EN
+espeak		_^_EN
+event		_^_EN
+execute		_^_EN
+explorer	Ekspl'Or3r
+file		_^_EN
+firefox		_^_EN
+firewall	_^_EN
+foul		_^_EN
+frame		_^_EN
+freak		_^_EN
+german	_^_EN
+germany	_^_EN
+gin		_^_EN
+google	_^_EN
+great	_^_EN
+groupie		_^_EN
+hip		_^_EN
+homepage	_^_EN
+hooligan	_^_EN
+house	_^_EN
+interface	_^_EN
+jaws		_^_EN
+jean		_^_EN
+jet		_^_EN
+job		_^_EN
+joint		_^_EN
+joke		_^_EN
+joystick	_^_EN
+junkie		_^_EN
+kingdom	_^_EN
+laptop		_^_EN
+laser		_^_EN
+level		_^_EN
+like	_^_EN
+login		_^_EN
+look		_^_EN
+macho		_^_EN
+mail		_^_EN
+mailbox	_^_EN
+message		_^_EN
+moodle	_^_EN
+move		_^_EN
+my		_^_EN
+mysql		_^_EN
+notebook		_^_EN
+notepad	_^_EN
+nugget	_^_EN
+nvda	_^_EN
+nvaccess	_^_EN
+of	_^_EN
+office	_^_EN
+offices	_^_EN
+offline		_^_EN
+online		_^_EN
+out		_^_EN
+overwrite	_^_EN
+pair		_^_EN
+penthouse	_^_EN
+pidgin		_^_EN
+player	_^_EN
+plot		_^_EN
+poster		_^_EN
+quiz		_^_EN
+reader	_^_EN
+receiver	_^_EN
+recovery	_^_EN
+registry	_^_EN
+release		_^_EN
+remake		_^_EN
+research	_^_EN
+return	_^_EN
+roadie		_^_EN
+roastbeef	_^_EN
+run             _^_EN
+running	_^_EN
+save		_^_EN
+scanner		_^_EN
+science		_^_EN
+server		_^_EN
+seven		_^_EN
+sex		_^_EN
+sexy		_^_EN
+shirt		_^_EN
+show		_^_EN
+showdown	_^_EN
+single          _^_EN
+size		_^_EN
+slip		_^_EN
+slum		_^_EN
+small		_^_EN
+smiley		_^_EN
+snob		_^_EN
+solution	_^_EN
+song		_^_EN
+sorry		_^_EN
+source		_^_EN
+space	_^_EN
+spaces	_^_EN
+spam		_^_EN
+speak		_^_EN
+spirit          _^_EN
+squaw		_^_EN
+state	_^_EN
+states	_^_EN
+stream		_^_EN
+suite		_^_EN
+sweatshirt	_^_EN
+sync		_^_EN
+team		_^_EN
+teaser		_^_EN
+tech		_^_EN
+terminal	_^_EN
+the	_^_EN
+their	_^_EN
+they	_^_EN
+this	_^_EN
+thunderbird		_^_EN
+time		_^_EN
+timer	_^_EN
+to	_^_EN	$only
+tool	_^_EN
+trip		_^_EN
+tuner		_^_EN
+turn	_^_EN
+united	_^_EN
+unix		_^_EN
+update		_^_EN
+updates		_^_EN
+venture		_^_EN
+verify		_^_EN
+very	_^_EN
+voice		_^_EN
+voices		_^_EN
+weather		_^_EN
+web	w'Eb $only
+website		_^_EN
+window		_^_EN
+wipe		_^_EN
+with	_^_EN
+word		_^_EN
+
+
+// Main exceptions list
+//=====================
