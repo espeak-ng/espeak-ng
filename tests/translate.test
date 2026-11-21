@@ -267,6 +267,23 @@ test_phon cmn-latn-pinyin "ni35X'Au35_| m'A35_| n'i35_| X'Au35_| m'A214_|" "你�
 
 test_phon cmn "thiE55nt'i51_|" "天地"
 
+# Italian elisions with apostrophe
+# https://github.com/espeak-ng/espeak-ng/pull/2419
+test_phon it "@-*im'et:e@-*sI" "rimettersi"
+test_phon it "k'i;o v'ada" "ch'io vada"
+test_phon it "k'E v'eRo" "ch'è vero"
+test_phon it "bellelem'ento vjadZ:'ante" "bell'elemento viaggiante"
+test_phon it "b'Elle f'at:o" "bell'e fatto"
+test_phon it "bwon'anima k'a*a" "buon'anima cara"
+test_phon it "dov'ERa l'ui" "dov'era lui"
+test_phon it "l^elo d'et:o" "gliel'ho detto"
+test_phon it "g@-*andw2'Omo s'adZ:o" "grand'uomo saggio"
+test_phon it "kwalkos'alt@-*o_| ank'oRa" "qualcos'altro ancora"
+test_phon it "tant'ERa b'Ello" "tant'era bello"
+test_phon it "dev'EsseRe v'eRo" "dev'essere vero"
+test_phon it "kwand'ERo p'ik:olo" "quand'ero piccolo"
+test_phon it "sot:'Oli;o bU'Ono" "sott'olio buono"
+
 # https://github.com/espeak-ng/espeak-ng/issues/1507
 test_phon ml "k'a
 t'a
