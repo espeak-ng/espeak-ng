@@ -1,60 +1,276 @@
-// This file in UTF8 encoded
+// ***************************************************************************
+// *   Copyright (C) 2026 by Haricot Lincoln Compère                         *
+// *   email: lincolncompere@gmail.com                                       *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
 
-// numbers
-_0      zero
-_1      youn
-_2      de
-_3      twa
-_4      kat
-_5      senk
-_6      sis
-_7      set
-_8      uit
-_9      nef
-_10     dis
-_11 	onz
-_12 	douz
-_13 	trez
-_14 	katoz
-_15 	kenz
-_16 	sez
-_17 	diset
-_18 	dizuit
-_19 	diznef
-_20 	ven
-_21 	venteyen
-_22 	vennde
-_23 	venntwa
-_24 	vennkat
-_25 	vennsenk
-_26 	vennsis
-_27 	vennset
-_28 	ventuit
-_29 	ventnef
-_30 	trant
-_40 	karan
-_50 	senkant
-_60 	swasant
-_70 	swasanndis
-// TODO proper names for following numbers should be set
-_80     katr@vE~z2
-_0C     sA~
-_1C0    sA~t2
-_0M1    mil
-_1M1    mil
-_0M2    miljO~
-_0M3    miljar
-_0and   e
-_dpt    virgyl
-_roman  rom'E~
+// This file is UTF-8 encoded
 
-// Unstressed words
+// ht_list : dictionnaire d'exceptions, créole haïtien, orthographe
+// officielle du 28 septembre 1979.
+//
+// Section A : contenu directement sourcé du mémoire AAC (§3.6, §4.1.1).
+// Section B : ajouts pratiques (nombres, ponctuation, grammaire fermée)
+// hors périmètre du mémoire — à valider/enrichir par un locuteur natif.
 
-// Pronouns
-mwen   $u
-ou     $u
-li     $u
-nou    $u
-yo     $u
+// ---------------------------------------------------------------------
+// SECTION A — sourcé du mémoire, §3.6 "L'AAC et la grammaire créole"
+// ---------------------------------------------------------------------
+// "le pronom personnel de deuxième personne ou (tu, toi)... le pronom de
+// première personne du pluriel nou (nous)... et la préposition pou (pour)".
+// Prononciation déjà régulière (.group o : ou -> u) ; seul $u (non
+// accentué) est fixé ici.
+ou	u	$u
+nou	nu	$u
+pou	pu	$u
 
-// TODO other unstressed words should be added here
+// Mots de vérification cités au mémoire (table 4, §4.1.1) — non requis au
+// fonctionnement, utiles comme test post-compilation :
+//   manman, moun, mòn, chèche, anpàn, lang, chita, lannwit, bangan,
+//   chak, dwa, travay, san, pwoblèm, wana, fonolojik
+
+// =======================================================================
+// SECTION B — AJOUTS PRATIQUES, HORS PÉRIMÈTRE DU MÉMOIRE
+// =======================================================================
+
+// ---------------------------------------------------------------------
+// B.1 — CHIFFRES DE BASE (0-9)
+// ---------------------------------------------------------------------
+_0	zew%o
+_1	j%un
+_2	d%e
+_3	tw%a
+_4	k%at
+_5	s%eNk
+_6	s%is
+_7	s%Et
+_8	w%it
+_9	n%Ef
+
+// ---------------------------------------------------------------------
+// B.2 — NOMBRES 10-20, DIZAINES, CENT, MILLE, MILLION
+// (au-delà : composition régulière dizaine+unité, non listée ici)
+// ---------------------------------------------------------------------
+_10	d%is
+_11	%onz
+_12	d%uz
+_13	tR%Ez
+_14	kat%Oz
+_15	k%Enz
+_16	s%Ez
+_17	dis%Et
+_18	diz%wit
+_19	dizn%Ef
+_20	v%En
+_21	v%Ent%eEn
+_22	v%Ennd%e
+_23	v%Ennd%e
+_24	v%Enntw%a
+_25	v%Enns%eNk
+_26	v%Enns%is
+_27	v%Enns%Et
+_28	v%Ensw%it
+_29	v%Entn%Ef
+_30	tR%ant
+_31	tR%ant%eEn
+_3X	tR%ant%e
+_40	kaR%ant
+_41	kaR%ant%eEn
+_4X	kaR%ann
+_50	senk%ant
+_51	senk%ant%eEn
+_5X	senk%ann
+_60	swas%ant
+_61	swas%ant%eEn
+_6X	swas%ann
+_70	swas%andis
+_80	katR%evEn
+_81	katR%evEn:j%un
+_8X	katR%evEn
+_90	katR%evEndis
+// Clés RÉELLES du mécanisme interne (confirmées dans src/libespeak-ng/
+// numbers.c ET dans dictsource/fr_list, dont "ht" hérite) : _0C (cent),
+// _0M1 (mille), _0M2 (million), _0M3 (milliard). _100/_1000/_1000000
+// n'étaient JAMAIS lus par l'algorithme — d'où le repli silencieux sur
+// "youn" observé en test.
+_0C	s%an			// cent
+_0M1	m%il			// mille
+_0M2	milj%O~			// million (O~ = vraie nasale, pas "on")
+_0M3	milj%a			// milliard - miljA~
+
+// ---------------------------------------------------------------------
+// B.3 — ORDINAUX 1er-10e (au-delà : chiffre + "yèm", régulier)
+// ---------------------------------------------------------------------
+_1e	pR%emje		// premye
+_2e	dezj%Em		// dezyèm
+_3e	twazj%Em		// twazyèm
+_4e	katRj%Em		// katryèm
+_5e	seNkj%Em		// senkyèm
+_6e	sizj%Em		// sizyèm
+_7e	setj%Em		// setyèm
+_8e	witj%Em		// wityèm
+_9e	nEvj%Em		// nevyèm
+_10e	dizj%Em		// dizyèm
+
+// ---------------------------------------------------------------------
+// B.4 — NOMS DE LETTRES (épellation des 32 lettres nominales, §3.1.4)
+// ---------------------------------------------------------------------
+_a	a:
+_an	A~:
+_b	b%e
+_ch	%ES
+_d	d%e
+_e	%e:
+_è	%E:
+_en	E~:
+_f	%Ef
+_g	Z%e
+_h	%aS
+_i	i:
+_j	Z%i
+_k	k%a
+_l	%El
+_m	%Em
+_n	%En
+_ng	%En^
+_o	o:
+_ò	O:
+_on	O~:
+_ou	u:
+_oun	un		// corrigé : u (oral) + n (consonne), pas une nasale
+_p	p%e
+_q	k%y
+_r	%ER
+_s	%Es
+_t	t%e
+_ui	w%i
+_v	v%e
+_w	w%i
+_x	%iks
+_y	%igR%Ek
+_z	z%Ed
+
+// ---------------------------------------------------------------------
+// B.5 — PRONOMS PERSONNELS (servent aussi de possessifs postposés,
+// ex. "kay mwen" = ma maison)
+// ---------------------------------------------------------------------
+mwen	mwEn	$u		// je / moi / mon, ma, mes
+// ou et nou : déjà définis section A (lignes 36-37) — pas de redéfinition ici
+li	li	$u		// il/elle / le/la / son, sa, ses
+yo	jo	$u		// ils/elles / les / leur, leurs
+
+// ---------------------------------------------------------------------
+// B.6 — DÉTERMINANTS (article défini postposé : 3 formes selon la
+// terminaison du nom — harmonie vocalique réelle du créole)
+// ---------------------------------------------------------------------
+la	la	$u		// après consonne : "kay la" (la maison)
+lan	lA~	$u		// après voyelle nasale : "chanm lan" (la chambre)
+nan	nA~	$u		// variante dialectale de "lan"
+a	a	$u		// après voyelle orale : "kaba" -> forme réduite
+yon	jon	$u		// article indéfini : "yon kay" (une maison)
+sa	sa	$u		// démonstratif : "kay sa a" (cette maison-ci)
+
+// ---------------------------------------------------------------------
+// B.7 — NÉGATION ET MARQUEURS DE TEMPS/ASPECT (particules préverbales)
+// ---------------------------------------------------------------------
+pa	pa	$u		// négation : "li pa vini" (il ne vient pas)
+te	tE	$u		// accompli/passé : "li te vini" (il est venu)
+ap	ap	$u		// progressif : "l ap vini" (il est en train de venir)
+pral	pRal	$u		// futur proche : "l pral vini" (il va venir)
+va	va	$u		// futur : "l va vini" (il viendra)
+sot	sOt	$u		// passé récent : "li sot vini" (il vient de venir)
+fèk	fEk	$u		// passé très récent, variante de "sot"
+ta	ta	$u		// conditionnel : "li ta vini" (il viendrait)
+
+// ---------------------------------------------------------------------
+// B.8 — CONJONCTIONS ET INTERROGATIFS COURANTS
+// ---------------------------------------------------------------------
+ak	ak	$u		// et/avec : "ou ak mwen"
+avèk	avEk	$u		// avec (forme longue)
+oswa	Oswa	$u		// ou (alternative)
+men	mEn	$u		// mais
+paske	paskE	$u		// parce que
+kisa	kisa			// quoi/qu'est-ce que
+kilè	kilE			// quand
+kijan	kiZA~			// comment
+poukisa	pukisa			// pourquoi
+ki	ki	$u		// qui/quel (interrogatif/relatif)
+
+// ---------------------------------------------------------------------
+// B.9 — PONCTUATION
+// ---------------------------------------------------------------------
+_dot	pw%En			// point
+_comma	viRg%il			// virgule
+_semicolon	pw%Env%iRg%il	// point-virgule
+_colon	d%epw%En		// deux-points
+_excl	pw%EnEksklamas%jon	// point d'exclamation
+_ques	pwententewogas%jon	// point d'interrogation
+_apos	apostw%Of		// apostrophe
+_quot	gim%E			// guillemet
+_lpar	paRat%EzuvER		// parenthèse ouvrante
+_rpar	paRat%EzfERme		// parenthèse fermante
+_lbrack	kRoS%EuvER		// crochet ouvrant
+_rbrack	kRoS%EfERme		// crochet fermant
+_lbrace	akoladuv%ER		// accolade ouvrante
+_rbrace	akoladf%ERme		// accolade fermante
+_hyphen	tiR%e			// tiret / trait d'union
+_dash	tiRel%oN		// tiret long
+_slash	baR%oblik		// barre oblique (/)
+_backslash	baR%anvER	// barre anti-oblique (\)
+_ellipsis	pw%En	// points de suspension
+
+// ---------------------------------------------------------------------
+// B.10 — SYMBOLES D'USAGE COURANT
+// ---------------------------------------------------------------------
+_at	aRob%as			// @
+_hash	dj%Ez			// #
+_dollar	dOl%a			// $
+_percent	pus%an		// %
+_amp	espERlu%Et		// & -- espERlU%Et
+_star	etw%al			// *
+_plus	pl%is			// +
+_equals	eg%al			// =
+_underscore	sulj%en		// _
+_pipe	baRvERtik%al		// |
+_degree	degR%e			// ° -- deGR%e
+_lt	pipit%it		// <
+_gt	pigR%an		// >
+
+// ---------------------------------------------------------------------
+// B.11 — NOMS PROPRES ET EMPRUNTS COURANTS (prononciation d'origine)
+// Ces entrées COURT-CIRCUITENT complètement .group c/q/x : la
+// prononciation d'origine (française ou anglaise) prime sur toute règle
+// générique. Ajouter ici tout autre nom/emprunt au cas par cas —
+// impossible à déduire automatiquement de la seule orthographe.
+// ---------------------------------------------------------------------
+carine	kaR%in			// française : Ca-RINE
+celimene	selim%En		// française : Céli-MÈNE
+christian	kRist%jA~		// française : Chris-TIAN
+philippe	fil%ip			// française : Phi-LIPPE
+nathalie	nat%ali			// française : Na-tha-LIE
+xerox	zir%Oks			// anglaise : Xerox
+quota	kw%ota			// anglaise : Quota
+dune	dj%un			// anglaise : Dune
+
+// ---------------------------------------------------------------------
+// B.12 — SORTIE FIGÉE (contourne l'algorithme d'accent générique
+// d'espeak-ng pour des mots fréquents où le placement automatique
+// surprend à l'écoute)
+// ---------------------------------------------------------------------
+manman	mA~m%A~
+lang	l%an^
+moun	m%un
+
