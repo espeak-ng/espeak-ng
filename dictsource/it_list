@@ -449,6 +449,7 @@ _1M1o	mil'Ezim
 abc	a||bi||tS'i
 acdc	$abbrev
 adsl	a||di||esse||'El:e
+afk	$abbrev
 ascii	'askIi
 asio	'a:zi/o
 atp	a||ti||p'i
@@ -834,6 +835,7 @@ bye	_^_EN
 bypass	b'aI||p'as
 byte	_^_EN
 cabaret	$3 $only
+call	k'O:l	$only
 cameraman	k'ame*am,En
 camper	$1
 cancan	$2 $only
@@ -1156,6 +1158,7 @@ raider	$1
 ranger	@-*'endZe@-*
 rapper	@-*'Epp@@-*	$onlys
 reader	@-*'i:dE@-*
+reading	r'i:dIN
 recorder	$2	$onlys
 reject	@-*IdZ'ekt[
 reportage	@-*epo@-*t'a:Z
@@ -1218,6 +1221,10 @@ sonar	$1	$alt $only
 sound	s'awnd $onlys
 Spotify	sp,otif'aI
 souvenir	suvEn'i@-*
+space	sp'eIs
+spacebar	_^_EN
+spacecraft	_^_EN
+spaces	sp'eIsIz
 spanish		_^_EN
 speaker		_^_EN
 speech	sp'i:tS $only
@@ -1303,6 +1310,7 @@ whats	w'Ots
 winchester	wintS'este@-*
 window		w2'IndOw2
 wireless		_^_EN
+workspace	_^_EN
 wow		w'a:u
 writer	v@-*'aIte@-*
 wurstel	vj'u:stel

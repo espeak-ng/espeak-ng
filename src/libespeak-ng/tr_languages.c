@@ -101,8 +101,8 @@ const ALPHABET *AlphabetFromChar(int c)
 	const ALPHABET *alphabet = alphabets;
 
 	while (alphabet->name != NULL) {
-		if (c <= alphabet->range_max) {
-			if (c >= alphabet->range_min)
+		if ((unsigned int)c <= alphabet->range_max) {
+			if ((unsigned int)c >= alphabet->range_min)
 				return alphabet;
 			else
 				break;
@@ -563,7 +563,7 @@ Translator *SelectTranslator(const char *name)
 	{
 		static const unsigned char stress_amps_be[8] = { 12, 10, 8, 8, 0, 0, 16, 17 };
 		static const short stress_lengths_be[8] = { 160, 140, 200, 140, 0, 0, 240, 160 };
-		static const wchar_t vowels_be[] = { // offset by 0x420 -- а е ё о у ы э ю я і
+		static const unsigned char vowels_be[] = { // offset by 0x420 -- а е ё о у ы э ю я і
 			0x10, 0x15, 0x31, 0x1e, 0x23, 0x2b, 0x2d, 0x2e, 0x2f, 0x36, 0
 		};
 		static const unsigned char consonants_be[] = { // б в г д ж з й к л м н п р с т ф х ц ч ш ў
@@ -846,7 +846,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('e', 't'): // Estonian
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
-		// fallthrough:
+		ESPEAK_FALLTHROUGH;
 	case L('f', 'i'): // Finnish
 	{
 		tr->langopts.long_stop = 130;
@@ -941,7 +941,6 @@ Translator *SelectTranslator(const char *name)
 			SetupTranslator(tr, stress_lengths_equal, stress_amps_equal);
 			tr->langopts.break_numbers = BREAK_LAKH;
 			tr->langopts.max_digits = 22;
-			tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
 		} else if (name2 == L('o', 'r'))
 			tr->letter_bits_offset = OFFSET_ORIYA;
 		SetIndicLetters(tr);
@@ -1207,7 +1206,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1RU; // stress on the last syllable, before any explicitly unstressed syllable
 
-		tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED;
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED;
 		tr->langopts.max_initial_consonants = 2;
 	}
 		break;
@@ -1649,7 +1648,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L3('x', 'e', 'x'): // Xextan
 	{
-		static const wchar_t xex_punct_within_word[] = { '\'' };
+		static const wchar_t xex_punct_within_word[] = { '\'', 0 };
 		tr->langopts.numbers = 0; 
 		tr->langopts.lowercase_sentence = true;
 		tr->punct_within_word = xex_punct_within_word;

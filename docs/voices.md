@@ -188,7 +188,7 @@ Specifies how advanced the support for the language is:
 
 Two integer values. The first gives a base pitch to the voice (value in
 Hz) The second controls the range of pitches used by the voice. Setting
-it equal to the base pitch will give a monotone. The default values are 82 118.  
+it equal to the base pitch will give a monotone. The default values are 80 118.  
 
 ### formant
 

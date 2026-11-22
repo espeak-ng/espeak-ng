@@ -78,6 +78,7 @@ void event_set_callback(t_espeak_callback *SynthCallback)
 void event_init(void)
 {
 	my_event_is_running = false;
+	my_stop_is_acknowledged = false;
 
 	// security
 	pthread_mutex_init(&my_mutex, (const pthread_mutexattr_t *)NULL);
@@ -237,6 +238,7 @@ espeak_ng_STATUS event_clear_all(void)
 	int a_event_is_running = 0;
 	if (my_event_is_running) {
 		my_stop_is_required = true;
+		my_stop_is_acknowledged = false;
 		pthread_cond_signal(&my_cond_stop_is_required);
 		a_event_is_running = 1;
 	} else
@@ -390,9 +392,11 @@ static void init(void)
 void event_terminate(void)
 {
 	if (thread_inited) {
+		pthread_mutex_lock(&my_mutex);
 		my_terminate_is_required = true;
 		pthread_cond_signal(&my_cond_start_is_required);
 		pthread_cond_signal(&my_cond_stop_is_required);
+		pthread_mutex_unlock(&my_mutex);
 		pthread_join(my_thread, NULL);
 		my_terminate_is_required = false;
 

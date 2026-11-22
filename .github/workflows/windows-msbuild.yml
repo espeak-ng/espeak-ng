@@ -7,6 +7,9 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: windows-latest
@@ -18,7 +21,7 @@ jobs:
 
     steps:
       - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v3
+        uses: microsoft/setup-msbuild@30375c66a4eea26614e0d39710365f22f8b0af57 # v3
       - name: Install Windows 8.1 SDK
         shell: powershell
         run: |
@@ -41,3 +44,4 @@ jobs:
         with:
           name: windows-${{ matrix.config }}-msi
           path: "src/windows/installer/bin/x64/${{ matrix.config }}/espeak-ng.msi"
+          retention-days: 14

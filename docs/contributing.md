@@ -9,25 +9,25 @@
 old version. Before registering new issue, test that issue can be reproduced with latest development version at
 [eSpeak NG online](https://odo.lv/Espeak) site.
 
-<a class="anchor" id="simlestep2">2. Review known [eSpeak NG issues](https://github.com/espeak-ng/espeak-ng/issues), particularly about
+<a class="anchor" id="simplestep2">2. Review known [eSpeak NG issues](https://github.com/espeak-ng/espeak-ng/issues), particularly about
 [languages](https://github.com/espeak-ng/espeak-ng/labels/languages%2Fpronunciation) and add your comments on existing issues.
 
-<a class="anchor" id="simlestep3">3. Look at and subscribe to [eSpeakNG mailing list](https://groups.io/g/espeak-ng)
+<a class="anchor" id="simplestep3">3. Look at and subscribe to [eSpeakNG mailing list](https://groups.io/g/espeak-ng)
 to view and discuss other related topics.
 
-<a class="anchor" id="simlestep4">4. If you decide to create new issue, look at guide [here](https://help.github.com/en/articles/creating-an-issue) and provide following information:
+<a class="anchor" id="simplestep4">4. If you decide to create new issue, look at guide [here](https://help.github.com/en/articles/creating-an-issue) and provide following information:
 
 1. example of text, which demonstrates and allows to reproduce spelling error;
 2. explanation, why produced spelling is wrong and how it should be corrected.
 
-<a class="anchor" id="simlestep5">5. Close issue when it is resolved.
+<a class="anchor" id="simplestep5">5. Close issue when it is resolved.
 
 ## Steps for your contribution
 <a class="anchor" id="step1">1. Get familiar with [additive speech synthesis](https://en.wikipedia.org/wiki/Speech_synthesis#Formant_synthesis).
 
 <a class="anchor" id="step2">2. Create fork of [espeak-ng](https://github.com/espeak-ng/espeak-ng) repository as it is described [here](https://help.github.com/en/articles/fork-a-repo).
 
-<a class="anchor" id="step3">3. [Clone](https://help.github.com/en/articles/cloning-a-repository) and set up your development environment [on your computer](building.md) , or clone it [online](https://odo.lv/EspeakGuide). For [some easy fixes](https://github.com/espeak-ng/espeak-ng/labels/good%20first%20issue) you may change files just through browser of yor forked github project. Make necessary changes, commit them and issue pull request as described in [step 9](#9).
+<a class="anchor" id="step3">3. [Clone](https://help.github.com/en/articles/cloning-a-repository) and set up your development environment [on your computer](building.md) , or clone it [online](https://odo.lv/EspeakGuide). For [some easy fixes](https://github.com/espeak-ng/espeak-ng/labels/good%20first%20issue) you may change files just through browser of your forked github project. Make necessary changes, commit them and issue pull request as described in [step 9](#step9).
 
 <a class="anchor" id="step4">4. Get familiar with [text to phoneme translation](dictionary.md) and how to [add or improve language](add_language.md).
 
@@ -35,9 +35,9 @@ to view and discuss other related topics.
 
 <a class="anchor" id="step6">6. Make your improvements (i.e. additions or modifications) and check your project with `ctest --test-dir build --output-on-failure` command. Fix issues if necessary.
 
-<a class="anchor" id="step7">7. If you contribute to an existing language, find language maintainer in language configuration file located in `espeak-ng-data/lang` folder[<sup>1</sup>](#1) and ask him to review your changes. If you can't find language maintainer, you can review list of all contributors[<sup>2</sup>](#2) and contact them. You can also volunteer to become language maintainer just by updating [language configuration file](voices.md) and submitting your changes as it is described in [step 9](#9).
+<a class="anchor" id="step7">7. If you contribute to an existing language, find language maintainer in language configuration file located in `espeak-ng-data/lang` folder[<sup>1</sup>](#1) and ask him to review your changes. If you can't find language maintainer, you can review list of all contributors[<sup>2</sup>](#2) and contact them. You can also volunteer to become language maintainer just by updating [language configuration file](voices.md) and submitting your changes as it is described in [step 9](#step9).
 
-<a class="anchor" id="step8">8. If you contribute to the core of espeak-ng engine (i.e. source files of software), look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap). In this case you just issue pull requests as described in [step 9](#9), to make changes easier for review.
+<a class="anchor" id="step8">8. If you contribute to the core of espeak-ng engine (i.e. source files of software), look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap). In this case you just issue pull requests as described in [step 9](#step9), to make changes easier for review.
 
 Note that:
 
@@ -47,7 +47,7 @@ Note that:
 4. For new/extended functionality new automated tests should be created.
 5. There shouldn't be trivial changes only like code indentation, fixed typos, language style changes etc.
 
-<a class="anchor" id="step9">9. [Push your changes to GitHub](https://help.github.com/en/articles/pushing-commits-to-a-remote-repository) and create [pull request](https://help.github.com/en/articles/creating-a-pull-request). You can also send changed files by email to [eSpeakNG mailing list](https://groups.io/g/espeak-ng), but then inlusion of them may take more time.
+<a class="anchor" id="step9">9. [Push your changes to GitHub](https://help.github.com/en/articles/pushing-commits-to-a-remote-repository) and create [pull request](https://help.github.com/en/articles/creating-a-pull-request). You can also send changed files by email to [eSpeakNG mailing list](https://groups.io/g/espeak-ng), but then inclusion of them may take more time.
 
 <a class="anchor" id="step10">10. Wait for feedback of current espeak-ng maintainers[<sup>3</sup>](#3).
 

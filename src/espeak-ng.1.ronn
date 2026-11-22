@@ -51,6 +51,9 @@ or text is spoken from stdin, read separately one line by line at a time.
   * `-p <integer>`:
     Pitch adjustment, 0 to 99, default is 50.
 
+  * `-P <integer>`:
+    Pitch range adjustment, 0 to 99, default is 50.
+
   * `-s <integer>`:
     Speed in words per minute, default is 175.
 
@@ -80,25 +83,44 @@ or text is spoken from stdin, read separately one line by line at a time.
 
   * `-X`:
     Write phonemes mnemonics and translation trace to stdout. If rules files
-    have been built with --compile=debug, line numbers will also be displayed.
+    have been built with --compile-debug, line numbers will also be displayed.
 
   * `-z`:
     No final sentence pause at the end of the text.
+
+  * `-D`:
+    Enable deterministic random mode.
+
+  * `--ssml-break=<percentage>`:
+    Set the SSML break time multiplier, default is 100.
+
+  * `--load`:
+    Load the voice from a file in the current directory by name.
 
   * `--stdout`:
     Write speech output to stdout.
 
   * `--compile=voicename`:
     Compile the pronunciation rules and dictionary in the current directory.
-    =&lt;voicename&lt; is optional and specifies which language is compiled.
+    =&lt;voicename&gt; is required and specifies which language is compiled.
 
   * `--compile-debug=voicename`:
     Compile the pronunciation rules and dictionary in the current directory as
     above, but include line numbers, that get shown when -X is used.
 
+  * `--compile-mbrola=voicename`:
+    Compile an MBROLA voice. Available only when built with MBROLA support.
+
+  * `--compile-intonations`:
+    Compile the intonation data.
+
+  * `--compile-phonemes[=<phsource-dir>]`:
+    Compile the phoneme data from `<phsource-dir>` or the default phsource
+    directory.
+
   * `--ipa`:
-    Write phonemes to stdout using International Phonetic Alphabet. --ipa=1 Use
-    ties, --ipa=2 Use ZWJ, --ipa=3 Separate with _.
+    Write phonemes to stdout using International Phonetic Alphabet. --ipa=1
+    Separate with _, --ipa=2 Use ties, --ipa=3 Use ZWJ.
 
   * `--tie=<character>`:
     The character to use to join multi-letter phonemes in -x and --ipa output.

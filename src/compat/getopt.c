@@ -41,7 +41,7 @@
 #define REPLACE_GETOPT
 
 #define _DIAGASSERT(x) assert(x)
-#define __UNCONST(x) (char *)(x)
+#define __UNCONST(x) ((void *)(x))
 
 #ifdef REPLACE_GETOPT
 #ifdef __weak_alias

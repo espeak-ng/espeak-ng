@@ -3,6 +3,9 @@ name: workflow-for-fuzzing-build
 on:
   workflow_call:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
             archconfigflags: ''
     steps:
     - uses: actions/checkout@v7
-    - uses: firebuild/apt-eatmydata-action@v1
+    - uses: firebuild/apt-eatmydata-action@1ffc51fd041ed87dcc2ef405913baec405763640 # v1
     - name: enable 32bit architecture
       run: sudo dpkg --add-architecture i386
       if: matrix.arch == 'x86-32'
@@ -51,6 +54,7 @@ jobs:
       with:
         name: cmake-${{ matrix.arch }}-builddir
         path: build
+        retention-days: 5
     - name: build fuzzer + data
       run: cmake --build build --target synth_fuzzer data --parallel
     - uses: actions/cache@v6

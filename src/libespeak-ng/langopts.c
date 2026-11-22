@@ -74,18 +74,22 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 		case V_NUMBERS: {
 			// expect a list of numbers
 			while (*keyValue != 0) {
-				while (isspace(*keyValue)) keyValue++;
+				const char *token;
+				while (isspace((unsigned char)*keyValue)) keyValue++;
+				token = keyValue;
 				if ((n = atoi(keyValue)) > 0) {
 					keyValue++;
 					if (n < 32) {
-							translator->langopts.numbers |= (1 << n);
+							translator->langopts.numbers |= (1u << n);
 					} else {
 						if (n < 64)
-							translator->langopts.numbers2 |= (1 << (n-32));
+							translator->langopts.numbers2 |= (1u << (n-32));
 						else
 							fprintf(stderr, "numbers: Bad option number %d\n", n);					}
 				}
-				while (isalnum(*keyValue)) keyValue++;
+				while (isalnum((unsigned char)*keyValue)) keyValue++;
+				if (keyValue == token && *keyValue != 0)
+					keyValue++;
 			}
 			ProcessLanguageOptions(&(translator->langopts));
 
@@ -148,7 +152,7 @@ if (CheckTranslator(translator, langopts_tab, key) != 0) {
 		}
             case V_TUNES: {
 				char names[6][40] = { {0}, {0}, {0}, {0}, {0}, {0} };
-                n = sscanf(keyValue, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
+                n = sscanf(keyValue, "%39s %39s %39s %39s %39s %39s", names[0], names[1], names[2], names[3], names[4], names[5]);
                 translator->langopts.intonation_group = 0;
 
                 int value;
@@ -196,8 +200,8 @@ void LoadConfig(void) {
 		if (memcmp(buf, "tone", 4) == 0)
 			ReadTonePoints(&buf[5], tone_points);
 		else if (memcmp(buf, "soundicon", 9) == 0) {
-			ix = sscanf(&buf[10], "_%c %s", &c1, string);
-			if (ix == 2) {
+			ix = sscanf(&buf[10], "_%c %199s", &c1, string);
+			if ((ix == 2) && (n_soundicon_tab < N_SOUNDICON_TAB)) {
 				// add sound file information to soundicon array
 				// the file will be loaded to memory by LoadSoundFile2()
 				soundicon_tab[n_soundicon_tab].name = c1;

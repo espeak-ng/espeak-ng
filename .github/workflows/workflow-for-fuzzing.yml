@@ -7,11 +7,17 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   fuzzing:
     runs-on: ubuntu-latest
     name: Fuzz synth_espeak on ${{ matrix.arch }} for ${{ inputs.lang }}
+    env:
+      FUZZ_LANG: ${{ inputs.lang }}
     strategy:
+      fail-fast: false
       matrix:
         arch: [x86-32, x86-64]
         include:
@@ -33,7 +39,7 @@ jobs:
     - name: Fuzz function synth_espeak()
       run: |
         mkdir -p tests/fuzzing/CORPUS_DIR
-        FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+        FUZZ_VOICE="$FUZZ_LANG" build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
       uses: actions/upload-artifact@v7
@@ -44,8 +50,8 @@ jobs:
           timeout-*
     - name: Fuzz function synth_espeak() with language-specific input
       run: |
-        cp dictsource/${{ inputs.lang }}_* tests/fuzzing/CORPUS_DIR/ || true
-        FUZZ_VOICE=${{ inputs.lang }} build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
+        cp dictsource/"$FUZZ_LANG"_* tests/fuzzing/CORPUS_DIR/ || true
+        FUZZ_VOICE="$FUZZ_LANG" build/tests/synth_fuzzer -seed=1 -runs=10000 -max_len=4096 tests/fuzzing/CORPUS_DIR
     - name: Store the crash POC
       if: ${{ failure() }}
       uses: actions/upload-artifact@v7

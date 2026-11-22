@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "0 4 * * 1"
 
+permissions:
+  contents: read
+
 jobs:
   build:
     uses: ./.github/workflows/workflow-for-fuzzing-build.yml

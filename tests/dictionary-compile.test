@@ -1,0 +1,73 @@
+#!/bin/sh
+# Compile a tiny dictionary with the dictionary compiler and check the lookup result.
+ESPEAK_BIN="`cd \`dirname "${ESPEAK_BIN:-src/espeak-ng}"\` && pwd`/`basename "${ESPEAK_BIN:-src/espeak-ng}"`"
+DATA_ROOT="${ESPEAK_DATA_PATH:-.}"
+
+WORK=`mktemp -d "${TMPDIR:-/tmp}/espeak-dict-compile.XXXXXX"` || exit 1
+trap 'rm -rf "$WORK"' EXIT
+
+mkdir -p "$WORK/data/espeak-ng-data" "$WORK/src" || exit 1
+for f in phontab phonindex phondata intonations; do
+    cp "$DATA_ROOT/espeak-ng-data/$f" "$WORK/data/espeak-ng-data/" || exit 1
+done
+cp -R "$DATA_ROOT/espeak-ng-data/lang" "$DATA_ROOT/espeak-ng-data/voices" "$WORK/data/espeak-ng-data/" || exit 1
+
+printf '.group a\n\ta  a\n.group z\n\tz  z\n' > "$WORK/src/en_rules"
+printf 'zazaz  z@z\n' > "$WORK/src/en_list"
+
+echo -n "compiling en dictionary ... "
+(cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=en >/dev/null 2>&1) || { echo "failed"; exit 1; }
+echo "done"
+
+check() {
+    echo -n "checking '$1' ... "
+    RESULT=`ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" -q -x -v en "$1" 2>&1`
+    if [ "$RESULT" = "$2" ]; then
+        echo "passed"
+    else
+        echo "failed (expected '$2', got '$RESULT')"
+        exit 1
+    fi
+}
+
+# Dictionary list entry overrides the letter rules.
+check zazaz "z'@z"
+# Word not in the list falls back to the compiled letter rules.
+check zaz "z'az"
+
+# A rule whose match string is shorter than its group name used to make the
+# compiler read past the end of the rule (heap-buffer-overflow, found by
+# dict_fuzzer). The compiler has to reach its final message: under a
+# sanitizer build an overflow aborts before then.
+compile_bad() {
+    echo -n "compiling $1 ... "
+    printf "$2" > "$WORK/src/en_rules"
+    OUT=`cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=en 2>&1`
+    if echo "$OUT" | grep -q "$3"; then
+        echo "passed"
+    else
+        echo "failed (expected '$3' in output)"
+        echo "$OUT"
+        exit 1
+    fi
+}
+
+# Wrong initial letters: reported as a compile error, without overflowing.
+compile_bad "a rule shorter than its group name" '.group ab\n\ta  a\n' "Compile error"
+# Numeric groups accept any leading digit, so this one is not an error.
+compile_bad "a numeric rule shorter than its group name" '.group 9a\n\t5  f\n' "1 rules, 1 groups"
+# A letter group number too long for atoi() used to overflow to a negative
+# group, which passed the range check and then read past the end of the
+# line (stack-buffer-overflow, found by dict_fuzzer).
+compile_bad "an overlong letter group number" '.L55555555555555555555~' "lettergroup out of range"
+# A .L line ending the file without a newline must stop at the end of input.
+compile_bad "a letter group on an unterminated last line" '.group a\n\ta  a\n.L01 xy z' "1 rules, 1 groups"
+
+# A long Cyrillic word is 70 UTF-8 bytes but packs below the 63-byte limit.
+printf '.group а\n\tа  a\n' > "$WORK/src/ru_rules"
+printf 'ааааааааааааааааааааааааааааааааааа  a\n' > "$WORK/src/ru_list"
+# 102 bytes packs to 38, and 38|0x40 == 102: the packed flag must not be inferred from the length.
+printf 'нажжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжж  a\n' >> "$WORK/src/ru_list"
+echo -n "compiling ru dictionary with a 35-letter word ... "
+(cd "$WORK/src" && ESPEAK_DATA_PATH="$WORK/data" "$ESPEAK_BIN" --compile=ru >/dev/null 2>&1) || { echo "failed"; exit 1; }
+echo "done"

@@ -14,7 +14,7 @@
   - [Testing](#testing)
   - [Installing](#installing)
 - [Android](#android)
-  - [Dependencies](#dependencies-1)
+  - [Dependencies](#dependencies-2)
   - [Building with Gradle](#building-with-gradle)
   - [Signing the APK](#signing-the-apk)
   - [Opening project in Android Studio](#opening-project-in-android-studio)
@@ -178,6 +178,11 @@ The following CMake options control which eSpeak NG features are enabled:
 | `-DUSE_MBROLA`       | Enable MBROLA voice support.                 | ON (if available) |
 | `-DUSE_LIBSONIC`     | Use the sonic library to support higher WPM. | ON (if available) |
 | `-DUSE_ASYNC`        | Enable asynchronous commands.                | ON (if pthread available) |
+| `-DUSE_LIBPCAUDIO`   | Use libpcaudio for sound output.             | ON (if available) |
+| `-DCOMPILE_INTONATIONS` | Compile intonation data.                  | ON      |
+| `-DENABLE_TESTS`     | Build and register the tests.                | ON      |
+| `-DESPEAK_COMPAT`    | Install compat binary symlinks.              | ON      |
+| `-DWITH_COVERAGE`    | Enable clang source-based coverage instrumentation. | OFF |
 
 __NOTE:__ The `-DUSE_LIBSONIC` option requires that the sonic library and header
 is accessible on the system.
@@ -220,6 +225,16 @@ If you are building with `-DBUILD_SHARED_LIBS=ON`, you also need to set
 You can run the test suite with:
 
     ctest --test-dir build -j$(nproc) --output-on-failure
+
+Some of the tests compare an exact sha1 of the synthesized audio against a
+hash recorded in the test file. Those hashes were generated on targets that
+evaluate `float` and `double` at the precision of the type, so they only hold
+where `FLT_EVAL_METHOD` is 0. A build that keeps excess intermediate precision
+-- in practice the x87 FPU without SSE math, as on 32-bit x86 built with
+`-mfpmath=387` -- rounds differently and produces a different hash for correct
+audio. The build detects this and those checks report as skipped rather than
+failed; configuring such a build with `-mfpmath=sse -msse2` makes them run
+again.
 
 ### Installing
 

@@ -28,8 +28,8 @@ extern "C"
 {
 #endif
 
-void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf);
-void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf1, int control);
+void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf, size_t ph_buf_size);
+void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf1, size_t ph_buf1_size, int control);
 int IsSuperscript(int letter);
 void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars);
 int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, WORD_TAB *wtab, int wtab_remaining);

@@ -1,0 +1,21 @@
+---
+# Checks run against changed lines only (see .github/workflows/lint.yml,
+# which drives this through clang-tidy-diff.py). Existing code is never
+# required to pass this config; only new/changed lines are linted, so the
+# set below is deliberately small and high-signal to avoid blocking
+# unrelated changes with pre-existing legacy-code noise.
+Checks: >
+  -*,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-narrowing-conversions,
+  clang-analyzer-*,
+  -clang-analyzer-security.insecureAPI.*,
+  -clang-analyzer-security.ArrayBound,
+  readability-isolate-declaration,
+  readability-else-after-return,
+  readability-redundant-declaration,
+  misc-redundant-expression
+WarningsAsErrors: '*'
+HeaderFilterRegex: 'src/(libespeak-ng|include)/.*'
+FormatStyle: none

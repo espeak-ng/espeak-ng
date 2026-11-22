@@ -50,10 +50,18 @@
 
 #define N_XML_BUF   500
 
-static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
+// A character's or symbol's spoken name: dictionary phonemes (up to N_PHONEME_BYTES),
+// decoded into mnemonics (at most 4 characters each), then wrapped in brackets, with a
+// language switch when the name comes from English. Long names, such as emoji names in
+// Marathi, Telugu or Malayalam, overflowed the old 55- and 60-byte buffers when
+// punctuation was spoken.
+#define N_DECODED_PHONEMES (N_PHONEME_BYTES * 4 + 4)
+#define N_CHARNAME_BUF     (N_DECODED_PHONEMES + 40)
+
+static void DecodeWithPhonemeMode(char *buf, size_t buf_size, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]);
 static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc);
 
-static const char *xmlbase = ""; // base URL from <speak>
+static char xmlbase[N_XMLBASE] = ""; // base URL from <speak>; owned copy, empty when unset
 
 static int namedata_ix = 0;
 static int n_namedata = 0;
@@ -70,7 +78,6 @@ int count_characters = 0;
 static int sayas_mode;
 static int sayas_start;
 
-#define N_SSML_STACK  20
 static int n_ssml_stack;
 static SSML_STACK ssml_stack[N_SSML_STACK];
 
@@ -181,21 +188,21 @@ const char *WordToString2(char buf[5], unsigned int word)
 	return buf;
 }
 
-static const char *LookupSpecial(Translator *tr, const char *string, char *text_out)
+static const char *LookupSpecial(Translator *tr, const char *string, char *text_out, size_t text_out_size)
 {
 	unsigned int flags[2];
-	char phonemes[55];
+	char phonemes[N_PHONEME_BYTES];
 	char *string1 = (char *)string;
 
 	flags[0] = flags[1] = 0;
 	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL, 0)) {
-		DecodeWithPhonemeMode(text_out, phonemes, tr, NULL, flags);
+		DecodeWithPhonemeMode(text_out, text_out_size, phonemes, tr, NULL, flags);
 		return text_out;
 	}
 	return NULL;
 }
 
-static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only)
+static const char *LookupCharName(char buf[N_CHARNAME_BUF], Translator *tr, int c, bool only)
 {
 	// Find the phoneme string (in ascii) to speak the name of character c
 	// Used for punctuation characters and symbols
@@ -203,7 +210,7 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 	int ix;
 	unsigned int flags[2];
 	char single_letter[24];
-	char phonemes[60];
+	char phonemes[N_PHONEME_BYTES];
 	const char *lang_name = NULL;
 	char *string;
 
@@ -250,10 +257,10 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 
 	if (phonemes[0]) {
 		if (lang_name) {
-			DecodeWithPhonemeMode(buf, phonemes, tr, translator2, flags);
+			DecodeWithPhonemeMode(buf, N_CHARNAME_BUF, phonemes, tr, translator2, flags);
 			SelectPhonemeTable(voice->phoneme_tab_ix); // revert to original phoneme table
 		} else {
-			DecodeWithPhonemeMode(buf, phonemes, tr, NULL, flags);
+			DecodeWithPhonemeMode(buf, N_CHARNAME_BUF, phonemes, tr, NULL, flags);
 		}
 	} else if (only == false)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
@@ -261,7 +268,7 @@ static const char *LookupCharName(char buf[74], Translator *tr, int c, bool only
 	return buf;
 }
 
-static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
+static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int n_buf, int end_clause)
 {
 	// announce punctuation names
 	// c1:  the punctuation character
@@ -275,9 +282,9 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int c2;
 	int len;
 	int bufix1;
-	char buf[200];
-	char ph_buf[30];
-	char cn_buf[74];
+	char buf[3 * (N_CHARNAME_BUF + 1) + 40]; // up to three names and two speed commands
+	char ph_buf[N_CHARNAME_BUF];
+	char cn_buf[N_CHARNAME_BUF];
 
 	c2 = *c2_ptr;
 	buf[0] = 0;
@@ -288,7 +295,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		UngetC(c2);
 	} else {
 		if ((c1 == '.') && (end_clause) && (c2 != '.')) {
-			if (LookupSpecial(tr, "_.p", ph_buf))
+			if (LookupSpecial(tr, "_.p", ph_buf, sizeof(ph_buf)))
 				punctname = ph_buf; // use word for 'period' instead of 'dot'
 		}
 		if (punctname == NULL)
@@ -315,7 +322,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				if (embedded_value[EMBED_S] < 300)
 					sprintf(buf, "\001+10S"); // Speak punctuation name faster, unless we are already speaking fast.  It would upset Sonic SpeedUp
 
-				char buf2[80];
+				char buf2[N_CHARNAME_BUF + 2];
 				while (punct_count-- > 0) {
 					sprintf(buf2, " %s", punctname);
 					strcat(buf, buf2);
@@ -337,7 +344,21 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 	bufix1 = *bufix;
 	len = strlen(buf);
-	strcpy(&output[*bufix], buf);
+	if ((punctname != NULL) && (*bufix + len >= n_buf - 4)) {
+		// Repeated long names (emoji) don't fit in what is left of the clause:
+		// say the name once, or leave it out rather than write past the end
+		// of the clause buffer.
+		snprintf(buf, sizeof(buf), " %s", punctname);
+		len = strlen(buf);
+		if (*bufix + len >= n_buf - 4) {
+			buf[0] = 0;
+			len = 0;
+		}
+	}
+	if (len >= (n_buf - *bufix))
+		len = n_buf - *bufix - 1;
+	memcpy(&output[*bufix], buf, len);
+	output[*bufix + len] = 0;
 	*bufix += len;
 
 	if (end_clause == 0)
@@ -371,25 +392,26 @@ int AddNameData(const char *name, int wide)
 
 	int ix;
 	int len;
+	int start = namedata_ix;
 
 	if (wide) {
 		len = (wcslen((const wchar_t *)name)+1)*sizeof(wchar_t);
-		n_namedata = (n_namedata + sizeof(wchar_t) - 1) % sizeof(wchar_t);  // round to wchar_t boundary
+		start = (namedata_ix + sizeof(wchar_t) - 1) / sizeof(wchar_t) * sizeof(wchar_t);
 	} else
 		len = strlen(name)+1;
 
-	if (namedata_ix+len >= n_namedata) {
+	if (start+len > n_namedata) {
 		// allocate more space for marker names
 		void *vp;
-		if ((vp = realloc(namedata, namedata_ix+len + 1000)) == NULL)
+		if ((vp = realloc(namedata, start+len + 1000)) == NULL)
 			return -1;  // failed to allocate, original data is unchanged but ignore this new name
 		// !!! Bug?? If the allocated data shifts position, then pointers given to user application will be invalid
 
 		namedata = (char *)vp;
-		n_namedata = namedata_ix+len + 1000;
+		n_namedata = start+len + 1000;
 	}
-	memcpy(&namedata[ix = namedata_ix], name, len);
-	namedata_ix += len;
+	memcpy(&namedata[ix = start], name, len);
+	namedata_ix = start + len;
 	return ix;
 }
 
@@ -403,7 +425,7 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 		return;
 	}
 	if (v->languages != NULL)
-		strcpy(sp->language, v->languages);
+		strncpy0(sp->language, v->languages, sizeof(sp->language));
 	if (v->name != NULL)
 		strncpy0(sp->voice_name, v->name, sizeof(sp->voice_name));
 	sp->voice_variant_number = v->variant;
@@ -500,7 +522,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 	#define N_XML_BUF2 20
 	char xml_buf2[N_XML_BUF2+2]; // for &<name> and &<number> sequences
-	static char ungot_string[N_XML_BUF2+4];
+	static wchar_t ungot_string[N_XML_BUF2+4];
 	static int ungot_string_ix = -1;
 
 	if (clear_skipping_text) {
@@ -564,7 +586,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			if ((c1 == '&') && ((c2 == '#') || ((c2 >= 'a') && (c2 <= 'z')))) {
 				n_xml_buf = 0;
 				c1 = c2;
-				while (!Eof() && (iswalnum(c1) || (c1 == '#')) && (n_xml_buf < N_XML_BUF2)) {
+				while (!Eof() && (c1 < 0x80) && (iswalnum(c1) || (c1 == '#')) && (n_xml_buf < N_XML_BUF2)) {
 					xml_buf2[n_xml_buf++] = c1;
 					c1 = GetC();
 				}
@@ -574,7 +596,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				} else {
 					c2 = GetC();
 				}
-				sprintf(ungot_string, "%s%c%c", &xml_buf2[0], c1, c2);
+				swprintf(ungot_string, N_XML_BUF2+4, L"%s%lc%lc", &xml_buf2[0], (wint_t)c1, (wint_t)c2);
 
 				int found = -1;
 				if (c1 == ';') {
@@ -610,7 +632,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					c2 = ' ';
 
 					if (base_voice.identifier)
-						strcpy(current_voice_id, base_voice.identifier);
+						strncpy0(current_voice_id, base_voice.identifier, sizeof(current_voice_id));
 					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
 
 					if (terminator != 0) {
@@ -666,10 +688,13 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					if (c2 != '1') {
 						// a list of punctuation characters to be spoken, terminated by space
 						j = 0;
-						while (!Eof() && !iswspace(c2) && (j < N_PUNCTLIST-1)) {
+						while (!Eof() && !iswspace(c2) && (j < N_PUNCTLIST-1) && (ix < n_buf-1)) {
 							option_punctlist[j++] = c2;
 							c2 = GetC();
-							buf[ix++] = ' ';
+							// the placeholder space goes into buf; keep it inside
+							// the clause buffer even for a long punctuation list
+							if (ix < n_buf-1)
+								buf[ix++] = ' ';
 						}
 						option_punctlist[j] = 0; // terminate punctuation list
 						option_punctuation = 2;
@@ -720,8 +745,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			tr->clause_upper_count++;
 
 			if ((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev)) {
-				char text_buf[30];
-				if (LookupSpecial(tr, "_cap", text_buf) != NULL) {
+				char text_buf[N_CHARNAME_BUF];
+				if (LookupSpecial(tr, "_cap", text_buf, sizeof(text_buf)) != NULL) {
 					j = strlen(text_buf);
 					if ((ix + j) < n_buf) {
 						strcpy(&buf[ix], text_buf);
@@ -827,7 +852,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				// if a list of allowed punctuation has been set up, check whether the character is in it
 				if ((option_punctuation == 1) || (wcschr(option_punctlist, c1) != NULL)) {
 					tr->phonemes_repeat_count = 0;
-					if ((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, is_end_clause)) >= 0)
+					if ((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, n_buf, is_end_clause)) >= 0)
 						return terminator;
 					announced_punctuation = c1;
 				}
@@ -838,8 +863,11 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				char *p2;
 
 				p2 = &buf[ix];
-				char cn_buf[74];
-				sprintf(p2, "%s", LookupCharName(cn_buf, tr, c1, true));
+				char cn_buf[N_CHARNAME_BUF];
+				const char *name = LookupCharName(cn_buf, tr, c1, true);
+				p2[0] = 0;
+				if (ix + (int)strlen(name) < n_buf - 4) // only if it fits in the clause
+					snprintf(p2, n_buf - ix, "%s", name);
 				if (p2[0] != 0) {
 					ix += strlen(p2);
 					announced_punctuation = c1;
@@ -1005,7 +1033,7 @@ void InitText2(void)
 	count_characters = -1;
 	sayas_mode = 0;
 
-	xmlbase = NULL;
+	xmlbase[0] = 0;
 }
 
 static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
@@ -1017,16 +1045,16 @@ static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc) {
 	}
 }
 
-static void DecodeWithPhonemeMode(char *buf, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
-	char phonemes2[55];
+static void DecodeWithPhonemeMode(char *buf, size_t buf_size, char *phonemes, Translator *tr, Translator *tr2, unsigned int flags[]) {
+	char phonemes2[N_DECODED_PHONEMES];
 	if (tr2 == NULL) {
 		SetWordStress(tr, phonemes, flags, -1, 0);
-		DecodePhonemes(phonemes, phonemes2);
-		sprintf(buf, "[\002%s]]", phonemes2);
+		DecodePhonemes(phonemes, phonemes2, sizeof(phonemes2));
+		snprintf(buf, buf_size, "[\002%s]]", phonemes2);
 	} else {
 		SetWordStress(tr2, phonemes, flags, -1, 0);
-	    DecodePhonemes(phonemes, phonemes2);
+	    DecodePhonemes(phonemes, phonemes2, sizeof(phonemes2));
 			char wbuf[5];
-	    sprintf(buf, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
+	    snprintf(buf, buf_size, "[\002_^_%s %s _^_%s]]", ESPEAKNG_DEFAULT_VOICE, phonemes2, WordToString2(wbuf, tr->translator_name));
     }
 }

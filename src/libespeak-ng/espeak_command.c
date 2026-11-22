@@ -49,6 +49,7 @@ t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int
 		return NULL;
 	}
 	memcpy(a_text, text, size);
+	((char *)a_text)[size] = 0; // callers may pass the length without the terminator
 
 	a_command->type = ET_TEXT;
 	a_command->state = CS_UNDEFINED;
@@ -93,14 +94,20 @@ t_espeak_command *create_espeak_mark(const void *text, size_t size, const char *
 	if (!a_command)
 		return NULL;
 
-	a_text = malloc(size);
+	a_text = malloc(size+1);
 	if (!a_text) {
 		free(a_command);
 		return NULL;
 	}
 	memcpy(a_text, text, size);
+	((char *)a_text)[size] = 0;
 
 	a_index_mark = strdup(index_mark);
+	if (!a_index_mark) {
+		free(a_text);
+		free(a_command);
+		return NULL;
+	}
 
 	a_command->type = ET_MARK;
 	a_command->state = CS_UNDEFINED;
@@ -129,6 +136,10 @@ t_espeak_command *create_espeak_key(const char *key_name, void *user_data)
 	a_command->u.my_key.user_data = user_data;
 	a_command->u.my_key.unique_identifier = ++my_current_text_id;
 	a_command->u.my_key.key_name = strdup(key_name);
+	if (!a_command->u.my_key.key_name) {
+		free(a_command);
+		return NULL;
+	}
 
 	return a_command;
 }
@@ -202,6 +213,10 @@ t_espeak_command *create_espeak_voice_name(const char *name)
 	a_command->type = ET_VOICE_NAME;
 	a_command->state = CS_UNDEFINED;
 	a_command->u.my_voice_name = strdup(name);
+	if (!a_command->u.my_voice_name) {
+		free(a_command);
+		return NULL;
+	}
 
 	return a_command;
 }

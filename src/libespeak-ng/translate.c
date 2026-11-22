@@ -288,7 +288,7 @@ static int TranslateWordWithBounds(Translator *tr, char *word_start, WORD_TAB *w
 
 			// skip to the next word in a multi-word replacement. Always skip at least one word.
 			for (dictionary_skipwords++; dictionary_skipwords > 0; dictionary_skipwords--) {
-				while (!isspace(*word_out)) ++word_out;
+				while (*word_out && !isspace(*word_out)) ++word_out;
 				while (isspace(*word_out))  ++word_out;
 			}
 			dictionary_skipwords = skipwords;
@@ -934,12 +934,61 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 	return new_c;
 }
 
+static int NormalizeStyledLatin(unsigned int c)
+{
+	// Map a stylized Latin letter or digit to plain ASCII so it is read as
+	// text instead of spelled out as a Unicode codepoint. Covers the
+	// Mathematical Alphanumeric Symbols (bold, italic, script, fraktur,
+	// double-struck, sans-serif, monospace), the Letterlike Symbols that fill
+	// the holes in that block, and the fullwidth Latin forms. Returns 0 if c
+	// is not one of these.
+
+	// Mathematical Alphanumeric Symbols
+	if (c >= 0x1d400 && c <= 0x1d7ff) {
+		if (c >= 0x1d7ce)
+			return '0' + (c - 0x1d7ce) % 10; // five styles of digits 0-9
+		if (c <= 0x1d6a3) {
+			// 13 styles of 52 letters, each laid out A-Z then a-z
+			int o = (c - 0x1d400) % 52;
+			return o < 26 ? 'A' + o : 'a' + (o - 26);
+		}
+		if (c == 0x1d6a4) return 'i'; // italic dotless i
+		if (c == 0x1d6a5) return 'j'; // italic dotless j
+		return 0; // Greek styles (1d6a8..1d7cd): left unchanged
+	}
+
+	// Fullwidth Latin letters and digits
+	if (c >= 0xff21 && c <= 0xff3a) return 'A' + (c - 0xff21);
+	if (c >= 0xff41 && c <= 0xff5a) return 'a' + (c - 0xff41);
+	if (c >= 0xff10 && c <= 0xff19) return '0' + (c - 0xff10);
+
+	// Letters reserved in the math block because they are unified with the
+	// Letterlike Symbols block; the Letterlike codepoint is what appears.
+	switch (c) {
+	case 0x210e: return 'h'; // italic small h (PLANCK CONSTANT)
+	case 0x212c: return 'B'; case 0x2130: return 'E'; case 0x2131: return 'F';
+	case 0x210b: return 'H'; case 0x2110: return 'I'; case 0x2112: return 'L';
+	case 0x2133: return 'M'; case 0x211b: return 'R'; // script capitals
+	case 0x212f: return 'e'; case 0x210a: return 'g'; case 0x2134: return 'o'; // script small
+	case 0x212d: return 'C'; case 0x210c: return 'H'; case 0x2111: return 'I';
+	case 0x211c: return 'R'; case 0x2128: return 'Z'; // fraktur capitals
+	case 0x2102: return 'C'; case 0x210d: return 'H'; case 0x2115: return 'N';
+	case 0x2119: return 'P'; case 0x211a: return 'Q'; case 0x211d: return 'R';
+	case 0x2124: return 'Z'; // double-struck capitals
+	}
+	return 0;
+}
+
 static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
 {
 	// To allow language specific examination and replacement of characters
 
 	int code;
 	int next2;
+
+	int styled = NormalizeStyledLatin(c);
+	if (styled != 0)
+		return styled;
 
 	static const unsigned char hangul_compatibility[0x34] = {
 		0,  0x00, 0x01, 0xaa, 0x02, 0xac, 0xad, 0x03,
@@ -1804,11 +1853,11 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 		if (dict_flags & FLAG_SKIPWORDS) {
 			// dictionary indicates skip next word(s)
 			while (dictionary_skipwords > 0) {
-				if (dictionary_skipwords >= word_count - ix) {
-					dictionary_skipwords = 0;
-					break;
-				}
-				words[ix+dictionary_skipwords].flags |= FLAG_DELETE_WORD;
+				// Mark only words that exist in this clause. Cancelling the whole
+				// skip when it runs past the end also un-skips the words that do
+				// exist, so Arabic "د.ج" was read with an extra "jim".
+				if (ix + dictionary_skipwords < word_count)
+					words[ix+dictionary_skipwords].flags |= FLAG_DELETE_WORD;
 				dictionary_skipwords--;
 			}
 		}
@@ -1953,7 +2002,8 @@ static void SwitchLanguage(char *word, char *word_phonemes) {
 		c1 = *word++;
 		if ((c1 == ' ') || (c1 == 0))
 			break;
-		lang_name[ix++] = tolower(c1);
+		if (ix < (int)sizeof(lang_name) - 1)
+			lang_name[ix++] = tolower((unsigned char)c1);
 	}
 	lang_name[ix] = 0;
 

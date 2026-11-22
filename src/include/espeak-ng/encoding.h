@@ -17,7 +17,11 @@
 #ifndef ESPEAK_NG_ENCODING_H
 #define ESPEAK_NG_ENCODING_H
 
+#include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
+
+#include <espeak-ng/espeak_ng.h>
 
 #ifdef __cplusplus
 extern "C"

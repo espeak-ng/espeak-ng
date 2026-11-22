@@ -35,15 +35,32 @@ find_program(SHELL bash)
 macro(shell_test _test_name)
   add_test(
     NAME ${_test_name}
-    COMMAND ${ESPEAK_RUN_ENV} ESPEAK_BIN=$<TARGET_FILE:espeak-ng-bin> ${SHELL} ${CMAKE_CURRENT_SOURCE_DIR}/${_test_name}.test
+    COMMAND ${ESPEAK_RUN_ENV} ESPEAK_BIN=$<TARGET_FILE:espeak-ng-bin> ESPEAK_EXCESS_FP_PRECISION=${ESPEAK_EXCESS_FP_PRECISION} ${SHELL} ${CMAKE_CURRENT_SOURCE_DIR}/${_test_name}.test
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/..
   )
+  # tests/common exits with 77 when a check cannot run on this target.
+  set_tests_properties(${_test_name} PROPERTIES SKIP_RETURN_CODE 77)
 endmacro(shell_test)
 
 compiled_test(api)
+compiled_test(belarusian_vowels)
+compiled_test(common_bounds)
+compiled_test(core_bounds)
+compiled_test(decode_phonemes_bounds)
+compiled_test(dictionary_bounds)
 compiled_test(encoding)
+if (USE_ASYNC)
+  compiled_test(espeak_command_bounds)
+endif()
 compiled_test(ieee80)
+compiled_test(langopts_numbers_hang)
+compiled_test(lookup_bounds)
+compiled_test(output_pho_symbol)
 compiled_test(readclause)
+compiled_test(soundicon_bounds)
+compiled_test(voice_by_file)
+compiled_test(voice_params_bounds)
+compiled_test(voices_bounds)
 
 if (SHELL AND UNIX)
 
@@ -51,7 +68,10 @@ shell_test(bom)
 shell_test(non-executable-files-with-executable-bit)
 
 shell_test(cmd_options)
+shell_test(truncated-data)
+shell_test(cli-exit-codes)
 shell_test(dictionary)
+shell_test(dictionary-compile)
 shell_test(language-numbers-cardinal)
 shell_test(language-numbers-ordinal)
 shell_test(language-phonemes)
@@ -96,4 +116,22 @@ if (WITH_FUZZER AND UNIX)
   target_compile_options(synth_fuzzer PRIVATE "-fsanitize=fuzzer" "-fno-omit-frame-pointer")
   set_property(TARGET synth_fuzzer APPEND_STRING PROPERTY LINK_FLAGS " -fsanitize=fuzzer")
   add_dependencies(synth_fuzzer data)
+
+  add_executable(dict_fuzzer dict-fuzzer.c)
+  target_link_libraries(dict_fuzzer PRIVATE
+    espeak-ng
+    espeak-ng-config
+    espeak-include
+  )
+  target_include_directories(
+    dict_fuzzer PRIVATE
+    $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>
+    $<TARGET_PROPERTY:espeak-ng,SOURCE_DIR>/include/compat
+    $<TARGET_PROPERTY:espeak-ng,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:espeak-ng-config,INTERFACE_INCLUDE_DIRECTORIES>
+  )
+  target_compile_definitions(dict_fuzzer PRIVATE LIBESPEAK_NG_EXPORT=1)
+  target_compile_options(dict_fuzzer PRIVATE "-fsanitize=fuzzer" "-fno-omit-frame-pointer")
+  set_property(TARGET dict_fuzzer APPEND_STRING PROPERTY LINK_FLAGS " -fsanitize=fuzzer")
+  add_dependencies(dict_fuzzer data)
 endif()

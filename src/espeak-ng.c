@@ -496,8 +496,10 @@ int main(int argc, char **argv)
 			data_path = optarg2;
 			break;
 		case 0x108: // --phonout
-			if ((f_phonemes_out = fopen(optarg2, "w")) == NULL)
+			if ((f_phonemes_out = fopen(optarg2, "w")) == NULL) {
 				fprintf(stderr, "Can't write to: %s\n", optarg2);
+				return EXIT_FAILURE;
+			}
 			break;
 		case 0x109: // --pho
 			phoneme_options |= espeakPHONEMES_MBROLA;
@@ -547,6 +549,10 @@ int main(int argc, char **argv)
 #if USE_MBROLA
 		case 0x10e: // --compile-mbrola
 		{
+			if (optarg2 == NULL) {
+				fprintf(stderr, "--compile-mbrola requires a file name\n");
+				return EXIT_FAILURE;
+			}
 			espeak_ng_InitializePath(data_path);
 			espeak_ng_ERROR_CONTEXT context = NULL;
 			espeak_ng_STATUS result = espeak_ng_CompileMbrolaVoice(optarg2, stdout, &context);
@@ -594,7 +600,7 @@ int main(int argc, char **argv)
 			ssml_break = atoi(optarg2);
 			break;
 		default:
-			exit(0);
+			return EXIT_FAILURE;
 		}
 	}
 
@@ -657,11 +663,11 @@ int main(int argc, char **argv)
 
 	if (flag_compile) {
 		// This must be done after the voice is set
-		espeak_ng_ERROR_CONTEXT context = NULL;
-		espeak_ng_STATUS result = espeak_ng_CompileDictionary("", NULL, stderr, flag_compile & 0x1, &context);
-		if (result != ENS_OK) {
-			espeak_ng_PrintStatusCodeMessage(result, stderr, context);
-			espeak_ng_ClearErrorContext(&context);
+		espeak_ng_ERROR_CONTEXT compile_context = NULL;
+		espeak_ng_STATUS compile_result = espeak_ng_CompileDictionary("", NULL, stderr, flag_compile & 0x1, &compile_context);
+		if (compile_result != ENS_OK) {
+			espeak_ng_PrintStatusCodeMessage(compile_result, stderr, compile_context);
+			espeak_ng_ClearErrorContext(&compile_context);
 			return EXIT_FAILURE;
 		}
 		return EXIT_SUCCESS;
@@ -747,7 +753,7 @@ int main(int argc, char **argv)
 				if ((c = fgetc(stdin)) == EOF)
 					break;
 				p_text[ix++] = (char)c;
-				if (ix >= (max-1)) {
+				if ((size_t)ix >= (max-1)) {
 					char *new_text = NULL;
 					if (max <= SIZE_MAX - 1000) {
 						max += 1000;

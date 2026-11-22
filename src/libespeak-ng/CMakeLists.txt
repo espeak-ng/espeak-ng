@@ -63,6 +63,7 @@ if (NOT MSVC)
     "-Wint-conversion"
     "-Wimplicit"
     "-Wmisleading-indentation"
+    "-Wimplicit-fallthrough"
 
     # All path buffers are sized to the platform path limit (PATH_MAX /
     # MAX_PATH) and written with snprintf. Truncation on a near-limit path

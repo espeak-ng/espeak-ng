@@ -60,6 +60,7 @@ static bool my_stop_is_acknowledged = false;
 static void *say_thread(void *);
 
 static espeak_ng_STATUS push(t_espeak_command *the_command);
+static void unpush_tail(void);
 static t_espeak_command *pop(void);
 static void init(int process_parameters);
 static int node_counter = 0;
@@ -113,6 +114,8 @@ void fifo_init(void)
 espeak_ng_STATUS fifo_add_command(t_espeak_command *the_command)
 {
 	espeak_ng_STATUS status;
+	if (!thread_inited)
+		return ENS_NOT_INITIALIZED;
 	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
 		return status;
 
@@ -156,6 +159,7 @@ espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command 
 	}
 
 	if ((status = push(command2)) != ENS_OK) {
+		unpush_tail();
 		pthread_mutex_unlock(&my_mutex);
 		return status;
 	}
@@ -423,6 +427,21 @@ static espeak_ng_STATUS push(t_espeak_command *the_command)
 	the_command->state = CS_PENDING;
 
 	return ENS_OK;
+}
+
+static void unpush_tail(void)
+{
+	node **link = &head;
+	node *prev = NULL;
+
+	while (*link != tail) {
+		prev = *link;
+		link = &prev->next;
+	}
+	*link = NULL;
+	free(tail);
+	tail = prev;
+	node_counter--;
 }
 
 static t_espeak_command *pop(void)

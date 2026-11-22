@@ -19,6 +19,10 @@
 #ifndef UNISTD_H_COMPAT_SHIM
 #define UNISTD_H_COMPAT_SHIM
 
+#ifndef __has_include_next // MSVC has no __has_include_next
+#define __has_include_next(header) 0
+#endif
+
 #if __has_include_next(<unistd.h>)
 #pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 #include_next <unistd.h>
