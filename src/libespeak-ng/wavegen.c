@@ -470,6 +470,21 @@ static void WavegenSetEcho(void)
 	general_amplitude = ((general_amplitude * (500-amp))/500);
 }
 
+// Look up the peak shape at a distance of delta from the peak centre. width is
+// the (Hz<<16) width of that side of the peak; the table spans PEAKSHAPEW steps of it.
+static int PeakShape(int delta, int width)
+{
+	int ix;
+
+	width >>= 8;
+	if (width < 1)
+		width = 1;
+	ix = delta / width;
+	if (ix > PEAKSHAPEW)
+		ix = PEAKSHAPEW;
+	return pk_shape[ix];
+}
+
 int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 {
 	if (wvoice == NULL)
@@ -517,9 +532,9 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		if (h <= 0) h = 1;
 
 		for (f = pitch*h; f < fp; f += pitch)
-			htab[h++] += pk_shape[(fp-f)/(p->left>>8)] * p->height;
+			htab[h++] += PeakShape(fp-f, p->left) * p->height;
 		for (; f < fhi; f += pitch)
-			htab[h++] += pk_shape[(f-fp)/(p->right>>8)] * p->height;
+			htab[h++] += PeakShape(f-fp, p->right) * p->height;
 	}
 
 	int y;
