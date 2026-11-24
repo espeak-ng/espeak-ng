@@ -61,6 +61,7 @@ compiled_test(soundicon_bounds)
 compiled_test(voice_by_file)
 compiled_test(voice_params_bounds)
 compiled_test(voices_bounds)
+compiled_test(wavegen_peaks_bounds)
 
 if (SHELL AND UNIX)
 
