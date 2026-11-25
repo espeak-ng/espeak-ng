@@ -1102,9 +1102,14 @@ void DoEmbedded(int *embix, int sourceix)
 			}
 			break;
 		case EMBED_M: // named marker
+			// value is an offset into namedata; a raw \001<n>M in the text can give any value
+			if ((int)value >= namedata_ix)
+				break;
 			DoMarker(espeakEVENT_MARK, (sourceix & 0x7ff) + clause_start_char, 0, value);
 			break;
 		case EMBED_U: // play sound
+			if ((int)value >= namedata_ix)
+				break;
 			DoMarker(espeakEVENT_PLAY, count_characters+1, 0, value); // always occurs at end of clause
 			break;
 		default:

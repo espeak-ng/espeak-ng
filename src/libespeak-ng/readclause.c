@@ -63,7 +63,7 @@ static void TerminateBufWithSpaceAndZero(char *buf, int index, int *ungetc);
 
 static char xmlbase[N_XMLBASE] = ""; // base URL from <speak>; owned copy, empty when unset
 
-static int namedata_ix = 0;
+int namedata_ix = 0;
 static int n_namedata = 0;
 char *namedata = NULL;
 

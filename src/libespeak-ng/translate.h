@@ -636,6 +636,7 @@ extern int end_character_position;
 extern int clause_start_char;
 extern int clause_start_word;
 extern char *namedata;
+extern int namedata_ix;
 extern int pre_pause;
 
 #define N_MARKER_LENGTH 50   // max.length of a mark name

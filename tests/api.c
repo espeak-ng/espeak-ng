@@ -708,6 +708,52 @@ test_word_event_positions(int rate) {
 
 // endregion
 
+// region mark events
+
+static int _test_mark_events_count;
+static const char *_test_mark_events_name;
+
+static int
+_test_mark_events_cb(short *samples, int num_samples, espeak_EVENT *events) {
+	(void) samples;
+	(void) num_samples;
+	for (espeak_EVENT *e = events; e->type != espeakEVENT_LIST_TERMINATED; e++) {
+		if ((e->type != espeakEVENT_MARK) && (e->type != espeakEVENT_PLAY))
+			continue;
+		// Don't read the name here, it is only valid if it points into namedata.
+		if (_test_mark_events_count++ == 0)
+			_test_mark_events_name = e->id.name;
+	}
+	return 0;
+}
+
+static void
+test_mark_events(const char *text, unsigned int flags, const char *expected)
+{
+	printf("testing mark events (%s)\n", expected ? expected : "none");
+
+	TEST_ASSERT(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0) == 22050);
+	TEST_ASSERT(espeak_SetVoiceByName("en") == EE_OK);
+	espeak_SetSynthCallback(_test_mark_events_cb);
+
+	_test_mark_events_count = 0;
+	_test_mark_events_name = NULL;
+	TEST_ASSERT(espeak_Synth(text, strlen(text)+1, 0, POS_CHARACTER, 0, flags, NULL, NULL) == EE_OK);
+
+	// A \001<n>M or \001<n>U command in the text must not produce an event
+	// whose name points outside namedata.
+	if (expected == NULL) {
+		TEST_ASSERT(_test_mark_events_count == 0);
+	} else {
+		TEST_ASSERT(_test_mark_events_count == 1);
+		TEST_ASSERT(strcmp(_test_mark_events_name, expected) == 0);
+	}
+
+	TEST_ASSERT(espeak_Terminate() == EE_OK);
+}
+
+// endregion
+
 static void
 test_espeak_text_to_phonemes_16bit()
 {
@@ -779,6 +825,9 @@ main(int argc, char **argv)
 
 	test_word_event_positions(espeakRATE_NORMAL); // libsonic idle
 	test_word_event_positions(900);               // libsonic compressing
+
+	test_mark_events("hello \001" "99999M world \001" "99999U again", espeakCHARS_AUTO, NULL);
+	test_mark_events("<speak>hello <mark name=\"m1\"/> world \001" "4000M again</speak>", espeakCHARS_AUTO | espeakSSML, "m1");
 
 	free(progdir);
 
