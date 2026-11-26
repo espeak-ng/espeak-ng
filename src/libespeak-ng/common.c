@@ -303,6 +303,14 @@ int IsDigit09(unsigned int c)
 	return 0;
 }
 
+int IsCurrencySymbol(unsigned int c)
+{
+	// $, cent, pound, currency sign, yen, and the Unicode Currency Symbols block (euro, peso, ...)
+	if ((c == '$') || ((c >= 0xa2) && (c <= 0xa5)) || ((c >= 0x20a0) && (c <= 0x20cf)))
+		return 1;
+	return 0;
+}
+
 int IsDigit(unsigned int c)
 {
 	if (iswdigit(c))

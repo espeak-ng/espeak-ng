@@ -315,6 +315,37 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 	return TranslateWordWithBounds(tr, word_start, wtab, 0, word_out, 0);
 }
 
+static void MoveCurrencyAfterNumber(char *src, short *charix)
+{
+	// NUM2_CURRENCY_AFTER: rewrite "₱1,250.50" as "1,250.50₱" in place, so that the
+	// currency word is spoken after the number. The source position of each byte
+	// moves with it.
+	int ix = 0;
+
+	while (src[ix] != 0) {
+		int c;
+		int n = utf8_in(&c, &src[ix]);
+
+		if (IsCurrencySymbol(c) && IsDigit09(src[ix+n]) && (n <= 4)) {
+			char sym[4];
+			short sym_charix[4];
+			int end = ix + n;
+
+			while (IsDigit09(src[end]) || (((src[end] == ',') || (src[end] == '.')) && IsDigit09(src[end+1])))
+				end++;
+
+			memcpy(sym, &src[ix], n);
+			memcpy(sym_charix, &charix[ix], n * sizeof(short));
+			memmove(&src[ix], &src[ix+n], end - ix - n);
+			memmove(&charix[ix], &charix[ix+n], (end - ix - n) * sizeof(short));
+			memcpy(&src[end-n], sym, n);
+			memcpy(&charix[end-n], sym_charix, n * sizeof(short));
+			ix = end;
+		} else
+			ix += n;
+	}
+}
+
 static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
 {
 	p->phcode = phcode;
@@ -1138,6 +1169,9 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 		charix[ix] = 0;
 	MAKE_MEM_UNDEFINED(&source, sizeof(source));
 	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone, voice_change_name);
+
+	if (tr->langopts.numbers2 & NUM2_CURRENCY_AFTER)
+		MoveCurrencyAfterNumber(source, charix);
 
 	if (terminator_out != NULL) {
 		*terminator_out = terminator;

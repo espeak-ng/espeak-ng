@@ -2082,6 +2082,9 @@ include ph_langbelta
 
 phonemetable ms id
 
+phonemetable tl base2
+include ph_tagalog
+
 phonemetable kaa kk
 include ph_karakalpak
 

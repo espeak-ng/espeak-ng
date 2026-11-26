@@ -923,6 +923,64 @@ static const char *M_Variant(int value)
 	return "0M";
 }
 
+static void LookupAndAfterHundreds(Translator *tr, char *ph_out, size_t ph_out_size)
+{
+	// "and" after hundreds or thousands. Use _0andC if the language has a different
+	// word there than between tens and units (LANG=tl "at", but dalawampu't isa).
+	if (Lookup(tr, "_0andC", ph_out, ph_out_size) == 0)
+		Lookup(tr, "_0and", ph_out, ph_out_size);
+}
+
+static void AddNumberLinker(Translator *tr, char *ph_number, size_t ph_number_size)
+{
+	// Add a linker between a number and the "thousand", "million" word which follows it.
+	// LANG=tl: "-ng" after a vowel (isang libo), "na" after a consonant (apat na libo).
+	// A final glottal stop or [n] is replaced by the vowel linker (sampu' -> sampung libo,
+	// sandaan -> sandaang libo).
+	char ph_linker[N_PHONEME_BYTES];
+	int ix = strlen(ph_number) - 1;
+	int type = 0;
+	unsigned int mnemonic;
+
+	while ((ix >= 0) && (((unsigned char)ph_number[ix] == phonEND_WORD)
+	       || ((type = phoneme_tab[(unsigned char)ph_number[ix]]->type) == phSTRESS) || (type == phPAUSE)))
+		ix--;
+	if (ix < 0)
+		return; // no phonemes
+
+	mnemonic = phoneme_tab[(unsigned char)ph_number[ix]]->mnemonic;
+	if ((mnemonic == '?') || (mnemonic == 'n')) {
+		ph_number[ix] = 0;
+		type = phVOWEL;
+	} else
+		type = phoneme_tab[(unsigned char)ph_number[ix]]->type;
+
+	if (Lookup(tr, (type == phVOWEL) ? "_0lkv" : "_0lkc", ph_linker, sizeof(ph_linker)) == 0)
+		return;
+	if (strlen(ph_number) + strlen(ph_linker) < ph_number_size)
+		strcat(ph_number, ph_linker);
+}
+
+static bool NumberFollowedByCurrency(const char *p)
+{
+	// Is the number which starts at p followed by a currency symbol?
+	// (NUM2_CURRENCY_AFTER has moved "₱150" to "150₱", which becomes "150 ₱".)
+	int c;
+
+	for (;;) {
+		if (IsDigit09(*p) || (((*p == ',') || (*p == '.')) && IsDigit09(p[1])))
+			p++;
+		else if ((*p == ',') && (p[1] == ' ') && IsDigit09(p[2]))
+			p += 2; // thousands groups are separated by ", " in the word buffer
+		else
+			break;
+	}
+	while (*p == ' ')
+		p++;
+	utf8_in(&c, p);
+	return IsCurrencySymbol(c);
+}
+
 static int LookupThousands(Translator *tr, int value, int thousandplex, int thousands_exact, char *ph_out)
 {
 	// thousands_exact:  bit 0  no hundreds,tens,or units,  bit 1  ordinal numberr
@@ -1331,6 +1389,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 				if (tr->translator_name == L('m', 'l'))
 					x = 0x208;
 				LookupNum2(tr, hundreds/10, thousandplex, x, ph_digits);
+				if (tr->langopts.numbers2 & NUM2_LINKER)
+					AddNumberLinker(tr, ph_digits, sizeof(ph_digits));
 			}
 
 			if (tr->langopts.numbers2 & NUM2_SWAP_THOUSANDS)
@@ -1349,7 +1409,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 
 		if ((hundreds > 0) || say_zero_hundred) {
 			if ((tr->langopts.numbers & NUM_AND_HUNDRED) && ((control & 1) || (ph_thousands[0] != 0)))
-				Lookup(tr, "_0and", ph_thousand_and, sizeof(ph_thousand_and));
+				LookupAndAfterHundreds(tr, ph_thousand_and, sizeof(ph_thousand_and));
 
 			suppress_null = true;
 
@@ -1410,10 +1470,10 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 		} else {
 			if ((value > 100) || ((control & 1) && (thousandplex == 0))) {
 				if ((tr->langopts.numbers & NUM_HUNDRED_AND) || ((tr->langopts.numbers & NUM_HUNDRED_AND_DIGIT) && (tensunits < 10)))
-					Lookup(tr, "_0and", ph_hundred_and, sizeof(ph_hundred_and));
+					LookupAndAfterHundreds(tr, ph_hundred_and, sizeof(ph_hundred_and));
 			}
 			if ((tr->langopts.numbers & NUM_THOUSAND_AND) && (hundreds == 0) && ((control & 1) || (ph_thousands[0] != 0)))
-				Lookup(tr, "_0and", ph_hundred_and, sizeof(ph_hundred_and));
+				LookupAndAfterHundreds(tr, ph_hundred_and, sizeof(ph_hundred_and));
 		}
 	}
 
@@ -1709,6 +1769,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 					value = 0;
 					suppress_null = true;
 				}
+				if ((thousands_exact & 1) && (tr->langopts.numbers2 & NUM2_LINKER) && NumberFollowedByCurrency(word))
+					AddNumberLinker(tr, ph_append, sizeof(ph_append)); // dalawang libong piso
 			}
 		}
 	} else if (speak_missing_thousands == 1) {
@@ -1765,6 +1827,10 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, char *ph_
 	}
 
 	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands | ordinal | decimal_point);
+	if ((thousandplex > 0) && (ph_append[0] != 0) && (tr->langopts.numbers2 & NUM2_LINKER))
+		AddNumberLinker(tr, ph_buf, sizeof(ph_buf));
+	if ((thousandplex == 0) && (decimal_point == 0) && (tr->langopts.numbers2 & NUM2_LINKER) && NumberFollowedByCurrency(word))
+		AddNumberLinker(tr, ph_buf, sizeof(ph_buf)); // limampung piso
 	if ((thousandplex > 0) && (tr->langopts.numbers2 & NUM2_SWAP_THOUSANDS))
 		len = sprintf(ph_out, "%s%s%c%s%s", ph_zeros, ph_append, phonEND_WORD, ph_buf2, ph_buf);
 	else

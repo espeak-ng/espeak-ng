@@ -1,0 +1,256 @@
+
+// This file is UTF8 encoded
+// Spelling-to-phoneme words for Tagalog (tl)
+
+// letter names (modern Filipino alphabet)
+_a	eI
+_b	bi
+_c	si
+_d	di
+_e	i
+_f	Ef
+_g	dZi
+_h	eItS
+_i	aI
+_j	dZeI
+_k	keI
+_l	El
+_m	Em
+_n	En
+_ñ	En'jE
+_o	o
+_p	pi
+_q	kju
+_r	a*
+_s	Es
+_t	ti
+_u	ju
+_v	vi
+_w	d'obolju
+_x	Eks
+_y	waI
+_z	zi
+
+// numbers
+_0	s'E*o
+_1	?is'a
+_2	dalaw'a
+_3	tatl'o
+_4	?'apat
+_5	lim'a
+_6	?'anim
+_7	pit'o
+_8	wal'o
+_9	sij'am
+_10	samp'u?
+_11	l,abiN?is'a
+_12	l,abindalaw'a
+_13	l,abintatl'o
+_14	l,abiN?'apat
+_15	l,abinlim'a
+_16	l,abiN?'anim
+_17	l,abimpit'o
+_18	l,abiNwal'o
+_19	l,abinsij'am
+_2X	d,alawamp'u
+_3X	t,atlump'u
+_4X	?,apatnap'u
+_5X	l,imamp'u
+_6X	?,animnap'u
+_7X	p,itump'u
+_8X	w,alump'u
+_9X	s,ijamnap'u
+_0and	t     // dalawampu't isa
+_0andC	?at   // sandaan at isa, dalawang libo at lima
+_0lkv	N     // linker after a vowel: isang libo, limampung libo
+_0lkc	na    // linker after a consonant: apat na libo
+_0C	da?'an
+_1C	s,anda?'an
+_2C	d,alawaNda?'an
+_3C	t,atloNda?'an
+_4C	?,apatna*a?'an
+_5C	l,imaNda?'an
+_6C	?,animna*a?'an
+_7C	p,itoNda?'an
+_8C	w,aloNda?'an
+_9C	s,ijamna*a?'an
+_0M1	l'ibo
+_1M1	s,anl'ibo
+_2M1	d,alawaNl'ibo
+_3M1	t,atloNl'ibo
+_4M1	?,apatnal'ibo
+_5M1	l,imaNl'ibo
+_6M1	?,animnal'ibo
+_7M1	p,itoNl'ibo
+_8M1	w,aloNl'ibo
+_9M1	s,ijamnal'ibo
+_0M2	milj'on
+_1M2	?,isaNmilj'on
+_0M3	bilj'on
+_1M3	?,isaNbilj'on
+_dpt	p'unto
+_roman	*'omano
+
+_cap	malaki        // after the letter
+_??	s'imbolo
+
+// symbols
+₱	p'iso
+$	d'olja*
+€	j'u*o
+%	p,o*sij'Ento	$max3
+&	?at
+
+// accented letters
+_acu	?,akw'Ento
+_grv	p,aiw'a
+_cir	p,akup'ja
+_dia	d,aj'E*Esis
+_tld	t'ilde
+_ced	sEd'ija
+
+// function words (unstressed)
+ang	?aN	$u
+ng	naN	$u
+nang	naN	$u
+mga	maNa	$u
+sa	sa	$u
+si	si	$u
+ni	ni	$u
+kay	kaI	$u
+may	maI	$u
+at	?at	$u
+ay	?aI	$u
+na	na	$u
+pa	pa	$u
+po	po	$u
+ho	ho	$u
+ba	ba	$u
+din	din	$u
+rin	*in	$u
+lang	laN	$u
+daw	daU	$u
+raw	*aU	$u
+nga	Na	$u
+kung	kuN	$u
+o	?o	$u
+ka	ka	$u
+mo	mo	$u
+ko	ko	$u
+kang	kaN	$u
+kong	koN	$u
+niya	nij'a
+kita	kit'a
+
+// verbal prefixes written with a hyphen before a vowel (mag-aral, nag-isip)
+mag	mag	$u
+nag	nag	$u
+pag	pag	$u
+pang	paN	$u
+ipag	?ipag	$u
+pinag	pinag	$u
+makipag	makipag	$u
+nakipag	nakipag	$u
+
+// abbreviations
+g	gin'o?o	$hasdot
+gng	gin'aN	$hasdot
+bb	binib'ini	$hasdot
+dr	dokt'o*	$hasdot
+sr	s,Enj'o*	$hasdot
+sta	s'anta	$hasdot
+sto	s'anto	$hasdot
+
+// contractions: ako'y = ako ay, siya't = siya at
+ako'y	?ak'oI
+ito'y	?it'oI
+siya'y	sij'aI
+tayo'y	taj'oI
+kami'y	kam'ij
+sila'y	sil'aI
+siya't	sij'at
+kaya't	kaj'at
+
+// names and places (Spanish j = h, final stress)
+jose	hos'E
+juan	hw'an
+jesus	hEs'us
+josefina	h,osEp'ina
+cebu	sEb'u
+davao	dab'aU
+iloilo	?,ilo?'ilo
+baguio	b'agjo
+
+// common English loans (Taglish), in Filipino pronunciation
+meeting	m'itiN
+text	t'Eks
+share	S'E*
+facebook	p'Esbuk
+computer	komp'jute*
+cellphone	s'Elpon
+email	?'imeIl
+online	?'onlaIn
+okay	?okeI
+ok	?okeI
+sorry	s'o*i
+please	pl'is
+
+// common words with final stress (mabilis / maragsa)
+ako	?ak'o
+ikaw	?ik'aU
+siya	sij'a
+kami	kam'i
+tayo	taj'o
+kayo	kaj'o
+sila	sil'a
+ano	?an'o
+sino	sin'o
+saan	sa?'an
+paano	pa?'ano
+bakit	bak'it
+kailan	ka?il'an
+oo	?o?'o
+hindi	hind'i?
+wala	wal'a?
+dito	dit'o
+diyan	dij'an
+doon	do?'on
+ito	?it'o
+iyan	?ij'an
+iyon	?ij'on
+salamat	sal'amat
+lahat	lah'at
+karapatan	k,a*apat'an
+mahal	mah'al
+isda	?isd'a?
+pito	pit'o
+bago	bag'o
+matanda	matand'a?
+bata	b'ata?
+puno	p'uno?
+tubig	t'ubig
+araw	?'a*aU
+gabi	gab'i
+umaga	?um'aga
+tanghali	taNh'ali?
+ngayon	Naj'on
+bukas	b'ukas
+kahapon	kah'apon
+magandang	magand'aN
+maganda	magand'a
+kumusta	kumust'a
+mabuti	mab'uti
+opo	?'opo
+buo	bu?'o?
+daan	da?'an
+sanga	saN'a
+masaya	masaj'a
+sabaw	sab'aU
+sisiw	s'isiU
+kasoy	kas'oI
+kasuy	kas'uI
+pantay	pant'aI
+unti	?unt'i?
+isa	?is'a
+sari	s'a*i
+gawa	gaw'a?

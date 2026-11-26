@@ -50,3 +50,13 @@ test_phon ru "n'ol _:'i_:st'o t'ys;itS; V#d;'innV_:tsVt;_m;,IlI;'onnYx" "0,10001
 test_phon ru "n'ol _:'i_:st'o t'ys;idZ; dv;'e_m;,IlI;'onnYx" "0,100002"
 test_phon ru "n'ol _:'i_: V#d;'in_ m;,Il;I;'on V#dn'A_d;is;it;im;,IlI;'onnV#ja" "0,1000001"
 test_phon ru "dv;In'A_:tsVt; _:'i_:st'o dv'A_:tsat;tR;'i t'ys;itS;i tS;it'yr;ista# p;Vd;d;Is;'jatS'Es;t;_m;,IlI;'onnYx" "12,123456"
+
+echo "... tl (Tagalog)" # linker -ng/na before libo, milyon; "at" after hundreds and thousands
+
+test_phon tl "s'E*o ?is'a d,alaw'a tatl'o ?'apat lim'a ?'anim pit'o wal'o sij'am" "0 1 2 3 4 5 6 7 8 9" "units"
+test_phon tl "samp'u? l,abiN?is'a l,abind,alaw'a l,abintatl'o l,abiN?'apat l,abinlim'a l,abiN?'anim l,abimpit'o l,abiNwal'o l,abinsij'am" "10 11 12 13 14 15 16 17 18 19" "teens"
+test_phon tl "d,alawamp'u d,alawamp'ut?is'a d,alawamp'ut?'apat t,atlump'u ?,apatnap'u l,imamp'u ?,animnap'u p,itump'u w,alump'u s,ijamnap'u s,ijamnap'utsij'am" "20 21 24 30 40 50 60 70 80 90 99" "tens"
+test_phon tl "s,anda?'an s,anda?'an?at ?is'a d,alaw,aNda?'an?at l,imamp'u ?,apatn,a*a?'an s,ijamn,a*a?'an?at s,ijamnap'utsij'am" "100 101 250 400 999" "hundreds"
+test_phon tl "s,anl'ibo s,anl'ibo ?,at ?is'a s,anl'ibo s,ijamn,a*a?'an?at s,ijamnap'utsij'am d,alawaNl'ibo ?at d,alawamp'utlim'a samp'uN l'ibo d,alawamp'ut?is'aN l'ibo d,alawamp'ut?'apatna l'ibo s,anda?'aN l'ibo d,alaw,aNda?'an?at l,imamp'uN l'ibo" "1000 1001 1999 2025 10000 21000 24000 100000 250000" "thousands"
+test_phon tl "?,isaNmilj'on d,alaw'aN milj'on ?'apatn,a milj'on_! l,imaNda?'aN l'ibo" "1,000,000 2,000,000 4,500,000" "millions"
+test_phon tl "?is'aN p'iso ?'apatna p'iso s,anda?'aN p'iso s,anda?'an?at l,imamp'uN p'iso s,anl'ibo_! d,alaw,aNda?'an?at l,imamp'uN p'iso d,alawaNl'iboN p'iso ?,isaNmilj'oN p'iso" "₱1 ₱4 ₱100 ₱150 ₱1,250 ₱2,000 ₱1,000,000" "currency"
