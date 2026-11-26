@@ -32,6 +32,10 @@
 .group ಕ
 	ಕ	ka
 	ಕ (B	k
+	ಕ್ಕ	k:a	// long stop, not two releases
+	ಕ್ಕ (B	k:
+	ಕ್ಖ	k#:a
+	ಕ್ಖ (B	k#:
 
 .group ಖ
 	ಖ	k#a
@@ -40,6 +44,10 @@
 .group ಗ
 	ಗ	ga
 	ಗ (B	g
+	ಗ್ಗ	g:a	// long stop, not two releases
+	ಗ್ಗ (B	g:
+	ಗ್ಘ	g#:a
+	ಗ್ಘ (B	g#:
 
 .group ಘ
 	ಘ	g#a
@@ -52,6 +60,10 @@
 .group ಚ
 	ಚ	ca
 	ಚ (B	c
+	ಚ್ಚ	c:a	// long stop, not two releases
+	ಚ್ಚ (B	c:
+	ಚ್ಛ	c#:a
+	ಚ್ಛ (B	c#:
 
 .group ಛ
 	ಛ	c#a
@@ -60,6 +72,10 @@
 .group ಜ
 	ಜ	Ja
 	ಜ (B	J
+	ಜ್ಜ	J:a	// long stop, not two releases
+	ಜ್ಜ (B	J:
+	ಜ್ಝ	J#:a
+	ಜ್ಝ (B	J#:
 	ಜ಼	za   // nukta
 	ಜ಼ (B	z
 
@@ -74,6 +90,10 @@
 .group ಟ
 	ಟ	t.a
 	ಟ (B	t.
+	ಟ್ಟ	t.:a	// long stop, not two releases
+	ಟ್ಟ (B	t.:
+	ಟ್ಠ	t.#:a
+	ಟ್ಠ (B	t.#:
 
 .group ಠ
 	ಠ	t.#a
@@ -82,6 +102,10 @@
 .group ಡ
 	ಡ	d.a
 	ಡ (B	d.
+	ಡ್ಡ	d.:a	// long stop, not two releases
+	ಡ್ಡ (B	d.:
+	ಡ್ಢ	d.#:a
+	ಡ್ಢ (B	d.#:
 
 .group ಢ
 	ಢ	d.#a
@@ -94,6 +118,10 @@
 .group ತ
 	ತ	ta
 	ತ (B	t
+	ತ್ತ	t:a	// long stop, not two releases
+	ತ್ತ (B	t:
+	ತ್ಥ	t#:a
+	ತ್ಥ (B	t#:
 
 .group ಥ
 	ಥ	t#a
@@ -102,6 +130,10 @@
 .group ದ
 	ದ	da
 	ದ (B	d
+	ದ್ದ	d:a	// long stop, not two releases
+	ದ್ದ (B	d:
+	ದ್ಧ	d#:a
+	ದ್ಧ (B	d#:
 
 .group ಧ
 	ಧ	d#a
@@ -114,6 +146,10 @@
 .group ಪ
 	ಪ	pa
 	ಪ (B	p
+	ಪ್ಪ	p:a	// long stop, not two releases
+	ಪ್ಪ (B	p:
+	ಪ್ಫ	p#:a
+	ಪ್ಫ (B	p#:
 
 .group ಫ
 	ಫ	p#a
@@ -124,6 +160,10 @@
 .group ಬ
 	ಬ	ba
 	ಬ (B	b
+	ಬ್ಬ	b:a	// long stop, not two releases
+	ಬ್ಬ (B	b:
+	ಬ್ಭ	b#:a
+	ಬ್ಭ (B	b#:
 
 .group ಭ
 	ಭ	b#a
