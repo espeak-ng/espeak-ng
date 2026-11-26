@@ -19,6 +19,29 @@
         a (j_    'a:
         a (l_    'a:
         
+// Final long stressed 'a': derived from the OptiLEX pronounciation dictionary
+// (Žganec Gros, Mirtič, Romih, Ahačič; Založba ZRC, 2022), converted to espeak notation. 
+// Source: https://doi.org/10.3986/9789610506720
+// Licence: CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+    ov) a (nj_   'a:
+        a (lk_   'a:
+    ov) a (n_    'a:
+   jev) a (nj_   'a:
+        a (nt_   'a:
+        a (rn_   'a:
+   čev) a (nj_   'a:
+        a (ž_    'a:
+   jev) a (n_    'a:
+        a (f_    'a:
+   klj) a (š_    'a:
+   šev) a (nj_   'a:
+        a (nc_   'a:
+        a (g_    'a:
+   žev) a (nj_   'a:
+        a (b_    'a:
+        a (ntk_  'a:
+        a (tk_   'a:
+        a (kt_   'a:
 
 .group b
         b        b
