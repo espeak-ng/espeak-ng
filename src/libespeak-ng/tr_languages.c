@@ -1531,6 +1531,22 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_OMIT_1_HUNDRED;
 	}
 		break;
+	case L('t', 'l'): // Tagalog
+	{
+		static const short stress_lengths_tl[8] = { 160, 200,  180, 180,  0, 0,  220, 240 };
+		static const unsigned char stress_amps_tl[8] = { 16, 18, 18, 18, 20, 22, 22, 21 };
+
+		SetupTranslator(tr, stress_lengths_tl, stress_amps_tl);
+		tr->langopts.stress_rule = STRESSPOSN_2R; // penultimate, unless marked in the spelling or the dictionary
+		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+		// "_0and" is the contracted 't between tens and units (dalawampu't isa),
+		// "_0andC" the full "at" after hundreds and thousands (sandaan at isa).
+		// No NUM_ALLOW_SPACE: Filipino groups thousands with commas.
+		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_THOUSAND_AND | NUM_ROMAN;
+		tr->langopts.numbers2 = NUM2_LINKER | NUM2_CURRENCY_AFTER; // isang libo, apat na libo, limampung piso
+		tr->langopts.accents = 2; // "capital" after letter name
+	}
+		break;
 	case L('t', 'a'): // Tamil
 	case L('k', 'n'): // Kannada
 	case L('m', 'l'): // Malayalam

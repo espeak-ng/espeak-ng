@@ -1,0 +1,197 @@
+
+// This file is UTF8 encoded
+// Spelling-to-phoneme rules for Tagalog (tl)
+//
+// Default stress is on the penultimate syllable (STRESSPOSN_2R).
+// Accent marks follow standard Tagalog orthography:
+//   á é í ó ú   stressed vowel                    (mabilís)
+//   à è ì ò ù   unstressed vowel + glottal stop    (malumì)
+//   â ê î ô û   stressed vowel + glottal stop      (maragsâ)
+// Vowel-initial words, and a vowel that follows another vowel, carry a glottal stop.
+
+.group a
+        a        a
+     _) a        ?a
+     A) a        ?a
+        ay (C    aI
+        ay (_    aI
+        aw (C    aU
+        aw (_    aU
+
+.group b
+        b        b
+
+.group c
+        c        k
+        c (e     s
+        c (i     s
+        ch       tS
+        ck       k
+
+.group d
+        d        d
+        dy (A    dZ
+
+.group e
+        e        E
+     _) e        ?E
+     A) e        ?E
+    qu) e        E      // Quezon: the u is silent, so no glottal stop
+    gu) e        E      // Miguel
+
+.group f
+        f        f
+        ff       f
+
+.group g
+        g        g
+        gu (e    g
+        gu (i    g
+
+.group h
+        h        h
+
+.group i
+        i        i
+     _) i        ?i
+     A) i        ?i
+    qu) i        i      // Quirino
+    gu) i        i      // Guiguinto
+        iw (C    iU
+        iw (_    iU
+
+.group j
+        j        dZ
+
+.group k
+        k        k
+
+.group l
+        l        l
+        ll       l
+
+.group m
+        m        m
+
+.group n
+        n        n
+        ng       N
+        ny       n^
+
+.group o
+        o        o
+     _) o        ?o
+     A) o        ?o
+        oy (C    oI
+        oy (_    oI
+
+.group p
+        p        p
+        ph       f
+
+.group q
+        q        k
+        qu       k
+
+.group r
+        r        *
+        rr       r
+
+.group s
+        s        s
+        sh       S
+        sy (A    S
+        ss       s
+
+.group t
+        t        t
+        ts       tS
+
+.group u
+        u        u
+     _) u        ?u
+     A) u        ?u
+        uy (C    uI
+        uy (_    uI
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group x
+        x        ks
+
+.group y
+        y        j
+
+.group z
+        z        z
+
+// accented vowels
+
+.group á
+        á        ''a
+     _) á        ?''a
+     A) á        ?''a
+        áy (C    ''aI
+        áy (_    ''aI
+        áw (C    ''aU
+        áw (_    ''aU
+
+.group é
+        é        ''E
+     _) é        ?''E
+     A) é        ?''E
+
+.group í
+        í        ''i
+     _) í        ?''i
+     A) í        ?''i
+        íw (C    ''iU
+        íw (_    ''iU
+
+.group ó
+        ó        ''o
+     _) ó        ?''o
+     A) ó        ?''o
+        óy (C    ''oI
+        óy (_    ''oI
+
+.group ú
+        ú        ''u
+     _) ú        ?''u
+     A) ú        ?''u
+        úy (C    ''uI
+        úy (_    ''uI
+
+.group à
+        à        a?
+.group è
+        è        E?
+.group ì
+        ì        i?
+.group ò
+        ò        o?
+.group ù
+        ù        u?
+
+.group â
+        â        ''a?
+.group ê
+        ê        ''E?
+.group î
+        î        ''i?
+.group ô
+        ô        ''o?
+.group û
+        û        ''u?
+
+.group ñ
+        ñ        n^
+
+.group
+        $        dola*
+
+    __) - (_D    m'inus

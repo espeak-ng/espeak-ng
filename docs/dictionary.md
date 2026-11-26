@@ -519,6 +519,8 @@ each language. The number fragments are given in the `*_list` file.
 | `_0M3`        | The word for 1,000,000,000. |
 | `_0MX`        | The word for `10^3X` of number<sup>[1](#footnote1)</sup>. |
 | `_0and`       | Word for `and` when speaking numbers (e.g. `two hundred and twenty`). |
+| `_0andC`      | Word for `and` after hundreds or thousands, if it differs from the `_0and` used between tens and units. |
+| `_0lkv` `_0lkc` | With `NUM2_LINKER`: linker between a number and the following `thousand`, `million` word, after a vowel and after a consonant. |
 | `_dpt`        | Word spoken for the decimal point/comma. |
 | `_dpt2`       | Word spoken (if any) at the end of all the digits after a decimal point. |
 

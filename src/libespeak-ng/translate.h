@@ -485,6 +485,8 @@ typedef struct {
 #define NUM2_ORDINAL_DROP_VOWEL    0x00080000 // drop final vowel from cardial number before adding ordinal suffix (currently only tens and units)
 #define NUM2_ZERO_TENS             0x00100000 // say zero tens
 #define NUM2_FRACTION_FEMININE     0x00200000 // use feminine units in decimal fractions
+#define NUM2_LINKER                0x00400000 // join a number to "thousand", "million" (or a following currency symbol) with _0lkv (after a vowel) or _0lkc (after a consonant), LANG=tl
+#define NUM2_CURRENCY_AFTER        0x00800000 // say a currency symbol after its number: ₱150 is read as 150₱, LANG=tl
 
 #define NUM2_THOUSANDPLEX_VAR_THOUSANDS 0x00000002
 #define NUM2_THOUSANDPLEX_VAR_MILLIARDS 0x00000008
