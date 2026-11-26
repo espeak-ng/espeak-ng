@@ -73,7 +73,7 @@ _??	aks.ara   // 'unknown character'
 ಷ್	s.a
 ಸ್	sa
 ಹ್	ha
-ೞ್	fa
+ೞ್	l.a
 U+c82	am
 U+c83	ah
 U+cbc	nukta
@@ -90,7 +90,7 @@ U+ccd	vattu
 ು	#X1u
 ೂ	#X2u::
 ೃ	#X1ru
-ೄ	#X2r-:
+ೄ	#X2ru::
 ೆ	#X1e
 ೇ	#X2e::
 ೈ	#X2aI

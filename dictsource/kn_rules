@@ -173,12 +173,12 @@
 	ಹ	ha
 	ಹ (B	h
 
-.group ೞ
-	ೞ	fa
-	ೞ (B	f
+.group ೞ   // read as ಳ today
+	ೞ	l.a
+	ೞ (B	l.
 
 .group ೠ
-	ೠ	r-
+	ೠ	ru:
 
 
 // Stand-alone vowels
@@ -250,9 +250,12 @@
 
 	ೃ	ru
 
-	ೄ	r-:
+	ೄ	ru:
 
 	ೆ	e
+	ೈ	aI	// ೈ written as ೆ + ೖ
+	ೊ	o	// ೊ written as ೆ + ೂ
+	ೋ	o:	// ೋ written as ೆ + ೂ + ೕ
 
 	ೇ	e:
 
