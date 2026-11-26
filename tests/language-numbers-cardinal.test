@@ -50,3 +50,11 @@ test_phon ru "n'ol _:'i_:st'o t'ys;itS; V#d;'innV_:tsVt;_m;,IlI;'onnYx" "0,10001
 test_phon ru "n'ol _:'i_:st'o t'ys;idZ; dv;'e_m;,IlI;'onnYx" "0,100002"
 test_phon ru "n'ol _:'i_: V#d;'in_ m;,Il;I;'on V#dn'A_d;is;it;im;,IlI;'onnV#ja" "0,1000001"
 test_phon ru "dv;In'A_:tsVt; _:'i_:st'o dv'A_:tsat;tR;'i t'ys;itS;i tS;it'yr;ista# p;Vd;d;Is;'jatS'Es;t;_m;,IlI;'onnYx" "12,123456"
+
+# Indian style (lakh, crore)
+
+echo "... kn (Kannada)"
+test_phon kn "'en.t.u 'ombat:u h'at:u hat:'ombat:u" "8 9 10 19" "units and teens"
+test_phon kn "'ip:at:u ,ip:at:'aIdu m'u:vat:u n'alav,at:e:l.u t'ombat:u t'ombat:,ombat:u" "20 25 30 47 90 99" "tens"
+test_phon kn "n'a:nu:ru 'ondu s'a:vir,ada ,omba,inu:ra: n'alav,at:e:l.u" "400 1947" "hundreds and thousands"
+test_phon kn "'ondu l'aks.a 'ondu k'o:t.i" "100000 10000000" "lakh and crore"
