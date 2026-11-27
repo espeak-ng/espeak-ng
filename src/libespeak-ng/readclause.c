@@ -40,6 +40,7 @@
 #include "common.h"               // for GetFileLength, strncpy0
 #include "dictionary.h"           // for LookupDictList, DecodePhonemes, Set...
 #include "error.h"                // for create_file_error_context
+#include "numbers.h"              // for EndsWithUnicodeRoman
 #include "phoneme.h"              // for phonSWITCH
 #include "soundicon.h"               // for LookupSoundIcon
 #include "speech.h"               // for LookupMnem, PATHSEP
@@ -905,7 +906,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 					if (c1 == '.') {
 						if ((tr->langopts.numbers & NUM_ORDINAL_DOT) &&
-						    (iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2))))) { // lang=hu
+						    (iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2))) ||
+						     ((tr->langopts.numbers & (NUM_ROMAN | NUM_ROMAN_CAPITALS)) && EndsWithUnicodeRoman(buf, ix)))) { // lang=hu
 							// dot after a number indicates an ordinal number
 							if (!iswdigit(cprev))
 								is_end_clause = false; // Roman number followed by dot

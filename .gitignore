@@ -111,6 +111,7 @@ tests/*.check
 !tests/language-pronunciation.test
 !tests/language-numbers-cardinal.test
 !tests/language-numbers-ordinal.test
+!tests/language-numbers-roman.test
 !tests/language-replace.test
 !tests/ssml.test
 !tests/translate.test

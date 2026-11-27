@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/common"
+
+test_phon en "'akt r,oUm@n_ f'o@
+s'i:n r,oUm@n_ n'aIn" "Act Ⅳ, Scene Ⅸ"
+test_phon en "r,oUm@n_ w'0n r,oUm@n_ 'eIt r,oUm@n_ tw'Elv r,oUm@n_ f'Ifti r,oUm@n_w'0nh'VndrI2d r,oUm@n_f'aIvh'VndrI2d r,oUm@n_w'0n T'aUz@nd" "Ⅰ ⅷ Ⅻ Ⅼ Ⅽ Ⅾ Ⅿ"
+test_phon en "r,oUm@n_t'u: T'aUz@nd @n tw'Enti Tr'i:" "MⅯⅩXⅢ"
+test_phon en "r,oUm@n_ f'o@ti:n r,oUm@n_ f'o@ti:n r,oUm@n_ T'3:ti:n" "ⅩⅣ XⅣ ⅫI"
+test_phon en "r,oUm@n_w'0n T'aUz@nd r,oUm@n_f'aIv T'aUz@nd r,oUm@n_t'En T'aUz@nd r,oUm@n_ s'Iks r,oUm@n_ f'Ifti r,oUm@n_f'Ifti T'aUz@nd r,oUm@n_w'0nh'VndrI2d T'aUz@nd" "ↀ ↁ ↂ ↅ ↆ ↇ ↈ"
+
+# Ordinary Latin words and digits directly adjacent to a numeral keep their readings.
+test_phon en "aI m'Iks w'aks" "I mix wax"
+test_phon en "l,Et3_|t'u:_|w'0n_|s'Ev@n_|Tr'i:_: t'u:" "Ⅳ2"
+test_phon en "t'u: l,Et3_|t'u:_|w'0n_|s'Ev@n_|Tr'i:_:" "2Ⅳ"
+test_phon en "l,Et3_|t'u:_|w'0n_|s'Ev@n_|Tr'i:_: t'Est" "ⅣTest"
+
+# Reversed C has no Unicode numeric value (unlike the early form of fifty, ↆ).
+test_phon en "l,Et3_|t'u:_|w'0n_|'eIt_|f'o@_: l,Et3_|t'u:_|w'0n_|'eIt_|f'o@_:" "Ↄ ↄ"
+
+test_phon fr "katr rom'E~" "Ⅳ"
+test_phon de "_!'apSn,It r,Y:mIS f'i:rt@ _!'End@" "Abschnitt Ⅳ. Ende"
+test_phon de "_!'apSn,It r,Y:mIS_'aInh'Und3t n'OYntsICst@ _!'End@" "Abschnitt ⅭXC. Ende"
+test_phon it "kap'itolo n'ono" "Capitolo Ⅸ"
+
+# Finnish recognizes dotted ordinals but does not enable Roman numerals.
+test_phon fi "t'est m'erk:I_|k'aksI_|'yksI_|s'eitsem&n_|k'olme_:
+t'est" "Test Ⅳ. Test."
