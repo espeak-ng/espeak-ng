@@ -250,6 +250,7 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 		word_length++;
 	}
 
+	const bool multibyte_word = wordx - word1 != word_length;
 	word_copy_length = wordx - word_start;
 	if (word_copy_length >= N_WORD_BYTES)
 		word_copy_length = N_WORD_BYTES-1;
@@ -347,13 +348,15 @@ int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, int wtab_re
 			found = TranslateNumber(tr, word1, phonemes, phonemes + sizeof(phonemes), dictionary_flags, wtab, wtab_remaining, 0);
 		}
 
-		if (!found && ((wflags & FLAG_UPPERS) != FLAG_FIRST_UPPER)) {
-			// either all upper or all lower case
-
-			if ((tr->langopts.numbers & NUM_ROMAN) || ((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && (wflags & FLAG_ALL_UPPER))) {
+		if (!found && (tr->langopts.numbers & (NUM_ROMAN | NUM_ROMAN_CAPITALS))) {
+			// Case helps distinguish Latin words from Roman numbers. It is
+			// immaterial for explicit Unicode numeral characters.
+			bool valid_case = (wflags & FLAG_UPPERS) != FLAG_FIRST_UPPER
+				&& (!(tr->langopts.numbers & NUM_ROMAN_CAPITALS) || (wflags & FLAG_ALL_UPPER));
+			if (multibyte_word || valid_case) {
 				if ((wflags & FLAG_LAST_WORD) || (wtab_remaining <= 1) || !(wtab[1].flags & FLAG_NOSPACE)) {
 					// don't use Roman number if this word is not separated from the next word (eg. "XLTest")
-					if ((found = TranslateRoman(tr, word1, phonemes, phonemes + sizeof(phonemes), wtab, wtab_remaining)) != 0)
+					if ((found = TranslateRoman(tr, word1, phonemes, phonemes + sizeof(phonemes), wtab, wtab_remaining, multibyte_word)) != 0)
 						dictionary_flags[0] |= FLAG_ABBREV; // prevent emphasis if capitals
 				}
 			}

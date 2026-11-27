@@ -760,11 +760,56 @@ static int hu_number_e(const char *word, int thousandplex, int value)
 	return 0;
 }
 
-int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, WORD_TAB *wtab, int wtab_remaining)
+// Expand composite numeral characters so, for example, XⅣ is parsed just like XIV.
+static const int *RomanDigits(int c)
+{
+	static const int digits[][5] = {
+		{1}, {1, 1}, {1, 1, 1}, {1, 5}, {5}, {5, 1}, {5, 1, 1}, {5, 1, 1, 1},
+		{1, 10}, {10}, {10, 1}, {10, 1, 1}, {50}, {100}, {500}, {1000},
+		{5000}, {10000}, {50000}, {100000}
+	};
+
+	if (c >= 0x2160 && c <= 0x217f) // capital and small Roman numerals
+		return digits[(c - 0x2160) % 16];
+
+	switch (c) {
+	case 'i': return digits[0];
+	case 'v': return digits[4];
+	case 'x': return digits[9];
+	case 'l': case 0x2186: return digits[12];
+	case 'c': return digits[13];
+	case 'd': return digits[14];
+	case 'm': case 0x2180: return digits[15];
+	case 0x2181: return digits[16];
+	case 0x2182: return digits[17];
+	case 0x2185: return digits[5]; // late form six
+	case 0x2187: return digits[18];
+	case 0x2188: return digits[19];
+	default: return NULL;
+	}
+}
+
+// A period can mark an ordinal even when the preceding numeral mixes scripts.
+bool EndsWithUnicodeRoman(const char *buf, int end)
+{
+	bool has_numeral = false;
+	while (end > 0) {
+		int c;
+		end -= utf8_in2(&c, &buf[end - 1], 1);
+		if (c >= 'A' && c <= 'Z')
+			c = tolower(c);
+		if (!RomanDigits(c))
+			return has_numeral && !IsAlpha(c) && !iswdigit(c);
+		if (c > 0x7f)
+			has_numeral = true;
+	}
+	return has_numeral;
+}
+
+int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, WORD_TAB *wtab, int wtab_remaining, bool multibyte)
 {
 	int c;
 	char *p;
-	const char *p2;
 	int acc;
 	int prev;
 	int value;
@@ -776,17 +821,14 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, W
 	char ph_roman[30];
 	char number_chars[N_WORD_BYTES];
 
-	static const char roman_numbers[] = "ixcmvld";
-	static const int roman_values[] = { 1, 10, 100, 1000, 5, 50, 500 };
-
 	acc = 0;
 	prev = 0;
-	subtract = 0x7fff;
+	subtract = INT_MAX;
 	ph_out[0] = 0;
 	flags[0] = 0;
 	flags[1] = 0;
 
-	if (((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && !(wtab[0].flags & FLAG_ALL_UPPER)) || IsDigit09(word[-2]))
+	if (IsDigit09(word[-2]))
 		return 0; // not '2xx'
 
 	if (word[1] == ' ') {
@@ -797,42 +839,47 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, W
 	}
 
 	word_start = word;
-	while ((c = *word++) != ' ' && c) {
-		if ((p2 = strchr(roman_numbers, c)) == NULL)
+	while (*word != ' ' && *word != 0) {
+		word += utf8_in(&c, word);
+		const int *digits = RomanDigits(c);
+		if (digits == NULL)
 			return 0;
 
-		value = roman_values[p2 - roman_numbers];
-		if (value == prev) {
-			repeat++;
-			if (repeat >= 3)
-				return 0;
-		} else
-			repeat = 0;
+		for (; *digits; digits++) {
+			value = *digits;
+			if (value == prev) {
+				repeat++;
+				if (repeat >= 3)
+					return 0;
+			} else
+				repeat = 0;
 
-		if ((prev > 1) && (prev != 10) && (prev != 100)) {
-			if (value >= prev)
+			if (prev > 1 && prev != 10 && prev != 100 && value >= prev) {
+				// Explicit numerals also use thousands and higher decimal places.
+				if (!multibyte || (prev != 1000 && prev != 10000 && prev != 100000))
+					return 0;
+			}
+			if ((prev != 0) && (prev < value)) {
+				if (((acc % 10) != 0) || ((prev*10) < value))
+					return 0;
+				subtract = prev;
+				value -= subtract;
+			} else if (value >= subtract)
 				return 0;
+			else
+				acc += prev;
+			prev = value;
 		}
-		if ((prev != 0) && (prev < value)) {
-			if (((acc % 10) != 0) || ((prev*10) < value))
-				return 0;
-			subtract = prev;
-			value -= subtract;
-		} else if (value >= subtract)
-			return 0;
-		else
-			acc += prev;
-		prev = value;
 	}
+	if (*word == ' ')
+		word++;
 
 	if (IsDigit09(word[0]))
 		return 0; // e.g. 'xx2'
 
 	acc += prev;
-	if (acc < tr->langopts.min_roman)
-		return 0;
-
-	if (acc > tr->langopts.max_roman)
+	// The range limits distinguish ordinary Latin words from numbers.
+	if (!multibyte && (acc < tr->langopts.min_roman || acc > tr->langopts.max_roman))
 		return 0;
 
 	Lookup(tr, "_roman", ph_roman, sizeof(ph_roman)); // precede by "roman" if _rom is defined in *_list
@@ -845,7 +892,8 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, W
 		ph_out_end -= strlen(ph_roman);
 	}
 
-	sprintf(number_chars, "  %d %s    ", acc, tr->langopts.roman_suffix);
+	// Number translation looks behind the digits when checking for thousands separators.
+	sprintf(number_chars, "   %d %s    ", acc, tr->langopts.roman_suffix);
 
 	if (word[0] == '.') {
 		// dot has not been removed.  This implies that there was no space after it
@@ -870,7 +918,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, char *ph_out_end, W
 
 	tr->prev_dict_flags[0] = 0;
 	tr->prev_dict_flags[1] = 0;
-	TranslateNumber(tr, &number_chars[2], p, ph_out_end, flags, wtab, wtab_remaining, num_control);
+	TranslateNumber(tr, &number_chars[3], p, ph_out_end, flags, wtab, wtab_remaining, num_control);
 
 	if (tr->langopts.numbers & NUM_ROMAN_AFTER)
 		strcat(ph_out, ph_roman);
@@ -1280,7 +1328,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 	char buf2[100];
 	char ph_100[N_PHONEME_BYTES];
 	char ph_10T[N_PHONEME_BYTES];
-	char ph_digits[50];
+	char ph_digits[N_WORD_PHONEMES];
 	char ph_thousands[211];
 	char ph_hundred_and[12];
 	char ph_thousand_and[12];
@@ -1330,13 +1378,17 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 					x = 8; // use variant (feminine) for before thousands and millions
 				if (tr->translator_name == L('m', 'l'))
 					x = 0x208;
-				LookupNum2(tr, hundreds/10, thousandplex, x, ph_digits);
+				// A Roman numeral can supply a six-digit value as one word.
+				if (hundreds / 10 >= 100)
+					LookupNum3(tr, hundreds / 10, ph_digits, false, tplex, 0);
+				else
+					LookupNum2(tr, hundreds/10, thousandplex, x, ph_digits);
 			}
 
 			if (tr->langopts.numbers2 & NUM2_SWAP_THOUSANDS)
-				sprintf(ph_thousands, "%s%c%s%c", ph_10T, phonEND_WORD, ph_digits, phonEND_WORD);
+				snprintf(ph_thousands, sizeof(ph_thousands), "%s%c%s%c", ph_10T, phonEND_WORD, ph_digits, phonEND_WORD);
 			else
-				sprintf(ph_thousands, "%s%c%s%c", ph_digits, phonEND_WORD, ph_10T, phonEND_WORD);
+				snprintf(ph_thousands, sizeof(ph_thousands), "%s%c%s%c", ph_digits, phonEND_WORD, ph_10T, phonEND_WORD);
 
 			hundreds %= 10;
 			if ((hundreds == 0) && (say_zero_hundred == false))
